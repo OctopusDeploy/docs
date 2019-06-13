@@ -836,11 +836,11 @@ docs/api-and-integration/octopus.server.exe-command-line/license.md -> docs/octo
 docs/api-and-integration/octopus.server.exe-command-line/index.md -> docs/octopus-rest-api/octopus.server.exe-command-line/index.md
 docs/api-and-integration/octopus.server.exe-command-line/import-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/import-certificate.md
 docs/api-and-integration/octopus.server.exe-command-line/external-worker.md -> docs/octopus-rest-api/octopus.server.exe-command-line/external-worker.md
-docs/api-and-integration/octopus.server.exe-command-line/export-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/export-certificate.md
-docs/api-and-integration/octopus.server.exe-command-line/delete-instance.md -> docs/octopus-rest-api/octopus.server.exe-command-line/delete-instance.md
+docs/api-and-integration/octopus.server.exe-command-line/delete.instance.md -> docs/octopus-rest-api/octopus.server.exe-command-line/delete.instance.md
 docs/api-and-integration/octopus.server.exe-command-line/database.md -> docs/octopus-rest-api/octopus.server.exe-command-line/database.md
 docs/api-and-integration/octopus.server.exe-command-line/create-instance.md -> docs/octopus-rest-api/octopus.server.exe-command-line/create-instance.md
 docs/api-and-integration/octopus.server.exe-command-line/configure.md -> docs/octopus-rest-api/octopus.server.exe-command-line/configure.md
 docs/api-and-integration/octopus.server.exe-command-line/checkservices.md -> docs/octopus-rest-api/octopus.server.exe-command-line/checkservices.md
 docs/api-and-integration/octopus.server.exe-command-line/builtin-worker.md -> docs/octopus-rest-api/octopus.server.exe-command-line/builtin-worker.md
 docs/api-and-integration/octopus.server.exe-command-line/admin.md -> docs/octopus-rest-api/octopus.server.exe-command-line/admin.md
+docs/api-and-integration/octopus.server.exe-command-line/export-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/export-certificate.md
