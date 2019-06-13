@@ -10,31 +10,64 @@ This command exports configuration data to a directory filtered by a single proj
 Usage:
 
 ```text
-Octopus.Migrator partial-export [<options>]
+Usage: octopus.migrator partial-export [<options>]
 
-Where `[<options>]` is any of:
+Where [<options>] is any of:
 
-**Partial export options**
-
-Partial export:
-      --instance=VALUE       [Optional] Name of the instance to use
-      --directory=VALUE      Directory for exported files
-      --password=VALUE       Password to encrypt any sensitive values
-      --include-tasklogs     Include the task log folder as part of the
+      --instance=VALUE       Name of the instance to use
+      --directory=VALUE      The target directory for the exported data file-
+                               s. This directory will be created if it does not
+                               already exist. Use the --clean argument to purge
+                               an existing directory before exporting the data
+                               files.
+      --clean                [Optional] Remove all contents of target
+                               directory before exporting the data files. This
+                               cannot be undone.
+      --password=VALUE       Password used to encrypt any sensitive values.
+                               This is the password you will use when importing
+                               the data into another Octopus Server.
+      --include-tasklogs     [Optional] Use this argument to include the task
+                               log folder as part of the data export. Default
+                               is to ignore task logs.
+      --inline-scripts=VALUE [Optional] Use this argument to choose how
+                               inline scripts in your deployment processes will
+                               be exported. Valid options for --inline-scripts
+                               are CopyToFiles, ExtractToFiles, LeaveInline.
+                               Default is CopyToFiles.
+      --projectGroup=VALUE   The name of a project group you want to export
+                               including all its projects. Specify this
+                               argument multiple times to add multiple project
+                               groups.
+      --project=VALUE        The name of a project you want to export.
+                               Specify this argument multiple times to add
+                               multiple projects.
+      --releaseVersion=VALUE [Optional] An expression for the releases you
+                               want to export. This can be a specific version
+                               like --releaseVersion=2.5.0, or a version range
+                               like --releaseVersion=2.5.0-3.1.0, or --
+                               releaseVersion=* to export all releases. Where
+                               possible semantic version comparison is used,
+                               and any matching releases will be exported.
+                               Leaving this argument empty is the equivalent to
+                               all releases.
+      --ignore-history       [Optional] Excludes all historical documents
+                               like releases, deployments, deployment related
+                               tasks, and auto-deploy history. Use this switch
+                               if you want to export the current state of a
+                               project without its history.
+      --ignore-deployments   [Optional] Excludes deployments, deployment
+                               related tasks, and auto-deploy history. Releases
+                               are still exported. Use --ignore-history to
+                               exclude all historical documents.
+      --ignore-tenants       [Optional] Excludes tenants from partial export.
+      --ignore-certificates  [Optional] Excludes certificates from partial
                                export.
-      --project=VALUE        Project to filter export for
+      --ignore-machines      [Optional] Excludes deployment targets and
+                               workers from partial export.
 
-      --releaseVersion=VALUE [Optional] Release of provided project to filter
-                               export for
-      --ignore-deployments   [Optional] Excludes deployments from partial
-                               export
-      --ignore-machines      [Optional] Excludes machines from partial export
-      --ignore-tenants       [Optional] Excludes tenants from partial export
+Or one of the common options:
 
-Common Options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
+      --help                 Show detailed help for this command
 ```
 
 ## Basic Examples {#PartialExport-Basicexamples}
