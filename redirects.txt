@@ -823,3 +823,6 @@ docs/api-and-integration/octopus.migrator.exe-command-line/import.md -> docs/oct
 docs/api-and-integration/octopus.migrator.exe-command-line/migrate.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/migrate.md
 docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md
 docs/api-and-integration/octopus.migrator.exe-command-line/version.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/version.md
+docs/api-and-integration/examples/index.md -> docs/octopus-rest-api/examples/index.md
+docs/api-and-integration/examples/add-a-space-with-environments.md -> docs/octopus-rest-api/examples/add-a-space-with-environments.md
+docs/api-and-integration/examples/delete-a-space.md -> docs/octopus-rest-api/examples/delete-a-space.md
