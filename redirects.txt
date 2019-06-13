@@ -761,8 +761,8 @@ docs/packaging-applications/creating-packages/known-issues-with-other-compressio
 docs/packaging-applications/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/octo.exe.md
 docs/packaging-applications/octopack/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md
 docs/installation/downloads.md -> docs/installation/index.md
-docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/export.md
-docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md
+docs/api-and-integration/octopus.migrator.exe-command-line/migrator-export.md -> docs/api-and-integration/octopus.migrator.exe-command-line/export.md
+docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md -> docs/api-and-integration/octopus.migrator.exe-command-line/import.md
 docs/api-and-integration/app-veyor/index.md -> docs/packaging-applications/build-servers/appveyor/index.md
 docs/api-and-integration/server-extensibility/index.md -> docs/administration/server-extensibility/index.md
 docs/api-and-integration/server-extensibility/authoring-an-octopus-deploy-server-extension.md -> docs/administration/server-extensibility/authoring-an-octopus-deploy-server-extension.md
@@ -817,7 +817,3 @@ docs/api-and-integration/tentacle.exe-command-line/configure.md -> docs/octopus-
 docs/api-and-integration/tentacle.exe-command-line/checkservices.md -> docs/octopus-rest-api/tentacle.exe-command-line/checkservices.md
 docs/api-and-integration/tentacle.exe-command-line/agent.md -> docs/octopus-rest-api/tentacle.exe-command-line/agent.md
 docs/api-and-integration/migration-api/index.md -> docs/octopus-rest-api/migration-api/index.md
-docs/api-and-integration/octopus.migrator.exe-command-line/index.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md
-docs/api-and-integration/octopus.migrator.exe-command-line/export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/export.md
-docs/api-and-integration/octopus.migrator.exe-command-line/import.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md
-docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md
