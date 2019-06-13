@@ -5,7 +5,7 @@ description:  Migrating between self-hosted and Octopus Cloud.
 ---
 
 :::warning
-**Warning:** our existing [Migration API](/docs/api-and-integration/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between On-Premise and Cloud installations.
+**Warning:** our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between On-Premise and Cloud installations.
 :::
 
 ## Migrating to Octopus Cloud

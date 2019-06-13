@@ -816,3 +816,4 @@ docs/api-and-integration/tentacle.exe-command-line/create-instance.md -> docs/oc
 docs/api-and-integration/tentacle.exe-command-line/configure.md -> docs/octopus-rest-api/tentacle.exe-command-line/configure.md
 docs/api-and-integration/tentacle.exe-command-line/checkservices.md -> docs/octopus-rest-api/tentacle.exe-command-line/checkservices.md
 docs/api-and-integration/tentacle.exe-command-line/agent.md -> docs/octopus-rest-api/tentacle.exe-command-line/agent.md
+docs/api-and-integration/migration-api/index.md -> octopus-rest-api/migration-api/index.md
