@@ -887,4 +887,4 @@ docs/api-and-integration/octopus.server.exe-command-line/version.md -> docs/octo
 docs/api-and-integration/octopus.server.exe-command-line/watchdog.md -> docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md
 docs/api-and-integration/api/index.md -> docs/octopus-rest-api/index.md
 docs/api-and-integration/api/how-to-create-an-api-key.md -> docs/octopus-rest-api/how-to-create-an-api-key.md
-docs/api-and-integration/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/sensitive-properties-api-changes-in-release-3.3.md
+docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/sensitive-properties-api-changes-in-release-3.3.md
