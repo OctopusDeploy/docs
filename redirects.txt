@@ -843,4 +843,5 @@ docs/api-and-integration/octopus.server.exe-command-line/configure.md -> docs/oc
 docs/api-and-integration/octopus.server.exe-command-line/checkservices.md -> docs/octopus-rest-api/octopus.server.exe-command-line/checkservices.md
 docs/api-and-integration/octopus.server.exe-command-line/builtin-worker.md -> docs/octopus-rest-api/octopus.server.exe-command-line/builtin-worker.md
 docs/api-and-integration/octopus.server.exe-command-line/admin.md -> docs/octopus-rest-api/octopus.server.exe-command-line/admin.md
+docs/api-and-integration/octopus.server.exe-command-line/lost-master-key.md -> docs/octopus-rest-api/octopus.server.exe-command-line/lost-master-key.md
 docs/api-and-integration/octopus.server.exe-command-line/export-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/export-certificate.md
