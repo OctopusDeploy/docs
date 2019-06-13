@@ -45,7 +45,7 @@ apt install ./tentacle_<VERSION>_amd64.deb
 
 ```bash Archive
 mkdir /opt/octopus
-tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
+tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 ```
 
 When using the Debian package, the Tentacle installation will automatically configure a default Tentacle instance. If you are using the Debian package you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
@@ -234,7 +234,7 @@ applicationPath="/home/Octopus/Applications/"
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
+tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -258,7 +258,7 @@ applicationPath="/home/Octopus/Applications/"
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
+tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -280,7 +280,7 @@ applicationPath="/home/Octopus/Applications/"
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
+tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -303,7 +303,7 @@ applicationPath="/home/Octopus/Applications/"
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
+tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
