@@ -8,21 +8,33 @@ This command exports configuration data to a directory.
 Usage:
 
 ```text
-Octopus.Migrator export [<options>]
+Usage: octopus.migrator export [<options>]
 
-Where `[<options>]` is any of:
+Where [<options>] is any of:
 
-**Export options**
+      --instance=VALUE       Name of the instance to use
+      --directory=VALUE      The target directory for the exported data file-
+                               s. This directory will be created if it does not
+                               already exist. Use the --clean argument to purge
+                               an existing directory before exporting the data
+                               files.
+      --clean                [Optional] Remove all contents of target
+                               directory before exporting the data files. This
+                               cannot be undone.
+      --password=VALUE       Password used to encrypt any sensitive values.
+                               This is the password you will use when importing
+                               the data into another Octopus Server.
+      --include-tasklogs     [Optional] Use this argument to include the task
+                               log folder as part of the data export. Default
+                               is to ignore task logs.
+      --inline-scripts=VALUE [Optional] Use this argument to choose how
+                               inline scripts in your deployment processes will
+                               be exported. Valid options for --inline-scripts
+                               are CopyToFiles, ExtractToFiles, LeaveInline.
+                               Default is CopyToFiles.
 
-Export:
-      --instance=VALUE       [Optional] Name of the instance to use
-      --directory=VALUE      Directory for exported files
-      --password=VALUE       Password to encrypt any sensitive values
-      --include-tasklogs     Include the task log folder as part of the
-                               export.
+Or one of the common options:
 
-Common Options:
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
+      --help                 Show detailed help for this command
 ```
+
