@@ -830,7 +830,7 @@ docs/api-and-integration/octopus.server.exe-command-line/path.md -> docs/octopus
 docs/api-and-integration/octopus.server.exe-command-line/node.md -> docs/octopus-rest-api/octopus.server.exe-command-line/node.md
 docs/api-and-integration/octopus.server.exe-command-line/new-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/new-certificate.md
 docs/api-and-integration/octopus.server.exe-command-line/metrics.md -> docs/octopus-rest-api/octopus.server.exe-command-line/metrics.md
-docs/api-and-integration/octopus.server.exe-command-line/lost-master-key.md -> docs/octopus-rest-api/octopus.server.exe-command-line/lost-master-key.md
+docs/api-and-integration/octopus.server.exe-command-line/lost-master-key.md -> docs/octopus-rest-api/octopus.server.exe-command-line/list-master-key.md
 docs/api-and-integration/octopus.server.exe-command-line/list-instances.md -> docs/octopus-rest-api/octopus.server.exe-command-line/list-instances.md
 docs/api-and-integration/octopus.server.exe-command-line/license.md -> docs/octopus-rest-api/octopus.server.exe-command-line/license.md
 docs/api-and-integration/octopus.server.exe-command-line/index.md -> docs/octopus-rest-api/octopus.server.exe-command-line/index.md
