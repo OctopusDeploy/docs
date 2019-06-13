@@ -8,8 +8,8 @@ Welcome!
 
 This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](#self-hosted-octopus) or [cloud-hosted](#octopus-cloud) Octopus server.
 
-**The videos can be phase two and the content below phase one. Need to workout how the videos are going to play inline.**
-![](TBC-gettingstartedvideos.png)
+
+<ifrome src="/getting-started-videos/getting-started-videos.html" width="" height=""></iframe>
 
 ## How Octopus Works
 
