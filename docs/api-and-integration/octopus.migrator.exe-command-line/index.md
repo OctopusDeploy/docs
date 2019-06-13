@@ -16,10 +16,10 @@ C:\Program Files\Octopus Deploy\Octopus
 
 Octopus.Migrator.exe supports the following commands:
 
-- **`export`**: Exports all configuration data to a directory. [Learn more](/docs/octopus-rest-api/octopus.migrator.exe-command-line/export.md)
-- **`import`**: Imports data from an **Octopus 3.0**+ export directory. [Learn more](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md)
+- **`export`**: Exports all configuration data to a directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/export.md)
+- **`import`**: Imports data from an **Octopus 3.0**+ export directory. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/import.md)
 - **`migrate`**: Imports data from an **Octopus 2.6** backup
-- **`partial-export`**: Exports configuration data to a directory filtered by a single project. [Learn more](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md)
+- **`partial-export`**: Exports configuration data to a directory filtered by a single project. [Learn more](/docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md)
 
 ## General Usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 

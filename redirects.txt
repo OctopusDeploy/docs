@@ -817,7 +817,3 @@ docs/api-and-integration/tentacle.exe-command-line/configure.md -> docs/octopus-
 docs/api-and-integration/tentacle.exe-command-line/checkservices.md -> docs/octopus-rest-api/tentacle.exe-command-line/checkservices.md
 docs/api-and-integration/tentacle.exe-command-line/agent.md -> docs/octopus-rest-api/tentacle.exe-command-line/agent.md
 docs/api-and-integration/migration-api/index.md -> docs/octopus-rest-api/migration-api/index.md
-docs/api-and-integration/octopus.migrator.exe-command-line/index.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md
-docs/api-and-integration/octopus.migrator.exe-command-line/export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/export.md
-docs/api-and-integration/octopus.migrator.exe-command-line/import.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md
-docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md
