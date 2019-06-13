@@ -4,7 +4,7 @@ description: Using the Octo.exe command line tool to create automatic deployment
 position: 30
 ---
 
-[Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
 
 ```text
 Usage: octo create-autodeployoverride [<options>]

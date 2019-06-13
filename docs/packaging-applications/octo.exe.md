@@ -22,9 +22,9 @@ Check the output to make sure the installation works correctly. After the instal
 dotnet octo --version
 ```
 
-For more installation details, options, and update instructions, see [Octo Command Line Global Tool](/docs/api-and-integration/octo.exe-command-line/index.md).
+For more installation details, options, and update instructions, see [Octo Command Line Global Tool](/docs/octopus-rest-api/octo.exe-command-line/index.md).
 
-For a full list of the `pack` command options see [Octo.exe Command Line Pack](/docs/api-and-integration/octo.exe-command-line/pack.md) or run the following command:
+For a full list of the `pack` command options see [Octo.exe Command Line Pack](/docs/octopus-rest-api/octo.exe-command-line/pack.md) or run the following command:
 
 ```powershell
 C:\> dotnet octo help pack

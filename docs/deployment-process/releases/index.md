@@ -53,7 +53,7 @@ Deployments scheduled for the future can be viewed under the Project Overview pa
 
 #### Scheduling Deployments With Octo.exe
 
-For everyone using the [command line tool Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), you can use the following option:
+For everyone using the [command line tool Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), you can use the following option:
 
 ```powershell
 octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=http://octopus/api --apiKey=ABCDEF123456

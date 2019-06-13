@@ -59,7 +59,7 @@ After running this job, and assuming OctoPack is correctly installed, your code 
 
 Jenkins is compiling our code and publishing packages to Octopus Deploy. If we wish, we can also have Jenkins automatically create (and optionally, deploy) a release in Octopus.
 
-To do this, we'll be using the [Octo.exe command line tool](/docs/api-and-integration/octo.exe-command-line/index.md). [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`
+To do this, we'll be using the [Octo.exe command line tool](/docs/octopus-rest-api/octo.exe-command-line/index.md). [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`
 
 We can call Octo.exe easily using the Jenkins **Execute Windows batch** **command** task.
 
@@ -81,7 +81,7 @@ Importantly:
 
 :::success
 **Octo.exe arguments**
-Learn more about [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) and the arguments it accepts.
+Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) and the arguments it accepts.
 :::
 
 With this job runs, Jenkins will now not only build and publish packages, but it should also create a release in Octopus Deploy.
@@ -101,7 +101,7 @@ The extra arguments being:
 
 :::success
 **Octo.exe arguments**
-Again, see the [arguments to Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
+Again, see the [arguments to Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) to see other parameters that you can specify. If your deployment is likely to take longer than 10 minutes, for example, consider passing `--deploymenttimeout=00:20:00` to make it 20 minutes.
 :::
 
 With these settings, Jenkins should trigger a deployment as soon as a job completes.

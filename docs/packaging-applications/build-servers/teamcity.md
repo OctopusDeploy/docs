@@ -114,7 +114,7 @@ The Octopus TeamCity plugin comes with these custom build runners:
 5. **Octopus Deploy: Promote Release**
   Promotes an *existing* release from one environment to another.
 
-The plugin is simply a wrapper for [Octo.exe](/docs/api-and-integration/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
 
 ![](/docs/images/3048176/3278185.jpg)
 
