@@ -8,7 +8,7 @@ Welcome to Linux Tentacle early access. This page provides information about get
 
 ## Requirements
 - Octopus Server 2019.5.7 or newer
-- [.NET core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+- [.NET core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x) installed on the Linux machine
 
 ## Known limitations
 Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
@@ -39,20 +39,18 @@ wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd6
 ### Installing Tentacle
 Tentacle can be installed using a debian package or archive:
 
-#### Debian Package
-```bash
+```bash Debian package
 sudo apt install ./tentacle_<VERSION>_amd64.deb
 ```
 
-#### Archive
-```bash
+```bash Archive
 sudo mkdir /opt/octopus
 sudo tar xvzf tentacle_<VERSION>_amd64.deb -C /opt/octopus
 ```
 
-The Tentacle installation will configure a default instance.
+When using the Debian package, the Tentacle installation will automatically configure a default Tentacle instance.
 
-#### Listening Tentacle (recommended)
+### Configuring Listening Tentacle (recommended)
 To configure a listening Tentacle:
 
 ```bash
@@ -62,9 +60,9 @@ thumbprint="5B584A2B09098E85A128242E5C3C590FF7E9B077"
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
 ```
 
-The Tentacle can be added to Octopus as a deployment target via the Octopus portal, or by running a registration script:
+The Tentacle can be added to Octopus via the Octopus portal, or by running a registration script:
 
-```bash
+```bash Register deployment target
 serverUrl="https://my-octopus"   # The url of your Octous server
 thumbprint=""       # The thumbprint of your Octopus server
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -75,9 +73,7 @@ role="web server"   # The role to assign to the Tentacle
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role"
 ```
 
-To add the Listening Tentacle to Octopus as a worker:
-
-```bash
+```bash Register worker
 serverUrl="https://my-octopus"   # The url of your Octous server
 thumbprint=""       # The thumbprint of your Octopus server
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -87,16 +83,16 @@ workerPool="Default Worker Pool" # The worker pool to register the Tentacle in
 /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool"
 ```
 
-#### Polling Tentacle
+### Configuring Polling Tentacle
 To configure a polling Tentacle:
 
 ```bash
 /opt/octopus/tentacle/Tentacle configure --noListen True
 ```
 
-The Tentacle must be registered with the Octopus Server by running the Tentacle register-with command:
+The Tentacle must be registered with the Octopus Server from the command line:
 
-```bash
+```bash Register deployment target
 serverUrl="http://localhost:8065"   # The url of your Octous server
 serverCommsPort=10943               # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -107,9 +103,7 @@ role="web server"   # The role to assign to the Tentacle
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
 ```
 
-To register the polling Tentacle as a worker:
-
-```bash
+```bash Register worker
 serverUrl="http://localhost:8065"   # The url of your Octous server
 serverCommsPort=10943               # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=""           # An Octopus Server api key with permission to add machines
@@ -129,7 +123,7 @@ Start the Tentacle interactively by running:
 
 ## Quick start scripts
 
-The following bash scripts install and configure Linux Tentacle.
+The following bash scripts install, configure and register Linux Tentacle:
 
 ### Debian
 
@@ -167,5 +161,40 @@ sudo apt install ./tentacle_5.0.0-beta1.deb
 /opt/octopus/tentacle/Tentacle configure --noListen True
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
+/opt/octopus/tentacle/Tentacle agent
+```
+
+```bash Listening worker
+serverUrl="https://my-octopus"   # The url of your Octous server
+thumbprint=""       # The thumbprint of your Octopus server
+apiKey=""           # An Octopus Server api key with permission to add machines
+name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
+workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in
+
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
+
+sudo apt install ./tentacle_5.0.0-beta1.deb
+
+/opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
+/opt/octopus/tentacle/Tentacle configure --trust $thumbprint
+echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
+/opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool"
+/opt/octopus/tentacle/Tentacle agent
+```
+
+```bash Polling worker
+serverUrl="http://localhost:8065"   # The url of your Octous server
+serverCommsPort=10943               # The communication port the Octopus Server is listening on (10943 by default)
+apiKey=""           # An Octopus Server api key with permission to add machines
+name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
+workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in
+
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
+
+sudo apt install ./tentacle_5.0.0-beta1.deb
+
+/opt/octopus/tentacle/Tentacle configure --noListen True
+echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
+/opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
 /opt/octopus/tentacle/Tentacle agent
 ```
