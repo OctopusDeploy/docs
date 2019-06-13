@@ -822,7 +822,7 @@ docs/api-and-integration/octopus.server.exe-command-line/ssl-certificate.md -> d
 docs/api-and-integration/octopus.server.exe-command-line/show-thumbprint.md -> docs/octopus-rest-api/octopus.server.exe-command-line/show-thumbprint.md
 docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md -> docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md
 docs/api-and-integration/octopus.server.exe-command-line/show-configuration.md -> docs/octopus-rest-api/octopus.server.exe-command-line/show-configuration.md
-docs/api-and-integration/octopus.server.exe-command-line/servics.md -> docs/octopus-rest-api/octopus.server.exe-command-line/service.md
+docs/api-and-integration/octopus.server.exe-command-line/services.md -> docs/octopus-rest-api/octopus.server.exe-command-line/services.md
 docs/api-and-integration/octopus.server.exe-command-line/run.md -> docs/octopus-rest-api/octopus.server.exe-command-line/run.md
 docs/api-and-integration/octopus.server.exe-command-line/regenerate-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/regenerate-certificate.md
 docs/api-and-integration/octopus.server.exe-command-line/proxy.md -> docs/octopus-rest-api/octopus.server.exe-command-line/proxy.md
