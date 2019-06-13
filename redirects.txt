@@ -844,7 +844,7 @@ docs/api-and-integration/octo.exe-command-line/import.md -> docs/octopus-rest-ap
 docs/api-and-integration/octo.exe-command-line/index.md -> docs/octopus-rest-api/octo.exe-command-line/index.md
 docs/api-and-integration/octo.exe-command-line/install-global-tool.md -> docs/octopus-rest-api/octo.exe-command-line/install-global-tool.md
 docs/api-and-integration/octo.exe-command-line/list-deployments.md -> docs/octopus-rest-api/octo.exe-command-line/list-deployments.md
-docs/api-and-integration/octo.exe-command-line/list-evironments.md -> docs/octopus-rest-api/octo.exe-command-line/list-environments.md
+docs/api-and-integration/octo.exe-command-line/list-environments.md -> docs/octopus-rest-api/octo.exe-command-line/list-environments.md
 docs/api-and-integration/octo.exe-command-line/list-latestdeployments.md -> docs/octopus-rest-api/octo.exe-command-line/list-latestdeployments.md
 docs/api-and-integration/octo.exe-command-line/list-machines.md -> docs/octopus-rest-api/octo.exe-command-line/list-machines.md
 docs/api-and-integration/octo.exe-command-line/list-projects.md -> docs/octopus-rest-api/octo.exe-command-line/list-projects.md
