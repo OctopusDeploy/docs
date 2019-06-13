@@ -133,6 +133,5 @@ Learn more about how you can [deploy releases](/docs/deployment-process/releases
 
 ## In this section
 
-- [Delivery Pipeline](/docs/getting-started/delivery-pipeline.md)
 - [Terms](/docs/getting-started/terms.md)
 
