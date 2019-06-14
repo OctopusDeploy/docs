@@ -287,8 +287,8 @@ docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-probl
 docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
 docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
-docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/api/index.md
-docs/how-to/how-to-create-an-api-key.md -> docs/octopus-rest-api/how-to-create-an-api-key.md
+docs/api-and-integration/octopus-rest-api.md -> docs/api-and-integration/api/index.md
+docs/how-to/how-to-create-an-api-key.md -> docs/api-and-integration/api/how-to-create-an-api-key.md
 docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md
 docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md
 docs/how-to/record-a-performance-trace.md -> docs/support/record-a-performance-trace.md
@@ -311,7 +311,7 @@ docs/how-to/enable-web-request-logging.md -> docs/administration/managing-infras
 docs/how-to/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/how-to/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
 docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
-docs/how-to/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/api/sensitive-properties-api-changes-in-release-3.3.md
+docs/how-to/sensitive-properties-api-changes-in-release-3.3.md -> docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md
 docs/how-to/run-tentacle-under-a-specific-user.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/how-to/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md
 docs/how-to/reference-files-within-a-package.md -> docs/deployment-examples/custom-scripts/scripts-in-packages/reference-files-within-a-package.md
