@@ -81,5 +81,5 @@ Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apik
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/api/how-to-create-an-api-key.md).
 :::

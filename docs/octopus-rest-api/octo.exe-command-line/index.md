@@ -5,7 +5,7 @@ position: 160
 hideInThisSection: true
 ---
 
-**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md).
+**Octo.exe** is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api/api/index.md).
 
 We provide a number of ways to install Octo onto your machine:
 
@@ -86,7 +86,7 @@ Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn about [how to create an API key](/docs/octopus-rest-api/api/how-to-create-an-api-key.md).
 :::
 
 :::hint
