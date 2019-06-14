@@ -6,7 +6,7 @@ position: 40
 
 Sometimes the worst possible thing happens. The machine hosting Octopus Server dies irrecoverably, and you've discovered you don't have your master key! Whilst you cannot recover the data encrypted with your missing master key, this guide will help you get back up and running again.
 
-If you are reading this page: [PLEASE BACK UP YOUR MASTER KEY!](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md)
+If you are reading this page: [PLEASE BACK UP YOUR MASTER KEY!](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md)
 
 ## Recover the Master Key
 
