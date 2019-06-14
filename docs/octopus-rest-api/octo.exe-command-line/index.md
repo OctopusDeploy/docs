@@ -86,7 +86,7 @@ Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 
 :::hint

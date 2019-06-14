@@ -48,7 +48,7 @@ Click **New service connection** or **New Service Endpoint** and choose **Octop
 
 Specify a **Connection Name** and specify the **Server Url** to your Octopus Server (including the port if required).
 
-Enter a valid [Octopus API Key](/docs/api-and-integration/api/how-to-create-an-api-key.md) in the **API Key** field.
+Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field.
 
 ![](/docs/images/3048587/new-octopus-connection-2.jpg)
 
