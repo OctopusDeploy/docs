@@ -7,8 +7,8 @@ position: 2
 When using Octopus Deploy it is common to have other automated services control certain aspects of your deployments. Some examples:
 
 - You might configure your [build server](/docs/api-and-integration/index.md) to push deployment packages to the built-in package feed, create releases, and deploy them to your test environment after each successful build.
-- You might be deploying to an [elastic environment](https://octopus.com/blog/rfc-cloud-and-infrastructure-automation-support) and want to add/remove deployment targets dynamically via the [Octopus API](/docs/api-and-integration/api/index.md).
-- You might have your own dashboard solution and want to get data directly from the [Octopus API](/docs/api-and-integration/api/index.md).
+- You might be deploying to an [elastic environment](https://octopus.com/blog/rfc-cloud-and-infrastructure-automation-support) and want to add/remove deployment targets dynamically via the [Octopus API](/docs/octopus-rest-api/index.md).
+- You might have your own dashboard solution and want to get data directly from the [Octopus API](/docs/octopus-rest-api/index.md).
 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
