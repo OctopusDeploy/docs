@@ -30,10 +30,14 @@ Note that many of the steps described below must be run as a super user using `s
 ### Download the package
 ```bash Debian package
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb
+#or
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle-5.0.0-beta1-amd64.deb
 ```
 
-```bash Arhive
+```bash Archive
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
+#or
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 ```
 
 ### Installing Tentacle
@@ -57,8 +61,9 @@ Many instances of Tentacle can be configured on a single machine. The default in
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
+/opt/octopus/tentacle/Tentacle configure --config "$configFilePath" --reset-trust --app "$applicationPath"
 ```
 
 Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
@@ -231,14 +236,14 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
-/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
-/opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
+/opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False --reset-trust --app "$applicationPath"
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role"
@@ -255,14 +260,14 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
-/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
-/opt/octopus/tentacle/Tentacle configure --noListen True
+/opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
 /opt/octopus/tentacle/Tentacle agent
@@ -277,14 +282,14 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
-/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
-/opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
+/opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False --reset-trust --app "$applicationPath"
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool"
@@ -300,14 +305,14 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 
-/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath" --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
-/opt/octopus/tentacle/Tentacle configure --noListen True
+/opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
 /opt/octopus/tentacle/Tentacle agent
