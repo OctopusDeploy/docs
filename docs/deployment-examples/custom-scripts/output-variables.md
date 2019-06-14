@@ -44,7 +44,7 @@ var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance 
 ```
 
 ```bash Bash
-appInstanceName = $(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
+appInstanceName=$(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
 ```fsharp F#
