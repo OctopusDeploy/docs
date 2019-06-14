@@ -888,3 +888,4 @@ docs/api-and-integration/octopus.server.exe-command-line/watchdog.md -> docs/oct
 docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md -> docs/support/sensitive-properties-api-changes-in-release-3.3.md
 docs/api-and-integration/api/how-to-create-an-api-key.md -> docs/octopus-rest-api/how-to-create-an-api-key.md
 docs/api-and-integration/api/index.md -> docs/octopus-rest-api/index.md
+docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md

@@ -38,7 +38,7 @@ For pushing packages using the methods described below you'll need:
 
 ## Using Your Build Server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
 
-We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/api-and-integration/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md)).
+We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/octopus-rest-api/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md)).
 
 ## Using Octo.exe {#PushingpackagestotheBuilt-Inrepository-UsingOcto.exe}
 
