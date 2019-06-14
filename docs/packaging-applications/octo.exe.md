@@ -4,7 +4,7 @@ description: Using the Octo.exe command line tool to create packages for deploym
 position: 20
 ---
 
-**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can learn more about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).
+**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can learn more about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).
 
 ## Installation
 

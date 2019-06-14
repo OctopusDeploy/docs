@@ -70,7 +70,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 ### Registering Workers in the Web Portal
 
