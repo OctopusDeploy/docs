@@ -287,7 +287,7 @@ docs/how-to/record-a-problem-with-your-browser.md -> docs/support/record-a-probl
 docs/how-to/debug-problems-with-octopus-variables.md -> docs/support/debug-problems-with-octopus-variables.md
 docs/how-to/capture-a-crash-dump.md -> docs/support/capture-a-crash-dump.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
-docs/api-and-integration/api/index.md -> docs/octopus-rest-api/index.md
+docs/api-and-integration/octopus-rest-api.md -> docs/api-and-integration/api/index.md
 docs/how-to/how-to-create-an-api-key.md -> docs/octopus-rest-api/how-to-create-an-api-key.md
 docs/how-to/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/octopack/index.md
 docs/how-to/manually-fail-a-running-or-cancelling-task.md -> docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md
@@ -887,4 +887,3 @@ docs/api-and-integration/octopus.server.exe-command-line/version.md -> docs/octo
 docs/api-and-integration/octopus.server.exe-command-line/watchdog.md -> docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md
 docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md -> docs/support/sensitive-properties-api-changes-in-release-3.3.md
 docs/api-and-integration/api/how-to-create-an-api-key.md -> docs/octopus-rest-api/how-to-create-an-api-key.md
-docs/api-and-integration/api/index.md -> docs/octopus-rest-api/index.md
