@@ -8,9 +8,9 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 ## Configuring Sensitive Variables {#Sensitivevariables-Configuringsensitivevariables}
 
-Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
+Variables such as passwords or API keys can be marked as **sensitive**. Select **Change Type** when entering the value and select **Sensitive**.
 
-![](/docs/images/3048089/3277722.png)
+Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
 
 ## Defining Sensitive Variables
 
