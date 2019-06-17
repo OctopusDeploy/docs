@@ -15,7 +15,7 @@ This section describes the Octopus Deploy REST API, which is a comprehensive API
 
 Architecturally, Octopus Deploy is built **API-first**. This means that Octopus is built in layers - all data and operations are available over its REST API. The Octopus Web Portal (the main Octopus UI) is actually built on top of this API. In the Octopus Web Portal, we don't use any shortcuts - 100% of the data and operations that you can see and perform in the Octopus UI can be performed over the REST API.
 
-![](/docs/images/3048161/api-integration.png)
+![](api-integration.png)
 
 The Octopus REST API is designed:
 
@@ -33,7 +33,7 @@ If you plan to use the REST API from C# or another .NET project, see the [Octop
 
 As of **Octopus 3.17**, Octopus now includes the default Swagger UI for displaying the API documentation in a nice human readable way. To browse that UI just open your browser and go to `[OctopusServerURL]/swaggerui/`. The original Non-Swagger API page is still available and can always be accessed via `[OctopusServerURL]/api/`.
 
-![](/docs/images/3048161/3278406.png)
+![Server API](server-api.png)
 
 You can view the API through the Octopus Demo server at [demo.octopus.com/swaggerui/index.html](https://demo.octopus.com/swaggerui/index.html).
 
