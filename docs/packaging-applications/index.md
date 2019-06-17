@@ -80,6 +80,18 @@ In addition to these tools, you can use other tools to create your packages, for
 
 There are many more tools you might choose to use, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
+## Build Server Integration
+
+Your continuous integration/build server will package your applications and make them available to Octopus for deployment from a [package repository](/docs/packaging-applications/package-repositories/index.md). The following tools are available to integrate your continuous integration/build server with Octopus Deploy:
+
+ - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/index.md)
+ - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
+ - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
+ - [BitBucket Pipelines](docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
+ - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
+ - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
+ - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
+
 ## Next
 
  - Choosing a [versioning scheme](/docs/packaging-applications/versioning.md).
