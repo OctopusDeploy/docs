@@ -34,13 +34,13 @@ Before continuing, it's worth briefly revisiting the concept of **Listening Tent
 
 When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended)), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the trusted Octopus Server.
 
-![](/docs/images/3048143/5865873.png)
+![Octopus to Listening Tentacle communication](listening-tentacle.png)
 
 ### Polling Tentacles
 
 When an Octopus Tentacle is configured in [Polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) and poll the Octopus Server for work to be performed.
 
-![](/docs/images/5670828/5865874.png)
+![Polling Tentacle to Octopus communication](polling-tentacle.png)
 
 ## Identify the Problem
 
