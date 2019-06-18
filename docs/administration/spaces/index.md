@@ -124,7 +124,7 @@ When you log into the Octopus Web Portal, the first item on the navigation menu 
 
 There is a hard barrier between spaces, so, for instance, a deployment target configured for Space-A isn't available to projects in Space-B. However, there are some things that aren't scoped to a space, and are available system wide.
 
-The following table shows what is space-scoped, system-scoped, or scoped to both.
+The following table shows which Octopus resources are space-scoped, system-scoped, or scoped to both. If a resource isn't listed below, then it's space-scoped.
 
 | Resource              | Space-Scoped                | System-Scoped |
 | --------------------- | --------------------------- | ------------- |
