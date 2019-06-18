@@ -132,7 +132,7 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 The page shown should look like the one below.
 
-![](/docs/images/3048113/3277906.png)
+![](3277906.png)
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
 
