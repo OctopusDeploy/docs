@@ -84,4 +84,4 @@ Click the ![](/docs/images/3048132/3278017.png) help button for more detailed 
 :::
 
 5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-    ![](/docs/images/3048132/3278010.png)
+    ![](3278010.png)
