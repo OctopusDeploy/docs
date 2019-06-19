@@ -9,8 +9,6 @@ Welcome!
 This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted](#self-hosted-octopus) or [cloud-hosted](#octopus-cloud) Octopus server.
 
 
-<iframe src="/getting-started-videos/getting-started-videos.html"></iframe>
-
 ## How Octopus Works
 
 Octopus Deploy allows users to consistently and reliably deploy by creating a Release and deploying it following the steps defined in a Projects Deployment Process.
