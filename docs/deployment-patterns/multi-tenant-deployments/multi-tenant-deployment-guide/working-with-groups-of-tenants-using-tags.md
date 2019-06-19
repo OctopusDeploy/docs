@@ -14,11 +14,11 @@ Working with a small number of tenants is quite easy, they all fit on one page, 
 
 Consider the example of setting up new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
 
-![](/docs/images/5669428/5865648.png)
+![](5865648.png)
 
 *In the example above we are configuring a single deployment target for each tenant individually - what a headache!*
 
-![](/docs/images/5669428/5865647.png)
+![](5865647.png)
 
 *In the example above we are configuring a single deployment target for a group of tenants using a single tag - what a dream!*
 
@@ -90,7 +90,7 @@ if ($tenantName) {
 ```
     *This script doesn't do anything, it just simulates sending an email to notify our VIP tenants of the new deployment.*
 3. Modify the step to make sure it is only executed when deploying our project for VIP tenants.
-    ![](/docs/images/5669428/5865655.png)
+    ![](5865655.png)
 
 :::success
 **Tenant filter design/preview**
