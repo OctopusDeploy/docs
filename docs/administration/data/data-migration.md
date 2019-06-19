@@ -52,11 +52,11 @@ It's a good idea to make sure your Octopus Server isn't changing data while expo
 
 You can export data using the Export Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe`. You can export your entire Octopus Server configuration, or certain projects and their dependencies. The wizard is a good way to get started, but the full feature set is only available using the command-line interface.
 
-![](/docs/images/3048141/3278071.png)
+![](3278071.png)
 
 We have tried to make the exported file structure predictable and easy to navigate.
 
-![](/docs/images/3048141/3278073.png)
+![](3278073.png)
 
 ### Importing {#Datamigration-ImportingImporting}
 
@@ -66,7 +66,7 @@ It's a good idea to [perform a backup](/docs/administration/data/backup-and-rest
 
 You can import data using the Import Wizard built into the Octopus Server Manager, or using the command-line interface `Octopus.Migrator.exe import`. Similarly to exporting data, the wizard is a good way to get started, but the full feature set is only available using the command-line interface.
 
-![](/docs/images/3048141/3278070.png)
+![](3278070.png)
 
 You'll get a chance to preview the changes first, and you can tell the tool to either:
 
@@ -113,11 +113,11 @@ In general, the data being imported is treated as the source of truth, and will 
 
 For example, when importing a project which already exists in the destination server, all deployment steps that belong to the project in the destination server are overwritten, including any new deployment steps that may have been added.
 
-![](/docs/images/3048141/3278323.png)
+![](3278323.png)
 
 There is no out-of-the-box way to "merge" deployment steps, or other more granular changes when importing.
 
-![](/docs/images/3048141/3278324.png)
+![](3278324.png)
 
 There are certain cases where we can automatically merge data together, like variable sets where you have certain values which only make sense in the target server, or teams where certain users only make sense in the target server.
 
@@ -133,4 +133,4 @@ We use the ID's so we can map references between documents into the correct refe
 
 Yes! Most of the features are only available via command-line so it is the most common way to perform data migration. Use `Octopus.Migrator.exe help` to see the full list of commands available. To see an example of the command syntax, you can use the Wizard in the Octopus Server Manager and click the **Show script** link.
 
-![](/docs/images/3048141/3278069.png)
+![](3278069.png)

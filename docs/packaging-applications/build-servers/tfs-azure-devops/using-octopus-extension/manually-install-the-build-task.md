@@ -15,7 +15,7 @@ Clone the repository locally
 git clone https://github.com/OctopusDeploy/OctoTFS.git
 ```
 
-![](/docs/images/3048587/3278346.png)
+![](3278346.png)
 
 Install TFX-CLI using NPM. You'll obviously need node installed to do this.
 
@@ -23,7 +23,7 @@ Install TFX-CLI using NPM. You'll obviously need node installed to do this.
 npm install -g tfx-cli
 ```
 
-![](/docs/images/3048587/3278347.png)
+![](3278347.png)
 
 :::warning
 If you are using an on-premises TFS instance, authentication can only be performed using Basic authentication. [See this page](https://github.com/Microsoft/tfs-cli/blob/master/docs/configureBasicAuth.md) for information on how to enable it for your on-premises server.
@@ -33,13 +33,13 @@ When you log in, use `--authType basic` to authenticate that way. NTLM authentic
 
 Create a new **Personal Access Token** in Azure DevOps/TFS in the **Security** tab for your Profile.
 
-![](/docs/images/3048587/3278348.png)
+![](3278348.png)
 
-![](/docs/images/3048587/3278349.png)
+![](3278349.png)
 
 Specify All scopes. You can revoke this token as soon as the task is uploaded.
 
-![](/docs/images/3048587/3278350.png)
+![](3278350.png)
 
 Login to your Visual Studio or Azure DevOps/TFS account using the TFX-CLI tool
 
@@ -47,7 +47,7 @@ Login to your Visual Studio or Azure DevOps/TFS account using the TFX-CLI tool
  tfx login
 ```
 
-![](/docs/images/3048587/3278375.png)
+![](3278375.png)
 Navigate to the cloned folder which is the root of the extension at which point you can install dependencies and build the extension and all associated tasks
 
 ```
@@ -61,4 +61,4 @@ Use the TFX-CLI tool to upload the Octopus Create Release task. You will need to
  tfx build tasks upload <path-to-task>
 ```
 
-![](/docs/images/3048587/3278376.png)
+![](3278376.png)

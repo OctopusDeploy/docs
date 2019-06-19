@@ -25,17 +25,17 @@ You can use your own SSL certificate which could be signed by any trusted Certif
 1. On the "Select Computer" page of the Wizard, select the **Local computer**, then click **Finish**. Click **OK** to close the Add/Remove Snap-ins dialog.
 1. You can either import the certificate to the **Personal** store, or the **Web Hosting** store (this store may or may not exist on your server). Expand to the Certificates directory, then open the import wizard:
 
-    ![](/docs/images/3048148/3278100.png)
+    ![](3278100.png)
 
 1. Follow the steps in the wizard to import your certificate. Your certificate will normally be in a .**PFX** file, and it should include both the **public** X.509 certificate, and the **private key** for the certificate.
 
 1. Once the certificate is imported, double click the certificate to bring up the properties. You should see an icon indicating that the private key has also been imported:
 
-    ![](/docs/images/3048148/3278099.png)
+    ![](3278099.png)
 
 1. If all these requirements have been met (**private key** imported, either the **Web Hosting** or **Personal** stores, in the **Local Computer** scope), the certificate should appear when you select to use an existing certificate when adding your HTTPS binding:
 
-    ![](/docs/images/3048148/3278454.png)
+    ![](3278454.png)
 
 ### Let Octopus Generate a Self-signed Certificate
 
@@ -51,15 +51,15 @@ If you are bringing your own SSL certificate, or want to configure a complex set
 
 1. Open the **Octopus Manager** application on the Octopus Deploy Server. You'll find this in the start menu.
 
-    ![](/docs/images/3048148/3278103.png)
+    ![](3278103.png)
 
 1. From Octopus Manager, you can launch a wizard to modify the bindings that are associated with the Octopus web portal:
 
-    ![](/docs/images/3048148/3278102.png)
+    ![](3278102.png)
 
 1. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here.
 
-    ![](/docs/images/3048148/3278452.png)
+    ![](3278452.png)
 
     Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.
 
@@ -75,7 +75,7 @@ The approach for updating an existing binding requires that we take a slightly d
 
 1. Click **Remove** and then **Add...** to recreate the binding, using the details from the previous step. When selecting the SSL Certificate, select the desired certificate. Click **OK** to return to the bindings list.
 
-    ![](/docs/images/3048148/3278454.png)
+    ![](3278454.png)
 
     > At this point, the bindings have not changed yet, as we haven't yet applied this change to the server.
 

@@ -14,7 +14,7 @@ Sometimes a variable used during deployment may have a different value from the 
     * Update the Variable, and then.
     * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
-![](/docs/images/3048145/3278466.png)
+![](3278466.png)
 
 ## Check the Variable Value in the All Variables Tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
@@ -41,7 +41,7 @@ This will log the variables available at the beginning of each step in the deplo
 
 It should look like this. You can have as many extra variables as you want besides these two.
 
-![](/docs/images/3048145/3278087.png)
+![](3278087.png)
 
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.
 4. Deploy the new release.

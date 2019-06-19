@@ -109,7 +109,7 @@ When you conduct these checks:
 
 The page shown should look like the one below.
 
-![](/docs/images/3048143/3278074.png)
+![](3278074.png)
 
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
@@ -224,7 +224,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
-![](/docs/images/3048143/3278077.png)
+![](3278077.png)
 
 ### Check Octopus.Server.exe Load Time (Polling Tentacle)
 

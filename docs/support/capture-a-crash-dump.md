@@ -23,6 +23,6 @@ If you'd like to check the other options for these settings refer to the [Micro
 
 After you run the .reg file, if you want to check the entries in regedit, it should look like this:
 
-![](/docs/images/3048156/3278137.png)
+![](3278137.png)
 
 Once you have a dump they'll then be written to `C:\Dumps\` named something similar to `Octopus.Server.exe.6127.dmp`. Next just zip the dump and upload it to the link that we'll have provided you.

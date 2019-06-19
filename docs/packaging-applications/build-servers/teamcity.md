@@ -46,7 +46,7 @@ In version 4.38.0 of the TeamCity Plugin we have added a new build runner that c
 In version 3.3.1 of the TeamCity Plugin we have added a new build runner that can be used to package and push your applications from TeamCity to Octopus.
 :::
 
-![Octopus Push](/docs/images/3048176/5275665.png)
+![Octopus Push](5275665.png)
 
 
 ## Using the Plugin With Linux Build Agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
