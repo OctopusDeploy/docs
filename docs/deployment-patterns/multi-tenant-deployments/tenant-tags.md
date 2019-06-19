@@ -51,7 +51,7 @@ Order is important for tag sets, and tags within those tag sets. Octopus will so
 
 This example of configuring a tenanted deployment target shows how the tenant filter field order is defined based on the order of the tag sets and tags in the library.
 
-![](/5865645.png)
+![](5865645.png)
 
 ## Tag-based Filters {#TenantTags-Tag-basedfilters}
 
@@ -64,7 +64,7 @@ When filtering tenants, Octopus will combine tags within the same tag set using 
 
 Let's take a look at an example (click the image to zoom):
 
-![](/5865646.png "width=300")
+![](5865646.png)
 
 In this example Octopus will execute a query like the one shown below:
 
