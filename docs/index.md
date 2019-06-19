@@ -8,4 +8,4 @@ Octopus Deploy is an automated deployment server that makes it easy to deploy yo
 
 This site contains the end-user documentation for using Octopus Deploy. If you are new to using Octopus, we suggest [reading our getting started guide](/docs/getting-started/index.md).
 
-![](/docs/images/3048058/5275672.png)
+![Octopus Overview](overview.png)

@@ -19,11 +19,11 @@ This three minute video (with captions) will walk you through the process of ins
 
 OctoPack is, itself, a NuGet package. You can install it using the NuGet package installer, or any of the other ways you prefer to install NuGet packages:
 
-![](/docs/images/3048095/3277789.png)
+![](3277789.png)
 
 OctoPack should only be installed on projects that you are going to deploy, that means the console application projects, Windows Service projects, and ASP.NET web applications. OctoPack should not be installed on unit tests, class libraries, and other supporting projects.
 
-![](/docs/images/3048095/3277788.png)
+![](3277788.png)
 
 ## Building Packages {#UsingOctoPack-Buildingpackages}
 
@@ -75,7 +75,7 @@ For Windows Service or Console applications, and many Windows Forms or WPF appli
 
 The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
 
-![](/docs/images/3048095/3277787.png)
+![](3277787.png)
 
 ## Including Web Application Content Files {#UsingOctoPack-Includingwebapplicationcontentfiles}
 
@@ -83,11 +83,11 @@ Web applications require additional files to run, such as Razor/ASPX files, conf
 
 When packaging a web application, OctoPack will automatically include the `bin` folder and any files configured with **Build Action: Content.** You can see **Build Action** in the Solution Explorer properties window for the currently selected file in Visual Studio:
 
-![](/docs/images/3048095/3277786.png)
+![](3277786.png)
 
 The example below shows a web application called **OctoFX.TradingWebsite** and you can see that all the files required to host the web application have been packaged, including the contents of the `bin` folder and any files with **Build Action: Content**.
 
-![](/docs/images/3048095/3277785.png)
+![](3277785.png)
 
 :::hint
 **Config Transformation is Part of the Deployment Process**
@@ -199,7 +199,7 @@ Octopus provides a [built-in package repository](/docs/packaging-applications/pa
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages`: this is the URL to your Octopus Server noting the `/nuget/packages` path.
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/index.md).
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/index.md).
 
 Read more about [pushing packages to the Octopus built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md).
 

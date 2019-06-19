@@ -15,10 +15,10 @@ It is important to understand that the Octopus Server provides a write-only repo
 
 We offer several ways to add packages to the built-in repository, so many that we built a new page: [pushing packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md). Alternatively you can go to **{{Library,Packages}}** which describes some of the most convenient ways to push packages to the built-in repository.  Simply click the **Show examples** link to see options to upload packages.
 
-![](/docs/images/3048094/3277775.png)
+![](3277775.png)
 
 :::success
-To push packages to the built-in repository you will need an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+To push packages to the built-in repository you will need an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 
 ## Security Considerations {#Packagerepositories-Securityconsiderations}

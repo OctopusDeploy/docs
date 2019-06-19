@@ -8,9 +8,9 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 ## Configuring Sensitive Variables {#Sensitivevariables-Configuringsensitivevariables}
 
-Variables such as passwords or API keys can be marked as being **sensitive**. Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
+Variables such as passwords or API keys can be marked as **sensitive**. Select **Change Type** when entering the value and select **Sensitive**.
 
-![](/docs/images/3048089/3277722.png)
+Just like non-sensitive variables they can [reference other variables](docs/deployment-process/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
 
 ## Defining Sensitive Variables
 
@@ -30,7 +30,7 @@ Learn more about [security and encryption](/docs/administration/security/data-en
 
 When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/deployment-process/variables/index.md), with two notable exceptions:
 
-- Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/api-and-integration/api/index.md) or the Octopus web portal; and
+- Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api/index.md) or the Octopus web portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
 
 :::success

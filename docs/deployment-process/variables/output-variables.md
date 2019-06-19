@@ -47,7 +47,7 @@ var testResult = Octopus.Parameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
 ```bash Bash
-testResult = $(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
+testResult=$(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 ```
 
 ```fsharp F#

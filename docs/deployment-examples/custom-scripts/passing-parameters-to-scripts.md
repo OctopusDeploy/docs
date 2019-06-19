@@ -31,7 +31,7 @@ When you call external scripts (sourced from a file inside a package) you can pa
 
 You can define your parameters in the **Script Parameters** field using the format expected by your scripting execution environment (see below for examples).
 
-![](/docs/images/3048092/5865635.png)
+![Script Parameters](script-parameters.png)
 
 :::hint
 **Delimiting string values**

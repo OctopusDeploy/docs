@@ -10,7 +10,7 @@ This example is from the sample project in the [Channels Walkthrough](https://o
 
 Step 1 calculates a name by convention, which is used by subsequent steps.
 
-![](/docs/images/3048092/5865520.png)
+![Deployment Process](deployment-process.png)
 
 ## Creating an Output Variable
 ```powershell PowerShell
@@ -44,7 +44,7 @@ var appInstanceName = Octopus.Parameters["Octopus.Action[Determine App Instance 
 ```
 
 ```bash Bash
-appInstanceName = $(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
+appInstanceName=$(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
 ```fsharp F#

@@ -25,11 +25,11 @@ Of course, Bash scripts will only be supported on Linux / OSX Targets and PowerS
 
 Make sure that the scripts are included in your package. If you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action =** **Content**.
 
-![](/docs/images/3048092/3277766.png)
+![](3277766.png)
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
-![](/docs/images/3048092/3277765.png)
+![](3277765.png)
 
 Read more about [using OctoPack](/docs/packaging-applications/octopack/index.md).
 

@@ -15,7 +15,7 @@ Release-level variables are drawn from the project and release being created.
 |**`Octopus.Release.Id`** <br/>The ID of the release | *releases-123*|
 |**`Octopus.Release.Number`** <br/>The version number of the release | *1.2.3*|
 |**`Octopus.Release.Notes`** <br/>Release notes associated with the release, in Markdown format | *Fixes bugs 1, 2 & 3*|
-|**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release | See [here](/docs/api-and-integration/metadata/index.md#Release-Notes-Templates) |
+|**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Release-Notes-Templates) |
 
 ## Deployment {#Systemvariables-Deployment}
 
@@ -45,7 +45,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.Tenant.Tags`** <br/>Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenant type/External, Upgrade ring/Early adopter*|
 |**`Octopus.Deployment.Trigger.Id`** <br/>The ID of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of _one_ of the triggers. | *ProjectTriggers-522*|
 |**`Octopus.Deployment.Trigger.Name`** <br/>The name of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of _one_ of the triggers. | *Nightly Deploy to Dev*|
-|**`Octopus.Deployment.Changes`** <br/>The release changes included in the deployment | See [here](/docs/api-and-integration/metadata/index.md#Deployment-Variables)|
+|**`Octopus.Deployment.Changes`** <br/>The release changes included in the deployment | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Deployment-Variables)|
 |**`Octopus.Endpoint.\_type\_.\_property\_`** <br/>Properties describing the endpoint being deployed | *ftp.example.com*|
 |**`Octopus.Environment.Id`** <br/>The ID of the environment | *environments-123*|
 |**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role being deployed to | *machines-123,machines-124*|
