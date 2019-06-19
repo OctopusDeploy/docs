@@ -23,7 +23,7 @@ You can install your own [self-hosted](#self-hosted-octopus) instance of the Oct
 
 #### Self-Hosted Octopus {#self-hosted-octopus}
 
-Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started/index.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md). The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
+Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started/index.md#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/index.md). The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
 #### Octopus Cloud {#octopus-cloud}
 
@@ -81,8 +81,8 @@ We've created the following tools to help package your applications for deployme
 
  - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
  - [Octopack](/docs/packaging-applications/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
- - A [TeamCity plugin](/docs/api-and-integration/teamcity.md).
- - An [Azure DevOps plugin](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+ - A [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
+ - An [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
 
 #### Getting your package into Octopus
 
@@ -94,7 +94,7 @@ Most Octopus users push their package from their build server to Octopus. But yo
 Use our example package to quickly create your first deployment. [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 :::
 
-Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/api-and-integration/index.md).
+Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md).
 
 ### 4. Define your deployment process
 
@@ -132,4 +132,3 @@ Learn more about how you can [deploy releases](/docs/deployment-process/releases
 ## In this section
 
 - [Terms](/docs/getting-started/terms.md)
-

@@ -6,7 +6,7 @@ position: 5
 
 ## Self-Hosted Octopus
 
-Installing the self-hosted Octopus Deploy server sets up the [Octopus Web Portal](/docs/getting-started/index.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
+Installing the self-hosted Octopus Deploy server sets up the [Octopus Web Portal](/docs/getting-started/index.md#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/index.md).
 
 The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
 
@@ -32,7 +32,7 @@ Octopus organizes your deployment targets into groups called [Environments](/doc
 
 ## Lifecycle
 
-[Lifecycles](/docs/deployment-process/lifecycles) give you control over the way releases are promoted between environments.
+[Lifecycles](/docs/deployment-process/lifecycles/index.md) give you control over the way releases are promoted between environments.
 
 ## Package
 
@@ -44,11 +44,11 @@ A [Package](/docs/packaging-applications/index.md) is an archive (zip, tar, NuGe
 
 ## Deployment Process
 
-The [deployment process](/docs/deployment-process) is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
+The [deployment process](/docs/deployment-process/index.md) is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
 
 ## Variables
 
-Octopus lets you define [variables](/docs/deployment-process/variables) for configuration values that change, so you can have a different value for each Environment or Deployment Target
+Octopus lets you define [variables](/docs/deployment-process/variables/index.md) for configuration values that change, so you can have a different value for each Environment or Deployment Target
 
 ## Creating a Release
 
@@ -63,4 +63,3 @@ When you [deploy a release](/docs/deployment-process/releases/index.md), you are
 With [Spaces](/docs/administration/spaces/index.md) you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of.
 Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
 If you're a large organization with lots of teams working in Octopus, from **2019.1** you can use the [Spaces](/docs/administration/spaces/index.md) feature.
-
