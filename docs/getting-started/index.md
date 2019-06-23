@@ -53,7 +53,8 @@ Target roles allow you to “tag” deployment targets with a specific keyword w
 
 #### Tentacle Agent
 
-When you deploy software to Windows servers, you need to install Tentacle Agent, a lightweight agent service, on your Windows servers so they can communicate with the Octopus server in either a listening or a polling mode.
+When you deploy to servers, running either Windows, Linux or Mac, you need to install the Tentacle Agent, a lightweight agent service, on your servers so they can communicate with the Octopus server in either a listening or a polling mode.
+A Tentacle Agent isn't required for deploying to Azure Web Apps, Kubernetes clusters, Azure Service Fabric and Azure Cloud Service targets.
 
 #### Lifecycle
 
@@ -113,7 +114,7 @@ The deployment process is like a recipe for deploying your software. You define 
 
 Octopus lets you define variables for configuration values that change, so you can have a different value for each environment or deployment target
 
-Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, .
+Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments.
 
 ### 5. Deploy your release
 
