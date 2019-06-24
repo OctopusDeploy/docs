@@ -175,7 +175,7 @@ Once you have access to an Octopus Server, your infrastructure is configured, yo
 
 ### Creating a Release
 
-A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a [Lifecycle](/docs/deployment-process/lifecycle/index.md) to your Environments.
+A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a [Lifecycle](/docs/deployment-process/lifecycles/index.md) to your Environments.
 
 ### Deploying a Release
 
