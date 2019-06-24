@@ -40,11 +40,6 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
-3. In Octopus Deploy update your environment settings.
-
-    Navigate to **{{Infrastructure,Environments}}** to map your Octopus environments to Jira environment types. This is required so Jira can understand Octopus environments and track issue progress.
-
-    Note: Jira environment types are a fixed list that cannot be edited.
 
 When configured, this integration will retrieve Jira issue details and add details to your releases and deployments and generate release notes automatically. 
 
@@ -104,7 +99,7 @@ When configured, this integration will provide Jira with updates about the progr
 
 ## Octopus Deployment Task Log
 
-When the Jira issue tracker is enabled and configured, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
+When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
 The following illustrates where Octopus tried to send an _in_progress_, and then a _successful_, state change to Jira but was unable to.
 
