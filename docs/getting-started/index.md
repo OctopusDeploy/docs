@@ -35,7 +35,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
-### 2. Set up deployment environments
+### 2. Set up Deployment Environments
 
 Octopus will need to know where you are going to deploy to. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
 
