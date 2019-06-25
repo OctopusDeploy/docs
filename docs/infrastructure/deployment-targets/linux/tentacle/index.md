@@ -63,7 +63,7 @@ applicationPath="/home/Octopus/Applications/"
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
-/opt/octopus/tentacle/Tentacle configure --config "$configFilePath" --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/Tentacle configure --reset-trust --app "$applicationPath"
 ```
 
 Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
