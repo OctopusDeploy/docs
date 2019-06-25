@@ -106,15 +106,35 @@ Octopus Deploy is designed to work with teams following agile software developme
 
 **Create a project** (0:06)
 
-1. TO DO
+1. Select Projects from the main navigation, and click **ADD PROJECT**.
+1. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
+1. Add a description for the project.
+1. If you want to change the Project group select the project group from the dropdown menu.
+1. If you want to change the Lifecycle select the lifecycle from the dropdown menu.
+1. Click **SAVE** and you will be taken to the newly created project's overview page.
 
 **Setting up variables** (0:41)
 
-1. TO DO
+1. To add a variable to your project, navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. Give the variable a name, for instance, *Greeting*.
+1. Enter the first value for the variable, for instance, *Hello*, *Test*, in the value field.
+1. Define the scope for the value, for instance, by selecting the *Test* environment.
+1. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello*, *Production*.
+1. Define the scope for this value, for instance, by selecting the *Production* environment.
+1. Save the variable by clicking **SAVE**.
+1. In this example, we'll reference this variable from a Run a Script step.
+1. 
 
 **Define the deployment process** (8:45)
 
-1. TO DO
+1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
+1. Click **ADD STEP**, 
+1. To create a simple step for your first deployment select the **Run a Script** step. 
+1. Give the step a name, for instance, *Say Hello*.
+1. For the execution plan, leave the selection at the default *Deployment targets* and select a target role.
+1. For the script section, expand the *Script content* section by clicking on it. Paste the following PowerShell script into the text box:
+​   Write-Host ​
+1. Select the variable Greeting from the insert variable tool (#{}) next to the script editor, and click **SAVE**.
 
 :::Hint
 **Learn more about**
@@ -141,16 +161,20 @@ Once you have access to an Octopus Server, your infrastructure is configured, yo
 
 **Creating a release** (0:06)
 
-1. TO DO
+1. With your deployment process defined, you can create a release on the Project's Overview page, by clicking **CREATE RELEASE**.
+1. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
 
 **Deploying a release** (1:16)
 
-1.TO DO
+1. Select the release you want to deploy.
+1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
+1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
+1. Click **DEPLOY**.
 
 :::Hint
 **Learn more**
 
-**Creating a Release**
+**[Creating a Releas](/docs/deployment-process/releases/index.md#creating-a-release)**
 
 A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
 
