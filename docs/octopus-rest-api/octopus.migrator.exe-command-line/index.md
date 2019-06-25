@@ -16,11 +16,11 @@ C:\Program Files\Octopus Deploy\Octopus
 
 `octopus.migrator.exe` supports the following commands:
 
-- **[export](/docs\octopus-rest-api/octopus.migrator.exe-command-line/export.md)**:  Exports all configuration data to a directory.
-- **[import](/docs\octopus-rest-api/octopus.migrator.exe-command-line/import.md)**:  Imports data from an Octopus 3.0+ export directory.
-- **[migrate](/docs\octopus-rest-api/octopus.migrator.exe-command-line/migrate.md)**:  Imports data from an Octopus 2.6 backup.
-- **[partial-export](/docs\octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md)**:  Exports configuration data to a directory filtered by projects.
-- **[version](/docs\octopus-rest-api/octopus.migrator.exe-command-line/version.md)**:  Shows the version information for this release of the Octopus Migrator.
+- **[export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/export.md)**:  Exports all configuration data to a directory.
+- **[import](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md)**:  Imports data from an Octopus 3.0+ export directory.
+- **[migrate](/docs/octopus-rest-api/octopus.migrator.exe-command-line/migrate.md)**:  Imports data from an Octopus 2.6 backup.
+- **[partial-export](/docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md)**:  Exports configuration data to a directory filtered by projects.
+- **[version](/docs/octopus-rest-api/octopus.migrator.exe-command-line/version.md)**:  Shows the version information for this release of the Octopus Migrator.
 
 ## General Usage {#Octopus.Migrator.exeCommandLine-Generalusage}
 
