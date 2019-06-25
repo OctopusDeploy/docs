@@ -22,6 +22,10 @@ Package pushing:
                              the default behavior is to reject the new
                              package being pushed. You can pass this flag to
                              overwrite the existing package.
+      --use-delta-compression=VALUE
+                             Allows disabling of delta compression when
+                             uploading packages to the Octopus Server.
+                             Defaults to enabled.
 
 Common options:
 
