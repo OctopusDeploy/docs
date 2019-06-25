@@ -14,7 +14,7 @@ When a release of your software is created in Octopus, you can deploy it as many
 
 ## The Octopus Deploy Server
 
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
+You can install your own [self-hosted](#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](#octopus-cloud).
 
 ## Self-Hosted Octopus {#self-hosted-octopus}
 
