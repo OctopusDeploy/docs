@@ -1,14 +1,10 @@
 ---
 title: Getting Started
-description: This section provides a conceptual overview of Octopus Deploy, and links to documentation that guides you through your own self-hosted or cloud-hosted Octopus server.
+description: This section provides instructions to help you do your first deployment quickly.
 position: 1
 ---
 
-## How Octopus Works
-
-Octopus Deploy allows users to consistently and reliably deploy by creating a Release and deploying it following the steps defined in a Projects Deployment Process.
-
-As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. Once releases have been created, they can be deployed as many times as you need.
+## Getting Started with Octopus Deploy
 
 Below outlines the main steps for doing your first deployment:
 
@@ -18,65 +14,82 @@ The first thing you will need to do is decide where you want to host your [Octop
 
 ### 2. Set up deployment environments
 
-Octopus will need to know where you are going to deploy to. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
-Learn more about managing your [Infrastructure](/docs/infrastructure/index.md)
+Octopus will need to know the [Infrastructure](/docs/infrastructure/index.md) you are going to deploy to. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
 
-![Set up deployment environments](setup-deployment-environments.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VnXGAJP_SXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* Create your first environment 0:00
-* Create your first deployment target 0:00
+**Creating environments** (0:06)
+1. Navigate to **{{Infrastructure,Environments}}** and click **ADD ENVIRONMENT**.
+1. Give your new environment a meaningful name and click **SAVE**.
+1. Add a description for the environment.
+1. Select the checkbox in the **Default Guided Failure Mode** section if you want Octopus Deploy to prompt users for intervention if a deployment to this environment fails. Learn more about [guided failure mode](#guided-failure-mode).
+1. Select the checkbox in the **Dynamic Infrastructure** section if deployments to this environment are allowed to create infrastructure such as targets and accounts. Learn more about [Dynamic Infrastructure](#dynamic-infrastructure).
+1. Click **SAVE**.
+
+**Creating deployment targets** (2:08)
+1. Navigate to **{{Infrastructure,Deployment Targets}}** and click **ADD DEPLOYMENT TARGET**.
+1. TO DO
 
 :::hint
-**Terms you will need to know**
+**Learn more**
 
-#### Deployment Targets
+**[Deployment Targets]()**
 
 Deployment targets represent the servers, machines and cloud services where your software and services will be deployed.
 
-#### Environments
+**[Environments]()**
 
 Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
 
-#### Target Roles
+**[Target Roles]()**
 
 Target roles allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
-#### Tentacle Agent
+**[Tentacle Agent]()**
 
 When you deploy to servers, running either Windows, Linux or Mac, you need to install the Tentacle Agent, a lightweight agent service, on your servers so they can communicate with the Octopus server in either a listening or a polling mode.
 A Tentacle Agent isn't required for deploying to Azure Web Apps, Kubernetes clusters, Azure Service Fabric and Azure Cloud Service targets.
 
-#### Lifecycle
+**[Lifecycles](/docs/deployment-process/lifecycles/index.md)**
 
 Lifecycles give you control over the way releases are promoted between environments.
 :::
 
 ### 3. Package and upload your software
 
-Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to.
+Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository; however, you can push packages manually to the repository if you choose to. 
 
-#### Package
+Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ujMBpvQUOrg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Packaging software** (0:56)
+
+1. TODO
+
+**Uploading a package** (1:28)
+
+1. TODO
+
+:::hint
+**Learn more**
+
+**What is a Package**
 
 A Package is an archive (zip, tar, NuGet) that contains all the files needed to run your software. You can host Packages in external repositories or the built-in Octopus repository.
 
-#### Naming a Package
+**Naming a Package**
 
 The package will need to be named correctly with a packageID, version number and format, for Octopus to recognize it. For example MyPackage.1.0.1.zip
 
-#### Creating a Package
+**[Packaging your applications](/docs/packaging-applications/index.md)**
 
 There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
-We've created the following tools to help package your applications for deployment with Octopus:
+**Getting your package into Octopus**
 
- - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
- - [Octopack](/docs/packaging-applications/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
- - A [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
- - An [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
-
-#### Getting your package into Octopus
-
-Most Octopus users push their package from their build server to Octopus. But you can manually upload the package or host it in an external repository.
+Most Octopus users automate their existing tool chain to push packages to their Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md). But you can manually upload the package or host it in an external repository.  
+:::
 
 :::hint
 **New to Octopus and don’t have a package?**
@@ -84,41 +97,69 @@ Most Octopus users push their package from their build server to Octopus. But yo
 Use our example package to quickly create your first deployment. [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 :::
 
-Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md).
-
 ### 4. Define your deployment process
 
 Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying.
 Before you can deploy, a Project will need to be created with a Deployment Process which will contain all the information needed to have your teams successfully redeploy every time.
 
-#### Projects
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rec3aR8wnwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Create a project** (0:06)
+
+1. TO DO
+
+**Setting up variables** (0:41)
+
+1. TO DO
+
+**Define the deployment process** (8:45)
+
+1. TO DO
+
+:::Hint
+**Learn more about**
+
+**[Projects](/docs/deployment-process/projects/index.md)**
 
 Projects let you manage multiple software projects from the Octopus Web Portal. For each project you have, you define a deployment process, configuration variables, and the environments the software will be deployed to.
 
-#### Deployment Process
+**[Deployment process](/docs/deployment-process/index.md)**
 
 The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
 
-#### Variables
+**[Variables](/docs/deployment-process/variables/index.md)**
 
-Octopus lets you define variables for configuration values that change, so you can have a different value for each environment or deployment target
-
-Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments.
+Octopus lets you define variables for configuration values that change, so you can have a different value for each environment or deployment target.
+:::
 
 ### 5. Deploy your release
 
 Once you have access to an Octopus Server, your infrastructure is configured, your applications packaged, and the deployment process defined, you're ready to start deploying your software.
 
-#### Creating a Release
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BPyWHOeR97w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Creating a release** (0:06)
+
+1. TO DO
+
+**Deploying a release** (1:16)
+
+1.TO DO
+
+:::Hint
+**Learn more**
+
+**Creating a Release**
 
 A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
 
-#### Deploying a Release
+**[Deploy releases](/docs/deployment-process/releases/index.md)**
 
 When you deploy a release, you are executing the deployment process with all the associated details, as they existed when the release was created. You can deploy a release as many times as you want to.
+:::
 
-Learn more about how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
+**[Deployment examples](/docs/deployment-examples/index.md)**
 
-## In this section
+## Next
 
-- [Terms](/docs/getting-started/terms.md)
+- [Common Terms](/docs/getting-started/terms.md)
