@@ -1,5 +1,5 @@
 ---
-title: Octopus Terms
+title: Common Terms
 description: This section is a glossary of terms used within Octopus.
 position: 5
 ---
