@@ -4,7 +4,7 @@ description: This section provides instructions to help you do your first deploy
 position: 1
 ---
 
-Octopus caters for simple to complex deployments and trying to get a complex deployment set up into Octopus for the first time can be challenging. We recommend you follow out Getting Started series which will guide you through a simple deployment and take you through the fundamentals of Octopus. From here you can have a look at more complex deployment patterns.
+This Getting Started series walks you through a simple deployment with Octopus Deploy and explains the Octopus Deploy fundamentals so that you will be equipped to take on more complicated deployments by the end of the series.
 
 ## 1. Hosting the Octopus Deploy Server
 
