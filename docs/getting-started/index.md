@@ -47,19 +47,15 @@ Octopus will need to know the [Infrastructure](/docs/infrastructure/index.md) yo
 :::secondary
 **Learn more**
 
-**[Deployment Targets]()**
+**[Environments](/docs/infrastructure/environments) and [Deployment Targets](/docs/infrastructure/deployment-targets)**
 
-Deployment targets represent the servers, machines and cloud services where your software and services will be deployed.
+Deployment targets represent the servers, machines and cloud services where your software and services will be deployed. Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
 
-**[Environments]()**
-
-Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
-
-**[Target Roles]()**
+**[Target Roles](/docs/infrastructure/deployment-targets/target-roles)**
 
 Target roles allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
-**[Tentacle Agent]()**
+**[Tentacle Agent](/docs/infrastructure/deployment-targets/windows-targets)**
 
 When you deploy to servers, running either Windows, Linux or Mac, you need to install the Tentacle Agent, a lightweight agent service, on your servers so they can communicate with the Octopus server in either a listening or a polling mode.
 A Tentacle Agent isn't required for deploying to Azure Web Apps, Kubernetes clusters, Azure Service Fabric and Azure Cloud Service targets.
@@ -86,6 +82,12 @@ Before you can deploy software with Octopus Deploy, you need to bundle all the f
 1. Navigate to **{{Library,Packages}}** and click **UPLOAD PACKAGE**.
 1. Select your package and click **SAVE**.
 
+:::hint
+**New to Octopus and don’t have a package?**
+
+Use our example package to quickly create your first deployment. [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
+:::
+
 :::secondary
 **Learn more**
 
@@ -100,12 +102,6 @@ There are many more tools you might choose to use to create your package, but as
 Most Octopus users automate their existing tool chain to push packages to their Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md). But you can manually upload the package or host it in an external repository.
 :::
 
-:::hint
-**New to Octopus and don’t have a package?**
-
-Use our example package to quickly create your first deployment. [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
-:::
-
 ## 4. Define your deployment process
 
 Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying. Before you can deploy, a Project will need to be created with a Deployment Process which will contain all the information needed to have your teams successfully redeploy every time.
@@ -115,33 +111,30 @@ Octopus Deploy is designed to work with teams following agile software developme
 **Create a project** (0:06)
 
 1. Select Projects from the main navigation, and click **ADD PROJECT**.
-1. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
-1. Add a description for the project.
+1. Give the project a name and add a description.
 1. If you want to change the Project group select the project group from the dropdown menu.
 1. If you want to change the Lifecycle select the lifecycle from the dropdown menu.
 1. Click **SAVE** and you will be taken to the newly created project's overview page.
 
 **Setting up variables** (0:41)
 
-1. To add a variable to your project, navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. From your new Project's Overview page, and click **Variables**.
 1. Give the variable a name, for instance, *Greeting*.
 1. Enter the first value for the variable, for instance, *Hello*, *Test*, in the value field.
 1. Define the scope for the value, for instance, by selecting the *Test* environment.
 1. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello*, *Production*.
 1. Define the scope for this value, for instance, by selecting the *Production* environment.
 1. Save the variable by clicking **SAVE**.
-1. In this example, we'll reference this variable from a Run a Script step.
 
 **Define the deployment process** (8:45)
 
-1. From your new project's overview page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
-1. Click **ADD STEP**,
+1. From your new Project's Overview page, click **DEFINE YOUR DEPLOYMENT PROCESS** and click **ADD STEP**.
 1. To create a simple step for your first deployment select the **Run a Script** step.
 1. Give the step a name, for instance, *Say Hello*.
 1. For the execution plan, leave the selection at the default *Deployment targets* and select a target role.
 1. For the script section, expand the *Script content* section by clicking on it. Paste the following PowerShell script into the text box:
-​   Write-Host ​
-1. Select the variable Greeting from the insert variable tool (#{}) next to the script editor, and click **SAVE**.
+​   ```Write-Host```
+1. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
 
 :::Secondary
 **Learn more**
