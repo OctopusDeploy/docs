@@ -39,7 +39,7 @@ To allow your Octopus Deploy Server to connect to the Tentacle, you'll need to a
 
 **Intermediary Firewalls**
 
-Don't forget to allow access in any intermediary firewalls between the Octopus server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly, if your Tentacle server is hosted in Microsoft Azure, you'll also need to add an Endpoint to tell Azure to allow the traffic.
+Don't forget to allow access in any intermediary [firewall](https://hosting.review/web-hosting-glossary/#13)s between the Octopus server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly, if your Tentacle server is hosted in Microsoft Azure, you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ## Configure a Polling Tentacle
 
