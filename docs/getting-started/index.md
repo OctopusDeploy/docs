@@ -11,28 +11,14 @@ Octopus caters for simple to complex deployments and trying to get a complex dep
 The first thing you will need to do is decide where you want to host your [Octopus Deploy server](/docs/installation/index.md). You can install your own [self-hosted](/docs/installation/index.md) instance or use [Octopus Cloud](/docs/octopus-cloud/index.md) which is hosted and maintained by Octopus Deploy.
 
 **Installing self-hosted Octopus Deploy server**
-1. Download the installer from {{Resources,Downloads}} at [octopus.com](octopus.com)
-1. Run the installer on your machine and follow the instructions
-1. Once installed, click **Get started...** and either enter your details to start a free trial and click **Next**.
-1. Accept the default **Home Directory** or enter a location of your choice.
-1. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
-1. On the **Database** page, click the dropdown arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
-1. Enter a name for the database, and click **Next** and **OK** to **create the database**. Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database. 
-1. Accept the **default port** and directory or enter your own.
-1. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using active directory, enter the active directory user details.
+1. Download the installer from [{{Resources,Downloads}}](https://octopus.com/downloads)
+1. Run the installer on your machine and follow the [installation instructions](docs/installation/index.md#install-octopus).
+1. Once installed, click **Get started...** and follow the installer wizard to set up your instance.
 1. Click **Install**.
 
 **Create a Cloud instance**
-1. Create an account by navigating **{{Try for free,Start free trial}}** at [octopus.com](octopus.com)
-1. From the instances screen, click **Create cloud instance**.
-1. Enter an **instance name** for your Octopus Cloud instance.
-1. Choose a URL for the instance.
-1. Select the Cloud region for your instance. Currently the only option is **US - Oregon**.
-1. Click **Enter account details**.
-1. Create your first user for Octopus Cloud.
-1. Enter the username the user will use to log into Octopus Cloud.
-1. Create a password for the user and confirm the password.
-1. Click **Continue to Confirmation**.
+1. Create an account by clicking **Start free trial** at [octopus.com/trial](https://octopus.com/trial)
+1. From the instances screen, click **Create cloud instance** and follow the [set up instructions](docs/octopus-cloud/index.md#getting-started-with-octopus-cloud).
 1. Confirm the details you've provided, agree to the terms and click **Looks good. Deploy my Octopus!**.
 
 ## 2. Set up deployment environments
@@ -158,7 +144,7 @@ Octopus Deploy is designed to work with teams following agile software developme
 1. Select the variable Greeting from the insert variable tool (#{}) next to the script editor, and click **SAVE**.
 
 :::Secondary
-**Learn more about**
+**Learn more**
 
 **[Projects](/docs/deployment-process/projects/index.md)**
 
