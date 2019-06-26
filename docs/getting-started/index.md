@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Octopus Deploy
-description: This section provides instructions to help you do your first deployment quickly.
+description: This section provides instructions to help you with your first deployment.
 position: 1
 ---
 
@@ -39,15 +39,15 @@ Octopus will need to know the [Infrastructure](/docs/infrastructure/index.md) yo
 :::secondary
 **Learn more**
 
-**[Environments](/docs/infrastructure/environments) and [Deployment Targets](/docs/infrastructure/deployment-targets)**
+**[Environments](/docs/infrastructure/environments/index.md) and [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)**
 
 Deployment targets represent the servers, machines and cloud services where your software and services will be deployed. Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
 
-**[Target Roles](/docs/infrastructure/deployment-targets/target-roles)**
+**[Target Roles](/docs/infrastructure/deployment-targets/target-roles/index.md)**
 
 Target roles allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
-**[Tentacle Agent](/docs/infrastructure/deployment-targets/windows-targets)**
+**[Tentacle Agent](/docs/infrastructure/deployment-targets/windows-targets/index.md)**
 
 When you deploy to servers, running either Windows, Linux or Mac, you need to install the Tentacle Agent, a lightweight agent service, on your servers so they can communicate with the Octopus server in either a listening or a polling mode.
 A Tentacle Agent isn't required for deploying to Azure Web Apps, Kubernetes clusters, Azure Service Fabric and Azure Cloud Service targets.
@@ -89,7 +89,7 @@ A Package is an archive (zip, tar, NuGet) that contains all the files needed to 
 
 There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
-**[Build server integration](/docs/packaging-applications/build-servers)**
+**[Build server integration](/docs/packaging-applications/build-servers/index.md)**
 
 Most Octopus users automate their existing tool chain to push packages to their Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md). But you can manually upload the package or host it in an external repository.
 :::
@@ -165,7 +165,7 @@ Once you have access to an Octopus Server, your infrastructure is configured, yo
 :::Secondary
 **Learn more**
 
-**[Creating a Releas](/docs/deployment-process/releases/index.md#creating-a-release)**
+**[Creating a Release](/docs/deployment-process/releases/index.md#creating-a-release)**
 
 A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
 
