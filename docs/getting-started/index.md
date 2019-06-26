@@ -123,8 +123,8 @@ Octopus Deploy is designed to work with teams following agile software developme
 1. From your new Project's Overview page, click **DEFINE YOUR DEPLOYMENT PROCESS** and click **ADD STEP**.
 1. To create a simple step for your first deployment select the **Run a Script** step.
 1. Give the step a name, for instance, *Say Hello*.
-1. For the execution plan, select *Run on Octopus Server*.
-1. For the script section, expand the *Script content* section by clicking on it. Paste the following PowerShell script into the text box:
+1. For the execution Location, leave the selection at the default *Deployment targets* and select a target role.
+1. For the script section, paste the following PowerShell script into the Inline Source Code text box:
 ​   ```Write-Host```
 1. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
 
@@ -135,24 +135,24 @@ Octopus Deploy is designed to work with teams following agile software developme
 
 Projects let you manage multiple software projects from the Octopus Web Portal. For each project you have, you define a deployment process, configuration variables, and the environments the software will be deployed to.
 
-**[Deployment process](/docs/deployment-process/index.md)**
+**[Deployment Process](/docs/deployment-process/index.md)**
 
-The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
+The deployment process is a series of steps, each step contains a specific action (or set of actions) that is executed as part of the deployment process every time your software is deployed.
 
 **[Variables](/docs/deployment-process/variables/index.md)**
 
-Octopus lets you define variables for configuration values that change, so you can have a different value for each environment or deployment target. For example you might have different values for database connection strings, emails or passwords.
+Octopus lets you define variables for configuration values that change, so you can have a different value for each environment or deployment target. For example you might have different values for database connection strings, emails, or passwords.
 :::
 
-## 5. Deploy your release
+## 5. Deploy your Release
 
-Once you have access to an Octopus Server, your infrastructure is configured, your applications packaged, and the deployment process defined, you're ready to start deploying your software.
+Once you have access to an Octopus server, your infrastructure is configured, your applications packaged, and the deployment process defined, you're ready to start deploying your software.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BPyWHOeR97w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### **Creating a Release** (0:06)
 
-1. With your deployment process defined, you can create a release on the Project's Overview page, by clicking **CREATE RELEASE**.
+1. With your deployment process defined, you can create a release on the project's overview page, by clicking **CREATE RELEASE**.
 1. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
 
 ### **Deploying a Release** (1:16)
@@ -167,15 +167,14 @@ Once you have access to an Octopus Server, your infrastructure is configured, yo
 
 **[Creating a Release](/docs/deployment-process/releases/index.md#creating-a-release)**
 
-A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
+A Release is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from projects and deployed via a lifecycle to your environments.
 
-**[Deploy Releases](/docs/deployment-process/releases/index.md)**
+**[Deploying Releases](/docs/deployment-process/releases/index.md)**
 
 When you deploy a release, you are executing the deployment process with all the associated details, as they existed when the release was created. You can deploy a release as many times as you want to.
 :::
 
-**[Deployment Examples](/docs/deployment-examples/index.md)**
-
 ## Next
 
 - [Common Terms](/docs/getting-started/terms.md)
+- [Deployment Examples](/docs/deployment-examples/index.md)
