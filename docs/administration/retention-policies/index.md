@@ -48,13 +48,9 @@ Under **{{Library,Lifecycles}}** you select the Lifecycle you want to define or 
 
 ![](3278063.png)
 
-Each phase will inherit the retention policy from the above phase, but this is something you can change.
+Each phase will inherit the retention policy from the above phase, but this is something you can change by expanding the Retention Policy panel.
 
 ![](3278062.png)
-
-Expand the Retention Policy panel to make changes.
-
-![](3278061.png)
 
 Releases determines what is kept on the Octopus Server, and Files on Tentacle determines what files are kept on the Tentacle.
 
