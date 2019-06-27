@@ -52,7 +52,7 @@ Each phase will inherit the retention policy from the above phase, but this is s
 
 ![](3278062.png)
 
-Clicking on the change link will bring up a dialog to change your retention policy.
+Expand the Retention Policy panel to make changes.
 
 ![](3278061.png)
 
