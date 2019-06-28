@@ -23,7 +23,7 @@ The first thing to decide is where to host your [Octopus Deploy server](/docs/in
 
 ## 2. Configure your Deployment Environments
 
-Octopus needs to connect to the [Infrastructure](/docs/infrastructure/index.md) you'll be using to deploy your software. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Testing and finally into Production.
+Octopus needs to connect to the [Infrastructure](/docs/infrastructure/index.md) you'll be using to deploy your software. You can deploy to Windows servers, Linux servers, Microsoft Azure, an Offline Package Drop, Cloud Regions, or Kubernetes. These are known as your deployment targets, and they are organized into environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VnXGAJP_SXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -41,7 +41,7 @@ Octopus needs to connect to the [Infrastructure](/docs/infrastructure/index.md) 
 
 **[Environments](/docs/infrastructure/environments/index.md) and [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)**
 
-Deployment targets represent the servers, machines, and cloud services where your software and services will be deployed. Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
+Deployment targets represent the servers, machines, and cloud services where your software and services will be deployed. Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline. For instance, from Development to Test and finally into Production.
 
 **[Target Roles](/docs/infrastructure/deployment-targets/target-roles/index.md)**
 
@@ -96,7 +96,7 @@ Most Octopus users automate their existing tool chain to push packages to their 
 
 ## 4. Define Your Deployment Process
 
-Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying. Before you can deploy, you need to create a project with your deployment process. The deployment process contains all the information needed to have your teams successfully redeploy every time.
+Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying. Before you can deploy, you need to create a project with your deployment process. The deployment process contains all the information needed to have your teams successfully deploy every time.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Rec3aR8wnwk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

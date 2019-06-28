@@ -20,11 +20,11 @@ Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octo
 
 ## Deployment Targets
 
-[Deployment Targets](/docs/infrastructure/deployment-targets/index.md)  represent the servers, machines and cloud services where your software and services will be deployed.
+[Deployment Targets](/docs/infrastructure/deployment-targets/index.md) represent the servers, machines and cloud services where your software and services will be deployed.
 
 ## Environments
 
-Octopus organizes your deployment targets into groups called [Environments](/docs/infrastructure/environments/index.md) so you can promote your software through your deployment pipeline, for instance, from Development to Test and finally into Production.
+Octopus organizes your deployment targets into groups called [Environments](/docs/infrastructure/environments/index.md) so you can promote your software through your deployment pipeline. For instance, from Development to Test and finally into Production.
 
 ## Target Roles
 
@@ -36,7 +36,7 @@ Octopus organizes your deployment targets into groups called [Environments](/doc
 
 ## Package
 
-A [Package](/docs/packaging-applications/index.md) is an archive (zip, tar, NuGet) that contains all the files needed to run your software. You can host Packages in external repositories or the built-in Octopus repository. The package will need to be named correctly with a packageID, version number and format, for Octopus to recognize it. For example MyPackage.1.0.1.zip
+A [Package](/docs/packaging-applications/index.md) is an archive (zip, tar, NuGet) that contains all the files needed to run your software. You can host Packages in external repositories or the built-in Octopus repository. The package will need to be named correctly with a [package ID](/docs/packaging-applications/index.md#package-id), [version number](/docs/packaging-applications/index.md#version-numbers) and as a [supported format](/docs/packaging-applications/index.md#supported-formats), for Octopus to recognize it. For example MyPackage.1.0.1.zip
 
 ## Projects
 
@@ -56,7 +56,7 @@ A [Release](/docs/deployment-process/releases/index.md) is a snapshot of your de
 
 ## Deploying a Release
 
-When you [deploy a release](/docs/deployment-process/releases/index.md), you are executing the deployment process with all the associated details, as they existed when the release was created. You can Deploy a Release as many times as you want to.
+When you [deploy a release](/docs/deployment-process/releases/index.md), you are executing the deployment process with all the associated details, as they existed when the release was created. You can deploy a release as many times as you want to.
 
 ## Spaces
 
