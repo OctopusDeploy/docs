@@ -2,6 +2,7 @@
 title: Getting Started with Octopus Deploy
 description: This section provides instructions to help you with your first deployment.
 position: 1
+hideInThisSection: true
 ---
 
 This Getting Started series walks you through a simple deployment with Octopus Deploy and explains the Octopus Deploy fundamentals so that you will be equipped to take on more complicated deployments by the end of the series.
