@@ -24,7 +24,7 @@ Depending on your scenario you may want to relax or ignore these recommendations
 
 If you consider networking, the host operating system, Microsoft SQL Server, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
 
-Learn about [getting started with Octopus Deploy](/docs/getting-started.md).
+Learn about [getting started with Octopus Deploy](/docs/getting-started/index.md).
 
 ### Choose Your Order For Hardening
 
