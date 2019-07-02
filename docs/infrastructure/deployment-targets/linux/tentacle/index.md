@@ -27,32 +27,29 @@ So far there is a .deb package for use with `apt-get` on Debian distributions an
 ## Installing and configuring Linux Tentacle
 Note that many of the steps described below must be run as a super user using `sudo`.
 
-### Download the package
-```bash Debian package
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb
-#or
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle-5.0.0-beta1-amd64.deb
+### Installing Tentacle
+```bash Debian/Ubuntu repository
+deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+apt-get update
+apt-get install tentacle
+```
+
+```bash CentOS/Fedora repository
+sudo wget https://s3.amazonaws.com/octopus-rpm-repo/production.repo -O /etc/yum.repos.d/production.repo
+sudo yum install tentacle
 ```
 
 ```bash Archive
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
 #or
 curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
-```
 
-### Installing Tentacle
-Tentacle can be installed using the debian package or archive:
-
-```bash Debian package
-apt install ./tentacle_<VERSION>_amd64.deb
-```
-
-```bash Archive
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 ```
 
-When using the Debian package, the Tentacle installation will automatically configure a default Tentacle instance. If you are using the Debian package you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
+When using either the apt or rpm package manager, the Tentacle installation will automatically configure a default Tentacle instance. If you installed using a package manager you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
 
 ### Setting up a Tentacle instance
 Many instances of Tentacle can be configured on a single machine. The default instance of Tentacle is named `Tentacle` and can be created via the command line:
