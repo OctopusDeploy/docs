@@ -1,11 +1,11 @@
 ---
-title: Deregister From
+title: Deregister Worker
 description: Using the Tentacle.exe command line executable to deregister a Worker from an Octopus Server.
 ---
 
 Deregisters this Worker from an Octopus Server
 
-**Deregister from options**
+**Deregister Worker options**
 
 ```text
 Usage: tentacle deregister-worker [<options>]
