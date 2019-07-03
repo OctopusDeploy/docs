@@ -32,14 +32,14 @@ There are a number of typical steps that are required to push a package to Octop
 We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ## 2. Create the Package
-With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` SemVer format.
+With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/create-packages/versioning.md). In this example we will stick to a simple `AppName.Major.Minor.Patch` SemVer format.
 
 Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
 
-This steps runs the [pack command](/docs/packaging-applications/octo.exe.md) on the command line tool.
+This steps runs the [pack command](/docs/packaging-applications/create-packages/octo.exe.md) on the command line tool.
 
 :::hint
-If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/octopack/index.md) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
+If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
 :::
 
 ### Package ID

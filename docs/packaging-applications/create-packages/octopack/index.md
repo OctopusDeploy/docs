@@ -9,7 +9,7 @@ You can package full framework .NET applications from your continuous integratio
 
 OctoPack works by calling `nuget.exe pack` to build the NuGet package, and `nuget.exe push` to publish the package (if so desired). OctoPack understands .NET applications and uses that knowledge to build the right kind of package for each kind of .NET application.
 
-OctoPack is not compatible with ASP.NET Core applications. If you want to package APS.NET Core applications see [creating packages with Octo.exe](/docs/packaging-applications/octo.exe.md).
+OctoPack is not compatible with ASP.NET Core applications. If you want to package APS.NET Core applications see [creating packages with Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
 
 ## Installing OctoPack {#UsingOctoPack-InstallingOctoPack}
 
@@ -134,7 +134,7 @@ During the build messages are output at the `Normal` msbuild logging level which
 
 ## Version Numbers are Preserved as-is
 
-NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/versioning.md).
+NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning.md).
 
 To make this work for NuGet packages we have forked NuGet.
 
@@ -205,7 +205,7 @@ Read more about [pushing packages to the Octopus built-in repository](/docs/pack
 
 ## Push a NuGet Package That Already Exists
 
-When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/octopack/index.md) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
+When pushing to the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md) using [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) or [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference), the default URL looks like this:
 
 `http://MyOctopusServer/nuget/packages`
 
@@ -251,7 +251,7 @@ In addition to the common arguments above, OctoPack has a number of other parame
 ## Next
 
  - [Packaging Applications](/docs/packaging-applications/index.md)
- - [Use Octo.exe to create packages](/docs/packaging-applications/octo.exe.md)
- - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/octopack/octopack-to-include-buildevent-files.md)
- - [Troubleshooting OctoPack](/docs/packaging-applications/octopack/troubleshooting-octopack.md)
+ - [Use Octo.exe to create packages](/docs/packaging-applications/create-packages/octo.exe.md)
+ - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
  - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

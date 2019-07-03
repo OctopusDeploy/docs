@@ -18,8 +18,8 @@ You can create NuGet packages in a number of ways:
 
 - [Manually using a GUI](#manually-create-nuget-packages).
 - Automatically [using NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference).
-- Automatically [using Octo.exe](/docs/packaging-applications/octo.exe.md).
-- Automatically [using OctoPack](/docs/packaging-applications/octopack/index.md).
+- Automatically [using Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
+- Automatically [using OctoPack](/docs/packaging-applications/create-packages/octopack/index.md).
 
 :::success
 **Tip: Structure the Package as You Want It Extracted on Disk**
@@ -33,7 +33,7 @@ NuGet packages can have dependencies - library A might depend on library B, for 
 
 ## Manually Create NuGet Packages {#manually-create-nuget-packages}
 
-The simplest way to create a NuGet package is to create it manually, using the NuGet Package Explorer. This isn't how we recommend creating your packages most of the time (read more about [Octo](/docs/packaging-applications/octo.exe.md)), but it's a good way to get started, or when deploying one-off utilities.
+The simplest way to create a NuGet package is to create it manually, using the NuGet Package Explorer. This isn't how we recommend creating your packages most of the time (read more about [Octo](/docs/packaging-applications/create-packages/octo.exe.md)), but it's a good way to get started, or when deploying one-off utilities.
 
 NuGet Package Explorer is an open source desktop application that makes it easy to view and create NuGet packages. You can download it from [NuGet Package Explorer GitHub repository](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer).
 

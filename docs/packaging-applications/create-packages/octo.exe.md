@@ -92,7 +92,7 @@ dotnet octo pack ./dist --id="SomeLibrary" --version="1.0.0"
 
 ## Packaging a .NET Framework Web Application
 
-There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
+There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/create-packages/octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
 ```
 msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
@@ -118,8 +118,8 @@ These are known issues to be aware of with other compression libraries:
 ## Next
 
  - [Packaging Application](/docs/packaging-applications/index.md)
- - Learn about [NuGet Packages](/docs/packaging-applications/nuget-packages.md).
- - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
+ - Learn about [NuGet Packages](/docs/packaging-applications/create-packages/nuget-packages.md).
+ - Creating packages with [Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
  - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
  - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - Using [Package Repositories](/docs/packaging-applications/index.md).

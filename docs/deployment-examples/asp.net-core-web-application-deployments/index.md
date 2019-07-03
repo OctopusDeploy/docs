@@ -24,16 +24,16 @@ When your application has been published you need to package it:
 octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 ```
 
-For more information about packaging applications with Octo.exe see [Creating packages using Octo.exe](/docs/packaging-applications/octo.exe.md).
+For more information about packaging applications with Octo.exe see [Creating packages using Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
 
-If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) you can create a [zip file](/docs/packaging-applications/octo.exe.md#create-zip-packages). 
+If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) you can create a [zip file](/docs/packaging-applications/create-packages/octo.exe.md#create-zip-packages). 
 
 When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
 :::warning
-OctoPack is not compatible with ASP.NET Core applications. Please see [the OctoPack documentation](/docs/packaging-applications/octopack/index.md#UsingOctoPack-UsingNETCore) for more details.
+OctoPack is not compatible with ASP.NET Core applications. Please see [the OctoPack documentation](/docs/packaging-applications/create-packages/octopack/index.md#UsingOctoPack-UsingNETCore) for more details.
 :::
 
 ## Deployment {#DeployingASP.NETCoreWebApplications-Deployment}

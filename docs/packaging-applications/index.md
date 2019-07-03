@@ -40,13 +40,13 @@ Avoid using numbers in your package ID as it could result in your version number
 
 ## Version Numbers {#version-numbers}
 
-Octopus supports [Semantic Versioning](/docs/packaging-applications/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case you will need to use [Maven Versions](/docs/packaging-applications/versioning.md#maven).
+Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning.md#maven).
 
 The version number needs to be applied to your package after the package ID and before the format. For instance. The version number in our sample package is **1.0.0**.
 
 > [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
-Learn more about [versioning schemes](/docs/packaging-applications/versioning.md).
+Learn more about [versioning schemes](/docs/packaging-applications/create-packages/versioning.md).
 
 ## Supported Formats {#supported-formats}
 
@@ -62,42 +62,8 @@ It is important that your packages have the correct **file extension** because O
 | Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployment-examples/docker-containers/index.md) and Octopus Deploy. |
 
-## Creating Packages {#creating-packages}
-
-We've created the following tools to help package your applications for deployment with Octopus:
-
- - [Octo.exe](/docs/packaging-applications/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
- - [Octopack](/docs/packaging-applications/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
- - A [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
- - An [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
-
-In addition to these tools, you can use other tools to create your packages, for instance, you might use the following:
-
- - The built-in tools for [TeamCity](https://blog.jetbrains.com/teamcity/2010/02/artifact-packaging-with-teamcity/).
- - [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference) to create NuGet packages.
- - Using the [NuGet Package Explorer](/docs/packaging-applications/nuget-packages.md).
- - [Grunt, gulp, or octojs](/docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md) for JavaScript apps.
-
-There are many more tools you might choose to use, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
-
-## Build Server Integration
-
-Your continuous integration/build server will package your applications and make them available to Octopus for deployment from a [package repository](/docs/packaging-applications/package-repositories/index.md). The following tools are available to integrate your continuous integration/build server with Octopus Deploy:
-
- - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/index.md)
- - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
- - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
- - [BitBucket Pipelines](docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
- - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
- - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
- - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
-
 ## Next
 
- - Choosing a [versioning scheme](/docs/packaging-applications/versioning.md).
- - Creating packages with [Octo.exe](/docs/packaging-applications/octo.exe.md).
- - Creating packages with [Octopack](/docs/packaging-applications/octopack/index.md).
- - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
- - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
- - Using [Package Repositories](/docs/packaging-applications/index.md).
- - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
+ - [Create Packages](/docs/packaging-applications/create-packages/index.md).
+ - [Build Servers](/docs/packaging-applications/build-servers/index.md)
+ - [Package Repositories](/docs/packaging-applications/package-repositories/index.md)

@@ -17,7 +17,7 @@ While this is a valid Team Build build number, it can cause issues when trying t
 
 ## SemVer
 
-Packages used by Octopus must conform to [SemVer 1.0 or 2.0](/docs/packaging-applications/versioning.md) depending on the version of Octopus you're using.
+Packages used by Octopus must conform to [SemVer 1.0 or 2.0](/docs/packaging-applications/create-packages/versioning.md) depending on the version of Octopus you're using.
 
 The link above explains versioning in detail, but in its simplest form it means two things:
 
@@ -46,7 +46,7 @@ Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) ca
 
 ## Packaging in Team Build
 
-There are two standard ways to package your build output in Team Build. The first is to use [OctoPack](/docs/packaging-applications/octopack/index.md), and the second is to use the build tasks in the [Octopus marketplace extension](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
+There are two standard ways to package your build output in Team Build. The first is to use [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md), and the second is to use the build tasks in the [Octopus marketplace extension](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
 
 You can mix and match these two methods. For example, you might prefer to use OctoPack and the `/p:RunOctoPack` MS Build argument, but then use the Push and Create Release tasks from the extension.
 
@@ -57,7 +57,7 @@ Octopack is not compatibile with .NET core and we suggest using the extension in
 
 ## Versioning When Using OctoPack
 
-Unless told otherwise, OctoPack will attempt to set the package version itself. You can see exactly how it tries to find a version [on this documentation page](/docs/packaging-applications/octopack/index.md#UsingOctoPack-Versionnumbers).
+Unless told otherwise, OctoPack will attempt to set the package version itself. You can see exactly how it tries to find a version [on this documentation page](/docs/packaging-applications/create-packages/octopack/index.md#UsingOctoPack-Versionnumbers).
 
 More often than not, the version number will come from the `[assembly: AssemblyVersion]` attribute found in the `AssemblyInfo.cs` file (usually in the `Properties` folder of your project).
 
@@ -80,7 +80,7 @@ To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` ar
     - In the older XAML-based builds: `/p:OctoPackPackageVersion=$(TF_BUILD_BUILDNUMBER)`. You may also need to do some [extra work](http://stackoverflow.com/questions/40120013/how-to-get-msbuild-build-number-in-name-of-nuget-package-using-octopack) for certain build definitions.
 
 :::hint
-You can use the [additional MSBuild arguments for OctoPack](/docs/packaging-applications/octopack/index.md#UsingOctoPack-Publishing) to give yourself more control over the packaging process.
+You can use the [additional MSBuild arguments for OctoPack](/docs/packaging-applications/create-packages/octopack/index.md#UsingOctoPack-Publishing) to give yourself more control over the packaging process.
 :::
 
 ## Versioning When Using the Octopus Build Tasks

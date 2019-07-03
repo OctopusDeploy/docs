@@ -1,7 +1,7 @@
 ---
 title: Package Repositories
 description: Octopus need to retrieve applications from a package repository; options include the built-in repository, local and remote NuGet feeds, Maven, JetBrains TeamCity, MyGet and Azure DevOps or TFS Package Management.
-position: 70
+position: 30
 ---
 
 When planning your Octopus installation, you will need to decide how to host your packages. Your continuous integration server should create your packages, and publish them to a package repository. A repository can be as simple as a file share, or it could be a dedicated server.
