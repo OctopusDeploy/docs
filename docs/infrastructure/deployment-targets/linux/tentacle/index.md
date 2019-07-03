@@ -49,7 +49,7 @@ mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 ```
 
-When using either the apt or rpm package manager, the Tentacle installation will automatically configure a default Tentacle instance. If you installed using a package manager you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
+When using either the apt or rpm package manager, the Tentacle installation will automatically configure a default Tentacle instance. If you installed Tentacle using a package manager you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
 
 ### Setting up a Tentacle instance
 Many instances of Tentacle can be configured on a single machine. The default instance of Tentacle is named `Tentacle` and can be created via the command line:
