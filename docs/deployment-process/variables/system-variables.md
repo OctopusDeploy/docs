@@ -205,7 +205,7 @@ Server-level variables describe the Octopus Server on which the deployment is ru
 | Name and Description | Example                                  |
 | -------------------  | ---------------------------------------- |
 | **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server API can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
-| **`Octopus.Web.ServerUri`** <br/>The default URL at which the server portal can be accessed, as configured in the Configuration/Nodes settings. | *[https://my-octopus](https://my-octopus)* |
+| **`Octopus.Web.ServerUri`** <br/>The default URL at which the server portal can be accessed, as configured in the Configuration/Nodes settings. **Introduced in Octopus 2019.4.0.** | *[https://my-octopus](https://my-octopus)* |
 
 ## Tracking Deployment Status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
