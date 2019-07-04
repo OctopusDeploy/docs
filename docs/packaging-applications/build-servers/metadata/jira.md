@@ -34,12 +34,11 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
-    The password should be an API Token, rather than an actual password.
+    Note: This needs to be a username and password as Jira Server does not support API tokens.
     
     - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will come through to the [release notes templates](/docs/packaging-applications/build-servers/metadata/release-notes-templates.md) as the work item link's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
-
 
 When configured, this integration will retrieve Jira issue details and add details to your releases and deployments and generate release notes automatically. 
 
