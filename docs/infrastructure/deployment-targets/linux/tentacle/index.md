@@ -19,7 +19,7 @@ Linux Tentacle is intended to provide feature parity with Windows Tentacle. The 
 
 ## Downloads
 
-So far there is a .deb package for use with `apt-get` on Debian distributions and a .tar.gz archive for manual installations:
+So far there is a .deb package for use with `apt-get` on Debian distributions, an .rpm package for use with `yum` on Fedora distributions, and a .tar.gz archive for manual installations:
 
 - [Download the Debian package](https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb)
 - [Download the archive](https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz)
@@ -27,32 +27,29 @@ So far there is a .deb package for use with `apt-get` on Debian distributions an
 ## Installing and configuring Linux Tentacle
 Note that many of the steps described below must be run as a super user using `sudo`.
 
-### Download the package
-```bash Debian package
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb
-#or
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle-5.0.0-beta1-amd64.deb
+### Installing Tentacle
+```bash Debian/Ubuntu repository
+sudo add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+apt-get update
+apt-get install tentacle
+```
+
+```bash CentOS/Fedora repository
+sudo wget https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
+sudo yum install tentacle
 ```
 
 ```bash Archive
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz
 #or
 curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
-```
 
-### Installing Tentacle
-Tentacle can be installed using the debian package or archive:
-
-```bash Debian package
-apt install ./tentacle_<VERSION>_amd64.deb
-```
-
-```bash Archive
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 ```
 
-When using the Debian package, the Tentacle installation will automatically configure a default Tentacle instance. If you are using the Debian package you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
+When using either the apt or rpm package manager, the Tentacle installation will automatically configure a default Tentacle instance. If you installed Tentacle using a package manager you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
 
 ### Setting up a Tentacle instance
 Many instances of Tentacle can be configured on a single machine. The default instance of Tentacle is named `Tentacle` and can be created via the command line:
@@ -160,9 +157,10 @@ name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus 
 environment="Test"  # The environment to register the Tentacle in
 role="web server"   # The role to assign to the Tentacle
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
-
-apt install ./tentacle_5.0.0-beta1.deb
+add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+apt-get update
+apt-get install tentacle
 
 /opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
@@ -179,9 +177,10 @@ name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus 
 environment="Test"  # The environment to register the Tentacle in
 role="web server"   # The role to assign to the Tentacle
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
-
-apt install ./tentacle_5.0.0-beta1.deb
+add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+apt-get update
+apt-get install tentacle
 
 /opt/octopus/tentacle/Tentacle configure --noListen True
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
@@ -196,9 +195,10 @@ apiKey=""           # An Octopus Server api key with permission to add machines
 name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
 workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
-
-apt install ./tentacle_5.0.0-beta1.deb
+add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+apt-get update
+apt-get install tentacle
 
 /opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
@@ -214,9 +214,10 @@ apiKey=""           # An Octopus Server api key with permission to add machines
 name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
 workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-amd64.deb --output tentacle_5.0.0-beta1.deb
-
-apt install ./tentacle_5.0.0-beta1.deb
+add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+apt-get update
+apt-get install tentacle
 
 /opt/octopus/tentacle/Tentacle configure --noListen True
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
