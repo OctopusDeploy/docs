@@ -3,7 +3,11 @@ title: Jira Issue Tracking Integration
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 ---
 
-**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds links to Jira issues in the release details of your deployments, and adds release notes to Octopus from Jira to help automate the release note process. If you're using Jira Cloud, you can also view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been included in any deployments. This feature builds upon the functionality to [track metadata and work item](/docs/packaging-applications/build-servers/metadata/index.md) information through your CI/CD pipeline.
+**Octopus 2019.4** introduced support to integrate Octopus with Jira Cloud and Jira Server. The integration adds links to Jira issues in the release details of your deployments, and adds release notes to Octopus from Jira to help automate the release note process. If you're using Jira Cloud, you can also view release and deployment details from Octopus directly in Jira issues, making it possible to see if the issue has been included in any deployments. 
+
+## Pre-requesite
+
+This feature builds upon the functionality to [track metadata and work item](/docs/packaging-applications/build-servers/metadata/index.md) information through your CI/CD pipeline.
 
 ![Octopus release with Jira issues](octo-jira-release-details.png "width=500")
 
@@ -96,7 +100,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
 When configured, this integration will provide Jira with updates about the progress of Jira issues (work items) through the pipeline.
 
-## Octopus Deployment Task Log
+### Octopus Deployment Task Log
 
 When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
