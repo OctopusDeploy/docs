@@ -25,7 +25,7 @@ Keeping the file separate to the package means that packages stored in external 
 
 :::hint
 **Build Server support**
-Our metadata step is included in our [official build server plugins](https://octopus.com/downloads). Our TeamCity and Bamboo plugins support this new step, we're updating our Azure DevOps extension to add support for this and we're preparing our first release of our Jenkins plugin. Therefore our metadata step, and thus Jira integration, is not yet supported with Azure DevOps or Jenkins build server. 
+Our [official build server plugins](https://octopus.com/downloads) support this metadata step. This list currently includes our TeamCity and Bamboo plugins and in the future we'll add our Azure DevOps extension and Jenkins plugin.  Therefore our metadata step, and thus Jira integration, is not yet supported by Azure DevOps or Jenkins build servers.  
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::
