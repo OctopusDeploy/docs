@@ -2,9 +2,9 @@
 title: Installation
 position: 10
 description: How to install the central Octopus Deploy Server.
-hideInThisSectionHeader: true
+hideInThisSection: true
 ---
- 
+
 The Octopus Deploy server is available as a self-hosted instance that you install and manage on your infrastructure. This section walks you through installing the **self-hosted** Octopus Deploy server.
 
 If you need to upgrade you existing self-hosted Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md).
@@ -83,7 +83,7 @@ If you've had any problems with the installation, review the [troubleshooting pa
 
 ## Next Steps
 
-Now that you've installed the Octopus Deploy server, it's time to configure the [Infrastructure](/docs/infrastructure/index.md) you are deploying your software to.
-
- - If you need to upgrade your Octopus server, refer to the [upgrading guide](/docs/administration/upgrading/index.md).
- - If you'd like to listen to the customer success team discussing the installation process, see [Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=P_qUe4ZiqGM).
+ - [Configure your Infrastructure](/docs/infrastructure/index.md)
+ - [Upgrading Guide](/docs/administration/upgrading/index.md).
+ - [Automating Octopus Installation](/docs/installation/automating-installation.md)
+ - [Watch Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=P_qUe4ZiqGM).

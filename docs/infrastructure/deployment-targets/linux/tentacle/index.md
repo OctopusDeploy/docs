@@ -103,7 +103,7 @@ To configure a polling Tentacle:
 /opt/octopus/tentacle/Tentacle configure --noListen True
 ```
 
-Octopus supports HTTP proxies for communication from the Tentacle and Octopus Server. See the [proxy documentation](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md) for more information about proxies. To configure a proxy for polling communication:
+Octopus supports HTTP proxies for communication from the Tentacle and Octopus Server. See the [proxy documentation](/docs/infrastructure/deployment-targets/proxy-support.md) for more information about proxies. To configure a proxy for polling communication:
 
 ```bash
 proxyHost=""

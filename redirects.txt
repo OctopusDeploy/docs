@@ -26,7 +26,7 @@ docs/administration/subscription_events.md -> docs/administration/managing-infra
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
 docs/key-concepts/environments/index.md -> docs/infrastructure/environments/index.md
-docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
+docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/key-concepts/projects/index.md -> docs/deployment-process/projects/index.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
 docs/key-concepts/projects/releases.md -> docs/deployment-process/releases/index.md
@@ -57,7 +57,7 @@ docs/deployment-targets/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/cloud-regions.md -> docs/infrastructure/deployment-targets/cloud-regions.md
 docs/deployment-targets/offline-package-drop.md -> docs/infrastructure/deployment-targets/offline-package-drop.md
 docs/deployment-targets/environments/index.md -> docs/infrastructure/environments/index.md
-docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
+docs/deployment-targets/environments/machine-policies.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/deployment-targets/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/infrastructure/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/deployment-targets/environments/accounts/azure-account.md -> docs/infrastructure/deployment-targets/azure/index.md
@@ -76,7 +76,7 @@ docs/deployment-targets/windows-targets/automating-tentacle-installation.md -> d
 docs/deployment-targets/windows-targets/listening-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
 docs/deployment-targets/windows-targets/polling-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
 docs/deployment-targets/windows-targets/polling-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-web-sockets.md
-docs/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/windows-targets/proxy-support.md
+docs/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/index.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/index.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
 docs/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
@@ -381,7 +381,7 @@ docs/infrastructure/environments/elastic-and-transient-environments/deploying-to
 docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md -> docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md
 docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
 docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
-docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/machine-policies.md
+docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/administration/octopus-dsc/tentacle-agent.md -> docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md
 docs/administration/octopus-dsc/octopus-server.md -> docs/installation/automating-installation.md
 docs/installation/upgrading.md -> docs/administration/upgrading/index.md
@@ -629,7 +629,7 @@ docs/infrastructure/windows-targets/requirements/legacy-requirements.md -> docs/
 docs/infrastructure/windows-targets/automating-tentacle-installation.md -> docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md
 docs/infrastructure/windows-targets/index.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
 docs/infrastructure/windows-targets/polling-tentacles-web-sockets.md -> docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-web-sockets.md
-docs/infrastructure/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/windows-targets/proxy-support.md
+docs/infrastructure/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md
 docs/infrastructure/windows-targets/running-tentacle-under-a-specific-user-account.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/infrastructure/windows-targets/tentacle-communication.md -> docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md
 docs/infrastructure/windows-targets/tentacle-permissions.md -> docs/infrastructure/deployment-targets/windows-targets/tentacle-permissions.md
@@ -643,7 +643,7 @@ docs/deployment-examples/custom-scripts/long-paths.md -> docs/installation/troub
 docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
 docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
 docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/linux/index.md
-docs/infrastructure/deployment-targets/health-checks.md -> docs/infrastructure/machine-policies.md
+docs/infrastructure/deployment-targets/health-checks.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/deployment-examples/nginx-on-nix-deployments/index.md -> docs/deployment-examples/nginx-on-linux-deployments/index.md
 docs/deployment-examples/nginx-on-nix-deployments/create-&-push-asp.net-core-project.md -> docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md
 docs/deployment-examples/nginx-on-nix-deployments/configure-target-machine.md -> docs/deployment-examples/nginx-on-linux-deployments/configure-target-machine.md
@@ -895,3 +895,5 @@ docs/packaging-applications/octopack/troubleshooting-octopack.md -> docs/packagi
 docs/packaging-applications/nuget-packages.md -> docs/packaging-applications/create-packages/nuget-packages.md
 docs/packaging-applications/octo.exe.md -> docs/packaging-applications/create-packages/octo.exe.md
 docs/packaging-applications/versioning.md -> docs/packaging-applications/create-packages/versioning.md
+docs/infrastructure/machine-policies.md-> docs/infrastructure/deployment-targets/machine-policies.md
+docs/infrastructure/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md

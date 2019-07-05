@@ -1,5 +1,5 @@
 1. On the communication style screen, select **Polling Tentacle** and click **Next**.
-1. If you are using a proxy see [Proxy Support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md), or click **next**.
+1. If you are using a proxy see [Proxy Support](/docs/infrastructure/deployment-targets/proxy-support.md), or click **next**.
 1. Add the Octopus credentials the Tentacle will use to connect to the Octopus Server:
     a. The Octopus URL: the hostname or IP address.
     b. Select the authentication mode and enter the details:

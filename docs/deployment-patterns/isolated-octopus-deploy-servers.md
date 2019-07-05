@@ -40,4 +40,4 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 
-In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md) in Octopus Deploy.
+In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support.md) in Octopus Deploy.

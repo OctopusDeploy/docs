@@ -80,8 +80,8 @@ If the SSH target is healthy, the version that is displayed is the version of th
 
 If the fingerprint changes after initial configuration, the next health check will update the fingerprint. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs. If you aren't expecting a change and you see this error it could mean you have been compromised!
 
-Learn more about health checks and [machine policies](/docs/infrastructure/machine-policies.md)
+Learn more about health checks and [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md)
 
 ## Running Scripts on SSH Endpoints
 
-You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
+You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
