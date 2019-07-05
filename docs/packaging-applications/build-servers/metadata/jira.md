@@ -17,7 +17,13 @@ This page described how to configure this functionality for Octopus and Jira.
 
 ## Jira Integration Prerequisites
 
-This functionality builds upon the functionality to [track metadata and work item](/docs/packaging-applications/build-servers/metadata/index.md) information through your CI/CD pipeline.
+The Octopus Deploy integration with Jira builds upon the functionality to [track metadata and work item](/docs/packaging-applications/build-servers/metadata/index.md) information through your CI/CD pipeline. To take advantage of the two-way sharing of data, you need to do the following.
+
+* Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview) and we'll add Azure DevOps and Jenkins in the future.
+* Update your build process to add and configure the Octopus Metadata step to push commit details, build information, and work item data to Octopus.
+* Ensure your Octopus Metadata step has set the 'Process commit messages' field.
+
+Once this is done, the [metadata will appear in the package feed details](/docs/packaging-applications/build-servers/metadata/index.md#building-the-metadata) for any package in the internal feed that has had metadata pushed. Further, if you [create a release](/docs/packaging-applications/build-servers/metadata/index.md#releases-and-deployments) of a project containing one package(s) with metadata, the work items are collected from the selected package versions and displayed with the package details and can be used for [generating and sharing release notes](/docs/packaging-applications/build-servers/metadata/release-notes-templates.md) as well.
 
 ## Connecting Jira Server and Octopus Deploy
 
@@ -46,6 +52,10 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
 When configured, this integration will retrieve Jira issue details and add details to your releases and deployments and generate release notes automatically. 
+
+### Testing the integration
+
+
 
 ## Connecting Jira Cloud and Octopus Deploy
 
@@ -101,7 +111,7 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
 
 When configured, this integration will provide Jira with updates about the progress of Jira issues (work items) through the pipeline.
 
-### Octopus Deployment Task Log
+### Testing the integration
 
 When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
@@ -113,6 +123,32 @@ Note: **This does not impact the Octopus deployment itself, it will still be con
 
 When Octopus successfully sends state changes to Jira, the blocks will appear with green text just like the other blocks in the log.
 
+## Troubleshooting 
+
+This integration has requires a number of things to be configured correct so it can be easy to have problems. This section covers the common scenarios where you can encounter problems.
+
+### Package information is missing metadata
+
+This can happen if there was a problem 
+
+### Package information is missing a link to the build server
+
+### Release details are missing work item metadata
+
+### Release details are missing Jira issues details (name and description etc)
+
+### Release details work items are missing links to Jira issues
+
+### Jira Server isn't showing deployment details for an issue
+
+This functionality is not available for Jira Server. Our Jira extension is currently Jira Cloud only, as the APIs we depend on are only available in Jira Cloud. When those APIs become available in Jira Server this extension will work there too.
+
+### Jira Cloud isn't showing deployment details for an issue
+
+
+
+If you continue to have problems, please contact our [support team](https://octopus.com/support) so we can investiate further.
+
 ## Next
 
- - Learn about other [Metadata and Work Items](/docs/packaging-applications/build-servers/metadata/index.md).
+- Learn about other [Metadata and Work Items](/docs/packaging-applications/build-servers/metadata/index.md).
