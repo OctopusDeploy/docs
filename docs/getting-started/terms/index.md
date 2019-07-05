@@ -1,26 +1,8 @@
 ---
-title: Common Terms
-description: This section is a glossary of terms used within Octopus.
-position: 5
+title: Terms
+description: Terms and definitions that will help when working with Octopus Deploy.
+hideInThisSectionHeader: true
 ---
-
-## Self-Hosted Octopus
-
-Installing the self-hosted Octopus Deploy server sets up the [Octopus Web Portal](/docs/getting-started/index.md#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/index.md).
-
-The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy server.
-
-## Octopus Cloud
-
-[Octopus Cloud](/docs/octopus-cloud/index.md) is the hosted version of Octopus Deploy. We designed Octopus Cloud and self-hosted Octopus to provide the same functionality; however, there are some minor differences, for instance, with Octopus Cloud, we're [responsible](/docs/administration/security/index.md#responsibility) for taking backups, upgrading the service, and maintaining and monitoring the underlying systems.
-
-## The Octopus Web Portal
-
-Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
-
-## Deployment Targets
-
-[Deployment Targets](/docs/infrastructure/deployment-targets/index.md) represent the servers, machines and cloud services where your software and services will be deployed.
 
 ## Environments
 
