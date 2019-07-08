@@ -46,7 +46,9 @@ This can happen for quite a number of reasons:
 
 ### Getting Help From Us {#support}
 
-If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
+If none of the above steps work, you can try toggling the "Remember me on this computer" checkbox.
+
+If you can't trouble shoot the issue, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
   a. Which browser and version are you using? (Help > About in your browser is the best place to get this information)
   b. Does the same thing happen with other browsers, like Internet Explorer, Google Chrome, Firefox?
   c. Does the same thing happen for other people/users?
