@@ -137,12 +137,49 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
 ```
 
-### Running Tentacle
+## Running Tentacle
+
+### Running Tentacle interactively
 Start the Tentacle interactively by running:
 
 ```
-/opt/octopus/tentacle/Tentacle agent
+/opt/octopus/tentacle/Tentacle run
 ```
+
+### Running Tentacle as a service (systemd)
+1. Create a systemd **Unit file** to run Tentacle.
+    ```
+    [Unit]
+    Description=Octopus Tentacle Server
+    After=network.target
+
+    [Service]
+    Type=simple
+    User=root
+    WorkingDirectory=/etc/octopus/default/
+    ExecStart=/opt/octopus/tentacle/Tentacle run --noninteractive
+    Restart=always
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+2. Copy the unit file to `/etc/systemd/system` and give it permissions
+    ```
+    sudo cp myservice.service /etc/systemd/system/tentacle.service
+    sudo chmod 644 /etc/systemd/system/tentacle.service
+    ```
+
+3. Start the Tentacle service
+    ```
+    sudo systemctl start tentacle
+    ```
+
+4. Use the `enable` command to ensure that the service start whenever the system boots.
+    ```
+    sudo systemctl enable tentacle
+    ```
+
 
 ## Quick start scripts
 The following bash scripts install, configure and register Linux Tentacle:
