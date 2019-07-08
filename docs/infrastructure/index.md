@@ -1,6 +1,6 @@
 ---
 title: Infrastructure
-description: The infrastructure tab in the Octopus Web Portal is where you manage your environments, deployment targets and other infrastructure.
+description: The infrastructure tab in the Octopus Web Portal is where you manage your environments, deployment targets, and other infrastructure.
 position: 30
 hideInThisSection: True
 ---
@@ -21,7 +21,7 @@ Typical environments include:
  - Test
  - Production
 
-You can add as many or as few environments as you require in your deployment pipeline.
+You can add as many or as few environments as you require in your deployment pipeline, and you can add as many deployment targets to each environment as you need.
 
 ## Workers
 

@@ -43,7 +43,7 @@ Octopus needs to connect to the [Infrastructure](/docs/infrastructure/index.md) 
 **[Environments](/docs/infrastructure/environments/index.md) and [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)** <br/>
 Deployment targets represent the servers, machines, and cloud services where your software and services will be deployed. Octopus organizes your deployment targets into groups called environments so you can promote your software through your deployment pipeline. For instance, from Development to Test and finally into Production.
 
-**[Target Roles](/docs/infrastructure/deployment-targets/target-roles/index.md)**<br/>
+**[Target Roles](/docs/infrastructure/deployment-targets/index.md#target-roles)**<br/>
 Target roles allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
 **[Tentacle Agent](/docs/infrastructure/deployment-targets/windows-targets/index.md)**<br/>

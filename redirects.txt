@@ -65,7 +65,7 @@ docs/deployment-targets/environments/accounts/ssh-key-pair.md -> docs/infrastruc
 docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/deployment-targets/environments/accounts/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
-docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
+docs/deployment-targets/machine-roles/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/deployment-targets/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
@@ -380,7 +380,7 @@ docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-
 docs/infrastructure/environments/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
 docs/infrastructure/environments/elastic-and-transient-environments/immutable-infrastructure.md -> docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md
 docs/infrastructure/environments/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md -> docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md
-docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
+docs/infrastructure/environments/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/infrastructure/environments/machine-policies.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/administration/octopus-dsc/tentacle-agent.md -> docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md
 docs/administration/octopus-dsc/octopus-server.md -> docs/installation/automating-installation.md
@@ -548,7 +548,7 @@ docs/deployment-examples/deploying-asp.net-core-web-applications/json-configurat
 docs/administration/workers/external-workers.md -> docs/infrastructure/workers/index.md
 docs/deployment-process/steps/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/administration/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
-docs/key-concepts/machine-roles -> docs/infrastructure/deployment-targets/target-roles/index.md
+docs/key-concepts/machine-roles -> docs/infrastructure/deployment-targets/index.md
 docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
 docs/deployment-process/configuration-features/configuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
 docs/infrastructure/aws/creating-an-aws-account/index.md -> docs/infrastructure/accounts/aws/index.md
@@ -614,7 +614,7 @@ docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructur
 docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/infrastructure/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
 docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
-docs/infrastructure/target-roles/index.md -> docs/infrastructure/deployment-targets/target-roles/index.md
+docs/infrastructure/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/infrastructure/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
 docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
 docs/infrastructure/windows-targets/azure-virtual-machines/index.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/index.md
@@ -897,3 +897,4 @@ docs/packaging-applications/octo.exe.md -> docs/packaging-applications/create-pa
 docs/packaging-applications/versioning.md -> docs/packaging-applications/create-packages/versioning.md
 docs/infrastructure/machine-policies.md-> docs/infrastructure/deployment-targets/machine-policies.md
 docs/infrastructure/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md
+docs/infrastructure/deployment-targets/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md

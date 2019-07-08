@@ -49,7 +49,7 @@ users:
 2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
 3. Enter a display name for the Kubernetes Cluster.
 4. Select at least one [environment](/docs/infrastructure/environments/index.md) for the target.
-5. Select at least one [target role](/docs/infrastructure/deployment-targets/target-roles/index.md) for the target.
+5. Select at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](http://g.octopushq.com/KubernetesAuthentication):
     - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password.md) account.
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens.md) account.
