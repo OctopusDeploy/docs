@@ -181,12 +181,12 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log".
 
-   ![](/docs/images/5670656/5866122.png)
+   ![](/docs/administration/authentication/images/5866122.png)
 
 3. Attempt to sign into Octopus using Okta and find the HTTP POST coming back to your Octopus instance from Okta on a route like `/api/users/authenticatedToken/Okta`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
-   ![](/docs/images/5670656/5866123.png)
+   ![](/docs/administration/authentication/images/5866123.png)
 
 :::hint
 Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.

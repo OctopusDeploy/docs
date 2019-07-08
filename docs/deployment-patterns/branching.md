@@ -27,11 +27,11 @@ Channels don't do anything to help with this scenario, but we do discuss this sc
 
 The simplest branching workflow is, of course, no branches - all developers work directly on trunk or master. For small projects with few developers, and when the project isn't really in "production" yet, this strategy can work well.
 
-![](3278438.png)
+![](images/3278438.png)
 
 Builds from this single branch will produce a NuGet package, and that package goes into a release which is deployed by Octopus.
 
-![](3278468.png)
+![](images/3278468.png)
 
 ### Release Branches {#Branching-Releasebranches}
 
@@ -42,7 +42,7 @@ Channels don't do anything to help with this scenario.
 
 Sometimes developers work on new features that aren't quite ready to ship, whilst also maintaining a current production release. Bugs can be fixed on the release branch, and deployed, without needing to also ship the half-baked features.
 
-![](3278439.png)
+![](images/3278439.png)
 
 So long as one release branch never overlaps another, from an Octopus point of view, the process is similar to the "no branches" scenario above - new NuGet packages are built, and those packages go into a release, which is deployed. Octopus doesn't care that they came from a branch; to Octopus, there's just a stream of new, incrementing package versions.
 
@@ -55,19 +55,19 @@ So long as one release branch never overlaps another, from an Octopus point of v
 
 Multiple release branches may be supported over a period of time. For example, you may have customers who are using your 2.x versions of your software in production, and early adopters testing your 3.x versions while you work to make it stable. You'll need to fix bugs in the 2.x version as well as the 3.x version, and deploy them both.
 
-![](3278440.png)
+![](images/3278440.png)
 
 To prevent [retention policies](/docs/administration/retention-policies/index.md) for one channel from impacting deployments for another channel, version `3.12.2` introduces the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page. Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment _in each channel_. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
 
- ![Discrete Channel Release](discrete-channel-release.png)
+ ![Discrete Channel Release](images/discrete-channel-release.png)
 
 Modeling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
 
-![](3278469.png)
+![](images/3278469.png)
 
 If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. Channels are a feature in Octopus that lets you model differences in releases:
 
-![](3278470.png)
+![](images/3278470.png)
 
 In this example, packages that start with 2.x go to the "Stable" channel, while packages that start with 3.x go to the "Early Adopter" channel.
 
@@ -94,15 +94,15 @@ Again, channels make creating releases a little easier here, but users can do fe
 
 Feature branches are usually short lived, and allow developers to work on a new feature in isolation. When the feature is complete, it is merged back to trunk/master. Often, feature branches are not deployed, and so don't need to be mapped in Octopus.
 
-![](3278442.png)
+![](images/3278442.png)
 
 If feature branches do need to be deployed, then you can create NuGet packages from them, and then release them with Octopus as per normal. To keep feature branch packages separate from release-ready packages, [we recommend using SemVer tags](https://docs.nuget.org/create/versioning#really-brief-introduction-to-semver) in the NuGet package version. You should be able to [configure your build server to generate version numbers based on the feature branch](https://octopus.com/blog/teamcity-version-numbers-based-on-branches).
 
-![](3278443.png)
+![](images/3278443.png)
 
 Again, channels can be used to make it easier to create releases for feature branches:
 
-![](3278471.png)
+![](images/3278471.png)
 
 ### Environment Branches {#Branching-Environmentbranches}
 
@@ -113,7 +113,7 @@ Channels don't do anything to help with this scenario.
 
 A final branching strategy that we see is to use a branch per environment that gets deployed to. Code is promoted from one environment to another by merging code between branches.
 
-![](3278444.png)
+![](images/3278444.png)
 
 We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](http://octopus.com/blog/build-your-binaries-once).
 
@@ -141,7 +141,7 @@ For example:
 
 Your dashboard in Octopus should reflect this reality by displaying each channel individually:
 
-![](3278472.png)
+![](images/3278472.png)
 
 :::hint
 **Development note**
@@ -159,11 +159,11 @@ Sometimes a new branch might introduce a new component that needs to be deployed
 
 For example, the Rate Service package was added as part of v3, so currently only applies to the Early Adopter channel:
 
-![](3278473.png)
+![](images/3278473.png)
 
 Likewise, it has variables that only apply on Early Adopter:
 
-![](3278474.png)
+![](images/3278474.png)
 
 For more advanced uses, you may need to clone your project.
 
@@ -178,17 +178,17 @@ Hotfixes are a special kind of release branch, but typically have a shorter life
 
 Again, channels can handle this by creating a Hotfix channel, and assigning the Hotfix channel a different lifecycle:
 
-![](3278475.png)
+![](images/3278475.png)
 
 Likewise, steps can be defined that apply to the Stable channel, but not to the Hotfix channel:
 
 When releases are created for the Hotfix channel, they can then be deployed straight to production:
 
-![](3278476.png)
+![](images/3278476.png)
 
 While stable releases still follow the usual testing lifecycle:
 
-![](3278477.png)
+![](images/3278477.png)
 
 ### We Need to Deploy Different Components Depending on Whether It's a "Full" Release or a "Partial" Release {#Branching-Weneedtodeploydifferentcomponentsdependingonwhetherit&#39;sa&quot;full&quot;releaseora&quot;partial&quot;release}
 
@@ -203,12 +203,12 @@ You might have a large project with many components. Sometimes you only need to 
 
 This can be modeled by creating a channel per component, plus a channel for a release of all components.
 
-![](3278478.png)
+![](images/3278478.png)
 
 Steps can then be scoped to their individual channel as well as the major release channel:
 
-![](3278479.png)
+![](images/3278479.png)
 
 When creating the release, you can then choose whether the release is for an individual component or all components:
 
-![](3278480.png)
+![](images/3278480.png)

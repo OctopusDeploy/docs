@@ -13,13 +13,13 @@ See the [Service Accounts docs](/docs/administration/managing-users-and-teams/se
 You can create API keys by performing the following steps:
 
 1. From the Octopus Deploy web portal, sign in, and view your profile:
-![](select-profile.png)
+![](images/select-profile.png)
 2. Go to the API keys tab. This lists any previous API keys that you have created:
-![](api-keys-view.png)
+![](images/api-keys-view.png)
 3. Click on **New API key**, and give the API key a name that you can use to remember what the key was for:
-![](new-api-key.png)
+![](images/new-api-key.png)
 4. Click **Generate new**, and copy the new API key to your clipboard:
-![](api-key.png)
+![](images/api-key.png)
 
 :::warning
 **Write Your Key Down**

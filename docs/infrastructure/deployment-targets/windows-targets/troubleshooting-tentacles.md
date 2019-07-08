@@ -238,7 +238,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
-![](/docs/images/5670828/5865771.png)
+![](5865771.png)
 
 ## Schannel and TLS Configuration Mismatches
 

@@ -48,7 +48,7 @@ Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=Cli
 
 Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Hosted Domain`, `Client Id` and `Is Enabled`.
 
-![Settings](googleapps-settings.png)
+![Settings](images/googleapps-settings.png)
 
 ### Octopus User Accounts Are Still Required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 
@@ -91,15 +91,15 @@ Perhaps the contents of the security token sent back by GoogleApps aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log":
 
-![Preserve Log Checkbox](/docs/images/5670656/5866122.png)
+![Preserve Log Checkbox](/docs/administration/authentication/images/5866122.png)
 
 3. Attempt to sign into Octopus using GoogleApps and find the HTTP POST coming back to your Octopus instance from GoogleApps on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
 
-![ID Token](/docs/images/5670664/5866125.png)
+![ID Token](images/5866125.png)
 
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
 
-![jwt.io](/docs/images/5670656/5866123.png)
+![jwt.io](/docs/administration/authentication/images/5866123.png)
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by GoogleApps.
 6. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
