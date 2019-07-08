@@ -29,7 +29,7 @@ When referencing a Maven artifact, the package ID is in the format `group:artifa
 
 For example, to reference the Maven artifact with the group of `org.wildfly.swarm.testsuite` and artifact of `testsuite-https` (i.e. the artifacts found at https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/), you would enter a package ID of `org.wildfly.swarm.testsuite:testsuite-https`.
 
-![Maven Artifact Names](maven-artifact-names.png)
+![Maven Artifact Names](images/maven-artifact-names.png)
 
 The packaging type is determined automatically from the extensions supported by Octopus, which are:
 
@@ -45,7 +45,7 @@ So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `201
 
 As Maven repositories do not expose an API (repositories are just a filesystem structure), there is no way to search them in Octopus the way you might search a NuGet repository. The package ID for a Maven artifact must be complete for Octopus to identify it, and partial package IDs will not return a list of partial matches.
 
-![Maven Package Suggestion](maven-package-suggestion.png)
+![Maven Package Suggestion](images/maven-package-suggestion.png)
 
 ## Downloading SNAPSHOT Releases
 
@@ -55,7 +55,7 @@ What this means is that if a new SNAPSHOT artifact is published to the Maven rep
 
 To force Octopus to download the newer SNAPSHOT release, select the **Re-download packages from feed** option when deploying.
 
-![Re-download packages from feed](redownload-from-feed.png)
+![Re-download packages from feed](images/redownload-from-feed.png)
 
 ## Versioning with Maven Feeds
 
