@@ -46,11 +46,11 @@ If you have an Octopus Server retention policy for a project that has a final ph
 
 Under **{{Library,Lifecycles}}** you select the Lifecycle you want to define or edit your retention policy for:
 
-![](3278063.png)
+![](images/3278063.png)
 
 Each phase will inherit the retention policy from the above phase, but this is something you can change by expanding the Retention Policy panel.
 
-![](3278062.png)
+![](images/3278062.png)
 
 Releases determines what is kept on the Octopus Server, and Files on Tentacle determines what files are kept on the Tentacle.
 
@@ -62,11 +62,11 @@ You are also able to specify a number of days worth of releases and files to kee
 
 You can find the in-built repository retention policy settings under **{{Library,Packages}}**.
 
-![](3278060.png)
+![](images/3278060.png)
 
 This can also be set to keep a set number, or keep for a set number of days:
 
-![](3278059.png)
+![](images/3278059.png)
 
 :::success
 **External Feeds**

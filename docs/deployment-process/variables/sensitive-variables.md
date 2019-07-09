@@ -16,11 +16,11 @@ Just like non-sensitive variables they can [reference other variables](docs/depl
 
 To make a variable a **sensitive variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
-![Open Variable Editor](open-editor.png)
+![Open Variable Editor](images/open-editor.png)
 
 For variable type, select **Sensitive**.
 
-![Variable editor](variable-editor.jpg)
+![Variable editor](images/variable-editor.jpg)
 
 ## How Octopus Handles Your Sensitive Variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 

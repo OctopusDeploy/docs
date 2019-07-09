@@ -6,7 +6,7 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/deploym
 
 1. Add a new `Deploy an Azure Web App` step to your [project's deployment process](/docs/deployment-process/steps/index.md).
 
-![](/docs/images/5671696/5865899.png "width=170")
+![](5865899.png "width=170")
 
 2. On the `Package` section of the step configuration page, select your `Package Feed` and `Package ID`
 

@@ -6,7 +6,7 @@ position: 10
 
 To add a certificate to Octopus, navigate to **{{Library,Certificates,Add Certificate}}**
 
-![Add certificate](add-certificate.png)
+![Add certificate](images/add-certificate.png)
 
 When selecting your certificate file for upload, it must be one of the [supported file-formats](/docs/deployment-examples/certificates/file-formats.md).
 
