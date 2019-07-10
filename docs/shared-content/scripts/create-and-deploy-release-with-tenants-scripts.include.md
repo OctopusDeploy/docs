@@ -6,6 +6,7 @@ $headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $projectName = "Your Project Name"
 $environmentName = "Dev"
+$channelName = "Default"
 $tenantNames = @("Customer A Name", "Customer B Name")
 
 try {
@@ -22,6 +23,11 @@ try {
     $project = $projects | Where-Object { $_.Name -eq $projectName }
     Write-Host "Using Project named $($project.Name) with id $($project.Id)"
 
+    # Get channel by name
+    $channels = Invoke-WebRequest -Uri "$octopusSpaceUrl/projects/$($project.Id)/channels" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
+    $channel = $channels | Where-Object { $_.Name -eq $channelName }
+    Write-Host "Using Channel named $($channel.Name) with id $($channel.Id)"
+
     # Get environment by name
     $environments = Invoke-WebRequest -Uri "$octopusSpaceUrl/environments/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
     $environment = $environments | Where-Object { $_.Name -eq $environmentName }
@@ -29,10 +35,11 @@ try {
 
     # Get the deployment process template
     Write-Host "Fetching deployment process template"
-    $template = Invoke-WebRequest -Uri "$octopusSpaceUrl/deploymentprocesses/deploymentprocess-$($project.id)/template" -Headers $headers | ConvertFrom-Json
+    $template = Invoke-WebRequest -Uri "$octopusSpaceUrl/deploymentprocesses/deploymentprocess-$($project.id)/template?channel=$($channel.Id)" -Headers $headers | ConvertFrom-Json
 
     # Create the release body
     $releaseBody = @{
+        ChannelId        = $channel.Id
         ProjectId        = $project.Id
         Version          = $template.NextVersionIncrement
         SelectedPackages = @()
