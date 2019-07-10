@@ -40,7 +40,7 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 In version 4.38.0 of the TeamCity Plugin we have added a new build runner that can be used to package your applications as either a NuGet or Zip formatted package.
 :::
 
-![Octopus Pack](steps/teamcity-pack-step.png)
+![Octopus Pack](images/teamcity-pack-step.png)
 
 :::hint
 In version 3.3.1 of the TeamCity Plugin we have added a new build runner that can be used to package and push your applications from TeamCity to Octopus.
