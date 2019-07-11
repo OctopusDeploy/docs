@@ -19,6 +19,12 @@ Octopus stores its logs in the `Logs` subdirectory. Three sets of log files may
 
 When requesting support, send as much log information as possible - the repetitive nature of the files means they usually zip down well.
 
+## Changing Log Retention {#Logfiles-Changinglogretention}
+
+To increase the number of log files Octopus will store, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
+
+The retention of the logs is controlled by the `maxArchiveFiles` property, it defaults to 7 and can be increased or decreased. The Octopus process will automatically switch to the new logging level as soon as the file is saved.
+
 ## Changing Log Levels {#Logfiles-Changingloglevels}
 
 Occasionally it may be necessary to change the logging level of an Octopus application.
