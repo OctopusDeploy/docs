@@ -14,6 +14,8 @@ Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
       --home=VALUE           Home directory
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
       --serverNodeName=VALUE Unique Server Node name for a clustered
                                environment
       --cachePackages=VALUE  Days to cache packages for. Default: 20
