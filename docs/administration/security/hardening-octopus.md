@@ -70,7 +70,7 @@ Octopus Server always uses a secure and tamper-proof communications transport fo
 The decisions you need to make are:
 
 1. Which kind of deployment targets do you want to allow? Listening Tentacles? Polling Tentacles? SSH? This will have an impact on how you configure your network. See [harden your network](#harden-your-network).
-1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
+1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/proxy-support.md).
 
 ## Harden Your Host Operating System
 

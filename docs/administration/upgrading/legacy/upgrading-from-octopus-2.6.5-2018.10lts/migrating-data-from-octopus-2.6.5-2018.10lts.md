@@ -22,23 +22,23 @@ Please see our [tips for minimizing the migration duration](minimize-migration-t
 
 To import your 2.6 Raven data into a 2018.10 LTS installation (generally this is run after a side-by-side upgrade) you need to select import from the Octopus Manager.
 
-![](3964992.png)
+![](images/3964992.png)
 
 This will open up the importer. From here you select that you want to import from a 2.6 backup file.
 
-![](3964993.png)
+![](images/3964993.png)
 
 You need to select your most recent 2.6 Backup file, and provide the Master key associated with the backup you are importing. The next step lets you perform a preview of your import.
 
-![](3964994.png)
+![](images/3964994.png)
 
 When you deselect ***Preview only***, your import will run against the database. This cannot be reversed. The backup is treated as the truth, so any changes that have been made to the database (if this is not your first import) will be overwritten with the backup.
 
-![](3964995.png)
+![](images/3964995.png)
 
 If you need to use any of the options below to manage the data being imported you need to use the Show Script feature to run the migration via console.
 
-![](3964996.png)
+![](images/3964996.png)
 
 ### Migrating the Built-in Octopus NuGet Package Repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
 

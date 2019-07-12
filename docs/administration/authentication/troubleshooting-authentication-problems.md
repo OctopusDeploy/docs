@@ -46,7 +46,9 @@ This can happen for quite a number of reasons:
 
 ### Getting Help From Us {#support}
 
-If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
+If none of the above steps work, you can try toggling the "Remember me on this computer" checkbox.
+
+If you are still unable to troubleshoot the issue, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
   a. Which browser and version are you using? (Help > About in your browser is the best place to get this information)
   b. Does the same thing happen with other browsers, like Internet Explorer, Google Chrome, Firefox?
   c. Does the same thing happen for other people/users?
@@ -57,4 +59,5 @@ If none of these troubleshooting steps work, please get in contact with our [sup
   h. Do you have other web applications hosted on the same server?
   i. Do you have other web applications hosted on the same domain? (for example: `octopus.mycompany.com` and `myapp.mycompany.com`?)
   j. Do you have any intermediary network devices (like proxies or web application firewalls) which may be stripping custom HTTP headers or cookies from your requests?
-  k. Please [record the problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser.md) and send the recording to us for analysis. Please record the following steps: Sing out of Octopus Deploy, sign back in again, and then try to do the action that fails.
+  k. Do you have Octopus Deploy running inside a Virtual Machine?
+  l. Please [record the problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser.md) and send the recording to us for analysis. Please record the following steps: Sing out of Octopus Deploy, sign back in again, and then try to do the action that fails.

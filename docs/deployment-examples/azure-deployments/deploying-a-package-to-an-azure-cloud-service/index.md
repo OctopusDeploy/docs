@@ -21,7 +21,7 @@ If you haven't already, create an [Azure Management Certificate Account](/docs
 
 Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
-![](/docs/images/5671696/5865904.png "width=170")
+![](5865904.png "width=170")
 
 ## Step 4: Configure your Azure Cloud Service Step {#DeployingapackagetoanAzureCloudService-Step4:ConfigureyourAzureCloudServicestep}
 

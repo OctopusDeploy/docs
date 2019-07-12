@@ -8,7 +8,7 @@ You can use all of the features we provide for [custom scripts](/docs/deployment
 
 You can manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
 
-![](/docs/images/5671696/5865912.png "width=170")
+![](images/5865912.png "width=170")
 
 These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
@@ -28,7 +28,7 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-![](5865518.png)
+![](images/5865518.png)
 
 ## Bring Your Own Azure SDK {#AzurePowerShellscripts-BringyourownAzureSDK}
 

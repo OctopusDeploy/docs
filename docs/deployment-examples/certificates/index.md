@@ -40,7 +40,7 @@ The background task which raises the certificate-expiry events runs:
 
 Certificates can be imported to Windows Certificate Stores as part of a deployment process using the [Import Certificate Deployment Step](/docs/deployment-examples/certificates/import-certificate-step.md).
 
-![](import-certificate-step-select.png)
+![](images/import-certificate-step-select.png)
 
 ## Use Certificates for HTTPS Bindings When Deploying IIS Websites   
 
@@ -48,12 +48,12 @@ When configuring HTTPS bindings for [IIS Websites](/docs/deployment-examples/iis
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
 - selecting a certificate-typed variable (this will automatically install the certificate).
 
-![](https-binding-certificate.png)
+![](images/https-binding-certificate.png)
 
 ## Create Certificate-Typed Variables
 
 Certificates managed by Octopus can be configured as the [value of variables](/docs/deployment-process/variables/certificate-variables.md), and used from custom deployment scripts.
 
-![](/docs/images/certificates/certificate-variables-scoped.png)
+![](images/certificate-variables-scoped.png)
 
 Note that certificates can not be selected directly when configuring a deployment step. Selecting a certificate in deployment steps presents a drop-down list of the certificate variables that have been defined in the project.

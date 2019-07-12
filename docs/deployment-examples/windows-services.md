@@ -13,7 +13,7 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For infor
 
 ## Configuring the Step {#WindowsServices-ConfiguringtheStep}
 
-![Windows service configuration](windows-service-configuration.png)
+![Windows service configuration](images/windows-service-configuration.png)
 
 ### Step 1: Select a Package {#WindowsServices-Step1:SelectaPackage}
 
@@ -175,7 +175,7 @@ To configure the Windows Service to use a Managed Service Account:
 2. Enter the domain name and username, **making sure to append a $ to the username** as shown below.
 3. Bind the **Custom account password** to an **empty value** to ensure no password is set for this account - after all, we want the password managed by the server, not us.
 
-![Windows service startup](windows-service-startup.png)
+![Windows service startup](images/windows-service-startup.png)
 
 :::hint
 **Important information about using Managed Service Accounts**

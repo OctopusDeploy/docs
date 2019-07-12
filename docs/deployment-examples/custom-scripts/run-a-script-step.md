@@ -4,7 +4,7 @@ description: Standalone scripts allow you to run scripts contained in a package
 position: 10
 ---
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/target-roles/index.md). You can run scripts contained in a [package](/docs/deployment-examples/package-deployments/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/deployment-process/steps/index.md).
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/index.md#target-roles). You can run scripts contained in a [package](/docs/deployment-examples/package-deployments/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/deployment-process/steps/index.md).
 
 You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [variables](/docs/deployment-examples/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployment-examples/custom-scripts/output-variables.md), and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
@@ -51,7 +51,7 @@ You may also select the source of the script, either:
 - An ad-hoc or inline script, saved as part of the step itself, or:
 - A script file inside a package (shown below).
 
-![](script-file-in-package.png)
+![](images/script-file-in-package.png)
 
 :::success
 **Scripts from packages, versioning and source control**
@@ -66,7 +66,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md).
 
-![](5865636.png)
+![](images/5865636.png)
 
 ## Referencing Packages
 
@@ -82,7 +82,7 @@ In addition to being able to [source the custom script from a package](#Standalo
     - Executing `NuGet.exe` to push another package (e.g. `Acme.Web`)
     - Referencing multiple container images and performing `docker compose`
 
-![Script Step Package References](script-step-package-references.png)
+![Script Step Package References](images/script-step-package-references.png)
 
 Package references can be added regardless of whether the script is sourced inline or from a package.
 
@@ -106,7 +106,7 @@ A unique identifier for the package-reference. In general the Package ID is a go
 Whether the package should be extracted. See [below](#referencing-packages-package-files) for information on the package file locations.
 This will not be displayed for certain package-types (i.e. container images). This may also be bound to a variable-expression.
 
-![Script Step Package References](script-step-package-reference-add.png)
+![Script Step Package References](images/script-step-package-reference-add.png)
 
 ### Accessing Package References from a Custom Script
 

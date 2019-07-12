@@ -53,7 +53,7 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 
 5. Give the target a name.
 6. Select which environment the deployment target will be assigned to.
-7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
+7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles).
 8. Select the [account](/docs/infrastructure/accounts/index.md) that will be used for the Octopus server and the SSH target to communicate.
 9. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
 
@@ -80,8 +80,8 @@ If the SSH target is healthy, the version that is displayed is the version of th
 
 If the fingerprint changes after initial configuration, the next health check will update the fingerprint. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs. If you aren't expecting a change and you see this error it could mean you have been compromised!
 
-Learn more about health checks and [machine policies](/docs/infrastructure/machine-policies.md)
+Learn more about health checks and [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md)
 
 ## Running Scripts on SSH Endpoints
 
-You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
+You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.

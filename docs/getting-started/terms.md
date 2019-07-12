@@ -28,7 +28,7 @@ Octopus organizes your deployment targets into groups called [Environments](/doc
 
 ## Target Roles
 
-[Target roles](/docs/infrastructure/deployment-targets/target-roles/index.md) allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
+[Target roles](/docs/infrastructure/deployment-targets/index.md#target-roles) allow you to “tag” deployment targets with a specific keyword which can be used in your deployments.
 
 ## Lifecycle
 

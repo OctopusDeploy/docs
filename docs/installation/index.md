@@ -2,9 +2,20 @@
 title: Installation
 position: 10
 description: How to install the central Octopus Deploy Server.
+hideInThisSection: true
 ---
 
-This section walks you through installing the **self-hosted** Octopus Deploy server. If you need to upgrade you existing Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md), alternatively, if you're interested **Octopus Cloud**, you can register for an [Octopus Cloud Account](https://octopus.com/account/register).
+The Octopus Deploy server is available as a self-hosted instance that you install and manage on your infrastructure. This section walks you through installing the **self-hosted** Octopus Deploy server.
+
+If you need to upgrade you existing self-hosted Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md).
+
+If you're interested **Octopus Cloud**, you can register for an [Octopus Cloud Account](https://octopus.com/account/register).
+
+## Long-Term Support or Fast Lane {#downloads}
+
+Octopus Deploy is shipped in both a long-term support (LTS) release and a fast lane release. The LTS release comes with six months support, and the fast lane release includes the latest features. To learn more about the LTS and fast lane releases see [Long-term support](/docs/administration/upgrading/long-term-support.md).
+
+!include <server-downloads>
 
 ## Self-Hosted Octopus Deploy Server
 
@@ -16,11 +27,6 @@ When installed, the Octopus Deploy server:
 
 Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database.md) that you can use with Octopus Deploy.
 
-## Long-Term Support or Fast Lane {#downloads}
-
-Octopus Deploy is shipped in both a long-term support (LTS) release and a fast lane release. The LTS release comes with six months support, and the fast lane release includes the latest features. To learn more about the LTS and fast lane releases see [Long-term support](/docs/administration/upgrading/long-term-support.md).
-
-!include <server-downloads>
 
 ## Install Octopus
 
@@ -60,16 +66,16 @@ When Octopus is installed, it generates a master key which is a random string th
 Make a copy of the master key and save it in a **secure** location.
 
 :::warning
-**Save Your Master Key**
+**Warning**
 
-If you don't have a copy of your master key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the master key and save it in a secure location. Hopefully you will never need it, but you'll glad you have it if you ever need it. Learn more about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
+If you don't have a copy of your master key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **master key** and save it in a secure location. Hopefully you will never need it, but you'll glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
 :::
 
 ## Launch the Octopus Web Portal
 
 Click **Open in browser** to launch the **Octopus Web Portal** and log in using the authentication details you set up during the configuration process.
 
-The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, access the built-in repository, and manage your releases and deployments.
+The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, deployment process, access the built-in repository, and manage your deployments and releases.
 
 ## Troubleshooting
 
@@ -77,7 +83,7 @@ If you've had any problems with the installation, review the [troubleshooting pa
 
 ## Next Steps
 
-Now that you've installed the Octopus Deploy server, it's time to configure the [Infrastructure](/docs/infrastructure/index.md) you are deploying your software to.
-
- - If you need to upgrade your Octopus server, refer to the [upgrading guide](/docs/administration/upgrading/index.md).
- - If you'd like to listen to the customer success team discussing the installation process, see [Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=P_qUe4ZiqGM).
+ - [Configure your Infrastructure](/docs/infrastructure/index.md)
+ - [Upgrading Guide](/docs/administration/upgrading/index.md).
+ - [Automating Octopus Installation](/docs/installation/automating-installation.md)
+ - [Watch Ask Octopus Episode 19 - How to install Octopus Deploy](https://www.youtube.com/watch?v=P_qUe4ZiqGM).

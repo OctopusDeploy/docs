@@ -17,7 +17,7 @@ At a high-level, the steps are:
 2. Import the XML file in Excel.
 3. Report on the data using a pivot table.
 
-![](3278122.png)
+![](images/3278122.png)
 
 ## Export All Deployments to an XML File {#ReportondeploymentsusingExcel-ExportalldeploymentstoanXMLfile}
 
@@ -80,12 +80,12 @@ Now that we have an XML file containing our deployments, we can import it into M
 1. Open Microsoft Excel, and create a new, blank workbook.
 2. On the **Data** ribbon tab, click **From Other Sources**, then choose **From XML Data Import**. 
 
-   ![](3278132.png)
+   ![](images/3278132.png)
 3. Excel will prompt you that the XML file does not refer to a schema, and that one will be created. Click **OK**.
 4. Excel will ask you where to create a table. Choose the location in your workbook to put the new table, or just click **OK**.
 5. You should now have a table that lists each of the deployments you have performed with Octopus, along with the name of the environment, project and the date of the deployment. 
 
-   ![](3278131.png)
+   ![](images/3278131.png)
 
 ## Report on the Data Using a Pivot Table {#ReportondeploymentsusingExcel-Reportonthedatausingapivottable}
 
@@ -93,42 +93,42 @@ It's easy to turn the table of deployments into a pivot table for reporting.
 
 1. Select any cell in the table, then from the **Insert** ribbon tab, click **PivotTable**. 
 
-   ![](3278130.png)
+   ![](images/3278130.png)
 
 2. Excel will prompt you to ask where to place the new pivot table. Click **OK** to add it to a new worksheet in your workbook.
 3. You can now build the pivot table by dragging fields into the **Rows** or **Columns** of the pivot table.
 
 For example, here's a breakdown of deployments by environment. Note that the **Id** field was dragged to the **Values** area, and **Environment** was dragged to **Rows**.
 
-![](3278129.png)
+![](images/3278129.png)
 
 Here's another example, this time using **Environment** as a column, and **Project** as the rows:
 
-![](3278128.png)
+![](images/3278128.png)
 
 You can also group the results by month or other measures of time. First, drag the **Created** field as as row.
 
-![](3278127.png)
+![](images/3278127.png)
 
 Now, right click any of the date values, and click **Group**.
 
-![](3278126.png)
+![](images/3278126.png)
 
 Choose the level of granularity that you want to group by, then click **OK**. In this example we chose Months.
 
-![](3278125.png)
+![](images/3278125.png)
 
 And the results will now be grouped by month:
 
-![](3278124.png)
+![](images/3278124.png)
 
 If you aren't happy with the order that environments or other items are shown in, you can right click and move them:
 
-![](3278123.png)
+![](images/3278123.png)
 
 Finally, don't forget to add pretty graphs!
 
-![](3278122.png)
+![](images/3278122.png)
 
 :::hint
 **Limitations**

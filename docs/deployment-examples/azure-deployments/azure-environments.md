@@ -16,15 +16,15 @@ Get-AzureEnvironment
 
 You'll usually see a number of entries displayed.  Below is the details for one of the environments:
 
-![Azure Germany cloud details](de.png)
+![Azure Germany cloud details](images/de.png)
 
 Armed with that information you now need to head over to the Azure Account page in Octopus Deploy.  Depending on the authentication method (Management Certificate or Service Principal) the UI will look slightly different.  Service Principal accounts will appear as follows:
 
-![Service Principal fields](sp.png)
+![Service Principal fields](images/sp.png)
 
 And Management Certificate accounts as below:
 
-![Management Certificate fields](mc.png)
+![Management Certificate fields](images/mc.png)
 
 Once you have entered the environment name and endpoint values you should **Save and Test** the account.
 

@@ -89,11 +89,11 @@ You can add NuGet feeds by clicking the **Add feed** button.
 
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
 
-![](3277773.png)
+![](images/3277773.png)
 
 On the test page, you can check whether the feed is working by searching for packages:
 
-![](3277772.png)
+![](images/3277772.png)
 
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
 By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](/docs/deployment-process/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.

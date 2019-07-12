@@ -55,7 +55,7 @@ import os
 createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
 ```
 
-![Deployment Artifact](deployment-artifact.png)
+![Deployment Artifact](images/deployment-artifact.png)
 
 ### Service Message
 

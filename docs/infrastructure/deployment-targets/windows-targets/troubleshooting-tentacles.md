@@ -161,7 +161,7 @@ If the Tentacle welcome page is shown, good news - your network is fine.
 **Watch out for proxy servers or SSL offloading...**
 Octopus and Tentacle use TCP to communicate, with special handling to enable web browsers to connect for diagnostic purposes. Full HTTP is not supported, so network services like **SSL offloading** are not supported, and **proxies** are not supported in earlier versions of Octopus Deploy. Make sure there's a direct connection between the Octopus Server and Tentacle, without an HTTP proxy or a network appliance performing SSL offloading in between.
 
-**NOTE**: **Octopus 3.4** introduced [advanced support for HTTP proxies](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
+**NOTE**: **Octopus 3.4** introduced [advanced support for HTTP proxies](/docs/infrastructure/deployment-targets/proxy-support.md).
 :::
 
 ## Tentacle Ping
@@ -238,7 +238,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
-![](/docs/images/5670828/5865771.png)
+![](5865771.png)
 
 ## Schannel and TLS Configuration Mismatches
 

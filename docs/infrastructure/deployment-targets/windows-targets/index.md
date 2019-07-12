@@ -27,9 +27,9 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 !include <install-tentacle-manager>
 !include <configure-listening>
 1. Select which [environments](/docs/infrastructure/environments/index.md) the deployment target will be assigned to.
-1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md) for the deployment target and click **Save**.
+1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles) for the deployment target and click **Save**.
 
-Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/machine-policies.md#health-check).
+Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 
@@ -48,7 +48,7 @@ Listening Tentacles are recommended, but there might be situations where you nee
 !include <install-tentacle-manager>
 !include <configure-polling>
 
-Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/machine-policies.md#health-check).
+Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 

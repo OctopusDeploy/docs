@@ -20,7 +20,7 @@ That's it - you've created your first tenant, but you may have noticed you canno
 
 Try adding a logo for your tenant - this will make it much easier to distinguish your tenants from each other. You can do this by clicking on the tenant's logo placeholder or going to the Settings tab on the tenant.
 
-![](/sampler.png)
+![](images/sampler.png)
 
 In reality your tenants would be other businesses, but for our sample we've used anonymous people data from [http://api.randomuser.me/](http://api.randomuser.me/).
 

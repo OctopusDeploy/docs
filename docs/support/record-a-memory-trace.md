@@ -50,9 +50,9 @@ If you can easily restart your Octopus Server, and the problem you are experienc
 2. Start dotMemory **as an Administrator** and start a free trial (the trial can be paused afterwards).
 3. Stop the Octopus Deploy windows service.
 4. Configure dotMemory to start your Octopus Server windows service.
-![dotMemory start Octopus Server](record-a-memory-trace-start-windows-service.png).
+![dotMemory start Octopus Server](images/record-a-memory-trace-start-windows-service.png).
 5. If everything is working as expected you should see a screen like the one shown below
-![dotMemory take snapshot](record-a-memory-trace-take-snapshot.png).
+![dotMemory take snapshot](images/record-a-memory-trace-take-snapshot.png).
 6. Take a snapshot just after the Octopus Server has started.
 7. Use Octopus in a way which causes the memory problem.
 8. Take another snapshot.

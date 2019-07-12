@@ -31,7 +31,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 5. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 
-![Adding a Variable](adding-a-variable.png)
+![Adding a Variable](images/adding-a-variable.png)
 
 7. Save the variable by clicking **SAVE**.
 8. In this example, we'll reference this variable from a **Run a Script** step.
@@ -43,7 +43,7 @@ Write-Host
 
 10. Select the variable *Greeting* from the insert variable tool (**#\{\}**) next to the script editor, and click **SAVE**.
 
-![Script with Variable](script-variable.png)
+![Script with Variable](images/script-variable.png)
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
 
@@ -71,7 +71,7 @@ During deployment, Octopus will try to select the most specifically scoped varia
 
 You can set the scope of a variable values when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library; however, when you assign scope to variables that are part of a library **variable set**, the variables cannot be scoped to deployment steps or channels.
 
-![Assigning Scope to Variables](scoping-variables.png)
+![Assigning Scope to Variables](images/scoping-variables.png)
 
 ### Using Multiple Scopes
 
@@ -117,7 +117,7 @@ If two variables are scoped equally, Octopus will choose project-defined variabl
 
 ### Scoping Variables to Target Roles
 
-Variables can also be scoped to specific [target roles](docs/infrastructure/deployment-targets/target-roles/index.md). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
+Variables can also be scoped to specific [target roles](docs/infrastructure/deployment-targets/index.md#target-roles). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
 
 Let’s say you have the following targets with their respective roles:
 
@@ -128,11 +128,11 @@ Let’s say you have the following targets with their respective roles:
 
 You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we’ll call it *DeployPath*) with a different value for each target role:
 
-![](deploy-path-variable.png)
+![](images/deploy-path-variable.png)
 
 Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)** to `#{DeployPath}`.
 
-![](custom-install-path.png)
+![](images/custom-install-path.png)
 
 ### Variables and Permissions
 
