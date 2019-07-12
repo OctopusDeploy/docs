@@ -25,6 +25,11 @@ To increase the number of log files Octopus will store, find the `octopus.server
 
 The retention of the logs is controlled by the `maxArchiveFiles` property, it defaults to 7 and can be increased or decreased. The Octopus process will automatically switch to the new logging level as soon as the file is saved.
 
+:::warning
+**Updates reset the nlog file**
+When you use the Octopus installer to update the version of Octopus the `octopus.server.exe.nlog` will be reset to the default values that ship with Octopus.
+:::
+
 ## Changing Log Levels {#Logfiles-Changingloglevels}
 
 Occasionally it may be necessary to change the logging level of an Octopus application.
