@@ -6,8 +6,6 @@ position: 1
 
 This page contains some of the questions we are asked most often related to multi-tenant deployments in Octopus Deploy.
 
-!toc
-
 ## Why Can't I See the Tenant Area in the Main Menu, or Anything About Tenants For That Matter? {#Multi-tenantdeploymentsFAQ-WhycantIseethetenantareainthemainmenu,oranythingabouttenantsforthatmatter?}
 
 Multi-tenant deployments were shipped as part of **Octopus 3.4**, perhaps you need to upgrade your Octopus Server? Also, before creating your first tenant, you can find tenants in the **Tenants** menu option. For more information refer to [creating your first tenant](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
@@ -27,7 +25,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I Deploy to Multiple Tenants at the Same Time? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsatthesametime?}
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, `octo.exe` or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) or all of the tenants in an environment. For more information refer to [deploying releases with octo.exe](/docs/api-and-integration/octo.exe-command-line/deploy-release.md) and [designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, `octo.exe` or any of the build server extensions. You can choose multiple tenants using [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) or all of the tenants in an environment. For more information refer to [deploying releases with octo.exe](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) and [designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
 ## Can I Control the Order in Which Tenanted Deployments Execute?
 
@@ -69,13 +67,13 @@ No. Each tenanted deployment is independent. There is no built-in way to perform
 - I want to send an email once release **1.2.6** has been successfully deployed to all of my tenants in production.
 - I want to upgrade a batch of tenants, and if one fails, I want them all to roll-back to the last known good version.
 
-You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/api-and-integration/api/index.md) and taking advantage of [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
+You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/octopus-rest-api/index.md) and taking advantage of [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
 
 ## Can I Have a Combination of Tenanted and Untenanted Projects? {#Multi-tenantdeploymentsFAQ-CanIhaveacombinationoftenantedanduntenantedprojects?}
 
 Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
 
-![](/docs/images/5669243/5865711.png)
+![](images/5865711.png)
 
 ## What is an "Untenanted Deployment"? Don't I Have to Choose a Tenant When Deploying my Project? {#Multi-tenantdeploymentsFAQ-Whatisanun-tenanteddeploymentDontIhavetochooseatenantwhendeployingmyproject?}
 
@@ -111,7 +109,7 @@ Granted, multi-tenant deployments can get complicated very quickly, so we've wri
 
 ## Is Licensing Affected By the Number of Tenants I Have? {#Multi-tenantdeploymentsFAQ-IslicensingaffectedbythenumberoftenantsIhave?}
 
-No, you can create an unlimited number of tenants without any impact on licensing in **Octopus 3.x**.
+No, you can create an unlimited number of tenants without any impact on licensing.
 
 ## Can I Provide Third-party Self-service Sign In, So My Tenants Can Manage Their Own Deployments? {#Multi-tenantdeploymentsFAQ-CanIprovide3rd-partyself-servicesignin,somytenantscanmanagetheirowndeployments?}
 

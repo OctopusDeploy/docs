@@ -1,20 +1,16 @@
 ---
 title: Troubleshooting
-description: Solutions to common problems when upgrading to Octopus 3.x from Octopus 2.6.
+description: Solutions to common problems when upgrading to Octopus 2018.10 LTS from Octopus 2.6.
 position: 4
 ---
 
-If your upgrade from **Octopus 2.6** to **Octopus 3.x** doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
-
-:::hint
-Always ensure you have tried to upgrade with the latest version of the Hydra NuGet package.
-:::
+If your upgrade from **Octopus 2.6** to **Octopus 2018.10 LTS** doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
 
 ## Rolling Back {#Troubleshooting-RollingBack}
 
-The **Octopus 2.6** to **Octopus 3.x** upgrade is lossless, meaning you shouldn't lose any data as a result of installing the new MSI. Your Raven database and configuration settings are not deleted.
+The **Octopus 2.6** to **Octopus 2018.10 LTS** upgrade is lossless, meaning you shouldn't lose any data as a result of installing the new MSI. Your Raven database and configuration settings are not deleted.
 
-If your number one priority is to get up and running again, you can simply run the **Octopus 2.6** MSI again, and the previous version will install over the top of 3.x, allowing you to diagnose the issue at your leisure.
+If your number one priority is to get up and running again, you can simply run the **Octopus 2.6** MSI again, and the previous version will install over the top of **2018.10 LTS**, allowing you to diagnose the issue at your leisure.
 
 ## Hydra Log Files {#Troubleshooting-HydraLogFiles}
 
@@ -34,7 +30,7 @@ This section describes some common upgrade issues and ways to resolve them.
 
 #### Symptoms #1 {#Troubleshooting-Symptoms#1}
 
-The **Octopus 3.x** server cannot communicate with one or more Tentacles.
+The **Octopus 2018.10 LTS** server cannot communicate with one or more Tentacles.
 
 You may see an error similar to the following in the Server logs:
 
@@ -75,11 +71,11 @@ If you see a reference to `Halibut` in the server log and `Pipefish` in the clie
 
 The easiest way to fix this is to RDP into the Tentacle machine and click the Reinstall button. This will reset the Tentacle service to make sure it points to the new binaries. Be aware that this will reset the Tentacle service account to run as Local System. If you are using a custom service account, you will have to reconfigure it.
 
-![](/docs/images/3048204/3278286.png "width=500")
+![](images/3278286.png)
 
 #### Symptoms #2 {#Troubleshooting-Symptoms#2}
 
-The **Octopus 3.x** Server cannot communicate with the Tentacle. When investigated, the Windows Service for the Tentacle is pointing at a 2.6 instance of the Octopus Tentacle.
+The **Octopus 2018.10 LTS** Server cannot communicate with the Tentacle. When investigated, the Windows Service for the Tentacle is pointing at a 2.6 instance of the Octopus Tentacle.
 
 #### Solution #2 {#Troubleshooting-Solution#2}
 
@@ -90,9 +86,9 @@ There are a few potential reasons for this:
 
 If an upgrade succeeded but the Windows Service is still running the 2.6 instance, you will have to click the Reinstall link as per the Solution #1 above.
 
-If the upgrade itself failed, this can be due to a previous installation of a 2.0 version of the Octopus Tentacle (which was fixed in 2.1). Originally, the MSI installed itself on a per-user basis rather than per-machine. This means that Hydra is unable to uninstall the previous version prior to installing the 3.x Tentacle.
+If the upgrade itself failed, this can be due to a previous installation of a 2.0 version of the Octopus Tentacle (which was fixed in 2.1). Originally, the MSI installed itself on a per-user basis rather than per-machine. This means that Hydra is unable to uninstall the previous version prior to installing the latest version of Tentacle.
 
-In this case, you will have to **log onto your Tentacle machine as the user who first installed the 2.0 version of the Tentacle**. You can then either run `Hydra.exe` directly, or manually uninstall the previous Tentacle and install the 3.x Tentacle.
+In this case, you will have to **log onto your Tentacle machine as the user who first installed the 2.0 version of the Tentacle**. You can then either run `Hydra.exe` directly, or manually uninstall the previous Tentacle and install the latest version of Tentacle.
 
 ### I've Lost All My NuGet Packages {#Troubleshooting-I&#39;velostallmyNuGetpackages}
 

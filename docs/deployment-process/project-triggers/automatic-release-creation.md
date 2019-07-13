@@ -6,14 +6,14 @@ position: 15
 
 :::success
 **Consider using a build server extension**
-We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
+We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
 
-- [TeamCity](/docs/api-and-integration/teamcity.md).
-- [Azure DevOps (formerly VSO) and TFS 2015](/docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md).
+- [TeamCity](/docs/packaging-applications/build-servers/teamcity.md).
+- [Azure DevOps (formerly VSO) and TFS 2015](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
   :::
 
 :::success
-Take a look at the [end-to-end guide for TFS](/docs/api-and-integration/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
+Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
 :::
 
 :::hint
@@ -27,7 +27,7 @@ If you use the[ built-in Octopus package repository](/docs/packaging-application
 
 From the project's trigger tab, under the section called **Automatic Release Creation**, click **Setup**, and then select the package that will trigger the release:
 
-![](automatic-release-creation.png)
+![Automatic release creation](automatic-release-creation.png)
 
 As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
@@ -36,11 +36,11 @@ As a project can contain multiple packages you need to select the package that w
 You cannot use variables to define the PackageId (either in full or in part). Octopus will only create a release on your behalf when you have selected a specific Package (the PackageId must be a constant value).
 :::
 
-![](/docs/images/3048079/3277647.png "width=469")
+![Automatic release creation last package option](automatic-release-creation-last-package.png)
 
 When a release is set to be created this way, the audit will tell you that is how the release was created.
 
-![](/docs/images/3048079/3277646.png "width=701")
+![Release history](history.png)
 
 If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/deployment-process/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
@@ -52,7 +52,7 @@ The release number that is created is guided by the Release Versioning settings 
 
 [Channels](/docs/deployment-process/channels/index.md) were introduced in **Octopus 3.2**, and at this point you must select the Channel that will be used for any automatically created releases. This means that **only one channel for each project can have an automatic release creation trigger enabled at any one time.** This can be painful, and here are some points you can consider:
 
-- Use one of the [build-server extensions](/docs/api-and-integration/index.md), or [octo.exe](/docs/api-and-integration/octo.exe-command-line/create-release.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
+- Use one of the [build-server extensions](/docs/octopus-rest-api/index.md), or [octo.exe](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
 - Try creating some releases manually for the selected channel to make sure it works as expected.
 

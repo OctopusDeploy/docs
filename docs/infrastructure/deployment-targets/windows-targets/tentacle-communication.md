@@ -40,4 +40,4 @@ The communication protocol used by Octopus and Tentacle requires intact end-to-e
 
 ## Proxy Servers Supported for Tentacle Communications
 
-The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
+The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/deployment-targets/proxy-support.md).

@@ -18,13 +18,17 @@ You are responsible for the routine maintenance of your Octopus database. Perfor
 
 You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore.md) for more information about backing up Octopus Deploy and recovering from failure.
 
+### High Availabilty Databases {#Octopusdatabase-highavailability}{#highavailability}
+
+If you are looking for a highly-available database solution, we recommend using [Always On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017). Unfortunately, Octopus Server does not support running against a SQL database with Database Mirroring or SQL Replication enabled.  
+
 ## Schema {#schema}
 
 Octopus should be given its own database - the database should not be shared with any other applications. Octopus Server maintains its own schema - it will create the initial database schema upon installation, and it will update the schema when you upgrade Octopus Server.
 
 The System Integrity Check at **{{Configuration,Diagnostics}}** will let you know if the database schema has drifted from its intended state.
 
-![](/docs/images/3048120/5865723.png "width=500")
+![](5865723.png)
 
 ### Modifying the Schema {#modifying-the-schema}
 

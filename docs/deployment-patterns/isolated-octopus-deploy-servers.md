@@ -29,7 +29,7 @@ In this scenario, the customer would install different instances of Octopus in b
 - The migration tool could be reused periodically to keep both servers in sync. Because the resulting export is simply a collection of JSON files in folders, a source control system like Git could be used for this purpose. Any imports subsequent to the initial import would result in a merge of any changes.
 - They can manually keep some additional settings in sync, such as common Nuget feeds.
 - Packages can be moved between environments using [NuGet.exe](http://docs.nuget.org/docs/reference/command-line-reference) to push packages to both Octopus Servers. For example, the CI server could publish packages to both the pre-production and production Octopus Server after a build, or they could manually use Nuget to push them when ready to promote.
-- Finally, to automate anything else that isn't possible above, the [REST API](/docs/api-and-integration/api/index.md) or [Octopus.Client](/docs/api-and-integration/octopus.client.md) can be used.
+- Finally, to automate anything else that isn't possible above, the [REST API](/docs/octopus-rest-api/index.md) or [Octopus.Client](/docs/octopus-rest-api/octopus.client.md) can be used.
 
 :::success
 **Friendly multi-instance licensing model**
@@ -40,4 +40,4 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 
-In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md) in Octopus Deploy.
+In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support.md) in Octopus Deploy.

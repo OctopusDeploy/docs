@@ -69,4 +69,4 @@ If you want to be able to deploy to any environment at any time, then simply cre
 
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
-![](lifecycle-deployment-process.png "width=500")
+![](lifecycle-deployment-process.png)

@@ -5,8 +5,6 @@ description: Information on configuring Octopus High Availability including data
 
 This section will walk through the different options and considerations for setting up Octopus: HA.
 
-!toc
-
 ## Setting up Octopus: High Availability {#ConfiguringOctopusforHighAvailability-SettingupOctopus:HighAvailability}
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
@@ -33,7 +31,7 @@ Octopus: HA works with:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Amazon Relational Database Services (RDS)](https://aws.amazon.com/rds/)
 
-Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication.
+Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md#highavailability)
 
 See also: [SQL Server Database](/docs/installation/sql-server-database.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
 
@@ -84,27 +82,27 @@ While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus
 
 On the first Octopus Server node, [download the Octopus Server MSI](https://octopus.com/downloads), and walk through the setup wizard. Use the Getting Started wizard to configure the first Octopus node:
 
-![](get-started.png "width=500")
+![](images/get-started.png)
 
 The Octopus home directory is local to each specific node, and *should not be shared* between nodes. This is usually at `C:\Octopus`.
 
-![](wizard-home.png "width=500")
+![](images/wizard-home.png)
 
 Since each node will use shared storage, ensure you use a custom service account that has permission to access the shared database:
 
-![](wizard-service-account.png "width=500")
+![](images/wizard-service-account.png)
 
 Configure the shared SQL database:
 
-![](wizard-database.png "width=500")
+![](images/wizard-database.png)
 
 Follow the rest of the setup guide, and install the first node.
 
-![](wizard-installation.png "width=500")
+![](images/wizard-installation.png)
 
 Once the Octopus Server has been configured, from Octopus Manager, copy the master key - you will need this to set up the additional nodes.
 
-![](master-key.png "width=500")
+![](images/master-key.png)
 
 Finally, you need to tell Octopus to store artifacts, task logs and packages in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you'll need to use the command line:
 
@@ -124,15 +122,15 @@ This configuration is stored in the database, so you only have to perform this o
 
 Once the first node has been created and started, you can add the additional nodes. Again, install the Octopus Server MSI, but instead of using the Getting Started wizard, use the link to add this server as a node for the cluster:
 
-![](add-to-ha-cluster.png "width=500")
+![](images/add-to-ha-cluster.png)
 
 Connect to the same shared SQL database:
 
-![](wizard-same-database.png "width=500")
+![](images/wizard-same-database.png)
 
 On the Cluster details page, enter the master key from the original node:
 
-![](wizard-cluster-details.png "width=500")
+![](images/wizard-cluster-details.png)
 
 Complete the setup wizard. You'll now have a second node in the cluster!
 
@@ -144,7 +142,7 @@ Octopus can work with any load balancer technology, including hardware and softw
 
 If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or Nginx as a reverse load-balancing proxy.
 
-![](create-server-farm.png "width=500")
+![](images/create-server-farm.png)
 
 ## Migrating a Single Server to a High Availability Setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
 
@@ -168,7 +166,7 @@ Configuring the Tentacle via the command line is the preferred option with the c
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
 ```
 
-For more information on this command please refer to the [Tentacle Poll Server options document](/docs/api-and-integration/tentacle.exe-command-line/poll-server.md)
+For more information on this command please refer to the [Tentacle Poll Server options document](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server.md)
 
 Alternatively you can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method is not recommended as the Octopus service for each server will need to be restarted to accept incoming connections via this method.
 

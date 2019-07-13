@@ -55,7 +55,7 @@ In this case we are specifying the `sa` password that is used when starting the 
 Start up both containers by running:
 
 ```
-docker-compose --poject-name Octopus up -d
+docker-compose --project-name Octopus up -d
 ```
 
 Once both containers are healthy you can browse directly to `http://localhost:5441` from your host machine.
@@ -149,4 +149,4 @@ OCTOPUS_ADMIN_PASSWORD=Password01!
 ```
 
 ### Import
-Since the Tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/api-and-integration/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/api-and-integration/octopus.migrator.exe-command-line/migrator-import.md) is invoked if a `metadata.json` file is present.
+Since the Tentacle will perform a `register-with` command when it starts up, we need to ensure that our fresh new Octopus server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts up in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md) is invoked if a `metadata.json` file is present.

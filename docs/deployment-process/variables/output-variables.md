@@ -14,7 +14,7 @@ For example, you might have a standalone [PowerShell script step](/docs/deployme
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
-```c# C#
+```cs C#
 Octopus.SetVariable("TestResult", "Passed");
 ```
 
@@ -42,12 +42,12 @@ Or other scripts:
 $TestResult  = $OctopusParameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
-```c# C#
+```cs C#
 var testResult = Octopus.Parameters["Octopus.Action[StepA].Output.TestResult"]
 ```
 
 ```bash Bash
-testResult = $(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
+testResult=$(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 ```
 
 ```fsharp F#
@@ -66,7 +66,7 @@ Output variables can be created as sensitive (since **Octopus 2018.5.2**).
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
 ```
 
-```c# C#
+```cs C#
 Octopus.SetVariable("Password", "correct horse battery staple", true);
 ```
 
@@ -152,7 +152,7 @@ From a C# script, you can use the `public static void SetVariable(string name, 
 
 **C#**
 
-```c#
+```cs
 Octopus.SetVariable("TestResult", "Passed");
 ```
 

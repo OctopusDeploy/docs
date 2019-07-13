@@ -10,8 +10,6 @@ This section provides information about the responsibility we take to provide a 
 
 Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](https://octopus.com/documents/security-review-executive-report.pdf)
 
-!toc
-
 ## Responsibility
 
 Octopus Deploy take responsibility to provide a secure and stable platform for managing your deployments.
@@ -70,7 +68,7 @@ Learn about [FIPS and Octopus Deploy](fips-and-octopus-deploy.md).
 
 ## Provided By the Host
 
-The following sections describe the responsibilities taken by whomever is hosing your Octopus Server. If you are using Octopus Cloud, that's us. If you are self-hosting, this is you.
+The following sections describe the responsibilities taken by whomever is hosting your Octopus Server. If you are using Octopus Cloud, that's us. If you are self-hosting, this is you.
 
 ### Safely Exposing Your Octopus Deploy Installation
 
@@ -133,3 +131,9 @@ If you have a concern regarding security with Octopus Deploy, or would like to r
 For security vulnerabilities, please include as much information as possible, with full details about how to reproduce and validate the vulnerability, preferably with a proof of concept. If you wish to encrypt your report, please use our [PGP key](https://octopus.com/pgp-key.pub). Please give us a reasonable amount of time to correct the issue, before making it public.
 
 We will respond to your report within one business day.
+
+## Ask Octopus
+
+Watch this Ask Octopus episode where we discuss system security.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rKwYkDN_IPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

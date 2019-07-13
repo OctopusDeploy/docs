@@ -6,13 +6,13 @@ position: 80
 
 [AWS accounts](/docs/infrastructure/accounts/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/accounts/aws/index.md) in Octopus:
 
-![AWS Account Variable](aws-account-variable.png "width=500")
+![AWS Account Variable](images/aws-account-variable.png)
 
 The **Add Variable** window is then displayed and lists all the AWS accounts.
 
 Select the AWS account you want to access from the project to assign it to the variable:
 
-![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
+![AWS Account Variable Selection](images/aws-account-variable-selection.png)
 
 
 ## AWS Account Variable Properties
@@ -36,8 +36,8 @@ Write-Host 'AwsAccount.Id=' $OctopusParameters["aws account"]
 Write-Host 'AwsAccount.AccessKey=' $OctopusParameters["aws account.AccessKey"]
 
 # Directly as a variable
-Write-Host 'AzureAccount.Id=' $awsaccount
-Write-Host 'AzureAccount.Client=' $awsccountAccessKey
+Write-Host 'AwsAccount.Id=' #{aws account}
+Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 ```
 
 ## Add an AWS Account to Octopus

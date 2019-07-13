@@ -1,6 +1,7 @@
 ---
 title: AWS CLI PowerShell Scripts
 description: AWS CLI PowerShell Scripts.
+position: 90
 ---
 
 AWS support was introduced in **Octopus 4.3**.
@@ -17,33 +18,33 @@ The instructions at [Creating an AWS Account](/docs/infrastructure/accounts/aws/
 
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`:
 
-![AWS Account Variable](aws-account-variable.png "width=500")
+![AWS Account Variable](images/aws-account-variable.png)
 
 The `Add Variable` window is then displayed and lists all the AWS accounts.
 
 Select the account that was created in the previous step to assign it to the variable:
 
-![AWS Account Variable Selection](aws-account-variable-selection.png "width=500")
+![AWS Account Variable Selection](images/aws-account-variable-selection.png)
 
 ## Add AWS Script Step
 
 Add the `Run an AWS CLI Script` step to the project, and provide it a name:
 
-![Run AWS Script](run-aws-script-step.png "width=500")
+![Run AWS Script](images/run-aws-script-step.png)
 
 ### AWS Section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or choose to execute using the service role assigned to the EC2 instance:
 
-![AWS Account](step-aws-account.png "width=500")
+![AWS Account](images/step-aws-account.png)
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected:
 
-![AWS Role](step-aws-role.png "width=500")
+![AWS Role](images/step-aws-role.png)
 
 The default AWS region in which to execute AWS CLI commands is defined in the `Region` section:
 
-![AWS Region](step-aws-region.png "width=500")
+![AWS Region](images/step-aws-region.png)
 
 ## Script Section
 
@@ -74,10 +75,10 @@ Scripts can be run from two different locations: source code added to the step, 
 
 The first option is to add the script source code to the step directly. This is done by selecting the `Source code` option, and entering the source code into the text box in the `Script Content` section.
 
-![Source Code](step-aws-script.png "width=500")
+![Source Code](images/step-aws-script.png)
 
 ### Package
 
 The second option is to run a script from a package. This is done by selecting the `Script file inside a package` option, selecting the package, and entering the name of the file within the package to run as a PowerShell script.
 
-![AWS Script Package](step-aws-package.png)
+![AWS Script Package](images/step-aws-package.png)

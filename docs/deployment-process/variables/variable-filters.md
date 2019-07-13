@@ -52,7 +52,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 | ----------------- | ----------------- | --------------------------- |
 |                   | `#{ | NowDate }`                   | `2016-11-03T08:53:11.0946448` |
 |                   | `#{ | NowDateUtc}`                 | `2016-11-02T23:01:46.9441479Z` |
-|                   | `#{ | NowDate \"HH dd-MMM-yyyy\"}` | `09 03-Nov-2016` |
+|                   | `#{ | NowDate "HH dd-MMM-yyyy"}` | `09 03-Nov-2016` |
 |                   | `#{ | NowDateUtc zz}`              | `+00` |
 | dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`        | `03-Nov-2016` |
 

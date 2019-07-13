@@ -114,7 +114,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
 1. Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/index.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
-1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/machine-policies.md).
+1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
 1. Disable automatic indexing of the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) if not required.
 
 ## Troubleshooting
@@ -173,3 +173,13 @@ In addition to answering those questions, please collect and attach the followin
 1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task.md) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
 1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/support/record-a-performance-trace.md).
 1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/support/record-a-memory-trace.md).
+
+## Ask Octopus
+
+Watch this Ask Octopus episode where we discus some Common performance issues in part one:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W0DafJBBuDw?start=568" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+And part two:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tcPtD14f0_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

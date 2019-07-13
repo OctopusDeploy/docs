@@ -4,8 +4,6 @@ description: Octopus Deploy can help you perform repeatable and controlled deplo
 ---
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites). The below guide explains how to add a step to your deployment process to deploy an application to an Azure Web App.
 
-!toc
-
 ## Understanding Azure Web Apps {#DeployingapackagetoanAzureWebApp-UnderstandingAzureWebApps}
 
 The Azure Web Apps you build, and how you might want to deploy them, are becoming increasingly complex as the Azure team provide more features to the platform. The best place to stay abreast of changes, and how they might affect your deployments is the [Azure Web App Documentation](https://azure.microsoft.com/en-us/documentation/services/app-service/web/), the [many and varied ways you can deploy Web Apps (including Octopus Deploy)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/). There is also the hidden gem of the [Project Kudu GitHub repository](https://github.com/projectkudu/kudu/wiki) where you will find many of the hard to find facts about Web Jobs (like the `settings.job` file, configuring a Continuous Web Job as a Singleton, configuring the Schedule for Scheduled Jobs, how shadow copying enables in-place deployments, and how to shut down gracefully).
@@ -47,7 +45,7 @@ The following features are available when deploying a package to an Azure Web Ap
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitutions.md)
 
@@ -72,7 +70,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 2. Extract the package on the Octopus Server to a temporary location.
 3. Any configured or packaged `PreDeploy` scripts are executed.
 4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured).
-5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
 6. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 7. Any configured or packaged `Deploy` scripts are executed.
 8. Push your package content to the Web App in Azure.

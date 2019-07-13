@@ -41,7 +41,7 @@ If any of the below occurs the full package will be uploaded:
 
 When running a deployment that creates and applies a delta file, you will see the following in the logs under the `Acquire packages` section
 
-![](/docs/images/3048083/3277668.png "width=500")
+![Package Logs](images/package-logs.png)
 
 :::hint
 **Delta progress logging**
@@ -60,9 +60,7 @@ The most common mistake causing delta compression to yield minimal size reductio
 
 ## Turning Delta Compression Off {#Deltacompressionforpackagetransfers-TurningCompressionoff}
 
-To turn this feature off, create a project variable named **Octopus.Acquire.DeltaCompressionEnabled** with a value of **False**:
-
-![](/docs/images/3048083/5275657.jpg "width=500")
+To turn this feature off, create a project [variable](/docs/deployment-process/variables/index.md) named **Octopus.Acquire.DeltaCompressionEnabled** with a value of **False**.
 
 :::hint
 **Delta calculations can be CPU intensive**
@@ -73,3 +71,9 @@ You should consider disabling delta compression if package transfer bandwidth is
 **Are you really benefiting from delta compression?**
 The deployment logs will tell you the % saving delta compression is achieving. If you are constantly transferring 50% or more of the original package, perhaps delta compression is actually becoming a bottleneck and should be disabled.
 :::
+
+## Ask Octopus
+
+What this Ask Octopus episode where we discuss Delta Compression.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W0DafJBBuDw?start=35" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

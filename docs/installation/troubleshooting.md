@@ -39,4 +39,4 @@ Once this option is on, PowerShell scripts automatically support long file names
 
 ## Next
 
-Return to the [Octopus installation](/docs/installation/index.md).
+Continue with the [Octopus installation](/docs/installation/index.md).

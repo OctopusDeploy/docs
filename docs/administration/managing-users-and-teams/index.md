@@ -10,13 +10,13 @@ You can manage users from the **Users** tab under **Configuration** in the Octop
 
 You can manage teams from the **Teams** tab under **Configuration** in the Octopus Deploy web portal.
 
-![](teams.png "width=500")
+![](images/teams.png)
 
 ## User and Service Accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/active-directory-authentication/index.md), or an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/active-directory-authentication/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
-[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/api-and-integration/api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
+[Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
 
 :::success
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
@@ -26,7 +26,7 @@ You should create a different User account for each person that will use Octopus
 
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
-![](user-invites.png "width=500")
+![](images/user-invites.png)
 
 :::hint
 Prior to version 4.0 this feature was accessed via the **Invite users** button on the **Users** page
@@ -46,7 +46,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
-![](teams-create-new.png "width=500")
+![](images/dev-deployers-members.png)
 
 ### Restricting Project and Project Group Access
 
@@ -98,6 +98,8 @@ Octopus Deploy comes with several built-in teams.
 
 The **Everyone** team always contains all users, but you can assign different roles to members of this Team (for example, you might allow everyone to view all projects and environments, but not edit anything). Out of the box, **Everyone** members can do nothing.
 
-The second team is **Octopus Administrators.** Members of this team always have permission to do anything in Octopus. You can add or remove members from this team. We recommend only adding a few key users to this team.
+The second team is **Octopus Administrators.** Members of this team have permission to configure system level concerns of Octopus. You can add or remove members from this team. We recommend only adding a few key users to this team.
 
-The third team is **Octopus Managers.** Members of this team can do everything **Octopus Administrators** can do, except for certain system-level functions reserved for **Octopus Administrators**. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
+The third team is **Octopus Managers.** That can manage a smaller subset of system-level functions reserved. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
+
+The fourth team is **Space Managers** Members of this team can do everything in a given space. Out of the box the initial user added to  **Octopus Administrators** is also added as a **Space Manager**. If you do not need granular access for what users need to do withing Octopus relating to Projects, Tenants, Environments you can add them as **Space Managers**.

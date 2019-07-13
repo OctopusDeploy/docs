@@ -37,7 +37,7 @@ Upgrading Octopus Server and Tentacle to 3.1 or newer will enable TLS 1.2 which 
 
 You can use a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto) to confirm and repair the configuration of Schannel on both servers. A mismatch in the enabled protocols, ciphers, hashes or key exchanges on either end can break Tentacle communications.
 
-![](/docs/images/5670828/5865774.png "width=500")
+![](5865774.png)
 
 ### Solution: Consider Rolling Back Recent Windows Patches {#TroubleshootingSchannelandTLS-Solution:ConsiderrollingbackrecentWindowspatches}
 
@@ -47,4 +47,4 @@ Some customers have decided to roll back the Windows patches mentioned above and
 
 Some customers have reported that after tightening the use of TLS to exclusively enable TLS 1.2, Tentacles become unable to communicate with Octopus Server and they see the error `A call to SSPI failed, see inner exception`.
 
-This could occur if the RSA Key length is small (512 bit) and we have received reports that regenerating the TLS Certificate using [new-certificate](/docs/api-and-integration/tentacle.exe-command-line/new-certificate.md) fixes the issue.
+This could occur if the RSA Key length is small (512 bit) and we have received reports that regenerating the TLS Certificate using [new-certificate](/docs/octopus-rest-api/tentacle.exe-command-line/new-certificate.md) fixes the issue.

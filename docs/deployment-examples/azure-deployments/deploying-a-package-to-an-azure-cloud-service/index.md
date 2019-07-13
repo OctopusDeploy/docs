@@ -11,7 +11,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference). For example, the resulting NuGet package will look like this:
 
-![](/docs/images/3048662/3278363.png "width=500")
+![](3278363.png)
 
 ## Step 2: Create an Azure Account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
@@ -21,7 +21,7 @@ If you haven't already, create an [Azure Management Certificate Account](/docs
 
 Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
-![](/docs/images/5671696/5865904.png "width=170")
+![](5865904.png "width=170")
 
 ## Step 4: Configure your Azure Cloud Service Step {#DeployingapackagetoanAzureCloudService-Step4:ConfigureyourAzureCloudServicestep}
 
@@ -47,7 +47,7 @@ The following features are available when deploying a package to an Azure Cloud 
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms.md)
+- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/deployment-process/variables/variable-substitutions.md)
 
@@ -83,7 +83,7 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 4. Any configured or packaged `PreDeploy` scripts are executed.
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
 6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms.md) (if configured) are performed.
+7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
 8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 9. Any configured or package `Deploy` scripts are executed.
 10. Re-package the Cloud Service Package.

@@ -6,7 +6,7 @@ version: 2019.1
 ---
 
 :::hint
-Spaces was introduced in **Octopus 2019.1** and as such is not included in the current long-term support version (**Octopus 2018.1-LTS**); however, Spaces will be included in future LTS versions of Octopus Deploy.
+Spaces was introduced in the **Octopus 2019.1** fast lane release and was first available in a long-term support version with the **2019.3** release.
 :::
 
 With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
@@ -106,7 +106,7 @@ This means that by disabling the default space - **you are opting into a non-bac
 
  - Versions of Tentacle on target environments need to be upgraded to [Tentacle 4.0.0](https://octopus.com/downloads/2019.1.1) the latest version otherwise they will not connect.
  - Scripts you've written that directly call the API.
- - Integrations with Octopus Server are updated to their latest versions (like TFS, ADO, and Team City plugins)
+ - Integrations with Octopus Server are updated to their latest versions (like Azure DevOps, TFS, and Team City plugins)
  - Community library templates that use the API are updated (you can [refer to this PR](https://github.com/OctopusDeploy/Library/pull/750) as a guide).
 
 To disable the default space:
@@ -124,7 +124,7 @@ When you log into the Octopus Web Portal, the first item on the navigation menu 
 
 There is a hard barrier between spaces, so, for instance, a deployment target configured for Space-A isn't available to projects in Space-B. However, there are some things that aren't scoped to a space, and are available system wide.
 
-The following table shows what is space-scoped, system-scoped, or scoped to both.
+The following table shows which Octopus resources are space-scoped, system-scoped, or scoped to both. If a resource isn't listed below, then it's space-scoped.
 
 | Resource              | Space-Scoped                | System-Scoped |
 | --------------------- | --------------------------- | ------------- |

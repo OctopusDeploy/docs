@@ -1,12 +1,12 @@
 ---
 title: Raw Scripting
 description: Raw Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
-position: 2
+position: 70
 ---
 
 ## Design Intentions {#RawScripting-DesignIntentions}
 
-Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/api-and-integration/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
+Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/octopus-rest-api/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
 
 :::hint
 **Feature Tradeoffs**
@@ -27,7 +27,7 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 
 1. Add a [Transfer A Package](/docs/deployment-examples/package-deployments/transfer-package.md) step.
 2. In the **Transfer Path** field enter the location the package will be moved to as part of the deployment, for instance, `~/temp/uploads`.  Note that this directory will be created if it does not already exist. Give the step the name *Transfer AcmeWeb* and Include the relevant role for your SSH target.
-3. Add a [Run A Script](/docs/deployment-examples/custom-scripts/standalone-scripts.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb* step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
+3. Add a [Run A Script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step and explicitly clear and extract the package to your desired location. In the below example we know that the target shell will be bash so we can use output values from the previous *Transfer AcmeWeb* step to locate the package and extract it to a directory at *~/temp/somewhere*. Note that although we have selected the *Bash* script type for this step, this is purely for helpful syntax highlighting since whatever script is provided will be executed through the open connection regardless of selected type.
 
    ```bash
    rm -fr ~/temp/somewhere
@@ -39,9 +39,9 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 
 :::hint
 **Raw Target Health Checks** {#RawScripting-HealthChecks}
-Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
+Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
 
-![](/docs/images/machine-policies/ssh-healthchecks.png "width=300")
+![SSH Health checks](images/ssh-healthchecks.png)
 
 Using a standard machine policy will otherwise result in the endpoint being considered unhealthy if it is unable to find Mono or Calamari.
 :::

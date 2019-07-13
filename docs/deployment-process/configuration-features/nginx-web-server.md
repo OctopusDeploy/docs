@@ -1,18 +1,18 @@
 ---
-title: NGINX
+title: NGINX Web Server
 description: Configuring NGINX as a web server or reverse proxy
 position: 90
 ---
 
 The NGINX feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
-![NGINX Web Server screenshot](nginx-web-server.png "width=500")
+![NGINX Web Server screenshot](nginx-web-server.png)
 
-The **NGINX** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which let you configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployment-examples/nginx-on-linux-deployments/index.md) for more details.
+The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployment-examples/nginx-on-linux-deployments/index.md) for more details.
 
 ## Reverse Proxy
 
-When configuring a `location` as a reverse proxy, we will add the following `header`s and `directives` by default.
+When configuring a `location` as a reverse proxy, you need to add the following `headers` and `directives` by default:
 
 ### Headers
 - `Upgrade $http_upgrade`,
@@ -29,4 +29,4 @@ When configuring a `location` as a reverse proxy, we will add the following `hea
 
 ### Supported Operating Systems
 
-Currently the **NGINX** feature only support Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.
+Currently the **NGINX web server** feature only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.

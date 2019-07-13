@@ -6,7 +6,7 @@ position: 70
 
 By default, Octopus will only run one process on each target at a time, queuing the rest. There may be reasons that you need to run multiple, and that's okay we have a setting for that!
 
-![](/docs/images/3048158/3278139.png)
+![](images/3278139.png)
 
 **OctopusBypassDeploymentMutex** must be set at the project variable stage. It will allow for multiple processes to run at once on the target. Having said that, _deployments of the same project to the same environment (and, if applicable, the same tenant)_ are not able to be run in parallel even when using this variable.
 

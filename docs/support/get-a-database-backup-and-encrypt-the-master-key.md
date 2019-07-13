@@ -12,12 +12,12 @@ When you contact Octopus Deploy support, sometimes we aren't able to reproduce t
 
 The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced from [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server). Right-click on the Octopus database, and select **{{Tasks > Back Up...}}**, and select the directory where the .bak file will save to.
 
-![Backup SQL database in SQL Server Management Studio](sql_server_management_studio_backup_db.png "width=500")
+![Backup SQL database in SQL Server Management Studio](images/sql_server_management_studio_backup_db.png)
 
 2. Encrypt your master key.
 
 :::hint
-You can get your master key using [Octopus Manager](/docs/administration/security/data-encryption.md#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/api-and-integration/octopus.server.exe-command-line/show-master-key.md).
+You can get your master key using [Octopus Manager](/docs/administration/security/data-encryption.md#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md).
 :::
 
 We have a PowerShell snippet which will encrypt your master key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your master key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.

@@ -4,7 +4,7 @@ description: Octopus Server configuration command reference including how to spe
 position: 1100
 ---
 
-Occasionally, it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance, you may also want to clean up the Octopus Home folder after migrating from **Octopus 2.6** to **Octopus 3.x**. This page will explain what settings can be configured using the command-line on the Octopus Server and what folders can safely be removed from the Octopus Home folder after successfully migrating to **Octopus 3.x**.
+Occasionally, it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance, you may also want to clean up the Octopus Home folder after migrating from Octopus Server 2.6 to a modern version of Octopus Server. This page will explain what settings can be configured using the command-line on the Octopus Server and what folders can safely be removed from the Octopus Home folder after successfully migrating to a modern version of Octopus Server.
 
 :::problem
 Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
@@ -220,7 +220,7 @@ In **Octopus 2.6** the Server stored files in the following folders by default:
 - `C:\Octopus\PackageCache`
 - `C:\Octopus\RavenDB`
 
-Once an **Octopus 2.6** server has been migrated to **Octopus 3.x** the following folder can safely be removed:
+Once you have migrated to a modern version of Octopus Server the following folders can safely be removed:
 
 - `C:\Octopus\Backup`
 - `C:\Octopus\OctopusServer\ActivityLogs`

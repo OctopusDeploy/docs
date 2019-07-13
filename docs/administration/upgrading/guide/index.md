@@ -4,7 +4,7 @@ description: Everything you need to know about upgrading a modern version of Oct
 position: 1
 ---
 
-The following guide provides an overview of how the various components of **Octopus 3.x** can be updated to the latest release.
+The following guide provides an overview of how the various components of a modern Octopus installation (3.x or newer) can be updated to the latest release.
 
 ## Before You Begin
 
@@ -60,7 +60,7 @@ The process for successfully downgrading depends on the upgrade you have perform
 
 When an update is available, a bullhorn icon will appear in the top status bar with details and a link to the downloads page.
 
-![](/docs/images/3048440/3278327.png "width=500")
+![](3278327.png)
 
 :::warning
 **What is included in the release?**
@@ -84,11 +84,11 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha)).
 1. Switch your server to [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 
-    ![](/docs/images/3048440/5865775.png "width=500")
+    ![](5865775.png)
 
 1. [Backup your database and master key](/docs/administration/data/backup-and-restore.md) so that it can be restored in case anything goes wrong.
 
-    ![](/docs/images/3048440/5865780.png "width=500")
+    ![](5865780.png)
 
 1. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
 
@@ -100,13 +100,13 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 1. Run the installer and follow the prompts.
 1. Turn [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) `OFF`.
 
-    ![](/docs/images/3048440/5865776.png "width=500")
+    ![](5865776.png)
 
 1. Calamari will then be automatically updated if required with the next health check or deployment that takes place.
 
 :::success
 **No need to upgrade the Tentacle**
-Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. Builds of the Server and the Tentacle are no longer in sync as of **Octopus 3.14**, and **Octopus 3.x** is compatible with all **Tentacle 3.x** versions. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
+All **Tentacle 3.x** versions are compatible with all modern Octopus Server versions from **3.x** onwards. Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
 :::
 
 ## Upgrading Octopus HA {#upgrading-octopus-ha}
@@ -124,7 +124,7 @@ Follow these steps to upgrade each node in your cluster:
 1. Go to the **{{Configuration>Nodes}}** page.
 1. Set Drain to `ON` for the node you want to upgrade.
 
-    ![](/docs/images/3048440/5865778.png "width=500")
+    ![](5865778.png)
 
 1. Wait until all the running tasks complete.
 1. Upgrade the Octopus Server instance on the node.
@@ -140,7 +140,7 @@ During a deployment process one of the first commands that's executed on the Ten
 
 When deploying to an environment with out of date Calamaris, they will be automatically upgraded. An info message on the deployment page will notify the user that this will happen.
 
-![](https://cloud.githubusercontent.com/assets/1035315/10598722/bc8ea3f6-773e-11e5-8d0a-c72b6627ab9e.png "width=500")
+![](https://cloud.githubusercontent.com/assets/1035315/10598722/bc8ea3f6-773e-11e5-8d0a-c72b6627ab9e.png)
 
 **Manual Update**
 
@@ -148,24 +148,24 @@ The environments page will make machines without latest Calamari yellow, and sho
 
 ![](https://cloud.githubusercontent.com/assets/1035315/10654656/9d182880-78b0-11e5-8ffd-c4b917e54730.png)
 
-![](https://cloud.githubusercontent.com/assets/1035315/10654668/c07cc9d4-78b0-11e5-90d3-b79eb568e055.png "width=500")
+![](https://cloud.githubusercontent.com/assets/1035315/10654668/c07cc9d4-78b0-11e5-90d3-b79eb568e055.png)
 
 **Upgrading Octopus Tentacles**
 
-The role of Tentacles has changed in **Octopus 3.x**. Tentacles in 3.x are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
+The role of Tentacles has changed in modern versions of Octopus. Modern Tentacles are only responsible for the secure communication protocol, and then calling Calamari to actually perform deployments. This means Tentacle only needs to change when we change some part of the secure communication protocol (hopefully very infrequently).
 
 :::hint
 **Why have there been so many different versions of Tentacle 3.x?**
-In early versions of 3.x we have been rebuilding Tentacle in lock-step with Octopus Server due to shared dependencies in their project structure even though there have not been any changes to Tentacle itself. We hope to unlock these in the near future.
+In early versions of 3.x we have been rebuilding Tentacle in lock-step with Octopus Server due to shared dependencies in their project structure even though there have not been any changes to Tentacle itself. We unlocked these with Tentacle 3.14.
 :::
 
 **Octopus 3.1** supports automatically updating Tentacles via the Environments page. You can upgrade all Tentacles which will systematically work through all Machines in all Environments in batches until all Tentacles are upgraded.
 
-![](/docs/images/3048440/3278436.png "width=500")
+![](3278436.png)
 
 Alternatively you can upgrade Tentacles one Environment at a time.
 
-![](/docs/images/3048440/3278437.png "width=500")
+![](3278437.png)
 
 :::success
 **Optional and Required Tentacle upgrades**
@@ -180,7 +180,7 @@ Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 **You can upgrade to Octopus Server 3.1 without upgrading any Tentacles and get all of the new 3.1 deployment features because Calamari will continue to work on both Tentacle 3.0 and 3.1.**
 :::
 
-This is the first version of **Octopus 3.x** where there has been a Tentacle upgrade and it has caused some confusion. This section aims to answer some of the most commonly asked questions about upgrading to Octopus 3.1 and the impact on Tentacles.
+This is the first modern version of Octopus Server where there has been a Tentacle upgrade and it has caused some confusion. This section aims to answer some of the most commonly asked questions about upgrading to Octopus 3.1 and the impact on Tentacles.
 
 **Am I required to upgrade to Tentacle 3.1?**
 No, you aren't required to upgrade to Tentacle 3.1. Tentacle 3.0 will still work and benefit from the latest version of Calamari and all of the deployment features we shipped in **Octopus 3.1**.
@@ -235,11 +235,11 @@ If for any reason you need to downgrade to a previous version of Octopus Server,
 Wait until all current tasks and deployments have completed.
 :::
 
-![](/docs/images/3048440/5865775.png "width=500")
+![](5865775.png)
 
 2. Navigate to the Octopus Manager and stop the Octopus service.
 
-![](/docs/images/3048440/5866175.png "width=500")
+![](5866175.png)
 
 3. Restore the database, by using the database back up you completed prior to installing the new version you were upgrading to.
 
@@ -249,7 +249,7 @@ Any data that has been created from between when the backup was taken to when it
 
 4. Download the previous version of the Octopus installer, from our [Previous releases page](https://octopus.com/downloads/previous).
 
-![](/docs/images/3048440/5866176.png "width=500")
+![](5866176.png)
 
 5. Install the previous version you are rolling back to, over the top of the installation you are rolling back from.
 

@@ -16,12 +16,12 @@ Any Linux server which meets the [requirements](/docs/infrastructure/deployment-
 
 The following platforms are explicitly supported (we run automated tests against them):
 
+- Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
-- Ubuntu 14.04 LTS
 - Redhat (RHEL) 7.2
 - Centos 7.6
 - Amazon Linux 2
-- Debian 8.7
+- Debian 9.6
 - Fedora 23
 - MacOS 10.12.5
 - openSUSE 42.3
@@ -53,7 +53,7 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 
 5. Give the target a name.
 6. Select which environment the deployment target will be assigned to.
-7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/target-roles/index.md).
+7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles).
 8. Select the [account](/docs/infrastructure/accounts/index.md) that will be used for the Octopus server and the SSH target to communicate.
 9. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
 
@@ -63,7 +63,7 @@ You can retrieve the fingerprint of the default key configured in your sshd\_con
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
 
-10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/api-and-integration/calamari.md) will be installed.
+10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari.md) will be installed.
 
   - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
   - [Self-contained version of Calamari](#self-contained-calamari) built against .NET Core.
@@ -80,8 +80,8 @@ If the SSH target is healthy, the version that is displayed is the version of th
 
 If the fingerprint changes after initial configuration, the next health check will update the fingerprint. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs. If you aren't expecting a change and you see this error it could mean you have been compromised!
 
-Learn more about health checks and [machine policies](/docs/infrastructure/machine-policies.md)
+Learn more about health checks and [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md)
 
 ## Running Scripts on SSH Endpoints
 
-You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
+You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.

@@ -70,7 +70,7 @@ Now we will create a team for all the Account Managers and add the role we creat
 2. Click the **Add role** button and add the **Tenant project deployer role**.
 3. Click the **Add member** button and add any user accounts that will form part of this team.
 
-![](account-managers.png "width=500")
+![](images/account-managers.png)
 
 ### Step 3: Test
 
@@ -86,7 +86,7 @@ You will probably notice you can see all tenants, projects and environments. We 
 
 Quite often you will want to allocate certain tenants to a team, or restrict which projects/environments a team can access. Using the team you just created you can experiment with reducing scope. You can restrict the team to a specific list of tenants, projects and/or environments.
 
-![](account-managers-tenants.png "width=500")
+![](images/account-managers-tenants.png)
 
 ## Infrastructure Manager
 
@@ -105,7 +105,7 @@ In this example we will create a new team and combine multiple roles together to
 
 1. Create a new team called Tenant Environment Managers.
 2. Add the Tenant viewer and Environment manager roles to the team:
-   ![](tenant-environment-managers.png "width=500")
+   ![](images/tenant-environment-managers.png)
 3. Add any specific tenant/environment scoping that makes sense.
 4. Add any specific members to the team that make sense.
 
@@ -122,7 +122,7 @@ You can also reduce the scope of this team to a certain set of tenants or enviro
 You may want to provide your actual customers with their own user account in Octopus and the ability to see a personalized dashboard, and potentially perform their own upgrades. This is possible by using the techniques we've already used by scoping a team to a single tenant.
 
 :::success
-You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/api-and-integration/api/index.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
+You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/octopus-rest-api/index.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
 :::
 
 ### Step 1: Configure a Team for the Tenant
@@ -133,7 +133,7 @@ Firstly we need to create a team with scope limited to the single tenant.
 2. Add any roles you desire, in our example we're providing the tenant with the **Tenant project deployer** role.
 3. Scope the team to a single tenant:
 
-![](self-service.png "width=500")
+![](images/self-service.png)
 
 ### Step 2: Test
 

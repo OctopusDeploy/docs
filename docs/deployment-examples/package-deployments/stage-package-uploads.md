@@ -38,4 +38,4 @@ When configuring your manual intervention step, take note:
 
 - Under the **Package Requirements** section, select **After package acquisition**.
 
-![](package-acquisition.png)
+![](images/package-acquisition.png)

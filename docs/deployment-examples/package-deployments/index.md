@@ -10,7 +10,7 @@ When defining your [deployment process](/docs/deployment-examples/index.md), the
 
 When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/deployment-process/steps/index.md) section:
 
-![](/docs/images/5671696/5865908.png "width=170")
+![](images/5865908.png "width=170")
 
 When deploying a package you will need to select the machine role that the package will be deployed to. You will also be asked to select the [feed](/docs/packaging-applications/package-repositories/index.md) that is the source of the package, and the ID of the package to deploy.
 
@@ -19,7 +19,7 @@ When deploying a package you will need to select the machine role that the packa
 You can dynamically select a Package Feed and/or the Package ID at deployment time using an Octopus variable expression. Learn more about [using dynamically selecting packages at deployment time](/docs/deployment-examples/package-deployments/dynamically-selecting-packages.md).
 :::
 
-![](deploy-package-step.png "width=500")
+![](images/deploy-package-step.png)
 
 :::hint
 When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployment-patterns/rolling-deployments.md).

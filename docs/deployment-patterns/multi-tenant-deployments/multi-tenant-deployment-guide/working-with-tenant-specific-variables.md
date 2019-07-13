@@ -14,12 +14,12 @@ Quite often you want to define variable values that are different for each tenan
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/api-and-integration/octo.exe-command-line/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deployment-process/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deployment-process/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
 To add variables for a tenant, select the tenant from the **Tenants** page and click **Variables**.
 
-![Tenant Variables](tenant-variables.png)
+![Tenant Variables](images/tenant-variables.png)
 
 **Common Variables** and **Project Variables** can be added per tenant.
 
@@ -78,7 +78,7 @@ Let's start with the end in mind by creating the project variables we need. You'
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865610.png "width=500")
+![](images/5865610.png)
 
 ### Step 2: Create Project Variable Templates
 
@@ -98,7 +98,7 @@ Rather than managing lots of duplicate data, we will use some default values tha
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865609.png "width=500")
+![](images/5865609.png)
 
 ### Step 3: Create the "Environment Variables" Library Variable Set
 
@@ -116,7 +116,7 @@ In the previous step we created some variable templates that use the `Environmen
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865607.png "width=500")
+![](images/5865607.png)
 
 ### Step 4: Create the "Standard tenant details" Library Variable Set
 
@@ -132,7 +132,7 @@ In previous steps we also created some variable templates that depend on a varia
 
 The result should look like the screenshot below:
 
-![](/docs/images/5669247/5865608.png "width=500")
+![](images/5865608.png)
 
 ### Step 5: Include the Library Variable Sets into the Project
 
@@ -145,23 +145,23 @@ Now we have created the library variable sets we need to include them in the **M
 
 Go to our tenant **Beverley Sanchez** and go to **{{Variables,Common Variables}}** where you should be able to fill in the variables required by our **Standard tenant details** variable set:
 
-![](/docs/images/5669247/5865611.png "width=500")
+![](images/5865611.png)
 
 Now go to the *Project Variables* tab and you should see the variables required by the **Mojo** project for each environment **Beverley Sanchez** will be deployed into, in this case just **MT Production**. Leave the convention-based variables alone, and click the *Set* button to set a random password for the database, and click *Save* to save your changes.
 
-![](/docs/images/5669247/5865612.png "width=500")
+![](images/5865612.png)
 
 ### Step 7: Validate the Variable Values for the Project
 
 Go to the **{{Variables,All Variables}}** tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
 
-![](/docs/images/5669247/5865620.png "width=500")
+![](images/5865620.png)
 
 ### Step 8: Deploy
 
 Go to the **Mojo** project, create a new release, and deploy it to the **MT Production** environment for **Beverley Sanchez** and you should see all of the variables flowing through properly now.
 
-![](/docs/images/5669247/5865613.png "width=500")
+![](images/5865613.png)
 
 ### Step 9: Review
 

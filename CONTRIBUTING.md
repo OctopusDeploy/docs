@@ -92,7 +92,7 @@ When creating new documentation, you should structure it as follows:
 
 ## Working with Files and Folders
 
-The folder structure in the GitHub docs repository, determines the structure of [www.octopus.com/docs](https://www.octopus.com/docs) and the navigation menu for the docs. For instance, the contents of the file located at `docs/installation/downloads.md` can be viewed at the URL [www.octopus.com/docs/installation/downloads](https://octopus.com/docs/installation/downloads). Note, the markdown file extension `.md` is not present in the URL.
+The folder structure in the GitHub docs repository, determines the structure of [www.octopus.com/docs](https://www.octopus.com/docs) and the navigation menu for the docs. For instance, the contents of the file located at `docs/installation/requirements.md` can be viewed at the URL [www.octopus.com/docs/installation/requirements](https://octopus.com/docs/installation/requirements). Note, the markdown file extension `.md` is not present in the URL.
 
 The only exception to this rule, is index pages, see the next section for details.
 
@@ -251,7 +251,7 @@ it will be converted to this:
 Which means elsewhere in the page you can link to it with this:
 
     [Goto My Heading](#My-Heading)
-    [Goto a different page](/docs/getting-started.md#My-Heading)
+    [Goto a different page](/docs/getting-started/index.md#My-Heading)
 
 You do not need to create anchors in the markdown, they will be generated automatically, but if you add them manually, do not use special characters in the anchor text as they will cause the link to be truncated.
 
@@ -268,7 +268,7 @@ If your example uses multiple languages or files, you can combine them together 
     ​```powershell PowerShell
     Write-Host "Hello"
     ​```
-    ​```c# C#
+    ​```cs C#
     Console.WriteLine("Hello");
     ​```
 
@@ -368,7 +368,7 @@ i. Item 2
 
 Which is rendered as:
 
-i. Item 1  
+i. Item 1
 ii. Item 2
 
 #### Letters
@@ -380,7 +380,7 @@ a. Item 2
 
 Which is rendered as:
 
-a. Item 1  
+a. Item 1
 b. Item 2
 
 ### Working with Long-Term Support Releases and Fast Ring Releases

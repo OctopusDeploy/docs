@@ -4,7 +4,7 @@ description: Requirements for using SSH deployment targets with Octopus.
 position: 10
 ---
 
-SSH deployment targets must meet the following requirements:
+Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md), they must meet the following requirements:
 
 - It is accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 - The `$HOME` environment variable must be available.
@@ -27,9 +27,9 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.
 
 ## .NET {#dotnet}
 
-[Calamari](/docs/api-and-integration/calamari.md) is the command-line tool that is invoked to perform the deployment steps on the deployment target. Calamari runs on .NET.  SSH targets can be configured to use either:
+[Calamari](/docs/octopus-rest-api/calamari.md) is the command-line tool that is invoked to perform the deployment steps on the deployment target. Calamari runs on .NET.  SSH targets can be configured to use either:
 
-- [Self-contained Calamari](#self-contained-calamari) built against .NET Core.
+- [Self-contained Calamari](#self-contained-calamari) built against .NET Core (recommended).
 - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
 
 ## Python
@@ -59,9 +59,13 @@ Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHu
 
 ## Calamari on Mono {#mono-calamari}
 
-[Calamari](/docs/api-and-integration/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/).
+[Calamari](/docs/octopus-rest-api/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/).
 
 Version **3.10** or greater of Mono is required; however, we recommended a minimum of version **4.8.0**.
+
+:::warning 
+As of April 2019, there are problems executing ScriptCS scripts on Mono **5.16** and higher. We recommend migrating to self-contained Calamari if possible, or using Mono **5.14.x**  
+:::
 
 You can find instructions for installing Mono in the [Mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
@@ -106,3 +110,7 @@ To fix this:
 ```
 export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 ```
+
+## Next
+
+Configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md).

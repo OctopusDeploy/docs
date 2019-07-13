@@ -6,6 +6,17 @@ position: 20
 
 This page lists built-in [variables](/docs/deployment-process/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
 
+## Release {#Systemvariables-Release}
+
+Release-level variables are drawn from the project and release being created.
+
+| Name and Description | Example|
+| -------------------- | -------|
+|**`Octopus.Release.Id`** <br/>The ID of the release | *releases-123*|
+|**`Octopus.Release.Number`** <br/>The version number of the release | *1.2.3*|
+|**`Octopus.Release.Notes`** <br/>Release notes associated with the release, in Markdown format | *Fixes bugs 1, 2 & 3*|
+|**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Release-Notes-Templates) |
+
 ## Deployment {#Systemvariables-Deployment}
 
 Deployment-level variables are drawn from the project and release being deployed.
@@ -32,9 +43,12 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.Tenant.Id`** <br/>The ID of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenants-123*|
 |**`Octopus.Deployment.Tenant.Name`** <br/>The name of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Acme Corp*|
 |**`Octopus.Deployment.Tenant.Tags`** <br/>Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenant type/External, Upgrade ring/Early adopter*|
+|**`Octopus.Deployment.Trigger.Id`** <br/>The ID of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of _one_ of the triggers. | *ProjectTriggers-522*|
+|**`Octopus.Deployment.Trigger.Name`** <br/>The name of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of _one_ of the triggers. | *Nightly Deploy to Dev*|
+|**`Octopus.Deployment.Changes`** <br/>The release changes included in the deployment | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Deployment-Variables)|
 |**`Octopus.Endpoint.\_type\_.\_property\_`** <br/>Properties describing the endpoint being deployed | *ftp.example.com*|
 |**`Octopus.Environment.Id`** <br/>The ID of the environment | *environments-123*|
-|**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role | *machines-123,machines-124*|
+|**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role being deployed to | *machines-123,machines-124*|
 |**`Octopus.Environment.Name`** <br/>The name of the environment | *Production*|
 |**`Octopus.Environment.SortOrder`** <br/>The ordering applied to the environment when it is displayed on the dashboard and elsewhere | *3*|
 |**`Octopus.Machine.Id`** <br/>The ID of the machine | *machines-123*|
@@ -69,7 +83,6 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Web.DeploymentLink`** <br/>A path relative to the Octopus Server URL at which the deployment can be viewed | */app/deployment/deployments-123*|
 |**`Octopus.Web.ProjectLink`** <br/>A path relative to the Octopus Server URL at which the project can be viewed | */app/projects/projects-123*|
 |**`Octopus.Web.ReleaseLink`** <br/>A path relative to the Octopus Server URL at which the release can be viewed | */app/releases/releases-123*|
-
 
 ## Action {#Systemvariables-Action}
 
@@ -191,7 +204,8 @@ Server-level variables describe the Octopus Server on which the deployment is ru
 
 | Name and Description | Example                                  |
 | -------------------  | ---------------------------------------- |
-| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
+| **`Octopus.Web.BaseUrl`** <br/>The default URL at which the server API can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
+| **`Octopus.Web.ServerUri`** <br/>The default URL at which the server portal can be accessed, as configured in the Configuration/Nodes settings. **Introduced in Octopus 2019.4.0.** | *[https://my-octopus](https://my-octopus)* |
 
 ## Tracking Deployment Status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
@@ -244,3 +258,4 @@ The following variables can be defined as variables in your project to modify th
 |**`Octopus.Action.PowerShell.ExecuteWithoutProfile`** <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
 |**`OctopusSuppressDuplicateVariableWarning`** <br/>Set to `true` to have the duplicate variable message logged as verbose instead of warning. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 3.17.0+) | True|
 |**`Octopus.Action.Package.RunScripts`**  <br/>Set to `false` to prevent scripts inside packages from executing. ***Do this if you are aware of the duplication and that it isn't causing any issues in your deployment***  (available in version 4.1.10+) | True|
+|**`Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`**  <br/>Set to a file-path and the Calamari working directory will be copied to the configured location. ***Copied files include the one-time key to decrypt sensitive variables*** [More details.](/docs/support/copy-working-directory.md) | `c:\temp\octopus-debug`|

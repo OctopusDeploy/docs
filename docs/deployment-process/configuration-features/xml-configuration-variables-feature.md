@@ -4,7 +4,7 @@ description: The XML Configuration Variables feature updates your XML configura
 position: 60
 ---
 
-The Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The XML Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 This feature can be enabled for package deploy steps.
 
@@ -18,9 +18,9 @@ You can perform simple convention-based replacements in XML configuration files 
 If you are looking for something more flexible, we have the [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) enabling you to perform complex transformations on any kind of file.
 :::
 
-## How to Use this feature
+## How to Use This Feature
 
-The following example shows you how to use the this feature to provide your application with different configuration settings for each different environment you're deploying to. In this example we're deploying to a **Test** and **Production** environment.
+The following example shows you how to use the this feature to provide your application with different configuration settings for each different environment you're deploying to. In this example, we're deploying to a **Test** and **Production** environment.
 
 Suppose you have this `web.config` or `MyApp.exe.config` file in your package which is configured for your local development environment:
 
@@ -110,9 +110,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in th
 </configuration>
 ```
 
-:::success
 Values are matched based on the `key` attribute for `appSettings`, and the `name` element for `applicationSettings` and `connectionStrings`.
-:::
 
 ## Replacing Variables Outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
 
@@ -124,6 +122,6 @@ There may be other variables you would like Octopus to replace in your configura
     </authentication>
 ```
 
-Learn how to do this [with a fully worked example](/docs/deployment-process/variables/environment-specific-configuration-transforms-with-sensitive-values-in-octopus.md) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
+Learn how to do this [with a fully worked example](/docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
 
-This example uses the [XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms.md) and [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) together.
+This example uses the [XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) together.

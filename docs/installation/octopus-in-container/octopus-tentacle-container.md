@@ -10,7 +10,7 @@ Running an Octopus Tentacle inside a container may be preferable in some environ
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/api-and-integration/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Due to some limitations in Windows Containers that have only [recently](https://github.com/moby/moby/issues/25982) been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/machine-policies.md) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Due to some limitations in Windows Containers that have only [recently](https://github.com/moby/moby/issues/25982) been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to remove the duplicated targets.
 
 ```PowerShell
 docker run --interactive --detach `
@@ -49,7 +49,7 @@ Read the [Docker docs](https://docs.docker.com/engine/reference/commandline/run/
 
 |  Name       |    |
 | ------------- | ------- |
-|**10933**|Port tentacle will be listening on (if in listening mode)|
+|**10933**|Port Tentacle will be listening on (if in listening mode)|
 
 ### Volume Mounts
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.

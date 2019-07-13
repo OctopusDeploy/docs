@@ -43,7 +43,7 @@ npm start
 
 Navigating to http://localhost:8081 you should see a page with words that appear to be missing. These will be populated in the config files during the deployment to the appropriate environment.
 
-![](/docs/images/3049551/3278578.png "width=500")
+![](3278578.png)
 
 ## Configure Publish Task {#Create&amp;PushNode.jsProject-ConfigurePublishTask}
 
@@ -148,7 +148,7 @@ You can then execute the publish command directly through npm without having to 
 
 ### Option 3 - Bespoke {#Create&amp;PushNode.jsProject-Option3-Bespoke}
 
-Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (Under the hood both the Gulp and Grunt tasks leverage this module). Alternately package your files into the [format of your choice](/docs/packaging-applications/supported-packages.md) and push to the API over a HTTP call using whatever framework or language that best suits you.
+Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module you can write your own Node.js scripts to package and push your projects to the Octopus Server (Under the hood both the Gulp and Grunt tasks leverage this module). Alternately package your files into the [format of your choice](/docs/packaging-applications/index.md#supported-formats) and push to the API over a HTTP call using whatever framework or language that best suits you.
 
 ## Publish Package {#Create&amp;PushNode.jsProject-PublishPackage}
 

@@ -8,14 +8,14 @@ Sometimes you may wish to allow users to access your Octopus Server, without req
 
 When guest login is enabled, the sign in page for the Octopus web portal will present users with a choice to either sign in as a guest, or to sign in with their standard account:
 
-![](/docs/images/3048126/5865814.png "width=500")
+![](images/5865814.png)
 
 ## Enable Guest User Via UI {#Guestlogin-Enableguestlogin}
 
 In **Octopus 4.0** we added the ability to enable your guest account via the UI. The option can be found under Configuration -> Settings -> Guest Login. From there you can select the **Is Enabled** button the active the the Guest account.
 
-![](enableguests1.jpg "width=500")
-![](enableguests2.jpg "width=500")
+![](images/enableguests1.jpg)
+![](images/enableguests2.jpg)
 
 The guest account will now be activated and added to your Octopus Users.
 
@@ -23,7 +23,7 @@ The guest account will now be activated and added to your Octopus Users.
 
 The guest user is created as a standard user managed by Octopus. If you are using Active Directory authentication, you don't need a matching AD user account. The user is automatically added to the **Everyone** team. The guest user can be found in the **Users** tab in the **Configuration** area:
 
-![](/docs/images/3048126/3277968.png "width=500")
+![](images/3277968.png)
 
 As with any standard user, you can [assign the guest account to different teams](/docs/administration/managing-users-and-teams/index.md) to give them permissions to view projects or environments.
 
@@ -33,7 +33,7 @@ The guest user is designed to be used by multiple people, so it has one addition
 
 For example, you could assign the guest user to your **Octopus Administrators** team, which normally gives the user full access to everything. However for the guest account, this will be read-only - they will be able to view all settings, but they won't be able to change anything. They can't even change their profile settings! Any attempt to make any changes will result in the following message:
 
-![](/docs/images/3048126/3277967.png "width=500")
+![](images/3277967.png)
 :::
 
 :::warning
@@ -47,3 +47,12 @@ Octopus Server can be configured to enable or disable guest access via the comma
 ```powershell
 Octopus.Server.exe configure --instance=[your_instance_name] --guestLoginEnabled=true
 ```
+
+## Automatic Guest Login {#Guestlogin-Automaticguestlogin}
+Sometimes, you need to demonstrate an Octopus Server to others, but don't want people to have a choice between the guest login and one of the other login providers. In these cases, by appending `autologin=guest` to the sign in URL, visitors will be automatically logged in as a guest. This requires that the [Guest User is enabled](#Guestlogin-Enableguestlogin).
+
+For e.g.
+```
+https://octopus.mydomain.com/app#/users/sign-in?autologin=guest
+```
+Will allow visitors to https://octopus.mydomain.com to be automatically logged in as the guest account.

@@ -32,7 +32,7 @@ For a package to be made available to the deployment steps, it first must be add
 
 The Octopus library accepts files with the `jar`, `war`, `ear` and `rar` file extensions.
 
-The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/versioning.md), which are based on the SemVer format.
+The package filenames have to adhere to the standard Octopus [versioning rules](/docs/packaging-applications/create-packages/versioning.md), which are based on the SemVer format.
 
 :::hint
 Java packages tend to be formatted with Maven versioning schemes. Maven versions are mostly compatible with SemVer, but the two versioning schemes are not identical.
@@ -40,7 +40,7 @@ Java packages tend to be formatted with Maven versioning schemes. Maven versions
 See the section [Building SemVer Compatible Artifacts](#building_semver_compatible_artifacts) for tips on creating valid package filenames from builds tools like Maven and Gradle.
 :::
 
-Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md).
+Valid packages can then be added to the library using the [web based interface, or using the CLI tool](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md).
 
 #### <a name="building_semver_compatible_artifacts"></a>Building SemVer Compatible Artifacts
 The most common incompatibility between Maven and SemVer formatting comes from the use of a dash to separate the package name from the version.
@@ -294,7 +294,7 @@ The following steps can be used to deploy an application via a file copy to an a
 ## Deploy Java Archive Step Details
 
 | Field Name |Required | Default | Field Description |
-|-|-|-|-|
+| -------- | -------- | ---------------- | ---------------- |
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
 | Explode  | No  |   | If selected, the package will be deployed extracted. Note that the package is always extracted as part of the deployment process, to allow features such as substituting variables in files. By default the package is re-created before deploying to the destination. If the `Explode` option is selected it remains extracted.  |

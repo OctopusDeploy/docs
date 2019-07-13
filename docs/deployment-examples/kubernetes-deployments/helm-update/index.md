@@ -1,6 +1,7 @@
 ---
 title: Deploy a Helm Chart
 description: Deploy a Helm Chart to a Kubernetes cluster.
+position: 40
 ---
 
 Support for deploying Helm charts, was introduced in **Octopus 2018.9**. Helm Charts are like a package manager for Kubernetes applications, allowing users to reuse and share complex resource configurations.

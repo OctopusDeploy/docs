@@ -57,4 +57,4 @@ There is no *one size fits all* approach for Octopus server. The best approach i
 
 ## Next
 
-Learn about the [SQL Server database](/docs/installation/sql-server-database.md), download the [Octopus MSI](/docs/installation/downloads.md), learn more about [Octopus server performance](/docs/administration/managing-infrastructure/performance/index.md), or return to the [installation process](/docs/installation/index.md).
+Continue with the [Octopus installation](/docs/installation/index.md).

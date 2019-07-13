@@ -10,7 +10,7 @@ Currently Octopus doesn't display this reporting data in the user interface anyw
 
 Raw data is provided in two ways:
 
-- An an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically.
+- As an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically.
 - As a table in the Octopus SQL database.
 
 The data allows you to report on questions like:
@@ -21,7 +21,7 @@ The data allows you to report on questions like:
 
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus Server.
 
-![](/docs/images/3048643/3278354.png "width=500")
+![](images/3278354.png)
 
 ## Getting Started {#Reporting-Gettingstarted}
 
@@ -37,25 +37,25 @@ To change the source of the data:
 
 1. Go to the **DATA** ribbon tab in Excel, then click **Connections**:
 
-   ![](/docs/images/3048643/3278356.png "width=500")
+   ![](images/3278356.png)
 
 2. Select the **Octopus Deployment history** connection, then click **Properties...**
 
-   ![](/docs/images/3048643/3278357.png "width=500")
+   ![](images/3278357.png)
 
 3. Go to the **Definition** tab, then click **Browse...**
 
-   ![](/docs/images/3048643/3278358.png "width=500")
+   ![](images/3278358.png)
 
 4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.
 
-   ![](/docs/images/3048643/3278360.png "width=500")
+   ![](images/3278360.png)
 
 ## Refreshing the Data {#Reporting-Refreshingthedata}
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
-![](/docs/images/3048643/3278361.png "width=500")
+![](images/3278361.png)
 
 ## Using the XML Feed {#Reporting-UsingtheXMLFeed}
 
@@ -66,7 +66,7 @@ The best way to consume reporting data from Octopus is using the XML feed. The f
 Where:
 
 - `<OCTOPUS-SERVER>` is the hostname of your Octopus Server
-- `<API-KEY>` is one of [your API keys](/docs/api-and-integration/api/how-to-create-an-api-key.md)
+- `<API-KEY>` is one of [your API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
 
 For example:
 
@@ -107,7 +107,7 @@ This is due to that the revocation information for the certificate is not retrie
 
 If your reporting tool of choice can't consume the XML feed, you can query the SQL table directly. Octopus maintains a **DeploymentHistory** table, with the exact same information that the XML Feed exposes. This may work better for tools like **SQL Server Reporting Services**.
 
-![](/docs/images/3048643/3278362.png "width=500")
+![](images/3278362.png)
 
 A few notes about accessing the table directly:
 

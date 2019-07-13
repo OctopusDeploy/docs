@@ -31,11 +31,9 @@ NOTE: Our community contributed step template integration queries `library.octop
 
 ## What Information is Included When Octopus Checks For Updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
-During installation, Octopus will ask you whether you want to check for new releases, and whether you would also like to opt-in to providing usage statistics to help us understand how the product is used and how we can improve it.
+By default, Octopus will periodically check for new releases and send usage statistics to help us understand how the product is used and how we can improve it. You can opt-out of sending usage statistics or also opt-out of checking for updates by navigating to **{{Configuration,Settings,Updates & Usage Telemetry}}** in Octopus.
 
-![](/docs/images/3048073/3277613.png "width=500")
-
-When the checkbox "Automatically check for new Octopus releases" is checked during installation, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
+When the "Check for updates" option is enabled, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
 - The current Octopus Deploy version number that you are running.
 - A unique installation ID (read more below).
@@ -45,7 +43,7 @@ When the checkbox "Automatically check for new Octopus releases" is checked duri
 The octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
-In addition, if you also check the box "Help improve Octopus by sending usage statistics", we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
+In addition, when the "Include statistics" option is enabled, we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
 
 | Metrics       | Since   |
 | ------------- | ------- |
@@ -68,6 +66,7 @@ In addition, if you also check the box "Help improve Octopus by sending usage st
 | The number of Azure accounts and AWS accounts | 2018.2.2 |
 | Whether you have a custom account configured for the built-in worker | 2018.2.2 |
 | The number of non built-in workers you have | 2018.2.2 |
+| The number of monthly active users that you have | 2019.5.1 |
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 

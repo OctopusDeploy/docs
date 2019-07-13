@@ -6,19 +6,19 @@ position: 1
 
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
 
-![Azure VM Properties - Extensions Tab](azure-portal-extensions-menu-item.png "width=500")
+![Azure VM Properties - Extensions Tab](azure-portal-extensions-menu-item.png)
 
 Click **Add** to add a new extension.
 
-![Azure VM Properties - Add extensions button](azure-portal-extensions-add.png "width=500")
+![Azure VM Properties - Add extensions button](azure-portal-extensions-add.png)
 
 Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
-![Add Extension - Create Octopus Deploy Tentacle Agent](azure-portal-extensions-about-extension.png "width=500")
+![Add Extension - Create Octopus Deploy Tentacle Agent](azure-portal-extensions-about-extension.png)
 
 Fill in the settings, and click **OK**.
 
-![ Octopus Deploy Tentacle Agent properties](azure-portal-extensions-extension-properties.png "width=500")
+![ Octopus Deploy Tentacle Agent properties](azure-portal-extensions-extension-properties.png)
 
 A deployment will be initiated which adds the extension to your virtual machine.
 
@@ -26,9 +26,9 @@ A deployment will be initiated which adds the extension to your virtual machine.
 
 The settings for the extension are:
 
-**Octopus Server URL**: URL to your Octopus Deploy Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/api-and-integration/api/index.md) against this URL to register the machine.
+**Octopus Server URL**: URL to your Octopus Deploy Server. You'll need your own Octopus Server (possibly also running on Azure), and you should [consider using HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). The extension will use the [Octopus REST API](/docs/octopus-rest-api/index.md) against this URL to register the machine.
 
-**API Key**: [Your API key](/docs/api-and-integration/api/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/administration/security/octopus-tentacle-communication/index.md).
+**API Key**: [Your API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). This key will only be used when registering the machine with the Octopus Server; it isn't used for [subsequent communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 
 **Environments**: The name of the [environment](/docs/infrastructure/environments/index.md) to add the machine to. You can specify more than one by using commas; for example: `UAT1,UAT2`.
 

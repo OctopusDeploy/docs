@@ -5,7 +5,7 @@ hideInThisSection: false
 position: 50
 ---
 
-Now that you have access to an [Octopus Server](/docs/getting-started.md#octopus-deploy-server), your [infrastructure is configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you're ready to start deploying your software. This section explains the process and explores the options that are available.
+Now that you have access to an [Octopus Server](/docs/getting-started/index.md#octopus-deploy-server), your [infrastructure is configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you're ready to start deploying your software. This section explains the process and explores the options that are available.
 
 The deployment process is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
@@ -89,9 +89,9 @@ Octopus Deploy is built API-first, which means everything you can do through the
 - Steps
 - Actions
 
-We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/api-and-integration/octopus.client.md), or you can use the raw HTTP API if that suits your needs better.
+We have provided lots of helpful functions for building your deployment process in the [.NET SDK](/docs/octopus-rest-api/octopus.client.md), or you can use the raw HTTP API if that suits your needs better.
 
-Learn about using the [Octopus REST API](/docs/api-and-integration/api/index.md).
+Learn about using the [Octopus REST API](/docs/octopus-rest-api/index.md).
 
 :::success
 Record the HTTP requests made by the Octopus UI to see how we build your deployment processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.

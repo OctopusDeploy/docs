@@ -52,9 +52,11 @@ Octopus workers also provides a smooth path to move off the built-in worker, and
 
 ## Built-in Worker {#built-in-worker}
 
-The Octopus server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** fo the **Run steps on the Octopus Server** option.
+The Octopus server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** for the **Run steps on the Octopus Server** option.
 
 The **built-in worker** is executed on the same machine as the Octopus server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/infrastructure/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
+
+Adding a worker to the default worker pool will disable the built-in worker, and steps will no longer run on the Octopus Server.
 
 Learn about the security implications and how to configure the [built-in worker](/docs/infrastructure/workers/built-in-worker.md).
 
@@ -68,7 +70,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/api-and-integration/api/index.md), the [Octopus.Clients library](/docs/api-and-integration/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 ### Registering Workers in the Web Portal
 

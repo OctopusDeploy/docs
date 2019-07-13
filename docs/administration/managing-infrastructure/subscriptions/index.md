@@ -88,7 +88,7 @@ The `Payload` includes:
 
 :::hint
 **Consuming Events**
-While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your comsuming API with this in mind.
+While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your consuming API with this in mind.
 :::
 
 
@@ -106,9 +106,9 @@ If you are setting up email subscriptions for the first time and would like a go
 
 ## Webhook Notification Troubleshooting
 
-If you are setting up webhook subscriptions for the first time and would like a simple test server where you can see the payloads that Octopus will actually send, we have found [request bin](https://requestb.in/) to be extremely helpful.
+If you are setting up webhook subscriptions for the first time and would like a simple test server where you can see the payloads that Octopus will actually send, we have found [RequestBin](https://requestbin.com/) to be extremely helpful.
 
-For example, to test whether the subscription webhooks are sending correctly from Octopus, you could setup a temporary request bin, and use that URL in your subscription to confirm whether the payload is sending successfully from Octopus. This will also show you a real-time payload of what your API can expect to receive from an Octopus webhook subscription.
+For example, to test whether the subscription webhooks are sending correctly from Octopus, you could setup a temporary RequestBin, and use that URL in your subscription to confirm whether the payload is sending successfully from Octopus. This will also show you a real-time payload of what your API can expect to receive from an Octopus webhook subscription.
 
 ## Subscription Events
 
@@ -201,3 +201,9 @@ The following is a list of all options for subscriptions including Event Groups,
 |User|
 |User Role|
 |Variable Set|
+
+## Ask Octopus
+
+Watch this Ask Octopus episode where we discuss subscriptions.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rKwYkDN_IPU?start=25" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

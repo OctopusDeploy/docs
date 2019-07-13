@@ -10,8 +10,6 @@ We pride ourselves on making Octopus Deploy a secure product. If you are hosting
 Have you heard about [Octopus Cloud](https://octopus.com/cloud)? We take care of hosting your Octopus Server for you so you can get on with the job of deploying and managing your applications.
 :::
 
-!toc
-
 ## Before You Begin
 
 Octopus Deploy is a complex system with many security features baked in and tuned by default. Take some time to understand what we've built in to the product, and what you are ultimately taking responsibility for when self-hosting Octopus Deploy.
@@ -26,7 +24,7 @@ Depending on your scenario you may want to relax or ignore these recommendations
 
 If you consider networking, the host operating system, Microsoft SQL Server, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
 
-Learn about [getting started with Octopus Deploy](/docs/getting-started.md).
+Learn about [getting started with Octopus Deploy](/docs/getting-started/index.md).
 
 ### Choose Your Order For Hardening
 
@@ -72,7 +70,7 @@ Octopus Server always uses a secure and tamper-proof communications transport fo
 The decisions you need to make are:
 
 1. Which kind of deployment targets do you want to allow? Listening Tentacles? Polling Tentacles? SSH? This will have an impact on how you configure your network. See [harden your network](#harden-your-network).
-1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/windows-targets/proxy-support.md).
+1. Do you want to use a proxy server? Learn about [proxy support in Octopus Deploy](/docs/infrastructure/deployment-targets/proxy-support.md).
 
 ## Harden Your Host Operating System
 
@@ -249,6 +247,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |---|---|---|---|---|---|
 |Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
 |MS SQL|`TCP 1433`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to its SQL Server database.|
+|MS SQL|`UDP 1434`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to a named instance using the SQL Server Browser Service. This may not be required in your configuration.|
 |SMB|`TCP 445`|Octopus Server|Anywhere|DENY|Prevents attackers from spreading malware via known SMB vulnerabilities.|
 |RDP|`TCP 3389`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via RDP.|
 |WinRM-HTTP|`TCP 5985`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via unsecured WinRM.|

@@ -15,7 +15,7 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 :::
 
 1. Download [NginxSampleWebApp.1.0.0.zip](/docs/attachments/nginxsamplewebapp.1.0.0.zip).
-2. [Upload it to the Octopus Built-In repository](/docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md) (you can do this by going to **{{Library > Packages}}** and clicking the **Upload package** button).
+2. [Upload it to the Octopus Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md) (you can do this by going to **{{Library > Packages}}** and clicking the **Upload package** button).
 
 ## Publishing and Packing the Website {#Create&PushASP.NETCoreProject-PublishingandPackingtheWebsite}
 
@@ -28,5 +28,5 @@ octo pack --id NginxSampleWebApp --version 1.0.0 --basePath published-app
 ```
 
 :::hint
-If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/creating-packages/creating-zip-packages.md) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
+If you are using the built-in repository, you can create a [zip file](/docs/packaging-applications/create-packages/octo.exe.md#create-zip-packages) instead. The generated nupkg or zip file should then be then be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
 :::

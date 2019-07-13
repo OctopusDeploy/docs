@@ -58,4 +58,4 @@ The Deploy Release step was introduced to Octopus in version **Octopus 2018.2**.
 
 The [Deploy Release step](/docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Master Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
 
-![Deploy Release Step Example Process](voltron-project-process.png "width=500")
+![Deploy Release Step Example Process](voltron-project-process.png)

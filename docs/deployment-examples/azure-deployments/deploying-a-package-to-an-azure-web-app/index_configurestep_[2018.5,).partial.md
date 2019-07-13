@@ -12,7 +12,7 @@ The below instructions are valid Octopus Servers running version **Octopus 2018.
 
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/deployment-process/steps/index.md).
 
-![](/docs/images/5671696/5865899.png "width=170")
+![](5865899.png "width=170")
 
 2. On the **Execution Plan** section, select the Roles that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
@@ -20,6 +20,6 @@ The below instructions are valid Octopus Servers running version **Octopus 2018.
 
 - Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md)
 
-3. On the **Package** section, select your **Package Feed** and **Package Id**.
+3. On the **Package** section, select your **Package Feed** and **Package ID**.
 
-![](deploying-an-azure-web-app.png "width=500")
+![](deploying-an-azure-web-app.png)
