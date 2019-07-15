@@ -1,12 +1,12 @@
 ---
 title: Script Console
-description: The Script Console allows Octopus administrators to execute scripts and perform adminsitrative tasks against individual or groups of deployment targets.
+description: The Script Console allows Octopus administrators to execute scripts and perform adminsitrative tasks on workers and deployment targets as groups or individuals.
 position: 600
 ---
 
 Octopus is designed to make deployment a repeatable process, avoiding the human error that is introduced when software is configured by hand, or in an ad-hoc fashion. Projects, deployment processes, releases, and deployments are all important concepts for realizing this aim.
 
-When managing a large environment of machines, however, it is occasionally necessary to perform one-off management tasks.
+When managing a large fleet of machines, however, it is occasionally necessary to perform one-off management tasks.
 
 - Run-away processes need to be terminated.
 - Machines need to be rebooted.
@@ -14,13 +14,15 @@ When managing a large environment of machines, however, it is occasionally neces
 
 For these situations, the Octopus **Script Console** can be used.
 
+Any machines registered with Octopus as [workers](/docs/infrastructure/workers/index.md) or [deployment targets](/docs/infrastructure/deployment-targets/index.md) can be targeted by the Script Console. You can target an individual machine, or perform a task across an entire group of machines.
+
 ## Using the Script Console
 
 The Script Console can be found under the Tasks area:
 
 ![](images/3277924.png)
 
-Inside the Script Console, you can choose whether to run your script on a specific server, or a number of servers by role/environment.
+Inside the Script Console, you can choose whether to run your script on an individual machine, or an entire group of machines.
 
 ![](images/5865617.png)
 
@@ -41,6 +43,10 @@ Sometimes you might like to collect files from each of the machines as part of y
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/managing-users-and-teams/auditing.md) tab in the Configuration area.
 
 ![](images/3277919.png)
+
+## Targeting the Octopus Server
+
+You cannot target the Octopus Server with the Script Console. If you want to run ad-hoc tasks on your Octopus Server, you should install a Tentacle agent on your Octopus Server and register that Tentacle as a worker or deployment target.
 
 ## Ask Octopus
 
