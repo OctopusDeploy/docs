@@ -24,8 +24,8 @@ Package pushing:
                              overwrite the existing package.
       --use-delta-compression=VALUE
                              Allows disabling of delta compression when
-                             uploading packages to the Octopus Server.
-                             Defaults to enabled.
+                             uploading packages to the Octopus Server. (True
+                             or False. Defaults to true.)
 
 Common options:
 
