@@ -7,7 +7,7 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 ## Defining a Prompted Variable {#Promptedvariables-Definingapromptedvariable}
 
-To make a variable a **prompted variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
+To make a variable a **prompted variable**, enter the variable editor when creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
 ![Open Variable Editor](images/open-editor.png)
 
@@ -24,6 +24,8 @@ You can identify prompted variables by looking for the icon next to the value:
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
 ![Required prompted variable](images/3278301.png)
+
+These variables will be ordered alpabetically by label (or name, if the variable label is not provided).
 
 A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Create-Release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) or [Deploy-Release](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) commands
 
