@@ -898,3 +898,6 @@ docs/packaging-applications/versioning.md -> docs/packaging-applications/create-
 docs/infrastructure/machine-policies.md-> docs/infrastructure/deployment-targets/machine-policies.md
 docs/infrastructure/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md
 docs/infrastructure/deployment-targets/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
+docs/packaging-applications/build-servers/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
+docs/packaging-applications/build-servers/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
+docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-applications/build-servers/build-information/index.md
