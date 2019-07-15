@@ -1,5 +1,5 @@
 ---
-title: SSH Key Pair
+title: SSH Key Pair Account
 description: SSH Key Pair Accounts allow you to securely authenticate with SSH targets.
 position: 30
 ---
