@@ -12,7 +12,7 @@ The proceeding instructions can be followed to configure the `Run an AWS CLI Scr
 
 ## Create an AWS Account
 
-The instructions at [Creating an AWS Account](/docs/infrastructure/deployment-targets/awsindex.md#create-an-aws-account) detail the procedure for creating an account in Octopus.
+The instructions at [Creating an AWS Account](/docs/infrastructure/deployment-targets/aws/index.md#create-an-aws-account) detail the procedure for creating an account in Octopus.
 
 ## Create a AWS Account Project Variable
 

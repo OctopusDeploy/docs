@@ -63,7 +63,7 @@ users:
     The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
     :::
 
-    - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/awsindex.md) allow IAM accounts and roles to be used.
+    - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) allow IAM accounts and roles to be used.
 
     :::warning
     AWS accounts are not currently supported on SSH workers. If you attempt to use an AWS account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with AWS accounts.
