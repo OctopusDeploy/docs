@@ -48,6 +48,13 @@ Besides making it easy to run a script on many servers, the other advantage of u
 
 You cannot target the Octopus Server with the Script Console. If you want to run ad-hoc tasks on your Octopus Server, you should install a Tentacle agent on your Octopus Server and register that Tentacle as a worker or deployment target.
 
+However, please consider the security implications of allowing ad-hoc scripts to be executed on your Octopus Server. Here are some general tips:
+
+- The Tentacle agent should run as a user account with the lowest privileges required for your scenario, preventing someone from compromising your Octopus Server.
+- Register the Tentacle in a special environment, then configure a team in Octopus with permission to execute ad-hoc scripts in this environment.
+
+Learn more about [hardening Octopus](/docs/administration/security/hardening-octopus.md).
+
 ## Ask Octopus
 
 What this Ask Octopus episode where we discuss the script console.
