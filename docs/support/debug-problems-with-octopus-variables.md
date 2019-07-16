@@ -9,10 +9,10 @@ Sometimes a variable used during deployment may have a different value from the 
 ## Check the Variable Snapshot for the Release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
 
 1. Open the **{{Project,Releases,Release}}** page for the Release you are debugging.
-2. Scroll down to find the **Variables** section and click the **Show** link so see the snapshot of Variables being used by this Release.
+2. Scroll down to find the **Variables** section and click **Show Snapshot** link to see the snapshot of Variables being used by this Release.
 3. If the variable is wrong in the Snapshot:
-    * Update the Variable, and then.
-    * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
+    * Update the Variable under the **Variables** section of the project.
+    * Go back to the **release** page and click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
 ![](images/3278466.png)
 
