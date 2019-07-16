@@ -24,7 +24,7 @@ Sometimes a variable used during deployment may have a different value from the 
 ![](images/5865680.png)
 
 :::success
-Did you know you can sort and filter all of the variables grids? Click the column heading to sort, or the filter icon to filter the variable grid.
+Did you know you can filter all of the variables grids? Click **Show Advanced Filter** to reveal filter options.
 :::
 
 ## Write the Variables to the Deployment Log {#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog}
