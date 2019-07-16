@@ -12,7 +12,7 @@ The build information is associated with a package, and includes:
 - Commits: Details of the source commits related to the build 
 - Issues: Issue references parsed from the commit messages 
 
-## Passing Build Information to Octopus
+## Passing Build Information to Octopus {#passing-build-information-to-octopus}
 
 Build information is passed to Octopus as a file, using a custom format.  The recommended way to supply the build information is to add the _Build Information_ step from the Octopus Deploy plugin to your build server. 
 
@@ -37,7 +37,7 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 ![Build information on package version page](build-information-package-version.png)
 
-## Using Build Information in Release Notes
+## Using Build Information in Release Notes #{release-notes}
 
 The build information associated with packages is available to be used in [release notes](/docs/deployment-process/releases/release-notes.md) (and [release notes templates](/docs/deployment-process/releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
 
