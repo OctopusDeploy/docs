@@ -5,7 +5,7 @@ position: 20
 hideInThisSection: True
 ---
 
-Deployment targets are the servers and services you deploy your software to. You can manage your deployment targets by navigating to **{{Infrastructure,Deployment Targets}}** in the Octopus Web Portal.
+Deployment targets are the servers and services that host your deployed software. You can manage your deployment targets by navigating to **{{Infrastructure,Deployment Targets}}** in the Octopus Web Portal.
 
 From the **Deployment Targets** tab you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run health checks.
 
@@ -41,11 +41,11 @@ Before you can deploy software to the deployment targets in your environments, y
 - app-server
 - db-server
 
-Using target roles means the infrastructure in each of your environments doesn't need to be identical. For instance, in the **Test** environment, you might be using a single VM to test all of your software, and so you tag that VM with all of the target roles you use in your deployment process. However, in the **Production** environment you might have dedicated deployment targets per functional role, for instance, one deployment target for the database server which you would tag with the target role `db-server`, and another deployment target that performs the role of web server and is tagged with the target role `web-server`.
+Using target roles means the infrastructure in each of your environments doesn't need to be identical. For instance, in the **Test** environment, you might be using a single VM to test all of your software, and so you tag that VM with all of the target roles you use in your deployment process. However, in the **Production** environment you might have one or more dedicated deployment targets per functional role, for instance, one deployment target for the database server which you would tag with the target role `db-server`, and another deployment target that performs the role of web server and is tagged with the target role `web-server`.
 
 Deployment targets can have more than one role, and more than one deployment target can have the same role.
 
-As you decide on the target roles for your infrastructure, try to name the target roles based on the function the deployment targets will serve.
+As you decide on the target roles for your infrastructure, try to name the target roles based on the function the deployment targets will serve rather than describing some attribute of the deployment targets.
 
 ### Creating Target Roles
 
@@ -66,3 +66,8 @@ You can check all the roles assigned to your deployment targets from the **Infr
 You can use scripts to create Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets.
 
 Learn about [Managing resources with scripts](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
+
+## See Also
+
+ - [Machine Policies](/docs/infrastructure/deployment-targets/machine-policies.md)
+ - [Proxy Support](/docs/infrastructure/deployment-targets/proxy-support.md)
