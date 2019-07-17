@@ -1,7 +1,7 @@
 ---
 title: Create Packages with Octo.exe
 description: Using the Octo.exe command line tool to create packages for deployment.
-position: 20
+position: 30
 ---
 
 **Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can learn more about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).
@@ -118,7 +118,6 @@ These are known issues to be aware of with other compression libraries:
 ## Next
 
  - [Packaging Application](/docs/packaging-applications/index.md)
- - Learn about [NuGet Packages](/docs/packaging-applications/create-packages/nuget-packages.md).
  - Creating packages with [Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
  - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
  - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).

@@ -754,8 +754,8 @@ docs/packaging-applications/creating-packages/nuget-packages/using-octo.exe.md -
 docs/packaging-applications/creating-packages/nuget-packages/push-a-nuget-package-that-already-exists.md -> docs/packaging-applications/create-packages/octopack/index.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md
 docs/packaging-applications/creating-packages -> docs/packaging-applications/index.md
-docs/packaging-applications/creating-packages/nuget-packages/manually.md -> docs/packaging-applications/create-packages/nuget-packages.md
-docs/packaging-applications/creating-packages/nuget-packages/index.md -> docs/packaging-applications/create-packages/nuget-packages.md
+docs/packaging-applications/creating-packages/nuget-packages/manually.md -> docs/packaging-applications/create-packages/index.md
+docs/packaging-applications/creating-packages/nuget-packages/index.md -> docs/packaging-applications/create-packages/index.md
 docs/packaging-applications/creating-packages/nuget-packages/using-octopack/index.md -> docs/packaging-applications/create-packages/octopack/index.md
 docs/packaging-applications/creating-packages/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/create-packages/octo.exe.md
 docs/packaging-applications/known-issues-with-other-compression-libraries.md -> docs/packaging-applications/create-packages/octo.exe.md
@@ -892,7 +892,7 @@ docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md
 docs/packaging-applications/octopack/index.md -> docs/packaging-applications/create-packages/octopack/index.md
 docs/packaging-applications/octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md
 docs/packaging-applications/octopack/troubleshooting-octopack.md -> docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md
-docs/packaging-applications/nuget-packages.md -> docs/packaging-applications/create-packages/nuget-packages.md
+docs/packaging-applications/nuget-packages.md -> docs/packaging-applications/create-packages/index.md
 docs/packaging-applications/octo.exe.md -> docs/packaging-applications/create-packages/octo.exe.md
 docs/packaging-applications/versioning.md -> docs/packaging-applications/create-packages/versioning.md
 docs/infrastructure/machine-policies.md-> docs/infrastructure/deployment-targets/machine-policies.md
@@ -904,6 +904,7 @@ docs/infrastructure/accounts/aws/index.md -> docs/infrastructure/deployment-targ
 docs/infrastructure/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
 docs/infrastructure/accounts/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
 docs/infrastructure/accounts/index.md -> docs/infrastructure/deployment-targets/index.md
+docs/packaging-applications/create-packages/nuget-packages.md -> docs/packaging-applications/create-packages/index.md
 docs/packaging-applications/build-servers/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
 docs/packaging-applications/build-servers/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
 docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-applications/build-servers/build-information/index.md
