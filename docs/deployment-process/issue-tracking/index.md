@@ -5,4 +5,6 @@ position: 50
 hideInThisSection: true
 ---
 
-Octopus **2019.4** introduced integration with [Jira](jira.md) and [GitHub](github.md) issue trackers, giving the ability to update issues with deployment information. 
+Octopus **2019.4** introduced integration with [Jira](jira.md) and [GitHub](github.md) issue trackers.
+
+See the [How it Works](jira.md#how-jira-integration-works) section for an overview.

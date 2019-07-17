@@ -7,7 +7,7 @@ description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 - Automatically add links to Jira issues from releases and deployments in Octopus 
 - View release and deployment details from Jira issues (Jira Cloud only) 
 
-## How Jira Integration Works 
+## How Jira Integration Works {#how-jira-integration-works} 
 
 1. Code is committed with a message containing one or more [Jira issue keys](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html). 
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information.md#passing-build-information-to-octopus).  These are associated with a package ID and version (even if the package itself is pushed to an external repository, rather than the built-in Octopus repository). 
