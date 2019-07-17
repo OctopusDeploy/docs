@@ -787,9 +787,9 @@ docs/api-and-integration/troubleshooting-integrations-with-build-servers.md -> d
 docs/api-and-integration/jenkins.md -> docs/packaging-applications/build-servers/jenkins.md
 docs/api-and-integration/teamcity.md -> docs/packaging-applications/build-servers/teamcity.md
 docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-servers/build-information/index.md
-docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build-servers/metadata/github.md
-docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/metadata/jira.md
-docs/api-and-integration/metadata/release-notes-templates.md -> docs/packaging-applications/build-servers/metadata/release-notes-templates.md
+docs/api-and-integration/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
+docs/api-and-integration/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
+docs/api-and-integration/metadata/release-notes-templates.md -> docs/deployment-process/releases/release-notes.md
 docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
 docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
 docs/api-and-integration/tentacle.exe-command-line/watchdog.md -> docs/octopus-rest-api/tentacle.exe-command-line/watchdog.md
