@@ -786,7 +786,7 @@ docs/api-and-integration/continua-ci.md -> docs/packaging-applications/build-ser
 docs/api-and-integration/troubleshooting-integrations-with-build-servers.md -> docs/packaging-applications/build-servers/troubleshooting-integrations-with-build-servers.md
 docs/api-and-integration/jenkins.md -> docs/packaging-applications/build-servers/jenkins.md
 docs/api-and-integration/teamcity.md -> docs/packaging-applications/build-servers/teamcity.md
-docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-servers/metadata/index.md
+docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-servers/build-information/index.md
 docs/api-and-integration/metadata/github.md -> docs/packaging-applications/build-servers/metadata/github.md
 docs/api-and-integration/metadata/jira.md -> docs/packaging-applications/build-servers/metadata/jira.md
 docs/api-and-integration/metadata/release-notes-templates.md -> docs/packaging-applications/build-servers/metadata/release-notes-templates.md
