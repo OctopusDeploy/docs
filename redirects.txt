@@ -905,6 +905,7 @@ docs/infrastructure/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-t
 docs/infrastructure/accounts/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
 docs/infrastructure/accounts/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/packaging-applications/create-packages/nuget-packages.md -> docs/packaging-applications/create-packages/index.md
+docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-applications/build-servers/build-information/index.md
 docs/packaging-applications/build-servers/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
 docs/packaging-applications/build-servers/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
-docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-applications/build-servers/build-information/index.md
+docs/packaging-applications/build-servers/metadata/release-notes-templates.md -> docs/deployment-process/releases/release-notes.md
