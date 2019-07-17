@@ -1,16 +1,16 @@
-```powershell PowerShell with REST Requests
+```powershell PowerShell
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
-$name = "New Space"
+$spaceName = "New Space"
 $description = "Space for the new, top secret project."
 $managersTeams = @() # an array of team Ids to add to Space Managers
 $managerTeamMembers = @() # an array of user Ids to add to Space Managers
 $environments = @('Development', 'Test', 'Production')
 
 $body = @{
-    Name = $name
+    Name = $spaceName
     Description = $description
     SpaceManagersTeams = $managersTeams
     SpaceManagersTeamMembers = $managerTeamMembers
@@ -19,7 +19,7 @@ $body = @{
 } | ConvertTo-Json
 
 $response = try {
-    Write-Host "Creating space '$name'"
+    Write-Host "Creating space '$spaceName'"
     (Invoke-WebRequest $octopusURL/api/spaces -Headers $header -Method Post -Body $body -ErrorVariable octoError)
 } catch [System.Net.WebException] {
     $_.Exception.Response
@@ -50,7 +50,7 @@ foreach ($environment in $environments) {
     }
 }
 ```
-```powershell PowerShell with Octopus.Client
+```powershell PowerShell (Octopus.Client)
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl"
@@ -59,7 +59,7 @@ $octopusAPIKey = "API-YOURAPIKEY"
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 
-$name = "New Space"
+$spaceName = "New Space"
 $description = "Space for the new, top secret project."
 $managersTeams = @() # an array of team Ids to add to Space Managers
 $managerTeamMembers = @() # an array of user Ids to add to Space Managers
@@ -67,7 +67,7 @@ $environments = @('Development', 'Test', 'Production')
 
 
 $space = New-Object Octopus.Client.Model.SpaceResource -Property @{
-    Name = $name
+    Name = $spaceName
     Description = $description
     SpaceManagersTeams = New-Object Octopus.Client.Model.ReferenceCollection($managersTeams)
     SpaceManagersTeamMembers = New-Object Octopus.Client.Model.ReferenceCollection($managerTeamMembers)
@@ -99,7 +99,7 @@ foreach ($environmentName in $environments) {
     }
 }
 ```
-```csharp C# with Octopus.Client
+```csharp C#
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -111,7 +111,7 @@ var octopusAPIKey = "API-YOURAPIKEY";
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
 
-var name = "New Space";
+var spaceName = "New Space";
 var description = "Space for the new, top secret project.";
 var managersTeams = new string[] { };
 var managersTeamMembers = new string[] { };
@@ -120,7 +120,7 @@ var environments = new string[] { "Development", "Test", "Production" };
 
 var space = new SpaceResource
 {
-    Name = name,
+    Name = spaceName,
     Description = description,
     SpaceManagersTeams = new ReferenceCollection(managersTeams),
     SpaceManagersTeamMembers = new ReferenceCollection(managersTeamMembers),
@@ -130,7 +130,7 @@ var space = new SpaceResource
 
 try
 {
-    Console.WriteLine($"Creating space '{name}'.");
+    Console.WriteLine($"Creating space '{spaceName}'.");
     space = repository.Spaces.Create(space);
 }
 catch (Exception ex)
