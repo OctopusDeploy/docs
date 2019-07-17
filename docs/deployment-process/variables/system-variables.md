@@ -21,7 +21,7 @@ Release-level variables are drawn from the project and release being created.
 | Name and Description | Example|
 |**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release. See below. | This is a collection. |
 
-Note: The `Octopus.Release.Package` variable will only be populated if [build information](/docs/packaging-applications/build-servers/build-information.md) has been pushed from the build server.
+Note: The `Octopus.Release.Package` variable will only be populated if [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed from the build server.
 
 The release packages is a collection of `Package` objects based on the following structures:
 
@@ -96,7 +96,7 @@ The variables available for commits are:
 |`LinkUrl`| `#{commit.LinkUrl}` | 
 |`Comment`| `#{commit.Comment}` | 
 
-If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/deployment-process/issue-trackers/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
+If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/deployment-process/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
 ```
 #{each issue in package.WorkItems}
@@ -153,7 +153,6 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.Tenant.Tags`** <br/>Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenant type/External, Upgrade ring/Early adopter*|
 |**`Octopus.Deployment.Trigger.Id`** <br/>The ID of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of _one_ of the triggers. | *ProjectTriggers-522*|
 |**`Octopus.Deployment.Trigger.Name`** <br/>The name of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of _one_ of the triggers. | *Nightly Deploy to Dev*|
-|**`Octopus.Deployment.Changes`** <br/>The release changes included in the deployment | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Deployment-Variables)|
 |**`Octopus.Endpoint.\_type\_.\_property\_`** <br/>Properties describing the endpoint being deployed | *ftp.example.com*|
 |**`Octopus.Environment.Id`** <br/>The ID of the environment | *environments-123*|
 |**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role being deployed to | *machines-123,machines-124*|
@@ -197,8 +196,8 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and Description | Example |
 | -------------------- | ------- |
 |**`Octopus.Deployment.Changes`** <br/>A JSON array of ReleaseChange objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|**`Octopus.Deployment.WorkItems`** <br/>The distinct list of issues across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-server/build-information/index.md) has been pushed and an [issue tracker integration](/docs/deployment-process/issue-trackers/index.md) is enabled. | This will be JSON (see below) |
-|**`Octopus.Deployment.PackageBuildMetadata`** <br/>The distinct list of package [build information](/docs/packaging-applications/build-server/build-information/index.md) across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `PackageBuildMetadata` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-server/build-information/index.md) has been pushed | This will be JSON (see below) |
+|**`Octopus.Deployment.WorkItems`** <br/>The distinct list of issues across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed and an [issue tracker integration](/docs/deployment-process/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
+|**`Octopus.Deployment.PackageBuildMetadata`** <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/index.md) across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `PackageBuildMetadata` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChange` objects matching the following C# classes:
 

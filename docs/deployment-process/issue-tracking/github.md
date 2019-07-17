@@ -10,9 +10,9 @@ description: Configure GitHub issue tracking with Octopus.
 ## How GitHub Integration Works 
 
 1. Code is committed with a message containing one or more [GitHub issue references](#commit-messages). 
-2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information.md#passing-build-information-to-octopus).  These are associated with a package ID and version (even if the package itself is pushed to an external repository, rather than the built-in Octopus repository). 
+2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (even if the package itself is pushed to an external repository, rather than the built-in Octopus repository). 
 3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue keys. 
-4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
+4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
 
 ### Limitations
 
@@ -48,7 +48,7 @@ The following steps should be followed to integrate Octopus with GitHub issues:
 
     The password should be a personal access token, rather than an actual password. You can create a token in your GitHub account settings in the 'Developer settings' area.
     
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -62,4 +62,4 @@ The Octopus extension looks for these same keywords, and ignores issue reference
 
 ## Next
 
- - Learn about other [build information](/docs/packaging-applications/build-servers/build-information.md).
+ - Learn about other [build information](/docs/packaging-applications/build-servers/build-information/index.md).
