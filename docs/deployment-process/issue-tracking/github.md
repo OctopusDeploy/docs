@@ -10,9 +10,11 @@ position: 30
 
 ## How GitHub Integration Works
 
+![Octopus Jira integration - how it works diagram](images/octo-github-how-it-works.png "width=500")
+
 1. When you commit code, add a commit message containing one or more [GitHub issue references](#commit-messages).
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
-3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue keys.
+3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
 
 ### Limitations
@@ -31,7 +33,7 @@ The following steps should be followed to integrate Octopus with GitHub issues:
 1. Configure the GitHub extension.
 
     In the Octopus web portal, navigate to **{{Configuration,Settings,GitHub Issue Tracker}}** and set the
-    **GitHub Base URL**. This is required when resolving issue references that cross repo boundaries. For example, you might have a commit message with the following content:
+    **GitHub Base URL**. This is required when resolving issue references that cross repository boundaries. For example, you might have a commit message with the following content:
 
     ```
     Fix bug with X
