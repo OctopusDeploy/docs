@@ -1,10 +1,10 @@
 ---
-title: Deployment Notes 
-description: Summarize the changes in a deployment 
-position: 6 
+title: Deployment Notes
+description: Summarize the changes in a deployment
+position: 6
 ---
 
-When a release is deployed to an environment, it can be thought of as deploying all changes contained in all releases since the previous deployment to the environment. 
+When a release is deployed to an environment, it can be thought of as deploying all changes contained in all releases since the previous deployment to the environment.
 
 Deployment notes summarize these changes by rolling up the [release notes](release-notes.md) from all releases since the previous deployment of the project to the environment.  
 
@@ -12,8 +12,8 @@ Deployment notes summarize these changes by rolling up the [release notes](relea
 
 ## Deployment Change Variables
 
-It can be useful to access the changes associated with an deployment in the deployment process. 
-[Deployment change variables](/docs/deployment-process/variables/system-variables.md#deployment-notes) are available during a deployment. 
+It can be useful to access the changes associated with an deployment in the deployment process.
+[Deployment change variables](/docs/deployment-process/variables/system-variables.md#deployment-notes) are available during a deployment.
 
 A common example of this is for use in the [Email step](/docs/deployment-process/steps/email-notifications.md).  
 
