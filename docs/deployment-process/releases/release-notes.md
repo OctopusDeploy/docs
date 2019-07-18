@@ -1,7 +1,7 @@
 ---
-title: Release Notes 
-description: Enrich your releases with notes 
-position: 5 
+title: Release Notes
+description: Enrich your releases with notes
+position: 5
 ---
 
 When creating a release, notes may be supplied.
@@ -16,7 +16,7 @@ Release notes may contain variable expressions. These will be evaluated and subs
 
 Only variables in scope when the release is created will be available for use in release notes. Variables scoped to environments, tenants, target roles, or targets will _not_ be available as these scopes apply only during deployments.   
 
-[Build information](/docs/packaging-applications/build-servers/build-information/index.md) associated with packages in the release may also be used in release notes.
+[Build information](/docs/packaging-applications/build-servers/index.md#build-information) associated with packages in the release may also be used in release notes.
 
 ![Build information variables in release notes](release-notes-build-information.png)
 
@@ -24,7 +24,7 @@ Only variables in scope when the release is created will be available for use in
 
 The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/deployment-process/variables/system-variables.md#Systemvariables-Release) variable.  
 
-Release notes are also rolled up into the [deployment notes](deployment-notes.md). 
+Release notes are also rolled up into the [deployment notes](deployment-notes.md).
 
 ## Release Notes Templates {#Release-Notes-Templates}
 
@@ -32,9 +32,9 @@ A release notes template can be configured in {{Project,Settings,Release Notes T
 
 A release notes template is a convenient way to keep release notes consistent and avoid entering the same text repeatedly.   
 
-Release notes templates will generally be most useful when combined with package build information, pushed from the build server. 
+Release notes templates will generally be most useful when combined with package build information, pushed from the build server.
 
-The following are some example of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/index.md) and [issues](/docs/deployment-process/issue-tracking/index.md). 
+The following are some example of using release notes templates with package [build information](/docs/packaging-applications/build-servers/index.md#build-information) and [issues](/docs/deployment-process/issue-tracking/index.md).
 
 ### Example Templates
 

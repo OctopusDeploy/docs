@@ -21,7 +21,7 @@ Release-level variables are drawn from the project and release being created.
 | Name and Description | Example|
 |**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release. See below. | This is a collection. |
 
-Note: The `Octopus.Release.Package` variable will only be populated if [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed from the build server.
+Note: The `Octopus.Release.Package` variable will only be populated if [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed from the build server.
 
 The release packages is a collection of `Package` objects based on the following structures:
 
@@ -58,7 +58,7 @@ The packages in a release are available as a collection which can be [iterated o
 ```
 
 A particular package can be selected by indexing on the package ID:
- 
+
 ```
 #{Octopus.Release.Package[Acme.Web].Version}
 ```
@@ -67,10 +67,10 @@ The variables available for packages are:
 
 | Name | Example|
 | -------------------- | -------|
-|`PackageId`| `#{package.PackageId}` | 
-|`Version`| `#{package.Version}` | 
-|`Commits`| This is a collection.  See below. | 
-|`WorkItems`| This is a collection.  See below. | 
+|`PackageId`| `#{package.PackageId}` |
+|`Version`| `#{package.Version}` |
+|`Commits`| This is a collection.  See below. |
+|`WorkItems`| This is a collection.  See below. |
 
 On each package, the commits associated with that package are available as a collection which can be iterated over. e.g.:
 
@@ -92,9 +92,9 @@ The variables available for commits are:
 
 | Name | Example|
 | -------------------- | -------|
-|`CommitId`| `#{commit.CommitId}` | 
-|`LinkUrl`| `#{commit.LinkUrl}` | 
-|`Comment`| `#{commit.Comment}` | 
+|`CommitId`| `#{commit.CommitId}` |
+|`LinkUrl`| `#{commit.LinkUrl}` |
+|`Comment`| `#{commit.Comment}` |
 
 If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/deployment-process/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
@@ -114,8 +114,8 @@ The variables available for issues are:
 
 | Name | Example|
 | -------------------- | -------|
-|`Id`| `#{issue.Id}` | 
-|`LinkUrl`| `#{issue.LinkUrl}` | 
+|`Id`| `#{issue.Id}` |
+|`LinkUrl`| `#{issue.LinkUrl}` |
 
 There is also a distinct list of issues across all packages available in:  
 
@@ -196,8 +196,8 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and Description | Example |
 | -------------------- | ------- |
 |**`Octopus.Deployment.Changes`** <br/>A JSON array of ReleaseChange objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|**`Octopus.Deployment.WorkItems`** <br/>The distinct list of issues across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed and an [issue tracker integration](/docs/deployment-process/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
-|**`Octopus.Deployment.PackageBuildMetadata`** <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/index.md) across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `PackageBuildMetadata` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed | This will be JSON (see below) |
+|**`Octopus.Deployment.WorkItems`** <br/>The distinct list of issues across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/deployment-process/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
+|**`Octopus.Deployment.PackageBuildMetadata`** <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `PackageBuildMetadata` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChange` objects matching the following C# classes:
 
@@ -231,7 +231,7 @@ public class PackageBuildMetadata
 ```
 There is an entry per release and it includes the release notes (**in markdown format**) and the metadata for each of the packages in that release.
 
-**Example:** The following iterates the changes in the deployment, printing the release version and the issues contained. 
+**Example:** The following iterates the changes in the deployment, printing the release version and the issues contained.
 
 ```
 #{each change in Octopus.Deployment.Changes}

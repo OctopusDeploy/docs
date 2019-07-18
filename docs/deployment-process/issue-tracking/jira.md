@@ -1,28 +1,29 @@
 ---
 title: Jira Issue Tracking
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
+position: 20
 ---
 
 **Octopus 2019.4** introduced support to integrate Octopus with Jira issues. The integration includes the ability to:
-- Automatically add links to Jira issues from releases and deployments in Octopus 
-- View release and deployment details from Jira issues (Jira Cloud only) 
+- Automatically add links to Jira issues from releases and deployments in Octopus.
+- View release and deployment details from Jira issues (Jira Cloud only).
 
-## How Jira Integration Works {#how-jira-integration-works} 
+## How Jira Integration Works {#how-jira-integration-works}
 
-1. Code is committed with a message containing one or more [Jira issue keys](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html). 
-2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (even if the package itself is pushed to an external repository, rather than the built-in Octopus repository). 
-3. The Jira issue-tracker extension in Octopus parses the commit messages and recognizes the issue keys. 
-4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).
-5. As the release is deployed to each environment, Octopus notifies Jira to update the issue. 
+1. Code is committed with a message containing one or more [Jira issue keys](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html).
+2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (even if the package itself is pushed to an external repository, rather than the built-in Octopus repository).
+3. The Jira issue-tracker extension in Octopus parses the commit messages and recognizes the issue keys.
+4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).
+5. As the release is deployed to each environment, Octopus notifies Jira to update the issue.
 
 ### Limitations
 
 **Limited build server support**  
-The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview) plugins.  We will be rolling this out to Azure DevOps and Jenkins plugins soon. 
+The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview) plugins.  We will be rolling this out to Azure DevOps and Jenkins plugins soon.
 
 **Jira cloud only**  
 The ability to update Jira issues with deployment information (i.e. step 5 above) is only available for Jira Cloud.
-This is a Jira limitation; the [deployment module](https://developer.atlassian.com/cloud/jira/software/modules/deployment/) is not available for Jira Server. 
+This is a Jira limitation; the [deployment module](https://developer.atlassian.com/cloud/jira/software/modules/deployment/) is not available for Jira Server.
 
 
 ![Octopus release with Jira issues](octo-jira-release-details.png "width=500")
@@ -38,11 +39,11 @@ The following steps should be followed to integrate Octopus with Jira.
 
 ## <a name="connect-octopus-to-jira"></a> Connect Octopus to Jira
 
-This section describes how to configure Octopus Deploy to connect to Jira. 
+This section describes how to configure Octopus Deploy to connect to Jira.
 
-Any Octopus instance, self-hosted or cloud-hosted, can be configured to use the Jira integration. The only network connectivity requirements are that your Octopus server and your browser can connect to the Jira instance.  Jira will never actively attempt to connect to Octopus. 
+Any Octopus instance, self-hosted or cloud-hosted, can be configured to use the Jira integration. The only network connectivity requirements are that your Octopus server and your browser can connect to the Jira instance.  Jira will never actively attempt to connect to Octopus.
 
-The process is slightly different depending on whether you are connecting to Jira Cloud or Jira Server. 
+The process is slightly different depending on whether you are connecting to Jira Cloud or Jira Server.
 
 ### Connecting Jira Server and Octopus Deploy
 
@@ -61,12 +62,12 @@ If you are using Jira Cloud, see [Connecting Jira Cloud and Octopus Deploy](#con
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
     Note: This needs to be a username and password as Jira Server does not support API tokens.
-    
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information/) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
-When configured, this integration will retrieve Jira issue details and add details to your releases and deployments and generate release notes automatically. 
+When configured, this integration will retrieve Jira issue details and add details to your releases and deployments and generate release notes automatically.
 
 ### Connecting Jira Cloud and Octopus Deploy
 
@@ -96,8 +97,8 @@ If you are using Jira Server, see [Connecting Jira Server and Octopus Deploy](#c
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
-    
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -123,7 +124,7 @@ When configured, this integration will provide Jira with updates about the progr
 When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
 :::hint
-You must [configure your build server](#configure-your-build-server) to push commit information to Octopus. 
+You must [configure your build server](#configure-your-build-server) to push commit information to Octopus.
 Without this, Octopus will not attempt to update Jira issues.
 :::
 
@@ -138,9 +139,9 @@ When Octopus successfully sends state changes to Jira, the blocks will appear wi
 ## <a name="configure-your-build-server"></a> Configure your build server to push build information to Octopus
 
 To integrate with Jira issues Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md).   
-Octopus does this by inspecting commit messages associated with any packages contained in the release. 
+Octopus does this by inspecting commit messages associated with any packages contained in the release.
 
-To supply the commit messages: 
+To supply the commit messages:
 
 1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview). We're currently working on adding support for the Azure DevOps and Jenkins plugins.
 
