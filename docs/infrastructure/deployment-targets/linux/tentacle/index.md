@@ -51,93 +51,14 @@ mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
 ```
 
-When using either the apt or rpm package manager, the Tentacle installation will automatically configure a default Tentacle instance. If you installed Tentacle using a package manager you can skip to [Configuring Listening Tentacle](#LinuxTentacle-ConfigureListeningTentacle) or [Configuring Polling Tentacle](#LinuxTentacle-ConfigurePollingTentacle).
-
 ### Setting up a Tentacle instance
-Many instances of Tentacle can be configured on a single machine. The default instance of Tentacle is named `Tentacle` and can be created via the command line:
+Many instances of Tentacle can be configured on a single machine. To configure an instance run the following setup script:
 
 ```bash
-configFilePath="/etc/octopus/default/tentacle-default.config"
-applicationPath="/home/Octopus/Applications/"
-
-/opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
-/opt/octopus/tentacle/Tentacle new-certificate --if-blank
-/opt/octopus/tentacle/Tentacle configure --reset-trust --app "$applicationPath"
+/opt/octopus/tentacle/configure-tentacle.sh
 ```
 
 Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
-
-### Configuring Listening Tentacle (recommended) {#LinuxTentacle-ConfigureListeningTentacle}
-To configure a listening Tentacle:
-
-```bash
-thumbprint=""   # The thumbprint of your Octopus server
-
-/opt/octopus/tentacle/Tentacle configure --port 10933 --noListen False
-/opt/octopus/tentacle/Tentacle configure --trust $thumbprint
-```
-
-The Tentacle can be added to Octopus via the Octopus portal, or by running a registration script:
-
-```bash Register deployment target
-serverUrl="https://my-octopus"   # The url of your Octous server
-apiKey=""           # An Octopus Server api key with permission to add machines
-name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
-environment="Test"  # The environment to register the Tentacle in
-role="web server"   # The role to assign to the Tentacle
-
-/opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role"
-```
-
-```bash Register worker
-serverUrl="https://my-octopus"   # The url of your Octous server
-apiKey=""           # An Octopus Server api key with permission to add machines
-name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
-workerPool="Default Worker Pool" # The worker pool to register the Tentacle in
-
-/opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool"
-```
-
-### Configuring Polling Tentacle {#LinuxTentacle-ConfigurePollingTentacle}
-To configure a polling Tentacle:
-
-```bash
-/opt/octopus/tentacle/Tentacle configure --noListen True
-```
-
-Octopus supports HTTP proxies for communication from the Tentacle and Octopus Server. See the [proxy documentation](/docs/infrastructure/deployment-targets/proxy-support.md) for more information about proxies. To configure a proxy for polling communication:
-
-```bash
-proxyHost=""
-proxyPort=""
-proxyUser=""
-proxyPassword=""
-
-/opt/octopus/tentacle/Tentacle proxy --proxyEnabled "true" --proxyHost "$proxyHost" --proxyPort "$proxyPort" --proxyUsername "$proxyUser" --proxyPassword "$proxyPassword"
-```
-
-The Tentacle must be registered with the Octopus Server from the command line:
-
-```bash Register deployment target
-serverUrl="https://my-octopus"   # The url of your Octous server
-serverCommsPort=10943            # The communication port the Octopus Server is listening on (10943 by default)
-apiKey=""           # An Octopus Server api key with permission to add machines
-name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
-environment="Test"  # The environment to register the Tentacle in
-role="web server"   # The role to assign to the Tentacle
-
-/opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
-```
-
-```bash Register worker
-serverUrl="https://my-octopus"   # The url of your Octous server
-serverCommsPort=10943            # The communication port the Octopus Server is listening on (10943 by default)
-apiKey=""           # An Octopus Server api key with permission to add machines
-name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
-workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in
-
-/opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
-```
 
 ## Running Tentacle
 
@@ -145,7 +66,7 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 Start the Tentacle interactively by running:
 
 ```
-/opt/octopus/tentacle/Tentacle run
+/opt/octopus/tentacle/Tentacle run --instance <instance name>
 ```
 
 ### Running Tentacle as a service (systemd)
@@ -159,7 +80,7 @@ Start the Tentacle interactively by running:
     Type=simple
     User=root
     WorkingDirectory=/etc/octopus/default/
-    ExecStart=/opt/octopus/tentacle/Tentacle run --noninteractive
+    ExecStart=/opt/octopus/tentacle/Tentacle run --instance <instance name> --noninteractive
     Restart=always
 
     [Install]
