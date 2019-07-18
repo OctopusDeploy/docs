@@ -10,19 +10,19 @@ position: 30
 
 ## How GitHub Integration Works
 
-1. Code is committed with a message containing one or more [GitHub issue references](#commit-messages).
-2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (even if the package itself is pushed to an external repository, rather than the built-in Octopus repository).
+1. When you commit code, add a commit message containing one or more [GitHub issue references](#commit-messages).
+2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue keys.
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
 
 ### Limitations
 
-**Limited build server support**  
+**Limited Build Server Support**  
 The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview) plugins.  We will be rolling this out to Azure DevOps and Jenkins plugins soon.
 
-![Octopus release with GitHub issues](octo-github-release-details.png "width=500")
+![Octopus release with GitHub issues](images/octo-github-release-details.png "width=500")
 
-![Octopus deployment with generated release notes](octo-github-release-notes.png "width=500")
+![Octopus deployment with generated release notes](images/octo-github-release-notes.png "width=500")
 
 ## Configuring GitHub Integration
 
