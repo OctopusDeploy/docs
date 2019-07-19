@@ -4,6 +4,8 @@ description: List releases by project
 position: 220
 ---
 
+List [releases](/docs/deployment-process/releases/index.md).
+
 ```text
 Usage: octo list-releases [<options>]
 
@@ -67,4 +69,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

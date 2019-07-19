@@ -12,7 +12,7 @@ Before you can deploy a package you need to:
 1. Give your package a [package ID](#package-id).
 1. Choose and apply a [versioning scheme](#version-numbers).
 1. Create the package in a [supported format](#supported-formats).
-1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/index.md), such as the Octopus [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
+1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/index.md).
 
 ## Package ID {#package-id}
 

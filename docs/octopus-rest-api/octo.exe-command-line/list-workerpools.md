@@ -4,7 +4,9 @@ description: List worker pools
 position: 240
 ---
 
-List worker pools
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list all worker pools.
+
+Learn about [worker pools](/docs/infrastructure/workers/workerpools.md).
 
 **list-workerpools options**
 
@@ -66,4 +68,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

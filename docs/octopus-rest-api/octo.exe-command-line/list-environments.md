@@ -4,7 +4,9 @@ description: List environments
 position: 180
 ---
 
-List environments
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list the environments on your Octopus instance.
+
+Learn more about working with [environments](/docs/infrastructure/environments/index.md).
 
 **list-environments options**
 
@@ -66,4 +68,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

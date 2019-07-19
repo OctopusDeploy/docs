@@ -6,6 +6,8 @@ position: 30
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
 
+Learn more about [automatic deployments](docs/deployment-process/project-triggers/automatic-deployment-triggers.md).
+
 ```text
 Usage: octo create-autodeployoverride [<options>]
 

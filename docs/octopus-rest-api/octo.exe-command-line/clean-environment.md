@@ -6,6 +6,8 @@ position: 10
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
 
+Learn more about working with [environments](/docs/infrastructure/environments/index.md).
+
 :::hint
 This command was added in Octo.exe 3.3.4.
 :::

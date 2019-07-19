@@ -20,21 +20,21 @@ Essentially, a blocked release is about blocking progression to undeployed phase
 
 You are able to block a Release of a Project from being used in any future deployments, no matter which phase the Release is currently on. This can be done from the release page of the project you're wishing to block.
 
-![](5865856.png)
+![](images/5865856.png)
 
 Select the option to "**Block deployment**."
 
-![](5865857.png)
+![](images/5865857.png)
 
 Input a reason why you're blocking it, so your team is aware and on the same page, and hit "**Block**."
 
-![](5865858.png)
+![](images/5865858.png)
 
 ## Resolve and Unblock {#BlockingDeployments-ResolveandUnblock}
 
 Once you're happy with the deployment process continuing, go back to the release page of the project, and select "**Resolve and unblock**."
 
-![](5865859.png)
+![](images/5865859.png)
 
 ## Permissions {#BlockingDeployments-Permissions}
 

@@ -6,6 +6,8 @@ position: 90
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to delete automatic deployment release overrides.
 
+Learn more about [automatic deployments](docs/deployment-process/project-triggers/automatic-deployment-triggers.md).
+
 ```text
 Usage: octo delete-autodeployoverride [<options>]
 

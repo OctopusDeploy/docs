@@ -6,6 +6,8 @@ position: 60
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a project inside a project group.
 
+Learn more about [projects](/docs/deployment-process/projects/index.md).
+
 ```text
 Usage: octo create-project [<options>]
 

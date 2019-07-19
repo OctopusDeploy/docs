@@ -13,7 +13,7 @@ Artifacts can be collected from anywhere that Octopus runs scripts - for example
 
 After the script runs the files will be uploaded to Octopus Server and made available as deployment artifacts which are available for download from the task output, or via the [Octopus API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Artifacts).
 
-![](artifacts-access.png)
+![](images/artifacts-access.png)
 
 ## Collecting Artifacts Using Scripts {#Artifacts-Collectingartifactsusingscripts}
 

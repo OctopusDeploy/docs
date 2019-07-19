@@ -4,7 +4,9 @@ description: Using the Octo.exe command line tool to create channels.
 position: 40
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create [channels](/docs/deployment-process/channels/index.md) on your Octopus instance.
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create channels on your Octopus instance.
+
+Learn more about [channels](/docs/deployment-process/channels/index.md).
 
 ```text
 Usage: octo create-channel [<options>]

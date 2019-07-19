@@ -4,7 +4,9 @@ description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built
 position: 280
 ---
 
-Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+Pushes a [package](/docs/packaging-applications/create-packages/index.md) (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+
+Learn more about the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
 
 **push options**
 
@@ -88,4 +90,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

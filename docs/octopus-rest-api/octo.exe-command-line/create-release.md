@@ -8,6 +8,8 @@ position: 70
 
 This command allows you to create a release, and optionally deploy it to one or more environments.
 
+Learn more about [releases](/docs/deployment-process/releases/index.md).
+
 :::success
 **Using Channels?**
 If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.

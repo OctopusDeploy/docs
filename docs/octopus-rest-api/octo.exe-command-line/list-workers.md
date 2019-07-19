@@ -4,7 +4,9 @@ description: Lists all workers
 position: 250
 ---
 
-Lists all workers
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list all workers.
+
+Learn about [workers](/docs/infrastructure/workers/worker/index.md).
 
 **list-workers options**
 
@@ -86,4 +88,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

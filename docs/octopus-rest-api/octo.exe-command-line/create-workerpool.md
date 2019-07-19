@@ -4,7 +4,9 @@ description: Creates a pool for workers
 position: 80
 ---
 
-Creates a pool for workers
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a worker pool.
+
+Learn about [worker pools](/docs/infrastructure/workers/workerpools.md).
 
 **create-workerpool options**
 
@@ -72,4 +74,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

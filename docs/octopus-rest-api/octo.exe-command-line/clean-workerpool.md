@@ -4,7 +4,9 @@ description: Cleans all Offline Workers from a WorkerPool
 position: 20
 ---
 
-Cleans all Offline Workers from a WorkerPool
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to cleans all offline workers from a worker pool.
+
+Learn about [worker pools](/docs/infrastructure/workers/workerpools.md).
 
 **clean-workerpool options**
 
@@ -81,4 +83,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

@@ -4,7 +4,9 @@ description: Lists all projects
 position: 210
 ---
 
-Lists all projects
+[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list the project in your octopus instance.
+
+Learn more about [projects](/docs/deployment-process/projects/index.md).
 
 **list-projects options**
 
@@ -66,4 +68,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

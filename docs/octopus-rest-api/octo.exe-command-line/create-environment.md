@@ -6,6 +6,8 @@ position: 50
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
 
+Learn more about working with [environments](/docs/infrastructure/environments/index.md).
+
 ```text
 Usage: octo create-environment [<options>]
 
