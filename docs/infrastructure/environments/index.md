@@ -21,7 +21,7 @@ You can add as many environments as you need.
 
 ## Editing Your Environments
 
-To edit individual environments, click the overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](#dynamic-infrastructure), or delete the environment.
+To edit individual environments, click the ... overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](#dynamic-infrastructure), or delete the environment.
 
 ## Environment Permissions
 
@@ -33,7 +33,7 @@ If you're working with a large number of environments and deployment targets, th
 
 ## Sorting Your Environments
 
-Click the overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments.
+Click the ... overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments.
 
 The order that environments are shown in the environments tab also affects:
 

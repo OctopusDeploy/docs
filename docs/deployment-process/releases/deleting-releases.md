@@ -8,11 +8,11 @@ Sometimes you may want to delete releases of your project. Maybe they're defecti
 
 ## Deleting Releases
 
-Deleting individual releases can be done by entering the release page and selecting the `Edit` option in the overflow menu.
+Deleting individual releases can be done by entering the release page and selecting the `Edit` option in the ... overflow menu.
 
 ![Edit release](edit-release.png)
 
-In the edit release page, click the overflow menu and select `Delete`.
+In the edit release page, click the ... overflow menu and select `Delete`.
 
 ![Delete release](delete-release.png)
 

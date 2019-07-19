@@ -64,7 +64,7 @@ If you are likely to have a lot of projects, in addition to giving them meaningf
 Projects can be cloned.
 
 1. From the project's overview page, select **settings**.
-2. Click the overflow menu, and select **Clone**.
+2. Click the ... overflow menu, and select **Clone**.
 3. Give the new project you are cloning from the original project a name.
 4. Review the settings for the new project and when you are satisfied, click **SAVE**.
 
@@ -94,7 +94,7 @@ After you have created a project group there are a number of ways you can add pr
 
 ### Edit or Delete Project Groups
 
-To edit or delete a project group click the project group’s overflow menu and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the overflow menu again and select **Delete**.
+To edit or delete a project group click the project group’s ... overflow menu and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the ... overflow menu again and select **Delete**.
 
 ## Project Permissions
 
