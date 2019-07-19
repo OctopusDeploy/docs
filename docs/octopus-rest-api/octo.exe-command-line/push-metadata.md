@@ -15,14 +15,22 @@ Where [<options>] is any of:
 
 Package metadata pushing:
 
-      --package-id=VALUE     The ID of the package; e.g. MyCompany.MyApp
+      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
       --version=VALUE        The version of the package; defaults to a
                              timestamp-based version
       --metadata-file=VALUE  Octopus Package metadata Json file.
+      --overwrite-mode=VALUE If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed
+                             (FailIfExists). You can use the overwrite mode
+                             to OverwriteExisting or IgnoreIfExists.
       --replace-existing     If the package metadata already exists in the
                              repository, the default behavior is to reject
                              the new package metadata being pushed. You can
-                             pass this flag to overwrite the existing package.
+                             pass this flag to overwrite the existing package
+                             metadata. This flag may be deprecated in a
+                             future version; passing it is the same as using
+                             the OverwriteExisting overwrite-mode.
 
 Common options:
 
@@ -32,10 +40,10 @@ Common options:
                              option is json
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
-      --server=VALUE         [Optional] The base URL for your Octopus Server -
-                              e.g., http://your-octopus/. This URL can also
-                             be set in the OCTOPUS_CLI_SERVER environment
-                             variable.
+      --server=VALUE         [Optional] The base URL for your Octopus Server,
+                             e.g., 'https://octopus.example.com/'. This URL
+                             can also be set in the OCTOPUS_CLI_SERVER
+                             environment variable.
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or
                              username and password. If the guest account is
@@ -63,16 +71,16 @@ Common options:
                              Build service messages when logging.
       --timeout=VALUE        [Optional] Timeout in seconds for network
                              operations. Default is 600.
-      --proxy=VALUE          [Optional] The URI of the proxy to use, eg
-                             http://example.com:8080.
+      --proxy=VALUE          [Optional] The URL of the proxy to use, e.g.,
+                             'https://proxy.example.com'.
       --proxyUser=VALUE      [Optional] The username for the proxy.
       --proxyPass=VALUE      [Optional] The password for the proxy. If both
                              the username and password are omitted and
                              proxyAddress is specified, the default
                              credentials are used.
-      --space=VALUE          [Optional] The name of a space within which this
-                             command will be executed. The default space will
-                             be used if it is omitted.
+      --space=VALUE          [Optional] The name or ID of a space within
+                             which this command will be executed. The default
+                             space will be used if it is omitted.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
