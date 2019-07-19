@@ -13,7 +13,7 @@ The proceeding instructions can be followed to configure the `Deploy an AWS Clou
 
 Add the `Deploy an AWS CloudFormation template` step to the project, and provide it a name.
 
-![Deploy an AWS CloudFormation Template Step](deploy-cloudformation-step.png)
+![Deploy an AWS CloudFormation Template Step](images/deploy-cloudformation-step.png)
 
 ### AWS Section
 
