@@ -4,7 +4,7 @@ description: Enrich your releases with notes
 position: 5
 ---
 
-When you create a release, you can add releases notes:
+When you create a release, you can add notes:
 
 ![Editing release notes](images/release-notes-edit.png)
 
