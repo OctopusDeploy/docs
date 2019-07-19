@@ -32,3 +32,15 @@ For a more detailed look at the deployment process see [Deploying a package to a
 One of the places that Service Fabric applications differ from typical .NET applications is in their versioning configuration. They are more complex in that they are actually made up of one or more services, and each of those services can have its own code and config version, which all combine to make a specific application version. The set of services that make up an application are always deployed to the cluster using a single package.
 
 Octopus Deploy does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/deployment-examples/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+
+### Overwrite vs Rolling upgrades
+
+The default behavior of the Service Fabric deployments is to overwrite an existing  application. What this means is that if the application already exists in the cluster it will be removed first and the redeployed (you'll see it using *RegisterAndCreate* in the logs).
+
+The alternative approach is to use rolling deployments. To use this, add the following line to your publish profile in the source
+
+```xml
+<UpgradeDeployment Enabled="true" />
+```
+
+It will then update each node in turn with the new version (you'll see it using *RegisterAndUpgrade* in the logs).
