@@ -36,8 +36,21 @@ This is a Jira limitation; the [deployment module](https://developer.atlassian.c
 
 The following steps should be followed to integrate Octopus with Jira.
 
-1. [Configure the Jira connection in Octopus Deploy.](#connect-octopus-to-jira)
-2. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
+1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
+2. [Configure the Jira connection in Octopus Deploy.](#connect-octopus-to-jira)
+
+## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
+
+To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md).   
+Octopus does this by inspecting commit messages associated with any packages contained in the release.
+
+To supply the commit messages:
+
+1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview). We're currently working on adding support for the Azure DevOps and Jenkins plugins.
+
+2. Update your build process to add and configure the Octopus Metadata step.
+
+3. Ensure your Octopus Metadata step has set the 'Process commit messages' field.
 
 ## Connect Octopus to Jira {#connect-octopus-to-jira}
 
@@ -135,16 +148,3 @@ The following illustrates Octopus attempting to send an _in_progress_, and then 
 ![Deployment task log](images/deploy-task-log.png)
 
 When Octopus successfully sends state changes to Jira, the blocks will appear with green text just like the other blocks in the log.
-
-## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
-
-To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md).   
-Octopus does this by inspecting commit messages associated with any packages contained in the release.
-
-To supply the commit messages:
-
-1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview). We're currently working on adding support for the Azure DevOps and Jenkins plugins.
-
-2. Update your build process to add and configure the Octopus Metadata step.
-
-3. Ensure your Octopus Metadata step has set the 'Process commit messages' field.

@@ -30,6 +30,24 @@ The ability to push the build information to Octopus, which is required for Jira
 
 The following steps should be followed to integrate Octopus with GitHub issues:  
 
+1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
+2. [Configure the GitHub connection in Octopus Deploy.](#connect-octopus-to-github)
+
+## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
+
+To integrate with GitHub issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md).   
+Octopus does this by inspecting commit messages associated with any packages contained in the release.
+
+To supply the commit messages:
+
+1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview). We're currently working on adding support for the Azure DevOps and Jenkins plugins.
+
+2. Update your build process to add and configure the Octopus Metadata step.
+
+3. Ensure your Octopus Metadata step has set the 'Process commit messages' field.
+
+## Connect Octopus to GitHub {#connect-octopus-to-github}
+
 1. Configure the GitHub extension.
 
     In the Octopus web portal, navigate to **{{Configuration,Settings,GitHub Issue Tracker}}** and set the
