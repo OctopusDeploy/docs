@@ -6,7 +6,7 @@ position: 250
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list all workers.
 
-Learn about [workers](/docs/infrastructure/workers/worker/index.md).
+Learn about [workers](/docs/infrastructure/workers/index.md).
 
 **list-workers options**
 

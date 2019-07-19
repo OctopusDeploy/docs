@@ -6,7 +6,7 @@ position: 80
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a worker pool.
 
-Learn about [worker pools](/docs/infrastructure/workers/workerpools.md).
+Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
 
 **create-workerpool options**
 
