@@ -1,18 +1,18 @@
-```powershell PowerShell with REST Requests
+```powershell PowerShell
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 
-$name = "New Space"
+$spaceName = "New Space"
 
 try {
-    Write-Host "Getting space '$name'"
+    Write-Host "Getting space '$spaceName'"
     $spaces = (Invoke-WebRequest $octopusURL/api/spaces?take=21000 -Headers $header -Method Get -ErrorVariable octoError).Content | ConvertFrom-Json
 
-    $space = $spaces.Items | Where-Object Name -eq $name
+    $space = $spaces.Items | Where-Object Name -eq $spaceName
 
     if ($null -eq $space) {
-        Write-Host "Could not find space with name '$name'"
+        Write-Host "Could not find space with name '$spaceName'"
         exit
     }
 
@@ -32,7 +32,7 @@ catch {
     exit
 }
 ```
-```powershell PowerShell with Octopus.Client
+```powershell PowerShell (Octopus.Client)
 Add-Type -Path 'path\to\Octopus.Client.dll'
 
 $octopusURL = "https://youroctourl"
@@ -41,12 +41,12 @@ $octopusAPIKey = "API-YOURAPIKEY"
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 
-$name = "New Space"
+$spaceName = "New Space"
 
-$space = $repository.Spaces.FindByName($name)
+$space = $repository.Spaces.FindByName($spaceName)
 
 if ($null -eq $space) {
-    Write-Host "The space $name does not exist."
+    Write-Host "The space $spaceName does not exist."
     exit
 }
 
@@ -59,7 +59,7 @@ try {
     Write-Host $_.Exception.Message
 }
 ```
-```csharp C# with Octopus.Client
+```csharp C#
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
@@ -71,16 +71,16 @@ var OctopusAPIKey = "API-YOURAPIKEY";
 var endpoint = new OctopusServerEndpoint(OctopusURL, OctopusAPIKey);
 var repository = new OctopusRepository(endpoint);
 
-var name = "New Space";
+var spaceName = "New Space";
 
 try
 {
-    Console.WriteLine($"Getting space '{name}'.");
-    var space = repository.Spaces.FindByName(name);
+    Console.WriteLine($"Getting space '{spaceName}'.");
+    var space = repository.Spaces.FindByName(spaceName);
 
     if (space == null)
     {
-        Console.WriteLine($"Could not find space '{name}'.");
+        Console.WriteLine($"Could not find space '{spaceName}'.");
         return;
     }
 
