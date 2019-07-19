@@ -20,7 +20,7 @@ Consider the following factors when deciding on the versioning scheme you'll use
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software?
 
   *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
-
+  
 4. Does your tool chain support the versioning scheme?
 
   *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/deployment-process/channels/index.md).*

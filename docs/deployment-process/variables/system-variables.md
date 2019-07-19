@@ -15,115 +15,7 @@ Release-level variables are drawn from the project and release being created.
 |**`Octopus.Release.Id`** <br/>The ID of the release | *releases-123*|
 |**`Octopus.Release.Number`** <br/>The version number of the release | *1.2.3*|
 |**`Octopus.Release.Notes`** <br/>Release notes associated with the release, in Markdown format | *Fixes bugs 1, 2 & 3*|
-
-### Release Package Build Information {#release-package-build-information}
-
-| Name and Description | Example|
-|**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release. See below. | This is a collection. |
-
-Note: The `Octopus.Release.Package` variable will only be populated if [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed from the build server.
-
-The release packages is a collection of `Package` objects based on the following structures:
-
-```csharp
-public class Package
-{
-  public string PackageId { get; set; }
-  public string Version { get; set; }
-  public WorkItemLink[] WorkItems { get; set; }
-  public Commit[] Commits { get; set; }
-}
-
-public class WorkItemLink
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string Description { get; set; }
-}
-
-public class Commit
-{
-    public string CommitId { get; set; }
-    public string LinkUrl { get; set; }
-    public string Comment { get; set; }
-}
-```
-
-The packages in a release are available as a collection which can be [iterated over](/docs/deployment-process/variables/variable-substitutions.md#VariableSubstitutionSyntax-Repetition).  e.g.
-
-```
-#{each package in Octopus.Release.Package}
-    This release contains #{package.PackageId} #{package.Version}
-#{/each}
-```
-
-A particular package can be selected by indexing on the package ID:
-
-```
-#{Octopus.Release.Package[Acme.Web].Version}
-```
-
-The variables available for packages are:
-
-| Name | Example|
-| -------------------- | -------|
-|`PackageId`| `#{package.PackageId}` |
-|`Version`| `#{package.Version}` |
-|`Commits`| This is a collection.  See below. |
-|`WorkItems`| This is a collection.  See below. |
-
-On each package, the commits associated with that package are available as a collection which can be iterated over. e.g.:
-
-```
-#{each package in Octopus.Release.Package}
-    #{each commit in package.Commits}
-        - [#{commit.CommitId}](#{commit.LinkUrl}) - #{commit.Comment}
-    #{/each}
-#{/each}
-```
-
-A particular commit can be selected by indexing on the commit ID (when using git the commit ID is the commit hash):
-
-```
-package.Commits[685afd4161d085e6e5f56a66e72e2298e402b114].Comment
-```
-
-The variables available for commits are:
-
-| Name | Example|
-| -------------------- | -------|
-|`CommitId`| `#{commit.CommitId}` |
-|`LinkUrl`| `#{commit.LinkUrl}` |
-|`Comment`| `#{commit.Comment}` |
-
-If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/deployment-process/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
-
-```
-#{each issue in package.WorkItems}
-    - [#{issue.Id}](#{issue.LinkUrl})
-#{/each}
-```
-
-A particular issue can be selected by indexing on the ID:
-
-```
-package.WorkItems[4465].LinkUrl
-```
-
-The variables available for issues are:
-
-| Name | Example|
-| -------------------- | -------|
-|`Id`| `#{issue.Id}` |
-|`LinkUrl`| `#{issue.LinkUrl}` |
-
-There is also a distinct list of issues across all packages available in:  
-
-```
-#{each workItem in Octopus.Release.WorkItems}
-- [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
-#{/each}
-```
+|**`Octopus.Release.Package`**<br/>Packages, including changes, associated with the release | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Release-Notes-Templates) |
 
 ## Deployment {#Systemvariables-Deployment}
 
@@ -153,6 +45,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Deployment.Tenant.Tags`** <br/>Comma delimited list of tags that belong the the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenant type/External, Upgrade ring/Early adopter*|
 |**`Octopus.Deployment.Trigger.Id`** <br/>The ID of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of _one_ of the triggers. | *ProjectTriggers-522*|
 |**`Octopus.Deployment.Trigger.Name`** <br/>The name of the Trigger that created the deployment. **Introduced in Octopus 2019.5.0.** It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of _one_ of the triggers. | *Nightly Deploy to Dev*|
+|**`Octopus.Deployment.Changes`** <br/>The release changes included in the deployment | See [here](/docs/packaging-applications/build-servers/metadata/index.md#Deployment-Variables)|
 |**`Octopus.Endpoint.\_type\_.\_property\_`** <br/>Properties describing the endpoint being deployed | *ftp.example.com*|
 |**`Octopus.Environment.Id`** <br/>The ID of the environment | *environments-123*|
 |**`Octopus.Environment.MachinesInRole[\_role\_]`** <br/>Lists the machines in a specified role being deployed to | *machines-123,machines-124*|
@@ -190,57 +83,6 @@ Deployment-level variables are drawn from the project and release being deployed
 |**`Octopus.Web.DeploymentLink`** <br/>A path relative to the Octopus Server URL at which the deployment can be viewed | */app/deployment/deployments-123*|
 |**`Octopus.Web.ProjectLink`** <br/>A path relative to the Octopus Server URL at which the project can be viewed | */app/projects/projects-123*|
 |**`Octopus.Web.ReleaseLink`** <br/>A path relative to the Octopus Server URL at which the release can be viewed | */app/releases/releases-123*|
-
-### Deployment Notes {#deployment-notes}
-
-| Name and Description | Example |
-| -------------------- | ------- |
-|**`Octopus.Deployment.Changes`** <br/>A JSON array of ReleaseChange objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|**`Octopus.Deployment.WorkItems`** <br/>The distinct list of issues across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/deployment-process/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
-|**`Octopus.Deployment.PackageBuildMetadata`** <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `PackageBuildMetadata` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
-
-The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChange` objects matching the following C# classes:
-
-```csharp
-public class ReleaseChanges
-{
-  public string Version { get; set; }
-  public string ReleaseNotes { get; set; }
-  public WorkItemLink[] WorkItems { get; set; }
-  public Commit[] Commits { get; set; }
-  public PackageBuildMetadata[] PackageBuildMetadata { get; set; } // Added in 2019.5.5
-}
-
-public class WorkItemLink
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string Description { get; set; }
-}
-
-public class PackageBuildMetadata
-{
-    public string PackageId { get; set; }
-    public string Version { get; set; }
-    public string BuildNumber { get; set; }
-    public string BuildUrl { get; set; }
-    public string VcsType { get; set; }
-    public string VcsRoot { get; set; }
-    public string VcsCommitNumber { get; set; }
-}
-```
-There is an entry per release and it includes the release notes (**in markdown format**) and the metadata for each of the packages in that release.
-
-**Example:** The following iterates the changes in the deployment, printing the release version and the issues contained.
-
-```
-#{each change in Octopus.Deployment.Changes}
-    #{change.Version}
-    #{each issue in change.WorkItems}
-        #{issue.Id} - #{issue.LinkUrl}
-    #{/each}
-#{/each}
-```
 
 ## Action {#Systemvariables-Action}
 

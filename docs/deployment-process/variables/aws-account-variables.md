@@ -4,7 +4,7 @@ description: Create an AWS Account to use it in AWS-related deployment steps
 position: 80
 ---
 
-[AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/deployment-targets/aws/index.md) in Octopus:
+[AWS accounts](/docs/infrastructure/accounts/aws/index.md) are included in a project through a project [variable](/docs/deployment-process/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/accounts/aws/index.md) in Octopus:
 
 ![AWS Account Variable](images/aws-account-variable.png)
 
@@ -42,4 +42,4 @@ Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 
 ## Add an AWS Account to Octopus
 
-For instructions to set up an AWS account in Octopus, see [AWS Accounts](/docs/infrastructure/deployment-targets/aws/index.md).
+For instructions to set up an AWS account in Octopus, see [AWS Accounts](/docs/infrastructure/accounts/aws/index.md).

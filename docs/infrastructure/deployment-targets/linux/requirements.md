@@ -6,7 +6,7 @@ position: 10
 
 Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md), they must meet the following requirements:
 
-- It is accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
+- It is accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 - The `$HOME` environment variable must be available.
 - `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
 - `tar` is available. This is used to unpack Calamari.

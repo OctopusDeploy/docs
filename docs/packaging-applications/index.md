@@ -14,6 +14,16 @@ Before you can deploy a package you need to:
 1. Create the package in a [supported format](#supported-formats).
 1. Host the package in a [package repository](/docs/packaging-applications/package-repositories/index.md), such as the Octopus [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
 
+## Example Package
+
+This is a simple example of a package that can be deployed by Octopus:
+
+> [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
+
+In this example, **hello-world** is the package ID, **1.0.0** is the version number, and **zip** is the format and file extension. Together, they uniquely identify the package.
+
+> `<package-id>.<version>.<extension>`
+
 ## Package ID {#package-id}
 
 Package IDs must conform to the following specifications:
@@ -22,25 +32,21 @@ Package IDs must conform to the following specifications:
 - Package IDs consist of one or more segments separated by one of the following separator characters: `-` `.` `_`.
 - Segments contain only alphanumeric characters.
 
-For instance, the package ID in this sample package is `hello-world`.
+For instance. The package ID in our sample package is `hello-world`.
 
 > [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
-Avoid using numbers in your package ID as it could result in the version number being incorrectly parsed.
+Avoid using numbers in your package ID as it could result in your version number being incorrectly parsed.
 
 ## Version Numbers {#version-numbers}
 
-Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md) in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning.md#maven).
+Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning.md#maven).
 
 The version number needs to be applied to your package after the package ID and before the format. For instance. The version number in our sample package is **1.0.0**.
 
 > [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
 Learn more about [versioning schemes](/docs/packaging-applications/create-packages/versioning.md).
-
-## Package Dependencies and Structure
-
-When you package your applications, you need to include all the binaries that are required to run the application, and structure the package the way you want it to appear after it has been extracted.
 
 ## Supported Formats {#supported-formats}
 
@@ -58,6 +64,6 @@ It is important that your packages have the correct **file extension** because O
 
 ## Next
 
- - [Create Packages](/docs/packaging-applications/create-packages/index.md)
+ - [Create Packages](/docs/packaging-applications/create-packages/index.md).
  - [Build Servers](/docs/packaging-applications/build-servers/index.md)
  - [Package Repositories](/docs/packaging-applications/package-repositories/index.md)

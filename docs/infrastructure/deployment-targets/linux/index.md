@@ -34,9 +34,9 @@ Before you configure an SSH deployment target, review the [requirements](/docs/i
 
 ## Create an SSH Account
 
-The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/deployment-targets/username-and-password.md) that has access to the remote host.
+The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host.
 
-See [accounts](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) for instructions to configure the account.
+See [accounts](/docs/infrastructure/accounts/index.md) for instructions to configure the account.
 
 ## Add an SSH Connection
 
@@ -54,7 +54,7 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 5. Give the target a name.
 6. Select which environment the deployment target will be assigned to.
 7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles).
-8. Select the account that will be used for the Octopus server and the SSH target to communicate.
+8. Select the [account](/docs/infrastructure/accounts/index.md) that will be used for the Octopus server and the SSH target to communicate.
 9. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
 
 You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
