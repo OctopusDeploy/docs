@@ -30,7 +30,7 @@ Spaces are managed by navigating to **{{Configuration,Spaces}}**.
 
 An Octopus administrator, or a team member with sufficient permission, can create, remove or modify spaces from this screen. It is also possible to [nominate a default space](#change-the-default-space), or [disable the default space entirely](#disable-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing.
 
-![Spaces configuration page](spaces-configuration.png)
+![Spaces configuration page](images/spaces-configuration.png)
 
 ### The Space Manager
 
@@ -53,7 +53,7 @@ New spaces are added from the configuration section of the portal.
 5. Optionally, upload a logo for the space.
 6. Click **SAVE**.
 
-![Add new space](add-new-space.png)
+![Add new space](images/add-new-space.png)
 
 ### Modify a Space
 
@@ -63,7 +63,7 @@ You can rename spaces, change their description, give them new logos, change the
 1. Expand the field you would like to change.
 1. Make your changes and click **SAVE**.
 
-![Modify a space](modify-space.png)
+![Modify a space](images/modify-space.png)
 
 ### Delete a Space
 
