@@ -22,7 +22,7 @@ Where [<options>] is any of:
 
 Release creation:
 
-      --project=VALUE        Name of the project
+      --project=VALUE        Name or ID of the project
       --defaultpackageversion, --packageversion=VALUE
                              Default version number of all packages to use
                              for this release. Override per-package using --
@@ -30,9 +30,9 @@ Release creation:
       --version, --releaseNumber=VALUE
                              [Optional] Release number to use for the new
                              release.
-      --channel=VALUE        [Optional] Channel to use for the new release.
-                             Omit this argument to automatically select the
-                             best channel.
+      --channel=VALUE        [Optional] Name or ID of the channel to use for
+                             the new release. Omit this argument to
+                             automatically select the best channel.
       --package=VALUE        [Optional] Version number to use for a package
                              in the release. Format: StepName:Version or
                              PackageID:Version or
@@ -112,18 +112,19 @@ Deployment:
                              should expire, specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
-      --tenant=VALUE         Create a deployment for this tenant; specify
-                             this argument multiple times to add multiple
-                             tenants or use `*` wildcard to deploy to all
-                             tenants who are ready for this release
-                             (according to lifecycle).
+      --tenant=VALUE         Create a deployment for the tenant with this
+                             name or ID; specify this argument multiple times
+                             to add multiple tenants or use `*` wildcard to
+                             deploy to all tenants who are ready for this
+                             release (according to lifecycle).
       --tenanttag=VALUE      Create a deployment for tenants matching this
                              tag; specify this argument multiple times to
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
-      --deployto=VALUE       [Optional] Environment to automatically deploy
-                             to, e.g., Production; specify this argument
-                             multiple times to deploy to multiple environments
+      --deployto=VALUE       [Optional] Name or ID of the environment to
+                             automatically deploy to, e.g., 'Production' or
+                             'Environments-1'; specify this argument multiple
+                             times to deploy to multiple environments.
 
 Common options:
 
@@ -133,10 +134,10 @@ Common options:
                              option is json
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
-      --server=VALUE         [Optional] The base URL for your Octopus Server -
-                              e.g., http://your-octopus/. This URL can also
-                             be set in the OCTOPUS_CLI_SERVER environment
-                             variable.
+      --server=VALUE         [Optional] The base URL for your Octopus Server,
+                             e.g., 'https://octopus.example.com/'. This URL
+                             can also be set in the OCTOPUS_CLI_SERVER
+                             environment variable.
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or
                              username and password. If the guest account is
@@ -164,16 +165,16 @@ Common options:
                              Build service messages when logging.
       --timeout=VALUE        [Optional] Timeout in seconds for network
                              operations. Default is 600.
-      --proxy=VALUE          [Optional] The URI of the proxy to use, eg
-                             http://example.com:8080.
+      --proxy=VALUE          [Optional] The URL of the proxy to use, e.g.,
+                             'https://proxy.example.com'.
       --proxyUser=VALUE      [Optional] The username for the proxy.
       --proxyPass=VALUE      [Optional] The password for the proxy. If both
                              the username and password are omitted and
                              proxyAddress is specified, the default
                              credentials are used.
-      --space=VALUE          [Optional] The name of a space within which this
-                             command will be executed. The default space will
-                             be used if it is omitted.
+      --space=VALUE          [Optional] The name or ID of a space within
+                             which this command will be executed. The default
+                             space will be used if it is omitted.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
