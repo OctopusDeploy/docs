@@ -34,13 +34,13 @@ Before continuing, it's worth briefly revisiting the concept of **Listening Tent
 
 When an Octopus Tentacle is configured in [Listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended)), it will open the specified port (by default TCP port **10933**) and listen for inbound connections from the trusted Octopus Server.
 
-![Octopus to Listening Tentacle communication](listening-tentacle.png)
+![Octopus to Listening Tentacle communication](images/listening-tentacle.png)
 
 ### Polling Tentacles
 
 When an Octopus Tentacle is configured in [Polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), it will attempt to connect to the Octopus Server on the configured TCP port (by default TCP port **10943** on the Octopus Server) and poll the Octopus Server for work to be performed.
 
-![Polling Tentacle to Octopus communication](polling-tentacle.png)
+![Polling Tentacle to Octopus communication](images/polling-tentacle.png)
 
 ## Identify the Problem
 
@@ -109,7 +109,7 @@ When you conduct these checks:
 
 The page shown should look like the one below.
 
-![](3278074.png)
+![](images/3278074.png)
 
 **If you can't browse to the page...**
 If this is where your journey ends, there's a problem on the Tentacle machine. It is very likely that the Tentacle is unable to open the communications port, either because of permissions, or because another process is listening on that port. Using the Windows `netstat -o -n -a -b` command can help to get to the bottom of this quickly. If you're still in trouble, check the Tentacle [log files](/docs/support/log-files.md) and contact Octopus Deploy support.
@@ -132,7 +132,7 @@ Remember to check both the built-in Windows Firewall, and any other firewalls (i
 
 The page shown should look like the one below.
 
-![](3277906.png)
+![](images/3277906.png)
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
 
@@ -224,7 +224,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
-![](3278077.png)
+![](images/3278077.png)
 
 ### Check Octopus.Server.exe Load Time (Polling Tentacle)
 
@@ -238,7 +238,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 
 To do this open **{{Control Panel,Internet Options,Advanced}}**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
-![](5865771.png)
+![](images/5865771.png)
 
 ## Schannel and TLS Configuration Mismatches
 

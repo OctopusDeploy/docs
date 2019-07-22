@@ -11,11 +11,11 @@ AWS provides a v2 Docker Image registry and is available through their [EC2 Cont
 ### Setting up an AWS Elastic Container Registry
 From the AWS Services dashboard go to `EC2 Container Service`.
 
- ![AWS Services](aws-services.png)
+ ![AWS Services](images/aws-services.png)
 
 Under the `Repositories` area you need to create a repository to match the what in Octopus-speak would be the PackageId. This should map to your distinct application image. If you attempt to push an image during your build process to this registry without first creating the corresponding repository you will receive an error.
 
-![AWS Registries](aws-registries.png)
+![AWS Registries](images/aws-registries.png)
 
 With the repository configured, ensure that you also have an [AWS IAM](https://aws.amazon.com/iam/) user available that has at a minimum the permissions `ecr:GetAuthorizationToken`, `ecr:DescribeRepositories`, `ecr:DescribeImages` and `ecr:ListImages`. This user is the account which Octopus will use to retrieve the docker login token which is then used to perform the appropriate docker commands.
 
@@ -24,7 +24,7 @@ Further links for getting your AWS registry set up are available in their [onlin
 ### Adding AWS ECR Feed to Octopus
  Create a new Octopus Feed and select the `AWS Elastic Container Registry` Feed type. With this selected will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
 
-![AWS EC2 Container Service Registry Feed](aws-ecr-feed.png)
+![AWS EC2 Container Service Registry Feed](images/aws-ecr-feed.png)
 
 Save and test your registry to ensure that the connection is authorized successfully.
 
@@ -42,6 +42,6 @@ docker login -u AWS -p AQECAHid...j/nByScM -e none https://96802670493.dkr.ecr.a
 
 These are also the credentials that are needed by Octopus Deploy to access the exposed API (which are passed to your Docker Engine at deploy time). Take the username, password and url provided in this command and add them to Octopus Deploy in your Docker feed configuration.
 
-![AWS EC2 Container Service Registry Feed](aws-docker-feed.png)
+![AWS EC2 Container Service Registry Feed](images/aws-docker-feed.png)
 
 Note that this approach means that you will more than likely need to reset these credentials often.

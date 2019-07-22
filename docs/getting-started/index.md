@@ -5,7 +5,7 @@ position: 1
 hideInThisSection: true
 ---
 
-This Getting Started series walks you through a simple deployment with Octopus Deploy and explains the Octopus Deploy fundamentals so that you will be equipped to take on more complicated deployments by the end of the series.
+This Getting Started series walks you through a simple deployment with Octopus Deploy and explains the Octopus Deploy fundamentals so that you can take on more complicated deployments by the end of the series.
 
 ## 1. Hosting the Octopus Deploy Server
 

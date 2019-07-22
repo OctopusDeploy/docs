@@ -7,9 +7,7 @@ hideInThisSection: true
 
 The Octopus Deploy server is available as a self-hosted instance that you install and manage on your infrastructure. This section walks you through installing the **self-hosted** Octopus Deploy server.
 
-If you need to upgrade you existing self-hosted Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md).
-
-If you're interested **Octopus Cloud**, you can register for an [Octopus Cloud Account](https://octopus.com/account/register).
+For upgrade your existing self-hosted Octopus Deploy server, see our [upgrading guide](/docs/administration/upgrading/index.md). If you're interested in **Octopus Cloud**, see [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## Long-Term Support or Fast Lane {#downloads}
 

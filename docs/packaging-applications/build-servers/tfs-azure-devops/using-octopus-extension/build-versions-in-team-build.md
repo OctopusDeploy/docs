@@ -32,7 +32,7 @@ The recommendations below generally rely on the build number itself being SemVer
 
 Our recommended build number format is: `x.y.$(BuildID)` where `x` and `y` are integers. You can change them when you want to bump a version. This format will produce a three-part version number like `1.2.350`.
 
-![Recommended Build format](build-format-recommended.jpg)
+![Recommended Build format](images/build-format-recommended.jpg)
 
 If you have a build for a separate branch, it's a good idea to add the version tag. For example: `x.y.$(BuildID)-feature-1` will produce a version number like `1.2.350-feature1`. Even better, you can use the `$(Build.SourceBranchName)` variable to set it to the branch name.
 
@@ -87,7 +87,7 @@ You can use the [additional MSBuild arguments for OctoPack](/docs/packaging-appl
 
 If you're using the new [Octopus Deploy extension from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks), you'll have access to a new **Package Application** build task.
 
-![Package Application build task](pack-task.jpg)
+![Package Application build task](images/pack-task.jpg)
 
 This task does not provide you with a default version number - this is something you have to set yourself. Clearly it wouldn't be feasible to change this value every time you do a build, so we recommend you make use of the build variables that Team Build provides.
 
@@ -124,8 +124,8 @@ Rather than guessing, it can be helpful to specify these folders specifically. A
 
 By way of example, here's a nicely-configured set of build, pack, and push steps.
 
-![Example Build Step](example-build-1.jpg)
+![Example Build Step](images/example-build-1.jpg)
 
-![Example Package Step](example-build-2.jpg)
+![Example Package Step](images/example-build-2.jpg)
 
-![Example Push Step](example-build-3.jpg)
+![Example Push Step](images/example-build-3.jpg)
