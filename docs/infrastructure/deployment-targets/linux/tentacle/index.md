@@ -32,14 +32,14 @@ Note that many of the steps described below must be run as a super user using `s
 ### Installing Tentacle
 ```bash Debian/Ubuntu repository
 apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-sudo add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
 apt-get update
 apt-get install tentacle
 ```
 
 ```bash CentOS/Fedora repository
-sudo wget https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
-sudo yum install tentacle
+wget https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
+yum install tentacle
 ```
 
 ```bash Archive
