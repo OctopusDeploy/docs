@@ -12,9 +12,9 @@ Create a new AppVeyor project and use the Git repository `https://github.com/Oct
 ### Build Phase
 Go to the Build page and add `nuget restore` to the `Before build script` command line input since AppVeyor will not perform this operation by default.
 
-Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. _Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](/docs/packaging-applications/create-packages/octopack/index.md) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
+Under `Automatic Packaging` select `Package Web Applications for Octopus Deployment`. By ticking this box AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. Keep in mind that since AppVeyor is doing a publish, some of the files that would usually be included by the [`OctoPack`](/docs/packaging-applications/create-packages/octopack/index.md) MSBuild target might not be included by default (this includes the various `web.*.config` files). To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` is Visual Studio.
 
-![AppVeyor MSBuild Build](appveyor_build_msbuild.png)
+![AppVeyor MSBuild Build](images/appveyor_build_msbuild.png)
 
 #### AppVeyor Environment Variables
 | Variable Name       | Description|
@@ -26,16 +26,16 @@ Under `Automatic Packaging` select `Package Web Applications for Octopus Deploym
 #### Non-MSbuild Projects
 AppVeyor have included `octo.exe` into the base Windows build VM and is available via the command line. If running a project _not_ using msbuild you can manually invoke the octo.exe pack command directly during the build phase.
 
-![AppVeyor Npm Build](appveyor_build_npm.png)
+![AppVeyor Npm Build](images/appveyor_build_npm.png)
 
 If using this mechanism, you also need to flag the generated archive with AppVeyor that this file should be treated as an artifact of the build to be made available for subsequent steps. This can be done via the [Artifacts](https://www.appveyor.com/docs/packaging-artifacts/) page. You can simply provide a wildcard to pick up the dynamically generated package.
 
-![AppVeyor Npm Build](appveyor_artifact.png)
+![AppVeyor Npm Build](images/appveyor_artifact.png)
 
 ### Push To Octopus
 With the build page configured, go to `Deployment` and select the new `Octopus Deploy` `Deployment Provider`. This provider will perform all the appropriate calls to push the package to the Octopus Server. Ensure that the provided Octopus `Server URL` addresses can be reached by the AppVeyor servers. If not using the on-premise offering of AppVeyor, this means the _Octopus Server must be accessible over the Internet_.
 
-![AppVeyor Deploy](appveyor_deploy.png)
+![AppVeyor Deploy](images/appveyor_deploy.png)
 
 When you define an "Octopus package" in AppVeyor through the `Package Web Applications for Octopus Deployment` flag or `Artifacts` page, then AppVeyor will automatically select that package to push to your Octopus Server. Set the `Artifact(s)` field on the `Deployment` page if you have manually created an archive.
 

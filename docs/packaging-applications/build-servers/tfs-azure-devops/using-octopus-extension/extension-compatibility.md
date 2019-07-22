@@ -38,13 +38,13 @@ In Azure DevOps, extension versions within the same major version (e.g. 2.0.62 t
 
 Extension updates that increment major version numbers (e.g. 1.2.28 to 2.0.63) will result in both versions being available. Your administrator will be prompted to update the extension before it's available to users.
 
-![](extension-upgrade.png)
+![](images/extension-upgrade.png)
 
-![](extension-upgrade-2.png)
+![](images/extension-upgrade-2.png)
 
 Once it's available, you can choose the version you want to use using the dropdown in the task details.
 
-![](extension-version-choice.png)
+![](images/extension-version-choice.png)
 
 ### Extension Upgrades in TFS 2015 Updates 2, 3, and 4, and TFS 2017 RTM
 
