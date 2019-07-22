@@ -30,7 +30,7 @@ When you run the script, you'll be taken to the task output page which shows the
 
 ![](images/3277922.png)
 
-The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the overflow menu to change or run the script again.
+The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the ... overflow menu to change or run the script again.
 
 ![](images/3277921.png)
 

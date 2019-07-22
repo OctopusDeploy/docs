@@ -34,7 +34,7 @@ A *healthy* deployment target completes a health check without any errors or wa
 After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
 
 1. From the **Infrastructure** tab, select **deployment targets**.
-2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
+2. Click the ... overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
 The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
 
@@ -43,7 +43,7 @@ Learn more about [Calamari](/docs/octopus-rest-api/calamari.md).
 Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
 1. From the Infrastructure tab, select deployment targets.
-2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.
+2. Click the ... overflow menu and select **Upgrade Calamari on Deployment Targets**.
 
 ### Health Check Interval {#MachinePolicies-Healthcheckinterval}
 

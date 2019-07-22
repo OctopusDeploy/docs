@@ -55,20 +55,20 @@ For exploratory analysis of the logs to look for performance issues or trends, 
 2. Run **LPS.exe** to open the UI.
 3. Click the button to configure the logs folder to look at.
 
-![](3278330.png)
+![](images/3278330.png)
 
 4. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension. 
 
-![](3278331.png)
+![](images/3278331.png)
 
 5. The Library tab shows a list of sample scripts that will help you get started. Scroll down to the IIS section - these queries are a good starting point:
 
-![](3278332.png)
+![](images/3278332.png)
 
 6. Double-click a view to open it, for example, the *IIS: Top 25 Slow URLs* view. You can then modify the query, or simply execute it.
 
-![](3278333.png)
+![](images/3278333.png)
 
 7. Executing the query will display the results in a grid:
 
-![](3278334.png)
+![](images/3278334.png)

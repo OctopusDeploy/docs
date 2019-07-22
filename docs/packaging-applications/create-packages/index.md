@@ -5,6 +5,8 @@ position: 10
 hideInThisSection: true
 ---
 
+There are a variety of tools you can use to package your applications, and as long as you can create [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
+
 We've created the following tools to help package your applications for deployment with Octopus:
 
  - [Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
@@ -18,5 +20,3 @@ In addition to these tools, you can use other tools to create your packages, for
  - [NuGet.exe](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference) to create NuGet packages.
  - Using the [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer).
  - [Grunt, gulp, or octojs](/docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md) for JavaScript apps.
-
-There are many more tools you might choose to use, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.

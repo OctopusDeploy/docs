@@ -15,7 +15,7 @@ As of the **Octopus 2018.9** release, only Azure Service Principal Accounts, Azu
 Dynamic infrastructure can be enabled when a new environment is created, or it can be enabled or disabled for existing environments.
 
 1. Navigate to **{{Infrastructure,Environments}}**.
-1. Click the overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
+1. Click the ... overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick or untick the checkbox to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
 
