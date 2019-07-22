@@ -31,8 +31,8 @@ Note that many of the steps described below must be run as a super user using `s
 
 ### Installing Tentacle
 ```bash Debian/Ubuntu repository
-sudo add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
 apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
+sudo add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
 apt-get update
 apt-get install tentacle
 ```
