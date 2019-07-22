@@ -10,7 +10,7 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
@@ -34,7 +34,7 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
@@ -56,7 +56,7 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
@@ -79,7 +79,7 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta1-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
