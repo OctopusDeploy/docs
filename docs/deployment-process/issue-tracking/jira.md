@@ -21,7 +21,7 @@ position: 20
 ### Limitations
 
 **Limited Build Server Support**  
-The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview) plugins.  We will be rolling this out to Azure DevOps and Jenkins plugins soon.
+The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) plugins.  We will be rolling this out to the Jenkins plugin soon.
 
 **Jira Cloud Only**  
 The ability to update Jira issues with deployment information (i.e. step 5 above) is only available for Jira Cloud.
@@ -46,11 +46,11 @@ Octopus does this by inspecting commit messages associated with any packages con
 
 To supply the commit messages:
 
-1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration) and [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview). We're currently working on adding support for the Azure DevOps and Jenkins plugins.
+1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks). We're currently working on adding support for the Jenkins plugin.
 
 2. Update your build process to add and configure the Octopus Metadata step.
 
-3. Ensure your Octopus Metadata step has set the 'Process commit messages' field.
+3. Ensure your Octopus Metadata step has set the 'Process commit messages' or 'Work Items Source' field.
 
 ## Connect Octopus to Jira {#connect-octopus-to-jira}
 
