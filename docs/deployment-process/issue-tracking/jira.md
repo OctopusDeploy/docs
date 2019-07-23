@@ -53,7 +53,7 @@ To supply the commit messages:
 
 1. Install one of our official [build server plugins](#limitations) with support for our metadata step. 
 
-2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index#build-information-step).
+2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index.md#build-information-step).
 
 3. Ensure your Octopus Metadata step has set the 'Process commit messages' or 'Work Items Source' field.
 
