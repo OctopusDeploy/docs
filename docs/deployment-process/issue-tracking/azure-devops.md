@@ -72,25 +72,7 @@ To supply the build information:
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
-When configured, this integration will retrieve Azure DevOps work item details and add details to your releases and deployments.
-
-## Troubleshooting
-
-This section outlines common issues and how to resolve them.
-
-### Error message: "Unable to obtain some work item data."
-
-The rest of the message will have more information about what went wrong, but this typically indicates a failure to do one of the following:
-
-* Contact Azure DevOps over the network.
-* Authenticate using the specified Personal Access Token to read scopes **Build** and **Work items**.
-* Retrieve build and work item data, and work item comments.
-* Interpret the data.
-
-If you can't resolve the problem and want to create a release, some options are:
-
-* Disable the Azure DevOps Issue Tracker extension under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
-* Push packages without metadata, for example by disabling the build task **Push Package Metadata to Octopus**.
+When configured, this integration will retrieve Azure DevOps work item details and add details to your releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
 
 ## Next
 
