@@ -130,7 +130,7 @@ Tentacle can be toggled to manually or automatically update Tentacle.  If **Aut
 
 ### Maximum number of concurrent upgrades {#MachinePolicies-MaxCalamariUpgrades}
 
-There is a limit to the number of concurrent upgrades possible when choosing `Always keep Calamari up to date`, this is to ensure that upgrades to do not adversely effect the performance of your Octopus Server.
+There is a limit to the number of concurrent upgrades possible when choosing `Always keep Calamari up to date`. This ensures that upgrades do not adversely effect the performance of your Octopus Server.
 
 The number of concurrent upgrades will be double the Octopus Servers logical processor count. It will be a minimum of 2 and will not exceed 32.
 
