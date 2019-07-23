@@ -17,14 +17,19 @@ position: 30
 3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
 
-### Limitations {#limitations}
-
-**Limited Build Server Support**  
-The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) plugins.  We will be rolling this out to the Jenkins plugin soon.
-
 ![Octopus release with GitHub issues](images/octo-github-release-details.png "width=500")
 
 ![Octopus deployment with generated release notes](images/octo-github-release-notes.png "width=500")
+
+### Availability {#availability}
+
+The ability to push the build information to Octopus, which is required for GitHub integration, is currently only available in the official Octopus plugins:
+
+ - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
+ - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
+ - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
+ 
+We will be rolling this out for the Jenkins plugin soon.
 
 ## Configuring GitHub Integration
 
@@ -42,7 +47,7 @@ To supply the commit messages:
 
 1. Install one of our official [build server plugins](#limitations) with support for our metadata step.
 
-2. Update your build process to add and configure the Octopus Metadata step.
+2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index#build-information-step).
 
 3. Ensure your Octopus Metadata step has set the 'Process commit messages' or 'Work Items Source' field.
 
