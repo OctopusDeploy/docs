@@ -53,7 +53,7 @@ New-AzureRMWebAppSlot -Name #{WebSite} -Slot Staging -ResourceGroupName #{Resour
 ```
 
 :::hint
-The reason for the first line, which removes the Staging Slot, is to ensure we are deploying to a clean slot. This can significantly reduce the time taken for deployments with a large number of files as it avoids having to calculate the set of files which have acutally changed by comparing time stamps or checksums. For deployments with a smaller number of files, this will probably not be any quicker.
+The reason for the first line, which removes the Staging Slot, is to ensure we are deploying to a clean slot. This can significantly reduce the time taken for deployments with a large number of files as it avoids having to calculate the set of files which have acutally changed by comparing time stamps or checksums. For deployments with a smaller number of files, this will may not be any quicker.
 :::
 
 So your step should look like:
