@@ -15,35 +15,35 @@ position: 40
 1. Associate code changes with their relevant work items in any of the following ways:
     - Edit a pull request in Azure DevOps, and use the **Work Items** panel to select a work item.
     - Edit a work item in Azure DevOps, and use the **Development** panel to add a pull request link (before build), or a commit link, or a build link.
-    - When you commit code, include "#" followed by a valid work item ID in the commit message. *Note: Requires first enabling the repository setting "Automatically create links for work items mentioned in a commit comment" under Project Settings (Repositories).*
+    - When you commit code, if you've enabled the repository setting: **Automatically create links for work items mentioned in a commit comment** under Project Settings (Repositories), you can include `#` followed by a valid work item ID in the commit message.
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Azure DevOps Issue Tracker extension in Octopus uses the build information to request work item references from Azure DevOps.
+
+![Octopus release with Azure DevOps work items](images/octo-azure-devops-release-details.png "width=500")
+
 4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
 
-### Limitations
+![Octopus deployment with generated release notes](images/octo-azure-devops-release-notes.png "width=500")
+
+### Limitations {#limitations}
 
 **Limited Build Server Support**  
 The ability to push the build information to Octopus, which is required for Azure DevOps integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) plugins.  We will be rolling this out to the Jenkins plugin soon.
 
-![Octopus release with Azure DevOps work items](images/octo-azure-devops-release-details.png "width=500")
-
-![Octopus deployment with generated release notes](images/octo-azure-devops-release-notes.png "width=500")
-
 ## Configuring Azure DevOps Integration
 
-The following steps should be followed to integrate Octopus with Azure DevOps:
+The following steps explain how to integrate Octopus with Azure DevOps:
 
 1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which work items are associated with a release.  
 2. [Configure the Azure DevOps connection in Octopus Deploy.](#connect-octopus-to-azure-devops)
 
 ## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
 
-To integrate with Azure DevOps work items, Octopus needs to understand which work items are associated with a [release](/docs/deployment-process/releases/index.md).   
-Octopus does this by using the build information associated with any packages contained in the release to request work item references from Azure DevOps.
+To integrate with Azure DevOps work items, Octopus needs to understand which work items are associated with a [release](/docs/deployment-process/releases/index.md). Octopus does this by using the build information associated with any packages contained in the release to request work item references from Azure DevOps.
 
 To supply the build information:
 
-1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks). We're currently working on adding support for the Jenkins plugin.
+1. Install one of our official [build server plugins](#limitations) with support for our metadata step.
 
 2. Update your build process to add and configure the Octopus Metadata step.
 
@@ -71,20 +71,22 @@ When configured, this integration will retrieve Azure DevOps work item details a
 
 ## Troubleshooting
 
+This section outlines common issues and how to resolve them.
+
 ### Error message: "Unable to obtain some work item data."
 
 The rest of the message will have more information about what went wrong, but this typically indicates a failure to do one of the following:
 
-* contact Azure DevOps over the network
-* authenticate using the specified Personal Access Token to read scopes **Build** and **Work items**
-* retrieve build and work item data, and work item comments
-* interpret the data
+* Contact Azure DevOps over the network.
+* Authenticate using the specified Personal Access Token to read scopes **Build** and **Work items**.
+* Retrieve build and work item data, and work item comments.
+* Interpret the data.
 
 If you can't resolve the problem and want to create a release, some options are:
 
-* disable the Azure DevOps Issue Tracker extension under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**
-* push packages without metadata, for example by disabling the build task **Push Package Metadata to Octopus**
+* Disable the Azure DevOps Issue Tracker extension under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
+* Push packages without metadata, for example by disabling the build task **Push Package Metadata to Octopus**.
 
 ## Next
 
- - Learn about other [build information](/docs/packaging-applications/build-servers/index.md#build-information).
+ - Learn more about [build information](/docs/packaging-applications/build-servers/index.md#build-information).

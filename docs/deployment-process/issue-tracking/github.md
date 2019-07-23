@@ -10,14 +10,14 @@ position: 30
 
 ## How GitHub Integration Works
 
-![Octopus Jira integration - how it works diagram](images/octo-github-how-it-works.png "width=500")
+![Octopus GitHub integration - how it works diagram](images/octo-github-how-it-works.png "width=500")
 
 1. When you commit code, add a commit message containing one or more [GitHub issue references](#commit-messages).
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The GitHub issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
 4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/deployment-process/releases/deployment-notes.md).  
 
-### Limitations
+### Limitations {#limitations}
 
 **Limited Build Server Support**  
 The ability to push the build information to Octopus, which is required for Jira integration, is currently only available in the official Octopus [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) plugins.  We will be rolling this out to the Jenkins plugin soon.
@@ -40,7 +40,7 @@ Octopus does this by inspecting commit messages associated with any packages con
 
 To supply the commit messages:
 
-1. Install one of our official build server plugins with support for our metadata step. This list currently includes [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration), [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview), and [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks). We're currently working on adding support for the Jenkins plugin.
+1. Install one of our official [build server plugins](#limitations) with support for our metadata step.
 
 2. Update your build process to add and configure the Octopus Metadata step.
 
