@@ -10,9 +10,7 @@ position: 40
 
 ## How Azure DevOps Integration Works
 
-<!-- FIXME
 ![Octopus Azure DevOps integration - how it works diagram](images/octo-azure-devops-how-it-works.png "width=500")
--->
 
 1. Associate code changes with their relevant work items in any of the following ways:
     - Edit a pull request in Azure DevOps, and use the **Work Items** panel to select a work item.
