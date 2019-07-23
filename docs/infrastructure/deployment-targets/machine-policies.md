@@ -132,7 +132,7 @@ Tentacle can be toggled to manually or automatically update Tentacle.  If **Aut
 
 There is a limit to the number of concurrent upgrades possible when choosing `Always keep Calamari up to date`, this is to ensure that upgrades to do not adversely effect the performance of your Octopus Server.
 
-The maximum number of concurrent upgrades is no less than 2 and no greater than 32, calculated by doubling your Octopus Servers logical processor count. 
+The number of concurrent upgrades will be double the Octopus Servers logical processor count. It will be a minimum of 2 and will not exceed 32.
 
 ### Tentacle Update Account {#MachinePolicies-TentacleUpdateAccount}
 You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/deployment-targets/username-and-password.md) for a user with administrative rights to install software on your machines and select it from the drop down.
