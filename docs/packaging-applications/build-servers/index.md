@@ -36,6 +36,8 @@ The Build Information step is currently available in the official Octopus [TeamC
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::
 
+## Build Information Step {#build-information-step}
+
 The TeamCity version of the _Build Information_ step is shown below.
 
 ![TeamCity Build Information Step](images/metadata-step.png)
