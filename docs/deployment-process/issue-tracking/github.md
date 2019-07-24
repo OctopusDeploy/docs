@@ -6,7 +6,7 @@ position: 30
 
 **Octopus 2019.4** introduced support to integrate Octopus with GitHub issues. The integration includes the ability to:
 - Automatically add links to GitHub issues from releases and deployments in Octopus.
-- Retrieve release notes from GitHub to assist in automating release note generation.
+- Retrieve release notes from GitHub for automatic release note generation.
 
 ## How GitHub Integration Works
 

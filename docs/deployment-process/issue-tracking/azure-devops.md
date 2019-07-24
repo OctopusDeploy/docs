@@ -6,7 +6,7 @@ position: 40
 
 **Octopus 2019.7.3** introduced support to integrate Octopus with Azure DevOps work items. The integration includes the ability to:
 - Automatically add links to Azure DevOps work items from releases and deployments in Octopus.
-- Retrieve release notes from Azure DevOps work item comments to assist in automating release note generation.
+- Retrieve release notes from Azure DevOps work item comments for automatic release note generation.
 
 ## How Azure DevOps Integration Works
 
