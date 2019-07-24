@@ -10,8 +10,8 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://apt.octopus.com/public.key
+add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update
 apt-get install tentacle
 
@@ -34,8 +34,8 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://apt.octopus.com/public.key
+add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update
 apt-get install tentacle
 
@@ -56,8 +56,8 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://apt.octopus.com/public.key
+add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update
 apt-get install tentacle
 
@@ -79,8 +79,8 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://apt.octopus.com/public.key
+add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update
 apt-get install tentacle
 

@@ -28,21 +28,21 @@ Note that many of the steps described below must be run as a super user using `s
 
 ### Installing Tentacle
 ```bash Debian/Ubuntu repository
-apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://apt.octopus.com/public.key
+add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update
 apt-get install tentacle
 ```
 
 ```bash CentOS/Fedora repository
-wget https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
+wget https://rpm.octopus.com/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 ```
 
 ```bash Archive
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz
 #or
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta14-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
@@ -101,8 +101,8 @@ Start the Tentacle interactively by running:
     ```
 
 
-## Quick start scripts
-The following bash scripts install, configure and register Linux Tentacle:
+## Automation scripts
+The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
 
 !include <quickstart-debian>
 

@@ -10,7 +10,7 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
+curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
@@ -32,7 +32,7 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
+curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
@@ -52,7 +52,7 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
+curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
@@ -73,7 +73,7 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
+curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
