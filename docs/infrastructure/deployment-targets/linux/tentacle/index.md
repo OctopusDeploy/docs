@@ -9,15 +9,15 @@ Welcome to Linux Tentacle early access. This page provides information about get
 ## Requirements
 
 - Octopus Server 2019.5.7 or newer
-- [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x) installed on the Linux machine
+
+Linux Tentacle is a .NET Core application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). On most Linux distributions it will "just work", but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
 
 ## Known limitations
 
 Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
 
-- The Octopus portal does not have a Linux specific way to add Linux Tentacles. As a workaround, add the Tentacle using the Windows > Tentacle deployment target type.
 - PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts.
-- Automatic Tentacle upgrade is not currently supported for Linux Tentacle.
+- Automatic Tentacle upgrade from the Octopus Server is not currently supported for Linux Tentacle.
 
 ## Downloads
 
@@ -30,21 +30,21 @@ Note that many of the steps described below must be run as a super user using `s
 
 ### Installing Tentacle
 ```bash Debian/Ubuntu repository
-apt-key adv --fetch-keys https://s3.amazonaws.com/octopus-apt-repo/public.key
-add-apt-repository "deb https://s3.amazonaws.com/octopus-apt-repo/ stretch main"
+apt-key adv --fetch-keys https://apt.octopus.com/public.key
+add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update
 apt-get install tentacle
 ```
 
 ```bash CentOS/Fedora repository
-wget https://s3.amazonaws.com/octopus-rpm-repo/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
+wget https://rpm.octopus.com/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 ```
 
 ```bash Archive
 wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz
 #or
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta1-linux_x64.tar.gz
+curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.0-beta14-linux_x64.tar.gz --output tentacle-5.0.0-beta14-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.0-beta1-linux_x64.tar.gz -C /opt/octopus
@@ -103,8 +103,8 @@ Start the Tentacle interactively by running:
     ```
 
 
-## Quick start scripts
-The following bash scripts install, configure and register Linux Tentacle:
+## Automation scripts
+The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
 
 !include <quickstart-debian>
 
