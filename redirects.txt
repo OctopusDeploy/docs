@@ -744,7 +744,7 @@ docs/deployment-examples/custom-scripts/debugging-powershell-scripts-on-remote-m
 docs/deployment-examples/custom-scripts/reference-files-within-a-package.md -> docs/deployment-examples/custom-scripts/scripts-in-packages/reference-files-within-a-package.md
 docs/deployment-examples/kubernetes-deployments/kubernetes-target/index.md -> docs/infrastructure/deployment-targets/kubernetes-target/index.md
 docs/infrastructure/deployment-targets/kubernetes-cluster/index.md -> docs/infrastructure/deployment-targets/kubernetes-target/index.md
-docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md -> docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md
+docs/packaging-applications/package-repositories/pushing-packages-to-the-built-in-repository.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
 docs/packaging-applications/package-repositories/built-in-repository-reindexing.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
 docs/packaging-applications/package-repositories/built-in-repository/built-in-repository-reindexing.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
 docs/packaging-applications/package-id -> docs/packaging-applications/index.md
@@ -909,3 +909,4 @@ docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-ap
 docs/packaging-applications/build-servers/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
 docs/packaging-applications/build-servers/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
 docs/packaging-applications/build-servers/metadata/release-notes-templates.md -> docs/deployment-process/releases/release-notes.md
+docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
