@@ -15,7 +15,7 @@ Welcome to Linux Tentacle early access. This page provides information about get
 Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
 
 - PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts.
-- Automatic Tentacle upgrade is not currently supported for Linux Tentacle.
+- Automatic Tentacle upgrade from the Octopus Server is not currently supported for Linux Tentacle.
 
 ## Downloads
 
