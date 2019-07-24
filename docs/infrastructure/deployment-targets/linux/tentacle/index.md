@@ -10,7 +10,7 @@ Welcome to Linux Tentacle early access. This page provides information about get
 
 - Octopus Server 2019.5.7 or newer
 
-Linux Tentacle is a .NET Core application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). On most linux distributions it will "just work", but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
+Linux Tentacle is a .NET Core application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). On most Linux distributions it will "just work", but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
 
 ## Known limitations
 
