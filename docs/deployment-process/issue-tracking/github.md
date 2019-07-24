@@ -33,15 +33,14 @@ We will be rolling this out for the Jenkins plugin soon.
 
 ## Configuring GitHub Integration
 
-The following steps should be followed to integrate Octopus with GitHub issues:  
+The following steps explain how to integrate Octopus with GitHub issues:  
 
 1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
 2. [Configure the GitHub connection in Octopus Deploy.](#connect-octopus-to-github)
 
 ## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
 
-To integrate with GitHub issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md).   
-Octopus does this by inspecting commit messages associated with any packages contained in the release.
+To integrate with GitHub issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md). Octopus does this by inspecting commit messages associated with any packages contained in the release.
 
 To supply the commit messages:
 

@@ -39,15 +39,14 @@ This is a Jira limitation; the [deployment module](https://developer.atlassian.c
 
 ## Configuring Jira Integration
 
-The following steps should be followed to integrate Octopus with Jira.
+The following steps explain how to integrate Octopus with Jira.
 
 1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
 2. [Configure the Jira connection in Octopus Deploy.](#connect-octopus-to-jira)
 
 ## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
 
-To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md).   
-Octopus does this by inspecting commit messages associated with any packages contained in the release.
+To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/deployment-process/releases/index.md). Octopus does this by inspecting commit messages associated with any packages contained in the release.
 
 To supply the commit messages:
 
