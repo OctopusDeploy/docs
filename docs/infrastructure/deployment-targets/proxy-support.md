@@ -39,7 +39,7 @@ Configuring a proxy for an SSH target works in essentially the same way as with 
 
 The proxy for a Polling Tentacle is configured with the Octopus Tentacle Manager application. During installation if you choose to create a Polling Tentacle you will be given the option to configure a Polling Proxy. This proxy will then be used for all polling communications with the Octopus Server. The proxy will also be used to perform the credential check that is part of the installation wizard.
 
-![](images/5865531.png)
+![](images/polling-tentacle-proxy-settings.png)
 
 :::hint
 Please note, if you select "Use the proxy server configured in Internet Explorer" as your desired proxy configuration, when the installer check is completed it will use the proxy configured for the user running the installer. When the Tentacle service runs, it will use the proxy configured for the user running the Tentacle service, which were not checked and may not work or be configured correctly. It may be clearer to use the custom proxy option to explicitly set the proxy details.
