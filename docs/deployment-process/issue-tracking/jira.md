@@ -50,7 +50,7 @@ To integrate with Jira issues, Octopus needs to understand which issues are asso
 
 To supply the commit messages:
 
-1. Install one of our official [build server plugins](#limitations) with support for our metadata step. 
+1. Install one of our official [build server plugins](#availability) with support for our metadata step. 
 
 2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index.md#build-information-step).
 
