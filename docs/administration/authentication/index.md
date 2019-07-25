@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authentication Providers
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Azure AD, Okta, and GoogleApps.
 position: 50
 ---
@@ -8,7 +8,7 @@ In versions of Octopus Deploy up to and including **Octopus 3.4**, two authentic
 
 Starting from **Octopus 3.5**, Octopus Deploy also supports two OpenID Connect based providers, Azure AD and GoogleApps, out-of-the-box.  Also starting in **Octopus 3.5** is support for using multiple authentication providers simultaneously, e.g. you could choose to have UsernamePassword and Azure AD enabled at the same time.  
 
-## Authentication Providers
+## Providers
 
 - [Active Directory Authentication](/docs/administration/authentication/active-directory-authentication/index.md)
 - [Azure Active Directory Authentication](/docs/administration/authentication/azure-ad-authentication.md)

@@ -1,4 +1,4 @@
-### Download Long-term Support Octopus Server (Slow lane) {#slow-lane}
+### Download the Long-term Support Octopus Server {#slow-lane}
 
 The latest long-term support version of Octopus Deploy:
 
