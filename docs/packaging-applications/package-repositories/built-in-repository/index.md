@@ -52,7 +52,7 @@ You can push one or more packages using Octo.exe, the command-line tool for Octo
 C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
-For more information refer to [Pushing packages with Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/push.md).
+For more information refer to [Pushing packages with Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
 
 ## Using the Octopus API (HTTP POST) {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopusAPI(HTTPPOST)}
 
@@ -91,7 +91,7 @@ curl -X POST https://demo.octopus.com/api/packages/raw -H "X-Octopus-ApiKey: API
 You may need to use the `-k` argument if you are using an untrusted connection.
 :::
 
-## Security Considerations {#PushingpackagestotheBuilt-Inrepository-Securityconsiderationssecurityconsiderations}
+## Security Considerations {#security-considerations}
 
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
 
