@@ -27,7 +27,7 @@ msbuild MySolution.sln /t:Build /p:RunOctoPack=true
 
 After the build completes, you will find a NuGet package in the output directory. This package is ready to be deployed with Octopus. See [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
 
-## Add a NuSpec {#UsingOctoPack-AddingaNuSpec}
+## Add a NuSpec File {#UsingOctoPack-AddingaNuSpec}
 
 A `.nuspec` file describes the contents of your NuGet package. If you don't provide one, OctoPack will create one by guessing some of the settings from your project. You can provide your own simple `.nuspec` file to your project. The file name must match the name of your C# project, for example, `Sample.Web.nuspec` if your ASP.NET project is named `Sample.Web`. The `.nuspec` file needs to be in the same directory as your `.csproj` file.
 
@@ -51,7 +51,7 @@ Here is an example `.nuspec` file:
 </package>
 ```
 
-### Include Additional Files Using a NuSpec File
+### Include Additional Files with your NuSpec File
 
 If you need to include additional files, or you want to explicitly control which files are included in the package, you can do so by adding a `<files>` element to your custom `.nuspec` file.
 
@@ -65,7 +65,7 @@ If the `<files>` section exists, by default OctoPack will not attempt to automat
 </files>
 ```
 
-### Replacement Tokens
+### NuGet Replacement Tokens
 
 You can use NuGet replacement tokens inside your NuSpec file:
 
@@ -109,7 +109,7 @@ The example below shows a Windows Service called `OctoFX.RateService.exe` and al
 
 ![An example of a Windows Service package](images/sample-package.png)
 
-## Including Web Application Content Files {#UsingOctoPack-Includingwebapplicationcontentfiles}
+## Include Web Application Content Files {#UsingOctoPack-Includingwebapplicationcontentfiles}
 
 Web applications require additional files to run, such as Razor/ASPX files, configuration files, and assets such as images, CSS, and JavaScript files. OctoPack automatically determines whether a project is a web application or not based on whether it finds a `web.config` file.
 
@@ -159,7 +159,7 @@ The fork of NuGet 3 available here: https://github.com/OctopusDeploy/NuGet.Clien
 
 The packages are available here: https://octopus.myget.org/feed/octopus-dependencies/package/nuget/NuGet.CommandLine
 
-## Adding Release Notes {#UsingOctoPack-Addingreleasenotes}
+## Add Release Notes {#UsingOctoPack-Addingreleasenotes}
 
 NuSpec files can contain release notes, which show up on the Octopus Deploy release page. OctoPack can add these notes to your NuGet package if you pass a path to a file containing the notes. For example:
 
@@ -169,7 +169,7 @@ msbuild MySolution.sln /t:Build /p:RunOctoPack=true /p:OctoPackReleaseNotesFile=
 
 Note that the file path should always be relative to the C#/VB project file not the solution file.
 
-## Publishing {#UsingOctoPack-Publishing}
+## Publish your Package {#UsingOctoPack-Publishing}
 
 To publish your package to a NuGet feed, you can optionally use some extra MSBuild properties:
 
@@ -179,14 +179,14 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 - `/p:OctoPackAppendProjectToFeed=true`: Append the project name onto the feed so you can nest packages under folders on publish.
 - `/p:OctoPackAppendToPackageId=foo`: Append the extra name to the package ID (e.g. for feature branch packages). MyApp.Foo.1.2.3.nupkg.
 
-## The Octopus Built-in Repository
+## Push You Packages to the Octopus Built-in Repository
 
 Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/index.md) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
 
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages`: this is the URL to your Octopus Server noting the `/nuget/packages` path.
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/index.md#security-considerations).
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations).
 
 ## Push a NuGet Package That Already Exists
 
