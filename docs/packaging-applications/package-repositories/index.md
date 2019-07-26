@@ -12,7 +12,7 @@ The Octopus built-in repository [supports several different types of packages](/
 
 If you would like to use an external repository, the following external repositories are supported:
 
- - [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds) (either HTTP or file-system based feeds).
+ - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md) (either HTTP or file-system based feeds).
  - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
@@ -30,15 +30,6 @@ Your package repository will typically be:
 :::success
 **Mix and Match Feeds**
 Octopus can consume packages from multiple feeds at once if necessary.
-:::
-
-:::warning
-**NuGet v3 Feed Support**
-Support for NuGet v3 external feeds was introduced in **Octopus 3.4**.
-
-Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
-
-- If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to Octopus 3.4 (or later).
 :::
 
 :::warning
@@ -70,68 +61,8 @@ Our recommendation is to use different repositories for different purposes, and 
 
 This configuration will make it easier to find the right packages for the right purpose, but the most important benefit of the built-in repository is that Octopus Deploy knows exactly which deployment packages are still required according to the [retention policies](/docs/administration/retention-policies/index.md) you have configured, and which packages can be cleaned up.
 
-## Using External Repositories {#Packagerepositories-Usingexternalrepositories}
-
-If you wish to use an external repository, you must use NuGet packages, a [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md), [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) or [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
-
-:::warning
-**NuGet v3 Feed Support**
-Support for NuGet v3 external feeds was introduced in **Octopus 3.4**.
-
-Earlier releases of Octopus Deploy only support external NuGet v2 feeds:
-
-- If you are using a MyGet external feed, please use the [v2 API URL](http://docs.myget.org/docs/reference/feed-endpoints) or upgrade to **Octopus 3.4** (or later)
-:::
-
-If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to **{{Library,External feeds}}**.
-
-You can add NuGet feeds by clicking the **Add feed** button.
-
-In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
-
-![](images/3277773.png)
-
-On the test page, you can check whether the feed is working by searching for packages:
-
-![](images/3277772.png)
-
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
+
 By default, when you deploy a package to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by setting the [Action System Variable](/docs/deployment-process/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle`, which is a `boolean` data type. When set to `False`, the default behavior is applied and when set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
 
 To reduce network latency, it is ideal to place your package repository in close proximity to the Octopus Server while `Octopus.Action.Package.DownloadOnTentacle` is set to the default value of `False`. Alternatively if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you would likely want to place your package repository in close proximity to your Tentacles.
-
-## NuGet.Server Performance {#Packagerepositories-NuGet.Serverperformance}
-
-A popular external NuGet hosting option is **NuGet.Server**. However, be aware that it suffers from performance problems when dealing with large packages or large numbers of smaller packages. Users may report high CPU usage, timeouts when displaying package details, or memory issues. A great alternative that we recommend is [NuGet.Lucene](https://github.com/themotleyfool/NuGet.Lucene).
-
-The built-in NuGet server in Octopus stores metadata in SQL Server, and doesn't suffer from these performance issues.
-
-## Troubleshooting {#Packagerepositories-Troubleshooting}
-
-- For network file shares, keep in mind that Octopus and Tentacle run under system accounts by default, which may not have access to the file share.
-- NuGet.Server only allows 30MB packages [by default](http://help.octopus.com/discussions/problems/184-30mb-default-maximum-nuget-package-size).
-
-A good first step for diagnosing NuGet feed issues is to ensure that the NuGet command line executable can access the same feed from the Octopus Server or target machine if the `Each Tentacle will download the package directly from the remote server` option is selected. The following steps can be used to troubleshoot NuGet feeds.
-
-Run the command:
-
-```
-nuget list -Source http://example.com/MyFeed/nuget/v3/index.json
-```
-
-replacing `http://example.com/MyFeed/nuget/v3/index.json` with the path to the NuGet V3 URL. The expected output of this command is a list of the packages in the repository.
-
-If this command prompts for credentials, then the feed is most likely private, and Octopus will need to be configured with the same credentials.
-
-If the repository can not be accessed, you will see an error like:
-
-```
-Unable to load the service index for source http://example.com/MyFeed/nuget/v3/index.json.
-```
-
-along with additional details that can look like:
-
-* Response status code does not indicate success: 404 (Not Found).
-* An error occurred while sending the request. The remote name could not be resolved: 'hostname'.
-
-These errors give you an indication as to why NuGet could not access the requested server.
