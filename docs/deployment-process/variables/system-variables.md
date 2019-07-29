@@ -129,8 +129,8 @@ There is also a distinct list of issues across all packages available in:
 
 Deployment-level variables are drawn from the project and release being deployed.
 
-| Name and Description | Example|
-| -------------------- | -------|
+| Name and Description            | Example |
+| ------------------------------- | -------- |
 |**`Octopus.Acquire.MaxParallelism`** <br/>Controls the number of package acquisitions that will be allowed to run concurrently. Also controls retention processing at the end of the deployment. *Default: 10* | *2*|
 |**`Octopus.Acquire.DeltaCompressionEnabled`** <br/>Toggle whether delta compression is enabled when sending packages to targets. | true|
 |**`Octopus.Deployment.Comments`** <br/>User-provided comments on the deployment | *Signed off by Alice*|
@@ -257,7 +257,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |**`Octopus.Action.Number`** <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |**`Octopus.Action.Package.CustomInstallationDirectory`** <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
 |**`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`** <br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
-|**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server*(Boolean)* | *False*|
+|**`Octopus.Action.Package.DownloadOnTentacle`** <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server *(Boolean)* | *False*|
 |**`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`** <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** ***(Boolean)* | *True*|
 |**`Octopus.Action.Package.IgnoreConfigTransformationErrors`** <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment** ***(Boolean)* | *False*|
 |**`Octopus.Action.Package.IgnoreVariableReplacementErrors`** <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
