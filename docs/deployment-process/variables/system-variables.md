@@ -146,7 +146,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Deployment.Name` <br/>The name of the deployment | *Deploy to Production*|
 |`Octopus.Deployment.PreviousSuccessful.Id` <br/>The ID of the previous successful deployment of this project in the target environment | *deployments-122*|
 |`Octopus.Deployment.Machines` <br/>Ids of machines being targeted by the deployment. | machines-123,machines-124|
-|`Octopus.Deployment.SpecificMachines` <br/>Specific machines being targeted by the deployment, if any*(List)* | *machines-123,machines-124*|
+|`Octopus.Deployment.SpecificMachines` <br/>Specific machines being targeted by the deployment, if any *(List)* | *machines-123,machines-124*|
 |`Octopus.Deployment.ExcludedMachines` <br/>Ids of machines that have been excluded from the deployment (generally for being unavailable) | machines-123,machines-124|
 |`Octopus.Deployment.Tenant.Id` <br/>The ID of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Tenants-123*|
 |`Octopus.Deployment.Tenant.Name` <br/>The name of the Tenant being deployed for. If the deployment is untenanted (or pre 3.4.0) then this variable will not be present. | *Acme Corp*|
@@ -251,14 +251,14 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Id` <br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
 |`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
 |`Octopus.Action.Manual.Instructions` <br/>The instructions provided for a manual step | *Don't break anything* |
-|`Octopus.Action.Manual.ResponsibleTeamIds` <br/>The teams responsible for completing a manual step*(List)* | *teams-123,teams-124*|
+|`Octopus.Action.Manual.ResponsibleTeamIds` <br/>The teams responsible for completing a manual step *(List)* | *teams-123,teams-124*|
 |`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |`Octopus.Action.Name` <br/>The name of the action | *Website*|
 |`Octopus.Action.Number` <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |`Octopus.Action.Package.CustomInstallationDirectory` <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
 |`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment` <br/>If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)* | *False*|
 |`Octopus.Action.Package.DownloadOnTentacle` <br/>If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server *(Boolean)* | *False*|
-|`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment** **(Boolean)* | *True*|
+|`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` <br/>If true, any warnings in configuration transformations will be treated as errors and will fail the deployment *(Boolean)* | *True*|
 |`Octopus.Action.Package.IgnoreConfigTransformationErrors` <br/>If true, any errors in configuration transformations will be treated as informational rather than errors that will fail the deployment *(Boolean)* | *False*|
 |`Octopus.Action.Package.IgnoreVariableReplacementErrors` <br/>If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*) | *False*|
 |`Octopus.Action.Package.InstallationDirectoryPath` <br/>The directory where the package was installed. It is not available prior to package extraction. | *C:\InetPub\WWWRoot\OctoFx*|
@@ -338,7 +338,7 @@ Step-level variables are available during execution of a step. Indexer notion su
 | -------------------- | ----------------------------------------|
 |`Octopus.Step.Id` <br/>The ID of the step | *80b3ad09-eedf-40d6-9b66-cf97f5c0ffee*|
 |`Octopus.Step.Name` <br/>The name of the step | *Website*|
-|`Octopus.Step.Number` <br/>The number of the step*(Number)* | *2*|
+|`Octopus.Step.Number` <br/>The number of the step *(Number)* | *2*|
 |`Octopus.Step.Status.Code` <br/>A code describing the current status of the step | *Succeeded*|
 |`Octopus.Step.Status.Error` <br/>If the step failed because of an error, a description of the error | *The server could not be contacted*|
 |`Octopus.Step.Status.ErrorDetail` <br/>If the step failed because of an error, a full description of the error | *System.Net.SocketException: The server could not be contacted (at ...)*|
