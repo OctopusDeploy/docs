@@ -21,6 +21,18 @@ While still available as an option in the UI, raw scripts cannot currently be so
 
 Raw scripting is great for use cases where you are unable to install and run Mono for example your server platform is unsupported by Mono or deploying to an IOT device that does not meet the hardware requirements to run Mono. By eliminating Calamari as the middle man in these deployments, you may also shave a few seconds off your deployment for each step.
 
+## Health Checks
+
+The default health check for Linux targets depends on bash being available, and confirms that dependencies are available.  
+
+In the intended scenarios for raw scripting, these constraints may not be true.  
+
+To opt out of these checks, create a custom [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies.md) and set the `Health Check Type` to `Only perform connection test`.
+
+Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
+
+![Machine policy settings for connection test only](images/machine-policy-connection-test-only.png)
+
 ## Deploying To SSH Endpoint Without Calamari (i.e. no Mono prerequisite) {#RawScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
 
 While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on an SSH endpoint where Mono is unable to be installed.
@@ -36,15 +48,6 @@ While raw scripting does not require a Transfer a Package step, the below scenar
 4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/index.md) will be unable to clean old packages.
 
 5. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
-
-:::hint
-**Raw Target Health Checks** {#RawScripting-HealthChecks}
-Given that the point of raw scripting is to avoid having to install Mono and Calamari, you may need to create a custom [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies.md) and select the `Only perform connection test` option under the section `Health check for SSH endpoints`. Targets configured with this policy will be considered healthy so long as an SSH connection can be established.
-
-![SSH Health checks](images/ssh-healthchecks.png)
-
-Using a standard machine policy will otherwise result in the endpoint being considered unhealthy if it is unable to find Mono or Calamari.
-:::
 
 ## Raw Tentacles {#RawScripting-RawTentacles}
 
