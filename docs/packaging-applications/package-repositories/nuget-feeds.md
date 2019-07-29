@@ -1,7 +1,7 @@
 ---
 title: NuGet Feeds
 description: Configuring repositories as Octopus Feeds
-position: 100
+position: 20
 ---
 
 If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to **{{Library,External feeds}}**.
