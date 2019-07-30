@@ -18,7 +18,7 @@ In most cases you simply provide the build server with the URL to your Octopus S
 
 In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
-- [Using Octo.exe](UsingOctoExe).
+- [Using Octo.exe](#UsingOctoExe).
 - [Using the Octopus API (HTTP POST)](#UsingtheOctopusAPI(HTTPPOST)).
 - [Using NuGet.exe push](#UsingNuGetexePush).
 - [Using npm.exe, grunt or gulp](#Usingnpm.exe,gruntorgulp).
