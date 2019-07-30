@@ -4,64 +4,47 @@ description: Using the Octopus built-in repository.
 position: 10
 ---
 
-Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most **robust [retention policy](/docs/administration/retention-policies/index.md) support** for deployment packages.
+Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies/index.md) support for cleaning up deployment packages.
 
-:::hint
-**Built-in Feed Can Only Be Consumed by Octopus**
-It is important to understand that the Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required.
-:::
+The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories/index.md).
 
 ## Pushing Packages to the Built-In Repository {#pushing-packages-to-the-built-in-repository}
 
-We offer several ways to add, upload, and push packages to the built-in feed:
+It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **{{Library,Packages}}** and clicking the **Upload Package** button.
 
-- Using the Octopus web portal.
-- Using your build server.
-- Using Octo.exe.
-- Using the Octopus API (HTTP POST).
-- Using NuGet.exe push.
-- Using npm.exe, grunt or gulp.
-- Using curl.
-- Security considerations.
+However, we recommend using a [build server](/docs/packaging-applications/build-servers/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
 
-## Using the Octopus Web Portal {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopuswebportal}
+In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
 
-You can manually upload a package file from your local machine via the Octopus web portal via the **{{Library,Packages}}** tab by clicking the *Upload package* button.
+In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
+- [Using Octo.exe](UsingOctoExe).
+- [Using the Octopus API (HTTP POST)](#UsingtheOctopusAPI(HTTPPOST)).
+- [Using NuGet.exe push](#UsingNuGetexePush).
+- [Using npm.exe, grunt or gulp](#Usingnpm.exe,gruntorgulp).
+- [Using curl](#Usingcurl).
 
-:::success
-We generally recommend using a continuous integration/build server like [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Jenkins](/docs/packaging-applications/build-servers/jenkins.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md) or [Azure DevOps/Team Foundation Server (TFS)](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository. See below for examples on doing this.
-:::
-
-:::hint
-For pushing packages using the methods described below you'll need:
+To push packages using these methods, you will need:
 
 1. The URL to your Octopus Server.
 2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
-:::
 
-## Using Your Build Server {#PushingpackagestotheBuilt-Inrepository-Usingyourbuildserver}
+## Using Octo.exe {#UsingOctoExe}
 
-We have built integrations/plugins/extensions for the most popular build servers. You can read more about [integrating Octopus Deploy with your build server](/docs/octopus-rest-api/index.md). In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
-
-## Using Octo.exe {#PushingpackagestotheBuilt-Inrepository-UsingOcto.exe}
-
-You can push one or more packages using Octo.exe, the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
+You can push one or more packages using [Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
 ```powershell
 C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
-For more information refer to [Pushing packages with Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
-
-## Using the Octopus API (HTTP POST) {#PushingpackagestotheBuilt-Inrepository-UsingtheOctopusAPI(HTTPPOST)}
+## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}
 
 You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/index.md) - `POST /api/packages/raw HTTP 1.1`.
 
 - [C# example (LINQPad)](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/Push%20Package%20to%20Built-In%20Repository.linq)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)
 
-## Using NuGet.exe Push {#PushingpackagestotheBuilt-Inrepository-UsingNuGet.exepush}
+## Using NuGet.exe Push {#UsingNuGetexePush}
 
 To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus web portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
@@ -75,11 +58,11 @@ If a package with the same version exists, and you want to force the Octopus Ser
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 
-## Using npm.exe, Grunt or Gulp {#PushingpackagestotheBuilt-Inrepository-Usingnpm.exe,gruntorgulp}
+## Using npm.exe, Grunt or Gulp {#Usingnpm.exe,gruntorgulp}
 
 You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployment-examples/node-on-linux-deployments/index.md).
 
-## Using Curl {#PushingpackagestotheBuilt-Inrepository-Usingcurl}
+## Using Curl {#Usingcurl}
 
 You can upload packages using **curl**. Like all of the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
 

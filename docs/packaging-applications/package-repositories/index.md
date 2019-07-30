@@ -17,7 +17,7 @@ Octopus can consume packages from multiple feeds at once if necessary.
 
 Your package repository will typically be:
 
-- The [built-in Octopus repository](/docs/packaging-applications/package-repositories/index.md).
+- The [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
 - A [remote feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Remote_Feeds) exposed over HTTP.
 - A [local NuGet feed](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds) exposed as a File Share or local directory.
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
