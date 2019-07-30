@@ -63,7 +63,7 @@ A better alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distribute
 
 If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) - it just presents a file share over SMB 3.0.
 
-Once you have [created your File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share)you can [mount the drive](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows) for use by Octopus. Remember, drives are mounted per user. Make sure to map a persistent network drive for the user account the Octopus Server is running under.
+Once you have [created your File Share](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share) you can [mount the drive](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows) for use by Octopus. Remember, drives are mounted per user. Make sure to map a persistent network drive for the user account the Octopus Server is running under.
 
 #### Shared Storage in Amazon AWS
 
