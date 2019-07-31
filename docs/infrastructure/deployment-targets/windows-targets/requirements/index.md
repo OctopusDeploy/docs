@@ -15,6 +15,7 @@ The installation requirements for the latest version of Tentacle are:
 -  Windows Server 2012
 -  Windows Server 2012 R2 
 -  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
+-  Windows Server 2019 
 
 ## .NET Framework.
 
