@@ -39,7 +39,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 5. From the [Step](/docs/deployment-process/steps/index.md) Template page, click the **Configure Features** link.
 6. Check the **Substitute Variables in Files** checkbox and click **Ok**.
 
-![Substitute Variables in Files feature](substitute-variables.png)
+![Substitute Variables in Files feature](images/substitute-variables.png)
 
 When you return to your deployment process, you will see the **Substitute Variables in Files** option has been added to the **Features** section of the deployment process.
 

@@ -4,6 +4,8 @@ description: Lifecycles allow you to control the way releases are promoted betwe
 position: 2
 ---
 
+Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**.
+
 Lifecycles give you control over the way releases are promoted between environments. Lifecycles enable a number of advanced deployment workflow features:
 
 - **Control the order of promotion**: for example, to prevent a release being deployed to *Production* if it hasn't been deployed to *Staging*.
@@ -19,11 +21,6 @@ Lifecycles are defined by phases. A lifecycle can have one or many phases.
 
 You can specify multiple Lifecycles to control which projects are deployed to which environments. Lifecycles are a key component of [channels](/docs/deployment-process/channels/index.md) which give you even great control over how your software is deployed. Channels let you use multiple Lifecycles for a project and then automatically deploy to specific channels, using the defined lifecycle, based on the version of the software being deployed.
 
-## Managing Lifecycles
-
-Every [project](/docs/deployment-process/projects/index.md) has a default lifecycle.
-
-Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**.
 
 ## Create a New Lifecycle
 
@@ -59,7 +56,7 @@ If you have a project setup with [Automatic Release Creation](/docs/deployment-p
 - **A minimum of x must complete**. If choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
 - **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
-![Optional Phase](optional-phase.png)
+![Optional Phase](images/optional-phase.png)
 
 If you want to be able to deploy to any environment at any time, then simply create a single phase which has `Phase Progression` set to `All must complete` and includes all your environments.
 
@@ -69,4 +66,4 @@ If you want to be able to deploy to any environment at any time, then simply cre
 
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
-![](lifecycle-deployment-process.png)
+![](images/lifecycle-deployment-process.png)

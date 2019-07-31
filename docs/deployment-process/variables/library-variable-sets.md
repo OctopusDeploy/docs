@@ -40,7 +40,7 @@ If you want to review the Project variables and the Library Variable Set, from t
 Viewing the audit trail for a Variable Set will show you what changes have been made to the variable, when the changes were made, and which user made the changes.  
 
 1. Navigate to **{{Library,Variable Sets}}**.
-2. Select the variable set. Click the overflow menu and select **Audit Trail**.
+2. Select the variable set. Click the ... overflow menu and select **Audit Trail**.
 3. Click **SHOW DETAILS** on an event to see what changed
 
 To filter the audit trail by **date**, click the date range. Select a predefined date range or enter a custom date range.

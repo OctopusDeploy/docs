@@ -6,7 +6,7 @@ position: 15
 
 :::success
 **Consider using a build server extension**
-We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md), create releases and deploy them to your environments:
+We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
 
 - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md).
 - [Azure DevOps (formerly VSO) and TFS 2015](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
@@ -27,7 +27,7 @@ If you use the[ built-in Octopus package repository](/docs/packaging-application
 
 From the project's trigger tab, under the section called **Automatic Release Creation**, click **Setup**, and then select the package that will trigger the release:
 
-![Automatic release creation](automatic-release-creation.png)
+![Automatic release creation](images/automatic-release-creation.png)
 
 As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
@@ -36,11 +36,11 @@ As a project can contain multiple packages you need to select the package that w
 You cannot use variables to define the PackageId (either in full or in part). Octopus will only create a release on your behalf when you have selected a specific Package (the PackageId must be a constant value).
 :::
 
-![Automatic release creation last package option](automatic-release-creation-last-package.png)
+![Automatic release creation last package option](images/automatic-release-creation-last-package.png)
 
 When a release is set to be created this way, the audit will tell you that is how the release was created.
 
-![Release history](history.png)
+![Release history](images/history.png)
 
 If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/deployment-process/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 

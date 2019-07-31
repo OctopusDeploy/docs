@@ -9,22 +9,22 @@ Sometimes a variable used during deployment may have a different value from the 
 ## Check the Variable Snapshot for the Release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
 
 1. Open the **{{Project,Releases,Release}}** page for the Release you are debugging.
-2. Scroll down to find the **Variables** section and click the **Show** link so see the snapshot of Variables being used by this Release.
+2. Scroll down to find the **Variables** section and click the **Show Snapshot** link so see the snapshot of Variables being used by this Release.
 3. If the variable is wrong in the Snapshot:
-    * Update the Variable, and then.
+    * Update the Variable in the **Variables** section of the project, and then.
     * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
-![](3278466.png)
+![](images/3278466.png)
 
 ## Check the Variable Value in the All Variables Tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
 1. Open the **{{Project,Variables,All Variables}}** tab.
 2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/deployment-process/variables/library-variable-sets.md), and [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
-![](5865680.png)
+![](images/5865680.png)
 
 :::success
-Did you know you can sort and filter all of the variables grids? Click the column heading to sort, or the filter icon to filter the variable grid.
+Did you know you can sort filter all of the variables grids? Click **Show Advanced filters** and select your filter type.
 :::
 
 ## Write the Variables to the Deployment Log {#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog}
@@ -41,7 +41,7 @@ This will log the variables available at the beginning of each step in the deplo
 
 It should look like this. You can have as many extra variables as you want besides these two.
 
-![](3278087.png)
+![](images/3278087.png)
 
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.
 4. Deploy the new release.

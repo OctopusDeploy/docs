@@ -4,7 +4,9 @@ description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built
 position: 280
 ---
 
-Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+Pushes a [package](/docs/packaging-applications/create-packages/index.md) (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+
+Learn more about the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
 
 **push options**
 
@@ -18,14 +20,22 @@ Package pushing:
       --package=VALUE        Package file to push. Specify multiple packages
                              by specifying this argument multiple times:
                              --package package1 --package package2
+      --overwrite-mode=VALUE If the package already exists in the repository,
+                             the default behavior is to reject the new
+                             package being pushed (FailIfExists). You can use
+                             the overwrite mode to OverwriteExisting or
+                             IgnoreIfExists.
       --replace-existing     If the package already exists in the repository,
                              the default behavior is to reject the new
                              package being pushed. You can pass this flag to
-                             overwrite the existing package.
+                             overwrite the existing package. This flag may be
+                             deprecated in a future version; passing it is
+                             the same as using the OverwriteExisting
+                             overwrite-mode.
       --use-delta-compression=VALUE
                              Allows disabling of delta compression when
-                             uploading packages to the Octopus Server.
-                             Defaults to enabled.
+                             uploading packages to the Octopus Server. (True
+                             or False. Defaults to true.)
 
 Common options:
 
@@ -35,10 +45,10 @@ Common options:
                              option is json
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
-      --server=VALUE         [Optional] The base URL for your Octopus Server -
-                              e.g., http://your-octopus/. This URL can also
-                             be set in the OCTOPUS_CLI_SERVER environment
-                             variable.
+      --server=VALUE         [Optional] The base URL for your Octopus Server,
+                             e.g., 'https://octopus.example.com/'. This URL
+                             can also be set in the OCTOPUS_CLI_SERVER
+                             environment variable.
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
                              profile page. Your must provide an apiKey or
                              username and password. If the guest account is
@@ -66,18 +76,17 @@ Common options:
                              Build service messages when logging.
       --timeout=VALUE        [Optional] Timeout in seconds for network
                              operations. Default is 600.
-      --proxy=VALUE          [Optional] The URI of the proxy to use, eg
-                             http://example.com:8080.
+      --proxy=VALUE          [Optional] The URL of the proxy to use, e.g.,
+                             'https://proxy.example.com'.
       --proxyUser=VALUE      [Optional] The username for the proxy.
       --proxyPass=VALUE      [Optional] The password for the proxy. If both
                              the username and password are omitted and
                              proxyAddress is specified, the default
                              credentials are used.
-      --space=VALUE          [Optional] The name of a space within which this
-                             command will be executed. The default space will
-                             be used if it is omitted.
+      --space=VALUE          [Optional] The name or ID of a space within
+                             which this command will be executed. The default
+                             space will be used if it is omitted.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

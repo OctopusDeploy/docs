@@ -32,7 +32,7 @@ Write-Host "Hello, World!"
 
 This will deploy the release. In the task summary, you'll see the release was deployed to your *Test* environment, and the step *Hello world* ran on the deployment target, in this case *TWeb01*.
 
-![Hello world task summary](hello-world.png)
+![Hello world task summary](images/hello-world.png)
 
 This is an example of a very simple process, the following sections go into more detail about each part of the process.
 

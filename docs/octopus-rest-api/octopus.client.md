@@ -121,6 +121,66 @@ var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"]
 
 *(This example is superfluous as `repository.Users.GetCurrent()` wraps this common operation.)*
 
+## Working With Spaces
+
+Octopus version 2019.1 introduced [Spaces](/docs/administration/spaces/index.md). Working with the non-default space in API requests requires specifying the target space. There are two methods of specifying the target space with Octopus.Client.
+
+### Using OctopusClient.ForSpace
+
+```powershell PowerShell
+# Create endpoint and client
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY")
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
+
+# Get default repository and get space by name
+$repository = $client.ForSystem()
+$space = $repository.Spaces.FindByName("Space Name")
+
+# Get space specific repository and get all projects in space
+$repositoryForSpace = $client.ForSpace($space)
+$projects = $repositoryForSpace.Projects.GetAll()
+```
+```cs C#
+// Create endpoint and client
+var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY");
+var client = new OctopusClient(endpoint);
+
+// Get default repository and get space by name
+var repository = client.ForSystem();
+var space = repository.Spaces.FindByName("Space Name");
+
+// Get space specific repository and get all projects in space
+var repositoryForSpace = client.ForSpace(space);
+var projects = repositoryForSpace.Projects.GetAll();
+```
+
+### Using OctopusRepositoryExtensions.ForSpace
+
+```powershell PowerShell
+# Create endpoint and repository
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY")
+$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+
+# Get space by name
+$space = $repository.Spaces.FindByName("Space Name")
+
+# Get space specific repository and get all projects in space
+$repositoryForSpace = [Octopus.Client.OctopusRepositoryExtensions]::ForSpace($repository, $space)
+$projects = $repositoryForSpace.Projects.GetAll()
+```
+```cs C#
+// Create endpoint and repository
+var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY");
+var repository = new OctopusRepository(endpoint);
+
+// Get space by name
+var space = repository.Spaces.FindByName("Space Name");
+
+// Get space specific repository and get all projects in space
+var repositoryForSpace = repository.ForSpace(space);
+var projects = repositoryForSpace.Projects.GetAll();
+```
+
 ## Loading in an Octopus Step {#Octopus.Client-Loadinginanoctopusstep}
 
 You can use Octopus.Client from inside Octopus (for example in a script step, a package install script, or the script console) by loading it from the server or Tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:

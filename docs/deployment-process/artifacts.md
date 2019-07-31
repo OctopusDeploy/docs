@@ -4,7 +4,7 @@ description: Artifacts in Octopus provide a convenient way to collect files from
 position: 60
 ---
 
-Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus Server, where they can then be viewed from the web interface. Examples of where artifacts may be useful are:
+Artifacts in Octopus provide a convenient way to collect files from remote machines, and copy them to the Octopus Server, where they can then be downloaded from the web interface. Examples of where artifacts may be useful are:
 
 - Collecting log files from other programs.
 - Copying configuration files so you can inspect to see if the right values were replaced.
@@ -13,7 +13,7 @@ Artifacts can be collected from anywhere that Octopus runs scripts - for example
 
 After the script runs the files will be uploaded to Octopus Server and made available as deployment artifacts which are available for download from the task output, or via the [Octopus API](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Artifacts).
 
-![](artifacts-access.png)
+![](images/artifacts-access.png)
 
 ## Collecting Artifacts Using Scripts {#Artifacts-Collectingartifactsusingscripts}
 

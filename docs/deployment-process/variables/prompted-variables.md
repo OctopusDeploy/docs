@@ -7,28 +7,30 @@ As you work with [variables](/docs/deployment-process/variables/index.md) in Oct
 
 ## Defining a Prompted Variable {#Promptedvariables-Definingapromptedvariable}
 
-To make a variable a **prompted variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
+To make a variable a **prompted variable**, enter the variable editor when creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
-![Open Variable Editor](open-editor.png)
+![Open Variable Editor](images/open-editor.png)
 
 When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
-![Prompted Variable](prompted-variable.png)
+![Prompted Variable](images/prompted-variable.png)
 
 You can identify prompted variables by looking for the icon next to the value:
 
-![](prompted-variable-icon.png)
+![](images/prompted-variable-icon.png)
 
 ## Providing a Value For the Variable {#Promptedvariables-Providingavalueforthevariable}
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
-![Required prompted variable](3278301.png)
+![Required prompted variable](images/3278301.png)
 
-A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Create-Release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) or [Deploy-Release](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) commands
+These variables will be ordered alpabetically by label (or name, if the variable label is not provided).
+
+A value can also be passed to a prompted variable when using `Octo.exe` through the `--variable` parameter of the [Deploy-Release](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) command, or the [Create-Release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) command when also deploying the release with the `--deployto` parameter.
 
 ```ruby
-octo.exe create-release ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"
+octo.exe deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"
 ```
 
 :::hint

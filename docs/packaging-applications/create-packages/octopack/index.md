@@ -1,47 +1,37 @@
 ---
 title: Create Packages with OctoPack
 description: Using OctoPack is the easiest way to package .NET applications for use in your deployments.
-position: 30
+position: 40
 hideInThisSection: true
 ---
 
-You can package full framework .NET applications from your continuous integration/automated build process is to use OctoPack. OctoPack adds a custom MSBuild target that hooks into the build process of your solution. When enabled, OctoPack will package your Windows Service and ASP.NET applications when MSBuild runs. This makes it easy to integrate OctoPack with your build server. As long as you can pass properties to MSBuild, you can use OctoPack.
+You can package full framework .NET applications from your continuous integration/automated build process with OctoPack. OctoPack adds a custom MSBuild target that hooks into the build process of your solution. When enabled, OctoPack will package your console application projects, Windows Service projects, and ASP.NET web applications when MSBuild runs.
 
 OctoPack works by calling `nuget.exe pack` to build the NuGet package, and `nuget.exe push` to publish the package (if so desired). OctoPack understands .NET applications and uses that knowledge to build the right kind of package for each kind of .NET application.
 
-OctoPack is not compatible with ASP.NET Core applications. If you want to package APS.NET Core applications see [creating packages with Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
+OctoPack is not compatible with ASP.NET Core applications. If you want to package APS.NET Core applications see [create packages with Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
 
-## Installing OctoPack {#UsingOctoPack-InstallingOctoPack}
+## Install OctoPack {#UsingOctoPack-InstallingOctoPack}
 
-This three minute video (with captions) will walk you through the process of installing and using OctoPack.
+OctoPack is a NuGet package that you can install using the NuGet package installer or however you prefer to install NuGet packages.
 
-<iframe src="//fast.wistia.net/embed/iframe/e9f3yhlvsr" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
+OctoPack should only be installed on projects that you are going to deploy, that means your console application projects, Windows Service projects, and ASP.NET web applications. Do not install OctoPack on unit tests, class libraries, or other supporting projects.
 
-OctoPack is, itself, a NuGet package. You can install it using the NuGet package installer, or any of the other ways you prefer to install NuGet packages:
+## Build Packages {#UsingOctoPack-Buildingpackages}
 
-![](3277789.png)
-
-OctoPack should only be installed on projects that you are going to deploy, that means the console application projects, Windows Service projects, and ASP.NET web applications. OctoPack should not be installed on unit tests, class libraries, and other supporting projects.
-
-![](3277788.png)
-
-## Building Packages {#UsingOctoPack-Buildingpackages}
-
-To have OctoPack create a NuGet package from your build, set the **RunOctoPack** MSBuild property to true. For example, if you are compiling from the command line, you might use:
+Set the `RunOctoPack` MSBuild property to true, and OctoPack will create a NuGet package from your build. For example, if you are compiling from the command line, you might use:
 
 ```powershell
 msbuild MySolution.sln /t:Build /p:RunOctoPack=true
 ```
 
-After the build completes, in the output directory you will find a NuGet package. This package is ready to be deployed using your [Octopus Deploy Server](/docs/installation/index.md).
+After the build completes, you will find a NuGet package in the output directory. This package is ready to be deployed with Octopus. See [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
 
-## Adding a NuSpec {#UsingOctoPack-AddingaNuSpec}
+## Add a NuSpec File {#UsingOctoPack-AddingaNuSpec}
 
-A `.nuspec` file describes the contents of your NuGet package. If you don;'t provide one, OctoPack will automatically create one by guessing some of the settings from your project. But you may wish to provide your own simple `.nuspec` file to your project. The file name should match the name of your C# project, for example, `Sample.Web.nuspec` if your ASP.NET project is named **Sample.Web**. The `.nuspec` file needs to be in the same directory as your `.csproj` file.
+A `.nuspec` file describes the contents of your NuGet package. If you don't provide one, OctoPack will create one by guessing some of the settings from your project. You can provide your own simple `.nuspec` file to your project. The file name must match the name of your C# project, for example, `Sample.Web.nuspec` if your ASP.NET project is named `Sample.Web`. The `.nuspec` file needs to be in the same directory as your `.csproj` file.
 
-Here is an example of the `.nuspec` file contents:
-
-**Sample NuSpec File**
+Here is an example `.nuspec` file:
 
 ```xml
 <?xml version="1.0"?>
@@ -61,52 +51,11 @@ Here is an example of the `.nuspec` file contents:
 </package>
 ```
 
-Learn more about the [NuSpec file format](http://docs.nuget.org/docs/reference/nuspec-reference).
+### Include Additional Files with your NuSpec File
 
-## What is Packaged? {#UsingOctoPack-Whatispackaged?}
+If you need to include additional files, or you want to explicitly control which files are included in the package, you can do so by adding a `<files>` element to your custom `.nuspec` file.
 
-OctoPack only packages the files in your .Net applications that are required to deploy the application.
-
-If you are packaging a .NET application, OctoPack will **automatically package all of the files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug` or `bin\Release` folder, depending on the build configuration and whether you have [changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
-
-If you have customized the output directory and you have added a custom `<files>` element to your custom nuspec file, all paths you specify must be relative to the nuspec file's location. This means that for the binaries files that are being built by the project you will have to use some combination of `..\` style prefix to refer to the assemblies.
-
-For Windows Service or Console applications, and many Windows Forms or WPF applications, the build output directory contains everything you need to deploy your application.
-
-The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
-
-![](3277787.png)
-
-## Including Web Application Content Files {#UsingOctoPack-Includingwebapplicationcontentfiles}
-
-Web applications require additional files to run, such as Razor/ASPX files, configuration files, and assets such as images, CSS and JavaScript files. OctoPack automatically determines whether a project is a web application or not based on whether it finds a `web.config` file.
-
-When packaging a web application, OctoPack will automatically include the `bin` folder and any files configured with **Build Action: Content.** You can see **Build Action** in the Solution Explorer properties window for the currently selected file in Visual Studio:
-
-![](3277786.png)
-
-The example below shows a web application called **OctoFX.TradingWebsite** and you can see that all the files required to host the web application have been packaged, including the contents of the `bin` folder and any files with **Build Action: Content**.
-
-![](3277785.png)
-
-:::hint
-**Config Transformation is Part of the Deployment Process**
-OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
-:::
-
-## Including Additional Files Using Copy to Output Directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
-
-If you need to include other files in your package for deployment, use the Visual Studio properties panel to set the **Copy to Output Directory** attribute to **Copy if newer** or **Copy always**. These files will be copied to the build output directory when the project builds, and subsequently packaged by OctoPack.
-
-### XML Configuration Transforms
-
-You can use [XML Config Transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and the will be packaged by OctoPack so you can use them as part of the [deployment](/docs/deployment-process/configuration-features/index.md).
-
-## Including Additional Files Using a NuSpec File (.nuspec) {#UsingOctoPack-IncludingadditionalfilesusingaNuSpecfile(.nuspec)}
-
-If you need to go beyond this and include additional files, or you want to control explicitly which files are included in the package, you can do so using the `<files>` element in your custom `.nuspec` file.
-
-If the `<files>` section exists, by default OctoPack won't attempt to automatically add any extra files to your package, so you'll need to be explicit about which files you want to include. You can override this behavior with `/p:OctoPackEnforceAddingFiles=true` which will instruct OctoPack to package a combination of files using its conventions, and those defined by your `<files>` section.
+If the `<files>` section exists, by default OctoPack will not attempt to automatically add any extra files to your package, so you need to explicitly list which files you want to include. You can override this behavior with `/p:OctoPackEnforceAddingFiles=true` which will instruct OctoPack to package a combination of files using its conventions and those defined by your `<files>` section:
 
 ```xml
 <files>
@@ -116,47 +65,9 @@ If the `<files>` section exists, by default OctoPack won't attempt to automatica
 </files>
 ```
 
-See the [NuSpec documentation](http://docs.nuget.org/docs/reference/nuspec-reference) for more examples on how the `<files>` section of the `.nuspec` file is interpreted by `nuget.exe`.
+### NuGet Replacement Tokens
 
-## Version Numbers {#UsingOctoPack-Versionnumbers}
-
-NuGet packages have version numbers. When you use OctoPack, the NuGet package version number will come from (in order of priority):
-
-1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
-2. If the assembly contains a `GitVersionInformation` type, the field `GitVersionInformation.NuGetVersion` is used.
-3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used.
-4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used.
-5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used.
-6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file.
-7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
-
-During the build messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems.
-
-## Version Numbers are Preserved as-is
-
-NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning.md).
-
-To make this work for NuGet packages we have forked NuGet.
-
-The fork of NuGet 3 available here: https://github.com/OctopusDeploy/NuGet.Client
-
-The packages are available here: https://octopus.myget.org/feed/octopus-dependencies/package/nuget/NuGet.CommandLine
-
-## Adding Release Notes {#UsingOctoPack-Addingreleasenotes}
-
-NuSpec files can contain release notes, which show up on the Octopus Deploy release page. OctoPack can add these notes to your NuGet package if you pass a path to a file containing the notes. For example:
-
-```powershell
-msbuild MySolution.sln /t:Build /p:RunOctoPack=true /p:OctoPackReleaseNotesFile=..\ReleaseNotes.txt
-```
-
-Note that the file path should always be relative to the C#/VB project file (not the solution file).
-
-## Replacement Tokens {#UsingOctoPack-Replacementtokens}
-
-You can make use of NuGet replacement tokens inside your NuSpec file:
-
-**Sample NuSpec File**
+You can use NuGet replacement tokens inside your NuSpec file:
 
 ```xml
 <?xml version="1.0"?>
@@ -182,7 +93,83 @@ To set a value for these parameters, use the MSBuild property OctoPackNuGetProp
 msbuild MySolution.sln /t:Build /p:RunOctoPack=true "/p:OctoPackNuGetProperties=suffix=release;title=My Title;version=1.0.0;myname=Paul"
 ```
 
-## Publishing {#UsingOctoPack-Publishing}
+Learn more about the [NuSpec file format](http://docs.nuget.org/docs/reference/nuspec-reference).
+
+## What is Packaged? {#UsingOctoPack-Whatispackaged?}
+
+OctoPack only packages the files in your .Net applications that are required to deploy the application.
+
+If you are packaging a .NET application, OctoPack will **automatically package all of the files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug`, or `bin\Release` folder, depending on the build configuration and whether you have [changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
+
+If you have customized the output directory, and you have added a custom files element to your custom nuspec file, the paths you specify must be relative to the nuspec file's location. This means that for the binaries files that are being built by the project you will have to use some combination of `..\` style prefix to refer to the assemblies.
+
+For Windows Service or Console applications, and many Windows Forms or WPF applications, the build output directory contains everything you need to deploy your application.
+
+The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
+
+![An example of a Windows Service package](images/sample-package.png)
+
+## Include Web Application Content Files {#UsingOctoPack-Includingwebapplicationcontentfiles}
+
+Web applications require additional files to run, such as Razor/ASPX files, configuration files, and assets such as images, CSS, and JavaScript files. OctoPack automatically determines whether a project is a web application or not based on whether it finds a `web.config` file.
+
+When packaging a web application, OctoPack will automatically include the `bin` folder and any files configured with `Build Action: Content`.
+
+You can see **Build Action** in the Solution Explorer properties window for the currently selected file in Visual Studio:
+
+![](images/build-action.png)
+
+The example below shows a web app called **OctoFX.TradingWebsite**. All the files required to host the web app have been packaged, including the contents of the `bin` folder and any files with **Build Action: Content**:
+
+![Sample Package of a Web App](images/sample-web-app-package.png)
+
+### Config Transformation
+
+OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
+
+### XML Configuration Transforms
+
+You can use [XML Config Transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/deployment-process/configuration-features/index.md).
+
+## Include Additional Files Using Copy to Output Directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
+
+If you need to include other files in your package for deployment, you can use the Visual Studio properties panel to set the `Copy to Output Directory` attribute to `Copy if newer` or `Copy always`. These files will be copied to the build output directory when the project builds, and subsequently packaged by OctoPack.
+
+## Version Numbers {#UsingOctoPack-Versionnumbers}
+
+NuGet packages have version numbers. When you use OctoPack, the NuGet package version number will come from (in order of priority):
+
+1. The command line, if you pass `/p:OctoPackPackageVersion=<version>` as an MSBuild parameter when building your project.
+2. If the assembly contains a `GitVersionInformation` type, the field `GitVersionInformation.NuGetVersion` is used.
+3. If you pass `/p:OctoPackUseProductVersion=true` as an MSBuild parameter, `[assembly: AssemblyInformationalVersion]` (AKA Assembly's product version) is used.
+4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used.
+5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used.
+6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file.
+7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+
+During the build, messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems.
+
+### Version Numbers are Preserved as-is
+
+NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning.md).
+
+To make this work for NuGet packages we have forked NuGet.
+
+The fork of NuGet 3 available here: https://github.com/OctopusDeploy/NuGet.Client
+
+The packages are available here: https://octopus.myget.org/feed/octopus-dependencies/package/nuget/NuGet.CommandLine
+
+## Add Release Notes {#UsingOctoPack-Addingreleasenotes}
+
+NuSpec files can contain release notes, which show up on the Octopus Deploy release page. OctoPack can add these notes to your NuGet package if you pass a path to a file containing the notes. For example:
+
+```powershell
+msbuild MySolution.sln /t:Build /p:RunOctoPack=true /p:OctoPackReleaseNotesFile=..\ReleaseNotes.txt
+```
+
+Note that the file path should always be relative to the C#/VB project file not the solution file.
+
+## Publish your Package {#UsingOctoPack-Publishing}
 
 To publish your package to a NuGet feed, you can optionally use some extra MSBuild properties:
 
@@ -192,16 +179,14 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 - `/p:OctoPackAppendProjectToFeed=true`: Append the project name onto the feed so you can nest packages under folders on publish.
 - `/p:OctoPackAppendToPackageId=foo`: Append the extra name to the package ID (e.g. for feature branch packages). MyApp.Foo.1.2.3.nupkg.
 
-## The Octopus Built-in Repository
+## Push You Packages to the Octopus Built-in Repository
 
 Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/index.md) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
 
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages`: this is the URL to your Octopus Server noting the `/nuget/packages` path.
-- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/index.md).
-
-Read more about [pushing packages to the Octopus built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md).
+- `/p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations).
 
 ## Push a NuGet Package That Already Exists
 
@@ -217,7 +202,7 @@ Sometimes the package version number don't always change. This can happen if you
 
 This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the package upload pane:
 
-![](existing-package.png)
+![](images/existing-package.png)
 
 ## All Supported Parameters {#UsingOctoPack-Allsupportedparameters}
 
@@ -250,8 +235,6 @@ In addition to the common arguments above, OctoPack has a number of other parame
 
 ## Next
 
- - [Packaging Applications](/docs/packaging-applications/index.md)
- - [Use Octo.exe to create packages](/docs/packaging-applications/create-packages/octo.exe.md)
  - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
  - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

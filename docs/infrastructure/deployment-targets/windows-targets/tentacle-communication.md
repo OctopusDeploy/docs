@@ -12,7 +12,7 @@ In **Listening** mode, Tentacles *listen* on a TCP port (**10933** by default). 
 
 In Listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 
-![Octopus to Listening Tentacle communication](listening-tentacle.png)
+![Octopus to Listening Tentacle communication](images/listening-tentacle.png)
 
 When choosing a communication mode, we recommend Listening mode when possible.
 
@@ -26,7 +26,7 @@ In **Polling** mode, Tentacle will poll the Octopus server periodically to che
 
 In Polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 
-![Polling Tentacle to Octopus communication](polling-tentacle.png)
+![Polling Tentacle to Octopus communication](images/polling-tentacle.png)
 
 The advantage to Polling mode is that you don't need to make any firewall changes on the Tentacle side; you only need to allow access to a port on the Octopus server. The disadvantage is that it also uses more resources on the Tentacle side, since Tentacle needs to poll periodically even if there aren't any jobs for it to perform.
 

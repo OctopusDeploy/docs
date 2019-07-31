@@ -1,16 +1,16 @@
 ---
 title: Create Packages with Octo.exe
 description: Using the Octo.exe command line tool to create packages for deployment.
-position: 20
+position: 30
 ---
 
-**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md) and includes a `pack` command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus. You can learn more about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).
+**Octo.exe** is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md) and includes a [pack](/docs/octopus-rest-api/octo.exe-command-line/pack.md) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 
 We recommend installing Octo as a global tool using .NET Core which makes Octo available as a command via the .NET CLI.
 
-If you have the .NET Core `2.1.300` SDK available you can install Octo onto a machine or build agent as a global tool with the following command:
+If you have the .NET Core `2.1.300` SDK available you can install Octo on a machine or build agent as a global tool with the following command:
 
 ```bash
 dotnet tool install Octopus.DotNet.Cli --global
@@ -24,7 +24,7 @@ dotnet octo --version
 
 For more installation details, options, and update instructions, see [Octo Command Line Global Tool](/docs/octopus-rest-api/octo.exe-command-line/index.md).
 
-For a full list of the `pack` command options see [Octo.exe Command Line Pack](/docs/octopus-rest-api/octo.exe-command-line/pack.md) or run the following command:
+For a full list of the `pack` command options see [Octo.exe Command Line - Pack](/docs/octopus-rest-api/octo.exe-command-line/pack.md) or run the following command:
 
 ```powershell
 C:\> dotnet octo help pack
@@ -118,7 +118,6 @@ These are known issues to be aware of with other compression libraries:
 ## Next
 
  - [Packaging Application](/docs/packaging-applications/index.md)
- - Learn about [NuGet Packages](/docs/packaging-applications/create-packages/nuget-packages.md).
  - Creating packages with [Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
  - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
  - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).

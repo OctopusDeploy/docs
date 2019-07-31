@@ -256,7 +256,9 @@ An exception was thrown during the HTTPS configuration.
 There was an error configuring the Elytron server SSL context
 
 ## WILDFLY-HTTPS-ERROR-0005
-There was an error removing the legacy security realm.
+There was an error removing the legacy security realm, or an error creating the keystore file.
+
+Check for an error like `java.io.FileNotFoundException: /opt/wildfly/standalone/configuration/Internet_Widgits_Pty_Ltd1.keystore (Permission denied) `, and ensure the Tentacle user account has the correct permissions to create the keystore file.
 
 ## WILDFLY-HTTPS-ERROR-0006
 There was an error adding the Elytron security context.

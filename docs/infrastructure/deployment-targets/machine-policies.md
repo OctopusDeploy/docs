@@ -34,7 +34,7 @@ A *healthy* deployment target completes a health check without any errors or wa
 After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
 
 1. From the **Infrastructure** tab, select **deployment targets**.
-2. Click the overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
+2. Click the ... overflow menu and select **Check Health**. If you've installed multiple Tentacles, it will check all of your Tentacles (if you'd rather check only one Tentacle, select that Tentacle from the Deployment Targets section, click **Connectivity** and then **Check health**).
 
 The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
 
@@ -43,7 +43,7 @@ Learn more about [Calamari](/docs/octopus-rest-api/calamari.md).
 Octopus will automatically push the latest version of Calamari with your first deployment, but you can do the following to install Calamari:
 
 1. From the Infrastructure tab, select deployment targets.
-2. Click the overflow menu and select **Upgrade Calamari on Deployment Targets**.
+2. Click the ... overflow menu and select **Upgrade Calamari on Deployment Targets**.
 
 ### Health Check Interval {#MachinePolicies-Healthcheckinterval}
 
@@ -128,8 +128,14 @@ By default, Calamari will be installed or updated when a machine is involved in 
 
 Tentacle can be toggled to manually or automatically update Tentacle.  If **Automatically update Tentacle** is selected, Octopus will start a task to update Tentacles whenever Octopus detects that there is a pending Tentacle upgrade (after health checks for example). Conversely, Octopus will not automatically start a task to update Tentacle but will prompt to begin a Tentacle update on the environments screen.
 
+### Maximum number of concurrent upgrades {#MachinePolicies-MaxCalamariUpgrades}
+
+There is a limit to the number of concurrent upgrades possible when choosing `Always keep Calamari up to date`. This ensures that upgrades do not adversely effect the performance of your Octopus Server.
+
+The number of concurrent upgrades will be double the Octopus Server's logical processor count which is a minimum of 2 and will not exceed 32.
+
 ### Tentacle Update Account {#MachinePolicies-TentacleUpdateAccount}
-You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/accounts/username-and-password.md) for a user with administrative rights to install software on your machines and select it from the drop down.
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/deployment-targets/username-and-password.md) for a user with administrative rights to install software on your machines and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 

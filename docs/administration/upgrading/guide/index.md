@@ -60,7 +60,7 @@ The process for successfully downgrading depends on the upgrade you have perform
 
 When an update is available, a bullhorn icon will appear in the top status bar with details and a link to the downloads page.
 
-![](3278327.png)
+![](images/3278327.png)
 
 :::warning
 **What is included in the release?**
@@ -84,11 +84,11 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha)).
 1. Switch your server to [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
 
-    ![](5865775.png)
+    ![](images/5865775.png)
 
 1. [Backup your database and master key](/docs/administration/data/backup-and-restore.md) so that it can be restored in case anything goes wrong.
 
-    ![](5865780.png)
+    ![](images/5865780.png)
 
 1. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
 
@@ -100,7 +100,7 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 1. Run the installer and follow the prompts.
 1. Turn [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) `OFF`.
 
-    ![](5865776.png)
+    ![](images/5865776.png)
 
 1. Calamari will then be automatically updated if required with the next health check or deployment that takes place.
 
@@ -124,7 +124,7 @@ Follow these steps to upgrade each node in your cluster:
 1. Go to the **{{Configuration>Nodes}}** page.
 1. Set Drain to `ON` for the node you want to upgrade.
 
-    ![](5865778.png)
+    ![](images/5865778.png)
 
 1. Wait until all the running tasks complete.
 1. Upgrade the Octopus Server instance on the node.
@@ -161,11 +161,11 @@ In early versions of 3.x we have been rebuilding Tentacle in lock-step with Octo
 
 **Octopus 3.1** supports automatically updating Tentacles via the Environments page. You can upgrade all Tentacles which will systematically work through all Machines in all Environments in batches until all Tentacles are upgraded.
 
-![](3278436.png)
+![](images/3278436.png)
 
 Alternatively you can upgrade Tentacles one Environment at a time.
 
-![](3278437.png)
+![](images/3278437.png)
 
 :::success
 **Optional and Required Tentacle upgrades**
@@ -235,11 +235,11 @@ If for any reason you need to downgrade to a previous version of Octopus Server,
 Wait until all current tasks and deployments have completed.
 :::
 
-![](5865775.png)
+![](images/5865775.png)
 
 2. Navigate to the Octopus Manager and stop the Octopus service.
 
-![](5866175.png)
+![](images/5866175.png)
 
 3. Restore the database, by using the database back up you completed prior to installing the new version you were upgrading to.
 
@@ -249,7 +249,7 @@ Any data that has been created from between when the backup was taken to when it
 
 4. Download the previous version of the Octopus installer, from our [Previous releases page](https://octopus.com/downloads/previous).
 
-![](5866176.png)
+![](images/5866176.png)
 
 5. Install the previous version you are rolling back to, over the top of the installation you are rolling back from.
 

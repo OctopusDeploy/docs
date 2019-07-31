@@ -47,7 +47,7 @@ In order to make the NuGet package accessible to Octopus it needs to be uploaded
 
 ## Cloud Service Accounts {#CloudServiceConcepts-CloudServiceAccounts}
 
-To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/accounts/azure/index.md#azure-management-certificate).
+To set up a new Azure Management Certificate account, follow the directions in [Creating an Azure Management Certificate  Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-management-certificate).
 
 ## Cloud Service Deployment Step {#CloudServiceConcepts-CloudServiceDeploymentStep}
 
@@ -57,7 +57,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
-![Cloud Service step template](../../../images/5671696/5865904.png "width=170")
+![Cloud Service step template](5865904.png "width=170")
 
 #### Account {#CloudServiceConcepts-Account}
 
