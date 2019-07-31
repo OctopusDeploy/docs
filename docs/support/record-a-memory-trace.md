@@ -18,8 +18,7 @@ We use [JetBrains dotMemory](https://www.jetbrains.com/dotmemory/) to record and
 
 ## Getting Prepared
 
-1. [Enable detailed Octopus logging](/docs/support/log-files.md) - doesn't require a restart.
-2. Start recording CPU, RAM and Disk I/O using performance monitor (or similar).
+1. Start recording CPU, RAM and Disk I/O using performance monitor (or similar).
 
 ## Recording the Memory Snapshots
 
