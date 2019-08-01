@@ -29,8 +29,8 @@ We provide a number of ways to install Octo onto your machine:
 - **[delete-releases](/docs/octopus-rest-api/octo.exe-command-line/delete-releases.md)**:  Deletes a range of releases.
 - **[deploy-release](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md)**:  Deploys a release.
 - **[dump-deployments](/docs/octopus-rest-api/octo.exe-command-line/dump-deployments.md)**:  Writes deployments to an XML file that can be imported in Excel.
-- **[export](/docs/octopus-rest-api/octo.exe-command-line/export.md)**:  Exports an object to a JSON file.
-- **[import](/docs/octopus-rest-api/octo.exe-command-line/import.md)**:  Imports an Octopus object from an export file.
+- **[export](/docs/octopus-rest-api/octo.exe-command-line/export.md)**:  Exports an object to a JSON file. Deprecated. Please see https://g.octopushq.com/DataMigration for alternative options.
+- **[import](/docs/octopus-rest-api/octo.exe-command-line/import.md)**:  Imports an Octopus object from an export file. Deprecated. Please see https://g.octopushq.com/DataMigration for alternative options.
 - **[list-deployments](/docs/octopus-rest-api/octo.exe-command-line/list-deployments.md)**:  List a number of deployments by project, environment or by tenant.
 - **[list-environments](/docs/octopus-rest-api/octo.exe-command-line/list-environments.md)**:  List environments.
 - **[list-latestdeployments](/docs/octopus-rest-api/octo.exe-command-line/list-latestdeployments.md)**:  List the releases last-deployed in each environment.
