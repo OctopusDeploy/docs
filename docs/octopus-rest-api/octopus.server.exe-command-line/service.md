@@ -21,11 +21,14 @@ Where [<options>] is any of:
       --username, --user=VALUE
                              Username to run the service under
                                (DOMAIN\Username format). Only used when --
-                               install or --reconfigure are used.
+                               install or --reconfigure are used.  Can also be
+                               passed via an environment variable
+                               OCTOPUS_SERVICE_USERNAME.
       --uninstall            Uninstall the Windows Service
       --password=VALUE       Password for the username specified with --
                                username. Only used when --install or --
-                               reconfigure are used.
+                               reconfigure are used. Can also be passed via an
+                               environment variable OCTOPUS_SERVICE_PASSWORD.
       --dependOn=VALUE
 
 Or one of the common options:

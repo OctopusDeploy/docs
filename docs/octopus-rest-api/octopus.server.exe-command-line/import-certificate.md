@@ -19,6 +19,11 @@ Where [<options>] is any of:
       --pw, --pfx-password=VALUE
                              Personal Information Exchange (PFX) private key
                                password
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
 
 Or one of the common options:
 
