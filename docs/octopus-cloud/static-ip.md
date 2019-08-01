@@ -12,7 +12,7 @@ You can purchase the option to have a static IP address assigned to your Octopus
 
 ## Activate your Static IP address
 
-1. [Log in to your Octopus Account](https://account.octopus.com/instances).
+1. [Log in to your Octopus Account](https://account.octopus.com/).
 2. Select the instance that needs a Static IP
 3. Choose **Select Plan** and select the option to purchase a static IP address.
 
