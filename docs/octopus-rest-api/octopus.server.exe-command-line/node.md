@@ -24,6 +24,11 @@ Where [<options>] is any of:
                                of the drain wait period. This argument can only
                                be passed if the `--drain` parameter is set to
                                `true`.
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
 
 Or one of the common options:
 

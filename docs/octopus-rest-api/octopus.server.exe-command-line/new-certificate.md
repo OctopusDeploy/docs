@@ -19,6 +19,11 @@ Where [<options>] is any of:
       --export-pfx=VALUE     Exports the new certificate to the specified
                                file; for use with the import-certificate command
       --pfx-password=VALUE   The password to use for the exported pfx file
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
 
 Or one of the common options:
 

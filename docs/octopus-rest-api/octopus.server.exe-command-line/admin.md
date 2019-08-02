@@ -28,6 +28,11 @@ Where [<options>] is any of:
                              The description of an external (e.g. AzureAD,
                                Okta) group/role to add to the administrators
                                team
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
 
 Or one of the common options:
 

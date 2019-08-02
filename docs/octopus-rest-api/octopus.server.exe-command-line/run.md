@@ -17,6 +17,9 @@ Where [<options>] is any of:
                              File path of a custom extension to load
       --skipDatabaseCompatibilityCheck
                              Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
       --console              Don't attempt to run as a service, even if the
                                user is non-interactive
 

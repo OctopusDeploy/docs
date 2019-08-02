@@ -16,6 +16,9 @@ Where [<options>] is any of:
       --home=VALUE           Home directory
       --skipDatabaseCompatibilityCheck
                              Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
       --serverNodeName=VALUE Unique Server Node name for a clustered
                                environment
       --cachePackages=VALUE  Days to cache packages for. Default: 20
@@ -170,6 +173,16 @@ Where [<options>] is any of:
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.
+      --AzureDevOpsIsEnabled=VALUE
+                             Set whether Azure DevOps issue tracker
+                               integration is enabled.
+      --AzureDevOpsBaseUrl=VALUE
+                             Set the base url for the Azure DevOps
+                               organization or collection.
+      --AzureDevOpsPersonalAccessToken=VALUE
+                             A Personal Access Token authorized to read
+                               scopes 'Build' and 'Work items', added under
+                               User Settings.
       --GitHubIsEnabled=VALUE
                              Set whether GitHub issue tracker integration is
                                enabled.
