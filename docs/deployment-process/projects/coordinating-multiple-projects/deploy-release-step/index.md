@@ -85,3 +85,14 @@ A project can contain multiple _Deploy Release_ steps which deploy a combination
 
 - Scope the _Deploy Release_  step to one or more tenants.  This is useful if the child project should only be deployed for particular tenants.  
 - If the child project is untenanted, and should only be deployed _once_ for all tenants, then the [Deployment Conditions](#conditional-deployment) can be used to specify that is should only be deployed if the version does not match.  This will prevent it from being deployed multiple times if multiple tenanted-deployments of the parent project are created.
+
+## Rolling Deployments
+
+From Octopus 2019.7.6 _Deploy Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
+
+When executing a rolling deployment containing a _Deploy Release_ step, child deployments will be created per deployment target, as each target is rolled over.  i.e. if the rolling step specifies a target role which matches 10 deployment targets, then 10 child deployments will be created. 
+
+:::hint
+When configuring a _Deploy Release_ step as a child step in a rolling deployment, the [deployment condition](#conditional-deployment) should be set to `Deploy Always`.   
+Otherwise, as the step rolls across multiple machines, it will see the current release as having already been deployed to the environment, and execution will be skipped.  
+:::
