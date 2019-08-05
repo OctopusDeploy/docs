@@ -10,7 +10,7 @@ To check if you are able to reach Microsoft cloud through your network, try runn
 
 :::info
 
-You might need to install Azure Powershell before running this script. More information on how to do this can be found at https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.5.0
+You might need to install Azure Powershell before running this script. For information, see [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.5.0).
 
 :::
 
@@ -32,6 +32,11 @@ Connect-AzAccount -Credential $creds -TenantId $OctopusAzureADTenantId -Subscrip
 
 Get-AzResourceGroup
 ```
+
+You should get an output showing all the Azure Resource Groups you have access to
+
+![Screenshot of Azure Resource Groups](img.jpg)
+
 
 If you need to add firewall exclusions to a whitelist, here are a few things to take into consideration:
 
