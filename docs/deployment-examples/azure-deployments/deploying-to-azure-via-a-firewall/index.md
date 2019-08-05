@@ -33,7 +33,7 @@ Connect-AzAccount -Credential $creds -TenantId $OctopusAzureADTenantId -Subscrip
 Get-AzResourceGroup
 ```
 
-You should see output showing all the Azure Resource Groups you have access to:
+If everything is working as expected, you will see output showing all the Azure Resource Groups you have access to:
 
 ![Screenshot of Azure Resource Groups](image.png)
 
