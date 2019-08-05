@@ -6,7 +6,7 @@ position: 29
 
 All the Azure steps in Octopus are executed from the VM where the Octopus Server is running. So to able to successfully deploy to the Microsoft cloud, you need to make sure your Octopus Server can reach it through the network.
 
-To check if you are able to reach Microsoft cloud through your network, try running this script on the same machine and using an account with the same permissions as your Octopus Server.
+To check you can reach Microsoft cloud through your network, run this script on the same machine using an account with the same permissions as your Octopus Server.
 
 :::info
 
