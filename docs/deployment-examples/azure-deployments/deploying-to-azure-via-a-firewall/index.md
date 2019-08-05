@@ -33,10 +33,9 @@ Connect-AzAccount -Credential $creds -TenantId $OctopusAzureADTenantId -Subscrip
 Get-AzResourceGroup
 ```
 
-You should get an output showing all the Azure Resource Groups you have access to
+You should see output showing all the Azure Resource Groups you have access to:
 
-![Screenshot of Azure Resource Groups](img.jpg)
-
+![Screenshot of Azure Resource Groups](img.png)
 
 If you need to add firewall exclusions to a whitelist, here are a few things to take into consideration:
 
