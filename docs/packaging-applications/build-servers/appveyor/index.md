@@ -6,7 +6,7 @@ position: 10
 
 [AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects. 
 
-You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repository/built-in-repository/index.md), and create and deploy releases.
+You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), and create and deploy releases.
 
 ## Configuring an AppVeyor Project for Octopus
 
