@@ -83,7 +83,7 @@ A package is an archive (zip, tar, NuGet) that contains all the files needed to 
 There are many more tools you might choose to use to create your package, but as long as you can create one of our [supported packages](/docs/packaging-applications/index.md#supported-formats) you can deploy your applications with Octopus Deploy.
 
 **[Build Server Integration](/docs/packaging-applications/build-servers/index.md)**<br/>
-Most Octopus users automate their existing tool chain to push packages to their Octopus Deploy server with our [API and Integrations](/docs/octopus-rest-api/index.md). But you can manually upload the package or host it in an external repository.
+Most Octopus users automate their existing tool chain to push packages to their Octopus Deploy server with our [build server integrations](/docs/packaging-applications/build-servers/index.md). But you can manually upload the package or host it in an external repository.
 :::
 
 ## 4. Define Your Deployment Process
