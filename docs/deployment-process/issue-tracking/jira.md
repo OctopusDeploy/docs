@@ -78,7 +78,7 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
 2. In Octopus Deploy Configure the Release Note Options.
 
-    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases. If they are provided the work item's title will be used as the work item link's description.
+    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. Note that if these credentials are not provided, work items will not be displayed when viewing packages or creating releases.
 
     Note: This needs to be a username and password as Jira Server does not support API tokens.
 
@@ -113,7 +113,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
 3. In Octopus Deploy Configure the Release Note Options.
 
-    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases. If they are provided the work item's title will be used as the work item link's description.
+    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases.
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
 
