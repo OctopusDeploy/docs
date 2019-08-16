@@ -26,7 +26,7 @@ Where [<options>] is any of:
                              When using active communication over websockets,
                                the address of the Octopus Server, eg
                                'wss://example.com/OctopusComms'. Refer to
-                               http://g.octopushq.com/WebSocketComms
+                               [http://g.octopushq.com/WebSocketComms](http://g.octopushq.com/WebSocketComms)
 
 Or one of the common options:
 
