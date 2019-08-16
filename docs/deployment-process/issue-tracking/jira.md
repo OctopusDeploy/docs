@@ -76,13 +76,13 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
     Ensure the **Is Enabled** property is set.
 
-2. In Octopus Deploy Configure the Release Note Options _(optional)_.
+2. In Octopus Deploy Configure the Release Note Options.
 
-    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
+    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. Note that if these credentials are not provided, work items will not be displayed when viewing packages or creating releases.
 
     Note: This needs to be a username and password as Jira Server does not support API tokens.
 
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information/) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+    - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information/) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -111,13 +111,13 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     Ensure the **Is Enabled** property is set.
 
-3. In Octopus Deploy Configure the Release Note Options _(optional)_.
+3. In Octopus Deploy Configure the Release Note Options.
 
-    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve Jira issue (work item) details when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
+    - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases.
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
 
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+    - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
