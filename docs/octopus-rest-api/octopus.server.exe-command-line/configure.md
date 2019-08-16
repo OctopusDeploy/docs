@@ -44,7 +44,7 @@ Where [<options>] is any of:
                                q.com/WebSocketComms.
       --webListenPrefixes=VALUE
                              Comma-separated list of HTTP.sys listen prefixes
-                               (e.g., 'http://localhost/octopus')
+                               (e.g., '[http://localhost/octopus](http://localhost/octopus)')
       --webForceSSL=VALUE    Whether SSL should be required (HTTP requests
                                get redirected to HTTPS)
       --requestLoggingEnabled=VALUE
