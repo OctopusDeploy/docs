@@ -22,7 +22,7 @@ If your task logs contain errors that indicate a networking issue, there could b
 
 Octopus Server communicates with Tentacles in either Listening mode or Polling mode. Both modes require different configuration. 
 
-A common problem is that traffic on the appropriate ports (10933 by default) is not allowed by your firewall. If you are encountering problems with your connections, then your Task log might show messages that indicate a connection timing out, or a connection that was rejected by the remote host.
+A common problem is that traffic on the appropriate ports (10933 by default for Listening Tentacles) is not allowed by your firewall. If you are encountering problems with your connections, then your Task log might show messages that indicate a connection timing out, or a connection that was rejected by the remote host.
 
 See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) for more information on configuring your Tentacles.
 
