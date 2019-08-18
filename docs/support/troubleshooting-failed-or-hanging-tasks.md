@@ -28,7 +28,7 @@ See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/window
 
 #### Halibut
 
-The tool that manages connections between Octopus Server and your Tentacles is called Halibut. In order to discover more detailed information about the connections, it may be useful to [increase the log level for Halibut](docs/support/log-files.md#Logfiles-Changingloglevelshalibut). The same change to increase the log level for Halibut can also be made on [Tentacle](docs/support/log-files.md#Logfiles-Changingloglevelstentacle).
+The tool that manages connections between Octopus Server and your Tentacles is called [Halibut](https://github.com/OctopusDeploy/Halibut/). In order to discover more detailed information about the connections, it may be useful to [increase the log level for Halibut](docs/support/log-files.md#Logfiles-Changingloglevelshalibut). The same change to increase the log level for Halibut can also be made on [Tentacle](docs/support/log-files.md#Logfiles-Changingloglevelstentacle).
 
 ### Connections to external services
 
@@ -38,7 +38,7 @@ Remember that these connections are usually initiated by your Deployment Targets
 
 ## Hanging Tasks
 
-Sometimes tasks appear to be unresponsive or "hanging". The first step to diagnosing these problems is to examine your logs and determine the exact location that the task become unresponsive. If this occurs within the logs output by a custom script, then the bug is likely to originate from your script.
+Sometimes tasks appear to be unresponsive or "hanging". The first step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug is likely to originate from your script.
 
 ### Anti-virus software
 
