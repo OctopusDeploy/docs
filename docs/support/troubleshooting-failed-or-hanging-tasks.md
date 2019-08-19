@@ -44,12 +44,14 @@ Remember that these connections are usually initiated by your Deployment Targets
 
 ## Hanging Tasks
 
-Sometimes tasks appear to be unresponsive or "hanging". The first step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug is likely to originate from your script.
+Sometimes tasks appear to be unresponsive or "hanging". In most cases, this ends up being anti-virus or anti-malware software interfering with the task, and the first step in diagnosing the problem is to eliminate this source of interference (see below). 
+
+If you can completely rule out anti-virus software as a source of interference, then the problem may lie in your custom scripts. The next step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug is likely to originate from your script.
+
+If you are still unable to determine the cause of your hanging tasks, please contact support for further assistance.
 
 ### Anti-virus software
 
-If the task appears to hang after a log message output by Octopus Server or Tentacle, then the cause may be anti-virus software interfering with the task.
-
-The first step is to determine if your anti-virus software is actually affecting your Tasks, and this can easily be done by disabling your anti-virus protection and confirming whether the tasks continue to be unresponsive.
+If the task appears to hang after a log message output by Octopus Server or Tentacle, then in most cases the cause is anti-virus or anti-malware software interfering with the task. The first step is to determine if your anti-virus software is actually affecting your Tasks, and this can easily be done by removing your anti-virus protection and confirming whether the tasks continue to be unresponsive.
 
 If this test shows that anti-virus is interfering with your tasks, you may need to configure your anti-virus software with the appropriate exclusions to ensure that it does not lock any files owned by Octopus, or affect any running processes initiated by Octopus. Consult your anti-virus provider's documentation for more information.
