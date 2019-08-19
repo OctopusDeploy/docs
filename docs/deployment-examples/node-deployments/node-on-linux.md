@@ -252,7 +252,6 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 5. Continue to fill out the rest of the details, selecting the account you created above.
 
 More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) or [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md).
-:::
 
 ### Create Deployment Project {#ConfigureOctopusDeployProject-CreateDeploymentProject}
 
