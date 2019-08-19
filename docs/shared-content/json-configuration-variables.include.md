@@ -34,7 +34,7 @@ If you define the [variables](/docs/deployment-process/variables/index.md) `weat
    "weatherApiUrl": "test.weather.com",
    "weatherApiKey": "TEST7654321",
    "tempImageFolder": "C:\temp\img",
-   "port": 80
+   "port": 80,
    "debug": false
 }
 ```
