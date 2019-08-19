@@ -12,6 +12,10 @@ The first step to debug your failed tasks is to check the [Task Log](docs/suppor
 
 If a deployment failed unexpectedly within a built-in step, you may have misconfigured the step. Double check the configuration of your step in your deployment process. If your step is relying on variables, then you may have also misconfigured your variables. There are [some methods](docs/support/debug-problems-with-octopus-variables.md) available that can help you debug your variables.
 
+If a task fails while executing a PowerShell script, you may be able to get more information by debugging the PowerShell script. You can easily [debug PowerShell scripts](docs/deployment-examples/custom-scripts/debugging-powershell-scripts/index.md) as they are executed by Tentacle.
+
+Manually running the failed script on the same target may often be a helpful step towards getting more useful error information, and helping to isolate the problem. Remember to run the script under the same user account as the Tentacle Service. This user is often the **Local System** account, but this may have been changed so that [Tentacle runs under a specific user account](docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
+
 If none of the above steps help, then you may have encountered a bug in a built-in step, in which case you can contact support for further assistance.
 
 ## Networking Errors
@@ -23,6 +27,8 @@ If your task logs contain errors that indicate a networking issue, there could b
 Octopus Server communicates with Tentacles in either Listening mode or Polling mode. Both modes require different configuration. 
 
 A common problem is that traffic on the appropriate ports (10933 by default for Listening Tentacles) is not allowed by your firewall. If you are encountering problems with your connections, then your Task log might show messages that indicate a connection timing out, or a connection that was rejected by the remote host.
+
+A utility called [TentaclePing](https://github.com/OctopusDeploy/TentaclePing) can be used to test and diagnose connections between the machine hosting Octopus Server and the machines hosting Tentacles. This allows you to quickly test connections in isolation, without involving the complexity of Octopus Server, Tentacles or tasks.
 
 See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) for more information on configuring your Tentacles.
 
