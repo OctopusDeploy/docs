@@ -36,7 +36,7 @@ See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/window
 
 The tool that manages connections between Octopus Server and your Tentacles is called [Halibut](https://github.com/OctopusDeploy/Halibut/). In order to discover more detailed information about the connections, it may be useful to [increase the log level for Halibut](docs/support/log-files.md#Logfiles-Changingloglevelshalibut). The same change to increase the log level for Halibut can also be made on [Tentacle](docs/support/log-files.md#Logfiles-Changingloglevelstentacle).
 
-### Connections to external services
+### Connections to External Services
 
 Steps that execute on Deployment Targets or Workers may need to reach out to contact other external services. In these cases, a useful first step to help diagnose the problem is to attempt to manually perform the same connection - this can help to isolate the problem to a networking issue rather than a problem with Octopus Deploy.
 
@@ -50,8 +50,12 @@ If you can completely rule out anti-virus software as a source of interference, 
 
 If you are still unable to determine the cause of your hanging tasks, please contact support for further assistance.
 
-### Anti-virus software
+### Anti-virus Software
 
 If the task appears to hang after a log message output by Octopus Server or Tentacle, then in most cases the cause is anti-virus or anti-malware software interfering with the task. The first step is to determine if your anti-virus software is actually affecting your Tasks, and this can easily be done by removing your anti-virus protection and confirming whether the tasks continue to be unresponsive.
 
 If this test shows that anti-virus is interfering with your tasks, you may need to configure your anti-virus software with the appropriate exclusions to ensure that it does not lock any files owned by Octopus, or affect any running processes initiated by Octopus. Consult your anti-virus provider's documentation for more information.
+
+## Steps Are Slow to Start
+
+If you notice that your PowerShell script or built in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](docs/deployment-process/variables/system-variables#Systemvariables-User-modifiablesettings) for more information.
