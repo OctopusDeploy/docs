@@ -58,4 +58,4 @@ If this test shows that anti-virus is interfering with your tasks, you may need 
 
 ## Steps Are Slow to Start
 
-If you notice that your PowerShell script or built in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](docs/deployment-process/variables/system-variables#Systemvariables-User-modifiablesettings) for more information.
+If you notice that your PowerShell script or built in steps take a while to begin execution, and the time is consistent across your steps, then you may have something in your Tentacle user's PowerShell profile which is causing PowerShell to take a long time to initialize. Add the `Octopus.Action.PowerShell.ExecuteWithoutProfile` variable to your deployment to help diagnose this problem. See [System Variables](docs/deployment-process/variables/system-variables.md#Systemvariables-User-modifiablesettings) for more information.
