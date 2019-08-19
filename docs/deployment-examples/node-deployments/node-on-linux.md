@@ -251,7 +251,7 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.
 5. Continue to fill out the rest of the details, selecting the account you created above.
 
-More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) or [Linux Tentacles](/docs/infrastructure/linux/tenacle/index.md).
+More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) or [Linux Tentacles](/docs/infrastructure/linux/tentacle/index.md).
 :::
 
 ### Create Deployment Project {#ConfigureOctopusDeployProject-CreateDeploymentProject}
