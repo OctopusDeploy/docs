@@ -4,29 +4,41 @@ description: Jenkins can work together with Octopus Deploy to create releases an
 position: 60
 ---
 
-[Jenkins](http://jenkins-ci.org/) is an extendable, open-source continuous integration server. You can use Jenkins to compile and test your code, and then have it trigger deployments in Octopus Deploy. This page will guide you through making these tools work together.
+[Jenkins](http://jenkins-ci.org/) is an extendable, open-source continuous integration server that makes build automation easy.
 
-## Prerequisites {#Jenkins-Prerequisites}
+Using Jenkins and Octopus Deploy together, you can:
 
-Plugins are central to Jenkins, and a number of plugins will be required to follow the steps on this page. Before you can start, you'll need to ensure the following plugins are enabled:
+- Use Jenkins to compile, test, and package your applications.
+- Automatically trigger deployments in Octopus from Jenkins whenever a build completes.
+- Automatically fail a build in Jenkins if the deployment in Octopus fails.
+- Securely deploy your applications with Octopus Deploy across your infrastructure.
+- Fully automate your continuous integration and continuous deployment processes.
 
-- [MSBuild Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSBuild+Plugin) - required to compile your Visual Studio solution
-- [Mask Passwords Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Mask+Passwords+Plugin) - required to store your Octopus API keys and keep them out of the console
+## Jenkins Installation
 
-Build job
+If you need guidance installing Jenkins for the first time, see the [Jenkins documentation](https://jenkins.io/doc/book/installing/), or the blog post, [installing Jenkins from Scratch](https://octopus.com/blog/installing-jenkins-from-scratch).
+
+## Jenkins Plugins
+
+Plugins are central to Jenkins, and a number of plugins are required to follow the steps on this page. Before you start, you'll need to ensure the following plugins are enabled:
+
+- [MSBuild Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSBuild+Plugin): required to compile your Visual Studio solution.
+- [Mask Passwords Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Mask+Passwords+Plugin): required to store your Octopus API keys and keep them out of the console.
+
+## Build job
 
 During our Jenkins job, we will:
 
-1. Compile the code, run unit tests, and so on - typical CI tasks.
-2. Have OctoPack create NuGet packages.
-3. Publish these NuGet packages to the Octopus Deploy Server.
+1. Compile the code, and run unit tests.
+2. Create NuGet packages with OctoPack.
+3. Publish these NuGet packages to the Octopus Deploy server.
 4. Create a release in Octopus, ready to be deployed.
 
-Jenkins uses the MSBuild plugin to compile Visual Studio solutions. [Once OctoPack has been installed](/docs/packaging-applications/create-packages/octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
+Jenkins uses the MSBuild plugin to compile Visual Studio solutions. After you've installed [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) on your C#/VB projects, you can configure Jenkin's MSBuild task to pass the appropriate parameters to MSBuild to have OctoPack run:
 
-![](images/3278145.png)
+![](images/msbuild-parameters.png)
 
-There are a number of parameters that you will want to define. For this page, we are using:
+There are a number of parameters you need to define. For this page, we are using:
 
 ```bash
 /p:RunOctoPack=true /p:OctoPackPackageVersion=1.1.${BUILD_NUMBER} /p:OctoPackPublishPackageToHttp=http://localhost/nuget/packages /p:OctoPackPublishApiKey=${OctopusApiKey}
@@ -34,10 +46,10 @@ There are a number of parameters that you will want to define. For this page, we
 
 The settings are:
 
-- **RunOctoPack**: specifies that OctoPack should create packages during the build
-- **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Jenkins build numbers are integers like "12", we combine it with "1.1." to produce package versions such as "1.0.12".
-- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy Server. Read more about the [built-in NuGet repository in Octopus](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
-- **OctoPackPublishApiKey**: your Octopus Deploy API key
+- **RunOctoPack**: specifies that OctoPack should create packages during the build.
+- **OctoPackPackageVersion**: version number that should be given to packages created by OctoPack. Since Jenkins build numbers are integers like "12", we combine it with "1.1." to produce package versions such as "1.0.12". Learn more about [versioning in Octopus](/docs/packaging-applications/create-packages/versioning.md).
+- **OctoPackPublishPackageToHttp**: tells OctoPack to push the package to the Octopus Deploy server. Read more about the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md). You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus. 
+- **OctoPackPublishApiKey**: your Octopus Deploy API key. See [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
 :::success
 **OctoPack arguments**
@@ -105,7 +117,3 @@ Again, see the [arguments to Octo.exe](/docs/octopus-rest-api/octo.exe-command-l
 :::
 
 With these settings, Jenkins should trigger a deployment as soon as a job completes.
-
-**Give us feedback**
-
-We're Octopus Deploy experts, not Jenkins experts, so we're always looking for ways to improve this page. If you think this can be improved, or if you get stuck, [get in touch on our support site](https://octopus.com/support)!
