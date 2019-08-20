@@ -78,7 +78,7 @@ Start the Tentacle interactively by running:
     [Service]
     Type=simple
     User=root
-    WorkingDirectory=/etc/octopus/default/
+    WorkingDirectory=/etc/octopus/tentacle/
     ExecStart=/opt/octopus/tentacle/Tentacle run --instance <instance name> --noninteractive
     Restart=always
 
