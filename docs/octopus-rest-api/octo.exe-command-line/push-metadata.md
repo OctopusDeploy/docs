@@ -4,7 +4,7 @@ description: Pushes package metadata to Octopus Server.
 position: 285
 ---
 
-Pushes package metadata ([build information(/docs/packaging-application/build-servers/index.md#build-information)]) to your Octopus Server.
+Pushes package metadata (and [build information](/docs/packaging-application/build-servers/index.md#build-information)) to your Octopus Server.
 
 **push-metadata options**
 
