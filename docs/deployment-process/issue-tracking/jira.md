@@ -140,6 +140,22 @@ When configured, this integration will provide Jira with updates about the progr
 
 ### Testing the Integration
 
+**Octopus 2019.7.13** introduced the ability to verify that a connection between the Octopus server and the Jira cloud/Server instance can be made successfully.
+
+The **Connect App** `Test` button checks the connectivity for pushing deployment data to a Jira cloud instance. 
+![Connect App Test button](images/jiraconnectapp_testbutton.png)
+
+:::hint
+For this connectivity test to succeed the Octopus server must be able to connect to https://jiraconnectapp.octopus.com which hosts our Jira plugin and to your Jira cloud instance's Url
+:::
+
+The **Release Notes** `Test` button checks the connectivity for retrieving work item information from Jira. 
+![Release Notes Test button](images/jirareleasenotes_testbutton.png)
+
+:::hint
+For this connectivity test to succeed the Octopus server must be able to connect to your Jira cloud/Server instance's Url
+:::
+
 When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
 :::hint
