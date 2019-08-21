@@ -15,12 +15,12 @@ There are three distinct versions (or version ranges) you need to worry about wi
 
 The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension
 
-| Azure DevOps/TFS Version / Extension Version | 1.2.x | 2.0.199 | 3.0.x |
-| ------------------------------------ |:-----:|:------:|:-----:|
-| Azure DevOps                         | Supported | Not supported | Supported |
-| TFS 2017 Update 1                    | Supported | See below | Supported |
-| TFS 2017 RTM                         | Supported | Supported | Not supported |
-| TFS 2015 Updates 2,3,4               | Supported | Supported | Not supported |
+| Azure DevOps/TFS Version / Extension Version |   1.2.x   |   2.0.199     |     3.0.x     |
+| -------------------------------------------- |:---------:|:-------------:|:-------------:|
+| Azure DevOps                                 | Supported | Not supported |   Supported   |
+| TFS 2017 Update 1                            | Supported |   See below   |   Supported   |
+| TFS 2017 RTM                                 | Supported |   Supported   | Not supported |
+| TFS 2015 Updates 2,3,4                       | Supported |   Supported   | Not supported |
 
 TFS 2017 Update 1 is technically supported with version 2.0.199 of the extension, but we do not recommended it.
 
