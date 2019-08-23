@@ -57,7 +57,7 @@ You can use the full semantic version as part of your version range specificatio
 
 4. Enter any pre-release tags you want to include.
 
-Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner. Some examples are.
+Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |
@@ -66,6 +66,7 @@ Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release
 | beta.\* | matches pre-releases like beta and beta0003 | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
 | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
 | bugfix- | matches any with '*bugfix-*' prefix (e.g. *bugfix-syscrash)* | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
+| ^beta((/+).*)? | matches pre-releases which begin with beta but _not_ metadata containing beta | Prevent SemVer metadata from inadvertently matching the rule|
 
 :::hint
 If adding a pre-release tag to Channels, you will also need to add the tag `^$` to your `default` channel
