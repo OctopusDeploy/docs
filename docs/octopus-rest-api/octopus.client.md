@@ -148,7 +148,7 @@ var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"]
 
 ## Working With Spaces
 
-Octopus version 2019.1 introduced [Spaces](/docs/administration/spaces/index.md). Working with anything other than the default space requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
+**Octopus 2019.1** introduced [Spaces](/docs/administration/spaces/index.md). Working with anything other than the default space requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
 
 ### `OctopusClient.ForSpace`
 
