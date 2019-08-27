@@ -4,54 +4,71 @@ description: Octopus.Client is an open source .NET library that makes it easy to
 position: 110
 ---
 
-Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients) .NET library that makes it easy to write C# programs that manipulate the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md).
+Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients) .NET library that makes it easy to write C# programs or PowerShell scripts that manipulate the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md).
 
-Because the Octopus Deploy application itself is built entirely on the API, C# programs using the API can do anything that could be done by a user of the application itself.
+Because the Octopus Deploy application itself is built entirely on the API, any programming language that can make HTTP requests to the API can do anything that could be done by a user of the application itself.
 
-The NuGet package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 or later and contains both the synchronous and asynchronous API. The .NET Standard build is compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core 1.0 and only contains the asynchronous API.
+Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Client). The package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 or later, while the .NET Standard build is cross-platform and compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core and can be used from PowerShell Core.
 
 ## Getting Started {#Octopus.Client-Gettingstarted}
 
 :::hint
-The complete details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available at [the API documentation site](http://g.octopushq.com/ApiDocs).
+Details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available at [the API documentation site](https://g.octopushq.com/ApiDocs), while [swagger documentation](https://demo.octopus.com/swaggerui) is also available
 :::
 
-To use the C# client, first install the package via NuGet:
+To use from PowerShell, use the `Install-Package` command from the Microsoft [PackageManagement](https://docs.microsoft.com/en-us/powershell/module/packagemanagement) module:
+```powershell
+Install-Package Octopus.Client -source https://www.nuget.org/api/v2
+$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net45/Octopus.Client.dll"
+Add-Type -Path $path
+```
+_This is a bit harder than it should be, but [there are plans](https://github.com/PowerShell/PowerShell/issues/6724) to make it simpler._
+
+To use from C#, first install the package via the NuGet Package Manager:
 
 ```powershell
-Install-Package Octopus.Client
+PM> Install-Package Octopus.Client
 ```
 
-Alternatively, the client is available in the installation directory of Octopus Deploy.
+Alternatively, the client is available in both the installation directory of Octopus Deploy Server and Tentacle.
 
 ### Synchronous API {#Octopus.Client-SynchronousAPI}
 
 The easiest way to use the client is via the `OctopusRepository` helper:
 
-```cs
-var server = "http://myoctopusserver/";
-var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus web portal
+```powershell PowerShell
+Add-Type -Path 'C:\PathTo\Octopus.Client.dll'
+$server = "https://myoctopus.example.com"
+$apiKey = "API-YOURKEY";              # Get this from your 'profile' page in the Octopus web portal
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint($server, $apiKey)
+$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+```
+```cs C#
+var server = "https://myoctopus.example.com/";
+var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus web portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
 ```
 
-If you don't want to provide an API key for authentication, you can leave it out and authenticate with the `SignIn()` method instead:
+While API key authentication is recommended, you can also use username/password for authentication with the `SignIn()` method instead:
 
-```cs
+```powershell PowerShell
+$loginCreds = New-Object Octopus.Client.Model.LoginCommand
+$loginCreds.Username = "me"
+$loginCreds.Password = "secret"
+$repository.Users.SignIn($loginCreds)
+```
+```cs C#
 repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
-
-:::hint
-Octopus.Client relies on `HttpClient` to do all the network calls. So if you're using it from `netcoreapp` then the Synchronous API is not available, you have to use the Asynchonous API detailed below.
-:::
 
 ### Asynchronous API (Octopus.Client 4.0+) {#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 
-```cs
-var server = "http://myoctopusserver/";
-var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus web portal
+```cs c#
+var server = "https://myoctopus.example.com/";
+var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus web portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 using (var client = await OctopusAsyncClient.Create(endpoint))
 {
@@ -64,14 +81,6 @@ If you don't want to provide an API key for authentication, you can leave it out
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
-### PowerShell {#Octopus.Client-Powershell}
-
-```powershell
-Add-Type -Path 'C:\PathTo\Octopus.Client.dll'
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("http://localhost",$ApiKey)
-$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
-```
-
 :::success
 **OctoPosh**
 Also see the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project, which provides PowerShell commandlet wrappers around Octopus.Client
@@ -81,7 +90,12 @@ Also see the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project, which pro
 
 Resources can be loaded and saved with code like the following:
 
-```cs
+```powershell PowerShell
+$machine = $repository.Machines.Get("machines-1");
+$machine.Name = "Test Server 1";
+$repository.Machines.Modify($machine);
+```
+```cs C#
 // Sync
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";
@@ -99,7 +113,10 @@ The repository methods all make direct HTTP requests, there's no "session" abstr
 
 For some operations not available through repositories it will be necessary to use the `IOctopusClient` type:
 
-```cs
+```powershell PowerShell
+$connection = $repository.Client.Get($machine.Links["Connection"]);
+```
+```cs C#
 // Sync
 var connection = repository.Client.Get(machine.Links["Connection"]);
  
@@ -107,29 +124,37 @@ var connection = repository.Client.Get(machine.Links["Connection"]);
 var connection = await client.Get(machine.Links["Connection"]);
 ```
 
-The entire API is accessible by traversing links - each resource carries a collection of links, like the "Connection" link on `MachineResource` shown above.
+The entire API is accessible by traversing links - each resource carries a collection of links, like the `Connection` link on `MachineResource` shown above.
+
+:::warning
+Always access objects by traversing the links - avoid using direct url segments, as they may change in the future.
+:::
 
 To start traversing links, `IOctopusClient.RootDocument` is provided:
 
-```cs
+```powershell PowerShell
+$link = $repository.Client.RootDocument.Links["CurrentUser"].ToString()
+$method = $repository.Client.GetType().GetMethod("Get").MakeGenericMethod([Octopus.Client.Model.UserResource])
+$me = $method.invoke($repository.Client, @($link, $null))
+```
+```cs C#
 // Sync
 var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Links["CurrentUser"]);
  
 // Async
 var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"])
 ```
-
-*(This example is superfluous as `repository.Users.GetCurrent()` wraps this common operation.)*
+*(This is purely an example - this common operation is also available via `repository.Users.GetCurrent()`.)*
 
 ## Working With Spaces
 
-Octopus version 2019.1 introduced [Spaces](/docs/administration/spaces/index.md). Working with the non-default space in API requests requires specifying the target space. There are two methods of specifying the target space with Octopus.Client.
+Octopus version 2019.1 introduced [Spaces](/docs/administration/spaces/index.md). Working with anything other than the default space requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
 
-### Using OctopusClient.ForSpace
+### `OctopusClient.ForSpace`
 
 ```powershell PowerShell
 # Create endpoint and client
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY")
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY")
 $client = New-Object Octopus.Client.OctopusClient($endpoint)
 
 # Get default repository and get space by name
@@ -142,7 +167,7 @@ $projects = $repositoryForSpace.Projects.GetAll()
 ```
 ```cs C#
 // Create endpoint and client
-var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY");
+var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
 var client = new OctopusClient(endpoint);
 
 // Get default repository and get space by name
@@ -154,11 +179,11 @@ var repositoryForSpace = client.ForSpace(space);
 var projects = repositoryForSpace.Projects.GetAll();
 ```
 
-### Using OctopusRepositoryExtensions.ForSpace
+### `OctopusRepositoryExtensions.ForSpace`
 
 ```powershell PowerShell
 # Create endpoint and repository
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY")
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY")
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 
 # Get space by name
@@ -170,7 +195,7 @@ $projects = $repositoryForSpace.Projects.GetAll()
 ```
 ```cs C#
 // Create endpoint and repository
-var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOURKEY");
+var endpoint = new OctopusServerEndpoint("https://myoctopus.example.com", "API-YOURKEY");
 var repository = new OctopusRepository(endpoint);
 
 // Get space by name
@@ -185,15 +210,10 @@ var projects = repositoryForSpace.Projects.GetAll();
 
 You can use Octopus.Client from inside Octopus (for example in a script step, a package install script, or the script console) by loading it from the server or Tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
 
-**PowerShell**
-
-```powershell
-Add-Type -Path 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Client.dll'
+```powershell PowerShell
+Add-Type -Path C:\Program Files\Octopus Deploy\Octopus\Octopus.Client.dll'
 ```
-
-**C# Script**
-
-```cs
+```cs C#
 #r "C:\\Program Files\\Octopus Deploy\\Octopus\\Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
