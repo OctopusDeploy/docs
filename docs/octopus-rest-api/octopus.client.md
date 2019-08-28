@@ -8,12 +8,12 @@ Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClien
 
 Because the Octopus Deploy application itself is built entirely on the API, any programming language that can make HTTP requests to the API can do anything that could be done by a user of the application itself.
 
-Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Client). The package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 or later, while the .NET Standard build is cross-platform and compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core and can be used from PowerShell Core.
+Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Client). The package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 and later, and the .NET Standard build is cross-platform and compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core and can be used from PowerShell Core.
 
 ## Getting Started {#Octopus.Client-Gettingstarted}
 
 :::hint
-Details for the API itself - where to find it, how to authenticate, the available resources and so-on - are available at [the API documentation site](https://g.octopushq.com/ApiDocs), while [swagger documentation](https://demo.octopus.com/swaggerui) is also available
+Details for where to find the API, how to authenticate, and the available resources are available at [the API documentation site](https://g.octopushq.com/ApiDocs), and [swagger documentation is also available](https://demo.octopus.com/swaggerui).
 :::
 
 To use from PowerShell, use the `Install-Package` command from the Microsoft [PackageManagement](https://docs.microsoft.com/en-us/powershell/module/packagemanagement) module:
@@ -22,7 +22,6 @@ Install-Package Octopus.Client -source https://www.nuget.org/api/v2
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net45/Octopus.Client.dll"
 Add-Type -Path $path
 ```
-_This is a bit harder than it should be, but [there are plans](https://github.com/PowerShell/PowerShell/issues/6724) to make it simpler._
 
 To use from C#, first install the package via the NuGet Package Manager:
 
@@ -50,7 +49,7 @@ var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
 ```
 
-While API key authentication is recommended, you can also use username/password for authentication with the `SignIn()` method instead:
+API key authentication is recommended, but you can use username/password for authentication with the `SignIn()` method instead:
 
 ```powershell PowerShell
 $loginCreds = New-Object Octopus.Client.Model.LoginCommand
@@ -127,7 +126,7 @@ var connection = await client.Get(machine.Links["Connection"]);
 The entire API is accessible by traversing links - each resource carries a collection of links, like the `Connection` link on `MachineResource` shown above.
 
 :::warning
-Always access objects by traversing the links - avoid using direct url segments, as they may change in the future.
+Always access objects by traversing the links; avoid using direct url segments, as they may change in the future.
 :::
 
 To start traversing links, `IOctopusClient.RootDocument` is provided:
@@ -144,7 +143,7 @@ var me = repository.Client.Get<UserResource>(repository.Client.RootDocument.Link
 // Async
 var me = await client.Get<UserResource>(client.RootDocument.Links["CurrentUser"])
 ```
-*(This is purely an example - this common operation is also available via `repository.Users.GetCurrent()`.)*
+*(This is only an example. This common operation is also available via `repository.Users.GetCurrent()`.)*
 
 ## Working With Spaces
 
