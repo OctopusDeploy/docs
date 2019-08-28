@@ -23,6 +23,12 @@ $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.Ful
 Add-Type -Path $path
 ```
 
+For PowerShell Core, the path needs to be slightly different:
+```powershell
+Install-Package Octopus.Client -source https://www.nuget.org/api/v2
+$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
+Add-Type -Path $path```
+
 To use from C#, first install the package via the NuGet Package Manager:
 
 ```powershell
