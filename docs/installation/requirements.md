@@ -14,7 +14,6 @@ The Octopus Deploy server is hosted on a Microsoft Windows operating system, how
 
 Octopus Deploy server can be hosted on any modern Windows Server. We automatically test the Octopus Deploy server on the following versions of Windows Server:
 
-- Windows Server 2008 SP2
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
