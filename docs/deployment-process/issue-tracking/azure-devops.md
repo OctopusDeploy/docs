@@ -32,7 +32,7 @@ The ability to push the build information to Octopus, which is required for Azur
  - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
- 
+
 We will be rolling this out for the Jenkins plugin soon.
 
 ## Configuring Azure DevOps Integration
@@ -49,10 +49,14 @@ To integrate with Azure DevOps work items, Octopus needs to understand which wor
 To supply the build information:
 
 1. Install one of our official [build server plugins](#availability) with support for our metadata step.
-
 2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index.md#build-information-step).
-
 3. Ensure your Octopus Metadata step has set the 'Process commit messages' or 'Work Items Source' field.
+
+:::warning
+If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.
+
+![Legacy create release settings](images\octo-azure-devops-create-release-notes-fields.png "width=500")
+:::
 
 ## Connect Octopus to Azure DevOps {#connect-octopus-to-azure-devops}
 
