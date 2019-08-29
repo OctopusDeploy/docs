@@ -6,10 +6,9 @@ version: 2019.?.????
 ---
 
 :::hint
-Octopus ID authentication is available in **Hosted Octopus 2019.?.????** and later
+Octopus ID authentication is available only in **Octopus Cloud**
 :::
 
 Octopus ID authentication allows you to log in to your Octopus hosted instance using your Octopus account.
 
-Configuration is handled by the hosted Octopus infrastructure and no user configuration is required.
-
+Support for Octopus ID will be progressively rolled out to Octopus Cloud, and configuration is handled by the hosted Octopus infrastructure so no user configuration is required.
