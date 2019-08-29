@@ -38,6 +38,7 @@ We try to keep the .NET Framework requirements for Octopus server as stable as p
 
 - **Octopus 3.4** to **Octopus 2018.4.0** requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
 - **Octopus 2018.5.0** and later requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
+- **Octopus 2019.7.0** and later requires [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkID=863265) or newer.
 
 ## Supported Browsers {#supported-browsers}
 
