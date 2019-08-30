@@ -29,7 +29,7 @@ The ability to push the build information to Octopus, which is required for Jira
  - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
- 
+
 We will be rolling this out for the Jenkins plugin soon.
 
 ### Jira Cloud Only
@@ -156,7 +156,11 @@ The **Release Notes** `Test` button (found under `Jira Password`) checks the con
 For this connectivity test to succeed the Octopus server must be able to connect to your Jira Cloud/Server instance's URL.
 :::
 
+### Deployments
+
 When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
+
+![Deployment task log](images/deploy-task-log-green.png)
 
 :::hint
 You must [configure your build server](#configure-your-build-server) to push commit information to Octopus.
@@ -165,6 +169,4 @@ Without this, Octopus will not attempt to update Jira issues.
 
 The following illustrates Octopus attempting to send an _in_progress_, and then a _successful_, state change to Jira. In this example, Octopus was unable to connect to Jira or send the state change, however, this does not impact the Octopus deployment itself, the deployment will still be considered a successful deployment.
 
-![Deployment task log](images/deploy-task-log.png)
-
-When Octopus successfully sends state changes to Jira, the blocks will appear with green text just like the other blocks in the log.
+![Deployment task log with warnings](images/deploy-task-log.png)
