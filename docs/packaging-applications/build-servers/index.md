@@ -44,7 +44,7 @@ The TeamCity version of the _Build Information_ step is shown below.
 
 :::hint
 
-The Verbose logging option can be used to include more detail in the build logs. This includes a complete output of all of the build information being passed to Octopus, which can be very helpful when troubleshooting.
+The Verbose logging option can be used to include more detail in the build logs. This includes a complete output of all of the build information being passed to Octopus, which can be useful when troubleshooting.
 
 :::
 
