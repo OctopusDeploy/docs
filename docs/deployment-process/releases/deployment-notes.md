@@ -10,6 +10,14 @@ Deployment notes summarize these changes by rolling up the [release notes](/docs
 
 ![Deployment notes](images/deployment-notes.png)
 
+## Versioning and Pre-releases  {#Versioning}
+
+When it comes to release changes and deployment notes, [pre-release versions](/docs/packaging-applications/create-packages/versioning.md#semver) are handled differently to other versions. Deployments of a pre-release will only ever include changes for that single version, they do not accumulate across versions like other scenarios.
+
+The reason for this is that in some scenarios different pre-release versions could be getting deployed to an environment where they co-exist. Consider deployments for an application installer or a NuGet package. You could have multiple branched versions of those co-existing in an environment at any given point, as an example, so the accumulation of work across releases has to be considered differently.
+
+Octopus therefore takes the position that pre-releases are a "work in progress" and will fail under the banner of "full" release when that are completed/merged. At that point the changes are then considered for accumulation across the "full" versions.
+
 ## Deployment Change Variables
 
 It can be useful to access the changes associated with a deployment in the deployment process.
