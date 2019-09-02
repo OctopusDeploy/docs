@@ -222,6 +222,9 @@ The following filters are available:
 - NowDateUtc
 - Format
 - Replace
+- Trim
+- Truncate
+- Substring
 
 The filters can be invoked in the following way:
 

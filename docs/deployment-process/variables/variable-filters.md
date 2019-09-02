@@ -49,6 +49,9 @@ Octopus provides the following filters:
 | [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC            |                         | `2016-11-02T23:01:46.9441479Z` |
 | [`Format`](#format)                     | Applies a format                           | `4.3`                   | `$4.30`                        |
 | [`Replace`](#replace)                   | Replaces a pattern                         | `1;2;3`                 | `1, 2, 3`                      |
+| [`Trim`](#trim)                         | Removes whitespace from the start/end      | `···Bar···`             | `Bar`                          |
+| [`Truncate`](#truncate)                 | Limits the length of values                | `Octopus Deploy`        | `Octopus...`                   |
+| [`Substring`](#substring)               | Extracts a range of characters by position | `Octopus Deploy`        | `Deploy`                       |
 
 ### NowDate and NowDateUtc
 
@@ -85,6 +88,35 @@ The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expre
 | `abc`         | `#{MyVar | Replace "(.)b(.)" "$2X$1" }` | `cXa`                   |
 | `abc`         | `#{MyVar | Replace #{match}#{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
 | `abc`         | `#{MyVar | Replace #{match} _}`         | `a_c` (when `match`=`b`)                   |
+
+### Trim
+
+The *Trim* filter introduced in **Octopus 2019.8.0** removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
+
+| MyVar Value | Filter Expression       | Output   |
+| ----------- | ----------------------- | -------- |
+| `···Bar···` | `#{MyVar | Trim}`       | `Bar`    |
+| `···Bar···` | `#{MyVar | Trim start}` | `Bar···` |
+| `···Bar···` | `#{MyVar | Trim end}`   | `···Bar` |
+
+### Truncate
+
+The *Truncate* filter introduced in **Octopus 2019.8.0** limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
+
+| MyVar Value      | Filter Expression       | Output       |
+| ---------------- | ----------------------- | ------------ |
+| `Octopus Deploy` | `#{MyVar | Truncate 7}` | `Octopus...` |
+| `abc`            | `#{MyVar | Truncate 7}` | `abc`        |
+
+### Substring
+
+The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
+
+| MyVar Value      | Filter Expression          | Output       |
+| ---------------- | -------------------------- | ------------ |
+| `Octopus Deploy` | `#{MyVar | Substring 8 6}` | `Deploy`     |
+| `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus`    |
+| `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`        |
 
 :::hint
 Filters were introduced in **Octopus 3.5**.
