@@ -36,15 +36,15 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 Octopus provides the following filters:
 
-| Name         | Purpose                                        | Example Input        | Example Output                 |
-| ------------ | ----------------------------------------       | -------------------- | --------------------------     |
-| `ToLower`    | Forces values to lowercase                     | Automated Deployment | automated deployment           |
-| `ToUpper`    | Forces values to uppercase                     | Automated Deployment | AUTOMATED DEPLOYMENT           |
-| `ToBase64`   | Converts values to Base64 (using UTF encoding) | Bar                  | QmF6                           |
-| `HtmlEscape` | Escapes entities for use in HTML content       | 1 < 2                | 1 \&lt; 2                      |
-| `XmlEscape`  | Escapes entities for use in XML content        | 1 < 2                | 1 \&lt; 2                      |
-| `JsonEscape` | Escapes data for use in JSON strings           | He said "Hello!"     | He said \\"Hello!\\"           |
-| `Markdown`   | Converts Markdown to HTML                      | This \_rocks\_       | \<p>This \<em>rocks\</em>\</p> |
+| Name         | Purpose                                        | Example Input          | Example Output                   |
+| ------------ | ----------------------------------------       | ---------------------- | -------------------------------- |
+| `ToLower`    | Forces values to lowercase                     | `Automated Deployment` | `automated deployment`           |
+| `ToUpper`    | Forces values to uppercase                     | `Automated Deployment` | `AUTOMATED DEPLOYMENT`           |
+| `ToBase64`   | Converts values to Base64 (using UTF encoding) | `Bar`                  | `QmF6`                           |
+| `HtmlEscape` | Escapes entities for use in HTML content       | `1 < 2`                | `1 \&lt; 2`                      |
+| `XmlEscape`  | Escapes entities for use in XML content        | `1 < 2`                | `1 \&lt; 2`                      |
+| `JsonEscape` | Escapes data for use in JSON strings           | `He said "Hello!"`     | `He said \\"Hello!\\"`           |
+| `Markdown`   | Converts Markdown to HTML                      | `This \_rocks\_`       | `\<p>This \<em>rocks\</em>\</p>` |
 
 The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
@@ -60,7 +60,7 @@ The *Format* filter introduced in **Octopus 3.5** allows for converting of inpu
 
 | MyVar Value           | Example Input                     | Output     |
 | --------------------- | --------------------------------- | ---------- |
-| 4.3                   | `#{ MyVar | Format C}`            | $4.30      |
+| `4.3`                 | `#{ MyVar | Format C}`            | $4.30      |
 | `2030/05/22 09:05:00` | `#{ MyVar | Format yyyy}`         | 2030       |
 |                       | `#{ | NowDate | Format Date MMM}` | Nov        |
 
