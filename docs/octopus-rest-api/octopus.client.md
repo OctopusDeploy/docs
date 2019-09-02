@@ -38,7 +38,7 @@ Add-Type -Path $path
 $path = Join-Path (Get-Item ((Get-Package Octodiff).source)).Directory.FullName "lib/netstandard2.0/Octodiff.dll"
 Add-Type -Path $path
 
-# alternatively, if you
+# alternatively, if you are referencing from the Tentacle directory
 Add-Type -Path '/path-to/NewtonSoft.Json.dll'
 Add-Type -Path '/path-to/Octodiff.dll'
 ```
