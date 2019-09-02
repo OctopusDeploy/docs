@@ -45,6 +45,10 @@ Octopus provides the following filters:
 | `XmlEscape`  | Escapes entities for use in XML content        | `1 < 2`                | `1 \&lt; 2`                      |
 | `JsonEscape` | Escapes data for use in JSON strings           | `He said "Hello!"`     | `He said \\"Hello!\\"`           |
 | `Markdown`   | Converts Markdown to HTML                      | `This \_rocks\_`       | `\<p>This \<em>rocks\</em>\</p>` |
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                   |                         | `2016-11-03T08:53:11.0946448`  |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC            |                         | `2016-11-02T23:01:46.9441479Z` |
+| [`Format`](#format)                     | Applies a format                           | `4.3`                   | `$4.30`                        |
+| [`Replace`](#replace)                   | Replaces a pattern                         | `1;2;3`                 | `1, 2, 3`                      |
 
 ### NowDate and NowDateUtc
 
