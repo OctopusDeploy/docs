@@ -68,8 +68,8 @@ The *Format* filter introduced in **Octopus 3.5** allows for converting of inpu
 
 | MyVar Value           | Filter Expression                 | Output     |
 | --------------------- | --------------------------------- | ---------- |
-| `4.3`                 | `#{ MyVar | Format C}`            | $4.30      |
-| `2030/05/22 09:05:00` | `#{ MyVar | Format yyyy}`         | 2030       |
+| `4.3`                 | `#{MyVar | Format C}`            | $4.30      |
+| `2030/05/22 09:05:00` | `#{MyVar | Format yyyy}`         | 2030       |
 |                       | `#{ | NowDate | Format Date MMM}` | Nov        |
 
 ### Replace
@@ -78,13 +78,13 @@ The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expre
 
 | MyVar Value   | Filter Expression                       | Output                  |
 | ------------- | --------------------------------------- | ----------------------- |
-| `abc`         | `#{ MyVar | Replace b}`                 | `ac`                    |
-| `abc`         | `#{ MyVar | Replace b X}`               | `aXc`                   |
-| `a b c`       | `#{ MyVar | Replace "a b" X}`           | `X c`                   |
-| `ab12c3`      | `#{ MyVar | Replace "[0-9]+" X}`        | `abXcX`                 |
-| `abc`         | `#{ MyVar | Replace "(.)b(.)" "$2X$1" }`| `cXa`                   |
-| `abc`         | `#{ MyVar | Replace #{match}#{replace}}`| `a_c` (when `match`=`b` and `replace`=`_`) |
-| `abc`         | `#{ MyVar | Replace #{match} _}`        | `a_c` (when `match`=`b`)                   |
+| `abc`         | `#{MyVar | Replace b}`                  | `ac`                    |
+| `abc`         | `#{MyVar | Replace b X}`                | `aXc`                   |
+| `a b c`       | `#{MyVar | Replace "a b" X}`            | `X c`                   |
+| `ab12c3`      | `#{MyVar | Replace "[0-9]+" X}`         | `abXcX`                 |
+| `abc`         | `#{MyVar | Replace "(.)b(.)" "$2X$1" }` | `cXa`                   |
+| `abc`         | `#{MyVar | Replace #{match}#{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
+| `abc`         | `#{MyVar | Replace #{match} _}`         | `a_c` (when `match`=`b`)                   |
 
 :::hint
 Filters were introduced in **Octopus 3.5**.
