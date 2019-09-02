@@ -27,7 +27,21 @@ For PowerShell Core, the path needs to be slightly different:
 ```powershell
 Install-Package Octopus.Client -source https://www.nuget.org/api/v2
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
-Add-Type -Path $path```
+Add-Type -Path $path
+```
+
+Note that if you're referencing the netstandard version of Octopus.Client, you may find you also need to add a reference to `NewtonSoft.Json.dll` and `Octodiff`:
+```powershell
+# if you're using `Install-Package`
+$path = Join-Path (Get-Item ((Get-Package NewtonSoft.Json).source)).Directory.FullName "lib/netstandard2.0/NewtonSoft.Json.dll"
+Add-Type -Path $path
+$path = Join-Path (Get-Item ((Get-Package Octodiff).source)).Directory.FullName "lib/netstandard2.0/Octodiff.dll"
+Add-Type -Path $path
+
+# alternatively, if you are referencing from the Tentacle directory
+Add-Type -Path '/path-to/NewtonSoft.Json.dll'
+Add-Type -Path '/path-to/Octodiff.dll'
+```
 
 To use from C#, first install the package via the NuGet Package Manager:
 
