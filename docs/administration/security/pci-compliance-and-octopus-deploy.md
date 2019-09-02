@@ -29,10 +29,6 @@ PCI Compliance is primarily concerned with implementing "controls" or "practices
 - If you really cannot use Tentacle or SSH, you can use Offline Package Drops for fully disconnected deployment automation. Learn about the [Offline Package Drop](/docs/infrastructure/deployment-targets/offline-package-drop.md) deployment target.
 - If you require isolated instance of Octopus Server our licensing model is quite flexible. Each license of Octopus Deploy grants you the right to install and configure up to three (3) separate instances of Octopus Server. Learn about managing [Isolated Octopus Deploy Servers](/docs/deployment-patterns/isolated-octopus-deploy-servers.md).
 
-### Promoting Releases Across Security Zones
-
-Take a look at our Request for Comments (RFC) on a new set of features we're calling [Remote Release Promotions](https://octopus.com/blog/remote-release-promotions-rfc). These features will reduce the friction involved when bridging across multiple Octopus Servers, even across PCI Compliant security zones.
-
 ## Security Considerations {#PCIComplianceandOctopusDeploy-Securityconsiderations}
 
 - Learn about [Octopus - Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md) to understand how automation instructions are transmitted securely to maintain trust.
