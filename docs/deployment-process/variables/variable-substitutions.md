@@ -222,9 +222,14 @@ The following filters are available:
 - NowDateUtc
 - Format
 - Replace
+- Trim
+- Truncate
+- Substring
 
 The filters can be invoked in the following way:
 
 ```powershell
 #{Octopus.Environment.Name | ToLower}
 ```
+
+For more information, see [Variable Filters](https://octopus.com/docs/deployment-process/variables/variable-filters).

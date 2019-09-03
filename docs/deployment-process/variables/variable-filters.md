@@ -12,7 +12,7 @@ Given the variable:
 
 | Name          | Value         | Scope |
 | ------------- | ------------- | ----- |
-| `ProjectName` | `You & I` |       |
+| `ProjectName` | `You & I`     |       |
 
 An the template:
 
@@ -36,15 +36,24 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 Octopus provides the following filters:
 
-| Name         | Purpose                                  | Example Input        | Example Output             |
-| ------------ | ---------------------------------------- | -------------------- | -------------------------- |
-| `HtmlEscape` | Escapes entities for use in HTML content | 1 < 2                | 1 \&lt; 2                   |
-| `JsonEscape` | Escapes data for use in JSON strings     | He said "Hello!"     | He said \\"Hello!\\"         |
-| `Markdown`   | Converts Markdown to HTML                | This \_rocks\_       | \<p>This \<em>rocks\</em>\</p> |
-| `ToBase64`   | Converts values to Base64 (using UTF encoding)   | Bar          | QmF6                       |
-| `ToLower`    | Forces values to lowercase               | Automated Deployment | automated deployment       |
-| `ToUpper`    | Forces values to uppercase               | Automated Deployment | AUTOMATED DEPLOYMENT       |
-| `XmlEscape`  | Escapes entities for use in XML content  | 1 < 2                | 1 \&lt; 2                   |
+| Name         | Purpose                                        | Example Input          | Example Output                   |
+| ------------ | ----------------------------------------       | ---------------------- | -------------------------------- |
+| `ToLower`    | Forces values to lowercase                     | `Automated Deployment` | `automated deployment`           |
+| `ToUpper`    | Forces values to uppercase                     | `Automated Deployment` | `AUTOMATED DEPLOYMENT`           |
+| `ToBase64`   | Converts values to Base64 (using UTF encoding) | `Bar`                  | `QmF6`                           |
+| `HtmlEscape` | Escapes entities for use in HTML content       | `1 < 2`                | `1 \&lt; 2`                      |
+| `XmlEscape`  | Escapes entities for use in XML content        | `1 < 2`                | `1 \&lt; 2`                      |
+| `JsonEscape` | Escapes data for use in JSON strings           | `He said "Hello!"`     | `He said \\"Hello!\\"`           |
+| `Markdown`   | Converts Markdown to HTML                      | `This \_rocks\_`       | `\<p>This \<em>rocks\</em>\</p>` |
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                   |                         | `2016-11-03T08:53:11.0946448`  |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC            |                         | `2016-11-02T23:01:46.9441479Z` |
+| [`Format`](#format)                     | Applies a format                           | `4.3`                   | `$4.30`                        |
+| [`Replace`](#replace)                   | Replaces a pattern                         | `1;2;3`                 | `1, 2, 3`                      |
+| [`Trim`](#trim)                         | Removes whitespace from the start/end      | `···Bar···`             | `Bar`                          |
+| [`Truncate`](#truncate)                 | Limits the length of values                | `Octopus Deploy`        | `Octopus...`                   |
+| [`Substring`](#substring)               | Extracts a range of characters by position | `Octopus Deploy`        | `Deploy`                       |
+
+### NowDate and NowDateUtc
 
 The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
 
@@ -56,25 +65,58 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 |                   | `#{ | NowDateUtc zz}`              | `+00` |
 | dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`        | `03-Nov-2016` |
 
+### Format
+
 The *Format* filter introduced in **Octopus 3.5** allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
-| MyVar Value           | Example Input                     | Output     |
+| MyVar Value           | Filter Expression                 | Output     |
 | --------------------- | --------------------------------- | ---------- |
-| 4.3                   | `#{ MyVar | Format C}`            | $4.30      |
-| `2030/05/22 09:05:00` | `#{ MyVar | Format yyyy}`         | 2030       |
+| `4.3`                 | `#{MyVar | Format C}`            | $4.30      |
+| `2030/05/22 09:05:00` | `#{MyVar | Format yyyy}`         | 2030       |
 |                       | `#{ | NowDate | Format Date MMM}` | Nov        |
+
+### Replace
 
 The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
 
-| MyVar Value   | Example Input                           | Output                  |
+| MyVar Value   | Filter Expression                       | Output                  |
 | ------------- | --------------------------------------- | ----------------------- |
-| `abc`         | `#{ MyVar | Replace b}`                 | `ac`                    |
-| `abc`         | `#{ MyVar | Replace b X}`               | `aXc`                   |
-| `a b c`       | `#{ MyVar | Replace "a b" X}`           | `X c`                   |
-| `ab12c3`      | `#{ MyVar | Replace "[0-9]+" X}`        | `abXcX`                 |
-| `abc`         | `#{ MyVar | Replace "(.)b(.)" "$2X$1" }`| `cXa`                   |
-| `abc`         | `#{ MyVar | Replace #{match}#{replace}}`| `a_c` when `match=b`,`replace=_` |
-| `abc`         | `#{ MyVar | Replace #{match} _}`        | `a_c` when `match=b`    |
+| `abc`         | `#{MyVar | Replace b}`                  | `ac`                    |
+| `abc`         | `#{MyVar | Replace b X}`                | `aXc`                   |
+| `a b c`       | `#{MyVar | Replace "a b" X}`            | `X c`                   |
+| `ab12c3`      | `#{MyVar | Replace "[0-9]+" X}`         | `abXcX`                 |
+| `abc`         | `#{MyVar | Replace "(.)b(.)" "$2X$1" }` | `cXa`                   |
+| `abc`         | `#{MyVar | Replace #{match}#{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
+| `abc`         | `#{MyVar | Replace #{match} _}`         | `a_c` (when `match`=`b`)                   |
+
+### Trim
+
+The *Trim* filter introduced in **Octopus 2019.8.0** removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
+
+| MyVar Value | Filter Expression       | Output   |
+| ----------- | ----------------------- | -------- |
+| `···Bar···` | `#{MyVar | Trim}`       | `Bar`    |
+| `···Bar···` | `#{MyVar | Trim start}` | `Bar···` |
+| `···Bar···` | `#{MyVar | Trim end}`   | `···Bar` |
+
+### Truncate
+
+The *Truncate* filter introduced in **Octopus 2019.8.0** limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
+
+| MyVar Value      | Filter Expression       | Output       |
+| ---------------- | ----------------------- | ------------ |
+| `Octopus Deploy` | `#{MyVar | Truncate 7}` | `Octopus...` |
+| `abc`            | `#{MyVar | Truncate 7}` | `abc`        |
+
+### Substring
+
+The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
+
+| MyVar Value      | Filter Expression          | Output       |
+| ---------------- | -------------------------- | ------------ |
+| `Octopus Deploy` | `#{MyVar | Substring 8 6}` | `Deploy`     |
+| `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus`    |
+| `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`        |
 
 :::hint
 Filters were introduced in **Octopus 3.5**.
