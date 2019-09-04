@@ -12,7 +12,7 @@ Deployment notes summarize these changes by rolling up the [release notes](/docs
 
 ## Versioning and Pre-releases  {#Versioning}
 
-When it comes to release changes and deployment notes, [pre-release versions](/docs/packaging-applications/create-packages/versioning.md#semver) are handled differently to other versions. Deployments of a pre-release will only ever include changes for that single version, they do not accumulate across versions like other scenarios.
+[Pre-release versions](/docs/packaging-applications/create-packages/versioning.md#semver) are handled differently to other versions for release changes and deployment notes. Deployments of a pre-release will only ever include changes for that single version, they do not accumulate across versions like other scenarios.
 
 The reason for this is that in some scenarios different pre-release versions could be getting deployed to an environment where they co-exist. Consider deployments for an application installer or a NuGet package. You could have multiple branched versions of those co-existing in an environment at any given point, as an example, so the accumulation of work across releases has to be considered differently.
 
