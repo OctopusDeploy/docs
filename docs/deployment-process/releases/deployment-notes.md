@@ -14,7 +14,7 @@ Deployment notes summarize these changes by rolling up the [release notes](/docs
 
 [Pre-release versions](/docs/packaging-applications/create-packages/versioning.md#semver) are handled differently to other versions for release changes and deployment notes. Deployments of a pre-release will only ever include changes for that single version, they do not accumulate across versions like other scenarios.
 
-The reason for this is that in some scenarios different pre-release versions could be getting deployed to an environment where they co-exist. Consider deployments for an application installer or a NuGet package. You could have multiple branched versions of those co-existing in an environment at any given point, as an example, so the accumulation of work across releases has to be considered differently.
+This is because in some scenarios different pre-release versions could be getting deployed to an environment where they co-exist. As an example, consider deployments for an application installer or a NuGet package, you could have multiple branched versions of those co-existing in an environment at any given point, so the accumulation of work across releases has to be treated differently.
 
 Octopus treats pre-releases as a *work in progress* that will fall under the banner of *full* release when they are completed/merged. At that point, the changes are then considered for accumulation across the *full* versions.
 
