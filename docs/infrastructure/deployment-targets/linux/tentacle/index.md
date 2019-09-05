@@ -130,7 +130,7 @@ To manually configure a systemd service, use the following sample unit file:
 
 2. Copy the unit file to `/etc/systemd/system` and give it permissions
     ```
-    sudo cp myservice.service /etc/systemd/system/tentacle.service
+    sudo cp tentacle.service /etc/systemd/system/tentacle.service
     sudo chmod 644 /etc/systemd/system/tentacle.service
     ```
 
@@ -144,6 +144,34 @@ To manually configure a systemd service, use the following sample unit file:
     sudo systemctl enable tentacle
     ```
 
+
+## Uninstall Tentacle
+
+To uninstall (delete) a Tentacle instance run the `service --stop` and then `delete-instance` commands firsts.
+
+```
+/opt/octopus/tentacle/Tentacle service --stop --instance <instance name>
+/opt/octopus/tentacle/Tentacle delete-instance <instance name>
+```
+
+If you created a systemd **Unit file** it can be deleted
+```
+sudo systemctl stop tentacle
+sudo rm /etc/systemd/system/tentacle.service
+```
+
+Then the working folders and logs can be deleted if no longer needed, depending on where you installed them
+```
+# default locations:
+# - installed directory:
+cd /opt/octopus/tentacle
+
+# - logs:
+cd /etc/octopus
+
+# - application directory:
+cd /home/Octopus/Applications
+```
 
 ## Automation scripts
 The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
