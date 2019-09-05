@@ -50,10 +50,10 @@ yum install tentacle
 ```bash Archive
 wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle
 #or
-curl https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-5.0.3-linux_x64.tar.gz
+curl https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-linux_x64.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle-5.0.3-linux_x64.tar.gz -C /opt/octopus
+tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
 ```
 
 ### Setting up a Tentacle instance
