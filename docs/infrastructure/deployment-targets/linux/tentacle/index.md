@@ -50,9 +50,9 @@ yum install tentacle
 ```
 
 ```bash Archive
-wget https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.3-linux_x64.tar.gz
+wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle
 #or
-curl https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.3-linux_x64.tar.gz --output tentacle-5.0.3-linux_x64.tar.gz
+curl https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-5.0.3-linux_x64.tar.gz
 
 mkdir /opt/octopus
 tar xvzf tentacle-5.0.3-linux_x64.tar.gz -C /opt/octopus
@@ -77,6 +77,43 @@ Start the Tentacle interactively by running:
 ```
 
 ### Running Tentacle as a service (systemd)
+Tentacle has command line options for configuring a systemd service:
+
+```
+Usage: Tentacle service [<options>]
+
+Where [<options>] is any of:
+
+      --instance=VALUE       Name of the instance to use
+      --start                Start the Windows Service if it is not already
+                               running
+      --stop                 Stop the Windows Service if it is running
+      --reconfigure          Reconfigure the Windows Service
+      --install              Install the Windows Service
+      --username, --user=VALUE
+                             Username to run the service under
+                               (DOMAIN\Username format). Only used when --
+                               install or --reconfigure are used.
+      --uninstall            Uninstall the Windows Service
+      --password=VALUE       Password for the username specified with --
+                               username. Only used when --install or --
+                               reconfigure are used.
+      --dependOn=VALUE
+
+Or one of the common options:
+
+      --help                 Show detailed help for this command
+```
+
+To install and start Tentacle as a service, use the `Tentacle service` command:
+
+```
+/opt/octopus/Tentacle service --install --start
+```
+
+### Manually configuring Tentacle to run as a service
+To manually configure a systemd service, use the following sample unit file:
+
 1. Create a systemd **Unit file** to run Tentacle.
     ```
     [Unit]
@@ -86,7 +123,6 @@ Start the Tentacle interactively by running:
     [Service]
     Type=simple
     User=root
-    WorkingDirectory=/etc/octopus/tentacle/
     ExecStart=/opt/octopus/tentacle/Tentacle run --instance <instance name> --noninteractive
     Restart=always
 
