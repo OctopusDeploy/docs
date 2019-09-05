@@ -6,8 +6,6 @@ position: 50
 
 Starting from **Octopus 3.5**, Octopus Deploy supports the most common authentication providers out-of-the-box, including special support for a Guest Login.
 
-## Providers
-
 - [Active Directory Authentication](/docs/administration/authentication/active-directory-authentication/index.md)
 - [Azure Active Directory Authentication](/docs/administration/authentication/azure-ad-authentication.md)
 - [GoogleApps Authentication](/docs/administration/authentication/googleapps-authentication.md)
@@ -28,6 +26,7 @@ If you are using the UsernamePassword provider, you will need to invite your tea
 When a user signs in to Octopus for the first time using an external authentication provider, Octopus will automatically create a new user account for them as a convenience. If you prefer to control which users can access Octopus, you can disable auto user creation and manually invite users instead.
 
 Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+
 Learn about [auto user creation](/docs/administration/authentication/auto-user-creation.md).
 
 ## Managing Teams
@@ -36,9 +35,9 @@ In Octopus, you can group your users into teams and use the role-based permissio
 
 You can manually manage the members of your teams, or you can configure certain external authentication providers to manage your teams for you automatically.
 
-Learn about [automatically managing teams with Active Directory](/docs/administration/authentication/active-directory-authentication/index.md).
-Learn about [automatically managing teams with Azure Active Directory](/docs/administration/authentication/azure-ad-authentication.md).
-Learn about [automatically managing teams with Okta](/docs/administration/authentication/azure-ad-authentication.md).
+- Learn about [automatically managing teams with Active Directory](/docs/administration/authentication/active-directory-authentication/index.md).
+- Learn about [automatically managing teams with Azure Active Directory](/docs/administration/authentication/azure-ad-authentication.md).
+- Learn about [automatically managing teams with Okta](/docs/administration/authentication/azure-ad-authentication.md).
 
 ## Auto Login {#AuthenticationProviders-AutoLogin}
 
