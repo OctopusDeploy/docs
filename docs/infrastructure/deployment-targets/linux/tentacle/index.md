@@ -21,9 +21,17 @@ Linux Tentacle is intended to provide feature parity with Windows Tentacle. The 
 
 ## Downloads
 
-So far there is a .deb package for use with `apt-get` on Debian distributions, an .rpm package for use with `yum` on Fedora distributions, and a .tar.gz archive for manual installations:
+So far there is a .deb package for use with `apt-get` on Debian distributions, an .rpm package for use with `yum` on Fedora distributions, and a .tar.gz archive for manual installations. The packages are available from:
 
-- [Download the archive](https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.3-linux_x64.tar.gz)
+- apt.octopus.com
+- rpm.octopus.com
+- [Octopus Deploy downloads page](https://g.octopushq.com/ProductDownloadPage)
+
+The latest release of Linux Tentacle is available for download from:
+
+- [Archive](https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle)
+- [APT](https://octopus.com/downloads/latest/Linux_x64Apt/OctopusTentacle)
+- [RPM](https://octopus.com/downloads/latest/Linux_x64Rpm/OctopusTentacle)
 
 ## Installing and configuring Linux Tentacle
 Note that many of the steps described below must be run as a super user using `sudo`.
