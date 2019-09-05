@@ -15,7 +15,6 @@ Linux Tentacle is a .NET Core application distributed as a [self-contained deplo
 Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
 
 - PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts.
-- Automatic Tentacle upgrade from the Octopus Server is not currently supported for Linux Tentacle.
 
 ## Downloads
 
@@ -144,6 +143,14 @@ To manually configure a systemd service, use the following sample unit file:
     sudo systemctl enable tentacle
     ```
 
+## Automatic Tentacle upgrades
+Linux Tentacle can be upgraded via the Octopus portal from the Infrastructure > Deployment Targets screen. The upgrade attempts to find a package manager capable of performing the upgrade, and then falls back to extracting a `tar.gz` archive to the Tentacle installation folder.
+
+The upgrade is attempted in the following order:
+
+- Attempt to use `apt-get`
+- Attempt to use `yum`
+- Extract the bundled `tar.gz` archive
 
 ## Uninstall Tentacle
 
