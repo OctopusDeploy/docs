@@ -73,7 +73,7 @@ When someone signs in to Octopus using an external authentication provider, Octo
 
 In some circumstances you may want to move from one authentication provider to another. The best way to do this is have a period of time where you enable both the new and old authentication providers.
 
-1. Make sure all your existing user accounts in Octopus are configured with the email address for the new authentication provider. This is how Octopus will recognise the new external identity and match it to the existing Octopus user account.
+1. Make sure all your existing user accounts in Octopus are configured with the email address for the new authentication provider. This is how Octopus will recognize the new external identity and match it to the existing Octopus user account.
 2. Enable the new authentication provider and configure it correctly.
 3. Test the new authentication provider, making sure it correctly matches your existing users with their existing Octopus user accounts.
 4. Disable the old authentication provider.
