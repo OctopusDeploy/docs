@@ -160,7 +160,7 @@ sudo systemctl stop tentacle
 sudo rm /etc/systemd/system/tentacle.service
 ```
 
-Then the working folders and logs can be deleted if no longer needed, depending on where you installed them
+Then the working folders and logs can be deleted if they are no longer needed, depending on where you installed them, for instance:
 ```
 # default locations:
 # - installed directory:
