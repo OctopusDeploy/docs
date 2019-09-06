@@ -16,9 +16,6 @@ Where [<options>] is any of:
       --config=VALUE         Path to configuration file to create
       --home=VALUE           [Optional] Path to the home directory - defaults
                                to the same directory as the config file
-      --serverNodeName=VALUE [Optional] Unique Server Node name for a
-                               clustered environment - defaults to the machine
-                               name
 
 Or one of the common options:
 

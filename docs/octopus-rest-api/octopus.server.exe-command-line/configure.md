@@ -19,9 +19,8 @@ Where [<options>] is any of:
       --skipDatabaseSchemaUpgradeCheck
                              Skips the database schema upgrade checks. Use
                                with caution
-      --serverNodeName=VALUE Deprecated: set the node name via the create-
-                               instance command instead. Unique Server Node
-                               name for a clustered environment.
+      --serverNodeName=VALUE Unique Server Node name for a clustered
+                               environment
       --cachePackages=VALUE  Days to cache packages for. Default: 20
       --maxConcurrentTasks=VALUE
                              Deprecated: may be removed in a future release
@@ -86,7 +85,6 @@ Where [<options>] is any of:
       --selfServiceLoginEditingEnabled=VALUE
                              Enable/disable whether users can edit their own
                                logins.
-      --cookieDomain=VALUE   Set a specific domain for issued cookies.
       --azureADIsEnabled=VALUE
                              Set the azureAD IsEnabled, used for
                                authentication.
@@ -151,27 +149,6 @@ Where [<options>] is any of:
                              Tell Octopus which Google Apps domain to trust.
       --guestloginenabled=VALUE
                              Whether guest login should be enabled
-      --octopusIdIsEnabled=VALUE
-                             Set the octopusId IsEnabled, used for
-                               authentication.
-      --octopusIdIssuer=VALUE
-                             Follow our documentation to find the Issuer for
-                               octopusId.
-      --octopusIdClientId=VALUE
-                             Follow our documentation to find the Client ID
-                               for octopusId.
-      --octopusIdScope=VALUE Only change this if you need to change the
-                               OpenID Connect scope requested by Octopus for
-                               octopusId.
-      --octopusIdNameClaimType=VALUE
-                             Only change this if you want to use a different
-                               security token claim for the name from octopusId.
-      --octopusIdAllowAutoUserCreation=VALUE
-                             Tell Octopus to automatically create a user
-                               account when a person signs in with octopusId.
-      --octopusIdClientSecret=VALUE
-                             Tell Octopus the shared secret to use for
-                               Octopus ID authentication requests.
       --oktaIsEnabled=VALUE  Set the okta IsEnabled, used for authentication.
       --oktaIssuer=VALUE     Follow our documentation to find the Issuer for
                                okta.

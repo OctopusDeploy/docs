@@ -12,10 +12,10 @@ Usage: octopus.server service [<options>]
 
 Where [<options>] is any of:
 
+      --instance=VALUE       Name of the instance to use
       --start                Start the Windows Service if it is not already
                                running
       --stop                 Stop the Windows Service if it is running
-      --restart              Restart the Windows Service if it is running
       --reconfigure          Reconfigure the Windows Service
       --install              Install the Windows Service
       --username, --user=VALUE
@@ -30,8 +30,6 @@ Where [<options>] is any of:
                                reconfigure are used. Can also be passed via an
                                environment variable OCTOPUS_SERVICE_PASSWORD.
       --dependOn=VALUE
-      --instance=VALUE       Name of the instance to use, or * to use all
-                               instances
 
 Or one of the common options:
 
