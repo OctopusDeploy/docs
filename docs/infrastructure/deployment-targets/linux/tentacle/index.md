@@ -157,6 +157,7 @@ To uninstall (delete) a Tentacle instance run the `service --stop` and then `del
 If you created a systemd **Unit file** it can be deleted:
 ```
 sudo systemctl stop tentacle
+sudo systemctl disable tentacle
 sudo rm /etc/systemd/system/tentacle.service
 ```
 
