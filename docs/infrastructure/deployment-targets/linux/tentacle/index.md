@@ -102,7 +102,7 @@ Start the Tentacle interactively by running:
     ```
 
 ## Automatic Tentacle upgrades
-Linux Tentacle can be upgraded via the Octopus portal from the Infrastructure > Deployment Targets screen. The upgrade attempts to find a package manager capable of performing the upgrade, and then falls back to extracting a `tar.gz` archive to the Tentacle installation folder.
+Linux Tentacle can be upgraded via the Octopus portal from the {{Infrastructure > Deployment Targets}} screen. The upgrade attempts to find a package manager capable of performing the upgrade, and then falls back to extracting a `tar.gz` archive to the Tentacle installation folder.
 
 The upgrade is attempted in the following order:
 
