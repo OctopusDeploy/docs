@@ -154,7 +154,7 @@ The upgrade is attempted in the following order:
 
 ## Uninstall Tentacle
 
-To uninstall (delete) a Tentacle instance run the `service --stop --uninstal` and then `delete-instance` commands first:
+To uninstall (delete) a Tentacle instance run the `service --stop --uninstall` and then `delete-instance` commands first:
 
 ```
 /opt/octopus/tentacle/Tentacle service --instance <instance name> --stop --uninstall
