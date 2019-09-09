@@ -147,14 +147,14 @@ To manually configure a systemd service, use the following sample unit file:
 
 ## Uninstall Tentacle
 
-To uninstall (delete) a Tentacle instance run the `service --stop` and then `delete-instance` commands first:
+To uninstall (delete) a Tentacle instance run the `service --stop --uninstal` and then `delete-instance` commands first:
 
 ```
 /opt/octopus/tentacle/Tentacle service --instance <instance name> --stop --uninstall
 /opt/octopus/tentacle/Tentacle delete-instance <instance name>
 ```
 
-The `--stop --uninstall` command on the Tentacle will run the following commands to manage the systemd **Unit file**:
+The `service --stop --uninstall` command on the Tentacle will run the following commands to manage the systemd **Unit file**:
 
 ```
 sudo systemctl stop tentacle
