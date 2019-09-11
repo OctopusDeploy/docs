@@ -19,8 +19,9 @@ Where [<options>] is any of:
       --skipDatabaseSchemaUpgradeCheck
                              Skips the database schema upgrade checks. Use
                                with caution
-      --serverNodeName=VALUE Unique Server Node name for a clustered
-                               environment
+      --serverNodeName=VALUE Deprecated: set the node name via the create-
+                               instance command instead. Unique Server Node
+                               name for a clustered environment.
       --cachePackages=VALUE  Days to cache packages for. Default: 20
       --maxConcurrentTasks=VALUE
                              Deprecated: may be removed in a future release
