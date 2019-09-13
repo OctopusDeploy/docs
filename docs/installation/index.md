@@ -9,7 +9,7 @@ The Octopus Deploy server is available as a self-hosted instance that you instal
 
 ## Download the Octopus Installer {#downloads}
 
-Octopus Deploy is shipped in both a [Long-term support](/docs/administration/upgrading/long-term-support.md) (LTS) release and a fast lane release. We recommend using the long-term support (LTS) release for your Octopus Deploy server. Both versions can be downloaded from our [downloads page](https://octopus.com/downloads).
+Download the Octopus installer from our [downloads page](https://octopus.com/downloads).
 
 ## Self-Hosted Octopus Deploy Server
 
