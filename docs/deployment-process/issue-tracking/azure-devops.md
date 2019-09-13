@@ -15,7 +15,7 @@ position: 40
 1. Associate code changes with their relevant work items in any of the following ways:
     - Edit a pull request in Azure DevOps, and use the **Work Items** panel to select a work item.
     - Edit a work item in Azure DevOps, and use the **Development** panel to add a pull request link (before build), or a commit link, or a build link.
-    - When you commit code, if you've enabled the repository setting: **Automatically create links for work items mentioned in a commit comment** under Project Settings (Repositories), you can include `#` followed by a valid work item ID in the commit message.
+    - When you commit code. If you enable the repository setting: **[Automatically create links for work items mentioned in a commit comment](https://docs.microsoft.com/en-us/azure/devops/repos/git/repository-settings?view=azure-devops#automatically-create-links-for-work-items-mentioned-in-a-commit-comment)** under Project Settings (Repositories), you can include `#` followed by a valid work item ID in the commit message. For example, `git commit -a -m "Fixing bug #42 in the web client"`.
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Azure DevOps Issue Tracker extension in Octopus uses the build information to request work item references from Azure DevOps.
 
