@@ -91,6 +91,20 @@ The Docker steps will access your external Docker Registry when deploying. You s
 
 You should configure the Web Request Proxy using either the Octopus Server Manager or Tentacle Manager depending on where your custom script actually executes.
 
+#### PowerShell Core Scripts
+
+If you are executing a PowerShell script with a version of PowerShell Core earlier than Version `7.0.0`, any usages of `System.Net.Http.HttpClient` may ignore the proxy that has been configured. Each instance of `HttpClient` should be manually configured with an appropriate proxy.
+
+For convenience, the `$OctopusProxy` variable is available for your scripts to use, and is assigned a configured instance of `System.Net.WebProxy`. 
+
+The following snippet demonstates how to construct a configured instance of `HttpClient` using the `$OctopusProxy` variable.
+
+```
+$handler = [System.Net.Http.SocketsHttpHandler]::new()
+$handler.Proxy = $OctopusProxy
+$httpClient = [System.Net.Http.HttpClient]::new($handler)
+```
+
 ### Configuring a Polling Tentacle to Communicate via Proxy {#ProxySupport-ConfiguringaPollingTentacletocommunicateviaproxy}
 
 You should use the Tentacle Manager to configure the Polling Tentacle Proxy Settings. See above for an example of configuring a Polling Tentacle.
