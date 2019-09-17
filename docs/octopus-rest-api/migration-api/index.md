@@ -102,8 +102,8 @@ Request Body:
     "Projects": ["Rick Project", "Morty Project"],
     "EncryptPackage": true,
     "IncludeTaskLogs": true,
-	"DestinationApiKey": "API-YOUR_DESTINATION_API_KEY",
-	"DestinationPackageFeed": "https://YOUR_DESTINATION_OCTOPUS_SERVER"
+    "DestinationApiKey": "API-YOUR_DESTINATION_API_KEY",
+    "DestinationPackageFeed": "https://YOUR_DESTINATION_OCTOPUS_SERVER"
 }
 ```
 
@@ -120,7 +120,7 @@ Request Body:
     "PackageId": "MyAwesomeOctopusMigration",
     "PackageVersion": "1.0.0",
     "Password": "Demo1234",
-    "IsDryRun": "true", // Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for realz.
+    "IsDryRun": "true", // Only set this to false when you've reviewed the dry run and are happy to proceed with the migration for real.
     "IsEncryptedPackage": true,
 }
 ```
