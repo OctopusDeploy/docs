@@ -95,7 +95,7 @@ You should configure the Web Request Proxy using either the Octopus Server Manag
 
 If you are executing a PowerShell script with a version of PowerShell Core earlier than Version `7.0.0`, any usages of `System.Net.Http.HttpClient` may ignore the proxy that has been configured. Each instance of `HttpClient` should be manually configured with an appropriate proxy.
 
-For convenience, the `$OctopusProxy` variable is available for your scripts to use, and is assigned a configured instance of `System.Net.WebProxy`. 
+For convenience, the `$OctopusProxy` variable is available for your scripts to use, and the variable is assigned a configured instance of `System.Net.WebProxy`. 
 
 The following snippet demonstates how to construct a configured instance of `HttpClient` using the `$OctopusProxy` variable.
 
