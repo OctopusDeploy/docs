@@ -86,6 +86,7 @@ Where [<options>] is any of:
       --selfServiceLoginEditingEnabled=VALUE
                              Enable/disable whether users can edit their own
                                logins.
+      --cookieDomain=VALUE   Set a specific domain for issued cookies.
       --azureADIsEnabled=VALUE
                              Set the azureAD IsEnabled, used for
                                authentication.
