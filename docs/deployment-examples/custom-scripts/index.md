@@ -24,7 +24,7 @@ If an activity can be scripted, Octopus can run that script as a standalone acti
 
 In the context of Octopus, your custom scripts get the following extra benefits:
 
- - Your script can use [variables](/docs/deployment-process/variables/index.md) managed by Octopus, including [secrets](/docs/deployment-process/variables/sensitive-variables.md), [complex variable expressions](docs/deployment-process/variables/variable-substitutions.md), and [filters](/docs/deployment-process/variables/variable-filters.md). Learn about [using variables in scripts](using-variables-in-scripts.md).
+ - Your scripts can use [variables](/docs/deployment-process/variables/index.md) managed by Octopus, including [secrets](/docs/deployment-process/variables/sensitive-variables.md), [complex variable expressions](docs/deployment-process/variables/variable-substitutions.md), and [filters](/docs/deployment-process/variables/variable-filters.md). Learn about [using variables in scripts](using-variables-in-scripts.md).
  - Your script can be executed across your entire fleet of servers, or a selection of servers, in a controlled fashion. Learn about [deployment targets](/docs/infrastructure/deployment-targets/index.md) and [workers](/docs/infrastructure/workers/index.md).
  - Your script can use the contents of a package. Learn about [using files from packages in scripts](scripts-in-packages/reference-files-within-a-package.md).
  - Your script can log special messages to control the format or report progress. Learn about [logging messages in scripts](logging-messages-in-scripts.md).
