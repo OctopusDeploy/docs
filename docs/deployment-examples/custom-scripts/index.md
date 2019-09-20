@@ -29,7 +29,7 @@ In the context of Octopus, your custom scripts get the following extra benefits:
  - Your scripts can use the contents of a package. Learn about [using files from packages in scripts](scripts-in-packages/reference-files-within-a-package.md).
  - Your script can log special messages to control the format or report progress. Learn about [logging messages in scripts](logging-messages-in-scripts.md).
  - Your scripts can set output variables making these values available to other steps in your process. Learn about [output variables](/docs/deployment-process/variables/output-variables.md).
- - Your script can collect files and store them in Octopus. Learn about [publishing artifacts](/docs/deployment-process/artifacts.md).
+ - Your scripts can collect files and store them in Octopus. Learn about [publishing artifacts](/docs/deployment-process/artifacts.md).
  - Your script can be pre-authenticated and bootstrapped into a cloud provider. Learn about [AWS CLI scripts](aws-cli-scripts.md) and [Azure CLI scripts](azure-powershell-scripts.md).
  - Your script can be pre-authenticated and bootstrapped into an external service or server cluster. Learn about [Kubernetes deployments](/docs/deployment-examples/kubernetes-deployments/index.md) and [Service Fabric deployments](/docs/deployment-examples/azure-deployments/service-fabric/index.md).
  - You can define reusable functions for your scripts to use. Learn about [script modules](docs/deployment-examples/custom-scripts/script-modules.md).
