@@ -57,7 +57,7 @@ Octopus can execute scripts from a variety of locations, all with different bene
 
 The precise details depend on the context within which your script is running, however, Octopus follows this general process:
 
- 1. Octopus transfers the script to the execution environment along with variables, packages, script modules, and anything else required to run the script. This is done via the Tentacle agent or SSH session into a temporary work directory.
+ 1. Octopus transfers the script to the execution environment along with the variables, packages, script modules, and anything else required to run the script. This is done via the Tentacle agent or SSH session into a temporary work directory.
  2. The Tentacle agent or SSH session invokes the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to bootstrap your script providing access to variables and helper functions. _You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting)._
  3. Calamari invokes your script, streaming log messages back to the Octopus Server.
  4. Any artifacts published by your script are transferred back to the Octopus Server.
