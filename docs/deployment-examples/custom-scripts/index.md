@@ -4,11 +4,11 @@ description: Custom scripts allows you to script anything you want using PowerSh
 position: 50
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as [managing configuration features](/docs/deployment-process/configuration-features/index.md), creating [IIS websites and application pools](/docs/deployment-examples/iis-websites-and-application-pools.md), and installing [Windows Services](/docs/deployment-examples/windows-services.md). Sometimes however you’ll need to do more than the built-in conventions support, and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as deploying and configuring common types of applications to popular hosting environments. In these situations, we have built everything you need into Octopus. Sometimes however you’ll need to do more than the built-in conventions support, and that’s where custom scripts come in.
 
 ## Supported Script Types
 
-Octopus supports the following scripts:
+Octopus supports the following scripting environments:
 
  - PowerShell scripts (.ps1)
  - C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs)
@@ -16,100 +16,94 @@ Octopus supports the following scripts:
  - F# scripts (.fsx)
  - Python scripts (.py)
 
-## How Your Scripts are Bootstrapped by Calamari
+ Octopus can run these scripts on almost any operating system as long as the script runtime is installed and configured correctly.
 
-Each of your scripts will be bootstrapped by the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to provide access to variables and helper functions. You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting).
+## What You Can Do With Custom Scripts
 
-## Working Directories {#Customscripts-Workingdirectories}
+If an activity can be scripted, Octopus can run that script as a standalone activity or as part of a larger orchestration.
 
-When Calamari executes your scripts, it does so within the context of the working directory by default:
+In the context of Octopus, your custom scripts get the following extra benefits:
 
-```powershell
-C:\Octopus\Work\
-```
+ - Your script can use [variables](/docs/deployment-process/variables/index.md) managed by Octopus including [secrets](/docs/deployment-process/variables/sensitive-variables.md), [complex variable expressions](docs/deployment-process/variables/variable-substitutions.md), and [filters](/docs/deployment-process/variables/variable-filters.md). Learn about [using variables in scripts](using-variables-in-scripts.md).
+ - Your script can be executed across your entire fleet of servers, or a selection of servers, in a controlled fashion. Learn about [deployment targets](/docs/infrastructure/deployment-targets/index.md) and [workers](/docs/infrastructure/workers/index.md).
+ - Your script can use the contents of a package. Learn about [using files from packages in scripts](scripts-in-packages/reference-files-within-a-package.md).
+ - Your script can log special messages to control the format or report progress. Learn about [logging messages in scripts](logging-messages-in-scripts.md).
+ - Your script can set output variables making these values available to other steps in your process. Learn about [output variables](/docs/deployment-process/variables/output-variables.md).
+ - Your script can collect files and store them in Octopus. Learn about [publishing artifacts](/docs/deployment-process/artifacts.md).
+ - Your script can be pre-authenticated and bootstrapped into a cloud provider. Learn about [AWS CLI scripts](aws-cli-scripts.md) and [Azure CLI scripts](azure-powershell-scripts.md).
+ - Your script can be pre-authenticated and bootstrapped into an external service or server cluster. Learn about [Kubernetes deployments](/docs/deployment-examples/kubernetes-deployments/index.md) and [Service Fabric deployments](/docs/deployment-examples/azure-deployments/service-fabric/index.md).
+ - Your can define reusable functions for your scripts to use. Learn about [script modules](docs/deployment-examples/custom-scripts/script-modules.md).
 
-If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory, but the working directory is the directory containing the script within it.
+## How To Use Custom Scripts
 
-## Collecting Artifacts {#Customscripts-Collectingartifacts}
+Octopus supports the following ways to use custom scripts:
 
-If your deployment produce a log file, configuration files, binaries, or test results that you want to publish and keep as part of your deployment, your scripts can instruct the Octopus Server to collect files as deployment [artifacts](/docs/deployment-process/artifacts.md).
+ - You can define a step in a process to run a script. Learn about the [run a script step](run-a-script-step.md).
+ - You can run custom scripts when Octopus deploys a package. Learn about the [deploy a package step](/docs/deployment-examples/package-deployments/index.md) and [the different stages where your script can run](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
+ - You can build reusable step templates containing your own scripts which can be used across multiple projects. Learn about [step templates](/docs/deployment-process/steps/custom-step-templates.md).
+ - You can run ad hoc scripts for administrative tasks. Learn about the [script console](/docs/administration/managing-infrastructure/script-console.md).
+ - You can run custom scripts as part of a health check. Learn about [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
 
-```powershell PowerShell
-New-OctopusArtifact -Path "C:\Windows\System32\drivers\etc\hosts" -Name "$([System.Environment]::MachineName)-hosts.txt"
-```
+## Where to Store Your Scripts
 
-```cs C#
-Octopus.CreateArtifact(@"C:\Windows\System32\drivers\etc\hosts", System.Environment.MachineName + "-hosts.txt");
-```
+Octopus can execute scripts from a variety of locations, all with different benefits:
 
-```bash Bash
-new_octopusartifact /etc/hosts $(hostname)-hosts.txt
-```
+  1. You can author and store your scripts directly in Octopus. Learn about the [run a script step](run-a-script-step.md) and [deploy a package step](/docs/deployment-examples/package-deployments/index.md).
+  2. You can author your scripts and publish them as step templates for other projects to use. Learn about [step templates](/docs/deployment-process/steps/custom-step-templates.md).
+  3. You can develop your scripts and store them in a source control repository, like git, and Octopus can execute these scripts from within a package. Learn about [deployment process as code](/docs/deployment-patterns/deployment-process-as-code.md) and [running scripts in packages](scripts-in-packages/index.md).
+  4. You can develop your scripts and store them in GitHub, then publish them as a release, which can be consumed by Octopus. Learn about [using the GitHub feed](/docs/packaging-applications/package-repositories/github-feeds.md).
 
-```fsharp F#
-createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
-```
+## How Your Scripts are Executed by Octopus
 
-```python Python3
-import os
-createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
-```
+The precise details depend on the context within which your script is running, however Octopus follows this general process:
 
-![Deployment Artifact](images/deployment-artifact.png)
+ 1. Octopus transfers the script to the execution environment along with variables, packages, script modules, and anything else required to run the script. This is done via the Tentacle agent or SSH session into a temporary work directory.
+ 2. The Tentacle agent or SSH session invokes the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to bootstrap your script providing access to variables and helper functions. _You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting)._
+ 3. Calamari invokes your script, streaming log messages back to the Octopus Server.
+ 4. Any artifacts published by your script are transferred back to the Octopus Server.
+ 5. The temporary work directory is cleaned up.
 
-### Service Message
+### Working Directories {#Customscripts-Workingdirectories}
 
-The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the artifact retrieved at the end of the step. Note that the properties must be supplied as a base64 encoded UTF-8 string.
-```
-##octopus[createArtifact path='<Base64Encoded-FullPath>' name='<Base64Encoded-FileName>' length='<Base64Encoded-FileLength>']
-```
+When Calamari executes your scripts, it does so within the context of a working directory. The working directory is a temporary location stored under the home folder you configure when setting up a deployment target or worker.
 
-## Security and Permissions {#Customscripts-Securityandpermissions}
+If you're executing a script contained within a package, the package contents will be uncompressed and copied to this directory, but the working directory is the directory containing the script within it. After the script has finished executing, the working directory will be cleaned up. Learn about [copying the contents of the working directory](/docs/support/copy-working-directory.md).
 
-Keep in mind that scripts are executed in the context of the account that the Tentacle Windows Service (which invokes Calamari) or SSH session runs as.
+### Security and Permissions {#Customscripts-Securityandpermissions}
+
+Keep in mind that scripts are executed in the context of the account that the Tentacle agent or SSH session runs as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
 
 :::hint
-By default Tentacle runs as **Local System**, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you’ll need to configure Tentacle to run under a custom service account.
+On Windows, the Tentacle agent runs as **Local System** by default, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you’ll need to configure Tentacle to [run under a custom user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
 :::
 
-:::warning
-**PowerShell ExecutionPolicy: Unrestricted**
-When Calamari invokes PowerShell.exe, it uses the **unrestricted** execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell).
-:::
+### Script Integrity
 
-## Testing Scripts {#Customscripts-Testingscripts}
+Octopus does not provide support for script integrity. While this may sound alarming, there are very good reasons for this approach.
 
-You may find that your script runs differently under Calamari than it does when run from PowerShell directly.
+For example, when Calamari invokes PowerShell.exe, it uses the `Unrestricted` execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell).
 
-The easiest way to test your scripts under Calamari is to use the [Script Console](/docs/administration/managing-infrastructure/script-console.md). Alternatively you can invoke `Calamari.exe run-script` via the command line to test a script.
+Learn about [script integrity](/docs/administration/security/script-integrity.md).
 
-**Calamari run-script command**
+### Developing and Testing Scripts {#Customscripts-Testingscripts}
 
-```text
-Usage: Calamari run-script [<options>]
-Where [<options>] is any of:
-      --variables=VALUE      Path to a JSON file containing variables.
-      --package=VALUE        Path to the package to extract that contains the
-                             package.
-      --script=VALUE         Path to the script to execute. If --package is
-                             used, it can be a script inside the package.
-      --scriptParameters=VALUE
-							 Parameters to pass to the script. Parameters
-							 need to be provided in a language specific way.
-							 E.g. -Parameter1 Value1 -Parameter2 Value2 for PowerShell or
-							 Value1 Value2 for Bash.
-      --sensitiveVariables=VALUE
-                             Password protected JSON file containing
-                             sensitive-variables.
-      --sensitiveVariablesPassword=VALUE
-                             Password used to decrypt sensitive-variables.
-      --substituteVariables  Perform variable substitution on the script body
-                             before executing it.
-```
+We recommend the following approaches for developing and testing your scripts, in order of preference:
 
-## Scripts that Block Deployments {#Customscripts-Scriptsthatblockdeployments}
+ 1. Build your script to use script arguments as inputs so it can be invoked with equal fidelity from Octopus or directly in your development environment. You can test your scripts by invoking them directly in a development environment with a very fast feedback cycle. Learn about [passing parameters to scripts](passing-parameters-to-scripts.md). The only difference in this approach may be the user context the script runs in.
+ 2. Build your script as a reusable step template and test it using the `Run Now` feature. [Learn about step templates](/docs/deployment-process/steps/custom-step-templates.md). The only difference to this approach is the absence of some deployment-specific variables provided by Octopus when actually running a deployment.
+ 3. Put your script in a test process and run that process in a test environment.
+ 4. Put your script in a real process and run that process in a test environment.
 
-Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus deployment, the deployment will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the deployment to continue executing immediately. For example:
+ ### Debugging Scripts
+
+ There may be times where your script does not work as expected. In these cases, there are some ways you can debug your scripts:
+
+ 1. If you are using PowerShell, Octopus has built-in support for PowerShell debugging. Learn about [debugging PowerShell scripts on remote machines using Octopus](debugging-powershell-scripts/debugging-powershell-scripts-on-remote-machines.md).
+ 2. For all scripting languages, you can tell Octopus to preserve the script and its entire working directory so you can run it interactively. Learn about [copying the working directory](/docs/support/copy-working-directory.md).
+
+### Scripts that Block Deployments {#Customscripts-Scriptsthatblockdeployments}
+
+Sometimes a script launches a service or application that runs continuously. In this case the script does not complete until the application is terminated.  When the script is run in an Octopus process, the Octopus task will continue executing until the script exits.  In most cases this is undesirable. In order to avoid this behavior the service or application should be launched in a separate process or session, allowing the rest of the process to continue executing. For example:
 
 ```powershell PowerShell
 Start-Process MyService
@@ -118,3 +112,7 @@ Start-Process MyService
 ```bash Bash
 screen -d -m -S "MyService" MyService
 ```
+
+### Scripts that Restart The Target Operating System
+
+Restarting the target operating system is not currently supported as part of running a script via Octopus. You can restart the operating system from your script, but this will cause the process to fail because it cannot survive a restart. Please reach out to our [support team](https://octopus.com/support) if this is a requirement in your situation.
