@@ -4,7 +4,7 @@ description: Custom scripts allows you to script anything you want using PowerSh
 position: 50
 ---
 
-As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as deploying and configuring common types of applications to popular hosting environments. In these situations, we have built everything you need into Octopus. Sometimes however you’ll need to do more than the built-in conventions support, and that’s where custom scripts come in.
+As a convention-oriented deployment tool, Octopus can perform a number of actions automatically, such as configuring common types of applications and deploying them to popular hosting environments. For these situations, we have built everything you need into Octopus. Sometimes, however, you need to do more than the built-in conventions support, and that’s where custom scripts come in.
 
 ## Supported Script Types
 
@@ -58,7 +58,7 @@ Octopus can execute scripts from a variety of locations, all with different bene
 The precise details depend on the context within which your script is running, however, Octopus follows this general process:
 
  1. Octopus transfers the script to the execution environment along with the variables, packages, script modules, and anything else required to run the script. This is done via the Tentacle agent or SSH session into a temporary work directory.
- 2. The Tentacle agent or SSH session invokes the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to bootstrap your script providing access to variables and helper functions. _You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting)._
+ 2. The Tentacle agent or SSH session invokes the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to bootstrap your script and provide access to variables and helper functions. _You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting)._
  3. Calamari invokes your script, streaming log messages back to the Octopus Server.
  4. Any artifacts published by your scripts are transferred back to the Octopus Server.
  5. The temporary work directory is cleaned up.
@@ -71,7 +71,7 @@ If you're executing a script contained within a package, the package contents wi
 
 ### Security and Permissions {#Customscripts-Securityandpermissions}
 
-Keep in mind that scripts are executed in the context of the account that the Tentacle agent or SSH session runs as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
+When scripts are executed, it is in the context of the account that the Tentacle agent or SSH session is running as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
 
 :::hint
 On Windows, the Tentacle agent runs as **Local System** by default, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you’ll need to configure Tentacle to [run under a custom user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
@@ -90,7 +90,7 @@ Learn about [script integrity](/docs/administration/security/script-integrity.md
 We recommend the following approaches for developing and testing your scripts, in order of preference:
 
  1. Build your script to use script arguments as inputs so it can be invoked with equal fidelity from Octopus or directly in your development environment. You can test your scripts by invoking them directly in a development environment with a very fast feedback cycle. Learn about [passing parameters to scripts](passing-parameters-to-scripts.md). The only difference in this approach may be the user context the script runs in.
- 2. Build your script as a reusable step template and test it using the `Run Now` feature. [Learn about step templates](/docs/deployment-process/steps/custom-step-templates.md). The only difference to this approach is the absence of some deployment-specific variables provided by Octopus when actually running a deployment.
+ 2. Build your script as a reusable step template and test it using the `Run Now` feature. [Learn about step templates](/docs/deployment-process/steps/custom-step-templates.md). The only difference to this approach is the absence of deployment-specific variables provided by Octopus when actually running a deployment.
  3. Put your script in a test process and run that process in a test environment.
  4. Put your script in a real process and run that process in a test environment.
 
