@@ -590,7 +590,7 @@ docs/api-and-integration/octo.exe-command-line/creating-environments.md -> docs/
 docs/api-and-integration/octo.exe-command-line/creating-projects.md -> docs/octopus-rest-api/octo.exe-command-line/create-project.md
 docs/api-and-integration/octo.exe-command-line/creating-releases.md -> docs/octopus-rest-api/octo.exe-command-line/create-release.md
 docs/api-and-integration/octo.exe-command-line/deleting-releases.md -> docs/octopus-rest-api/octo.exe-command-line/delete-releases.md
-docs/api-and-integration/octo.exe-command-line/deploying-releases.md -> docs/octopus-rest-api/octo.exe-command-line/dump-deployments.md
+docs/api-and-integration/octo.exe-command-line/deploying-releases.md -> docs/octopus-rest-api/octo.exe-command-line/deploy-release.md
 docs/api-and-integration/octo.exe-command-line/promoting-releases.md -> docs/octopus-rest-api/octo.exe-command-line/promote-release.md
 docs/api-and-integration/octo.exe-command-line/pushing-packages.md -> docs/octopus-rest-api/octo.exe-command-line/push.md
 docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md -> docs/octopus-rest-api/octo.exe-command-line/create-autodeployoverride.md
