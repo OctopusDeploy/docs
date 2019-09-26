@@ -18,14 +18,14 @@ Details for where to find the API, how to authenticate, and the available resour
 
 To use from PowerShell, use the `Install-Package` command from the Microsoft [PackageManagement](https://docs.microsoft.com/en-us/powershell/module/packagemanagement) module:
 ```powershell
-Install-Package Octopus.Client -source https://www.nuget.org/api/v2
+Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net45/Octopus.Client.dll"
 Add-Type -Path $path
 ```
 
 For PowerShell Core, the path needs to be slightly different:
 ```powershell
-Install-Package Octopus.Client -source https://www.nuget.org/api/v2
+Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
 Add-Type -Path $path
 ```
