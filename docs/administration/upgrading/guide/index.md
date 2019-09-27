@@ -12,7 +12,7 @@ Before you start your upgrade, you should take time to:
 
 - Test your [backup and restore process](/docs/administration/data/backup-and-restore.md).
 - Learn about [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
-- [Plan your upgrade](#upgrade-path).
+- [Plan your upgrade](/docs/administration/upgrading/legacy/index.md#upgrade-path).
 
 ## How We Version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
