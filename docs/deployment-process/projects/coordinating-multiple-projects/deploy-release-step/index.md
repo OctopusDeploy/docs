@@ -98,5 +98,5 @@ Otherwise, as the step rolls across multiple machines, it will see the current r
 :::
 
 :::warning
-Cancelling the deployment of the parent project as it's executing the Deploy a Release step won't cancel the deployment of the child project. The child deployment will continue to completion.
+Canceling the deployment of the parent project as it's executing the Deploy a Release step won't cancel the deployment of the child project. The child deployment will continue to completion.
 :::
