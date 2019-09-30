@@ -58,10 +58,15 @@ If you forget your username or password for the instance, you can do this via Oc
 
 ## Invite users to your Octopus Cloud instance
 
-If you are trying to add new users to your Octopus Cloud instance, you can do that within the Octopus.com account.  
+If you are trying to add new users to your Octopus Cloud instance, you can do that within the Octopus.com account.
+
 1. Simply find your instance
 1. Select 'Manage'
-1. Click 'Invite a user', enter their name and email address and ensure 'notify user via email' is checked.  If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance.
+1. Click 'Invite a user', enter their name and email address and ensure 'notify user via email' is checked.  
+
+If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance.  Otherwise simply **Register** for a new account with the email address they were invited with.  All invites will be set with the 'Instance User' role - they will not be able to change any instance account settings or invite other users.
+
+All invitees will also be set as with the permission of 'Everyone' within the Octopus instance and have no Space.  To ensure they can get started with your project right away, once they've logged in you can assign them to a Space and new permissions within Octopus.
 
 ## Set the Outage Window
 
