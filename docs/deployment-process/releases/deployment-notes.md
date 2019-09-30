@@ -74,6 +74,21 @@ All variables available during the deployment are available to the template, wit
 
 All environment and tenant related variables are available to the template.
 
+The default template, when the field in the project settings is left blank, is as follows
+
+```
+#{each release in Octopus.Deployment.Changes}
+**Release #{release.Version}**
+
+#{release.ReleaseNotes}
+#{each workItem in release.WorkItems}
+- [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
+#{/each}
+#{/each}
+```
+
+
+
 ### Deployment changes and targets
 
 The is one variable that is available to the deployment changes template that is not available during the deployment itself. The variable is `Octopus.Deployment.Targets`. It contains a dictionary of `Id` and `Name` values for all of the targets in the scope of the deployment (keyed by Id). You can iterate over the targets in a template as follows
