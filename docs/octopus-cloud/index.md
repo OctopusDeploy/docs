@@ -48,13 +48,13 @@ If you are having difficulty uploading packages to your Octopus built-in package
 
 In the near future, the Octopus Cloud will become available in additional regions and you'll have the ability to move between regions.
 
-## Reset the User Password
+## Reset the Octopus account password
 
-If you forget your username or password for the instance, you can do this via Octopus.com
+If you forget your username or password for your Octopus account or Octopus instance, - you can do this via Octopus.com
 
-1. Head to Octopus.com
+1. Head to Octopus.com/signin
 1. Click 'Forgot your password?'
-1. Reset and log into your instance using your Octopus.com ID or launch via the accounts dashboard.
+1. Reset and log into your Octopus account, and launch your Octopus instance via the accounts dashboard.
 
 ## Invite users to your Octopus Cloud instance
 
@@ -64,9 +64,9 @@ If you are trying to add new users to your Octopus Cloud instance, you can do th
 1. Select 'Manage'
 1. Click 'Invite a user', enter their name and email address and ensure 'notify user via email' is checked.  
 
-If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance.  Otherwise simply **Register** for a new account with the email address they were invited with.  All invites will be set with the 'Instance User' role - they will not be able to change any instance account settings or invite other users.
+If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance.  Otherwise simply **Register** for a new account with the email address they were invited with.  All invitees will be set with the 'Instance User' role - they will not be able to change any instance account settings or invite other users.
 
-All invitees will also be set as with the permission of 'Everyone' within the Octopus instance and have no Space.  To ensure they can get started with your project right away, once they've logged in you can assign them to a Space and new permissions within Octopus.
+By default all invitees will be set with the permission of 'Everyone' within the Octopus instance and have no Space.  Ensure you change these settings once they've signed in, so they can get started using Octopus.
 
 ## Set the Outage Window
 
@@ -89,11 +89,12 @@ We keep your instance of Octopus Cloud up to date and running the latest version
 
 ## Change Your Password
 
-To change your password for the Octopus instance:
+To change your password for the Octopus instance and Octopus account:
 
-1. Log in to your Octopus Cloud instance.
+1. Go to Octopus.com/signin
 1. Click the dropdown menu next to your username in the top right corner.
 1. Click profile.
 1. Click the **Change Password** link.
 1. Enter your new password.
-1. Confirm the new password, and click **SAVE**.
+1. Confirm the new password, and click **Change password**.
+
