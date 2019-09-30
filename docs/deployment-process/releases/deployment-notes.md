@@ -57,15 +57,14 @@ Which addressed the following issues:</br>
 #{/each}
 ```
 
-## Deployment changes templates
+## Deployment changes templates {#Templates}
 
-Starting from `2019.9.x` you can specify a template for deployment changes output. The output of the template is used in the portal for rendering the changes on both the deployment preview and on the deployment details.
+Starting from `2019.9.0` you can specify a template for deployment changes output. The output of the template is used in the portal for rendering the changes on both the deployment preview and on the deployment details.
 
 The output is also available for use during a deployment, using the `Octopus.Deployment.ChangesMarkdown` variable. The content of the email listed above could then equally be used as the deployment changes template for the project and the email step could use something as simple as 
 
 ```Deployment contained releases:<br/>
 #{Octopus.Deployment.ChangesMarkdown | MarkdownToHtml}
-
 ```
 
 Use this method you would then see exactly the same content in the portal for the deployment preview, on the deployment details, and on the email that gets sent.
