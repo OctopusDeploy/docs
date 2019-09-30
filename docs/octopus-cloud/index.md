@@ -21,14 +21,13 @@ You can sign up for Octopus Cloud at [octopus.com/register](https://octopus.com/
 An Octopus account lets you manage your instances of Octopus Cloud.
 
 1. Enter your name.
-1. Provide your email address and click **Create a password**. Please note, these credentials are for your Octopus Account. These login details or Authorisations will also be used to log into your Octopus instance through single sign-on.
-1. On the next screen, provide your company name.
-1. Chose a secure password and enter it twice.
-1. Click **Create my Octopus account**.
+1. Provide your email address and Create a password. Please note, these credentials are for your Octopus Account and will also  These login be used to log into your Octopus instance through single sign-on.
+1. On the next screen you will need to verify your email address.
+1. Once verified, you will be logged into your Octopus Account!
 
 ## Create a Cloud Instance
 
-1. From the instances screen, click **Create cloud instance**.
+1. From the **products** screen, click **Start a free 30-day Cloud trial**.
 1. Enter an **instance name** for your Octopus Cloud instance.
 1. Choose a URL for the instance.
 1. Select the Cloud region for your instance. Currently the only option is **US - Oregon**.
@@ -37,7 +36,7 @@ An Octopus account lets you manage your instances of Octopus Cloud.
 1. Click **Continue to Confirmation**.
 1. Confirm the details you've provided, agree to the terms and click **Looks good. Deploy my Octopus!**.
 
-You will be taken to the account provisioning screen. Please note it can take five to ten minutes for your Octopus Cloud instance to be ready. You will receive an email when the instance is ready to use.
+You will be taken to the account provisioning screen. It should take a couple of minutes for your Octopus Cloud instance to be ready. You will receive an email when the instance is ready to use.
 
 When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
 
@@ -57,7 +56,12 @@ If you forget your username or password for the instance, you can do this via Oc
 1. Click 'Forgot your password?'
 1. Reset and log into your instance using your Octopus.com ID or launch via the accounts dashboard.
 
-If you are trying to add new users to your Octopus Cloud instance, you can do that within the Octopus.com account.  Simply find your instance, select 'Manage' and click 'Invite a user'.
+## Invite users to your Octopus Cloud instance
+
+If you are trying to add new users to your Octopus Cloud instance, you can do that within the Octopus.com account.  
+1. Simply find your instance
+1. Select 'Manage'
+1. Click 'Invite a user', enter their name and email address and ensure 'notify user via email' is checked.  If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance.
 
 ## Set the Outage Window
 
