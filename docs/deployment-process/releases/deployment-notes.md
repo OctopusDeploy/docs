@@ -56,3 +56,31 @@ Which addressed the following issues:</br>
   #{/unless}
 #{/each}
 ```
+
+## Deployment changes templates
+
+Starting from `2019.9.x` you can specify a template for deployment changes output. The output of the template is used in the portal for rendering the changes on both the deployment preview and on the deployment details.
+
+The output is also available for use during a deployment, using the `Octopus.Deployment.ChangesMarkdown` variable. The content of the email listed above could then equally be used as the deployment changes template for the project and the email step could use something as simple as 
+
+```Deployment contained releases:<br/>
+#{Octopus.Deployment.ChangesMarkdown | MarkdownToHtml}
+
+```
+
+Use this method you would then see exactly the same content in the portal for the deployment preview, on the deployment details, and on the email that gets sent.
+
+All variables available during the deployment are available to the template, with the exception of the machine scoped variables. This is because the templates is applied at the deployment level when the deployment is created, not at the machine level as each target is deployed to. There is a new variable available if you want target information, see below for details.
+
+All environment and tenant related variables are available to the template.
+
+### Deployment changes and targets
+
+The is one variable that is available to the deployment changes template that is not available during the deployment itself. The variable is `Octopus.Deployment.Targets`. It contains a dictionary of `Id` and `Name` values for all of the targets in the scope of the deployment (keyed by Id). You can iterate over the targets in a template as follows
+
+```
+#{each target in Octopus.Deployment.Targets}
+- #{target.Name}
+#{/each}
+```
+
