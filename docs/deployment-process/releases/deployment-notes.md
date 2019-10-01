@@ -88,7 +88,7 @@ The default template, when the field in the project settings is left blank, is a
 
 
 
-### Deployment changes and targets
+### Deployment Changes and Targets
 
 The is one variable that is available to the deployment changes template that is not available during the deployment itself. The variable is `Octopus.Deployment.Targets`. It contains a dictionary of `Id` and `Name` values for all of the targets in the scope of the deployment (keyed by Id). You can iterate over the targets in a template as follows
 
