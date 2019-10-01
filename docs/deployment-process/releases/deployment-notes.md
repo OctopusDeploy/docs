@@ -59,7 +59,7 @@ Which addressed the following issues:</br>
 
 ## Deployment Changes Templates {#Templates}
 
-Starting from `2019.9.0` you can specify a template for deployment changes output. The output of the template is used in the portal for rendering the changes on both the deployment preview and on the deployment details.
+Starting from `2019.9.0` you can specify a template for deployment changes output. The output of the template is used in the portal to render the changes on both the deployment preview and on the deployment details.
 
 The output is also available for use during a deployment, using the `Octopus.Deployment.ChangesMarkdown` variable. The content of the email listed above could then equally be used as the deployment changes template for the project and the email step could use something as simple as 
 
