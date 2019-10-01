@@ -40,7 +40,7 @@ Finally, you can choose the way the field will appear to a user with the **Contr
 
 ![Step template parameter type](images/step-templates-parameter-type.png)
 
-**2019.x.x** introduced a new **Package** control type. This new control type allows the selection of a **Feed** and **Package** to use in the step is deferred until the step template is added to a project.
+**2019.x.x** introduced a new **Package** control type. This new control type allows the selection of a **Feed** and **Package** to use as part of the step to be deferred until the step template is added to a project.
 
 Any variables you configure as Parameters will be available as variables that can be used in the Step tab of the step template.
 
