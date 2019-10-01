@@ -43,7 +43,7 @@ This process can be performed on a different computer to the one the dump file w
 from Microsoft.
 1. Run `DebugDiag Analysis` from the start menu.
 1. Check `CrashHangAnalysis`.
-1. Click `Add Data Files` and select the demo file.
+1. Click `Add Data Files` and select the dump file.
 1. Click `Start Analysis`.
 1. Wait.
 
