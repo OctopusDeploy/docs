@@ -57,7 +57,7 @@ Which addressed the following issues:</br>
 #{/each}
 ```
 
-## Deployment changes templates {#Templates}
+## Deployment Changes Templates {#Templates}
 
 Starting from `2019.9.0` you can specify a template for deployment changes output. The output of the template is used in the portal for rendering the changes on both the deployment preview and on the deployment details.
 
