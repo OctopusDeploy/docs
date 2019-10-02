@@ -19,7 +19,8 @@ Release-level variables are drawn from the project and release being created.
 ### Release Package Build Information {#release-package-build-information}
 
 | Name and Description | Example|
-|`Octopus.Release.Package`<br/>Packages, including changes, associated with the release. See below. | This is a collection. |
+| -------------------- | -------|
+|`Octopus.Release.Package` <br/>Packages, including changes, associated with the release. See below. | This is a collection.|
 
 Note: The `Octopus.Release.Package` variable will only be populated if [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed from the build server.
 
