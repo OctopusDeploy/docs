@@ -19,6 +19,11 @@ Where [<options>] is any of:
                                create/modify
       --email=VALUE          The email of the administrator to create/modify
       --password=VALUE       The password to set for the administrator
+      --apiKey=VALUE         The API Key to set for the administrator. If
+                               this is set and no password is provided then a
+                               service account user will be created. If this is
+                               set and a password is also set then a standard
+                               user will be created.
       --externalGroup=VALUE  The partial name of an Active Directory group to
                                add to the administrators team
       --externalGroupId, --externalRoleId=VALUE
