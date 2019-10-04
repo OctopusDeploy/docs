@@ -16,7 +16,7 @@ You can sign up for Octopus Cloud at [octopus.com/register](https://octopus.com/
     Start free trial
 </a>
 
-## Create an Octopus Account
+## Create an Octopus account
 
 An Octopus account lets you manage your instances of Octopus Cloud.
 
@@ -56,13 +56,14 @@ If you forget your username or password for your Octopus account or Octopus inst
 1. Click 'Forgot your password?'
 1. Reset and log into your Octopus account, and launch your Octopus instance via the accounts dashboard.
 
-## Invite users to your Octopus Cloud instance
+## Invite users to your Octopus Cloud instance (Applies to v2 instances only)
 
-If you are trying to add new users to your Octopus Cloud instance, you can do that within the Octopus.com account.
+If you are trying to add new users to your Octopus Cloud instance, you can do that within the Octopus.com account.  This feature is being rolled out gradually to everyone.  If you have access to invites, you will see it within your instance panel.
 
-1. Simply find your instance
-1. Select 'Manage'
-1. Click 'Invite a user', enter their name and email address and ensure 'notify user via email' is checked.  
+1. Simply log into your account at Octopus.com/signin
+1. Select 'Manage' on your instance panel
+1. Click 'Invite a user', enter their name and email address
+1. Hit 'Submit'.  
 
 If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance.  Otherwise simply **Register** for a new account with the email address they were invited with.  All invitees will be set with the 'Instance User' role - they will not be able to change any instance account settings or invite other users.
 
