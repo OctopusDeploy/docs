@@ -13,15 +13,15 @@ Runbooks can be used to automate routine or emergency operations-centric process
 This is an early-access feature. Early-access features are still in development and we encourage you to experiment with this.
 :::
 
+## Feature Toggle
+
+Runbooks is an early-access feature that is _disabled_ by default. You can enable this experimental feature from your `Configuration > Features` area in the Octopus UI. Once enabled, you will see an Operations/Runbooks menu under your projects.
+
 ## Projects
 
 Before you can define how your scripts are run, you must create a project for the runbook. Projects contain the configuration variables that can help define how scripts defined in your runbook steps are run.
 
 Learn more about managing [projects](/docs/deployment-process/projects/index.md).
-
-## Feature Toggle
-
-Runbooks is an early-access feature that is _disabled_ by default. You can enable this experimental feature from your `Configuration > Features` area in the Octopus UI. Once enabled, you will see an Operations/Runbooks menu under your projects.
 
 ## Runbooks
 
