@@ -4,7 +4,7 @@ description: Runbooks can be used to automate routine or emergency operations-ce
 position: 140
 ---
 
-Runbooks are planned to be available in **Octopus 2019.10** and later.
+We're planning to introduce Runbooks in **Octopus 2019.10**.
 
 A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where Runbooks come into play.
 
@@ -12,12 +12,12 @@ Runbooks can be used to automate routine or emergency operations-centric process
 
 :::warning
 **Early Access**
-This is an early-access feature. Early-access features are still in development and we encourage you to experiment with this.
+This is an early access feature. Early access features are still in development and we encourage you to experiment with this feature, but do not use it in a production environment.
 :::
 
 ## Feature Toggle
 
-Runbooks is an early-access feature that is _disabled_ by default. You can enable this experimental feature from your `Configuration > Features` area in the Octopus UI. Once enabled, you will see an Operations/Runbooks menu under your projects.
+Runbooks is an early-access feature and is _disabled_ by default. You can enable this experimental feature by navigating to **{{Configuration > Features}}** in the Octopus Web Portal. Once enabled, you will see an Operations/Runbooks menu under your projects.
 
 ## Projects
 
@@ -37,7 +37,7 @@ It is important to understand the difference between **Snapshot** and **Run**.
 
 As you defined your runbook process, you specified the steps that must be taken, the packages and services to run, the scripts to run, and the variables to be used that are required to run your software.
 
-When you create a **Snapshot**, you are capturing the runbook process and all the associated assets (packages, scripts, variables, etc) as they existed at that time. The snapshot is given a name (unique), and you can run that snapshot as many times as you need to. You can even run that specific snapshot as it existed at the time the snapshot was created, even if parts of the runbook process have changed (those changes will be included in future snapshots).
+When you create a **Snapshot**, you are capturing the runbook process and all the associated assets (packages, scripts, variables, etc) as they existed at that time. The snapshot is given a unique name, and you can run that snapshot as many times as you need to. You can even run that specific snapshot as it existed at the time the snapshot was created, even if parts of the runbook process have changed (those changes will be included in future snapshots).
 
 When you **Run** a snapshot, you are executing the runbook process with all the associated details, as they existed when the snapshot was created.
 
@@ -45,11 +45,11 @@ You can **Run** a **Snapshot** as many times as you want to.
 
 ## Environments Selection
 
-We don't believe that channels or lifecycles (progression) make sense for the world of runbooks. Runbooks can be run on any environments you have access to. The interface has been designed to let you run a runbook quickly, so there's a single `Run on...` screen where you choose environments and specify any `Advanced` options, and then you run it.
+We don't believe that channels or lifecycles (progression) make sense for runbooks. Runbooks can be run on any environments you have access to. The interface has been designed to let you run a runbook quickly, so there's a single `Run on...` screen where you choose environments and specify any `Advanced` options, and then you run it.
 
 ## Permissions
 
-Two permissions are available for the top-level Runbooks document: `RunbookView` (for viewing) and `RunbookEdit` (for creating, modifying and deleting), so if you wanted to lock down the ability for your teams to create runbooks, you just need to disable these permissions.
+Two permissions are available for the top-level Runbooks document: `RunbookView` (for viewing) and `RunbookEdit` (for creating, modifying, and deleting), so if you want to lock down the ability for your teams to create runbooks, you just need to disable these permissions.
 
 Once you create a runbook snapshot and run it, the typical `Deployment` and `Release` permissions are required.
 
@@ -73,10 +73,10 @@ Record the HTTP requests made by the Octopus UI to see how we build your runbook
 
 ## Current Limitations
 
-For this early-access feature, there are a number of things we decided to not include initially (so we could get the feature in your hands sooner). Some known limitations that are not currently supported are:
+For this early access feature, there are a number of things we decided to not include initially (so we could get the feature in your hands sooner). Some known limitations that are not currently supported are:
 
-- Prompted variables (if your project includes prompted variables, they will simply be ignored for runbooks)
-- Variable scoping to runbooks (there's no way to scope variables between your project's deployment process vs runbook processes)
-- Triggers
-- Viewing Account usage in runbooks, and
-- Migrator support
+- Prompted variables (if your project includes prompted variables, they will be ignored for runbooks).
+- Variable scoping to runbooks (there's no way to scope variables between your project's deployment process vs runbook processes).
+- Triggers.
+- Viewing Account usage in runbooks.
+- Migrator support.
