@@ -4,6 +4,8 @@ description: Runbooks can be used to automate routine or emergency operations-ce
 position: 140
 ---
 
+Runbooks are planned to be available in **Octopus 2019.10** and later.
+
 A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where Runbooks come into play.
 
 Runbooks can be used to automate routine or emergency operations-centric processes, for instance, disaster recovery and database backups.
