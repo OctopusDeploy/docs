@@ -38,7 +38,7 @@ This is an example of a very simple process, the following sections go into more
 
 ## Projects
 
-Before you can define you how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
+Before you can define how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
 
 Learn more about managing [projects](/docs/deployment-process/projects/index.md).
 
