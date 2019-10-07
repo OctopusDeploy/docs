@@ -31,6 +31,8 @@ Runbooks can be thought of as a simplified version of your project's [Deployment
 
 You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
 
+An example runbook might be a "Cleanup runbook" that removes various temp files/folders on your environments. To do this, you would simply create a new runbook, add a script step to do your cleanup work (targeting your machines by role) and then run this on your desired environments.
+
 ## Runbook Snapshots and Runs
 
 It is important to understand the difference between **Snapshot** and **Run**.
