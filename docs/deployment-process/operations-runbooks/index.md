@@ -12,7 +12,7 @@ Runbooks can be used to automate routine or emergency operations-centric process
 
 :::warning
 **Early Access**
-This is an early access feature. Early access features are still in development and we encourage you to experiment with this feature, but do not use it in a production environment.
+This is an early access feature. Early access features are still in development and we encourage you to experiment with this feature.
 :::
 
 ## Feature Toggle
