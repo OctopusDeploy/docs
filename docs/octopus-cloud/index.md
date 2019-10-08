@@ -16,7 +16,7 @@ You can sign up for Octopus Cloud at [octopus.com/register](https://octopus.com/
     Start free trial
 </a>
 
-## Create an Octopus account
+## Create an Octopus Account
 
 An Octopus account lets you manage your instances of Octopus Cloud.
 
