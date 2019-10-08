@@ -48,7 +48,7 @@ If you are having difficulty uploading packages to your Octopus built-in package
 
 In the near future, the Octopus Cloud will become available in additional regions and you'll have the ability to move between regions.
 
-## Reset the Octopus account password
+## Reset the Octopus Account Password
 
 If you forget your username or password for your Octopus account or Octopus instance, - you can do this via Octopus.com
 
