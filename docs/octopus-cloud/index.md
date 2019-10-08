@@ -54,7 +54,7 @@ If you forget your username or password for your Octopus account or Octopus inst
 
 1. Visit [Octopus.com/signin](https://Octopus.com/signin).
 1. Click 'Forgot your password?'
-1. Reset and log into your Octopus account, and launch your Octopus instance via the accounts dashboard.
+1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
 
 ## Invite users to your Octopus Cloud instance (Applies to v2 instances only)
 
