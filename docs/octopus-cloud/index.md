@@ -60,7 +60,7 @@ If you forget your username or password for your Octopus account or Octopus inst
 
 You can add new users to your Octopus Cloud instance from within your Octopus.com account.  This feature is being rolled out gradually. If you have access to invites, you will see the invites in your instance panel.
 
-1. Simply log into your account at Octopus.com/signin
+1. Log into your account at [Octopus.com/signin](https://octopus.com/signin).
 1. Select 'Manage' on your instance panel
 1. Click 'Invite a user', enter their name and email address
 1. Hit 'Submit'.  
