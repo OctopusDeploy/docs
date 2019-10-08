@@ -36,7 +36,7 @@ An Octopus account lets you manage your instances of Octopus Cloud.
 1. Click **Continue to Confirmation**.
 1. Confirm the details you've provided, agree to the terms and click **Looks good. Deploy my Octopus!**.
 
-You will be taken to the account provisioning screen. It should take a couple of minutes for your Octopus Cloud instance to be ready. You will receive an email when the instance is ready to use.
+You will be taken to the account provisioning screen. It will take a couple of minutes for your Octopus Cloud instance to be ready. You will receive an email when the instance is ready to use.
 
 When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
 
