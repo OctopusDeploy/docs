@@ -92,7 +92,7 @@ We keep your instance of Octopus Cloud up to date and running the latest version
 
 To change your password for the Octopus instance and Octopus account:
 
-1. Go to Octopus.com/signin
+1. Go to [Octopus.com/signin](https://octopus.com/signin).
 1. Click the dropdown menu next to your username in the top right corner.
 1. Click profile.
 1. Click the **Change Password** link.
