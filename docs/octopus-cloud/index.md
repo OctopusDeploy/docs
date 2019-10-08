@@ -19,6 +19,9 @@ You can sign up for Octopus Cloud at [octopus.com/register](https://octopus.com/
 ## Create an Octopus Account
 
 An Octopus account lets you manage your instances of Octopus Cloud.
+:::hint
+Skip the steps below by registering using your Google or Microsoft account.
+:::
 
 1. Enter your name.
 1. Provide your email address and create a password. Please note, these credentials are for your Octopus account and you will use them to log into your Octopus instance through single sign-on.
