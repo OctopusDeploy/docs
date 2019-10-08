@@ -52,7 +52,7 @@ In the near future, the Octopus Cloud will become available in additional region
 
 If you forget your username or password for your Octopus account or Octopus instance, you can rest them via Octopus.com
 
-1. Head to Octopus.com/signin
+1. Visit [Octopus.com/signin](https://Octopus.com/signin).
 1. Click 'Forgot your password?'
 1. Reset and log into your Octopus account, and launch your Octopus instance via the accounts dashboard.
 
