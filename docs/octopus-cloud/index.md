@@ -70,7 +70,13 @@ You can add new users to your Octopus Cloud instance from within your Octopus.co
 
 If the user already has an Octopus ID, they can **Sign in** to view their newly accessible instance within the correct Organization.  Otherwise, they can **Register** for a new account with the email address the invitation was sent to.  All invitees will be set with the **Instance User** role. Users with the **User Instance** role will not be able to change any instance account settings or invite other users.
 
-By default, all invitees will be granted the permission **Everyone** within the Octopus instance and will not be a member of a Space. After they have signed in for the first time, you need to invite them to the Space or Spaces they need access to.
+By default, all invitees will be granted the permission **Everyone** within the Octopus instance and will not have any permissions. After they have signed in for the first time, you will need to add them to a team with more permissions.
+
+1. Go to **Configuration**
+1. Select **Teams**
+1. Create or select an existing team such as **Octopus Administrators**
+1. Select **Add Member**
+1. Click **Add** and then **Save**.
 
 ## Set the Outage Window
 
