@@ -62,7 +62,7 @@ You can add new users to your Octopus Cloud instance from within your Octopus.co
 
 1. Log into your account at [Octopus.com/signin](https://octopus.com/signin).
 1. Select **Manage** on your instance panel.
-1. Click 'Invite a user', enter their name and email address
+1. Click **Invite a user**, enter their name and email address.
 1. Hit 'Submit'.  
 
 If they already have an Octopus ID, they can simply **Sign in** to view their newly accessible instance within the correct Organization.  Otherwise simply **Register** for a new account with the email address they were invited with.  All invitees will be set with the 'Instance User' role - they will not be able to change any instance account settings or invite other users.
