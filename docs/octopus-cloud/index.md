@@ -59,7 +59,7 @@ If you forget your username or password for your Octopus account or Octopus inst
 1. Click 'Forgot your password?'
 1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
 
-## Invite Users to your Octopus Cloud Instance (v2 instances only)
+## Invite Users to your Octopus Cloud Instance
 
 You can add new users to your Octopus Cloud instance from within your Octopus.com account.  This feature is being rolled out gradually. If you have access to invites, you will see the invites in your instance panel.
 
