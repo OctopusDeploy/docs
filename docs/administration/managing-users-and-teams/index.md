@@ -24,7 +24,7 @@ You should create a different User account for each person that will use Octopus
 
 ## Inviting Users {#Managingusersandteams-Invitingusers}
 :::hint
-Do you have an OctoID and a Cloud instance?  Follow [these instructions](/docs/octopus-cloud) to invite a user.
+Do you have an OctoID and a Cloud instance?  Follow [these instructions](/docs/octopus-cloud/index.md) to invite a user.
 :::
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
