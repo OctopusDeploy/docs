@@ -18,6 +18,6 @@ Enabling this feature will give you the option to select PowerShell Core to exec
 
 You will first need to ensure that you add the PowerShell directory to your `$PATH` before Octopus can use it.
 
-For Linux targets with PowerShell Core installed, you can use this feature to directly run your PowerShell scripts against those targets. However, there are some things to keep in mind here.
+This feature allows you to run your PowerShell scripts against Linux targets with PowerShell Core installed. However, there are some things to keep in mind.
 
 If your package contains both `.ps1` & `.sh` scripts and you are deploying to a non-Windows target, Octopus will attempt to execute both scripts. This may cause some unexpected behavior depending on the script, so ensure that your package only contains a single copy of your deployment scripts.
