@@ -74,7 +74,7 @@ By default, all invitees will be granted the permission **Everyone** within the 
 
 1. Go to **Configuration**
 1. Select **Teams**
-1. Create or select an existing team such as **Octopus Administrators**
+1. Create or select an existing team such as **Octopus Managers**
 1. Select **Add Member**
 1. Click **Add** and then **Save**.
 
