@@ -30,7 +30,7 @@ You can enable the option to select PowerShell Core from the Configure Features 
 
 Enabling this feature will give you the option to select PwerShell core to execute your PowerShell scripts. By default, Octopus will execute your PowerShell scripts with standard PowerShell.
 
-![powershellcore](/powershellcore.png)
+![powershellcore](images/powershellcore.png)
 
 ###PowerShell Core on Linux Targets
 
