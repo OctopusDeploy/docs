@@ -26,7 +26,7 @@ In Octopus Version 2019.9.0 we released support for PowerShell Core. When execut
 
 You can enable the option to select PowerShell Core from the Configure Features button on a step in your deploymet.
 
-![custom feature](/customfeature.png)
+![custom feature](images/customfeature.png)
 
 Enabling this feature will give you the option to select PwerShell core to execute your PowerShell scripts. By default, Octopus will execute your PowerShell scripts with standard PowerShell.
 
