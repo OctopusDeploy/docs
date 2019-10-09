@@ -20,26 +20,6 @@ Octopus supports the following scripts:
 
 Each of your scripts will be bootstrapped by the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to provide access to variables and helper functions. You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting).
 
-## PowerShell Core
-
-In Octopus Version 2019.9.0 we released support for PowerShell Core. When executing a PowerShell scrip in Octopus as a part of a step, you can now specify whether Octpus should use PowerShell or PowerShell Core. This feature will allow you to execute your PowerShell scripts on Linux targets with PowerShell Core installed. For information on how this affects proxy, [see here](/docs/infrastructure/deployment-targets/proxy-support.md#powershell-core-scripts).
-
-You can enable the option to select PowerShell Core from the Configure Features button on a step in your deploymet.
-
-![custom feature](images/customfeature.png)
-
-Enabling this feature will give you the option to select PwerShell core to execute your PowerShell scripts. By default, Octopus will execute your PowerShell scripts with standard PowerShell.
-
-![powershellcore](images/powershellcore.png)
-
-###PowerShell Core on Linux Targets
-
-You will first need to ensure that you add the PowerShell directory to your `$PATH` before Octopus can use it.
-
-For Linux targets with PowerShell Core installed, you can use this feature to directly run your PowerShell scripts against those targets. However, there are some things to keep in mind here.
-
-If your package contains both `.ps1` & `.sh` scripts and you are calling PowerShell Core on a non-Windows target, Octopus will attempt to execute both scripts. This can cause some unexpectted behaviour depending on the scrip, so ensure that your package only contains a single copy of your deploy scripts if you are using PowerShell Core.
-
 ## Working Directories {#Customscripts-Workingdirectories}
 
 When Calamari executes your scripts, it does so within the context of the working directory by default:
