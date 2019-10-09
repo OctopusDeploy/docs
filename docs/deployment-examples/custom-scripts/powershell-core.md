@@ -20,4 +20,4 @@ You will first need to ensure that you add the PowerShell directory to your `$PA
 
 For Linux targets with PowerShell Core installed, you can use this feature to directly run your PowerShell scripts against those targets. However, there are some things to keep in mind here.
 
-If your package contains both `.ps1` & `.sh` scripts and you are calling PowerShell Core on a non-Windows target, Octopus will attempt to execute both scripts. This can cause some unexpected behavior depending on the scrip, so ensure that your package only contains a single copy of your deploy scripts if you are using PowerShell Core.
+If your package contains both `.ps1` & `.sh` scripts and you are deploying to a non-Windows target, Octopus will attempt to execute both scripts. This may cause some unexpected behavior depending on the script, so ensure that your package only contains a single copy of your deployment scripts.
