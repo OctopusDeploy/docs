@@ -4,7 +4,7 @@ description: Enabling PowerShell Core.
 position: 109
 ---
 
-In Octopus Version 2019.9.0 we released support for PowerShell Core. When executing a PowerShell script in Octopus as a part of a step, you can now specify whether Octopus should use PowerShell or PowerShell Core. This feature will allow you to execute your PowerShell scripts on Linux targets with PowerShell Core installed. For information on how this affects proxy, [see here](/docs/infrastructure/deployment-targets/proxy-support.md#powershell-core-scripts).
+In Octopus Version `2019.10.0` we released support for PowerShell Core. This feature will allow you to execute your PowerShell scripts on Linux Deployment Targets with PowerShell Core installed. When executing a PowerShell script as a part of a step, you can now specify whether Octopus should use Windows PowerShell or PowerShell Core during Windows deployments. For information on how this affects proxy configuration, [see here](/docs/infrastructure/deployment-targets/proxy-support.md#powershell-core-scripts).
 
 You can enable the option to select PowerShell Core from the Configure Features button on a step in your deployment.
 
