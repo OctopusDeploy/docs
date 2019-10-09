@@ -16,7 +16,7 @@ Enabling this feature will give you the option to use PowerShell Core to execute
 
 ## PowerShell Core on Linux Targets
 
-You will first need to ensure that you add the PowerShell directory to your `$PATH` before Octopus can use it.
+You will first need to ensure that the `pwsh` executable is available on your `$PATH` before Octopus can use it.
 
 This feature allows you to run your PowerShell scripts against Linux targets with PowerShell Core installed. However, there are some things to keep in mind.
 
