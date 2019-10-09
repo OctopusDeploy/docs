@@ -10,7 +10,7 @@ You can enable the option to select PowerShell Core from the Configure Features 
 
 ![custom feature](images/customfeature.png)
 
-Enabling this feature will give you the option to select PowerShell Core to execute your PowerShell scripts. By default, Octopus will execute your PowerShell scripts with standard PowerShell.
+Enabling this feature will give you the option to select PowerShell Core to execute your PowerShell scripts. By default, Octopus will execute your PowerShell scripts with Windows PowerShell.
 
 ![powershellcore](images/powershellcore.png)
 
