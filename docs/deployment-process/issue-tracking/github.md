@@ -44,7 +44,7 @@ To integrate with GitHub issues, Octopus needs to understand which issues are as
 
 To supply the commit messages:
 
-1. Install one of our official [build server plugins](#availability) with support for our metadata step.
+1. Install one of our official [build server plugins](#availability) with support for our build information step.
 
 2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
 

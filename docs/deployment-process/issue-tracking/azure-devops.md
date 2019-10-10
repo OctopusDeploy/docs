@@ -48,7 +48,7 @@ To integrate with Azure DevOps work items, Octopus needs to understand which wor
 
 To supply the build information:
 
-1. Install one of our official [build server plugins](#availability) with support for our metadata step.
+1. Install one of our official [build server plugins](#availability) with support for our build information step.
 2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
 
 :::warning
