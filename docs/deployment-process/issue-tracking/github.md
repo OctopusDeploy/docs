@@ -28,7 +28,7 @@ The ability to push the build information to Octopus, which is required for GitH
  - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
- 
+
 We will be rolling this out for the Jenkins plugin soon.
 
 ## Configuring GitHub Integration
@@ -46,9 +46,8 @@ To supply the commit messages:
 
 1. Install one of our official [build server plugins](#availability) with support for our metadata step.
 
-2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index.md#build-information-step).
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
 
-3. Ensure your Octopus Metadata step has set the 'Process commit messages' or 'Work Items Source' field.
 
 ## Connect Octopus to GitHub {#connect-octopus-to-github}
 

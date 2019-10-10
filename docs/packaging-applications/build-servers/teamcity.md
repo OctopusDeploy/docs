@@ -9,14 +9,14 @@ position: 70
 The Octopus TeamCity plugin comes with these custom build runners:
 
 1. **Octopus Deploy: Pack** Create a NuGet or Zip formatted package.
-2. **Octopus Deploy: Metadata** add information about the build, including work items and commit messages, that is then stored in custom metadata in Octopus Deploy.
+2. **Octopus Deploy: Build Information** add information about the build, including work items and commit messages, that is then stored in Octopus Deploy.
 3. **Octopus Deploy: Push Packages** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), optionally using the TeamCity zip feature to create packages on-the-fly.
 4. **Octopus Deploy: Create Release**
-  Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
+    Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
 5. **Octopus Deploy: Deploy Release**
-  Deploys an *existing* release to a new environment.
+    Deploys an *existing* release to a new environment.
 6. **Octopus Deploy: Promote Release**
-  Promotes an *existing* release from one environment to another.
+    Promotes an *existing* release from one environment to another.
 
 The plugin is simply a wrapper for [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
 
