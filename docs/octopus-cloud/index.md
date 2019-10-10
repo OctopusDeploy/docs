@@ -62,7 +62,7 @@ If you forget your username or password for your Octopus account or Octopus inst
 
 ## Reset the Instance User Password
 :::hint
-This feature is being deprecated.
+This feature is [being deprecated.](https://Octopus.com/docs/administration/authentication/octopusid-authentication)
 :::
 
 If you forget your username or password for the instance, you can request a **new user invite**.
