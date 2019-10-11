@@ -33,11 +33,7 @@ Skip the steps below by registering using your Google or Microsoft account.
 1. From the **products** screen, click **Start a free 30-day Cloud trial**.
 1. Enter an **instance name** for your Octopus Cloud instance.
 1. Choose a URL for the instance.
-1. Select the Cloud region for your instance. Currently the only option is **US - Oregon**.
-1. Click **Enter account details**.
-1. Create your first user for Octopus Cloud.
-1. Click **Continue to Confirmation**.
-1. Confirm the details you've provided, agree to the terms and click **Looks good. Deploy my Octopus!**.
+1. Confirm the details you've provided, agree to the terms and click **Deploy my Octopus!**.
 
 You will be taken to the account provisioning screen. It will take a couple of minutes for your Octopus Cloud instance to be ready. You will receive an email when the instance is ready to use.
 
