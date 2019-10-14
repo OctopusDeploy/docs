@@ -6,6 +6,11 @@ position: 109
 
 In Octopus Version `2019.10.0` we released support for PowerShell Core. This feature will allow you to execute your PowerShell scripts on Linux Deployment Targets with PowerShell Core installed. When executing a PowerShell script as a part of a step, you can now specify whether Octopus should use Windows PowerShell or PowerShell Core during Windows deployments. For information on how this affects proxy configuration, [see here](/docs/infrastructure/deployment-targets/proxy-support.md#powershell-core-scripts).
 
+:::hint
+**My Windows target can not find my PowerShell Core installation**
+If you have picked a non-default location for your PowerShell Core installation, then ensure that `pwsh.exe` is available on your Path in the Environment Variables.
+:::
+
 You can enable the option to select PowerShell Core from the Configure Features button on a step in your deployment.
 
 ![custom feature](images/customfeature.png)
