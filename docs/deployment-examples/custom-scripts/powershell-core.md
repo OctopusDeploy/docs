@@ -8,7 +8,7 @@ In Octopus Version `2019.10.0` we released support for PowerShell Core. This fea
 
 :::hint
 **My Windows target can not find my PowerShell Core installation**
-If you have picked a non-default location for your PowerShell Core installation, then ensure that `pwsh.exe` is available on your Path in the Environment Variables.
+If you have picked a non-default location for your PowerShell Core installation, then ensure that `pwsh.exe` is available on your `Path` Environment Variable.
 :::
 
 You can enable the option to select PowerShell Core from the Configure Features button on a step in your deployment.
