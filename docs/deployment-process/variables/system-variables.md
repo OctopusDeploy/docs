@@ -192,7 +192,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Web.ProjectLink` <br/>A path relative to the Octopus Server URL at which the project can be viewed | */app/projects/projects-123*|
 |`Octopus.Web.ReleaseLink` <br/>A path relative to the Octopus Server URL at which the release can be viewed | */app/releases/releases-123*|
 
-### Deployment Notes {#deployment-notes}
+### Deployment Changes {#deployment-changes}
 
 | Name and Description | Example |
 | -------------------- | ------- |
@@ -242,6 +242,13 @@ There is an entry per release and it includes the release notes (**in markdown f
     #{/each}
 #{/each}
 ```
+
+### Deployment Changes Templates {#deployment-changes-templates}
+
+| Name and Description | Example |
+| -------------------- | ------- |
+|`Octopus.Deployment.ChangesMarkdown` <br/>The output of applying the project's deployment changes template. | This will be markdown |
+|`Octopus.Deployment.Targets` <br/>The distinct targets being deployed to. | Dictionary of objects with ID and Name properties, keyed on ID. This is a distinct list across all steps in the deployment process. |
 
 ## Action {#Systemvariables-Action}
 
