@@ -247,7 +247,7 @@ There is an entry per release and it includes the release notes (**in markdown f
 | Name and Description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.ChangesMarkdown` <br/>The output of applying the project's deployment changes template. | This will be markdown |
-|`Octopus.Deployment.Targets` <br/>The distinct targets being deployed to. | Dictionary of objects with Id and Name properties, keyed on Id. This is a distinct list across all steps in the deployment process. |
+|`Octopus.Deployment.Targets` <br/>The distinct targets being deployed to. | Dictionary of objects with ID and Name properties, keyed on ID. This is a distinct list across all steps in the deployment process. |
 
 ## Action {#Systemvariables-Action}
 
