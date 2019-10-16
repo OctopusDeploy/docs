@@ -192,7 +192,7 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Web.ProjectLink` <br/>A path relative to the Octopus Server URL at which the project can be viewed | */app/projects/projects-123*|
 |`Octopus.Web.ReleaseLink` <br/>A path relative to the Octopus Server URL at which the release can be viewed | */app/releases/releases-123*|
 
-### Deployment Notes {#deployment-notes}
+### Deployment Changes {#deployment-changes}
 
 | Name and Description | Example |
 | -------------------- | ------- |
@@ -255,6 +255,13 @@ There is an entry per release and it includes the release notes (**in markdown f
     #{/each}
 #{/each}
 ```
+
+### Deployment Changes Templates {#deployment-changes-templates}
+
+| Name and Description | Example |
+| -------------------- | ------- |
+|`Octopus.Deployment.ChangesMarkdown` <br/>The output of applying the project's deployment changes template. | This will be markdown |
+|`Octopus.Deployment.Targets` <br/>The distinct targets being deployed to. | Dictionary of objects with ID and Name properties, keyed on ID. This is a distinct list across all steps in the deployment process. |
 
 ## Action {#Systemvariables-Action}
 
@@ -424,7 +431,7 @@ The following variables can be defined as variables in your project to modify th
 |`OctopusTreatWarningsAsErrors` <br/>Set to "True" to have warnings from XML configuration transforms or PowerShell scripts treated as if they were errors, failing the deployment. | True|
 |`OctopusSkipFreeDiskSpaceCheck` <br/>Set to "True" to skip the check for available free disk space when deploying packages. **Introduced in Calamari version 3.1.30 which was released with Octopus 3.2.18.** | True|
 |`OctopusFreeDiskSpaceOverrideInMegaBytes` <br/>The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. **Introduced in Calamari version 3.1.30 which was released with Octopus 3.2.18.** | 100|
-|`Octopus.Action.PowerShell.CustomPowerShellVersion` <br/>If specified, your PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0* **Introduced in Calamari version 3.3.13 which was released with Octopus 3.3.13.** | 2.0|
+|`Octopus.Action.PowerShell.CustomPowerShellVersion` <br/>If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.<br/>**Introduced in Calamari version 3.3.13 which was released with Octopus 3.3.13.** | 2.0|
 |`OctopusDeleteScriptsOnCleanup` <br/>For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup). | False|
 |`Octopus.Action.Script.SuppressEnvironmentLogging` <br/>To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. **Introduced in Calamari version 3.6.5 which was released with Octopus 3.6.0.** | True|
 |`Octopus.Action.PowerShell.ExecuteWithoutProfile` <br/>Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps (available in version 3.3.21+) | True|
