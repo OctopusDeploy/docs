@@ -48,9 +48,8 @@ To integrate with Azure DevOps work items, Octopus needs to understand which wor
 
 To supply the build information:
 
-1. Install one of our official [build server plugins](#availability) with support for our metadata step.
-2. Update your build process to add and configure the [Octopus Metadata step](/docs/packaging-applications/build-servers/index.md#build-information-step).
-3. Ensure your Octopus Metadata step has set the 'Process commit messages' or 'Work Items Source' field.
+1. Install one of our official [build server plugins](#availability) with support for our build information step.
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
 
 :::warning
 If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.

@@ -40,7 +40,7 @@ Check our [downloads page](https://octopus.com/downloads) for our latest build s
 
 The TeamCity version of the _Build Information_ step is shown below.
 
-![TeamCity Build Information Step](images/metadata-step.png)
+![TeamCity Build Information Step](images/build-information-step.png)
 
 :::hint
 
@@ -49,6 +49,10 @@ The Verbose logging option can be used to include more detail in the build logs.
 :::
 
 ## Viewing Build Information
+
+As of `2019.10.0`, the build information for a package can be viewed by navigating to **{{Library,Build Information}}**
+
+![Library Build information](images/library-build-information.png)
 
 The build information for a package can be viewed on any release which contains the package.
 
