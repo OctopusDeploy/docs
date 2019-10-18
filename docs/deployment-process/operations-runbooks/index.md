@@ -29,9 +29,19 @@ Learn more about managing [projects](/docs/deployment-process/projects/index.md)
 
 Runbooks can be thought of as a simplified version of your project's [Deployment Process](/docs/deployment-process/index.md), for people in the world of Operations who need to run isolated processes quickly and easily against their infrastructure.
 
+An example runbook might be a "Cleanup runbook" that removes various temp files/folders on your environments. To do this, you would simply create a new runbook, add a script step to do your cleanup work (targeting your machines by role) and then run this on your desired environments.
+
+## Variables Support
+
 You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
 
-An example runbook might be a "Cleanup runbook" that removes various temp files/folders on your environments. To do this, you would simply create a new runbook, add a script step to do your cleanup work (targeting your machines by role) and then run this on your desired environments.
+### Current Limitations
+
+**Prompted Variables**
+Prompted variables are not currently supported for the Runbooks feature, but we aim to have support for prompted variables in the near future. There is no workaround at this time.
+
+**Scoping**
+You cannot scope project variables to either a Deployment or Runbook Process currently, but we do aim to support this in the near future. A workaround is to namespace your Runbook-specific project variables. For example: Your project variable could be named `Runbook.Foo`. This naming prefix may help you easily see and consume "Runbook" variables in your Runbook Process.
 
 ## Runbook Snapshots and Runs
 
