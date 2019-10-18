@@ -69,21 +69,12 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
 
-Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master key for an Octopus Server in a container can be found by consulting its logs. When the initial container startup takes place, the same [show-master-key](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md) command is invoked that you could do with a standard installation.
-
-For instance:
+Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master key for an Octopus Server in a container can be found by using the container exec command.
 
 ```
-> docker logs 2fdf54eab150
+> docker container exec <container name/ID> 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' show-master-key --console --instance OctopusServer
 
-...
-VERBOSE: [2018-04-16T02:21:21] Display master key ...
-VERBOSE: [2018-04-16T02:21:21] Executing command 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe show-master-key --console --instance OctopusServer'
-VERBOSE:
-VERBOSE:  | 5qJcW9E6B99teMmrOzaYNA==
-VERBOSE:
-VERBOSE: [2018-04-16T02:21:26] done.
-...
+5qJcW9E6B99teMmrOzaYNA==
 ```
 
 When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, passing in the master key as an environment variable and referencing the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values.
