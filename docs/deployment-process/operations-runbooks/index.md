@@ -41,7 +41,7 @@ You can create many runbooks per project and share the [project variables](/docs
 Prompted variables are not currently supported for the Runbooks feature, but we aim to have support for prompted variables in the near future. There is no workaround at this time.
 
 **Scoping**
-You cannot currently scope project variables to either a Deployment or Runbook Process, but we aim to support this in the future. A workaround is to namespace your project variables for Runbook-specific variables you wish to consume in your Runbook Process. For example: Your project variable could be named `Runbook.MyProjectVariable` and then only access these "Runbook" variables in your Runbook Process.
+You cannot scope project variables to either a Deployment or Runbook Process currently, but we do aim to support this in the near future. A workaround is to namespace your Runbook-specific project variables. For example: Your project variable could be named `Runbook.Foo`. This naming prefix may help you easily see and consume "Runbook" variables in your Runbook Process.
 
 ## Runbook Snapshots and Runs
 
