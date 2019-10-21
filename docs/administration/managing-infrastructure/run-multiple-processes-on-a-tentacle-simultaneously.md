@@ -8,7 +8,7 @@ By default, Octopus will only run one process on each target at a time, queuing 
 
 ![](images/3278139.png)
 
-**OctopusBypassDeploymentMutex** must be set at the project variable stage. It will allow for multiple processes to run at once on the target. Having said that, _deployments of the same project to the same environment (and, if applicable, the same tenant)_ are not able to be run in parallel even when using this variable.
+`OctopusBypassDeploymentMutex` must be set at the project variable stage. It will allow for multiple processes to run at once on the target. Having said that, _deployments of the same project to the same environment (and, if applicable, the same tenant)_ are not able to be run in parallel even when using this variable.
 
 **Multiple projects**
 If you require multiple steps to run on a target, by multiple Projects in parallel, you need to add this variable to **ALL** of your projects.
@@ -18,7 +18,7 @@ If you require multiple steps to run on a target, by multiple Projects in parall
 **Caution**
 When this variable is enabled, Octopus will be able to run multiple deployments simultaneously on the same machine. This can cause deployments to fail if the same file is modified more than once at the same time.
 
-If you use **OctopusBypassDeploymentMutex**, make sure that your projects will not conflict with each other on the same machine.
+If you use `OctopusBypassDeploymentMutex`, make sure that your projects will not conflict with each other on the same machine.
 :::
 
 
@@ -26,7 +26,7 @@ If you use **OctopusBypassDeploymentMutex**, make sure that your projects will n
 When enabling **OctopusBypassDeploymentMutex** there are a couple of special variables that may impact the number of parallel tasks that are run.
 
 * `Octopus.Acquire.MaxParallelism`:
-    * This variable limits the maximum number of packages that can be concurrently deployed to a target.
+    * This variable limits the maximum number of packages that can be concurrently deployed to multiple targets.
     *  By default, this is set to `10`.
 * `Octopus.Action.MaxParallelism`:
     * This variable limits the maximum number of machines on which the action will concurrently execute.
