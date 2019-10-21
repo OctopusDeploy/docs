@@ -132,7 +132,7 @@ Deployment-level variables are drawn from the project and release being deployed
 
 | Name and Description | Example |
 | ------------------------------- | -------- |
-|`Octopus.Acquire.MaxParallelism` <br/>Controls the number of package acquisitions that will be allowed to run concurrently. Also controls retention processing at the end of the deployment. *Default: 10* | *2*|
+|`Octopus.Acquire.MaxParallelism` <br/>This variable limits the maximum number of packages that can be concurrently deployed to multiple targets. *Default: 10* | *2*|
 |`Octopus.Acquire.DeltaCompressionEnabled` <br/>Toggle whether delta compression is enabled when sending packages to targets. | true|
 |`Octopus.Deployment.Comments` <br/>User-provided comments on the deployment | *Signed off by Alice*|
 |`Octopus.Deployment.Created` <br/>The date and time at which the deployment was created | *Tuesday 10th September 1:23 PM*|
