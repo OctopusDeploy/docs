@@ -14,7 +14,7 @@ Workers are created on demand and are assigned to a customer when required. Once
 
 ### Isolated
 
-To ensure your tasks are isolated from other customers workers. This isolation is provided at the network layer (each worker is placed in its own dedeicated subnet).
+Each worker is provisioned so that they provide your task a sandbox that is completely isolated from our other customers.
  
 ::: info
 Customers cannot make changes to the default worker pool, or the configuration of the workers themeselves. The workers themselves are provisioned using our own service, meaning you don't need to configure anything for them to work in your environment.
