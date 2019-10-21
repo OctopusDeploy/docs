@@ -24,7 +24,6 @@ Customers cannot make changes to the default worker pool, or the configuration o
 
 Each worker is provisioned with a baseline of tools including, but not limited to:
 
-- Octopus Tentacle
 - Octopus Client (latest)
 - .NET Frameworks (3.5+)
 - .NET Core (latest LTS)
