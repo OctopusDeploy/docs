@@ -20,7 +20,7 @@ You can sign up for Octopus Cloud at [octopus.com/register](https://octopus.com/
 
 An Octopus account lets you manage your instances of Octopus Cloud.
 :::hint
-Skip the steps below by registering using your Google or Microsoft account.
+Skip the steps below by registering with your Google or Microsoft account.
 :::
 
 1. Enter your name.
