@@ -1,5 +1,5 @@
 ---
-title: List users with role
+title: List Users with Role
 description: An example script to list all users that have a specific role by team.
 ---
 
