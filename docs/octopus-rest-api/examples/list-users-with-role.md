@@ -8,4 +8,4 @@ This script will list all users with a given role by team.
 
 ## Scripts
 
-!include <list-users-with-role-scripts.include.md>
+!include <list-users-with-role-scripts>
