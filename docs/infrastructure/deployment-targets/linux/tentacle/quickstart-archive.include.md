@@ -21,7 +21,7 @@ tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role"
-/opt/octopus/Tentacle service --install --start
+/opt/octopus/tentacle/Tentacle service --install --start
 ```
 
 ```bash Polling deployment target
@@ -44,7 +44,7 @@ tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
 /opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name" --env "$environment" --role "$role" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
-/opt/octopus/Tentacle service --install --start
+/opt/octopus/tentacle/Tentacle service --install --start
 ```
 
 ```bash Listening worker
@@ -67,7 +67,7 @@ tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
 /opt/octopus/tentacle/Tentacle configure --trust $thumbprint
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool"
-/opt/octopus/Tentacle service --install --start
+/opt/octopus/tentacle/Tentacle service --install --start
 ```
 
 ```bash Polling worker
@@ -89,5 +89,5 @@ tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
 /opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
 /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name" --workerPool "$workerPool" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
-/opt/octopus/Tentacle service --install --start
+/opt/octopus/tentacle/Tentacle service --install --start
 ```
