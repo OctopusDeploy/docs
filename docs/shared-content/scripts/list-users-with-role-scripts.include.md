@@ -1,6 +1,6 @@
 ```powershell PowerShell
 # Define working variables
-$OctopusServerUrl = "https://youroctourl/api"
+$OctopusServerUrl = "https://youroctourl"
 $ApiKey = "API-YOURAPIKEY"
 $RoleName = "Project Deployer"
 $SpaceName = "Default" # Leave blank if you're using an older version of Octopus or you want to search all spaces
@@ -52,7 +52,7 @@ foreach ($team in $teams)
 ```powershell PowerShell (Octopus.Client)
 
 # Define working variables
-$server = "https://youroctourl/api"
+$server = "https://youroctourl"
 $apiKey = "API-YOURAPIKEY";              # Get this from your 'profile' page in the Octopus web portal
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($server, $apiKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
@@ -105,7 +105,7 @@ foreach ($team in $teams)
 ```
 ```csharp C#
 // Declare working variables
-var octopusServerUrl = "https://youroctourl/api";
+var octopusServerUrl = "https://youroctourl";
 var apiKey = "API-YOURAPIKEY";
 
 var endpoint = new OctopusServerEndpoint(octopusServerUrl, apiKey);
