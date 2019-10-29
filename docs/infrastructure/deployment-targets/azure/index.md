@@ -172,8 +172,8 @@ $azureAdApp = Get-AzureRmADApplication -ApplicationId $applicationId
 $azureAdApp | Format-Table
 
 Write-Output "Getting the Azure AD Service Principal"
-$azureAdServicePrincpal = Get-AzureRmADServicePrincipal -SearchString $azureAdApp.DisplayName
-$azureAdServicePrincpal | Format-Table
+$azureAdServicePrincipal = Get-AzureRmADServicePrincipal -SearchString $azureAdApp.DisplayName
+$azureAdServicePrincipal | Format-Table
 
 Write-Output "Creating a new Service Principal Credential"
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force

@@ -12,11 +12,11 @@ There are two main approaches to deploying databases.
 
 1. A model-driven approach, where you define the desired state of your database.  During deployment, a tool will compare the desired state with the target database.  Using that comparison it will generate a delta script.
 
-[Redgate's DLM Automation Suite](https://www.red-gate.com/products/dlm/dlm-automation/index), [Microsoft's DacPac](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-2017), and [Microsoft's Entity Framework Migrations](https://msdn.microsoft.com/en-us/library/jj591621(v=vs.113).aspx) use the model-driven approach.
+[Redgate's SQL Source Control](https://www.red-gate.com/products/sql-development/sql-source-control/), [Microsoft's DacPac](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-2017), and [Microsoft's Entity Framework Migrations](https://msdn.microsoft.com/en-us/library/jj591621(v=vs.113).aspx) use the model-driven approach.
 
 2. A change-driven approach, where schema changes are manually written and only run once.  The target database keeps track of which scripts already ran.
 
-[Redgate's ReadyRoll](https://www.red-gate.com/products/sql-development/readyroll/index), [DbUp](https://dbup.readthedocs.io/en/latest/), and [RoundhousE](http://projectroundhouse.org/) use the change-driven approach.
+[Redgate's SQL Change Automation](https://www.red-gate.com/products/sql-development/sql-change-automation/), [DbUp](https://dbup.readthedocs.io/en/latest/), and [RoundhousE](http://projectroundhouse.org/) use the change-driven approach.
 
 There are pros and cons to either approach as well as the tools themselves.  It is important for your team to research the tools and determine the best one for you.
 
@@ -135,28 +135,29 @@ Here is the most restrictive permissions for automating database deployments.  N
 
 ## Third Party Tools {#SQLServerdatabases-Thirdpartytools}
 
-### Redgate SQL Release {#SQLServerdatabases-RedgateSQLRelease}
-
+### Redgate DLM Automation {#SQLServerdatabases-RedgateDLMAutomation}
 :::warning
-**SQL Release has been replaced by DLM Automation**
-SQL Release has been replaced by DLM Automation, which is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/). For more details, see the documentation for [DLM Automation](https://documentation.red-gate.com/display/DLMA1/DLM+Automation+documentation)
+**Redgate DLM Automation has been replaced by SQL Change Automation**, which is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/). For more details, see the documentation for [SQL Change Automation](https://documentation.red-gate.com/sca3)
 :::
 
-### Redgate DLM Automation {#SQLServerdatabases-RedgateDLMAutomation}
+### Redgate SQL Change Automation
 
-The Redgate Database Lifecycle Management (DLM) Automation tool works with build servers and release management tools to provide continuous integration and automated deployment for your SQL databases. You can control DLM Automation by using the [DLM Automation PowerShell cmdlets](https://documentation.red-gate.com/display/DLMA2/Cmdlet+reference) or by using one of the [DLM Automation add-ons](http://www.red-gate.com/dlmas/add-ons-page). DLM Automation is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
+The Redgate SQL Change Automation tool works with build servers and release management tools to provide continuous integration and automated deployment for your SQL databases. You can control SQL Change Automation by using the [SQL Change Automation PowerShell cmdlets](https://documentation.red-gate.com/sca3/reference/powershell-cmdlets) or by using one of the [SQL Chage Automation add-ons](https://documentation.red-gate.com/sca3/automating-database-changes/add-ons). SQL Change Automation is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/).
 
 :::hint
-Learn about [using DLM Automation with Octopus Deploy](https://documentation.red-gate.com/display/DLMA2/Walkthrough%3A+Set+up+Continuous+Integration+And+Release+Management).
+Learn about [using SQL Change Automation with Octopus Deploy](https://documentation.red-gate.com/sca3/automating-database-changes/add-ons/octopus-deploy).
 :::
 
 ### Redgate ReadyRoll {#SQLServerdatabases-RedgateReadyRoll}
+:::warning
+**Redgate ReadyRoll has been replaced by SQL Change Automation**, which is available in the [SQL Toolbelt](http://www.red-gate.com/products/sql-development/sql-toolbelt/). For more details, see the documentation for [SQL Change Automation](https://documentation.red-gate.com/sca3)
+:::
 
-Redgate ReadyRoll follows the change script approach, and also provides an excellent Visual Studio experience. It has the ability to [generate Octopus Deploy-ready NuGet packages](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) and can work in continuous integration/automated build tools.
+Redgate SQL Change Automation follows the change script approach, and also provides an excellent Visual Studio experience as well as integrates with SQL Server Management Studio. It has the ability to generate Octopus Deploy-ready NuGet packages and can work in continuous integration/automated build tools.
 
 :::hint
-**Learn more about ReadyRoll**
-You can learn more about [Redgate ReadyRoll's Octopus Deploy support](http://doc.ready-roll.com/display/RRSQLDOC/Octopus+Deploy) in their documentation.
+**Learn more about SQL Change Automation**
+You can learn more about [Redgate SQL Change Automation's Octopus Deploy support](https://documentation.red-gate.com/sca3/automating-database-changes/add-ons/octopus-deploy) in their documentation.
 :::
 
 ### DbUp {#SQLServerdatabases-DbUp}
