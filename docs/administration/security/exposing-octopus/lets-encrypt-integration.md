@@ -44,6 +44,15 @@ At this point, we recommend enabling [Force SSL](/docs/administration/security/e
 
 After Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) in November 2019, **Octopus 2019.10.3** or newer is required to use this feature.
 
+### High Availability configurations not supported
+
+Let's Encrypt is only supported in single node Octopus Server configurations, due to a few considerations that apply in High Availability contexts:
+
+- The load balancer can handle SSL termination and this is usually preferable, rather than involving all of the Octopus Server nodes.
+- Octopus Server needs to restart to switch certificates, which needs to be coordinated in a High Availability context.
+- The load balancer complicates connecting to specific Octopus Server nodes to perform domain validation.
+- A longer lived SSL certificate is often warranted at this scale.
+
 ## Troubleshooting
 
 There are a few gotchas involved with Let's Encrypt.
