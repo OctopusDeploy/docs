@@ -5,6 +5,10 @@ description:  Migrating between self-hosted and Octopus Cloud.
 ---
 
 :::warning
+**30 October 2019**: Cloud migrations are temporarily on hold. Please [contact our support team](mailto:support@octopus.com) if you have any questions.
+:::
+
+:::warning
 **Warning:** our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between On-Premise and Cloud installations.
 :::
 
