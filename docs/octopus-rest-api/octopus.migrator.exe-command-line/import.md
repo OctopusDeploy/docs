@@ -27,6 +27,9 @@ Where [<options>] is any of:
                                state).
       --include-tasklogs     Include the task log folder as part of the
                                import process
+      --ignore-version-check Imports even if the version of the export isn't
+                               compatible with the instance (CAUTION: this may
+                               put the database in a bad state).
 
 Or one of the common options:
 
