@@ -6,6 +6,8 @@ position: 2300
 
 **Octopus 3.16** or newer can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
 
+**Octopus 2019.10.3** or newer uses ACME v2, which is required after Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) in November 2019.
+
 Let's Encrypt integration can be found under **{{Configuration,Let's Encrypt}}**.
 
 ![](images/lets-encrypt.png)
@@ -23,7 +25,7 @@ The DNS name you enter must be publicly accessible from the internet (specifical
 Once you have accepted the [Let's Encrypt Terms of Service](https://g.octopushq.com/LetsEncryptTermsOfService), and entered a registration email address, click the `Register` button.
 
 :::hint
-You do not have to create an account with Let's Encrypt to enable this integration. In fact, Let's Encrypt has no notion of user accounts.
+An account key for Let's Encrypt will be created automatically by Octopus, and reused for future requests.
 :::
 
 By default, Octopus will bind the new SSL certificate to `0.0.0.0`, which means all IP addresses on the machine. If you are running other sites on this machine, this will remove any other bindings. If this is the case, please enter the specific IP address to which you want the certificate bound.
@@ -35,6 +37,21 @@ Octopus will then register with Let's Encrypt, handle the domain validation, req
 The **{{Configuration,Let's Encrypt}}** page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
 
 At this point, we recommend enabling [Force SSL](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#ForcingHTTPS) and [HSTS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS).
+
+## Availability
+
+### ACME v1 retirement
+
+After Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) in November 2019, **Octopus 2019.10.3** or newer is required to use this feature.
+
+### High Availability configurations not supported
+
+Let's Encrypt is only supported in single node Octopus Server configurations, due to a few considerations that apply in High Availability contexts:
+
+- The load balancer can handle SSL termination and this is usually preferable, rather than involving all of the Octopus Server nodes.
+- Octopus Server needs to restart to switch certificates, which needs to be coordinated in a High Availability context.
+- The load balancer complicates connecting to specific Octopus Server nodes to perform domain validation.
+- A longer lived SSL certificate is often warranted at this scale.
 
 ## Troubleshooting
 
