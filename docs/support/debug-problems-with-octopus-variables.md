@@ -52,5 +52,5 @@ It should look like this. You can have as many extra variables as you want besid
 **For debugging only**
 When adding these variables to your project, Octopus will add the following warning to your deployment log
 `20:30:45   Warning  |       OctopusPrintVariables is enabled. This should only be used for debugging problems with variables, and then disabled again for normal deployments.`
-This is because printing variables increases the size of the task logs, and can make your deployments run slower. Don't forget to turn this off when you're finished debugging.These variables are false by default.
+This is because printing variables increases the size of the task logs, and can make your deployments run slower. Don't forget to turn this off when you're finished debugging. These variables are false by default.
 :::
