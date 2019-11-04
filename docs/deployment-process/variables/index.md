@@ -106,6 +106,7 @@ Since variables can be scoped in many different ways, there needs to be a predic
 1. The target tenant-tag (if tenant-features are enabled).
 1. The target environment.
 1. The target channel (if channels are enabled).
+1. The current deployment process or runbook.
 1. The project.
 1. No scope (least specific).
 
