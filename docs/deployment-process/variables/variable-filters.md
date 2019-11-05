@@ -41,6 +41,8 @@ Octopus provides the following filters:
 | `ToLower`    | Forces values to lowercase                     | `Automated Deployment` | `automated deployment`           |
 | `ToUpper`    | Forces values to uppercase                     | `Automated Deployment` | `AUTOMATED DEPLOYMENT`           |
 | `ToBase64`   | Converts values to Base64 (using UTF encoding) | `Bar`                  | `QmF6`                           |
+| `UriEscape`  | Escape a URI string                            | `A b:c+d/e`            | `A%20b:c+d/e`                    |
+| `UriDataEscape` | Escape a URI data string                    | `A b:c+d/e`            | `A%20b%3Ac%2Bd%2Fe`              |
 | `HtmlEscape` | Escapes entities for use in HTML content       | `1 < 2`                | `1 \&lt; 2`                      |
 | `XmlEscape`  | Escapes entities for use in XML content        | `1 < 2`                | `1 \&lt; 2`                      |
 | `JsonEscape` | Escapes data for use in JSON strings           | `He said "Hello!"`     | `He said \\"Hello!\\"`           |
