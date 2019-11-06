@@ -36,24 +36,25 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 Octopus provides the following filters:
 
-| Name         | Purpose                                        | Example Input          | Example Output                   |
-| ------------ | ----------------------------------------       | ---------------------- | -------------------------------- |
-| `ToLower`    | Forces values to lowercase                     | `Automated Deployment` | `automated deployment`           |
-| `ToUpper`    | Forces values to uppercase                     | `Automated Deployment` | `AUTOMATED DEPLOYMENT`           |
-| `ToBase64`   | Converts values to Base64 (using UTF encoding) | `Bar`                  | `QmF6`                           |
-| `UriEscape`  | Escape a URI string                            | `A b:c+d/e`            | `A%20b:c+d/e`                    |
-| `UriDataEscape` | Escape a URI data string                    | `A b:c+d/e`            | `A%20b%3Ac%2Bd%2Fe`              |
-| `HtmlEscape` | Escapes entities for use in HTML content       | `1 < 2`                | `1 \&lt; 2`                      |
-| `XmlEscape`  | Escapes entities for use in XML content        | `1 < 2`                | `1 \&lt; 2`                      |
-| `JsonEscape` | Escapes data for use in JSON strings           | `He said "Hello!"`     | `He said \\"Hello!\\"`           |
-| `Markdown`   | Converts Markdown to HTML                      | `This \_rocks\_`       | `\<p>This \<em>rocks\</em>\</p>` |
-| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                   |                         | `2016-11-03T08:53:11.0946448`  |
-| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC            |                         | `2016-11-02T23:01:46.9441479Z` |
-| [`Format`](#format)                     | Applies a format                           | `4.3`                   | `$4.30`                        |
-| [`Replace`](#replace)                   | Replaces a pattern                         | `1;2;3`                 | `1, 2, 3`                      |
-| [`Trim`](#trim)                         | Removes whitespace from the start/end      | `···Bar···`             | `Bar`                          |
-| [`Truncate`](#truncate)                 | Limits the length of values                | `Octopus Deploy`        | `Octopus...`                   |
-| [`Substring`](#substring)               | Extracts a range of characters by position | `Octopus Deploy`        | `Deploy`                       |
+| Name                                    | Purpose                                           | Example Input           | Example Output                   |
+| --------------------------------------- | ------------------------------------------------- | ----------------------- | -------------------------------- |
+| `ToLower`                               | Forces values to lowercase                        | `Automated Deployment`  | `automated deployment`           |
+| `ToUpper`                               | Forces values to uppercase                        | `Automated Deployment`  | `AUTOMATED DEPLOYMENT`           |
+| `ToBase64`                              | Converts values to Base64 (using UTF encoding)    | `Bar`                   | `QmF6`                           |
+| `FromBase64`                            | Converts values from Base64 (using UTF encoding)  | `QmF6`                  | `Bar`                            |
+| `HtmlEscape`                            | Escapes entities for use in HTML content          | `1 < 2`                 | `1 \&lt; 2`                      |
+| `XmlEscape`                             | Escapes entities for use in XML content           | `1 < 2`                 | `1 \&lt; 2`                      |
+| `JsonEscape`                            | Escapes data for use in JSON strings              | `He said "Hello!"`      | `He said \\"Hello!\\"`           |
+| `MarkdownToHTML`                        | Converts Markdown to HTML                         | `This \_rocks\_`        | `\<p>This \<em>rocks\</em>\</p>` |
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                          |                         | `2016-11-03T08:53:11.0946448`    |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC                   |                         | `2016-11-02T23:01:46.9441479Z`   |
+| [`Format`](#format)                     | Applies a format                                  | `4.3`                   | `$4.30`                          |
+| [`Replace`](#replace)                   | Replaces a pattern                                | `1;2;3`                 | `1, 2, 3`                        |
+| [`Trim`](#trim)                         | Removes whitespace from the start/end             | `···Bar···`             | `Bar`                            |
+| [`Truncate`](#truncate)                 | Limits the length of values                       | `Octopus Deploy`        | `Octopus...`                     |
+| [`Substring`](#substring)               | Extracts a range of characters by position        | `Octopus Deploy`        | `Deploy`                         |
+| [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string        | `A b:c+d/e` | `A%20b:c+d/e`       |
+| [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string   | `A b:c+d/e` | `A%20b%3Ac%2Bd%2Fe` |
 
 ### NowDate and NowDateUtc
 
