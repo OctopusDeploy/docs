@@ -9,7 +9,11 @@ If you are upgrading a version of Octopus Deploy prior to version 3, we have sup
 
 If the version of the Octopus Deploy server version 3 and above, the upgrade process involves:
 
--
+- Test your [backup and restore process](/docs/administration/data/backup-and-restore.md).
+- Learn about [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
+- [Plan your upgrade](/docs/administration/upgrading/legacy/index.md#upgrade-path).
+check the release notes
+
 
 ## See Also
 
