@@ -37,11 +37,9 @@ You can create many runbooks per project and share the [project variables](/docs
 
 ### Current Limitations
 
-**Prompted Variables**
-Prompted variables are not currently supported for the Runbooks feature, but we aim to have support for prompted variables in the near future. There is no workaround at this time.
-
 **Scoping**
-You cannot scope project variables to either a Deployment or Runbook Process currently, but we do aim to support this in the near future. A workaround is to namespace your Runbook-specific project variables. For example: Your project variable could be named `Runbook.Foo`. This naming prefix may help you easily see and consume "Runbook" variables in your Runbook Process.
+
+You cannot scope project variables to a Deployment Process Action as well as a Runbook Process action currently, but we do aim to support this in the near future.
 
 ## Runbook Snapshots and Runs
 
@@ -87,8 +85,7 @@ Record the HTTP requests made by the Octopus UI to see how we build your runbook
 
 For this early access feature, there are a number of things we decided to not include initially (so we could get the feature in your hands sooner). Some known limitations that are not currently supported are:
 
-- Prompted variables (if your project includes prompted variables, they will be ignored for runbooks).
-- Variable scoping to runbooks (there's no way to scope variables between your project's deployment process vs runbook processes).
+- There is no way to scope to a runbook action.
 - Triggers.
 - Viewing Account usage in runbooks.
 - Migrator support.
