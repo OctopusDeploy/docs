@@ -38,8 +38,7 @@ You can create many runbooks per project and share the [project variables](/docs
 ### Current Limitations
 
 **Scoping**
-
-You cannot scope project variables to a Deployment Process Action as well as a Runbook Process action currently, but we do aim to support this in the near future.
+- You cannot scope project variables to a Deployment Process Action as well as a Runbook Process action currently, but we do aim to support this in the near future.
 
 ## Runbook Snapshots and Runs
 
