@@ -5,17 +5,13 @@ position: 5
 hideInThisSection: false
 ---
 
-Introduce Octopus Deploy on this first page and then list other concepts
+As you work with Octopus Deploy to automate your software deployments there are some concepts it will be helpful to be familiar with. This sections provides information about common Octopus Concepts.
 
-There are a lot of concepts it'll help to be familiar with:
-
-upgrade
 docker
 api
 azure
 roles
 tenants
-
 
 Runbooks
 environments

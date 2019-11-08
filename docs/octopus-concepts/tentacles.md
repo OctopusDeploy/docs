@@ -18,3 +18,4 @@ In **Polling** mode, Tentacles periodically poll the Octopus server to check for
 - Learn more about the advantages of each mode: [Tentacle Communication Modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
 - Install and configure [Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md).
 - Install and configure [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md).
+- [Tentacle.exe Command-line Tool](docs/octopus.com/octopus-rest-api/tentacle.exe-command-line.md).
