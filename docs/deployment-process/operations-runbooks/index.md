@@ -37,8 +37,8 @@ You can create many runbooks per project and share the [project variables](/docs
 
 ### Current Limitations
 
-**Scoping**
-- You cannot scope project variables to a Deployment Process Action as well as a Runbook Process action currently, but we do aim to support this in the near future.
+**Scoping to Steps/Actions**
+- You cannot scope project variables to a Deployment Process step as well as a Runbook Process step currently, but we do aim to support this in the near future.
 
 ## Runbook Snapshots and Runs
 
@@ -84,7 +84,7 @@ Record the HTTP requests made by the Octopus UI to see how we build your runbook
 
 For this early access feature, there are a number of things we decided to not include initially (so we could get the feature in your hands sooner). Some known limitations that are not currently supported are:
 
-- There is no way to scope to a runbook action.
+- There is no way to scope to a runbook step.
 - Triggers.
 - Viewing Account usage in runbooks.
 - Migrator support.
