@@ -4,6 +4,10 @@ description: Using the Octo.exe command line tool to export items from one Octop
 position: 130
 ---
 
+:::warning
+Deprecated. Please see https://g.octopushq.com/DataMigration for alternative options.
+:::
+
 This command allows you to export items from one Octopus Deploy Server and import them into another Octopus Deploy Server.
 
 We currently support exporting/importing:
