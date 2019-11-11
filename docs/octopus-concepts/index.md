@@ -8,7 +8,6 @@ hideInThisSection: false
 As you work with Octopus Deploy to automate your software deployments there are some concepts it will be helpful to be familiar with. This sections provides information about common Octopus Concepts.
 
 docker
-api
 azure
 roles
 tenants

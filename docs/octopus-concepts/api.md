@@ -7,7 +7,7 @@ Octopus Deploy is built **API-first**. This means that everything Octopus Deploy
 
 [Octo.exe](/docs/octopus-concepts/octo.exe.md) is the command-line tool that interacts with the rest API and can be used to manage your Octopus server, infrastructure, and deployments.
 
-Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version **Octopus 2018.6.0**).
+Octopus includes a [Migration API](/docs/octopus-rest-api/migration-api/index.md) that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely.
 
 ## See Also
 
