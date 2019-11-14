@@ -17,6 +17,7 @@ We provide a number of ways to install Octo onto your machine:
 
 `octo.exe` supports the following commands:
 
+- **[build-information](/docs/octopus-rest-api/octo.exe-command-line/build-information.md)**:  Pushes build information to Octopus Server.
 - **[clean-environment](/docs/octopus-rest-api/octo.exe-command-line/clean-environment.md)**:  Cleans all Offline Machines from an Environment.
 - **[clean-workerpool](/docs/octopus-rest-api/octo.exe-command-line/clean-workerpool.md)**:  Cleans all Offline Workers from a WorkerPool.
 - **[create-autodeployoverride](/docs/octopus-rest-api/octo.exe-command-line/create-autodeployoverride.md)**:  Override the release that auto deploy will use.
