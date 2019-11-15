@@ -1,6 +1,6 @@
 ---
 title: Jenkins
-description: Jenkins can work together with Octopus Deploy to create releases, push packages, push build information and execute deployments.
+description: Jenkins can work together with Octopus Deploy to create releases, push packages, push build information, and execute deployments.
 position: 60
 ---
 
