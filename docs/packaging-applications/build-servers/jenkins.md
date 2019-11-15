@@ -14,7 +14,7 @@ Using Jenkins and Octopus Deploy together, you can:
 - Securely deploy your applications with Octopus Deploy across your infrastructure.
 - Fully automate your continuous integration and continuous deployment processes.
 
-Octopus Deploy will take those packages and to push them to development, test, and production environments.
+Octopus Deploy will take those packages and push them to development, test, and production environments.
 
 ## Jenkins Installation
 
