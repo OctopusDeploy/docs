@@ -34,16 +34,16 @@ If you're building a .NET project:
 If you're building a JAVA project:
 - [Maven Plugin](https://plugins.jenkins.io/maven-plugin): to compile your JAVA project.
 
-Having at least installed the *Mask Passwords Plugin* you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy)
+Having at least installed the *Mask Passwords Plugin* you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
 
-## Configure Octopus Deploy Plugin
+## Configure the Octopus Deploy Plugin
 
-After you have installed the Octopus Deploy plugin. First navigate toe Manage Jenkins > Global Tool Configuration to supply the details for Octopus CLI.
+After you have installed the Octopus Deploy plugin. First navigate to {{Manage Jenkins > Global Tool Configuration}} to supply the details for the Octopus CLI.
 
 :::success
 **Creating API keys**
-Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Deploy server.
+Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Deploy server.
 :::
 
 ### Octopus CLI
@@ -53,8 +53,8 @@ This is a good time to install the [Octo.exe command line tool](/docs/octopus-re
  The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy) is a wrapper for [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
-  - Use the `dotnet tool install` command to install it, the [Octo Command Line Global Tool](https://octopus.com/docs/octopus-rest-api/octo.exe-command-line/install-global-tool) this works great on Linux and Windows, or
-  - [Download Octo.exe](https://octopus.com/downloads), and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`
+  - Use the `dotnet tool install` command to install it, the [Octo Command Line Global Tool](https://octopus.com/docs/octopus-rest-api/octo.exe-command-line/install-global-tool) this works great on Linux and Windows.
+  - [Download Octo.exe](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`.
 
 Then we can let the plugin know where it is installed.
 
@@ -62,15 +62,15 @@ Then we can let the plugin know where it is installed.
 
 ### Configure System
 
-You can then navigate to navigate to Manage Jenkins > Configure System
+Next, navigate to {{Manage Jenkins > Configure System}}.
 
 #### Octopus Deploy Server Settings
 
-Here you can create the link to your Octopus Deploy server. You can have more than one if that is how your organization is set up. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
+Here you can create the link to your Octopus Deploy server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
 
 ![](images/jenkins/octopusdeploy-servers.png)
 
-Once the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy) is configured, we can start configuring a Jenkins Project.
+After the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy) is configured, you can configure a Jenkins Project.
 
 ## Build job
 
@@ -89,8 +89,8 @@ The Octopus Jenkins plugin comes with these Octopus Build Steps:
   1. **Octopus Deploy: Package Application** Create a NuGet or Zip formatted package.
   1. **Octopus Deploy: Push Build Information** Add information about the build, including work items and commit messages, that is then stored in Octopus Deploy.
   1. **Octopus Deploy: Push Packages** Push packages to the Octopus Deploy built-in repository.
-  1. **Octopus Deploy: Create Release** Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
-  1. **Octopus Deploy: Deploy Release** Deploys an existing release to a new environment.
+  1. **Octopus Deploy: Create Release** Create a new release in Octopus Deploy, and optionally deploys it to an environment.
+  1. **Octopus Deploy: Deploy Release** Deploy an existing release to a new environment.
 
   You can make use of any combination of these to achieve your deployment objective. They are Build Steps so you can have multiple instances of any of the types, it is a Jenkins limitation to have that with post-build actions.
 
@@ -106,7 +106,7 @@ Jenkins is compiling our code and publishing packages to Octopus Deploy. If we w
 Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) and the arguments it accepts.
 :::
 
-With this job runs, Jenkins will now not only build and publish packages, but it will also create a release in Octopus Deploy.
+When this job runs, Jenkins will now not only build and publish packages, it will also create a release in Octopus Deploy.
 
 As an example here, we're relying on the `${BUILD_NUMBER}` value generated by Jenkins to use in the Release Version: `1.1.${BUILD_NUMBER}`.
 
@@ -114,13 +114,13 @@ As an example here, we're relying on the `${BUILD_NUMBER}` value generated by Je
 
 ## Deploying Releases {#Jenkins-Deployingreleases}
 
-You might like to configure Jenkins to not only create a release, but deploy it to a *test environment*. This can easily be done by ticking the `Deploy this release after it is created?` option.
+You might like to configure Jenkins to not only create a release, but deploy it to a *test environment*. This can be done by ticking the `Deploy this release after it is created?` option.
 
-Or by using the `Deploy Release` action if you need to specify more deployment criteria, for example the channel or other required packages.
+Alternatively, you can use the `Deploy Release` action if you need to specify more deployment criteria, for example the channel or other required packages.
 
 ![](images/jenkins/deploy-release.png)
 
-With a successful run looking like this:
+A successful run looks like this:
 
 ![](images/jenkins/random-quotes-successful-run.png)
 
@@ -140,7 +140,7 @@ This action works well combined with the next action `Push Packages`.
 
 ## Push packages {#Jenkins-Pushpackages}
 
-Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) using this action you can push packages to Octopus.
+Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), using this action you can push packages to Octopus.
 
 This action will push all packages that match the `Package paths` supplied.
 
@@ -152,7 +152,7 @@ Note that the package paths defined here should be full paths, not including any
 
 ## Push build information {#Jenkins-Pushbuildinformation}
 
-Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/index.md#build-information)
+Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/index.md#build-information).
 
 The build information is associated with a package and includes:
 
@@ -160,11 +160,11 @@ The build information is associated with a package and includes:
  - Commits: Details of the source commits related to the build.
  - Issues: Issue references parsed from the commit messages.
 
- It is a way to capture all related details and create clear traceability between build and deployment.
+This allows you to capture all related details and create clear traceability between build and deployment.
 
 ![](images/jenkins/push-build-information.png)
 
 
-As an example here is what build information looks like attached with a release:
+As an example here is what build information looks like when attached to a release:
 
 ![Build information on release page](images/build-information-release.png)
