@@ -4,7 +4,7 @@ description: Runbooks can be used to automate routine or emergency operations-ce
 position: 140
 ---
 
-We're planning to introduce Runbooks in **Octopus 2019.10**.
+Runbooks were introduced in **Octopus 2019.10**.
 
 A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where Runbooks come into play.
 
@@ -57,13 +57,19 @@ You can **Run** a **Snapshot** as many times as you want to.
 
 ## Environments Selection
 
-We don't believe that channels or lifecycles (progression) make sense for runbooks. Runbooks can be run on any environments you have access to. The interface has been designed to let you run a runbook quickly, so there's a single `Run on...` screen where you choose environments and specify any `Advanced` options, and then you run it.
+We don't believe that channels or lifecycles (progression) make sense for runbooks. Runbooks can be run on any environments you have access to. The interface has been designed to let you run a runbook quickly, so there's a single `Run...` screen where you choose environments and specify any `Advanced` options, and then you run it.
 
 ## Permissions
 
 Two permissions are available for the top-level Runbooks document: `RunbookView` (for viewing) and `RunbookEdit` (for creating, modifying, and deleting), so if you want to lock down the ability for your teams to create runbooks, you just need to disable these permissions.
 
 Once you create a runbook snapshot and run it, the typical `Deployment` and `Release` permissions are required.
+
+## Publishing
+
+Publishing allows a runbook author (users with `RunbookEdit` permissions) to nominate a Runbook Snapshot as being 'ready to run', informing others that the runbook process (at the given snapshot) has been tried and tested.
+
+For consumers (users running a runbook), the option to run a published snapshot will be available on the Run screen. Users who do not have `RunbookEdit` permissions will have the published version selected by default, giving them some level of confidence that they will be running the expected snapshot.
 
 ## Working with the Octopus API
 
@@ -91,4 +97,3 @@ For this early access feature, there are a number of things we decided to not in
 - Variable scoping to runbooks (there's no way to scope variables between your project's deployment process vs runbook processes).
 - Triggers.
 - Viewing Account usage in runbooks.
-- Migrator support.
