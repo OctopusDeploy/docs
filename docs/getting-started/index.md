@@ -158,5 +158,4 @@ When you deploy a release, you are executing the deployment process with all the
 
 ## Next
 
-- [Common Terms](/docs/getting-started/terms.md)
 - [Deployment Examples](/docs/deployment-examples/index.md)

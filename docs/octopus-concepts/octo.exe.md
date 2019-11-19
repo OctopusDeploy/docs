@@ -11,5 +11,5 @@ We recommend installing Octo.exe by using .Net Core CLI as a [global tool](/docs
 
 - [Octopus REST API](/docs/octopus-concepts/api.md).
 - [Install Global Tool](/docs/octopus-rest-api/octo.exe-command-line/install-global-tool.md).
-- [Create Packages with Octo.exe](/docs/packaging-applications/creeate-packages/octo.exe.md).
+- [Create Packages with Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
 - [Octo.exe Command Line Reference](/docs/octopus-rest-api/octo.exe-command-line/index.md)
