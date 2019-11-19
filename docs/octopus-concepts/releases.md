@@ -1,8 +1,10 @@
-<!-- from the terms section -->
-## Creating a Release
+---
+title: Releases
+description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
+---
 
-A [Release](/docs/deployment-process/releases/index.md) is a snapshot of your deployment process, configuration variables, and software packages. Releases are created from Projects and deployed via a Lifecycle to your Environments.
+!include <releases>
 
-## Deploying a Release
+## See Also
 
-When you [deploy a release](/docs/deployment-process/releases/index.md), you are executing the deployment process with all the associated details, as they existed when the release was created. You can deploy a release as many times as you want to.
+- [Deploying Releases](/docs/deployment-process/releases/index.md)

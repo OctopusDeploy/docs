@@ -1,5 +1,13 @@
 ---
-title:Environments
+title: Environments
+description: Environments represent the different phases in your deployment process from development, to testing, and finally into production.
 ---
 
-Octopus organizes your deployment targets into groups called [Environments](/docs/infrastructure/environments/index.md) so you can promote your software through your deployment pipeline. For instance, from Development to Test and finally into Production.
+!include <environments>
+
+## See Also
+
+- [Infrastructure](/docs/infrastructure/index.md)
+- Managing your [environments](/docs/infrastructure/environments/index.md)
+- [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
+- [Lifecycles](/docs/deployment-process/lifecycles.md)

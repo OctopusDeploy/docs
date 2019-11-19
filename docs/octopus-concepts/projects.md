@@ -1,4 +1,11 @@
-<!-- from the terms section -->
-## Projects
+---
+title: Projects
+description: Projects are where you define the details of your deployments.
+---
 
-[Projects](/docs/deployment-process/projects/index.md) let you manage multiple software projects from the Octopus Web Portal. For each project you have, you define a deployment process, configuration variables, and the environments the software will be deployed to.
+!include <projects>
+
+## See also
+
+- [Deployment Process](/docs/deployment-process/index.md)
+- Managing your [projects](/docs/deployment-process/projects/index.md)
