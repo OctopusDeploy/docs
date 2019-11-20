@@ -914,3 +914,5 @@ docs/deployment-examples/node-on-linux-deployments/index.md -> docs/deployment-e
 docs/deployment-examples/node-on-linux-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
+docs/getting-started/terms.md -> docs/getting-started.md
+docs/overview.md -> docs/getting-started.md
