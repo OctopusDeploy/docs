@@ -131,9 +131,3 @@ If you have a concern regarding security with Octopus Deploy, or would like to r
 For security vulnerabilities, please include as much information as possible, with full details about how to reproduce and validate the vulnerability, preferably with a proof of concept. If you wish to encrypt your report, please use our [PGP key](https://octopus.com/pgp-key.pub). Please give us a reasonable amount of time to correct the issue, before making it public.
 
 We will respond to your report within one business day.
-
-## Ask Octopus
-
-Watch this Ask Octopus episode where we discuss system security.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rKwYkDN_IPU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
