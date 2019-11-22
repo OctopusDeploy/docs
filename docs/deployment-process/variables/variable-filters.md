@@ -123,7 +123,7 @@ The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of ch
 
 ### UriPart
 
-The *UriPart* filter introduced in **Octopus 2019.10.9** treats the input as an uri and extracts a specified part of it.
+The *UriPart* filter introduced in **Octopus 2019.10.9** parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
 
 | MyVar Value                             | Filter Expression                    | Output                     |
 | --------------------------------------- | ------------------------------------ | -------------------------- |
