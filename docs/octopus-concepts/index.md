@@ -4,4 +4,4 @@ description: This section provides information about Octopus concepts you'll nee
 position: 5
 ---
 
-As you work with Octopus Deploy to automate your software deployments there are some concepts it will be helpful to be familiar with. This sections provides information about common Octopus Concepts.
+As you work with Octopus Deploy to automate your software deployments there are some concepts it will be helpful to be familiar with. This section provides information about common Octopus Concepts.

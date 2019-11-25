@@ -4,9 +4,9 @@ description: Lifecycles allow you to control the way releases are promoted betwe
 position: 2
 ---
 
-Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**.
-
 !include <lifecycles>
+
+Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**.
 
 Lifecycles are a key component of [channels](/docs/deployment-process/channels/index.md) which give you even great control over how your software is deployed. Channels let you use multiple Lifecycles for a project and then automatically deploy to specific channels, using the defined lifecycle, based on the version of the software being deployed.
 

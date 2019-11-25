@@ -5,7 +5,9 @@ position: 20
 hideInThisSection: True
 ---
 
-Deployment targets are the servers and services that host your deployed software. You can manage your deployment targets by navigating to **{{Infrastructure,Deployment Targets}}** in the Octopus Web Portal.
+!include <deployment-targets>
+
+You can manage your deployment targets by navigating to **{{Infrastructure,Deployment Targets}}** in the Octopus Web Portal.
 
 From the **Deployment Targets** tab you can add new deployment targets, disable or delete deployment targets, check on the status of your targets, and run health checks.
 
