@@ -45,9 +45,3 @@ Octopus supports a wide range of networking features to help fit into your PCI c
 - If you are using our Tentacle agent, you can configure it in listening mode (`Octopus Server -> Tentacle`) or polling mode (`Tentacle -> Octopus Server`) which changes the direction traffic flows through your firewalls. [Learn about Tentacle communication modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
 
 Your security and networking team should be able to help you make these decisions based on how you have decided to design your network for PCI compliance.
-
-## Ask Octopus
-
-Watch this Ask Octopus episode where we discuss compliance.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IOnVE0R5lug?start=992" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

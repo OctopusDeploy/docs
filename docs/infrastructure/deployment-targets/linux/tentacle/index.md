@@ -105,7 +105,7 @@ Or one of the common options:
 To install and start Tentacle as a service, use the `Tentacle service` command:
 
 ```
-/opt/octopus/Tentacle service --install --start
+ /opt/octopus/tentacle/Tentacle service --install --start
 ```
 
 ### Manually configuring Tentacle to run as a service

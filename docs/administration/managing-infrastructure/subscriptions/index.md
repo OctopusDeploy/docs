@@ -201,9 +201,3 @@ The following is a list of all options for subscriptions including Event Groups,
 |User|
 |User Role|
 |Variable Set|
-
-## Ask Octopus
-
-Watch this Ask Octopus episode where we discuss subscriptions.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rKwYkDN_IPU?start=25" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

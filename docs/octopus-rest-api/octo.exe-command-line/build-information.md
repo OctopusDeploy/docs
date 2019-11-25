@@ -1,38 +1,28 @@
 ---
-title: push-metadata
-description: Pushes package metadata to Octopus Server.
-position: 285
+title: build-information
+description: Pushes build information to Octopus Server.
 ---
 
-Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
+Pushes build information to Octopus Server.
 
-This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octo.exe-command-line/build-information.md) command for Octopus Server 2019.10.0 and above.
-
-**push-metadata options**
+**build-information options**
 
 ```text
-Usage: octo push-metadata [<options>]
+Usage: octo build-information [<options>]
 
 Where [<options>] is any of:
 
-Package metadata pushing:
+Build information pushing:
 
       --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
       --version=VALUE        The version of the package; defaults to a
                              timestamp-based version
-      --metadata-file=VALUE  Octopus Package metadata Json file.
-      --overwrite-mode=VALUE If the package metadata already exists in the
+      --file=VALUE           Octopus Build Information Json file.
+      --overwrite-mode=VALUE If the build information already exists in the
                              repository, the default behavior is to reject
-                             the new package metadata being pushed
+                             the new build information being pushed
                              (FailIfExists). You can use the overwrite mode
                              to OverwriteExisting or IgnoreIfExists.
-      --replace-existing     If the package metadata already exists in the
-                             repository, the default behavior is to reject
-                             the new package metadata being pushed. You can
-                             pass this flag to overwrite the existing package
-                             metadata. This flag may be deprecated in a
-                             future version; passing it is the same as using
-                             the OverwriteExisting overwrite-mode.
 
 Common options:
 
