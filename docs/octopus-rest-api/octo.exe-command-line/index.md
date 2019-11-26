@@ -11,7 +11,7 @@ We provide a number of ways to install Octo onto your machine:
 
 - Using .Net Core CLI as a [global tool](/docs/octopus-rest-api/octo.exe-command-line/install-global-tool.md) (recommended).
 - Download from [Octopus downloads page](https://octopus.com/downloads).
-- Using [Chocolatey](https://chocolatey.org/packages/OctopusTools)
+- Using [Chocolatey](https://chocolatey.org/packages/OctopusTools).
 
 ## Commands {#octo.exeCommandLine-Commands}
 

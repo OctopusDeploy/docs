@@ -5,20 +5,7 @@ position: 20
 hideInThisSection: false
 ---
 
-Octopus lets you define variables with values that change based on the scope you've assigned to the variables and the scope of your deployments. For instance, as you define your [deployment processes](/docs/deployment-process/index.md) there will be [steps](/docs/deployment-process/steps/index.md) in your [projects](/docs/deployment-process/projects/index.md) that need different database connection strings (or any number of other parameters, i.e., application settings, web service URLs, etc) depending on the environment you're deploying to.
-
-Using variables, you can define a variable with one value (the database connection string for the test database) scoped to the test environment and another value (the database connection string for the production database) scoped to the production environment. Then, when your deployment process runs, it will use the value with the test database connection string when deploying to the test environment, and it will use the value with the production database connection string when deploying to the production environment.
-
-| Name | Value | Scope |
-| --- | --- | --- |
-| database | TestSQLConnectionString | Testing |
-| database | ProductionSQLConnectionString | Production |
-
-Using variables means you don't need to hardcode any of these values. You define your variables and the values you provide will be used at deployment time, allowing you to create applications and deployments that are agnostic of the target environments.
-
-:::warning
-If you are using Spaces as part of your Octopus Deploy installation, please remember that any Variables you configure, will only be available to the space they are configured for.
-:::
+!include <variables-concept>
 
 ## Creating Hello World Variables
 

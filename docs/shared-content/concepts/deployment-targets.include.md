@@ -1,0 +1,1 @@
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or an Offline Package Drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.
