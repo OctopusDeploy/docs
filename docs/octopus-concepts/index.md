@@ -5,4 +5,4 @@ hideInThisSectionHeader: true
 position: 5
 ---
 
-As you work with Octopus Deploy to automate your software deployments there are some concepts it will be helpful to be familiar with. This section provides information about common Octopus concepts.
+As you work with Octopus Deploy to automate your software deployments, there are some concepts it will be use to understand. This section provides information about common Octopus concepts.
