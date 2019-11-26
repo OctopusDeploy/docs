@@ -1,7 +1,6 @@
 ---
 title: Octopus Deploy Server
 description: The Octopus Deploy server provides the REST API and the Octopus web portal to manage your deployments and infrastructure.
-position: 0
 ---
 
 The Octopus Deploy server is the deployment automation server that orchestrates your releases and deploys your software.

@@ -1,6 +1,7 @@
 ---
 title: Octopus Concepts
 description: This section provides information about Octopus concepts that it's helpful to understand as you deploy software with Octopus Deploy.
+hideInThisSectionHeader: true
 position: 5
 ---
 

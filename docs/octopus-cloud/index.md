@@ -1,6 +1,6 @@
 ---
 title: Octopus Cloud
-position: 20
+position: 10
 description: How to work with Octopus Cloud.
 ---
 
