@@ -10,7 +10,7 @@ This section provides an overview of Octopus Deploy concepts and links to the re
 
 ## Consistent Releases
 
-As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. After releases have been created, they can be deployed as many times as you need.
+As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want developers to deploy to dev environments but not testing or production, and members of QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. After releases have been created, they can be deployed as many times as you need.
 
 ## Octopus Deploy Server
 
@@ -30,7 +30,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## The Octopus Web Portal
 
-Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octopus Web Portal is where you'll manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
+Whether you're self-hosting the Octopus server or using Octopus Cloud, the Octopus Web Portal is where you manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
 
 ![Octopus Dashboard](octopus-dashboard.png)
 
@@ -38,9 +38,9 @@ Whether you're self-hosting the Octopus server, or using Octopus Cloud, the Octo
 
 Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **development**, **test**, and **production**.
 
-With Octopus Deploy your deployment targets could be Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or an Offline Package Drop.
+With Octopus Deploy your deployment targets can be Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or an Offline Package Drop.
 
-Organizing your infrastructure into environments lets you define your deployment processes (no matter how many steps or deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
+Organizing your infrastructure into environments lets you define your deployment processes (no matter how many steps, environments, or deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
 
 Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
@@ -54,9 +54,9 @@ Learn more about [packaging your applications](/docs/packaging-applications/inde
 
 Octopus Deploy is designed to work with teams following agile software development methodologies, that is, continuously deploying software, iterating, making changes, and redeploying.
 
-The deployment process that Octopus executes is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also add steps from the community step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
+The deployment process that Octopus executes is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also use steps from the community-contributed step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, how you can [deploy releases](/docs/deployment-process/releases/index.md), or see some [deployment examples](/docs/deployment-examples/index.md).
+Learn more about the [deployment process](/docs/deployment-process/index.md), how you can set up [projects](/docs/deployment-process/projects/index.md), use [variables](/docs/deployment-process/variables/index.md), and [lifecycles](/docs/deployment-process/lifecycles/index.md) in your deployments, how you can [deploy releases](/docs/deployment-process/releases/index.md) or see some [deployment examples](/docs/deployment-examples/index.md).
 
 ## Spaces
 
