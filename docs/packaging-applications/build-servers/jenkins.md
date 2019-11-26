@@ -169,7 +169,8 @@ As an example here is what build information looks like when attached to a relea
 
 ![Build information on release page](images/build-information-release.png)
 
-## Contributing to the plugin
+:::success
+**Contributing to the plugin**
 
 We welcome contributions; issues, bug fixes, enhancements. 
 
