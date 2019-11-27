@@ -4,23 +4,7 @@ description: External workers are machines that can execute steps that don't nee
 position: 30
 ---
 
-Workers are machines that can execute tasks that don't need to be run on the Octopus server or individual deployment targets.
-
-You can manage your workers by navigating to **{{Infrastructure,Worker Pools}}** in the Octopus Web Portal:
-
-![The Worker Pools area of Octopus Deploy](worker-pools.png)
-
-Workers are useful for the following steps:
-
-- Publishing to Azure websites.
-- Deploying AWS CloudFormation templates.
-- Deploying to AWS Elastic Beanstalk.
-- Uploading files to Amazon S3.
-- Backing up databases.
-- Performing database schema migrations
-- Configuring load balancers.
-
-![Workers diagram](workers-diagram-img.png "width=1000")
+!include <workers>
 
 ## Where Steps Run
 
