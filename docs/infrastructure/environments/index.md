@@ -6,7 +6,9 @@ position: 10
 
 !include <environments>
 
-You can manage your environments by navigating to **{{Infrastructure,Environments}}** in the Octopus Web Portal.
+You can manage your environments by navigating to **{{Infrastructure,Environments}}** in the Octopus Web Portal:
+
+![The Environments area of Octopus Deploy](environments.png)
 
 ## Add New Environments
 
