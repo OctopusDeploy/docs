@@ -17,7 +17,7 @@ Learn more about [deployment targets](/docs/infrastructure/deployment-targets/in
 
 ## Environments
 
-Before you can add your deployment targets to Octopus, you need to configure your [environments](/docs/infrastructure/environments/index.md). Environments represent the different stages of your deployment pipeline and ensure that the software that's deployed is the same as it moves through those stages from, for instance, **Development**, into **Test**, and finally to **Production**.
+Before you can add your deployment targets to Octopus, you need to configure your [environments](/docs/infrastructure/environments/index.md). Environments represent the different stages of your deployment pipeline and ensure that the software that's deployed is the same as it moves through those stages from, for instance, **development**, into **test**, and finally to **production**.
 
 Typical environments include:
 
@@ -26,6 +26,8 @@ Typical environments include:
  - Production
 
 You can add as many or as few environments as you require in your deployment pipeline, and you can add as many deployment targets to each environment as you need.
+
+Learn more about [environments](/docs/infrastructure/environments/index.md).
 
 ## Workers
 
