@@ -5,7 +5,7 @@ position: 20
 hideInThisSection: false
 ---
 
-!include <variables-concept>
+!include <variables>
 
 ## Creating Hello World Variables
 

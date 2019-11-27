@@ -6,3 +6,7 @@ For instance, when you deploy software into your test environment, you may need 
 | --- | --- | --- |
 | database | TestSQLConnectionString | Testing |
 | database | ProductionSQLConnectionString | Production |
+
+You can manage the variables for your projects, by navigating to your project in the **{{Project}}** tab of the Octopus Web Portal and then selecting **{{Variables}}**:
+
+![Project variables](/docs/shared-content/concepts/images/variables.png)
