@@ -12,3 +12,7 @@ Lifecycles are defined by phases. A lifecycle can have one or many phases.
 - Phases can have a set number of environments that must be released to before the next phase is available for deployment.
 
 You can specify multiple Lifecycles to control which projects are deployed to which environments.
+
+Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**:
+
+![The Lifecyles area of the Octopus Web Portal](/docs/shared-content/concepts/images/lifecycles.png)
