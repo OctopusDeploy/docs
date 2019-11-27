@@ -5,7 +5,7 @@ description: Environments represent the different phases in your deployment proc
 
 !include <environments>
 
-Learn more about managing your [environments](/docs/infrastructure/environments/index.md#add-new-environments)
+Learn more about managing your [environments](/docs/infrastructure/environments/index.md#add-new-environments).
 
 ## See Also
 
