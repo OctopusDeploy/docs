@@ -9,8 +9,9 @@ Octopus Deploy is built **API-first**. This means that everything Octopus Deploy
 
 Octopus includes a [Migration API](/docs/octopus-rest-api/migration-api/index.md) that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely.
 
+Learn more about the [Octopus REST API](/docs/octopus-rest-api/index.md).
+
 ## See Also
 
-- [Octopus REST API](/docs/octopus-rest-api/index.md).
-- [Octo.exe](/docs/octopus-concepts/octo.exe.md).
-- [Migration API](/docs/octopus-rest-api/migration-api/index.md).
+- [Octo.exe](/docs/octopus-concepts/octo.exe.md)
+- [Migration API](/docs/octopus-rest-api/migration-api/index.md)

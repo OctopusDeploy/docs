@@ -5,7 +5,8 @@ description: Workers are machines that can execute steps that don't need to be p
 
 !include <workers>
 
+Learn more about [workers](/docs/infrastructure/workers/index.md).
+
 ## See also
 
 - [Infrastructure](/docs/infrastructure/index.md)
-- [Workers](/docs/infrastructure/workers/index.md)

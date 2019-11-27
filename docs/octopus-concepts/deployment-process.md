@@ -11,8 +11,9 @@ Octopus comes with over 300+ built-in and [community-contributed steps](/docs/de
 
 After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process, however, you can continue to add and edit steps as your process evolves or your infrastructure changes.
 
+Learn more about managing your [deployment processes](/docs/deployment-process/index.md)
+
 ## See Also
 
-- [Deployment Process](/docs/deployment-process/index.md).
 - [Projects](/docs/deployment-process/projects/index.md).
 - [Steps](/docs/deployment-process/steps/index.md)
