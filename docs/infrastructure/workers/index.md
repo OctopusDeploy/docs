@@ -6,6 +6,10 @@ position: 30
 
 Workers are machines that can execute tasks that don't need to be run on the Octopus server or individual deployment targets.
 
+You can manage your workers by navigating to **{{Infrastructure,Worker Pools}}** in the Octopus Web Portal:
+
+![The Worker Pools area of Octopus Deploy](worker-pools.png)
+
 Workers are useful for the following steps:
 
 - Publishing to Azure websites.
