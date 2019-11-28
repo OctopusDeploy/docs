@@ -30,9 +30,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## The Octopus Web Portal
 
-Whether you're self-hosting the Octopus server or using Octopus Cloud, the Octopus Web Portal is where you manage your infrastructure, projects, access the built-in repository, grant your team access to projects, and create your automated deployments.
-
-![Octopus Dashboard](octopus-dashboard.png)
+!include <web-portal>
 
 ## Infrastructure
 
