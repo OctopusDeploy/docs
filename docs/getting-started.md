@@ -30,7 +30,7 @@ Learn more about [Octopus Cloud](/docs/octopus-cloud/index.md).
 
 ## The Octopus Web Portal
 
-!include <web-portal>
+!include <octopus-web-portal>
 
 ## Infrastructure
 
