@@ -5,7 +5,7 @@ description: The Octopus Deploy server provides the REST API and the Octopus web
 
 The Octopus Deploy server is the deployment automation server that orchestrates your releases and deploys your software.
 
-![Octopus Dashboard](images/octopus-dashboard.png)
+![Octopus Dashboard](/docs/shared-content/concepts/mages/dashboard.png)
 
 You can use the Octopus REST API or the Octopus Web Portal to manage the process of deploying your software, connect to the servers, services, and accounts where your software will be deployed, and to use runbooks to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
 
