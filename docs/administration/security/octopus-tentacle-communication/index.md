@@ -57,7 +57,7 @@ Octopus plays the role of server and Tentacle as the client:
 
 ### Data transport
 
-Octopus uses [Halibut](https://github.com/OctopusDeploy/Halibut) to communicate. This is based on raw TCP, not HTTP - it is not possible to add HTTP headers to this communication channel.
+Octopus uses [Halibut](https://github.com/OctopusDeploy/Halibut) to communicate. This is based on TCP, not HTTP - it is not possible to add HTTP headers to this communication channel.
 
 Both Tentacle and Server expose a simple page on the listening port to web browsers to allow you to confirm your configuration. Some security scanners detect this page and incorrectly assume that its a web server or a web app, and warn about self-signed certificates.
 
