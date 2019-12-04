@@ -26,6 +26,7 @@ Each of the resource commands is available as a PowerShell function anywhere tha
 ### Accounts
 
 [Token Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/token-accounts.md)
+[AWS Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/aws-accounts.md)
 [Azure Service Principal Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-accounts.md)
 
 ### Targets
