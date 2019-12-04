@@ -1,7 +1,7 @@
 ---
 title: Create Token Account Command
 description: Cmdlet for creating a Token account
-position: 10
+position: 7
 ---
 
 ## Token Account

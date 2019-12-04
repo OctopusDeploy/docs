@@ -1,7 +1,7 @@
 ---
 title: Create AWS Account Command
 description: Cmdlet for creating an AWS account
-position: 10
+position: 8
 ---
 
 ## AWS Account

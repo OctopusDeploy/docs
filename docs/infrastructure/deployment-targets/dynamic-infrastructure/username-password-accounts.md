@@ -1,7 +1,7 @@
 ---
 title: Create Username/Password Command
 description: Cmdlet for creating a username/password account
-position: 10
+position: 9
 ---
 
 ## Username/Password Account
