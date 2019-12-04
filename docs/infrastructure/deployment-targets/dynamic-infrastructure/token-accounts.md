@@ -1,11 +1,13 @@
 ---
 title: Create Token Account Command
-description: Cmdlet for creating a Token account
+description: New-OctopusTokenAccount allows you to create a Token account in Octopus from within a running deployment
 position: 7
 ---
 
 ## Token Account
 Command: **_New-OctopusTokenAccount_**
+
+_**New-OctopusTokenAccount** allows you to create a Token account in Octopus from within a running deployment_
 
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|

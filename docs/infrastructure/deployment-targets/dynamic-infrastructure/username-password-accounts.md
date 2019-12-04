@@ -1,11 +1,13 @@
 ---
 title: Create Username/Password Command
-description: Cmdlet for creating a username/password account
+description: New-OctopusUserPassAccount allows you to create a username/password account in Octopus from within a running deployment
 position: 9
 ---
 
 ## Username/Password Account
 Command: **_New-OctopusUserPassAccount_**
+
+_**New-OctopusUserPassAccount** allows you to create a username/password account in Octopus from within a running deployment_
 
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|

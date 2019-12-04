@@ -1,11 +1,13 @@
 ---
 title: Create AWS Account Command
-description: Cmdlet for creating an AWS account
+description: New-OctopusAwsAccount allows you to create an AWS account in Octopus from within a running deployment
 position: 8
 ---
 
 ## AWS Account
 Command: **_New-OctopusAwsAccount_**
+
+_**New-OctopusAwsAccount** allows you to create an AWS account in Octopus from within a running deployment_
 
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
