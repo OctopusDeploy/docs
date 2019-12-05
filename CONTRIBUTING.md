@@ -251,7 +251,7 @@ it will be converted to this:
 Which means elsewhere in the page you can link to it with this:
 
     [Goto My Heading](#My-Heading)
-    [Goto a different page](/docs/getting-started/index.md#My-Heading)
+    [Goto a different page](/docs/getting-started.md#My-Heading)
 
 You do not need to create anchors in the markdown, they will be generated automatically, but if you add them manually, do not use special characters in the anchor text as they will cause the link to be truncated.
 

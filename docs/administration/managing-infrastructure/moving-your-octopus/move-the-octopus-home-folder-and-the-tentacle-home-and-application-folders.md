@@ -50,9 +50,11 @@ N.B. The delete-instance command will not actually delete any files, just the Re
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Tentacle installation, and you may wish to run each step separately to deal with any issues like locked files.
 
+Default Tentacle instances are named *Tentacle*. You can find your instance names by running the [Tentacle.exe list-instances](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/list-instances) command.
+
 ```powershell
 ##Config##
-$instance = "InstanceName" #Name of the Instance.
+$instance = "InstanceName" #Name of the instance.
 $oldHome = "C:\Octopus\InstanceName" #Current home of the instance.
 $newHome = "C:\NewHome\InstanceName" #New home path for the instance.
 $appFolder = "Applications" #Name of the folder being used for applications.

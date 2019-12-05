@@ -16,7 +16,7 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 ## Octopus/Tentacle Trust Relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
-Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over HTTPS. Octopus and Tentacle both have a public/private key pair that they use to establish the HTTPS connection and verify the identity of the other party.
+Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Octopus and Tentacle both have a public/private key pair that they use to establish the TLS connection and verify the identity of the other party.
 
 When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus Server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 
@@ -41,7 +41,7 @@ Instead of having Tentacle generate its own certificate, you can [import a Tenta
 
 Tentacle plays the role of server and Octopus as the client:
 
-1. Octopus establishes the HTTPS connection with the Tentacle.
+1. Octopus establishes the TLS connection with the Tentacle.
 2. The Tentacle presents its certificate as the server certificate allowing Octopus to verify the identity of the Tentacle.
 3. Octopus presents its certificate as a client certificate so the Tentacle can verify the identity of Octopus.
 4. Once the identity of the Octopus and Tentacle have been established the connection is held open and Octopus will start issuing commands to the Tentacle.
@@ -50,10 +50,16 @@ Tentacle plays the role of server and Octopus as the client:
 
 Octopus plays the role of server and Tentacle as the client:
 
-1. The Tentacle establishes the HTTPS connection with Octopus.
+1. The Tentacle establishes the TLS connection with Octopus.
 2. Octopus presents its certificate as the server certificate allowing the Tentacle to verify the identity of Octopus.
 3. The Tentacle presents its certificate as a client certificate so Octopus can verify the identity of the Tentacle.
 4. Once the identity of the Octopus and Tentacle have been established the connection is held open and Octopus will start issuing commands to the Tentacle.
+
+### Data transport
+
+Octopus uses [Halibut](https://github.com/OctopusDeploy/Halibut) to communicate. This is based on TCP, not HTTP - it is not possible to add HTTP headers to this communication channel.
+
+Both Tentacle and Server expose a simple page on the listening port to web browsers to allow you to confirm your configuration. Some security scanners detect this page and incorrectly assume that its a web server or a web app, and warn about self-signed certificates.
 
 ### Transport Layer Security (TLS) Implementation {#Octopus-Tentaclecommunication-TransportLayerSecurity(TLS)implementation}
 

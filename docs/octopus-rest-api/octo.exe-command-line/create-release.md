@@ -40,7 +40,9 @@ Release creation:
                              PackageID:Version or
                              StepName:PackageName:Version. StepName,
                              PackageID, and PackageName can be replaced with
-                             an asterisk.
+                             an asterisk. An asterisk will be assumed for
+                             StepName, PackageID, or PackageName if they are
+                             omitted.
       --packagesFolder=VALUE [Optional] A folder containing NuGet packages
                              from which we should get versions.
       --releasenotes=VALUE   [Optional] Release Notes for the new release.

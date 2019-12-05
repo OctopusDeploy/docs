@@ -54,9 +54,3 @@ However, please consider the security implications of allowing ad-hoc scripts to
 - Register the Tentacle in a special environment, then configure a team in Octopus with permission to execute ad-hoc scripts in this environment.
 
 Learn more about [hardening Octopus](/docs/administration/security/hardening-octopus.md).
-
-## Ask Octopus
-
-What this Ask Octopus episode where we discuss the script console.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tcPtD14f0_I?start=26" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
