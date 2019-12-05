@@ -4,7 +4,7 @@ description: Runbooks can be used to automate routine or emergency operations-ce
 position: 140
 ---
 
-Runbooks were introduced in **Octopus 2019.10**.
+Runbooks were introduced in **Octopus 2019.11**.
 
 A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where Runbooks come into play.
 
@@ -61,7 +61,7 @@ We don't believe that channels or lifecycles (progression) make sense for runboo
 
 ## Permissions and Roles
 
-Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and various `RunbookRun*` permissions.
+Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and `RunbookRunView`, `RunbookRunCreate` and `RunbookRunDelete` permissions.
 
 | Permission  | Description |
 | ------------- | ------------- |
