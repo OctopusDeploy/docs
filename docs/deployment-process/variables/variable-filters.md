@@ -121,6 +121,34 @@ The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of ch
 | `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus`    |
 | `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`        |
 
+### UriPart
+
+The *UriPart* filter introduced in **Octopus 2019.10.9** parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
+
+| MyVar Value                             | Filter Expression                    | Output                     |
+| --------------------------------------- | ------------------------------------ | -------------------------- |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart AbsolutePath}`    | `/docs`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart AbsoluteUri}`     | `https://octopus.com/docs` |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Authority}`       | `octopus.com`              |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart DnsSafeHost}`     | `octopus.com`              |
+| `https://octopus.com/docs#filters`      | `#{MyVar | UriPart Fragment}`        | `#filters`                 |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Host}`            | `octopus.com`              |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart HostAndPort}`     | `octopus.com:443`          |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart HostNameType}`    | `Dns`                      |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsAbsoluteUri}`   | `true`                     |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsDefaultPort}`   | `true`                     |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsFile}`          | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsLoopback}`      | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsUnc}`           | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Path}`            | `/docs`                    |
+| `https://octopus.com/docs?filter=faq`   | `#{MyVar | UriPart PathAndQuery}`    | `/docs?filter=faq`         |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Port}`            | `443`                      |
+| `https://octopus.com/docs?filter=faq`   | `#{MyVar | UriPart Query}`           | `?filter=faq`              |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Scheme}`          | `https`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart SchemeAndServer}` | `https://octopus.com`      |
+| `https://username:password@octopus.com` | `#{MyVar | UriPart UserInfo}`        | `username:password`        |
+
+
 :::hint
 Filters were introduced in **Octopus 3.5**.
 :::

@@ -1,6 +1,6 @@
 ---
 title: Installation
-position: 10
+position: 20
 description: How to install the central Octopus Deploy Server.
 hideInThisSection: true
 ---
@@ -46,7 +46,7 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 11. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/administration/authentication/active-directory-authentication/index.md), enter the active directory user details.
 
   You can configure addition [Authentication Providers](/docs/administration/authentication/index.md) for the Octopus Deploy server after the server has been installed.
-  
+
 12. Click **Install**.
 
 When the installation has completed, click **Finish** to launch the **Octopus Manager**.

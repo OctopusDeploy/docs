@@ -42,7 +42,7 @@ As yet we do not support running PowerShell scripts on Linux, either on their ow
 
 The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for `PreDeploy.sh`, `Deploy.sh` and `PostDeploy.sh` (names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time. 
 
-If you want to start some background task in an script that runs while the deployment continues to complete, you should become familiar with the `screen` command. For example, running:
+If you want to start some background task in a script that runs while the deployment continues to complete, you should become familiar with the `screen` command. For example, running:
 
 ```bash
 echo "Going to Sleep..."

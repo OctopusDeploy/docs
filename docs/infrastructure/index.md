@@ -5,15 +5,19 @@ position: 30
 hideInThisSection: True
 ---
 
-With Octopus Deploy the machines and services you deploy your software to are managed on the **Infrastructure** tab of the Octopus Web Portal.
+With Octopus Deploy the machines and services you deploy your software to are managed on the **Infrastructure** tab of the Octopus Web Portal:
+
+![The infrastructure tab of Octopus Deploy](images/infrastructure.png)
 
 ## Deployment Targets
 
-With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or an Offline Package Drop. Regardless of where you're deploying your software, these machines and services are known as your [deployment targets](/docs/infrastructure/deployment-targets/index.md).
+!include <deployment-targets>
+
+Learn more about [deployment targets](/docs/infrastructure/deployment-targets/index.md).
 
 ## Environments
 
-Before you can add your deployment targets to Octopus, you need to configure your [environments](/docs/infrastructure/environments/index.md). Environments represent the different stages of your deployment pipeline and ensure that the software that's deployed is the same as it moves through those stages from, for instance, **Development**, into **Test**, and finally to **Production**.
+Before you can add your deployment targets to Octopus, you need to configure your [environments](/docs/infrastructure/environments/index.md). Environments represent the different stages of your deployment pipeline and ensure that the software that's deployed is the same as it moves through those stages from, for instance, **development**, into **test**, and finally to **production**.
 
 Typical environments include:
 
@@ -22,6 +26,8 @@ Typical environments include:
  - Production
 
 You can add as many or as few environments as you require in your deployment pipeline, and you can add as many deployment targets to each environment as you need.
+
+Learn more about [environments](/docs/infrastructure/environments/index.md).
 
 ## Workers
 

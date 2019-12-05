@@ -10,7 +10,7 @@ Your continuous integration/build server will package your applications and make
  - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/index.md)
  - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
  - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
- - [BitBucket Pipelines](docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
+ - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
  - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
  - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
  - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
@@ -31,7 +31,7 @@ Build information is passed to Octopus as a file using a custom format. The reco
 
 :::hint
 **Build Server support**
-The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md) and [Bamboo](/docs/packaging-applications/build-servers/bamboo.md) plugins. Support for other build servers is coming soon.
+The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins.md) plugins. Support for other build servers is coming soon.
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::

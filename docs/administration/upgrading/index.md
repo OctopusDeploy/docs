@@ -14,7 +14,3 @@ Everything you need can be [downloaded from our web site](https://octopus.com/do
 
 - [Upgrade a modern version of Octopus to a newer version (3.x onwards)](guide/index.md)
 - [Upgrade an older version of Octopus (1.x to 2.6.5) to a modern version (3.x onwards)](legacy/index.md)
-
-## Ask Octopus
-
-Watch the Customer Success Team discuss upgrading in [Ask Octopus Episode 17 - How to Upgrade Octopus Deploy](https://www.youtube.com/watch?v=TuIw8RkYo9c&amp=&index=17).
