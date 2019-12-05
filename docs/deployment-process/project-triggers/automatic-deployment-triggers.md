@@ -54,7 +54,7 @@ You can restrict automatic deployments further by specifying the following:
 
 ## Add a Deployment Target Trigger
 
-1. From the Project's Overview page, select **Triggers**, then **{{ADD TRIGGER,Deployment target trigger}}**.
+1. From the Project's Overview page, select **{{Deployments,Triggers}}**, then **{{ADD TRIGGER,Deployment target trigger}}**.
 1. Give the trigger a name.
 1. Specify the event group or individual events that will trigger the releases.
 1. If you want to limit the trigger to specific environments select those environments.

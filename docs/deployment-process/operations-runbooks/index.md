@@ -95,5 +95,4 @@ For this early access feature, there are a number of things we decided to not in
 
 - Prompted variables (if your project includes prompted variables, they will be ignored for runbooks).
 - Variable scoping to runbooks (there's no way to scope variables between your project's deployment process vs runbook processes).
-- Triggers.
 - Viewing Account usage in runbooks.

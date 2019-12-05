@@ -1,34 +1,37 @@
 ---
 title: Scheduled Runbook Triggers
-description: Automatic deployment triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to an environment.
+description: Scheduled runbook triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to environments of your choosing.
 position: 4
 ---
 
 Scheduled Deployment Triggers were introduced in **Octopus 2019.11**.
 
-Scheduled Deployment Triggers allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release based on a defined recurring schedule.
+
+Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/deployment-process/operations-runbooks/index.md) that will cause an automatic runbook run to environments of your choosing.
 
 ## Schedule
 
 Scheduled runbook triggers provide a way to configure your runbooks to run on a defined schedule. This can useful in different scenarios, for instance:
 
-* Run a database backup toat 1:00am.
+* Run a database backup at 1:00am every day.
+* Run a health check on your service every 30 minutes.
+* Run a script to reset a test environment every 3 hours.
+* Run a streaming process every minute.
+* Run a maintenance script on the last Saturday of the month.
+* Run a script to provision more machines on the 1st day of the month and a script to deprovision them at a future date.
 
 
 ## Add a Scheduled Runbook Trigger
 
-1. From the Project's Overview page, select **Triggers**, then **{{ADD TRIGGER,Scheduled trigger}}**.
+1. From the Project's Overview page, select **{{Operations,Triggers}}**, then **Add Scheduled trigger**.
 2. Give the trigger a name.
-3. Set the Trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can specify the time the trigger should run and a daily scheduled, specific days of the week, or days of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
-4. Select the action the Trigger should take when executed.
-  - **Deploy Latest Release** re-deploys a release or promote a release between environments. You need to specify the **Source Environment** and the **Destination Environment**. The latest successful release in the source environment will be deployed to the destination environment.
-  - **Deploy New Release** deploys a new release which will deployed to the environment you specify in the **Destination Environment**.
+3. Select a runbook.
+4. Specify the target environments the runbook will run against.
+5. Set the Trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can specify the time the trigger should run and a daily scheduled, specific days of the week, or days of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 
-If you are using [channels](/docs/deployment-process/channels/index.md) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
+If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment. 
 
-If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
-
-5. Save the Trigger.
+6. Save the Trigger.
 
 ### Using CRON Expression {#cron-expression}
 
