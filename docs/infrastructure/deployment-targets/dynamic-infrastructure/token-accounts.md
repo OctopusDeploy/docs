@@ -1,7 +1,7 @@
 ---
 title: Create Token Account Command
 description: New-OctopusTokenAccount allows you to create a Token account in Octopus from within a running deployment
-position: 7
+position: 10
 ---
 
 ## Token Account

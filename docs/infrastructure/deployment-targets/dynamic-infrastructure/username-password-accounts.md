@@ -1,7 +1,7 @@
 ---
 title: Create Username/Password Command
 description: New-OctopusUserPassAccount allows you to create a username/password account in Octopus from within a running deployment
-position: 9
+position: 10
 ---
 
 ## Username/Password Account
