@@ -35,14 +35,6 @@ An example runbook might be a "Cleanup runbook" that removes various temp files/
 
 You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
 
-### Current Limitations
-
-**Prompted Variables**
-Prompted variables are not currently supported for the Runbooks feature, but we aim to have support for prompted variables in the near future. There is no workaround at this time.
-
-**Scoping**
-You cannot scope project variables to either a Deployment or Runbook Process currently, but we do aim to support this in the near future. A workaround is to namespace your Runbook-specific project variables. For example: Your project variable could be named `Runbook.Foo`. This naming prefix may help you easily see and consume "Runbook" variables in your Runbook Process.
-
 ## Runbook Snapshots and Runs
 
 It is important to understand the difference between **Snapshot** and **Run**.
@@ -103,12 +95,3 @@ Learn about using the [Octopus REST API](/docs/octopus-rest-api/index.md).
 :::success
 Record the HTTP requests made by the Octopus UI to see how we build your runbook processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.
 :::
-
-## Current Limitations
-
-For this early access feature, there are a number of things we decided to not include initially (so we could get the feature in your hands sooner). Some known limitations that are not currently supported are:
-
-- Prompted variables (if your project includes prompted variables, they will be ignored for runbooks).
-- Variable scoping to runbooks (there's no way to scope variables between your project's deployment process vs runbook processes).
-- Triggers.
-- Viewing Account usage in runbooks.
