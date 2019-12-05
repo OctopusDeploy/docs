@@ -1,15 +1,17 @@
 ---
 title: Create Azure Service Principal Account Command
-description: Cmdlet for creating an Azure Service Principal account
+description: New-OctopusAzureServicePrincipalAccount allows you to create an Azure Service Principal account in Octopus from within a running deployment
 position: 10
 ---
 
 ## Azure Service Principal Account
 Command: **_New-OctopusAzureServicePrincipalAccount_**
 
+_**New-OctopusAzureServicePrincipalAccount** allows you to create an Azure Service Principal account in Octopus from within a running deployment_
+
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
-| `-name`                       | Name for the Octopus Service Principal account                                                             |
+| `-name`                       | Name for the Azure Service Principal account                                                             |
 | `-azureSubscription`          | GUID Id of the Azure Subscription                                                                          |
 | `-azureApplicationId`         | GUID Id of the Azure Application                                                                           |
 | `-azureTenantId`              | GUID Id of the Azure AD Tenant                                                                             |
