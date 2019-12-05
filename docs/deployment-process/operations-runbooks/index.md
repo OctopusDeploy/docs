@@ -59,17 +59,32 @@ You can **Run** a **Snapshot** as many times as you want to.
 
 We don't believe that channels or lifecycles (progression) make sense for runbooks. Runbooks can be run on any environments you have access to. The interface has been designed to let you run a runbook quickly, so there's a single `Run...` screen where you choose environments and specify any `Advanced` options, and then you run it.
 
-## Permissions
+## Permissions and Roles
 
-Two permissions are available for the top-level Runbooks document: `RunbookView` (for viewing) and `RunbookEdit` (for creating, modifying, and deleting), so if you want to lock down the ability for your teams to create runbooks, you just need to disable these permissions.
+Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and various `RunbookRun*` permissions.
 
-Once you create a runbook snapshot and run it, the typical `Deployment` and `Release` permissions are required.
+| Permission  | Description |
+| ------------- | ------------- |
+| RunbookView  | You can view all things runbooks-related (from the runbooks themselves, to their process, runs and snapshots). |
+| RunbookEdit  | You can edit all things runbooks-related. |
+| RunbookRunView  | You can view runbook runs. |
+| RunbookRunDelete  | You can delete runbook runs. |
+| RunbookRunCreate  | You can create runbook runs (equivalent of `DeploymentCreate` in the deployment world). |
+
+If you want to lock down the ability for your teams to create runbooks, you need to disable these permissions.
+
+There are roles we include out-of-the-box to encapsulate these new permissions:
+
+| Role | Description |
+| ------------- | ------------- |
+| Runbook producer | Runbook producers can view, edit and execute runbooks. This is useful for authors of runbooks, who need to edit, iterate-on, publish and execute their runbooks |
+| Runbook consumer | Runbook consumers can view and execute runbooks. This is useful for users who are not authoring runbooks, but need to be able to view and run them. |
 
 ## Publishing
 
-Publishing allows a runbook author (users with `RunbookEdit` permissions) to nominate a Runbook Snapshot as being 'ready to run', informing others that the runbook process (at the given snapshot) has been tried and tested.
+Publishing allows a runbook author (users with `RunbookEdit` permissions) to nominate a Runbook Snapshot as being 'ready to run', informing others that the runbook process (at the given snapshot) has been tried and tested and is an approved version of the runbook.
 
-For consumers (users running a runbook), the option to run a published snapshot will be available on the Run screen. Users who do not have `RunbookEdit` permissions will have the published version selected by default, giving them some level of confidence that they will be running the expected snapshot.
+For consumers (users running a runbook), the option to run a published snapshot will be available on the Run screen. Users who do not have `RunbookEdit` permissions will access the published version by default, giving them some level of confidence that they will be running the expected snapshot.
 
 ## Working with the Octopus API
 
@@ -78,8 +93,8 @@ Octopus Deploy is built API-first, which means everything you can do through the
 - Project
 - Runbooks _(a project can have many runbooks, with RunbookView/RunbookEdit permissions)_
 - RunbookProcess _(a runbook has one process / collection of steps, with ProcessEdit permissions)_
-- RunbookSnapshots _(a runbook can have many snapshots, each with a unique name, with Release permissions)_
-- RunbookRuns _(a runbook snapshot will then be run/executed against an environment, with Deployment permissions)_
+- RunbookSnapshots _(a runbook can have many snapshots, each with a unique name, with RunbookEdit permissions)_
+- RunbookRuns _(a runbook snapshot will then be run/executed against an environment, with RunbookRunCreate permissions)_
 
 We have provided lots of helpful functions for building your runbook process in the [.NET SDK](/docs/octopus-rest-api/octopus.client.md), or you can use the raw HTTP API if that suits your needs better.
 
