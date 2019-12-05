@@ -53,7 +53,7 @@ We don't believe that channels or lifecycles (progression) make sense for runboo
 
 ## Permissions and Roles
 
-Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and `RunbookRunView`, `RunbookRunCreate` and `RunbookRunDelete` permissions.
+Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and `RunbookRunView`, `RunbookRunCreate` and `RunbookRunDelete` permissions (following the same pattern used for Deployments).
 
 | Permission  | Description |
 | ------------- | ------------- |
