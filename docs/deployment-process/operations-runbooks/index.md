@@ -4,7 +4,7 @@ description: Runbooks can be used to automate routine or emergency operations-ce
 position: 140
 ---
 
-Runbooks were introduced in **Octopus 2019.10**.
+Runbooks were introduced in **Octopus 2019.11**.
 
 A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where Runbooks come into play.
 
@@ -35,14 +35,6 @@ An example runbook might be a "Cleanup runbook" that removes various temp files/
 
 You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
 
-### Current Limitations
-
-**Prompted Variables**
-Prompted variables are not currently supported for the Runbooks feature, but we aim to have support for prompted variables in the near future. There is no workaround at this time.
-
-**Scoping**
-You cannot scope project variables to either a Deployment or Runbook Process currently, but we do aim to support this in the near future. A workaround is to namespace your Runbook-specific project variables. For example: Your project variable could be named `Runbook.Foo`. This naming prefix may help you easily see and consume "Runbook" variables in your Runbook Process.
-
 ## Runbook Snapshots and Runs
 
 It is important to understand the difference between **Snapshot** and **Run**.
@@ -61,7 +53,7 @@ We don't believe that channels or lifecycles (progression) make sense for runboo
 
 ## Permissions and Roles
 
-Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and various `RunbookRun*` permissions.
+Permissions are available to help you manage access to Runbooks, these include `RunbookView` (for viewing), `RunbookEdit` (for creating, editing, deleting and snapshotting), and `RunbookRunView`, `RunbookRunCreate` and `RunbookRunDelete` permissions (following the same pattern used for Deployments).
 
 | Permission  | Description |
 | ------------- | ------------- |
@@ -103,6 +95,7 @@ Learn about using the [Octopus REST API](/docs/octopus-rest-api/index.md).
 :::success
 Record the HTTP requests made by the Octopus UI to see how we build your runbook processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.
 :::
+
 
 ## Current Limitations
 
