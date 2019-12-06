@@ -35,6 +35,11 @@ An example runbook might be a "Cleanup runbook" that removes various temp files/
 
 You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
 
+### Current Limitations
+
+**Scoping to Steps/Actions**
+- You cannot scope project variables to a Deployment Process step as well as a Runbook Process step currently, but we do aim to support this in the near future.
+
 ## Runbook Snapshots and Runs
 
 It is important to understand the difference between **Snapshot** and **Run**.

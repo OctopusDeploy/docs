@@ -44,6 +44,7 @@ The variables that you define for your projects in Octopus can be scoped in the 
 - Deployment steps.
 - Channels.
 - Tenants.
+- Deployment Process or Runbook Process.
 
 Scoping the values of your variables lets you determine which values will be used in which situations. For example, suppose this variable exists:
 
@@ -93,6 +94,7 @@ Since variables can be scoped in many different ways, there needs to be a predic
 1. The target tenant-tag (if tenant-features are enabled).
 1. The target environment.
 1. The target channel (if channels are enabled).
+1. The current deployment process or runbook process.
 1. The project.
 1. No scope (least specific).
 
@@ -101,6 +103,19 @@ For example, a **LogLevel** variable with a value scoped to to a machine role 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a role is more specific than a variable scoped to just a role.
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
+
+### Mutually Exclusive Scopes {#Mutuallyexclusive-scopes}
+
+Scopes of the same type can generally be thought of as a grouping of logical OR expressions while scopes of different types evaluate as AND expressions between the groups of scopes. As an example, a variable scoped to the `Development` environment, `Production` environment as well as the `Default` channel would evaluate as `(Development OR Production) AND (Default)`. This example results in a specific scope which requires a channel in order for the variable to evaluate. This means that the variable will not be usable in the context of a runbook as channels do not apply in this context.
+
+There are two distinct scoping scenarios which need to be explicitly called out, one of which we encountered above, these are:
+
+* Scoping to both a channel as well as a runbook process
+* Scoping a deployment process action as well as a runbook process
+
+:::hint
+Mutually exclusive scopings can generally be avoided by duplicating variable values and scoping appropriately for each value if needed.
+:::
 
 ### Scoping Variables to Target Roles
 
