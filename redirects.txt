@@ -103,6 +103,7 @@ docs/guides/deploying-java-applications.md -> docs/deployment-examples/java-appl
 docs/deploying-applications/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
 docs/deploying-applications/deploy-java-applications.md -> docs/deployment-examples/java-applications/deploying-java-applications.md
 docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
+docs/deployment-process/project-triggers/scheduled-project-trigger.md -> docs/deployment-process/project-triggers/scheduled-deployment-trigger.md
 docs/deployment-examples/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
@@ -203,6 +204,7 @@ docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixe
 docs/guides/docker/index.md -> docs/deployment-examples/docker-containers/index.md
 docs/guides/docker/docker-run-with-networking.md -> docs/deployment-examples/docker-containers/docker-run-with-networking.md
 docs/guides/index.md -> docs/getting-started.md
+docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/deployment-target-triggers.md
 docs/guides/elastic-and-transient-environments/index.md -> docs/deployment-patterns/elastic-and-transient-environments/index.md
 docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
