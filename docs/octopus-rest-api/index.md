@@ -1,5 +1,5 @@
 ---
-title: Octopus Rest API
+title: Octopus REST API
 description: Octopus integrates with build servers, scripts, .NET applications and anything else with its REST API.
 position: 80
 hideInThisSectionHeader: true

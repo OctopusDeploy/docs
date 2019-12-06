@@ -6,6 +6,8 @@ position: 285
 
 Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
 
+This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octo.exe-command-line/build-information.md) command for Octopus Server 2019.10.0 and above.
+
 **push-metadata options**
 
 ```text

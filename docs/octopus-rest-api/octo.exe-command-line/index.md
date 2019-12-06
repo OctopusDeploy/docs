@@ -11,12 +11,13 @@ We provide a number of ways to install Octo onto your machine:
 
 - Using .Net Core CLI as a [global tool](/docs/octopus-rest-api/octo.exe-command-line/install-global-tool.md) (recommended).
 - Download from [Octopus downloads page](https://octopus.com/downloads).
-- Using [Chocolatey](https://chocolatey.org/packages/OctopusTools)
+- Using [Chocolatey](https://chocolatey.org/packages/OctopusTools).
 
 ## Commands {#octo.exeCommandLine-Commands}
 
 `octo.exe` supports the following commands:
 
+- **[build-information](/docs/octopus-rest-api/octo.exe-command-line/build-information.md)**:  Pushes build information to Octopus Server.
 - **[clean-environment](/docs/octopus-rest-api/octo.exe-command-line/clean-environment.md)**:  Cleans all Offline Machines from an Environment.
 - **[clean-workerpool](/docs/octopus-rest-api/octo.exe-command-line/clean-workerpool.md)**:  Cleans all Offline Workers from a WorkerPool.
 - **[create-autodeployoverride](/docs/octopus-rest-api/octo.exe-command-line/create-autodeployoverride.md)**:  Override the release that auto deploy will use.
@@ -43,7 +44,7 @@ We provide a number of ways to install Octo onto your machine:
 - **[pack](/docs/octopus-rest-api/octo.exe-command-line/pack.md)**:  Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj.
 - **[promote-release](/docs/octopus-rest-api/octo.exe-command-line/promote-release.md)**:  Promotes a release.
 - **[push](/docs/octopus-rest-api/octo.exe-command-line/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
-- **[push-metadata](/docs/octopus-rest-api/octo.exe-command-line/push-metadata.md)**:  Pushes package metadata to Octopus Server.
+- **[push-metadata](/docs/octopus-rest-api/octo.exe-command-line/push-metadata.md)**:  Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
 - **[version](/docs/octopus-rest-api/octo.exe-command-line/version.md)**:  Output Octo command line tool version.
 
 ## General Usage {#Octo.exeCommandLine-Generalusage}

@@ -36,22 +36,25 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 Octopus provides the following filters:
 
-| Name         | Purpose                                        | Example Input          | Example Output                   |
-| ------------ | ----------------------------------------       | ---------------------- | -------------------------------- |
-| `ToLower`    | Forces values to lowercase                     | `Automated Deployment` | `automated deployment`           |
-| `ToUpper`    | Forces values to uppercase                     | `Automated Deployment` | `AUTOMATED DEPLOYMENT`           |
-| `ToBase64`   | Converts values to Base64 (using UTF encoding) | `Bar`                  | `QmF6`                           |
-| `HtmlEscape` | Escapes entities for use in HTML content       | `1 < 2`                | `1 \&lt; 2`                      |
-| `XmlEscape`  | Escapes entities for use in XML content        | `1 < 2`                | `1 \&lt; 2`                      |
-| `JsonEscape` | Escapes data for use in JSON strings           | `He said "Hello!"`     | `He said \\"Hello!\\"`           |
-| `Markdown`   | Converts Markdown to HTML                      | `This \_rocks\_`       | `\<p>This \<em>rocks\</em>\</p>` |
-| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                   |                         | `2016-11-03T08:53:11.0946448`  |
-| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC            |                         | `2016-11-02T23:01:46.9441479Z` |
-| [`Format`](#format)                     | Applies a format                           | `4.3`                   | `$4.30`                        |
-| [`Replace`](#replace)                   | Replaces a pattern                         | `1;2;3`                 | `1, 2, 3`                      |
-| [`Trim`](#trim)                         | Removes whitespace from the start/end      | `···Bar···`             | `Bar`                          |
-| [`Truncate`](#truncate)                 | Limits the length of values                | `Octopus Deploy`        | `Octopus...`                   |
-| [`Substring`](#substring)               | Extracts a range of characters by position | `Octopus Deploy`        | `Deploy`                       |
+| Name                                    | Purpose                                           | Example Input           | Example Output                   |
+| --------------------------------------- | ------------------------------------------------- | ----------------------- | -------------------------------- |
+| `ToLower`                               | Forces values to lowercase                        | `Automated Deployment`  | `automated deployment`           |
+| `ToUpper`                               | Forces values to uppercase                        | `Automated Deployment`  | `AUTOMATED DEPLOYMENT`           |
+| `ToBase64`                              | Converts values to Base64 (using UTF encoding)    | `Bar`                   | `QmF6`                           |
+| `FromBase64`                            | Converts values from Base64 (using UTF encoding)  | `QmF6`                  | `Bar`                            |
+| `HtmlEscape`                            | Escapes entities for use in HTML content          | `1 < 2`                 | `1 \&lt; 2`                      |
+| `XmlEscape`                             | Escapes entities for use in XML content           | `1 < 2`                 | `1 \&lt; 2`                      |
+| `JsonEscape`                            | Escapes data for use in JSON strings              | `He said "Hello!"`      | `He said \\"Hello!\\"`           |
+| `MarkdownToHTML`                        | Converts Markdown to HTML                         | `This \_rocks\_`        | `\<p>This \<em>rocks\</em>\</p>` |
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                          |                         | `2016-11-03T08:53:11.0946448`    |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC                   |                         | `2016-11-02T23:01:46.9441479Z`   |
+| [`Format`](#format)                     | Applies a format                                  | `4.3`                   | `$4.30`                          |
+| [`Replace`](#replace)                   | Replaces a pattern                                | `1;2;3`                 | `1, 2, 3`                        |
+| [`Trim`](#trim)                         | Removes whitespace from the start/end             | `···Bar···`             | `Bar`                            |
+| [`Truncate`](#truncate)                 | Limits the length of values                       | `Octopus Deploy`        | `Octopus...`                     |
+| [`Substring`](#substring)               | Extracts a range of characters by position        | `Octopus Deploy`        | `Deploy`                         |
+| [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string        | `A b:c+d/e` | `A%20b:c+d/e`       |
+| [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string   | `A b:c+d/e` | `A%20b%3Ac%2Bd%2Fe` |
 
 ### NowDate and NowDateUtc
 
@@ -117,6 +120,34 @@ The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of ch
 | `Octopus Deploy` | `#{MyVar | Substring 8 6}` | `Deploy`     |
 | `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus`    |
 | `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`        |
+
+### UriPart
+
+The *UriPart* filter introduced in **Octopus 2019.10.9** parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
+
+| MyVar Value                             | Filter Expression                    | Output                     |
+| --------------------------------------- | ------------------------------------ | -------------------------- |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart AbsolutePath}`    | `/docs`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart AbsoluteUri}`     | `https://octopus.com/docs` |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Authority}`       | `octopus.com`              |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart DnsSafeHost}`     | `octopus.com`              |
+| `https://octopus.com/docs#filters`      | `#{MyVar | UriPart Fragment}`        | `#filters`                 |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Host}`            | `octopus.com`              |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart HostAndPort}`     | `octopus.com:443`          |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart HostNameType}`    | `Dns`                      |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsAbsoluteUri}`   | `true`                     |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsDefaultPort}`   | `true`                     |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsFile}`          | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsLoopback}`      | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart IsUnc}`           | `false`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Path}`            | `/docs`                    |
+| `https://octopus.com/docs?filter=faq`   | `#{MyVar | UriPart PathAndQuery}`    | `/docs?filter=faq`         |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Port}`            | `443`                      |
+| `https://octopus.com/docs?filter=faq`   | `#{MyVar | UriPart Query}`           | `?filter=faq`              |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart Scheme}`          | `https`                    |
+| `https://octopus.com/docs`              | `#{MyVar | UriPart SchemeAndServer}` | `https://octopus.com`      |
+| `https://username:password@octopus.com` | `#{MyVar | UriPart UserInfo}`        | `username:password`        |
+
 
 :::hint
 Filters were introduced in **Octopus 3.5**.
