@@ -1,12 +1,12 @@
 ---
-title: Automatic Deployment Triggers
-description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
+title: Deployment Target Triggers
+description: Deployment triggers allow you to specify which events on your deployment targets will trigger a release of your project.
 position: 1
 ---
 
-Automatic Deployment Triggers (also known as auto-deploy) let you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md). This means, you can configure new deployment targets to be just like their counterparts.
+Deployment target Triggers let you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md) based on event on your target. This means, you can configure new deployment targets to be just like their counterparts.
 
-Automatic Deployment Triggers can help you:
+Deployment Target Triggers can help you:
 
 - [Elastically scale a farm of servers](/docs/deployment-patterns/elastic-and-transient-environments/index.md).
 - [Automatically keep your deployment targets up to date](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments.
@@ -14,7 +14,7 @@ Automatic Deployment Triggers can help you:
 - [Implement immutable infrastructure environments](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments").
 - Remove deployment targets that have gone offline. For instance, disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer.
 
-On the surface Automatic Deployments appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
+On the surface deployment target triggers appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
 ## Defining Automatic Deployment Triggers
 
@@ -34,7 +34,7 @@ Events have been placed into the following pre-defined groups:
 For the majority of cases where you want to auto-deploy your project as new deployment targets become available, we advise you use only the **Machine becomes available for deployment** event group.
 :::
 
-As you define your automatic deployment triggers, you can select the pre-defined **event groups** or individual **events**:
+As you define your deployment triggers, you can select the pre-defined **event groups** or individual **events**:
 
 - Machine cleanup failed
 - Machine created
@@ -66,9 +66,9 @@ With the trigger save, Octopus will run a scheduled task every 30 seconds lookin
 
 ## Unattended Release Behavior
 
-Automatic deployment triggers let you configure unattended deployment behavior that configures new deployment targets to be just like their counterparts.
+Deployment target triggers let you configure unattended deployment behavior that configures new deployment targets to be just like their counterparts.
 
-When an automatic deployment trigger fires, the following rules are applied:
+When an deployment target trigger fires, the following rules are applied:
 
 - By default, Octopus will re-run the *currently successful* deployment for the project/environment/tenant combination. You can override this behavior by configuring an [Auto Deploy Override](/docs/octopus-rest-api/octo.exe-command-line/create-autodeployoverride.md). Note, if multiple identical deployment targets all become available within the same 30 second polling window, they will all be included in the same automatic deployment. This could happen if you scale your web farm up by four nodes, and all four nodes finish provisioning within the same time window. However, this kind of behavior should not be expected or relied on (one or more of the targets might fall outside the 30 second window).
 - The steps that were run for the *currently successful* deployment will be run for the deployment targets that triggered the deployment. This includes [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) and [Guided Failure](/docs/deployment-process/releases/guided-failures.md) steps. Note, if you skip steps in a manual deployment, they will be skipped in the subsequent automatic deployment. If you need to run a deployment and skip some steps, there are two ways you can reset the skipped steps:
