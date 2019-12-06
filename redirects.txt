@@ -204,7 +204,6 @@ docs/guides/user-role-&-teams-configurations/creating-teams-for-a-user-with-mixe
 docs/guides/docker/index.md -> docs/deployment-examples/docker-containers/index.md
 docs/guides/docker/docker-run-with-networking.md -> docs/deployment-examples/docker-containers/docker-run-with-networking.md
 docs/guides/index.md -> docs/getting-started.md
-docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/deployment-target-triggers.md
 docs/guides/elastic-and-transient-environments/index.md -> docs/deployment-patterns/elastic-and-transient-environments/index.md
 docs/guides/elastic-and-transient-environments/cleaning-up-environments.md -> docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md
 docs/guides/elastic-and-transient-environments/deploying-to-transient-targets.md -> docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md
@@ -241,6 +240,7 @@ docs/deploying-applications/deployment-process/steps/custom-step-templates.md ->
 docs/deploying-applications/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/custom-step-templates.md
 docs/deploying-applications/deployment-process/steps/updating-step-templates.md -> docs/deployment-process/steps/updating-step-templates.md
 docs/deploying-applications/deployment-process/releases/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
+docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/deployment-target-triggers.md
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deploying-applications/deployment-process/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
