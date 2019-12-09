@@ -6,7 +6,7 @@ position: 140
 
 Runbooks were introduced in **Octopus 2019.11** 
 
-A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where Runbooks come into play.
+A deployment is only one phase in the life of an application. There are typically many other tasks which are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where runbooks come into play.
 
 Runbooks can be used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
 
@@ -39,7 +39,7 @@ A [project's variables](/docs/deployment-process/variables/index.md) are shared 
 **Scoping to Steps/Actions**
 - You cannot scope project variables to a Deployment Process step as well as a Runbook Process step currently, but we do aim to support this in the near future.
 
-## Publishing
+## Publishing {#Publishing}
 
 Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRun` permission, but lacking `RunbookEdit`).  Triggers and consumers will always execute the published snapshot. 
 
@@ -58,18 +58,6 @@ When a producer (anyone with an appropriately scoped `RunbookEdit` permission) e
 Running the current draft allows testing changes before publishing.  The latest version of the process and variables will be used, and package versions will be prompted for.
 
 ![Run current draft](runbook-run-draft.png "width=500")
-
-## Runbook Snapshots and Runs
-
-It is important to understand the difference between **Snapshot** and **Run**.
-
-As you defined your runbook process, you specified the steps that must be taken, the packages and services to run, the scripts to run, and the variables to be used that are required to run your software.
-
-When you create a **Snapshot**, you are capturing the runbook process and all the associated assets (packages, scripts, variables, etc) as they existed at that time. The snapshot is given a unique name, and you can run that snapshot as many times as you need to. You can even run that specific snapshot as it existed at the time the snapshot was created, even if parts of the runbook process have changed (those changes will be included in future snapshots).
-
-When you **Run** a snapshot, you are executing the runbook process with all the associated details, as they existed when the snapshot was created.
-
-You can **Run** a **Snapshot** as many times as you want to.
 
 ## Environments
 
