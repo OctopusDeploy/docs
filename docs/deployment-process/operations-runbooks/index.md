@@ -31,6 +31,26 @@ An example runbook might be a "Cleanup runbook" that removes various temp files/
 
 You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
 
+## Publishing
+
+Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRun` permission, but lacking `RunbookEdit`).  Triggers and consumers will always execute the published snapshot. 
+
+The published snapshot contains the process, variables, and packages. This allows editing and testing the runbook without impacting the published version.   
+
+To publish a snapshot, click the publish button on the task page after executing a runbook, or click publish on the runbook's process page. 
+
+Publish from completed task:
+![Publish runbook from task page](runbook-publish-task.png "width=500")
+
+Publish from process:
+![Publish runbook from process page](runbook-publish-process.png "width=500")
+
+When a producer (anyone with an appropriately scoped `RunbookEdit` permission) executes a runbook, they will have the option between executing the published version or the current draft. 
+
+Running the current draft allows testing changes before publishing.  The latest version of the process and variables will be used, and package versions will be prompted for.
+
+![Run current draft](runbook-run-draft.png "width=500")
+
 ### Current Limitations
 
 **Scoping to Steps/Actions**
@@ -72,12 +92,6 @@ There are roles we include out-of-the-box to encapsulate these new permissions:
 | ------------- | ------------- |
 | Runbook producer | Runbook producers can view, edit and execute runbooks. This is useful for authors of runbooks, who need to edit, iterate-on, publish and execute their runbooks |
 | Runbook consumer | Runbook consumers can view and execute runbooks. This is useful for users who are not authoring runbooks, but need to be able to view and run them. |
-
-## Publishing
-
-Publishing allows a runbook author (users with `RunbookEdit` permissions) to nominate a Runbook Snapshot as being 'ready to run', informing others that the runbook process (at the given snapshot) has been tried and tested and is an approved version of the runbook.
-
-For consumers (users running a runbook), the option to run a published snapshot will be available on the Run screen. Users who do not have `RunbookEdit` permissions will access the published version by default, giving them some level of confidence that they will be running the expected snapshot.
 
 ## Working with the Octopus API
 
