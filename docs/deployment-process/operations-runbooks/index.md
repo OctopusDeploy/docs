@@ -21,15 +21,28 @@ Before you can define how your scripts are run, you must create a project for th
 
 Learn more about managing [projects](/docs/deployment-process/projects/index.md).
 
-## Runbooks
+## Runbooks vs Deployments
 
-Runbooks can be thought of as a simplified version of your project's [Deployment Process](/docs/deployment-process/index.md), for people in the world of Operations who need to run isolated processes quickly and easily against their infrastructure.
+For users familiar with Octopus prior to the introduction of runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
 
-An example runbook might be a "Cleanup runbook" that removes various temp files/folders on your environments. To do this, you would simply create a new runbook, add a script step to do your cleanup work (targeting your machines by role) and then run this on your desired environments.
+- No release needs to be created to execute a runbook 
+- Lifecycles do not apply to runbooks
+- Runbook executions are not displayed on the deployment dashboards
+- Many runbooks can live in the same project, along with a deployment process  
+- Runbooks are restricted by different roles and permissions to deployments 
 
-## Variables Support
+## Variables 
 
-You can create many runbooks per project and share the [project variables](/docs/deployment-process/variables/index.md) that are available for that project.
+A [project's variables](/docs/deployment-process/variables/index.md) are shared between the deployment process and any runbooks in the project (though specific values can be scoped exclusively to specific runbooks or to the deployment process). This means configuration such as the following can be shared between your deployment process and runbooks: 
+- Database connection strings
+- Passwords
+- Certificates
+- Accounts
+
+### Current Limitations
+
+**Scoping to Steps/Actions**
+- You cannot scope project variables to a Deployment Process step as well as a Runbook Process step currently, but we do aim to support this in the near future.
 
 ## Publishing
 
@@ -51,11 +64,6 @@ Running the current draft allows testing changes before publishing.  The latest 
 
 ![Run current draft](runbook-run-draft.png "width=500")
 
-### Current Limitations
-
-**Scoping to Steps/Actions**
-- You cannot scope project variables to a Deployment Process step as well as a Runbook Process step currently, but we do aim to support this in the near future.
-
 ## Runbook Snapshots and Runs
 
 It is important to understand the difference between **Snapshot** and **Run**.
@@ -68,9 +76,11 @@ When you **Run** a snapshot, you are executing the runbook process with all the 
 
 You can **Run** a **Snapshot** as many times as you want to.
 
-## Environments Selection
+## Environments
 
-We don't believe that channels or lifecycles (progression) make sense for runbooks. Runbooks can be run on any environments you have access to. The interface has been designed to let you run a runbook quickly, so there's a single `Run...` screen where you choose environments and specify any `Advanced` options, and then you run it.
+Runbooks can be executed against any environment for which the user has an appropriately scoped `RunbookRun` permission.
+
+Lifecycles do not apply to runbooks (only deployments).
 
 ## Permissions and Roles
 
@@ -93,7 +103,7 @@ There are roles we include out-of-the-box to encapsulate these new permissions:
 | Runbook producer | Runbook producers can view, edit and execute runbooks. This is useful for authors of runbooks, who need to edit, iterate-on, publish and execute their runbooks |
 | Runbook consumer | Runbook consumers can view and execute runbooks. This is useful for users who are not authoring runbooks, but need to be able to view and run them. |
 
-## Working with the Octopus API
+## Working with Runbooks via the Octopus API
 
 Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API, we model the runbook and its process the same way, starting at the Project:
 
