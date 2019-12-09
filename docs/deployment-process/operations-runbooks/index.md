@@ -14,9 +14,9 @@ Runbooks can be used to automate routine maintenance and emergency operations ta
 
 ## Projects
 
-Before you can define how your scripts are run, you must create a project for the runbook. Projects contain the configuration variables that can help define how scripts defined in your runbook steps are run.
+Runbooks are contained in [projects](/docs/deployment-process/projects/index.md). 
 
-Learn more about managing [projects](/docs/deployment-process/projects/index.md).
+To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}
 
 ## Runbooks vs Deployments
 
