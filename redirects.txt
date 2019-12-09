@@ -239,6 +239,7 @@ docs/deploying-applications/deployment-process/steps/custom-step-templates.md ->
 docs/deploying-applications/deployment-process/steps/exporting-step-templates.md -> docs/deployment-process/steps/custom-step-templates.md
 docs/deploying-applications/deployment-process/steps/updating-step-templates.md -> docs/deployment-process/steps/updating-step-templates.md
 docs/deploying-applications/deployment-process/releases/guided-failures.md -> docs/deployment-process/releases/guided-failures.md
+docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> docs/deployment-process/project-triggers/deployment-target-triggers.md
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deploying-applications/deployment-process/performance.md -> docs/deployment-process/performance.md
 docs/deploying-applications/deployment-process/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
@@ -914,5 +915,6 @@ docs/deployment-examples/node-on-linux-deployments/index.md -> docs/deployment-e
 docs/deployment-examples/node-on-linux-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
+docs/deployment-process/project-triggers/scheduled-project-trigger.md -> docs/deployment-process/project-triggers/scheduled-deployment-trigger.md
 docs/getting-started/terms.md -> docs/octopus-concepts/index.md
 docs/overview.md -> docs/getting-started.md
