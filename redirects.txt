@@ -103,7 +103,6 @@ docs/guides/deploying-java-applications.md -> docs/deployment-examples/java-appl
 docs/deploying-applications/deploying-java-applications.md -> docs/deployment-examples/java-applications/index.md
 docs/deploying-applications/deploy-java-applications.md -> docs/deployment-examples/java-applications/deploying-java-applications.md
 docs/guides/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
-docs/deployment-process/project-triggers/scheduled-project-trigger.md -> docs/deployment-process/project-triggers/scheduled-deployment-trigger.md
 docs/deployment-examples/node-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/guides/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-nix-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
