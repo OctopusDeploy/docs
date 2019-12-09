@@ -10,6 +10,8 @@ A deployment is only one phase in the life of an application. There are typicall
 
 Runbooks can be used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
 
+![Runbooks](runbooks-list.png "width=500")
+
 ## Projects
 
 Before you can define how your scripts are run, you must create a project for the runbook. Projects contain the configuration variables that can help define how scripts defined in your runbook steps are run.
