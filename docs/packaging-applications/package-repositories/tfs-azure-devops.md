@@ -12,7 +12,7 @@ Learn more about [Azure DevOps or TFS Package Management](https://www.visualstud
 
 If you are using Azure DevOps Package Management, Octopus can consume either the v2 or v3 NuGet feeds.
 
-- To connect to the v3 URL, you must use [a Personal Access Token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) in the password field. The username field is not checked, so you can put anything in here as long as it is not blank. Ensure that the personal access token has (at least) the *Packaging (read)* scope.
+- To connect to the v3 URL, you must use a [Personal Access Token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) (PAT) in the password field. The username field is not checked, so you can put anything in here as long as it is not blank. Ensure that the token has (at least) the *Packaging (read)* scope.
 - To connect to the v2 URL, you can use either [alternate credentials or a Personal Access Token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) in the password field.
 
 ## Connect Octopus to a TFS Package Feed

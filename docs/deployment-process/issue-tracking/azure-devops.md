@@ -65,7 +65,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
     - **Azure DevOps Base URL**. This tells Octopus where the Azure DevOps instance is located.
 
-    - Unless the Azure DevOps instance is public, you'll need to supply a **Personal Access Token**, created in the Azure DevOps User Settings (under Personal access tokens), with authorization to read scopes **Build** and **Work items**.
+    - Unless the Azure DevOps instance is public, you'll need to supply a **Personal Access Token** (PAT), created in the Azure DevOps User Settings (under Personal access tokens), with authorization to read scopes **Build** and **Work items**.
 
     - Ensure the **Is Enabled** property is set as well.
 

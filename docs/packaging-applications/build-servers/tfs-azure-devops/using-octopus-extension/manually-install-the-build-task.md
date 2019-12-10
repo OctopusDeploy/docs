@@ -31,7 +31,7 @@ If you are using an on-premises TFS instance, authentication can only be perform
 When you log in, use `--authType basic` to authenticate that way. NTLM authentication is coming to the TFX tool soon.
 :::
 
-Create a new **Personal Access Token** in Azure DevOps/TFS in the **Security** tab for your Profile.
+Create a new **Personal Access Token** (PAT) in Azure DevOps/TFS in the **Security** tab for your Profile.
 
 ![](images/3278348.png)
 
