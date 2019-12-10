@@ -19,7 +19,7 @@ Workers are created on demand and are assigned to a customer when required. Once
 Each worker is provisioned so that they provide your task a sandbox that is completely isolated from our other customers.
 
 ::: info
-Customers cannot make changes to the default worker pool, or the configuration of the workers themeselves. The workers themselves are provisioned using our own service, meaning you don't need to configure anything for them to work in your environment.
+Customers cannot make changes to the default worker pool, or the configuration of the workers themselves. The workers are provisioned using our own service, meaning you don't need to configure anything for them to work in your environment.
 :::
 
 ### Batteries included
@@ -39,7 +39,7 @@ Each worker is provisioned with a baseline of tools including, but not limited t
 - Kubectl (1.14.9)
 
 :::hint
-The version of `kubectl` can be overridden in by setting the variable `Octopus.Action.Kubernetes.CustomKubectlExecutable` to the following value `c:\tools\kubectl\version\kubectl.exe`
+The version of `kubectl` can be overridden by setting the variable `Octopus.Action.Kubernetes.CustomKubectlExecutable` to the following value `c:\tools\kubectl\version\kubectl.exe`
 where version is one of the following:
 - `1.11.1`
 - `1.11.3`
@@ -51,8 +51,7 @@ where version is one of the following:
 :::
 
 ::: hint
-The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing. 
+The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing.
 
-Some of the tool installations are locked to a specfic version, where others may be running the latest version. 
+Some of the tool installations are locked to a specific version, where others may be running the latest version.
 :::
-
