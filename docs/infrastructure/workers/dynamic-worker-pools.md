@@ -33,10 +33,22 @@ Each worker is provisioned with a baseline of tools including, but not limited t
 - Nuget CLI (latest)
 - AWS IAM Authenticator (0.3.0)
 - Helm (2.9.1)
-- Kubectl (1.14.2)
-- Python & pip (latest)
+- Python & pip (3.7.4)
 - Microsoft Service Fabric SDK (3.0.480)
 - Microsoft Service Fabric (6.1.480.9494)
+- Kubectl (1.14.9)
+
+:::hint
+The version of `kubectl` can be overridden in by setting the variable `Octopus.Action.Kubernetes.CustomKubectlExecutable` to the following value `c:\tools\kubectl\version\kubectl.exe`
+where version is one of the following:
+- `1.11.1`
+- `1.11.3`
+- `1.12.1`
+- `1.13.12`
+- `1.14.9`
+- `1.15.6`
+- `1.16.3`
+:::
 
 ::: hint
 The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing. 
