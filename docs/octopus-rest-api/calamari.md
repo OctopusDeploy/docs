@@ -39,7 +39,7 @@ Each deployment, if it is not already present, the latest version of the Calamar
 Deployments now proceed as follows:
 
 1. Octopus acquires packages and generates variables files.
-2. The packages and variables are pushed to the the target, along with the latest version of Calamari (if it is not already present).
+2. The packages and variables are pushed to the target, along with the latest version of Calamari (if it is not already present).
 3. The deployment target invokes Calamari to perform each deployment step.
 4. Calamari performs the deployment step.
 
