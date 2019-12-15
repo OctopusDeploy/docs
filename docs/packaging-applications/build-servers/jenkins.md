@@ -31,8 +31,8 @@ If you navigate to Manage Jenkins > Manage Plugins you can add these:
 If you're building a .NET project:
 - [MSBuild Plugin](https://plugins.jenkins.io/msbuild): to compile your Visual Studio solution.
 
-If you're building a JAVA project:
-- [Maven Plugin](https://plugins.jenkins.io/maven-plugin): to compile your JAVA project.
+If you're building a Java project:
+- [Maven Plugin](https://plugins.jenkins.io/maven-plugin): to compile your Java project.
 
 Having at least installed the *Mask Passwords Plugin* you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
@@ -81,7 +81,7 @@ During our Jenkins job, we will:
 3. Publish these NuGet packages to the Octopus Deploy server.
 4. Create a release in Octopus, ready to be deployed.
 
-Jenkins uses the MSBuild plugin to compile .NET solutions, the Maven Plugin for JAVA solutions, or a variety of others depending on your tech/language stack.
+Jenkins uses the MSBuild plugin to compile .NET solutions, the Maven Plugin for Java solutions, or a variety of others depending on your tech/language stack.
 
 ## Add Build Steps
 
@@ -172,7 +172,7 @@ As an example here is what build information looks like when attached to a relea
 :::success
 **Contributing to the plugin**
 
-We welcome contributions; issues, bug fixes, enhancements. 
+We welcome contributions; issues, bug fixes, enhancements.
 
 If you are starting to work on something more detailed please reach out to support@octopus.com to ensure it aligns with what we have going on, and that we are not doubling up efforts.
 
