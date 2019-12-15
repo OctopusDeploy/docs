@@ -4,7 +4,7 @@ description: This guide describes how to configure your Octopus project to deplo
 position: 2
 ---
 
-Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NginxSampleWebApp](/docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md) ASP.NET Core project to a Linux machine.
+Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NGINX Sample Web App](/docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md) ASP.NET Core project to a Linux machine.
 
 ## Configure Environment
 
@@ -35,10 +35,10 @@ Further details are provided throughout the rest of this documentation about [SS
 The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via **{{Projects,All}}** and then click the *Add Project* button.
-- Give the new project an appropriate name (for example *NginxSampleWebApp*) and once saved, go to the project's *Process* page and click **{{Add Step,Deploy to NGINX}}**.
+- Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **{{Add Step,Deploy to NGINX}}**.
     * Give the step a name (for example *Deploy NginxSampleWebApp*)
     * Ensure that the target role matches that which was assigned to the machine in the previous step and
-    * Select *nginxsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/index.md#package-id) documentation for more details).
+    * Select *NGINXsamplewebapp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/index.md#package-id) documentation for more details).
 
 ![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_name_role_and_package.png)
 

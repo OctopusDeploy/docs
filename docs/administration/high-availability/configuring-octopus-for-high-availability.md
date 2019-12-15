@@ -140,7 +140,7 @@ When you configured the first Octopus Server node, as well as each of the subseq
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
-If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or Nginx as a reverse load-balancing proxy.
+If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy.
 
 ![](images/create-server-farm.png)
 
