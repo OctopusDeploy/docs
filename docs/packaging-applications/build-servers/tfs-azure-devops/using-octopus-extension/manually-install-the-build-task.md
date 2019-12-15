@@ -17,7 +17,7 @@ git clone https://github.com/OctopusDeploy/OctoTFS.git
 
 ![](images/3278346.png)
 
-Install TFX-CLI using NPM. You'll obviously need node installed to do this.
+Install TFX-CLI using npm. You'll obviously need node installed to do this.
 
 ```powershell
 npm install -g tfx-cli

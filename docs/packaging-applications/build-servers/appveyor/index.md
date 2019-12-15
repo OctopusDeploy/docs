@@ -4,7 +4,7 @@ description: Octopus Deploy can be seamlessly integrated with your AppVeyor buil
 position: 10
 ---
 
-[AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects. 
+[AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects.
 
 You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), and create and deploy releases.
 
@@ -49,7 +49,7 @@ Next, flag the generated archive as an artifact of the build and should be made 
 
 You can use a wildcard to pick up the dynamically generated package.
 
-![AppVeyor Npm Build](images/appveyor_artifact.png)
+![AppVeyor npm Build](images/appveyor_artifact.png)
 
 ### Push To Octopus
 
