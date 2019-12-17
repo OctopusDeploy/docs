@@ -14,7 +14,7 @@ Linux Tentacle is a .NET Core application distributed as a [self-contained deplo
 
 Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
 
-- PowerShell, C# and F# script types are not supported. The alternatives are Bash and Python scripts.
+- C# and F# script types are not supported. The alternatives are PowerShell Core, Bash and Python scripts.
 
 ## Downloads
 
