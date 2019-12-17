@@ -2,4 +2,3 @@ octopus deploy
 octopus
 tentacle
 tentacles
-octopus server
