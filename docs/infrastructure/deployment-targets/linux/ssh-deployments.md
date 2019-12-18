@@ -28,6 +28,12 @@ Before any processing is begun we do an initial check to ensure the available Ca
 
 Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
+:::hint
+**My Server Tasks show a Could not parse '##octopus...' error**
+The shell on your host machine may have a character limit per line of 265 characters. Try increasing this to 512.
+:::
+
+
 ## Features
 
 The vast majority of Octopus features are supported when deploying to SSH targets.
