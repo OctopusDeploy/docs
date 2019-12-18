@@ -6,6 +6,7 @@ The following versions of SQL Server Database are supported and automatically te
 - SQL Server 2014
 - SQL Server 2016
 - SQL Server 2017
+- SQL Server 2019
 
 Supported editions:
 
