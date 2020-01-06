@@ -62,22 +62,13 @@ If you're a large organization with lots of teams working in Octopus, from **201
 
 Learn more about [Spaces](/docs/administration/spaces/index.md).
 
-## The Delivery Pipeline
+## Learn More
 
-We designed Octopus Deploy for teams that follow agile delivery practices. A typical workflow could be:
+Read more to learn about the following topics:
 
-1. **Commit Code to Your Existing Source Control System.**
+- [Installing the Octopus server](/docs/installation/index.md)
+- [Octopus Cloud](/docs/octopus-cloud/index.md)
+- [Packaging your applications](/docs/packaging-applications/index.md)
+- [Defining your deployment process](/docs/deployment-process/index.md)
 
-   You might be using Git, Team Foundation Server, Subversion, or Mercurial. The choice is yours.
-
-1. **Your CI/Build Server Compiles the Code and Runs Unit Tests.**
-
-   You might be using TeamCity, Jenkins, Bamboo, Azure DevOps, Team Foundation Server (TFS), or CruiseControl.NET. Again, the choice is yours.
-
-1. **Package Your Application.**
-
-   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them up ready for deployment.
-
-1. **Octopus Deploy Deploys Your Software to Your Infrastructure.**
-
-   Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
+Or create your own end-to-end CI/CD pipeline tutorial with our [interactive documentation](https://octopus.com/docs/guides).
