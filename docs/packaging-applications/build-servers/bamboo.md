@@ -91,11 +91,9 @@ The `Package paths` field defines the [Ant paths](https://ant.apache.org/manual/
 Note that it is recommended that the package paths defined here are specific to the build. While the Ant path `**/*.zip` does match the package, it also match any old packages that might have been created in previous builds and not cleaned up. This means these less specific paths can result in old packages being uploaded, which is usually not the desired result.
 :::
 
-### Force Overwrite Existing Packages
+### Overwrite mode
 
-The `Force overwrite existing packages` option can be selected to allow existing packages to be overwritten.
-
-Tick this option, as it allows a build to be rebuilt and the new package to be pushed again without error.
+The `Overwrite mode` option can be used to control what should happen if the package already exists in the repository; the default behavior is to reject the new package being pushed (`FailIfExists`). You can override this behavior by using either the `OverwriteExisting` or `IgnoreIfExists` overwrite mode.
 
 ![Push Package](images/push-package.png)
 
