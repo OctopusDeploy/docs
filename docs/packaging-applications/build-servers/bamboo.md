@@ -93,7 +93,7 @@ Note that it is recommended that the package paths defined here are specific to 
 
 ### Overwrite mode
 
-The `Overwrite mode` option can be used to control what should happen if the package already exists in the repository, the default behavior is to reject the new package being pushed (FailIfExists). You can override this behavior by using either the OverwriteExisting or IgnoreIfExists overwrite mode.
+The `Overwrite mode` option can be used to control what should happen if the package already exists in the repository; the default behavior is to reject the new package being pushed (`FailIfExists`). You can override this behavior by using either the `OverwriteExisting` or `IgnoreIfExists` overwrite mode.
 
 ![Push Package](images/push-package.png)
 
