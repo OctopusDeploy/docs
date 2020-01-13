@@ -31,7 +31,7 @@ Build information is passed to Octopus as a file using a custom format. The reco
 
 :::hint
 **Build Server support**
-The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins.md) plugins. Support for other build servers is coming soon.
+The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins.md) plugins.
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::

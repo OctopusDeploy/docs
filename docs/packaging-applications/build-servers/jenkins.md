@@ -36,7 +36,6 @@ If you're building a Java project:
 
 Having at least installed the *Mask Passwords Plugin* you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
-
 ## Configure the Octopus Deploy Plugin
 
 After you have installed the Octopus Deploy plugin. First navigate to {{Manage Jenkins > Global Tool Configuration}} to supply the details for the Octopus CLI.
