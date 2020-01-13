@@ -118,7 +118,7 @@ The variables available for issues are:
 |`Id`| `#{issue.Id}` |
 |`LinkUrl`| `#{issue.LinkUrl}` |
 
-There is also a distinct list of issues across all packages available in:  
+There is also a distinct list of issues across all packages available in:
 
 ```
 #{each workItem in Octopus.Release.WorkItems}
@@ -188,9 +188,11 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath` <br/>The directory into which the previous version of the package was extracted | *C:\Octopus\Tentacle\Apps\Production\OctoFx\1.2.2*|
 |`Octopus.Tentacle.PreviousInstallation.PackageFilePath` <br/>The path to the package file previously deployed | *C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg*|
 |`Octopus.Tentacle.PreviousInstallation.PackageVersion` <br/>The previous version of the package that was deployed to the Tentacle | *1.2.3*|
-|`Octopus.Web.DeploymentLink` <br/>A path relative to the Octopus Server URL at which the deployment can be viewed | */app/deployment/deployments-123*|
 |`Octopus.Web.ProjectLink` <br/>A path relative to the Octopus Server URL at which the project can be viewed | */app/projects/projects-123*|
 |`Octopus.Web.ReleaseLink` <br/>A path relative to the Octopus Server URL at which the release can be viewed | */app/releases/releases-123*|
+|`Octopus.Web.DeploymentLink` <br/>A path relative to the Octopus Server URL at which the deployment can be viewed | */app/deployment/deployments-123*|
+|`Octopus.Web.RunbookSnapshotLink` <br/>A path relative to the Octopus Server URL at which the runbook snapshot can be viewed | */app/snapshots/runbookSnapshots-123*|
+|`Octopus.Web.RunbookRunLink` <br/>A path relative to the Octopus Server URL at which the runbook run can be viewed | */app/runs/runbookRuns-123*|
 
 ### Deployment Changes {#deployment-changes}
 
