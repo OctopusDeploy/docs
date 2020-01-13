@@ -27,7 +27,7 @@ position: 40
 
 ### Availability {#availability}
 
-The ability to push the build information to Octopus, which is required for Azure Devps integration, is currently only available in the official Octopus plugins:
+The ability to push the build information to Octopus, which is required for Azure DevOps integration, is currently only available in the official Octopus plugins:
 
  - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
