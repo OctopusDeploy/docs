@@ -29,8 +29,7 @@ The ability to push the build information to Octopus, which is required for Jira
  - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
-
-We will be rolling this out for the Jenkins plugin soon.
+ - [Jenkin's Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
 ### Jira Cloud Only
 
@@ -141,14 +140,14 @@ When configured, this integration will provide Jira with updates about the progr
 
 **Octopus 2019.7.13** introduced the ability to verify a connection can be made successfully between the Octopus server and your Jira Cloud/Server instance.
 
-The **Connect App** `Test` button (found under `Jira Connect App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance. 
+The **Connect App** `Test` button (found under `Jira Connect App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance.
 ![Connect App Test button](images/jiraconnectapp_testbutton.png)
 
 :::hint
 For this connectivity test to succeed the Octopus server must be able to connect to both your Jira Cloud instance's URL, and to [https://jiraconnectapp.octopus.com](https://jiraconnectapp.octopus.com), which hosts our Jira plugin.
 :::
 
-The **Release Notes** `Test` button (found under `Jira Password`) checks the connectivity to your Jira Cloud/Server instance for retrieving work item information. 
+The **Release Notes** `Test` button (found under `Jira Password`) checks the connectivity to your Jira Cloud/Server instance for retrieving work item information.
 ![Release Notes Test button](images/jirareleasenotes_testbutton.png)
 
 :::hint
