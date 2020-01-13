@@ -84,7 +84,7 @@ Yes, the existence of other pools doesn't affect the behavior of the default poo
 
 *How can I cordon off my worker pools so each team only has access to certain pools?*
 
-At the moment all worker pools are global, so you can provision pools for various teams or projects, but there's no way to enforce the division.  We'll soon be releasing our Spaces feature that will allow worker pools to be restricted to spaces.
+With the [Spaces](/docs/administration/spaces/index.md) feature of Octopus Deploy you can partition your Octopus server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
 
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 
