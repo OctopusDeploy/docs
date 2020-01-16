@@ -102,9 +102,9 @@ Setting the `Octopus.Action.Azure.LogExtractedCspkg` variable to `true` will c
 :::warning
 **Disable Package Extraction and Re-Packaging**
 
-Based on customer reports and Azure community discussions, we believe that Microsoft is no longer recommending Azure Cloud Services - https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree. Several customers have reported timeout issues with regards to Azure Cloud Services, and slow re-packing of CTP packages. Unfortunately we will not be able to fix this issue, [as noted here](https://github.com/OctopusDeploy/Issues/issues/6111).
+Based on customer reports and Azure community discussions, we believe Microsoft is no longer recommending Azure Cloud Services: https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree. Several customers have reported timeout issues in regards to Azure Cloud Services and slow re-packing of CTP packages. Unfortunately, we cannot fix this issue, [as noted here](https://github.com/OctopusDeploy/Issues/issues/6111).
 
-The issues around timeouts and slow re-repackaging can be mitigated by passing in a variable - `Octopus.Action.Azure.CloudServicePackageExtractionDisabled` and setting the value to `true`. However in doing so, variable substitution will no longer be available.
+The issues around timeouts and slow re-repackaging can be mitigated by passing in the variable `Octopus.Action.Azure.CloudServicePackageExtractionDisabled` and setting the value to `true`. However, in doing so, variable substitution will no longer be available.
 :::
 
 ### Variable Substitutions in Cloud Service Configuration File {#DeployingapackagetoanAzureCloudService-VariablesubstitutionsinCloudServiceconfigurationfile}
