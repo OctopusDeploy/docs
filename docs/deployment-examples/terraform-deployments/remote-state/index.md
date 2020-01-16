@@ -13,7 +13,7 @@ Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/in
 While neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend.
 :::
 
-# Remote State Terraform Cloud
+## Remote State Terraform Cloud
 
 Using terraform enterprise for remote state requires a data source using referencing the `remote` backend
 
@@ -46,7 +46,7 @@ Just like any other data source, it must first exist remotely. In order to achie
 `terraform plan` which will generate the empty state. The remote state can then be seeded using `terraform state push .\.terraform\terraform.tfstate`. This is necessary as including resources as part of the template will result in errors such as
 `No stored state was found for the given workspace in the given backend.` as terraform tries to first read the remote state that doesn't exist.
 
-# Enhanced Backends
+## Enhanced Backends
 
 Terraform has the concept of enhanced backends which enable both storage and execution of operations such as plan and apply remotely. Octopus does not prevent you from using backends such as these, however the execution of actions remotely may not
 always work as intended. It is for this reason that we recommend using remote state and keep exection of actions local. Terraform Cloud / Enterprise provides an option as part of the workspace settings which makes this rather trivial.
