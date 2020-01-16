@@ -56,7 +56,7 @@ To run the script start an admin shell prompt and execute the script, this shoul
 
 ## Desired State Configuration
 
-Octopus can also be installed via [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC).
+Octopus can also be installed via Desired State Configuration (DSC). Using the module from the [OctopusDSC GitHub repository](https://www.powershellgallery.com/packages/OctopusDSC).
 
 The following PowerShell script will install an Octopus Server listening on port `80`. Make sure the OctopusDSC module is on your `$env:PSModulePath`:
 
