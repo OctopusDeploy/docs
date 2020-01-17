@@ -921,7 +921,7 @@ docs/overview.md -> docs/getting-started.md
 docs/deployment-process/variables/index.md -> docs/projects/variables/index.md
 docs/deployment-process/variables/aws-account-variables.md -> docs/projects/variables/aws-account-variables.md
 docs/deployment-process/variables/azure-account-variables.md -> docs/projects/variables/azure-account-variables.md
-docs/deployment-process/variables/certificate-variables.md -> docs/projects/variables/cartificate-variables.md
+docs/deployment-process/variables/certificate-variables.md -> docs/projects/variables/certificate-variables.md
 docs/deployment-process/variables/library-variable-sets.md -> docs/projects/variables/library-variable-sets.md
 docs/deployment-process/variables/output-variables.md -> docs/projects/variables/output-variables.md
 docs/deployment-process/variables/prompted-variables.md -> docs/projects/variables/prompted-variables.md
