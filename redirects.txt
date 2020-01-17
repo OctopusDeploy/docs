@@ -952,5 +952,3 @@ docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-s
 docs/deployment-process/operations-runbooks/index.md -> docs/operations-runbooks/index.md
 docs/deployment-process/issue-tracking/index.md -> docs/release-management/issue-tracking/index.md
 docs/deployment-process/issue-tracking/azure-devops.md -> docs/release-management/issue-tracking/azure-devops.md
-docs/deployment-process/issue-tracking/github.md -> docs/release-management/issue-tracking/github.md
-docs/deployment-process/issue-tracking/jira.md -> docs/release-management/issue-tracking/jira.md
