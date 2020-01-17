@@ -1,16 +1,26 @@
 ---
 title: Getting Started
-description: This section provides a conceptual overview of Octopus Deploy, and links to documentation that guides you through your own self-hosted or cloud-hosted Octopus server.
+description: This section provides a conceptual overview of Octopus Deploy.
 position: 0
 ---
-
-Welcome!
 
 This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted Octopus server](/docs/getting-started.md#self-hosted-octopus) or the hosted version [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ## Consistent Releases
 
 As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want developers to deploy to dev environments but not testing or production, and members of QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. After releases have been created, they can be deployed as many times as you need.
+
+With Octopus variables scoped to your environments, you can replace the values in the your config files so the same deployment process works whether you're deploying to **Dev**, **Test**, or **Production**.
+
+Deployments can be fully automated, or you can require approval from key personnel to verify the build before the deployment proceeds, and you can send notifications through email or slack.
+
+## Consistent Operations Processes
+
+With Octopus's operations runbooks you can automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration. Similar to deployments, runbooks can be scheduled and parameterized with prompted variables, and you can publish runbooks after they’ve been tested.
+
+Runbooks have the necessary permissions to run on the infrastructure they’ve been created for, which means everybody on the team can execute the runbook even if they don’t have permission for the infrastructure the runbook will be executed on.
+
+Runbooks are managed and executed by Octopus, so this means there’s a complete audit trail that can be reviewed in retrospectives, making it easy to see what happened, when and why, and if anything needs to be changed.
 
 ## Octopus Deploy Server
 
