@@ -788,8 +788,8 @@ docs/api-and-integration/troubleshooting-integrations-with-build-servers.md -> d
 docs/api-and-integration/jenkins.md -> docs/packaging-applications/build-servers/jenkins.md
 docs/api-and-integration/teamcity.md -> docs/packaging-applications/build-servers/teamcity.md
 docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-servers/index.md
-docs/api-and-integration/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
-docs/api-and-integration/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
+docs/api-and-integration/metadata/github.md -> docs/release-management/issue-tracking/github.md
+docs/api-and-integration/metadata/jira.md -> docs/release-management/issue-tracking/jira.md
 docs/api-and-integration/metadata/release-notes-templates.md -> docs/release-management/release-notes.md
 docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
 docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
@@ -907,8 +907,8 @@ docs/infrastructure/accounts/username-and-password.md -> docs/infrastructure/dep
 docs/infrastructure/accounts/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/packaging-applications/create-packages/nuget-packages.md -> docs/packaging-applications/create-packages/index.md
 docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-applications/build-servers/index.md
-docs/packaging-applications/build-servers/metadata/jira.md -> docs/deployment-process/issue-tracking/jira.md
-docs/packaging-applications/build-servers/metadata/github.md -> docs/deployment-process/issue-tracking/github.md
+docs/packaging-applications/build-servers/metadata/jira.md -> docs/release-management/issue-tracking/jira.md
+docs/packaging-applications/build-servers/metadata/github.md -> docs/release-management/issue-tracking/github.md
 docs/packaging-applications/build-servers/metadata/release-notes-templates.md -> docs/release-management/release-notes.md
 docs/packaging-applications/package-repositories/built-in-repository/pushing-packages-to-the-built-in-repository.md -> docs/packaging-applications/package-repositories/built-in-repository/index.md
 docs/deployment-examples/node-on-linux-deployments/index.md -> docs/deployment-examples/node-deployments/index.md
@@ -952,3 +952,7 @@ docs/deployment-process/projects/coordinating-multiple-projects/index.md -> docs
 docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/projects/coordinating-multiple-projects/project-coordination-code-samples.md
 docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step/index.md -> docs/projects/coordinating-multiple-projects/deploy-release-step/index.md
 docs/deployment-process/operations-runbooks/index.md -> docs/operations-runbooks/index.md
+docs/deployment-process/issue-tracking/index.md -> docs/release-management/issue-tracking/index.md
+docs/deployment-process/issue-tracking/azure-devops.md -> docs/release-management/issue-tracking/azure-devops.md
+docs/deployment-process/issue-tracking/github.md -> docs/release-management/issue-tracking/github.md
+docs/deployment-process/issue-tracking/jira.md -> docs/release-management/issue-tracking/jira.md
