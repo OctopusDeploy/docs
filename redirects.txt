@@ -943,7 +943,7 @@ docs/deployment-process/issue-tracking/jira.md ->docs/release-management/issue-t
 docs/deployment-process/project-triggers/index.md -> docs/projects/project-triggers/index.md
 docs/deployment-process/project-triggers/automatic-release-creation.md -> docs/projects/project-triggers/automatic-release-creation.md
 docs/deployment-process/project-triggers/deployment-target-triggers.md -> docs/projects/project-triggers/deployment-target-triggers.md
-docs/deployment-process/project-triggers/scheduled-deployment-triggers.md -> docs/projects/project-triggers/scheduled-deployment-trigger.md
+docs/deployment-process/project-triggers/scheduled-deployment-trigger.md -> docs/projects/project-triggers/scheduled-deployment-trigger.md
 docs/deployment-process/project-triggers/scheduled-runbook-trigger.md -> docs/projects/project-triggers/scheduled-runbook-trigger.md
 docs/deployment-process/projects/index.md -> docs/projects/index.md
 docs/deployment-process/projects/coordinating-multiple-projects/index.md -> docs/projects/coordinating-multiple-projects/index.md
