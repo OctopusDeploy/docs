@@ -119,7 +119,7 @@ In addition to any outputs defined in your CloudFormation template, we also prov
 
 ### Change Sets and CloudFormation Transforms
 
-In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](docs/deployment-process/configuration-features/index.md) the change set feature on your `Deploy an AWS CloudFormation template` step.
+In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](/docs/deployment-process/configuration-features/index.md) the change set feature on your `Deploy an AWS CloudFormation template` step.
 
 ![Change Set Feature](images/aws-changeset-feature.png)
 
