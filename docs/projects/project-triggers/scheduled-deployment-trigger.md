@@ -6,7 +6,7 @@ position: 2
 
 Scheduled Deployment Triggers were introduced in **Octopus 2018.4**.
 
-Scheduled Deployment Triggers allow you to define an unattended behavior for your [Projects](/docs/deployment-process/projects/index.md) that will cause an automatic deployment of a release based on a defined recurring schedule.
+Scheduled Deployment Triggers allow you to define an unattended behavior for your [Projects](/docs/projects/index.md) that will cause an automatic deployment of a release based on a defined recurring schedule.
 
 ## Schedule
 

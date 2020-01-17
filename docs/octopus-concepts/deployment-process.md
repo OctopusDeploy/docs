@@ -9,7 +9,7 @@ Learn more about creating and managing your [deployment processes](/docs/deploym
 
 ## See Also
 
-- [Projects](/docs/deployment-process/projects/index.md).
+- [Projects](/docs/projects/index.md).
 - [Steps](/docs/deployment-process/steps/index.md)
 - [Community-contributed steps](/docs/deployment-process/steps/index.md)
-- [Variables](/docs/deployment-process/variables/index.md)
+- [Variables](/docs/projects/variables/index.md)

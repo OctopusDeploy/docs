@@ -10,7 +10,7 @@ This feature can be enabled for package deploy steps.
 
 ![XML configuration variables screenshot](images/xml-configuration-variables-feature.png)
 
-Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/deployment-process/variables/index.md).
+Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables/index.md).
 
 :::hint
 You can perform simple convention-based replacements in XML configuration files using this feature. We also have a feature tailored to [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
@@ -43,7 +43,7 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 </configuration>
 ```
 
-1. Create the variables in Octopus. From the [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**:
+1. Create the variables in Octopus. From the [project](/docs/projects/index.md) overview page, click **Variables**:
   - Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
   - Enter the value for the variable, for instance, `ABCDEFG`.
   - Scope the variable to the environment, for instance, `Test`.

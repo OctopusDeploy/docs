@@ -4,7 +4,7 @@ description: Variable substitutions are a flexible way to adjust configuration b
 position: 10
 ---
 
-Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/deployment-process/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
 ## Binding Variables
 
@@ -26,12 +26,12 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 | `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
 
 :::info
-Also read about [common mistakes for variables](/docs/deployment-process/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes) for more information
+Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes) for more information
 :::
 
 ## Using Variables in Step Definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
 
-Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/deployment-process/variables/index.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
+Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/index.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
 
 Most text fields that support binding to variables will have a variable insert button:
 
@@ -232,4 +232,4 @@ The filters can be invoked in the following way:
 #{Octopus.Environment.Name | ToLower}
 ```
 
-For more information, see [Variable Filters](https://octopus.com/docs/deployment-process/variables/variable-filters).
+For more information, see [Variable Filters](https://octopus.com/docs/projects/variables/variable-filters).

@@ -4,7 +4,7 @@ description: Output variables allow you to set dynamic variables in one step tha
 position: 30
 ---
 
-As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
+As you work with [variables](/docs/projects/variables/index.md) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
 
 Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console.md), or [package scripts and script steps](/docs/deployment-examples/custom-scripts/index.md) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
@@ -30,7 +30,7 @@ Octopus.setVariable "TestResult" "Passed"
 set_octopusvariable("TestResult", "Passed")
 ```
 
-You can then use the variable from other steps, either in [variable binding syntax](/docs/deployment-process/variables/variable-substitutions.md):
+You can then use the variable from other steps, either in [variable binding syntax](/docs/projects/variables/variable-substitutions.md):
 
 ```powershell
 #{Octopus.Action[StepA].Output.TestResult}
@@ -115,7 +115,7 @@ In this scenario, the following output variables would be captured:
 Note that for each output variable/deployment target combination:
 
 - A variable is created with the deployment target name contained in the variable name: this allows you to reference output variables from set by one deployment target from another deployment target.
-- A variable is created that is [scoped](/docs/deployment-process/variables/index.md#scoping-variables) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
+- A variable is created that is [scoped](/docs/projects/variables/index.md#scoping-variables) to the deployment target. This way Web01 will always get the value Web01 set, and Web02 will get the value Web02 set.
 - A variable is created with no scope, and no differentiator in the name. When referencing this value, the result will be indeterministic, but it allows scripts to use the value without knowing which deployment target set it.
 
 For some practical examples of using output variables, and how scoping rules are applied, see the following blog posts:
@@ -139,7 +139,7 @@ You can set output variables using any of the scripting languages supported by O
 
 From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
-- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/deployment-process/variables/index.md).
+- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/projects/variables/index.md).
 - `[string]$value` - the value you want to give the output variable.
 
 For example:

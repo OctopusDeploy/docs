@@ -31,7 +31,7 @@ AWS steps can also defer to the IAM role assigned to the instance that hosts the
 
 ## AWS Account Variables
 
-You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/deployment-process/variables/aws-account-variables.md)
+You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/projects/variables/aws-account-variables.md)
 
 ## Using AWS Service Roles for an EC2 Instances
 

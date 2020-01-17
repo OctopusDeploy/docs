@@ -3,7 +3,7 @@ title: Prompted Variables
 description: Prompted variables allow you to prompt a user to enter a value rather than storing it in Octopus.
 position: 40
 ---
-As you work with [variables](/docs/deployment-process/variables/index.md) in Octopus, there may be times when the value of a variable isn't known and you need a user to enter the variable at deployment time. Octopus can handle this using **Prompted variables**.
+As you work with [variables](/docs/projects/variables/index.md) in Octopus, there may be times when the value of a variable isn't known and you need a user to enter the variable at deployment time. Octopus can handle this using **Prompted variables**.
 
 ## Defining a Prompted Variable {#Promptedvariables-Definingapromptedvariable}
 
@@ -34,5 +34,5 @@ octo.exe deploy-release ... --variable "Missile launch code:LAUNCH123" --variabl
 ```
 
 :::hint
-Prompted variables can be combined with [sensitive variables](/docs/deployment-process/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
+Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
 :::

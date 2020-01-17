@@ -4,7 +4,7 @@ description: System variables are variables provided by Octopus that can be used
 position: 20
 ---
 
-This page lists built-in [variables](/docs/deployment-process/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+This page lists built-in [variables](/docs/projects/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
 
 ## Release {#Systemvariables-Release}
 
@@ -50,7 +50,7 @@ public class Commit
 }
 ```
 
-The packages in a release are available as a collection which can be [iterated over](/docs/deployment-process/variables/variable-substitutions.md#VariableSubstitutionSyntax-Repetition).  e.g.
+The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Repetition).  e.g.
 
 ```
 #{each package in Octopus.Release.Package}
@@ -97,7 +97,7 @@ The variables available for commits are:
 |`LinkUrl`| `#{commit.LinkUrl}` |
 |`Comment`| `#{commit.Comment}` |
 
-If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/deployment-process/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
+If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/release-management/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
 ```
 #{each issue in package.WorkItems}
@@ -140,8 +140,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Deployment.CreatedBy.EmailAddress` <br/>The email address of the user who initiated the deployment | *[alice@example.com](mailto:alice@example.com)*|
 |`Octopus.Deployment.CreatedBy.Id` <br/>The ID of the user who initiated the deployment | *users-123*|
 |`Octopus.Deployment.CreatedBy.Username` <br/>The username of the user who initiated the deployment | *alice*|
-|`Octopus.Deployment.Error` <br/>This variable outputs the error/exit code for a failed deployment. [See here](/docs/deployment-process/variables/system-variables.md) | *Script returned exit code 123*|
-|`Octopus.Deployment.ErrorDetail` <br/>The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/deployment-process/variables/system-variables.md) | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
+|`Octopus.Deployment.Error` <br/>This variable outputs the error/exit code for a failed deployment. [See here](/docs/projects/variables/system-variables.md) | *Script returned exit code 123*|
+|`Octopus.Deployment.ErrorDetail` <br/>The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/projects/variables/system-variables.md) | *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*|
 |`Octopus.Deployment.ForcePackageDownload` <br/>If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)* | *False*|
 |`Octopus.Deployment.Id` <br/>The ID of the deployment | *deployments-123*|
 |`Octopus.Deployment.Name` <br/>The name of the deployment | *Deploy to Production*|
@@ -199,8 +199,8 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and Description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.Changes` <br/>A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/deployment-process/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
-|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/deployment-process/releases/deployment-notes.md). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
+|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/release-management/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/release-management/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
+|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/release-management/deployment-notes.md). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
 
@@ -339,7 +339,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ## Output {#Systemvariables-Output}
 
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/deployment-process/variables/output-variables.md).
+Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables.md).
 
 | Name and Description | Example|
 | -------------------- | ----------------------------------------|

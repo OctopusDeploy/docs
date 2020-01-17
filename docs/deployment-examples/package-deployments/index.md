@@ -36,7 +36,7 @@ Octopus is built to make it easy to deploy .NET applications, and contains a num
     - Example: `C:\Octopus\Applications\[Tenant name]\[Environment name]\[Package name]\[Package version]\` where `C:\Octopus\Applications` is the Tentacle application directory you configured when installing Tentacle).
 1. Extract the package into the newly created folder.
 1. Execute each of your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and the [deployment features](/docs/deployment-examples/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
-1. [Output variables](/docs/deployment-process/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
+1. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::hint
 **Package deployment feature ordering**

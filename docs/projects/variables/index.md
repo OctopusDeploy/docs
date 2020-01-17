@@ -11,7 +11,7 @@ hideInThisSection: false
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
-1. To add a variable to your [project](/docs/deployment-process/projects/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. To add a variable to your [project](/docs/projects/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
 2. Give the variable a name, for instance, *Greeting*.
 3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
 4. Define the scope for the value, for instance, by selecting the *Test* environment.
@@ -142,4 +142,4 @@ When applying permissions on variables via scopes, the only options that are che
 
 ## Next
 
-Learn about using [variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) or [variable substitutions](/docs/deployment-process/variables/variable-substitutions.md).
+Learn about using [variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) or [variable substitutions](/docs/projects/variables/variable-substitutions.md).

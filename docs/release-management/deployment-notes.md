@@ -6,7 +6,7 @@ position: 6
 
 When a release is deployed to an environment, it can be thought of as deploying all changes contained in all releases since the previous deployment to the environment.
 
-Deployment notes summarize these changes by rolling up the [release notes](/docs/deployment-process/releases/release-notes.md) from all releases since the previous deployment of the project to the environment.  
+Deployment notes summarize these changes by rolling up the [release notes](/docs/release-management/release-notes.md) from all releases since the previous deployment of the project to the environment.  
 
 ![Deployment notes](images/deployment-notes.png)
 
@@ -21,7 +21,7 @@ Octopus treats pre-releases as a *work in progress* that will fall under the ban
 ## Deployment Change Variables
 
 It can be useful to access the changes associated with a deployment in the deployment process.
-[Deployment change variables](/docs/deployment-process/variables/system-variables.md#deployment-notes) are available during a deployment.
+[Deployment change variables](/docs/projects/variables/system-variables.md#deployment-notes) are available during a deployment.
 
 A common example of this is for use in the [Email step](/docs/deployment-process/steps/email-notifications.md).  
 

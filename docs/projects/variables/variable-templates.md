@@ -4,7 +4,7 @@ description: Variable templates can be defined in Octopus to indicate which vari
 position: 100
 ---
 
-Working with [Multi-tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/deployment-process/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
+Working with [Multi-tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/projects/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
 
 :::hint
 For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
@@ -22,7 +22,7 @@ For a working example see our multi-tenant deployments guide: [Working with tena
 | **Name** | The name of the variable template. This will also be the name given to the resulting variable value you can use in your deployment process. | `Tenant.Alias` |
 | **Label**         | The label that will be displayed when prompting for the variable value. | Tenant alias                             |
 | **Help text**     | The descriptive help text that will be displayed to provide the user with enough information to accurately provide the value. | A shortened, URL friendly, version of the tenant's name. |
-| **Default value** | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/deployment-process/variables/variable-substitutions.md). | `https://#{Tenant.Alias}.myapp.com`      |
+| **Default value** | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/projects/variables/variable-substitutions.md). | `https://#{Tenant.Alias}.myapp.com`      |
 | **Control type** | You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. | Single-line text box, Multi-line text box, Drop down, Checkbox, Sensitive/password box, Azure Account |
 | **Options** | (Only applies when Data type: Drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use `|` to separate values and display text. | `Value1|Display text 1` <br>`Value2|Display text 2`  |
 

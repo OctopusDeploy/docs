@@ -4,7 +4,7 @@ description: Library variable sets allow you to define and share common variable
 position: 90
 ---
 
-Octopus [variables](/docs/deployment-process/variables/index.md) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/deployment-process/projects/index.md).
+Octopus [variables](/docs/projects/variables/index.md) can be added to library variables sets, which make it possible to define variables for use with multiple [projects](/docs/projects/index.md).
 
 This can be useful if you have the same variables that are used across multiple projects. Instead of defining the variables for each project, you can define a set of variables in the Library Variable Set and then access them from every project that needs them.
 
@@ -12,7 +12,7 @@ This can be useful if you have the same variables that are used across multiple 
 
 1. Navigate to **{{Library,Variable Sets}}** and click **ADD NEW VARIABLE SET**.
 2. Give the variable set a name, a description, and click **SAVE**.
-3. Define the variables. As with project variables, library variables can be [scoped](/docs/deployment-process/variables/index.md#scoping-variables) to environment, deployment target, or target roles.
+3. Define the variables. As with project variables, library variables can be [scoped](/docs/projects/variables/index.md#scoping-variables) to environment, deployment target, or target roles.
 4. Save the variable set by clicking **SAVE**.
 
 ## Adding the Library Variable Set to a Project

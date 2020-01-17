@@ -48,7 +48,7 @@ We also have a `Web.Release.Config` transform file with the following contents:
 </configuration>
 ```
 
-Finally, we have the following [variables](/docs/deployment-process/variables/index.md) configured in Octopus:
+Finally, we have the following [variables](/docs/projects/variables/index.md) configured in Octopus:
 
 | Name       | Value   | Scope   |
 | ------------- | ------- | ------ |

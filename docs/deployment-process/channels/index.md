@@ -4,7 +4,7 @@ description: Channels allow you to dynamically change the deployment logic and l
 position: 40
 ---
 
-As you deploy your projects, you can assign [releases](/docs/deployment-process/releases/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
+As you deploy your projects, you can assign [releases](/docs/release-management/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
 
 Channels can be useful in the following scenarios:
 
@@ -27,7 +27,7 @@ The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) blog p
 
 ## Managing Channels
 
-Every [project](/docs/deployment-process/projects/index.md) has a default channel.
+Every [project](/docs/projects/index.md) has a default channel.
 
 Channels are managed from the Project overview page by selecting the specific project you are working with and clicking **Channels**.
 
@@ -43,7 +43,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 ## Design the Version Rules {#Channels-versionrules}
 
-Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md).
+Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md).
 
 :::hint
 Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
@@ -104,7 +104,7 @@ For instance, you might decide you'd like to notify your early access users by e
 
 ### Variables {#Channels-Variables}
 
-As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/deployment-process/variables/index.md) can be scoped to specific Channels.
+As you release software to different Channels, it's likely that some of the variables in those Channels will need to be different. [Variables](/docs/projects/variables/index.md) can be scoped to specific Channels.
 
 ![](images/3278460.png)
 
@@ -134,7 +134,7 @@ When using one of the [build server extensions](/docs/octopus-rest-api/index.md
 
 ### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 
-When enabling [Automatic Release Creation](/docs/deployment-process/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
 ![](images/3278462.png)
 

@@ -9,7 +9,7 @@ Octopus includes built-in step templates that have been developed by the Octopus
 
 ## Adding Steps to Your Deployment Processes
 
-1. Navigate to your [project's](/docs/deployment-process/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
+1. Navigate to your [project's](/docs/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Find the step template you need, hover over the step and click **ADD**.
 
@@ -42,7 +42,7 @@ Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 9. Save the step.
 10. Add additional steps.
 
-With your deployment configured you're ready to create a [release](/docs/deployment-process/releases/index.md).
+With your deployment configured you're ready to create a [release](/docs/release-management/index.md).
 
 ## Example: A Simple Deployment Process
 

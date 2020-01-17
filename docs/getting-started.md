@@ -66,7 +66,7 @@ Learn more about [packaging your applications](/docs/packaging-applications/inde
 
 Octopus Deploy integrates with your build server to take over where your continuous integration server ends. You can also keep an eye on your builds with our issue tracker integrations with Jira, GitHub, and Azure DevOps.
 
-Learn more about [build server integration](/docs/packaging-applications/build-servers/index.md) and our [issue tracker integrations](/docs/deployment-process/issue-tracking/index.md).
+Learn more about [build server integration](/docs/packaging-applications/build-servers/index.md) and our [issue tracker integrations](/docs/release-management/issue-tracking/index.md).
 
 ## Spaces
 
@@ -82,6 +82,6 @@ Read more to learn about the following topics:
 - [Octopus Cloud](/docs/octopus-cloud/index.md)
 - [Packaging your applications](/docs/packaging-applications/index.md)
 - [Defining your deployment process](/docs/deployment-process/index.md)
-- [Operations runbooks](/docs/deployment-process/operations-runbooks/index.md)
+- [Operations runbooks](/docs/operations-runbooks/index.md)
 
 Or create your own end-to-end CI/CD pipeline tutorial with our [interactive documentation](https://octopus.com/docs/guides).

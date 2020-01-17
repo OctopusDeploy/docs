@@ -6,7 +6,7 @@ position: 3
 
 Previous step: [Deploying a simple multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 
-This page describes how to use [variable templates](/docs/deployment-process/variables/variable-templates.md) as part of a multi-tenant deployment design. We start by building on the existing scenario, providing some background information, and then providing an end-to-end implementation of that scenario.
+This page describes how to use [variable templates](/docs/projects/variables/variable-templates.md) as part of a multi-tenant deployment design. We start by building on the existing scenario, providing some background information, and then providing an end-to-end implementation of that scenario.
 
 ## Tenant-provided Variable Values
 
@@ -14,7 +14,7 @@ Quite often you want to define variable values that are different for each tenan
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/deployment-process/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
 To add variables for a tenant, select the tenant from the **Tenants** page and click **Variables**.
@@ -29,9 +29,9 @@ To add variables for a tenant, select the tenant from the **Tenants** page and c
 
 ## Introducing Variable Templates
 
-To make this possible we have introduced the concept of [variable templates](/docs/deployment-process/variables/variable-templates.md). Variable templates let you configure which variables are required to successfully deploy a project. Each variable template can define the data type, name, label, help text, and default value.
+To make this possible we have introduced the concept of [variable templates](/docs/projects/variables/variable-templates.md). Variable templates let you configure which variables are required to successfully deploy a project. Each variable template can define the data type, name, label, help text, and default value.
 
-For more information see our reference section: [Variable templates](/docs/deployment-process/variables/variable-templates.md)
+For more information see our reference section: [Variable templates](/docs/projects/variables/variable-templates.md)
 
 :::success
 **Which variable templates apply to each tenant?**
@@ -102,7 +102,7 @@ The result should look like the screenshot below:
 
 ### Step 3: Create the "Environment Variables" Library Variable Set
 
-In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docs/deployment-process/variables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
+In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docs/projects/variables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
 
 1. Go to **{{Library,Variable sets}}** and add a new variable set called **Environment variables**.
 2. Create the variables shown below:

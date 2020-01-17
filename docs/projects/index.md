@@ -13,13 +13,13 @@ When deciding whether you need a single project or multiple projects, here are s
 - If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
 - If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
 
-For more options, see the [Coordinating Multiple Projects docs](/docs/deployment-process/projects/coordinating-multiple-projects/index.md).
+For more options, see the [Coordinating Multiple Projects docs](/docs/projects/coordinating-multiple-projects/index.md).
 
 ## Managing Projects
 
-Projects are managed from the **Projects** area of the **Octopus Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/deployment-process/projects/index.md#project-groups).
+Projects are managed from the **Projects** area of the **Octopus Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/projects/index.md#project-groups).
 
-The first time you navigate to the **Projects** area, you have the option to either [ADD PROJECT](/docs/deployment-process/projects/index.md#add-a-project) or [ADD GROUP](/docs/deployment-process/projects/index.md#add-a-project-group).
+The first time you navigate to the **Projects** area, you have the option to either [ADD PROJECT](/docs/projects/index.md#add-a-project) or [ADD GROUP](/docs/projects/index.md#add-a-project-group).
 
 ## Add a Project
 
@@ -28,7 +28,7 @@ Before you can define your deployment process, you must create a project.
 1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
 1. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
 1. Add a description for the project.
-1. If you want to change the [Project group](/docs/deployment-process/projects/index.md#project-group) select the project group from the dropdown menu.
+1. If you want to change the [Project group](/docs/projects/index.md#project-group) select the project group from the dropdown menu.
 1. If you want to change the [Lifecycle](/docs/deployment-process/lifecycles/index.md) select the lifecycle from the dropdown menu.
 1. Click **Save** and you will be taken to the newly created project's overview page.
 

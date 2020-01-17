@@ -14,7 +14,7 @@ Octopus supports a wide variety of scripting languages and runtimes. Octopus exe
 
 Octopus lets you tailor these scripts to your needs at runtime using features like [dynamically substituting variables into your script files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md).
 
-Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/deployment-process/variables/index.md), [output variables](/docs/deployment-process/variables/output-variables.md), and [artifacts](/docs/deployment-process/artifacts.md).
+Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/projects/variables/index.md), [output variables](/docs/projects/variables/output-variables.md), and [artifacts](/docs/deployment-process/artifacts.md).
 
 ## Script Integrity in Octopus
 

@@ -226,4 +226,4 @@ You can now configure Octopus to deploy to Azure via the Azure Service Managemen
 
 ## Azure Account Variables {#azure-account-variables}
 
-You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/deployment-process/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).
+You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).

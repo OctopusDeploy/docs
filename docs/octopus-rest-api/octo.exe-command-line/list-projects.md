@@ -6,7 +6,7 @@ position: 210
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list the project in your octopus instance.
 
-Learn more about [projects](/docs/deployment-process/projects/index.md).
+Learn more about [projects](/docs/projects/index.md).
 
 **list-projects options**
 

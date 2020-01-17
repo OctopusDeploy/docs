@@ -5,4 +5,4 @@ description: Releases allow you to capture everything required to deploy a proje
 
 !include <releases>
 
-Learn more about [deploying releases](/docs/deployment-process/releases/index.md).
+Learn more about [deploying releases](/docs/release-management/index.md).

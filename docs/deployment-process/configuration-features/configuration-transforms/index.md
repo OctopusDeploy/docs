@@ -151,7 +151,7 @@ Fatal    14:56:06
 One or more errors were encountered when applying the XML configuration transformation file: e:\Octopus\Applications\MyEnv\MyApp\1.0.0.1234\Web.Release.config. View the deployment log for more details, or set the special variable Octopus.Action.Package.IgnoreConfigTranformationErrors to True to ignore this error.
 ```
 
-To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/deployment-process/variables/system-variables.md) section of the documentation.
+To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/projects/variables/system-variables.md) section of the documentation.
 
 ## PowerShell {#Configurationfiles-PowerShell}
 

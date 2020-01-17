@@ -14,7 +14,7 @@ Runbooks are used to automate routine maintenance and emergency operations tasks
 
 ## Projects
 
-Runbooks are contained in [projects](/docs/deployment-process/projects/index.md).
+Runbooks are contained in [projects](/docs/projects/index.md).
 
 To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
 
@@ -30,7 +30,7 @@ For users familiar with Octopus prior to the introduction of runbooks, an obviou
 
 ## Variables
 
-A [project's variables](/docs/deployment-process/variables/index.md) are shared between the deployment process and any runbooks in the project (though specific values can be scoped exclusively to specific runbooks or to the deployment process). This means the following configurations can be shared between your deployment process and runbooks:
+A [project's variables](/docs/projects/variables/index.md) are shared between the deployment process and any runbooks in the project (though specific values can be scoped exclusively to specific runbooks or to the deployment process). This means the following configurations can be shared between your deployment process and runbooks:
 - Database connection strings
 - Passwords
 - Certificates

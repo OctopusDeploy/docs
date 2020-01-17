@@ -4,11 +4,11 @@ description: Variables in Octopus Deploy can have a certificate as the value
 position: 60
 ---
 
-In the variable-editor, selecting *Certificate* as the [variable](/docs/deployment-process/variables/index.md) type allows you to create a variable with a certificate managed by Octopus as the value.
+In the variable-editor, selecting *Certificate* as the [variable](/docs/projects/variables/index.md) type allows you to create a variable with a certificate managed by Octopus as the value.
 
 ![](images/certificate-variable-select.png)
 
-Certificate variables can be [scoped](/docs/deployment-process/variables/index.md#scoping-variables), similar to regular text variables.
+Certificate variables can be [scoped](/docs/projects/variables/index.md#scoping-variables), similar to regular text variables.
 
 ![](images/certificate-variables-scoped.png)
 
@@ -26,7 +26,7 @@ At deploy-time, Certificate variables are expanded. For example, a variable _MyC
 | MyCertificate.Password          | The password specified when the file was uploaded. |
 | MyCertificate.Pfx               | The base64 encoded certificate in PKCS#12 format, including the private-key if present.  |
 | MyCertificate.Certificate       | The base64 encoded DER ASN.1 certificate.              |
-| MyCertificate.PrivateKey        | The base64 encoded DER ASN.1 private key. This will be stored and transmitted as a [sensitive variable](/docs/deployment-process/variables/sensitive-variables.md).                |
+| MyCertificate.PrivateKey        | The base64 encoded DER ASN.1 private key. This will be stored and transmitted as a [sensitive variable](/docs/projects/variables/sensitive-variables.md).                |
 | MyCertificate.CertificatePem    | The PEM representation of the certificate (i.e. the PublicKey with header\footer).  |
 | MyCertificate.PrivateKeyPem     | The PEM representation of the private key (i.e. the PrivateKey with header\footer).  |
 | MyCertificate.ChainPem    | The PEM representation of any chain certificates (intermediate or certificate-authority). This variable does not include the primary certificate. _Added in Octopus 2018.5_|
