@@ -938,7 +938,6 @@ docs/deployment-process/releases/guided-failures.md ->docs/release-management/gu
 docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md ->docs/release-management/manually-fail-a-running-or-cancelling-task.md
 docs/deployment-process/releases/release-notes.md ->docs/release-management/release-notes.md
 docs/deployment-process/releases/release-versioning.md ->docs/release-management/release-versioning.md
-docs/deployment-process/issue-tracking/azure-devops.md ->docs/release-management/issue-tracking/azure-devops.md
 docs/deployment-process/issue-tracking/github.md ->docs/release-management/issue-tracking/github.md
 docs/deployment-process/issue-tracking/jira.md ->docs/release-management/issue-tracking/jira.md
 docs/deployment-process/project-triggers/index.md -> docs/projects/project-triggers/index.md
