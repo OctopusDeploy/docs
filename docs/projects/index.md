@@ -1,7 +1,7 @@
 ---
 title: Projects
 description: Projects allow you to define all the details required to deploy a project including the steps to run and variables to configure it.
-position: 0
+position: 45
 ---
 
 !include <projects>
