@@ -10,7 +10,7 @@ When Terraform is run by Octopus, this state file is not preserved between execu
 Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/index.html) for more information on configuring backends.
 
 :::warning
-While neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend.
+Neither Octopus or Terraform will generate errors if a remote backend is not configured, but most attempts to update or delete existing resources will not work as expected without a remote backend.
 :::
 
 ## Remote State Terraform Cloud
