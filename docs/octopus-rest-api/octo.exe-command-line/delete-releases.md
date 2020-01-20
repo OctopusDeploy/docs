@@ -4,7 +4,7 @@ description: Deletes a range of releases
 position: 100
 ---
 
-Deletes a range [releases](/docs/deployment-process/releases/index.md).
+Deletes a range [releases](/docs/release-management/index.md).
 
 **delete-releases options**
 

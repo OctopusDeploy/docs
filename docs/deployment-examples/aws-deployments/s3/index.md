@@ -15,7 +15,7 @@ Add the `Upload a package to an AWS S3 bucket` step to the project, and give it 
 
 ### AWS Section
 
-Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/deployment-process/variables/aws-account-variables.md).
+Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
 
 ![AWS Account](step-aws-account.png)
 

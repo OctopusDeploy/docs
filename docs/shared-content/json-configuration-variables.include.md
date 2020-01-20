@@ -1,10 +1,10 @@
-With the JSON Configuration Variables feature you can define [variables](/docs/deployment-process/variables/index.md) in Octopus for use in the JSON configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON object and array literals.
+With the JSON Configuration Variables feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in the JSON configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON object and array literals.
 
 This is designed to work natively with [.NET Core JSON configuration files](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md) but works equally well with any JSON files.
 
 ## Configuring the JSON Configuration Variables Feature {#JSONConfigurationVariablesFeature-ConfiguringtheJSONconfigurationvariablesfeature}
 
-1. When you define the package [step](/docs/deployment-process/steps/index.md) in your [project](/docs/deployment-process/projects/index.md) enable the JSON Configuration Variables feature by clicking the **CONFIGURE FEATURES** link and selecting **JSON configuration variables** and clicking **OK**.
+1. When you define the package [step](/docs/deployment-process/steps/index.md) in your [project](/docs/projects/index.md) enable the JSON Configuration Variables feature by clicking the **CONFIGURE FEATURES** link and selecting **JSON configuration variables** and clicking **OK**.
 2. In the **Features** section of the step template, specify the relative paths within the package to your JSON configuration files. For instance:
 
 ```
@@ -27,7 +27,7 @@ Given this example of a target config file:
 }
 ```
 
-If you define the [variables](/docs/deployment-process/variables/index.md) `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` in the variables section of your [deployment process](/docs/deployment-process/variables/index.md) with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file in your packaged application is updated to become:
+If you define the [variables](/docs/projects/variables/index.md) `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` in the variables section of your [deployment process](/docs/projects/variables/index.md) with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file in your packaged application is updated to become:
 
 ```json
 {
@@ -81,4 +81,4 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 
 You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of `["baz","qux"]`.
 
-Note that you can even use the [Variable Substitution Syntax](/docs/deployment-process/variables/variable-substitutions.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
+Note that you can even use the [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.

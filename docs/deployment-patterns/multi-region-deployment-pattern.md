@@ -24,7 +24,7 @@ By using this pattern you can:
 2. Scope region-specific variables to the region-specific Environments.
 3. Quickly see which releases are deployed to which regions on the main dashboard.
 4. Quickly promote releases through your regions using the Project Overview.
-5. Use [Scheduled Deployments](/docs/deployment-process/releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
+5. Use [Scheduled Deployments](/docs/release-management/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
 
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
 
@@ -45,7 +45,7 @@ By using this pattern you can:
 
 Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
-1. Use [Variable Templates](/docs/deployment-process/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
+1. Use [Variable Templates](/docs/projects/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
 
 ![](images/5865790.png)
 
@@ -65,7 +65,7 @@ Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant
 
 ![](/images/5865789.png)
 
-6. Use [Scheduled Deployments](/docs/deployment-process/releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
+6. Use [Scheduled Deployments](/docs/release-management/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
 
 ![](images/5865787.png)
 

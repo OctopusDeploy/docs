@@ -60,7 +60,7 @@ The most common mistake causing delta compression to yield minimal size reductio
 
 ## Turning Delta Compression Off {#Deltacompressionforpackagetransfers-TurningCompressionoff}
 
-To turn this feature off, create a project [variable](/docs/deployment-process/variables/index.md) named **Octopus.Acquire.DeltaCompressionEnabled** with a value of **False**.
+To turn this feature off, create a project [variable](/docs/projects/variables/index.md) named **Octopus.Acquire.DeltaCompressionEnabled** with a value of **False**.
 
 :::hint
 **Delta calculations can be CPU intensive**

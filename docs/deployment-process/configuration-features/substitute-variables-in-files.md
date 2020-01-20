@@ -3,7 +3,7 @@ title: Substitute Variables in Files
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/deployment-process/variables/index.md) into any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/index.md) into any file.
 
 :::hint
 You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
@@ -13,7 +13,7 @@ You can perform very complex transformations in any kind of file using this feat
 
 The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to. In this example, we're deploying to a **Test** and **Production** environment.
 
-1. Create the login variable in Octopus. From the: [project](/docs/deployment-process/projects/index.md) overview page, click **Variables**.
+1. Create the login variable in Octopus. From the: [project](/docs/projects/index.md) overview page, click **Variables**.
   - Enter a the name for the variable, for instance, *LoginURL*.
   - Enter the first value for the variable, for instance, *https://test.example.com/login*.
   - Scope this value to the test environment by clicking the *Define Scope* field and selecting the test environment.
@@ -62,7 +62,7 @@ The default option for Output file encoding (Detect from template) will use the 
 
 When the application is deployed to your **test** and **production** environments, each environment will include the login URL you defined for the specific environment.
 
-From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/deployment-process/releases/index.md) and deploy your application.
+From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/release-management/index.md) and deploy your application.
 
 :::warning
 If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in files' before the transformation as defined in the [package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) process.

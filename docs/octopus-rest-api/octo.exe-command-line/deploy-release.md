@@ -6,7 +6,7 @@ position: 110
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octo.exe-command-line/create-release.md).
 
-Learn more about [releases](/docs/deployment-process/releases/index.md).
+Learn more about [releases](/docs/release-management/index.md).
 
 ```text
 Usage: octo deploy-release [<options>]

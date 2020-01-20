@@ -9,6 +9,14 @@ Now that you have access to an [Octopus Server](/docs/getting-started.md#octopus
 
 !include <deployment-process>
 
+<!-- tailor to deployment processes/ releases and do the same for operations runbooks
+
+## Project Overview
+
+The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.
+
+![Project Overview](project-overview.png) -->
+
 ## A Simple Hello World Deployment Process
 
 For this example process, we'll use Octopus Deploy to create a simple process with only one step that runs a script on a deployment target. The process uses a **Test** environment with one **Deployment Target** that has the target role **server**.
@@ -40,7 +48,7 @@ This is an example of a very simple process, the following sections go into more
 
 Before you can define how your software is deployed, you must create a project for the deployment process. Projects contain the deployment steps and configuration variables that define how your software is deployed.
 
-Learn more about managing [projects](/docs/deployment-process/projects/index.md).
+Learn more about managing [projects](/docs/projects/index.md).
 
 ## Lifecycles
 
@@ -66,7 +74,7 @@ Learn more about [configuration features](/docs/deployment-process/configuration
 
 Octopus supports variables to make it easier to define application settings for your deployment processes without the need to hardcode them. For instance, you might use different connection strings for apps deployed to Test and Production. Variables let you define these settings and then refer to them by the variable name throughout the deployment process, meaning you don't have to manually change them between deployments, or even give them much thought after the variables and deployment process have been defined.
 
-Learn more about [variables](/docs/deployment-process/variables/index.md).
+Learn more about [variables](/docs/projects/variables/index.md).
 
 ## Conditions
 
@@ -78,7 +86,7 @@ Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
-Learn more about [releases](/docs/deployment-process/releases/index.md).
+Learn more about [releases](/docs/release-management/index.md).
 
 ## Working with the Octopus API
 

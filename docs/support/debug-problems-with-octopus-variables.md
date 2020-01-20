@@ -19,7 +19,7 @@ Sometimes a variable used during deployment may have a different value from the 
 ## Check the Variable Value in the All Variables Tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
 1. Open the **{{Project,Variables,All Variables}}** tab.
-2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/deployment-process/variables/library-variable-sets.md), and [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/projects/variables/library-variable-sets.md), and [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md).
 
 ![](images/5865680.png)
 

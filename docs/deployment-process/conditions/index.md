@@ -56,7 +56,7 @@ You can achieve the opposite effect by swapping `unless` with `if`:
 #{if Octopus.Deployment.Error}#{Variable}#{/if}
 ```
 
-It's also possible to check the status of specific [steps and actions](/docs/deployment-process/variables/system-variables.md#Systemvariables-DeploymentStatusTrackingdeploymentstatus).
+It's also possible to check the status of specific [steps and actions](/docs/projects/variables/system-variables.md#Systemvariables-DeploymentStatusTrackingdeploymentstatus).
 
 ## Start Trigger
 
