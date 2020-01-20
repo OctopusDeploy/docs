@@ -17,7 +17,7 @@ Before you can define your deployment process or operations runbooks, you must c
 1. If you want to change the [Lifecycle](/docs/deployment-process/lifecycles/index.md) select the lifecycle from the dropdown menu.
 1. Click **Save** and you will be taken to the newly created project's overview page.
 
-Now that you've created a project, you can define your [deployment process](/docs/deployment-process/index.md) or [operations runbooks](/docs/operations-processes/index.md).
+Now that you've created a project, you can define your [deployment process](/docs/deployment-process/index.md) or [operations runbooks](/docs/operations-runbooks/index.md).
 
 ## Project Settings
 
