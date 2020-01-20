@@ -42,7 +42,7 @@ data "terraform_remote_state" "state" {
 }
 ```
 
-Just like any other data source, it must first exist remotely. In order to achieve this, you must have an empty template such as above which contains only the data source in question. You should then run `terraform init` followed by
+As with any other data source, it must exist remotely first. To achieve this, you need an empty template as above which contains only the data source in question. You then need to run `terraform init` followed by
 `terraform plan` to generate the empty state. The remote state can then be seeded using `terraform state push .\.terraform\terraform.tfstate`. This is necessary as including resources as part of the template will result in errors such as
 `No stored state was found for the given workspace in the given backend.` as terraform tries to first read the remote state that doesn't exist.
 
