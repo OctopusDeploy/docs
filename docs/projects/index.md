@@ -1,29 +1,14 @@
 ---
 title: Projects
-description: Projects allow you to define all the details required to deploy a project including the steps to run and variables to configure it.
+description: Projects let you create and manage your deployment processes, releases, and operations processes.
 position: 45
 ---
 
 !include <projects>
 
-To see an example project complete with steps that is released to an environment, see [A Simple Hello World Deployment Process](/docs/deployment-process/index.md#a-simple-hello-world-deployment-process).
-
-When deciding whether you need a single project or multiple projects, here are some points to consider:
-
-- If the packages are delivered by different teams, or have different release schedules and deadlines, use separate projects.
-- If the packages are always deployed at the same time, and there is good communication between the teams developing them (or they are the same team), use a single project.
-
-For more options, see the [Coordinating Multiple Projects docs](/docs/projects/coordinating-multiple-projects/index.md).
-
-## Managing Projects
-
-Projects are managed from the **Projects** area of the **Octopus Web Portal**. From here you can see and manage all of your projects and [project groups](/docs/projects/index.md#project-groups).
-
-The first time you navigate to the **Projects** area, you have the option to either [ADD PROJECT](/docs/projects/index.md#add-a-project) or [ADD GROUP](/docs/projects/index.md#add-a-project-group).
-
 ## Add a Project
 
-Before you can define your deployment process, you must create a project.
+Before you can define your deployment process or operations runbooks, you must create a project:
 
 1. Select **Projects** from the main navigation, and click **ADD PROJECT**.
 1. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
@@ -32,27 +17,17 @@ Before you can define your deployment process, you must create a project.
 1. If you want to change the [Lifecycle](/docs/deployment-process/lifecycles/index.md) select the lifecycle from the dropdown menu.
 1. Click **Save** and you will be taken to the newly created project's overview page.
 
-Now that you've created a project, you can configure your [Lifecycles](/docs/deployment-process/lifecycles/index.md) or start adding [steps](/docs/deployment-process/steps/index.md) to your project.
-
-:::warning
-If you are using Spaces as part of your Octopus Deploy installation, please remember that any projects you configure, will only be available to the space they are configured for.
-:::
-
-## Project Overview
-
-The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.
-
-![Project Overview](project-overview.png)
+Now that you've created a project, you can define your [deployment process](/docs/deployment-process/index.md) or [operations runbooks](/docs/operations-processes/index.md).
 
 ## Project Settings
 
-You can access the project settings menu from the project's overview page. From here it's possible to edit details about the project, such as the name, description, and the project group, add a logo, and control different aspects of the project's release behavior.
+You can access the project settings menu from the project's main page. From here it's possible to edit details about the project, such as the name, description, and the project group, add a logo, and control different aspects of the project's release behavior.
 
 ## Project Logo
 
-If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo, and make it easier to quickly locate them on the project's page.
+If you are likely to have a lot of projects, in addition to giving them meaningful names you can also add a project logo, making it easier to quickly locate them on the project's page:
 
-1. From the project's overview page, select **settings**.
+1. From the project's main page, select **settings**.
 2. Click the **Logo** section of the settings page.
 3. Click the file selector and select a file to upload.
 4. Click **open** to upload your logo image, and click **Save**.

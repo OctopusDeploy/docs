@@ -9,6 +9,14 @@ Now that you have access to an [Octopus Server](/docs/getting-started.md#octopus
 
 !include <deployment-process>
 
+<!-- tailor to deployment processes/ releases and do the same for operations runbooks
+
+## Project Overview
+
+The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.
+
+![Project Overview](project-overview.png) -->
+
 ## A Simple Hello World Deployment Process
 
 For this example process, we'll use Octopus Deploy to create a simple process with only one step that runs a script on a deployment target. The process uses a **Test** environment with one **Deployment Target** that has the target role **server**.
