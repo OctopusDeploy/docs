@@ -11,7 +11,7 @@ position: 10
 1. Navigate to **{{Infrastructure,Environments}}** and click **ADD ENVIRONMENT**.
 1. Give your new environment a meaningful name and click **SAVE**.
 1. Add a description for the environment.
-1. Select the checkbox in the **Default Guided Failure Mode** section if you want Octopus Deploy to prompt users for intervention if a deployment to this environment fails. Learn more about [guided failure mode](/docs/release-management/guided-failures.md).
+1. Select the checkbox in the **Default Guided Failure Mode** section if you want Octopus Deploy to prompt users for intervention if a deployment to this environment fails. Learn more about [guided failure mode](/docs/managing-releases/guided-failures.md).
 1. Select the checkbox in the **Dynamic Infrastructure** section if deployments to this environment are allowed to create infrastructure such as targets and accounts. Learn more about [Dynamic Infrastructure](docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
 1. Click **SAVE**.
 

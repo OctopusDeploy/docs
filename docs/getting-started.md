@@ -66,7 +66,7 @@ Learn more about [packaging your applications](/docs/packaging-applications/inde
 
 Octopus Deploy integrates with your build server to take over where your continuous integration server ends. You can also keep an eye on your builds with our issue tracker integrations with Jira, GitHub, and Azure DevOps.
 
-Learn more about [build server integration](/docs/packaging-applications/build-servers/index.md) and our [issue tracker integrations](/docs/release-management/issue-tracking/index.md).
+Learn more about [build server integration](/docs/packaging-applications/build-servers/index.md) and our [issue tracker integrations](/docs/managing-releases/issue-tracking/index.md).
 
 ## Spaces
 

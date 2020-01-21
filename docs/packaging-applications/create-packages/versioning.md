@@ -4,7 +4,7 @@ description: Considerations for selecting a versioning scheme for the applicatio
 position: 10
 ---
 
-The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [package format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/release-management/index.md), and [channels](/docs/deployment-process/channels/index.md), which will help you design a versioning scheme that suits your needs.
+The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [package format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/managing-releases/index.md), and [channels](/docs/deployment-process/channels/index.md), which will help you design a versioning scheme that suits your needs.
 
 ## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
@@ -47,7 +47,7 @@ In strict SemVer 2.0, a version like `1.5.2-rc.1` is considered a **pre-releas
 
 When it comes to application versioning, we suggest the pre-release tag (the bit after the `-`) can be used however works best for you. For example, you could build version `1.5.2-rc` of your application and configure a [Channel](/docs/deployment-process/channels/index.md) to promote packages like `*-rc` to Staging and eventually Production.
 
-If you are using the [Deployment Notes](/docs/release-management/deployment-notes.md) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/release-management/deployment-notes.md#versioning) strategy.
+If you are using the [Deployment Notes](/docs/managing-releases/deployment-notes.md) features, note that pre-releases are handled differently to other releases by that feature and you may need to take that into consideration in your [versioning](/docs/managing-releases/deployment-notes.md#versioning) strategy.
 
 Learn more about Semantic Version at [semver.org](http://semver.org/).
 

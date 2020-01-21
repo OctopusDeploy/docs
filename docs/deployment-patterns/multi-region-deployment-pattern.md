@@ -24,7 +24,7 @@ By using this pattern you can:
 2. Scope region-specific variables to the region-specific Environments.
 3. Quickly see which releases are deployed to which regions on the main dashboard.
 4. Quickly promote releases through your regions using the Project Overview.
-5. Use [Scheduled Deployments](/docs/release-management/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
+5. Use [Scheduled Deployments](/docs/managing-releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
 
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
 
@@ -65,7 +65,7 @@ Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant
 
 ![](/images/5865789.png)
 
-6. Use [Scheduled Deployments](/docs/release-management/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
+6. Use [Scheduled Deployments](/docs/managing-releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
 
 ![](images/5865787.png)
 

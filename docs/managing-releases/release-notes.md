@@ -24,7 +24,7 @@ Only variables in scope when the release is created will be available for use in
 
 The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables.md#Systemvariables-Release) variable.  
 
-Release notes are also rolled up into the [deployment notes](/docs/release-management/deployment-notes.md).
+Release notes are also rolled up into the [deployment notes](/docs/managing-releases/deployment-notes.md).
 
 ## Release Notes Templates {#Release-Notes-Templates}
 
@@ -34,7 +34,7 @@ A release notes template is a convenient way to keep release notes consistent an
 
 Release notes templates will generally be most useful when combined with package build information, pushed from the build server.
 
-The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/index.md#build-information) and [issues](/docs/release-management/issue-tracking/index.md).
+The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/index.md#build-information) and [issues](/docs/managing-releases/issue-tracking/index.md).
 
 ### Example Templates
 

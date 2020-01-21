@@ -42,7 +42,7 @@ Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 9. Save the step.
 10. Add additional steps.
 
-With your deployment configured you're ready to create a [release](/docs/release-management/index.md).
+With your deployment configured you're ready to create a [release](/docs/managing-releases/index.md).
 
 ## Example: A Simple Deployment Process
 

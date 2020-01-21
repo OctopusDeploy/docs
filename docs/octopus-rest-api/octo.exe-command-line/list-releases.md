@@ -4,7 +4,7 @@ description: List releases by project
 position: 220
 ---
 
-List [releases](/docs/release-management/index.md).
+List [releases](/docs/managing-releases/index.md).
 
 ```text
 Usage: octo list-releases [<options>]

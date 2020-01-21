@@ -64,10 +64,10 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 ## Using Build Information in Release Notes #{release-notes}
 
-The build information associated with packages is available for use in [release notes](/docs/release-management/release-notes.md) (and [release notes templates](/docs/release-management/release-notes.md#Release-Notes-Templates)) as Octopus variables.
+The build information associated with packages is available for use in [release notes](/docs/managing-releases/release-notes.md) (and [release notes templates](/docs/managing-releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
 
 See the [system variable documentation](/docs/projects/variables/system-variables.md#release-package-build-information) for the available variables.
 
 ## Using Build Information in Deployments
 
-Package build information associated with a release will be also [captured in deployments](/docs/release-management/deployment-notes.md) of the release.
+Package build information associated with a release will be also [captured in deployments](/docs/managing-releases/deployment-notes.md) of the release.

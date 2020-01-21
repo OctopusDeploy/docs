@@ -6,7 +6,7 @@ position: 270
 
 [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.
 
-Learn more about [releases](/docs/release-management/index.md).
+Learn more about [releases](/docs/managing-releases/index.md).
 
 ```text
 Usage: octo promote-release [<options>]
