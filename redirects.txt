@@ -930,7 +930,7 @@ docs/deployment-process/variables/system-variables.md -> docs/projects/variables
 docs/deployment-process/variables/variable-filters.md -> docs/projects/variables/variable-filters.md
 docs/deployment-process/variables/variable-substitutions.md -> docs/projects/variables/variable-substitutions.md
 docs/deployment-process/variables/variable-templates.md -> docs/projects/variables/variable-templates.md
-docs/deployment-process/releases/index.md ->docs/release-management/index.md
+docs/deployment-process/releases/index.md ->docs/manging-releases/index.md
 docs/deployment-process/releases/blocking-deployments.md ->docs/release-management/blocking-deployments.md
 docs/deployment-process/releases/deleting-releases.md ->docs/release-management/deleting-releases.md
 docs/deployment-process/releases/deployment-notes.md ->docs/release-management/deployment-notes.md
