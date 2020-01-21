@@ -957,7 +957,7 @@ docs/release-management/blocking-deployments.md -> docs/managing-releases/blocki
 docs/release-management/deleting-releases.md -> docs/managing-releases/deleting-releases.md
 docs/release-management/deployment-notes.md -> docs/managing-releases/deployment-notes.md
 docs/release-management/guided-failures.md -> docs/managing-releases/guided-failures.md
-docs/release-management/manually-fail-a-running-or-cancelling-task.md -> docs/managing-releases/manually-fail-a-runnning-or-cancelling-task.md
+docs/release-management/manually-fail-a-running-or-cancelling-task.md -> docs/managing-releases/manually-fail-a-running-or-cancelling-task.md
 docs/release-management/release-notes.md -> docs/managing-releases/release-notes.md
 docs/release-management/release-versioning.md -> docs/managing-releases/release-versioning.md
 docs/release-management/issue-tracking/index.md -> docs/managing-releases/issue-tracking/index.md
