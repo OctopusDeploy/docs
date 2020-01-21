@@ -115,24 +115,18 @@ To learn more about how you can automate Service Fabric versioning with Octopus,
 
 ## Troubleshooting
 
-It is likely to run into unsupported actions or unforseen edge cases due to the complexity of combinations associated with the Service Fabric powershell deployment script.
-The most common type of errors are related to the wrong action type chosen by the script due to either unforseen edge cases or unsupported cases. It is for this
-reason that we highly recommend using [a customized version of the Powershell script](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md#Customizing the Deployment Process) that comes with Visual Studio for Service Fabric for most scenarios.
+Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md#Customizing the Deployment Process) that comes with Visual Studio for Service Fabric for most scenarios.
 
 :::hint
-Octopus is unwilling to modify the service fabric script at this point in time due to the complexity associated with the script and the number of combinations it supports. We are considering options to improve this experience in the future, and this will most likely require customers ot include/bundle their own version of the
-PS script.
+Octopus will not modify the service fabric script due to the complexity associated with the script and the number of combinations it supports. We are considering options to improve this experience in the future, and this will most likely require customers to include/bundle their own version of the PS script.
 :::
 
 ### Application name already exists
 
-When the `RegisterAndCreate` is used when the type and name already exists, you may be presented with an error such as the following:
+When the `RegisterAndCreate` is used when the type and name already exists, you may be presented with the following error:
 ```
 An application with name 'fabric:/name' already exists, its Type is 'TypeName' and Version is 'version'. You must first remove the existing application before a new application can be deployed or provide a new name for the application.
 ```
 
-This usually relates to the `Override Upgrade Behavior` setting being incorrect. It is suggested to either change the setting or use a custom SF deployment script such
-as [this](https://github.com/OctopusDeploy/Calamari/blob/4a7a5d2b571246181701e743939f635905ef5d84/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1). (preferred).
-
-
-
+This usually relates to the `Override Upgrade Behavior` setting being incorrect. We suggest you either change the setting or use a custom SF deployment script such
+as [this](https://github.com/OctopusDeploy/Calamari/blob/4a7a5d2b571246181701e743939f635905ef5d84/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1) (preferred).
