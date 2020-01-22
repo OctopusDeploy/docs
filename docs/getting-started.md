@@ -4,7 +4,7 @@ description: This section provides a conceptual overview of Octopus Deploy.
 position: 0
 ---
 
-This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with your own self-hosted Octopus server or Octopus Cloud, the hosted version of Octopus Deploy.
+This section provides an overview of Octopus Deploy concepts and links to documentation that explores the concepts in more depth to  guide you through setting up your CI/CD pipeline with your own self-hosted Octopus server or Octopus Cloud, the hosted version of Octopus Deploy.
 
 ## Consistent Deployments
 
