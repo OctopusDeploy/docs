@@ -50,6 +50,8 @@ You can change the projects settings by accessing the settings menu on the proje
 
 ## Project Logo {#project-logo}
 
+Add a logo to make it easily identifiable from the projects page.
+
 1. From the project's main page, select **settings**.
 2. Click the **Logo** section of the settings page.
 3. Click the file selector and select a file to upload.
