@@ -57,4 +57,3 @@ These take the form:
 Octopus.Date.(Day|Month|Year|DayOfYear)
 Octopus.Time.(Hour|Minute|Second)
 ```
-</div>
