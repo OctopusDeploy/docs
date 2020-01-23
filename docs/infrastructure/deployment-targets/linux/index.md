@@ -6,9 +6,9 @@ position: 20
 
 Linux servers can be configured as [Deployment Targets](/docs/infrastructure/deployment-targets/index.md) in Octopus.   
 
-The Octopus Server communicates with Linux targets via SSH, and therefore Linux servers are modeled as SSH Targets.  
+The Octopus Server can communicate with Linux targets via SSH or the [Linux Tentacle](https://octopus.com/docs/infrastructure/deployment-targets/linux/tentacle).  
 
-There is no agent required to be pre-installed on Linux servers, unlike [Windows servers](/docs/infrastructure/deployment-targets/windows-targets/index.md) which require the Tentacle agent to be installed.
+When using SSH for deployments to a Linux server, the Tentacle agent is not required and doesn't need to be installed.
 
 ## Supported Distributions
 
