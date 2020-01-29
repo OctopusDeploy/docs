@@ -34,7 +34,7 @@ The window size controls how many deployment targets can be deployed to at once.
 
 :::hint
 **Window size with Octopus.Action.MaxParallelism**
-If you include the variable `Octopus.Action.MaxParallelism` in your Project with a value higher than your **Window size** set in a rolling deployment, you will find that its value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. A warning will also be printed in the Task Log.
+If you include the variable `Octopus.Action.MaxParallelism` in your Project with a value higher than your **Window size** set in a rolling deployment, you will find the `Octopus.Action.MaxParallelism` value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. A warning will also be printed in the Task Log.
 :::
 
 ## Child Steps {#Rollingdeployments-Childsteps}
