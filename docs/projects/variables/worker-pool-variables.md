@@ -12,4 +12,4 @@ Select the pool you want to use.  If required, add multiple values, binding each
 
 ## Add a Worker pool to Octopus
 
-For instructions to set up worker pools in Octopus, see [worker pool](/docs/infrastructure/worker-pools.md).
+For instructions to set up worker pools in Octopus, see [worker pool](/docs/infrastructure/workers/worker-pools.md).
