@@ -47,7 +47,7 @@ pipelines:
   default:
     - step:
         name: Deploy to Octopus
-        image: octopusdeploy/octo:4.37.0-alpine
+        image: octopusdeploy/octo:6.17.3-alpine
         script:
           - export VERSION=1.0.$BITBUCKET_BUILD_NUMBER
           - octo pack --id $BITBUCKET_REPO_SLUG --version $VERSION --outFolder ./out --format zip
