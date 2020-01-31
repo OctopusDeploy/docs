@@ -32,7 +32,7 @@ Runbooks are managed and executed by Octopus, so this means there’s a complete
 
 ## Octopus Deploy Server
 
-You can install your own self-hosted instance of the Octopus Deploy server or use Octopus Cloud.
+You can install your own self-hosted instance of the Octopus Server or use Octopus Cloud. Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
 
 Installing the self-hosted [Octopus Deploy server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/index.md).
 

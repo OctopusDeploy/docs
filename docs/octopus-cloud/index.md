@@ -5,13 +5,13 @@ description: How to work with Octopus Cloud.
 ---
 
 !include <octopus-cloud>
-
+<!-- 
 ## Getting Started with Octopus Cloud {#OctopusCloud-GettingStarted}
 
 <a href="https://octopus.com/register" class="btn btn-lg btn-primary">
     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAxOTIgMTkyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE5MnYtMTkyaDE5MnYxOTJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTk2LDMyYy0yMi4zNzI3MywwLjAyMTggLTQyLjg3NTA3LDEyLjQ4OTQ0IC01My4xODc1LDMyLjM0Mzc1Yy0yNC4zMzQ2LDIuNjQ1MzggLTQyLjc4MDU3LDIzLjE3ODMgLTQyLjgxMjUsNDcuNjU2MjVjMCwyNi41MDk2NyAyMS40OTAzMyw0OCA0OCw0OGgxMDRjMjIuMDkxMzksMCA0MCwtMTcuOTA4NjEgNDAsLTQwYy0wLjAyNDE1LC0yMS4wMDYzOSAtMTYuMjkzMywtMzguNDE1MiAtMzcuMjUsLTM5Ljg1OTM4Yy01LjY0MTIsLTI3Ljk3NzQ3IC0zMC4yMDk0OCwtNDguMTA5MDkgLTU4Ljc1LC00OC4xNDA2MnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" style="margin: 0px; max-height: 20px; margin-right: 7px; vertical-align: text-top; display: inline-block;" alt="Cloud icon"/>
     Start free trial
-</a>
+</a> -->
 
 ## Create an Octopus Account
 
