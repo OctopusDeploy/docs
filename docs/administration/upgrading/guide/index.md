@@ -225,6 +225,14 @@ Some server configuration values are moved from the config file into the databas
 
 If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy Server.
 
+## Upgrading to Octopus 2019.x or Greater
+
+Prior to 2019.x, the list of instances was stored in the registry.  That list stores the name of the instance and the location of the configuration file.  The configuration file, typically stored in `C:\Octopus\`, stores the database connection string, along with a slew of other settings.  This configuration allows you to uninstall and reinstall Octopus Deploy on the same machine without losing any settings.
+
+In 2019, Octopus Deploy was updated to .NET Core, with the intention of being able to run on Windows and Linux.  Linux doesn't have a registry.  For versions running 2019.x or higher, the list of instances is now stored in `C:\ProgramData\Octopus\OctopusServer\Instances` on Windows.
+
+When you upgrade Octopus Deploy you just need to run the installer.  The installer will copy all the new .dlls and .exes into the install directory.  After the installer is finished, it will start the Octopus Manager.  The Octopus Manager will look at the list of instances, and for each instance, run the necessary upgrade scripts using the connection string from the configuration file.  
+
 ## How to Downgrade to a Previously Installed Instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
