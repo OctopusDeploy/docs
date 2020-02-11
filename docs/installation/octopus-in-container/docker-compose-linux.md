@@ -4,7 +4,7 @@ description: A fully self-contained SQL Server and Octopus Server
 position: 3
 ---
 
-If you're looking to run an Octopus Deploy Windows container or a Tentacle Windows Container, please refer to the [Docker Compose Windows](/docs/installation/octopus-in-container/docker-compose-windows.md) documentation.
+If you want to run an Octopus Deploy Windows container or a Tentacle Windows Container, please refer to the [Docker Compose Windows](/docs/installation/octopus-in-container/docker-compose-windows.md) documentation.
 
 For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
