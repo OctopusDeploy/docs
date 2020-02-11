@@ -8,7 +8,7 @@ If you're looking to run an Octopus Deploy Windows container, please refer to th
 
 Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
-Although there are a few different configuration options, a simple example of starting up an Octopus Deploy server container is as follows:
+Although there are a few different configuration options, the following is a simple example of starting an Octopus Deploy server container:
 
 ```Bash
 $ docker run --interactive 
@@ -24,9 +24,9 @@ We run in detached mode with `--detach` to allow the container to run in the bac
 
 The `--interactive` argument ensures that `STDIN` is kept open which is required since internally this is what the running `Octopus.Server.exe` process is waiting on to close.
 
-Setting `--name OctopusServer` just gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
+Setting `--name OctopusServer` gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
 
-Using `--publish 1322:8080` we are mapping the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
+Using `--publish 1322:8080` maps the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
 
 To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
@@ -75,7 +75,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
 
-Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master key for an Octopus Server in a container can be found by using the container exec command.
+Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master key for an Octopus Server in a container can be found by using the container exec command:
 
 ```
 > docker container exec <container name/ID> /Octopus/Octopus.Server show-master-key --console --instance OctopusServer
@@ -83,7 +83,7 @@ Similar to moving an instance, to perform the container upgrade you will need th
 5qJcW9E6B99teMmrOzaYNA==
 ```
 
-When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, passing in the master key as an environment variable and referencing the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values.
+When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the master key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values:
 
 ```bash
 $ docker run --interactive \

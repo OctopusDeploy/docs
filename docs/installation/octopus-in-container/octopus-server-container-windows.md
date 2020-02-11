@@ -25,7 +25,7 @@ The `--interactive` argument ensures that `STDIN` is kept open which is required
 
 Setting `--name OctopusServer` just gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
 
-Using `--publish 1322:81` we are mapping the _container port_ `81` to `1322` on the host so that the Octopus instance is accessible outside this sever.
+Using `--publish 1322:81` we map the _container port_ `81` to `1322` on the host so that the Octopus instance is accessible outside this sever.
 
 To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
@@ -82,7 +82,7 @@ Similar to moving an instance, to perform the container upgrade you will need th
 5qJcW9E6B99teMmrOzaYNA==
 ```
 
-When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, passing in the master key as an environment variable and referencing the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values.
+When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the master key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values:
 
 ```PowerShell
 docker run --interactive

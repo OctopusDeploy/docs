@@ -6,9 +6,9 @@ position: 3
 
 If you're looking to run an Octopus Deploy Windows container or a Tentacle Windows Container, please refer to the [Docker Compose Windows](/docs/installation/octopus-in-container/docker-compose-windows.md) documentation.
 
-For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
+For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
-A simple example of a `docker-compose.yml` file combining a SQL Server instance along with a dependent Octopus server looks as follows.
+The following example is a simple `docker-compose.yml` file combining an SQL Server instance along with a dependent Octopus server:
 
 ```YAML
 version: '2.1'
@@ -47,7 +47,7 @@ networks:
       name: nat
 ```
 
-We will provide some of the environment variables to run this container with an additional `.env` file.
+We will provide some of the environment variables to run this container with an additional `.env` file:
 
 ```
 # It is highly recommended this value is changed as it's the password used for the database user.
@@ -91,17 +91,17 @@ ADMIN_API_KEY=
 ```
 
 
-In this case we are specifying the `sa` password that is used when starting the sql container and is used for db connectivity from the Octopus Server. We have also provided the Octopus admin credentials and set a host port mapping to port `8080` so that we can access the server externally.
+In this case, we are specifying the `sa` password that is used when starting the sql container and is used for db connectivity from the Octopus Server. We have also provided the Octopus admin credentials and set a host port mapping to port `8080` so we can access the server externally.
 
-Start up both containers by running:
+Start both containers by running:
 
 ```
 docker-compose --project-name Octopus up -d
 ```
 
-Once both containers are healthy you can browse directly to `http://localhost` from your host machine.
+When both containers are healthy, you can browse directly to `http://localhost` from your host machine.
 
-Upgrades with a Docker Compose project are similar to the steps with [upgrading a single Octopus Server container](octopus-server-container-linux.md). You will still need to get the master key from the original Octopus Server container used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required.
+Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](/docs/installation/octopus-in-container/octopus-server-container-linux.md). You will still need the master key from the original Octopus Server container you used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required:
 
 ```
 SA_PASSWORD=N0tS3cr3t!
@@ -114,4 +114,4 @@ DB_CONNECTION_STRING=Server=db,1433;Database=OctopusDeploy;User=sa;Password=N0tS
 MASTER_KEY=U9ZrQR98uLXyz4CXJzUuCA==
 ```
 
-Run the same `docker-compose` command as provided above and Docker will detect that the changes only impact the the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised however, to not run SQL Server inside a container for production purposes.
+Run the same `docker-compose` command as provided above, and Docker will detect that the changes only impact the the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised, however, not to run SQL Server inside a container for production purposes.
