@@ -1,8 +1,10 @@
 ---
-title: Deploying Octopus with Docker Compose
+title: Deploying Octopus with Windows Containers using Docker Compose
 description: A fully self-contained SQL Server, Octopus Server and Octopus Tentacle can be provisioned through Docker Compose
 position: 3
 ---
+
+If you're looking to run an Octopus Deploy Linux container with Docker Compose, please refer to the [Docker Compose Linux](./linux/docker-compose.md) documentation.
 
 For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
@@ -15,7 +17,7 @@ services:
     image: microsoft/mssql-server-windows-express
     environment:
       sa_password: "${SA_PASSWORD}"
-      ACCEPT_EULA: "Y"
+      ACCEPT_EULA: "${SQL_SERVER_ACCEPT_EULA}"
     healthcheck:
       test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "select 1" ]
       interval: 10s
@@ -23,9 +25,11 @@ services:
   octopus:
     image: octopusdeploy/octopusdeploy:${OCTOPUS_VERSION}
     environment:
-      OctopusAdminUsername: "${OCTOPUS_ADMIN_USERNAME}"
-      OctopusAdminPassword: "${OCTOPUS_ADMIN_PASSWORD}"
-      sqlDbConnectionString: "Server=db,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=${SA_PASSWORD};MultipleActiveResultSets=False;Connection Timeout=30;"
+      ADMIN_USERNAME: "${OCTOPUS_ADMIN_USERNAME}"
+      ADMIN_PASSWORD: "${OCTOPUS_ADMIN_PASSWORD}"
+      DB_CONNECTION_STRING: "${DB_CONNECTION_STRING}"
+      ACCEPT_EULA: "${OCTOPUS_ACCEPT_EULA}"
+      ADMIN_EMAIL: "${ADMIN_EMAIL}"
     ports:
      - "5441:81"
     depends_on:
@@ -44,10 +48,28 @@ networks:
 We will provide some of the environment variables to run this container with an additional `.env` file.
 
 ```
-SA_PASSWORD=P@ssw0rd!
-OCTOPUS_VERSION=2018.3.13
+# It is highly recommended this value is changed as it's the password used for the database user.
+SA_PASSWORD=N0tS3cr3t!
+
+# Tag for the Octopus Deploy Server image. Use "latest" to pull the latest image or specify a specific tag
+OCTOPUS_VERSION=2019.13.4
+
+DB_CONNECTION_STRING=Server=db,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=N0tS3cr3t!;MultipleActiveResultSets=False;Connection Timeout=30;
+
+# The default created user username for login to the Octopus Server
 OCTOPUS_ADMIN_USERNAME=admin
-OCTOPUS_ADMIN_PASSWORD=SecreTP@ass
+
+# It is highly recommended this value is changed as it's the default user password for login to the Octopus Server
+OCTOPUS_ADMIN_PASSWORD=Passw0rd123
+
+# Email associated with the default created user. If empty will default to octopus@example.local
+ADMIN_EMAIL=
+
+# Use of this Image means you must accept the Octopus Deploy Eula found here: https://octopus.com/company/legal
+OCTOPUS_ACCEPT_EULA=N
+
+# Use of the SQL Server docker image means you accept the Microsoft SQL Server Eula found here: https://hub.docker.com/r/microsoft/mssql-server-windows-express/
+SQL_SERVER_ACCEPT_EULA=N
 ```
 
 In this case we are specifying the `sa` password that is used when starting the sql container and is used for db connectivity from the Octopus Server. We have also provided the Octopus admin credentials and set a host port mapping to port `81` so that we can access the server externally.
@@ -63,11 +85,13 @@ Once both containers are healthy you can browse directly to `http://localhost:54
 Upgrades with a Docker Compose project are similar to the steps with [upgrading a single Octopus Server container](octopus-server-container.md). You will still need to get the master key from the original Octopus Server container used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required.
 
 ```
-SA_PASSWORD=P@ssw0rd!
-OCTOPUS_VERSION=2018.4.0
-OCTOPUS_ADMIN_USERNAME=admin
-OCTOPUS_ADMIN_PASSWORD=SecreTP@ass
-OCTOPUS_MASTER_KEY=U9ZrQR98uLXyz4CXJzUuCA==
+SA_PASSWORD=N0tS3cr3t!
+OCTOPUS_ACCEPT_EULA=N
+OCTOPUS_SERVER_TAG=2019.13.4
+DB_CONNECTION_STRING=Server=db,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=N0tS3cr3t!;MultipleActiveResultSets=False;Connection Timeout=30;
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=Passw0rd123
+MASTER_KEY=U9ZrQR98uLXyz4CXJzUuCA==
 ```
 
 Run the same `docker-compose` command as provided above and Docker will detect that the changes only impact the the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised however, to not run SQL Server inside a container for production purposes.
@@ -83,7 +107,7 @@ services:
     image: microsoft/mssql-server-windows-express
     environment:
       sa_password: "${SA_PASSWORD}"
-      ACCEPT_EULA: "Y"
+      ACCEPT_EULA: "${SQL_SERVER_ACCEPT_EULA}"
     healthcheck:
       test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "select 1" ]
       interval: 10s
@@ -91,9 +115,11 @@ services:
   octopus:
     image: octopusdeploy/octopusdeploy:${OCTOPUS_VERSION}
     environment:
-      OctopusAdminUsername: "${OCTOPUS_ADMIN_USERNAME}"
-      OctopusAdminPassword: "${OCTOPUS_ADMIN_PASSWORD}"
-      sqlDbConnectionString: "Server=db,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=${SA_PASSWORD};MultipleActiveResultSets=False;Connection Timeout=30;"
+      ADMIN_USERNAME: "${ADMIN_USERNAME}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      DB_CONNECTION_STRING: "${DB_CONNECTION_STRING}"
+      ACCEPT_EULA: "${OCTOPUS_ACCEPT_EULA}"
+      ADMIN_EMAIL: "${ADMIN_EMAIL}"
     ports:
      - "81"
      - "10943"
@@ -109,8 +135,8 @@ services:
       octopus:
         condition: service_healthy
     environment:
-      ServerUsername: "${OCTOPUS_ADMIN_USERNAME}"
-      ServerPassword: "${OCTOPUS_ADMIN_PASSWORD}"
+      ServerUsername: "${ADMIN_USERNAME}"
+      ServerPassword: "${ADMIN_PASSWORD}"
       TargetEnvironment: "Development"
       TargetRole: "app-server"
       ServerUrl: "http://octopus:81"
@@ -123,8 +149,8 @@ services:
       octopus:
         condition: service_healthy
     environment:
-      ServerUsername: "${OCTOPUS_ADMIN_USERNAME}"
-      ServerPassword: "${OCTOPUS_ADMIN_PASSWORD}"
+      ServerUsername: "${ADMIN_USERNAME}"
+      ServerPassword: "${ADMIN_PASSWORD}"
       TargetEnvironment: "Development"
       TargetRole: "web-server"
       ServerUrl: "http://octopus:81"
@@ -141,11 +167,15 @@ networks:
 With the `TENTACLE_VERSION` environment variable added to the previous `.env` file:
 
 ```
-SA_PASSWORD=P@ssw0rd!
-OCTOPUS_VERSION=2018.3.13
-TENTACLE_VERSION=3.19.2
-OCTOPUS_ADMIN_USERNAME=admin
-OCTOPUS_ADMIN_PASSWORD=Password01!
+SA_PASSWORD=N0tS3cr3t!
+OCTOPUS_VERSION=2019.13.4
+DB_CONNECTION_STRING=Server=db,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=N0tS3cr3t!;MultipleActiveResultSets=False;Connection Timeout=30;
+TENTACLE_VERSION=5.0.12
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=Passw0rd123
+ADMIN_EMAIL=
+OCTOPUS_ACCEPT_EULA=N
+SQL_SERVER_ACCEPT_EULA=N
 ```
 
 ### Import
