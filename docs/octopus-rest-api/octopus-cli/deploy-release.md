@@ -171,5 +171,5 @@ You can deploy to ALL tenants in an environment by using the `--tenant=*` argume
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
