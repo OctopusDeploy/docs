@@ -1,39 +1,34 @@
 ---
-title: list-workers
-description: Lists all workers
-position: 250
+title: create-autodeployoverride
+description: Using the Octopus CLI to create automatic deployment release overrides.
+position: 30
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list all workers.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.
 
-Learn about [workers](/docs/infrastructure/workers/index.md).
-
-**list-workers options**
+Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
-Usage: octo list-workers [<options>]
+Usage: octo create-autodeployoverride [<options>]
 
 Where [<options>] is any of:
 
-Listing Workers:
+Auto deploy release override:
 
-      --workerpool=VALUE     Name of a worker pool to filter by. Can be
-                             specified many times.
-      --status=VALUE         [Optional] Status of Machines filter by (Online,
-                             Offline, Unknown, NeedsUpgrade,
-                             CalamariNeedsUpgrade, Disabled). Can be
-                             specified many times.
-      --health-status, --healthstatus=VALUE
-                             [Optional] Health status of Machines filter by
-                             (Healthy, Unavailable, Unknown, HasWarnings,
-                             Unhealthy). Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Machine.
-      --calamari-outdated=VALUE
-                             [Optional] State of Calamari to filter. By
-                             default ignores Calamari state.
-      --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to filter.
-                             By default ignores Tentacle state
+      --project=VALUE        Name of the project
+      --environment=VALUE    Name of an environment the override will apply
+                             to. Specify this argument multiple times to add
+                             multiple environments.
+      --version, --releaseNumber=VALUE
+                             Release number to use for auto deployments.
+      --tenant=VALUE         [Optional] Name of a tenant the override will
+                             apply to. Specify this argument multiple times
+                             to add multiple tenants or use `*` wildcard for
+                             all tenants.
+      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
+                             that the override will apply to. Specify this
+                             argument multiple times to add multiple tenant
+                             tags
 
 Common options:
 
@@ -91,3 +86,26 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example {#Creatingautodeployoverrides-Basicexample}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
+
+```bash
+Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+
+```bash
+Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+
+```bash
+Octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```

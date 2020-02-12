@@ -39,9 +39,9 @@ If the release is not deployed automatically, you can click **DEPLOY TO (Environ
 
 Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the web portal.
 
-#### Scheduling Deployments With Octo.exe
+#### Scheduling Deployments with the Octopus CLI
 
-For everyone using the [command line tool Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), you can use the following option:
+For everyone using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), you can use the following option:
 
 ```powershell
 octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=http://octopus/api --apiKey=ABCDEF123456

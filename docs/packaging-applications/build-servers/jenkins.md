@@ -47,13 +47,13 @@ Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key
 
 ### Octopus CLI
 
-This is a good time to install the [Octo.exe command line tool](/docs/octopus-rest-api/octo.exe-command-line/index.md).
+This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md).
 
- The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy) is a wrapper for [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
+ The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
-  - Use the `dotnet tool install` command to install it, the [Octo Command Line Global Tool](https://octopus.com/docs/octopus-rest-api/octo.exe-command-line/install-global-tool) this works great on Linux and Windows.
-  - [Download Octo.exe](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo\Octo.exe`.
+  - Use the `dotnet tool install` command to install it, the [Octo Command Line Global Tool](https://octopus.com/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
+  - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
 
 Then we can let the plugin know where it is installed.
 
@@ -99,11 +99,11 @@ The Octopus Jenkins plugin comes with these Octopus Build Steps:
 
 Octopus supports multiple [package formats](/docs/packaging-applications/index.md#supported-formats) for deploying your software.
 
-You can configure your Jenkins project to [package](/docs/octopus-rest-api/octo.exe-command-line/pack.md) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
+You can configure your Jenkins project to [package](/docs/octopus-rest-api/octopus-cli/pack.md) your application or other files on disk, without the need of any specification files, e.g. `.nuspec`.
 
 The two supported formats are `zip` and `nuget`.
 
-To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octo.exe-command-line/pack.md)
+To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octopus-cli/pack.md)
 
 ![](images/jenkins/package-application.png)
 
@@ -146,8 +146,8 @@ Jenkins is compiling our code and publishing packages to Octopus Deploy. If we w
 
 
 :::success
-**Octo.exe further learning**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) and the arguments it accepts.
+**Octopus CLI further learning**
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) and the arguments it accepts.
 :::
 
 When this job runs, Jenkins will now not only build and publish packages, it will also create a release in Octopus Deploy.

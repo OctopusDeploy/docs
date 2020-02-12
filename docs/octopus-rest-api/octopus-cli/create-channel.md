@@ -1,19 +1,35 @@
 ---
-title: list-environments
-description: List environments
-position: 180
+title: create-channel
+description: Using the Octopus CLI to create channels.
+position: 40
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list the environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create channels on your Octopus instance.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
-
-**list-environments options**
+Learn more about [channels](/docs/deployment-process/channels/index.md).
 
 ```text
-Usage: octo list-environments [<options>]
+Usage: octo create-channel [<options>]
 
 Where [<options>] is any of:
+
+Create:
+
+      --project=VALUE        The name of the project in which to create the
+                             channel
+      --channel=VALUE        The name of the channel to create
+      --description=VALUE    [Optional] A description of the channel
+      --lifecycle=VALUE      [Optional] if specified, the name of the
+                             lifecycle to use for promoting releases through
+                             this channel, otherwise this channel will
+                             inherit the project lifecycle
+      --make-default-channel [Optional, Flag] if specified, set the new
+                             channel to be the default channel replacing any
+                             existing default channel
+      --update-existing      [Optional, Flag] if specified, updates the
+                             matching channel if it already exists, otherwise
+                             this command will fail if a matching channel
+                             already exists
 
 Common options:
 
@@ -71,3 +87,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example {#Creatingchannels-Basicexample}
+
+The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
+
+```bash
+Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
+```
+
+:::success
+**Tip**
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::

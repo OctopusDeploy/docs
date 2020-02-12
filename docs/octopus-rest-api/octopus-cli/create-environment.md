@@ -1,32 +1,23 @@
 ---
-title: delete-autodeployoverride
-description: Using the Octo.exe command line tool to delete automatic deployment release overrides.
-position: 90
+title: create-environment
+description: Using the Octopus CLI to create environments.
+position: 50
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to delete automatic deployment release overrides.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create environments on your Octopus instance.
 
-Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
+Learn more about working with [environments](/docs/infrastructure/environments/index.md).
 
 ```text
-Usage: octo delete-autodeployoverride [<options>]
+Usage: octo create-environment [<options>]
 
 Where [<options>] is any of:
 
-Delete auto deploy release override:
+Environment creation:
 
-      --project=VALUE        Name of the project
-      --environment=VALUE    Name of an environment the override will apply
-                             to. Specify this argument multiple times to add
-                             multiple environments.
-      --tenant=VALUE         [Optional] Name of a tenant the override will
-                             apply to. Specify this argument multiple times
-                             to add multiple tenants or use `*` wildcard for
-                             all tenants.
-      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
-                             that the override will apply to. Specify this
-                             argument multiple times to add multiple tenant
-                             tags
+      --name=VALUE           The name of the environment
+      --ignoreIfExists       If the environment already exists, an error will
+                             be returned. Set this flag to ignore the error.
 
 Common options:
 
@@ -84,26 +75,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Deletingautodeployoverrides-Basicexample}
+## Basic Example {#Creatingenvironments-Basicexample}
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
-
-```bash
-Octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## Tenanted Example (By Name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
-
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following command will create an environment called *UAT*
 
 ```bash
-Octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
+Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-## Tenanted Example (By Tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
-
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
-
-```bash
-Octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
-```
+:::success
+**Tip**
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::

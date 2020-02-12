@@ -18,7 +18,7 @@ In most cases you simply provide the build server with the URL to your Octopus S
 
 In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
-- [Using Octo.exe](#UsingOctoExe).
+- [Using the Octopus CLI](#UsingOctopusCli).
 - [Using the Octopus API (HTTP POST)](#UsingtheOctopusAPI(HTTPPOST)).
 - [Using NuGet.exe push](#UsingNuGetexePush).
 - [Using npm.exe, grunt or gulp](#Usingnpm.exe,gruntorgulp).
@@ -29,12 +29,15 @@ To push packages using these methods, you will need:
 1. The URL to your Octopus Server.
 2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
 
-## Using Octo.exe {#UsingOctoExe}
+## Using the Octopus CLI {#UsingOctopusCli}
 
-You can push one or more packages using [Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
+You can push one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
 ```powershell
-C:\> Octo.exe push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
+C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
+```
+```bash
+$ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
 ## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}

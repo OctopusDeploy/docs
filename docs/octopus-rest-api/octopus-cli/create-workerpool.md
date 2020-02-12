@@ -1,23 +1,25 @@
 ---
-title: create-environment
-description: Using the Octo.exe command line tool to create environments.
-position: 50
+title: create-workerpool
+description: Creates a pool for workers
+position: 80
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a worker pool.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
+Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
+
+**create-workerpool options**
 
 ```text
-Usage: octo create-environment [<options>]
+Usage: octo create-workerpool [<options>]
 
 Where [<options>] is any of:
 
-Environment creation:
+WorkerPool creation:
 
-      --name=VALUE           The name of the environment
-      --ignoreIfExists       If the environment already exists, an error will
-                             be returned. Set this flag to ignore the error.
+      --name=VALUE           The name of the worker pool
+      --ignoreIfExists       If the pool already exists, an error will be
+                             returned. Set this flag to ignore the error.
 
 Common options:
 
@@ -75,15 +77,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingenvironments-Basicexample}
-
-The following command will create an environment called *UAT*
-
-```bash
-Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::

@@ -1,10 +1,10 @@
 ---
 title: create-project
-description: Using the Octo.exe command line tool to create projects.
+description: Using the Octopus CLI to create projects.
 position: 60
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a project inside a project group.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a project inside a project group.
 
 Learn more about [projects](/docs/projects/index.md).
 
@@ -90,5 +90,5 @@ Octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http:
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::

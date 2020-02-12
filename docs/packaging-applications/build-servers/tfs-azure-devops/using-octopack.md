@@ -1,5 +1,5 @@
 ---
-title: Using Octopack and Octo.exe with XAML-based Builds in TFS
+title: Using Octopack and the Octopus CLI with XAML-based Builds in TFS
 description: Using Octopack
 position: 1
 ---
@@ -44,14 +44,14 @@ To create an API key, see the [How to create an API key](/docs/octopus-rest-api/
 
 ## Deploying Automatically After a Build {#Deployingautomaticallyafterabuild}
 
-### Using Octo.exe (Recommended) {#Deployingautomaticallyafterabuild-Using-OctoExe}
+### Using the Octopus CLI (Recommended) {#Deployingautomaticallyafterabuild-Using-OctopusCLI}
 
-`Octo.exe` is a command line tool built on top of our REST API. Its fairly easy to hook up into almost any process from a simple script. In the case of old XAML-based builds, we recommend user to include a call to `Octo.exe` in the *post-deploy script* of their build definition, so it gets called after MSBuild ran and Octopack created the package and pushed it to the repository.
+The Octopus CLI is a command line tool built on top of our REST API. Its fairly easy to hook up into almost any process from a simple script. In the case of old XAML-based builds, we recommend user to include a call to `octo` in the *post-deploy script* of their build definition, so it gets called after MSBuild ran and Octopack created the package and pushed it to the repository.
 
-`Octo.exe` has [plenty of commands](/docs/octopus-rest-api/octo.exe-command-line/index.md), but the ones you should look into for the post-deploy script are:
+The Octopus CLI has [plenty of commands](/docs/octopus-rest-api/octopus-cli/index.md), but the ones you should look into for the post-deploy script are:
 
-- [Create-Release](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) to create a release in Octopus.
-- [Deploy-Release](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) to deploy the previously created release.
+- [Create-Release](/docs/octopus-rest-api/octopus-cli/create-release.md) to create a release in Octopus.
+- [Deploy-Release](/docs/octopus-rest-api/octopus-cli/deploy-release.md) to deploy the previously created release.
 
 ### Using Lifecycles and Automatic Deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 

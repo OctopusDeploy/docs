@@ -69,12 +69,15 @@ If we assume that this file was saved as OctoSFPackage.targets in a tools folder
 
 Once this line is added to the sfproj file, the target will get executed whenever the Package target executes. The Package target gets executed when the MSBuild command above (which is what your build server would be calling) is run or when you right-click the application project in Visual Studio and select Package.
 
-## Package for Octopus with Octo.exe
+## Package for Octopus with the Octopus CLI
 
-Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. Octo.exe can then be used to create a package that is compatible with the Octopus package feed. You can get Octo.exe from the [Octopus downloads](http://octopus.com/downloads) page. The following example assumes you've added Octo.exe to a tools folder in your solution's folder.
+Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. The Octopus CLI can then be used to create a package that is compatible with the Octopus package feed. You can get the Octopus CLI from the [Octopus downloads](http://octopus.com/downloads) page. The following example assumes you've added `octo` to a tools folder in your solution's folder.
 
+```powershell
+tools\octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication\pkg\Release
+```
 ```bash
-tools\octo.exe pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication\pkg\Release
+tools/octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication/pkg/Release
 ```
 
 VERSION and OUTPUT are parameters provided by your build tool of choice, the exact syntax will depend on the tool.

@@ -1,25 +1,34 @@
 ---
-title: create-workerpool
-description: Creates a pool for workers
-position: 80
+title: clean-workerpool
+description: Cleans all Offline Workers from a WorkerPool
+position: 20
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to clean all offline workers from a worker pool.
 
 Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
 
-**create-workerpool options**
+**clean-workerpool options**
 
 ```text
-Usage: octo create-workerpool [<options>]
+Usage: octo clean-workerpool [<options>]
 
 Where [<options>] is any of:
 
-WorkerPool creation:
+WorkerPool Cleanup:
 
-      --name=VALUE           The name of the worker pool
-      --ignoreIfExists       If the pool already exists, an error will be
-                             returned. Set this flag to ignore the error.
+      --workerpool=VALUE     Name of a worker pool to clean up.
+      --health-status=VALUE  Health status of Workers to clean up (Healthy,
+                             Unavailable, Unknown, HasWarnings, Unhealthy).
+                             Can be specified many times.
+      --disabled=VALUE       [Optional] Disabled status filter of Worker to
+                             clean up.
+      --calamari-outdated=VALUE
+                             [Optional] State of Calamari to clean up. By
+                             default ignores Calamari state.
+      --tentacle-outdated=VALUE
+                             [Optional] State of Tentacle version to clean u-
+                             p. By default ignores Tentacle state
 
 Common options:
 

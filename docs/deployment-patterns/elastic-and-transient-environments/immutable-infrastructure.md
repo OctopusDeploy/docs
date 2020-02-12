@@ -79,10 +79,10 @@ We are almost there! Next we need to bump the version of **Hello World** and aut
 
 Octopus will automatically deploy the current successful deployment for a project. That means if you deploy release 1.0.0 and then create release 1.0.1, the version 1.0.0 will continue to be deployed until 1.0.1 has been manually deployed.  This is not ideal for immutable infrastructure, because we do not want to deploy 1.0.1 to our old infrastructure, so we have no way to indicate to Octopus that it should start deploying release 1.0.1.  Enter auto deploy overrides. By creating both a new release and an auto deploy override when our infrastructure is provisioned, we can indicate to Octopus that the new release should be deployed to the new infrastructure.
 
-1. Create an auto deploy override using Octo.exe:
+1. Create an auto deploy override using the Octopus CLI:
 
 ```powershell
-Octo.exe create-autodeployoverride --project "Hello World" --environment $environment --version $version --server $octopusURI --apiKey $apiKey
+octo create-autodeployoverride --project "Hello World" --environment $environment --version $version --server $octopusURI --apiKey $apiKey
 ```
 
 ## Magic {#ImmutableInfrastructure-Magic}
@@ -98,12 +98,12 @@ $apiKey = "API-ABC123"
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apiKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
 
-.\Octo.exe create-release --project "Hello World Infrastructure"  --packageversion "1.0.0.0" --deployto "Development" --server $octopusURI --apiKey $apiKey
-.\Octo.exe create-release --project "Hello World" --server $octopusURI --apiKey $apiKey
+./Octo create-release --project "Hello World Infrastructure"  --packageversion "1.0.0.0" --deployto "Development" --server $octopusURI --apiKey $apiKey
+./Octo create-release --project "Hello World" --server $octopusURI --apiKey $apiKey
 
 $project = $repository.Projects.FindByName("Hello World")
 $release = $repository.Projects.GetReleases($project).Items | Select-Object -first 1
 
-.\Octo.exe create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
+./Octo create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
 
 ```

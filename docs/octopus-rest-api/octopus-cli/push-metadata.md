@@ -1,34 +1,38 @@
 ---
-title: clean-workerpool
-description: Cleans all Offline Workers from a WorkerPool
-position: 20
+title: push-metadata
+description: Pushes package metadata to Octopus Server.
+position: 285
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to cleans all offline workers from a worker pool.
+Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
 
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
+This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.
 
-**clean-workerpool options**
+**push-metadata options**
 
 ```text
-Usage: octo clean-workerpool [<options>]
+Usage: octo push-metadata [<options>]
 
 Where [<options>] is any of:
 
-WorkerPool Cleanup:
+Package metadata pushing:
 
-      --workerpool=VALUE     Name of a worker pool to clean up.
-      --health-status=VALUE  Health status of Workers to clean up (Healthy,
-                             Unavailable, Unknown, HasWarnings, Unhealthy).
-                             Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Worker to
-                             clean up.
-      --calamari-outdated=VALUE
-                             [Optional] State of Calamari to clean up. By
-                             default ignores Calamari state.
-      --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to clean u-
-                             p. By default ignores Tentacle state
+      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
+      --version=VALUE        The version of the package; defaults to a
+                             timestamp-based version
+      --metadata-file=VALUE  Octopus Package metadata Json file.
+      --overwrite-mode=VALUE If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed
+                             (FailIfExists). You can use the overwrite mode
+                             to OverwriteExisting or IgnoreIfExists.
+      --replace-existing     If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed. You can
+                             pass this flag to overwrite the existing package
+                             metadata. This flag may be deprecated in a
+                             future version; passing it is the same as using
+                             the OverwriteExisting overwrite-mode.
 
 Common options:
 
