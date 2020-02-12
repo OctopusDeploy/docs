@@ -964,6 +964,7 @@ docs/release-management/issue-tracking/index.md -> docs/managing-releases/issue-
 docs/release-management/issue-tracking/azure-devops.md -> docs/managing-releases/issue-tracking/azure-devops.md
 docs/release-management/issue-tracking/github.md -> docs/managing-releases/issue-tracking/github.md
 docs/release-management/issue-tracking/jira.md -> docs/managing-releases/issue-tracking/jira.md
+docs/octopus-concepts/octo.exe.md -> docs/octopus-concepts/octopus-cli.md
 docs/octopus-rest-api/octo.exe-command-line/build-information.md -> docs/octopus-rest-api/octopus-cli/build-information.md
 docs/octopus-rest-api/octo.exe-command-line/clean-environment.md -> docs/octopus-rest-api/octopus-cli/clean-environment.md
 docs/octopus-rest-api/octo.exe-command-line/clean-workerpool.md -> docs/octopus-rest-api/octopus-cli/clean-workerpool.md
