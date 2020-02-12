@@ -998,4 +998,3 @@ docs/octopus-rest-api/octo.exe-command-line/push.md -> docs/octopus-rest-api/oct
 docs/octopus-rest-api/octo.exe-command-line/push-metadata.md -> docs/octopus-rest-api/octopus-cli/push-metadata.md
 docs/octopus-rest-api/octo.exe-command-line/version.md -> docs/octopus-rest-api/octopus-cli/version.md
 docs/packaging-applications/create-packages/octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
-docs/octopus-concepts/octo.exe.md -> docs/octopus-concepts/octopus-cli.md
