@@ -146,7 +146,7 @@ Jenkins is compiling our code and publishing packages to Octopus Deploy. If we w
 
 
 :::success
-**Octopus CLI further learning**
+**Octopus CLI more information**
 Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) and the arguments it accepts.
 :::
 
