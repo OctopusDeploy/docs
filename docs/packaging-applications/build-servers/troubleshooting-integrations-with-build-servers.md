@@ -43,7 +43,7 @@ As shown in the above screenshots, the exact `octo` command that was executed (a
 
 - Your build server will most likely execute the `octo` command from a build agent machine, which won't be identical to your workstation (mostly network-wise). Keep this in mind when troubleshooting your `octo` command, and if possible always try to run it from the same machine that your build server is using as build agent.
 
-- Each version of our extension/plugin will ship with the latest version of the OCtopus CLI at the moment it was created. Perhaps the version of the Octopus CLI used by your current extension version is not the latest, in which case the recommended thing to do would be to upgrade your extension to the latest version available. You can tell which version of the Octopus CLI you are using from the initial line that gets printed by the command:
+- Each version of our extension/plugin will ship with the latest version of the Octopus CLI at the moment it was created. Perhaps the version of the Octopus CLI used by your current extension version is not the latest, in which case the recommended thing to do would be to upgrade your extension to the latest version available. You can tell which version of the Octopus CLI you are using from the initial line that gets printed by the command:
 
 ```
 [15:00:43][Octopus Deploy] Running command:   octo create-release --server https://demo.octopus.com --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
