@@ -6,7 +6,7 @@ position: 1
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Azure DevOps (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
-- Octo Installer task.
+- The Octopus CLI installer task.
 - Packaging your application.
 - Pushing your package to Octopus.
 - Creating a Release in Octopus.
@@ -32,7 +32,7 @@ If you want to make changes to the build task that might not be appropriate for 
 
 ## Use Your Own Version of Octo
 
-You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md).
+You can bring your own version of the Octopus CLI and avoid the use of installer tasks or accessing the internet by [registering octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md).
 
 ## Add a Connection to Octopus Deploy
 
@@ -75,10 +75,10 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 
-## Demands and the Octo Installer Task
+## Demands and the Octopus CLI Installer Task
 
-The Azure DevOps extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
-make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
+The Azure DevOps extension tasks require the Octopus CLI to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
+make this work, all Octopus tasks will automatically attempt to download and use the latest version of the Octopus CLI unless they're [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific version of the Octopus CLI then you can by adding the Octopus CLI installer task to the start of your build definition. No attempt will be made to download the Octopus CLI if the capability is detected on your build agent.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.

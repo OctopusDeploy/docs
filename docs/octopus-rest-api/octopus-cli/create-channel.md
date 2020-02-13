@@ -92,7 +92,7 @@ Common options:
 The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 
 ```bash
-Octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success

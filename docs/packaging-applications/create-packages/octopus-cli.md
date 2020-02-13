@@ -8,23 +8,23 @@ The Octopus CLI (`octo`) is a command line tool that interacts with the [Octop
 
 ## Installation
 
-We recommend installing Octo as a global tool using .NET Core which makes Octo available as a command via the .NET CLI.
+We recommend installing The Octopus CLI as a global tool using .NET Core which makes `octo` available as a command via the .NET CLI.
 
-If you have the .NET Core `2.1.300` SDK available you can install Octo on a machine or build agent as a global tool with the following command:
+If you have the .NET Core `2.1.300` SDK available you can install the Octopus CLI on a machine or build agent as a global tool with the following command:
 
 ```bash
 dotnet tool install Octopus.DotNet.Cli --global
 ```
 
-Check the output to make sure the installation works correctly. After the installation has completed, you can run the following to verify the version of Octo that was installed (if you're using Windows, remember to open a new command prompt):
+Check the output to make sure the installation works correctly. After the installation has completed, you can run the following to verify the version of the Octopus CLI that was installed (if you're using Windows, remember to open a new command prompt):
 
 ```
 dotnet octo --version
 ```
 
-For more installation details, options, and update instructions, see [Octo Command Line Global Tool](/docs/octopus-rest-api/octopus-cli/index.md).
+For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/index.md).
 
-For a full list of the `pack` command options see [Octopus CLI Command Line - Pack](/docs/octopus-rest-api/octopus-cli/pack.md) or run the following command:
+For a full list of the `pack` command options see [Octopus CLI - Pack](/docs/octopus-rest-api/octopus-cli/pack.md) or run the following command:
 
 ```powershell
 C:\> dotnet octo help pack
@@ -42,7 +42,7 @@ The above command will generate a NuGet package in the current working directory
 
 > `OctoWeb.2018.6.26.190140.nupkg`.
 
-If you want to provide your own version, you can pass the `--version` parameter in the call to Octo:
+If you want to provide your own version, you can pass the `--version` parameter in the call to octo:
 
 ```powershell
 dotnet octo pack --id="OctoWeb" --version="1.0.0"
@@ -100,7 +100,7 @@ dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
 
 ## Packaging Your Application From a Folder {#UsingOctopusCli-Packagingyourapplicationfromafolder}
 
-If you have a build process that places all build outputs into a final destination folder (such as gulp, grunt, or webpack), you can package it using Octo as well. For example, if you've defined an npm script which runs your build and places all associated content into the `dist` folder:
+If you have a build process that places all build outputs into a final destination folder (such as gulp, grunt, or webpack), you can package it using the Octopus CLI as well. For example, if you've defined an npm script which runs your build and places all associated content into the `dist` folder:
 
 ```powershell
 npm run build

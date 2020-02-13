@@ -80,7 +80,7 @@ Common options:
 The following command will create an environment called *UAT*
 
 ```bash
-Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success

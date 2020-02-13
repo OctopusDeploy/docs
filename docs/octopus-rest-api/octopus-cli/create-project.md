@@ -85,7 +85,7 @@ Common options:
 The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
 
 ```bash
-Octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success

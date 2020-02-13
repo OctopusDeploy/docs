@@ -106,7 +106,7 @@ Common options:
 The following command will clean any *offline* machines from the *production* environment.
 
 ```bash
-Octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success

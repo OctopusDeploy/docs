@@ -149,7 +149,7 @@ Common options:
 The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
 
 ```bash
-Octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success

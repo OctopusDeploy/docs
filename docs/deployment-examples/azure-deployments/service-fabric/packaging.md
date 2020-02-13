@@ -47,7 +47,7 @@ Alternatively you could create a custom MSBuild targets file that does the file 
 	</PropertyGroup>
 
 	<Target Name="OctoSFPackage">
-		<Message Text="Customizing package for Octo packing => $([System.IO.Path]::GetFullPath($(PackageLocation)))" />
+		<Message Text="Customizing package for octo packing => $([System.IO.Path]::GetFullPath($(PackageLocation)))" />
 		<ItemGroup>  
 			<ApplicationParametersFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\ApplicationParameters\*.xml"/>  
 			<PublishProfilesFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\PublishProfiles\*.xml"/>  

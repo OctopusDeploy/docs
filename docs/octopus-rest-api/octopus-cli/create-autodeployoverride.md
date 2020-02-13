@@ -91,7 +91,7 @@ Common options:
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
 
 ```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
 ## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
@@ -99,7 +99,7 @@ Octo create-autodeployoverride --project HelloWorld --environment Development --
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
 ```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
 ## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
@@ -107,5 +107,5 @@ Octo create-autodeployoverride --project HelloWorld --environment Development --
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
