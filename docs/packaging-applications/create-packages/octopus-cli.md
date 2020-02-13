@@ -42,7 +42,7 @@ The above command will generate a NuGet package in the current working directory
 
 > `OctoWeb.2018.6.26.190140.nupkg`.
 
-If you want to provide your own version, you can pass the `--version` parameter in the call to octo:
+If you want to provide your own version, you can pass the `--version` parameter in the call to `octo`:
 
 ```powershell
 dotnet octo pack --id="OctoWeb" --version="1.0.0"
