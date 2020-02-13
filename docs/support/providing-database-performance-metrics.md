@@ -64,7 +64,7 @@ ORDER BY index_advantage DESC;
 
 While this trace may not always provide conclusive proof as to the primary culprit of your performance problems, it may provide some indication as to where improvements can be made to optimize the request profile.
 
-If you are seeing error messages with a specific query in your server logs or through Octopus Cli failures, for example:
+If you are seeing error messages with a specific query in your server logs or through Octopus CLI failures, for example:
 
 > INSERT INTO dbo.[Event] WITH (TABLOCKX) (RelatedDocumentIds, ProjectId, EnvironmentId, TenantId, Category, UserId, Username, Occurred, Message, Id, Json) values (@RelatedDocumentIds, @ProjectId, @EnvironmentId, @TenantId, @Category, @UserId, @Username, @Occurred, @Message, @Id, @Json)
 >
