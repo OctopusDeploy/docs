@@ -71,13 +71,13 @@ Once this line is added to the sfproj file, the target will get executed wheneve
 
 ## Package for Octopus with the Octopus CLI
 
-Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. The Octopus CLI can then be used to create a package that is compatible with the Octopus package feed. You can get the Octopus CLI from the [Octopus downloads](http://octopus.com/downloads) page. The following example assumes you've added `octo` to a tools folder in your solution's folder.
+Whichever option from above that you select, the objective is to get the `PublishProfiles` and the `ApplicationParameters` folders from the Service Fabric project into the same folder as its package output. The Octopus CLI can then be used to create a package that is compatible with the Octopus package feed. You can get the Octopus CLI from the [Octopus downloads](http://octopus.com/downloads) page.
 
 ```powershell
-tools\octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication\pkg\Release
+octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication\pkg\Release
 ```
 ```bash
-tools/octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication/pkg/Release
+octo pack --id=MyFabricApplication --version=VERSION --format=Zip --outFolder=OUTPUT --basePath=MyFabricApplication/pkg/Release
 ```
 
 VERSION and OUTPUT are parameters provided by your build tool of choice, the exact syntax will depend on the tool.
