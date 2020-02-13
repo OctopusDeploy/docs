@@ -27,7 +27,7 @@ When deploying (not creating a release), you'll be prompted to provide a value f
 
 These variables will be ordered alpabetically by label (or name, if the variable label is not provided).
 
-A value can also be passed to a prompted variable when using the Octopus CLI `octo` through the `--variable` parameter of the [Deploy-Release](/docs/octopus-rest-api/octopus-cli/deploy-release.md) command, or the [Create-Release](/docs/octopus-rest-api/octopus-cli/create-release.md) command when also deploying the release with the `--deployto` parameter.
+A value can also be passed to a prompted variable when using the Octopus CLI through the `--variable` parameter of the [Deploy-Release](/docs/octopus-rest-api/octopus-cli/deploy-release.md) command, or the [Create-Release](/docs/octopus-rest-api/octopus-cli/create-release.md) command when also deploying the release with the `--deployto` parameter.
 
 ```bash
 octo deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"

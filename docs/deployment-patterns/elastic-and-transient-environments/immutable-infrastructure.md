@@ -98,12 +98,12 @@ $apiKey = "API-ABC123"
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apiKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
 
-./Octo create-release --project "Hello World Infrastructure"  --packageversion "1.0.0.0" --deployto "Development" --server $octopusURI --apiKey $apiKey
-./Octo create-release --project "Hello World" --server $octopusURI --apiKey $apiKey
+octo create-release --project "Hello World Infrastructure"  --packageversion "1.0.0.0" --deployto "Development" --server $octopusURI --apiKey $apiKey
+octo create-release --project "Hello World" --server $octopusURI --apiKey $apiKey
 
 $project = $repository.Projects.FindByName("Hello World")
 $release = $repository.Projects.GetReleases($project).Items | Select-Object -first 1
 
-./Octo create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
+octo create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
 
 ```
