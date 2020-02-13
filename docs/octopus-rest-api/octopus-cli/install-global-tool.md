@@ -1,5 +1,5 @@
 ---
-title: Octopus Command Line Global Tool
+title: Octopus CLI Global Tool
 description: Octopus Global Tool installation
 position: 0
 ---
