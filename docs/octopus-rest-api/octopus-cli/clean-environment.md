@@ -1,6 +1,6 @@
 ---
 title: cleaning-environments
-description: Using the Octopus CLi to delete/remove machines with a particular status from environments on your Octopus instance.
+description: Using the Octopus CLI to delete/remove machines with a particular status from environments on your Octopus instance.
 position: 10
 ---
 
