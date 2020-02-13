@@ -11,7 +11,7 @@ Learn about [workers](/docs/infrastructure/workers/index.md).
 **list-workers options**
 
 ```text
-Usage: octo list-workers [<options>]
+Usage: Octopus.Cli list-workers [<options>]
 
 Where [<options>] is any of:
 
@@ -84,8 +84,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.

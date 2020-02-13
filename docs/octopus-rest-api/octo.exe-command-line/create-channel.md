@@ -9,7 +9,7 @@ position: 40
 Learn more about [channels](/docs/deployment-process/channels/index.md).
 
 ```text
-Usage: octo create-channel [<options>]
+Usage: Octopus.Cli create-channel [<options>]
 
 Where [<options>] is any of:
 
@@ -80,8 +80,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.

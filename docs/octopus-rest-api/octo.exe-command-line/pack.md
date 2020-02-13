@@ -11,7 +11,7 @@ For examples of the `pack` command in use, see [Create Packages with Octo.exe](/
 **pack options**
 
 ```text
-Usage: octo pack [<options>]
+Usage: Octopus.Cli pack [<options>]
 
 Where [<options>] is any of:
 

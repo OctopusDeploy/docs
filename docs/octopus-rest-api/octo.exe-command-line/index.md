@@ -45,7 +45,7 @@ We provide a number of ways to install Octo onto your machine:
 - **[promote-release](/docs/octopus-rest-api/octo.exe-command-line/promote-release.md)**:  Promotes a release.
 - **[push](/docs/octopus-rest-api/octo.exe-command-line/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 - **[push-metadata](/docs/octopus-rest-api/octo.exe-command-line/push-metadata.md)**:  Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
-- **[version](/docs/octopus-rest-api/octo.exe-command-line/version.md)**:  Output Octo command line tool version.
+- **[version](/docs/octopus-rest-api/octo.exe-command-line/version.md)**:  Output Octopus CLI version.
 
 ## General Usage {#Octo.exeCommandLine-Generalusage}
 
