@@ -578,7 +578,7 @@ docs/api-and-integration/tfs-vsts/using-octopack.md -> docs/packaging-applicatio
 docs/api-and-integration/tfs-vsts/using-octopus-extension/index.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md
 docs/api-and-integration/tfs-vsts/using-octopus-extension/build-versions-in-team-build.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/build-versions-in-team-build.md
 docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibility.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/extension-compatibility.md
-docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md
+docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
 docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md
 docs/packaging-applications/package-repositories/registries/index.md -> docs/packaging-applications/package-repositories/docker-registries/index.md
 docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md
@@ -781,7 +781,7 @@ docs/api-and-integration/tfs-azure-devops/using-octopack.md -> docs/packaging-ap
 docs/api-and-integration/tfs-azure-devops/using-octopus-extension/index.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md
 docs/api-and-integration/tfs-azure-devops/using-octopus-extension/build-versions-in-team-build.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/build-versions-in-team-build.md
 docs/api-and-integration/tfs-azure-devops/using-octopus-extension/extension-compatibility.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/extension-compatibility.md
-docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md
+docs/api-and-integration/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
 docs/api-and-integration/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md
 docs/api-and-integration/continua-ci.md -> docs/packaging-applications/build-servers/continua-ci.md
 docs/api-and-integration/troubleshooting-integrations-with-build-servers.md -> docs/packaging-applications/build-servers/troubleshooting-integrations-with-build-servers.md
@@ -998,3 +998,4 @@ docs/octopus-rest-api/octo.exe-command-line/push.md -> docs/octopus-rest-api/oct
 docs/octopus-rest-api/octo.exe-command-line/push-metadata.md -> docs/octopus-rest-api/octopus-cli/push-metadata.md
 docs/octopus-rest-api/octo.exe-command-line/version.md -> docs/octopus-rest-api/octopus-cli/version.md
 docs/packaging-applications/create-packages/octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
+docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
