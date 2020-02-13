@@ -14,7 +14,10 @@ Where [<options>] is any of:
 
 Build information pushing:
 
-      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
+      --package-id=VALUE     The ID of the package. Specify multiple packages
+                             by specifying this argument multiple times:
+                             --package-id 'MyCompany.MyApp' --package-id
+                             'MyCompany.MyApp2'.
       --version=VALUE        The version of the package; defaults to a
                              timestamp-based version
       --file=VALUE           Octopus Build Information Json file.
@@ -73,8 +76,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
