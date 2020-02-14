@@ -15,8 +15,8 @@ Sensitive information is encrypted using AES128 with the master key as the encry
 :::
 
 :::hint
-**Perfect practice makes perfect!**
-We highly recommend practicing your disaster recovery process to make sure it is a well-rehearsed and smooth experience in the unlikely event a recovery is required.
+**Operations Runbooks**
+Octopus's [operations runbooks](/docs/operations-runboks/index.md) can help you automate your disaster recovery process.
 :::
 
 ## Octopus SQL Database
