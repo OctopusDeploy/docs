@@ -9,7 +9,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to c
 Learn more about working with [environments](/docs/infrastructure/environments/index.md).
 
 ```text
-Usage: octo create-environment [<options>]
+Usage: Octo create-environment [<options>]
 
 Where [<options>] is any of:
 

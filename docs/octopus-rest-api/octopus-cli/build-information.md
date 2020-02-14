@@ -8,13 +8,16 @@ Pushes build information to Octopus Server.
 **build-information options**
 
 ```text
-Usage: octo build-information [<options>]
+Usage: Octo build-information [<options>]
 
 Where [<options>] is any of:
 
 Build information pushing:
 
-      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
+      --package-id=VALUE     The ID of the package. Specify multiple packages
+                             by specifying this argument multiple times:
+                             --package-id 'MyCompany.MyApp' --package-id
+                             'MyCompany.MyApp2'.
       --version=VALUE        The version of the package; defaults to a
                              timestamp-based version
       --file=VALUE           Octopus Build Information Json file.

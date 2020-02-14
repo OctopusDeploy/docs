@@ -11,7 +11,7 @@ Learn more about [projects](/docs/projects/index.md).
 **list-projects options**
 
 ```text
-Usage: octo list-projects [<options>]
+Usage: Octo list-projects [<options>]
 
 Where [<options>] is any of:
 

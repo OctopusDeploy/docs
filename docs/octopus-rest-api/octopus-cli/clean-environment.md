@@ -22,7 +22,7 @@ We added first-class support for automatically [cleaning up environments](/docs/
 :::
 
 ```text
-Usage: octo clean-environment [<options>]
+Usage: Octo clean-environment [<options>]
 
 Where [<options>] is any of:
 

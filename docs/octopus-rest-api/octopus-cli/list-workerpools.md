@@ -11,7 +11,7 @@ Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
 **list-workerpools options**
 
 ```text
-Usage: octo list-workerpools [<options>]
+Usage: Octo list-workerpools [<options>]
 
 Where [<options>] is any of:
 

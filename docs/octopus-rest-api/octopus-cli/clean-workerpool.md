@@ -11,7 +11,7 @@ Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
 **clean-workerpool options**
 
 ```text
-Usage: octo clean-workerpool [<options>]
+Usage: Octo clean-workerpool [<options>]
 
 Where [<options>] is any of:
 

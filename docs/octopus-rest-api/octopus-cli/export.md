@@ -18,7 +18,7 @@ We currently support exporting/importing:
 Usage:
 
 ```text
-Usage: octo export [<options>]
+Usage: Octo export [<options>]
 
 Where [<options>] is any of:
 

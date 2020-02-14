@@ -9,7 +9,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to de
 Learn more about [releases](/docs/managing-releases/index.md).
 
 ```text
-Usage: octo deploy-release [<options>]
+Usage: Octo deploy-release [<options>]
 
 Where [<options>] is any of:
 
