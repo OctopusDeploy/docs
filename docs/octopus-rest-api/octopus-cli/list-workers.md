@@ -11,7 +11,7 @@ Learn about [workers](/docs/infrastructure/workers/index.md).
 **list-workers options**
 
 ```text
-Usage: octo list-workers [<options>]
+Usage: Octo list-workers [<options>]
 
 Where [<options>] is any of:
 

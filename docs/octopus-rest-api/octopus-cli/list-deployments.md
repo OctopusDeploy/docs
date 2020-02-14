@@ -5,7 +5,7 @@ position: 170
 ---
 
 ```text
-Usage: octo list-deployments [<options>]
+Usage: Octo list-deployments [<options>]
 
 Where [<options>] is any of:
 

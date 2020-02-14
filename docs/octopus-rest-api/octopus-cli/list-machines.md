@@ -5,7 +5,7 @@ position: 200
 ---
 
 ```text
-Usage: octo list-machines [<options>]
+Usage: Octo list-machines [<options>]
 
 Where [<options>] is any of:
 

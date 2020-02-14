@@ -20,7 +20,7 @@ We currently support importing:
 [Usage:](/docs/octopus-rest-api/octopus-cli/import.md)
 
 ```text
-Usage: octo import [<options>]
+Usage: Octo import [<options>]
 
 Where [<options>] is any of:
 

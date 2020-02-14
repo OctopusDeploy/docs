@@ -11,7 +11,7 @@ Learn more about the [built-in repository](/docs/packaging-applications/package-
 **push options**
 
 ```text
-Usage: octo push [<options>]
+Usage: Octo push [<options>]
 
 Where [<options>] is any of:
 

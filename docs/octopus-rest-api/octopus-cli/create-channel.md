@@ -9,7 +9,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to c
 Learn more about [channels](/docs/deployment-process/channels/index.md).
 
 ```text
-Usage: octo create-channel [<options>]
+Usage: Octo create-channel [<options>]
 
 Where [<options>] is any of:
 

@@ -18,7 +18,7 @@ If you are using [Channels](/docs/deployment-process/channels/index.md) (introdu
 Usage:
 
 ```text
-Usage: octo create-release [<options>]
+Usage: Octo create-release [<options>]
 
 Where [<options>] is any of:
 

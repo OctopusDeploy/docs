@@ -9,7 +9,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to c
 Learn more about [projects](/docs/projects/index.md).
 
 ```text
-Usage: octo create-project [<options>]
+Usage: Octo create-project [<options>]
 
 Where [<options>] is any of:
 

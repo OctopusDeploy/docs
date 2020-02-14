@@ -9,7 +9,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to pr
 Learn more about [releases](/docs/managing-releases/index.md).
 
 ```text
-Usage: octo promote-release [<options>]
+Usage: Octo promote-release [<options>]
 
 Where [<options>] is any of:
 

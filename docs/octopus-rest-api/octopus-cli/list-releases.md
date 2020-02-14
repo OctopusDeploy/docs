@@ -7,7 +7,7 @@ position: 220
 List [releases](/docs/managing-releases/index.md).
 
 ```text
-Usage: octo list-releases [<options>]
+Usage: Octo list-releases [<options>]
 
 Where [<options>] is any of:
 
