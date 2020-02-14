@@ -11,7 +11,7 @@ This command has been deprecated. Please use the [build-information](/docs/octop
 **push-metadata options**
 
 ```text
-Usage: octo push-metadata [<options>]
+Usage: Octo push-metadata [<options>]
 
 Where [<options>] is any of:
 

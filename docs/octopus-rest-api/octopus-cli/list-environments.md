@@ -11,7 +11,7 @@ Learn more about working with [environments](/docs/infrastructure/environments/i
 **list-environments options**
 
 ```text
-Usage: octo list-environments [<options>]
+Usage: Octo list-environments [<options>]
 
 Where [<options>] is any of:
 

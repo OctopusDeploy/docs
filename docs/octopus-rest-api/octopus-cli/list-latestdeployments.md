@@ -5,7 +5,7 @@ position: 190
 ---
 
 ```text
-Usage: octo list-latestdeployments [<options>]
+Usage: Octo list-latestdeployments [<options>]
 
 Where [<options>] is any of:
 

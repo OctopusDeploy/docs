@@ -9,7 +9,7 @@ Output The Octopus CLI tool version.
 **version options**
 
 ```text
-Usage: octo version [<options>]
+Usage: Octo version [<options>]
 
 Where [<options>] is any of:
 
@@ -20,3 +20,4 @@ Common options:
                              [Optional] Output format for help, only valid
                              option is json
 ```
+

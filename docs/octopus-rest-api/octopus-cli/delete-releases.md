@@ -9,7 +9,7 @@ Deletes a range [releases](/docs/managing-releases/index.md).
 **delete-releases options**
 
 ```text
-Usage: octo delete-releases [<options>]
+Usage: Octo delete-releases [<options>]
 
 Where [<options>] is any of:
 

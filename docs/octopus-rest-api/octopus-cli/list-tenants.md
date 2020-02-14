@@ -9,7 +9,7 @@ List tenants
 **list-tenants options**
 
 ```text
-Usage: octo list-tenants [<options>]
+Usage: Octo list-tenants [<options>]
 
 Where [<options>] is any of:
 

@@ -9,7 +9,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to d
 Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
-Usage: octo delete-autodeployoverride [<options>]
+Usage: Octo delete-autodeployoverride [<options>]
 
 Where [<options>] is any of:
 
