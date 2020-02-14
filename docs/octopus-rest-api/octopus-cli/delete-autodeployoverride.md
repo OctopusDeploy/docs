@@ -1,25 +1,32 @@
 ---
-title: create-workerpool
-description: Creates a pool for workers
-position: 80
+title: delete-autodeployoverride
+description: Using the Octopus CLI to delete automatic deployment release overrides.
+position: 90
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete automatic deployment release overrides.
 
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
-
-**create-workerpool options**
+Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
-Usage: octo create-workerpool [<options>]
+Usage: octo delete-autodeployoverride [<options>]
 
 Where [<options>] is any of:
 
-WorkerPool creation:
+Delete auto deploy release override:
 
-      --name=VALUE           The name of the worker pool
-      --ignoreIfExists       If the pool already exists, an error will be
-                             returned. Set this flag to ignore the error.
+      --project=VALUE        Name of the project
+      --environment=VALUE    Name of an environment the override will apply
+                             to. Specify this argument multiple times to add
+                             multiple environments.
+      --tenant=VALUE         [Optional] Name of a tenant the override will
+                             apply to. Specify this argument multiple times
+                             to add multiple tenants or use `*` wildcard for
+                             all tenants.
+      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
+                             that the override will apply to. Specify this
+                             argument multiple times to add multiple tenant
+                             tags
 
 Common options:
 
@@ -77,3 +84,26 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example {#Deletingautodeployoverrides-Basicexample}
+
+The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
+
+```bash
+octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
+
+The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+
+```bash
+octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
+
+The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+
+```bash
+octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
+```

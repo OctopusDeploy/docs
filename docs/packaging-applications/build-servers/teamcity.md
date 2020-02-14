@@ -18,7 +18,7 @@ The Octopus TeamCity plugin comes with these custom build runners:
 6. **Octopus Deploy: Promote Release**
     Promotes an *existing* release from one environment to another.
 
-The plugin is simply a wrapper for [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases.
 
 !include <teamcity-install>
 
@@ -54,4 +54,4 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 Traditionally the Octopus TeamCity plugin required a Windows build agent to work. As of version 4.2.1 it will run on Linux build agents if they meet either of the following requirements:
 
 1. [.NET Core](https://www.microsoft.com/net/core) must be installed on the build agent and in the PATH such that the `dotnet` command runs successfully. To install, follow the linked guide to install the .NET Core SDK for your distribution. Ensure that the `dotnet` command runs successfully. From version 4.15.10 of the plugin .NET Core v2 is required.
-2. .Net Core must be install as above, and the Octo command line tool must be installed and in the PATH such that the `Octo` command runs successfully. To install, download the .tar.gz for you system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `Octo` into your PATH. Again, ensure that `Octo` runs successfully. On Ubuntu you may need to install `libunwind8` using your package manager.
+2. .Net Core must be install as above, and the Octopus CLI tool must be installed and in the PATH such that the `octo` command runs successfully. To install, download the .tar.gz for you system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `octo` into your PATH. Again, ensure that `octo` runs successfully. On Ubuntu you may need to install `libunwind8` using your package manager.

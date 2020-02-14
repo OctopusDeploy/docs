@@ -1,34 +1,35 @@
 ---
-title: create-autodeployoverride
-description: Using the Octo.exe command line tool to create automatic deployment release overrides.
-position: 30
+title: create-channel
+description: Using the Octopus CLI to create channels.
+position: 40
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create channels on your Octopus instance.
 
-Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
+Learn more about [channels](/docs/deployment-process/channels/index.md).
 
 ```text
-Usage: octo create-autodeployoverride [<options>]
+Usage: octo create-channel [<options>]
 
 Where [<options>] is any of:
 
-Auto deploy release override:
+Create:
 
-      --project=VALUE        Name of the project
-      --environment=VALUE    Name of an environment the override will apply
-                             to. Specify this argument multiple times to add
-                             multiple environments.
-      --version, --releaseNumber=VALUE
-                             Release number to use for auto deployments.
-      --tenant=VALUE         [Optional] Name of a tenant the override will
-                             apply to. Specify this argument multiple times
-                             to add multiple tenants or use `*` wildcard for
-                             all tenants.
-      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
-                             that the override will apply to. Specify this
-                             argument multiple times to add multiple tenant
-                             tags
+      --project=VALUE        The name of the project in which to create the
+                             channel
+      --channel=VALUE        The name of the channel to create
+      --description=VALUE    [Optional] A description of the channel
+      --lifecycle=VALUE      [Optional] if specified, the name of the
+                             lifecycle to use for promoting releases through
+                             this channel, otherwise this channel will
+                             inherit the project lifecycle
+      --make-default-channel [Optional, Flag] if specified, set the new
+                             channel to be the default channel replacing any
+                             existing default channel
+      --update-existing      [Optional, Flag] if specified, updates the
+                             matching channel if it already exists, otherwise
+                             this command will fail if a matching channel
+                             already exists
 
 Common options:
 
@@ -86,26 +87,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingautodeployoverrides-Basicexample}
+## Basic Example {#Creatingchannels-Basicexample}
 
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
-
-```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
-
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following command will create a channel in *MyProject* called *Experimental* using the *Test Only* lifecycle instead
 
 ```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-channel --project MyProject --name Experimental --lifecycle "Test Only" --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
-
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
-
-```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
-```
+:::success
+**Tip**
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::

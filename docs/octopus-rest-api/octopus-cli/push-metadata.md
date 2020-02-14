@@ -1,39 +1,38 @@
 ---
-title: list-workers
-description: Lists all workers
-position: 250
+title: push-metadata
+description: Pushes package metadata to Octopus Server.
+position: 285
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list all workers.
+Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
 
-Learn about [workers](/docs/infrastructure/workers/index.md).
+This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.
 
-**list-workers options**
+**push-metadata options**
 
 ```text
-Usage: octo list-workers [<options>]
+Usage: octo push-metadata [<options>]
 
 Where [<options>] is any of:
 
-Listing Workers:
+Package metadata pushing:
 
-      --workerpool=VALUE     Name of a worker pool to filter by. Can be
-                             specified many times.
-      --status=VALUE         [Optional] Status of Machines filter by (Online,
-                             Offline, Unknown, NeedsUpgrade,
-                             CalamariNeedsUpgrade, Disabled). Can be
-                             specified many times.
-      --health-status, --healthstatus=VALUE
-                             [Optional] Health status of Machines filter by
-                             (Healthy, Unavailable, Unknown, HasWarnings,
-                             Unhealthy). Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Machine.
-      --calamari-outdated=VALUE
-                             [Optional] State of Calamari to filter. By
-                             default ignores Calamari state.
-      --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to filter.
-                             By default ignores Tentacle state
+      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
+      --version=VALUE        The version of the package; defaults to a
+                             timestamp-based version
+      --metadata-file=VALUE  Octopus Package metadata Json file.
+      --overwrite-mode=VALUE If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed
+                             (FailIfExists). You can use the overwrite mode
+                             to OverwriteExisting or IgnoreIfExists.
+      --replace-existing     If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed. You can
+                             pass this flag to overwrite the existing package
+                             metadata. This flag may be deprecated in a
+                             future version; passing it is the same as using
+                             the OverwriteExisting overwrite-mode.
 
 Common options:
 

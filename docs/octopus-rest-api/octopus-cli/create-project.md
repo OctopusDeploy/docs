@@ -1,34 +1,28 @@
 ---
-title: clean-workerpool
-description: Cleans all Offline Workers from a WorkerPool
-position: 20
+title: create-project
+description: Using the Octopus CLI to create projects.
+position: 60
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to cleans all offline workers from a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a project inside a project group.
 
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
-
-**clean-workerpool options**
+Learn more about [projects](/docs/projects/index.md).
 
 ```text
-Usage: octo clean-workerpool [<options>]
+Usage: octo create-project [<options>]
 
 Where [<options>] is any of:
 
-WorkerPool Cleanup:
+Project creation:
 
-      --workerpool=VALUE     Name of a worker pool to clean up.
-      --health-status=VALUE  Health status of Workers to clean up (Healthy,
-                             Unavailable, Unknown, HasWarnings, Unhealthy).
-                             Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Worker to
-                             clean up.
-      --calamari-outdated=VALUE
-                             [Optional] State of Calamari to clean up. By
-                             default ignores Calamari state.
-      --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to clean u-
-                             p. By default ignores Tentacle state
+      --name=VALUE           The name of the project
+      --projectGroup=VALUE   The name of the project group to add this
+                             project to. If the group doesn't exist, it will
+                             be created.
+      --lifecycle=VALUE      The name of the lifecycle that the project will
+                             use.
+      --ignoreIfExists       If the project already exists, an error will be
+                             returned. Set this flag to ignore the error.
 
 Common options:
 
@@ -86,3 +80,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example {#Creatingprojects-Basicexample}
+
+The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
+
+```bash
+octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey
+```
+
+:::success
+**Tip**
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::

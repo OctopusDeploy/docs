@@ -1,19 +1,34 @@
 ---
-title: list-environments
-description: List environments
-position: 180
+title: create-autodeployoverride
+description: Using the Octopus CLI to create automatic deployment release overrides.
+position: 30
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list the environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
-
-**list-environments options**
+Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
-Usage: octo list-environments [<options>]
+Usage: octo create-autodeployoverride [<options>]
 
 Where [<options>] is any of:
+
+Auto deploy release override:
+
+      --project=VALUE        Name of the project
+      --environment=VALUE    Name of an environment the override will apply
+                             to. Specify this argument multiple times to add
+                             multiple environments.
+      --version, --releaseNumber=VALUE
+                             Release number to use for auto deployments.
+      --tenant=VALUE         [Optional] Name of a tenant the override will
+                             apply to. Specify this argument multiple times
+                             to add multiple tenants or use `*` wildcard for
+                             all tenants.
+      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
+                             that the override will apply to. Specify this
+                             argument multiple times to add multiple tenant
+                             tags
 
 Common options:
 
@@ -71,3 +86,26 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example {#Creatingautodeployoverrides-Basicexample}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
+
+```bash
+octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+
+```bash
+octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+
+```bash
+octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```

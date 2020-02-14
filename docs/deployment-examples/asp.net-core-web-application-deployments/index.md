@@ -24,9 +24,9 @@ When your application has been published you need to package it:
 octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
 ```
 
-For more information about packaging applications with Octo.exe see [Creating packages using Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md).
+For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
 
-If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octo.exe.md#create-zip-packages). 
+If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli.md#create-zip-packages). 
 
 When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
 

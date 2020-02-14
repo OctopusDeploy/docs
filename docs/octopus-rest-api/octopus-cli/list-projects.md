@@ -4,7 +4,7 @@ description: Lists all projects
 position: 210
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list the project in your octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the project in your octopus instance.
 
 Learn more about [projects](/docs/projects/index.md).
 

@@ -52,14 +52,14 @@ You can also use the Project Overview to deploy to individual tenants by selecti
 
 ## Deploying to all Tenants in an Environment
 
-You can deploy to all of the tenants in an environment using the Octopus UI, `octo.exe` or any of the build-server extensions. Octopus will create a deployment for each tenant which is ready for that release to be deployed to the project/environment. Octopus will automatically exclude the tenants which are not ready for that release yet - perhaps they haven't met their lifecycle requirements.
+You can deploy to all of the tenants in an environment using the Octopus UI, the Octopus CLI or any of the build-server extensions. Octopus will create a deployment for each tenant which is ready for that release to be deployed to the project/environment. Octopus will automatically exclude the tenants which are not ready for that release yet - perhaps they haven't met their lifecycle requirements.
 
-### Using octo.exe
+### Using the Octopus CLI
 
-For example you can use this command-line with `octo.exe` to deploy the `1.0.1` release of `Mojo` to all the tenants in the `MT Dev` environment:
+For example you can use this command-line with the Octopus CLI to deploy the `1.0.1` release of `Mojo` to all the tenants in the `MT Dev` environment:
 
 ```powershell
-octo.exe deploy-release --project Mojo --version 1.0.1 --deployto "MT Dev" --tenant * --server http://octopus/ --apiKey API-ABCDEF123456
+octo deploy-release --project Mojo --version 1.0.1 --deployto "MT Dev" --tenant * --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 ### Using a Build-server Extension

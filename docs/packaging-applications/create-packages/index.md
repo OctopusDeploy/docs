@@ -9,7 +9,7 @@ There are a variety of tools you can use to package your applications, and as lo
 
 We've created the following tools to help you package your applications:
 
- - [Octo.exe](/docs/packaging-applications/create-packages/octo.exe.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
+ - The [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md) to create Zip Archives and NuGet packages for **.NET Core** apps and full **.NET framework** applications.
  - [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) to create NuGet packages for **ASP.NET** apps (.NET Framework) and **Windows Services** (.NET Framework).
  - The [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
  - The [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).

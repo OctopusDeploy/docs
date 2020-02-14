@@ -1,6 +1,6 @@
 ---
 title: import
-description: Using the Octo.exe command line tool to import items exported from another Octopus Deploy Server.
+description: Using the Octopus CLI to import items exported from another Octopus Deploy Server.
 position: 150
 ---
 
@@ -17,7 +17,7 @@ We currently support importing:
 - Projects
 - Releases
 
-[Usage:](/docs/octopus-rest-api/octo.exe-command-line/import.md)
+[Usage:](/docs/octopus-rest-api/octopus-cli/import.md)
 
 ```text
 Usage: octo import [<options>]
@@ -116,7 +116,7 @@ octo import --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=proje
 
 ### Project Import Output When a Prerequisite is Missing {#Import-ProjectImportOutputwhenaprerequisiteismissing}
 
-During the import, Octo.exe will validate that any dependencies, such as feeds and library variable sets, already exist on the target server. If one of these can't be found, the import will not continue, as shown below:
+During the import, the Octopus CLI will validate that any dependencies, such as feeds and library variable sets, already exist on the target server. If one of these can't be found, the import will not continue, as shown below:
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0

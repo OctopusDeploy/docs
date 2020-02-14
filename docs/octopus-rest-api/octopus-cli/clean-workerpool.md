@@ -1,23 +1,34 @@
 ---
-title: create-environment
-description: Using the Octo.exe command line tool to create environments.
-position: 50
+title: clean-workerpool
+description: Cleans all Offline Workers from a WorkerPool
+position: 20
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to clean all offline workers from a worker pool.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
+Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
+
+**clean-workerpool options**
 
 ```text
-Usage: octo create-environment [<options>]
+Usage: octo clean-workerpool [<options>]
 
 Where [<options>] is any of:
 
-Environment creation:
+WorkerPool Cleanup:
 
-      --name=VALUE           The name of the environment
-      --ignoreIfExists       If the environment already exists, an error will
-                             be returned. Set this flag to ignore the error.
+      --workerpool=VALUE     Name of a worker pool to clean up.
+      --health-status=VALUE  Health status of Workers to clean up (Healthy,
+                             Unavailable, Unknown, HasWarnings, Unhealthy).
+                             Can be specified many times.
+      --disabled=VALUE       [Optional] Disabled status filter of Worker to
+                             clean up.
+      --calamari-outdated=VALUE
+                             [Optional] State of Calamari to clean up. By
+                             default ignores Calamari state.
+      --tentacle-outdated=VALUE
+                             [Optional] State of Tentacle version to clean u-
+                             p. By default ignores Tentacle state
 
 Common options:
 
@@ -75,15 +86,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingenvironments-Basicexample}
-
-The following command will create an environment called *UAT*
-
-```bash
-Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::
