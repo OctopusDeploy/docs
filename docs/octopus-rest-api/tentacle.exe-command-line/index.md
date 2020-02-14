@@ -7,9 +7,9 @@ hideInThisSection: true
 
 **Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](/docs/octopus-rest-api/index.md).
 
-## Commands {#tentacle.exeCommandLine-Commands}
+## Commands {#tentacleCommandLine-Commands}
 
-`tentacle.exe` supports the following commands:
+`tentacle` supports the following commands:
 
 - **[agent](/docs/octopus-rest-api/tentacle.exe-command-line/agent.md)**:  Starts the Tentacle Agent in debug mode.
 - **[checkservices](/docs/octopus-rest-api/tentacle.exe-command-line/checkservices.md)**:  Checks the Tentacle instances are running.
