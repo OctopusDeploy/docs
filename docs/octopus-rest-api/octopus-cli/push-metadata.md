@@ -1,49 +1,38 @@
 ---
-title: cleaning-environments
-description: Using the Octo.exe command line tool to delete/remove machines with a particular status from environments on your Octopus instance.
-position: 10
+title: push-metadata
+description: Pushes package metadata to Octopus Server.
+position: 285
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
+Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
+This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.
 
-:::hint
-This command was added in Octo.exe 3.3.4.
-:::
-
-:::success
-This is most useful when your environments can have temporary/ephemeral machines. The best example of this is in virtualized or cloud environments where new machines are created and destroyed frequently.
-:::
-
-:::success
-**Using Octopus 3.4 or newer?**
-We added first-class support for automatically [cleaning up environments](/docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md).
-:::
+**push-metadata options**
 
 ```text
-Usage: octo clean-environment [<options>]
+Usage: octo push-metadata [<options>]
 
 Where [<options>] is any of:
 
-Cleanup:
+Package metadata pushing:
 
-      --environment=VALUE    Name of an environment to clean up.
-      --status=VALUE         Status of Machines clean up (Online, Offline,
-                             Unknown, NeedsUpgrade, CalamariNeedsUpgrade,
-                             Disabled). Can be specified many times.
-      --health-status, --healthstatus=VALUE
-                             Health status of Machines to clean up (Healthy,
-                             Unavailable, Unknown, HasWarnings, Unhealthy).
-                             Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Machine to
-                             clean up.
-      --calamari-outdated=VALUE
-                             [Optional] State of Calamari to clean up. By
-                             default ignores Calamari state.
-      --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to clean u-
-                             p. By default ignores Tentacle state
+      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
+      --version=VALUE        The version of the package; defaults to a
+                             timestamp-based version
+      --metadata-file=VALUE  Octopus Package metadata Json file.
+      --overwrite-mode=VALUE If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed
+                             (FailIfExists). You can use the overwrite mode
+                             to OverwriteExisting or IgnoreIfExists.
+      --replace-existing     If the package metadata already exists in the
+                             repository, the default behavior is to reject
+                             the new package metadata being pushed. You can
+                             pass this flag to overwrite the existing package
+                             metadata. This flag may be deprecated in a
+                             future version; passing it is the same as using
+                             the OverwriteExisting overwrite-mode.
 
 Common options:
 
@@ -99,15 +88,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Cleaningenvironments-Basicexample}
-
-The following command will clean any *offline* machines from the *production* environment.
-
-```bash
-Octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
-```
-
-:::success
-**Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::

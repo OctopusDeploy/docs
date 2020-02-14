@@ -128,9 +128,9 @@ Selecting the Channel will cause the Release to use the Lifecycle associated wit
 
 The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](#Channels-versionrules) for more information).
 
-### Using Build Server Extensions or Octo.exe {#Channels-UsingBuildServerExtensionsorOcto.exe}
+### Using Build Server Extensions or the Octopus CLI {#Channels-UsingBuildServerExtensionsOrTheOctopusCLI}
 
-When using one of the [build server extensions](/docs/octopus-rest-api/index.md) or [octo.exe](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
+When using one of the [build server extensions](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
 ### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
 

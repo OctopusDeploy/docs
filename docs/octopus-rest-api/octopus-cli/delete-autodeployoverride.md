@@ -1,10 +1,10 @@
 ---
 title: delete-autodeployoverride
-description: Using the Octo.exe command line tool to delete automatic deployment release overrides.
+description: Using the Octopus CLI to delete automatic deployment release overrides.
 position: 90
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to delete automatic deployment release overrides.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete automatic deployment release overrides.
 
 Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
@@ -87,7 +87,7 @@ Common options:
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
 
 ```bash
-Octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
+octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
 ## Tenanted Example (By Name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
@@ -95,7 +95,7 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
 ```bash
-Octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
+octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
 ## Tenanted Example (By Tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
@@ -103,5 +103,5 @@ Octo delete-autodeployoverride --project HelloWorld --environment Development --
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
-Octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
+octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
 ```

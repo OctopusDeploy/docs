@@ -16,7 +16,7 @@ To use AppVeyor with a source code repository, you'll need to create and configu
 
 Once you've added a project with a repository, you need to configure the build. In the settings for your AppVeyor project, navigate to the **build** page and check the checkbox for the **Package Web Applications for Octopus deployment** option.
 
-AppVeyor will run `octo.exe pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
+AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
 
 In the **Before build script** section add `nuget restore` as AppVeyor will not perform this operation by default.
 
@@ -30,20 +30,20 @@ The following environment variables are available and can be configured on the *
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
-| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octo.exe.md) to pass to `octo.exe pack` |
+| OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli.md) to pass to `octo pack` |
 
 ### Non-MSbuild Projects
 
-AppVeyor have included `octo.exe` into the base Windows build VM and is available via the command line. If you're running a project that is _not_ using msbuild, you can manually invoke the `octo.exe pack` command during the build phase, by navigating to **{{build,Script}}** and adding you command to the build script section. For instance:
+AppVeyor have included the Octopus CLI (`octo`) into the base Windows build VM and is available via the command line. If you're running a project that is _not_ using msbuild, you can manually invoke the `octo pack` command during the build phase, by navigating to **{{build,Script}}** and adding you command to the build script section. For instance:
 
-```
+```bash
 npm Build
-octo.exe pack --outFolder ./bin --id=MyApp
+octo pack --outFolder ./bin --id=MyApp
 ```
 
 Next, flag the generated archive as an artifact of the build and should be made available for subsequence steps. On the **artifact** page of your project's settings add the path to the artifact, for instance:
 
-```
+```bash
 ./bin/*
 ```
 

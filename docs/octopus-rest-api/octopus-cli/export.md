@@ -1,6 +1,6 @@
 ---
 title: export
-description: Using the Octo.exe command line tool to export items from one Octopus Deploy Server to import into another.
+description: Using the Octopus CLI to export items from one Octopus Deploy Server to import into another.
 position: 130
 ---
 

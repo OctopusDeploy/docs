@@ -23,14 +23,14 @@ At a high-level, the steps are:
 
 Before we can report on the data using Excel, we need to export it in a format that Excel can import. The easiest way to do this is using an XML file.
 
-As of 2.5.10, Octo.exe can be used to export deployments to an XML file. The command looks like this:
+As of 2.5.10, the Octopus CLI can be used to export deployments to an XML file. The command looks like this:
 
 ```bash
-octo.exe dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 --filePath=Deployments.xml
+octo dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 --filePath=Deployments.xml
 ```
 
 :::success
-Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md), and [how to use Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md)
+Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli/index.md)
 :::
 
 The output will appear as follows:

@@ -1,10 +1,10 @@
 ---
 title: create-environment
-description: Using the Octo.exe command line tool to create environments.
+description: Using the Octopus CLI to create environments.
 position: 50
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create environments on your Octopus instance.
 
 Learn more about working with [environments](/docs/infrastructure/environments/index.md).
 
@@ -78,10 +78,10 @@ Common options:
 The following command will create an environment called *UAT*
 
 ```bash
-Octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
 :::success
 **Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::

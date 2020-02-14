@@ -6,7 +6,7 @@ position: 1
 
 The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Azure DevOps (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
 
-- Octo Installer task.
+- The Octopus Tools Installer task.
 - Packaging your application.
 - Pushing your package to Octopus.
 - Creating a Release in Octopus.
@@ -32,7 +32,7 @@ If you want to make changes to the build task that might not be appropriate for 
 
 ## Use Your Own Version of Octo
 
-You can bring your own version of Octo and avoid the use of installer tasks or accessing the internet by [registering Octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md).
+You can bring your own version of the Octopus CLI and avoid the use of installer tasks or accessing the internet by [registering octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md).
 
 ## Add a Connection to Octopus Deploy
 
@@ -75,10 +75,10 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 
-## Demands and the Octo Installer Task
+## Demands and the Octopus Tools Installer Task
 
-The Azure DevOps extension tasks require Octo to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
-make this work, all Octopus tasks will automatically attempt to download and use the latest version of Octo tools unless they're [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific Octo version then you can by adding the Octo Installer task to the start of your build definition. No attempt will be made to download Octo if the capability is detected on your build agent.
+The Azure DevOps extension tasks require the Octopus CLI to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
+make this work, all Octopus tasks will automatically attempt to download and use the latest version of the Octopus CLI unless they're [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific version of the Octopus CLI then you can by adding the Octopus Tools Installer task to the start of your build definition. No attempt will be made to download the Octopus CLI if the capability is detected on your build agent.
 
 :::hint
 Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
@@ -147,7 +147,7 @@ It's a common (and handy) practice to do this, and set the Build Number to be a 
 We recommend you read the [Build Versions in Team Build](build-versions-in-team-build.md) document for full details on versioning builds and packages.
 :::
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/packaging-applications/create-packages/octo.exe.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/packaging-applications/create-packages/octopus-cli.md) for more details).
 
 #### Publish Package Artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
 
@@ -165,7 +165,7 @@ Add a step to your Build or Release process, choose **Package**, click **Add**
 
 ![](images/configure-push-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/push.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/push.md) for more details).
 
 ### Add a Create Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep}
 
@@ -175,7 +175,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 
 ![](images/configure-createrelease-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/create-release.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/create-release.md) for more details).
 
 Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
 
@@ -189,7 +189,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 
 ![](images/configure-deploy-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
 
 ## Add a Promote Octopus Release Step {#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep}
 
@@ -199,7 +199,7 @@ Add a step to your Build or Release process, choose **Deploy**, click **Add**�
 
 ![](images/configure-promote-step.jpg)
 
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octo.exe command-line options](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) for more details).
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
 
 ## Using the Dashboard Widget
 

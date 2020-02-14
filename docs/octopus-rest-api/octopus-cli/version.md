@@ -1,10 +1,10 @@
 ---
 title: version
-description: Output Octo command line tool version.
+description: Output the Octopus CLI command line tool version.
 position: 290
 ---
 
-Output Octo command line tool version.
+Output The Octopus CLI tool version.
 
 **version options**
 
@@ -20,4 +20,3 @@ Common options:
                              [Optional] Output format for help, only valid
                              option is json
 ```
-

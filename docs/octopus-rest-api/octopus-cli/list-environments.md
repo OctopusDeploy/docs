@@ -1,17 +1,17 @@
 ---
-title: list-workerpools
-description: List worker pools
-position: 240
+title: list-environments
+description: List environments
+position: 180
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to list all worker pools.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the environments on your Octopus instance.
 
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
+Learn more about working with [environments](/docs/infrastructure/environments/index.md).
 
-**list-workerpools options**
+**list-environments options**
 
 ```text
-Usage: octo list-workerpools [<options>]
+Usage: octo list-environments [<options>]
 
 Where [<options>] is any of:
 

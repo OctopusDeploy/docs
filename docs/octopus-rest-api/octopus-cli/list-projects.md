@@ -1,25 +1,19 @@
 ---
-title: create-workerpool
-description: Creates a pool for workers
-position: 80
+title: list-projects
+description: Lists all projects
+position: 210
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the project in your octopus instance.
 
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
+Learn more about [projects](/docs/projects/index.md).
 
-**create-workerpool options**
+**list-projects options**
 
 ```text
-Usage: octo create-workerpool [<options>]
+Usage: octo list-projects [<options>]
 
 Where [<options>] is any of:
-
-WorkerPool creation:
-
-      --name=VALUE           The name of the worker pool
-      --ignoreIfExists       If the pool already exists, an error will be
-                             returned. Set this flag to ignore the error.
 
 Common options:
 

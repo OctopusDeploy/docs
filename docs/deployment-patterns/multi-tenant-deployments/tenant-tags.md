@@ -91,11 +91,11 @@ Consider an example deploying a release to the tenants tagged with the **Early 
 
 ```powershell
 # Deploys My Project 1.0.1 to all tenants tagged as early adopters
-.\octo.exe deploy-release --server=http://octopus.company.com --apiKey=API-1234567890123456 --project="My Project" --version="1.0.1" --tenantTag="Upgrade ring/Early adopter"
+./octo deploy-release --server=http://octopus.company.com --apiKey=API-1234567890123456 --project="My Project" --version="1.0.1" --tenantTag="Upgrade ring/Early adopter"
 ```
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or [octo.exe](/docs/octopus-rest-api/octo.exe-command-line/deploy-release.md) - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md) - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 - When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/index.md).

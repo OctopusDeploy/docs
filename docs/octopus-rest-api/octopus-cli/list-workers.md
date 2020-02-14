@@ -1,34 +1,39 @@
 ---
-title: clean-workerpool
-description: Cleans all Offline Workers from a WorkerPool
-position: 20
+title: list-workers
+description: Lists all workers
+position: 250
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to cleans all offline workers from a worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all workers.
 
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
+Learn about [workers](/docs/infrastructure/workers/index.md).
 
-**clean-workerpool options**
+**list-workers options**
 
 ```text
-Usage: octo clean-workerpool [<options>]
+Usage: octo list-workers [<options>]
 
 Where [<options>] is any of:
 
-WorkerPool Cleanup:
+Listing Workers:
 
-      --workerpool=VALUE     Name of a worker pool to clean up.
-      --health-status=VALUE  Health status of Workers to clean up (Healthy,
-                             Unavailable, Unknown, HasWarnings, Unhealthy).
-                             Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Worker to
-                             clean up.
+      --workerpool=VALUE     Name of a worker pool to filter by. Can be
+                             specified many times.
+      --status=VALUE         [Optional] Status of Machines filter by (Online,
+                             Offline, Unknown, NeedsUpgrade,
+                             CalamariNeedsUpgrade, Disabled). Can be
+                             specified many times.
+      --health-status, --healthstatus=VALUE
+                             [Optional] Health status of Machines filter by
+                             (Healthy, Unavailable, Unknown, HasWarnings,
+                             Unhealthy). Can be specified many times.
+      --disabled=VALUE       [Optional] Disabled status filter of Machine.
       --calamari-outdated=VALUE
-                             [Optional] State of Calamari to clean up. By
+                             [Optional] State of Calamari to filter. By
                              default ignores Calamari state.
       --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to clean u-
-                             p. By default ignores Tentacle state
+                             [Optional] State of Tentacle version to filter.
+                             By default ignores Tentacle state
 
 Common options:
 

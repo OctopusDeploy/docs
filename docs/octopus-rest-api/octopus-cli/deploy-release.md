@@ -1,28 +1,17 @@
 ---
-title: promote-release
-description: Using the Octo.exe command line tool to promote releases between environments.
-position: 270
+title: deploy-release
+description: Using the Octopus CLI to deploy releases.
+position: 110
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to promote a release from one environment to another.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octopus-cli/create-release.md).
 
 Learn more about [releases](/docs/managing-releases/index.md).
 
 ```text
-Usage: octo promote-release [<options>]
+Usage: octo deploy-release [<options>]
 
 Where [<options>] is any of:
-
-Release Promotion:
-
-      --project=VALUE        Name or ID of the project
-      --from=VALUE           Name or ID of the environment to get the current
-                             deployment from, e.g., 'Staging' or
-                             'Environments-2'.
-      --to, --deployto=VALUE Name or ID of the environment to deploy to, e.g-
-                             ., 'Production' or 'Environments-1'.
-      --updateVariables      Overwrite the variable snapshot for the release
-                             by re-importing the variables from the project
 
 Deployment:
 
@@ -87,6 +76,18 @@ Deployment:
                              tag; specify this argument multiple times to
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
+      --project=VALUE        Name or ID of the project
+      --deployto=VALUE       Name or ID of the environment to deploy to, e.g-
+                             ., 'Production' or 'Environments-1'; specify
+                             this argument multiple times to deploy to
+                             multiple environments.
+      --releaseNumber, --version=VALUE
+                             Version number of the release to deploy. Or
+                             specify --version=latest for the latest release.
+      --channel=VALUE        [Optional] Name or ID of the channel to use when
+                             getting the release to deploy
+      --updateVariables      Overwrite the variable snapshot for the release
+                             by re-importing the variables from the project
 
 Common options:
 
@@ -142,15 +143,31 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Promotingreleases-Basicexample}
+## Basic Examples {#Deployingreleases-Basicexamples}
 
-The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
+This will deploy release 1.0.0 of the *HelloWorld* project to the *Production* environment:
 
 ```bash
-Octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
+octo deploy-release --project HelloWorld --releaseNumber 1.0.0 --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
+```
+
+This will deploy the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the *Production* environment:
+
+```bash
+octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456
+```
+
+This will deploy the latest release in the *1.x Normal* Channel of the *HelloWorld* project to the *Production* environment for the Tenants tagged as *Upgrade Ring/Early Adopters*:
+
+```bash
+octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest --deployto Production --tenantTag "Upgrade Ring/Early Adopters" --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
 :::success
+You can deploy to ALL tenants in an environment by using the `--tenant=*` argument. This instructs Octopus to create a deployment for each tenant which is ready for that Release to be deployed to the project/environment.
+:::
+
+:::success
 **Tip**
-Learn more about [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::

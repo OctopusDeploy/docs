@@ -1,34 +1,28 @@
 ---
-title: create-autodeployoverride
-description: Using the Octo.exe command line tool to create automatic deployment release overrides.
-position: 30
+title: create-project
+description: Using the Octopus CLI to create projects.
+position: 60
 ---
 
-[Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) can be used to create automatic deployment release overrides.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a project inside a project group.
 
-Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
+Learn more about [projects](/docs/projects/index.md).
 
 ```text
-Usage: octo create-autodeployoverride [<options>]
+Usage: octo create-project [<options>]
 
 Where [<options>] is any of:
 
-Auto deploy release override:
+Project creation:
 
-      --project=VALUE        Name of the project
-      --environment=VALUE    Name of an environment the override will apply
-                             to. Specify this argument multiple times to add
-                             multiple environments.
-      --version, --releaseNumber=VALUE
-                             Release number to use for auto deployments.
-      --tenant=VALUE         [Optional] Name of a tenant the override will
-                             apply to. Specify this argument multiple times
-                             to add multiple tenants or use `*` wildcard for
-                             all tenants.
-      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
-                             that the override will apply to. Specify this
-                             argument multiple times to add multiple tenant
-                             tags
+      --name=VALUE           The name of the project
+      --projectGroup=VALUE   The name of the project group to add this
+                             project to. If the group doesn't exist, it will
+                             be created.
+      --lifecycle=VALUE      The name of the lifecycle that the project will
+                             use.
+      --ignoreIfExists       If the project already exists, an error will be
+                             returned. Set this flag to ignore the error.
 
 Common options:
 
@@ -84,26 +78,15 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingautodeployoverrides-Basicexample}
+## Basic Example {#Creatingprojects-Basicexample}
 
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
-
-```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
-```
-
-## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
-
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*
 
 ```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
-
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
-
-```bash
-Octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
-```
+:::success
+**Tip**
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::

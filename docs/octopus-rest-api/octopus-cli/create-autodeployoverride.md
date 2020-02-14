@@ -1,38 +1,34 @@
 ---
-title: push-metadata
-description: Pushes package metadata to Octopus Server.
-position: 285
+title: create-autodeployoverride
+description: Using the Octopus CLI to create automatic deployment release overrides.
+position: 30
 ---
 
-Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.
 
-This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octo.exe-command-line/build-information.md) command for Octopus Server 2019.10.0 and above.
-
-**push-metadata options**
+Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
-Usage: octo push-metadata [<options>]
+Usage: octo create-autodeployoverride [<options>]
 
 Where [<options>] is any of:
 
-Package metadata pushing:
+Auto deploy release override:
 
-      --package-id=VALUE     The ID of the package, e.g., 'MyCompany.MyApp'.
-      --version=VALUE        The version of the package; defaults to a
-                             timestamp-based version
-      --metadata-file=VALUE  Octopus Package metadata Json file.
-      --overwrite-mode=VALUE If the package metadata already exists in the
-                             repository, the default behavior is to reject
-                             the new package metadata being pushed
-                             (FailIfExists). You can use the overwrite mode
-                             to OverwriteExisting or IgnoreIfExists.
-      --replace-existing     If the package metadata already exists in the
-                             repository, the default behavior is to reject
-                             the new package metadata being pushed. You can
-                             pass this flag to overwrite the existing package
-                             metadata. This flag may be deprecated in a
-                             future version; passing it is the same as using
-                             the OverwriteExisting overwrite-mode.
+      --project=VALUE        Name of the project
+      --environment=VALUE    Name of an environment the override will apply
+                             to. Specify this argument multiple times to add
+                             multiple environments.
+      --version, --releaseNumber=VALUE
+                             Release number to use for auto deployments.
+      --tenant=VALUE         [Optional] Name of a tenant the override will
+                             apply to. Specify this argument multiple times
+                             to add multiple tenants or use `*` wildcard for
+                             all tenants.
+      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
+                             that the override will apply to. Specify this
+                             argument multiple times to add multiple tenant
+                             tags
 
 Common options:
 
@@ -88,3 +84,26 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example {#Creatingautodeployoverrides-Basicexample}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
+
+```bash
+octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+
+```bash
+octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
+
+## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
+
+The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+
+```bash
+octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
+```
