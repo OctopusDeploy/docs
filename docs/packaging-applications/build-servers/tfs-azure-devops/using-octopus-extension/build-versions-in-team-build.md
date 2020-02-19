@@ -51,8 +51,8 @@ There are two standard ways to package your build output in Team Build. The firs
 You can mix and match these two methods. For example, you might prefer to use OctoPack and the `/p:RunOctoPack` MS Build argument, but then use the Push and Create Release tasks from the extension.
 
 :::warning
-**Octpack and .NET Core**
-Octopack is not compatibile with .NET core and we suggest using the extension instead.
+**Octopack and .NET Core**
+Octopack is not compatible with .NET core and we suggest using the extension instead.
 :::
 
 ## Versioning When Using OctoPack
