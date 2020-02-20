@@ -91,7 +91,7 @@ ADMIN_API_KEY=
 ```
 
 
-In this case, we are specifying the `sa` password that is used when starting the sql container and is used for db connectivity from the Octopus Server. We have also provided the Octopus admin credentials and set a host port mapping to port `8080` so we can access the server externally.
+In this case, we are specifying the `sa` password that is used when starting the sql container and for db connectivity from the Octopus Server. We have also provided the Octopus admin credentials and set a host port mapping to port `8080` so we can access the server externally.
 
 Start both containers by running:
 
