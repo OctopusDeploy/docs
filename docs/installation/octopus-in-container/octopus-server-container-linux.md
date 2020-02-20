@@ -57,7 +57,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 |**8080**| Port for API and HTTP portal |
 |**10943**|Port for Polling Tentacles to contact the server|
 
-_The Octopus Server container does not currently support HTTPS however this should be available sometime in the future_
+_The Octopus Server container does not currently support HTTPS, however, this should be available sometime in the future_
 
 ### Volume Mounts
 
