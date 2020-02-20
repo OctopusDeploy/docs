@@ -43,7 +43,7 @@ In version 4.38.0 of the TeamCity Plugin we have added a new build runner that c
 ![Octopus Pack](images/teamcity-pack-step.png)
 
 :::hint
-In version 3.3.1 of the TeamCity Plugin we have added a new build runner that can be used to package and push your applications from TeamCity to Octopus.
+In version 3.3.1 of the TeamCity Plugin we added a new build runner that can be used to package and push your applications from TeamCity to Octopus.
 :::
 
 ![Octopus Push](images/5275665.png)
@@ -54,4 +54,4 @@ In version 3.3.1 of the TeamCity Plugin we have added a new build runner that ca
 Traditionally the Octopus TeamCity plugin required a Windows build agent to work. As of version 4.2.1 it will run on Linux build agents if they meet either of the following requirements:
 
 1. [.NET Core](https://www.microsoft.com/net/core) must be installed on the build agent and in the PATH such that the `dotnet` command runs successfully. To install, follow the linked guide to install the .NET Core SDK for your distribution. Ensure that the `dotnet` command runs successfully. From version 4.15.10 of the plugin .NET Core v2 is required.
-2. .Net Core must be install as above, and the Octopus CLI tool must be installed and in the PATH such that the `octo` command runs successfully. To install, download the .tar.gz for you system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `octo` into your PATH. Again, ensure that `octo` runs successfully. On Ubuntu you may need to install `libunwind8` using your package manager.
+2. For Octopus CLI versions prior to `7.0.0` .Net Core must be installed as above. *Versions later than `7.0.0` are self contained and do not require .Net Core to be installed*. The Octopus CLI tool must be installed and in the PATH such that the `octo` command runs successfully. To install, download the .tar.gz for your system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `octo` into your PATH. Again, ensure that `octo` runs successfully. On some platforms you may need to install [additional dependencies](https://docs.microsoft.com/en-gb/dotnet/core/install/dependencies?pivots=os-linux&tabs=netcore31#linux-distribution-dependencies).
