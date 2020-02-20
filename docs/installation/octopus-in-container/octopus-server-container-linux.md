@@ -6,7 +6,7 @@ position: 1
 
 If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Deploy Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
 
-Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
+Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance, and upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
 Although there are a few different configuration options, the following is a simple example of starting an Octopus Deploy server container:
 
