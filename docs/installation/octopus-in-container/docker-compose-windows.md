@@ -96,7 +96,7 @@ ADMIN_PASSWORD=Passw0rd123
 MASTER_KEY=U9ZrQR98uLXyz4CXJzUuCA==
 ```
 
-Run the same `docker-compose` command as provided above and Docker will detect that the changes only impact the the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised, however, to not run SQL Server inside a container for production purposes.
+Run the same `docker-compose` command as provided above and Docker will detect that the changes only impact the Octopus container. It will then stop and recreate only the Octopus Server, leaving the SQL Server running as-is. For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised, however, to not run SQL Server inside a container for production purposes.
 
 ## Octopus Server and Tentacle
 
