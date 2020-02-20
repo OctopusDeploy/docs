@@ -43,7 +43,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |  Name       |    |
 | ------------- | ------- |
 |**DB_CONNECTION_STRING**|Connection string to the database to use|
-|**MASTER_KEY**|The master key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. If the database does exist, this is mandatory|
+|**MASTER_KEY**|The master key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. The master key is mandatory if the database exists|
 |**OCTOPUS_SERVER_BASE64_LICENSE**|Your License key for Octopus Deploy. If left empty, it will try and create a free license key for use
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
