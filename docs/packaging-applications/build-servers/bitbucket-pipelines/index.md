@@ -1,6 +1,6 @@
 ---
 title: BitBucket Pipelines
-description: Octopus Deploy can be integrated with your BitBucket Pipelines build chain with the help of Octo.exe.
+description: Octopus Deploy can be integrated with your BitBucket Pipelines build chain with the help of the Octopus CLI.
 position: 40
 ---
 
@@ -8,7 +8,7 @@ position: 40
 
 [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) is Atlassian's cloud-based continuous integration server, built using pre-configured docker containers.
 
-Octopus Deploy can be integrated with BitBucket Pipelines using our up-to-date [Octo.exe docker container image](https://hub.docker.com/r/octopusdeploy/octo/) of our [Octo.exe](/docs/octopus-rest-api/octo.exe-command-line/index.md) command line tool.
+Octopus Deploy can be integrated with BitBucket Pipelines using our up-to-date [Octopus CLI docker container image](https://hub.docker.com/r/octopusdeploy/octo/) of our [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) command line tool.
 
 When using Octopus Deploy with BitBucket, BitBucket Pipelines will be responsible for:
 
@@ -47,7 +47,7 @@ pipelines:
   default:
     - step:
         name: Deploy to Octopus
-        image: octopusdeploy/octo:6.17.3-alpine
+        image: !include <image-version-octo-alpine>
         script:
           - export VERSION=1.0.$BITBUCKET_BUILD_NUMBER
           - octo pack --id $BITBUCKET_REPO_SLUG --version $VERSION --outFolder ./out --format zip

@@ -16,6 +16,6 @@ In the edit release page, click the ... overflow menu and select `Delete`.
 
 ![Delete release](images/delete-release.png)
 
-You can also delete a batch of releases by specifying a release version range in Octo.exe. An example can be found in our [Octo.exe documentation](/docs/octopus-rest-api/octo.exe-command-line/delete-releases.md).
+You can also delete a batch of releases by specifying a release version range in the Octopus CLI. An example can be found in our [Octopus CLI documentation](/docs/octopus-rest-api/octopus-cli/delete-releases.md).
 
 Consider automating data clean up by configuring [retention policies](/docs/administration/retention-policies/index.md).
