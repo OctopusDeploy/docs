@@ -101,6 +101,8 @@ docker-compose --project-name Octopus up -d
 
 When both containers are healthy, you can browse directly to `http://localhost` from your host machine.
 
+## Upgrade with Docker Compose
+
 Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](/docs/installation/octopus-in-container/octopus-server-container-linux.md). You will still need the master key from the original Octopus Server container you used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required:
 
 ```
