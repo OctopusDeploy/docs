@@ -1,5 +1,5 @@
 ---
-title: Deploying Octopus with Windows Containers using Docker Compose
+title: Octopus Windows Container with Docker Compose
 description: A fully self-contained SQL Server, Octopus Server and Octopus Tentacle can be provisioned through Docker Compose
 position: 3
 ---

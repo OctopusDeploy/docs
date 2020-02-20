@@ -1,5 +1,5 @@
 ---
-title: Deploying Octopus Server Linux Container using Docker Compose
+title: Octopus Linux Container with Docker Compose
 description: A fully self-contained SQL Server and Octopus Server
 position: 3
 ---
