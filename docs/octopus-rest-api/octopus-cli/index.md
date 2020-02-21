@@ -9,9 +9,10 @@ The Octopus CLI is a command line tool that builds on top of the [Octopus Depl
 
 We provide a number of ways to install The Octopus CLI onto your machine:
 
-- Using .Net Core CLI as a [global tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md) (recommended).
-- Download from the [Octopus downloads page](https://octopus.com/downloads).
 - Using [Chocolatey](https://chocolatey.org/packages/OctopusTools).
+- Using Homebrew - see the [Octopus downloads page](https://octopus.com/downloads/octopuscli).
+- Download from the [Octopus downloads page](https://octopus.com/downloads/octopuscli).
+- Using .NET Core CLI as a [global tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md).
 
 ## Commands {#octoCommandLine-Commands}
 
