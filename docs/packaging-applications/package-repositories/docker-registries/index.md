@@ -2,6 +2,7 @@
 title: Docker Registries as Feeds
 description: A Docker Registry is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 position: 40
+hideInThisSectionHeader: true
 ---
 
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
@@ -80,4 +81,6 @@ Try to connect to your registry directly through the browser from the same machi
 
 ## Learn more
 
-- Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
+ - Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
+ - [Docker blog posts](http://octopus.com/blog/tag/docker).
+ - [Linux blog posts](https://octopus.com/blog/linux).
