@@ -99,3 +99,7 @@ Some places you can use tags are:
 - When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md) - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 - When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/index.md).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

@@ -62,3 +62,7 @@ We'll leave this setting alone right now and let Octopus configure it for us in 
 ## Next Steps
 
 We will [connect your tenant to this project and deploy it into the tenant's production environment](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md). Talk about living life on the edge!
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

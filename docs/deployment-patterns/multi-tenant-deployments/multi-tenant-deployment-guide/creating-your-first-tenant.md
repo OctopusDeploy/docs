@@ -27,3 +27,7 @@ In reality your tenants would be other businesses, but for our sample we've used
 ## Next Steps {#Creatingyourfirsttenant-Nextsteps}
 
 In the following steps we will [create a multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md) and then [deploy that project into the tenant's environment](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

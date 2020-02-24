@@ -108,4 +108,4 @@ Record the HTTP requests made by the Octopus UI to see how we build your runbook
 
 ## Learn more
 
-[Runbook blog posts](http://octopus.com/blog/tag/runbooks).
+ - [Runbook blog posts](http://octopus.com/blog/tag/runbooks).

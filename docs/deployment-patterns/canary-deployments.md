@@ -47,3 +47,7 @@ A final variation is to set up a dedicated "Canary" environment to deploy to. Th
 **Canary users**
 Another variation of the canary deployment is to deploy the new version to all servers, but to selectively show the features to users, slowly increasing the number of users who experience the new features. Implementing such a system usually involves [feature toggles](http://martinfowler.com/bliki/FeatureToggle.html) and designing your application to work this way; it's really outside of the scope of a tool like Octopus.
 :::
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

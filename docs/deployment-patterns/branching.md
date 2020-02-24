@@ -212,3 +212,7 @@ Steps can then be scoped to their individual channel as well as the major releas
 When creating the release, you can then choose whether the release is for an individual component or all components:
 
 ![](images/3278480.png)
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

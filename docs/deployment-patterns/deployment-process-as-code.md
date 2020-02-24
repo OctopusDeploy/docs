@@ -136,3 +136,7 @@ The general process should look something like this, tailored to your situation:
 :::hint
 If you have thoughts about how deployment as code could better support your organization, we would like to [talk with you about your dream scenario](https://octopus.com/support)!
 :::
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

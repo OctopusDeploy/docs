@@ -98,3 +98,7 @@ That's it! Now let's deploy the project for one of these tenants and see the res
 ## Next Steps
 
 We will [design and implement a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

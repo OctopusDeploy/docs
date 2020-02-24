@@ -88,3 +88,7 @@ This five minute video (with captions) will guide you through setting up a rolli
     b. **Retry** the deployment to `Web02` as if the failure never happened.
     c. **Ignore** the error as if it never happened.
     d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

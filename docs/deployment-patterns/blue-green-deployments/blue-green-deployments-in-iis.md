@@ -45,3 +45,7 @@ You can achieve this kind of result by using [ARR](https://www.iis.net/downloads
 ### Using NGINX {#Blue-greendeploymentsinIIS-UsingNGINX}
 
 You can achieve this kind of result using an NGINX server as a reverse proxy to your Web Site. The latest versions of NGINX provide easier support for [on-the-fly reconfiguration](https://www.nginx.com/products/on-the-fly-reconfiguration/).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
