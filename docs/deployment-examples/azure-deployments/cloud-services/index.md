@@ -150,3 +150,8 @@ The deployment is performed using a PowerShell script called `DeployToAzure.ps1
 ### PowerShell {#CloudServicedeploymentstep-PowerShell}
 
 PowerShell executed against an Azure Cloud Service target will have the Azure PowerShell module loaded, and the subscription from the chosen account will be selected.
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
+

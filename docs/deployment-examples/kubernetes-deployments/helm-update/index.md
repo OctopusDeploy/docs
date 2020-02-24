@@ -60,3 +60,7 @@ The configuration for the Kubernetes resources required in a Helm Chart can be p
 Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.
 
 Although the helm client tool can be overridden for use during the step execution as noted above, the acquisition process currently requires a version of the helm client locally to retrieve the chart. The version of helm available does not need to match the version of the tiller service.
+
+## Learn more
+
+- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes).

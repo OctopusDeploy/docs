@@ -63,3 +63,7 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 :::hint
 There are some advanced use cases where creating a Service resource without selectors is useful. Refer to the [Kubernetes documentation](http://g.octopushq.com/KubernetesServicesWithoutSelectors) for more information.
 :::
+
+## Learn more
+
+- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes).

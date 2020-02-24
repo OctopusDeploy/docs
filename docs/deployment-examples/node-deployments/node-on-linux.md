@@ -311,3 +311,7 @@ Navigating to the host machine after deploying to the *prod* environment will re
 **Trouble browsing to your site?**
 You may need to allow inbound network traffic over Port 80 which isn't normally allowed by default in either Azure or AWS.
 :::
+
+## Learn more
+
+- Generate an Octopus guide for [Node and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Node.js).

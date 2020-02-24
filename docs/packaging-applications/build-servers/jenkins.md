@@ -177,3 +177,7 @@ If you are starting to work on something more detailed please reach out to suppo
 
 Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/OctopusDeploy/octopus-jenkins-plugin) on github. We also have the following [developer focussed guidelines](https://github.com/OctopusDeploy/octopus-jenkins-plugin/blob/master/developer-guide.md) to get you started working on the plugin.
 :::
+
+## Learn more
+
+- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=Jenkins).
