@@ -112,3 +112,7 @@ A IIS Website can be taken offline by placing a `app_offline.htm` file into the 
 This can be done by including an `app_online.htm` file in your website and then renaming it to `app_offline.htm` at the
 start of the deployment. This can be done via a script or the `IIS - Change App Offline` step in the
 [community library](/docs/deployment-process/steps/community-step-templates.md).
+
+## Learn more
+
+- Generate an Octopus guide for [IIS and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=IIS).

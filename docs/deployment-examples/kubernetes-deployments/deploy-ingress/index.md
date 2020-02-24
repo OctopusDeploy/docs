@@ -69,3 +69,7 @@ When there are no matching ingress rules, traffic can be sent to the service con
 ## Ingress Labels
 
 [Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Ingress resource.
+
+## Learn more
+
+- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes).

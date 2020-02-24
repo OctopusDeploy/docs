@@ -55,3 +55,7 @@ Traditionally the Octopus TeamCity plugin required a Windows build agent to work
 
 1. [.NET Core](https://www.microsoft.com/net/core) must be installed on the build agent and in the PATH such that the `dotnet` command runs successfully. To install, follow the linked guide to install the .NET Core SDK for your distribution. Ensure that the `dotnet` command runs successfully. From version 4.15.10 of the plugin .NET Core v2 is required.
 2. For Octopus CLI versions prior to `7.0.0` .Net Core must be installed as above. *Versions later than `7.0.0` are self contained and do not require .Net Core to be installed*. The Octopus CLI tool must be installed and in the PATH such that the `octo` command runs successfully. To install, download the .tar.gz for your system from the [Octopus download page](https://octopus.com/downloads), extract somewhere appropriate and symlink `octo` into your PATH. Again, ensure that `octo` runs successfully. On some platforms you may need to install [additional dependencies](https://docs.microsoft.com/en-gb/dotnet/core/install/dependencies?pivots=os-linux&tabs=netcore31#linux-distribution-dependencies).
+
+## Learn more
+
+- Generate an Octopus guide for [TeamCity and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=TeamCity).

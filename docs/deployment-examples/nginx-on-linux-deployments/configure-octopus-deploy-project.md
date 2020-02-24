@@ -159,3 +159,7 @@ Navigating to `Fetch data` will call the backend to retrieve the data and should
 Navigating to the backend directly (by entering `http://<IPorDNSofServer>/api/SampleData/WeatherForecasts` into the browser address bar) should return something like this:
 
 ![](/docs/deployment-examples/nginx-on-linux-deployments/images/production_deployment_api_result.png)
+
+## Learn more
+
+- Generate an Octopus guide for [NGINX and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=NGINX).

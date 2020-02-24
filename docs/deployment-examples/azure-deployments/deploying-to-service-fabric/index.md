@@ -40,3 +40,7 @@ To learn more about how you can automate Service Fabric versioning with Octopus,
 ### Application Packaging
 
 To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/deployment-examples/azure-deployments/service-fabric/packaging.md).
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).

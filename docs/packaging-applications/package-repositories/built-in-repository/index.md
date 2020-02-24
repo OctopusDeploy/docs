@@ -106,3 +106,8 @@ We do not recommend manually placing packages into the package store, however in
 For most users, this will be a seamless background task. However, for some installations, this may cause performance issues. Users with `AdministerSystem` rights can disable the re-indexing task on the **{{Library,Packages}}** page.
 
 Note that packages uploaded via the [recommended methods](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository) will still be indexed.
+
+## Learn more
+
+- Generate an Octopus guide for [the Octopus built-in repository and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides).
+

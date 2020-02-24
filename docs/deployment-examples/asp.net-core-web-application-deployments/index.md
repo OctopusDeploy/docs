@@ -71,3 +71,9 @@ public void ConfigureServices(IServiceCollection services)
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
 !include <json-configuration-variables>
+
+
+## Learn more
+
+- Generate an Octopus guide for [ASP.NET Core and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=ASP.NET%20Core).
+

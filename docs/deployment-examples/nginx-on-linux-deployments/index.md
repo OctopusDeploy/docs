@@ -12,3 +12,7 @@ In this guide we will go through:
 - Configuring an NGINX web server to serve traffic to both applications
 
 Any part of this guide can be attempted on its own in conjunction with other projects or target types, however this aims to provide an end-to-end example of one particular set up. Please note that these pages are not intended as an "ultimate guide to Linux" and are only an introductory guide to show how you can quickly get started today with a simple deployment scenario.
+
+## Learn more
+
+- Generate an Octopus guide for [NGINX and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=NGINX).

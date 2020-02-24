@@ -22,3 +22,7 @@ You may want to use a different Azure subscription depending on which environmen
    If you are deploying an **Azure Cloud Service**, you will need to create an [Azure Cloud Service Target](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) for each environment.
 
 4. Once you start the deployment, Octopus will resolve the variables that hold the Account and WebApp/Cloud Service info based on their scope. To use a different account, repeat steps 1-3 and scope the new account variable accordingly.
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
