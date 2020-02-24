@@ -13,4 +13,6 @@ These documents assume some familiarity with Docker and containers and don't div
 Both of the Octopus Deploy and Tentacle Windows containers are built on top of the `microsoft/windowsservercore:latest` (non 1709) base image so at the time of writing they will only run on Windows where the [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/) feature has been enabled. The images are available from [DockerHub](https://hub.docker.com/r/octopusdeploy/).
 :::
 
-## Next Steps
+## Learn more
+
+ - [Docker blog posts](http://octopus.com/blog/tag/docker).
