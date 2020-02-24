@@ -30,6 +30,7 @@ Before we can accept your contribution, you need you to sign the [Contribution L
   - [Alerts](#alerts)
   - [Lists](#lists)
   - [Working with Long-Term Support Releases and Fast Ring Releases](#working-with-long-term-support-releases-and-fast-ring-releases)
+  - [Linking to the Octopus Guides](#linking-to-the-octopus-guides)
 
 ## Contribute a Quick Fix
 
@@ -469,6 +470,28 @@ They are only rendered in the target page when the version filter matches the co
 
 Partials must be added to the same folder as the page that will use the partial.
 
+## Linking to the Octopus Guides
+
+The Octopus Guides combine content to allow users to specify their entire CI/CD pipeline. It is sometimes helpful to link to the guides, with specific options predefined, rather than the default options.
+
+You can create the links to use by adding query parameters to the URL for the guides:
+
+- Application: add `?application=PHP`:
+    https://www.octopus.com/docs/guides?application=PHP
+- Build server: add `?build-server=jenkins`:
+    https://www.octopus.com/docs/guides?buildServer=Jenkins
+- Source control: `sourceControl=TFVC`:
+    https://octopus.com/docs/guides?sourceControl=TFVC
+- Package repository: `?packageRepository=Artifactory`:
+    https://octopus.com/docs/guides?packageRepository=Artifactory
+- Destination: `?destination=NGINX`
+    https://octopus.com/docs/guides?destination=NGINX
+
+If you'd like to pre-fill more than one option, add multiple queries parameters to the URL:
+
+https://octopus.com/docs/guides?application=PHP&buildServer=TeamCity&destination=NGINX
+
+
 ## Useful Characters
 
 Just go to http://htmlarrows.com/symbols/
@@ -476,3 +499,4 @@ Just go to http://htmlarrows.com/symbols/
 ## More Information
 
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
