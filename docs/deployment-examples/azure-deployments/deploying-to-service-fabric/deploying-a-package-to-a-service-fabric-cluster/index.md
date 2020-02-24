@@ -130,3 +130,8 @@ An application with name 'fabric:/name' already exists, its Type is 'TypeName' a
 
 This usually relates to the `Override Upgrade Behavior` setting being incorrect. We suggest you either change the setting or use a custom SF deployment script such
 as [this](https://github.com/OctopusDeploy/Calamari/blob/4a7a5d2b571246181701e743939f635905ef5d84/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1) (preferred).
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
+

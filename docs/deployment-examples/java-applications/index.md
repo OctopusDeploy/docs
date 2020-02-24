@@ -361,3 +361,8 @@ Now local testing is done against a valid properties file, while the main `appli
 ## Error Messages
 
 The Java deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Please see the [error codes and troubleshooting](/docs/deployment-examples/java-applications/error-messages.md) page for more details.
+
+
+## Learn more
+
+- Generate an Octopus guide for [Java and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Java).

@@ -20,3 +20,7 @@ We made this configurable by variables in **Octopus 2018.5.5** to be more flexib
 With this value set, Octopus Deploy will not load the bundled Azure PowerShell modules, and PowerShell will automatically load the Azure modules installed on the Octopus Server.
 
 Now Octopus will attempt to load these modules when executing an Azure step, rather than the version bundled with Octopus.
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).

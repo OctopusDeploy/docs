@@ -109,3 +109,8 @@ So your step will appear as:
 At this point you should have a working Blue-Green deployment process for your Azure Web App.
 
 ![](azure-web-app-with-slots-process.png)
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
+

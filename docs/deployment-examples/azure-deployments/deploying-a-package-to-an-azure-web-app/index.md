@@ -92,3 +92,8 @@ The example we've discussed here is the most common scenario for deploying Azure
 
 Octopus currently uses web deploy for azure web app deployments, which requires you to disable the SCM endpoint in order for deployments to work for linux web apps. In order to achieve this the `WEBSITE_WEBDEPLOY_USE_SCM` app setting should be
 to the Azure portal with a value of `false`. If you have multiple slots, this setting needs to be applied for each slot. If you do not add this setting, web deploy will be unable to find the appropriate endpoint for deployment.
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
+

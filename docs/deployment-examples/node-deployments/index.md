@@ -13,3 +13,7 @@ With Octopus Deploy and Node you can:
  - Register your app with process managers like StrongLoop, PM2, Forever, and SystemD to start, stop, or monitor your Node application.
  - Deploy your applications to Windows and Linux deployment targets.
  - Create custom deployment scripts with Bash, PowerShell, and Python.
+
+## Learn more
+
+- Generate an Octopus guide for [Node and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Node.js).
