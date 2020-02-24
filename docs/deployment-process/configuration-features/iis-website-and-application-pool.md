@@ -8,3 +8,7 @@ The IIS Web Site and Application Pool feature is one of the [configuration featu
 The **IIS Web Site and Application Pool** feature is available on **deploy a package** steps, however, there is also a **Deploy to IIS** step which offers the same features and is designed specifically for IIS deployments.
 
 See [IIS Websites and Applications](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
+
+## Learn more
+
+- Generate an Octopus guide for [IIS and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=IIS).
