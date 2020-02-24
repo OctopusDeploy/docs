@@ -68,6 +68,15 @@ The **Octopus Web Portal** is worker pool aware.  If you haven't configured pool
 
 Cloud targets can set their own default pool.  If a step is targeted at a cloud target and the worker pool for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers.
 
+## Variables
+
+When a step is run on a worker, the following variables are available:
+
+| Name and Description | Example |
+| -------------------- | ------------------------|
+| **`Octopus.WorkerPool.Id`** <br/> The Id of the pool | WorkerPools-1 |
+| **`Octopus.WorkerPool.Name`** <br/> The name of the pool | Default Worker Pool |
+
 ## Workers Q&A
 
 *I've added only a single worker to the default pool, won't that machine get overworked?*

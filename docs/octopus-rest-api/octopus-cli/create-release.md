@@ -230,7 +230,7 @@ If you want to use a specific version of a package for `StepA`, and the latest v
 octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-The example above will use `1.0.3` for `StepA`, and the latest version available at the moment for `StepB`.
+The example above will use `1.0.1` for `StepA`, and the latest version available at the moment for `StepB`.
 
 For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages
 )), the format `StepName:PackageName:Version` can also be used:  
