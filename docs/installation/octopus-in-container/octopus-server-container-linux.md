@@ -96,3 +96,8 @@ $ docker run --interactive \
 ```
 
 The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
+
+## Learn more
+
+ - [Docker blog posts](http://octopus.com/blog/tag/docker)
+ - [Linux blog posts](https://octopus.com/blog/linux)

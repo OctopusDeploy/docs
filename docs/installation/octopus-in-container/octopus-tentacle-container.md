@@ -57,3 +57,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |  Name       |    |
 | ------------- | ------- |
 |**C:\Applications**|Default directory to deploy applications to|
+
+## Learn more
+
+ - [Docker blog posts](http://octopus.com/blog/tag/docker)

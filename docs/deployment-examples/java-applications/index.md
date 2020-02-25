@@ -365,4 +365,5 @@ The Java deployment steps include a number of unique error codes that may be dis
 
 ## Learn more
 
-- Generate an Octopus guide for [Java and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Java).
+- Generate an Octopus guide for [Java, Tomcat, and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Java&destination=Tomcat).
+- [Java blog posts](http://octopus.com/blog/tag/java)

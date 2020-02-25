@@ -197,3 +197,8 @@ When creating a network or container, the name and Id as simply echoed to the st
 In the case of our simple scenario above, the final step should display the IP address of the containers, within the bound of the subnet specified by the configured network, as well as a line from the second container's ping command showing connectivity to the first container.
 
 ![](images/5865802.png)
+
+
+## Learn more
+
+ - [Docker blog posts](http://octopus.com/blog/tag/docker)

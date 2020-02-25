@@ -2,6 +2,7 @@
 title: Docker Containers
 description: Octopus allows you to treat Docker images as immutable build artifacts that are moved through each stage of deployment by running them as containers with deploy-time specific configuration.
 position: 60
+hideInThisSectionHeader: true
 ---
 
 **Octopus 3.5** introduced steps to perform the the first basic docker steps that are available with the installation of the docker engine
@@ -25,4 +26,9 @@ The Octopus concepts of feeds, packages and versions can be mapped to the Docker
 
 ![](images/5865808.png)
 
-Learn about [Docker Registries as Feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md) and [Accessing Container Details](/docs/deployment-examples/docker-containers/accessing-container-details.md).
+
+## Learn more
+
+ - [Docker blog posts](http://octopus.com/blog/tag/docker)
+ - [Docker Registries as Feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md)
+ - [Accessing Container Details](/docs/deployment-examples/docker-containers/accessing-container-details.md)
