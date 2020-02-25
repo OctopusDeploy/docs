@@ -33,3 +33,7 @@ Whenever you are using an Azure step template, once you've selected an account i
 
 ## Calamari and Deployments
 When a deployment executes, the values for the environment and endpoints will be passed to Calamari if they have been overridden (i.e. they aren't blank).  You will be able to see the values if you have [OctopusPrintVariables set to true](/docs/support/debug-problems-with-octopus-variables.md#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog) and Calamari will also always log an information message to tell you if it's using overridden values and what they are.
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites)

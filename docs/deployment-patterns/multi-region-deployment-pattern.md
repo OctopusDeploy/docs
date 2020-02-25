@@ -76,3 +76,7 @@ You do give up the advantage of enforcing the order in which you deploy your app
 ## Conclusion {#Multi-regiondeploymentpattern-Conclusion}
 
 [Environments](/docs/infrastructure/environments/index.md), [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) and [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md) can be used to model multi-region deployments in Octopus, but each different choice is optimized to a particular style of situation. Choose the one that suits your needs best!
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

@@ -73,3 +73,7 @@ At some point in time you may want to disable untenanted deployments and require
 ## Next Steps {#Deployingasimplemulti-tenantproject-Nextsteps}
 
 Now that we can deploy the **Mojo** project to your tenant, we need to make sure it is configured correctly for each tenant - we are going to [start working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

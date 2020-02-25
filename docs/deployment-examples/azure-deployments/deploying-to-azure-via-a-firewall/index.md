@@ -44,3 +44,7 @@ If you need to add firewall exclusions to a whitelist, here are a few things to 
 - Configure a whitelist from the Octopus Server to the appropriate IP Address Ranges.
 
 Download the latest list of IP Address Ranges from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653) (updated weekly).
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).

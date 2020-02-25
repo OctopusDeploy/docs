@@ -50,3 +50,7 @@ In this case, the machine **SWeb01** has been found and included in the rest of 
 ![](images/5866100.png)
 
 Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

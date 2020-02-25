@@ -32,6 +32,11 @@ The window size controls how many deployment targets can be deployed to at once.
 - A window size of 1 will deploy to a single deployment target at a time. Octopus will wait for the step to finish running on deployment target A before starting on deployment target B
 - A window size of 3 will deploy to a three deployment targets at a time. Octopus will wait for the step to finish running on deployment targets A, B *or* C before starting on deployment target D
 
+:::hint
+**Window size with Octopus.Action.MaxParallelism**
+If you include the variable `Octopus.Action.MaxParallelism` in your Project with a value higher than your **Window size** set in a rolling deployment, you will find the `Octopus.Action.MaxParallelism` value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. A warning will also be printed in the Task Log.
+:::
+
 ## Child Steps {#Rollingdeployments-Childsteps}
 
 Rolling deployments allow you to wait for a step to finish on one deployment target before starting the step on the next deployment target. But what if you need to perform a series of steps on one target, before starting that series of steps on the next target? To support this, Octopus allows you to create **Child Steps**.
@@ -83,3 +88,7 @@ This five minute video (with captions) will guide you through setting up a rolli
     b. **Retry** the deployment to `Web02` as if the failure never happened.
     c. **Ignore** the error as if it never happened.
     d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

@@ -146,3 +146,7 @@ Now you can create standard Octopus [user accounts](/docs/administration/managin
 ## Next Steps
 
 It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customized to suit different scenarios.
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

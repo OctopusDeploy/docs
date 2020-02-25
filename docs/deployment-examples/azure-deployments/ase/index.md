@@ -40,3 +40,8 @@ Usually when you create a web app in Azure its name must be unique. This isn't t
 This is the reason why you see a resource group and a web app name when using binding on the Octopus Web App step, we need the resource group to differentiate web apps with the same name. When you aren't using binding the drop down list is doing this too behind the scenes.
 
 This is also why using a [principal of least privilege on a Service Principal](/docs/infrastructure/deployment-targets/azure/index.md#note_on_lease_privilege) is a little complicated.
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
+

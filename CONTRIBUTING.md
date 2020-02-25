@@ -20,6 +20,7 @@ Before we can accept your contribution, you need you to sign the [Contribution L
   - [Using and Defining Includes](#using-and-defining-includes)
   - [Reusing Content in Multiple Docs](#reusing-content-in-multiple-docs)
   - [Redirects](#redirects)
+  - [Linking to the Octopus Guides](#linking-to-the-octopus-guides)
 - [Working With the Content](#working-with-the-content)
   - [Table of Contents](#table-of-contents)
   - [Headings](#headings)
@@ -180,6 +181,29 @@ docs/page1.md -> docs/page2.md
 In the above example, `/docs/page1` is redirected to `/docs/page2`.
 
 Add your redirect to the end of the file, after the redirect is added, the original file (`page1`) needs to be deleted from the repo.
+
+## Linking to the Octopus Guides
+
+The Octopus Guides combine content to allow users to specify their entire CI/CD pipeline. It is sometimes helpful to link to the guides, with specific options predefined, rather than the default options.
+
+You can create the links to use by adding query parameters to the URL for the guides:
+
+- Application: add `?application=PHP`:
+    https://www.octopus.com/docs/guides?application=PHP
+- Build server: add `?build-server=jenkins`:
+    https://www.octopus.com/docs/guides?buildServer=Jenkins
+- Source control: `sourceControl=TFVC`:
+    https://octopus.com/docs/guides?sourceControl=TFVC
+- Package repository: `?packageRepository=Artifactory`:
+    https://octopus.com/docs/guides?packageRepository=Artifactory
+- Destination: `?destination=NGINX`
+    https://octopus.com/docs/guides?destination=NGINX
+
+If you'd like to pre-fill more than one option, add multiple queries parameters to the URL:
+
+https://octopus.com/docs/guides?application=PHP&buildServer=TeamCity&destination=NGINX
+
+
 
 ## Working With the Content
 
@@ -476,3 +500,4 @@ Just go to http://htmlarrows.com/symbols/
 ## More Information
 
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+

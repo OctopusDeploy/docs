@@ -93,3 +93,7 @@ The verbose logs usually contain the reason why a project trigger didn't take an
 ## Next Steps {#Keepingdeploymenttargetsuptodate-Nextsteps}
 
 With machines now being kept up to date automatically you may be interested in [cleaning up environments](/docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md) to automatically remove machines when they are terminated.
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

@@ -294,3 +294,7 @@ The following JSON objects are real outputs from docker inspect commands to prov
     }
 ]
 ```
+
+## Learn more
+
+ - [Docker blog posts](http://octopus.com/blog/tag/docker)

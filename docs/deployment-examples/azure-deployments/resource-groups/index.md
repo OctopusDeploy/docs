@@ -156,3 +156,8 @@ Please be aware that the URI you configure for the linked templates and paramete
 
 Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates) and refer to [this discussion](http://help.octopus.com/discussions/questions/7652-azure-resource-management-templates) for more details.
 :::
+
+## Learn more
+
+- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
+

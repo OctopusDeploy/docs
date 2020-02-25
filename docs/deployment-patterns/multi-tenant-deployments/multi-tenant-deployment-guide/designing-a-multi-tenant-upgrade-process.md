@@ -198,3 +198,7 @@ Find a tenant you want to pin and apply the **Upgrade ring/Pinned** tag, removi
 ## Next Steps {#Designingamulti-tenantupgradeprocess-Nextsteps}
 
 Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

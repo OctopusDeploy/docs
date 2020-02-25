@@ -107,3 +107,7 @@ $release = $repository.Projects.GetReleases($project).Items | Select-Object -fir
 octo create-autodeployoverride --project "Hello World" --environment "Development" --version $release.Version --server $octopusURI --apiKey $apiKey
 
 ```
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

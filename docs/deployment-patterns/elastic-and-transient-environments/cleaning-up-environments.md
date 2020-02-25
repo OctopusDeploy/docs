@@ -44,3 +44,7 @@ Read more about [machine policies](/docs/infrastructure/deployment-targets/machi
 As of **Octopus 2018.1**, machine clean up is part of health checks and machine clean up logs are not stored.  Machine clean up logging is written to the log of the health check task that performed the deletion.  Audit events recording the automatic clean up of machines can be accessed via the **{{Configuration,Diagnostics}}** page by selecting **Machine clean up events**, which redirects to the audit log of automatic machine removals.
 
 ![](images/deletion-audit.png)
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

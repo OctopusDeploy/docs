@@ -2,6 +2,7 @@
 title: Docker Registries as Feeds
 description: A Docker Registry is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 position: 40
+hideInThisSectionHeader: true
 ---
 
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
@@ -77,3 +78,9 @@ Although a search feature is available in the v1 registry API, as of the time of
 If your Octopus Deploy instance is having problems trying to connect with your Docker Registry when running the **Save and Test** operation, it may failing due to reasons outside the control of Octopus Deploy.
 
 Try to connect to your registry directly through the browser from the same machine that Octopus is hosted on. Use the feed url you provided and ensure that either `/v1` or `/v2` is appended to the end of the path depending on what version of the Docker Registry API you are running. If the connection is valid then you should receive a `200` response, possibly receiving a user auth challenge (see API details above under [Docker Registry API version discovery](#DockerRegistriesasFeeds-VersionDiscovery)). If this does not occur then you may be having issues with your registry or network which you may need to fix before using through Octopus Deploy.
+
+## Learn more
+
+ - Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
+ - [Docker blog posts](http://octopus.com/blog/tag/docker).
+ - [Linux blog posts](https://octopus.com/blog/linux).

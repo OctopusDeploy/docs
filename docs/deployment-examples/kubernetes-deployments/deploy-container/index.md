@@ -883,3 +883,7 @@ The values assigned to these variables will then be used to generate the names o
 * `#{Octopus.Action.KubernetesContainers.SecretName}-#{Octopus.Deployment.Id | ToLower}`
 
 For example, to change the name assigned to the ConfigMap resource to include the time of deployment instead of the deployment ID, you can set the `Octopus.Action.KubernetesContainers.ConfigMapNameTemplate` variable to `#{Octopus.Action.KubernetesContainers.ConfigMapName}-#{ | NowDate "HH-mm-ss-dd-MMM-yyyy" | ToLower}`
+
+## Learn more
+
+- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes).

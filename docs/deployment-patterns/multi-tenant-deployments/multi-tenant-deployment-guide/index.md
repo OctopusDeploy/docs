@@ -15,3 +15,7 @@ Multi-tenant deployments are an advanced pattern, and this guide assumes you are
 If you'd like to play with a fully-fledge sample, we've built a tool that will will build up an entire multi-tenant scenario in your Octopus Server using the API with as many projects and tenants you would like.
 
 Download: [Octopus.Sampler.1.0.0.zip](https://github.com/OctopusDeploy/Sampler/releases/tag/1.0.0)
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

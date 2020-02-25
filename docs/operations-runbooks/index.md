@@ -105,3 +105,7 @@ Learn about using the [Octopus REST API](/docs/octopus-rest-api/index.md).
 :::success
 Record the HTTP requests made by the Octopus UI to see how we build your runbook processes using the Octopus API. You can do this in the Chrome developer tools, or using a tool like Fiddler.
 :::
+
+## Learn more
+
+ - [Runbook blog posts](http://octopus.com/blog/tag/runbooks).

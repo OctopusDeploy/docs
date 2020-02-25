@@ -16,10 +16,14 @@ OctoFX has become so popular that additional servers are required to manage peak
 
 ### Intermittent Connectivity {#ElasticandTransientEnvironments-Intermittentconnectivity}
 
-OctoFX is being deployed to trading desks in offices around the world.  Occasionally, unbeknownst to the deployment team, the machines that host OctoFX are taken down for maintenance. OctoFX must be kept up to date when a machine comes back online.
+OctoFX is being deployed to trading desks in offices around the world.  Occasionally, unknown to the deployment team, the machines that host OctoFX are taken down for maintenance. OctoFX must be kept up to date when a machine comes back online.
 
 ## Elastic and Transient Environment Features {#ElasticandTransientEnvironments-ElasticandTransientEnvironmentfeatures}
 
 - Automatically keep deployment targets up to date with the latest releases.
 - Automatically reflect infrastructure changes in your environments.
 - Deploy to environments where deployment target status may change during the deployment.
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).

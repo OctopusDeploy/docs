@@ -378,6 +378,14 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 |`Octopus.Tentacle.Agent.ProgramDirectoryPath` <br/>The directory containing the agent's own executables | *C:\Program Files\Octopus Deploy\Tentacle*|
 |`Octopus.Agent.ProgramDirectoryPath` <br/>The directory containing either the server or Tentacle's executables depending on which the step being executed on | *C:\Program Files\Octopus Deploy\Octopus*|
 
+## Worker Pool {#Systemvariables-WorkerPool}
+
+When a step is run on a worker, the following variables are available:
+
+| Name and Description | Example |
+| -------------------- | ------------------------|
+| **`Octopus.WorkerPool.Id`** <br/> The Id of the pool | WorkerPools-1 |
+| **`Octopus.WorkerPool.Name`** <br/> The name of the pool | Default Worker Pool |
 
 ## Server {#Systemvariables-Server}
 

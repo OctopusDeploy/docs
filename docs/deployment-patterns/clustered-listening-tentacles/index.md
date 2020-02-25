@@ -140,3 +140,7 @@ In a few minutes your new Tentacle cluster will appear as healthy in the Octopus
 ![](images/server-targethealthy.jpg)
 
 Congratulations! You have successfully configured an active/passive server cluster using Octopus Tentacles.
+
+## Learn more
+
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
