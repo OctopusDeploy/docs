@@ -4,9 +4,7 @@ description: Octopus CLI installation
 position: 0
 ---
 
-Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This lets you install the Octopus CLI onto machine or build agent as long as you have the .NET Core `2.1.300` SDK available.
-
-The SDK version must be 2.1300, if you use a later version, the tool will complain you have an incorrect version installed.
+Microsoft introduced the ability to install tools using the .NET Core CLI called [Global Tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This lets you install the Octopus CLI onto machine or build agent as long as you have the .NET Core SDK available.
 
 ## Specific Location
 A local installation can be done into a specified location using the `--tool-path` parameter.
