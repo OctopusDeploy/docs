@@ -77,3 +77,7 @@ which results in the server retrieving that file, at the end of that step. Keep 
 **Environment Variable Differences**
 Due to the different platform, some environment variables available on a windows machine will either be named differently or possibly non-existent on other platforms. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
 :::
+
+## Learn more
+
+- [Linux blog posts](https://www.octopus.com/blog/tag/linux)

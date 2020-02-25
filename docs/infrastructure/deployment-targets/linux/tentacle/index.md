@@ -2,6 +2,7 @@
 title: Linux Tentacle
 description: Configuring Linux Tentacle deployment targets in Octopus.
 position: 20
+hideInThisSectionHeader: true
 ---
 
 ## Requirements
@@ -190,3 +191,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
 !include <quickstart-fedora>
 
 !include <quickstart-archive>
+
+## Learn more
+
+- [Linux blog posts](https://www.octopus.com/blog/tag/linux)

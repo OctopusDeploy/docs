@@ -101,3 +101,8 @@ Headers           : {[Date, System.String[]], [Server, System.String[]], [X-Fram
 RawContentLength  : 0
 RelationLink      : {}
 ```
+
+ ## Learn more
+
+ - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
+ - [PowerShell blog posts](https://www.octopus.com/blog/powershell)

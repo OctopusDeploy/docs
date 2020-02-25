@@ -254,4 +254,5 @@ See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/d
 
 ## Next
 
-Learn more about [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md) with Octopus.
+- Learn more about [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md) with Octopus
+- [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)

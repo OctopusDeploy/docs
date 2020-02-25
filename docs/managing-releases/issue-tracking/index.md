@@ -12,3 +12,7 @@ For an overview of the integration, the features these integrations enable, and 
  - [Jira Integration](/docs/managing-releases/issue-tracking/jira.md)
  - [GitHub Integration](/docs/managing-releases/issue-tracking/github.md)
  - [Azure DevOps Integration](/docs/managing-releases/issue-tracking/azure-devops.md)
+
+ ## Learn more
+
+ - [Jira blog posts](https://www.octopus.com/blog/tag/jira)

@@ -12,4 +12,5 @@ Kubernetes targets are used by the Kubernetes steps to define the context in whi
 
 ## Learn more
 
-- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes).
+- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
+- [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)

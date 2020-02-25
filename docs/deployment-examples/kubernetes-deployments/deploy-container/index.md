@@ -886,4 +886,5 @@ For example, to change the name assigned to the ConfigMap resource to include th
 
 ## Learn more
 
-- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes).
+- Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
+- [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)

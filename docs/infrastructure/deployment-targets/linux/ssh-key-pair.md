@@ -78,3 +78,7 @@ Due to the number and configurable nature of the various Linux distributions ava
 - [ssh-keygen man page](https://linux.die.net/man/1/ssh-keygen).
 - [sshd\_config man page (ubuntu)](http://manpages.ubuntu.com/manpages/zesty/en/man5/sshd_config.5.html).
 - Great intro SSH keygen articles from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2), [GitHub](https://help.github.com/articles/connecting-to-github-with-ssh/) or [Atlassian](https://confluence.atlassian.com/display/STASH/Creating+SSH+keys).
+
+## Learn more
+
+- [Linux blog posts](https://www.octopus.com/blog/tag/linux)

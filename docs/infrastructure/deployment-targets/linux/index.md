@@ -2,6 +2,7 @@
 title: Linux Targets
 description: Configuring Linux servers as deployment targets in Octopus.
 position: 20
+hideInThisSectionHeader: true
 ---
 
 Linux servers can be configured as [Deployment Targets](/docs/infrastructure/deployment-targets/index.md) in Octopus.   
@@ -85,3 +86,7 @@ Learn more about health checks and [machine policies](/docs/infrastructure/deplo
 ## Running Scripts on SSH Endpoints
 
 You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
+
+## Learn more
+
+- [Linux blog posts](https://www.octopus.com/blog/tag/linux)

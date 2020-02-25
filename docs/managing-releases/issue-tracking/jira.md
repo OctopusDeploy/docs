@@ -168,3 +168,7 @@ Without this, Octopus will not attempt to update Jira issues.
 The following illustrates Octopus attempting to send an _in_progress_, and then a _successful_, state change to Jira. In this example, Octopus was unable to connect to Jira or send the state change, however, this does not impact the Octopus deployment itself, the deployment will still be considered a successful deployment.
 
 ![Deployment task log with warnings](images/deploy-task-log.png)
+
+ ## Learn more
+
+ - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
