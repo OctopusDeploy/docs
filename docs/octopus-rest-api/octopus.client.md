@@ -100,11 +100,6 @@ If you don't want to provide an API key for authentication, you can leave it out
 await client.Repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
-:::success
-**OctoPosh**
-Also see the [OctoPosh ](https://github.com/Dalmirog/OctoPosh)project, which provides PowerShell commandlet wrappers around Octopus.Client
-:::
-
 ## Working With Resources {#Octopus.Client-Workingwithresources}
 
 Resources can be loaded and saved with code like the following:
