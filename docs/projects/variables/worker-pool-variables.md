@@ -16,4 +16,4 @@ For instructions to set up worker pools in Octopus, see [worker pool](/docs/infr
 
 ## Learn more
 
-- [Variable blog posts](https:www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

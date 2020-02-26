@@ -39,4 +39,4 @@ Prompted variables can be combined with [sensitive variables](/docs/projects/var
 
 ## Learn more
 
-- [Variable blog posts](https:www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

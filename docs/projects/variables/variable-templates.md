@@ -38,4 +38,4 @@ By carefully designing your variable templates you can implement complex multi-t
 
 ## Learn more
 
-- [Variable blog posts](https:www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
