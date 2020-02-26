@@ -1,23 +1,21 @@
 ---
-title: Octopus Deploy Server Container Linux
+title: Octopus Deploy Server Linux Container
 description: An Octopus Deploy Server instance can be run directly from within a container.
 position: 1
 ---
 
 If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Deploy Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
 
+**Octopus Deploy Linux Containers are part of our Early Access Program (EAP) and may contain bugs or be unstable.**
+
+Note: When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+
 Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance, and upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
 Although there are a few different configuration options, the following is a simple example of starting an Octopus Deploy server container:
 
 ```Bash
-$ docker run --interactive 
-             --detach
-             --name OctopusDeploy \
-             --publish 1322:8080 \
-             --env ACCEPT_EULA="Y" \
-             --env DB_CONNECTION_STRING="..." \
-             octopusdeploy/octopusdeploy:2019.13.4
+$ docker run --interactive --detach --name OctopusDeploy --publish 80:8080 --env ACCEPT_EULA="Y" --env DB_CONNECTION_STRING="..." octopusdeploy/octopusdeploy:2019.13.4
 ```
 
 We run in detached mode with `--detach` to allow the container to run in the background.
@@ -26,7 +24,7 @@ The `--interactive` argument ensures that `STDIN` is kept open which is required
 
 Setting `--name OctopusServer` gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
 
-Using `--publish 1322:8080` maps the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
+Using `--publish 80:8080` maps the _container port_ `8080` to `80` on the host so that the Octopus instance is accessible outside this sever.
 
 To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
@@ -86,13 +84,7 @@ Similar to moving an instance, to perform the container upgrade you will need th
 When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the master key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values:
 
 ```bash
-$ docker run --interactive \
-             --detach \
-             --name OctopusServer \
-             --publish "1322:8080" \
-             --env DB_CONNECTION_STRING="..." \
-             --env MASTER_KEY "5qJcW9E6B99teMmrOzaYNA==" \
-             octopusdeploy/octopusdeploy:2019.13.4
+$ docker run --interactive --detach --name OctopusServer --publish 80:8080 --env DB_CONNECTION_STRING="..." --env MASTER_KEY "5qJcW9E6B99teMmrOzaYNA==" octopusdeploy/octopusdeploy:2019.13.4
 ```
 
 The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
