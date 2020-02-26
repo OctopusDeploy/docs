@@ -233,3 +233,7 @@ The filters can be invoked in the following way:
 ```
 
 For more information, see [Variable Filters](https://octopus.com/docs/projects/variables/variable-filters).
+
+## Learn more
+
+- [Variable blog posts](https:www.octopus.com/blog/tag/variables)

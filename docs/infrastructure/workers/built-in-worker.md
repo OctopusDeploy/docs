@@ -73,3 +73,8 @@ Note that [some steps](/docs/infrastructure/workers/index.md#Where-steps-run) ru
 ## Troubleshooting
 
 You cannot run the Octopus Server as the `Local System` account and successfully launch the built-in worker as a different user account. Please use the `--auto-configure` option, or create a user account as a member of the `BUILTIN\Administrators` group.
+
+## Learn more
+
+- [Worker blog posts](https://www.octopus.com/blog/tag/workers) 
+

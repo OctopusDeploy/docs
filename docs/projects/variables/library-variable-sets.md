@@ -53,3 +53,7 @@ You can use the following advanced filters to refine the result of the audit tra
 - Users.
 - Projects.
 - Environments.
+
+## Learn more
+
+- [Variable blog posts](https:www.octopus.com/blog/tag/variables)

@@ -57,7 +57,7 @@ You can use scripts to create Azure Service Principal Accounts, Azure Web Apps, 
 
 Learn about [Managing resources with scripts](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
 
-## See Also
+## Learn more
 
  - [Machine Policies](/docs/infrastructure/deployment-targets/machine-policies.md)
  - [Proxy Support](/docs/infrastructure/deployment-targets/proxy-support.md)

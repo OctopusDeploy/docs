@@ -98,3 +98,7 @@ With the [Spaces](/docs/administration/spaces/index.md) feature of Octopus Deplo
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 
 Not yet.  At the moment, the only time an exclusive lease is taken out is if a Tentacle upgrade runs on a worker.  We are thinking about features that allow exclusive access for deployments.
+
+## Learn more
+
+- [Worker blog posts](https://www.octopus.com/blog/tag/workers) 

@@ -2,6 +2,7 @@
 title: NGINX Web Server deployments
 description: This guide covers everything you need to configure NGINX on Linux for your web applications
 position: 110
+hideInThisSectionHeader: true
 ---
 
 In our continuing journey to expand Octopus Deploys capabilities beyond the Microsoft world, it's now easier to configure [NGINX](https://www.nginx.com/) as a web server on Linux based targets to proxy requests to your web application or serve static content from the file system.

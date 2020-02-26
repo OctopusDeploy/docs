@@ -448,3 +448,7 @@ The following variables can be defined as variables in your project to modify th
 |`OctopusSuppressDuplicateVariableWarning` <br/>Set to `true` to have the duplicate variable message logged as verbose instead of warning. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**  (available in version 3.17.0+) | True|
 |`Octopus.Action.Package.RunScripts`  <br/>Set to `false` to prevent scripts inside packages from executing. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**  (available in version 4.1.10+) | True|
 |`Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`  <br/>Set to a file-path and the Calamari working directory will be copied to the configured location. **Copied files include the one-time key to decrypt sensitive variables** [More details.](/docs/support/copy-working-directory.md) | `c:\temp\octopus-debug`|
+
+## Learn more
+
+- [Variable blog posts](https:www.octopus.com/blog/tag/variables)

@@ -41,3 +41,7 @@ For example, to access the certificate thumbprint in a PowerShell script:
 ```powershell
 Write-Host $OctopusParameters["MyCertificate.Thumbprint"]
 ```
+
+## Learn more
+
+- [Variable blog posts](https:www.octopus.com/blog/tag/variables)

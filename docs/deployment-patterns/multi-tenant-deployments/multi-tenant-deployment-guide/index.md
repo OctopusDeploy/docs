@@ -2,6 +2,7 @@
 title: Multi-tenant Deployment Guide
 description: Introduce multi-tenant deployments in Octopus, starting with simple scenarios, then incorporating more complex capabilities over time.
 position: 0
+hideInThisSectionHeader: true
 ---
 
 This guide will introduce you to multi-tenant deployments in Octopus, starting with simple scenarios, then incorporating more complex capabilities over time.

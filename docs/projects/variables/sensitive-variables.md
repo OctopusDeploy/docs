@@ -91,3 +91,7 @@ Or watch the things you gave your life to, *******en
 ```
 
 The obvious solution is, don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.
+
+## Learn more
+
+- [Variable blog posts](https:www.octopus.com/blog/tag/variables)
