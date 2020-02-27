@@ -5,7 +5,7 @@ description: How to install the central Octopus Deploy Server.
 hideInThisSection: true
 ---
 
-The Octopus Deploy Server is available as a self-hosted instance that you install and manage on your infrastructure. This section walks you through installing the **self-hosted** Octopus Deploy Server. If you're looking for **Octopus Cloud**, see [Octopus Cloud](/docs/octopus-cloud/index.md).
+!include <octopus-deploy-server>
 
 ## Download the Octopus installer {#downloads}
 
