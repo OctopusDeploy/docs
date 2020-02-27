@@ -11,7 +11,9 @@ For examples of the `pack` command in use, see [Create Packages with the Octopus
 **pack options**
 
 ```text
-Usage: Octo pack [<options>]
+Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj.
+
+Usage: octo pack [<options>]
 
 Where [<options>] is any of:
 

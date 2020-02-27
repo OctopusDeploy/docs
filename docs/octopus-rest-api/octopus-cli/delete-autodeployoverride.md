@@ -9,7 +9,9 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to d
 Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
-Usage: Octo delete-autodeployoverride [<options>]
+Delete auto deploy release overrides.
+
+Usage: octo delete-autodeployoverride [<options>]
 
 Where [<options>] is any of:
 
@@ -77,8 +79,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
