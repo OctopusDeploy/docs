@@ -83,7 +83,7 @@ If you've had any problems with the installation, review the [troubleshooting pa
 
 ## Learn more
 
- - [Configure your Infrastructure](/docs/infrastructure/index.md)
- - [Upgrading Guide](/docs/administration/upgrading/index.md).
- - [Automating Octopus Installation](/docs/installation/automating-installation.md)
- - [Troubleshooting the Octopus Installation](/docs/installation/troubleshooting.md).
+ - [Configure your infrastructure](/docs/infrastructure/index.md)
+ - [Upgrading guide](/docs/administration/upgrading/index.md).
+ - [Automating Octopus installation](/docs/installation/automating-installation.md)
+ - [Troubleshooting the Octopus installation](/docs/installation/troubleshooting.md).

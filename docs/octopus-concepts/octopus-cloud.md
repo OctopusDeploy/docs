@@ -3,8 +3,6 @@ title: Octopus Cloud
 description: Octopus Cloud is the hosted version of Octopus Deploy.
 ---
 
-!include <octopus-deploy-server>
-
 !include <octopus-cloud>
 
 ## Learn more
