@@ -8,7 +8,7 @@ description: The Octopus Deploy Server provides the REST API and the Octopus Web
 ## Learn more
 
 - [Install the self-hosted Octopus Server](/docs/installation/index.md)
-- [Octopus Cloud](/docs/octopus-cloud.md)
-- [Octopus REST API](/docs/octopus-rest-api.md)
+- [Octopus Cloud](/docs/octopus-cloud/index.md)
+- [Octopus REST API](/docs/octopus-rest-api/index.md)
 - [Deployment process](/docs/deployment-process/index.md)
 - [Operations Runbooks](/docs/operations-runbooks/index.md)
