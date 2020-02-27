@@ -1,5 +1,5 @@
 ---
-title: Octopus concepts
+title: Octopus Concepts
 description: Octopus concepts it will be helpful to understand as you design deployment process,  and manage your releases and operations processes.
 hideInThisSectionHeader: true
 position: 5
