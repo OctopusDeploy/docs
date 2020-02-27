@@ -8,7 +8,7 @@ If you want to run an Octopus Deploy Linux container, please refer to the [Octop
 
 Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
-Although there are a few different configuration options, a simple example of starting up an Octopus Deploy server container is as follows:
+Although there are a few different configuration options, a simple example of starting up an Octopus Deploy Server container is as follows:
 
 ```PowerShell
 docker run --interactive 

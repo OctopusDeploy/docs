@@ -6,15 +6,8 @@ hideInThisSectionHeader: true
 ---
 
 !include <octopus-cloud>
-<!-- 
-## Getting Started with Octopus Cloud {#OctopusCloud-GettingStarted}
 
-<a href="https://octopus.com/register" class="btn btn-lg btn-primary">
-    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAxOTIgMTkyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE5MnYtMTkyaDE5MnYxOTJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTk2LDMyYy0yMi4zNzI3MywwLjAyMTggLTQyLjg3NTA3LDEyLjQ4OTQ0IC01My4xODc1LDMyLjM0Mzc1Yy0yNC4zMzQ2LDIuNjQ1MzggLTQyLjc4MDU3LDIzLjE3ODMgLTQyLjgxMjUsNDcuNjU2MjVjMCwyNi41MDk2NyAyMS40OTAzMyw0OCA0OCw0OGgxMDRjMjIuMDkxMzksMCA0MCwtMTcuOTA4NjEgNDAsLTQwYy0wLjAyNDE1LC0yMS4wMDYzOSAtMTYuMjkzMywtMzguNDE1MiAtMzcuMjUsLTM5Ljg1OTM4Yy01LjY0MTIsLTI3Ljk3NzQ3IC0zMC4yMDk0OCwtNDguMTA5MDkgLTU4Ljc1LC00OC4xNDA2MnoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" style="margin: 0px; max-height: 20px; margin-right: 7px; vertical-align: text-top; display: inline-block;" alt="Cloud icon"/>
-    Start free trial
-</a> -->
-
-## Create an Octopus Account
+## Create an Octopus account
 
 An Octopus account lets you manage your instances of Octopus Cloud.
 :::hint
@@ -26,7 +19,7 @@ Skip the steps below by registering with your Google or Microsoft account.
 1. On the next screen, verify your email address.
 1. After your email has been verified, you will be logged into your Octopus account.
 
-## Create a Cloud Instance
+## Create a cloud instance
 
 1. From the **products** screen, click **Start a free 30-day Cloud trial**.
 1. Enter an **instance name** for your Octopus Cloud instance.
@@ -37,7 +30,7 @@ You will be taken to the account provisioning screen. It will take a couple of m
 
 When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
 
-## Uploading packages to Octopus Cloud Servers
+## Uploading packages to Octopus Cloud servers
 
 Factors such as geographical distance, network bandwidth, and network congestion may cause package uploads to your Octopus Cloud Server to take longer than expected.
 
@@ -45,7 +38,7 @@ If you are having difficulty uploading packages to your Octopus built-in package
 
 In the near future, the Octopus Cloud will become available in additional regions and you'll have the ability to move between regions.
 
-## Reset the Octopus Account Password
+## Reset the Octopus account password
 
 If you forget your username or password for your Octopus account or Octopus instance, you can reset them via Octopus.com
 
@@ -54,7 +47,7 @@ If you forget your username or password for your Octopus account or Octopus inst
 1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
 
 
-## Reset the Instance User Password
+## Reset the instance user password
 :::hint
 This feature is [being deprecated.](https://Octopus.com/docs/administration/authentication/octopusid-authentication)
 :::
@@ -67,7 +60,7 @@ If you forget your username or password for the instance, you can request a **ne
 
 
 
-## Invite Users to your Octopus Cloud Instance {#OctopusCloud-Invitingusers}
+## Invite users to your Octopus Cloud instance {#OctopusCloud-Invitingusers}
 
 You can add new users to your Octopus Cloud instance from within your Octopus.com account. This feature is being rolled out gradually. If you have access to the invites feature, you will see invites in your instance panel. If you do not have access to this feature and would like access, please [contact support](https://octopus.com/support).
 
@@ -86,7 +79,7 @@ By default, all invitees will be added to the **Everyone** team within the Octop
 1. Select **Add Member**
 1. Click **Add** and then **Save**.
 
-## Set the Outage Window
+## Set the outage window
 
 In order to keep your instance of Octopus Cloud updated and running the latest version, we will occasionally need to take it offline to update the software. You can let us know the best time for this to occur by setting the outage window.
 
@@ -95,22 +88,22 @@ In order to keep your instance of Octopus Cloud updated and running the latest v
 1. Click the **Change outage window** link.
 1. Select the time in UTC, providing a window of at least two hours and click **Save outage window**.
 
-## Log in to Your Octopus Cloud Instance
+## Log in to your Octopus Cloud instance
 
 You can access your Octopus Cloud instance at the URL you defined during the registration process. Where \<yoururl\> is the part of the URL you provided:
 
 https://\<yoururl\>.octopus.app/app#/users/sign-in
 
-## Octopus Cloud Version
+## Octopus Cloud version
 
-We keep your instance of Octopus Cloud up to date and running the latest version of Octopus Deploy. To check which version your instance is running, log into the web portal, and click the dropdown menu that appears next to your name in the top right corner. The version is displayed at the top of the display.
+We keep your instance of Octopus Cloud up to date and running the latest version of Octopus Deploy. To check which version your instance is running, log into the Octopus Web Portal, and click the drop-down menu that appears next to your name in the top right corner. The version is displayed at the top of the display.
 
-## Change Your Password
+## Change your password
 
 To change your password for the Octopus instance and Octopus account:
 
 1. Go to [Octopus.com/signin](https://octopus.com/signin).
-1. Click the dropdown menu next to your username in the top right corner.
+1. Click the drop-down menu next to your username in the top right corner.
 1. Click profile.
 1. Click the **Change Password** link.
 1. Enter your new password.

@@ -66,9 +66,9 @@ sudo npm install pm2 -g
 
 ## Create and Push a Node.js Project {#create-and-push-node.js-project}
 
-In this section we will package and publish a Node.js application to your Octopus Deploy server from your development workstation.
+In this section we will package and publish a Node.js application to your Octopus Deploy Server from your development workstation.
 
-You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed on your development machine with an Octopus Deploy server instance available.
+You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed on your development machine with an Octopus Deploy Server instance available.
 
 The sample project for this guide is a Node.js app that hosts the [expressjs](http://expressjs.com/) web server to serve some static content as well as return config variables that will be used by the client. There are several npm modules that you can use in a Node.js process to package your project and push it to an Octopus Deploy instance.
 
@@ -223,7 +223,7 @@ Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module
 
 ## Publish Package {#Create&amp;PushNode.jsProject-PublishPackage}
 
-Next, publish the project package to the Octopus Deploy server with the following command:
+Next, publish the project package to the Octopus Deploy Server with the following command:
 
 ```bash
 npm run publish
@@ -245,7 +245,7 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 
 ### Configure Account and Target {#ConfigureOctopusDeployProject-ConfigureAccount&amp;Target}
 
-1. Navigate to **{{infrastructure,Accounts}}**, click **Add Account**, select **username/password** from the dropdown menu, and add the username credentials for the Linux deployment target you configured earlier.
+1. Navigate to **{{infrastructure,Accounts}}**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
 2. Navigate to **{{Infrastructure,Environments}}**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
 3. Enter the IP address of the machine that is accessible to the Octopus Server. *In our case below it's the public IP provided by Azure/AWS.*
 4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.

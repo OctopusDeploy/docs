@@ -9,7 +9,7 @@ version: 2019.1
 Spaces was introduced in the **Octopus 2019.1** fast lane release and was first available in a long-term support version with the **2019.3** release.
 :::
 
-With Spaces you can partition your Octopus Deploy server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
+With Spaces you can partition your Octopus Deploy Server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
 
 ## Spaces Creates Hard Walls in Your Octopus Server
 
@@ -22,7 +22,7 @@ Spaces keeps the different projects and infrastructure your teams work with comp
 
 On the other hand, if you need to keep resources available to multiple teams on a system-wide basis, spaces will prevent you from sharing those resources. If this is the case, the default space is likely the best solution for you and your teams.
 
-By default, every instance of Octopus server since **Octopus 2019.1** comes with a default space. However, if your organization is not planning to use multiple spaces, this default space can be safely ignored and doesn't require configuration or management.
+By default, every instance of Octopus Server since **Octopus 2019.1** comes with a default space. However, if your organization is not planning to use multiple spaces, this default space can be safely ignored and doesn't require configuration or management.
 
 ## Managing Spaces
 
@@ -78,7 +78,7 @@ You can delete spaces when you are the **space manager**. Deleting a space canno
 
 The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a version of Octopus that supports spaces. Enabled by default, its primary function is to provide an initial space for any existing resources. This also effectively hides the existence of spaces until you're ready to start using them.
 
-We create the default space when you install or upgrade your Octopus Deploy server. In the case of an upgrade, we put all of the space scoped resources (like Projects, Environment, etc) into this space. For new installations, anything you create will be added to the default space.
+We create the default space when you install or upgrade your Octopus Deploy Server. In the case of an upgrade, we put all of the space scoped resources (like Projects, Environment, etc) into this space. For new installations, anything you create will be added to the default space.
 
 If you don't want to think about spaces, just leave everything in the Default space!
 

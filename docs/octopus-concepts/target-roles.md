@@ -6,7 +6,7 @@ description: Target roles allow you to specify which deployment target (or targe
 
 Learn more about [target roles](/docs/infrastructure/deployment-targets/index.md#create-target-roles).
 
-## See also
+## Learn more
 
 - [Infrastructure](/docs/infrastructure/index.md)
 - [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)

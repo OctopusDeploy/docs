@@ -38,7 +38,7 @@ So in this example, all users in the _Octopus Administrators_ team (with a valid
 
 :::hint
 **Dates and Timezone**
-In this example, we have also configured the timezone dropdown so all dates shown in the emails will be in our preferred timezone.
+In this example, we have also configured the timezone drop-down so all dates shown in the emails will be in our preferred timezone.
 :::
 
 We can then hit _Save_ and this subscription will show up in our subscriptions list screen.

@@ -20,7 +20,7 @@ To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
 
 ## Runbooks vs Deployments
 
-For users familiar with Octopus prior to the introduction of runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
+For users familiar with Octopus prior to the introduction of Operations Runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
 
 - No release needs to be created to execute a runbook.
 - Lifecycles do not apply to runbooks.

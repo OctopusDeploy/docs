@@ -7,8 +7,8 @@ description: Projects are where you define the details of your deployments.
 
 Learn more about managing your [projects](/docs/projects/index.md).
 
-## See also
+## Learn more
 
-- [Deployment Process](/docs/deployment-process/index.md)
-- [Operations Runbooks](/docs/operations-runbooks/index.md)
-- [Release Management](/docs/managing-releases/index.md)
+- [Deployment processes](/docs/deployment-process/index.md)
+- [Runbooks](/docs/operations-runbooks/index.md)
+- [Release management](/docs/managing-releases/index.md)

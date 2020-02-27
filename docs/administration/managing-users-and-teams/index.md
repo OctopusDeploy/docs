@@ -6,15 +6,15 @@ position: 60
 
 Octopus Deploy provides the most value when it is used by your whole team. Developers and testers might be allowed to deploy specific projects to pre-production environments, but not production environments. Stakeholders might be permitted to view certain projects, but not modify or deploy them. To support these scenarios, Octopus supports a permissions system based around the concept of **Teams**.
 
-You can manage users from the **Users** tab under **Configuration** in the Octopus Deploy web portal.
+You can manage users from the **Users** tab under **Configuration** in the Octopus Web Portal.
 
-You can manage teams from the **Teams** tab under **Configuration** in the Octopus Deploy web portal.
+You can manage teams from the **Teams** tab under **Configuration** in the Octopus Web Portal.
 
 ![](images/teams.png)
 
 ## User and Service Accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus web portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/active-directory-authentication/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/active-directory-authentication/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
 [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
 

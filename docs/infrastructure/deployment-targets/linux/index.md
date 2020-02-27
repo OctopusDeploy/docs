@@ -48,14 +48,14 @@ See [accounts](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) fo
 
 Make sure the target server is accessible by the port you specify.
 
-The Octopus server will attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections.
+The Octopus Server will attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections.
 
 If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
 
 5. Give the target a name.
 6. Select which environment the deployment target will be assigned to.
 7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles).
-8. Select the account that will be used for the Octopus server and the SSH target to communicate.
+8. Select the account that will be used for the Octopus Server and the SSH target to communicate.
 9. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
 
 You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
@@ -77,7 +77,7 @@ Once the target is configured, Octopus will perform an initial health check. Hea
 
 If Calamari is not present or is out-of-date, a warning will be displayed, however, Calamari will be updated when it is next required by a task.
 
-If the SSH target is healthy, the version that is displayed is the version of the Octopus server instance.
+If the SSH target is healthy, the version that is displayed is the version of the Octopus Server instance.
 
 If the fingerprint changes after initial configuration, the next health check will update the fingerprint. If the fingerprint returned during the handshake is different to the value stored in the database, the new fingerprint will show up in the logs. If you aren't expecting a change and you see this error it could mean you have been compromised!
 

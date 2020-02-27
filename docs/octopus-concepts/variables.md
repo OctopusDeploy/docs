@@ -6,7 +6,7 @@ description: Octopus allows you to define variables and scope them for use in di
 
 Learn more about [variables](/docs/projects/variables/index.md).
 
-## See also
+## Learn more
 
 - [Library Variable Sets](/docs/projects/variables/library-variable-sets.md)
 - [Output Variables](/docs/projects/variables/output-variables.md)

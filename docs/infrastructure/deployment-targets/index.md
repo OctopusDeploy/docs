@@ -11,7 +11,7 @@ From the **Deployment Targets** tab you can add new deployment targets, disable 
 
 ## Adding Deployment Targets
 
-Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy server. For instructions, see:
+Deployment targets are added in different ways, depending on the type of target you are adding and how the target will communicate with the Octopus Deploy Server. For instructions, see:
 
 - [Listening and Polling Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
 - [Linux SSH Connection](/docs/infrastructure/deployment-targets/linux/index.md)

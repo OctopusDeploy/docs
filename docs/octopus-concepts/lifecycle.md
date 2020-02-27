@@ -7,7 +7,7 @@ description: Lifecycles give you control over the way releases are promoted betw
 
 Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md).
 
-## See Also
+## Learn more
 
 - [Infrastructure](/docs/infrastructure/index.md)
 - [Environments](/docs/infrastructure/environments/index.md)

@@ -20,7 +20,7 @@ While a single server Octopus installation is easy, Octopus: High Availability i
 
 ### Database {#ConfiguringOctopusforHighAvailability-Database}
 
-Each Octopus Server node stores project, environment and deployment-related data in a shared Microsoft SQL Server database. Since this database is shared, it's important that the database server is also highly available.
+Each Octopus Server node stores project, environment and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available.
 
 From the Octopus perspective, how the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
 
@@ -149,7 +149,7 @@ If you don't have a hardware load balancer available, an easy option is the [App
 You may already have an existing Octopus Deploy Server, that you wish to make highly available. The process for doing this is the same as the process above, except your existing server will be the "first node" in the cluster.
 
 1. Provision the shared storage folder.
-2. Move the SQL Server database, if necessary.
+2. Move the SQL Server Database, if necessary.
 3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder.
 4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders.
 5. Add the additional nodes and load balancer as required.

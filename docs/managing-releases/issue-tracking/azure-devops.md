@@ -60,7 +60,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
 1. Configure the Azure DevOps Issue Tracker extension in Octopus Deploy.
 
-    In the Octopus web portal, navigate to **{{Configuration,Settings,Azure DevOps Issue Tracker}}** and set the following values:
+    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Azure DevOps Issue Tracker}}** and set the following values:
 
     - **Azure DevOps Base URL**. This tells Octopus where the Azure DevOps instance is located.
 

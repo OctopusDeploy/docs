@@ -15,7 +15,7 @@ Before you can configure your [SSH deployment targets](/docs/infrastructure/depl
 
 ## Bash Startup Files
 
-When connecting to a target over SSH, the Octopus server connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc` script file since this is invoked for non-login shells.
+When connecting to a target over SSH, the Octopus Server connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc` script file since this is invoked for non-login shells.
 
 For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc` script with the line:
 

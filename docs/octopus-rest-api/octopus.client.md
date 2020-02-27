@@ -58,13 +58,13 @@ The easiest way to use the client is via the `OctopusRepository` helper:
 ```powershell PowerShell
 Add-Type -Path 'C:\PathTo\Octopus.Client.dll'
 $server = "https://myoctopus.example.com"
-$apiKey = "API-YOURKEY";              # Get this from your 'profile' page in the Octopus web portal
+$apiKey = "API-YOURKEY";              # Get this from your 'profile' page in the Octopus Web Portal
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($server, $apiKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 ```
 ```cs C#
 var server = "https://myoctopus.example.com/";
-var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus web portal
+var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
 ```
@@ -87,7 +87,7 @@ The easiest way to use the client is via the `OctopusAsyncClient`:
 
 ```cs c#
 var server = "https://myoctopus.example.com/";
-var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus web portal
+var apiKey = "API-YOURKEY";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 using (var client = await OctopusAsyncClient.Create(endpoint))
 {

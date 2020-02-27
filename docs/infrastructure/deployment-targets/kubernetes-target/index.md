@@ -72,7 +72,7 @@ users:
     The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   
 
     :::hint
-    If using the AWS account type, the Octopus server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
+    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
     [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
     :::
 
@@ -146,7 +146,7 @@ In both scenarios, a target is then created for each Kubernetes cluster and name
 When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
 
 10. Select a worker pool for the target.
-To make use of the Kubernetes steps, the Octopus server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
+To make use of the Kubernetes steps, the Octopus Server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
 11. Click **SAVE**.
 
 ## Creating Service Accounts
@@ -240,7 +240,7 @@ The token can then be saved as a Token Octopus account, and assigned to the Kube
 
 ## Kubectl
 
-Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus server itself.
+Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
 
 ## Helm
 

@@ -2,7 +2,7 @@
 
 ```bash Listening deployment target
 serverUrl="https://my-octopus"   # The url of your Octous server
-thumbprint=""       # The thumbprint of your Octopus server
+thumbprint=""       # The thumbprint of your Octopus Server
 apiKey=""           # An Octopus Server api key with permission to add machines
 name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
 environment="Test"  # The environment to register the Tentacle in
@@ -45,7 +45,7 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
 
 ```bash Listening worker
 serverUrl="https://my-octopus"   # The url of your Octous server
-thumbprint=""       # The thumbprint of your Octopus server
+thumbprint=""       # The thumbprint of your Octopus Server
 apiKey=""           # An Octopus Server api key with permission to add machines
 name=$HOSTNAME      # The name of the Tentacle at is will appear in the Octopus portal
 workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in

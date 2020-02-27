@@ -10,7 +10,7 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/deploym
 
 2. On the `Package` section of the step configuration page, select your `Package Feed` and `Package ID`
 
-3. On the `Azure` Section, select the `Azure Account` that you created in the previous step. Once you do this, the web apps in your subscription will populate the `Web App` dropdown list for you to pick the one you want to deploy to.
+3. On the `Azure` Section, select the `Azure Account` that you created in the previous step. Once you do this, the web apps in your subscription will populate the `Web App` drop-down list for you to pick the one you want to deploy to.
 
 For both the `Azure Account` and the `Web App` you can use [variable binding](/docs/projects/variables/variable-substitutions.md) to set their values.
 

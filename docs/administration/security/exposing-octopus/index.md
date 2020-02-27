@@ -1,6 +1,6 @@
 ---
 title: Exposing Octopus
-description: You can keep your Octopus installation inside your corporate network, or you may want to expose it to the internet. This section describes how to safely expose your Octopus installation and the security implications you should consider.
+description: You can keep your Octopus installation inside your corporate network, or you may want to expose it to the Internet. This section describes how to safely expose your Octopus installation and the security implications you should consider.
 position: 20
 ---
 
@@ -18,7 +18,7 @@ We undertake routine penetration testing and security audits. These reports are 
 
 ## Where to Host Your Octopus Server
 
-The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the web portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/data/octopus-database/index.md) and a file store, which can be on a local disk, or a network file share.
+The Octopus Server is the central component of your Octopus installation. It hosts the Octopus HTTP API and the Octopus Web Portal, and is the central communication hub for deploying your applications. It needs direct access to your [SQL Server Database](/docs/administration/data/octopus-database/index.md) and a file store, which can be on a local disk, or a network file share.
 
 You should host your Octopus Server in the best location based on your scenario. As a general rule of thumb, you should host your Octopus Server where it has the best access to the machines where you deploy your applications, and to the users who design and perform deployments.
 
@@ -26,15 +26,15 @@ You can choose to expose your Octopus Server to the public internet, or you can 
 
 ## Inbound Requests
 
-The Octopus Server hosts an HTTP API and web portal which you can configure to use standard TCP ports (80/443) or non-standard ports. Your Octopus Server can also be configured to accept inbound requests from Polling Tentacles over a custom TCP port, or using WebSockets.
+The Octopus Server hosts an HTTP API and the Octopus Web Portal which you can configure to use standard TCP ports (80/443) or non-standard ports. Your Octopus Server can also be configured to accept inbound requests from Polling Tentacles over a custom TCP port, or using WebSockets.
 
 The only inbound requests to your Octopus Server should be ones authorized by you. It could be your users, or Polling Tentacles, or services you've configured to leverage the Octopus API.
 
 ### Octopus HTTP API and Web Portal
 
-If you do not want to expose your Octopus Server to the public internet, but want to provide remote access to users or other services, we recommend using a VPN. This will allow your remote workers to access your Octopus Server without exposing it to the public internet directly.
+If you do not want to expose your Octopus Server to the public Internet, but want to provide remote access to users or other services, we recommend using a VPN. This will allow your remote workers to access your Octopus Server without exposing it to the public Internet directly.
 
-However, you may want to provide access for your users, or external services which leverage Octopus, and using a VPN is impractical. If you decide to expose the HTTP API and web portal of your Octopus Server to the public internet, here are some things you should consider:
+However, you may want to provide access for your users, or external services which leverage Octopus, and using a VPN is impractical. If you decide to expose the HTTP API and Octopus Web Portal of your Octopus Server to the public internet, here are some things you should consider:
 
 1. Always enable HTTPS using SSL. We also recommend forcing all requests to use HTTPS, and enabling HSTS. Learn about [exposing Octopus Server over HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md). Avoid exposing your Octopus Server via HTTP without SSL.
 1. Consider how your users authenticate with your Octopus Server. You should use an authentication provider which supports multi-factor authentication (MFA). Learn about [authentication providers](/docs/administration/authentication/index.md).

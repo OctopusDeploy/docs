@@ -51,7 +51,7 @@ You can export a script from the wizard to see what the command-line equivalent 
 Different instances of Octopus Server:
 
 - Listen on separate web URLs (e.g. the same server may host [http://my-octopus/group1,](http://my-octopus/group1,)[http://my-octopus/group2,](http://my-octopus/group2,) and [http://test-octopus:81](http://test-octopus:81/)).
-- Have completely separate SQL Server databases.
+- Have completely separate SQL Server Databases.
 - Have completely separate environments, projects, teams, users and permissions.
 - Run in separate Windows services, potentially under different user accounts.
 - Can share Tentacle machines (but don't have to).
@@ -63,7 +63,7 @@ There are a few things to keep in mind when running multiple Octopus Server inst
 
 - When [upgrading the Octopus Server](/docs/administration/upgrading/index.md), each instance of the **Windows service should be stopped first by hand**; the default installation process sometimes seems to ignore non-default instances and won't stop them before replacing files, nor restart them afterwards.
 - Each instance is **backed up separately**, so don't forget to [configure backup for each one](/docs/administration/data/backup-and-restore.md).
-- Each instance has its own SQL Server database, with a different **Master Encryption Key**; make sure [the key for each instance is recorded somewhere safe](/docs/administration/security/data-encryption.md).
+- Each instance has its own SQL Server Database, with a different **Master Encryption Key**; make sure [the key for each instance is recorded somewhere safe](/docs/administration/security/data-encryption.md).
   :::
 
 ## Considerations for Tentacle Instances {#Managingmultipleinstances-ConsiderationsforTentacleinstances}

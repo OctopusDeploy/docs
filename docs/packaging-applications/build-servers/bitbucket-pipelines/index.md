@@ -20,7 +20,7 @@ When using Octopus Deploy with BitBucket, BitBucket Pipelines will be responsibl
 Octopus Deploy will be used to take those NuGet packages and to push them to development, test and production environments.
 
 :::warning
-If you're using the cloud offering of BitBucket Pipelines, your Octopus server must be accessible over the Internet.
+If you're using the cloud offering of BitBucket Pipelines, your Octopus Server must be accessible over the Internet.
 :::
 
 ## BitBucket Pipelines Environment Variables
@@ -31,7 +31,7 @@ For example:
 
 | Variable Name       | Description|
 | ------------- | ------- |
-| OCTOPUS_SERVER | The Octopus Deploy server URL you wish to push the final package to |
+| OCTOPUS_SERVER | The Octopus Deploy Server URL you wish to push the final package to |
 | OCTOPUS_APIKEY | The Octopus Deploy API Key required for authentication |
 
 ## BitBucket Pack and Push Configuration

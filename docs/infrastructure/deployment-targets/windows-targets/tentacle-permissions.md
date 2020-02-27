@@ -19,7 +19,7 @@ Please be aware that to perform automatic Tentacle updates you need an account w
 In addition, since you are probably using Tentacle to install software, you'll need to make sure that the service account has permissions to actually install your software. This totally depends on your applications, but it might mean:
 
 - Permissions to modify IIS (C:\Windows\system32\inetsrv).
-- Permissions to connect a SQL Server database.
+- Permissions to connect a SQL Server Database.
 
 :::problem
 If you **Reinstall** a Tentacle using the Tentacle Manager, the Windows Service account will revert to Local System.

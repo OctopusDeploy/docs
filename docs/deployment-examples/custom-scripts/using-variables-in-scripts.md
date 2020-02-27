@@ -67,7 +67,7 @@ In PowerShell we have pre-defined some script-scoped variables for you as a conv
 - `$OctopusParameters["MyApp.ConnectionString"]`
 - `$MyAppConnectionString`
 
-In the first form the variable name appears just as they appear in the Octopus web portal, while in the second example special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.
+In the first form the variable name appears just as they appear in the Octopus Web Portal, while in the second example special characters have been removed. The first form is the most flexible, but in some cases the second form may be more convenient.
 
 :::hint
 **$key variable**

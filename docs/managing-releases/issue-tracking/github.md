@@ -52,7 +52,7 @@ To supply the commit messages:
 
 1. Configure the GitHub extension.
 
-    In the Octopus web portal, navigate to **{{Configuration,Settings,GitHub Issue Tracker}}** and set the
+    In the Octopus Web Portal, navigate to **{{Configuration,Settings,GitHub Issue Tracker}}** and set the
     **GitHub Base URL**. This is required when resolving issue references that cross repository boundaries. For example, you might have a commit message with the following content:
 
     ```

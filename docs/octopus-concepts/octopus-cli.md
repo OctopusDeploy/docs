@@ -9,7 +9,7 @@ We recommend installing the Octopus CLI by using .Net Core CLI as a [global tool
 
 Learn more about using [octo](/docs/octopus-rest-api/octopus-cli/index.md).
 
-## See Also
+## Learn more
 
 - [Octopus REST API](/docs/octopus-concepts/api.md)
 - [Install Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md)

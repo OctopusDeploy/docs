@@ -42,7 +42,7 @@ The step will fail for lack of a worker if:
 
 ## Using the Default Pool for Scripts
 
-When you add workers to the default worker pool the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus server, will automatically move from using the built-in worker to workers in the worker pool.
+When you add workers to the default worker pool the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus Server, will automatically move from using the built-in worker to workers in the worker pool.
 
 ## Add New Worker Pools
 
@@ -93,7 +93,7 @@ Yes, the existence of other pools doesn't affect the behavior of the default poo
 
 *How can I cordon off my worker pools so each team only has access to certain pools?*
 
-With the [Spaces](/docs/administration/spaces/index.md) feature of Octopus Deploy you can partition your Octopus server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
+With the [Spaces](/docs/administration/spaces/index.md) feature of Octopus Deploy you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
 
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 

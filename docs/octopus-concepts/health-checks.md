@@ -7,7 +7,7 @@ description: Octopus periodically runs health checks on deployment targets and w
 
 Learn more about [health checks](/docs/infrastructure/deployment-targets/machine-policies.md#health-checks)
 
-## See Also
+## Learn more
 
 - [Infrastructure](/docs/infrastructure/index.md)
 - [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)

@@ -7,6 +7,6 @@ description: Deployment targets represent the servers, machines, and cloud servi
 
 Learn more about managing your [Deployment Targets](/docs/infrastructure/deployment-targets/index.md).
 
-## See Also
+## Learn more
 
 - [Infrastructure](/docs/infrastructure/index.md)

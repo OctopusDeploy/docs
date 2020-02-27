@@ -14,7 +14,7 @@ Also see the [Node.js sample](/docs/deployment-examples/node-deployments/node-on
 - All packages are deployed to a relative location at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
 - When Calamari is copied across by a deployment it is extracted to `$HOME/.octopus/#{instance}/Calamari/#{version}`.
 
-By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
+By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus Server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
 ## Transport
 

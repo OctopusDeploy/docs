@@ -58,7 +58,7 @@ If the Community Step Template feature has been disabled, you can still use comm
 
 1. Navigate to the [Community Library](http://library.octopus.com/) website.
 2. Find the template you want to use, review the details, and click the **Copy to clipboard** button.
-3. Navigate to **{{Library,Step Templates}}** in the Octopus web portal and select **Import** from the custom step templates section.
+3. Navigate to **{{Library,Step Templates}}** in the Octopus Web Portal and select **Import** from the custom step templates section.
 4. Paste in the JSON document for the Step Template into the import window and click **SAVE**.
 
 After the step template has been installed, it will be available alongside the built-in step templates.

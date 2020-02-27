@@ -37,7 +37,7 @@ If the release is not deployed automatically, you can click **DEPLOY TO (Environ
 1. Specify a timeout period. If the deployment does not start within the specified timeout period, the deployment will not run.
 1. Click **SAVE**.
 
-Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the web portal.
+Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the Octopus Web Portal.
 
 #### Scheduling Deployments with the Octopus CLI
 
