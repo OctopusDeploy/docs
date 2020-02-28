@@ -112,7 +112,7 @@ If you need to review your document in GitHub, the UI will [render YAML](https:/
 
 ```md
 ---
-title: Getting Started
+title: Getting started
 description: A conceptual overview of Octopus Deploy.
 position: 0
 ---
@@ -121,7 +121,7 @@ position: 0
 #### Title (required)
 Used for the web page title tag `<head><title>`, and displayed in the page content.
 
-Please use Title Case for titles. If you're not sure about title case, there are a few converters online, for instance: http://titlecaseconverter.com/.
+Please use sentence case for titles. Normal capitalization rules apply: Capitalize the first word and any words that would normally be capitalized.
 
 #### Description (required)
 

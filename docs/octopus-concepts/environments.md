@@ -5,10 +5,9 @@ description: Environments represent the different phases in your deployment proc
 
 !include <environments>
 
-Learn more about managing your [environments](/docs/infrastructure/environments/index.md#add-new-environments).
-
 ## Learn more
 
+- Manage your [environments](/docs/infrastructure/environments/index.md#add-new-environments).
 - [Infrastructure](/docs/infrastructure/index.md)
-- [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
+- [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
 - [Lifecycles](/docs/deployment-process/lifecycles/index.md)

@@ -5,9 +5,11 @@ description: How to work with Octopus Cloud.
 hideInThisSectionHeader: true
 ---
 
-!include <octopus-deploy-server>
-
 !include <octopus-cloud>
+
+## Octopus Deploy Server
+
+!include <octopus-deploy-server>
 
 ## Create an Octopus account
 

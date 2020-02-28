@@ -9,4 +9,4 @@ Learn more about [target roles](/docs/infrastructure/deployment-targets/index.md
 ## Learn more
 
 - [Infrastructure](/docs/infrastructure/index.md)
-- [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
+- [Deployment targets](/docs/infrastructure/deployment-targets/index.md)

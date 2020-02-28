@@ -5,6 +5,8 @@ description: The Octopus Deploy Server provides the REST API and the Octopus Web
 
 !include <octopus-deploy-server>
 
+The Octopus Deploy Server can be installed in a self-hosted environment or accessed through the managed Octopus Cloud service.
+
 ## Learn more
 
 - [Install the self-hosted Octopus Server](/docs/installation/index.md)
