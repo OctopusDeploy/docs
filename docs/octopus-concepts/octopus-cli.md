@@ -9,6 +9,6 @@ position: 152
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
-- [Octopus REST API](/docs/octopus-concepts/api.md)
+- [Octopus REST API](/docs/octopus-rest-api.md)
 - [Install Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md)
 - [Create Packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md)
