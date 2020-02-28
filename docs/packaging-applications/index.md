@@ -1,5 +1,5 @@
 ---
-title: Packaging Applications
+title: Packaging applications
 description: Packaging applications for deployment with Octopus Deploy.
 position: 40
 hideInThisSection: true

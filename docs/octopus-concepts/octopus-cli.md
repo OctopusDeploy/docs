@@ -1,6 +1,7 @@
 ---
 title: Octopus CLI
 description: Octopus CLI (octo) is the command line tool that interacts with the Octopus REST API
+position: 152
 ---
 
 !include <octopus-cli>

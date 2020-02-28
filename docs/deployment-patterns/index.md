@@ -1,5 +1,5 @@
 ---
-title: Deployment Patterns
+title: Deployment patterns
 description: Common deployment patterns and practices, and their practical implementation with Octopus.
 position: 70
 ---
