@@ -1,5 +1,5 @@
 ---
-title: Authentication Providers
+title: Authentication providers
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Azure AD, Okta, and GoogleApps.
 position: 50
 ---
@@ -13,13 +13,13 @@ Starting from **Octopus 3.5**, Octopus Deploy supports the most common authentic
 - [Octopus ID](octopusid-authentication.md)
 - [Guest Login](/docs/administration/authentication/guest-login.md)
 
-## Configuring Authentication Providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
+## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
 You can use the web user interface to configure authentication providers at {{Configuration>Settings}}.
 
 Alternatively, you can configure authentication providers using the `Octopus.Server.exe configure` command-line interface.
 
-## Signing in for the First Time
+## Sign in for the first time
 
 If you are using the UsernamePassword provider, you will need to invite your team to use Octopus. 
 
@@ -29,7 +29,7 @@ Learn about [managing users and teams](/docs/administration/managing-users-and-t
 
 Learn about [auto user creation](/docs/administration/authentication/auto-user-creation.md).
 
-## Managing Teams
+## Manage teams
 
 In Octopus, you can group your users into teams and use the role-based permission system to control what they can see and do. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
@@ -39,7 +39,7 @@ You can manually manage the members of your teams, or you can configure certain 
 - Learn about [automatically managing teams with Azure Active Directory](/docs/administration/authentication/azure-ad-authentication.md).
 - Learn about [automatically managing teams with Okta](/docs/administration/authentication/azure-ad-authentication.md).
 
-## Auto Login {#AuthenticationProviders-AutoLogin}
+## Auto login {#AuthenticationProviders-AutoLogin}
 
 When using an external authentication provider, you can configure Octopus to work in one of two ways:
 
@@ -50,11 +50,11 @@ Auto login is **disabled by default**, and you can enable it in {{Configuration
 
 Note that even when enabled, **this functionality is only active when there is a single, non forms-based authentication provider enabled**.  If multiple providers are enabled, which includes Guest access being enabled, this setting is overridden.
 
-### Auto Login and Active Directory
+### Auto login and Active Directory
 
 When using the Active Directory provider, auto login will only be active when the {{Configuration>Settings>Active Directory>Allow Forms Authentication For Domain Users}} setting is **false**.
 
-## Associating Users With Multiple External Identities {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
+## Associating users with multiple external identities {#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders}
 
 In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
 
@@ -64,11 +64,11 @@ This scenario would work equally with Azure AD or GoogleApps in place of Active 
 
 Starting from **Octopus 3.17**, there is also the ability to specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
 
-### Matching External Identities to Octopus Users {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
+### Matching external identities to Octopus users {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 
 When someone signs in to Octopus using an external authentication provider, Octopus will try to find their user account by looking for matching identifiers. It starts by looking for a matching identifiers from the external authentication provider, and will eventually fall back to match on email address.
 
-## Changing Authentication Providers
+## Changing authentication providers
 
 In some circumstances you may want to move from one authentication provider to another. The best way to do this is have a period of time where you enable both the new and old authentication providers.
 
@@ -77,7 +77,7 @@ In some circumstances you may want to move from one authentication provider to a
 3. Test the new authentication provider, making sure it correctly matches your existing users with their existing Octopus user accounts.
 4. Disable the old authentication provider.
 
-## Session Management
+## Session management
 
 User sessions can be managed in two ways with Octopus:
 
@@ -86,7 +86,7 @@ User sessions can be managed in two ways with Octopus:
 
 Session cookies are used for interactive sessions regardless of the authentication provider used to identity the user.
 
-### Revoking Access to Octopus When Using External Authentication Providers
+### Revoking access to Octopus with external authentication providers
 
 Octopus uses the external identity provider only to initially verify the user's identity, and then returns a session cookie to the browser. When you disable a user in your external identity provider, this will prevent that user from signing in to Octopus using that authentication provider. However, if the user already has an active session with Octopus, that session will stay active until the cookie expires.
 

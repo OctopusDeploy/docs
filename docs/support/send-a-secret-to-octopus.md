@@ -4,7 +4,7 @@ description: How to send sensitive information to Octopus support.
 position: 16
 ---
 
-Sometimes you may need to send sensitive information to Octopus support, such as a master key.  In order to do so, place your secret in the following PowerShell script and it will encrypt it for Octopus eyes only.
+Sometimes you may need to send sensitive information to Octopus support, such as a Master Key.  In order to do so, place your secret in the following PowerShell script and it will encrypt it for Octopus eyes only.
 
 
 ```powershell

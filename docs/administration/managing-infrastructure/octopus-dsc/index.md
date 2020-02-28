@@ -1,5 +1,5 @@
 ---
-title: Automating Infrastructure with DSC
+title: Automating infrastructure with DSC
 description: OctopusDSC is an Open-Source PowerShell module designed to assist with the automation of Octopus infrastructure
 position: 120
 hideInThisSection: true
@@ -10,5 +10,5 @@ For the latest information about OctopusDSC please refer to the GitHub [OctopusD
 
 You can use DSC to install:
 
-- [The Central Octopus Deploy Server](/docs/installation/automating-installation.md#desired-state-configuration).
+- [The Octopus Deploy Server](/docs/installation/automating-installation.md#desired-state-configuration).
 - [Octopus Tentacles](/docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md#AutomatingTentacleinstallation-DSCDesiredStateConfiguration).

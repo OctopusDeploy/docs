@@ -70,7 +70,7 @@ You can rename spaces, change their description, give them new logos, change the
 You can delete spaces when you are the **space manager**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
 
 1. Navigate to **{{Configuration,Spaces}}** and select the space you want to delete.
-1. Expand the **Task Queue Status** section and select the *Stop task queue* checkbox, and click **SAVE**.
+1. Expand the **Task Queue Status** section and select the *Stop task queue* check-box, and click **SAVE**.
 1. Click the overflow button and select **Delete**.
 1. Enter the name of the space and click **DELETE**.
 
@@ -112,7 +112,7 @@ This means that by disabling the default space - **you are opting into a non-bac
 To disable the default space:
 
 1. Navigate to **{{Configuration,Spaces}}** and select the default space.
-2. Expand the **Task Queue Status** section and select the **Stop task queue** checkbox, and click **SAVE**.
+2. Expand the **Task Queue Status** section and select the **Stop task queue** check-box, and click **SAVE**.
 3. Click the overflow button and select **Disable the default space**.
 4. Enter the name of the space and click **YES I'M SURE**.
 

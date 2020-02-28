@@ -20,7 +20,7 @@ This can be useful if you have the same variables that are used across multiple 
 1. Navigate to your project by selecting the **Project** from the navigation menu and then clicking your project.
 2. Click **{{Variables,Library Sets}}**.
 3. Click **INCLUDE LIBRARY VARIABLE SETS**.
-4. Search for the Library Variable Set you'd like to include, click the checkbox and **SAVE**.
+4. Search for the Library Variable Set you'd like to include, click the check-box and **SAVE**.
 
 ## Viewing the Library Variable Set
 

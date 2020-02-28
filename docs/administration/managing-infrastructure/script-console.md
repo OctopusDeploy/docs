@@ -1,6 +1,6 @@
 ---
 title: Script Console
-description: The Script Console allows Octopus administrators to execute scripts and perform adminsitrative tasks on workers and deployment targets as groups or individuals.
+description: The Script Console allows Octopus administrators to execute scripts and perform administrative tasks on workers and deployment targets as groups or individuals.
 position: 600
 ---
 
@@ -16,7 +16,7 @@ For these situations, the Octopus **Script Console** can be used.
 
 Any machines registered with Octopus as [workers](/docs/infrastructure/workers/index.md) or [deployment targets](/docs/infrastructure/deployment-targets/index.md) can be targeted by the Script Console. You can target an individual machine, or perform a task across an entire group of machines.
 
-## Using the Script Console
+## Use the Script Console
 
 The Script Console can be found under the Tasks area:
 
@@ -34,11 +34,11 @@ The **Script Body** tab can be used to see the contents of the script, and you c
 
 ![](images/3277921.png)
 
-## Collecting Artifacts {#ScriptConsole-Collectingartifacts}
+## Collect artifacts {#ScriptConsole-Collectingartifacts}
 
 Sometimes you might like to collect files from each of the machines as part of your script. To do this, see the section on [artifacts](/docs/deployment-process/artifacts.md).
 
-## Audit Records {#ScriptConsole-Auditrecords}
+## Audit records {#ScriptConsole-Auditrecords}
 
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/managing-users-and-teams/auditing.md) tab in the Configuration area.
 

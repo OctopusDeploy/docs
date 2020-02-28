@@ -1,6 +1,6 @@
 ---
-title: Managing Server Configuration
-description: The Octopus Server Configuration can be managed programmatically through the Octopus.Client library and the API
+title: Managing server configuration
+description: The Octopus Server configuration can be managed programmatically through the Octopus.Client library and the API
 position: 1801
 version: 4.0
 ---
@@ -11,7 +11,7 @@ Octopus Deploy is made up of a number of different configuration sets and managi
 In **Octopus 4.0**, we added the ability to manage most of the available configuration, without needing to be directly on the server.
 :::
 
-## Web Portal
+## Octopus Web Portal
 
 In the Octopus Web Portal, you can access configuration by navigating to **{{Configuration,Settings}}**, this will show which configuration items are available.
 

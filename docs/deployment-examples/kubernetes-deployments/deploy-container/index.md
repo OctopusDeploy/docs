@@ -358,7 +358,7 @@ To support configuring and initializing Pod resources, Kubernetes has the concep
 
 For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initialization directly into the image.
 
-Selecting the `Init container` checkbox configures the Container resource as an Init Container resource.
+Selecting the `Init container` check-box configures the Container resource as an Init Container resource.
 
 #### Resources
 

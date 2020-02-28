@@ -200,7 +200,7 @@ Sometimes the package version number don't always change. This can happen if you
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 
-This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the package upload pane:
+This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the check-box on the package upload pane:
 
 ![](images/existing-package.png)
 

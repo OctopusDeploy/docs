@@ -53,22 +53,22 @@ When the installation has completed, click **Finish** to launch the **Octopus Ma
 
 ## Octopus Manager
 
-Before you launch the **Octopus Web Portal**, it's worth taking note of the other settings such as controlling the Octopus Windows Service, importing and exporting the data Octopus stores in the SQL server, and viewing the master key.
+Before you launch the **Octopus Web Portal**, it's worth taking note of the other settings such as controlling the Octopus Windows Service, importing and exporting the data Octopus stores in the SQL server, and viewing the Master Key.
 
 You can launch the Octopus Web Portal from the Octopus Manager, by clicking **Open in Browser**.
 
-## Save your master key
+## Save your Master Key
 
 Under the storage section, you will see a link to **View Master Key**.
 
-When Octopus is installed, it generates a master key which is a random string that is used to encrypt sensitive data in your Octopus database. You will need the master key if you ever need to restore Octopus.
+When Octopus is installed, it generates a Master Key which is a random string that is used to encrypt sensitive data in your Octopus database. You will need the Master Key if you ever need to restore Octopus.
 
-Make a copy of the master key and save it in a **secure** location.
+Make a copy of the Master Key and save it in a **secure** location.
 
 :::warning
 **Warning**
 
-If you don't have a copy of your master key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **master key** and save it in a secure location. Hopefully you will never need it, but you'll glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
+If you don't have a copy of your Master Key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **Master Key** and save it in a secure location. Hopefully you will never need it, but you'll glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
 :::
 
 ## Launch the Octopus Web Portal

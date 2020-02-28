@@ -33,10 +33,10 @@ If you select `Yes` to `Execute using the AWS service role for an EC2 instance`,
 
 Under the `CloudFormation` section, the AWS region and stack name need to be defined.
 
-You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` checkbox.
+You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` check-box.
 
 :::hint
-Unselecting the `Wait for completion` checkbox will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
+Unselecting the `Wait for completion` check-box will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
 :::
 
 If creating the CloudFormation stack, you can select `Disable rollback` to prevent a failed stack from being rolled back. This is useful if you need to debug the resources that were not created successfully.
@@ -102,7 +102,7 @@ See the [variable substitution](/docs/projects/variables/variable-substitutions.
 
 #### Accessing CloudFormation Outputs
 
-As mentioned in the Template Section, when the `wait for completion` checkbox has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/projects/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
+As mentioned in the Template Section, when the `wait for completion` check-box has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/projects/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
 ```powershell
 Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
@@ -133,7 +133,7 @@ All change sets have to be unique for a given stack, and Octopus will generate a
 
 #### Deferring Execution and Preview Changes
 
-There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` checkbox, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/deployment-process/steps/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
+There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/deployment-process/steps/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
 `Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
 
 ## CloudFormation Deployment Workflow

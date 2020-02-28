@@ -1,10 +1,10 @@
 ---
 title: How to Get a Database Backup and Encrypt Your Master Key
-description: Guides the user on producing a database backup binary file (.bak) and encrypt their master key to provide us with.
+description: Guides the user on producing a database backup binary file (.bak) and encrypt their Master Key to provide us with.
 position: 28
 ---
 
-When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we won't be able to reproduce. We may ask you to send us a database backup and your encrypted master key, which will allow us to accurately reproduce the issue and aid in resolving it. This guide provides a walkthrough to get the best information for us to help troubleshoot the issues.
+When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we won't be able to reproduce. We may ask you to send us a database backup and your encrypted Master Key, which will allow us to accurately reproduce the issue and aid in resolving it. This guide provides a walkthrough to get the best information for us to help troubleshoot the issues.
 
 ## Step-by-step guide
 
@@ -14,13 +14,13 @@ The easiest way to import a database is to restore from a .bak file, and this is
 
 ![Backup SQL database in SQL Server Management Studio](images/sql_server_management_studio_backup_db.png)
 
-2. Encrypt your master key.
+2. Encrypt your Master Key.
 
 :::hint
-You can get your master key using [Octopus Manager](/docs/administration/security/data-encryption.md#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md).
+You can get your Master Key using [Octopus Manager](/docs/administration/security/data-encryption.md#Securityandencryption-YourMasterKey) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md).
 :::
 
-We have a PowerShell snippet which will encrypt your master key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your master key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.
+We have a PowerShell snippet which will encrypt your Master Key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your Master Key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.
 
 ```
 $octopusPublicKey = "MIIDnzCCAwigAwIBAgIJAK5yFHmnxrYxMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJBVTEMMAoGA1UECBMDUUxEMREwDwYDVQQHEwhCcmlzYmFuZTEhMB8GA1UEChMYT2N0b3B1cyBEZXBsb3kgUHR5LiBMdGQuMRcwFQYDVQQDEw5PY3RvcHVzIERlcGxveTEmMCQGCSqGSIb3DQEJARYXaGVsbG9Ab
@@ -44,6 +44,6 @@ $message = Encrypt-ForOctopusEyesOnly "YourMasterKey"
 write-host $message
 ```
 
-3. Upload your database backup and encrypted master key.
+3. Upload your database backup and encrypted Master Key.
 
-In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup and the encrypted master key. Only we have access to view and download these files, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been, to ensure only you and our team can see the link.
+In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup and the encrypted Master Key. Only we have access to view and download these files, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been, to ensure only you and our team can see the link.

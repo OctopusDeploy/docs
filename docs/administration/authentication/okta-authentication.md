@@ -1,5 +1,5 @@
 ---
-title: Okta Authentication
+title: Okta authentication
 description: Octopus Deploy can use Okta authentication to identify users.
 position: 6
 version: 3.16
@@ -11,14 +11,14 @@ Authentication using [Okta](https://www.okta.com/), a cloud-based identity manag
 
 To use Okta authentication with Octopus you will need to:
 
-1. Configure Okta to trust your Octopus Deploy instance (by setting it up as an App in Okta).
+1. Configure Okta to trust your Octopus Deploy instance (by setting it up as an app in Okta).
 2. Configure your Octopus Deploy instance to trust and use Okta as an Identity Provider.
 
-## Configuring Okta {#Oktaauthentication-ConfiguringOkta}
+## Configure Okta {#Oktaauthentication-ConfiguringOkta}
 
-The first steps are to configure Okta to trust your instance of Octopus Deploy by configuring an App in your Okta account.
+The first steps are to configure Okta to trust your instance of Octopus Deploy by configuring an app in your Okta account.
 
-### Set Up an App {#Oktaauthentication-SetupanApp}
+### Configure an app {#Oktaauthentication-SetupanApp}
 
 You must first have an account at [Okta](https://www.okta.com/). You can sign up for a free [developer account](https://developer.okta.com/signup/).
 
@@ -46,7 +46,7 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
 :::hint
 **Reply URLs are case-sensitive**
-Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters.
+Please take care when adding this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters.
 :::
 
 :::hint
@@ -63,7 +63,7 @@ Octopus now integrates with [Let's Encrypt](/docs/administration/security/exposi
 
    ![](okta-authentication/okta-initiatelogin.png)
 
-### OpenID Connect Settings {#Oktaauthentication-OpenIDConnectSettings}
+### OpenID Connect settings {#Oktaauthentication-OpenIDConnectSettings}
 
 There are two values you will need from the Okta configuration to complete the Octopus configuration: the **Client ID** and **Issuer**. (The Client ID is also referred to as Audience.)
 
@@ -96,7 +96,7 @@ This expression will search `active_directory` for any groups that start with th
 
 > A complete guide to Okta's group expressions are available [here](https://developer.okta.com/docs/how-to/creating-token-with-groups-claim#create-groups-claims-with-a-dynamic-whitelist)
 
-### Assign App {#Oktaauthentication-AssignApp}
+### Assign app {#Oktaauthentication-AssignApp}
 
 Next you will need to assign your app to people or groups within your Okta directory.
 
@@ -108,7 +108,7 @@ Next you will need to assign your app to people or groups within your Okta direc
 
    ![](okta-authentication/okta-assign-to-groups.png)
 
-## Configuring Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
+## Configure Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
 You will need the **Client ID** (aka **Audience**) and **Issuer** obtained from the Okta portal as described above.
 
@@ -136,7 +136,7 @@ In versions prior to **Octopus 2018.3.5** the Role Claim Type and Scope had diff
 
 :::
 
-### Octopus User Accounts Are Still Required {#Oktaauthentication-Octopususeraccountsarestillrequired}
+### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 
 Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
@@ -150,7 +150,7 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
-### Getting Permissions
+### Getting permissions
 
 !include <admin-user>
 
@@ -162,7 +162,7 @@ You can also check Okta logs by clicking the **View Logs** link on the Okta admi
 
 ![](okta-authentication/okta-view-logs.png)
 
-### Double and Triple Check Your Configuration {#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
+### Double and triple check your configuration {#Oktaauthentication-DoubleandTriplecheckyourconfiguration}
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
@@ -170,11 +170,11 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 - Remember things are case-sensitive.
 - Remember to remove or add slash characters - they matter too!
 
-### Check OpenID Connect Metadata is Working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
+### Check OpenID Connect metadata is working {#Oktaauthentication-CheckOpenIDConnectmetadataisworking}
 
 You can see the OpenID Connect metadata by going to the Issuer address in your browser adding `/.well-known/openid-configuration` to the end. In our example this would have been something like `https://dev-xxxxxx.oktapreview.com/.well-known/openid-configuration`
 
-### Inspect the Contents of the Security Token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
+### Inspect the contents of the security token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
 
 Perhaps the contents of the security token sent back by Okta aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Okta user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Okta to Octopus via your browser. To inspect the contents of your security token:
 

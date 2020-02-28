@@ -84,7 +84,7 @@ When both containers are healthy, you can browse directly to `http://localhost:5
 
 ## Upgrade with Docker Compose
 
-Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](octopus-server-container-windows.md). You will still need to get the master key from the original Octopus Server container you used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required:
+Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](octopus-server-container-windows.md). You will still need to get the Master Key from the original Octopus Server container you used when initially setting up the database. When you have the Master Key, a simple change to the `.env` file to include the Master Key and update the Octopus version is all that is required:
 
 ```
 SA_PASSWORD=N0tS3cr3t!

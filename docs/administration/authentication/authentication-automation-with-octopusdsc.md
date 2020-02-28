@@ -1,5 +1,5 @@
 ---
-title: Authentication Automation with OctopusDSC
+title: Authentication automation with OctopusDSC
 description: Authentication automation resources with OctopusDSC.
 position: 20
 ---

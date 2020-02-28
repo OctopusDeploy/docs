@@ -1,5 +1,5 @@
 ---
-title: Moving your Octopus Components to Other Servers
+title: Moving your Octopus components to other servers
 description: Moving Octopus components reference.
 position: 1100
 hideInThisSectionHeader: true

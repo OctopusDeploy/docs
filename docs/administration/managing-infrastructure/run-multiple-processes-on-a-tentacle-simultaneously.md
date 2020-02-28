@@ -1,5 +1,5 @@
 ---
-title: Run Multiple Processes on a Tentacle Simultaneously
+title: Run multiple processes on a Tentacle simultaneously
 description: How to run multiple processes on a Tentacle simultaneously.
 position: 70
 ---

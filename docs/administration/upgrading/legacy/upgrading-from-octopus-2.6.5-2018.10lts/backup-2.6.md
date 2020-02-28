@@ -11,23 +11,23 @@ You can view and change the backup settings by browsing to the *Configuration*
 
 ## Encrypted Backups
 
-The Octopus database is encrypted, and so are the backups. The backups are encrypted using your Octopus Server "master key", a randomly generated string. This master key will be needed if you ever plan to restore the database to a new server.
+The Octopus database is encrypted, and so are the backups. The backups are encrypted using your Octopus Server "Master Key", a randomly generated string. This Master Key will be needed if you ever plan to restore the database to a new server.
 
 ### Your Master Key
 
-When Octopus is installed, it generates a random string which will be used as the master key. You will need to know your master key if you ever hope to restore an Octopus backup on another server.
+When Octopus is installed, it generates a random string which will be used as the Master Key. You will need to know your Master Key if you ever hope to restore an Octopus backup on another server.
 
-Making a copy of your master key is easy:
+Making a copy of your Master Key is easy:
 
 1. Open the **Octopus Manager** from the start menu/start screen:
 
    ![](images/3277161.png)
 
-2. Click **Copy master key to clipboard...**:
+2. Click **Copy Master Key to clipboard...**:
 
    ![](images/3277158.png)
 
-3. Paste the master key into a text editor or a secure enterprise password manager, and save it:
+3. Paste the Master Key into a text editor or a secure enterprise password manager, and save it:
 
 ## Backup Now
 

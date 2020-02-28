@@ -14,7 +14,7 @@ To use AppVeyor with a source code repository, you'll need to create and configu
 
 ## Configure the Build
 
-Once you've added a project with a repository, you need to configure the build. In the settings for your AppVeyor project, navigate to the **build** page and check the checkbox for the **Package Web Applications for Octopus deployment** option.
+Once you've added a project with a repository, you need to configure the build. In the settings for your AppVeyor project, navigate to the **build** page and check the check-box for the **Package Web Applications for Octopus deployment** option.
 
 AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
 

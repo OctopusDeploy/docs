@@ -1,5 +1,5 @@
 ---
-title: Changing the Collation of the Octopus Database
+title: Changing the collation of the Octopus database
 description: Information on changing the collation of the Octopus SQL Server Database.
 ---
 
@@ -17,7 +17,7 @@ You must ensure you also change the collation of all objects in the Octopus Data
 
 For this reason, from **Octopus 3.8** on, when modifying the SQL Server Database during Octopus upgrades, Octopus will verify that all columns in the database use the same collation as the database itself.  If they do not, an error will be logged and the upgrade will be prevented from taking place.  This is to ensure you can rollback, or correct the issue and continue, without the database being left in an invalid state.
 
-## Errors During Octopus Server Upgrades {#ChangingtheCollationoftheOctopusDatabase-ErrorsduringOctopusServerupgrades}
+## Errors during Octopus Server upgrades {#ChangingtheCollationoftheOctopusDatabase-ErrorsduringOctopusServerupgrades}
 
 *Database update prevented: One or more columns in the database are not using the default collation*
 

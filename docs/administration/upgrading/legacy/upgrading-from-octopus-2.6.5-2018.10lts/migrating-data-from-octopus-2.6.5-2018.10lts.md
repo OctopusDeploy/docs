@@ -28,7 +28,7 @@ This will open up the importer. From here you select that you want to import fro
 
 ![](images/3964993.png)
 
-You need to select your most recent 2.6 Backup file, and provide the Master key associated with the backup you are importing. The next step lets you perform a preview of your import.
+You need to select your most recent 2.6 Backup file, and provide the Master Key associated with the backup you are importing. The next step lets you perform a preview of your import.
 
 ![](images/3964994.png)
 

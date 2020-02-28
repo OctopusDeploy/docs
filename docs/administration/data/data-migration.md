@@ -1,5 +1,5 @@
 ---
-title: Data Migration
+title: Data migration
 description: Octopus comes with a data migrator which can help in certain scenarios like moving projects from one Octopus Server to another, and exporting your configuration for auditing in a source control repository.
 position: 900
 ---
@@ -87,9 +87,9 @@ You can choose whether to export your entire Octopus Server configuration using 
 
 Sensitive values are always encrypted at rest.
 
-When you export data you will be asked to provide a password, and your secrets will be decrypted using the source server's master key, then re-encrypted into the exported files using the password you provided as the key.
+When you export data you will be asked to provide a password, and your secrets will be decrypted using the source server's Master Key, then re-encrypted into the exported files using the password you provided as the key.
 
-Now when you import data you will be asked to provide the same password so your secrets can be decrypted from the files and imported into the target server to be re-encypted using its master key.
+Now when you import data you will be asked to provide the same password so your secrets can be decrypted from the files and imported into the target server to be re-encypted using its Master Key.
 
 ### Can I track my Octopus configuration using source control?
 

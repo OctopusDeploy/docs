@@ -52,7 +52,7 @@ octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld
 1. Select the release you want to deploy.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
 1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
-1. Expand the **Excluded steps** section and use the checkbox to select steps to excluded from the deployment.
+1. Expand the **Excluded steps** section and use the check-box to select steps to excluded from the deployment.
 1. Click **SAVE**.
 
 ### Modify the Guided Failure Mode

@@ -1,10 +1,10 @@
 ---
-title: Server Configuration
+title: Server configuration
 description: The Octopus Server Configuration screen is available from Configuration > Nodes > Configuration Settings and allows administrators to see which server extensions are enabled for the Octopus Server.
 position: 160
 ---
 
-## Server Extensions Configuration {#ServerConfiguration-ServerExtensionsConfiguration}
+## Server extensions configuration {#ServerConfiguration-ServerExtensionsConfiguration}
 
 The Server Configuration screen is available from **{{Configuration,Nodes,Configuration Settings}}** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/index.md) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md).
 
@@ -49,7 +49,7 @@ Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/Octopus
 
 The configuration values provided via this interface actually serve 2 purposes.  The first is that they are displayed by the [Show Configuration](/docs/administration/managing-infrastructure/show-configuration.md) command (all values are displayed by the command).  The second is being displayed on the Server Configuration page in the web UI (only value with ShowInPortalSummary will be displayed).
 
-## Publicly Accessible URL {#ServerConfiguration-PubliclyAccessibleURL}
+## Publicly accessible URL {#ServerConfiguration-PubliclyAccessibleURL}
 
 This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
 

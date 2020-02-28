@@ -12,7 +12,7 @@ Guided failure mode can be enabled per environment. When enabled for an environm
 
 1. Navigate to **{{Infrastructure,Environments}}**.
 1. Click the ... overflow menu for the specific environment you want to enable guided failure on and select *Edit*.
-1. Expand the **Default Guided Failure Mode** section and tick the checkbox to enable the feature.
+1. Expand the **Default Guided Failure Mode** section and tick the check-box to enable the feature.
 1. Click **SAVE**.
 
 Note, you can still override this setting for individual deployments.

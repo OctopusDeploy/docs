@@ -1,5 +1,5 @@
 ---
-title: Applying Operating System Upgrades
+title: Applying Operating System upgrades
 description: This is the procedure you should follow when applying patches to the Operating System where Octopus Server is hosted.
 position: 20
 ---

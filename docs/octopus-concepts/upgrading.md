@@ -12,5 +12,5 @@ If you are upgrading a version of Octopus Deploy prior to version 3, we have sup
 
 - [Upgrade a modern version of Octopus to a newer version (3.x onwards)](/docs/administration/upgrading/guide/index.md)
 - [Upgrade an older version of Octopus (1.x to 2.6.5) to a modern version (3.x onwards)](/docs/administration/upgrading/legacy/index.md)
-- [Backup your database and master key](/docs/administration/data/backup-and-restore.md)
+- [Backup your database and Master Key](/docs/administration/data/backup-and-restore.md)
 -  [release notes and breaking changes](https://octopus.com/downloads/compare)
