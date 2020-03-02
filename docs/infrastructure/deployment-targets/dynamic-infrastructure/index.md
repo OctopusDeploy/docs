@@ -16,7 +16,7 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 
 1. Navigate to **{{Infrastructure,Environments}}**.
 1. Click the ... overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
-1. Expand the **Dynamic infrastructure** section and tick or untick the checkbox to enable or disable managing dynamic infrastructure.
+1. Expand the **Dynamic infrastructure** section and tick or untick the check-box to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
 
 ## Available Commands and Syntax

@@ -86,7 +86,7 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 
     ![](images/5865775.png)
 
-1. [Backup your database and master key](/docs/administration/data/backup-and-restore.md) so that it can be restored in case anything goes wrong.
+1. [Backup your database and Master Key](/docs/administration/data/backup-and-restore.md) so that it can be restored in case anything goes wrong.
 
     ![](images/5865780.png)
 

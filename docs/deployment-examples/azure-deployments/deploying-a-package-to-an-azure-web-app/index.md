@@ -1,7 +1,9 @@
 ---
 title: Azure Web Apps
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure Web Apps.
+hideInThisSectionHeader: true
 ---
+
 Octopus Deploy supports automated deployment of [Azure Web Apps](http://azure.microsoft.com/en-us/services/app-service/web/) (formerly known as Azure Web Sites). The below guide explains how to add a step to your deployment process to deploy an application to an Azure Web App.
 
 ## Understanding Azure Web Apps {#DeployingapackagetoanAzureWebApp-UnderstandingAzureWebApps}

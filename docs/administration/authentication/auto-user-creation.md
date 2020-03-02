@@ -1,5 +1,5 @@
 ---
-title: Automatic User Creation
+title: Automatic user creation
 description: User can be automatically created using some providers.
 position: 7
 ---

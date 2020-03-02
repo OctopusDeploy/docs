@@ -6,9 +6,9 @@ position: 3
 
 If you want to run an Octopus Deploy Linux container with Docker Compose, please refer to the [Docker Compose Linux](/docs/installation/octopus-in-container/docker-compose-linux.md) documentation.
 
-For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
+For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
-The following example is a simple `docker-compose.yml` file combining a SQL Server instance with a dependent Octopus server:
+The following example is a simple `docker-compose.yml` file combining a SQL Server instance with a dependent Octopus Server:
 
 ```YAML
 version: '2.1'
@@ -84,7 +84,7 @@ When both containers are healthy, you can browse directly to `http://localhost:5
 
 ## Upgrade with Docker Compose
 
-Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](octopus-server-container-windows.md). You will still need to get the master key from the original Octopus Server container you used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required:
+Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](octopus-server-container-windows.md). You will still need to get the Master Key from the original Octopus Server container you used when initially setting up the database. When you have the Master Key, a simple change to the `.env` file to include the Master Key and update the Octopus version is all that is required:
 
 ```
 SA_PASSWORD=N0tS3cr3t!
@@ -180,7 +180,7 @@ SQL_SERVER_ACCEPT_EULA=N
 ```
 
 ### Import
-Since the Tentacle will perform a `register-with` command when it starts, we need to ensure that our fresh new Octopus server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md) is invoked if a `metadata.json` file is present.
+Since the Tentacle will perform a `register-with` command when it starts, we need to ensure that our fresh new Octopus Server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md) is invoked if a `metadata.json` file is present.
 
 ## Learn more
 

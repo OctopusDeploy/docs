@@ -6,7 +6,7 @@ position: 30
 
 When planning your Octopus installation, you need to decide how to host your packages. Your [build server](/docs/packaging-applications/build-servers/index.md) should create your packages and publish them to a package repository.
 
-The Octopus Deploy server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) and supports the following external repositories:
+The Octopus Deploy Server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) and supports the following external repositories:
 
  - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
@@ -35,6 +35,6 @@ Because Octopus can consume packages from multiple feeds, we recommend using dif
 
 ## Planning Package Repository Placement {#Packagerepositories-Placement}
 
-By default, when you [deploy a package](/docs/deployment-examples/package-deployments/index.md) to a Tentacle, the package will be pushed from the Octopus server to the Tentacle. You can override this by changing the setting of the [Action System Variable](/docs/projects/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle` from `False` to `True`. When set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
+By default, when you [deploy a package](/docs/deployment-examples/package-deployments/index.md) to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by changing the setting of the [Action System Variable](/docs/projects/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle` from `False` to `True`. When set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
 
-To reduce network latency, when your package repository is in close proximity to the Octopus server leave `Octopus.Action.Package.DownloadOnTentacle` set to the default value of `False`. Alternatively, if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you should consider placing your package repository in close proximity to your Tentacles.
+To reduce network latency, when your package repository is in close proximity to the Octopus Server leave `Octopus.Action.Package.DownloadOnTentacle` set to the default value of `False`. Alternatively, if you have explicitly set the Tentacles to download packages by the Tentacle to `True`, you should consider placing your package repository in close proximity to your Tentacles.

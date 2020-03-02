@@ -35,3 +35,7 @@ Good question! When you connect a tenant to a project, variable templates define
 
 By carefully designing your variable templates you can implement complex multi-tenant deployment scenarios.
 :::
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

@@ -44,7 +44,7 @@ Extension updates that increment major version numbers (e.g. 1.2.28 to 2.0.63) w
 
 ![](images/extension-upgrade-2.png)
 
-Once it's available, you can choose the version you want to use using the dropdown in the task details.
+Once it's available, you can choose the version you want to use using the drop-down in the task details.
 
 ![](images/extension-version-choice.png)
 

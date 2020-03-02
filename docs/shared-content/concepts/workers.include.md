@@ -1,4 +1,4 @@
-Workers are machines that can execute tasks that don't need to be run on the Octopus server or individual deployment targets.
+Workers are machines that can execute tasks that don't need to be run on the Octopus Server or individual deployment targets.
 
 You can manage your workers by navigating to **{{Infrastructure,Worker Pools}}** in the Octopus Web Portal:
 

@@ -14,7 +14,7 @@ This page is intended to help Octopus System Administrators tune and maintain th
 Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deployment-process/performance.md).
 :::
 
-## Minimum Requirements
+## Minimum requirements
 
 There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
 
@@ -28,7 +28,7 @@ We are continually working to make Octopus perform better, and we will always re
 
 As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of **Octopus 3.x** to the latest version.
 
-### Retention Policies
+### Retention policies
 
 Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/managing-releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
@@ -41,7 +41,7 @@ A tighter retention policy means your Octopus Server will run faster across the 
 You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/administration/managing-users-and-teams/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
-### SQL Server Maintenance {#sql-maintenance}
+### SQL Server maintenance {#sql-maintenance}
 
 [SQL Server](/docs/installation/sql-server-database.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
@@ -64,7 +64,7 @@ We offer four options for scaling your Octopus Server:
 - scale out using [Workers](/docs/infrastructure/workers/index.md).
 - dividing up your Octopus environment using [Spaces](https://g.octopushq.com/spaces) - which we released in  **Octopus 2019.1**.
 
-### Task Cap
+### Task cap
 
 An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
 
@@ -148,7 +148,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 
-### Getting Help From Us {#support}
+### Getting help from us {#support}
 
 If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
 

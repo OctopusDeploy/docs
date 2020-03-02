@@ -34,7 +34,7 @@ When the installer finishes, Octopus Manager will appear. Make sure the Octopus 
 
 ## Upgrading Tentacles {#UpgradingfromOctopus2.0-UpgradingTentacles}
 
-After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus web portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
+After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus Web Portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
 ![](images/3277990.png)
 

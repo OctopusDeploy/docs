@@ -1,5 +1,5 @@
 ---
-title: Moving your Octopus Server to Another Active Directory Domain
+title: Moving your Octopus Server to another Active Directory domain
 description: the steps and considerations to move your Octopus Server from one Active Directory domain to another.
 position: 10
 ---

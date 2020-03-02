@@ -10,7 +10,7 @@ A Username/Password account can be used to connect [SSH deployment targets](/doc
 
 Depending on your SSH target machine's distribution you may need to enable password authentication.
 
-To allow the Octopus server to connect using the provided credentials you the will need to modify the sshd\_config file on the target machine:
+To allow the Octopus Server to connect using the provided credentials you the will need to modify the sshd\_config file on the target machine:
 
 1. Open the /etc/ssh/sshd_config file.
 1. Find the line that contains: `PasswordAuthentication` and change it to: `PasswordAuthentication yes`.
@@ -26,7 +26,7 @@ While the above instructions should work on common platforms like Ubuntu or Red 
 ## Create a Username and Password Account {#UsernameandPassword-Creatingtheaccount}
 
 1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
-1. Select **Username/Password** from the dropdown menu.
+1. Select **Username/Password** from the drop-down menu.
 1. Give the account a name, for instance, **SSH backup server** or **Google**.
 1. Add a description.
 1. Add the username and password you use to authenticate against the remote host.

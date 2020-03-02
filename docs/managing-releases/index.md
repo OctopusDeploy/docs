@@ -1,5 +1,5 @@
 ---
-title: Managing Releases
+title: Managing releases
 description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
 position: 55
 ---
@@ -37,7 +37,7 @@ If the release is not deployed automatically, you can click **DEPLOY TO (Environ
 1. Specify a timeout period. If the deployment does not start within the specified timeout period, the deployment will not run.
 1. Click **SAVE**.
 
-Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the web portal.
+Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the Octopus Web Portal.
 
 #### Scheduling Deployments with the Octopus CLI
 
@@ -52,7 +52,7 @@ octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld
 1. Select the release you want to deploy.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
 1. If you selected **DEPLOY TO...**, select the environment to be deployed to.
-1. Expand the **Excluded steps** section and use the checkbox to select steps to excluded from the deployment.
+1. Expand the **Excluded steps** section and use the check-box to select steps to excluded from the deployment.
 1. Click **SAVE**.
 
 ### Modify the Guided Failure Mode

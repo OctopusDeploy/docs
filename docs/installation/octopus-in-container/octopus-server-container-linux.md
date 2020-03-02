@@ -12,7 +12,7 @@ Note: When using Linux containers on a Windows machine, please ensure you have [
 
 Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance, and upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
-Although there are a few different configuration options, the following is a simple example of starting an Octopus Deploy server container:
+Although there are a few different configuration options, the following is a simple example of starting an Octopus Deploy Server container:
 
 ```Bash
 $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --env ACCEPT_EULA="Y" --env DB_CONNECTION_STRING="..." octopusdeploy/octopusdeploy:!docker-image <octopusdeploy/octopusdeploy>
@@ -41,7 +41,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |  Name       |    |
 | ------------- | ------- |
 |**DB_CONNECTION_STRING**|Connection string to the database to use|
-|**MASTER_KEY**|The master key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. The master key is mandatory if the database exists|
+|**MASTER_KEY**|The Master Key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. The Master Key is mandatory if the database exists|
 |**OCTOPUS_SERVER_BASE64_LICENSE**|Your license key for Octopus Deploy. If left empty, it will try and create a free license key for use
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
@@ -73,7 +73,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 When the volumes are externally mounted to the host filesystem, upgrades between Octopus versions are much easier. We can picture the upgrade process with a container as being similar to [moving a standard Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-database-and-server.md) since containers, being immutable, don't themselves get updated.
 
-Similar to moving an instance, to perform the container upgrade you will need the master key that was used to set up the original database. The master key for an Octopus Server in a container can be found by using the container exec command:
+Similar to moving an instance, to perform the container upgrade you will need the Master Key that was used to set up the original database. The Master Key for an Octopus Server in a container can be found by using the container exec command:
 
 ```
 > docker container exec <container name/ID> /Octopus/Octopus.Server show-master-key --console --instance OctopusServer
@@ -81,7 +81,7 @@ Similar to moving an instance, to perform the container upgrade you will need th
 5qJcW9E6B99teMmrOzaYNA==
 ```
 
-When you have the master key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the master key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the master key to access its sensitive values:
+When you have the Master Key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the Master Key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the Master Key to access its sensitive values:
 
 ```bash
 $ docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env MASTER_KEY "5qJcW9E6B99teMmrOzaYNA==" octopusdeploy/octopusdeploy:!docker-image <octopusdeploy/octopusdeploy>

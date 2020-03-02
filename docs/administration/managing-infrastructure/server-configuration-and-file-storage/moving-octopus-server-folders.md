@@ -6,9 +6,9 @@ position: 0
 
 If you need to move any of the folders used by the Octopus Server you can follow the instructions on this page to move individual folders and reconfigure the Octopus Server to use the new folder locations.
 
-## Move Octopus Home folder {#MovingOctopusServerfolders-OctopusHomeMoveOctopusHomefolder}
+## Move Octopus home folder {#MovingOctopusServerfolders-OctopusHomeMoveOctopusHomefolder}
 
-If you need to move the Octopus Home folder, you can do that using the command-line as described below:
+If you need to move the Octopus home folder, you can do that using the command-line as described below:
 
 **Usage**
 
@@ -48,7 +48,7 @@ mv $oldHome $newHome
 & "$octopus" service --start
 ```
 
-## Move Other Octopus Server Folders {#MovingOctopusServerfolders-MoveotherOctopusServerfolders}
+## Move other Octopus Server folders {#MovingOctopusServerfolders-MoveotherOctopusServerfolders}
 
 If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below
 
@@ -76,7 +76,7 @@ Or one of the common options:
       --nologo               Don't print title or version information
 ```
 
-## Move NuGet Repository Folder {#MovingOctopusServerfolders-NuGetRepositoryMoveNuGetrepositoryfolder}
+## Move NuGet repository folder {#MovingOctopusServerfolders-NuGetRepositoryMoveNuGetrepositoryfolder}
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation,
 and you may wish to run each step separately to deal with any issues like locked files.
@@ -104,7 +104,7 @@ not be removed from expected folder while the server is running. Therefore an al
 1. Update the path in Octopus config.
 1. Start the server.
 
-## Move Artifacts Folder {#MovingOctopusServerfolders-ArtifactsMoveartifactsfolder}
+## Move the artifacts folder {#MovingOctopusServerfolders-ArtifactsMoveartifactsfolder}
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
@@ -120,7 +120,7 @@ mv $oldArtifacts $newArtifacts
 & "$octopus" service --start
 ```
 
-## Move Task Logs Folder {#MovingOctopusServerfolders-TaskLogsMovetasklogsfolder}
+## Move the task logs folder {#MovingOctopusServerfolders-TaskLogsMovetasklogsfolder}
 
 A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 

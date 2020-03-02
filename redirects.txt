@@ -1001,3 +1001,4 @@ docs/octopus-rest-api/octo.exe-command-line/push-metadata.md -> docs/octopus-res
 docs/octopus-rest-api/octo.exe-command-line/version.md -> docs/octopus-rest-api/octopus-cli/version.md
 docs/packaging-applications/create-packages/octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
 docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
+docs/octopus-concepts/api.md -> docs/octopus-concepts/rest-api.md

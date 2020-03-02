@@ -4,7 +4,7 @@ description: Using the Octopus built-in repository.
 position: 10
 ---
 
-Your Octopus server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies/index.md) support for cleaning up deployment packages.
+Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies/index.md) support for cleaning up deployment packages.
 
 The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories/index.md).
 
@@ -49,7 +49,7 @@ You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/in
 
 ## Using NuGet.exe Push {#UsingNuGetexePush}
 
-To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus web portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
 ![The Built-in Package Repository](built-in-package-repository.png)
 
@@ -85,7 +85,7 @@ For your convenience Octopus Deploy provides a built-in role called **Package P
 
 :::hint
 **Consider Using a Service Account**
-Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Deploy web portal.
+Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
 :::
 
 :::hint

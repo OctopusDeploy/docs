@@ -8,7 +8,7 @@ You can upgrade from **Octopus 2.6.5** to **Octopus 2018.10 LTS** by downloading
 
 ## Summary {#Manualupgrade-Summary}
 
-1. Backup your **Octopus 2.6.5** database and master key.
+1. Backup your **Octopus 2.6.5** database and Master Key.
 2. Install **Octopus 2018.10 LTS** on your Octopus Server.
 3. Migrate your data from **Octopus 2.6.5** to **Octopus 2018.10 LTS**.
 4. Install **the latest version of Tentacle** on your deployment targets.

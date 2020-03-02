@@ -15,7 +15,7 @@ The way this is achieved changed with the release of **Octopus 2019.1** and the 
 
 ### Creating the "Developers" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
 
-Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click **Add team**.
+Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click **Add team**.
 
 ![](images/add-team.png)
 
@@ -55,7 +55,7 @@ Given that a set of roles can be combined in a team and tied to a specific envir
 
 ### Creating the "*Dev Deployers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
 
-Start by clicking the **Teams** tab under **Configuration** in the Octopus Deploy web portal.  Then click the **Add team**.
+Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click the **Add team**.
 
 ![](images/add-team.png)
 

@@ -1,14 +1,15 @@
 ---
 title: Projects
 description: Projects are where you define the details of your deployments.
+position: 160
 ---
 
 !include <projects>
 
-Learn more about managing your [projects](/docs/projects/index.md).
+## Learn more
 
-## See also
-
-- [Deployment Process](/docs/deployment-process/index.md)
+- [Projects](/docs/projects/index.md)
+- [Deployment processes](/docs/deployment-process/index.md)
 - [Operations Runbooks](/docs/operations-runbooks/index.md)
-- [Release Management](/docs/managing-releases/index.md)
+- [Variables](/docs/projects/variables/index.md)
+- [Release management](/docs/managing-releases/index.md)

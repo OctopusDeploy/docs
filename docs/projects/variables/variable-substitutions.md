@@ -37,7 +37,7 @@ Most text fields that support binding to variables will have a variable insert b
 
 ![](images/3278296.png)
 
-For settings that support variables but aren't text (such as drop downs or checkboxes), a button is displayed to toggle custom expression modes:
+For settings that support variables but aren't text (such as drop downs or check-boxes), a button is displayed to toggle custom expression modes:
 
 ![](images/3278297.png)
 
@@ -233,3 +233,7 @@ The filters can be invoked in the following way:
 ```
 
 For more information, see [Variable Filters](https://octopus.com/docs/projects/variables/variable-filters).
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

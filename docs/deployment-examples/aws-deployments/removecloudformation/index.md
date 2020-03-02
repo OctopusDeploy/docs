@@ -37,10 +37,10 @@ Under the **CloudFormation** section, the AWS region and stack name need to be d
 If the stack does not exist, this step will succeed and not attempt to delete it again.
 :::
 
-You can also optionally wait for the stack to be deleted completely before finishing the step by selecting the **Wait for completion** checkbox.
+You can also optionally wait for the stack to be deleted completely before finishing the step by selecting the **Wait for completion** check-box.
 
 :::hint
-Unselecting the **Wait for completion** checkbox will allow the step to complete once that CloudFormation deletion has been initiated. However unselecting the option means that the step will not fail if the CloudFormation stack deletion fails.
+Unselecting the **Wait for completion** check-box will allow the step to complete once that CloudFormation deletion has been initiated. However unselecting the option means that the step will not fail if the CloudFormation stack deletion fails.
 :::
 
 ![AWS Region](images/step-aws-region.png)

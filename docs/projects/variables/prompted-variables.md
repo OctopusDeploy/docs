@@ -36,3 +36,7 @@ octo deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "V
 :::hint
 Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
 :::
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

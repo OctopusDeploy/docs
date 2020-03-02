@@ -37,7 +37,7 @@ You can access your AWS account from within projects through a variable of type 
 
 AWS allows you to assign a role to an EC2 instance, referred to as an [AWS service role for an EC2 instance](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts), and that role can be accessed to generate the credentials that are used to deploy AWS resources and run scripts.
 
-Because the AWS steps run on the Octopus server, Octopus itself needs to be running on an EC2 instance with an IAM role applied to take advantage of this feature.
+Because the AWS steps run on the Octopus Server, Octopus itself needs to be running on an EC2 instance with an IAM role applied to take advantage of this feature.
 
 :::hint
 It is expected that in future these steps will be run on [worker instances](https://github.com/OctopusDeploy/Specs/blob/master/Workers/index.md), which can execute on their own EC2 instances with their own roles applies. This will make IAM roles much more useful and flexible.

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Active Directory Integration
+title: Troubleshooting Active Directory integration
 description: Information on troubleshooting common Active Directory integration issues.
 position: 30
 ---
@@ -40,7 +40,7 @@ Octopus relies on Active Directory users being configured with enough informatio
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
-## Verifying Configuration Values {#TroubleshootingActiveDirectoryintegration-Verifyingconfigurationvalues}
+## Verifying configuration values {#TroubleshootingActiveDirectoryintegration-Verifyingconfigurationvalues}
 
 Most errors we've seen are due to a lack of permissions or various active directory configuration issues.  Additionally, the errors are generally found when trying to retrieve a user's groups.  The following are some examples.
 
@@ -139,13 +139,13 @@ The diagnostic logs can be viewed in the Event Viewer.
 Remember to reset the registry values once you're finished troubleshooting.
 :::
 
-## Read-Only Domain Controllers Are Not Supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
+## Read-Only domain controllers are not supported {#TroubleshootingActiveDirectoryintegration-Read-OnlyDomainControllersarenotsupported}
 
 Read-only Domain Controllers are not currently supported by Octopus. The .NET API we're using ignores read-only DCs.
 
 If there are any development teams willing to investigate RODCs further, our [AD/Directory Services authentication provider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider) is open source (if you are using **Octopus 3.5**+), so please feel free to checkout the current implementation if you wish to "roll your own" AD provider that includes support for RODCs and share with the Octopus community. ​:smiley:​
 
-## Run as a Different User Not Working {#TroubleshootingActiveDirectoryintegration-Runasadifferentusernotworking}
+## Run as a different user not working {#TroubleshootingActiveDirectoryintegration-Runasadifferentusernotworking}
 
 If you are signed into your Windows AD account and wish to sign in as a different AD user to Octopus, you need to do so via forms-based authentication and login with a fully qualified domain username (*eg. domain\user*). You **cannot** right-click and launch your browser as a different AD user.
 
@@ -157,7 +157,7 @@ Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=true
 Octopus.Server.exe service --start
 ```
 
-## Domain Groups Not Loading Across Multiple Domains
+## Domain Groups not loading across multiple domains
 
 In scenarios where you have to cross domain boundaries, issues can easily arise due to service account permissions.  One such issue can occur when you have users who are members of groups from multiple domains.  In this scenario, you may find that Octopus can only determine the groups in the same domain as the user itself and as such the user won't be treated as though they are in all of the correct teams.
 

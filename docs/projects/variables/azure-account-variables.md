@@ -57,3 +57,7 @@ Write-Host 'AzureAccount.Client=' $OctopusParameters["azure account.Client"]
 Write-Host 'AzureAccount.Id=' $azureAccount
 Write-Host 'AzureAccount.Client=' $azureaccountClient
 ```
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

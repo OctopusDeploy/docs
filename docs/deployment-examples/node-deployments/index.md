@@ -2,6 +2,7 @@
 title: Node Deployments
 description: With Octopus Deploy you can deploy your Node.JS applications to on-premises servers, Azure websites, Azure and AWS EC2 virtual machines.
 position: 120
+hideInThisSectionHeader: true
 ---
 
 Node.js is a popular cross-platform, JavaScript runtime for creating web apps. Octopus Deploy supports Node deployments so you can deploy Express, Meteor, and other Node.js server applications to on-premises servers, Azure websites, Azure and AWS EC2 virtual machines.

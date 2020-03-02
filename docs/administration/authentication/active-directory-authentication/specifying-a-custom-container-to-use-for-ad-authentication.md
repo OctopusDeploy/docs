@@ -1,5 +1,5 @@
 ---
-title: Specifying a Custom Container to Use For AD Authentication
+title: Specify a custom container for AD authentication
 description: How to specifying a custom container to use for AD Authentication.
 position: 20
 ---

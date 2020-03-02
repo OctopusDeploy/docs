@@ -76,7 +76,7 @@ then it may be more useful to focus in on that specific query and get the execut
 
 6. Configure filters.
     * With the filters dialog open, add a filter to the *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.  
-    * At the Events Selection tab tick the `Show all events` checkbox, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
+    * At the Events Selection tab tick the `Show all events` check-box, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
 
     ![](images/5865854.png)
 

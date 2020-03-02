@@ -1,10 +1,10 @@
 ---
-title: Move the Octopus Home folder and the Tentacle Home and Application folders
-description: How to move the Octopus Home folder and the Tentacle Home and Application folders.
+title: Move the Octopus home folder and the Tentacle home and application folders
+description: How to move the Octopus home folder and the Tentacle home and application folders.
 position: 13
 ---
 
-## Move the Octopus Home folder {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheOctopusHomefolder}
+## Move the Octopus home folder {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheOctopusHomefolder}
 
 Occasionally it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance. This can be done using the command-line on the Octopus Server.
 
@@ -37,12 +37,12 @@ mv $oldHome $newHome
 & "$octopus" service --start
 ```
 
-## Move the Tentacle Home and Application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
+## Move the Tentacle home and application folders {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheTentacleHomeandApplicationfolders}
 
 Occasionally it may be necessary to change the location at which a Tentacle stores its data (called the "Tentacle Home" and "Tentacle Applications" folder) as well as the Registry Key which defines the Tentacle instance. This can be done using the command-line on the Tentacle server.
 
 :::hint
-**Administrator Rights Required**
+**Administrator rights required**
 The following commands will need to be run as Administrator as they require access to the Registry.
 
 N.B. The delete-instance command will not actually delete any files, just the Registry key referring to the configuration file. This is a safe operation which will not delete your Tentacle data.

@@ -232,3 +232,7 @@ Objects:
 Cat: 11.5
 Dog: 17.5
 ```
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

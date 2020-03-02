@@ -55,3 +55,7 @@ The versions and tools used above are subject to change, this list is intended t
 
 Some of the tool installations are locked to a specific version, where others may be running the latest version.
 :::
+
+## Learn more
+
+- [Worker blog posts](https://www.octopus.com/blog/tag/workers) 

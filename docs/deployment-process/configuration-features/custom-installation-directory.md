@@ -15,7 +15,7 @@ The standard convention for deploying packages is often the best and simplest wa
 ## Add a Custom Installation Directory
 
 1. From your *Package Deploy* or *IIS* [step](/docs/deployment-process/steps/index.md), click the **Configure Features** link.
-2. Check the **Custom Installation Directory** checkbox and click **Ok**.
+2. Check the **Custom Installation Directory** check-box and click **Ok**.
 
 ![Custom Installation Directory option](images/custom-installation-directory.png)
 
@@ -37,7 +37,7 @@ Defining a [variable](/docs/projects/variables/index.md) with the directory path
 
  Read more about [variables](/docs/projects/variables/index.md).
 
-5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** checkbox.
+5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** check-box.
 6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the **Exclude from purge** list.
 
 The **Exclude from purge** list must be a newline-separated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. For instance:

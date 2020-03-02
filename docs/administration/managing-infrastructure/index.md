@@ -1,5 +1,5 @@
 ---
-title: Managing Infrastructure
+title: Managing infrastructure
 description: Managing your Octopus infrastructure
 position: 80
 hideInThisSectionHeader: true

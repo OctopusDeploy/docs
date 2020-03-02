@@ -73,7 +73,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 
 ## Additional Configuration Transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
-You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` checkbox.
+You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` check-box.
 
 ![](images/additional-transforms.png)
 

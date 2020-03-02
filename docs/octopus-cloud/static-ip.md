@@ -1,5 +1,5 @@
 ---
-title: Static IP Address
+title: Static IP address
 position: 20
 description: How to find the list of static IP addresses for your Octopus Cloud instance
 ---

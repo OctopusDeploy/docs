@@ -1,5 +1,5 @@
 ---
-title: Packaging Applications
+title: Packaging applications
 description: Packaging applications for deployment with Octopus Deploy.
 position: 40
 hideInThisSection: true
@@ -56,7 +56,7 @@ It is important that your packages have the correct **file extension** because O
 | Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployment-examples/docker-containers/index.md) and Octopus Deploy. |
 
-## Next
+## Learn more
 
  - [Create Packages](/docs/packaging-applications/create-packages/index.md)
  - [Build Servers](/docs/packaging-applications/build-servers/index.md)

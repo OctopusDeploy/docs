@@ -14,13 +14,13 @@ description:  Migrating between self-hosted and Octopus Cloud.
 
 ## Migrating to Octopus Cloud
 
-If you have an existing self-hosted Octopus server, and you want to switch to Octopus Cloud, you may want to migrate all of your existing projects, variables, history, and configuration from your self-hosted instance to your new Octopus Cloud instance. The only way to achieve this is through a full migration, with an entire database backup and restore. This ensures we don't miss any key dependencies.
+If you have an existing self-hosted Octopus Server, and you want to switch to Octopus Cloud, you may want to migrate all of your existing projects, variables, history, and configuration from your self-hosted instance to your new Octopus Cloud instance. The only way to achieve this is through a full migration, with an entire database backup and restore. This ensures we don't miss any key dependencies.
 
-### How it Works
+### How it works
 
 To get started migrating from self-hosted to cloud, [email our support team](mailto:support@octopus.com) and book a time for the migration to occur. 
 
-### Prepare for the Migration
+### Prepare for the migration
 
 - Email [support@octopus.com](mailto:support@octopus.com) to book in a mutually convenient time. We'll reply with the specific steps that are involved.
 - Upgrade to the [latest LTS version](https://octopus.com/downloads) of Octopus. This will help eliminate any compatibility problems that could occur.
@@ -31,7 +31,7 @@ To get started migrating from self-hosted to cloud, [email our support team](mai
 
 If Octopus Cloud is not the right fit for you, and you would like to switch back to hosting Octopus Server on your own infrastructure, we can provide a copy of the data from your instance.
 
-### How it Works
+### How it works
 
 To get started migrating from self-hosted to cloud, [email our support team](mailto:support@octopus.com) and book a time for the migration to occur. 
 
@@ -41,8 +41,8 @@ Start by [installing](/docs/installation/index.md) a new Octopus Server.
 
 Restore the database backup provided by Octopus Support, ensuring that the user account under which the Octopus Service is running has access to the database.
 
-Using the [database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md) command, set the connection string and the master key.
-`Octopus.Server.exe database --connectionString=<connection string to restored database> --masterKey=<master key provided by Octopus Support>`
+Using the [database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md) command, set the connection string and the Master Key.
+`Octopus.Server.exe database --connectionString=<connection string to restored database> --masterKey=<Master Key provided by Octopus Support>`
 
 From the provided zip file, copy the *task logs*, *artifacts* and *packages* to the corresponding folders under the Octopus Home folder, by default this is `C:\Octopus`.
 Update the paths for the *task logs*, *artifacts* and *packages* folders using the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command.

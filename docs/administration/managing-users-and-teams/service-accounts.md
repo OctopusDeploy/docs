@@ -13,7 +13,7 @@ When using Octopus Deploy it is common to have other automated services control
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
 :::hint
-**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus web portal.
+**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
 :::
 
 :::success

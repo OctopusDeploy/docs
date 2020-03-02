@@ -58,7 +58,7 @@ To supply the commit messages:
 
 This section describes how to configure Octopus Deploy to connect to Jira.
 
-Any Octopus instance, self-hosted or cloud-hosted, can be configured to use the Jira integration. The only network connectivity requirements are that your Octopus server and your browser can connect to the Jira instance.  Jira will never actively attempt to connect to Octopus.
+Any Octopus instance, self-hosted or cloud-hosted, can be configured to use the Jira integration. The only network connectivity requirements are that your Octopus Server and your browser can connect to the Jira instance.  Jira will never actively attempt to connect to Octopus.
 
 The process is slightly different depending on whether you are connecting to [Jira Cloud](#connecting-jira-cloud-and-octopus) or [Jira Server](#connecting-jira-server-and-octopus).
 
@@ -68,7 +68,7 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
 1. Configure the Jira extension in Octopus Deploy.
 
-    In the Octopus web portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and enter the following values for your Jira instance:
+    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and enter the following values for your Jira instance:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-internal-jira-instance/
 
@@ -138,20 +138,20 @@ When configured, this integration will provide Jira with updates about the progr
 
 ### Testing the Integration
 
-**Octopus 2019.7.13** introduced the ability to verify a connection can be made successfully between the Octopus server and your Jira Cloud/Server instance.
+**Octopus 2019.7.13** introduced the ability to verify a connection can be made successfully between the Octopus Server and your Jira Cloud/Server instance.
 
 The **Connect App** `Test` button (found under `Jira Connect App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance.
 ![Connect App Test button](images/jiraconnectapp_testbutton.png)
 
 :::hint
-For this connectivity test to succeed the Octopus server must be able to connect to both your Jira Cloud instance's URL, and to [https://jiraconnectapp.octopus.com](https://jiraconnectapp.octopus.com), which hosts our Jira plugin.
+For this connectivity test to succeed the Octopus Server must be able to connect to both your Jira Cloud instance's URL, and to [https://jiraconnectapp.octopus.com](https://jiraconnectapp.octopus.com), which hosts our Jira plugin.
 :::
 
 The **Release Notes** `Test` button (found under `Jira Password`) checks the connectivity to your Jira Cloud/Server instance for retrieving work item information.
 ![Release Notes Test button](images/jirareleasenotes_testbutton.png)
 
 :::hint
-For this connectivity test to succeed the Octopus server must be able to connect to your Jira Cloud/Server instance's URL.
+For this connectivity test to succeed the Octopus Server must be able to connect to your Jira Cloud/Server instance's URL.
 :::
 
 ### Deployments

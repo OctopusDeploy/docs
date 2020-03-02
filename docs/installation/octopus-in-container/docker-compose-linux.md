@@ -6,9 +6,9 @@ position: 3
 
 If you want to run an Octopus Deploy Windows container or a Tentacle Windows Container, please refer to the [Docker Compose Windows](/docs/installation/octopus-in-container/docker-compose-windows.md) documentation.
 
-For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
+For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
-The following example is a simple `docker-compose.yml` file combining an SQL Server instance with a dependent Octopus server:
+The following example is a simple `docker-compose.yml` file combining an SQL Server instance with a dependent Octopus Server:
 
 ```YAML
 version: '2.1'
@@ -83,7 +83,7 @@ DB_CONNECTION_STRING=Server=db,1433;Database=OctopusDeploy;User=sa;Password=N0tS
 # Your License key for Octopus Deploy. If left empty, it will try and create a free license key for you
 OCTOPUS_SERVER_BASE64_LICENSE=
 
-# Octopus Deploy uses a master key for encryption of your databse. If you're using an external database that's already been setup for Octopus Deploy, you can supply the master key to use it. If left blank, a new master key will be generated with the database creation.
+# Octopus Deploy uses a Master Key for encryption of your databse. If you're using an external database that's already been setup for Octopus Deploy, you can supply the Master Key to use it. If left blank, a new Master Key will be generated with the database creation.
 MASTER_KEY=
 
 # The API Key to set for the administrator. If this is set and no password is provided then a service account user will be created. If this is set and a password is also set then a standard user will be created.
@@ -103,7 +103,7 @@ When both containers are healthy, you can browse directly to `http://localhost` 
 
 ## Upgrade with Docker Compose
 
-Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](/docs/installation/octopus-in-container/octopus-server-container-linux.md). You will still need the master key from the original Octopus Server container you used when initially setting up the database. When you have the master key, a simple change to the `.env` file to include the master key and update the Octopus version is all that is required:
+Upgrades with a Docker Compose project are similar to the steps to [upgrade a single Octopus Server container](/docs/installation/octopus-in-container/octopus-server-container-linux.md). You will still need the Master Key from the original Octopus Server container you used when initially setting up the database. When you have the Master Key, a simple change to the `.env` file to include the Master Key and update the Octopus version is all that is required:
 
 ```
 SA_PASSWORD=N0tS3cr3t!

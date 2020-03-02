@@ -1,5 +1,5 @@
 ---
-title: Automating Octopus Installation
+title: Automating Octopus installation
 description: Information on how to install and configure an Octopus Server in a fully automated way from the command line.
 position: 7
 ---
@@ -14,7 +14,7 @@ Read more about long-term support, fast lanes, and slow lanes in this [blog post
 
 !include <server-downloads>
 
-Automating the installation of Octopus server is a three step process.
+Automating the installation of Octopus Server is a three step process.
 
 ### 1. Install the MSI on a Temporary Machine Interactively
 In this step we install the MSI on a machine interactively so that we can complete the wizard to add a new instance.
@@ -34,7 +34,7 @@ Here is an example of what the script might look like:
 "[INSTALLLOCATION]\Octopus.Server.exe" service --instance "<instance name>" --install --reconfigure --start --dependOn "MSSQLSERVER"
 ```
 
-### 2. Install MSI in Server Silently
+### 2. Install MSI in server silently
 
 To install the MSI silently:
 
@@ -50,7 +50,7 @@ msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no INSTALLLOCATION="<in
 
 ### 3. Configuration
 
-The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Deploy server is done later, via the script you saved above.
+The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Deploy Server is done later, via the script you saved above.
 
 To run the script start an admin shell prompt and execute the script, this should apply all the settings to the new instance.
 
@@ -104,10 +104,10 @@ Start-DscConfiguration -Path ".\SampleConfig" -Verbose -wait
 Test-DscConfiguration
 ```
 
-### Settings and Properties
+### Settings and properties
 
 To review the latest available settings and properties, refer to the [OctopusDSC Server readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cOctopusServer.md) in the GitHub repository.
 
-## Taking DSC Further
+## Taking DSC further
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver), [Azure Automation](https://msdn.microsoft.com/en-us/powershell/dsc/azuredsc), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). Learn more about Desired State Configuration at [Windows PowerShell Desired State Configuration ](https://docs.microsoft.com/en-us/powershell/dsc/overview).

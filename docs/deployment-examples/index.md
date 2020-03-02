@@ -1,5 +1,5 @@
 ---
-title: Deployment Examples
+title: Deployment examples
 description: Examples of deploying applications with Octopus Deploy.
 position: 60
 ---

@@ -76,3 +76,7 @@ PowerShell ISE will open a window showing the script currently executing on the 
 ![Debugging remote PowerShell scripts](debugging-powershell-scripts-debug.png)
 
 When you are finished debugging, run to the end of the script and the deployment will be complete.
+
+## Learn more
+
+- [PowerShell blog posts](https://www.octopus.com/blog/tag/powershell)

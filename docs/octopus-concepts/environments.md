@@ -1,14 +1,14 @@
 ---
 title: Environments
 description: Environments represent the different phases in your deployment process from development, to testing, and finally into production.
+position: 50
 ---
 
 !include <environments>
 
-Learn more about managing your [environments](/docs/infrastructure/environments/index.md#add-new-environments).
+## Learn more
 
-## See Also
-
+- Manage your [environments](/docs/infrastructure/environments/index.md#add-new-environments).
 - [Infrastructure](/docs/infrastructure/index.md)
-- [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
+- [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
 - [Lifecycles](/docs/deployment-process/lifecycles/index.md)

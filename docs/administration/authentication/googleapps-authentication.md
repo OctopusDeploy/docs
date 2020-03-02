@@ -1,5 +1,5 @@
 ---
-title: GoogleApps Authentication
+title: GoogleApps authentication
 description: Octopus Deploy can use GoogleApps authentication to identify users.
 position: 2
 ---
@@ -8,13 +8,13 @@ position: 2
 GoogleApps authentication is available in **Octopus 3.5** and later
 :::
 
-To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an App).  Below are the details for how to configure the App.
+To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an app).  Below are the details for how to configure the app.
 
-## Configuring GoogleApps {#GoogleAppsauthentication-ConfiguringGoogleApps}
+## Configure GoogleApps {#GoogleAppsauthentication-ConfiguringGoogleApps}
 
-### Set Up an App {#GoogleAppsauthentication-SetupanApp}
+### Configure an app {#GoogleAppsauthentication-SetupanApp}
 
-To configure an App within GoogleApps, you must have a Developer account at [https://developers.google.com](https://developers.google.com).  This account will own the App configuration, so we recommend you create an account for company use, rather than using an individual account.
+To configure an app within GoogleApps, you must have a Developer account at [https://developers.google.com](https://developers.google.com).  This account will own the app configuration, so we recommend you create an account for company use, rather than using an individual account.
 
 Once you have an account, log in to [https://console.developers.google.com](https://console.developers.google.com) and the following actions:
 
@@ -28,7 +28,7 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 
 :::hint
 **Reply URLs are case-sensitive**
-Be aware that the path in this url after the domain name was **case sensitive** during our testing.
+Be aware that the path in this URL after the domain name was **case sensitive** during our testing.
 :::
 
 :::hint
@@ -36,7 +36,7 @@ Be aware that the path in this url after the domain name was **case sensitive** 
 That's OK, you can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 :::
 
-## Configuring Octopus Deploy Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
+## Configure Octopus Deploy Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
 You can configure the GoogleApps settings from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
 
@@ -50,7 +50,7 @@ Alternatively these settings can be defined through the user interface by select
 
 ![Settings](images/googleapps-settings.png)
 
-### Octopus User Accounts Are Still Required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
+### Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 
 Even if you are using an external identity provider, Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
@@ -64,7 +64,7 @@ When the security token is returned from the external identity provider, Octopus
 If you already have Octopus user accounts and you want to enable external authentication, simply make sure the Email Address matches in both Octopus and the external identity provider. This means your existing users will be able to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
-### Getting Permissions
+### Getting permissions
 
 !include <admin-user>
 
@@ -72,7 +72,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with GoogleApps, be sure to check your [server logs](/docs/support/log-files.md) for warnings.
 
-### Double and Triple Check Your Configuration {#GoogleAppsauthentication-DoubleandTriplecheckyourconfiguration}
+### Double and triple check your configuration {#GoogleAppsauthentication-DoubleandTriplecheckyourconfiguration}
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 
@@ -80,11 +80,11 @@ Unfortunately security-related configuration is sensitive to everything. Make su
 - Remember things are case-sensitive.
 - Remember to remove or add slash characters as we've instructed - they matter too!
 
-### Check OpenID Connect Metadata is Working {#GoogleAppsauthentication-CheckOpenIDConnectmetadataisworking}
+### Check OpenID Connect metadata is working {#GoogleAppsauthentication-CheckOpenIDConnectmetadataisworking}
 
 You can see the OpenID Connect metadata by going to [https://accounts.google.com/.well-known/openid-configuration](https://accounts.google.com/.well-known/openid-configuration).
 
-### Inspect the Contents of the Security Token {#GoogleAppsauthentication-Inspectthecontentsofthesecuritytoken}
+### Inspect the contents of the security token {#GoogleAppsauthentication-Inspectthecontentsofthesecuritytoken}
 
 Perhaps the contents of the security token sent back by GoogleApps aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the GoogleApps user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from GoogleApps to Octopus via your browser. To inspect the contents of your security token:
 

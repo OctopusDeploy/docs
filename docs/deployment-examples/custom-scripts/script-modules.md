@@ -39,7 +39,7 @@ Once you have created a Script Module, you can start using the functions it con
 
 ![](images/script-modules-deployment.png)
 
-A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the checkbox is checked) and hit **Save**.
+A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the check-box is checked) and hit **Save**.
 
 ![](images/script-modules-deployment-include.png)
 

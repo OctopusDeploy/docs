@@ -1,5 +1,5 @@
 ---
-title: Tentacle Configuration and File Storage
+title: Tentacle configuration and file storage
 description: Octopus Tentacle configuration command reference including how to specify your file storage locations.
 position: 1200
 ---
@@ -10,7 +10,7 @@ Occasionally it may be necessary to change the location at which Tentacle stores
 Make sure you have a **current backup** of your Tentacle Home Directory before proceeding.
 :::
 
-## Tentacle Configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
+## Tentacle configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
 
 If you need to re-configure your Tentacle instance, you can do that using the command-line as described below.
 
@@ -49,7 +49,7 @@ Or one of the common options:
       --noconsolelogging     Don't log to the console
 ```
 
-## File Storage {#Tentacleconfigurationandfilestorage-Filestorage}
+## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
 The Octopus Server stores files in the following folders by default:
 

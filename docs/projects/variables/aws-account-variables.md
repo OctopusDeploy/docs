@@ -43,3 +43,7 @@ Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 ## Add an AWS Account to Octopus
 
 For instructions to set up an AWS account in Octopus, see [AWS Accounts](/docs/infrastructure/deployment-targets/aws/index.md).
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

@@ -1,6 +1,7 @@
 ---
 title: Running Azure PowerShell
 description: Octopus supports executing PowerShell against Azure and will automatically import the Azure PowerShell modules.
+hideInThisSectionHeader: true
 ---
 
 When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) and [Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/), and finally will also authenticate with Azure using the configured [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).

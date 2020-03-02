@@ -2,7 +2,7 @@
 title: Variables
 description: Defining variables in Octopus allows you to promote your applications through environments and update their configuration files.
 position: 20
-hideInThisSection: false
+hideInThisSectionHeader: true
 ---
 
 !include <variables>
@@ -140,6 +140,7 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
 
-## Next
+## Learn more
 
-Learn about using [variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) or [variable substitutions](/docs/projects/variables/variable-substitutions.md).
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Using variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) 

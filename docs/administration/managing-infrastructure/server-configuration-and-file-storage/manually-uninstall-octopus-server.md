@@ -1,15 +1,15 @@
 ---
-title: Manually Uninstall Octopus Server
+title: Manually uninstall Octopus Server
 description: Information on how to manually uninstall the Octopus Server.
 position: 1
 ---
 
 When you uninstall the Octopus Server MSI, it automatically removes the application files from the installation folder, but that's it. This page describes how to manually clean up Octopus Server in part, or completely remove it from your server.
 
-## Why Would I Want To Clean Up in the First Place? {#ManuallyuninstallOctopusServer-WhywouldIwanttocleanupinthefirstplace?}
+## Why Would I Want To Clean Up? {#ManuallyuninstallOctopusServer-WhywouldIwanttocleanupinthefirstplace?}
 
 :::problem
-In some of these scenarios you should make sure you have a recent backup of the **Octopus Home Directory** and your **Master Key** before continuing. Learn about [backup and restore](/docs/administration/data/backup-and-restore.md) and [backing up your Master Key](/docs/administration/security/data-encryption.md). If you want to completely remove this instance of Octopus Server and don't care about the configuration or data, you won't need to worry about having a backup or rollback strategy.
+In some of these scenarios you should make sure you have a recent backup of the **Octopus home directory** and your **Master Key** before continuing. Learn about [backup and restore](/docs/administration/data/backup-and-restore.md) and [backing up your Master Key](/docs/administration/security/data-encryption.md). If you want to completely remove this instance of Octopus Server and don't care about the configuration or data, you won't need to worry about having a backup or rollback strategy.
 :::
 
 Here are a few reasons why you may want to completely remove Octopus Server from your computer:
@@ -24,11 +24,11 @@ Here are a few reasons why you may want to completely remove Octopus Server from
 If you have just completed an in-place upgrade from Octopus Server 2.6 to a modern version of Octopus Server there will be several folders and files left over that aren't used by newer versions of Octopus. We didn't remove these files in case you needed to roll back. Learn about [cleaning up after upgrading from Octopus 2.6](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md).
 :::
 
-## What Does the Octopus Server MSI Actually Do? {#ManuallyuninstallOctopusServer-WhatdoestheOctopusServerMSIactuallydo?}
+## What does the Octopus Server MSI do? {#ManuallyuninstallOctopusServer-WhatdoestheOctopusServerMSIactuallydo?}
 
 The MSI will stop the Octopus Server windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all of the configuration required to run Octopus just like before you run the uninstaller. The installer behaves this way because the makes it easier for you to upgrade the application files for Octopus Server knowing your configuration and data are preserved.
 
-## Manually Removing All Traces of Octopus Server {#ManuallyuninstallOctopusServer-ManuallyremovingalltracesofOctopusServer}
+## Manually removing all traces of Octopus Server {#ManuallyuninstallOctopusServer-ManuallyremovingalltracesofOctopusServer}
 
 :::hint
 **What are all these files anyhow?**

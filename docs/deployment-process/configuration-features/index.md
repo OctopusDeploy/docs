@@ -5,14 +5,14 @@ position: 9
 hideInThisSection: true
 ---
 
-One of the essential steps in deploying software is configuring it to work with specific [environments](/docs/infrastructure/environments/index.md). This might mean pointing your application to the right database connection string, tweaking settings to run in production, or specifying a custom installation directory. Many of the [steps](/docs/deployment-process/steps/index.md) that you define as part of your [deployment process](/docs/deployment-process/index.md) have additional configuration features.
+!include <configuration-features>
 
 ## Enable Configuration Features
 
 You enable configuration features as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click the link.
-1. Select the features you would like to enable by clicking the relevant checkboxes in the list and click **OK**.
+1. Select the features you would like to enable by clicking the relevant check-boxes in the list and click **OK**.
 
 ![Configuration features screenshot](configuration-features.png)
 

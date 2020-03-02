@@ -37,7 +37,7 @@ The following example shows you how to use the Substitute Variables in Files fea
 3. Define the deployment process, by clicking **Process** from the project overview page, then select, **ADD STEP**.
 4. Select the **Deploy a Package** step.
 5. From the [Step](/docs/deployment-process/steps/index.md) Template page, click the **Configure Features** link.
-6. Check the **Substitute Variables in Files** checkbox and click **Ok**.
+6. Check the **Substitute Variables in Files** check-box and click **Ok**.
 
 ![Substitute Variables in Files feature](images/substitute-variables.png)
 

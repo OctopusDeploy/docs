@@ -51,4 +51,4 @@ Arguments are not case sensitive and can take the following forms:
 "--project=OctoFX Web Site"     # If using equals, quote both the name and value, not just the value
 ```
 
-All commands assume that you are running on the server where the Octopus Deploy server is installed which has access to the relevant database.
+All commands assume that you are running on the server where the Octopus Deploy Server is installed which has access to the relevant database.

@@ -6,7 +6,7 @@ position: 1
 
 From time to time you will need to perform certain administrative activities on your Octopus Server, like [upgrading Octopus](/docs/administration/upgrading/index.md) or [applying operating system patches](/docs/administration/managing-infrastructure/applying-operating-system-upgrades.md). Typically you will want to schedule a maintenance window where you perform these activities, and Octopus Server helps with this by switching to **Maintenance Mode**.
 
-## How Does It Work
+## How does it work?
 
 In summary Maintenance Mode enables you to safely prepare your server for maintenance, allowing existing tasks to complete, and preventing changes you didn't expect.
 
@@ -24,7 +24,7 @@ Once Octopus is in Maintenance Mode:
   - Tasks which were already queued (including [scheduled deployments](/docs/managing-releases/index.md#scheduling-a-deployment)) will be started and run through to completion.
   - System tasks will still be queued and execute at their scheduled intervals. These kinds of tasks can be ignored since they are designed to be safe to cancel at any point in time.
 
-## What About High Availability
+## What about High Availability?
 
 When you are using [Octopus High Availability](/docs/administration/high-availability/index.md) clusters, you will typically want to limit downtime to a minimum. You should enable Maintenance Mode when it is appropriate for the activity you need to perform.
 

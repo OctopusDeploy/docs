@@ -200,7 +200,7 @@ Sometimes the package version number don't always change. This can happen if you
 
 `http://MyOctopusServer/nuget/packages?replace=true`
 
-This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the checkbox on the package upload pane:
+This will force the Octopus Server to replace the existing NuGet package with the new version you have pushed. It works exactly the same as the check-box on the package upload pane:
 
 ![](images/existing-package.png)
 
@@ -233,7 +233,7 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackUseProductVersion`            | `true`                                  | Use this parameter to use `[assembly: AssemblyInformationalVersion]` (Assembly Product Version) as the package version (see [version numbers](#UsingOctoPack-Versionnumbers)). Introduced in OctoPack `3.5.0` |
 | `OctoPackAppendProjectToFeed`          | `true`                                  | Append the project name onto the feed so you can nest packages under folders on publish |
 
-## Next
+## Learn more
 
  - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)

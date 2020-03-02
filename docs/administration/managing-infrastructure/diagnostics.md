@@ -4,7 +4,7 @@ description: Octopus diagnostics includes a system integrity check to ensure the
 position: 2400
 ---
 
-## System Integrity Check
+## System integrity check
 
 The system integrity check performs several checks on the database and the data. Failure
 of the checks may indicate an underlying problem in your data or database. If it is failing,

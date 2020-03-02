@@ -42,7 +42,7 @@ The step will fail for lack of a worker if:
 
 ## Using the Default Pool for Scripts
 
-When you add workers to the default worker pool the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus server, will automatically move from using the built-in worker to workers in the worker pool.
+When you add workers to the default worker pool the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus Server, will automatically move from using the built-in worker to workers in the worker pool.
 
 ## Add New Worker Pools
 
@@ -50,7 +50,7 @@ Only users with the `ConfigureServer` permission can add or edit worker pools.
 
 1. Navigate to **{{Infrastructure,Worker Pools}}** in the **Octopus Web Portal** and click **ADD WORKER POOL**.  
 1. Give the worker pool a meaningful name.
-1. If this pool should be the default worker pool expand the **Default Worker Pool** section and the default checkbox.
+1. If this pool should be the default worker pool expand the **Default Worker Pool** section and the default check-box.
 1. Give the worker pool a description.
 
 You can add as many worker pools as you need.
@@ -93,8 +93,12 @@ Yes, the existence of other pools doesn't affect the behavior of the default poo
 
 *How can I cordon off my worker pools so each team only has access to certain pools?*
 
-With the [Spaces](/docs/administration/spaces/index.md) feature of Octopus Deploy you can partition your Octopus server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
+With the [Spaces](/docs/administration/spaces/index.md) feature of Octopus Deploy you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
 
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 
 Not yet.  At the moment, the only time an exclusive lease is taken out is if a Tentacle upgrade runs on a worker.  We are thinking about features that allow exclusive access for deployments.
+
+## Learn more
+
+- [Worker blog posts](https://www.octopus.com/blog/tag/workers) 

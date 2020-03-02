@@ -55,7 +55,7 @@ When configuring your Tentacle, you can configure advanced options, such as [pro
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-The following example configures a [listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy server:
+The following example configures a [listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy Server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -72,7 +72,7 @@ Tentacle.exe register-with --instance "Tentacle" --server "http://YOUR_OCTOPUS" 
 Tentacle.exe service --instance "Tentacle" --install --start --console
 ```
 
-You can also register a Tentacle with the Octopus server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
+You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
 
 **Using Octopus.Client to register a Tentacle in an Octopus Server**
 
@@ -106,7 +106,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
 
-The following example configures a [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy server:
+The following example configures a [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy Server:
 
 **Polling Tentacle**
 

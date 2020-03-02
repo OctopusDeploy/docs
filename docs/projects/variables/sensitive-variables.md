@@ -30,7 +30,7 @@ Learn more about [security and encryption](/docs/administration/security/data-en
 
 When dealing with sensitive variables, Octopus encrypts these values using **AES128 encryption** any time they are in transmission, or "at rest" like when they are stored in the Octopus database or staged on a deployment target as part of a deployment. You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables/index.md), with two notable exceptions:
 
-- Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api/index.md) or the Octopus web portal; and
+- Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api/index.md) or the Octopus Web Portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
 
 :::success
@@ -91,3 +91,7 @@ Or watch the things you gave your life to, *******en
 ```
 
 The obvious solution is, don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.
+
+## Learn more
+
+- [Variable blog posts](https://www.octopus.com/blog/tag/variables)

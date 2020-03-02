@@ -55,11 +55,11 @@ If you need more information about generating an SSH key pair, see the [useful l
 ## Creating the SSH Key Pair Account {#SSHKeyPair-Creatingtheaccount}
 
 1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
-1. Select **SSH Key Pair** from the dropdown menu.
+1. Select **SSH Key Pair** from the drop-down menu.
 1. Give the account a name so you can easily identify it when you need to use the account.
 1. Add a description.
 1. Enter the username you will use to access the remote host.
-1. Upload the private key to the Octopus server.
+1. Upload the private key to the Octopus Server.
 1. Enter the passphrase for the private key if you created one.
 1. If you want to restrict which environments can use the account, select only the environments that are allowed to account. If you don't select any environments, all environments will be allowed to use the account.
 1. Click **SAVE**.

@@ -1,6 +1,6 @@
 ---
 title: Deploying Packages to your Octopus Server
-description: How to deploy packages to your Octopus server.
+description: How to deploy packages to your Octopus Server.
 ---
 
 If you want to deploy a package on your Octopus Server, you should [install a Tentacle on your Octopus Server](#install-tentacle) and treat it just like any other deployment target.

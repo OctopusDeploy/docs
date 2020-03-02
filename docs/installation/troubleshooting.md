@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Octopus Installation
+title: Troubleshooting the Octopus installation
 description: Troubleshooting steps for installing Octopus Deploy
 position: 6
 ---
@@ -12,7 +12,7 @@ In a few cases a bug in a 3rd party component causes the installer to display an
 If you get the following error it means you have a local copy of Web Deploy and that is being used. You will either need to upgrade your local version of Web Deploy to 3.5 or greater, or uninstall the local copy so Octopus can reference the embedded copy.
 :::
 
-## Long Paths
+## Long paths
 
 In Server 2016 and Windows 10, Microsoft has added an option to remove the character limit for file paths.
 
@@ -37,6 +37,6 @@ Once this option is on, PowerShell scripts automatically support long file names
 - The package extraction path (`<TentacleApplicationDirectory>\<PackageId>\<Version>`) must be less than 256 characters long.
 - The path to the directory of any script file being run by the deployment must be less than 256 characters long.
 
-## Next
+## Learn more
 
-Continue with the [Octopus installation](/docs/installation/index.md).
+ - [Octopus installation](/docs/installation/index.md)
