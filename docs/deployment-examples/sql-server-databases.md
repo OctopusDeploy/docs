@@ -1,12 +1,12 @@
 ---
-title: SQL Server Databases
+title: SQL Server databases
 description: Octopus integrates with numerous tools to handle automated database deployments.
 position: 140
 ---
 
 There are a variety of ways for Octopus Deploy to deploy to SQL Server.  Octopus Deploy integrates with many third-party tools, both free and commercial.  This section will provide a broad outline of approaches, tooling, and recommended configuration.
 
-## Approaches to Database Change Management {#SQLServerdatabases-Approachestodatabasechangemanagement}
+## Approaches to database change management {#SQLServerdatabases-Approachestodatabasechangemanagement}
 
 There are two main approaches to deploying databases.
 
@@ -177,3 +177,7 @@ Kevin Kuszyk has a blog post about [deploying SQL databases using Entity Frame
 ### RoundhousE {#SQLServerdatabases-RoundhousE}
 
 Ben Tillman has a walkthrough on [how to deploy database migrations with RoundhousE](http://blog.bentillman.net/deploying-db-migrations-with-octopus-deploy-and-roundhouse/).
+
+## Learn more 
+
+- [Database blog posts](https://www.octopus.com/blog/tag/database%20deployments)
