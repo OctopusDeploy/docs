@@ -1,5 +1,5 @@
 ---
-title: Terraform Remote State
+title: Terraform remote state
 description: Using remote state with Octopus
 ---
 
@@ -13,9 +13,9 @@ Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/in
 Neither Octopus or Terraform will generate errors if a remote backend is not configured, but most attempts to update or delete existing resources will not work as expected without a remote backend.
 :::
 
-## Remote State Terraform Cloud
+## Remote state Terraform cloud
 
-Using terraform enterprise for remote state requires a data source using referencing the `remote` backend
+Using Terraform enterprise for remote state requires a data source using referencing the `remote` backend
 
 ```
 variable "token" {
@@ -46,8 +46,8 @@ As with any other data source, it must exist remotely first. To achieve this, yo
 `terraform plan` to generate the empty state. The remote state can then be seeded using `terraform state push .\.terraform\terraform.tfstate`. This is necessary as including resources as part of the template will result in errors such as
 `No stored state was found for the given workspace in the given backend.` as terraform tries to first read the remote state that doesn't exist.
 
-## Enhanced Backends
+## Enhanced backends
 
 Terraform has the concept of enhanced backends which enable both storage and execution of remote operations such as plan and apply. Octopus does not prevent you from using backends such as these, however the execution of actions remotely may not
-always work as intended. It is for this reason that we recommend using remote state and keep exection of actions local. Terraform Cloud / Enterprise provides an option as part of the workspace settings which makes this rather trivial.
+always work as intended. It is for this reason that we recommend using remote state and keep execution of actions local. Terraform Cloud / Enterprise provides an option as part of the workspace settings which makes this rather trivial.
 ![Terraform cloud execution mode](terraform-cloud-execution-mode.png "width=500")
