@@ -11,7 +11,7 @@ Running the Octopus Deploy Server inside a container provides a simple way to se
 Although there are a few different configuration options, a simple example of starting up an Octopus Deploy Server container is as follows:
 
 ```PowerShell
-docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --volume "C:\Octopus\Data:C:\Octopus" octopusdeploy/octopusdeploy:!docker-image <octopusdeploy/octopusdeploy>
+docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --volume "C:\Octopus\Data:C:\Octopus" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
 We run in detached mode with `--detach` to allow the container to run in the background.
@@ -24,7 +24,7 @@ Using `--publish 1322:8080` we map the _container port_ `8080` to `1322` on the 
 
 To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
-In this example, we are running the image `octopusdeploy/octopusdeploy:!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
+In this example, we are running the image `!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
 ## Configuration
 
@@ -80,7 +80,7 @@ Similar to moving an instance, to perform the container upgrade you will need th
 When you have the Master Key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the Master Key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the Master Key to access its sensitive values:
 
 ```PowerShell
-docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --env MASTER_KEY=5qJcW9E6B99teMmrOzaYNA== --volume "C:\Octopus\Data:C:\Octopus" octopusdeploy/octopusdeploy:!docker-image <octopusdeploy/octopusdeploy>
+docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --env MASTER_KEY=5qJcW9E6B99teMmrOzaYNA== --volume "C:\Octopus\Data:C:\Octopus" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
 While you don't strictly _need_ to mount the internal directory locations, it will mean that the newly upgraded server will still have access to all the same packages, logs, and artifacts as before. The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
