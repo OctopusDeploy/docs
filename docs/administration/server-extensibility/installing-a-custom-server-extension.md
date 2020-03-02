@@ -1,5 +1,5 @@
 ---
-title: Installing a Custom Server Extension
+title: Installing a custom server extension
 description: To install a custom server extension, you need to copy the extension dll into a folder on the machine that is running the Octopus Deploy Server.
 ---
 
@@ -13,7 +13,7 @@ The server will automatically check this folder for extensions during startup, s
 
 It is important to **include only your extension dll(s)** (and none of the dependencies that Octopus will already resolve, such as *Autofac*, *Nancy* or *Octopus.Server.Extensibility*) or you may receive an error similar to the following: *"Method 'Load' in type ... for not have an implementation"*.
 
-## Verifying the Extension Has Been Loaded {#Installingacustomserverextension-Verifyingtheextensionhasbeenloaded}
+## Verifying the extension has been loaded {#Installingacustomserverextension-Verifyingtheextensionhasbeenloaded}
 
 To verify which extensions are currently loaded, use the **Server Extensions** panel (under the System Information) on the **{{Configuration,Diagnostics}}** page sidebar.  Note that you'll need admin permissions in Octopus Deploy to see this page.
 
@@ -25,6 +25,6 @@ Your extension will need to reference the **same version** of *Autofac*, *Nancy*
 
 To determine which version of these dependencies your server is using, check the folder where Octopus Server is installed and look at the properties of these DLLs for a product version.
 
-### External Dependencies {#Installingacustomserverextension-ExternalDependencies}
+### External dependencies {#Installingacustomserverextension-ExternalDependencies}
 
 If the extension has external dependencies, they must also be copied to the CustomExtensions folder.

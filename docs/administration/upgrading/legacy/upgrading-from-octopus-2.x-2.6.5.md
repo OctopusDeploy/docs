@@ -1,5 +1,5 @@
 ---
-title: Upgrading From Octopus 2.x to 2.6.5
+title: Upgrading from Octopus 2.x to 2.6.5
 description: Information on how to upgrade from Octopus 2.x to 2.6.5.
 position: 3
 ---
@@ -52,7 +52,7 @@ Instead, we added a check in **Octopus 2.1.3** that checks if a per-user install
 
 ![](images/3278002.png)
 
-### Uninstalling Octopus 2.0 {#UpgradingfromOctopus2.0-UninstallingOctopus2.0}
+### Uninstall Octopus 2.0 {#UpgradingfromOctopus2.0-UninstallingOctopus2.0}
 
 :::success
 **Your data is safe**
@@ -67,7 +67,7 @@ You can uninstall the old version of the Octopus Deploy MSI installer and instal
 
 After you have uninstalled the old version of Octopus, you can install the new version.
 
-### If You Are Still Getting This Error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
+### If you are still getting this error {#UpgradingfromOctopus2.0-Ifyouarestillgettingthiserror}
 
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:
 

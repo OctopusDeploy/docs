@@ -1,15 +1,15 @@
 ---
-title: Building an Authentication Provider
+title: Building an authentication provider
 description: Technical details of how to build an Octopus Deploy Authentication Provider.
 ---
 
 Server Extensibility was new to **Octopus 3.5**, and is still being actively evolved as we learn more about how it's being used and what customer want to extend.  The documentation in this section covers the implementation as of v2.0.\* of the Extensibility packages.
 
-## Forms vs External {#BuildinganAuthenticationProvider-FormsvsExternal}
+## Forms vs external {#BuildinganAuthenticationProvider-FormsvsExternal}
 
 There are two key types of Authentication Providers, those that use Forms (Basic) authentication and those that are external to Octopus Deploy.  The main distinction between the two is whether the Octopus Deploy UI is responsible for collecting and username and password or whether control is passed to an external site to handle that and return a token representing the authenticated user (e.g. OpenID Connect providers).
 
-## Understanding Paths {#BuildinganAuthenticationProvider-Understandingpaths}
+## Understanding paths {#BuildinganAuthenticationProvider-Understandingpaths}
 
 When building extensions there are a couple of concepts that are important to know about.  Path resolution is one of those things.
 

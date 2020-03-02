@@ -1,12 +1,12 @@
 ---
-title: Upgrading a Modern Version of Octopus
+title: Upgrading a modern version of Octopus
 description: Everything you need to know about upgrading a modern version of Octopus.
 position: 1
 ---
 
 The following guide provides an overview of how the various components of a modern Octopus installation (3.x or newer) can be updated to the latest release.
 
-## Before You Begin
+## Before you begin
 
 Before you start your upgrade, you should take time to:
 
@@ -14,7 +14,7 @@ Before you start your upgrade, you should take time to:
 - Learn about [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
 - [Plan your upgrade](/docs/administration/upgrading/legacy/index.md#upgrade-path).
 
-## How We Version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
+## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
 We use our version numbering scheme to help you understand the type of changes we have introduced between two versions of Octopus Deploy:
 
@@ -38,13 +38,13 @@ We use our version numbering scheme to help you understand the type of changes w
 
 If you're interested in more details about how we are versioning Octopus, check out the blog post [Octopus Deploy version changes for 2018](https://octopus.com/blog/version-change-2018).
 
-### Release Notes
+### Release notes
 
 For every Major and Minor release we will provide release notes highlighting new features and calling out breaking changes. For example, you can see the features and highlights for the latest feature release on our [downloads page](https://octopus.com/downloads). We also talk about [interesting releases on our blog](https://octopus.com/blog/tag/Product).
 
 You can also use our release comparison tool to see **all of the changes** introduced between any two versions of Octopus Deploy. For example: [https://octopus.com/downloads/compare?from=3.2.15&to=3.5.2](https://octopus.com/downloads/compare?from=3.2.15&amp;to=3.5.2).
 
-## Downgrading or Rolling Back an Upgrade {#Upgrading-DowngradingorRollingBackanUpgrade}
+## Downgrading or rolling back an upgrade {#Upgrading-DowngradingorRollingBackanUpgrade}
 
 The process for successfully downgrading depends on the upgrade you have performed. The kind of upgrade you perform depends on the difference between versions:
 
@@ -56,7 +56,7 @@ The process for successfully downgrading depends on the upgrade you have perform
 - **Major upgrade** = We will provide a detailed upgrade guide for any Major upgrades.
   - For example: **Octopus 3.6.5** to **Octopus 2018.1.4** would be a Major upgrade. You should take care when performing a major upgrade and follow our upgrade guide carefully.
 
-## Update Available Notification {#UpgradingfromOctopus3.x-UpdateAvailableNotification}
+## Update available notification {#UpgradingfromOctopus3.x-UpdateAvailableNotification}
 
 When an update is available, a bullhorn icon will appear in the top status bar with details and a link to the downloads page.
 
@@ -67,7 +67,7 @@ When an update is available, a bullhorn icon will appear in the top status bar w
 You can find the differences between your current version and the newest version using our [Compare versions](https://octopus.com/downloads/compare) page. Please note that this will also list the release notes for major and minor version changes which may include **breaking changes** or **dependencies** that you may need to also update. It is important to know what might be affected by your upgrade.
 :::
 
-## Scheduling Maintenance
+## Scheduling maintenance
 
 Upgrading Octopus Server is normally quite fast, however you should allow yourself time to perform a good [backup and restore process](/docs/administration/data/backup-and-restore.md).
 
@@ -93,8 +93,8 @@ Upgrading the Octopus Deploy Server is easy, you will just need to follow these 
 1. Download the latest [Octopus Deploy MSI installer](https://octopus.com/downloads).
 
 :::success
-**No internet connection required for install**
-Once you have downloaded the required version of the Octopus Server MSI no further internet connectivity is required. This allows for installation on servers and systems that have no internet connectivity.
+**No Internet connection required for install**
+Once you have downloaded the required version of the Octopus Server MSI no further Internet connectivity is required. This allows for installation on servers and systems that have no Internet connectivity.
 :::
 
 1. Run the installer and follow the prompts.
@@ -117,7 +117,7 @@ You should generally follow the same instructions as above but upgrade one node 
 It is important to upgrade all nodes in your cluster during the same maintenance window, especially if the database schema is changed. The database schema will be upgraded when you upgrade the first node. Any nodes running the old version can fail due to a database schema mismatch.
 :::
 
-### Upgrading Octopus HA Nodes
+### Upgrading Octopus HA nodes
 
 Follow these steps to upgrade each node in your cluster:
 
@@ -134,7 +134,7 @@ Follow these steps to upgrade each node in your cluster:
 
 Calamari will either self-update automatically during a deployment if they are out of date with the latest available on the server, or they can be manually updated to avoid interrupting the deployment.
 
-### Auto Update {#UpgradingfromOctopus3.x-AutoUpdate}
+### Auto update {#UpgradingfromOctopus3.x-AutoUpdate}
 
 During a deployment process one of the first commands that's executed on the Tentacle is a check to confirm that the latest version of Calamari exists on the target machine. This is currently done by checking for the existence for an empty file in the folder location of`${env:TentacleHome}\Calamari\{{CalamariVersion}}\Success.txt` where the `CalamariVersion` variable is defined by the latest available on the Server.
 
@@ -142,7 +142,7 @@ When deploying to an environment with out of date Calamaris, they will be automa
 
 ![](https://cloud.githubusercontent.com/assets/1035315/10598722/bc8ea3f6-773e-11e5-8d0a-c72b6627ab9e.png)
 
-**Manual Update**
+**Manual update**
 
 The environments page will make machines without latest Calamari yellow, and show a green Update button (per environment) - this will just run a script that ensures Calamari is there.
 
@@ -168,11 +168,11 @@ Alternatively you can upgrade Tentacles one Environment at a time.
 ![](images/3278437.png)
 
 :::success
-**Optional and Required Tentacle upgrades**
+**Optional and required Tentacle upgrades**
 In most cases we will maintain backwards compatibility between versions of Octopus Server and Tentacle. In these cases the Environments page will **recommend** updating your Tentacles while still allowing deployments to continue as normal. In the rare occasion we need to break compatibility you will be **required** to upgrade any incompatible Tentacles before you can Deploy to those machines again from the upgraded Octopus Server.
 :::
 
-## Upgrading to Octopus 3.1 or Greater {#UpgradingfromOctopus3.x-UpgradingTo31UpgradingtoOctopus3.1orgreater}
+## Upgrading to Octopus 3.1 or greater {#UpgradingfromOctopus3.x-UpgradingTo31UpgradingtoOctopus3.1orgreater}
 
 Summary: Tentacle was upgraded from .NET 4.0 to .NET 4.5 to enable TLS 1.2.
 
@@ -211,7 +211,7 @@ No, from **Octopus 3.1** onward we are dropping official support for Octopus Ser
 Read more about the [Octopus - Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md) protocol and [Troubleshooting Schannel and TLS](/docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md).
 :::
 
-## Upgrading to Octopus 3.4 or Greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}
+## Upgrading to Octopus 3.4 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.4orgreater}
 
 See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to=3.4.0) for breaking changes and more information.
 
@@ -219,13 +219,13 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 
 **Want to use SemVer 2 for packages or releases?** You will need to upgrade OctoPack and/or Octopus CLI to 3.4 or newer.
 
-## Upgrading to Octopus 3.5 or Greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.5orgreater}
+## Upgrading to Octopus 3.5 or greater {#UpgradingfromOctopus3.x-UpgradingtoOctopus3.5orgreater}
 
 Some server configuration values are moved from the config file into the database in 3.5+.
 
 If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy Server.
 
-## Upgrading to Octopus 2019.x or Greater
+## Upgrading to Octopus 2019.x or greater
 
 Prior to 2019.x, the list of instances was stored in the registry.  That list stores the name of the instance and the location of the configuration file.  The configuration file, typically stored in `C:\Octopus\`, stores the database connection string, along with a slew of other settings.  This configuration allows you to uninstall and reinstall Octopus Deploy on the same machine without losing any settings.
 
@@ -233,7 +233,7 @@ In 2019, Octopus Deploy was updated to .NET Core, with the intention of being ab
 
 When you upgrade Octopus Deploy you just need to run the installer.  The installer will copy all the new .dlls and .exes into the install directory.  After the installer is finished, it will start the Octopus Manager.  The Octopus Manager will look at the list of instances, and for each instance, run the necessary upgrade scripts using the connection string from the configuration file.  
 
-## How to Downgrade to a Previously Installed Instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
+## How to downgrade to a previously installed instance of Octopus Server {#Howtodowngradetoapreviousinstalledinstanceofoctopusserver}
 
 If for any reason you need to downgrade to a previous version of Octopus Server, follow the steps below:
 

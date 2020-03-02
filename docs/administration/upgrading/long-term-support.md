@@ -1,5 +1,5 @@
 ---
-title: Octopus Long Term Support (LTS) Program
+title: Octopus Long Term Support (LTS) program
 description: We offer six months of long-term support (LTS) for certain releases of Octopus.
 position: 2
 ---
@@ -22,7 +22,7 @@ We announce each new LTS release of Octopus in a blog post with the [LTS tag](ht
 
 Each release of Octopus clearly indicates if it is an LTS release on the [downloads page](https://octopus.com/downloads) and inside the product itself.
 
-## Introducing the Fast and Slow Lanes {#fast-and-slow-lanes}
+## Introducing the fast and slow lanes {#fast-and-slow-lanes}
 
 ![Fast lane and slow lane](release-lanes.png)
 
@@ -33,7 +33,7 @@ We realize not every customer is the same so we provide two release lanes, the *
 
 Under the covers, we still work the same way we have since we started in 2011: shipping bug fixes and minor enhancements with a quick turnaround and working closely with our customers to design and test new features. What we have added is a special release cadence, where the release is based on the most stable version at that point in time with some additional quality assurance, complete with the offer of six months long-term support.
 
-### Self-hosted: The Power to Choose
+### Self-hosted: The power to choose
 
 Self-hosted customers can decide for themselves which releases to install, and when to upgrade their installation.
 
@@ -48,7 +48,7 @@ You should choose the **fast lane releases** if this sounds like your scenario:
 - "We want the latest and greatest features and really fast turnaround on small enhancements and bug fixes."
 - "We want to engage closely with the Octopus team, so we can help them build the best automation tooling in the world!"
 
-## Patching LTS Releases
+## Patching LTS releases
 
 When it comes to deciding what to include or exclude from a patch for one of the current LTS releases we use this rule of thumb:
 
@@ -101,11 +101,11 @@ We generally recommend self-hosted customers choose releases with LTS.
 
 Absolutely, yes! Staying current with Octopus releases is mutually beneficial, but we will support all Octopus customers to the best of our ability regardless of which release you are running. If we fix a bug on your behalf, you will need to upgrade to get the bug fix anyhow. Staying current is in everyone's best interests!
 
-### Can We Move Between the Slow and Fast Lanes?
+### Can we move between the slow and fast lanes?
 
 Yes, you can switch lanes in a controlled fashion. "Accelerating" to a fast lane release will result in you running a higher version of Octopus - it's just a normal upgrade. If you would like to "decelerate" back to the slow lane releases with long-term support, just wait until the next LTS release is shipped and upgrade to that release.
 
-### Will You Maintain the Monthly Cadence for Fast Lane Releases?
+### Will you maintain the monthly cadence for fast lane releases?
 
 Prior to starting the long-term support program we shipped releases on an approximate monthly cadence. We think a predictable cadence is more important for customers using the slow lane releases with long-term support - it will help them plan their upgrades.
 

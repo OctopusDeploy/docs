@@ -1,5 +1,5 @@
 ---
-title: Upgrading From Octopus 2.6.5 to 2018.10 LTS
+title: Upgrading from Octopus 2.6.5 to 2018.10 LTS
 description: Information on how to upgrade from Octopus 2.6.5 to 2018.10 LTS
 position: 3
 ---
@@ -10,7 +10,7 @@ Please read our guide for [upgrading older versions of Octopus](index.md) before
 
 This guide will walk you through the steps to upgrade from Octopus **2.6.5** to **2018.10 LTS**. This is the only supported upgrade path from Octopus 2.x and requires careful attention to detail. That being said, the vast majority of our customers have already upgraded using this battle hardened guide, so it should be a smooth experience if plan your upgrade and follow the steps carefully.
 
-## Planning Your Upgrade
+## Planning your upgrade
 
 There are two main parts to the upgrade:
 
@@ -22,23 +22,23 @@ We recommend choosing from two different approaches for upgrading from **Octopus
 - Create a new Octopus Server and migrate to it. We recommend this approach.
 - Install over the top of your existing Octopus Server.
 
-### Approach 1: Install the New Version of Octopus on a New Server, and Migrate To It (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
+### Approach 1: Install the new version of Octopus on a new server, and migrate to it (recommended) {#UpgradingfromOctopus2.6-Approach1:Install3.xonanewserver,andmigratetoit(recommended)}
 
 If you are able to provision a new Octopus Server, this is the safest option. That way, if something goes wrong in the upgrade, it will be easy to discard the new server and start the process again. And when it works, you can decommission the old Octopus Server.
 
 Read the full guide: [Upgrade with a new Server instance](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/upgrade-with-a-new-server-instance.md)
 
-### Approach 2: In-place (Over the Top) Upgrade of an Existing Server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
+### Approach 2: In-place (Over the Top) upgrade of an existing server {#UpgradingfromOctopus2.6-Approach2:In-place(overthetop)upgradeofanexistingserver}
 
 It is possible to install newer versions of Octopus over the top of a **Octopus 2.6** instance. You'll upgrade the Tentacles, then upgrade the Octopus Server.
 
 Read the full guide: [In place (over the top) upgrade](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/in-place-upgrade-install-over-2.6.5.md)
 
-## Upgrading Your Existing Tentacles {#tentacles}
+## Upgrading your existing Tentacles {#tentacles}
 
 We have significantly change the communications protocol used by Tentacle. This means your 2.6 Tentacles won't be able to communicate to your new Octopus Server. Likewise, new Tentacles won't be able to communicate with your old Octopus Server. Once you upgrade, going back can be difficult. Please take time to plan your upgrade carefully using this guide.
 
-### Small Number of Tentacles
+### Small number of Tentacles
 
 > "I have an Octopus Server and a handful of Tentacles. I don't mind manually running the new Tentacle MSI's on each of my Tentacle machines."
 

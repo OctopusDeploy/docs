@@ -1,5 +1,5 @@
 ---
-title: Retention Policy Tentacle Cleanup and Troubleshooting
+title: Retention policy Tentacle cleanup and troubleshooting
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 
@@ -7,7 +7,7 @@ We get a lot of questions about why isn't the retention policy deleting all of m
 
 This page will show what is checked, what is deleted and why something might not be deleted.
 
-## Deployment Journal {#RetentionpolicyTentaclecleanupandtroubleshooting-DeploymentJournal}
+## Deployment journal {#RetentionpolicyTentaclecleanupandtroubleshooting-DeploymentJournal}
 
 The deployment journal on the Tentacle is the source of truth for what Octopus will know has been deployed to the Tentacle but more importantly what still exists on the Tentacle.
 
@@ -52,17 +52,17 @@ Below is a sample DeploymentJournal.xml:
 
 It keeps a record for every package and package extraction for each project and the relevant locations.
 
-## Defining Your Retention Policy for Your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
+## Defining your retention policy for your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
 
-Defining retention policies is done within Lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
+Defining retention policies is done within lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
 ![](images/3278386.png)
 
-You can read more about [Lifecycles](/docs/deployment-process/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+You can read more about [lifecycles](/docs/deployment-process/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 
-## Retention Policies With Channels
+## Retention policies with channels
 {#RetentionpolicyTentaclecleanupandtroubleshooting-Retentionpolicywithchannels}
 
 [Channels](/docs/deployment-process/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page which is provided from version `3.12.2`.
@@ -70,7 +70,7 @@ In this example the default for the Lifecycle is to Keep 3 releases on both Octo
 ![Discrete Channel Release](images/discrete-channel-release.png)
 
 
-## When the Retention Policy is Run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
+## When the retention policy is run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
 
 For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
 
@@ -95,7 +95,7 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 ```
 
-## Package and Extraction Directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
+## Package and extraction directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
 
 You can find your packages under C:\Octopus\files (or c:\Octopus\[Instance Name])\files)
 

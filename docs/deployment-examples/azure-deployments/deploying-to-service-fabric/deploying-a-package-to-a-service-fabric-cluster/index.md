@@ -1,5 +1,5 @@
 ---
-title: Deploying a Package to an Azure Service Fabric Cluster
+title: Deploying a package to an Azure Service Fabric cluster
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Service Fabric clusters.
 position: 0
 ---
@@ -14,7 +14,7 @@ The [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) must 
 After the above SDK has been installed, you need to restart your Octopus service for the changes to take effect.
 :::
 
-## Step 1: Create a Service Fabric Cluster
+## Step 1: Create a Service Fabric cluster
 
 Create a Service Fabric cluster (either in Azure, on-premises, or in other clouds). Octopus needs an existing Service Fabric cluster to connect to in order to deploy your application package.
 
@@ -22,15 +22,15 @@ Create a Service Fabric cluster (either in Azure, on-premises, or in other cloud
 
 Package your Service Fabric application. See our guide to [Packaging a Service Fabric application](/docs/deployment-examples/azure-deployments/service-fabric/packaging.md).
 
-## Step 3: Create a Service Fabric Deployment Target
+## Step 3: Create a Service Fabric deployment target
 
 You will need to create a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) for each cluster you are deploying to.
 
-## Step 4: Create the Service Fabric Application Deployment Step
+## Step 4: Create the Service Fabric application deployment step
 
 Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
 
-## Step 5: Configure your Service Fabric Application Step
+## Step 5: Configure your Service Fabric application step
 
 Select the Role you assigned your Service Fabric target and select your Service Fabric package from your package feed.
 
@@ -54,7 +54,7 @@ Various options are available to deploy your Service Fabric application.
 Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming-convention for your application services, like **MyFabricApplication\_Production** and **MyFabricApplication\_Test**, you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
-### Deployment Features Available to Service Fabric Application Steps
+### Deployment features available to Service Fabric application steps
 
 The following features are available when deploying a package to a Service Fabric application:
 
@@ -68,7 +68,7 @@ The following features are available when deploying a package to a Service Fabri
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
 :::
 
-## Deployment Process
+## Deployment process
 
 Deployment to a Service Fabric cluster proceeds as follows (more details provided below):
 
@@ -84,13 +84,13 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Execute the Service Fabric application deployment script (see [Customizing the deployment process](#customizing-the-deployment-process) section below).
 1. Any configured or packaged `PostDeploy` scripts are executed.
 
-### Extract the Service Fabric Package
+### Extract the Service Fabric package
 
 Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as Configuration Transforms and Variable Substitution.
 
 Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 
-### Customizing the Deployment Process
+### Customizing the deployment process
 
 The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within the root of your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
 
@@ -98,7 +98,7 @@ The deployment is performed using a PowerShell script called `DeployToServiceFa
 If you choose to override the deployment script, remember that your `DeployToServiceFabric.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Deployment/Conventions/DeployAzureServiceFabricAppConvention.cs).
 :::
 
-## Deploying to Multiple Geographic Regions
+## Deploying to multiple geographic regions
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) per-region and assigning them to the same role and an appropriate environment.
 

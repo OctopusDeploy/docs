@@ -1,5 +1,5 @@
 ---
-title: Let's Encrypt Integration
+title: Let's Encrypt integration
 description: Octopus can integrate with Let's Encrypt to setup and automatically renew the Octopus Portal SSL certificate.
 position: 2300
 ---
@@ -19,7 +19,7 @@ To enable, click the `Configure` button.
 Enter the DNS name that you want to have on the new SSL certificate. Do not enter a prefix such as `http://` or `https://`.
 
 :::warning
-The DNS name you enter must be publicly accessible from the internet (specifically the Let's Encrypt servers) over HTTP on port 80, so that Let's Encrypt can validate that you have control of this domain name. If your firewall has the ability, we recommend only allowing paths starting with `http://youroctopusserver.example.com/.well-known/acme-challenge/`.
+The DNS name you enter must be publicly accessible from the Internet (specifically the Let's Encrypt servers) over HTTP on port 80, so that Let's Encrypt can validate that you have control of this domain name. If your firewall has the ability, we recommend only allowing paths starting with `http://youroctopusserver.example.com/.well-known/acme-challenge/`.
 :::
 
 Once you have accepted the [Let's Encrypt Terms of Service](https://g.octopushq.com/LetsEncryptTermsOfService), and entered a registration email address, click the `Register` button.
@@ -57,12 +57,12 @@ Let's Encrypt is only supported in single node Octopus Server configurations, du
 
 There are a few gotchas involved with Let's Encrypt.
 
-### HTTP Challenge Failure
+### HTTP challenge failure
 
-If you find that the HTTP challenge fails with a message similar to `The Let's Encrypt HTTP challenge failed with status 'invalid'`, check that the HTTP endpoint is publicly accessible. Find the URL that Let's Encrypt is requesting from the log and ensure its publicly available from the internet.
+If you find that the HTTP challenge fails with a message similar to `The Let's Encrypt HTTP challenge failed with status 'invalid'`, check that the HTTP endpoint is publicly accessible. Find the URL that Let's Encrypt is requesting from the log and ensure its publicly available from the Internet.
 
 Be careful if you have previously enabled HSTS - this can cause browser redirects while testing that are hard to spot. The server **must** respond on HTTP, not redirect to HTTPS.
 
-### Server is Not Accessible on HTTPS
+### Server is not accessible on HTTPS
 
 Check that the local firewall allows traffic on the port you selected - usually 443.

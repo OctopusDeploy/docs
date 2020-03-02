@@ -1,16 +1,16 @@
 ---
-title: User Roles
-description: User Roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
+title: user roles
+description: user roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 ---
 
 
-User Roles and group permissions play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
+User roles and group permissions play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 
-## Built-in User Roles {#UserRoles-Built-inUserRoles}
+## Built-in user roles {#UserRoles-Built-inUserRoles}
 
-Octopus comes with a set of built-in User Roles that are designed to work for most common scenarios:
+Octopus comes with a set of built-in user roles that are designed to work for most common scenarios:
 
-| User Role            | Description                              |
+| User role            | Description                              |
 | -------------------- | ---------------------------------------- |
 | Certificate Manager  | Certificate managers can edit certificates and export private-keys |
 | Environment Manager  | Environment managers can view and edit environments and their machines. |
@@ -25,11 +25,11 @@ Octopus comes with a set of built-in User Roles that are designed to work for mo
 | System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
 | Tenant manager       | Tenant managers can edit tenants and their tags |
 
-The built-in User Roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own User Roles.
+The built-in user roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own user roles.
 
-### Additional User Roles for Spaces
+### Additional user roles for spaces
 
-In addition to the above users roles, **Octopus 2019.1** and above also comes with the following built-in User Role.
+In addition to the above users roles, **Octopus 2019.1** and above also comes with the following built-in user role.
 
 | User Role            | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -39,7 +39,7 @@ In addition to the above users roles, **Octopus 2019.1** and above also comes wi
 For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md)  
 :::
 
-## Creating User Roles (LTS) {#UserRoles-CreatingUserRolesLTS}
+## Creating user roles (LTS) {#UserRoles-CreatingUserRolesLTS}
 
 If you are using a version prior to **Octopus 2019.1** (including **2018.10-LTS**), a custom User Role can be created with any combination of permissions. To create a custom user role:
 
@@ -57,7 +57,7 @@ Once the custom role is saved, the new role will be available to be assigned to 
 
 ![](images/add-role.png)
 
-## Creating User Roles With Spaces {#UserRoles-CreatingUserRoles}
+## Creating user roles with spaces {#UserRoles-CreatingUserRoles}
 
 If you are using **Octopus 2019.1** or later, a custom User Role can be created with any combination of permissions. To create a custom user role:
 
@@ -77,7 +77,7 @@ When applying roles to a team, you are able to optionally specify a scope for ea
 
 ![](images/define-scope-for-user-role.png)
 
-## Troubleshooting Permissions {#UserRoles-TroubleshootingPermissions}
+## Troubleshooting permissions {#UserRoles-TroubleshootingPermissions}
 
 If for some reason a user has more/fewer permissions than they should, you can use the **Test Permissions** feature to get an easy to read list of all the permissions that a specific user has on the Octopus instance.
 
@@ -95,5 +95,5 @@ If a user tries to perform an action without having enough permissions to do it,
 ![](images/no-permissions.png)
 
 :::warning
-As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in User Roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.
+As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in user roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.
 :::

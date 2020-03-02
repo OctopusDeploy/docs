@@ -1,5 +1,5 @@
 ---
-title: Common Security Vulnerabilities and Exploits
+title: Common security vulnerabilities and exploits
 description: This section describes how Octopus Deploy prevents attackers from leveraging common vulnerabilities and exploits.
 position: 100
 hideInThisSectionHeader: true

@@ -9,7 +9,7 @@ description: Octopus Deploy can help you perform repeatable and controlled deplo
 
 Web jobs are deployed to either `app_data/jobs/triggered/{job_name}` or `app_data/jobs/continuous/{job_name}`, depending on whether the job is *triggered* or *continuous*.
 
-## Packaged with the Web App {#DeployingWebJobs-PackagedwiththeWebApp}
+## Packaged with the web app {#DeployingWebJobs-PackagedwiththeWebApp}
 
 If you are packaging and deploying your Web App and Web Job together, the Web Job must be packaged in it's location under the App\_Data directory.
 
@@ -56,7 +56,7 @@ Below is a sample of a nuspec file which could be used to produce the layout abo
 </package>
 ```
 
-## Packaged Independently {#DeployingWebJobs-PackagedIndependently}
+## Packaged independently {#DeployingWebJobs-PackagedIndependently}
 
 If you are packaging and deploying your Web Job independently to the containing Web App (and possibly other Web Jobs and sub-applications), then it is important you set the Physical Path field to the appropriate location.  For example:
 

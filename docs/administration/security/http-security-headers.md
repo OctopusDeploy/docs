@@ -82,7 +82,7 @@ The `Expect_CT` header is used to instruct browsers to only accept connections w
 
 The Octopus portal does not support this header.
 
-## Octopus Server Communications Port
+## Octopus Server communications port
 
 The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](/docs/administration/security/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
 
@@ -112,7 +112,7 @@ This header instructs browsers to enable their inbuilt Cross Site Scripting (XSS
 
 The Octopus Server sets this header to `1; block`, enabling the filters and instructing the browser to block (rather than sanitize) any detected attack. This setting is not user configurable.
 
-## Octopus Tentacle Communications Port
+## Octopus Tentacle communications port
 
 The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](/docs/administration/security/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
 

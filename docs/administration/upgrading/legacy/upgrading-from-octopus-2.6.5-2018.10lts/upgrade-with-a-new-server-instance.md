@@ -1,5 +1,5 @@
 ---
-title: Upgrade With a New Server Instance
+title: Upgrade with a new server instance
 description: Information on how to upgrade from Octopus 2.6.5 to a new Octopus instance.
 position: 2
 ---
@@ -12,11 +12,11 @@ Be sure to read the [Upgrading from Octopus 2.6.5 to 2018.10 LTS](/docs/administ
 
 To upgrade to a modern version of Octopus Server, follow these steps:
 
-### 1. Back Up Your Octopus 2.6.5 Database and Master Key {#Upgradewithanew3.0serverinstance-1.BackupyourOctopus2.6databaseandmasterkey}
+### 1. Back up your Octopus 2.6.5 database and Master Key {#Upgradewithanew3.0serverinstance-1.BackupyourOctopus2.6databaseandmasterkey}
 
 See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/backup-2.6.md) page for instructions on backing up your database.
 
-### 2. Install Octopus 2018.10 LTS On a New Virtual or Physical Server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
+### 2. Install Octopus 2018.10 LTS on a new virtual or physical server {#Upgradewithanew3.0serverinstance-2.InstallOctopus3.xonanewvirtualorphysicalserver}
 
 :::success
 **Upgrade to the latest version**
@@ -25,7 +25,7 @@ When upgrading to **Octopus 2018.10 LTS** please use the latest version availabl
 
 See the [Installing Octopus 2018.10 LTS](/docs/installation/index.md) page for instructions on installing a new **Octopus 2018.10 LTS** instance.
 
-### 3. Migrate Your Data From 2.6.5 to 2018.10 LTS {#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x}
+### 3. Migrate your data from 2.6.5 to 2018.10 LTS {#Upgradewithanew3.0serverinstance-3.Migrateyourdatafrom2.6to3.x}
 
 See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts.md) page for instructions on importing your **Octopus 2.6.5** database backup into **Octopus 2018.10 LTS**.
 
@@ -43,11 +43,11 @@ In a standard **Octopus 2.6.5** install the files can be found under `C:\Octopu
 You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to {{Library>Packages>Package Indexing}} and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::
 
-### 4. Use Hydra to Automatically Upgrade Your Tentacles {#Upgradewithanew3.0serverinstance-4.UseHydratoautomaticallyupgradeyourTentacles}
+### 4. Use Hydra to automatically upgrade your Tentacles {#Upgradewithanew3.0serverinstance-4.UseHydratoautomaticallyupgradeyourTentacles}
 
 !include <using-hydra>
 
-### 5. Verify Connectivity Between the 2018.10 LTS Server and your Tentacles {#Upgradewithanew3.0serverinstance-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
+### 5. Verify connectivity between the 2018.10 LTS server and your Tentacles {#Upgradewithanew3.0serverinstance-5.Verifyconnectivitybetweenthe3.xserverand3.xTentacles}
 
 When the Hydra task runs on a Tentacle machine, it should no longer be able to communicate with the **Octopus 2.6.5** server. You can verify this by navigating to the Environments page and clicking **Check Health**.
 
@@ -65,6 +65,6 @@ Performing the Check Health on your **Octopus 2018.10 LTS** server should now su
 If you have multiple Tentacles running on the same server, an update to one will result in an update to **all** of them. This is because there is only one copy of the Tentacle binaries, even with multiple instances configured.
 :::
 
-### 6. Decommission Your Octopus 2.6.5 Server {#Upgradewithanew3.0serverinstance-6.DecommissionyourOctopus2.6server}
+### 6. Decommission your Octopus 2.6.5 Server {#Upgradewithanew3.0serverinstance-6.DecommissionyourOctopus2.6server}
 
 Once you are confident your Tentacles have all been updated and work correctly, you can decommission your **Octopus 2.6.5** Server.

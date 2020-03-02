@@ -1,5 +1,5 @@
 ---
-title: System and Space Permissions
+title: System and space permissions
 description: An explanation of the two levels that permissions can apply at, the Space and the System.
 version: 2019.1
 ---
@@ -8,7 +8,7 @@ Octopus Deploy **2019.1** and above, supports partitioning your server up into [
 
 This introduces some complexity that can be useful to understand when things don't work quite the way you expect. Reading this page should give you a general understanding of how permissions work in these two contexts.
 
-## Levels of Permission
+## Levels of permission
 
 While designing this feature, we needed to reason about which API resources needed to be configured _outside_ of a space and which resources should _only_ be configured _within_ a space.
 
@@ -18,35 +18,35 @@ These levels are in fact attached to the nature of the API resources themselves,
 
 When you design or inspect your own custom **user roles**, we present this information to help you reason about the types of permissions you are granting that role, so that you can appropriately restrict access to the various resources that you care about.
 
-### What is a 'System Level' Permission?
+### What is a 'system level' permission?
 
 **System** level permissions are those that involve administering the entire system, but do not include permissions within an individual space. An example of system level permissions are the **User** permissions, since users are not scoped to a space.
 
-### What is a 'Space Level' Permission?
+### What is a 'space level' permission?
 
 **Space** level permissions are those that apply to resources within spaces, for example, **Projects** and **Environments**.
 
 As an example, a team of users with **ProjectView** permission in the **Finance Dept.** space can see projects in that space. In order to allow them to view projects in the **IT Dept.** space, they need to be a member of a Team that had **ProjectView** permission in that space.  
 
-### Can Permissions Apply at Both Levels?
+### Can permissions apply at both levels?
 
 Yes, in some special cases, permissions can apply at both levels. A good example here is **Teams**. In order to support the two administrative use cases mentioned earlier, it is conceivable that some teams would be required to operate across all spaces, whereas other teams would not.
 
 As such, when creating a team, the team can be marked as 'Accessible in all spaces' (i.e a system level team) or 'Accessible in **Finance Dept.** space only' where **Finance Dept.** is the name of the currently selected space (i.e. a space level team).
 
-## What Does This Mean for Configuring User Roles and Teams?
+## What does this mean for configuring user roles and teams?
 
 When we create or edit user roles, we can choose a combination of system and space level permissions. Since not all scenarios are compatible when mixing system or space level concerns, some rules exist when applying user roles to teams.
 
-### Rules of the Road {#SystemAndSpacePermissions-RulesOfTheRoad}
+### Rules of the road {#SystemAndSpacePermissions-RulesOfTheRoad}
 
 When you're including a user role in a team, that role will apply at either the space or system level. This is due to the roles constituent permissions needing to be applied at different levels.
 
-#### Roles with System Level Permissions Only
+#### Roles with system level permissions only
 
 If the role only contains system level permissions, then the role will be automatically applied at the system level. In addition, roles of this nature can only be used for _system only_ teams. Applying a set of system permissions to a _space team_ is not permitted.
 
-#### Roles With a Combination of System and Space Level Permissions
+#### Roles with a combination of system and space level permissions
 
 However, a user role can be created with a combination of both system and space level permissions. When adding a role, if that role contains *any* space permissions, then the role will be applied at the space level.
 

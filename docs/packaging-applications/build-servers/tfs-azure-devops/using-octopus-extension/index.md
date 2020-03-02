@@ -32,7 +32,7 @@ If you want to make changes to the build task that might not be appropriate for 
 
 ## Use Your Own Version of Octo
 
-You can bring your own version of the Octopus CLI and avoid the use of installer tasks or accessing the internet by [registering octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md).
+You can bring your own version of the Octopus CLI and avoid the use of installer tasks or accessing the Internet by [registering octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md).
 
 ## Add a Connection to Octopus Deploy
 

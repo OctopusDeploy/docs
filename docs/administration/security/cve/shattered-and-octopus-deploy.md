@@ -1,5 +1,5 @@
 ---
-title: SHA1 "Shattered" Collision and Octopus Deploy
+title: SHA1 "Shattered" collision and Octopus Deploy
 description: How the SHA1 "Shattered" Collision impacts Octopus Deploy
 position: 1
 ---
@@ -14,7 +14,7 @@ The risk seems to focus on areas where certificates are used for digital signatu
 
 Either way, SHA1 has been on the way out for some time, and certificate authorities stopped issuing SHA1 certificates quite some time ago. This is just another nail in the coffin for SHA1.
 
-## Octopus and Tentacle Prior to 3.14 Use SHA1 by Default
+## Octopus and Tentacle prior to 3.14 use SHA1 by default
 
 When you install Octopus and the Tentacle agent, they both generate X.509 certificates that are used to encrypt the connection between them (via TLS). When we generated these self-signed certificates in versions before 3.14, **we used SHA1**. This is the default setting of the [certificate generation function](https://msdn.microsoft.com/en-us/library/windows/desktop/aa376039(v=vs.85).aspx) that we call in the Windows API, and not something we ever thought to change.
 
@@ -24,7 +24,7 @@ When you install Octopus and the Tentacle agent, they both generate X.509 certif
 
 **Already have Octopus up and running and you are concerned about the SHA1 certificates**, you can upgrade to Octopus and Tentacle 3.14 or newer, and use the command-line interface to generate new SHA256 certificates, then tell Octopus and Tentacle to use/trust those instead. For details, check our documentation page on [how to use custom certificates with Octopus and Tentacle](/docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md).
 
-## Other Things You Should Check
+## Other things you should check
 
 You'll want to check whether SHA1 is being used in other places. Common examples for Octopus users might include:
 

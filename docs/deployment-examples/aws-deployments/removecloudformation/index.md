@@ -1,6 +1,6 @@
 ---
-title: Delete an Existing AWS CloudFormation Stack
-description: Delete an Existing AWS CloudFormation Stack.
+title: Delete an existing AWS CloudFormation stack
+description: Delete an existing AWS CloudFormation stack.
 ---
 
 CloudFormation support was introduced to **Octopus 2018.2**.
@@ -9,13 +9,13 @@ Octopus supports the deletion of an existing AWS CloudFormation stack through th
 
 The proceeding instructions can be followed to configure the **Delete an AWS CloudFormation stack** step.
 
-## Add the CloudFormation Step
+## Add the CloudFormation step
 
 Add the **Delete an AWS CloudFormation stack** step to the project, and provide it a name.
 
 ![Remove a CloudFormation stack Step](images/deploy-cloudformation-step.png)
 
-### AWS Section
+### AWS section
 
 Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
 
@@ -29,7 +29,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 If you select **Yes** to **Execute using the AWS service role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
-### CloudFormation Section
+### CloudFormation section
 
 Under the **CloudFormation** section, the AWS region and stack name need to be defined.
 

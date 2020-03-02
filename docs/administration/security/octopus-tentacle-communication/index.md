@@ -1,5 +1,5 @@
 ---
-title: Octopus - Tentacle Communication
+title: Octopus - Tentacle communication
 description: Octopus Server and Tentacle communications details.
 position: 40
 ---
@@ -14,7 +14,7 @@ When designing Octopus, we wanted to make it easy to have secure deployments out
 
 We achieve this security using [public-key cryptography](http://en.wikipedia.org/wiki/Public-key_cryptography "Wikipedia article on Public-key cryptography").
 
-## Octopus/Tentacle Trust Relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
+## Octopus/Tentacle trust relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
 Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Octopus and Tentacle both have a public/private key pair that they use to establish the TLS connection and verify the identity of the other party.
 
@@ -29,7 +29,7 @@ The only way another system can impersonate either party is by getting hold of t
 If necessary you can further restrict access using IPSec or VPNs.
 :::
 
-### Octopus Certificates {#Octopus-Tentaclecommunication-Octopuscertificates}
+### Octopus certificates {#Octopus-Tentaclecommunication-Octopuscertificates}
 
 The X.509 certificates used by Octopus and Tentacle are generated on installation and use 2048-bit private keys. There is an insightful discussion of [why Octopus uses self-signed certificates](https://octopus.com/blog/why-self-signed-certificates) by default.
 
@@ -61,7 +61,7 @@ Octopus uses [Halibut](https://github.com/OctopusDeploy/Halibut) to communicate.
 
 Both Tentacle and Server expose a simple page on the listening port to web browsers to allow you to confirm your configuration. Some security scanners detect this page and incorrectly assume that it's a web server or a web app and warn about self-signed certificates.
 
-### Transport Layer Security (TLS) Implementation {#Octopus-Tentaclecommunication-TransportLayerSecurity(TLS)implementation}
+### Transport Layer Security (TLS) implementation {#Octopus-Tentaclecommunication-TransportLayerSecurity(TLS)implementation}
 
 The TLS implementation uses the [SslStream](http://msdn.microsoft.com/en-us/library/system.net.security.sslstream(v=vs.110).aspx) class from the .NET Framework, and uses the best available of TLS 1.2, TLS 1.1 or TLS 1.0. Fallback to SSL is disallowed.
 
@@ -69,7 +69,7 @@ The TLS implementation uses the [SslStream](http://msdn.microsoft.com/en-us/libr
 TLS 1.2 requires .NET 4.5 which was introduced as a requirement in **Octopus 3.1**. Earlier versions of Octopus use TLS 1.0.
 :::
 
-## Troubleshooting Tentacle Communication Problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
+## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
 We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 

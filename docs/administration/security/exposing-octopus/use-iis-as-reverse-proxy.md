@@ -1,5 +1,5 @@
 ---
-title: Use IIS as a Reverse Proxy for Octopus Deploy
+title: Use IIS as a reverse proxy for Octopus Deploy
 description: How to set up IIS 7 (or later) as a Reverse Proxy for Octopus Deploy
 position: 10
 ---
@@ -40,7 +40,7 @@ Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
 .\WebpiCmd.exe /Install /Products:'UrlRewrite2,ARRv3_0' /AcceptEULA /Log:$env:tmp\WebpiCmd.log
 ```
 
-## Configure SSL on Default Web Site
+## Configure SSL on default web site
 
 1. Open the IIS Management Console (`inetmgr.exe`).
 1. Navigate to the Default Web Site.
@@ -52,7 +52,7 @@ Set-Location ($env:ProgramFiles + "\Microsoft\Web Platform Installer")
 1. Optional: Fill in your correct IP address and/or hostname, and click **OK**.
 1. Optional: Remove the HTTP (non-SSL) binding - this is a recommended security practice.
 
-## Verify SSL is Correctly Configured
+## Verify SSL is correctly configured
 
 In a web browser, navigate to <https://servername> (note the 's').
 
@@ -101,7 +101,7 @@ You should now be able to navigate to https://servername/ in your browser and lo
 Polling Tentacles communicate with the Octopus Server over an end-to-end encrypted channel. This solution does not currently support polling Tentacles.
 :::
 
-## Example: Add a Custom HTTP Header in IIS
+## Example: Add a custom HTTP header in IIS
 
 Open the IIS Management Console (`inetmgr.exe`).
 
@@ -118,7 +118,7 @@ In the dialog, enter the following.
 
 Click OK.
 
-## Verify the Custom HTTP Header
+## Verify the custom HTTP header
 
 Open a PowerShell prompt.
 

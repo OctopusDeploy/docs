@@ -1,5 +1,5 @@
 ---
-title: Deploy Using an Azure Resource Manager Template
+title: Deploy using an Azure Resource Manager template
 description: Deploy using an Azure Resource Manager (ARM) templates.
 ---
 
@@ -19,7 +19,7 @@ Before creating the step, you must have created an [Azure Service Principal Acco
 
 ![](arm-step.png "width=170")
 
-## Creating the Resource Group Step {#DeployusinganAzureResourceGroupTemplate-CreatingtheResourceGroupStep}
+## Creating the Resource Group step {#DeployusinganAzureResourceGroupTemplate-CreatingtheResourceGroupStep}
 
 ![](create-azure-resource-group-step.png)
 
@@ -33,7 +33,7 @@ The **Deployment Mode** may be either [Incremental or Complete](https://azure.mi
 
 The **Template Source** can be either JSON entered directly into the step, or a file contained in a package.
 
-### Template Entered as JSON  {#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON}
+### Template entered as JSON  {#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON}
 
 By selecting *Source Code* as the *Template Source*, you can enter your template directly as JSON.
 
@@ -49,7 +49,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 
 ![](azure-resource-group-json-template.png)
 
-### Sensitive Data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
+### Sensitive data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
 
 :::warning
 Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) represent sensitive data and it is important to make sure they aren't stored in plain text form.
@@ -59,7 +59,7 @@ The field displayed when "From Octopus" option is selected stores data as plain 
 
 ![](azure-resource-group-sensitive-data.png)
 
-### Template Contained in a Package {#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage}
+### Template contained in a package {#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage}
 
 By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
@@ -71,7 +71,7 @@ The Template Path and Parameters Path fields should contain the relative path to
 Octopus will perform [variable-substitution](/docs/projects/variables/variable-substitutions.md) on both the Template and Parameter files.
 :::
 
-#### Parameter File Format {#DeployusinganAzureResourceGroupTemplate-ParameterFileFormat}
+#### Parameter file format {#DeployusinganAzureResourceGroupTemplate-ParameterFileFormat}
 
 The Parameter JSON file can be in one of two formats:
 
@@ -137,7 +137,7 @@ The Parameter JSON file can be in one of two formats:
 
 ```
 
-### Accessing ARM Template Output Parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
+### Accessing ARM template output parameters {#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters}
 
 Any [outputs](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#outputs) from the ARM template step are made available as [Octopus output-variables](/docs/projects/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
@@ -146,7 +146,7 @@ Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]
 ```
 Note, you need to replace **Arm Template Step Name** with the name of your ARM step template. 
 
-### Using Linked Templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
+### Using linked templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
 
 Azure Resource Manager supports the concept of [linking templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates). In this model you create a "master" template which links to other templates and parameters files via URI. This can be a really useful way to break your ARM templates into manageable components. In this case you would configure Octopus to deploy your "master" template, and the Azure Resource Manager will download any linked templates and parameters files as required to complete the deployment.
 

@@ -1,5 +1,5 @@
 ---
-title: Connecting Securely with Client Certificates
+title: Connecting securely with client certificates
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Client Certificate authentication.
 position: 1
 ---
@@ -35,7 +35,7 @@ These PowerShell variables correspond to the following Octopus variables:
 
 It is these values and variables that we will be discussing below.
 
-## Step 1: Get the DNS Name of Your Service Fabric Cluster
+## Step 1: Get the DNS name of your Service Fabric cluster
 
 The following steps will need the DNS name of your Service Fabric cluster.
 
@@ -43,7 +43,7 @@ The DNS name for Azure Service Fabric clusters can be found as the "Client conne
 
 An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
 
-## Step 2: Generate the Client Certificate
+## Step 2: Generate the client certificate
 
 :::warning
 Azure have recently updated their **Key vaults > Certificates** UI to allow generating self-signed certificates. If you're deploying to Azure and wish to generate a self-signed certificate for testing, please use their portal functions or cmdlets.
@@ -83,7 +83,7 @@ To override certificate settings used when connecting to Service Fabric, the fol
 
 You do not need to override these variables by default. However, they _are_ available if you require more flexibility over the default client certificate connection parameters.
 
-## Step 3: Install the Client Certificate
+## Step 3: Install the client certificate
 
 Now that you have a client certificate and thumbprint, the following steps can be completed:
 
@@ -93,13 +93,13 @@ Now that you have a client certificate and thumbprint, the following steps can b
 
 The client certificate should now be setup for your Octopus Server machine to communicate with your Service Fabric cluster.
 
-## Step 4: Configure and Run a Deployment Step
+## Step 4: Configure and run a deployment step
 
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 
 ![](secure-client-certs-template-b.png "width=300")
 
-## Connection Troubleshooting
+## Connection troubleshooting
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
 

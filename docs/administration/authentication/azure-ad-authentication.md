@@ -39,7 +39,7 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 
 4. Choose a **Name** like *Octopus Deploy*, specify **Application Type** of *Web app/API*, and enter a value for **Sign-On URL** like *https://octopus.example.com* Then click **Create**.
  - The value you specify for Name will appear at the top of the Azure authentication page when the users are entering their credentials.
- - The value you specify for Sign-On URL should be the URL to your Octopus Server. This address is linked within your browser, so only has to be resolvable on your network, not from the public internet.
+ - The value you specify for Sign-On URL should be the URL to your Octopus Server. This address is linked within your browser, so only has to be resolvable on your network, not from the public Internet.
 
    ![Filling the App registration form](images/new-app-registration-form.png)
 

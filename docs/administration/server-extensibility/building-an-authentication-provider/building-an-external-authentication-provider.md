@@ -1,5 +1,5 @@
 ---
-title: Building an External Authentication Provider
+title: Building an external authentication provider
 description: The step involved in building an External Authentication Provider.
 ---
 

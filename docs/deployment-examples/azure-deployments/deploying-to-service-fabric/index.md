@@ -7,7 +7,7 @@ hideInThisSectionHeader: true
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Service Fabric clusters.
 
-## What Kind of Applications Can I Deploy to Service Fabric?
+## What kind of applications can i deploy to Service Fabric?
 
 The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Service Fabric cluster.
 
@@ -18,15 +18,15 @@ We provide built-in first-class support for application package deployments in S
 All Service Fabric Steps are executed on the Octopus Server, however, you will need a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) configured for each Service Fabric cluster you deploy to.
 :::
 
-### Service Fabric Applications
+### Service Fabric applications
 
 Octopus Deploy provides first-class support for [deploying Service Fabric application packages into Service Fabric clusters](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md).
 
-### Service Fabric PowerShell Scripts
+### Service Fabric PowerShell scripts
 
 Octopus Deploy provides a convenient step for [executing PowerShell scripts using the Service Fabric SDK cmdlets](/docs/deployment-examples/custom-scripts/service-fabric-powershell-scripts.md).
 
-### Security Modes
+### Security modes
 
 Both Service Fabric Applications and PowerShell Scripts require connection to a cluster.
 
@@ -38,7 +38,7 @@ Octopus also provides an option for connecting to Service Fabric clusters secure
 
 To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deployment-examples/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
 
-### Application Packaging
+### Application packaging
 
 To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/deployment-examples/azure-deployments/service-fabric/packaging.md).
 

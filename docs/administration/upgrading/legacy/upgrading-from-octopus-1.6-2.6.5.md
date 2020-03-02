@@ -1,5 +1,5 @@
 ---
-title: Upgrading From Octopus 1.6 to 2.6.5
+title: Upgrading from Octopus 1.6 to 2.6.5
 description: Information on how to upgrade from Octopus 1.6 tp 2.6.5.
 position: 2
 ---

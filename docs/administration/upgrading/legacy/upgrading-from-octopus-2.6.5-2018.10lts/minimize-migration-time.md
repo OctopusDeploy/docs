@@ -1,5 +1,5 @@
 ---
-title: Minimize the Data-migration Time
+title: Minimize the data-migration time
 description: Tips to minimize the time taken to migrate your data from Octopus 2.6 to 2018.10 LTS
 position: 5
 ---
@@ -8,7 +8,7 @@ Migrating data from an **Octopus 2.6** backup file into an **Octopus 2018.10 LTS
 
 We strongly recommend taking the following actions to minimize the migration duration.  
 
-## Remove Unnecessary Data From Your 2.6 Instance
+## Remove unnecessary data from your 2.6 instance
 
 Our strongest recommendation is to use [retention-policies](/docs/administration/retention-policies/index.md) in your **Octopus 2.6** instance to remove unnecessary data.
 
@@ -20,11 +20,11 @@ Less than 150k documents is a rough guide, though obviously some customers will 
 The original complete backup can always be retained if it is required for audit purposes.
 :::
 
-## Limit Historical Data
+## Limit historical data
 
 By default we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
-## RAM, RAM and More RAM
+## RAM
 
 The migrator is a memory-hungry process.  Allocate the machine which will execute the migrator process as much memory as possible.  The more memory is available, the faster the process will run.
 
@@ -35,7 +35,7 @@ As a rule-of-thumb:
 
 This RAM is only required for the migration, and can be deallocated once it is complete.
 
-## No Logs
+## No logs
 
 To minimize the initial migration time, you can skip migrating the server-task log files.  
 This option is available as a check-box in the Octopus Manager, or can be supplied as a `--nologs` option if running via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md).

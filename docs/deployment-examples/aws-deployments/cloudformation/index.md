@@ -1,5 +1,5 @@
 ---
-title: Deploy an AWS CloudFormation Template
+title: Deploy an AWS CloudFormation template
 description: Deploy an AWS CloudFormation Template.
 ---
 
@@ -9,13 +9,13 @@ Octopus supports the deployment of AWS CloudFormation templates through the `Dep
 
 The proceeding instructions can be followed to configure the `Deploy an AWS CloudFormation Template` step.
 
-## Add the CloudFormation Step
+## Add the CloudFormation step
 
 Add the `Deploy an AWS CloudFormation template` step to the project, and provide it a name.
 
 ![Deploy an AWS CloudFormation Template Step](images/deploy-cloudformation-step.png)
 
-### AWS Section
+### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
 
@@ -29,7 +29,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
-### Template Section
+### Template section
 
 Under the `CloudFormation` section, the AWS region and stack name need to be defined.
 
@@ -41,7 +41,7 @@ Unselecting the `Wait for completion` check-box will allow the step to complete 
 
 If creating the CloudFormation stack, you can select `Disable rollback` to prevent a failed stack from being rolled back. This is useful if you need to debug the resources that were not created successfully.
 
-#### IAM Capabilities
+#### IAM capabilities
 
 This is a quote from the [AWS documentation](http://g.octopushq.com/AwsDocsControllingIAM):
 
@@ -55,11 +55,11 @@ If your template includes custom names for IAM resources, you must select `The t
 
 ![AWS Region](images/step-aws-region.png)
 
-### Template Section
+### Template section
 
 The CloudFormation template can come from two sources: directly entered source code or from files in a package.
 
-#### Source Code
+#### Source code
 
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
@@ -79,7 +79,7 @@ The second option is to reference a CloudFormation template and properties file 
 
 ![Package](images/step-aws-package.png)
 
-#### Variable Replacements
+#### Variable replacements
 
 Variable replacement is performed before the template is deployed when deploying from either an inline script or a package. For example, if you were deploying from a package and your properties file looked like this:
 
@@ -100,7 +100,7 @@ Then the values from the project variables `KeyName` and `InstanceType` would be
 
 See the [variable substitution](/docs/projects/variables/variable-substitutions.md) documentation for more information.
 
-#### Accessing CloudFormation Outputs
+#### Accessing CloudFormation outputs
 
 As mentioned in the Template Section, when the `wait for completion` check-box has been checked, any [outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) defined in your CloudFormation template will be made available as [Octopus output-variables](/docs/projects/variables/output-variables.md) automatically. For example, an output `Foo` would be available as:
 
@@ -108,7 +108,7 @@ As mentioned in the Template Section, when the `wait for completion` check-box h
 Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
 ```
 
-### Output Variables
+### Output variables
 
 In addition to any outputs defined in your CloudFormation template, we also provide the following output variables which can be used in subsequent steps.
 
@@ -117,7 +117,7 @@ In addition to any outputs defined in your CloudFormation template, we also prov
 * Octopus.Action[StepName].Output.AwsOutputs[Changes]  - The changes that were applied or are to be applied when deferring execution.
 
 
-### Change Sets and CloudFormation Transforms
+### Change sets and CloudFormation transforms
 
 In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](/docs/deployment-process/configuration-features/index.md) the change set feature on your `Deploy an AWS CloudFormation template` step.
 
@@ -127,16 +127,16 @@ In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/late
 The Change Sets feature was introduced as part of **Octopus 2018.8**, and Octopus did not support CloudFormation transforms in prior versions.
 :::
 
-#### Change Set Name
+#### Change set name
 
 All change sets have to be unique for a given stack, and Octopus will generate a unique name such as `octo-5ab48bcfd8ec447bbc8328f97231b729` unless specified otherwise. If you wish to change the names used you can uncheck the option to automatically generate change set names which will give you the option to specify the name. These can be bound to an output variable from a prior step.
 
-#### Deferring Execution and Preview Changes
+#### Deferring execution and preview changes
 
 There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/deployment-process/steps/manual-intervention-and-approvals.md) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
 `Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
 
-## CloudFormation Deployment Workflow
+## CloudFormation deployment workflow
 
 The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
 
@@ -154,7 +154,7 @@ The following states are those that require the stack to be deleted before they 
 
 The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#w2ab2c15c15c17c11) contains more details on the CloudFormation state states.
 
-## Error Messages
+## Error messages
 
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
 

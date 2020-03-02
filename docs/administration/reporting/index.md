@@ -1,6 +1,6 @@
 ---
 title: Reporting
-description: Octopus Reporting makes it easy to produce reports over your deployment history, using your preferred reporting tools.
+description: Octopus reporting makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 position: 100
 ---
 
@@ -23,7 +23,7 @@ To help you get started, we provide a sample Excel spreadsheet that you can conn
 
 ![](images/3278354.png)
 
-## Getting Started {#Reporting-Gettingstarted}
+## Getting started {#Reporting-Gettingstarted}
 
 The fastest way to get started is to use our Excel spreadsheet template. The spreadsheet uses Pivot Tables and Pivot Charts to summarize the data. You can use it as a starting point, and then modify or adapt it to suit your needs.
 
@@ -51,13 +51,13 @@ To change the source of the data:
 
    ![](images/3278360.png)
 
-## Refreshing the Data {#Reporting-Refreshingthedata}
+## Refreshing the data {#Reporting-Refreshingthedata}
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
 ![](images/3278361.png)
 
-## Using the XML Feed {#Reporting-UsingtheXMLFeed}
+## Using the XML feed {#Reporting-UsingtheXMLFeed}
 
 The best way to consume reporting data from Octopus is using the XML feed. The feed is always available at:
 
@@ -103,7 +103,7 @@ This is due to that the revocation information for the certificate is not retrie
 9. Paste the URL in the File Name field.
 :::
 
-## Direct Table Access {#Reporting-Directtableaccess}
+## Direct table access {#Reporting-Directtableaccess}
 
 If your reporting tool of choice can't consume the XML feed, you can query the SQL table directly. Octopus maintains a **DeploymentHistory** table, with the exact same information that the XML Feed exposes. This may work better for tools like **SQL Server Reporting Services**.
 
@@ -118,7 +118,7 @@ A few notes about accessing the table directly:
 
 The table is completely denormalized, and should have any information that you might need to report on.
 
-## How Often is the Data Updated? {#Reporting-Howoftenisthedataupdated?}
+## How often is the data updated? {#Reporting-Howoftenisthedataupdated?}
 
 The data in the table (and exposed by the feed) updates every 30 seconds to add deployments that have recently completed.
 
@@ -129,6 +129,6 @@ Also note that the data:
 - Isn't deleted by retention policies, so you can report on historical deployments even if retention policies clean them up.
 - Isn't deleted when a project/environment is deleted.
 
-## What About Information On Concurrent Users, Web Front-end Performance, etc.? {#Reporting-Whataboutinformationonconcurrentusers,webfront-endperformance,etc.?}
+## What about information on concurrent users, web front-end performance, etc.? {#Reporting-Whataboutinformationonconcurrentusers,webfront-endperformance,etc.?}
 
 You may want to look at [enabling HTTP logging](/docs/administration/managing-infrastructure/performance/enable-web-request-logging.md).

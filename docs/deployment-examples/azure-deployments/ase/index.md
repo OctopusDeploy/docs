@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environments
+title: Azure app service environments
 description: This guide covers deploying to Azure App Service Environments.
 position: 7
 ---
@@ -8,7 +8,7 @@ This guide covers deploying apps to Azure [App Service Environments](https://doc
 
 From an Octopus user perspective, deploying to an ASE is usually no different to deploying to any other app service in Azure. While the app services within an ASE are isolated, the management interface for managing them and deploying to them is usually the same as for any other app service.
 
-## Internal App Service Environments
+## Internal app service environments
 
 Internal ASEs are where the wheels usually come off for deploying from Octopus. An [internal ASE](https://docs.microsoft.com/en-us/azure/app-service/environment/create-ilb-ase) is one that has an Internal Load Balancer (ILB). By definition it cannot be accessed from the Internet because it's designed to host internal apps (i.e. intranet apps).
 
@@ -31,7 +31,7 @@ To fix that you need 2 things to happen. First, the network the Octopus Server i
 
 Exactly how to do those 2 things will depend on your organization, what infrastructure you might already have in place and is beyond the scope of this guide.
 
-## Resource Groups
+## Resource groups
 
 We mentioned above that Calamari locates the resource group first and then locates the web app. If you're familiar with the Azure API then you may know that you can also list the web apps for a subscription directly. So why don't we just do that and save a step? It's because of a side effect of the isolation provided by an ASE.
 

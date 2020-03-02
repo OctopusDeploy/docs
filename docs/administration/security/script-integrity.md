@@ -1,5 +1,5 @@
 ---
-title: Script Integrity in Octopus Deploy
+title: Script integrity in Octopus Deploy
 description: Script integrity is an interesting topic, especially in security sensitive situations. This page describes how scripting works in Octopus Deploy, interaction with PowerShell Execution Policies, and how to make Octopus work in restrictive environments.
 position: 1
 ---
@@ -16,7 +16,7 @@ Octopus lets you tailor these scripts to your needs at runtime using features li
 
 Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/projects/variables/index.md), [output variables](/docs/projects/variables/output-variables.md), and [artifacts](/docs/deployment-process/artifacts.md).
 
-## Script Integrity in Octopus
+## Script integrity in Octopus
 
 Octopus does not actively enforce script integrity.
 
@@ -25,7 +25,7 @@ Octopus does not actively enforce script integrity.
 - Octopus provides a lot of value to you by modifying your scripts on your behalf, which invalidates the signature of the original script.
 - Octopus could dynamically re-sign the resulting script after modification, but this introduces extra complexity and additional security concerns for very little gain: the signed script has a very short life span.
 
-### More on PowerShell Execution Policies and Octopus
+### More on PowerShell execution policies and Octopus
 
 Customers who use PowerShell will typically become aware of [Execution Policies](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies) early on. One question we are asked from time is how to make Octopus work in environments where the PowerShell Execution Policy is forced to `Restricted`, `AllSigned`, or `RemoteSigned`.
 

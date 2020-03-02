@@ -1,5 +1,5 @@
 ---
-title: Backup v2.6 Database
+title: Backup v2.6 database
 description: Information on how to backup an Octopus 2.6 database.
 ---
 
@@ -9,7 +9,7 @@ You can view and change the backup settings by browsing to the *Configuration*
 
 ![](images/3277492.png)
 
-## Encrypted Backups
+## Encrypted backups
 
 The Octopus database is encrypted, and so are the backups. The backups are encrypted using your Octopus Server "Master Key", a randomly generated string. This Master Key will be needed if you ever plan to restore the database to a new server.
 
@@ -29,7 +29,7 @@ Making a copy of your Master Key is easy:
 
 3. Paste the Master Key into a text editor or a secure enterprise password manager, and save it:
 
-## Backup Now
+## Backup now
 
 You can take a backup of your Octopus database immediately, simply by clicking the green **Backup now** button.
 

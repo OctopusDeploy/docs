@@ -6,13 +6,13 @@ position: 4
 
 If your upgrade from **Octopus 2.6** to **Octopus 2018.10 LTS** doesn't go smoothly, this page will help you find a solution. If this page doesn't help, contact support.
 
-## Rolling Back {#Troubleshooting-RollingBack}
+## Rolling back {#Troubleshooting-RollingBack}
 
 The **Octopus 2.6** to **Octopus 2018.10 LTS** upgrade is lossless, meaning you shouldn't lose any data as a result of installing the new MSI. Your Raven database and configuration settings are not deleted.
 
 If your number one priority is to get up and running again, you can simply run the **Octopus 2.6** MSI again, and the previous version will install over the top of **2018.10 LTS**, allowing you to diagnose the issue at your leisure.
 
-## Hydra Log Files {#Troubleshooting-HydraLogFiles}
+## Hydra log files {#Troubleshooting-HydraLogFiles}
 
 Hydra writes to two log files during its deployment.
 
@@ -20,13 +20,13 @@ The first is located in the folder that the Hydra package is unpacked to on depl
 
 The second log is also in the Hydra package directory. It has a random filename and is used purely as an output for the MSI installation process. Hydra will delete this file if it detects a successful install. If the file is present, this means the installation has probably failed.
 
-You can also refer to the Windows Event Log as well as Scheduled Tasks for more information on the installation process. Note that the Scheduled Task will expire after 5min, and the results may no longer be available.
+You can also refer to the Windows Event Log as well as Scheduled Tasks for more information on the installation process. Note that the Scheduled Task will expire after 5 min, and the results may no longer be available.
 
-## Common Issues {#Troubleshooting-CommonIssues}
+## Common issues {#Troubleshooting-CommonIssues}
 
 This section describes some common upgrade issues and ways to resolve them.
 
-### Tentacle Does Not Upgrade Properly {#Troubleshooting-Tentacledoesnotupgradeproperly}
+### Tentacle does not upgrade properly {#Troubleshooting-Tentacledoesnotupgradeproperly}
 
 #### Symptoms #1 {#Troubleshooting-Symptoms#1}
 
@@ -90,7 +90,7 @@ If the upgrade itself failed, this can be due to a previous installation of a 2.
 
 In this case, you will have to **log onto your Tentacle machine as the user who first installed the 2.0 version of the Tentacle**. You can then either run `Hydra.exe` directly, or manually uninstall the previous Tentacle and install the latest version of Tentacle.
 
-### I've Lost All My NuGet Packages {#Troubleshooting-I&#39;velostallmyNuGetpackages}
+### I've lost all my NuGet packages {#Troubleshooting-I&#39;velostallmyNuGetpackages}
 
 #### Symptoms {#Troubleshooting-Symptoms}
 

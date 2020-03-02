@@ -11,7 +11,7 @@ Spaces was introduced in the **Octopus 2019.1** fast lane release and was first 
 
 With Spaces you can partition your Octopus Deploy Server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
 
-## Spaces Creates Hard Walls in Your Octopus Server
+## Spaces creates hard walls in your Octopus Server
 
 Spaces keeps the different projects and infrastructure your teams work with completely separate, which means something configured in **Space-A**, is not available to projects in **Space-B**. This makes it easier for large organizations with multiple teams using Octopus because each team member will only see the projects, environments, and infrastructure that is available in their space. If your organization has any of the following characteristics, you may find spaces extremely useful:
 
@@ -24,7 +24,7 @@ On the other hand, if you need to keep resources available to multiple teams on 
 
 By default, every instance of Octopus Server since **Octopus 2019.1** comes with a default space. However, if your organization is not planning to use multiple spaces, this default space can be safely ignored and doesn't require configuration or management.
 
-## Managing Spaces
+## Managing spaces
 
 Spaces are managed by navigating to **{{Configuration,Spaces}}**.
 
@@ -32,9 +32,9 @@ An Octopus administrator, or a team member with sufficient permission, can creat
 
 ![Spaces configuration page](images/spaces-configuration.png)
 
-### The Space Manager
+### The space manager
 
-Each space has a **space manager**. The space manager is the administrator for that space and is responsible for managing users and teams within the space and assigning permissions to them.
+Each space has a *space manager*. The space manager is the administrator for that space and is responsible for managing users and teams within the space and assigning permissions to them.
 
 When creating a new space, you are required to nominate a team member (or a team) to the role of space manager. This space manager is then responsible for [managing teams and permissions](/docs/administration/managing-users-and-teams/index.md) within that space.
 
@@ -42,7 +42,7 @@ The user who creates a space doesn't necessarily need to be the space manager of
 
 Behind the scenes, a **space managers** team is created, and any users that are nominated to be a space manager, are put in that team. This team cannot be created or deleted, and serves no other purpose than applying the correct space manager permissions.
 
-### Create a Space {#create-a-space}
+### Create a space {#create-a-space}
 
 New spaces are added from the configuration section of the portal.
 
@@ -55,7 +55,7 @@ New spaces are added from the configuration section of the portal.
 
 ![Add new space](images/add-new-space.png)
 
-### Modify a Space
+### Modify a space
 
 You can rename spaces, change their description, give them new logos, change the space managers, or stop the spaces task queue from processing.
 
@@ -65,7 +65,7 @@ You can rename spaces, change their description, give them new logos, change the
 
 ![Modify a space](images/modify-space.png)
 
-### Delete a Space
+### Delete a space
 
 You can delete spaces when you are the **space manager**. Deleting a space cannot be undone, and the space and all of its contents, including projects, environments, releases, and deployment history will be deleted.
 
@@ -74,7 +74,7 @@ You can delete spaces when you are the **space manager**. Deleting a space canno
 1. Click the overflow button and select **Delete**.
 1. Enter the name of the space and click **DELETE**.
 
-## Default Space
+## Default space
 
 The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a version of Octopus that supports spaces. Enabled by default, its primary function is to provide an initial space for any existing resources. This also effectively hides the existence of spaces until you're ready to start using them.
 
@@ -82,7 +82,7 @@ We create the default space when you install or upgrade your Octopus Deploy Serv
 
 If you don't want to think about spaces, just leave everything in the Default space!
 
-### Change or Disable the Default Space {#change-the-default-space}
+### Change or disable the default space {#change-the-default-space}
 
 You can change the default space:
 
@@ -116,17 +116,17 @@ To disable the default space:
 3. Click the overflow button and select **Disable the default space**.
 4. Enter the name of the space and click **YES I'M SURE**.
 
-## Switching Between Spaces {#switching-between-spaces}
+## Switching between spaces {#switching-between-spaces}
 
 When you log into the Octopus Web Portal, the first item on the navigation menu is the spaces menu. Click this icon to access the spaces you are a member of and select the space you need.
 
-## System Scoped or Space Scoped {#system-scope-space-scoped}
+## System scoped or space scoped {#system-scope-space-scoped}
 
 There is a hard barrier between spaces, so, for instance, a deployment target configured for Space-A isn't available to projects in Space-B. However, there are some things that aren't scoped to a space, and are available system wide.
 
 The following table shows which Octopus resources are space-scoped, system-scoped, or scoped to both. If a resource isn't listed below, then it's space-scoped.
 
-| Resource              | Space-Scoped                | System-Scoped |
+| Resource              | Space-scoped                | System-scoped |
 | --------------------- | --------------------------- | ------------- |
 | Environments          | True                        |               |
 | Lifecycles            | True                        |               |
@@ -142,7 +142,7 @@ The following table shows which Octopus resources are space-scoped, system-scope
 | Teams                 | True                        | True          |
 | Tasks                 | True                        | True          |
 
-## Automation Changes to be Aware of {#automation-changes}
+## Automation changes to be aware of {#automation-changes}
 
 As always, using our client libraries offer the best chance of a successful upgrade for your existing automation, and our latest release of Octopus Client has all the changes required to inter-operate with any version of Octopus, as do most of our plugins for other build systems. However, due to the depth and breadth of the changes required to make spaces a reality, we weren't able to maintain backwards compatibility for the REST API in all cases.
 

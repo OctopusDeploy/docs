@@ -1,5 +1,5 @@
 ---
-title: Data Encryption
+title: Data encryption
 description: This section describes how Octopus Deploy encrypts sensitive data at rest.
 position: 50
 ---
@@ -29,13 +29,13 @@ Without keeping a record of your Master Key, you won't be able to make use of yo
 
 When Octopus is installed, it generates a random string which will be used as the Master Key. You will need to know your Master Key if you ever hope to restore an Octopus backup on another server.
 
-### Getting the Key From the Octopus Manager {#Securityandencryption-GettingthekeyfromtheOctopusManager}
+### Getting the Master Key from the Octopus Manager {#Securityandencryption-GettingthekeyfromtheOctopusManager}
 
 1. Open the **Octopus Manager** from the start menu/start screen.
 2. Click **View Master Key**.
 3. Click **Save** to save the Master Key to a text file or **Copy to clipboard** and then paste the Master Key into a text editor or a secure enterprise password manager, and save it.
 
-### Getting the Key From PowerShell {#Securityandencryption-GettingtheKeyfromPowershell}
+### Getting the Master Key from PowerShell {#Securityandencryption-GettingtheKeyfromPowershell}
 
 Depending on the version of Octopus Server you are using you may need to use a slightly different parsing:
 

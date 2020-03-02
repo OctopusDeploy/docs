@@ -1,12 +1,12 @@
 ---
-title: Outbound Requests
+title: Outbound requests
 description: Traffic details of network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 position: 25
 ---
 
 This page describes any outbound network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 
-## Outbound Requests by Tentacle {#Outboundrequests-OutboundrequestsbyTentacle}
+## Outbound requests by Tentacle {#Outboundrequests-OutboundrequestsbyTentacle}
 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
 
@@ -17,7 +17,7 @@ For security reasons, we minimize the number of outbound requests made by the Te
 
 It's possible that PowerShell scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 
-## Outbound Requests by Octopus {#Outboundrequests-OutboundrequestsbyOctopus}
+## Outbound requests by Octopus {#Outboundrequests-OutboundrequestsbyOctopus}
 
 The Octopus Deploy Server makes the following outbound requests:
 
@@ -29,7 +29,7 @@ The Octopus Deploy Server makes the following outbound requests:
 
 NOTE: Our community contributed step template integration queries `library.octopus.com` for updates.
 
-## What Information is Included When Octopus Checks For Updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
+## What information is included when Octopus checks for updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
 By default, Octopus will periodically check for new releases and send usage statistics to help us understand how the product is used and how we can improve it. You can opt-out of sending usage statistics or also opt-out of checking for updates by navigating to **{{Configuration,Settings,Updates & Usage Telemetry}}** in Octopus.
 

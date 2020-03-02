@@ -1,5 +1,5 @@
 ---
-title: Teams with Mixed Environment Privileges
+title: Teams with mixed environment privileges
 description: This guide describes how to create a teams for a user with mixed environment privileges.
 position: 10
 ---
@@ -13,7 +13,7 @@ The way this is achieved changed with the release of **Octopus 2019.1** and the 
 
 ## Creating teams for users with mixed environment privileges in 2019.1 and later {#Creatingteamsforauserwithmixedenvironmentprivileges2019-1}
 
-### Creating the "Developers" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
+### Creating the developers team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;Developers&quot;Team}
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click **Add team**.
 
@@ -27,17 +27,17 @@ When you create the team, it is possible to change the visibility of the team to
 For this example, we'll choose this team to only be visible in the space we are currently in.
 
 ![](images/add-team-detail.png)
-
+project viewer role for all environments
 Give the team an appropriate name like *Developers* and click **Save**.
 
-### Add the Project Viewer Role for All Environments
+### Add the 
 
 We can now add the **Project viewer** role to all environments by clicking **Include user role** from the **User Roles** tab. This role provides read only access to deployment processes and releases. Because we will not provide any scoping for this role - this role will form the baseline permissions
 for this team in any scope.
 
 ![](images/add-unscoped-role.png)
 
-### Adding Additional Roles for a Subset of Environments
+### Adding additional roles for a subset of environments
 
 Since our goal is to give members of the Developers team the ability to create and deploy releases _in the Development and Staging environments only_, we can click **Include user role** again, this time adding the **Project lead** role. This role provides all the permissions of the **Project viewer** role as well as allowing a team member to create and deploy releases. This time, we will click on **Define Scope** and choose the environments that we would like to scope the role to, before hitting the **Apply** button.
 
@@ -53,13 +53,13 @@ When you are happy with these changes hit **Save** to make them effective.
 
 Given that a set of roles can be combined in a team and tied to a specific environment, this scenario indicates that we will need two different teams. One with the full deployment access but scoped to dev and staging, and another with just read roles scoped to production.
 
-### Creating the "*Dev Deployers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
+### Creating the **Dev Deployers** team {#Creatingteamsforauserwithmixedenvironmentprivileges-Creatingthe&quot;DevDeployers&quot;Team}
 
 Start by clicking the **Teams** tab under **Configuration** in the Octopus Web Portal.  Then click the **Add team**.
 
 ![](images/add-team.png)
 
-Give the team an appropriate name like *Dev Deployers* and add the **Project deployer** role. This role provides all the permissions of the **Project contributor** role, but also allows the user to deploy a release. In our case because we will limit the users to the development environment, we will allow them to also create releases and to do so they will need the **Project lead** role. Again this role provides all the permissions of the **Project contributor** role but without the deployment permissions that come with the **Project deployer** role.
+Give the team an appropriate name like **Dev Deployers** and add the **Project deployer** role. This role provides all the permissions of the **Project contributor** role, but also allows the user to deploy a release. In our case because we will limit the users to the development environment, we will allow them to also create releases and to do so they will need the **Project lead** role. Again this role provides all the permissions of the **Project contributor** role but without the deployment permissions that come with the **Project deployer** role.
 
 ![](images/dev-deployers.png)
 
@@ -71,9 +71,9 @@ With the permission rules configured add the users that you want them to apply t
 
 When you are happy with these changes hit **Save** to make them effective.
 
-### Creating the "*Prod Deployment Viewers*" Team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
+### Creating the *Prod Deployment Viewers* team {#Creatingteamsforauserwithmixedenvironmentprivileges-CreatingThe&quot;ProdDeploymentViewers&quot;Team}
 
-The previous rule was all well and good, but what about if we now want to allow the developer to see what has been deployed to production while still preventing them from pushing releases out to that stage. We can't go and modify the *Dev Deployers* team because that contains rules scoped to specific environments. Instead we will create a new team that is scoped to production, but only contains view permissions.
+The previous rule was all well and good, but what about if we now want to allow the developer to see what has been deployed to production while still preventing them from pushing releases out to that stage. We can't go and modify the **Dev Deployers** team because that contains rules scoped to specific environments. Instead we will create a new team that is scoped to production, but only contains view permissions.
 
 Once again go back to the **Teams** tab and click **Add team**. Lets give it a name that describes its purpose, *Prod Deployment Viewers*, and this time add just the **Project viewer** role. This allows the user to see details of a project, but not actually make any modifications.
 

@@ -1,5 +1,5 @@
 ---
-title: Users and Teams
+title: Users and teams
 description: Octopus users can be organized in to teams and given various permissions via roles based security.  Teams can be further restricted to specific projects, environments and more.
 position: 60
 ---
@@ -12,7 +12,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 
 ![](images/teams.png)
 
-## User and Service Accounts {#Managingusersandteams-UserandServiceaccounts}
+## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
 
 **User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/active-directory-authentication/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
@@ -22,7 +22,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/administration/managing-users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
 :::
 
-## Inviting Users {#Managingusersandteams-Invitingusers}
+## Inviting users {#Managingusersandteams-Invitingusers}
 :::warning
 This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud/index.md).
 :::
@@ -40,7 +40,7 @@ In the example above, we are generating codes for the **Octopus Administrators**
 Invite codes are only valid for 48-hours after being generated, so make sure you issue them quickly before the expire.
 :::
 
-## Creating Teams {#Managingusersandteams-Creatingteams}
+## Creating teams {#Managingusersandteams-Creatingteams}
 
 Creating teams lets you assign the same roles to groups of users. Users can be added to or removed from multiple teams, making it easier to manage permissions for specific users and teams. You can create new teams by using the **Add Team** button.
 
@@ -50,7 +50,7 @@ We limit which projects and environments these permissions apply to by adding sp
 
 ![](images/dev-deployers-members.png)
 
-### Restricting Project and Project Group Access
+### Restricting project and project group access
 
 When specifying both `Project Groups` and `Projects`  filters please be aware that both these filters complement each other. To better illustrate these filters in action let's consider the following project structure:
 
@@ -94,7 +94,7 @@ The roles assigned by a team can be scoped by project or environment.
 You can learn more about in our [User Roles documentation](/docs/administration/managing-users-and-teams/user-roles.md)
 :::
 
-## System Teams {#Managingusersandteams-Systemteams}
+## System teams {#Managingusersandteams-Systemteams}
 
 Octopus Deploy comes with several built-in teams.
 

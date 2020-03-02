@@ -1,5 +1,5 @@
 ---
-title: Deploying to Azure via a Firewall
+title: Deploying to Azure via a firewall
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Azure.
 position: 29
 ---
