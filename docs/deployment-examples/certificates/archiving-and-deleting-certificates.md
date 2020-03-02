@@ -1,10 +1,10 @@
 ---
-title: Archive and Delete Certificates
+title: Archive and delete certificates
 description: Archiving and Deleting certificates managed by Octopus Deploy
 position: 100
 ---
 
-## Archive a Certificate
+## Archive a certificate
 
 Archiving a certificate will prevent it from being selected as the value of a variable, while still allowing it to be used by existing usages (projects, releases, deployments).
 
@@ -14,7 +14,7 @@ Archived certificates can be viewed by navigating to **{{Library,Certificates,Vi
 
 When a certificate is [replaced](replace-certificate.md), it is automatically archived if it is not already.
 
-## Delete a Certificate
+## Delete a certificate
 
 Once a certificate has been archived, it can then be deleted.  
 

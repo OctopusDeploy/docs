@@ -1,5 +1,5 @@
 ---
-title: Deploying a Sample Java Application
+title: Deploying a sample Java application
 description: This guide provides a simple example of deploying a Java application with Octopus Deploy.
 position: 2
 ---
@@ -18,7 +18,7 @@ This guide assumes some familiarity with Octopus Deploy.  You should be able to
 Naked scripting allows you to transfer and extract your package on remote targets without the need for Calamari or mono. Read the short guide [here](/docs/deployment-examples/custom-scripts/index.md) for more details.
 :::
 
-## Sample Application {#DeployingJavaapplications-SampleApplication}
+## Sample application {#DeployingJavaapplications-SampleApplication}
 
 Here is a sample application that will prompt the user to press a key before exiting:
 
@@ -33,9 +33,9 @@ public class PressAnyKey {
 }
 ```
 
-## Deploying the Application {#DeployingJavaapplications-Deployingtheapplication}
+## Deploying the application {#DeployingJavaapplications-Deployingtheapplication}
 
-### Step 1: Upload the Application to the Built-in Repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
+### Step 1: Upload the application to the built-in repository {#DeployingJavaapplications-Step1:Uploadtheapplicationtothebuilt-inrepository}
 
 In order to deploy the application with Octopus Deploy it must be compiled and packaged. This would usually be done by your build server but for the sake of this demonstration let's do it manually.
 
@@ -47,7 +47,7 @@ javac PressAnyKey.java
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopus.com/demo/PressAnyKey.1.0.0.zip))
 3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**{{Library,Packages}}** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
 
-### Step 2: Create the Project and Deployment Process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
+### Step 2: Create the project and deployment process {#DeployingJavaapplications-Step2:Createtheprojectanddeploymentprocess}
 
 1. Create a new project called **Press Any Key**.
 2. Add a **Deploy a package** step to the deployment process.

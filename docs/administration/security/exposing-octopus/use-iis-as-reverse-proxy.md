@@ -20,7 +20,7 @@ Our starting configuration:
 - IIS Management Console installed.
    For guidance on this topic, please follow [this Microsoft Docs article](https://docs.microsoft.com/en-us/iis/install/installing-iis-85/installing-iis-85-on-windows-server-2012-r2).
 
-At the end of this walkthrough, you should be able to:
+At the end of this walk-through, you should be able to:
 
 - Communicate with Octopus Deploy over a secure connection.
 - Set and verify a custom HTTP header with IIS.

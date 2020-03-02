@@ -1,5 +1,5 @@
 ---
-title: AWS CLI PowerShell Scripts
+title: AWS CLI PowerShell scripts
 description: AWS CLI PowerShell Scripts.
 position: 90
 ---
@@ -10,11 +10,11 @@ Octopus allows you to write custom PowerShell scripts that have access to the [A
 
 The proceeding instructions can be followed to configure the `Run an AWS CLI Script` step.
 
-## Create an AWS Account
+## Create an AWS account
 
 The instructions at [Creating an AWS Account](/docs/infrastructure/deployment-targets/aws/index.md#create-an-aws-account) detail the procedure for creating an account in Octopus.
 
-## Create a AWS Account Project Variable
+## Create a AWS account project variable
 
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`:
 
@@ -26,13 +26,13 @@ Select the account that was created in the previous step to assign it to the var
 
 ![AWS Account Variable Selection](images/aws-account-variable-selection.png)
 
-## Add AWS Script Step
+## Add AWS script step
 
 Add the `Run an AWS CLI Script` step to the project, and provide it a name:
 
 ![Run AWS Script](images/run-aws-script-step.png)
 
-### AWS Section
+### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or choose to execute using the service role assigned to the EC2 instance:
 
@@ -46,7 +46,7 @@ The default AWS region in which to execute AWS CLI commands is defined in the `R
 
 ![AWS Region](images/step-aws-region.png)
 
-## Script Section
+## Script section
 
 PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws.exe` on the path, as well as having the AWS PowerShell modules imported. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the AWS service role for the EC2 instance running the script (i.e. the Octopus Server) was used.
 
@@ -71,7 +71,7 @@ Get-STSCallerIdentity | Select-Object -Property *
 
 Scripts can be run from two different locations: source code added to the step, or a script from a package.
 
-### Source Code
+### Source code
 
 The first option is to add the script source code to the step directly. This is done by selecting the `Source code` option, and entering the source code into the text box in the `Script Content` section.
 
@@ -81,4 +81,4 @@ The first option is to add the script source code to the step directly. This is 
 
 The second option is to run a script from a package. This is done by selecting the `Script file inside a package` option, selecting the package, and entering the name of the file within the package to run as a PowerShell script.
 
-![AWS Script Package](images/step-aws-package.png)
+![AWS script package](images/step-aws-package.png)

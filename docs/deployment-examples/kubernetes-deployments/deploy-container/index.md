@@ -1,12 +1,12 @@
 ---
-title: Deploy to a Kubernetes Cluster
+title: Deploy to a Kubernetes cluster
 description: Deploy to a Kubernetes cluster.
 position: 10
 ---
 
 Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource), a [Service resource](http://g.octopushq.com/KubernetesServiceResource), and an [Ingress resource](http://g.octopushq.com/KuberntesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
 
-## Deploy Kubernetes Containers Step
+## Deploy Kubernetes containers step
 
 To begin, add the `Deploy Kubernetes containers` step to a project.
 
@@ -36,7 +36,7 @@ A Pod resource in turn configures one or more [Containers resources](http://g.oc
 
 A ReplicaSet resource monitors the Pod resources to ensure that the required number of instances are running.
 
-### Deployment Name
+### Deployment name
 
 Each Deployment resource requires a unique `Deployment Name`. Kubernetes resources are identified by their names, so the name must be unique in the target [namespace](http://g.octopushq.com/KubernetesNamespace).
 
@@ -46,33 +46,33 @@ When using the blue/green deployment strategy, the name entered in this field wi
 
 The desired number of Pod resources is set in the `Replicas` field. This is the number of replicas maintained by the ReplicaSet resource. This field is optional, and will default to a value of `1`.
 
-### Progression Deadline
+### Progression deadline
 
 An optional value that defines the maximum time in seconds for a deployment to make progress before it is considered to be failed. If this value is not specified, it will default to `600` seconds (or 10 minutes).
 
 This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), which will point the service to the new deployment only after the new deployment has succeeded.
 
-### Pod Termination Grace Period
+### Pod termination grace period
 
 An optional value that defines how long Kubernetes will wait for the Pod resource to shutdown before it is killed. See the [Kubernetes documentation](http://g.octopushq.com/KubernetesPodTermination) for more details.
 
-### Add Label
+### Add label
 
 Labels are custom key/value pairs that are assigned to Kubernetes resources. The labels defined in the `Deployment` section are applied to the Deployment, Pod, Service, Ingress, ConfigMap and Secret resources.
 
 The labels are optional, as Octopus will automatically add the tags required to manage the Kubernetes resources created as part of this step.
 
-### Deployment Strategy
+### Deployment strategy
 
 Kubernetes exposes two native deployment strategies: [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) and [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
 
-### Recreate Deployment Strategy
+### Recreate deployment strategy
 The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
 
-### Rolling Update Deployment Strategy
+### Rolling update deployment strategy
 The second native deployment strategy is the [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
-### Blue/Green Deployment Strategy
+### Blue/Green deployment strategy
 The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step because it creates and coordinates both the Deployment resource and the Service resources.
 
 The Blue/Green deployment strategy involves four phases.
@@ -129,7 +129,7 @@ This means failed deployments can be retried, and once successful, all previous 
 
 ![Phase 4](phase4.svg)
 
-#### Deployment Strategy Summary
+#### Deployment strategy summary
 
 The choice of which deployment strategy to use is influenced by a number of factors:
 
@@ -165,7 +165,7 @@ The volumes can also reference ConfigMap and Secret resources created by the ste
 
 Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
-#### Common Values
+#### Common values
 
 All Volume resources must have a unique name defined in the `Name` field.
 
@@ -223,19 +223,19 @@ To expose the `username` key as a file called `username.txt`, an item is added w
 
 If this Volume resource is mounted by a container under the directory `/data`, the file `/data/username.txt` would have the contents of `admin`.
 
-#### Empty Dir
+#### Empty dir
 
 The [Empty Dir Volume resource](http://g.octopushq.com/KubernetesEmptyDirVolume) is used to create volume that is initially empty. The volume can be shared between containers. Some uses for an Empty Dir Volume resource are:
 
 * Scratch space, such as for a disk-based merge sort.
-* Checkpointing a long computation for recovery from crashes.
+* Check-pointing a long computation for recovery from crashes.
 * Holding files that a content-manager Container fetches while a webserver Container serves the data.
 
 By default, Empty Dir Volumes resources are stored on whatever medium is backing the node. Setting the `Medium` field to `Memory` will create the volume in a tmpfs, or RAM-backed filesystem.
 
-#### Host Path
+#### Host path
 
-The [Host Path Volume resource](http://g.octopushq.com/KubernetesHostPathVolume) mounts a file or directory from the host node’s filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
+The [Host path volume resource](http://g.octopushq.com/KubernetesHostPathVolume) mounts a file or directory from the host node’s filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
 
 For example, some uses for a Host Path Volume resource are:
 
@@ -258,7 +258,7 @@ The `Type` field is optional and has the supported values:
 |CharDevice| 	A character device must exist at the given path|
 |BlockDevice| 	A block device must exist at the given path|
 
-#### Persistent Volume Claim
+#### Persistent volume claim
 
 The [Persistent Volume Claim volume resource](http://g.octopushq.com/KubernetesPersistentVolumeClaimVolume) is used to mount a PersistentVolume into a Pod. [PersistentVolume resources](http://g.octopushq.com/KubernetesPersistentVolumes) are a way for users to "claim" durable storage (such as a GCE PersistentDisk or an iSCSI volume) without knowing the details of the particular cloud environment.
 
@@ -322,7 +322,7 @@ The `Containers` section is where the Container resources are defined. This is w
 
 The configuration options for a Container resource are broken down into a number of sections.
 
-#### Image Details
+#### Image details
 
 Each Container resource must reference a container image from a [Docker feed](/docs/packaging-applications/package-repositories/docker-registries/index.md).
 
@@ -342,7 +342,7 @@ The `Port` number is required and must be a number between 1 and 65535.
 
 The `Protocol` is optional and will default to `TCP`.
 
-#### Image Pull Policy
+#### Image pull policy
 
 The image pull policy and the tag of the image affect when the kubelet attempts to pull the specified image.
 * `If Not Present`: the image is pulled only if it is not already present locally.
@@ -352,7 +352,7 @@ The image pull policy and the tag of the image affect when the kubelet attempts 
 * `Never`: the image is assumed to exist locally. No attempt is made to pull the image.
 
 
-#### Container Type
+#### Container type
 
 To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
 
@@ -388,7 +388,7 @@ The `Memory Request` field defines the minimum amount of memory that the Contain
 
 The `Memory Limit` field defines the maximum amount of memory that can be consumed by the Container resource.
 
-#### Environment Variables
+#### Environment variables
 
 Environment variables can be set three ways.
 
@@ -396,7 +396,7 @@ Environment variables can be set three ways.
 2. Expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConifgMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
 3. Expose a Secret resource value as an environment variable. These are defined by clicking the `Add Secret Environment Variable` button. The `Name` is the environment variable name. The `Secret Name` is the name of the Secret resource. The `Key` is the Secret resource key whose value is to be set as the environment variable value.
 
-#### Volume Mounts
+#### Volume mounts
 
 In the [Volumes](#volumes) section we defined the Volume resources that were exposed to the Container resource. It is here in the `Volume Mounts` container section that we map those Volume resources to the Container resource.
 
@@ -422,7 +422,7 @@ Some Volume resources like ConfigMap and Secret are always mounted in read only 
 See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
 :::
 
-#### Liveness Probe
+#### Liveness probe
 
 The [Liveness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it is currently operational.
 
@@ -463,7 +463,7 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
-#### TCP Socket
+#### TCP socket
 
 The TCP Socket probe type has two fields.
 
@@ -471,7 +471,7 @@ The `Host` field defines the host to connect to. If not defined, this value will
 
 The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
 
-#### Readiness Probe
+#### Readiness probe
 
 The [Readiness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
 
@@ -518,9 +518,9 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
-#### TCP Socket
+#### TCP socket
 
-The TCP Socket probe type has two fields.
+The TCP socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
@@ -551,7 +551,7 @@ myservice
 an argument with a space
 ```
 
-#### Pod Security Context
+#### Pod security context
 
 The `Pod Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
 
@@ -567,7 +567,7 @@ The `Run as user` section defines the UID to run the entrypoint of the container
 
 The `Run as group` section defines the GID to run the entrypoint of the container process.
 
-#### Pod Annotations
+#### Pod annotations
 
 The `Pod Annotations` section defines the annotations that are added to the Deployment resource `spec.template.metadata` field. These annotations in turn are then applied to the Pod resource created by the Deployment resource.
 
@@ -631,7 +631,7 @@ When this Deployment resource is deployed to a Kubernetes cluster, it will creat
 
 ![](pod-annotation-deployed.png)
 
-#### Deployment Annotations
+#### Deployment annotations
 
 The `Deployment Annotations` section defines the annotations that are added to the Deployment resource.
 
@@ -761,12 +761,12 @@ To deploy resources that are not bound to the lifecycle of the Deployment resour
 
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
 
-#### Service Name
+#### Service name
 Each Service resource requires a unique name, defined in the `Name` field.
 
 The Service resource name is not affected by the deployment strategy.
 
-#### Service Type
+#### Service type
 
 A Service resource can be one of three different types:
 * Cluster IP
@@ -778,19 +778,19 @@ A Cluster IP Service resource provides a private IP address that applications de
 
 ![Cluster IP](../cluster-ip.svg)
 
-#### Node Port
+#### Node port
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
 ![Node Port](../node-port.svg)
 
-#### Load Balancer
+#### Load balancer
 A Load Balancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
 
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
 ![Loadbalancer](../loadbalancer.svg)
 
-#### Cluster IP Address
+#### Cluster IP address
 
 The `Cluster IP Address` field can be used to optionally assign a fixed internal IP address to the Service resource.
 
@@ -814,13 +814,13 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 The `Ingress` feature is used to create an Ingress resource. Ingress resources provide a way to direct HTTP traffic to Service resources based on the requested host and path.
 
-#### Ingress Name
+#### Ingress name
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
 
 The name of the ingress resource is not affected by the deployment strategy.
 
-#### Ingress Host Rules
+#### Ingress host rules
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
@@ -828,7 +828,7 @@ The `Host` field defines the host where the request was sent to. This field is o
 
 The `Add Path` button adds a new mapping between a request path and the Service resource port. The `Path` field is the path of the request to match. It must start with a `/`. The `Service Port` field is the port from the associated Service resource that the traffic will be sent to.
 
-#### Ingress Annotations
+#### Ingress annotations
 
 Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
@@ -862,7 +862,7 @@ The `Value` field defines the annotation value.
 Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
 :::
 
-### ConfigMap and Secret
+### ConfigMap and secret
 
 It is often convenient to have settings saved in ConfigMap and Secret resources that are tightly coupled to the Deployment resource. Ensuring each version of a Deployment resource has its own ConfigMap or Secret resource means that deployments are not left in an inconsistent state as new Deployments resources are rolled out alongside existing Deployment resources, which is the case for both the Rolling Update and Blue/Green deployment strategies.
 
@@ -870,7 +870,7 @@ The ConfigMap and Secret features are used to create ConfigMap and Secret resour
 
 Like the Custom Resource feature, the ConfigMap and Secret features achieve this by creating resources with unique names for each deployment. The resources have a set of labels applied that allows Octopus to manage them during a deployment.
 
-#### Custom ConfigMap and Secret names
+#### Custom ConfigMap and secret names
 
 By default, the ConfigMap and Secret resources created by this step have unique names generated by appending the ID of the deployment. For example, a ConfigMap may be defined in the step with the name of `my-app-settings`, and it will be created in the Kubernetes cluster with the name of `my-app-setting-deployment-1234`, where `deployment-1234` is the ID of the Octopus deployment as a lower case string.
 

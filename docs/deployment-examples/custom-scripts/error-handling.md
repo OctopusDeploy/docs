@@ -1,5 +1,5 @@
 ---
-title: Error Handling
+title: Error handling
 description: Error handling for scripts in Octopus.
 position: 60
 ---
@@ -8,7 +8,7 @@ Calamari examines the exit code of the script engine to determine whether the sc
 
 Syntax errors and unhandled exceptions will result in a non-zero exit code from the script engine, which will fail the deployment
 
-## Error Handling in PowerShell Scripts {#Customscripts-ErrorhandlinginPowerShellscripts}
+## Error handling in PowerShell scripts {#Customscripts-ErrorhandlinginPowerShellscripts}
 
 For PowerShell scripts Calamari also sets the `$ErrorActionPreference` to **Stop** before invoking your script. This means that if a command fails, the rest of the script won't be executed. For example:
 
@@ -48,7 +48,7 @@ if ($LastExitCode -ne 0) {
 }
 ```
 
-## Failing a Script With a Message
+## Failing a script with a message
 
 The fail step function will stop your script execution and return a non-zero error code. An optional message can be supplied. If supplied, the message replaces
 the `The remote script failed with exit code <code>` text in the deployment process overview page.

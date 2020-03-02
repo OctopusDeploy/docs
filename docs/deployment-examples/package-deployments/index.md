@@ -6,7 +6,7 @@ position: 130
 
 When defining your [deployment process](/docs/deployment-examples/index.md), the most common step type will be a package step. This step deploys your [packaged application](/docs/packaging-applications/index.md) onto one or more deployment targets.
 
-## Adding a Package Step
+## Adding a package step
 
 When adding a step to your deployment process, choose the **Deploy a Package** option. For more information, see the [add step](/docs/deployment-process/steps/index.md) section:
 
@@ -25,11 +25,11 @@ You can dynamically select a Package Feed and/or the Package ID at deployment ti
 When multiple machines are in the role you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 :::
 
-## Configuring Features
+## Configuring features
 
 Octopus is built to make it easy to deploy .NET applications, and contains a number of useful built in *features* that can be enabled on NuGet package steps. See [Configuration Features](/docs/deployment-process/configuration-features/index.md) for more details.
 
-## How Packages are Deployed
+## How packages are deployed
 
 1. Acquire the package as optimally as possible (local package cache and [delta compression](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md)).
 1. Create a new folder for the deployment (which avoids many common problems like file locks and leaving stale files behind):

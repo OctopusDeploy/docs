@@ -1,5 +1,5 @@
 ---
-title: Java Error Messages and Troubleshooting
+title: Java error messages and troubleshooting
 description: Java deployment steps include a number of unique error codes that may be displayed in the output if there was an error
 position: 3
 ---

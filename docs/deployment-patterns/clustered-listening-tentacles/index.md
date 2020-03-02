@@ -52,7 +52,7 @@ Using the Tentacle Manager stop the Octopus Tentacle service which was just inst
 
 Now go to the second Tentacle server in the active/passive cluster and bring the same disk online, repeating the steps which were just performed on the first node to install the Octopus Tentacle service. Please keep the Octopus Tentacle service started and ensure that the shared storage is still mounted this time so that the .pfx file can be exported out of Octopus Tentacle.
 
-## Generate an Octopus Tentacle PFX File {#ClusteringTentacles-Newpfx}
+## Generate an Octopus Tentacle PFX file {#ClusteringTentacles-Newpfx}
 
 Open `cmd` as Administrator again and run these commands to generate a new Private Key from an Octopus Deploy Tentacle (replacing relevant values as appropriate).
 ```batchfile
@@ -60,7 +60,7 @@ cd "C:\Program Files\Octopus Deploy\Tentacle\"
 Tentacle.exe new-certificate --export-pfx="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="Yourpfxpassword"
 ```
 
-## Import the New Octopus Tentacle PFX File {#ClusteringTentacles-Importpfx}
+## Import the new Octopus Tentacle PFX file {#ClusteringTentacles-Importpfx}
 
 Now import the new pfx file into the server from which it was just generated.
 ```batchfile
@@ -72,7 +72,7 @@ Now on the second node, stop the Tentacle service and bring the shared storage o
 
 Once both Tentacles are installed and configured ensure that neither node has the Octopus Tentacle started and that the shared storage is brought offline.
 
-## Configure A New Clustered Service {#ClusteringTentacles-NewCluster}
+## Configure a new clustered service {#ClusteringTentacles-NewCluster}
 
 Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and toold in windows server 2012").
 
@@ -89,13 +89,13 @@ After all validation processes successfully, you will be returned to the **Creat
 ![](images/configure-clusterhostname.jpg)
 
 :::warning
-**Access Point for Administering the Cluster**
+**Access point for administering the cluster**
 The IP address which you specify here is not going to be used by Octopus Deploy Server, instead this is used for administering the cluster.
 :::
 
 Now complete the wizard.
 
-## Adding Octopus Tentacle as a Generic Service Cluster {#ClusteringTentacles-AddTentacleCluster}
+## Adding Octopus Tentacle as a generic service cluster {#ClusteringTentacles-AddTentacleCluster}
 
 Right-Click **Roles** and select **Configure Roles** then highlight **Generic Service**, click **Next**.
 
@@ -121,7 +121,7 @@ Complete the wizard, then navigate to the roles view to ensure the Tentacle serv
 
 ![](images/cluster-complete.jpg)
 
-## Connect Octopus Server to a Clustered Tentacle {#ClusteringTentacles-ConnectOctopusServer}
+## Connect Octopus Server to a clustered Tentacle {#ClusteringTentacles-ConnectOctopusServer}
 
 Login to the Octopus Portal and go to the **environments** page. Under the desired environment, click **Add Deployment Target**.
 

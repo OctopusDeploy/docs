@@ -1,5 +1,5 @@
 ---
-title: Supported Certificate File Formats
+title: Supported certificate file formats
 description: Certificate file-formats supported by Octopus Deploy
 position: 20
 ---

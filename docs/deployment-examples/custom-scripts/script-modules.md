@@ -1,12 +1,12 @@
 ---
-title: Script Modules
+title: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
 position: 120
 ---
 
 Script modules allow users to create collections of langauge specific functions that can be used in deployment processes across multiple projects.
 
-## Creating a Script Module {#ScriptModules-CreatingaScriptmodule}
+## Creating a script module {#ScriptModules-CreatingaScriptmodule}
 
 1.  Navigate to **{{Library,Script Modules,Add Script Module}}**.
 
@@ -16,7 +16,7 @@ Script modules allow users to create collections of langauge specific functions 
 
 ![](images/script-modules-new.png)
 
-3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walkthrough we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
+3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walk-through we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
 
 ```powershell
 function Say-Hello($name)
@@ -31,7 +31,7 @@ After inserting the modified function, the Script Module should look like this:
 
 Once this is done, click on **Save**.
 
-## Using a Script Module on a Deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
+## Using a script module on a deployment {#ScriptModules-UsingaScriptModuleonaDeployment}
 
 Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
@@ -68,7 +68,7 @@ Make sure to select a **Role**, an **Environment** and to put a **Step Name**
 ![](images/script-modules-deployment-release.png)
 
 
-## Using Script Modules{#ScriptModules-using}
+## Using script modules{#ScriptModules-using}
 
 Each language has a slightly different syntax for using the Script Module. Please see the language specific section below.
 
@@ -78,7 +78,7 @@ Each language has a slightly different syntax for using the Script Module. Pleas
 * [F#](#ScriptModules-FSharp)
 * [Python](#ScriptModules-Python)
 
-## PowerShell Script Modules{#ScriptModules-PowerShell}
+## PowerShell script modules{#ScriptModules-PowerShell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be in scope for your script.
 
@@ -108,7 +108,7 @@ function Say-Hello($name) {
 }
 ```
 
-## Bash Script Modules{#ScriptModules-Bash}
+## Bash script modules{#ScriptModules-Bash}
 
 Bash Script Modules are written as a `.sh` file next to your script. Import them
 via `source MyScriptModule.sh`, where `MyScriptModule` is the name of your Script
@@ -128,7 +128,7 @@ source BashScriptModule.sh
 say_hello George
 ```
 
-## C# Script Modules{#ScriptModules-CSharp}
+## C# script modules{#ScriptModules-CSharp}
 
 C# Script Modules are written as a `.csx` file next to your script. Import them
 via `#load "MyScriptModule.csx"`, where `MyScriptModule` is the name of your Script
@@ -150,7 +150,7 @@ Call it from your Script Step with:
 SayHello("George");
 ```
 
-## F# Script Modules{#ScriptModules-FSharp}
+## F# script modules{#ScriptModules-FSharp}
 
 F# Script Modules are written as an `.fsx` file next to your script. Import them
 via `#load "MyScriptModule.fsx"`, where `MyScriptModule` is the name of your Script
@@ -186,7 +186,7 @@ open MyFSharpScriptModule
 sayhello "George";
 ```
 
-## Python Script Modules{#ScriptModules-Python}
+## Python script modules{#ScriptModules-Python}
 
 Python Script Modules are written as a `.py` file next to your script. Import them
 via `import MyScriptModule`, where `MyScriptModule` is the name of your Script

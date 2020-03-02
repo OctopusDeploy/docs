@@ -1,5 +1,5 @@
 ---
-title: Node Deployments
+title: Node deployments
 description: With Octopus Deploy you can deploy your Node.JS applications to on-premises servers, Azure websites, Azure and AWS EC2 virtual machines.
 position: 120
 hideInThisSectionHeader: true

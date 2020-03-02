@@ -66,7 +66,7 @@ By adding these features to the steps above, you can set up complete end-to-end 
 3. Automatic Release Creation will create a new Release.
 4. Your Lifecycle will trigger a deployment when the release is created.
 
-## Video Walkthrough {#VideoWalkthrough}
+## Video Walk-through {#VideoWalk-through}
 
 This 6 minute video walks through the above steps to create an end-to-end continuous deployment process for Team Foundation Server.
 

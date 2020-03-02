@@ -1,6 +1,6 @@
 ---
-title: Apply a Terraform Template
-description: Apply a Terraform Template.
+title: Apply a Terraform template
+description: Apply a Terraform template.
 ---
 
 Terraform support was introduced in **Octopus 2018.3**.
@@ -9,12 +9,12 @@ Octopus supports the deployment of Terraform templates through the `Apply a Terr
 
 These instructions can be followed to configure the `Apply a Terraform template` step, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` step.
 
-## Terraform Backends
+## Terraform backends
 
 Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/deployment-examples/terraform-deployments/remote-state/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployment-examples/terraform-deployments/remote-state/index.md) and more general information
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 
-## AWS Account Support
+## AWS account support
 
 If you wish to use AWS credentials managed by Octopus when deploying Terraform templates, the AWS account will need to be added to Octopus, and a variable referencing the account configured in the project.
 
@@ -22,11 +22,11 @@ If you wish to use AWS credentials managed by Octopus when deploying Terraform t
 Using AWS credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable.
 :::
 
-## Create an AWS Account
+## Create an AWS account
 
 The instructions at [Creating an AWS Account](/docs/infrastructure/deployment-targets/aws/index.md##create-an-aws-account) detail the procedure for creating an account in Octopus.
 
-### Create a AWS Account Project Variable
+### Create a AWS account project variable
 
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`.
 
@@ -38,11 +38,11 @@ Select the account that was created in the previous step to assign it to the var
 
 ![AWS Account Variable Selection](images/aws-account-variable-selection.png)
 
-### Selecting the Account
+### Selecting the account
 
 Under the `Managed Account` section, select `AWS Account`. This will display two additional sections where the AWS account can be selected, and the default AWS region optionally defined.
 
-### AWS Section
+### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance.
 
@@ -60,7 +60,7 @@ If you select `Yes` to `Execute using the AWS service role for an EC2 instance`,
 Credentials defined in the Terraform template take precedence over any credentials defined in the step.
 :::
 
-### Region Section
+### Region section
 
 You can optionally define the default region to use when interacting with AWS in the `Region` section.
 
@@ -68,11 +68,11 @@ You can optionally define the default region to use when interacting with AWS in
 Regions defined in the Terraform template take precedence over the default value defined in the step.
 :::
 
-### Template Section
+### Template section
 
 The Terraform template can come from two sources: directly entered source code or from files in a package.
 
-#### Source Code
+#### Source code
 
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
@@ -106,7 +106,7 @@ Given that Terraform templates and variable files are plain text, you may find i
 
 ![Package](images/step-aws-package.png)
 
-#### Variable Replacements
+#### Variable replacements
 
 Variable replacement is performed before the template is applied or destroyed when defined in either an inline script or a package.
 
@@ -132,13 +132,13 @@ When applying an inline template, the variable fields can also include replaceme
 
 See the [variable substitution](/docs/projects/variables/variable-substitutions.md) documentation for more information.
 
-#### Additional Variable Files
+#### Additional variable files
 
 The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
 
 Each line entered into this field will be passed to Terraform as `-var-file '<filename>'`.
 
-## Advanced Options Section
+## Advanced options section
 
 You can optionally control how Terraform downloads plugins and where the plugins will be located in the `Advanced Options` section.
 
@@ -154,7 +154,7 @@ The `Custom terraform apply parameters` option can be optionally set to include 
 
 ![Terraform Advanced Options](images/terraform-advanced.png)
 
-## Output Variables
+## Output variables
 
 Terraform's output variables are captured as Octopus variables after a template is applied. Each output variable is captured in two different formats: the JSON representation of the variable, and the value only of the variable.
 
@@ -174,7 +174,7 @@ While the value only output (which would appear in the logs as a message similar
 "hi there"
 ```
 
-## Accessing Terraform Output Variables
+## Accessing Terraform output variables
 
 Using the previous example output variable called `test` you can access the output using PowerShell as follows:
 
@@ -192,7 +192,7 @@ The syntax for accessing JSON variables as covered by our [documentation here](/
 #{Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test].value}
 ```
 
-### Special Variables
+### Special variables
 
 Setting the variable `Octopus.Action.Terraform.CustomTerraformExecutable` to the absolute path of a custom Terraform executable will result in the step using that executable instead of the one shipped with Octopus. You can use this variable to force the Terraform steps to use a specific version of Terraform, or to use the x64 version if you wish.
 

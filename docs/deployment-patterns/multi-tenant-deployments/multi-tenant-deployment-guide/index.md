@@ -1,5 +1,5 @@
 ---
-title: Multi-tenant Deployment Guide
+title: Multi-tenant deployment guide
 description: Introduce multi-tenant deployments in Octopus, starting with simple scenarios, then incorporating more complex capabilities over time.
 position: 0
 hideInThisSectionHeader: true
@@ -11,7 +11,7 @@ This guide will introduce you to multi-tenant deployments in Octopus, starting w
 Multi-tenant deployments are an advanced pattern, and this guide assumes you are already familiar with Octopus concepts like [projects](/docs/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [lifecycles](/docs/deployment-process/lifecycles/index.md), [variables](/docs/projects/variables/index.md) and [deploying applications](/docs/deployment-examples/index.md).
 :::
 
-## Sample Tenants
+## Sample tenants
 
 If you'd like to play with a fully-fledge sample, we've built a tool that will will build up an entire multi-tenant scenario in your Octopus Server using the API with as many projects and tenants you would like.
 

@@ -1,5 +1,5 @@
 ---
-title: Rolling Deployments
+title: Rolling deployments
 description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
 position: 5
 ---
@@ -17,7 +17,7 @@ NuGet package steps and [PowerShell steps](/docs/deployment-examples/custom-scr
 
 However, sometimes this isn't desired. If you are deploying to a farm of 10 web servers, it might be nice to deploy to one machine at a time, or to batches of machines at a time. This is called a **rolling deployment**.
 
-## Configuring a Rolling Deployment {#Rollingdeployments-Configuringarollingdeployment}
+## Configuring a rolling deployment {#Rollingdeployments-Configuringarollingdeployment}
 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
 
@@ -37,7 +37,7 @@ The window size controls how many deployment targets can be deployed to at once.
 If you include the variable `Octopus.Action.MaxParallelism` in your Project with a value higher than your **Window size** set in a rolling deployment, you will find the `Octopus.Action.MaxParallelism` value is no longer respected. This is expected behavior as Octopus also uses this variable to limit the number of deployment targets on which the rolling deployment step will run concurrently. A warning will also be printed in the Task Log.
 :::
 
-## Child Steps {#Rollingdeployments-Childsteps}
+## Child steps {#Rollingdeployments-Childsteps}
 
 Rolling deployments allow you to wait for a step to finish on one deployment target before starting the step on the next deployment target. But what if you need to perform a series of steps on one target, before starting that series of steps on the next target? To support this, Octopus allows you to create **Child Steps**.
 
@@ -71,13 +71,13 @@ You can edit the parent step to change the roles that the steps run on or the wi
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
 
-## Rolling Deployments With Child Steps in Action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
+## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
 This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.rolling-deployments
 
 <iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
 
-## Rolling Deployments With Guided Failures
+## Rolling deployments with guided failures
 
 [Guided Failures](/docs/managing-releases/guided-failures.md) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
 

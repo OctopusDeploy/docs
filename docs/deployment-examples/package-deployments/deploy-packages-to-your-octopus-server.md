@@ -1,5 +1,5 @@
 ---
-title: Deploying Packages to your Octopus Server
+title: Deploying packages to your Octopus Server
 description: How to deploy packages to your Octopus Server.
 ---
 

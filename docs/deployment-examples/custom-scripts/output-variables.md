@@ -1,18 +1,18 @@
 ---
-title: Output Variables
+title: Output variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
 position: 70
 ---
 
 Your scripts can emit variables that are available in subsequent deployment steps. This means you can factor your deployment into smaller, more well-defined steps that leverage the result of prior steps. It is an extremely powerful feature and you should refer to the documentation on [output variables](/docs/projects/variables/output-variables.md) for more information.
 
-This example is from the sample project in the [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough#prerequisites).
+This example is from the sample project in the [Channels Walk-through](https://octopus.com/blog/channels-walk-through#prerequisites).
 
 Step 1 calculates a name by convention, which is used by subsequent steps.
 
 ![Deployment Process](images/deployment-process.png)
 
-## Creating an Output Variable
+## Creating an output variable
 ```powershell PowerShell
 Set-OctopusVariable -name "AppInstanceName" -value "MyAppInstance"
 ```
@@ -33,7 +33,7 @@ Octopus.setVariable "AppInstanceName" "MyAppInstance"
 set_octopusvariable("AppInstanceName", "MyAppInstance")
 ```
 
-## Using the Variable in Another Step
+## Using the variable in another step
 
 ```powershell PowerShell
 $appInstanceName = $OctopusParameters["Octopus.Action[Determine App Instance Name].Output.AppInstanceName"]
@@ -62,7 +62,7 @@ let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Ins
 appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
-## Service Message
+## Service message
 
 The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the values processed as an output variable. Note that the properties must be supplied as a base64 encoded UTF-8 string.
 ```

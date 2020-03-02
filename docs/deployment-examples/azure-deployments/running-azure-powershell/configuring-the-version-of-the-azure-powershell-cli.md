@@ -1,5 +1,5 @@
 ---
-title: Configuring the Version of the Azure PowerShell CLI
+title: Configuring the version of the Azure PowerShell CLI
 description: A version of Azure PowerShell CLI is bundled with Octopus Deploy and it's possible to configure which version you wish to use in your deployments.
 ---
 

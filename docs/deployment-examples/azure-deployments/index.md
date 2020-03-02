@@ -17,7 +17,7 @@ Out of the box, Octopus provides built-in steps to deploy to the following Azure
 - The one you are looking for is not here? Leave us a feature request in [UserVoice](https://octopusdeploy.uservoice.com/).
 
 :::hint
-**Where do Azure Steps execute?**
+**Where do Azure steps execute?**
 All steps that target an Azure deployment target (including script steps) execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/infrastructure/workers/index.md) and the different configuration options.
 :::
 

@@ -1,5 +1,5 @@
 ---
-title: Multi-region Deployment Pattern
+title: Multi-region deployment pattern
 description: Implementing multi-region deployments, i.e. deploying to multiple geographic regions, with Octopus.
 position: 6
 ---
@@ -10,7 +10,7 @@ Your application is deployed to multiple geographic regions (or multiple Data Ce
 
 ![](images/5865791.png)
 
-## Strict Solution Using Environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
+## Strict solution using environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
 You can use [Environments](/docs/infrastructure/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
@@ -18,7 +18,7 @@ You can use [Environments](/docs/infrastructure/environments/index.md) to repr
 
 By using this pattern you can:
 
-1. Use [Lifecycles](/docs/deployment-process/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [lifecycles](/docs/deployment-process/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
   * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe.
   * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions.
 2. Scope region-specific variables to the region-specific Environments.
@@ -28,7 +28,7 @@ By using this pattern you can:
 
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
 
-## Rolling Solution {#Multi-regiondeploymentpattern-RollingSolution}
+## Rolling solution {#Multi-regiondeploymentpattern-RollingSolution}
 
 In **Octopus 3.4** we introduced [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
@@ -41,11 +41,11 @@ By using this pattern you can:
 
 **If you don't really mind which order you regions are deployed, or you always upgrade all regions at the same time, Cloud Regions are probably the right fit for you.**
 
-## Tenanted Solution {#Multi-regiondeploymentpattern-TenantedSolution}
+## Tenanted solution {#Multi-regiondeploymentpattern-TenantedSolution}
 
 Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) to represent each region or data center. By doing so you can:
 
-1. Use [Variable Templates](/docs/projects/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
+1. Use [variable templates](/docs/projects/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
 
 ![](images/5865790.png)
 

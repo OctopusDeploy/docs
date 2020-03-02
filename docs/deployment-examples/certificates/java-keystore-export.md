@@ -1,5 +1,5 @@
 ---
-title: Export a Certificate to a Java KeyStore
+title: Export a certificate to a Java KeyStore
 description: Export a Java KeyStore from a certificate managed by Octopus.
 position: 70
 ---

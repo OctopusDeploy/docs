@@ -16,7 +16,7 @@ A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we h
 If your **Octopus 1.x** installation is at an earlier version than **Octopus 1.6**, please [upgrade it to Octopus 1.6](https://octopus.com/downloads/previous) before proceeding.
 :::
 
-Below is the dashboard from an **Octopus 1.6** server that will be used as an example for this walkthrough.
+Below is the dashboard from an **Octopus 1.6** server that will be used as an example for this walk-through.
 
 ![](images/3278001.png)
 
@@ -31,7 +31,7 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 Next, install **Octopus 2.0**, either on the same server as your current **Octopus 1.6** server, or on a new server (ideal). **Octopus 2.0** uses different paths, ports and service names to **Octopus 1.0** so there should not be any conflicts between them.
 
 :::hint
-View our [guide to installing an Octopus 2.0](/docs/installation/index.md), which includes a video walkthrough.
+View our [guide to installing an Octopus 2.0](/docs/installation/index.md), which includes a video walk-through.
 :::
 
 ## Importing {#UpgradingfromOctopus1.6-Importing}

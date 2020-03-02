@@ -1,5 +1,5 @@
 ---
-title: Continuous Integration for Service Fabric
+title: Continuous integration for Service Fabric
 description: Learn how Octopus Deploy fits into a Continuous Deployment pipeline for you Service Fabric applications.
 position: 2
 ---
@@ -33,7 +33,7 @@ One of the places that Service Fabric applications differ from typical .NET appl
 
 Octopus Deploy does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/deployment-examples/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
 
-### Overwrite vs Rolling upgrades
+### Overwrite vs rolling upgrades
 
 The default behavior of the Service Fabric deployments is to overwrite an existing  application. What this means is that if the application already exists in the cluster it will be removed first and the redeployed (you'll see it using *RegisterAndCreate* in the logs).
 

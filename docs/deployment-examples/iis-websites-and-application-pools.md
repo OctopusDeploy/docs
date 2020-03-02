@@ -1,6 +1,6 @@
 ---
-title: IIS Websites and Application Pools
-description: Octopus has built-in support for configuring IIS Web Sites, Applications and Virtual Directories.
+title: IIS Websites and application pools
+description: Octopus has built-in support for configuring IIS web sites, applications and virtual directories.
 position: 80
 ---
 
@@ -17,7 +17,7 @@ Configuring IIS is an essential part of deploying any ASP.NET web application. 
 
   Understanding the difference between Sites, Applications, and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications, and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
 
-## Deploy IIS Web Site {#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site}
+## Deploy IIS web site {#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site}
 
 You need to fill out the following fields for an IIS Web Site deployment:
 
@@ -32,7 +32,7 @@ You need to fill out the following fields for an IIS Web Site deployment:
 | **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the IIS Web Site. |                                          |                                          |
 | **Authentication modes**  | Choose which authentication mode(s) IIS should enable. | <ul> <li> `Anonymous` </li> <li> `Basic` </li> <li> `Windows` </li> </ul> | You can select more than one authentication mode. |
 
-## Deploy IIS Virtual Directory {#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory}
+## Deploy IIS virtual directory {#iiswebsitesandapplicationpools-DeployIISVirtualDirectoryvirtual-directory}
 
 :::success
 The IIS Virtual Directory step requires a parent Web Site to exist in IIS before it runs. You can create a chain of steps like this:
@@ -53,7 +53,7 @@ You need to fill out the following fields for an IIS Virtual Directory deploymen
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
 :::
 
-## Deploy IIS Web Application {#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application}
+## Deploy IIS web application {#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application}
 
 :::success
 The IIS Web Application step requires a parent Web Site to exist in IIS before it runs. You can create a chain of steps like this:
@@ -77,7 +77,7 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 | **.NET CLR version**      | The version of the .NET Common Language Runtime this Application Pool will use. | `v2.0`, `v4.0`                           | Choose v2.0 for applications built against .NET 2.0, 3.0 or 3.5. Choose v4.0 for .NET 4.0 or 4.5. |
 | **Identity**              | Which account the Application Pool will run under. | `Application Pool Identity`, `Local Service`, `Local System`, `Network Service`, `Custom user (you specify the username/password)` |                                          |
 
-## How Octopus Deploys Your Web Site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
+## How Octopus Deploys your web site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
 Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-examples/package-deployments/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
 
@@ -99,7 +99,7 @@ Octopus performs the following steps:
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
 :::
 
-## IIS Configuration in Action {#IISWebsitesandApplicationPools-IISconfigurationinaction}
+## IIS Configuration in action {#IISWebsitesandApplicationPools-IISconfigurationinaction}
 
 This five minute video demonstrates how Octopus can be used to deploy an ASP.NET MVC web application to remote IIS servers.
 

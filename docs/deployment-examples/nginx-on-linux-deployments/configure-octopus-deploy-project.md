@@ -6,7 +6,7 @@ position: 2
 
 Assuming you are starting with a clean install of Octopus Deploy, the following steps will configure the server to deploy your [NGINX Sample Web App](/docs/deployment-examples/nginx-on-linux-deployments/create-and-push-asp.net-core-project.md) ASP.NET Core project to a Linux machine.
 
-## Configure Environment
+## Configure environment
 
 - On the *Environments* page, add an environment named **Production**.
 
@@ -16,7 +16,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/index.md) and [lifecycles](/docs/deployment-process/lifecycles/index.md) to create advanced deployment processes.
 :::
 
-## Configure Account and Target
+## Configure account and target
 
 To connect over SSH the first thing you will need to do is add the credentials for your machine. If you followed the previous "[Configuring Target Machine](/docs/deployment-examples/nginx-on-linux-deployments/configure-target-machine.md)" step this should consist of a username and password pair.
 
@@ -30,7 +30,7 @@ To connect over SSH the first thing you will need to do is add the credentials f
 Further details are provided throughout the rest of this documentation about [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md).
 :::
 
-## Create Deployment Project
+## Create deployment project
 
 The next step is to create a project that will extract the package.
 
@@ -42,7 +42,7 @@ The next step is to create a project that will extract the package.
 
 ![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_name_role_and_package.png)
 
-### NGINX Web server
+### NGINX web server
 
 To configure NGINX to send traffic to your application you need to fill in a few details.
 
@@ -56,7 +56,7 @@ When defining **locations** you can configure NGINX to deliver files from the fi
 
 ![](/docs/deployment-examples/nginx-on-linux-deployments/images/deployment_process_nginx_feature.png)
 
-### Starting and Managing Our ASP.NET Core project
+### Starting and managing our ASP.NET Core project
 
 To get the ASP.NET Core process started up you can manually call *dotnet <nameofaspnetcoreapplication>.dll*, however this has its drawbacks when trying to run the process in the background of your deployment environments. Each time you deploy a new version of the package you would then have to stop the old version and start the newly deployed one. Without running the process through some intermediary process manager you would need to search for and kill the previous one from the process list, based on something like parsing its path to determine the correct one. A better approach is to use a process manager, for the purposes of this simple example we will use `systemd` (as nearly all Linux distributions use this process manager) to demonstrate how the web process might be managed.
 
@@ -146,7 +146,7 @@ fi
 
 - Create a new release and deploy it to the **Production** environment.
 
-The package will be uploaded to the server and unpacked, and the environment specific variables replaced in the appropriate config file. The custom post-deployment scriptwill then start the service, passing in the correct environment to ensure the relevant config is loaded. Assuming you have followed all the previous steps to this guide you should now be able to make changes to your website, publish directly to Octopus and have it deploy as many times as you like.
+The package will be uploaded to the server and unpacked, and the environment specific variables replaced in the appropriate config file. The custom post-deployment script will then start the service, passing in the correct environment to ensure the relevant config is loaded. Assuming you have followed all the previous steps to this guide you should now be able to make changes to your website, publish directly to Octopus and have it deploy as many times as you like.
 
 Navigating to the host machine after deploying to the *Production* environment should then result in our static AngularJS application being served up and looks something like this:
 

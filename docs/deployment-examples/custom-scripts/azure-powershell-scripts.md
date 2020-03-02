@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Scripts
+title: Azure PowerShell scripts
 description: Azure PowerShell scripts allow you to manage your Azure subscription using the Azure PowerShell SDK for the Resource Management (RM) or Service Management (SM) API as part of your deployment process.
 position: 80
 ---
@@ -30,6 +30,6 @@ New-AzureWebsite -Name #{WebSite} -Slot Staging
 
 ![](images/5865518.png)
 
-## Bring Your Own Azure SDK {#AzurePowerShellscripts-BringyourownAzureSDK}
+## Bring your own Azure SDK {#AzurePowerShellscripts-BringyourownAzureSDK}
 
 We bundle a version of the Azure SDKs with Octopus Server so you can start deploying to Azure very quickly. In certain situations you may want (or need) to use a different version of the Azure SDK. Refer to [this guide](/docs/deployment-examples/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) for more details.

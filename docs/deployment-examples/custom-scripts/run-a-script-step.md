@@ -1,5 +1,5 @@
 ---
-title: Run a Scripts Steps
+title: Run a scripts steps
 description: Standalone scripts allow you to run scripts contained in a package, or ad-hoc scripts you've saved as part of the step.
 position: 10
 ---
@@ -8,7 +8,7 @@ Octopus also allows you to run standalone scripts as part of your deployment pro
 
 You can use all of the features we provide for [custom scripts](/docs/deployment-examples/custom-scripts/index.md), like [variables](/docs/deployment-examples/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployment-examples/custom-scripts/output-variables.md), and [collecting artifacts](/docs/deployment-examples/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
-## Choosing Where the Script Will Run {#Standalonescripts-Choosingwherethescriptwillrun}
+## Choosing where the script will run {#Standalonescripts-Choosingwherethescriptwillrun}
 
 When adding a script you choose where the script will run, and in which context the script will run.
 
@@ -40,7 +40,7 @@ Choosing the right combination of **Target** and **Roles** enables some really i
 Bash scripts are not able to be run on the Octopus Server, even if Bash is installed on that server
 :::
 
-## Choosing Where to Source the Script {#Standalonescripts-Choosingwheretosourcethescript}
+## Choosing where to source the script {#Standalonescripts-Choosingwheretosourcethescript}
 
 :::hint
 The ability to source your script from a package shipped in **Octopus 3.3**
@@ -62,13 +62,13 @@ Using scripts from inside a package is a great way to version and source control
 When sourcing a script from a file inside a package you cannot choose to run the step before packages are acquired.
 :::
 
-## Passing Parameters to Scripts {#Standalonescripts-Passingparameterstoscripts}
+## Passing parameters to scripts {#Standalonescripts-Passingparameterstoscripts}
 
 When you call external scripts (sourced from a file inside a package) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployment-examples/custom-scripts/passing-parameters-to-scripts.md).
 
 ![](images/5865636.png)
 
-## Referencing Packages
+## Referencing packages
 
 :::hint
 The ability to reference packages was added in **Octopus 2018.8**
@@ -86,7 +86,7 @@ In addition to being able to [source the custom script from a package](#Standalo
 
 Package references can be added regardless of whether the script is sourced inline or from a package.
 
-### Package Reference Fields
+### Package reference fields
 
 When adding a package reference, you must supply:
 
@@ -108,11 +108,11 @@ This will not be displayed for certain package-types (i.e. container images). Th
 
 ![Script Step Package References](images/script-step-package-reference-add.png)
 
-### Accessing Package References from a Custom Script
+### Accessing package references from a custom script
 
 Having added one or more package references, it's reasonable to assume you wish to do something with them in your custom script.
 
-#### Package Variables
+#### Package variables
 Package-references contribute variables which can be used just as any other variable. These variables are (assuming a package-reference named `Acme`):
 
 | Variable                                      | Description                                            | Example value |
@@ -124,7 +124,7 @@ Package-references contribute variables which can be used just as any other vari
 | Octopus.Action.Package[Acme].PackageFilePath    | The absolute path to the package file (if the package has been configured to not be extracted)  | C:\Octopus\Work\20180821060923-7117-31\Acme.zip
 | Octopus.Action.Package[Acme].PackageFileName    | The name of the package file (if the package has been configured to not be extracted)           | Acme.zip
 
-#### Package Files {#referencing-packages-package-files}
+#### Package files {#referencing-packages-package-files}
 
 If the package reference was configured to be extracted, then the package will be extracted to a sub-directory in the working-directory of the script. This directory will be named the same as the package-reference.  For example, a package reference named `Acme` would be extracted to directory similar to `C:\Octopus\Work\20180821060923-7117-31\Acme` (this is obviously a Windows directory; a script executing on a Linux target may have a path such as `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme`).
 

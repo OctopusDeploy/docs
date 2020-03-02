@@ -1,5 +1,5 @@
 ---
-title: Varying Azure Subscription by Environment
+title: Varying Azure subscription by environment
 description: Information on how to use a different Azure subscription when deploying to different environments.
 position: 5
 ---

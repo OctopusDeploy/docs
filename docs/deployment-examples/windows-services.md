@@ -11,15 +11,15 @@ When deploying, `sc.exe` is used to create a Windows Service using the configur
 To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 
 
-## Configuring the Step {#WindowsServices-ConfiguringtheStep}
+## Configuring the step {#WindowsServices-ConfiguringtheStep}
 
 ![Windows service configuration](images/windows-service-configuration.png)
 
-### Step 1: Select a Package {#WindowsServices-Step1:SelectaPackage}
+### Step 1: Select a package {#WindowsServices-Step1:SelectaPackage}
 
 Use the Package Feed and Package ID fields to select the [package](/docs/packaging-applications/index.md) containing the executable (.exe) to be installed as a Windows Service.
 
-### Step 2: Configure Windows Service Options {#WindowsServices-Step2:ConfigureWindowsServiceoptions}
+### Step 2: Configure Windows Service options {#WindowsServices-Step2:ConfigureWindowsServiceoptions}
 
 | Field               | Meaning                                  |
 | ------------------- | ---------------------------------------- |
@@ -33,13 +33,13 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 | **State**           | The state of the service after the deployment has completed |
 | **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
 
-## Windows Service Deployment in Action {#WindowsServices-WindowsServicedeploymentinaction}
+## Windows Service deployment in action {#WindowsServices-WindowsServicedeploymentinaction}
 
 This three minute video (with captions) demonstrates how to deploy a C# Windows Service project with Octopus Deploy.
 
 <iframe src="//fast.wistia.net/embed/iframe/33yi0jfjpc" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
 
-## How Does Octopus Actually Deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
+## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
 Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-examples/package-deployments/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).
 
@@ -92,7 +92,7 @@ This table shows how the combination of the `Start Mode`, `State` and the state 
 | Manual | Default | n/a | n/a | Stopped |
 | Unchanged | Default | n/a | n/a | Stopped |
 
-## Setting Advanced Configuration Options {#WindowsServices-Settingadvancedconfigurationoptions}
+## Setting advanced configuration options {#WindowsServices-Settingadvancedconfigurationoptions}
 
 Windows Services support some advanced settings not exposed by this feature. You can customize your Windows Service by including a `PostDeploy.ps1` [custom script](/docs/deployment-examples/custom-scripts/index.md).
 
@@ -114,23 +114,23 @@ This script will run after the Windows Service has been created (or reconfigured
 This Microsoft TechNet [article](https://technet.microsoft.com/en-us/library/cc754599.aspx) is a great reference on the sc.exe utility including the failure action above.
 :::
 
-## Deploying Services Built With Topshelf {#WindowsServices-DeployingServicesbuiltwithTopshelf}
+## Deploying Services built with Topshelf {#WindowsServices-DeployingServicesbuiltwithTopshelf}
 
 [Topshelf](http://topshelf-project.com/) is a library to build and work with Windows Services easily by allowing your code to run (and be debugged) inside a Console Application, but giving you the option to install and run as a Windows Service.
 
 While Topshelf has its own command line options to make Service Registration easy, you can still use SC.EXE. This means that deploying a Topshelf enabled application as a Windows Service is easy using the Octopus service deploy feature. The only caveat is the value you specify in the Service Name parameter must match the Service Name specified in your Topshelf configuration code (in Program.cs) or the service will not start.
 
-## Security Considerations {#WindowsServices-SecurityConsiderations}
+## Security considerations {#WindowsServices-SecurityConsiderations}
 
 You will need to consider carefully which Service Account you choose for your Windows Service. If you decide to use a Custom Account, you will need to make sure the Account is granted the **Logon as a Service** logon right (**SeServiceLogonRight**).
 
 When you use the Services snap-in console to configure your Windows Service, the **SeServiceLogonRight** logon right is automatically assigned to the account. If you use the Sc.exe tool or APIs to configure the account (like Octopus Deploy does on your behalf), the account has to be explicitly granted this right by using tools such as [Carbon PowerShell module](http://get-carbon.org/), the Security Policy snap-in (secpol.msc), `Secedit.exe`, or `NTRights.exe`. The built-in Windows Service accounts (`Local System`, `Network Service`, `Local Service`), and members of the **Local Administrators** group are assigned this right by default.
 
-### Carbon PowerShell Module {#WindowsServices-CarbonPowerShellModule}
+### Carbon PowerShell module {#WindowsServices-CarbonPowerShellModule}
 
 [Carbon](http://get-carbon.org/) is a PowerShell module that can be installed via [Chocolatey](https://chocolatey.org/packages/carbon), the PowerShell Gallery, or manually. For the PS gallery in PowerShell 5 or higher, you can run `Install-Module Carbon`, or to install manually visit their site and clone the repository or download a zip from the Releases page.
 
-Carbon PowerShell Script example:
+Carbon PowerShell script example:
 
 ```ps
 # The Octopus variables below are just examples
@@ -162,7 +162,7 @@ Test-Privilege -Identity #{ServiceAccountName} -Privilege SeBatchLogonRight
 # Returns True once the account has permission
 ```
 
-## Using Managed Service Accounts (MSA) {#WindowsServices-UsingManagedServiceAccounts(MSA)}
+## Using managed service accounts (MSA) {#WindowsServices-UsingManagedServiceAccounts(MSA)}
 
 > Managed Service Accounts (MSA) allow you to eliminate those never-expire-service-accounts. An MSA is a special domain account that can be managed by the computer that uses it. That computer will change its password periodically without the need of an administrator.
 >

@@ -1,5 +1,5 @@
 ---
-title: Multi-tenant Roles and Security
+title: Multi-tenant roles and security
 description: Common approaches to structuring roles and teams to secure a multi-tenant Octopus instance.
 position: 8
 ---
@@ -12,7 +12,7 @@ This page describes several common approaches to structuring roles and teams to 
 To get the most out of this guide you will need to understand how to [manage users and teams](/docs/administration/managing-users-and-teams/index.md) and how to [work with custom roles](/docs/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
 :::
 
-## Account Manager
+## Account manager
 
 Toby is a member of the sales team and manages the relationships for several of your largest customers. In his role Toby:
 
@@ -20,7 +20,7 @@ Toby is a member of the sales team and manages the relationships for several of 
 - Manages the details/variables of specific tenants and keeps them up to date.
 - Works with customers to deploy releases to their environments on their behalf.
 
-### Step 1: Configure the Tenant Project Deployer Role
+### Step 1: Configure the tenant project deployer role
 
 Firstly we will create a custom role with the permissions required to deploy releases into tenant environments.
 
@@ -62,7 +62,7 @@ It is usually a good idea to build smaller roles that can be composed together i
    25. VariableView
    26. VariableViewUnscoped
 
-### Step 2: Configure the Account Managers Team
+### Step 2: Configure the account managers team
 
 Now we will create a team for all the Account Managers and add the role we created in the last step.
 
@@ -82,24 +82,24 @@ Now it's time to test the results of our configuration.
 
 You will probably notice you can see all tenants, projects and environments. We will experiment with reducing scope this in the next steps.
 
-### Step 4: Reduce Scope of the Team
+### Step 4: Reduce scope of the team
 
 Quite often you will want to allocate certain tenants to a team, or restrict which projects/environments a team can access. Using the team you just created you can experiment with reducing scope. You can restrict the team to a specific list of tenants, projects and/or environments.
 
 ![](images/account-managers-tenants.png)
 
-## Infrastructure Manager
+## Infrastructure manager
 
 Bob is a member of IT infrastructure team and he manages all the virtual servers in the cloud. His only interaction with tenants is to associate them with the appropriate [deployment targets](/docs/infrastructure/index.md) and [environments](/docs/infrastructure/environments/index.md).  He should have read-only access to tenant details required, and have the ability to manage deployment targets and accounts. This time we will configure the team using a composition of built-in and custom roles.
 
-### Step 1: Configure the Tenant Viewer Role
+### Step 1: Configure the tenant viewer role
 
 Similarly to the previous example we will create a custom role with minimum permissions, in this case for viewing tenant details. Later on we will create a team that combines multiple roles together to achieve the desired effect.
 
 1. Create a role called **Tenant viewer** with the following permissions:
   - TenantView
 
-### Step 2: Configure the Tenant Environment Managers Team
+### Step 2: Configure the tenant environment managers team
 
 In this example we will create a new team and combine multiple roles together to achieve the desired result.
 
@@ -113,7 +113,7 @@ In this example we will create a new team and combine multiple roles together to
 
 Similarly to the previous example assign a user account, sign in, and test out the resulting behavior. You should notice you can configure new or existing deployment targets including tenant configuration as we described in [Designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
-### Step 4: Reduce Scope of the Team
+### Step 4: Reduce scope of the team
 
 You can also reduce the scope of this team to a certain set of tenants or environments as that makes sense for your scenario. For example, a team might be allocated to manage infrastructure for a particular group of tenants.
 
@@ -125,7 +125,7 @@ You may want to provide your actual customers with their own user account in Oct
 You may want to provide the capabilities of Octopus Deploy to your customers without them knowing it's Octopus under the covers. Octopus is built API-first, and you can use the [Octopus API](/docs/octopus-rest-api/index.md) to build your own web user interface over the top of Octopus to provide all the capabilities of Octopus with your own user experience.
 :::
 
-### Step 1: Configure a Team for the Tenant
+### Step 1: Configure a team for the tenant
 
 Firstly we need to create a team with scope limited to the single tenant.
 
@@ -139,11 +139,11 @@ Firstly we need to create a team with scope limited to the single tenant.
 
 Just like the previous examples, create a user account and test Octopus behaves as you'd expect based on the permissions you've granted to the team. You may want to consider limiting scope to a subset of environments or projects depending on your scenario.
 
-### Step 3: Configure User Accounts for the Tenant
+### Step 3: Configure user accounts for the tenant
 
 Now you can create standard Octopus [user accounts](/docs/administration/managing-users-and-teams/index.md) and add them as members of the tenant-specific team.
 
-## Next Steps
+## Next steps
 
 It's important to note that these are example roles and they may not suit every company.  The good news is that they're a great starting point and can be customized to suit different scenarios.
 

@@ -1,5 +1,5 @@
 ---
-title: Designing a Multi-tenant Hosting Model
+title: Designing a multi-tenant hosting model
 description: Design and implement both dedicated and shared multi-tenant hosting models.
 position: 5
 ---
@@ -25,14 +25,14 @@ In **Octopus 3.4** you cannot mix tenanted and untenanted deployments on the sam
 In the meantime you can work around this by creating a single dummy tenant for your untenanted project as described in that GitHub Issue.
 :::
 
-## Multi-tenant Hosting {#Designingamulti-tenanthostingmodel-Multi-tenanthosting}
+## Multi-tenant hosting {#Designingamulti-tenanthostingmodel-Multi-tenanthosting}
 
 The hosting model you want to achieve will vary depending on your application, your customers and your sales model. Instead of trying to cover every scenario, we will cover some of the most common scenarios:
 
 - **Dedicated hosting**: where you create new dedicated servers for each customer.
 - **Shared hosting**: where you create farms or pools of servers to host all of your customers achieving higher density.
 
-## How Octopus Deploy Chooses Deployment Targets for a Tenanted Deployment
+## How Octopus Deploy chooses deployment targets for a tenanted deployment
 
 When you deploy a project, you can deploy to one environment and a selection of tenants. Octopus creates one deployment for each environment/tenant combination, and calculates which deployment targets to include in each deployment using logic like this:
 
@@ -41,11 +41,11 @@ When you deploy a project, you can deploy to one environment and a selection of 
 
 Each deployment will then proceed independently with the resulting set of deployment targets. We are going to leverage this behavior to implement dedicated and shared hosting in our sample.
 
-## Scenario: Dedicated Hosting
+## Scenario: Dedicated hosting
 
 In this case we want to ensure the applications for some tenants are completely isolated from those of other tenants. You may want to do this to provide security or performance guarantees that would be problematic in a shared hosting model. To implement dedicated hosting you need to create the dedicated servers, and indicate which tenant will be hosted on those servers.
 
-### Step 1: Configure the Dedicated Deployment Targets
+### Step 1: Configure the dedicated deployment targets
 
 Let's configure some deployment targets as dedicated hosts for the tenant we created earlier:
 
@@ -59,11 +59,11 @@ That's it! Now let's deploy the project for this tenant and see the results. You
 
 ![](images/5865741.png)
 
-## Scenario: Shared Hosting
+## Scenario: Shared hosting
 
 In this case we are willing to host the applications of multiple tenants on the same machines to reduce hosting costs by increasing density. To implement shared hosting you need to create the shared server farm, and indicate which tenants will be hosted on that farm. *This is very similar to the dedicated hosting scenario, but instead of choosing a single tenant, we will use a tenant tag to indicate these servers will be hosting applications for multiple tenants.*
 
-### Step 1: Create a "Hosting" Tag Set
+### Step 1: Create a "Hosting" tag set
 
 Firstly let's create a tag set to identify which tenants should be hosted on which shared server farms:
 
@@ -71,7 +71,7 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 2. Add a tag called **Shared-Farm-1** and set the color to green which will help identify tenants on shared hosting more quickly:
    ![](images/5865742.png)
 
-### Step 2: Configure the Shared Server Farm
+### Step 2: Configure the shared server farm
 
 Now let's configure some shared servers in a farm:
 
@@ -82,7 +82,7 @@ Now let's configure some shared servers in a farm:
 
 These deployment targets will now be included in deployments for any tenants matching this filter, that is any tenants tagged with **Hosting/Shared-Farm-1**.
 
-### Step 3: Configure the Tenants to Deploy onto the Shared Server Farm
+### Step 3: Configure the Tenants to deploy onto the shared server farm
 
 Now let's select some tenants that should be hosted on **Shared-Farm-1**:
 

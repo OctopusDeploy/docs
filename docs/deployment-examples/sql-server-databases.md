@@ -176,7 +176,7 @@ Kevin Kuszyk has a blog post about [deploying SQL databases using Entity Frame
 
 ### RoundhousE {#SQLServerdatabases-RoundhousE}
 
-Ben Tillman has a walkthrough on [how to deploy database migrations with RoundhousE](http://blog.bentillman.net/deploying-db-migrations-with-octopus-deploy-and-roundhouse/).
+Ben Tillman has a walk-through on [how to deploy database migrations with RoundhousE](http://blog.bentillman.net/deploying-db-migrations-with-octopus-deploy-and-roundhouse/).
 
 ## Learn more 
 

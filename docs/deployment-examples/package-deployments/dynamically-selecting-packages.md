@@ -1,16 +1,16 @@
 ---
-title: Dynamically Selecting Packages at Deployment Time
+title: Dynamically selecting packages at deployment time
 description: You can configure Octopus to dynamically resolve package details, including Feed and Package ID at deployment time by using variables. This can be useful if you want a different package feed for each environment, or a different package per environment or tenant.
 position: 0
 ---
 
 When configuring a step in Octopus which uses a package, you are able to use variables to dynamically select the Package feed and/or the Package ID when your project is deployed.
 
-## Example Scenarios
+## Example scenarios
 
 We typically recommend using a static package configuration wherever possible - this is the scenario Octopus optimizes for. However, there are some scenarios where dynamically selected packages are a perfect fit.
 
-### Different Package Feed For Each Environment
+### Different package feed for each environment
 
 You may want to use a different package feed for each environment. This can help when you have a slow connection between your main package feed and your deployment environments. In this case you could configure a package feed in your remote environments, and instruct Octopus to use the best package feed for each deployment.
 
@@ -30,7 +30,7 @@ When deploying to the **Production Environment** Octopus will use the `my-produc
 You will need to organize a way to synchronize the package feeds so when you actually deploy your project, the appropriate packages are in the correct feeds. Octopus will not do this for you.
 :::
 
-### Different Package For Each Environment or Tenant
+### Different package for each environment or tenant
 
 You may want to build a different package for each environment and/or tenant. Again, we recommend avoiding this complexity where possible, but a good example of where it makes sense is when you are providing a tenanted service where each tenant can provide their own styles and assets. In this scenario you could build your common packages, and then build one package per-tenant containing their styles/assets, like this:
 
@@ -54,7 +54,7 @@ In this example we recommend creating a [tenant-specific variable](/docs/deploym
 Would you like Octopus to deploy a specific version of your application code, but just grab the latest styles/assets package for each tenant? We have an [open GitHub Issue](https://github.com/OctopusDeploy/Issues/issues/2755) discussing this right now.
 :::
 
-## Which Variables Can Be Used?
+## Which variables can be used?
 
 You can use any values which are either unscoped/global, or values scoped to environments, tenants, or tenant tags. Variable values scoped to other things like roles and deployment targets are not supported.
 
@@ -62,14 +62,14 @@ You can use any values which are either unscoped/global, or values scoped to env
 
 There are some downsides to using dynamic packages. Firstly it becomes complex quite quickly and should be used only if necessary.
 
-### Try to Minimize Dynamic Packages
+### Try to minimize dynamic packages
 
 Where possible we recommend keeping the number and size of dynamic packages to a minimum. Some strategies which can help with this are:
 
 1. Try building any environment- or tenant-specific differences using configuration instead of requiring an entirely different package.
 2. Try to keep everything that is common about your application together, pushing environment- or tenant-specific differences into small satellite packages.
 
-### Dynamic Packages and Retention Policies
+### Dynamic packages and retention policies
 
 If you use a binding expression for the Package ID It becomes more difficult to look at a release and understand exactly which packages will be deployed. This prevents package retention policies from working properly for the built-in package feed, and on deployment targets.
 

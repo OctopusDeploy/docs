@@ -1,17 +1,17 @@
 ---
-title: Deploy a Service Resource
+title: Deploy a service resource
 description: Deploy a service resource to a Kubernetes cluster.
 position: 30
 ---
 
 [Service resources](http://g.octopushq.com/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
 
-![Deploy Service Step](deploy-service-step.png)
+![Deploy service step](deploy-service-step.png)
 
-## Service Name
+## Service name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
 
-## Service Type
+## Service type
 
 A Service resource can be one of three different types:
 * Cluster IP
@@ -32,7 +32,7 @@ The particular load balancer that is created depends on the environment in which
 
 ![Loadbalancer](../loadbalancer.svg)
 
-## Cluster IP Address
+## Cluster IP address
 
 The `Cluster IP Address` field can be used to optionally assign a fixed internal IP address to the Service resource.
 
@@ -52,11 +52,11 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 ![Service ports](../ports.svg)
 
-### Service Labels
+### Service labels
 
 [Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
 
-### Service Selector Labels
+### Service selector labels
 
 [Selector Labels](http://g.octopushq.com/KubernetesLabels) define the optional labels that must exist on the Pod resources in order for this Service resource to send traffic to them.
 

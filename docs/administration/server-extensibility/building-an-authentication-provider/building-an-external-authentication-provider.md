@@ -9,7 +9,7 @@ Exactly how that is achieved depends on the IP, and the Octopus Deploy [OpenIDCo
 
 In the OpenIDConnectAuthenticationProvider, the directive returned by the provider will be hosted in a custom directive in the Octopus Deploy UI.  That directive has the follow values that you can bind to
 
-- provider: a javascript object representation of the element returned by the providers IAuthenticationProvider.GetAuthenticationProviderElement method.
+- provider: a JavaScript object representation of the element returned by the providers IAuthenticationProvider.GetAuthenticationProviderElement method.
 - shouldAutoLogin: a boolean that is true if the server UI has determined that there is only 1 non-Forms based provider enabled and autoLoginEnabled is set to true for the server.
 - isSubmitting: a context used to control the busy indicator.  Use the .promise() method when calling to server APIs.
 - handleSignInError: a context used to return error information from the API calls to the host UI.  Pass this value as the error parameter to .promise().then()

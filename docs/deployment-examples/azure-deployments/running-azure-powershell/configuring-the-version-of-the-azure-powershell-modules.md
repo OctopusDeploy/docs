@@ -1,5 +1,5 @@
 ---
-title: Configuring the Version of the Azure PowerShell Modules
+title: Configuring the version of the Azure PowerShell Modules
 description: A version of Azure PowerShell is bundled with Octopus Deploy and it's possible to configure which version you wish to use in your deployments.
 ---
 
@@ -13,7 +13,7 @@ Get-Module -ListAvailable -Name Azure*
 
 If you wish to use a different version, you can install the Azure PowerShell modules on your Octopus Server, and configure Octopus to use the installed version.  The procedure to configure this differs depending on which version of Octopus Deploy you are using:
 
-## Octopus 2018.5.5 (Or Newer) {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5(ornewer)}
+## Octopus 2018.5.5 or newer {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5(ornewer)}
 
 We made this configurable by variables in **Octopus 2018.5.5** to be more flexible. Create a [variable](/docs/projects/variables/index.md) named **OctopusUseBundledAzureModules** and set its value to **False**.
 

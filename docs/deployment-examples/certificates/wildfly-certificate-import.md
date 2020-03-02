@@ -1,5 +1,5 @@
 ---
-title: Import Certificates into WildFly and JBoss EAP
+title: Import certificates into WildFly and JBoss EAP
 description: Configure WildFly or JBoss EAP with a certificate managed by Octopus.
 position: 50
 ---
@@ -10,7 +10,7 @@ With the `Configure certificate for WildFly or EAP` step, certificates managed b
 
 If a new KeyStore is to be created as part of the deployment, the certificate being deployed must be referenced by a variable. [Add a Certificate to Octopus](add-certificate.md) provides instructions on how to add a new certificate to the Octopus library, and [Certificate Variables](/docs/projects/variables/certificate-variables.md) provides instructions on how to define a certificate variable.
 
-## Common Connection Settings
+## Common connection settings
 
 Regardless of whether you are deploying a certificate to a standalone or domain instance, there are a number of common connection settings that need to be defined in the `Application Server Details` section.
 
@@ -22,7 +22,7 @@ The `Management protocol` field defines the protocol to be used when interacting
 
 If you wish to use [silent authentication](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.2/html/security_guide/chap-network_security#Secure_the_Management_Interfaces), and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management user` and `Management password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
 
-## Deploying a Certificate to a Standalone Instance
+## Deploying a certificate to a standalone instance
 
 Selecting `Standalone` from the `Standalone or domain Server` field in the `Server Type Details` section indicates that the certificate is to be deployed to a standalone server instance.
 
@@ -32,7 +32,7 @@ Selecting the wrong server type will result in an error at deploy time.
 
 When configuring a certificate with a standalone instance, you have the choice of configuring an existing Java KeyStore, or creating a new KeyStore from a certificate managed by Octopus. The options available in the `Server Type Details` section will change depending on how the certificate is deployed.
 
-### Creating a New Java KeyStore
+### Creating a new Java KeyStore
 
 By selecting the `Create a new KeyStore` option, Octopus will create a new Java KeyStore file that will then be configured in the application server.
 
@@ -44,30 +44,30 @@ The `Private key password` field defines a custom password for the new KeyStore 
 
 The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
 
-### Referencing an Existing KeyStore
+### Referencing an existing KeyStore
 
 When `Reference an existing KeyStore` is selected, a number of fields are required to define the location and properties of the existing KeyStore that is being referenced.
 
-#### Defining the KeyStore File Name
+#### Defining the keystore file name
 
 The value of the `KeyStore filename` field can either be the absolute path to the KeyStore (in which case the `Relative base path` option has to be set to `none`), or it can be a path relative to one of the locations defined in the `Relative base path` field.
 
 For example, if you wish the to reference an existing KeyStore file at `/opt/my.store`, set the `KeyStore filename` field to `/opt/my.store` and the `Relative base path` option to `none`. If you want to reference a KeyStore file in the `standalone/configuration` directory with a filename of `my.store`, set the `KeyStore filename` field to `my.store` and set the `Relative base path` field to `jboss.server.config.dir`.
 
-#### Setting the KeyStore Password and Alias
+#### Setting the KeyStore password and alias
 
 The `Private key password` field defines a custom password for the existing KeyStore file. If this field is left blank, the KeyStore is assumed to have the default password of `changeit`.
 
 The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the KeyStore is assumed to have the default alias of  `Octopus`.
 
-## Deploying a Certificate to a Domain
+## Deploying a certificate to a domain
 
 Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two step process:
 
 1. Deploying a KeyStore file to all slave instances.
 2. Configuring the profiles managed by the domain controller to reference the KeyStore files.
 
-### Deploying KeyStore Files
+### Deploying KeyStore files
 
 The `Deploy a KeyStore to the filesystem` step can be used to take a certificate managed by Octopus and save it as a Java KeyStore on the target machine.
 
@@ -84,7 +84,7 @@ The `KeyStore alias` field defines a custom alias under which the certificate an
 It is highly recommended that the KeyStore file be saved in the `domain/configuration` directory. This allows the KeyStore file to be referenced using a relative path against the base path identified by `jboss.domain.config.dir`.
 :::
 
-### Configuring the Domain
+### Configuring the domain
 
 Once all the domain slaves have a local copy of the KeyStore file deployed to them, the domain profiles can be configured to reference these files.
 
@@ -98,7 +98,7 @@ The `Private key password` field defines the optional password used to access th
 
 The `KeyStore alias` field defines the optional alias under which the certificate and private key are stored. If left blank, the KeyStore is assumed to have a default alias of  `Octopus`.
 
-## Advanced Options
+## Advanced options
 
 :::hint
 If you are unsure what these advanced values refer to, it is best to leave them blank and assume the default values.
@@ -150,6 +150,6 @@ The `Elytron server SSL context name` defines the name of the Elytron SSL Contex
 You can find more information of the Elytron subsystem components in the [WildFly documentation](https://docs.jboss.org/author/display/WFLY/Using+the+Elytron+Subsystem#UsingtheElytronSubsystem-onewayapps).
 :::
 
-## Configuration File Backups
+## Configuration file backups
 
 Before any changes are made to the WildFly or JBoss EAP configurations, a `:take-snapshot` command is run. This will create a backup file in the `domain/configuration/standalone_xml_history/snapshot` or `standaline/configuration/standalone_xml_history/snapshot` directory.

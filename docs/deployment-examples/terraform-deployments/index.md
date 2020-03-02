@@ -1,6 +1,6 @@
 ---
 title: Terraform
-description: Terraform Deployments
+description: Terraform deployments
 position: 150
 ---
 Terraform support was introduced in **Octopus 2018.3**.

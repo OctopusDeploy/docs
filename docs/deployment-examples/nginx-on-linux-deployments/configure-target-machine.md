@@ -13,7 +13,7 @@ Deploying projects over [SSH](/docs/infrastructure/deployment-targets/linux/inde
 ## Install .NET Core {#ConfigureTargetMachine-InstallDotNetCore}
 
 :::hint
-**Authoritative Documentation**
+**Authoritative documentation**
 The best and most up-to-date guide to installing .NET will continue to be on the [.NET website](https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/runtime-current). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
 
@@ -79,7 +79,7 @@ deb-src https://nginx.org/packages/mainline/ubuntu/ xenial nginx
 
 Save the changes and quit `vi` (press **ESC** and type `wq` at the `:` prompt).
 
-### Install NGINX Open Source:
+### Install NGINX open source:
 
 ```bash
 $ sudo apt-get remove nginx-common
@@ -87,13 +87,13 @@ $ sudo apt-get update
 $ sudo apt-get install nginx
 ```
 
-### Start NGINX Open Source:
+### Start NGINX open source:
 
 ```bash
 $ sudo nginx
 ```
 
-### Verify that NGINX Open Source is up and running:
+### Verify that NGINX open source is up and running:
 
 ```bash
 $ curl -I 127.0.0.1
@@ -101,7 +101,7 @@ HTTP/1.1 200 OK
 Server: nginx/1.13.8
 ```
 
-## Add User {#ConfiguringTargetMachine-AddUser}
+## Add user {#ConfiguringTargetMachine-AddUser}
 
 Rather than connecting and deploying your application as the root user, you should create a custom user account that will be used for the purposes of deployment. The login credentials will then be able to be easily revoked without affecting other users who access the machine. Resources will also be able to be more granularly assigned, allowing greater control if the account is used maliciously.
 

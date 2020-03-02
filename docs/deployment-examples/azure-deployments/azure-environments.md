@@ -1,5 +1,5 @@
 ---
-title: Azure Environments
+title: Azure environments
 description: Information on how to use alternate Azure environments.
 position: 6
 ---
@@ -28,10 +28,10 @@ And Management Certificate accounts as below:
 
 Once you have entered the environment name and endpoint values you should **Save and Test** the account.
 
-## Step Templates
+## Step templates
 Whenever you are using an Azure step template, once you've selected an account its settings will be used to determine the endpoints for all of the API operations.  So lists like Resource Groups and Web Apps will be loaded using the endpoints defined by the Account.
 
-## Calamari and Deployments
+## Calamari and deployments
 When a deployment executes, the values for the environment and endpoints will be passed to Calamari if they have been overridden (i.e. they aren't blank).  You will be able to see the values if you have [OctopusPrintVariables set to true](/docs/support/debug-problems-with-octopus-variables.md#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog) and Calamari will also always log an information message to tell you if it's using overridden values and what they are.
 
 ## Learn more

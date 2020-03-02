@@ -1,18 +1,18 @@
 ---
-title: Deploy an Ingress Resource
+title: Deploy an Ingress resource
 description: Deploy an ingress resource to a Kubernetes cluster.
 position: 40
 ---
 
-[Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to Service resources based on the requested host and path.
+[Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
-![Deploy Ingress Step](deploy-ingress-step.png)
+![Deploy ingress step](deploy-ingress-step.png)
 
-## Ingress Name
+## Ingress name
 
 Each Ingress resource must have a unique name, defined in the `Ingress name` field.
 
-## Ingress Host Rules
+## Ingress host rules
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
 
@@ -26,7 +26,7 @@ The `Service Port` field is the port from the associated Service resource that t
 
 The `Service Name` field is the name of the associated service to direct the traffic to.
 
-## Ingress Annotations
+## Ingress annotations
 
 Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
@@ -62,11 +62,11 @@ Annotation values are always considered to be strings. See this [GitHub issue](h
 
 The `Service Name` defines the name of the Service resource that this Ingress will send traffic to.
 
-## Default Rule
+## Default rule
 
 When there are no matching ingress rules, traffic can be sent to the service configured as the default rule. The `Port` field defines the service port that traffic will be sent to, and the `Service name` defines the name of the Service resource to send traffic to.
 
-## Ingress Labels
+## Ingress labels
 
 [Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Ingress resource.
 

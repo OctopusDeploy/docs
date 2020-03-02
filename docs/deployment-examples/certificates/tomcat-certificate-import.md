@@ -1,5 +1,5 @@
 ---
-title: Import Certificates into Tomcat
+title: Import certificates into Tomcat
 description: Configure Tomcat with a certificate managed by Octopus.
 position: 40
 ---
@@ -12,11 +12,11 @@ Before a certificate can be deployed to a Tomcat instance, the certificate itsel
 
 Once uploaded, the certificate has to be referenced by a variable. [Certificate Variables](/docs/projects/variables/certificate-variables.md) provides instructions on how to define a certificate variable.
 
-## Deploying a Certificate to Tomcat
+## Deploying a certificate to Tomcat
 
 The `Deploy a certificate to Tomcat` step is used to deploy a certificate managed by Octopus to a Tomcat instance. At a minimum, the `Tomcat Location` and `Tomcat Certificate` sections must be populated to deploy a certificate.
 
-### Tomcat Location Fields
+### Tomcat location fields
 
 The `Tomcat Location` section defines two fields.
 
@@ -26,7 +26,7 @@ The second field is the `Tomcat CATALINA_BASE path`. This is the location of the
 
 When a single binary distribution of Tomcat is shared among multiple users on the same server, `CATALINA_HOME` will be a different value to `CATALINA_BASE`. When the binary distribution of Tomcat is hosting only one instance, `CATALINA_HOME` and `CATALINA_BASE` will reference the same directory, and in this case the `Tomcat CATALINA_BASE path` field is optional.
 
-### Tomcat Certificate Fields
+### Tomcat certificate fields
 
 The `Tomcat Certificate` section defines the details of the certificate being deployed.
 
@@ -51,11 +51,11 @@ The `HTTPS port` field defines the HTTPS port of the Tomcat connector that will 
 Existing `<Connector>` elements can only be updated with the same SSL implementation. Octopus does not support changing the SSL implementation of an existing connector.
 :::
 
-## Advanced Options
+## Advanced options
 
 A number of optional advanced options can be defined when deploying a certificate to Tomcat. These include configuring SNI hostnames, certificate passwords, aliases and overriding the default filenames used when saving the certificates.
 
-### Tomcat SNI Options
+### Tomcat SNI options
 
 Server Name Indication (SNI) is supported by Tomcat 8.5 and above to map a certificate to the hostname of the request. In this way a single Tomcat instance can be configured with multiple certificates on a single port.
 
@@ -73,13 +73,13 @@ The `Default certificate` field can be used to indicate if the certificate being
 There must always be a default certificate. If the certificate being deployed is the only certificate available to the connector, it will be made the default even if `Make this the default certificate` is not selected.
 :::
 
-### Tomcat Certificate Options
+### Tomcat certificate options
 
 A number of optional settings around how the certificate is created are defined in the `Tomcat Certificate Options` section. These options differ depending on the SSL implementation that was selected.
 
 The JSSE SSL implementations of BIO, NIO and NIO2 rely on a Java KeyStore file. The APR implementation uses a certificate file and a PEM private key file.
 
-#### Java KeyStore Options
+#### Java KeyStore options
 
 When no `Private key password` is defined, the Java KeyStore will have the default password of `changeit`. This is the default password specified by Tomcat. If a password is defined then that password will be used to secure the Java KeyStore and included in the Tomcat configuration.
 
@@ -87,7 +87,7 @@ The `KeyStore filename` field can be used to define the location of the KeyStore
 
 The `KeyStore alias` field defines the alias under which the certificate will be saved. If not defined, it will default to the alias of `octopus`.
 
-#### Certificate and PEM File Options
+#### Certificate and PEM file options
 
 When no password is defined, PEM files created for the `APR` SSL implementation remain unencrypted, with a key file starting with `-----BEGIN RSA PRIVATE KEY-----`. When a password is defined, the key file is encrypted, starts with `-----BEGIN ENCRYPTED PRIVATE KEY-----`, and the password is included in the Tomcat configuration file.
 
@@ -95,7 +95,7 @@ The `Private key filename` field is used to define the location of the private k
 
 The `Public key filename` field is used to define the location of the public certificate. If left blank, the public certificate file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a certificate file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
-## Multiple Certificate Types
+## Multiple certificate types
 In Tomcat 8.5 and above, [multiple certificates](https://octopus.com/blog/mixing-keys-in-tomcat) can be assigned to a single port. This is most useful for assigning a RSA and a ECDSA certificate, and allowing the client to select the most secure option.
 
 When exporting a certificate from Octopus to Tomcat 8.5+, the type of certificate is automatically determined, and multiple certificates of different types can be assigned to the same port.
@@ -117,6 +117,6 @@ Although the example above uses the `APR` protocol, any protocol can be used to 
 
 With this configuration, newer browsers would select the ECDSA certificate, while older browsers may fall back to the RSA certificate.
 
-## Configuration File Backups
+## Configuration file backups
 
 Before any change is made to the `server.xml` file, it is saved to the `octopus_backup.zip` archive. This archive can be used to restore previous versions of the `server.xml` file.

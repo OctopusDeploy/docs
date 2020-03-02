@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Invalid Certificates
+title: Troubleshooting invalid certificates
 description: How to troubleshoot invalid certificates that won't load in Octopus Deploy
 position: 110
 ---
@@ -8,7 +8,7 @@ Some certificate generation libraries can generate certificates that are invalid
 
 Octopus Deploy uses a common certificate library called [Bouncy Castle](https://github.com/bcgit/bc-csharp) to parse and work with certificates. Recent versions of this have improved validation of certificates, which has, unfortunately, limited the usability of some certificates that don't strictly comply with the specification.
 
-## Common Errors:
+## Common errors:
 
 ### `corrupted stream detected malformed integer`
 

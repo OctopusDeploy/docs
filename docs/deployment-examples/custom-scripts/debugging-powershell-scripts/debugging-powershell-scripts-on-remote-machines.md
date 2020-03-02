@@ -1,12 +1,12 @@
 ---
-title: Debugging PowerShell Scripts on Remote Machines
+title: Debugging PowerShell scripts on remote machines
 description: This guide provides details on debugging PowerShell scripts with Octopus Deploy.
 position: 13
 ---
 
 This guide provides details on how to debug PowerShell scripts while they are being deployed by Octopus Deploy to remote machines. This guide demonstrates connecting via IP address to an untrusted machine on a public network. Some steps may be omitted when connecting to machines on the same subnet or domain.
 
-## Configuring PowerShell Remoting
+## Configuring PowerShell remoting
 
 PowerShell remoting must be enabled on the remote machine and configured for SSL and the trust established between the remote machine and the debugging machine.
 
@@ -38,7 +38,7 @@ In order to connect to the remote machine, the debugging machine must add the ce
 Import-Certificate -Filepath "C:\remoting-certificate.cer" -CertStoreLocation "Cert:\LocalMachine\Root"
 ```
 
-## Setting up Octopus for PowerShell Debugging
+## Setting up Octopus for PowerShell debugging
 
 Create a project with a "Run a Script" step that contains some PowerShell.  For example:
 
@@ -52,7 +52,7 @@ PowerShell debugging is enabled by adding the project variable `Octopus.Action.P
 
 Now, create a release and deploy it.  The deployment will pause while waiting for a PowerShell debugger to attach.
 
-## Starting the PowerShell Debug Session
+## Starting the PowerShell debug session
 
 The deployment in Octopus outputs the information required to start debugging the PowerShell script. If we have name resolution configured we could connect to the machine using the name indicated by Octopus, but in this instance we will use the machine's IP address. First we must start a session with the remote computer.  Open PowerShell ISE and run the following:
 

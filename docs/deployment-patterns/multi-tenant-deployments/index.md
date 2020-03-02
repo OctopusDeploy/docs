@@ -1,5 +1,5 @@
 ---
-title: Multi-tenant Deployment Pattern
+title: Multi-tenant deployment pattern
 description: How to use Octopus to manage deployments of your applications to multiple end-customers.
 position: 5
 ---
@@ -16,7 +16,7 @@ Consider the following scenario:
 
 The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer.
 
-## Introducing Multi-tenant Deployments in Octopus {#Multi-tenantdeployments-Introducingmulti-tenantdeploymentsinOctopus}
+## Introducing multi-tenant deployments in Octopus {#Multi-tenantdeployments-Introducingmulti-tenantdeploymentsinOctopus}
 
 Starting with **Octopus 3.4** you can manage tenants as a first-class citizen enabling you to:
 
@@ -36,7 +36,7 @@ Starting with **Octopus 3.4** you can manage tenants as a first-class citizen en
 8. Easily scale to large numbers of tenants using tags to manage tenants as groups instead of individuals.
 9. Easily implement simple multi-tenant deployment scenarios, and scale to support complex scenarios as your needs require.
 
-## Why Should I Care About Multi-tenant Deployments in Octopus Deploy? {#Multi-tenantdeployments-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy?}
+## Why should i care about multi-tenant deployments in Octopus Deploy? {#Multi-tenantdeployments-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy?}
 
 > **Have you ever wanted to have multiple instances of your project deployed to each environment? You should consider multi-tenant deployments in Octopus Deploy.**
 
@@ -53,7 +53,7 @@ The multi-tenant features in Octopus Deploy will simplify your deployments in al
 - You deploy your application to multiple geographic regions - this way you can avoid creating multiple environments instead modeling each region as a tenant in the same environment - [example](/docs/deployment-patterns/multi-region-deployment-pattern.md).
 - You deploy unique instances of your application for each end-customer - keep reading!
 
-### You Want to Deploy a Multi-tenant Application {#Multi-tenantdeployments-Youwanttodeployamulti-tenantapplication}
+### You want to deploy a multi-tenant application {#Multi-tenantdeployments-Youwanttodeployamulti-tenantapplication}
 
 We built the multi-tenant features in Octopus Deploy for this kind of scenario:
 
@@ -74,7 +74,7 @@ The key issue in this scenario is that the same components need to be deployed m
 You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer.
 :::
 
-## Building Multi-tenant Applications {#Multi-tenantdeployments-Buildingmulti-tenantapplications}
+## Building multi-tenant applications {#Multi-tenantdeployments-Buildingmulti-tenantapplications}
 
 :::success
 **Podcast**
@@ -90,13 +90,13 @@ How should I build my application to support multiple tenants or end-customers? 
 
 For many of these considerations, deploying multiple instances of your application make a lot of sense, and might be the best way to design your multi-tenant application. The podcast we mentioned above explores these issues in depth.
 
-### High Density SaaS Applications {#Multi-tenantdeployments-HighdensitySaaSapplicationsarchitectural-changes}
+### High density SaaS applications {#Multi-tenantdeployments-HighdensitySaaSapplicationsarchitectural-changes}
 
 When much larger numbers of customers are concerned it may be wise to consider making architectural changes to the application.
 
 For example, if deployment consists of many copies of the exact same website, just with a few configuration differences per customer, perhaps store those configuration settings in the database, and use the host header field (`HttpContext.Request.Url.Host` in ASP.NET) to determine who the current customer is and respond accordingly. Not only will this make deployment simpler; it will most likely result in an easier to manage application, and reduce overall resource utilization resulting in higher density and profitability.
 
-## Deciding Whether Multi-tenant Deployments in Octopus Deploy Suits Your Scenario
+## Deciding whether multi-tenant deployments in Octopus Deploy suits your scenario
 
 We have worked hard to design multi-tenant deployments in Octopus Deploy to work with a wide variety of scenarios. That being said there may be some limitations and problems which may hamper your adoption. In order to decide if you should adopt multi-tenant deployments for your scenario we recommend:
 

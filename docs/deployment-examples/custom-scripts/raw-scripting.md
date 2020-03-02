@@ -1,10 +1,10 @@
 ---
-title: Raw Scripting
+title: Raw scripting
 description: Raw Scripting allows you to transfer packages and execute scripts against SSH deployment targets where you are unable to install and run Mono.
 position: 70
 ---
 
-## Design Intentions {#RawScripting-DesignIntentions}
+## Design intentions {#RawScripting-DesignIntentions}
 
 Some Octopus users deploying to SSH Endpoints have had problems installing the Mono prerequisite that provides the runtime for Octopus Deploy's .NET orchestration tool [Calamari](/docs/octopus-rest-api/calamari.md). Although there is some momentum to package Calamari in a self-contained, cross-platform way with .NET Core, there exists a need now to be able to execute scripts directly on the server without all the added cost and complexity of uploading the latest Calamari. An experiential feature has been provided in **Octopus 3.9**, accessible via a project variable which will simply open a connection to the remote server and execute a deployment script within that session.
 
@@ -21,7 +21,7 @@ While still available as an option in the UI, raw scripts cannot currently be so
 
 Raw scripting is great for use cases where you are unable to install and run Mono for example your server platform is unsupported by Mono or deploying to an IOT device that does not meet the hardware requirements to run Mono. By eliminating Calamari as the middle man in these deployments, you may also shave a few seconds off your deployment for each step.
 
-## Health Checks
+## Health checks
 
 The default health check for Linux targets depends on bash being available, and confirms that dependencies are available.  
 
@@ -33,7 +33,7 @@ Targets configured with this policy will be considered healthy so long as an SSH
 
 ![Machine policy settings for connection test only](images/machine-policy-connection-test-only.png)
 
-## Deploying To SSH Endpoint Without Calamari (i.e. no Mono prerequisite) {#RawScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
+## Deploying To SSH endpoint without Calamari (i.e., no Mono prerequisite) {#RawScripting-DeployingToSSHEndpointWithoutCalamari(i.e.noMonoprerequisite)}
 
 While raw scripting does not require a Transfer a Package step, the below scenario walks though a basic scenario of using a raw script in conjunction with the Transfer a Package step to extract a package on an SSH endpoint where Mono is unable to be installed.
 

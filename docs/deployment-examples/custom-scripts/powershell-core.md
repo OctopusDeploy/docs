@@ -19,7 +19,7 @@ Enabling this feature will give you the option to use PowerShell Core to execute
 
 ![powershellcore](images/powershellcore.png)
 
-## PowerShell Core on Linux Targets
+## PowerShell Core on Linux targets
 
 You will first need to ensure that the `pwsh` executable is available on your `$PATH` before Octopus can use it.
 

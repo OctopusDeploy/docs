@@ -1,5 +1,5 @@
 ---
-title: Scripts in Packages
+title: Scripts in packages
 description: Adding scripts to your packages in Octopus.
 position: 20
 ---
@@ -33,7 +33,7 @@ If you are using OctoPack to package a Windows Service or console application, s
 
 Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack/index.md).
 
-## Scripts in Package Steps {#scripts-in-package-steps}
+## Scripts in package steps {#scripts-in-package-steps}
 
 Rather than embed scripts in packages, you can also define scripts within the package step definition in Octopus. This is a feature that can be enabled on package steps by clicking **CONFIGURE FEATURES** and selecting **custom deploy scripts**.
 

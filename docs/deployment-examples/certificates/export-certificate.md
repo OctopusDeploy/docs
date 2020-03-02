@@ -1,5 +1,5 @@
 ---
-title: Export a Certificate
+title: Export a certificate
 description: Export a certificate managed by Octopus as a selected file-format
 position: 60
 ---
@@ -10,7 +10,7 @@ Certificates can be downloaded via the Octopus Portal.  The certificate may be e
 
 ![](images/download-certificate-dialog.png)
 
-## Private-Keys
+## Private-keys
 
 If the certificate includes a private-key, then user requires the _Export certificate private-keys_ permission to download the certificate in a format which includes the private-key.
 

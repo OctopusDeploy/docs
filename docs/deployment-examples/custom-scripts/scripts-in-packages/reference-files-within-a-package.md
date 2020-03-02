@@ -1,5 +1,5 @@
 ---
-title: Reference Files Within a Package
+title: Reference files within a package
 description: How to reference files within a package.
 position: 80
 ---

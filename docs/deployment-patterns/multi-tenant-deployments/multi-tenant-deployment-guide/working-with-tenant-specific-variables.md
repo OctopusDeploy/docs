@@ -1,5 +1,5 @@
 ---
-title: Working with Tenant-specific Variables
+title: Working with tenant-specific variables
 description: Use variable templates as part of a multi-tenant deployment design.
 position: 3
 ---
@@ -8,7 +8,7 @@ Previous step: [Deploying a simple multi-tenant project](/docs/deployment-patte
 
 This page describes how to use [variable templates](/docs/projects/variables/variable-templates.md) as part of a multi-tenant deployment design. We start by building on the existing scenario, providing some background information, and then providing an end-to-end implementation of that scenario.
 
-## Tenant-provided Variable Values
+## Tenant-provided variable values
 
 Quite often you want to define variable values that are different for each tenant, like database connection settings or a tenant-specific URL. Previously you would have defined these values in the project itself, but now you can define these values directly on the tenant for any connected projects.
 
@@ -19,15 +19,15 @@ When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md
 
 To add variables for a tenant, select the tenant from the **Tenants** page and click **Variables**.
 
-![Tenant Variables](images/tenant-variables.png)
+![Tenant variables](images/tenant-variables.png)
 
-**Common Variables** and **Project Variables** can be added per tenant.
+**Common variables** and **Project variables** can be added per tenant.
 
-**Common Variables** are variable values that remain constant across projects and environments for this tenant. This could be really useful for values like a tenant alias, contact details, or other values that will remain constant for each tenant across any projects they are connected to. You could think of these like "custom fields" for your tenants.
+**Common variables** are variable values that remain constant across projects and environments for this tenant. This could be really useful for values like a tenant alias, contact details, or other values that will remain constant for each tenant across any projects they are connected to. You could think of these like "custom fields" for your tenants.
 
-**Project Variables** are values that differ between projects and environments for this tenant. This could be really useful for settings for connecting to a database for that tenant/environment. In this example, we are using a default value as a template drawing from some common variable values.
+**Project variables** are values that differ between projects and environments for this tenant. This could be really useful for settings for connecting to a database for that tenant/environment. In this example, we are using a default value as a template drawing from some common variable values.
 
-## Introducing Variable Templates
+## Introducing variable templates
 
 To make this possible we have introduced the concept of [variable templates](/docs/projects/variables/variable-templates.md). Variable templates let you configure which variables are required to successfully deploy a project. Each variable template can define the data type, name, label, help text, and default value.
 
@@ -43,11 +43,11 @@ Good question! When you connect a tenant to a project, variable templates define
 By carefully designing your variable templates you can implement complex multi-tenant deployment scenarios.
 :::
 
-## Example Scenario: A Simple Multi-tenant Web Application
+## Example scenario: A simple multi-tenant web application
 
 Let's walk through an example of deploying a multi-tenant web application using our example project **Mojo**. To successfully deploy this web application we will need the **DatabaseConnectionString** to connect to the tenant database and a **HostURL** to configure IIS:
 
-| Variable                   | Description                              | Example resultant value required to configure the application |
+| variable                   | Description                              | Example resultant value required to configure the application |
 | -------------------------- | ---------------------------------------- | ---------------------------------------- |
 | `DatabaseConnectionString` | Provides access to the tenant's database for that environment. | `Server=db.mojo.com;Database=mojo-mytenant-production;User ID=mytenant-production;Password=DC7y6KEMYaA6HVjf` |
 | `HostURL`                  | The URL customers will use to access their instance of the web application for that environment. | `https://mytenant.mojo.com`(for the customer's production environment), `https://mytenant-staging.mojo.com` (for the customer's staging environment) |
@@ -64,14 +64,14 @@ By carefully designing our variables to be constructed using some conventions, w
 - Step 8: Deploy
 - Step 9: Review
 
-### Step 1: Create Project Variables
+### Step 1: Create project variables
 
 Let's start with the end in mind by creating the project variables we need. You'll notice we are binding to some variables that don't exist yet.
 
 1. Go to the *Variables* tab in the **Mojo** project.
 2. Create the variables shown below.
 
-| Variable                   | Value                                    | Description                              |
+| variable                   | Value                                    | Description                              |
 | -------------------------- | ---------------------------------------- | ---------------------------------------- |
 | `DatabaseConnectionString` | `Server=db.mojo.com;Database=#{Tenant.Database.Name};User ID=#{Tenant.Database.UserID};Password=#{Tenant.Database.Password}` | The full database connection string      |
 | `HostURL`                  | `https://#{Tenant.Domain.Name}`          | The URL each customer will use to access their instance of the web application, can be overridden to use a custom domain name. |
@@ -80,7 +80,7 @@ The result should look like the screenshot below:
 
 ![](images/5865610.png)
 
-### Step 2: Create Project Variable Templates
+### Step 2: Create project variable templates
 
 Some of the variables we just created require tenant-specific values like `#{Tenant.Database.Name}`. We will create variable templates to collect those values from the tenant.
 
@@ -100,14 +100,14 @@ The result should look like the screenshot below:
 
 ![](images/5865609.png)
 
-### Step 3: Create the "Environment Variables" Library Variable Set
+### Step 3: Create the *environment variables* library variable set
 
 In the previous step we created some variable templates that use the `Environment.Alias` variable. We will create a simple [library variable set](/docs/projects/variables/library-variable-sets.md) to provide URL-friendly versions of the target environment's name which we can use in our other variables for defining environment-specific database and domain names.
 
 1. Go to **{{Library,Variable sets}}** and add a new variable set called **Environment variables**.
 2. Create the variables shown below:
 
-| Variable            | Value        | Scope           |
+| variable            | Value        | Scope           |
 | ------------------- | ------------ | --------------- |
 | `Environment.Alias` | `dev`        | `MT Dev`        |
 | `Environment.Alias` | `test`       | `MT Test`       |
@@ -118,7 +118,7 @@ The result should look like the screenshot below:
 
 ![](images/5865607.png)
 
-### Step 4: Create the "Standard tenant details" Library Variable Set
+### Step 4: Create the *standard tenant details* library variable set
 
 In previous steps we also created some variable templates that depend on a variable called Tenant.Alias. In this case we want the tenant to provide a URL-friendly version of the tenant's name, and we will create a library variable template. By using a variable template from a library variable set the tenant will only be prompted once for this value.
 
@@ -134,26 +134,26 @@ The result should look like the screenshot below:
 
 ![](images/5865608.png)
 
-### Step 5: Include the Library Variable Sets into the Project
+### Step 5: Include the library variable sets into the project
 
 Now we have created the library variable sets we need to include them in the **Mojo** project so they take effect.
 
-1. Go to the **{{Variables,Library Variable Sets}}** tab of the **Mojo** project.
+1. Go to the **{{Variables,Library variable Sets}}** tab of the **Mojo** project.
 2. Click *Include variable sets from the Library* and select the newly created **Environment variables** and **Standard tenant details** variable sets into the project, clicking *Apply* then *Save*.
 
-### Step 6: Fill Out the Variable Values for Our Tenants
+### Step 6: Fill Out the variable values for our tenants
 
-Go to our tenant **Beverley Sanchez** and go to **{{Variables,Common Variables}}** where you should be able to fill in the variables required by our **Standard tenant details** variable set:
+Go to our tenant **Beverley Sanchez** and go to **{{Variables,Common variables}}** where you should be able to fill in the variables required by our **Standard tenant details** variable set:
 
 ![](images/5865611.png)
 
-Now go to the *Project Variables* tab and you should see the variables required by the **Mojo** project for each environment **Beverley Sanchez** will be deployed into, in this case just **MT Production**. Leave the convention-based variables alone, and click the *Set* button to set a random password for the database, and click *Save* to save your changes.
+Now go to the *Project variables* tab and you should see the variables required by the **Mojo** project for each environment **Beverley Sanchez** will be deployed into, in this case just **MT Production**. Leave the convention-based variables alone, and click the *Set* button to set a random password for the database, and click *Save* to save your changes.
 
 ![](images/5865612.png)
 
-### Step 7: Validate the Variable Values for the Project
+### Step 7: Validate the variable values for the project
 
-Go to the **{{Variables,All Variables}}** tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
+Go to the **{{Variables,All variables}}** tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
 
 ![](images/5865620.png)
 
@@ -172,10 +172,10 @@ Now that we've configured the variables in this way, let's take a look at the re
 - You can use the convention-based default value for **Tenant.Domain.Name** as defined by the project or you can override it completely by setting a custom value in the tenant.
 - You can add a new template to the project and know which tenants need that value defined before performing a deployment.
 
-## Next Steps
+## Next steps
 
 Learn about [working with groups of tenants using tags](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md) as the foundation for [designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md) and [designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns)

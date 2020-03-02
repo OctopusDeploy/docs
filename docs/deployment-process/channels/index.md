@@ -21,11 +21,7 @@ When you are implementing a deployment process that uses channels you can scope 
 
 You can also define versioning rules per channel to ensure that only versions which meet specific criteria are deployed to specific channels.
 
-:::success
-The [Channels Walkthrough](https://octopus.com/blog/channels-walkthrough) blog post and accompanying video, goes  through the process of implementing some of the channel strategies mentioned above.
-:::
-
-## Managing Channels
+## Managing channels
 
 Every [project](/docs/projects/index.md) has a default channel.
 
@@ -33,7 +29,7 @@ Channels are managed from the Project overview page by selecting the specific pr
 
 As you add more channels, you'll notice that they are arranged in alphabetical order on the channels page.
 
-## Create a New Channel
+## Create a new channel
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
@@ -41,7 +37,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
-## Design the Version Rules {#Channels-versionrules}
+## Design the version rules {#Channels-versionrules}
 
 Version rules assist in selecting the correct versions of packages for the Channel.  They are only used when creating a release, either manually or via [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md).
 
@@ -82,11 +78,11 @@ The **Design Version Rule** window will show a list of the packages that will de
 
 6. Click **SAVE**.
 
-## Using Channels {#Channels-UsingChannels}
+## Using channels {#Channels-UsingChannels}
 
 Once a project has more than one Channel, there a number of places they may be used.
 
-### Controlling Deployment Lifecycle {#Channels-ControllingDeploymentLifecycle}
+### Controlling deployment lifecycle {#Channels-ControllingDeploymentLifecycle}
 
 Each Channel defines which [Lifecycle](/docs/deployment-process/lifecycles/index.md) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
 
@@ -94,7 +90,7 @@ For instance, when you ship pre-release software to your early access users, you
 
 ![](images/5865685.png)
 
-### Modifying Deployment Process {#Channels-ModifyingDeploymentProcess}
+### Modifying deployment process {#Channels-ModifyingDeploymentProcess}
 
 Deployment Steps can be restricted to only run on specific Channels.
 
@@ -108,38 +104,38 @@ As you release software to different Channels, it's likely that some of the vari
 
 ![](images/3278460.png)
 
-### Deploying to Tenants {#Channels-DeployingtoTenants}
+### Deploying to tenants {#Channels-DeployingtoTenants}
 
 You can control which Releases will be deployed to certain Tenants using Channels. In this example, Releases in this Channel will only be deployed to Tenants tagged with `Early access program/2.x Beta`.
 
 ![](images/5865683.png)
 
-## Creating Releases {#Channels-CreatingReleases}
+## Creating releases {#Channels-CreatingReleases}
 
 Every Release in Octopus Deploy must be placed into a Channel. Wherever possible Octopus will choose the best possible Channel for your Release, or you can manually select a Channel for your Release.
 
-### Manually Creating Releases {#Channels-ManuallyCreatingReleases}
+### Manually creating releases {#Channels-ManuallyCreatingReleases}
 
-When you are creating a Release, you can select a Channel.
+When you are creating a release, you can select a channel.
 
 ![](images/3278463.png)
 
-Selecting the Channel will cause the Release to use the Lifecycle associated with the Channel (or the Project default, if the Channel does not have a Lifecycle).  It will also cause the Deployment Process and Variables to be modified as specified above.
+Selecting the channel will cause the release to use the lifecycle associated with the channel (or the project default, if the channel does not have a lifecycle).  It will also cause the deployment process and variables to be modified as specified above.
 
-The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the Channel (see [version rules](#Channels-versionrules) for more information).
+The package list allows you to select the version of each package involved in the deployment.  The *latest* column displays the latest packages that match the version rules defined for the channel (see [version rules](#Channels-versionrules) for more information).
 
-### Using Build Server Extensions or the Octopus CLI {#Channels-UsingBuildServerExtensionsOrTheOctopusCLI}
+### Using build server extensions or the Octopus CLI {#Channels-UsingBuildServerExtensionsOrTheOctopusCLI}
 
 When using one of the [build server extensions](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release.md) to create releases, you can either let Octopus automatically choose the correct Channel for your Release (this is the default behavior), or choose a specific Channel yourself.
 
-### Automatic Release Creation {#Channels-AutomaticReleaseCreation}
+### Automatic release creation {#Channels-AutomaticReleaseCreation}
 
-When enabling [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
+When enabling [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) for your project, you are required to select a Channel (if the project has more than one).
 
 ![](images/3278462.png)
 
-Any releases created automatically will use the configured channel.  Additionally, any Version Rules configured for the Channel will be used to decide whether a release is automatically created.
+Any releases created automatically will use the configured channel. Additionally, any version rules configured for the channel will be used to decide whether a release is automatically created.
 
-For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for Automatic Release Creation has a version rule range that doesn't include 3.1.0, then no release will be created.
+For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for automatic release creation has a version rule range that doesn't include 3.1.0, then no release will be created.
 
 ![](images/3278461.png)
