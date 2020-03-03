@@ -1,5 +1,5 @@
 ---
-title: Delete Instances
+title: Delete instances
 description:  Deletes an instance of the Octopus service
 position: 41
 ---

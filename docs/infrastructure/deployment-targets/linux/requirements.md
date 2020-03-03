@@ -1,5 +1,5 @@
 ---
-title: SSH Target Requirements
+title: SSH target requirements
 description: Requirements for using SSH deployment targets with Octopus.
 position: 10
 ---
@@ -13,7 +13,7 @@ Before you can configure your [SSH deployment targets](/docs/infrastructure/depl
 - `base64` is available. This is used for encoding and decoding variables.
 - `grep` is available.
 
-## Bash Startup Files
+## Bash startup files
 
 When connecting to a target over SSH, the Octopus Server connects then executes the script via the `/bin/bash` command to ensure it is running with a bash shell (and not the default terminal shell for that user). Any login scripts that you wish to run should therefore be put into the `.bashrc` script file since this is invoked for non-login shells.
 
@@ -45,11 +45,11 @@ When using the self-contained option, neither .NET Core nor Mono need to be inst
 
 Self-contained Calamari is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
 
-### Self-Contained .NET Core Dependencies
+### Self-Contained .NET Core dependencies
 
 [.NET Core has some dependencies](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) which must be installed on the target server.
 
-### Self-contained Calamari Limitations {#self-contained-calamari-limitations}
+### Self-contained Calamari limitations {#self-contained-calamari-limitations}
 
 ScriptCS and F# scripts can not execute when using a self-contained Calamari build.
 
@@ -69,22 +69,22 @@ As of April 2019, there are problems executing ScriptCS scripts on Mono **5.16**
 
 You can find instructions for installing Mono in the [Mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
-### Calamari on Mono Limitations
+### Calamari on Mono limitations
 
-#### TLSv1.2 Support available in Mono >= 4.8.0
+#### TLSv1.2 support available in Mono >= 4.8.0
 [TLSv1.2 support](http://www.mono-project.com/docs/about-mono/releases/4.8.0/#tls-12-support) was only included from Mono version **4.8.0**. Due to the weak cryptographic nature of older encryption algorithms, many websites are no longer providing support for TLSv1 TLSv1.1 and as such clients must ensure that they are able to use TLSv1.2 in order to communicate.
 
 Although previous versions of Mono should work in most deployment scenarios, any deployments that involve the target accessing endpoints that require TLSv1.2 (for example downloading from [Maven](/docs/packaging-applications/package-repositories/maven-feeds.md) or [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) feeds) may fail.
 
-#### Configuration Transformations only available in Mono >= 4.2.3  
+#### Configuration transformations only available in Mono >= 4.2.3  
 
-The [Configuration Transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
+The [configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 
-Note that [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
+Note that [substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
 
-#### Package Repository SSL Certificates
+#### Package repository SSL certificates
 
 If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to Mono. By default, Mono pre **3.12** didn’t trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla’s list by invoking `mozroots` or `cert-sync`. Thankfully Mono's latest builds perform this step during installation so it should “just work”.
 

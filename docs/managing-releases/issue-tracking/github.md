@@ -1,5 +1,5 @@
 ---
-title: GitHub Issue Tracking Integration
+title: GitHub issue tracking integration
 description: Configure GitHub issue tracking with Octopus.
 position: 30
 ---
@@ -8,7 +8,7 @@ position: 30
 - Automatically add links to GitHub issues from releases and deployments in Octopus.
 - Retrieve release notes from GitHub for automatic release note generation.
 
-## How GitHub Integration Works
+## How GitHub integration works
 
 ![Octopus GitHub integration - how it works diagram](images/octo-github-how-it-works.png "width=500")
 
@@ -30,14 +30,14 @@ The ability to push the build information to Octopus, which is required for GitH
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
  - [Jenkin's Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
-## Configuring GitHub Integration
+## Configuring GitHub integration
 
 The following steps explain how to integrate Octopus with GitHub issues:  
 
 1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
 2. [Configure the GitHub connection in Octopus Deploy.](#connect-octopus-to-github)
 
-## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
+## Configure your build server to push build information to Octopus {#configure-your-build-server}
 
 To integrate with GitHub issues, Octopus needs to understand which issues are associated with a [release](/docs/managing-releases/index.md). Octopus does this by inspecting commit messages associated with any packages contained in the release.
 
@@ -77,12 +77,12 @@ To supply the commit messages:
 
 When configured, this integration will retrieve GitHub issue details and add details to your releases and deployments.
 
-## Commit Messages {#commit-messages}
+## Commit messages {#commit-messages}
 
 The parsing of the commit messages is based on the GitHub concepts around [closing issues using keywords](https://help.github.com/en/articles/closing-issues-using-keywords).
 
 The Octopus extension looks for these same keywords, and ignores issue references where the keywords are not also present.
 
-## Next
+## Learn more
 
- - Learn about other [build information](/docs/packaging-applications/build-servers/index.md#build-information).
+ - [Build information](/docs/packaging-applications/build-servers/index.md#build-information).

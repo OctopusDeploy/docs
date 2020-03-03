@@ -17,7 +17,7 @@ The project overview page is where you access settings for the project and defin
 
 ![Project Overview](project-overview.png) -->
 
-## A Simple Hello World Deployment Process
+## A l Hello World deployment process
 
 For this example process, we'll use Octopus Deploy to create a simple process with only one step that runs a script on a deployment target. The process uses a **Test** environment with one **Deployment Target** that has the target role **server**.
 
@@ -56,7 +56,7 @@ Lifecycles control how your software is promoted through your environments and w
 
 Learn more about [Lifecycles](/docs/deployment-process/lifecycles/index.md).
 
-## Deployment Steps
+## Deployment steps
 
 Steps contain the actions your deployment process will execute each time your software is deployed.
 
@@ -64,7 +64,7 @@ Deployment processes can have one or many steps, steps can run in sequence or pa
 
 Learn more about [steps](/docs/deployment-process/steps/index.md).
 
-## Configuration Features
+## Configuration features
 
 When you deploy your software, it needs to be configured for the specific environments it will be deployed to. Configuration files let you define custom installation directories, database connections, and other settings that make it possible to deploy your software.
 
@@ -82,7 +82,7 @@ You can specify run conditions on the steps that you define to give you greater 
 
 Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
-## Deploying Releases
+## Deploying releases
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
@@ -93,7 +93,7 @@ Learn more about [releases](/docs/managing-releases/index.md).
 Octopus Deploy is built API-first, which means everything you can do through the Octopus UI can be done with the API. In the API we model the deployment process the same way, starting at the Project:
 
 - Project
-- Deployment Process
+- Deployment process
 - Steps
 - Actions
 

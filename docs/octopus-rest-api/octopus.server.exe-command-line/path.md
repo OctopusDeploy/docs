@@ -1,5 +1,5 @@
 ---
-title: path
+title: Path
 description: Set the file paths that Octopus will use for storage
 position: 160
 ---

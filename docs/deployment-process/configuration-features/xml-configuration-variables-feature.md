@@ -1,10 +1,10 @@
 ---
-title: XML Configuration Variables Feature
+title: XML configuration variables feature
 description: The XML Configuration Variables feature updates your XML configuration files with the values from matching Octopus variables.
 position: 60
 ---
 
-The XML Configuration Variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The XML configuration variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 This feature can be enabled for package deploy steps.
 
@@ -18,7 +18,7 @@ You can perform simple convention-based replacements in XML configuration files 
 If you are looking for something more flexible, we have the [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) enabling you to perform complex transformations on any kind of file.
 :::
 
-## How to Use This Feature
+## How to use this feature
 
 The following example shows you how to use the this feature to provide your application with different configuration settings for each different environment you're deploying to. In this example, we're deploying to a **Test** and **Production** environment.
 
@@ -112,7 +112,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in th
 
 Values are matched based on the `key` attribute for `appSettings`, and the `name` element for `applicationSettings` and `connectionStrings`.
 
-## Replacing Variables Outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
+## Replacing variables outside appSettings, applicationSettings and connectionStrings {#Configurationfiles-VariablesInFilesReplacingvariablesoutsideappSettings,applicationSettingsandconnectionStrings}
 
 There may be other variables you would like Octopus to replace in your configuration files that are outside both the `appSettings`, `connectionStrings`, and `applicationSettings` areas. For example, changing the `loginUrl` for forms authentication in an ASP.NET application:
 

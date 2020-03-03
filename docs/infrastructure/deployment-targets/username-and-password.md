@@ -1,12 +1,12 @@
 ---
-title: Username and Password Accounts
+title: Username and password accounts
 description: Username and Password Accounts allow you securely authenticate with different services.
 position: 90
 ---
 
-A Username/Password account can be used to connect [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployment-examples/kubernetes-deployments/index.md) functionality in Octopus.
+A username/password account can be used to connect [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployment-examples/kubernetes-deployments/index.md) functionality in Octopus.
 
-## Enabling Username & Password Authentication on Linux {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
+## Enabling username & password authentication on Linux {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 
 Depending on your SSH target machine's distribution you may need to enable password authentication.
 
@@ -19,11 +19,11 @@ To allow the Octopus Server to connect using the provided credentials you the wi
 If you experience problems connecting, it may help to try connecting directly to the target machine using these credentials though a client like putty. This will help eliminate any network related problems with your Octopus configuration.
 
 :::warning
-**Different Distributions use Different Conventions**
+**Different distributions use different conventions**
 While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many different Linux based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
 :::
 
-## Create a Username and Password Account {#UsernameandPassword-Creatingtheaccount}
+## Create a username and password account {#UsernameandPassword-Creatingtheaccount}
 
 1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
 1. Select **Username/Password** from the drop-down menu.

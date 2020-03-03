@@ -1,5 +1,5 @@
 ---
-title: Running Tentacle Under a Specific User Account
+title: Running Tentacle under a specific user account
 description: Information on how to run Tentacle under a specific user account.
 position: 50
 ---

@@ -1,5 +1,5 @@
 ---
-title: Dynamic Worker Pools
+title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks.  This page describes how dynamic worker pools work.
 position: 50
 ---
@@ -10,7 +10,7 @@ Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/wo
 
 The Default Worker Pools for our latest cloud instances are configured to use a Dynamic Worker Pool, which means it displays some different characteristics to older cloud instances and our self-hosted product.
 
-### On Demand
+### On demand
 
 Workers are created on demand and are assigned to a customer when required. Once you've finished using a worker, the worker is destroyed and not reused.
 

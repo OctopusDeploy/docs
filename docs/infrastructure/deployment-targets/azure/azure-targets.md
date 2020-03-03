@@ -1,5 +1,5 @@
 ---
-title: Azure Targets
+title: Azure targets
 description: Configure your Azure infrastructure
 position: 01
 hideInThisSection: true

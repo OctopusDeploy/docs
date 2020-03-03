@@ -9,7 +9,7 @@ With Octopus Deploy the machines and services you deploy your software to are ma
 
 ![The infrastructure tab of Octopus Deploy](images/infrastructure.png)
 
-## Deployment Targets
+## Deployment targets
 
 !include <deployment-targets>
 
@@ -33,8 +33,8 @@ Learn more about [environments](/docs/infrastructure/environments/index.md).
 
 [Workers](/docs/infrastructure/workers/index.md) are machines that are used to execute tasks that don't need to be performed on the Octopus Server or specific deployment targets, for instance, if you are deploying a package to an API or running a script. You can register multiple workers and assign them to worker pools.
 
-## Next Steps
+## Learn more
 
- - [Configure your Environments](/docs/infrastructure/environments/index.md)
- - [Configure your Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
- - [Configure your Workers](/docs/infrastructure/workers/index.md)
+ - [Environments](/docs/infrastructure/environments/index.md)
+ - [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
+ - [Workers](/docs/infrastructure/workers/index.md)

@@ -44,7 +44,7 @@ Deployment:
                              [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
                              checks (default 00:00:10)
-      --guidedfailure=VALUE  [Optional] Whether to use Guided Failure mode.
+      --guidedfailure=VALUE  [Optional] Whether to use guided failure mode.
                              (True or False. If not specified, will use
                              default setting from environment)
       --specificmachines=VALUE

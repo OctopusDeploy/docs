@@ -1,5 +1,5 @@
 ---
-title: Check Services
+title: Check services
 description:  Checks the Octopus instances are running
 position: 30
 ---

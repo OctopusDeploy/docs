@@ -4,7 +4,7 @@ description: Cmdlet for removing an Octopus target
 position: 50
 ---
 
-## Delete Target
+## Delete target
 Command: **_Remove-OctopusTarget_**
 
 | Parameter         | Value                                  |

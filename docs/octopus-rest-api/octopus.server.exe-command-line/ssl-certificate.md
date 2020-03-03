@@ -1,5 +1,5 @@
 ---
-title: ssl-certificate
+title: SSL certificate
 description: Binds the SSL/TLS certificate used by the portal to the specified address/port.
 position: 194
 ---

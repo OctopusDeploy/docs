@@ -1,5 +1,5 @@
 ---
-title: Create Azure Service Fabric Target Command
+title: Create Azure Service Fabric target command
 description: Cmdlet for creating an Azure Service Fabric target
 position: 30
 ---

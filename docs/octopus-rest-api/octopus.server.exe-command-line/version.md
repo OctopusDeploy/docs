@@ -1,5 +1,5 @@
 ---
-title: version
+title: Version
 description: Show the Octopus Server version information
 position: 220
 ---

@@ -1,5 +1,5 @@
 ---
-title: Substitute Variables in Files
+title: Substitute variables in files
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
@@ -9,7 +9,7 @@ The Substitute Variables in Files feature is one of the [configuration features]
 You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
 :::
 
-## How to Substitute Variables in a File
+## How to substitute variables in a file
 
 The following example shows you how to use the Substitute Variables in Files feature to provide a different login form to the different environments you're deploying to. In this example, we're deploying to a **Test** and **Production** environment.
 
@@ -74,7 +74,7 @@ By default **warnings** will be treated as **errors** when replacing variables i
 
 ## Examples {#SubstituteVariablesinFiles-SomeExamples}
 
-### Swapping Design Elements
+### Swapping design elements
 
 If you want to include a header with a different image or text in a shared layout file depending on environment it is deployed to, you can define the file and put a variable in place where you want the change to be. In this example, we've used the `#{SiteReference}` variable:
 
@@ -90,7 +90,7 @@ If you want to include a header with a different image or text in a shared layou
           </div>
 ```
 
-### Spring Boot Application Properties
+### Spring boot application properties
 
 Another common scenario is updating a Spring Boot `application.properties` file to set the web server port. In this example, we’ve used the #{WebServerPort} variable:
 

@@ -6,9 +6,9 @@ position: 1
 
 If you are hosting your Octopus Deploy Server yourself, these are the minimum requirements.
 
-## Operating System
+## Operating system
 
-The Octopus Deploy Server is hosted on a Microsoft Windows operating system, however, once your Octopus Deploy Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an Offline Package Drop.
+The Octopus Deploy Server is hosted on a Microsoft Windows operating system, however, once your Octopus Deploy Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an offline package drop.
 
 ## Windows Server
 
@@ -24,7 +24,7 @@ Octopus Deploy Server will run on the newer versions of Windows Server without G
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
-## Windows Desktop
+## Windows desktop
 
 Octopus Deploy Server will run on client/desktop versions of Windows, such as Windows 7 and Windows 10. This can be an easy way to trial Octopus Deploy Server; however, we do not support Octopus Server for production workloads unless it is hosted on a server operating system.
 
@@ -40,14 +40,14 @@ We try to keep the .NET Framework requirements for Octopus Server as stable as p
 - **Octopus 2018.5.0** and later requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
 - **Octopus 2019.7.0** and later requires [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkID=863265) or newer.
 
-## Supported Browsers {#supported-browsers}
+## Supported browsers {#supported-browsers}
 
 The Octopus Server includes the Octopus Web Portal user interface and we try to keep this as stable as possible:
 
 - **Octopus 3.0** to **Octopus 3.17** supports all modern browsers and Internet Explorer 9+.
 - **Octopus 4.0** and later supports all modern browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer).
 
-## Hardware Requirements
+## Hardware requirements
 
 There is no *one size fits all* approach for Octopus Server. The best approach is to start with a working Octopus Server, start deploying your applications, monitor your server statistics, and scale from there.
 
@@ -55,6 +55,6 @@ There is no *one size fits all* approach for Octopus Server. The best approach i
 - Recommended starting point for smaller deployments (less than 30 deployment targets for example): 2GB RAM, dual-core CPU, 10GB free disk space.
 - Recommended starting point for larger deployments: 4GB RAM, dual-core, 20GB free disk space.
 
-## Next
+## Learn more
 
-Continue with the [Octopus installation](/docs/installation/index.md).
+- [Installation](/docs/installation/index.md).

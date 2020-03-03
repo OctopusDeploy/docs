@@ -1,5 +1,5 @@
 ---
-title: List Users with Role
+title: List users with role
 description: An example script to list all users that have a specific role by team.
 ---
 
@@ -12,7 +12,7 @@ Provide values for `Octopus URL`,  `Octopus API Key`, `User Role Name`, and opti
 
 ## Example output
 
-### All spaces with Role Name `Project Deployer`
+### All spaces with role name `Project Deployer`
 
 Team: Build Servers  
 Space: Default  
@@ -35,7 +35,7 @@ Adam Close
 External security groups:  
 TestDomain\SpecialGroup
 
-### Space Name AzureDevOps
+### Space name AzureDevOps
 Team: ShawnTest  
 Space: AzureDevOps  
 Adam Close  

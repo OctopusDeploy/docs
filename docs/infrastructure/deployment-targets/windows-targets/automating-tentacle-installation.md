@@ -1,5 +1,5 @@
 ---
-title: Automating Tentacle Installation
+title: Automating Tentacle installation
 description: Information on how to install and configure an Octopus Tentacle in a fully automated way from the command line.
 position: 60
 ---
@@ -13,7 +13,7 @@ In a virtualized environment, it may be desirable to install Tentacle on a base 
 If you choose to do this, please **do not complete the configuration wizard** before taking the snapshot. The configuration wizard generates a unique per-machine cryptographic certificate that should not be duplicated. Instead, use PowerShell to automate configuration after the clone has been materialized.
 :::
 
-## Tentacle Installers {#AutomatingTentacleinstallation-Tentacleinstallers}
+## Tentacle installers {#AutomatingTentacleinstallation-Tentacleinstallers}
 
 Tentacle comes in an MSI that can be deployed via group policy or other means.
 
@@ -129,7 +129,7 @@ If you are running this from a PowerShell remote session, make sure to add `--co
 Want to register your Tentacles another way? Take a look at the examples in our [sample repository](https://github.com/OctopusDeploy/OctopusDeploy-Api) using the Octopus API to register Tentacles.
 :::
 
-## Obtaining the Tentacle Thumbprint {#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}
+## Obtaining the Tentacle thumbprint {#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}
 
 If you don't know the thumbprint for the above PowerShell scripts, it can be obtained with the following command line option:
 
@@ -137,13 +137,13 @@ If you don't know the thumbprint for the above PowerShell scripts, it can be obt
 Tentacle.exe show-thumbprint --instance "Tentacle" --nologo
 ```
 
-## Export and Import Tentacle Certificates Without a Profile
+## Export and import Tentacle certificates without a profile
 
 When the Tentacle agent is configured, the default behavior is to generate a new X.509 certificate. When automating the provisioning of Tentacles on a machine, however, you may run into problems when trying to generate a certificate when running as a user without a profile loaded.
 
 A simple workaround is to generate a certificate on one machine (such as your workstation), export it to a file, and then import that certificate when provisioning Tentacles.
 
-## Generating and Exporting a Certificate
+## Generating and exporting a certificate
 
 Install the Tentacle agent on a computer, and run the following command:
 
@@ -153,7 +153,7 @@ tentacle.exe new-certificate -e MyFile.txt
 
 The output file will now contain a base-64 encoded version of a PKCS#12 export of the X.509 certificate and corresponding private key. This file is now ready to be used in your setup scripts.
 
-## Importing a Certificate
+## Importing a certificate
 
 When automatically provisioning your Tentacle, the commands typically look something like this:
 
@@ -221,7 +221,7 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 # Test the configuration ran successfully
 Test-DscConfiguration
 ```
-### Settings and Properties
+### Settings and properties
 
 To review the latest available settings and properties, refer to the [OctopusDSC Tentacle readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) in the GitHub repository.
 

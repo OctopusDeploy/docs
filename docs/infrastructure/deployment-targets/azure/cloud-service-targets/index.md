@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Service Targets
+title: Azure Cloud Service targets
 description: Azure Cloud Service deployment targets allow you to reference existing classic Cloud Services in your Azure subscription, that you can then reference by role during deployments.
 position: 100
 ---
@@ -33,13 +33,13 @@ To create an Azure Cloud Service target within Octopus:
 - After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
 - If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.
 
-### Creating Cloud Service Targets by Scripts
+### Creating Cloud Service targets by scripts
 
-Azure Cloud Service targets can also be created via a PowerShell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Cloud Service via a script.
+Azure Cloud Service targets can also be created via a PowerShell cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Cloud Service via a script.
 
 See [Creating Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) for more information on creating Azure Cloud Services via a script.
 
-## Deploying to Cloud Service Targets
+## Deploying to Cloud Service targets
 
 See our [documentation about this topic](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md)
 

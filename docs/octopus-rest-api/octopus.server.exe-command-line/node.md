@@ -1,5 +1,5 @@
 ---
-title: node
+title: Node
 description: Configure settings related to this Octopus Server node
 position: 141
 ---

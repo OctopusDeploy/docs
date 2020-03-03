@@ -1,5 +1,5 @@
 ---
-title: Create Azure Web App Target Command
+title: Create Azure Web App target command
 description: Cmdlet for creating an Azure Web App target
 position: 20
 ---

@@ -1,16 +1,16 @@
 ---
-title: SSH Key Pair Account
-description: SSH Key Pair Accounts allow you to securely authenticate with SSH targets.
+title: SSH key pair account
+description: SSH key pair accounts allow you to securely authenticate with SSH targets.
 position: 30
 ---
 
-An SSH Key Pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md).
+An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md).
 
-## Creating an SSH Key Pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
+## Creating an SSH key pair  {#SSHKeyPair-CreatingaSSHKeyPaircreate-key-pair}
 
-Before you can configure the SSH Key Pair account in Octopus, you need to generate public and private keys. This can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
+Before you can configure the SSH key pair account in Octopus, you need to generate public and private keys. This can be done on either the [Linux target](#SSHKeyPair-Linux) or the [Octopus Server](#SSHKeyPair-Windows).
 
-### Generating a Key Pair on Linux {#SSHKeyPair-Linux}
+### Generating a key pair on Linux {#SSHKeyPair-Linux}
 
 1. Run the following command on your Linux server: `ssh-keygen`
 1. Accept the default location: `~/.ssh/id_rsa`
@@ -38,11 +38,11 @@ chmod 600 ~/.ssh/authorized_keys
 
 7. Copy the private key to the machine your Octopus Server is installed on.
 
-Proceed to [creating the the SSH Key Pair account](#SSHKeyPair-Creatingtheaccount).
+Proceed to [creating the the SSH key pair account](#SSHKeyPair-Creatingtheaccount).
 
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
-### Generating a Key Pair on Windows {#SSHKeyPair-Windows}
+### Generating a key pair on Windows {#SSHKeyPair-Windows}
 
 The easiest way to generate valid keys on windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
@@ -52,10 +52,10 @@ Provide your passphrase if desired and export the private key to the accepted fo
 
 If you need more information about generating an SSH key pair, see the [useful links section](#SSHKeyPair-UsefulLinks).
 
-## Creating the SSH Key Pair Account {#SSHKeyPair-Creatingtheaccount}
+## Creating the SSH key pair account {#SSHKeyPair-Creatingtheaccount}
 
 1. Navigate to **{{infrastructure,Accounts}}** and click **ADD ACCOUNT**.
-1. Select **SSH Key Pair** from the drop-down menu.
+1. Select **SSH key pair** from the drop-down menu.
 1. Give the account a name so you can easily identify it when you need to use the account.
 1. Add a description.
 1. Enter the username you will use to access the remote host.
@@ -70,13 +70,13 @@ The server will confirm that this private key matches its public key at the star
 
 If you are storing the private key on disk it is recommended, but not mandatory, that you encrypt the key.
 
-## Useful Links {#SSHKeyPair-UsefulLinks}
+## Useful links {#SSHKeyPair-UsefulLinks}
 
 Due to the number and configurable nature of the various Linux distributions available, there are other dedicated sites that can provide more precise information & tutorials for your specific use case.
 
 - [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) has several useful Windows tools.
 - [ssh-keygen man page](https://linux.die.net/man/1/ssh-keygen).
-- [sshd\_config man page (ubuntu)](http://manpages.ubuntu.com/manpages/zesty/en/man5/sshd_config.5.html).
+- [sshd\_config man page (Ubuntu)](http://manpages.ubuntu.com/manpages/zesty/en/man5/sshd_config.5.html).
 - Great intro SSH keygen articles from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2), [GitHub](https://help.github.com/articles/connecting-to-github-with-ssh/) or [Atlassian](https://confluence.atlassian.com/display/STASH/Creating+SSH+keys).
 
 ## Learn more

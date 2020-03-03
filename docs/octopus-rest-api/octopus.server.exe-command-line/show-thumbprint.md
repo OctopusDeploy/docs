@@ -1,5 +1,5 @@
 ---
-title: Show Thumbprint
+title: Show thumbprint
 description:  Shows the squid and thumbprint of the server instance
 position: 193
 ---

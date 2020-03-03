@@ -1,5 +1,5 @@
 ---
-title: Import Certificates
+title: Import certificates
 description:  Replace the certificate that Octopus Server uses to authenticate itself with its Tentacles
 position: 80
 ---

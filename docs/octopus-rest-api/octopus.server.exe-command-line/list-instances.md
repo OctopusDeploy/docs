@@ -1,5 +1,5 @@
 ---
-title: List Instances
+title: List instances
 description: Lists all installed Octopus instances
 position: 121
 ---

@@ -1,5 +1,5 @@
 ---
-title: Tentacle Installation Requirements
+title: Tentacle installation requirements
 description: Software and hardware requirements for installing the latest version of Tentacle.
 position: 10
 hideInThisSection: true
@@ -27,7 +27,7 @@ The installation requirements for the latest version of Tentacle are:
 - Windows PowerShell 3.0 or 4.0 is recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
 - Windows PowerShell 5.1 is required to run Azure steps
 
-## Hardware Requirements
+## Hardware requirements
 
 - Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space.
 

@@ -1,5 +1,5 @@
 ---
-title: metrics
+title: Metrics
 description: Configure metrics logging
 position: 130
 ---

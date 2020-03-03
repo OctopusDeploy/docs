@@ -1,5 +1,5 @@
 ---
-title: Octopus.Server.exe Command Line
+title: Octopus.Server.exe command line
 description: Octopus.Server.exe is the executable that runs the Octopus instance, it can also be called from the command line.
 position: 120
 hideInThisSection: true
@@ -37,7 +37,7 @@ hideInThisSection: true
 - **[version](/docs/octopus-rest-api/octopus.server.exe-command-line/version.md)**:  Show the Octopus Server version information.
 - **[watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md)**:  Configure a scheduled task to monitor the Octopus service(s).
 
-## General Usage {#Octopus.Server.exeCommandLine-Generalusage}
+## General usage {#Octopus.Server.exeCommandLine-Generalusage}
 
 All commands take the form of:
 

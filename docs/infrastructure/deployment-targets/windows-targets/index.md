@@ -1,8 +1,9 @@
 ---
-title: Windows Targets
+title: Windows targets
 description: How to install Octopus Tentacles on Windows targets as either listening or polling Tentacles.
 position: 10
 ---
+
 When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on your Windows servers so they can communicate with the Octopus Server.
 
 Once installed, Tentacles:
@@ -16,7 +17,7 @@ Before you install Tentacle, review the software and hardware requirements for:
 - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
 - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requirements.md).
 
-## Communication Mode
+## Communication mode
 
 Tentacles can be configured to communicate in Listening mode or Polling mode. Listening mode is the recommended communication style. Learn about the differences between the two modes and when you might choose to use Polling mode instead of Listening mode on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
@@ -33,11 +34,11 @@ Your deployment target is configured, next you need to preform a [health check a
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 
-### Update your Tentacle Firewall
+### Update your Tentacle firewall
 
 To allow your Octopus Deploy Server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard).
 
-**Intermediary Firewalls**
+**Intermediary firewalls**
 
 Don't forget to allow access in any intermediary firewalls between the Octopus Server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly, if your Tentacle server is hosted in Microsoft Azure, you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
@@ -52,7 +53,7 @@ Your deployment target is configured, next you need to preform a  [health check 
 
 If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
 
-### Update your Octopus Server Firewall
+### Update your Octopus Server firewall
 
 To allow Tentacle to connect to your Octopus Deploy Server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the HTTP Octopus Web Portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Deploy Server](/docs/installation/index.md)).
 
@@ -65,6 +66,6 @@ this is on purpose, and it means you can use different firewall conditions to al
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
-### Intermediary Firewalls
+### Intermediary firewalls
 
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.

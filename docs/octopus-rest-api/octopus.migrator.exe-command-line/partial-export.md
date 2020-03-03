@@ -1,5 +1,5 @@
 ---
-title: Partial Export
+title: Partial export
 description: Using the Octopus.Migrator.exe command line tool to export data to a directory filtered by a single project.
 ---
 
@@ -70,7 +70,7 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
-## Basic Examples {#PartialExport-Basicexamples}
+## Basic examples {#PartialExport-Basicexamples}
 
 This will export the project files from *AcmeWebStore* and then spider back through the relevant linked documents in the database and back up *only those that are required in some way* to reproduce that project in its entirety.
 

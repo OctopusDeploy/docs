@@ -1,5 +1,5 @@
 ---
-title: Add a Space With Environments
+title: Add a Space with environments
 description: An example script to create a new space and populate it with some default environments.
 ---
 

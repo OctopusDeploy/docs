@@ -7,7 +7,7 @@ Steps contain the actions your deployment process will execute each time you cre
 
 Octopus includes built-in step templates that have been developed by the Octopus team to handle the most common deployment scenarios. In addition to the built-in step templates, there are also [Community Step Templates](/docs/deployment-process/steps/community-step-templates.md) that have been contributed by the community. You can also use the built-in step templates as the base to create [custom steps templates](/docs/deployment-process/steps/custom-step-templates.md) to use across your projects.
 
-## Adding Steps to Your Deployment Processes
+## Adding steps to your deployment processes
 
 1. Navigate to your [project's](/docs/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
@@ -44,13 +44,13 @@ Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
 With your deployment configured you're ready to create a [release](/docs/managing-releases/index.md).
 
-## Example: A Simple Deployment Process
+## Example: A simple deployment process
 
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-examples/package-deployments/index.md) and execute [custom scripts](/docs/deployment-examples/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/deployment-targets/index.md#target-roles) **web-server**.
 
 ![A simple deployment process](images/simple-process.png)
 
-## Example: A Rolling Deployment Process
+## Example: A rolling deployment process
 
 Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 

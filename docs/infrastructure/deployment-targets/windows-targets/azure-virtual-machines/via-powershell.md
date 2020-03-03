@@ -1,5 +1,5 @@
 ---
-title: Installing the Tentacle VM Extension via PowerShell
+title: Installing the Tentacle VM extension via PowerShell
 description: How to install the Tentacle VM Extension using the PowerShell
 position: 3
 ---
@@ -8,7 +8,7 @@ The Azure VM Extension can be added to your virtual machine using the Azure Powe
 
 Refer to the [configuration structure](configuration-structure.md) for information regarding the format of the `publicSettings.json` and `privateSettings.json` files mentioned in these examples.
 
-## Azure Service Management (ASM) Mode {#AzureVirtualMachines-AzureServiceManagement}
+## Azure Service Management (ASM) mode {#AzureVirtualMachines-AzureServiceManagement}
 
 To install the extension on a VM:
 
@@ -55,7 +55,7 @@ $vm = Get-AzureVm -Name "<vm-name>" -servicename "<cloud-service-name>"
 Remove-AzureVMExtension -VM $vm -ExtensionName "OctopusDeployWindowsTentacle" -Publisher "OctopusDeploy.Tentacle"
 ```
 
-## Azure Resource Manager (ARM) Mode {#AzureVirtualMachines-AzureResourceManager}
+## Azure Resource Manager (ARM) mode {#AzureVirtualMachines-AzureResourceManager}
 
 To install the extension on a VM:
 

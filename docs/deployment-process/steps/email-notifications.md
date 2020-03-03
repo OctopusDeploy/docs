@@ -1,5 +1,5 @@
 ---
-title: Email Notification Step
+title: Email notification step
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
 position: 15
 ---
@@ -12,11 +12,11 @@ Deployments can have a strong impact on the people whose work depends on the sys
 
 Before you can add email steps to your deployment processes, you need to add your SMTP  configuration.
 
-## SMTP Configuration
+## SMTP configuration
 
 To add you SMTP configuration navigate to **{{Configuration,SMTP}}** and enter your server's details.
 
-## Add an Email Step
+## Add an email step
 
 Email steps are added to deployment processes in the same way as other steps.
 
@@ -45,11 +45,11 @@ docs
 
 10. Save the step.
 
-## Email Template Examples
+## Email template examples
 
 You can set the email subject and author the email body as plain text or HTML content. You can even use the Octopus [variable syntax](/docs/projects/variables/variable-substitutions.md) to include information about the deployment in the email.
 
-### Deployment Summary Template
+### Deployment summary template
 
 This template collects basic information about the deployment, including the package versions included in each step.
 
@@ -84,7 +84,7 @@ The output of the template will be an HTML email like:
 
 ![](images/email-output.png)
 
-### Including Step Status
+### Including step status
 
 The outcome of each step can be included using a template like the one below:
 

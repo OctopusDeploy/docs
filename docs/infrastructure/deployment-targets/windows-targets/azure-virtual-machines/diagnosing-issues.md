@@ -1,5 +1,5 @@
 ---
-title: Diagnosing Tentacle VM Extension Issues
+title: Diagnosing Tentacle VM extension issues
 description: How to diagnose and resolve installation issues with the Tentacle VM Extension
 position: 8
 ---

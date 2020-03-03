@@ -6,7 +6,7 @@ position: 10
 
 !include <environments>
 
-## Add New Environments {#add-new-environments}
+## Add new environments {#add-new-environments}
 
 1. Navigate to **{{Infrastructure,Environments}}** and click **ADD ENVIRONMENT**.
 1. Give your new environment a meaningful name and click **SAVE**.
@@ -17,19 +17,19 @@ position: 10
 
 You can add as many environments as you need.
 
-## Editing Your Environments
+## Edit your environments
 
 To edit individual environments, click the ... overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](#dynamic-infrastructure), or delete the environment.
 
-## Environment Permissions
+## Environment permissions
 
 You can control who has access to view, edit, and deploy to environments by assigning users to Teams and assigning roles to those teams. For more information, see the section on [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
-## Managing Your Environments
+## Manage your environments
 
 If you're working with a large number of environments and deployment targets, the **Environments** page makes it easy to sort, filter, and view your environments and the deployment targets that belong to each environment.
 
-## Sorting Your Environments
+## Sort your environments
 
 Click the ... overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments.
 
@@ -40,19 +40,19 @@ The order that environments are shown in the environments tab also affects:
 
 It's a good idea to put your least production-like environments first, and the most production-like environments last.
 
-## Using Advanced Filters
+## Use advanced filters
 
 You can use advanced filters to search your environments by clicking on **SHOW ADVANCED FILTERS** from the environment page.
 
 This will let you search by:
 
 - Name
-- Deployment Target
+- Deployment target
 - Environment
 - Target Roles
 - Health Status
-- Communication Style
+- Communication style
 
-## Next
+## Learn more
 
-Learn how to add and manage your [Deployment Targets](/docs/infrastructure/deployment-targets/index.md).
+Learn how to add and manage your [deployment targets](/docs/infrastructure/deployment-targets/index.md).

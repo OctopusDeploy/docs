@@ -1,5 +1,5 @@
 ---
-title: Sudo Commands
+title: Sudo commands
 description: Useful sudo commands to help you with your deployments to SSH Targets.
 position: 20
 ---
@@ -20,11 +20,11 @@ in Ubuntu, and:
 
 in Red Hat
 
-## Enabling Sudo Command {#SudoCommands-EnablingSudocommand}
+## Enabling sudo command {#SudoCommands-EnablingSudocommand}
 
 The recommended way to enable these commands to be run is to disable the password prompt for the user account used for deployments.
 
-### Disable Password Prompt {#SudoCommands-DisablePasswordPrompt}
+### Disable password prompt {#SudoCommands-DisablePasswordPrompt}
 
 Running the following command (from a shell with interactive mode so you can enter any required passwords) adds a file that is read conjunction with the sudoers file to configure valid sudo policies.
 

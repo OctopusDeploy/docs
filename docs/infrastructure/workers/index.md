@@ -7,7 +7,7 @@ hideInThisSectionHeader: true
 
 !include <workers>
 
-## Where Steps Run
+## Where steps run
 
 The following step types and configurations run on a worker:
 
@@ -18,8 +18,8 @@ The following step types and configurations run on a worker:
 The following steps always run inside the Octopus Server process (and do not run user-supplied code):
 
 - Email
-- Manual Intervention
-- Import Certificate
+- Manual intervention
+- Import certificate
 
 A worker receives instruction from the Octopus Server to execute a step, it executes the step using Calamari and returns the logs and any collected artifacts to the Octopus Server.
 
@@ -51,7 +51,7 @@ Learn about the security implications and how to configure the [built-in worker]
 
 ## External Workers {#external-workers}
 
-An **external worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/linux/index.md) that has been registered with the Octopus Server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
+An **External Worker** is either a [Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH machine](/docs/infrastructure/deployment-targets/linux/index.md) that has been registered with the Octopus Server as a worker.  The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/index.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Using external workers allows delegating work to a machine other than the Octopus Server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari and no user-provided script executes on the Octopus Server itself.
 
@@ -61,7 +61,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) or with the tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
-### Registering Workers in the Web Portal
+### Registering Workers in the Octopus Web Portal
 
 1. Navigate to **{{Infrastructure,Workers}}** and click **ADD WORKER**.
 1. Select **WINDOWS** or **SSH CONNECTION** and click the card for the type of worker you want to configure.
@@ -88,7 +88,7 @@ It is not currently possible to configure a worker as a Polling Tentacle with th
 
 To register a worker with an SSH Connection, see the instructions for configuring [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md).
 
-### Registering Workers with the Tentacle Executable
+### Registering Workers with the Tentacle executable
 
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 
@@ -113,7 +113,7 @@ It can be advantageous to have workers on the same local network as the server t
 
 Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as making the Octopus Server more secure by using external workers.
 
-## Multiple Projects Run Simultaneously on Workers
+## Multiple projects run simultaneously on Workers
 
 Many workers may be running in parallel and a single worker can run multiple actions in parallel.  
 
@@ -123,7 +123,7 @@ External workers and the built-in worker have the same behavior in this regard a
 
 Note that if external workers are added to the default pool, then the workload is shared across those workers: a single external worker will be asked to perform exactly the same load as the built-in worker would have been doing, two workers might get half each, etc.
 
-### Workers in HA Setups
+### Workers in HA setups
 
 In an HA Octopus setup, each node has a task cap and can invoke a built-in worker locally, so for a 4-node HA cluster, there are 4 built-in workers.  Therefore if you move to external workers, it's likely you'll need to provision workers to at least match your server nodes, otherwise, you'll be asking each worker to do the sum of what the HA nodes were previously doing.
 

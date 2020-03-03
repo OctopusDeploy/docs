@@ -1,12 +1,12 @@
 ---
-title: Tentacle VM Extension Configuration Structure
+title: Tentacle VM extension configuration structure
 description: Detailed file format information for the configuration files required for the Azure Tentacle VM Extension
 position: 7
 ---
 
 These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell.md).
 
-## Public Settings
+## Public settings
 
 The schema for the public configuration file is:
 
@@ -57,7 +57,7 @@ In `Listen` mode, the extension will automatically add a Windows Firewall rule t
 The Tentacle will also need to be able to reach the Octopus Server portal to register the Tentacle. Once registered, this is no longer required.
 :::
 
-## Private Settings
+## Private settings
 
 The schema for the private configuration file is:
 

@@ -1,5 +1,5 @@
 ---
-title: Worker Pools
+title: Worker pools
 description: Worker pools are used to group workers and allow targeting steps at the pool of workers best equipped to execute the step.  This page describes how to configure worker pools for a variety of scenarios.
 position: 40
 ---
@@ -8,7 +8,7 @@ Worker pools are groups of [workers](/docs/infrastructure/workers/index.md), whe
 
 ## Default Worker Pool
 
-There is always a default worker pool, and the default pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can't be scoped.  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
+There is always a default worker pool, and the default Pool can't be deleted, but you can swap which pool is the default. Worker pools are global resources which can't be scoped.  All users can see what pools are available and if there are workers in the pools. Only a user with the `ConfigureServer` permission can see the worker machines or edit workers or pools.
 
 Using multiple workers pools allows you to configure the workers in your  pools for the tasks they will be assigned. For instance, depending on your teams needs you might configure worker pools in the following ways:
 
@@ -40,11 +40,11 @@ The step will fail for lack of a worker if:
 - There are no healthy workers in the pool.
 - Octopus selects a healthy worker from the pool, but during the deployment process can't contact the worker.
 
-## Using the Default Pool for Scripts
+## Using the Default Pool for scripts
 
 When you add workers to the default worker pool the built-in worker will be disabled. This means any deployment processes that previously used the built-in worker on the Octopus Server, will automatically move from using the built-in worker to workers in the worker pool.
 
-## Add New Worker Pools
+## Add new Worker Pools
 
 Only users with the `ConfigureServer` permission can add or edit worker pools.
 
@@ -55,16 +55,16 @@ Only users with the `ConfigureServer` permission can add or edit worker pools.
 
 You can add as many worker pools as you need.
 
-## Configuring a Step to Use a Worker Pool
+## Configuring a step to use a Worker Pool
 
 If there are worker pools configured, any step that requires a worker can be targeted at any pool.  It's possible to use multiple pools in the one deployment process, for example, if you configured one pool of workers for script steps and another for Azure deployments.  Once there are worker pools configured, the **Octopus Web Portal** will ensure a pool is set for any step that requires a worker.
 
 :::hint
-**What's Shown in the UI?**
+**What's shown in the UI?**
 The **Octopus Web Portal** is worker pool aware.  If you haven't configured pools or workers, the only option for steps that require a worker is the built-in worker, so the UI will only display the option to run a step on the `Octopus Server`.  In this case, Azure, AWS and Terraform steps will assume the default and display no choice.  If you have configured extra workers or pools, script, Azure, AWS and Terraform steps will allow the selection of a worker pool.
 :::
 
-## Configuring a Cloud Target to Have a Default Worker Pool
+## Configuring a cloud target to have a Default Worker Pool
 
 Cloud targets can set their own default pool.  If a step is targeted at a cloud target and the worker pool for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers.
 

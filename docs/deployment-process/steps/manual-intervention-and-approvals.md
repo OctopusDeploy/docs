@@ -1,5 +1,5 @@
 ---
-title: Manual Intervention and Approval Step
+title: Manual intervention and approval step
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
 position: 20
 ---
@@ -13,7 +13,7 @@ While fully automated deployment is a great goal, there are times when a human n
 
 The **Manual intervention step** is a step that can be added to deployment processes to pause the deployment to wait for a member of a specified team to either allow the deployment to proceed or to be aborted.
 
-## Add a Manual Intervention Step
+## Add a manual intervention step
 
 Manual intervention steps are added to deployment processes in the same way as other steps.
 
@@ -31,7 +31,7 @@ Manual intervention steps are added to deployment processes in the same way as o
   - Run based on the value of a variable expression.
 10. Save the step.
 
-## Assigning Manual Interventions
+## Assigning manual interventions
 
 When a deployment is executing and a manual step is encountered, the deployment will show a status of **Waiting**. An interruption will appear at the top of the deployment summary.
 
@@ -45,7 +45,7 @@ When the interruption has been assigned to you, you can then perform the action 
 
 When aborting a deployment, it's a good idea to write a reason into the **Notes** field, so that the rest of the team can see why the deployment was aborted.
 
-## Output Variables
+## Output variables
 
 When a manual step is completed, details of the interruption are saved as variables that can be used in other steps including [email](/docs/deployment-process/steps/email-notifications.md) templates.
 

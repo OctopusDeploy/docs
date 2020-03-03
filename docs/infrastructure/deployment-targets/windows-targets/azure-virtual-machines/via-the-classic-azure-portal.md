@@ -1,6 +1,6 @@
 ---
-title: Installing the Tentacle VM Extension via the Classic Azure Portal
-description: How to install a Tentacle using the Azure VM Extension via the classic Azure Portal
+title: Installing the Tentacle VM extension via the classic Azure Portal
+description: How to install a Tentacle using the Azure VM extension via the classic Azure Portal
 position: 2
 ---
 

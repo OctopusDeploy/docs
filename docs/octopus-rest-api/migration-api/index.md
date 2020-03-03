@@ -12,7 +12,7 @@ The API currently includes support for both the [partial-export](/docs/octopus-r
 **Note:** the migration API is **not supported** for migrations from self-hosted Octopus Server to Octopus Cloud currently - please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md) for information on how to migrate to Octopus Cloud.
 :::
 
-## How it Works
+## How it works
 
 When you trigger a migration via the API, your Octopus Server will queue up a migration task that you can view from your **Tasks** screen. During execution of this task, your Octopus Server will go into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md) to try and minimize any data mutations during the migration. When the task is completed, it will be taken out of maintenance mode.
 
@@ -36,7 +36,7 @@ The typical process for migrating projects between a source and destination serv
 1. Your destination server's task queue will then execute an `import` command using `Migrator.exe`.
 1. _At this point, your destination server's task queue will then execute the `import` command using `Migrator.exe`._
 
-## Partial Export API
+## Partial export API
 
 Using the partial-export API, we can export one or more of our projects and choose to send the package to the destination Octopus Server's package feed.
 
@@ -82,11 +82,11 @@ Import API parameters:
 
 ## Examples
 
-### Raw Request
+### Raw request
 
 You can trigger a request however you prefer, using curl, Fiddler, or your tool of choice...
 
-#### Partial Export
+#### Partial export
 
 ```text
 Request Method: POST
@@ -134,7 +134,7 @@ If you are using the Spaces feature of Octopus Deploy on the source server, you 
 
  If you are not using the Spaces feature, you do not need to supply the SpaceID values.
 
-### Octopus.Clients Example
+### Octopus.Clients example
 
 The [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) can also help you run a migration.
 

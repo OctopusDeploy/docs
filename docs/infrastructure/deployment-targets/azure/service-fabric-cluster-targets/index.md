@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Cluster Targets
+title: Azure Service Fabric cluster targets
 description: Azure Service Fabric Cluster deployment targets allow you to reference existing Service Fabric Cluster apps that are available in your Azure subscription, that you can then reference by role during deployments.
 position: 10
 ---
@@ -21,7 +21,7 @@ You need to create a Service Fabric cluster (either in Azure, on-premises, or in
 
 To learn about building Azure Service Fabric apps see the [Service Fabric documentation](https://azure.microsoft.com/en-au/services/service-fabric/).
 
-## Creating Service Fabric Cluster Targets
+## Creating Service Fabric cluster targets
 
 Once you have a Service Fabric Cluster application setup within your Azure subscription, you are ready to map that to an Octopus deployment target.
 
@@ -42,6 +42,6 @@ If your Azure Service Fabric Cluster target does not successfully complete a hea
 
 Alternatively, it could be the security settings of your Service Fabric Cluster denying access. Our deployments documentation discusses [the various security modes of Service Fabric](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/index.md#security-modes) in greater detail.
 
-## Deploying to Service Fabric Targets
+## Deploying to Service Fabric targets
 
 To learn about deploying to Service Fabric targets, see our [documentation about this topic](/docs/deployment-examples/azure-deployments/deploying-to-service-fabric/index.md).

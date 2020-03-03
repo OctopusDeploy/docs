@@ -1,5 +1,5 @@
 ---
-title: AWS Accounts
+title: AWS accounts
 description:  Configure your infrastructure so Octopus can deploy infrastructure to AWS and run scripts against the AWS CLI.
 position: 70
 ---
@@ -12,7 +12,7 @@ Octopus manages the AWS credentials used by the AWS steps.
 
 The AWS account is either a pair of access and secret keys, or the credentials are retrieved from the IAM role assigned to the instance that is executing the deployment.
 
-## Create an AWS Account
+## Create an AWS account
 
 AWS steps can use an Octopus managed AWS account for authentication.
 
@@ -29,11 +29,11 @@ See the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/managi
 AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus Server for authentication. In this scenario there is no need to create the AWS account.
 :::
 
-## AWS Account Variables
+## AWS account variables
 
 You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/projects/variables/aws-account-variables.md)
 
-## Using AWS Service Roles for an EC2 Instances
+## Using AWS Service roles for an EC2 instances
 
 AWS allows you to assign a role to an EC2 instance, referred to as an [AWS service role for an EC2 instance](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts), and that role can be accessed to generate the credentials that are used to deploy AWS resources and run scripts.
 
@@ -45,7 +45,7 @@ It is expected that in future these steps will be run on [worker instances](http
 
 When using the IAM role assigned to the Octopus EC2 instance, there is no need to create an AWS account in Octopus.
 
-## Manually Using AWS Account Details in a Step
+## Manually using AWS account details in a step
 
 A number of steps in Octopus use the AWS account directly. For example, in the CloudFormation steps, you define the AWS account variable that will be used to execute the template deployment, and the step will take care of passing along the access and secret keys defined in the account.
 
@@ -73,10 +73,10 @@ You can then use these variables in your scripts or other step types. For exampl
 Write-Host "$($OctopusParameters["AWS Account.AccessKey"])"
 ```
 
-## Known AWS Connection Issue
+## Known AWS connection issue
 
 If you are experiencing SSL/TLS connection errors when connecting to AWS from your Octopus Server, you may be missing the **Amazon Root CA** on your Windows Server. The certificates can be downloaded from the [Amazon Trust Repository](https://www.amazontrust.com/repository/).
 
 ## AWS deployments
 
-Learn more about [AWS Deployments](/docs/deployment-examples/aws-deployments/index.md).
+Learn more about [AWS deployments](/docs/deployment-examples/aws-deployments/index.md).

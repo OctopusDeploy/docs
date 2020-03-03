@@ -1,6 +1,6 @@
 ---
-title: Installing the Tentacle VM Extension via an ARM Template
-description: How to install the Tentacle VM Extension using an Azure Resource Manager (ARM) Template
+title: Installing the Tentacle VM extension via an ARM template
+description: How to install the Tentacle VM extension using an Azure Resource Manager (ARM) template
 position: 5
 ---
 
@@ -52,7 +52,7 @@ Create your ARM template as normal, and add a `resources` element under your `Mi
 ]
 ```
 
-## Properties ##
+## Properties
 
 * `publisher`: (string) Must be `OctopusDeploy.Tentacle`.
 * `type`: (string) Must be `OctopusDeployWindowsTentacle`.

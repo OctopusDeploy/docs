@@ -1,5 +1,5 @@
 ---
-title: Issue Trackers
+title: Issue trackers
 description: Integrating with issue trackers
 position: 50
 hideInThisSection: true
@@ -9,9 +9,9 @@ Octopus **2019.4** introduced integration with [Jira](/docs/managing-releases/is
 
 For an overview of the integration, the features these integrations enable, and configuration instructions, see:
 
- - [Jira Integration](/docs/managing-releases/issue-tracking/jira.md)
- - [GitHub Integration](/docs/managing-releases/issue-tracking/github.md)
- - [Azure DevOps Integration](/docs/managing-releases/issue-tracking/azure-devops.md)
+ - [Jira integration](/docs/managing-releases/issue-tracking/jira.md)
+ - [GitHub integration](/docs/managing-releases/issue-tracking/github.md)
+ - [Azure DevOps integration](/docs/managing-releases/issue-tracking/azure-devops.md)
 
  ## Learn more
 

@@ -1,6 +1,6 @@
 ---
 title: Azure
-description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or Cloud Regions.
+description: Configure your infrastructure so Octopus can deploy software to your Windows servers, Linux servers, or cloud regions.
 position: 30
 ---
 
@@ -8,23 +8,23 @@ You can deploy software to the Azure cloud by adding your Azure subscription to 
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
-## Azure Account Authentication Method {#CreatinganAzureAccount-AuthenticationMethod}
+## Azure account authentication method {#CreatinganAzureAccount-AuthenticationMethod}
 
 When you add an Azure account to Octopus, there are two ways to authenticate with Azure in Octopus. These represent the different interfaces in Azure, and the interface you need will dictate which authentication method you use.
 
 - [Service Principal](#azure-service-principal) (default) is used with resource manager mode (ARM).
-- [Management Certificate](#azure-management-certificate) is used with service management mode (ASM)
+- [Management certificate](#azure-management-certificate) is used with service management mode (ASM)
 
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
-## Creating an Azure Service Principal Account {#azure-service-principal}
+## Creating an Azure Service Principal account {#azure-service-principal}
 
 Azure Service Principal accounts are for use with the **Azure Resource Management (ARM) API** only. Configuring your Octopus Server to authenticate with the service principal you create in Azure Active Directory will let you configure finely grained authorization for your Octopus Server.
 
 1. Create an Azure Active Directory registered application (or application registration) and service principal (via the [Azure Portal](#create-service-principal-account-in-azure) or with [PowerShell](#create-service-principal-account-with-powershell)).
 2. Allow Octopus to authenticate with Azure using a Service Principal.
 
-### Create an Azure Service Principal With the Azure Portal {#create-service-principal-account-in-azure}
+### Create an Azure Service Principal with the Azure Portal {#create-service-principal-account-in-azure}
 
 This step shows you how to create a Service Principal with the Azure Portal, if you would rather use PowerShell to create the Service Principal, see [Create an Azure Service Principal With PowerShell](#create-service-principal-account-with-powershell).
 
@@ -42,7 +42,7 @@ You now have the following:
 
 Next, you need to configure your [resource permissions](#resource-permissions).
 
-### Create an Service Principal With PowerShell {#create-service-principal-account-with-powershell}
+### Create an Service Principal with PowerShell {#create-service-principal-account-with-powershell}
 
 This step shows you how to create a Service Principal with the PowerShell script below, if you would rather use the Azure Portal to create the Service Principal, see [Create an Azure Service Principal With the Azure Portal](#create-service-principal-account-in-azure).
 
@@ -104,7 +104,7 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 
 Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account).
 
-## Resource Permissions {#resource-permissions}
+## Resource permissions {#resource-permissions}
 
 The final step is to ensure your registered app has permission to work with your Azure resources.
 
@@ -117,7 +117,7 @@ Now, you can [add the Service Principal Account in Octopus](#add-service-princip
 Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
 :::
 
-### Note on Least Privilege {#note_on_lease_privilege}
+### Note on least privilege {#note_on_lease_privilege}
 
 In the PowerShell and Permissions example above the service principal is assigned the **Contributor** role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal is granted. If that's the case, there are a couple of things worth noting.
 
@@ -127,7 +127,7 @@ Next, if you might want to get even more granular you can constrain the service 
 
 The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployment-examples/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
-## Add the Service Principal Account in Octopus {#add-service-principal-account}
+## Add the Service Principal account in Octopus {#add-service-principal-account}
 
 Now that you have the following values, you can add your account to Octopus:
 
@@ -144,11 +144,11 @@ Now that you have the following values, you can add your account to Octopus:
 
 Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
 
-## Creating a New Service Principal Credential
+## Creating a new Service Principal credential
 
 If you need to create a new **Service Principal Credential** this can be done either with [PowerShell](#new-add-service-principal-credential-with-powershell) or the [Azure Portal](#new-add-service-principal-credential-azure-portal).
 
-### Step 1: Creating a New AAD Service Principal Credential
+### Step 1: Creating a new AAD Service Principal credential
 
 #### Using PowerShell {#new-add-service-principal-credential-with-powershell}
 
@@ -184,7 +184,7 @@ $servicePrincipalCred | Format-Table
 
 For the Azure Portal steps, create a new Key using the directions [here](https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/).
 
-### Step 2: Updating the Password/Key in the Octopus Azure Subscriptions
+### Step 2: Updating the Password/Key in the Octopus Azure subscriptions
 
 Navigate to **{{Environments,Accounts}}** and click on the account you wish to update in the **Azure Subscriptions** section.
 
@@ -193,7 +193,7 @@ Use the **Change** button to modify the password or key and enter the password o
 Click **Save and test** to confirm the account can interact with Azure.
 
 
-## Creating an Azure Management Certificate Account {#azure-management-certificate}
+## Creating an Azure Management Certificate account {#azure-management-certificate}
 
 Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
@@ -223,6 +223,6 @@ Click **Save and Test**, and Octopus will attempt to use the account credentials
 
 You can now configure Octopus to deploy to Azure via the Azure Service Management (ASM) API.
 
-## Azure Account Variables {#azure-account-variables}
+## Azure account variables {#azure-account-variables}
 
 You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployment-examples/azure-deployments/index.md).

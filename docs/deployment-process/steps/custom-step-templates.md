@@ -1,5 +1,5 @@
 ---
-title: Custom Step Templates
+title: Custom step templates
 description: How to create reusable steps
 position: 2
 ---
@@ -8,7 +8,7 @@ Sometimes there isn't a built-in step template or a [community step template](/d
 
 Custom step templates can be based on a built-in or installed community step templates. These custom step templates can be reused in projects and managed in the step template library.
 
-## Creating Custom Step Templates
+## Creating custom step templates
 
 To create your own step template, perform the following.
 
@@ -56,11 +56,11 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![Step templates usage](images/step-templates-usage.png)
 
-## Custom Logo
+## Custom logo
 
 Custom step templates inherit their logo from the template that was used to create them. This means that most of them will share the same logo. Fortunately this can be easily changed and each custom template can have its own unique logo. To do that navigate to the Settings tab and upload a custom logo from there.
 
-## Export Your Custom Step Template
+## Export your custom step template
 
 If you want to transport, backup, or share your custom step templates with the community, you can export a template by finding your template in **{{Library,Step templates}}**, and clicking the **Export** link.
 
@@ -72,13 +72,13 @@ Now you can take that exported template document and commit it to source control
 Take a look at the [contributing guide](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) for the Community Library and submit your step template as a [pull request](https://github.com/OctopusDeploy/Library/pulls).
 :::
 
-## Linking Custom Step Templates to Community Step Templates
+## Linking custom step templates to community step templates
 
 Once a day Octopus retrieves the latest step templates from the [Community Library](https://library.octopus.com/). At the end of that process it also tries to link the community step templates to the any existing custom templates that have been imported manually in the past. Once the link is established the custom template can receive updates directly from the [Community Library](https://library.octopus.com/). If all the properties **except the version property** match the custom step template and the community step template will be linked.
 
 If the linking process isn't linking a template that you believe should be linked then more than likely you don't have the very latest version of the template. The easiest way to fix this problem is to manually update the template with the data from the [Community Library](https://library.octopus.com/).
 
-## Running Script Based Custom Step Templates
+## Running script based custom step templates
 
 **Octopus 3.7** introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/managing-infrastructure/performance/enable-web-request-logging.md) in the past.
 
@@ -108,7 +108,7 @@ To run a script based step template, perform the following.
 
 To re-run the script against different deployment targets or modify the input parameters, simply click the **Modify and re-run** button.
 
-## Common Step Properties
+## Common step properties
 
 All steps have a name, which is used to identify the step.
 

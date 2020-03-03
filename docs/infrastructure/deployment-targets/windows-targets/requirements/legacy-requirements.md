@@ -1,5 +1,5 @@
 ---
-title: Legacy Tentacle Installation Requirements
+title: Legacy Tentacle installation requirements
 description: Software and hardware requirements for installing legacy versions of Tentacles.
 position: 20
 ---
@@ -23,7 +23,7 @@ If you're using **Tentacle 3.1** or later, refer to these [installation requirem
 - Windows PowerShell 3.0 or 4.0 is recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
 - Windows Server 2003 servers will need [Windows Management Framework](http://support.microsoft.com/kb/968930?__hstc=254453975.06c54f702f3aed3215f4224e6b75b56f.1380851265147.1386910090621.1387188601891.78&amp;__hssc=254453975.2.1387188601891&amp;__hsfp=4151299608) installed (this includes PowerShell).
 
-## Hardware Requirements
+## Hardware requirements
 
 - Hardware minimum: 512MB RAM, 1GHz CPU, 2GB free disk space.
 

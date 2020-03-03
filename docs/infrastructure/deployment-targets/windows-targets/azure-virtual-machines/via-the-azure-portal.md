@@ -1,5 +1,5 @@
 ---
-title: Installing the Tentacle VM Extension via the Azure Portal
+title: Installing the Tentacle VM extension via the Azure Portal
 description: How to install a Tentacle using the Azure VM Extension via the new Azure Portal
 position: 1
 ---

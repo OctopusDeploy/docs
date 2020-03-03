@@ -1,5 +1,5 @@
 ---
-title: Azure Web App Targets
+title: Azure Web App targets
 description: Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
 position: 20
 ---
@@ -14,9 +14,9 @@ Azure Web App deployment targets allow you to reference existing Web Apps in you
 
 - Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
 
-## Creating Web App Targets
+## Creating web app targets
 
-Once you have an App Service setup within your Azure subscription, you are ready to map that to an Octopus deployment target.
+Once you have an App Service configured within your Azure subscription, you are ready to map that to an Octopus deployment target.
 
 To create an Azure Web App target within Octopus:
 
@@ -39,9 +39,9 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 ![](deployment-targets-web-app-healthy.png)
 
 
-### Creating Web App Targets by Scripts
+### Creating Web App targets by scripts
 
-Azure Web App targets can also be created via a PowerShell Cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
+Azure Web App targets can also be created via a PowerShell cmdlet within a Deployment Process, this can be especially handy if you are also creating the Azure Web App via a script.
 
 See [Managing Resources by script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) for more information on creating Azure Web Apps via a script.
 
@@ -49,6 +49,6 @@ See [Managing Resources by script](/docs/infrastructure/deployment-targets/dynam
 
 If your Azure Web App target does not successfully complete a health check, you may need to check that your Octopus Server can communicate with Azure. It may be worth checking that your Azure Account is able to complete a _Save and Test_ to ensure Octopus can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult with your Systems Administrator to ensure it can communicate with Azure.
 
-## Deploying to Web App Targets
+## Deploying to Web App targets
 
 To learn about deploying to Azure Web App targets, see our [documentation about this topic](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure DevOps Work Item Tracking Integration
+title: Azure DevOps work item tracking integration
 description: Configure Azure DevOps work item tracking with Octopus.
 position: 40
 ---
@@ -8,7 +8,7 @@ position: 40
 - Automatically add links to Azure DevOps work items from releases and deployments in Octopus.
 - Retrieve release notes from Azure DevOps work item comments for automatic release note generation.
 
-## How Azure DevOps Integration Works
+## How Azure DevOps integration works
 
 ![Octopus Azure DevOps integration - how it works diagram](images/octo-azure-devops-how-it-works.png "width=500")
 
@@ -41,7 +41,7 @@ The following steps explain how to integrate Octopus with Azure DevOps:
 1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which work items are associated with a release.  
 2. [Configure the Azure DevOps connection in Octopus Deploy.](#connect-octopus-to-azure-devops)
 
-## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
+## Configure your build server to push build information to Octopus {#configure-your-build-server}
 
 To integrate with Azure DevOps work items, Octopus needs to understand which work items are associated with a [release](/docs/managing-releases/index.md). Octopus does this by using the build information associated with any packages contained in the release to request work item references from Azure DevOps.
 
@@ -76,6 +76,6 @@ If you had previously been using the older functionality on the Create Octopus R
 
 When configured, this integration will retrieve Azure DevOps work item details and add details to your releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
 
-## Next
+## Learn more
 
- - Learn more about [build information](/docs/packaging-applications/build-servers/index.md#build-information).
+ - [Build information](/docs/packaging-applications/build-servers/index.md#build-information).

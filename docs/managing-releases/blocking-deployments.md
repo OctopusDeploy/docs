@@ -1,6 +1,6 @@
 ---
-title: Blocking Deployments
-description: Blocking Deployments allows you to block a release of a project from being used in any future deployments.
+title: Blocking deployments
+description: Blocking deployments allows you to block a release of a project from being used in any future deployments.
 position: 17
 ---
 
@@ -16,9 +16,9 @@ The basic rules that apply when a release is blocked is as follows:
 
 Essentially, a blocked release is about blocking progression to undeployed phases, not about deploying to phases you have already started deploying to. This allows you to, for example, block deployments to the Production phase due to a problem uncovered in UAT-1, while still deploying to UAT-2 for further analysis.
 
-## Block Deployment {#BlockingDeployments-BlockDeployment}
+## Block deployment {#BlockingDeployments-BlockDeployment}
 
-You are able to block a Release of a Project from being used in any future deployments, no matter which phase the Release is currently on. This can be done from the release page of the project you're wishing to block.
+You can block a Release of a Project from being used in any future deployments, no matter which phase the Release is currently on. This can be done from the release page of the project you're wishing to block.
 
 ![](images/5865856.png)
 
@@ -30,7 +30,7 @@ Input a reason why you're blocking it, so your team is aware and on the same pag
 
 ![](images/5865858.png)
 
-## Resolve and Unblock {#BlockingDeployments-ResolveandUnblock}
+## Resolve and unblock {#BlockingDeployments-ResolveandUnblock}
 
 Once you're happy with the deployment process continuing, go back to the release page of the project, and select "**Resolve and unblock**."
 
@@ -44,10 +44,11 @@ There are two permissions required for the act of blocking and unblocking your d
 - **DefectResolve**: Allows a user to unblock a release so it can progress to the next phase.
 
 :::hint
-**What is a Defect?**
-When you block a Release from being deployed, we actually use the Octopus API to create a "Defect" for that Release with the reason you provided for blocking future Deployments from using that Release.
+**What is a defect?**
+When you block a release from being deployed, we actually use the Octopus API to create a "Defect" for that Release with the reason you provided for blocking future Deployments from using that Release.
 :::
 
-:::success
-Learn about [managing Roles and Permissions](/docs/administration/managing-users-and-teams/user-roles.md).
-:::
+## Learn more
+
+- [Managing roles and permissions](/docs/administration/managing-users-and-teams/user-roles.md).
+

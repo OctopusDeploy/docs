@@ -1,10 +1,10 @@
 ---
-title: Create Azure Service Principal Account Command
+title: Create Azure Service Principal account command
 description: New-OctopusAzureServicePrincipalAccount allows you to create an Azure Service Principal account in Octopus from within a running deployment
 position: 10
 ---
 
-## Azure Service Principal Account
+## Azure Service Principal account
 Command: **_New-OctopusAzureServicePrincipalAccount_**
 
 _**New-OctopusAzureServicePrincipalAccount** allows you to create an Azure Service Principal account in Octopus from within a running deployment_
@@ -42,7 +42,7 @@ New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
                                         -azureResourceManagementBaseUri "https://management.microsoftazure.de/"
 ```
 
-### Azure Environment Options
+### Azure environment options
 
 The valid options for `-azureEnvironment` are available via the following command:
 ```powershell

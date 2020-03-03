@@ -1,5 +1,5 @@
 ---
-title: Release Notes
+title: Release notes
 description: Enrich your releases with notes
 position: 5
 ---
@@ -10,7 +10,7 @@ When you create a release, you can add notes:
 
 ![Viewing release notes](images/release-notes-view.png)
 
-## Using Variables in Release Notes
+## Using variables in release notes
 
 Release notes may contain variable expressions. These will be evaluated and substituted when the release is created.
 
@@ -20,13 +20,13 @@ Only variables in scope when the release is created will be available for use in
 
 ![Build information variables in release notes](images/release-notes-build-information.png)
 
-## Accessing Release Notes During a Deployment
+## Accessing release notes during a deployment
 
 The release notes may be accessed during a deployment using the [Octopus.Release.Notes](/docs/projects/variables/system-variables.md#Systemvariables-Release) variable.  
 
 Release notes are also rolled up into the [deployment notes](/docs/managing-releases/deployment-notes.md).
 
-## Release Notes Templates {#Release-Notes-Templates}
+## Release notes templates {#Release-Notes-Templates}
 
 A release notes template can be configured in {{Project,Settings,Release Notes Template}}
 
@@ -36,7 +36,7 @@ Release notes templates will generally be most useful when combined with package
 
 The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/index.md#build-information) and [issues](/docs/managing-releases/issue-tracking/index.md).
 
-### Example Templates
+### Example templates
 
 The following example illustrates some sample text followed by the packages, with the packages rendered as a bullet point list:
 

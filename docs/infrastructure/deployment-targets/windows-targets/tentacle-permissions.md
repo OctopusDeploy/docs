@@ -1,5 +1,5 @@
 ---
-title: Permissions Required for the Tentacle Windows Service
+title: Permissions required for the Tentacle Windows Service
 description: Everything you need to know about the permissions your Tentacles need.
 position: 40
 ---

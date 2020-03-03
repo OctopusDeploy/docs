@@ -1,5 +1,5 @@
 ---
-title: Configuration Transforms
+title: Configuration transforms
 description: Using configuration transformations.
 position: 70
 ---
@@ -26,7 +26,7 @@ An example web.config transformation that removes the `<compilation debug="true
 The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
-## Naming Configuration Transform Files {#Configurationfiles-Namingconfigurationtransformfiles}
+## Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
 
 This feature will run your configuration transforms by on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
@@ -56,7 +56,7 @@ When deploying to an environment named "**Test**", Octopus will execute the tran
 You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Deployment/Conventions/ConfigurationTransformsConvention.cs).
 :::
 
-## Windows Service and Console Application configuration transforms need special treatment
+## Windows Service and console application configuration transforms need special treatment
 
 Octopus looks for configuration transform files that match your executable's configuration file. Visual Studio has built-in support for this scenario for ASP.NET Web Applications, but it doesn't offer the same support for Windows Services and Console applications, you will need to take care of this yourself.
 
@@ -71,7 +71,7 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 ![](images/console-support.png)
 
 
-## Additional Configuration Transforms {#Configurationfiles-AdditionalConfigurationTransforms}
+## Additional configuration transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
 You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` check-box.
 
@@ -90,7 +90,7 @@ Transform.config => Target.config
 
 The above transform definition will apply **Transform.config** to **Target.config** when the files are in the same directory.
 
-### Relative Path
+### Relative path
 
 **Relative path config transform**
 
@@ -134,7 +134,7 @@ The above transform definition will apply **Transform.config** to **foo.config**
 If you would like to define the order of all of your transformations, if you list them in the order of transformation inside the Additional transforms feature then Octopus will use that order to run the transforms.
 :::
 
-## Suppressing Configuration Transformation Errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
+## Suppressing configuration transformation errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
 
 As of **Octopus 3.0**, any exceptions that are thrown by the Microsoft config transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
 

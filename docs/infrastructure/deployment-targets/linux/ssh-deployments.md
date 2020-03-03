@@ -1,5 +1,5 @@
 ---
-title: SSH Deployments
+title: SSH deployments
 description: Deploying software to Linux and Unix deployment targets.
 position: 30
 ---
@@ -8,7 +8,7 @@ Below are some details of how deployments are performed to SSH targets.
 
 Also see the [Node.js sample](/docs/deployment-examples/node-deployments/node-on-linux.md) for an example of deploying to a Linux target
 
-## File Footprint {#SSHTargets-Footprint}
+## File footprint {#SSHTargets-Footprint}
 
 - The root directory for all Octopus work is `$HOME/.octopus`
 - All packages are deployed to a relative location at `$HOME/.octopus/Applications/#{instance}/#{environment}/#{package}/#{version}`.
@@ -24,7 +24,7 @@ The package and any supporting deployment files are uploaded via SFTP.
 
 Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This obviously means the server needs to be able to un-tar that package however this should be available by default in most distros.
 
-## Package Acquisition
+## Package acquisition
 
 Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 

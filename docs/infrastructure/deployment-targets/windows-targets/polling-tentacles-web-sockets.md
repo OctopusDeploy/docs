@@ -8,7 +8,7 @@ position: 62
 
 If there is an available port, we recommend using [TCP Polling Tentacles](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles). If only port 443 and 80 are available, it is possible to run Octopus Web UI just on 443 (HTTPS) and a TCP Polling Tentacle on port 80. Even though it is using port 80, which is by convention HTTP, the Tentacle communications will still use TLS and be secure.
 
-## Server Setup
+## Server setup
 
 The following prerequisites must be met to use this feature:
 
@@ -17,7 +17,7 @@ The following prerequisites must be met to use this feature:
 - The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://www.microsoft.com/technet/prodtechnol/WindowsServer2003/Library/IIS/a2a45c42-38bc-464c-a097-d7a202092a54.mspx)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that utilize non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
 - The other application must be using HTTPS on that port.
 
-### Listen Address
+### Listen address
 
 The first step is to select a URL listen prefix. HTTP.sys handles the initial TLS handshake and then routes the request based on the HTTP headers. This means that the request can be routed based on IP, hostname and path. See the
 [UrlPrefix documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/aa364698(v=vs.85).aspx) for the syntax and how routes are matched.
@@ -44,7 +44,7 @@ If you get the other application that is listening on that port, ensure that you
 
 If you encounter a certificate warning, ignore it and continue. This warning is due to the certificate not having a valid chain of trust back to a trusted certificate authority. Octopus [trusts certificates directly](https://octopus.com/blog/why-self-signed-certificates).
 
-## Tentacle Setup
+## Tentacle setup
 
 The setup of a WebSocket Tentacle is the same as a TCP Polling Tentacle, except for the thumbprint and the command line option to specify the communications address.
 
@@ -56,7 +56,7 @@ When issuing the `register-with` command during Tentacle setup, omit the `--serv
 .\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
 ```
 
-### Changing an Existing Tentacle
+### Changing an existing Tentacle
 
 To change an existing Tentacle to poll using WebSockets, run the following commands:
 
@@ -74,9 +74,7 @@ When issuing the `poll-server` command to add additional nodes to poll, omit the
 poll-server --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
 
-## More Information
-
-### Certificate
+## Certificate
 Windows will need to be configured with a SSL certificate on the selected address and port. Usually this is done by the other application sharing the port.
 The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
@@ -101,5 +99,5 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469
 
 For more details instructions, see Microsoft's [certificate HowTo](https://msdn.microsoft.com/en-us/library/ms733791(v=vs.110).aspx).
 
-### Thumbprint
+## Thumbprints
 Unlike other Tentacle configurations, the Tentacle must be configured to trust the thumbprint of the SSL certificate and not the thumbprint Octopus uses for other methods of Tentacle communication. This is due to HTTP.sys performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the Tentacle and server still verify the certificate thumbprint match the trusted thumbprint.

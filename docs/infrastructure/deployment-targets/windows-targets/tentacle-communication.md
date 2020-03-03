@@ -1,5 +1,5 @@
 ---
-title: Tentacle Communication Modes
+title: Tentacle communication modes
 description: Tentacles can be configured to communicate with the central Octopus Deploy Server in Listening or Polling mode.
 position: 30
 ---
@@ -8,9 +8,9 @@ Octopus and Tentacles can be configured to communicate in two different ways dep
 
 ## Listening Tentacles (recommended)
 
-In **Listening** mode, Tentacles *listen* on a TCP port (**10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
+In **listening** mode, Tentacles *listen* on a TCP port (**10933** by default). When a package needs to be deployed, Octopus connects to the Tentacle service on that port.
 
-In Listening mode Tentacle is the TCP server, and Octopus is the TCP client.
+In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 
 ![Octopus to Listening Tentacle communication](images/listening-tentacle.png)
 
@@ -22,9 +22,9 @@ To install and configure Tentacles, see the [Windows Targets (Tentacles) documen
 
 ## Polling Tentacles
 
-In **Polling** mode, Tentacle will poll the Octopus Server periodically to check if there are any tasks for it to perform. Polling mode is the opposite of **Listening mode**.
+In **polling** mode, Tentacle will poll the Octopus Server periodically to check if there are any tasks for it to perform. Polling mode is the opposite of **Listening mode**.
 
-In Polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
+In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 
 ![Polling Tentacle to Octopus communication](images/polling-tentacle.png)
 
@@ -34,10 +34,10 @@ Polling mode is good for scenarios that involve Tentacles being behind NAT or a 
 
 To install and configure Tentacles, see the [Windows Targets (Tentacles) documentation](/docs/infrastructure/deployment-targets/windows-targets/index.md).
 
-## SSL Offloading is Not Supported
+## SSL offloading is not supported
 
 The communication protocol used by Octopus and Tentacle requires intact end-to-end TLS connection for message encryption, tamper-proofing, and authentication. For this reason SSL offloading is not supported.
 
-## Proxy Servers Supported for Tentacle Communications
+## Proxy servers supported for Tentacle communications
 
 The communication protocol used by Octopus and Tentacle 3.4 and above supports proxies. Read more about configuring proxy servers for Tentacle communications in [proxy support](/docs/infrastructure/deployment-targets/proxy-support.md).

@@ -1,5 +1,5 @@
 ---
-title: Create and Deploy a Release
+title: Create and deploy a release
 description: Example scripts to create and deploy a release
 ---
 
@@ -15,10 +15,10 @@ Provide values for `Octopus URL`, `Octopus API Key`, `Space Name`, `Project Name
 **These scripts will create a release and deployments to the provided environments. Take care when running this script or one based on it.**
 :::
 
-## Create and Deploy a Release
+## Create and deploy a release
 
 !include <create-and-deploy-release-scripts>
 
-## Create and Deploy a Release to a Group of Tenants
+## Create and deploy a release to a group of tenants
 
 !include <create-and-deploy-release-with-tenants-scripts>

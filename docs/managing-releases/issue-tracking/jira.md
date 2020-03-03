@@ -1,5 +1,5 @@
 ---
-title: Jira Issue Tracking
+title: Jira issue tracking
 description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 position: 20
 ---
@@ -8,7 +8,7 @@ position: 20
 - Automatically add links to Jira issues from releases and deployments in Octopus.
 - View release and deployment details from Jira issues (Jira Cloud only).
 
-## How Jira Integration Works {#how-jira-integration-works}
+## How Jira integration works {#how-jira-integration-works}
 
 ![Octopus Jira integration - how it works diagram](images/octo-jira-how-it-works.png "width=500")
 
@@ -31,19 +31,19 @@ The ability to push the build information to Octopus, which is required for Jira
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
  - [Jenkin's Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
-### Jira Cloud Only
+### Jira Cloud only
 
 The ability to update Jira issues with deployment information (i.e. step 5 above) is only available for Jira Cloud.
 This is a Jira limitation; the [deployment module](https://developer.atlassian.com/cloud/jira/software/modules/deployment/) is not available for Jira Server.
 
-## Configuring Jira Integration
+## Configuring Jira integration
 
 The following steps explain how to integrate Octopus with Jira.
 
 1. [Configure your build server to push build information to Octopus.](#configure-your-build-server) This is required to allow Octopus to know which issues are associated with a release.  
 2. [Configure the Jira connection in Octopus Deploy.](#connect-octopus-to-jira)
 
-## Configure your Build Server to Push Build Information to Octopus {#configure-your-build-server}
+## Configure your build server to push build information to Octopus {#configure-your-build-server}
 
 To integrate with Jira issues, Octopus needs to understand which issues are associated with a [release](/docs/managing-releases/index.md). Octopus does this by inspecting commit messages associated with any packages contained in the release.
 
@@ -136,7 +136,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
 When configured, this integration will provide Jira with updates about the progress of Jira issues (work items) through the pipeline.
 
-### Testing the Integration
+### Test the integration
 
 **Octopus 2019.7.13** introduced the ability to verify a connection can be made successfully between the Octopus Server and your Jira Cloud/Server instance.
 

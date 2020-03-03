@@ -1,5 +1,5 @@
 ---
-title: Create Instances
+title: Create instances
 description:  Registers a new instance of the Octopus service
 position: 32
 ---

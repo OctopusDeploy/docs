@@ -1,5 +1,5 @@
 ---
-title: Release Versioning
+title: Release versioning
 description: Select how the next release number is generated when creating a release.
 position: 125
 ---

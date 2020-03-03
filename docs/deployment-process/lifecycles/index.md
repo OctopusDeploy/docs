@@ -8,7 +8,7 @@ position: 2
 
 Lifecycles are a key component of [channels](/docs/deployment-process/channels/index.md) which give you even great control over how your software is deployed. Channels let you use multiple Lifecycles for a project and then automatically deploy to specific channels, using the defined lifecycle, based on the version of the software being deployed.
 
-## Create a New Lifecycle
+## Create a new lifecycle
 
 1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
 2. Give the Lifecycle a name and add a description.

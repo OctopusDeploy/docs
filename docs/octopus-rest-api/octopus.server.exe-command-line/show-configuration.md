@@ -1,5 +1,5 @@
 ---
-title: Show Configuration
+title: Show configuration
 description:  Outputs the server configuration
 position: 191
 ---

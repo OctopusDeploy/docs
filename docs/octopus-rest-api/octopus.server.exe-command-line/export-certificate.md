@@ -1,5 +1,5 @@
 ---
-title: Export Certificates
+title: Export certificates
 description: Exports the certificate that Octopus Server can use to authenticate itself with its Tentacles
 position: 50
 ---

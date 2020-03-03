@@ -10,7 +10,7 @@ The NGINX feature is one of the [configuration features](/docs/deployment-proces
 
 The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployment-examples/nginx-on-linux-deployments/index.md) for more details.
 
-## Reverse Proxy
+## Reverse proxy
 
 When configuring a `location` as a reverse proxy, you need to add the following `headers` and `directives` by default:
 
@@ -27,6 +27,6 @@ When configuring a `location` as a reverse proxy, you need to add the following 
 
 ## Limitations
 
-### Supported Operating Systems
+### Supported operating systems
 
-Currently the **NGINX web server** feature only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.
+Currently the **NGINX Web Server** feature only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.

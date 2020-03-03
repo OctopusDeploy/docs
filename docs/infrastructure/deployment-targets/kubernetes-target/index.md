@@ -1,13 +1,13 @@
 ---
-title: Kubernetes Cluster
-description: How to configure a Kubernetes Cluster as a deployment target in Octopus
+title: Kubernetes cluster
+description: How to configure a Kubernetes cluster as a deployment target in Octopus
 position: 40
 ---
 Kubernetes targets are used by the [Kubernetes steps](/docs/deployment-examples/kubernetes-deployments/index.md) to define the context in which deployments and scripts are run.
 
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
-## A Sample Config File
+## A sample config file
 
 The YAML file below shows a sample **kubectl** configuration file. Existing Kubernetes users will likely have a similar configuration file.
 
@@ -43,7 +43,7 @@ users:
     token: 1234567890abcdefghijkl    
 ```
 
-## Add a Kubernetes Target
+## Add a Kubernetes target
 
 1. Navigate to **{{Infrastructure,Deployment Targets}}**, and click **ADD DEPLOYMENT TARGET**.
 2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
@@ -149,7 +149,7 @@ When a Kubernetes target is used, the namespace it references is created automat
 To make use of the Kubernetes steps, the Octopus Server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
 11. Click **SAVE**.
 
-## Creating Service Accounts
+## Create service accounts
 
 The recommended approach to configuring a Kubernetes target is to have a service account for each application and namespace.
 
@@ -246,13 +246,13 @@ Kubernetes targets use the `kubectl` executable to communicate with the Kubernet
 
 When a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
 
-## Dynamic Targets
+## Dynamic targets
 
-Kubernetes targets can be created dynamically at deploy time with the Powershell function `New-OctopusKubernetesTarget`.
+Kubernetes targets can be created dynamically at deploy time with the PowerShell function `New-OctopusKubernetesTarget`.
 
 See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md) for more information.
 
-## Next
+## Learn more
 
-- Learn more about [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md) with Octopus
+- [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md)
 - [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)

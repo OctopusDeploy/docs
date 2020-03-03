@@ -1,5 +1,5 @@
 ---
-title: Managing Resources Using Scripts
+title: Managing resources using scripts
 description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus (dynamic infrastructure).
 position: 120
 ---
@@ -10,7 +10,7 @@ Some resources can be created within Octopus from the same scripts that you use 
 As of the **Octopus 2018.9** release, only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets are supported.
 :::
 
-## Enable Dynamic Infrastructure
+## Enable dynamic infrastructure
 
 Dynamic infrastructure can be enabled when a new environment is created, or it can be enabled or disabled for existing environments.
 
@@ -19,7 +19,7 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 1. Expand the **Dynamic infrastructure** section and tick or untick the check-box to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
 
-## Available Commands and Syntax
+## Available commands and syntax
 
 Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
 
@@ -83,7 +83,7 @@ New-AzureRmWebApp -Name $uniqueName -Location "WestUS" -AppServicePlan $uniqueNa
 New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureResourceGroupName $uniqueName -OctopusAccountIdOrName "my-octopus-azure-serviceprincipal-account" -OctopusRoles "acme-web"
 ```
 
-### Tearing Down a Test Environment
+### Tearing down a test environment
 
 Building on the Web App example, you may wish to spin up an application and then tear it down at the end of the day. By combining [Recurring Deployments](https://octopus.com/blog/recurring-deployments) and a tear-down script, you can keep your cloud hosting costs down.
 
@@ -93,9 +93,9 @@ Remove-AzureRmResourceGroup -Name "AzureWebAppResourceGroup" -Force
 Remove-OctopusTarget -targetIdOrName "AzureWebApp"
 ```
 
-### Deploying an ARM Template
+### Deploying an ARM template
 
-You can also use the above PowerShell Cmdlets when deploying Azure resources using an ARM template.
+You can also use the above PowerShell cmdlets when deploying Azure resources using an ARM template.
 
 Firstly, turn on **Custom deployment scripts** under _Configure Features_ on your _Deploy an Azure Resource Group_ step.
 
@@ -103,4 +103,4 @@ Firstly, turn on **Custom deployment scripts** under _Configure Features_ on you
 
 Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
 
-In the _Post-deployment_ script section, you can [access the output paramaters](/docs/deployment-examples/azure-deployments/resource-groups/index.md#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the Cmdlets above.
+In the _Post-deployment_ script section, you can [access the output parameters](/docs/deployment-examples/azure-deployments/resource-groups/index.md#DeployusinganAzureResourceGroupTemplate-AccessingARMtemplateoutputparameters) and use those output parameters to run any of the cmdlets above.

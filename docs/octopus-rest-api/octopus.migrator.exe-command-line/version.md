@@ -1,5 +1,5 @@
 ---
-title: version
+title: Version
 description: Shows the version information for this release of the Octopus Migrator
 ---
 

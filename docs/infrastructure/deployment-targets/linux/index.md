@@ -1,5 +1,5 @@
 ---
-title: Linux Targets
+title: Linux targets
 description: Configuring Linux servers as deployment targets in Octopus.
 position: 20
 hideInThisSectionHeader: true
@@ -11,7 +11,7 @@ The Octopus Server can communicate with Linux targets via SSH or the [Linux Tent
 
 When using SSH for deployments to a Linux server, the Tentacle agent is not required and doesn't need to be installed.
 
-## Supported Distributions
+## Supported distributions
 
 Any Linux server which meets the [requirements](/docs/infrastructure/deployment-targets/linux/requirements.md) will be able to be configured as a deployment target.
 
@@ -29,17 +29,17 @@ The following platforms are explicitly supported (we run automated tests against
 - SUSE LES 12 SP2
 - FreeBSD 11.2
 
-## Configuring SSH Targets
+## Configuring SSH targets
 
 Before you configure an SSH deployment target, review the [requirements](/docs/infrastructure/deployment-targets/linux/requirements.md) and ensure your SSH deployment targets have the required packages installed.
 
-## Create an SSH Account
+## Create an SSH account
 
 The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/deployment-targets/username-and-password.md) that has access to the remote host.
 
 See [accounts](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) for instructions to configure the account.
 
-## Add an SSH Connection
+## Add an SSH connection
 
 1. In the **Octopus Web Portal**, navigate to the **Infrastructure** tab, select **Deployment Targets** and click **{{ADD DEPLOYMENT TARGET,SSH CONNECTION}}**.
 2. Click **ADD** on the SSH Connection card.
@@ -71,7 +71,7 @@ ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ pri
 
 11. Click **Save**.
 
-## Health Check
+## Health check
 
 Once the target is configured, Octopus will perform an initial health check. Health checks are done periodically or on demand and ensure the endpoint is reachable, configured correctly and the required dependencies are are available (e.g. tar, for more details see [requirements](/docs/infrastructure/deployment-targets/linux/requirements.md)), and ready to perform deployment tasks.
 
@@ -83,7 +83,7 @@ If the fingerprint changes after initial configuration, the next health check wi
 
 Learn more about health checks and [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md)
 
-## Running Scripts on SSH Endpoints
+## Running scripts on SSH endpoints
 
 You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
 

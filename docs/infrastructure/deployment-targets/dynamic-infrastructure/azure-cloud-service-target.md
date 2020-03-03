@@ -1,5 +1,5 @@
 ---
-title: Create Azure Cloud Service Target Command
+title: Create Azure Cloud Service target command
 description: Cmdlet for creating an Azure Cloud Service target
 position: 40
 ---

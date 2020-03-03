@@ -1,5 +1,5 @@
 ---
-title: New Certificate
+title: New certificate
 description: Creates a new certificate that Octopus Server can use to authenticate itself with its Tentacles
 position: 140
 ---

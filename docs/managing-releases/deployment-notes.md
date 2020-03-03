@@ -1,5 +1,5 @@
 ---
-title: Deployment Notes
+title: Deployment notes
 description: Summarize the changes in a deployment
 position: 6
 ---
@@ -10,7 +10,7 @@ Deployment notes summarize these changes by rolling up the [release notes](/docs
 
 ![Deployment notes](images/deployment-notes.png)
 
-## Versioning and Pre-releases  {#Versioning}
+## Versioning and pre-releases  {#Versioning}
 
 [Pre-release versions](/docs/packaging-applications/create-packages/versioning.md#semver) are handled differently to other versions for release changes and deployment notes. Deployments of a pre-release will only ever include changes for that single version, they do not accumulate across versions like other scenarios.
 
@@ -18,12 +18,12 @@ This is because in some scenarios different pre-release versions could be gettin
 
 Octopus treats pre-releases as a *work in progress* that will fall under the banner of *full* release when they are completed/merged. At that point, the changes are then considered for accumulation across the *full* versions.
 
-## Deployment Change Variables
+## Deployment change variables
 
 It can be useful to access the changes associated with a deployment in the deployment process.
 [Deployment change variables](/docs/projects/variables/system-variables.md#deployment-notes) are available during a deployment.
 
-A common example of this is for use in the [Email step](/docs/deployment-process/steps/email-notifications.md).  
+A common example of this is for use in the [email step](/docs/deployment-process/steps/email-notifications.md).  
 
 ![Deployment notes variables in email step](images/deployment-notes-email-step.png)
 
@@ -57,7 +57,7 @@ Which addressed the following issues:</br>
 #{/each}
 ```
 
-## Deployment Changes Templates {#Templates}
+## Deployment changes templates {#templates}
 
 Starting from `2019.9.0` you can specify a template for deployment changes output. The output of the template is used in the portal to render the changes in both the deployment preview and on the deployment details.
 
@@ -86,7 +86,7 @@ The default template, when the field in the project settings is left blank, is a
 #{/each}
 ```
 
-### Deployment Changes and Targets
+### Deployment changes and targets
 
 The `Octopus.Deployment.Targets` variable is available to the deployment changes template, but it is not available during the deployment. It contains a dictionary of `ID` and `Name` values for all of the targets in the scope of the deployment (keyed by ID). You can iterate over the targets in a template as follows
 

@@ -1,5 +1,5 @@
 ---
-title: Environment Specific Configuration Transforms with Sensitive Values
+title: Environment specific configuration transforms with sensitive values
 description: How to configure environment-specific configuration transforms while keeping sensitive values in Octopus.
 position: 30
 ---
@@ -8,7 +8,7 @@ It is possible to combine the configuration features that you use in your deploy
 
 This can be achieved using both the [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature and the [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) features.
 
-## One Transform and Variable Replacement
+## One transform and variable replacement
 
 For example, let's assume we have a web application that's being deployed to Development, Staging, and Production environments, and you want to change your `Web.Config` file to reflect environment-specific values.
 
@@ -16,7 +16,7 @@ To achieve this you would have a single configuration transformation file in yo
 
 This transform file can contain `#{variable}` values. Because your config will only get transformed on deployment, you can safely work with your `Web.Config` file during development, and you can keep sensitive variables like production passwords out of source control.
 
-### The Process
+### The process
 
 It's important to note that variable substitution occurs before the configuration transformation. This means you need to target your transform files for variable substitution by adding them to the **Target files** setting.
 
