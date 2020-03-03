@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Octopus Server in a Container
-description: An Octopus Deploy Server instance can be run directly from within a container.
+description: Troubleshooting steps for running Octopus Deploy in a Container
 position: 10
 ---
 
@@ -18,7 +18,19 @@ You must pass `--env "ACCEPT_EULA=Y"` when using `docker run` with an Octopus Se
 
 ## Use the correct Docker engine
 
-When running Windows Containers, you must have Docker set to use Windows Containers and not Linux Containers. Please refer to [switching to Windows Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) documentation for switching to Windows Containers.
+If you get an error similar to:
+
+```
+image operating system "windows" cannot be used on this platform.
+```
+or
+
+```
+image operating system "linux" cannot be used on this platform.
+```
+then you likely are using an Windows image with Linux Containers or a Linux image with Windows Containers.
+
+When running Containers on a Windows host machine, there is the options to run both Windows Containers and Linux Containers. Docker must be set to the correct container mode for the image you are using. Please refer to [switching between Windows and Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) documentation to learn how to switch between them.
 
 ### Invalid Volume Specification
 
@@ -29,10 +41,6 @@ Error response from daemon: invalid volume specification: '...': invalid mount c
 ```
 
 Please ensure that the folder you are mounting exists on the host machine and try again. For example, if you passed `--volume "C:\Octopus\Data:C:\Octopus"` then `C:\Octopus\Data` needs to exist on the host machine.
-
-## Linux Containers on Windows
-
-When you run Linux Containers on Windows, you must have Docker set to use Linux Containers and not Windows Containers. Please refer to [switching to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) documentation for switching to Linux Containers.
 
 ### How can I install other softare in the container?
 

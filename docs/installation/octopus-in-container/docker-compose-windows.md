@@ -124,6 +124,7 @@ services:
       ADMIN_EMAIL: "${ADMIN_EMAIL}"
     ports: 
       - "1322":"8080"
+      - "10943"
     depends_on:
       db:
         condition: service_healthy
