@@ -1,6 +1,7 @@
 ---
 title: Watchdog
 description:  Configure a scheduled task to monitor the Octopus service(s).
+position: 230
 ---
 
 Use the watchdog command to configure a scheduled task to monitor the Octopus service(s).

@@ -1,6 +1,7 @@
 ---
 title: Show Configuration
 description:  Outputs the server configuration
+position: 191
 ---
 
 Use the show configuration command to output the server configuration.

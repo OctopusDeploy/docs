@@ -1,6 +1,7 @@
 ---
 title: Proxy
 description:  Configure the HTTP proxy used by Octopus
+position: 161
 ---
 
 Use the proxy command to configure the HTTP proxy used by Octopus.

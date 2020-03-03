@@ -1,6 +1,7 @@
 ---
 title: License
 description:  Import a license key
+position: 120
 ---
 
 Use the license command to import a license key.

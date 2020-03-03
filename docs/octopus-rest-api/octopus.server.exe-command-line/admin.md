@@ -1,6 +1,7 @@
 ---
 title: Admin
 description:  Reset admin user passwords, re-enable them, and ensure they are in the admin group
+position: 10
 ---
 
 Use the admin command to reset admin user passwords, re-enable them, and ensure they are in the admin group.

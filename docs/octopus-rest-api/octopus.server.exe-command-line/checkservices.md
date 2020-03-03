@@ -1,6 +1,7 @@
 ---
 title: Check Services
 description:  Checks the Octopus instances are running
+position: 30
 ---
 
 Use the `checkservices` command to checks the Octopus instances that are running

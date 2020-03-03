@@ -1,6 +1,7 @@
 ---
 title: Configure
 description: Configure this Octopus instance
+position: 31
 ---
 
 Use the configure command to configure this Octopus instance.

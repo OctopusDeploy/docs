@@ -1,6 +1,7 @@
 ---
 title: Database
 description:  Create or drop the Octopus database
+position: 40
 ---
 
 Use the database command to create or drop the Octopus database.

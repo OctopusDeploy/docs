@@ -1,6 +1,7 @@
 ---
 title: Create Instances
 description:  Registers a new instance of the Octopus service
+position: 32
 ---
 
 Use the create-instance command to register a new instance of the Octopus service.

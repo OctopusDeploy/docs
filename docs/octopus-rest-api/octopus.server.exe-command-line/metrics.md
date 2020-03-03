@@ -1,6 +1,7 @@
 ---
 title: metrics
 description: Configure metrics logging
+position: 130
 ---
 
 Configure metrics logging

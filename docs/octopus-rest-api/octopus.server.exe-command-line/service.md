@@ -1,6 +1,7 @@
 ---
 title: Service
 description:  Start, stop, install and configure the Octopus service.
+position: 190
 ---
 
 Use this to configure and manage your Octopus service.

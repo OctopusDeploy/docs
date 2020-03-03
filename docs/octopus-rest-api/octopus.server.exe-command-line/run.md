@@ -1,6 +1,7 @@
 ---
 title: Run
 description:  Starts the Octopus Server in debug mode.
+position: 181
 ---
 
 Use this to see detailed output of Octopus running to help diagnose any issues you may be having.

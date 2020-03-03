@@ -1,6 +1,7 @@
 ---
 title: New Certificate
 description: Creates a new certificate that Octopus Server can use to authenticate itself with its Tentacles
+position: 140
 ---
 
 Use the new certificate command to create a new certificate that Octopus Server can use to authenticate itself with its Tentacles.

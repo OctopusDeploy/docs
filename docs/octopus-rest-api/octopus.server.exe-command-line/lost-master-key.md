@@ -1,6 +1,7 @@
 ---
 title: lost-master-key
 description: Get your Octopus Server working again after losing your Master Key
+position: 122
 ---
 
 Get your Octopus Server working again after losing your Master Key

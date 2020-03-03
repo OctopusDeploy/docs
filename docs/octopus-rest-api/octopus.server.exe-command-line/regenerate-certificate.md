@@ -1,6 +1,7 @@
 ---
 title: Regenerate Certificates
 description:  Regenerate one or more of the certificates that Octopus uses
+position: 180
 ---
 
 Use the regenerate certificate command to regenerate one or more of the certificates that Octopus uses.

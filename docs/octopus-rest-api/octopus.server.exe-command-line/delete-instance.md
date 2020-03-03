@@ -1,6 +1,7 @@
 ---
 title: Delete Instances
 description:  Deletes an instance of the Octopus service
+position: 41
 ---
 
 Use the Delete Instance command to delete an instance of the Octopus service.

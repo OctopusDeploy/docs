@@ -1,6 +1,7 @@
 ---
 title: List Instances
 description: Lists all installed Octopus instances
+position: 121
 ---
 
 Use the list instance command to show all currently installed Octopus instances.

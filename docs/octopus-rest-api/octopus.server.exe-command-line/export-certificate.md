@@ -1,6 +1,7 @@
 ---
 title: Export Certificates
 description: Exports the certificate that Octopus Server can use to authenticate itself with its Tentacles
+position: 50
 ---
 
 Use the export certificate command to backup the certificate that Octopus Server uses to authenticate itself with its Tentacles.
