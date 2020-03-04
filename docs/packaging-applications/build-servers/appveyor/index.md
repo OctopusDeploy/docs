@@ -1,5 +1,5 @@
 ---
-title: AppVeyor Integration
+title: AppVeyor integration
 description: Octopus Deploy can be seamlessly integrated with your AppVeyor build chain.
 position: 10
 ---
@@ -8,11 +8,11 @@ position: 10
 
 You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), and create and deploy releases.
 
-## Configuring an AppVeyor Project for Octopus
+## Configuring an AppVeyor project for Octopus
 
 To use AppVeyor with a source code repository, you'll need to create and configure a project. See the [AppVeyor docs](https://www.appveyor.com/docs/) for instructions.
 
-## Configure the Build
+## Configure the build
 
 Once you've added a project with a repository, you need to configure the build. In the settings for your AppVeyor project, navigate to the **build** page and check the check-box for the **Package Web Applications for Octopus deployment** option.
 
@@ -22,17 +22,17 @@ In the **Before build script** section add `nuget restore` as AppVeyor will not 
 
 ![AppVeyor MSBuild Build](images/appveyor_build_msbuild.png)
 
-### AppVeyor Environment Variables
+### AppVeyor environment variables
 
 The following environment variables are available and can be configured on the **Environment** page of your project's settings.
 
-| Variable Name       | Description|
+| Variable name       | Description|
 | ------------- | ------- |
 | OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
 | OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli.md) to pass to `octo pack` |
 
-### Non-MSbuild Projects
+### Non-MSbuild projects
 
 AppVeyor have included the Octopus CLI (`octo`) into the base Windows build VM and is available via the command line. If you're running a project that is _not_ using msbuild, you can manually invoke the `octo pack` command during the build phase, by navigating to **{{build,Script}}** and adding you command to the build script section. For instance:
 
@@ -51,7 +51,7 @@ You can use a wildcard to pick up the dynamically generated package.
 
 ![AppVeyor npm Build](images/appveyor_artifact.png)
 
-### Push To Octopus
+### Push to Octopus
 
 Next, go to the **Deployment** page in your project's settings and click **Add deployment** and from the **Deployment providers** select **Octopus Deploy**.
 
@@ -65,7 +65,7 @@ If your Octopus Deploy project doesn't make use of [automatic release creation](
 
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 
-## Build Configuration in Code
+## Build configuration in code
 AppVeyor provides another mechanism for providing the above configuration information and this is via an [appveyor.yml](https://www.appveyor.com/docs/appveyor-yml/) file contained in the repository source code. For the above configuration the YAML file is as simple as
 
 ```yml
@@ -89,5 +89,6 @@ deploy:
 
 Storing the configuration with the source code is a great way to version the build process, however, it is worth noting that when AppVeyor detects an **appveyor.yml** file in the source code, any configuration in the portal will be ignored. Although you can continue to update the configuration via the portal, this will have no effect unless you remove the YAML file or configure the project to explicitly ignore it.
 
-## Further Information
-For more in-depth information about using AppVeyor, we would recommend checking out their [docs](https://www.appveyor.com/docs/).
+## Learn more
+
+- [AppVeyor's docs](https://www.appveyor.com/docs/)

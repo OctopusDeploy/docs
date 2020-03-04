@@ -1,5 +1,5 @@
 ---
-title: Register With
+title: Register with
 description: Using the Tentacle.exe command line executable to register this machine as a deployment target with an Octopus Server.
 ---
 

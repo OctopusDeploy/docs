@@ -1,5 +1,5 @@
 ---
-title: update-trust
+title: Update trust
 description: Replaces the trusted Octopus Server thumbprint of any matching polling or listening registrations with a new thumbprint to trust
 ---
 

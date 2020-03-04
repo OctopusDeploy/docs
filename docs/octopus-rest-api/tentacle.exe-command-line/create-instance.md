@@ -1,5 +1,5 @@
 ---
-title: Create Instance
+title: Create instance
 description: Using the Tentacle.exe command line executable to register a new instance of the Tentacle service.
 ---
 

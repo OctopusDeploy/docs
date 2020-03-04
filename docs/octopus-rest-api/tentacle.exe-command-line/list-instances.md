@@ -1,5 +1,5 @@
 ---
-title: List Instances
+title: List instances
 description: Using the Tentacle.exe command line executable to query Tentacle settings.
 version: "[3.12,)"
 ---

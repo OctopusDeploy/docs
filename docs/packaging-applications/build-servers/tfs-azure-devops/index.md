@@ -9,7 +9,7 @@ Octopus Deploy integrates with Azure DevOps and Team Foundation Server to provid
 
 ![](images/5672461.png)
 
-## Supported Azure DevOps/TFS Versions
+## Supported Azure DevOps/TFS versions
 
 Depending on the version of Azure DevOps/TFS you are using, the recommended approach for a successful integration with Octopus may vary. Use the below chart to pick the right approach for your build server version.
 

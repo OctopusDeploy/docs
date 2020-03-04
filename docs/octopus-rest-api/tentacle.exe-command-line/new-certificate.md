@@ -1,5 +1,5 @@
 ---
-title: New Certificate
+title: New certificate
 description: Using the Tentacle.exe command line executable to create and install a new certificate for this Tentacle.
 ---
 

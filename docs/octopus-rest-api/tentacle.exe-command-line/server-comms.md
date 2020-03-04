@@ -1,5 +1,5 @@
 ---
-title: Server Comms
+title: Server comms
 description: Using the Tentacle.exe command line executable to configure how the Tentacle communicates with the Octopus Server.
 ---
 

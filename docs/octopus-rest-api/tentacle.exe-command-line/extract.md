@@ -1,5 +1,5 @@
 ---
-title: extract
+title: Extract
 description: Extracts a NuGet package
 ---
 

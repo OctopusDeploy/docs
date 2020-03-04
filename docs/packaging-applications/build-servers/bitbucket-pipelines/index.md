@@ -23,22 +23,22 @@ Octopus Deploy will be used to take those NuGet packages and to push them to dev
 If you're using the cloud offering of BitBucket Pipelines, your Octopus Server must be accessible over the Internet.
 :::
 
-## BitBucket Pipelines Environment Variables
+## BitBucket Pipelines environment variables
 
 You can use environment variables in your Pipelines (available from the **{{Settings > Environment Variables}}** menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
 
 For example:
 
-| Variable Name       | Description|
+| Variable name       | Description|
 | ------------- | ------- |
 | OCTOPUS_SERVER | The Octopus Deploy Server URL you wish to push the final package to |
 | OCTOPUS_APIKEY | The Octopus Deploy API Key required for authentication |
 
-## BitBucket Pack and Push Configuration
+## BitBucket pack and push configuration
 
 When you enable BitBucket Pipelines for your repository, BitBucket stores all the information it requires into a `bitbucket-pipelines.yml` file in the base of your repository. This is the file we need to modify to run our build, pack and/or push package commands.
 
-### Example of Packing and Pushing
+### Example of packing and pushing
 
 To show the basics working, here's an example pipeline step using the Octo.exe docker container which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
 

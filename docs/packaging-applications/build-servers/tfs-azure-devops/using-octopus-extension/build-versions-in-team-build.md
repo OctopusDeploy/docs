@@ -1,5 +1,5 @@
 ---
-title: Build Versions and Packaging in Team Build
+title: Build versions and packaging in Team Build
 description: A guide to build version numbers in Azure DevOps and Team Foundation Server (TFS), and how they work with packages for Octopus.
 ---
 
@@ -7,7 +7,7 @@ Correctly versioning the packages you deploy with Octopus Deploy is important so
 
 This guide shows you how best to version your builds and packages in Azure DevOps and TFS, whether you're using [OctoPack](#versioning-when-using-octopack), or the [Octopus Extension in the Visual Studio Marketplace](#versioning-when-using-the-octopus-build-tasks).
 
-## Build Numbers in Team Build
+## Build numbers in Team Build
 
 In Team Build (the build system in Azure DevOps and TFS), build numbers may be in a format that doesn't represent a valid SemVer number.
 
@@ -26,7 +26,7 @@ The link above explains versioning in detail, but in its simplest form it means 
 
 As you can see, a package version of `Fabrikam_CIBuild_master_20090805.2` won't be valid will cause issues!
 
-### Setting a SemVer-compliant Build Number
+### Setting a SemVer-compliant build number
 
 The recommendations below generally rely on the build number itself being SemVer compliant. To do this, you can change the build number format.
 
@@ -55,7 +55,7 @@ You can mix and match these two methods. For example, you might prefer to use Oc
 Octopack is not compatible with .NET core and we suggest using the extension instead.
 :::
 
-## Versioning When Using OctoPack
+## Versioning when using OctoPack
 
 Unless told otherwise, OctoPack will attempt to set the package version itself. You can see exactly how it tries to find a version [on this documentation page](/docs/packaging-applications/create-packages/octopack/index.md#UsingOctoPack-Versionnumbers).
 
@@ -70,7 +70,7 @@ Setting the `AssemblyVersion` number to `x.y.*` will [fix the two most common pr
 
 One problem remains - particularly for web projects. If you only change content files, triggering a new build _won't update the version number_ because Team Build realizes no compilable code has changed. OctoPack won't get a new version number!
 
-### OctoPack Recommendation
+### OctoPack recommendation
 
 To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` argument when using OctoPack. This lets you specify the version directly, and you can use build variables to specify the version number.
 
@@ -83,11 +83,11 @@ To solve all these issues, we recommend using the `/p:OctoPackPackageVersion` ar
 You can use the [additional MSBuild arguments for OctoPack](/docs/packaging-applications/create-packages/octopack/index.md#UsingOctoPack-Publishing) to give yourself more control over the packaging process.
 :::
 
-## Versioning When Using the Octopus Build Tasks
+## Versioning when using the Octopus build tasks
 
 If you're using the new [Octopus Deploy extension from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks), you'll have access to a new **Package Application** build task.
 
-![Package Application build task](images/pack-task.jpg)
+![Package application build task](images/pack-task.jpg)
 
 This task does not provide you with a default version number - this is something you have to set yourself. Clearly it wouldn't be feasible to change this value every time you do a build, so we recommend you make use of the build variables that Team Build provides.
 
@@ -97,7 +97,7 @@ Build and Release variables can be found in [the Microsoft Documentation](https:
 - `$(Build.BuildID)` - This is a unique, incrementing ID at the Project collection level. Every new build will give you a new number.
 - `$(Build.SourceBranchName)` - this is the last path segment in the name of the branch. For example, a branch of `refs/heads/master` will return `master`.
 
-### Build Task Recommendation
+### Build task recommendation
 
 There are two options we recommend for specifying a version number to the Package Application task.
 
@@ -108,7 +108,7 @@ We recommend the second option for a few reasons.
 
 First, it's very easy to match the build to the package because they'll have the same number, and secondly, if you have multiple pack steps, you only need to change a single version number.
 
-### Specifying the Files to Pack and Push
+### Specifying the files to pack and push
 
 One of the frequent causes of issues when using the Octopus build tasks is properly specifying the folders to pack and the NuGet package to push. Especially if you're using the hosted build server, it can be hard to figure out where everything ends up when the build is running.
 

@@ -1,5 +1,5 @@
 ---
-title: Installing the Octopus CLI as a Capability
+title: Installing the Octopus CLI as a capability
 description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps/TFS custom build agents.
 ---
 
@@ -17,7 +17,7 @@ For example, create a script called octo.ps1 with the following content:
 ```
 :::
 
-## Agent Capability Scanning
+## Agent capability scanning
 
 Usually Azure DevOps agents scan for associated capabilities, but won't pick anything up from the PATH automatically. In order for a capability to be detected, you must also add an environment variable named `Octo` with the associated
 version.
@@ -34,14 +34,14 @@ Once the Octopus CLI is in the path and the above system variable is specified, 
 You must restart the build agent service if making these changes while it is currently running.
 :::
 
-## Specify the Capability Manually
+## Specify the capability manually
 
 If you know that a build agent has the Octopus CLI available on the path then you can also specify the capability manually using the Azure DevOps/TFS web interface. Although this may be rather simple, the capability would have to be specified for
 each agent individually which can be quite cumbersome.
 
 ![Octo specify capability](images/octo-manual-capability.jpg)
 
-## Images and Automation
+## Images and automation
 
 Microsoft provide a number of starting points to create your own build agent images which can be modified to include the Octopus CLI as an added capability. This includes [packer images](https://github.com/Microsoft/vsts-image-generation) as well as the [docker images](https://github.com/Microsoft/vsts-agent-docker).
 

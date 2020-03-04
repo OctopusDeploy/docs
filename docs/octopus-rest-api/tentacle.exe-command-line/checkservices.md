@@ -1,5 +1,5 @@
 ---
-title: checkservices
+title: Check services
 description: Checks the Tentacle instances are running
 ---
 

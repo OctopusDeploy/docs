@@ -1,5 +1,5 @@
 ---
-title: agent
+title: Agent
 description: Starts the Tentacle Agent in debug mode
 ---
 

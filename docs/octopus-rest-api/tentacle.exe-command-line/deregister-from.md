@@ -1,5 +1,5 @@
 ---
-title: Deregister From
+title: Deregister from
 description: Using the Tentacle.exe command line executable to deregister a deployment target from an Octopus Server.
 ---
 

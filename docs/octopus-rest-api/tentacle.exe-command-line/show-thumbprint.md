@@ -1,5 +1,5 @@
 ---
-title: Show Thumbprint
+title: Show thumbprint
 description: Using the Tentacle.exe command line executable to show the thumbprint of the Tentacle's certificate.
 ---
 

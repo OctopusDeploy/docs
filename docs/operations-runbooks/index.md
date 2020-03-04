@@ -18,7 +18,7 @@ Runbooks are contained in [projects](/docs/projects/index.md).
 
 To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
 
-## Runbooks vs Deployments
+## Runbooks vs deployments
 
 For users familiar with Octopus prior to the introduction of Operations Runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
 
@@ -36,7 +36,7 @@ A [project's variables](/docs/projects/variables/index.md) are shared between th
 - Certificates
 - Accounts
 
-### Current Limitations
+### Current limitations
 
 **Scoping to Steps/Actions**
 - You cannot currently scope project variables to a deployment process step and a runbook process step, but we do aim to support this in the near future.
@@ -67,7 +67,7 @@ Runbooks can be executed against any environment for which the user has an appro
 
 Lifecycles do not apply to runbooks (only deployments).
 
-## Permissions and Roles
+## Permissions and roles
 
 Permissions are available to help you manage access to Runbooks, these include:
 

@@ -3,7 +3,7 @@ title: Azure DevOps and TFS Extension Version Compatibility
 description: This guide explains the Octopus extension versions that are compatible with different versions of Azure DevOps and TFS
 ---
 
-## Octopus Extension Versions
+## Octopus extension versions
 
 There have been four major versions of the Octopus Extension:
 
@@ -12,7 +12,7 @@ There have been four major versions of the Octopus Extension:
 - [**Version 3.0.222**](https://octopus-downloads.s3-eu-west-1.amazonaws.com/tfs-2015-extension/octopusdeploy.octopus-deploy-build-release-tasks-3.0.222.vsix) - download for TFS 2017 Update 1
 - [**Version 4.0.x**](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) - the current, most recent version of the extension, for Azure DevOps and TFS 2017 Update 2 and above
 
-## Extension Compatibility with Azure DevOps/Team Foundation Server
+## Extension compatibility with Azure DevOps/Team Foundation Server
 
 The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension
 
@@ -30,11 +30,11 @@ Any version older than TFS 2015 Update 2 is not supported by any extension versi
 
 You may have success manually installing the task by following [these instructions](manually-install-the-build-task.md). Alternatively, [D'Arcy Lussier has put together a complete walk-through](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
 
-## Upgrading Extensions
+## Upgrading extensions
 
 The ease of upgrades depends very much on the version of Azure DevOps/TFS being used, and the extension versions involved.
 
-### Extension Upgrades in Azure DevOps and TFS 2017 Update 1 (and above)
+### Extension upgrades in Azure DevOps and TFS 2017 update 1 and above
 
 In Azure DevOps, extension versions within the same major version (e.g. 2.0.62 to 2.0.63) are applied automatically. These should never be breaking changes. The same applies in TFS 2017.1, the only difference being the need to upload the new extension to TFS manually.
 
@@ -48,7 +48,7 @@ Once it's available, you can choose the version you want to use using the drop-d
 
 ![](images/extension-version-choice.png)
 
-### Extension Upgrades in TFS 2015 Updates 2, 3, and 4, and TFS 2017 RTM
+### Extension upgrades in TFS 2015 updates 2, 3, and 4, and TFS 2017 RTM
 
 :::warning
 Extension updates that increment major versions (e.g. 1.2.28 to 2.0.63) are breaking changes! Your build definitions will need to be updated before they can be successfully run again.
