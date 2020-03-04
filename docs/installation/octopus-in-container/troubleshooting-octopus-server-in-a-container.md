@@ -42,6 +42,6 @@ Error response from daemon: invalid volume specification: '...': invalid mount c
 
 Please ensure that the folder you are mounting exists on the host machine and try again. For example, if you passed `--volume "C:\Octopus\Data:C:\Octopus"` then `C:\Octopus\Data` needs to exist on the host machine.
 
-### How can I install other softare in the container?
+### How can I install other software in the container?
 
 When you have the container running, you may need to install other programs within it or read/modify files within. For example, you may want to have [PowerShell Core](https://github.com/PowerShell/PowerShell) available to run PowerShell scripts on the Octopus Server. To access bash within the container first run the command `docker ps` to find your container, then copy the Container ID. Next run `docker exec -it <container id> /bin/bash` to enter bash within the container. From there, you can install, remove or access anything else that is required. 
