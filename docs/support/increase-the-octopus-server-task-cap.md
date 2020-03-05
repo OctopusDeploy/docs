@@ -1,5 +1,5 @@
 ---
-title: Increase the Octopus Server Task Cap
+title: Increase the Octopus Server task cap
 description: How to change the maximum number of tasks the Octopus Server can run in parallel.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Log Files
+title: Log files
 description: Octopus Server and Tentacle log file locations and details.
 position: 1
 ---
@@ -11,7 +11,7 @@ Octopus Deploy Server and Tentacles write diagnostic log messages to their local
 The most recent warnings and errors can be view on the **{{Configuration,Diagnostics}}** page
 :::
 
-## Finding the Log Files for Octopus Server and Tentacle {#Logfiles-Findingthelogfiles}
+## Finding the log files for Octopus Server and Tentacle {#Logfiles-Findingthelogfiles}
 
 When Octopus applications are installed, a "home directory" is chosen - this is usually `C:\Octopus`.
 
@@ -19,7 +19,7 @@ Octopus stores its logs in the `Logs` subdirectory. Three sets of log files may
 
 When requesting support, send as much log information as possible - the repetitive nature of the files means they usually zip down well.
 
-## Changing Log Retention {#Logfiles-Changinglogretention}
+## Changing log retention {#Logfiles-Changinglogretention}
 
 To increase the number of log files Octopus will store, find the `octopus.server.exe.nlog` file associated with the application. This is usually in a subfolder of the Octopus "Program Files" folder. **Take a backup** of the file before making changes.
 
@@ -30,7 +30,7 @@ The retention of the logs is controlled by the `maxArchiveFiles` property, it de
 When you use the Octopus installer to update the version of Octopus the `octopus.server.exe.nlog` will be reset to the default values that ship with Octopus.
 :::
 
-## Changing Log Levels for Octopus Server {#Logfiles-Changingloglevels}
+## Changing log levels for Octopus Server {#Logfiles-Changingloglevels}
 
 Occasionally it may be necessary to change the logging level of an Octopus application.
 
@@ -51,7 +51,7 @@ The Octopus process will automatically switch to the new logging level as soon a
 Leaving your `minlevel` too low will impact the performance of Octopus Server. We recommend resetting back to the default logging configuration once you have completed your diagnostics session.
 :::
 
-## Changing Log Levels for Halibut {#Logfiles-Changingloglevelshalibut}
+## Changing log levels for Halibut {#Logfiles-Changingloglevelshalibut}
 
 To change the logging level for Halibut as logged in the Octopus Server, we follow a similar process as described above with a few changes.
 
@@ -72,7 +72,7 @@ The Octopus process will automatically switch to the new logging level as soon a
 Leaving your `minlevel` too low will impact the performance of Octopus Server. We recommend resetting back to the default logging configuration once you have completed your diagnostics session.
 :::
 
-## Changing Log Levels for Tentacle {#Logfiles-Changingloglevelstentacle}
+## Changing log levels for Tentacle {#Logfiles-Changingloglevelstentacle}
 
 Occasionally it may be necessary to change the logging level of a Tentacle instance.
 

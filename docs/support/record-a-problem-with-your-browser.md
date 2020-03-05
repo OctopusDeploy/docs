@@ -1,5 +1,5 @@
 ---
-title: Record a Problem with Octopus Deploy in Your Web Browser
+title: Record a problem with Octopus Deploy in your web browser
 description: This page describes how you can record HTTP traffic between your browser and Octopus Server. This is especially helpful if you are having a problem with Octopus Deploy in your web browser. It includes instructions for taking a screen recording and web traffic capture, for diagnosing issues.
 position: 28
 ---
@@ -17,7 +17,7 @@ This kind of analysis is most successful when you can provide us with a full pic
 
 We recommend some small utilities to record your screen and web traffic. We are only concerned with analyzing the web traffic and how it may have caused the problem. To protect your privacy we will provide you with a secure location to upload the recordings, only use the recordings for the analysis, and then delete all traces of the recordings.
 
-## Getting Prepared
+## Getting prepared
 
 These tools for Windows are both reputable and free. They should be installed and run on the computer you use to access your Octopus Server using your web browser:
 

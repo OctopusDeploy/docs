@@ -1,4 +1,4 @@
-### Download the Long-term Support Octopus Server {#slow-lane}
+### Download the long-term support Octopus Server {#slow-lane}
 
 The latest long-term support version of Octopus Deploy:
 
@@ -7,7 +7,7 @@ The latest long-term support version of Octopus Deploy:
 
 If you need an older version of a long-term support release, visit the [previous downloads page](https://octopus.com/downloads/previous) to locate the specific version you need.
 
-### Download Fast Lane Octopus Server {#fast-lane}
+### Download fast lane octopus server {#fast-lane}
 
 The latest version of Octopus Deploy with the latest features:
 

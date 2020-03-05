@@ -1,5 +1,5 @@
 ---
-title: Send a Secret to Octopus
+title: Send a secret to Octopus
 description: How to send sensitive information to Octopus support.
 position: 16
 ---

@@ -1,5 +1,5 @@
 ---
-title: Record a Performance Trace
+title: Record a performance trace
 description: How to record a software performance trace of your running Octopus Server so we can solve performance issues.
 position: 27
 ---
@@ -16,12 +16,12 @@ Performance analysis is most successful when you can provide us with a full pict
 
 We use [JetBrains dotTrace](https://www.jetbrains.com/profiler/) to record and analyze the performance trace. We are only concerned with which functions are called, how often they are called, and how long they take to execute. To protect your privacy we will provide you with a secure location to upload the recording, only use the recording for the performance analysis, and then delete all traces of the recording.
 
-## Getting Prepared
+## Getting prepared
 
 1. Download and install a trial of [JetBrains dotTrace](https://www.jetbrains.com/profiler/) on your Octopus Server.
 2. Start recording CPU, RAM and Disk I/O using performance monitor (or similar).
 
-## Recording the Performance Trace
+## Recording the performance trace
 
 :::hint
 We don't usually need a long recording, the most important thing is to get a recording of a short period of time where the problem occurs. This may be during a particular deployment, or when another Octopus task is running (like retention policy processing or health checks), or perhaps it's just happening throughout the day.
@@ -43,6 +43,6 @@ If we haven't asked for anything specific, start with a 1-5 minute recording so 
 
 Due to the nature and depth of these investigations it may take a little while to analyze the performance trace and get to the bottom of what's happening.
 
-### DIY Performance Analysis
+### DIY performance analysis
 
 We ship debugging symbols (PDB) files in the box with Octopus Server. This means you can use the dotTrace tooling to do your own analysis and understand exactly which functions could be causing the problem.

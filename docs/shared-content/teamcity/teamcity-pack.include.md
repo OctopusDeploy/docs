@@ -1,4 +1,4 @@
-## Create Packages with TeamCity
+## Create packages with TeamCity
 
 Octopus supports multiple [package formats](/docs/packaging-applications/index.md#supported-formats) for deploying your software. TeamCity can be configured to monitor your source control and package your applications when changes are made.
 

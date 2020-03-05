@@ -1,12 +1,12 @@
 ---
-title: Process Dumps
+title: Process dumps
 description: Octopus Server and Tentacle process dumps
 position: 14
 ---
 
 For some problems, such as unresponsive servers/Tentacles and hung tasks, providing a dump or dump analysis of the Octopus Server and/or Tentacle process may speed up diagnosis and resolution.
 
-## Creating a Process Dump
+## Create a process dump
 
 :::warning
 A process dump consists of all the memory the process is currently using.
@@ -27,7 +27,7 @@ to a few minutes, depending on the amount of memory in use and the disk speed
 1. Right click on it and select **Create dump file**.
 1. Note where the file is saved (generally in your temp folder).
 
-## Dump File Analysis
+## Dump file analysis
 
 This process creates an analysis file from a process dump file. This analysis file
 contains a limited set of information outlining the current state of the

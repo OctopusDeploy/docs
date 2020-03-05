@@ -1,5 +1,5 @@
 ---
-title: Sensitive Properties API Changed in Release 3.3
+title: Sensitive properties API changed in release 3.3
 description: How the sensitive properties API changed in Octopus release 3.3.
 position: 200
 ---
@@ -9,14 +9,14 @@ position: 200
 In **Octopus 3.3** we made a breaking-change to the API with regards to sensitive-properties on deployment steps and templates.
 :::
 
-## Affected Endpoints {#SensitivePropertiesAPIChangesinRelease3.3-AffectedEndpoints}
+## Affected endpoints {#SensitivePropertiesAPIChangesinRelease3.3-AffectedEndpoints}
 
 The following API endpoints were affected:
 
 - `/api/deploymentprocesses`
 - `/api/actiontemplates`
 
-## JSON Changes {#SensitivePropertiesAPIChangesinRelease3.3-JSONChanges}
+## JSON changes {#SensitivePropertiesAPIChangesinRelease3.3-JSONChanges}
 
 The *SensitiveProperties* JSON property was removed from deployment-steps and action-template resource types.
 
@@ -113,7 +113,7 @@ In **Octopus 3.3** and greater, this same resource would be represented as:
 
 Note on line 21 the sensitive-property is now in the *Properties* collection, and is an object which indicates whether the sensitive-property has a value.
 
-## Creating/Modifying Sensitive-Properties {#SensitivePropertiesAPIChangesinRelease3.3-Creating/ModifyingSensitive-Properties}
+## Creating or Modifying sensitive-properties {#SensitivePropertiesAPIChangesinRelease3.3-Creating/ModifyingSensitive-Properties}
 
 To create or alter the value of a sensitive property, the sensitive-property should be included in the *Properties* collection (as above), and it's JSON value should be:
 

@@ -1,5 +1,5 @@
 ---
-title: Record Memory Snapshots
+title: Record memory snapshots
 description: How to record memory snapshots of your running Octopus Server so we can solve memory issues.
 position: 28
 ---
@@ -16,11 +16,11 @@ Memory analysis is most successful when you can provide us with a full picture o
 
 We use [JetBrains dotMemory](https://www.jetbrains.com/dotmemory/) to record and analyze the memory snapshots. We are only concerned with memory allocations, whether there is a memory leak, and which functions allocated the memory. To protect your privacy we will provide you with a secure location to upload the snapshots and any supporting data, only use the data you provide for the memory analysis, and then delete everything once the analysis has been completed.
 
-## Getting Prepared
+## Getting prepared
 
 1. Start recording CPU, RAM and Disk I/O using performance monitor (or similar).
 
-## Recording the Memory Snapshots
+## Recording the memory snapshots
 
 :::hint
 We usually only need one or two snapshots, the most important thing is that the snapshots cover the period of time where the problem occurs. This may be during a particular deployment, or when another Octopus task is running (like retention policy processing or health checks), or perhaps it's just happening throughout the day.
@@ -28,7 +28,7 @@ We usually only need one or two snapshots, the most important thing is that the 
 If we haven't asked for anything specific, start by taking a single snapshot of your running Octopus Server so we can analyze it and go from there.
 :::
 
-### Get a Snapshot From Your Running Octopus Server
+### Get a snapshot from your running Octopus Server
 
 This is the best way to start, especially if you cannot restart your Octopus Server, or if the memory problem takes a long time to occur or is difficult to reproduce. It requires a small standalone executable called `dotmemory.exe` which will take snapshots of your running Octopus Server.
 
@@ -66,6 +66,6 @@ If you can easily restart your Octopus Server, and the problem you are experienc
 
 Due to the nature and depth of these investigations it may take a little while to analyze the memory snapshots and get to the bottom of what's happening.
 
-### DIY Memory Analysis
+### DIY memory analysis
 
 We ship debugging symbols (PDB) files in the box with Octopus Server. This means you can use the dotMemory tooling to do your own analysis and understand the root cause of any memory problems.
