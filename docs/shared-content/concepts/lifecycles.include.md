@@ -6,7 +6,7 @@ Lifecycles give you control over the way releases of your software are promoted 
 
 Lifecycles are defined by phases. A lifecycle can have one or many phases.
 
-- Phases occur in order. One phase must have a complete successful deployment before the next phase will be deployed to.
+- Phases occur in order. One phase must have a complete, successful deployment before the release will be deployed to the next phase.
 - Phases have one or more environments.
 - Environments in a phase can be defined as automatic deployment environments or manual deployment environments.
 - Phases can have a set number of environments that must be released to before the next phase is available for deployment.
