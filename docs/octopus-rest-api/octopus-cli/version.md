@@ -9,7 +9,9 @@ Output The Octopus CLI tool version.
 **version options**
 
 ```text
-Usage: Octo version [<options>]
+Output Octopus CLI version.
+
+Usage: octo version [<options>]
 
 Where [<options>] is any of:
 

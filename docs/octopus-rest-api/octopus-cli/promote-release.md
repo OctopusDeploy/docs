@@ -9,7 +9,9 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to pr
 Learn more about [releases](/docs/managing-releases/index.md).
 
 ```text
-Usage: Octo promote-release [<options>]
+Promotes a release.
+
+Usage: octo promote-release [<options>]
 
 Where [<options>] is any of:
 
@@ -44,7 +46,7 @@ Deployment:
                              [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
                              checks (default 00:00:10)
-      --guidedfailure=VALUE  [Optional] Whether to use guided failure mode.
+      --guidedfailure=VALUE  [Optional] Whether to use Guided Failure mode.
                              (True or False. If not specified, will use
                              default setting from environment)
       --specificmachines=VALUE
@@ -137,8 +139,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.

@@ -18,7 +18,9 @@ If you are using [Channels](/docs/deployment-process/channels/index.md) (introdu
 Usage:
 
 ```text
-Usage: Octo create-release [<options>]
+Creates (and, optionally, deploys) a release.
+
+Usage: octo create-release [<options>]
 
 Where [<options>] is any of:
 
@@ -82,7 +84,7 @@ Deployment:
                              [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
                              checks (default 00:00:10)
-      --guidedfailure=VALUE  [Optional] Whether to use guided failure mode.
+      --guidedfailure=VALUE  [Optional] Whether to use Guided Failure mode.
                              (True or False. If not specified, will use
                              default setting from environment)
       --specificmachines=VALUE
@@ -179,8 +181,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
