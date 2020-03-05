@@ -1,12 +1,12 @@
 ---
-title: Debug Problems With Octopus Variables
+title: Debug problems with Octopus variables
 description: How to debug problems with Octopus variables when a variable used during a deploying is different than the one you expect.
 position: 1
 ---
 
 Sometimes a variable used during deployment may have a different value from the one you expect. Here are the first steps to debugging these issues.
 
-## Check the Variable Snapshot for the Release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
+## Check the variable snapshot for the release {#DebugproblemswithOctopusvariables-ChecktheVariableSnapshotfortheRelease}
 
 1. Open the **{{Project,Releases,Release}}** page for the Release you are debugging.
 2. Scroll down to find the **Variables** section and click the **Show Snapshot** link so see the snapshot of Variables being used by this Release.
@@ -16,7 +16,7 @@ Sometimes a variable used during deployment may have a different value from the 
 
 ![](images/3278466.png)
 
-## Check the Variable Value in the All Variables Tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
+## Check the variable value in the all variables tab {#DebugproblemswithOctopusvariables-CheckthevariablevalueintheAllVariablestab}
 
 1. Open the **{{Project,Variables,All Variables}}** tab.
 2. Investigate the variables from all possible sources for the project including the project itself, [library variable sets](/docs/projects/variables/library-variable-sets.md), and [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md).
@@ -27,7 +27,7 @@ Sometimes a variable used during deployment may have a different value from the 
 Did you know you can sort filter all of the variables grids? Click **Show Advanced filters** and select your filter type.
 :::
 
-## Write the Variables to the Deployment Log {#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog}
+## Write the variables to the deployment log {#DebugproblemswithOctopusvariables-Writethevariablestothedeploymentlog}
 
 This will log the variables available at the beginning of each step in the deployment as Verbose messages.
 

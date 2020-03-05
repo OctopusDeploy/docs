@@ -1,5 +1,5 @@
 ---
-title: GitHub as a Feed
+title: GitHub as a feed
 description: Configuring GitHub repositories as Octopus Feeds
 position: 50
 ---
@@ -19,7 +19,7 @@ As of **Octopus 2018.3.0** only the following authentication methods are support
 
 If you’re attempting to configure access for your organization, and you would prefer not to use the auth token from a particular user, you can create what GitHub refers to as a [Machine User](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users). This is effectively a GitHub account configured exclusively for automation.
 
-## Adding a GitHub Feed
+## Adding a GitHub feed
 Create a GitHub package feed through **{{Library,External feeds}}**. You can add as many GitHub feeds as you need. Each can have different credentials if required.
 
 In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
@@ -34,7 +34,7 @@ Give the token a meaningful name and enable the **repo** scope if you want to be
 
 Copy the token that is generated and use this value as the password for the GitHub feed in Octopus Deploy.
 
-## Using GitHub as a Package Feed
+## Using GitHub as a package feed
 1. Add your GitHub feed as described above.
 2. In the console of your git repository which has a GitHub remote link, create a tag with a SemVer 2.0 compliant version and push this tag to GitHub.
 
@@ -46,7 +46,7 @@ git push --tags
 2. Optionally add release notes to the tagged commit from within GitHub.
 (Note additional resources currently do not get included in the Octopus deployment). The pre-release state of a release is also tied to the pre-release component of the tag name.
 
-![GitHub Release Notes](images/GitHub-ReleaseNotes.png)
+![GitHub release notes](images/GitHub-ReleaseNotes.png)
 
 If Octopus can link a particular version (which in the context of GitHub feeds refers to a tag) to a release, then the release notes will be exposed through the Octopus Deploy portal. At this point in time the `This is a pre-release` check-box on the GitHub Release will be ignored in favor of the pre-release state indicated in the version itself. Additionally, artifacts are not currently retrieved as part of an Octopus deployment, however this may become available in the future.
 
@@ -58,5 +58,5 @@ If Octopus can link a particular version (which in the context of GitHub feeds r
 
 5. When the release is deployed and the [package acquisition](/docs/deployment-examples/package-deployments/stage-package-uploads.md) process begins, Octopus will pull down a copy of the repository based on the commit linked to the tag selected as the package version. This artifact is then treated as a zip and is deployed using the standard package deployment rules that applied previously.
 
-## Deployments Without a Build
+## Deployments without a build
 This new GitHub feed support is a perfect addition to support your CI processes where a build process to create a package would be unnecessary. It could be a repository that contains just a bunch of scripts or cloud provisioning templates that you want Octopus to execute but that you would prefer to be in source control and where a build process makes no sense. Perhaps you have a simple Node.js project that you just want to deploy directly from your source control without the ceremony of a build and package step. In this case you may want to invoke `npm install` in a [post-deploy script](/docs/deployment-examples/custom-scripts/scripts-in-packages/index.md).

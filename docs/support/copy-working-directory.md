@@ -1,5 +1,5 @@
 ---
-title: Copy the Working Directory 
+title: Copy the working directory 
 description: Copy the Calamari working directory to assist in debugging.
 position: 2 
 ---

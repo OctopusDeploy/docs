@@ -1,11 +1,10 @@
 ---
-title: Scheduled Runbook Triggers
+title: Scheduled runbook triggers
 description: Scheduled runbook triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to environments of your choosing.
 position: 4
 ---
 
-Scheduled Deployment Triggers were introduced in **Octopus 2019.11**.
-
+Scheduled deployment triggers were introduced in **Octopus 2019.11**.
 
 Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/operations-runbooks/index.md) that will cause an automatic runbook run to environments of your choosing.
 
@@ -21,7 +20,7 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 * Run a script to provision more machines on the 1st day of the month and a script to deprovision them at a future date.
 
 
-## Add a Scheduled Runbook Trigger
+## Add a scheduled runbook trigger
 
 1. From the Project's Overview page, select **{{Operations,Triggers}}**, then **Add Scheduled trigger**.
 2. Give the trigger a name.
@@ -33,7 +32,7 @@ If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/in
 
 6. Save the Trigger.
 
-### Using CRON Expression {#cron-expression}
+### Using CRON expression {#cron-expression}
 
 CRON expressions allow you to configure a trigger that will run according to the specific CRON expression.
 

@@ -1,18 +1,18 @@
 ---
-title: Sensitive Variables
+title: Sensitive variables
 description: Sensitive variables allow you to define secret values used in your applications that are secured stored in Octopus.
 position: 50
 ---
 
 As you work with [variables](/docs/projects/variables/index.md) in Octopus, there will be times when you work with applications that require configuration values that are considered sensitive information. These should be kept secret, but used as clear-text during deployment. Think of something like a password or API Key to an external resource. Octopus provides support for this scenario with Sensitive Variables.
 
-## Configuring Sensitive Variables {#Sensitivevariables-Configuringsensitivevariables}
+## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
 Variables such as passwords or API keys can be marked as **sensitive**. Select **Change Type** when entering the value and select **Sensitive**.
 
 Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](/docs/projects/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#Sensitivevariables-Avoidingcommonmistakes).
 
-## Defining Sensitive Variables
+## Defining sensitive variables
 
 To make a variable a **sensitive variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
@@ -22,7 +22,7 @@ For variable type, select **Sensitive**.
 
 ![Variable editor](images/variable-editor.jpg)
 
-## How Octopus Handles Your Sensitive Variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
+## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
 :::hint
 Learn more about [security and encryption](/docs/administration/security/data-encryption.md) in Octopus Deploy.
@@ -38,7 +38,7 @@ When dealing with sensitive variables, Octopus encrypts these values using **AE
 If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/), or [HashiCorp Vault](https://www.vaultproject.io/).
 :::
 
-## Choosing Which Variables Should Be Sensitive
+## Choosing which variables should be sensitive
 
 Any value you want can be treated as a secret by Octopus. It is up to you to choose the most appropriate balance of secrecy and usability. As a rule of thumb, any individual value which should be encrypted, or masked in logs, should be made sensitive in Octopus.
 
@@ -46,7 +46,7 @@ The most straightforward example is a password or key. Make the password or key 
 
 Another common example is building a compound value using the [variable substitution syntax](/docs/projects/variables/variable-substitutions.md), like a database connection string. Imagine a variable called `DB.ConnectionString` with the value `Server=#{DB.Server};Database=#{DB.Database};User=#{DB.Username};Password#{DB.Password};`. In this case you should at least make the `DB.Password` variable sensitive so it will be encrypted in the database and masked from any Octopus task log messages like this `Server=db01.mycompany.com;Database=mydatabase;User=myuser;Password=*****`. You could also make `DB.Username` or any of the other components of this template sensitive.
 
-## Avoiding Common Mistakes {#Sensitivevariables-Avoidingcommonmistakes}
+## Avoiding common mistakes {#Sensitivevariables-Avoidingcommonmistakes}
 
 Here are some common pitfalls to avoid:
 

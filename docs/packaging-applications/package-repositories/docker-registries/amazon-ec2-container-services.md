@@ -1,14 +1,14 @@
 ---
-title: AWS EC2 Container Services
+title: AWS EC2 container services
 description: How to add an AWS Docker Registry as an Octopus Deploy feed for use in Docker steps.
 position: 2
 ---
 
-## Amazon - EC2 Container Service
+## Amazon - EC2 container service
 
 AWS provides a v2 Docker Image registry and is available through their [EC2 Container Service](https://aws.amazon.com/ecs/) offering. From **Octopus 2018.8.0**, support for EC2 Container registries is provided as a special feed type itself.
 
-### Setting up an AWS Elastic Container Registry
+### Setting up an AWS elastic container registry
 From the AWS Services dashboard go to `EC2 Container Service`.
 
  ![AWS Services](images/aws-services.png)
@@ -21,10 +21,10 @@ With the repository configured, ensure that you also have an [AWS IAM](https://a
 
 Further links for getting your AWS registry set up are available in their [online docs](http://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)
 
-### Adding AWS ECR Feed to Octopus
+### Adding AWS ECR feed to Octopus
  Create a new Octopus Feed and select the `AWS Elastic Container Registry` Feed type. With this selected will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
 
-![AWS EC2 Container Service Registry Feed](images/aws-ecr-feed.png)
+![AWS EC2 container service registry feed](images/aws-ecr-feed.png)
 
 Save and test your registry to ensure that the connection is authorized successfully.
 

@@ -1,5 +1,5 @@
 ---
-title: Build Server Integration
+title: Build server integration
 description: Integrate your build server with Octopus Deploy.
 position: 20
 hideInThisSection: true
@@ -15,7 +15,7 @@ Your continuous integration/build server will package your applications and make
  - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
  - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
 
-## Build Information {#build-information}
+## Build information {#build-information}
 
 It is often useful to have information flow from your build server to be associated with packages, releases, and deployments in Octopus.
 
@@ -25,18 +25,18 @@ The build information is associated with a package and includes:
 - Commits: Details of the source commits related to the build.
 - Issues: Issue references parsed from the commit messages.
 
-## Passing Build Information to Octopus {#passing-build-information-to-octopus}
+## Passing build information to Octopus {#passing-build-information-to-octopus}
 
 Build information is passed to Octopus as a file using a custom format. The recommended way to supply the build information is to add the _Build Information_ step from the Octopus Deploy plugin to your build server.
 
 :::hint
-**Build Server support**
+**Build server support**
 The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins.md) plugins.
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::
 
-## Build Information Step {#build-information-step}
+## Build information step {#build-information-step}
 
 The TeamCity version of the _Build Information_ step is shown below.
 
@@ -48,7 +48,7 @@ The Verbose logging option can be used to include more detail in the build logs.
 
 :::
 
-## Viewing Build Information
+## Viewing build information
 
 As of `2019.10.0`, the build information for a package can be viewed by navigating to **{{Library,Build Information}}**
 
@@ -62,12 +62,12 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 ![Build information on package version page](images/build-information-package-version.png)
 
-## Using Build Information in Release Notes #{release-notes}
+## Using build information in release notes #{release-notes}
 
 The build information associated with packages is available for use in [release notes](/docs/managing-releases/release-notes.md) (and [release notes templates](/docs/managing-releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
 
 See the [system variable documentation](/docs/projects/variables/system-variables.md#release-package-build-information) for the available variables.
 
-## Using Build Information in Deployments
+## Using build information in deployments
 
 Package build information associated with a release will be also [captured in deployments](/docs/managing-releases/deployment-notes.md) of the release.

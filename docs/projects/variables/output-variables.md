@@ -1,5 +1,5 @@
 ---
-title: Output Variables
+title: Output variables
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
 position: 30
 ---
@@ -58,7 +58,7 @@ let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
 ```
 
-## Sensitive Output Variables
+## Sensitive output variables
 
 Output variables can be created as sensitive (since **Octopus 2018.5.2**).
 
@@ -82,7 +82,7 @@ Octopus.setSensitiveVariable "Password" "correct horse battery staple"
 set_octopusvariable("Password", "correct horse battery staple", True)
 ```
 
-## System Output Variables {#Outputvariables-Systemoutputvariables}
+## System output variables {#Outputvariables-Systemoutputvariables}
 
 After a step runs, Octopus captures the output variables, and keeps them for use in subsequent steps. In addition to variables that you create yourself using `Set-OctopusVariable`, Octopus also makes a number of built-in variables available. Here are some examples of commonly used built-in output variables:
 
@@ -95,7 +95,7 @@ After a step runs, Octopus captures the output variables, and keeps them for use
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.DisplayName`
   - `Octopus.Action[StepName].Output.Manual.ResponsibleUser.EmailAddress`
 
-## Output From Multiple Deployment Targets {#Outputvariables-Outputfrommultiplemachines}
+## Output from multiple deployment targets {#Outputvariables-Outputfrommultiplemachines}
 
 Output variables become more complex when multiple deployment targets are involved, but they can still be used.
 
@@ -123,13 +123,13 @@ For some practical examples of using output variables, and how scoping rules are
 - [Fun with output variables](https://octopus.com/blog/fun-with-output-variables)
 - [Changing website ports using output variables](http://octopus.com/blog/changing-website-port-on-each-deployment)
 
-## Output From Deploy a Release Steps {#Outputvariables-Outputfromdeployareleasesteps}
+## Output from deploy a release steps {#Outputvariables-Outputfromdeployareleasesteps}
 
 Output variables from deployments triggered by a _Deploy a Release_ step are captured and exposed as output variables on the _Deploy a Release_ step.
 
 To get the value of an output variable from a _Deploy a Release_ step, use the `Output.Deployment` variable on the _Deploy a Release_ step. For example, if your _Deploy a Release_ step is named "Deploy Web Project", the target step in the child project is named "Update IP Address", and the variable name is "IPAddress", you would use the following variable to access it in the parent project: `Octopus.Action[Deploy Web Project].Output.Deployment[Update IP Address].IPAddress`.
 
-## Setting Output Variables Using Scripts {#Outputvariables-Settingoutputvariablesusingscripts}
+## Setting output variables using scripts {#Outputvariables-Settingoutputvariablesusingscripts}
 
 You can set output variables using any of the scripting languages supported by Octopus. In each case we make special functions available to your scripts by bootstrapping them with a template defined in the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari).
 

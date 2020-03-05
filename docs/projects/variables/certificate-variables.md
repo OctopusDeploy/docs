@@ -1,5 +1,5 @@
 ---
-title: Certificate Variables
+title: Certificate variables
 description: Variables in Octopus Deploy can have a certificate as the value
 position: 60
 ---
@@ -12,9 +12,9 @@ Certificate variables can be [scoped](/docs/projects/variables/index.md#scoping-
 
 ![](images/certificate-variables-scoped.png)
 
-## Expanded Properties
+## Expanded properties
 
-At deploy-time, Certificate variables are expanded. For example, a variable _MyCertificate_ becomes:
+At deploy-time, certificate variables are expanded. For example, a variable _MyCertificate_ becomes:
 
 | Variable                        | Description                                            | Example value |
 | ----------------------          | ------------------                                     | ------------- |

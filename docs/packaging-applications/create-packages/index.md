@@ -1,5 +1,5 @@
 ---
-title: Create Packages
+title: Create packages
 description: Create packages for deployment with Octopus Deploy.
 position: 10
 hideInThisSection: true

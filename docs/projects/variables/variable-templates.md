@@ -1,16 +1,16 @@
 ---
-title: Variable Templates
+title: Variable templates
 description: Variable templates can be defined in Octopus to indicate which variable values are required to successfully deploy a project.
 position: 100
 ---
 
-Working with [Multi-tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/projects/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
+Working with [multi-tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/projects/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
 
 :::hint
 For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
 :::
 
-## Adding a Variable Template
+## Adding a variable template
 
 1. Navigate to **{{Library,Variable Sets}}** and click **ADD VARIABLE SET**.
 2. Give the variable set a name, description, and click **SAVE**.

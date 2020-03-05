@@ -7,7 +7,7 @@ hideInThisSectionHeader: true
 
 !include <variables>
 
-## Creating Hello World Variables
+## Creating hello world variables
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
@@ -18,7 +18,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 5. Click **ADD ANOTHER VALUE** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 
-![Adding a Variable](images/adding-a-variable.png)
+![Adding a variable](images/adding-a-variable.png)
 
 7. Save the variable by clicking **SAVE**.
 8. In this example, we'll reference this variable from a **Run a Script** step.
@@ -34,7 +34,7 @@ Write-Host
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
 
-## Scoping Variables {#scoping-variables}
+## Scoping variables {#scoping-variables}
 
 The variables that you define for your projects in Octopus can be scoped in the following ways:
 
@@ -55,13 +55,13 @@ Scoping the values of your variables lets you determine which values will be use
 
 During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* value will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
 
-### Assigning Scopes {#Scopingvariables-Assigningscopes}
+### Assigning scopes {#Scopingvariables-Assigningscopes}
 
 You can set the scope of a variable values when you are creating or editing your variables, either from the **variable** section of the project, or in the **Variable Sets** section of the Library; however, when you assign scope to variables that are part of a library **variable set**, the variables cannot be scoped to deployment steps or channels.
 
-![Assigning Scope to Variables](images/scoping-variables.png)
+![Assigning scope to variables](images/scoping-variables.png)
 
-### Using Multiple Scopes
+### Using multiple scopes
 
 You can scope the values of your variables in multiple ways. For instance, you might scope a value to both the **Dev** and **Test** Environments, and to a step within your process.
 
@@ -80,7 +80,7 @@ With the above *MyVariable* variable, the scoped and unscoped values will be imp
 | Test Environment | Scoped | Unscoped |
 | Stage Environment |  Unscoped | Unscoped |
 
-### Scope Specificity {#Scopingvariables-Scopespecificity}
+### Scope specificity {#Scopingvariables-Scopespecificity}
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?
 
@@ -104,7 +104,7 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still does not resolve the conflict the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so that they are unlikely to conflict.
 
-### Mutually Exclusive Scopes {#Mutuallyexclusive-scopes}
+### Mutually exclusive scopes {#Mutuallyexclusive-scopes}
 
 Scopes of the same type can generally be thought of as a grouping of logical OR expressions while scopes of different types evaluate as AND expressions between the groups of scopes. As an example, a variable scoped to the `Development` environment, `Production` environment as well as the `Default` channel would evaluate as `(Development OR Production) AND (Default)`. This example results in a specific scope which requires a channel in order for the variable to evaluate. This means that the variable will not be usable in the context of a runbook as channels do not apply in this context.
 
@@ -117,7 +117,7 @@ There are two distinct scoping scenarios which need to be explicitly called out,
 Mutually exclusive scopings can generally be avoided by duplicating variable values and scoping appropriately for each value if needed.
 :::
 
-### Scoping Variables to Target Roles
+### Scoping variables to target roles
 
 Variables can also be scoped to specific [target roles](docs/infrastructure/deployment-targets/index.md#target-roles). This means that the variable will take the specified value only when it is used on a deployment step that runs on a deployment target with the specified role. This feature can be really handy when you want to use the same variable name multiple times and have their values changed depending on the target they are running on.
 
@@ -136,7 +136,7 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 ![](images/custom-install-path.png)
 
-### Variables and Permissions
+### Variables and permissions
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
 

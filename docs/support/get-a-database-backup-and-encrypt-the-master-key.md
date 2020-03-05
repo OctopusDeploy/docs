@@ -1,12 +1,10 @@
 ---
-title: How to Get a Database Backup and Encrypt Your Master Key
+title: How to get a database backup and encrypt your Master Key
 description: Guides the user on producing a database backup binary file (.bak) and encrypt their Master Key to provide us with.
 position: 28
 ---
 
 When you contact Octopus Deploy support, sometimes we aren't able to reproduce the issue you're experiencing. This can be due to specific circumstances in your instance, or corrupted data which we won't be able to reproduce. We may ask you to send us a database backup and your encrypted Master Key, which will allow us to accurately reproduce the issue and aid in resolving it. This guide provides a walk-through to get the best information for us to help troubleshoot the issues.
-
-## Step-by-step guide
 
 1. Create the database backup.
 

@@ -72,7 +72,7 @@ Cloud targets can set their own default pool.  If a step is targeted at a cloud 
 
 When a step is run on a worker, the following variables are available:
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------------------------|
 | **`Octopus.WorkerPool.Id`** <br/> The Id of the pool | WorkerPools-1 |
 | **`Octopus.WorkerPool.Name`** <br/> The name of the pool | Default Worker Pool |

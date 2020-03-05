@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Integrations Between Build Servers and Octopus
+title: Troubleshooting integrations between build servers and Octopus
 description: General guide to troubleshoot integrations between build servers such as TeamCity or Azure DevOps with Octopus Deploy
 position: 80
 ---
@@ -10,9 +10,9 @@ A key player in this story is our command line tool [Octopus CLI](/docs/octopus-
 
 If you are reading this doc, odds are you already tried to run an Octopus-related step in your build process and something didn't work the way you expected it. The goal of this document is to explain how all our integration steps work on the background so anyone can troubleshoot them on their own.
 
-## Troubleshooting Build Steps Created by the Octopus Deploy Team {#Octopus-Steps}
+## Troubleshooting build steps created by the Octopus Deploy team {#Octopus-Steps}
 
-### What Happens When an Octopus Step is Executed During the Build Process {#Octopus-Steps-What-happens-behind}
+### What happens when an Octopus Step is executed during the build process {#Octopus-Steps-What-happens-behind}
 
 The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md), [Teamcity](/docs/packaging-applications/build-servers/teamcity.md) and [Bamboo](/docs/packaging-applications/build-servers/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of the Octopus CLI that provide a UI with fields whose values will be passed to this command line tool during the build.
 
@@ -35,7 +35,7 @@ The same holds true for this **Package Application** step in Azure DevOps and it
 
 The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octopus-cli/index.md).
 
-### Troubleshooting the Error {#Octopus-Steps-Troubleshooting-the-error}
+### Troubleshooting the error {#Octopus-Steps-Troubleshooting-the-error}
 
 As shown in the above screenshots, the exact `octo` command that was executed (and failed) will be printed in the logs. So the best way to troubleshoot that error would be to copy the full command, and try to run it yourself by [downloading the Octopus CLI to your local machine](https://octopus.com/downloads). A few tips and gotchas for this:
 
@@ -58,7 +58,7 @@ As shown in the above screenshots, the exact `octo` command that was executed (a
 
 - If the version of the Octopus CLI that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of the Octopus CLI and see if you can still reproduce it. You can [download the latest version from the downloads page](https://octopus.com/downloads). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed Octopus CLI. If that's the case, then [log an issue with our support team](https://octopus.com/support) so we can take care of it.
 
-### Last Resource - Ask For Help {#Octopus-Steps-Ask-for-help}
+### Last resource - ask for help {#Octopus-Steps-Ask-for-help}
 
 The Octopus support team will always be there to give you a hand. But do know that the first thing we'll ask you is if you read this guide and followed all the steps on it! If you did and you still couldn't find the error, then [log a ticket in our forum](https://help.octopus.com) and include:
 
@@ -74,7 +74,7 @@ Make sure to set the ticket as **private** before attaching any kind of log, as 
 :::
 
 
-## Troubleshooting Build Steps Created by Non-Octopus-team-members {#Custom-Steps}
+## Troubleshooting build steps created by non-Octopus-team-members {#Custom-Steps}
 
 If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `octo` game very well.
 

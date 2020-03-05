@@ -1,6 +1,6 @@
-## Download the Tentacle Installer
+## Download the Tentacle installer
 
-### Long-term Support Octopus Server (Slow lane)
+### Long-term support Octopus Server (Slow lane)
 
 The version of Tentacle that works with the latest long-term support version of Octopus Deploy:
 
@@ -10,7 +10,7 @@ The version of Tentacle that works with the latest long-term support version of 
 
 If you need an older version of Tentacle that works with a previous long-term support release, visit the [previous downloads page](https://octopus.com/downloads/previous), locate the specific version of Octopus you're working with, and click your version to visit the downloads page for that version.
 
-### Fast Lane Tentacle
+### Fast lane Tentacle
 
 The version of Tentacle that works with the latest fast lane version of Octopus Deploy:
 

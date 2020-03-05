@@ -1,5 +1,5 @@
 ---
-title: Variable Filters
+title: Variable filters
 description: Octopus variable substitutions support *filters* to correctly encode values for a variety of target file types.
 position: 18
 ---
@@ -32,11 +32,11 @@ That is, the ampersand has been encoded correctly for use in an HTML document.
 The filters provided by Octopus are for use with trusted input; don't rely on them to sanitize data from potentially malicious sources.
 :::
 
-## Provided Filters {#VariableSubstitutionSyntax-Providedfilters}
+## Provided filters {#VariableSubstitutionSyntax-Providedfilters}
 
 Octopus provides the following filters:
 
-| Name                                    | Purpose                                           | Example Input           | Example Output                   |
+| Name                                    | Purpose                                           | Example input           | Example output                   |
 | --------------------------------------- | ------------------------------------------------- | ----------------------- | -------------------------------- |
 | `ToLower`                               | Forces values to lowercase                        | `Automated Deployment`  | `automated deployment`           |
 | `ToUpper`                               | Forces values to uppercase                        | `Automated Deployment`  | `AUTOMATED DEPLOYMENT`           |
@@ -148,12 +148,7 @@ The *UriPart* filter introduced in **Octopus 2019.10.9** parses the input as a U
 | `https://octopus.com/docs`              | `#{MyVar | UriPart SchemeAndServer}` | `https://octopus.com`      |
 | `https://username:password@octopus.com` | `#{MyVar | UriPart UserInfo}`        | `username:password`        |
 
-
-:::hint
-Filters were introduced in **Octopus 3.5**.
-:::
-
-## Differences From Regular Variable Bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
+## Differences from regular variable bindings {#VariableSubstitutionSyntax-Differencesfromregularvariablebindings}
 
 Because of the flexibility provided by the extended syntax, variables that are not defined will result in the source text, e.g. `#{UndefinedVar}` being echoed rather than an empty string, so that evaluation problems are easier to spot and debug. The `if` construct can be used to selectively bind to a variable only when it is defined, e.g. to obtain identical "empty" variable functionality as shown in the first example:
 
@@ -161,7 +156,7 @@ Because of the flexibility provided by the extended syntax, variables that are n
 Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 ```
 
-## JSON Parsing {#VariableSubstitutionSyntax-JSONParsingjson}
+## JSON parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
 Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
@@ -197,7 +192,7 @@ There are a few things to note here:
 - Arrays can be accessed using standard numerical index notation.
 - Variables can map to a sub-section of the JSON variable.
 
-### Repetition Over JSON {#VariableSubstitutionSyntax-RepetitionoverJSON}
+### Repetition over json {#VariableSubstitutionSyntax-RepetitionoverJSON}
 
 Give the variables:
 

@@ -10,7 +10,7 @@ We strongly recommend testing Hydra against a small subset of "canary" machines 
 3. Once you are confident the Tentacle upgrade works as expected, you can use Hydra to upgrade all of the remaining machines.
 :::
 
-#### How Does Hydra Work?
+#### How does Hydra work?
 
 Hydra consists of two parts:
 
@@ -29,7 +29,7 @@ The scheduled task does the following:
 
 With just one Tentacle service this should be a very quick process, but we cannot estimate how long it may take with many Tentacle services running on the one machine.
 
-#### Common Problems Using Hydra
+#### Common problems using Hydra
 
 The scheduled task is set to run as `SYSTEM` to ensure the MSI installation will succeed. If your Tentacles are running with restricted permissions, they may not be able to create this scheduled task. **The only option is to upgrade your Tentacles manually.**
 
@@ -38,7 +38,7 @@ Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Servi
 ```powershell
 Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=accountpassword --start --console
 ```
-#### Let's Upgrade These Tentacles!
+#### Let's upgrade these Tentacles!
 
 To use Hydra, follow these steps:
 
@@ -65,7 +65,7 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
    - If you are using any polling Tentacles, add the new **Octopus 2018.10 LTS** server address (including the polling TCP port) in the Server Mapping field. See below for examples.
 
 :::hint
-**Server Mapping for Polling Tentacles**
+**Server mapping for Polling Tentacles**
 
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by neither a 2.6.5 or 2018.10 LTS server. Several different scenarios are supported:
 

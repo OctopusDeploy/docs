@@ -1,12 +1,12 @@
 ---
-title: Deployment Target Triggers
+title: Deployment target triggers
 description: Deployment target triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
 position: 1
 ---
 
-Deployment Target Triggers (also known as auto-deploy) let you to define an unattended behavior for your [Projects](/docs/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md). This means, you can configure new deployment targets to be just like their counterparts.
+Deployment target triggers (also known as auto-deploy) let you to define an unattended behavior for your [Projects](/docs/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md). This means, you can configure new deployment targets to be just like their counterparts.
 
-Deployment target Triggers can help you:
+Deployment target triggers can help you:
 
 - [Elastically scale a farm of servers](/docs/deployment-patterns/elastic-and-transient-environments/index.md).
 - [Automatically keep your deployment targets up to date](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments.
@@ -16,13 +16,13 @@ Deployment target Triggers can help you:
 
 On the surface Deployments Target Triggers appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
-## Defining Deployment Target Triggers
+## Defining deployment target triggers
 
 Deployment Target Triggers can be triggered by any machine-related event. A scheduled task runs in Octopus every 30 seconds looking for new events to determine whether any automatic deployment triggers need to fire. Each trigger is inspected to see if the recent stream of events should cause the trigger to fire, and if so, the appropriate deployments will be queued and run for the deployment target(s) that caused the trigger to fire.
 
 Events have been placed into the following pre-defined groups:
 
-| Event Group | Included Events |
+| Event group | Included Events |
 | ----------- | --------------- |
 | **Machine events** | Machine cleanup failed, Machine created, Machine deployment-related property modified, Machine disabled, Machine enabled, Machine found healthy, Machine found to be unavailable, Machine found to be unhealthy, Machine found to have warnings |
 | **Machine critical-events** | Machine cleanup failed, Machine found to be unavailable |
@@ -52,7 +52,7 @@ You can restrict deployments target triggers further by specifying the following
 - The Target Roles the trigger applies to.
 - The Environment and Target Roles the trigger applies to.
 
-## Add a Deployment Target Trigger
+## Add a deployment target trigger
 
 1. From the Project's Overview page, select **{{Deployments,Triggers}}**, then **{{ADD TRIGGER,Deployment target trigger}}**.
 1. Give the trigger a name.
@@ -64,7 +64,7 @@ You can restrict deployments target triggers further by specifying the following
 
 With the trigger save, Octopus will run a scheduled task every 30 seconds looking for events that machine the deployment trigger.
 
-## Unattended Release Behavior
+## Unattended release behavior
 
 Deployment target triggers let you configure unattended deployment behavior that configures new deployment targets to be just like their counterparts.
 
@@ -76,7 +76,7 @@ When an deployment target trigger fires, the following rules are applied:
   2. Configuring an [Auto Deploy Override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md) for the same Release to the same Environment/Tenant (this will result in a new deployment being generated without the manually skipped steps).
 - If a deployment of a release fails, Octopus will continue deploying the last successful deployment. This ensures auto-deployments will continue, even if a release has been updated and failed.
 
-## The Order of Deployment Target Triggers
+## The order of deployment target triggers
 
 Because projects are considered independent in Octopus, and there is no built-in way to define dependencies between Projects or control the order in which Projects are deployed.
 
@@ -96,19 +96,19 @@ In this case you could:
 The [Chain Deployment](https://library.octopus.com/step-template/actiontemplate-chain-deployment) step template might be a perfect fit for you in this situation, or you may want to customize this step template for more advanced scenarios.
 :::
 
-### Specifying a Specific Release to be Deployed
+### Specifying a specific release to be deployed
 
 If you need to specify a specific release, either because the release hasn't been deployed yet, or Octopus is calculating the wrong release for a particular situation, you can configure an [Auto Deploy Override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md) to override the default automatic deployment behavior.  This is useful for scenarios like [Immutable Infrastructure](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md), [Deploying to transient targets](/docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md), and force deployment target triggers to use a specific release for a specific environment/tenant.
 
-## Deployment Target Trigger Subscription Notifications
+## Deployment target trigger subscription notifications
 
 If you want to be notified of automatic deployments events, like blockages or failures, you can configure [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) to notify you by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 
-## Troubleshooting Deployment Target Triggers
+## Troubleshooting deployment target triggers
 
 There are a number of reasons why automatic deployments may not work the way you expected, some of which we've already discussed earlier. Here are some troubleshooting steps you can take to figure out what is going wrong.
 
-### Is the Dashboard Green?
+### Is the dashboard green?
 
 Octopus will attempt to automatically deploy the current releases for the environments that are appropriate for a machine. The current release is the one that was most recently *successfully* deployed as shown on the project dashboard.
 
@@ -117,12 +117,12 @@ Octopus will attempt to automatically deploy the current releases for the enviro
 
 You will need you to complete a successful deployment again before auto-deployments can continue for the given release, or configure an [Auto Deploy Override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md).
 
-### Investigate the Diagnostic Logs
+### Investigate the diagnostic logs
 
 Go to **{{Configuration,Diagnostics,Auto Deploy Logs}}**. The **verbose** logs usually contain the reason why a project trigger didn't take any action. For example:
 
 `Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '<none>' because it already exists on the machine or is pending deployment.`
 
-### Investigate the Audit Messages
+### Investigate the audit messages
 
 The deployment triggers are all triggered based on events occurring in Octopus, all of which are logged reliably as audit events. Go to **{{Configuration,Audit}}** and filter down to see the events related to your deployments.

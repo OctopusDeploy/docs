@@ -3,7 +3,7 @@ Octopus periodically runs health checks on deployment targets and workers to ens
 The health status of a deployment target can be set by custom health check scripts. Deployment targets can have four health statuses:
 
 - Healthy
-- Healthy with Warnings
+- Healthy with warnings
 - Unhealthy
 - Unavailable
 

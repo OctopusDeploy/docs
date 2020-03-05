@@ -1,6 +1,6 @@
 ---
-title: Project Coordination Code Samples
-description: Project Coordination guide Code Samples that show how to perform various tasks covered in the guide.
+title: Project coordination code samples
+description: Project coordination guide code samples that show how to perform various tasks covered in the guide.
 position: 2
 ---
 
@@ -12,7 +12,7 @@ See the [OctopusDeploy-Api](https://github.com/OctopusDeploy/OctopusDeploy-Api)
 These examples use the [Octopus.Client](/docs/octopus-rest-api/octopus.client.md) library, see the [Loading in an Octopus Step](/docs/octopus-rest-api/octopus.client.md#Octopus.Client-Loadinginanoctopusstep) section of the [Octopus.Client](/docs/octopus-rest-api/octopus.client.md) documentation for details on how to load the library from inside Octopus using PowerShell or C# Script steps.
 :::
 
-## Querying the Current State {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
+## Querying the current state {#ProjectCoordinationCodeSamples-Queryingthecurrentstate}
 
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:
 
@@ -35,7 +35,7 @@ $repository.Dashboards.GetDashboard().Items
  http://localhost/api/dashboard
 ```
 
-## Viewing Recent Deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
+## Viewing recent deployments {#ProjectCoordinationCodeSamples-Viewingrecentdeployments}
 
 The following code returns the deployments started in the last 7 days:
 
@@ -54,7 +54,7 @@ repository.Deployments.Paginate(projects, environments,
  );
 ```
 
-## Promoting a Group of Projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
+## Promoting a group of projects {#ProjectCoordinationCodeSamples-Promotingagroupofprojects}
 
 This example finds all the releases that are in UAT but not Production. It then queues them for deployment to Production and waits for them to complete.
 
@@ -85,7 +85,7 @@ if(completed.Any(c => c.State != TaskState.Success))
 	throw new Exception("One or more projects did not complete successfully");
 ```
 
-## Queuing a Project to Run Later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
+## Queuing a project to run later {#ProjectCoordinationCodeSamples-Queuingaprojecttorunlater}
 
 This example re-queues the currently executing project at 3am the next day.
 
@@ -105,7 +105,7 @@ repository.Deployments.Create(
 Console.WriteLine($"Queued for {tomorrow3amServerTime}");
 ```
 
-## Failing a Deployment if Another Deployment is Running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
+## Failing a deployment if another deployment is running {#ProjectCoordinationCodeSamples-Failingadeploymentifanotherdeploymentisrunning}
 
 This example uses the dynamic dashboard API to check whether a different project is currently deploying to the same environment. Note that Octopus [restricts](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md) what can run at the same time already.
 
@@ -117,7 +117,7 @@ if (dash.Items.Any(i => i.State == TaskState.Queued || i.State == TaskState.Exec
 	throw new Exception($"{otherProject.Name} is currently queued or executing");
 ```
 
-## Failing a Deployment if a Dependency is Not Deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
+## Failing a deployment if a dependency is not deployed {#ProjectCoordinationCodeSamples-Failingadeploymentifadependencyisnotdeployed}
 
 This example retrieves the last release to the same environment of a different project and fails if it is not the expected release version.
 
@@ -131,7 +131,7 @@ if (last == null || last.ReleaseVersion != requiredVersion)
 	throw new Exception($"This project requires version {requiredVersion} of {otherProject.Name} to be deployed to the same environment");
 ```
 
-## Triggering and Waiting for Another Project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
+## Triggering and waiting for another project {#ProjectCoordinationCodeSamples-Triggeringandwaitingforanotherproject}
 
 This example finds the latest release for a different project and deploys it if it is not currently deployed to the environment.
 
@@ -157,7 +157,7 @@ if (latestRelease != null && last.ReleaseId != latestRelease.Id)
 }
 ```
 
-## Waiting for Another Project to Reach a Certain Stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
+## Waiting for another project to reach a certain stage {#ProjectCoordinationCodeSamples-Waitingforanotherprojecttoreachacertainstage}
 
 This example builds on the previous, by waiting until a particular step is complete instead of the whole task.
 

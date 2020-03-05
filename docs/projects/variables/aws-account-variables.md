@@ -1,30 +1,30 @@
 ---
-title: AWS Account Variables
-description: Create an AWS Account to use it in AWS-related deployment steps
+title: AWS account variables
+description: Create an AWS account to use it in AWS-related deployment steps
 position: 80
 ---
 
-[AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) are included in a project through a project [variable](/docs/projects/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS Account Variable**, you need to [create an AWS Account](/docs/infrastructure/deployment-targets/aws/index.md) in Octopus:
+[AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) are included in a project through a project [variable](/docs/projects/variables/index.md) of the type **Amazon Web Services Account**. Before you create an **AWS account Variable**, you need to [create an AWS account](/docs/infrastructure/deployment-targets/aws/index.md) in Octopus:
 
-![AWS Account Variable](images/aws-account-variable.png)
+![AWS account variable](images/aws-account-variable.png)
 
 The **Add Variable** window is then displayed and lists all the AWS accounts.
 
 Select the AWS account you want to access from the project to assign it to the variable:
 
-![AWS Account Variable Selection](images/aws-account-variable-selection.png)
+![AWS account variable selection](images/aws-account-variable-selection.png)
 
 
-## AWS Account Variable Properties
+## AWS account variable properties
 
-The AWS Account Variable also exposes the following properties that you can reference in a PowerShell script:
+The AWS account Variable also exposes the following properties that you can reference in a PowerShell script:
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------------------------|
-| **`AccessKey`** <br/> The Access Key for the AWS Account| |
-| **`SecretKey`** <br/> The Secret Key for the AWS Account| |
+| **`AccessKey`** <br/> The Access Key for the AWS account| |
+| **`SecretKey`** <br/> The Secret Key for the AWS account| |
 
-### Accessing the Properties in a Script
+### Accessing the properties in a script
 
 Each of the above properties can be referenced in PowerShell.
 
@@ -40,9 +40,9 @@ Write-Host 'AwsAccount.Id=' #{aws account}
 Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 ```
 
-## Add an AWS Account to Octopus
+## Add an AWS account to Octopus
 
-For instructions to set up an AWS account in Octopus, see [AWS Accounts](/docs/infrastructure/deployment-targets/aws/index.md).
+For instructions to set up an AWS account in Octopus, see [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md).
 
 ## Learn more
 

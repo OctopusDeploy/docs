@@ -1,28 +1,28 @@
 ---
-title: Azure Account Variables
-description: Create an Azure Account variable to use it in Azure deployment steps
+title: Azure account variables
+description: Create an Azure account variable to use it in Azure deployment steps
 position: 70
 ---
 
-[Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure Account**.
+[Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**.
 
-The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure Account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
 
-![AWS Account Variable](images/azure-account-variable.png)
+![AWS Account variable](images/azure-account-variable.png)
 
 The **Add Variable** window is then displayed and lists all the Azure accounts.
 
 Select the account that was created in the previous step to assign it to the variable.
 
-![Azure Account Variable Selection](images/azure-account-variable-selection.png)
+![Azure account variable selection](images/azure-account-variable-selection.png)
 
-## Azure Account Variable Properties
+## Azure account variable properties
 
-The Azure Account Variable also exposes the following properties that you can reference in a PowerShell script:
+The Azure account Variable also exposes the following properties that you can reference in a PowerShell script:
 
 ### Service Principal
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------------------------|
 | **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
 | **`Client`** <br/> The Azure Application Id | 57dfa713-f4c1-4b15-b21d-d14ff7941f7c |
@@ -32,9 +32,9 @@ The Azure Account Variable also exposes the following properties that you can re
 | **`ResourceManagementEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://management.microsoftazure.de/  |
 | **`ActiveDirectoryEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://login.microsoftonline.de/ |
 
-### Management Certificate
+### Management certificate
 
-| Name and Description | Example|
+| Name and description | Example|
 | -------------------- | ------------------------|
 | **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
 | **`CertificateThumbprint`** <br/> The thumbprint of the certificate | |

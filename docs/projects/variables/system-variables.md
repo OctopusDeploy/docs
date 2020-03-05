@@ -1,5 +1,5 @@
 ---
-title: System Variables
+title: System variables
 description: System variables are variables provided by Octopus that can be used in your deployments.
 position: 20
 ---
@@ -10,15 +10,15 @@ This page lists built-in [variables](/docs/projects/variables/index.md) provided
 
 Release-level variables are drawn from the project and release being created.
 
-| Name and Description | Example|
+| Name and description | Example|
 | -------------------- | -------|
 |`Octopus.Release.Id` <br/>The ID of the release | *releases-123*|
 |`Octopus.Release.Number` <br/>The version number of the release | *1.2.3*|
 |`Octopus.Release.Notes` <br/>Release notes associated with the release, in Markdown format | *Fixes bugs 1, 2 & 3*|
 
-### Release Package Build Information {#release-package-build-information}
+### Release package build information {#release-package-build-information}
 
-| Name and Description | Example|
+| Name and description | Example|
 | -------------------- | -------|
 |`Octopus.Release.Package` <br/>Packages, including changes, associated with the release. See below. | This is a collection.|
 
@@ -130,7 +130,7 @@ There is also a distinct list of issues across all packages available in:
 
 Deployment-level variables are drawn from the project and release being deployed.
 
-| Name and Description | Example |
+| Name and description | Example |
 | ------------------------------- | -------- |
 |`Octopus.Acquire.MaxParallelism` <br/>This variable limits the maximum number of packages that can be concurrently deployed to multiple targets. *Default: 10* | *2*|
 |`Octopus.Acquire.DeltaCompressionEnabled` <br/>Toggle whether delta compression is enabled when sending packages to targets. | true|
@@ -194,9 +194,9 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Web.RunbookSnapshotLink` <br/>A path relative to the Octopus Server URL at which the runbook snapshot can be viewed | */app/snapshots/runbookSnapshots-123*|
 |`Octopus.Web.RunbookRunLink` <br/>A path relative to the Octopus Server URL at which the runbook run can be viewed | */app/runs/runbookRuns-123*|
 
-### Deployment Changes {#deployment-changes}
+### Deployment changes {#deployment-changes}
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.Changes` <br/>A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
 |`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/managing-releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/managing-releases/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
@@ -258,9 +258,9 @@ There is an entry per release and it includes the release notes (**in markdown f
 #{/each}
 ```
 
-### Deployment Changes Templates {#deployment-changes-templates}
+### Deployment changes templates {#deployment-changes-templates}
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.ChangesMarkdown` <br/>The output of applying the project's deployment changes template. | This will be markdown |
 |`Octopus.Deployment.Targets` <br/>The distinct targets being deployed to. | Dictionary of objects with ID and Name properties, keyed on ID. This is a distinct list across all steps in the deployment process. |
@@ -269,7 +269,7 @@ There is an entry per release and it includes the release notes (**in markdown f
 
 Action-level variables are available during execution of an action. Indexer notion such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Action.Id` <br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
 |`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
@@ -301,7 +301,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ## Azure {#Systemvariables-Azure}
 
-|Name and Description | Example |
+| Name and description | Example |
 |-------------------- | ----------------------------------------|
 |`Octopus.Action.Azure.CertificateThumbprint` <br/>The thumbprint of the X509 certificate used to authenticate with the Azure Subscription targeted by this action | *86B5C8E5553981FED961769B2DA3028C619596AC*|
 |`Octopus.Action.Azure.PackageExtractionPath` <br/>If set by the user, the temporary path to extract Azure packages into during deployment | Z:\Temp\packages\|
@@ -311,7 +311,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ## Azure Cloud Service {#Systemvariables-AzureCloudService}
 
-| Name and Description | Example |
+| Name and description | Example |
 |------------------------------- | ----------------------------------------|
 |`Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath` <br/>If set by the user, the relative path to the \*.cscfg file, with a fallback to ServiceConfiguration.{Environment}.cscfg or ServiceConfiguration.Cloud.cscfg | *ServiceConfiguration.Custom.cscfg*|
 |`Octopus.Action.Azure.CloudServiceName` <br/>The name of the Cloud Service being targeted by this action | *my-cloudservice-web*|
@@ -328,7 +328,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 ## Azure Web Apps {#Systemvariables-AzureWebApps}
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------------------------|
 |`Octopus.Action.Azure.WebAppName` <br/>The name of the Web App being targeted by this deployment | *my-web-app*|
 |`Octopus.Action.Azure.DeploymentSlot` <br/>The name of the Web App slot being targeted by this deployment | *staging* |
@@ -341,7 +341,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath`to refer to values base on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables.md).
 
-| Name and Description | Example|
+| Name and description | Example|
 | -------------------- | ----------------------------------------|
 |`Octopus.Action[_name_].Output.\_property\_` <br/>The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern | *Octopus.Action[Website].Output.WarmUpResponseTime*|
 |`Octopus.Action[_name_].Output.Manual.Notes` <br/>Notes provided by the user who completed a manual step | *Signed off by Alice*|
@@ -357,7 +357,7 @@ Output variables are collected during execution of a step and made available to 
 
 Step-level variables are available during execution of a step. Indexer notion such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ----------------------------------------|
 |`Octopus.Step.Id` <br/>The ID of the step | *80b3ad09-eedf-40d6-9b66-cf97f5c0ffee*|
 |`Octopus.Step.Name` <br/>The name of the step | *Website*|
@@ -371,7 +371,7 @@ Step-level variables are available during execution of a step. Indexer notion su
 
 Agent-level variables describe the deployment agent or Tentacle on which the deployment is executing.
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ----------------------------------------|
 |`Octopus.Tentacle.Agent.ApplicationDirectoryPath` <br/>The directory under which the agent installs packages | *C:\Octopus\Tentacle\Apps*|
 |`Octopus.Tentacle.Agent.InstanceName` <br/>The instance name that the agent runs under | *Tentacle*|
@@ -382,7 +382,7 @@ Agent-level variables describe the deployment agent or Tentacle on which the dep
 
 When a step is run on a worker, the following variables are available:
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------------------------|
 | **`Octopus.WorkerPool.Id`** <br/> The Id of the pool | WorkerPools-1 |
 | **`Octopus.WorkerPool.Name`** <br/> The name of the pool | Default Worker Pool |
@@ -391,12 +391,12 @@ When a step is run on a worker, the following variables are available:
 
 Server-level variables describe the Octopus Server on which the deployment is running.
 
-| Name and Description | Example                                  |
+| Name and description | Example                                  |
 | -------------------  | ---------------------------------------- |
 | `Octopus.Web.BaseUrl` <br/>The default URL at which the server API can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc. | *[https://my-octopus](https://my-octopus)* |
 | `Octopus.Web.ServerUri` <br/>The default URL at which the server portal can be accessed, as configured in the Configuration/Nodes settings. **Introduced in Octopus 2019.4.0.** | *[https://my-octopus](https://my-octopus)* |
 
-## Tracking Deployment Status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
+## Tracking deployment status {#Systemvariables-DeploymentStatusTrackingdeploymentstatus}
 
 During deployment, Octopus provides variables describing the status of each step.
 
@@ -428,11 +428,11 @@ Octopus.Deployment.ErrorDetail
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::
 
-## User-modifiable Settings {#Systemvariables-User-modifiablesettings}
+## User-modifiable settings {#Systemvariables-User-modifiablesettings}
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.
 
-| Name and Description | Example |
+| Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Acquire.MaxParallelism` <br/>Maximum number of NuGet packages that should be downloaded at once when acquiring packages. | 3|
 |`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|

@@ -1,5 +1,5 @@
 ---
-title: Maven Repositories as Feeds
+title: Maven repositories as feeds
 description: Configuring Maven repositories as Octopus Feeds
 position: 30
 ---
@@ -8,7 +8,7 @@ Maven repositories can be configured as an external feed, allowing the artifacts
 
 Support for Maven Repositories was added in **Octopus 4.1**.
 
-## Adding an External Maven Feed
+## Adding an external Maven feed
 
 The following steps can be followed to add an external Maven feed.
 
@@ -23,7 +23,7 @@ The following steps can be followed to add an external Maven feed.
 When configuring external Maven repositories, we need to link to the repository itself and not the services that are used to search the repositories. For example URLs like [https://search.maven.org/](https://search.maven.org/) or [https://mvnrepository.com/](https://mvnrepository.com/) can't be entered because these are sites for searching the repositories, and not the repositories themselves.
 :::
 
-## Referencing Maven Artifacts
+## Referencing Maven artifacts
 
 When referencing a Maven artifact, the package ID is in the format `group:artifact`.
 
@@ -41,13 +41,13 @@ The packaging type is determined automatically from the extensions supported by 
 
 So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
 
-## Searching for Maven Artifacts
+## Searching for Maven artifacts
 
 As Maven repositories do not expose an API (repositories are just a filesystem structure), there is no way to search them in Octopus the way you might search a NuGet repository. The package ID for a Maven artifact must be complete for Octopus to identify it, and partial package IDs will not return a list of partial matches.
 
 ![Maven Package Suggestion](images/maven-package-suggestion.png)
 
-## Downloading SNAPSHOT Releases
+## Downloading SNAPSHOT releases
 
 When downloading SNAPSHOT releases of Maven artifacts, the latest SNAPSHOT version will be downloaded. This version is then saved in the Octopus cache, and will be reused in subsequent deployments of the same SNAPSHOT version.
 
@@ -57,7 +57,7 @@ To force Octopus to download the newer SNAPSHOT release, select the **Re-downloa
 
 ![Re-download packages from feed](images/redownload-from-feed.png)
 
-## Versioning with Maven Feeds
+## Versioning with Maven feeds
 
 When using artifacts from a Maven feed, the [Maven versioning scheme](https://octopus.com/blog/maven-versioning-explained) is used.
 
@@ -69,7 +69,7 @@ The following qualifiers in the version are used to indicate that it is a pre-re
 * `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`.
 * `SHAPSHOT` e.g. `1.0.0-SNAPSHOT`.
 
-## Version Ranges with Maven Feeds
+## Version ranges with Maven feeds
 
 When defining versions ranges against artifacts sourced from a Maven feed (when defining a channel rule for example), the [Maven range specification](https://g.octopushq.com/MavenVersioning) is used. The table below shows some common examples of Maven version ranges.
 
@@ -86,7 +86,7 @@ When defining versions ranges against artifacts sourced from a Maven feed (when 
 | (,1.0],[1.2,) |	x <= 1.0 or x >= 1.2. Multiple sets are comma-separated |
 | (,1.1),(1.1,) |	x != 1.1 |
 
-## Troubleshooting Maven Feeds
+## Troubleshooting Maven feeds
 
 1. Can you download the POM file directly from the Maven repository from the Octopus Server? For example, the Google Guava POM file for version 24.0-jre is https://repo.maven.apache.org/maven2/com/google/guava/guava/24.0-jre/guava-24.0-jre.pom. If you can not, then there is likely to be an issue with the URL or your network settings.
 2. The Maven URL to be configured in Octopus includes the path up to the to the start of the group id. For Guava, the group id is `com.google.guava`. This maps to the `com/google/guava` component of the URL. So the Maven URL to be configured in Octopus is https://repo.maven.apache.org/maven2/, because this is the part of the URL that does not include the group id.

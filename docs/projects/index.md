@@ -8,7 +8,7 @@ position: 45
 
 If you have already created projects, or are joining an existing team, you'll see the existing projects on the projects page.
 
-## Add a Project
+## Add a project
 
 Before you can define your deployment processes or runbooks, you must create a project:
 
@@ -23,7 +23,7 @@ Before you can define your deployment processes or runbooks, you must create a p
 
 Now that you've created a project, you can define your [deployment process](/docs/deployment-process/index.md) or [runbooks](/docs/operations-runbooks/index.md).
 
-## Project Settings
+## Project settings
 
 You can change the projects settings by accessing the settings menu on the project's main page. The settings you can change are:
 
@@ -35,20 +35,20 @@ You can change the projects settings by accessing the settings menu on the proje
 - [Release Versioning](/docs/managing-releases/release-versioning.md)
 - [Release Notes Template](/docs/managing-releases/release-notes.md#Release-Notes-Templates)
 
-### Deployment Settings
+### Deployment settings
 
-- Package Re-deployment
+- Package re-deployment
     - Specify to always deploy all packages or to skip any package steps that are already installed.
-- Deployment Targets
+- Deployment targets
     - Specify if deployments are allow if there are no deployment targets.
-- Deployment Target Status
+- Deployment target status
     - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
-- [Deployment Changes Template](docs/managing-releases/deployment-notes.md#Templates)
+- [Deployment changes template](docs/managing-releases/deployment-notes.md#Templates)
     - Specify a template for each deployment's changes.
-- Default Failure Mode
+- Default failure mode
     - Specify whether or not to use [guided failure mode](/docs/managing-releases/guided-failures.md).
 
-## Project Logo {#project-logo}
+## Project logo {#project-logo}
 
 Add a logo to make it easily identifiable from the projects page.
 
@@ -57,13 +57,13 @@ Add a logo to make it easily identifiable from the projects page.
 3. Click the file selector and select a file to upload.
 4. Click **open** to upload your logo image, and click **Save**.
 
-## Project Group {#project-group}
+## Project group {#project-group}
 
 Project groups are a way of organizing your projects.
 
 Note, the *Default Project* group contains all of the projects that have not been added to another group.
 
-## Add a Project Group
+## Add a project group
 
 1. From the **Projects** tab, click **ADD GROUP**.
 1. Give the group a name and description.
@@ -71,7 +71,7 @@ Note, the *Default Project* group contains all of the projects that have not bee
 
 When the group is first created and doesn't have any projects associated with it, you will need to click **SHOW EMPTY GROUPS** on the projects page to see the group.
 
-## Add Projects to a Group
+## Add projects to a group
 
 After you have created a project group there are a number of ways you can add projects to the group:
 
@@ -79,15 +79,15 @@ After you have created a project group there are a number of ways you can add pr
 - Edit an existing project by navigating to the project, selecting **Settings** and editing the **Project Group**.
 - Specify the **Project Group** under **Advanced Settings** when you create a new project.
 
-### Edit or Delete Project Groups
+### Edit or delete project groups
 
 To edit or delete a project group click the project group’s ... overflow menu and select **edit**. From there you can edit the groups name or description. If you need to delete the group, click the ... overflow menu again and select **Delete**.
 
-## Project Permissions
+## Project permissions
 
 For information about project permissions, see [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
 
-## Clone a Project
+## Clone a project
 
 Projects can be cloned.
 

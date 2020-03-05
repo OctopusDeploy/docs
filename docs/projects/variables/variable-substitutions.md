@@ -1,12 +1,12 @@
 ---
-title: Variable Substitutions
+title: Variable substitutions
 description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
 position: 10
 ---
 
 Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
-## Binding Variables
+## Binding variables
 
 You can using Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
 
@@ -29,7 +29,7 @@ If the file undergoing variable replacement includes a string that *shouldn't* 
 Also read about [common mistakes for variables](/docs/projects/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes) for more information
 :::
 
-## Using Variables in Step Definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
+## Using variables in step definitions {#Bindingsyntax-Referencingvariablesinstepdefinitions}
 
 Binding syntax can be used to dynamically change the values of deployment step settings. If [variables are scoped](/docs/projects/variables/index.md#scoping-variables), this makes it really easy to alter a deployment step settings based on the target environment.
 
@@ -41,7 +41,7 @@ For settings that support variables but aren't text (such as drop downs or check
 
 ![](images/3278297.png)
 
-## Extended Syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
+## Extended syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 
 Octopus supports an extended variable substitution syntax with capabilities similar to text templating languages.  It's worth noting that this is now available everywhere whereas previously it was limited to certain scenarios.
 
@@ -58,7 +58,7 @@ The capabilities of the extended syntax are:
 [Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
 :::
 
-### Index Replacement {#VariableSubstitutionSyntax-IndexReplacement}
+### Index replacement {#VariableSubstitutionSyntax-IndexReplacement}
 
 Variable substitution inside an index was added in **Octopus 3.3.23**.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
@@ -116,7 +116,7 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
 
-### Complex Syntax
+### Complex syntax
 Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`, or:
@@ -129,7 +129,7 @@ Using complex syntax you can have expressions like `#{if Octopus.Environment.Nam
 #{/if}
 ```
 
-### Run Conditions
+### Run conditions
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
 
 Some examples are:
@@ -144,7 +144,7 @@ Some examples are:
 
 The `each` statement supports repetition over a set of variables, or over the individual values in a variable separated with commas.
 
-#### Iterating Over Sets of Values {#VariableSubstitutionSyntax-Iteratingoversetsofvalues}
+#### Iterating over sets of values {#VariableSubstitutionSyntax-Iteratingoversetsofvalues}
 
 More complex sets of related values are handled using multiple variables:
 
@@ -172,7 +172,7 @@ Listening on:
  - Endpoint B at http://b.example.com is Slave
 ```
 
-#### Iterating Over Comma-separated Values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
+#### Iterating over comma-separated values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
 
 Give the variable:
 
@@ -197,7 +197,7 @@ Listening on:
  - http://b.example.com
 ```
 
-#### Special Variables {#VariableSubstitutionSyntax-SpecialVariables}
+#### Special variables {#VariableSubstitutionSyntax-SpecialVariables}
 
 Within the context of an iteration template, some special variables are available.
 

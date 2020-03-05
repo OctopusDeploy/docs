@@ -1,12 +1,12 @@
 ---
-title: Call the Jenkins REST API from Powershell
-description: Learn how to call the Jenkins REST API from Powershell
+title: Call the Jenkins REST API from PowerShell
+description: Learn how to call the Jenkins REST API from PowerShell
 position: 30
 ---
 
-Although the typical deployment workflow sees a CI system like Jenkins triggering a deployment in Octopus, it is sometimes useful to have the reverse where Octopus trigger builds in Jenkins. This page looks at how you can trigger a Jenkins deployment using its REST API and Powershell.
+Although the typical deployment workflow sees a CI system like Jenkins triggering a deployment in Octopus, it is sometimes useful to have the reverse where Octopus trigger builds in Jenkins. This page looks at how you can trigger a Jenkins deployment using its REST API and PowerShell.
 
-## Jenkins CSRF Security
+## Jenkins CSRF security
 
 Jenkins has a security feature to prevent [Cross Site Request Forgery](https://support.cloudbees.com/hc/en-us/articles/219257077-CSRF-Protection-Explained) attacks, which is found under **{{Jenkins>Manage Jenkins>Configure Global Security>Prevent Cross Site Request Forgery exploits}}**.
 
@@ -14,7 +14,7 @@ Jenkins has a security feature to prevent [Cross Site Request Forgery](https://s
 
 In practical terms this means that each request to the Jenkins API needs to have what is known as a crumb defined in the headers. To generate this crumb, we need to make a request to http://jenkinsserver/jenkins/crumbIssuer/api/json.
 
-The Powershell below shows you how to generate a crumb.
+The PowerShell below shows you how to generate a crumb.
 
 ```
 $user = 'user'
@@ -38,7 +38,7 @@ $parsedJson = $json | ConvertFrom-Json
 Write-Host "The Jenkins crumb is $($parsedJson.crumb)"
 ```
 
-## REST API Links
+## REST API links
 
 Now that we have a crumb, we can use it to call the Jenkins REST API. You can find the URL to call to interact with the Jenkins system with the `REST API` link in the bottom right hand corner of each screen.
 
@@ -48,9 +48,9 @@ In this example we want to trigger the build of a Jenkins project, so we open th
 
 ![](images/restapidocs.png)
 
-## Triggering the Build
+## Triggering the build
 
-We now have the links that we need to trigger a build, and the crumb that is required by Jenkins with each API request. Let's finish off the Powershell script that will make this final request to start a build in Jenkins.
+We now have the links that we need to trigger a build, and the crumb that is required by Jenkins with each API request. Let's finish off the PowerShell script that will make this final request to start a build in Jenkins.
 
 ```
 $user = 'user'

@@ -24,7 +24,7 @@ The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octo
 
 !include <teamcity-pack>
 
-## Using Octopus as a Package Repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
+## Using Octopus as a package repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
 
 Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), or it can be configured to use an external feed (such as retrieving them from TeamCity).
 
@@ -34,7 +34,7 @@ To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint 
 
 !include <teamcity-feed>
 
-## Creating and Pushing Packages From TeamCity to Octopus {#TeamCity-CreateAndPushPackageToOctopusCreatingandpushingpackagesfromTeamCitytoOctopus}
+## Creating and pushing packages from TeamCity to Octopus {#TeamCity-CreateAndPushPackageToOctopusCreatingandpushingpackagesfromTeamCitytoOctopus}
 
 :::hint
 In version 4.38.0 of the TeamCity Plugin we have added a new build runner that can be used to package your applications as either a NuGet or Zip formatted package.
@@ -49,7 +49,7 @@ In version 3.3.1 of the TeamCity Plugin we added a new build runner that can be 
 ![Octopus Push](images/5275665.png)
 
 
-## Using the Plugin With Linux Build Agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
+## Using the plugin with Linux build agents {#TeamCity-LinuxAgentsUsingthepluginwithLinuxbuildagents}
 
 Traditionally the Octopus TeamCity plugin required a Windows build agent to work. As of version 4.2.1 it will run on Linux build agents if they meet either of the following requirements:
 

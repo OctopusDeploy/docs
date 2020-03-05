@@ -1,12 +1,12 @@
 ---
-title: Versioning Schemes
+title: Versioning schemes
 description: Considerations for selecting a versioning scheme for the applications you'll deploy.
 position: 10
 ---
 
 The [Package ID](/docs/packaging-applications/index.md#package-id), version number, and [package format](/docs/packaging-applications/index.md#support-formats) uniquely identify your packages, so it's important to choose the right versioning scheme, but it can be a tricky balance between pragmatism and strictness. This page should help you understand how Octopus Deploy handles versions in [packages](/docs/packaging-applications/index.md#supported-formats), [releases](/docs/managing-releases/index.md), and [channels](/docs/deployment-process/channels/index.md), which will help you design a versioning scheme that suits your needs.
 
-## Choosing a Versioning Scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
+## Choosing a versioning scheme {#VersioninginOctopusDeploy-Choosingaversioningscheme}
 
 The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md), in which case, you need to use [Maven Versions](#maven).
 
@@ -51,7 +51,7 @@ If you are using the [Deployment Notes](/docs/managing-releases/deployment-notes
 
 Learn more about Semantic Version at [semver.org](http://semver.org/).
 
-### How Octopus Deploy Treats Semantic Versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
+### How Octopus Deploy treats semantic versions {#VersioninginOctopusDeploy-HowOctopusDeploytreatsversions}
 
 Octopus uses a string-based approach to version numbers. These are the decisions we made on handling versions:
 
@@ -69,7 +69,7 @@ Octopus uses a string-based approach to version numbers. These are the decisions
 
  3. **Package Feeds:** Octopus asks the feed for a package with the version string stored in the release, and accepts what the feed provides.
 
-## Maven Versions {#maven}
+## Maven versions {#maven}
 
 Maven versions are used by Octopus when an artifact is sourced from an external [Maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md). SemVer is still required when versioning any artifact to be deployed to the [built-in](/docs/packaging-applications/package-repositories/built-in-repository/index.md) library or an external [NuGet feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds), and the only time to use the Maven versioning scheme over SemVer is when you are deploying artifacts to a Maven repository.
 
@@ -103,12 +103,12 @@ A dash or a period can be used to separate Major, Minor, Patch, and Build, howev
 
 For an in-depth look at Maven versions, see the blog post [Maven Versions Explained](https://octopus.com/blog/maven-versioning-explained).
 
-## Next
+## Learn more
 
- - [Packaging applications](/docs/packaging-applications/index.md).
- - Creating packages with the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
- - Creating packages with [Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
- - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
- - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
- - Using [Package Repositories](/docs/packaging-applications/index.md).
- - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
+ - [Package your applications](/docs/packaging-applications/index.md).
+ - [Create packages with Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
+ - [Creating packages with OctoPack](/docs/packaging-applications/create-packages/octopack/index.md).
+ - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
+ - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
+ - [Package repositories](/docs/packaging-applications/index.md).
+ - [Package deployments](/docs/deployment-examples/package-deployments/index.md).

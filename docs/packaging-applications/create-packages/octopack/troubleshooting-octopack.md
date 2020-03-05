@@ -95,8 +95,8 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
 
 ## Next
 
- - [Packaging Applications](/docs/packaging-applications/index.md)
+ - [Packaging applications](/docs/packaging-applications/index.md)
  - [Use the Octopus CLI to create packages](/docs/packaging-applications/create-packages/octopus-cli.md)
- - Use [OctoPack to Include BuildEvent Files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
+ - Use [OctoPack to Include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
  - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

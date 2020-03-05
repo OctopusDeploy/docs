@@ -1,5 +1,5 @@
 ---
-title: Scheduled Deployment Triggers
+title: Scheduled deployment triggers
 description: Automatic deployment triggers allow you to define unattended behavior for your project that will cause an automatic deployment of a release into an environment.
 position: 2
 ---
@@ -18,7 +18,7 @@ Scheduled deployment triggers provide a way to configure your projects to create
 * Run a deployment to promote the latest build from staging to production on the 1st day of the month.
 * Run a deployment to perform maintenance on the last Saturday of the month.
 
-## Add a Scheduled Trigger
+## Add a scheduled trigger
 
 1. From the Project's Overview page, select  **{{Deployments,Triggers}}**, then **{{ADD TRIGGER,Scheduled trigger}}**.
 2. Give the trigger a name.
@@ -31,9 +31,9 @@ If you are using [channels](/docs/deployment-process/channels/index.md) you may 
 
 If you are using [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
 
-5. Save the Trigger.
+5. Save the trigger.
 
-### Using CRON Expression {#cron-expression}
+### Using CRON expression {#cron-expression}
 
 CRON expressions allow you to configure a trigger that will run according to the specific CRON expression.
 

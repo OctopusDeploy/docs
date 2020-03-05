@@ -1,5 +1,5 @@
 ---
-title: Built-in Octopus Repository
+title: Built-in Octopus repository
 description: Using the Octopus built-in repository.
 position: 10
 ---
@@ -8,7 +8,7 @@ Your Octopus Server comes with a built-in repository which is the best choice fo
 
 The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories/index.md).
 
-## Pushing Packages to the Built-In Repository {#pushing-packages-to-the-built-in-repository}
+## Pushing packages to the built-in repository {#pushing-packages-to-the-built-in-repository}
 
 It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **{{Library,Packages}}** and clicking the **Upload Package** button.
 
@@ -47,7 +47,7 @@ You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/in
 - [C# example (LINQPad)](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/Push%20Package%20to%20Built-In%20Repository.linq)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)
 
-## Using NuGet.exe Push {#UsingNuGetexePush}
+## Using NuGet.exe push {#UsingNuGetexePush}
 
 To push a package using `NuGet.exe` you'll need a the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **{{Library,Packages}}** tab of the Octopus Web Portal.  Simply click the **Show examples** link to see options to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
@@ -77,27 +77,27 @@ curl -X POST https://demo.octopus.com/api/packages/raw -H "X-Octopus-ApiKey: API
 You may need to use the `-k` argument if you are using an untrusted connection.
 :::
 
-## Security Considerations {#security-considerations}
+## Security considerations {#security-considerations}
 
 To add a new package to the built-in feed requires the `BuiltInFeedPush` permission. To delete a package, or replace an existing package requires the `BuiltInFeedAdminister` permission.
 
 For your convenience Octopus Deploy provides a built-in role called **Package Publisher** that has been granted the `BuiltInFeedPush` permission.
 
 :::hint
-**Consider Using a Service Account**
+**Consider using a service account**
 Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
 :::
 
 :::hint
-**Using Automatic Release Creation?**
+**Using automatic release creation?**
 If you are using [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) you will also require the permissions to create a release for all of the relevant projects in the required environments. To diagnose issues with pushing packages used for automatic release creation follow the troubleshooting guide on the [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) page.
 :::
 
-## Moving the Location of the Built-in Repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
+## Moving the location of the built-in repository {#Packagerepositories-Movingthelocationofthebuilt-inrepository}
 
 See [moving Octopus Server folders](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-OctopusHome).
 
-## Built-in Repository Reindexing
+## Built-in repository reindexing
 
 Octopus automatically re-indexes the built-in repository at startup to ensure that it is in sync.
 

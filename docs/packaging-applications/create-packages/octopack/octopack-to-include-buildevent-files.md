@@ -1,5 +1,5 @@
 ---
-title: Include BuildEvent Files
+title: Include BuildEvent files
 description: Using OctoPack when you have a PostBuild event in Visual Studio and want to include files that are not specifically part of your build.
 position: 10
 ---
@@ -32,7 +32,7 @@ Now my test folder and files, as well as my build files, are included in the pac
 
 ## Next
 
- - [Packaging Applications](/docs/packaging-applications/index.md)
+ - [Packaging applications](/docs/packaging-applications/index.md)
  - [Use the Octopus CLI to create packages](/docs/packaging-applications/create-packages/octopus-cli.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
  - [Package deployments](/docs/deployment-examples/package-deployments/index.md)

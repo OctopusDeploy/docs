@@ -1,5 +1,5 @@
 ---
-title: Worker Pool Variables
+title: Worker Pool variables
 description: Create a worker pool variable and use it in deployment steps
 position: 60
 ---
@@ -10,7 +10,7 @@ In the variable editor select **Change Type** and **Worker Pool** as the variabl
 
 Select the pool you want to use.  If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to roles or targets as the pool is resolved during the planning phase of the deployment.
 
-## Add a Worker pool to Octopus
+## Add a Worker Pool to Octopus
 
 For instructions to set up worker pools in Octopus, see [worker pool](/docs/infrastructure/workers/worker-pools.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Automatic Release Creation
-description: Automatic Release Creation allows you to automatically create a new release when a new package is pushed to the built-in package repository.
+title: Automatic release creation
+description: Automatic release creation allows you to automatically create a new release when a new package is pushed to the built-in package repository.
 position: 15
 ---
 
@@ -21,7 +21,7 @@ Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/packaging-appli
 External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) is supported.
 :::
 
-## Getting Started {#AutomaticReleaseCreation-Gettingstarted}
+## Getting started {#AutomaticReleaseCreation-Gettingstarted}
 
 If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
 
@@ -56,7 +56,7 @@ The release number that is created is guided by the Release Versioning settings 
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
 - Try creating some releases manually for the selected channel to make sure it works as expected.
 
-## Automatically Creating Pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
+## Automatically creating pre-releases {#AutomaticReleaseCreation-Automaticallycreatingpre-releases}
 
 When you push a package to your trigger step, Octopus will look for the latest available package for all other steps **excluding pre-release packages by default** - see [this thread](http://help.octopus.com/discussions/problems/35401) for background.
 

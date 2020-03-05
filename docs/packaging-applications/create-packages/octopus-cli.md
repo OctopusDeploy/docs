@@ -1,5 +1,5 @@
 ---
-title: Create Packages with the Octopus CLI
+title: Create packages with the Octopus CLI
 description: Using the Octopus CLI (octo) command line tool to create packages for deployment.
 position: 30
 ---
@@ -38,7 +38,7 @@ At a minimum `octo pack` requires an ID:
 dotnet octo pack --id="OctoWeb"
 ```
 
-The above command will generate a NuGet package in the current working directory with a timestamp based version number such as:
+The above command will generate a NuGet package in the current working directory with a time-stamp based version number such as:
 
 > `OctoWeb.2018.6.26.190140.nupkg`.
 
@@ -56,7 +56,7 @@ You can also change the output directory with the `--outFolder` parameter, and t
 dotnet octo pack --id="OctoWeb" --version="1.0.0" --basePath="folder/to/pack" --outFolder="destination/folder/path"
 ```
 
-## Creating Zip Packages {#create-zip-packages}
+## Creating Zip packages {#create-zip-packages}
 
 By default, `octo` will create NuGet packages. You can specify Zip packages with the `--format` parameter:
 
@@ -81,7 +81,7 @@ dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 
 Please refer to [Microsoft's publish and packing](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md#DeployoingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
 
-## Packaging a .NET Core Library
+## Packaging a .NET Core library
 
 If you are using .NET Core for class libraries, we recommend using [dotnet pack from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
 
@@ -90,7 +90,7 @@ dotnet pack ./SomeLibrary.csproj --output ./dist
 dotnet octo pack ./dist --id="SomeLibrary" --version="1.0.0"
 ```
 
-## Packaging a .NET Framework Web Application
+## Packaging a .NET Framework web application
 
 There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/create-packages/octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
 ```
@@ -98,7 +98,7 @@ msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
 ```
 
-## Packaging Your Application From a Folder {#UsingOctopusCli-Packagingyourapplicationfromafolder}
+## Packaging your application from a folder {#UsingOctopusCli-Packagingyourapplicationfromafolder}
 
 If you have a build process that places all build outputs into a final destination folder (such as gulp, grunt, or webpack), you can package it using the Octopus CLI as well. For example, if you've defined an npm script which runs your build and places all associated content into the `dist` folder:
 
@@ -107,7 +107,7 @@ npm run build
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 ```
 
-## Known Issues with Other Compression Libraries {#known-issues}
+## Known issues with other compression libraries {#known-issues}
 
 These are known issues to be aware of with other compression libraries:
 
@@ -115,11 +115,11 @@ These are known issues to be aware of with other compression libraries:
 - Prior to the .NET framework 4.6.1, the *System.IO.Compression* library incorrectly preserved the windows-style back slash separator for file paths. This has since been fixed from [.NET Framework 4.6.1](https://msdn.microsoft.com/en-us/library/mt712573) and the fix carried over into [.NET Core](https://github.com/dotnet/corefx/commit/7b9331e89a795c72709aef38898929e74c343dfb).
 - The PKZIP specification requires that Zip files only need to store dates in the internal file headers with two bytes in the [MS-DOS format](https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html) (whereas tar file headers are stored in [UNIX epoch format](http://www.gnu.org/software/tar/manual/html_node/Standard.html)). This means that unless the compression library makes use of extra fields in the file headers, that a file compressed at some point in time on a machine in one timezone, may result in misleading dates when uncompressed in a different timezone.
 
-## Next
+## Learn more
 
- - [Packaging Application](/docs/packaging-applications/index.md)
- - Creating packages with [Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
- - Using the [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
- - Using the [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
- - Using [Package Repositories](/docs/packaging-applications/index.md).
- - Creating [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
+ - [Packaging application](/docs/packaging-applications/index.md)
+ - [Create packages with Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
+ - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
+ - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
+ - [Package repositories](/docs/packaging-applications/index.md).
+ - [Package deployments](/docs/deployment-examples/package-deployments/index.md).

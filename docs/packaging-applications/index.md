@@ -28,7 +28,7 @@ For instance, the package ID in this sample package is `hello-world`.
 
 Avoid using numbers in your package ID as it could result in the version number being incorrectly parsed.
 
-## Version Numbers {#version-numbers}
+## Version numbers {#version-numbers}
 
 Octopus supports [Semantic Versioning](/docs/packaging-applications/create-packages/versioning.md#semver), unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds.md) in which case you will need to use [Maven Versions](/docs/packaging-applications/create-packages/versioning.md#maven).
 
@@ -38,15 +38,15 @@ The version number needs to be applied to your package after the package ID and 
 
 Learn more about [versioning schemes](/docs/packaging-applications/create-packages/versioning.md).
 
-## Package Dependencies and Structure
+## Package dependencies and structure
 
 When you package your applications, you need to include all the binaries that are required to run the application, and structure the package the way you want it to appear after it has been extracted.
 
-## Supported Formats {#supported-formats}
+## Supported formats {#supported-formats}
 
 It is important that your packages have the correct **file extension** because Octopus uses the **file extension** to determine the correct extraction algorithm to use with your packages.
 
-| Package Type          | File Extensions           | Notes                                    |
+| Package type          | File Extensions           | Notes                                    |
 | --------------------- | ------------------------- | ---------------------------------------- |
 | NuGet        | .nupkg                   | Compatible with any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. Learn about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).|
 | Zip          | .zip                     | Standard zip file as created through most common zip programs. Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |
@@ -58,6 +58,6 @@ It is important that your packages have the correct **file extension** because O
 
 ## Learn more
 
- - [Create Packages](/docs/packaging-applications/create-packages/index.md)
- - [Build Servers](/docs/packaging-applications/build-servers/index.md)
- - [Package Repositories](/docs/packaging-applications/package-repositories/index.md)
+ - [Create packages](/docs/packaging-applications/create-packages/index.md)
+ - [Build servers](/docs/packaging-applications/build-servers/index.md)
+ - [Package repositories](/docs/packaging-applications/package-repositories/index.md)

@@ -1,5 +1,5 @@
 ---
-title: Package Repositories
+title: Package repositories
 description: Octopus can consume package feeds from the built-in repository, local and remote NuGet feeds, Maven, JetBrains TeamCity, MyGet and Azure DevOps or TFS Package Management.
 position: 30
 ---
@@ -25,7 +25,7 @@ Your package repository will typically be:
 - A [MyGet](http://www.myget.org/) server.
 - An [Azure DevOps or TFS Package Management](/docs/packaging-applications/package-repositories/tfs-azure-devops.md).
 
-## Choosing the Right Repository {#Packagerepositories-Choosingtherightrepository}
+## Choosing the right repository {#Packagerepositories-Choosingtherightrepository}
 
 Because Octopus can consume packages from multiple feeds, we recommend using different repositories for different  purposes as each repository provides different benefits. For instance, if you produce your own application library packages in addition to your deployment packages you might consider something like the following:
 
@@ -33,7 +33,7 @@ Because Octopus can consume packages from multiple feeds, we recommend using dif
 - For application library packages consider using the repository provided by your [build server](/docs/packaging-applications/build-servers/index.md), a [file-share](http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds#Creating_Local_Feeds), [MyGet](http://www.myget.org/ "MyGet"), or [Azure DevOps Package Management](https://www.visualstudio.com/en-us/docs/package/overview).
 - For deployment scripts that you want to store in your source control and where a build process is unnecessary, [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md) might be suitable.
 
-## Planning Package Repository Placement {#Packagerepositories-Placement}
+## Planning package repository placement {#Packagerepositories-Placement}
 
 By default, when you [deploy a package](/docs/deployment-examples/package-deployments/index.md) to a Tentacle, the package will be pushed from the Octopus Server to the Tentacle. You can override this by changing the setting of the [Action System Variable](/docs/projects/variables/system-variables.md#Systemvariables-Action) `Octopus.Action.Package.DownloadOnTentacle` from `False` to `True`. When set to `True` the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server.
 
