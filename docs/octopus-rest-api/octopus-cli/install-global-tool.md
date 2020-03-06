@@ -6,7 +6,7 @@ position: 0
 
 You can install the Octopus CLI as a .NET Core [Global Tool](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). This requires that you have the [.NET Core SDK](https://dotnet.microsoft.com/download/) installed.
 
-## Specific Location
+## Specific location
 A local installation can be done into a specified location using the `--tool-path` parameter.
 
 ```bash
@@ -27,7 +27,7 @@ export PATH="$PATH:/your/tool/folder"
 
 Once the tool folder is in the path you can run the Octopus CLI commands with .NET: `dotnet octo pack`.
 
-## User Installation
+## User installation
 
 In order to install The Octopus CLI for the current user you can do so by installing the tool globally using
 `--global` flag.

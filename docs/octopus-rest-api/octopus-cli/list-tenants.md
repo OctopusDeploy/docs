@@ -1,12 +1,10 @@
 ---
-title: list-tenants
+title: List tenants
 description: List tenants
 position: 230
 ---
 
-List tenants
-
-**list-tenants options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to List tenants.
 
 ```text
 List tenants.
@@ -69,3 +67,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

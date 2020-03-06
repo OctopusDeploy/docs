@@ -1,10 +1,10 @@
 ---
-title: list-releases
+title: List releases
 description: List releases by project
 position: 220
 ---
 
-List [releases](/docs/managing-releases/index.md).
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list releases by project.
 
 ```text
 List releases by project.
@@ -71,4 +71,9 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+## Learn more
 
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Releases](/docs/managing-releases/index.md)
+- [Projects](/docs/projects/index.md)

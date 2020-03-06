@@ -1,11 +1,9 @@
 ---
-title: build-information
+title: Build information
 description: Pushes build information to Octopus Server.
 ---
 
-Pushes build information to Octopus Server.
-
-**build-information options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to push build information to the Octopus Server.
 
 ```text
 Pushes build information to Octopus Server.
@@ -83,3 +81,8 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Build information](/docs/packaging-applications/build-servers/index.md#build-information)

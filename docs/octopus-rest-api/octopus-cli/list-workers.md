@@ -1,14 +1,10 @@
 ---
-title: list-workers
+title: List Workers
 description: Lists all workers
 position: 250
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all workers.
-
-Learn about [workers](/docs/infrastructure/workers/index.md).
-
-**list-workers options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Workers.
 
 ```text
 Lists all workers.
@@ -90,4 +86,8 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+## Learn more
 
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Workers](/docs/infrastructure/workers/index.md)

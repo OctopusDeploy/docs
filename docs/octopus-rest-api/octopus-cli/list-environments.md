@@ -1,14 +1,10 @@
 ---
-title: list-environments
+title: List environments
 description: List environments
 position: 180
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the environments on your Octopus instance.
-
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
-
-**list-environments options**
 
 ```text
 List environments.
@@ -70,4 +66,8 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+## Learn more
 
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Environments](/docs/infrastructure/environments/index.md)

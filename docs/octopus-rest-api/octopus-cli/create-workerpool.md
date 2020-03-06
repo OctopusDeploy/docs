@@ -1,14 +1,10 @@
 ---
-title: create-workerpool
+title: Create Worker pool
 description: Creates a pool for workers
 position: 80
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a worker pool.
-
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
-
-**create-workerpool options**
 
 ```text
 Creates a pool for workers.
@@ -77,3 +73,8 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Worker pools](/docs/infrastructure/workers/worker-pools.md)

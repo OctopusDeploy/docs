@@ -1,14 +1,10 @@
 ---
-title: list-projects
+title: List projects
 description: Lists all projects
 position: 210
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the project in your octopus instance.
-
-Learn more about [projects](/docs/projects/index.md).
-
-**list-projects options**
 
 ```text
 Lists all projects.
@@ -70,4 +66,8 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+## Learn more
 
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Projects](/docs/projects/index.md)

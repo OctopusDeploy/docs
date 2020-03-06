@@ -1,12 +1,10 @@
 ---
-title: promote-release
+title: Promote release
 description: Using the Octopus CLI to promote releases between environments.
 position: 270
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to promote a release from one environment to another.
-
-Learn more about [releases](/docs/managing-releases/index.md).
 
 ```text
 Promotes a release.
@@ -152,7 +150,8 @@ The following command will promote the latest release of the*Web* projectdeploy
 octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-:::success
-**Tip**
-Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Releases](/docs/managing-releases/index.md)
