@@ -1,5 +1,5 @@
 ---
-title: push
+title: Push
 description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 position: 280
 ---
@@ -11,7 +11,9 @@ Learn more about the [built-in repository](/docs/packaging-applications/package-
 **push options**
 
 ```text
-Usage: Octo push [<options>]
+Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+
+Usage: octo push [<options>]
 
 Where [<options>] is any of:
 
@@ -86,10 +88,12 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

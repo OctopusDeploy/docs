@@ -1,17 +1,17 @@
 ---
-title: push-metadata
+title: Push metadata
 description: Pushes package metadata to Octopus Server.
 position: 285
 ---
 
-Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
-
 This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.
 
-**push-metadata options**
+Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
 
 ```text
-Usage: Octo push-metadata [<options>]
+Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
+
+Usage: octo push-metadata [<options>]
 
 Where [<options>] is any of:
 
@@ -83,10 +83,12 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

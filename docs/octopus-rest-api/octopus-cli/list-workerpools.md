@@ -1,17 +1,15 @@
 ---
-title: list-workerpools
+title: List Worker pools
 description: List worker pools
 position: 240
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all worker pools.
-
-Learn about [worker pools](/docs/infrastructure/workers/worker-pools.md).
-
-**list-workerpools options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Worker pools.
 
 ```text
-Usage: Octo list-workerpools [<options>]
+List worker pools
+
+Usage: octo list-workerpools [<options>]
 
 Where [<options>] is any of:
 
@@ -64,10 +62,14 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Worker pools](/docs/infrastructure/workers/worker-pools.md)
 

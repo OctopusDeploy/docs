@@ -1,17 +1,15 @@
 ---
-title: list-projects
+title: List projects
 description: Lists all projects
 position: 210
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the project in your octopus instance.
 
-Learn more about [projects](/docs/projects/index.md).
-
-**list-projects options**
-
 ```text
-Usage: Octo list-projects [<options>]
+Lists all projects
+
+Usage: octo list-projects [<options>]
 
 Where [<options>] is any of:
 
@@ -64,10 +62,12 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+## Learn more
 
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Projects](/docs/projects/index.md)

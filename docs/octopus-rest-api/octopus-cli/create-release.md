@@ -1,5 +1,5 @@
 ---
-title: create-release
+title: Create release
 description: Using the Octopus CLI to create releases.
 position: 70
 ---
@@ -8,17 +8,12 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to au
 
 This command allows you to create a release, and optionally deploy it to one or more environments.
 
-Learn more about [releases](/docs/managing-releases/index.md).
-
-:::success
-**Using Channels?**
-If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
-:::
-
 Usage:
 
 ```text
-Usage: Octo create-release [<options>]
+Creates (and, optionally, deploys) a release.
+
+Usage: octo create-release [<options>]
 
 Where [<options>] is any of:
 
@@ -179,8 +174,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
@@ -260,3 +253,9 @@ octo create-release --project HelloWorld --deployto Production --server http://o
 ## Release Notes Supported Syntax
 We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
 Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Releases](/docs/managing-releases/index.md)

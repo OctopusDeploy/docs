@@ -1,15 +1,15 @@
 ---
-title: deploy-release
+title: Deploy release
 description: Using the Octopus CLI to deploy releases.
 position: 110
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octopus-cli/create-release.md).
 
-Learn more about [releases](/docs/managing-releases/index.md).
-
 ```text
-Usage: Octo deploy-release [<options>]
+Deploys a release.
+
+Usage: octo deploy-release [<options>]
 
 Where [<options>] is any of:
 
@@ -138,8 +138,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
@@ -169,7 +167,8 @@ octo deploy-release --project HelloWorld --channel "1.x Normal" --version latest
 You can deploy to ALL tenants in an environment by using the `--tenant=*` argument. This instructs Octopus to create a deployment for each tenant which is ready for that Release to be deployed to the project/environment.
 :::
 
-:::success
-**Tip**
-Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Releases](/docs/managing-releases/index.md)

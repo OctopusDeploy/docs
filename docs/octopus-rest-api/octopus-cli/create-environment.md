@@ -1,15 +1,15 @@
 ---
-title: create-environment
+title: Create environment
 description: Using the Octopus CLI to create environments.
 position: 50
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create environments on your Octopus instance.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
-
 ```text
-Usage: Octo create-environment [<options>]
+Creates a deployment environment
+
+Usage: octo create-environment [<options>]
 
 Where [<options>] is any of:
 
@@ -68,22 +68,21 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingenvironments-Basicexample}
+## Basic example {#Creatingenvironments-Basicexample}
 
-The following command will create an environment called *UAT*
+The following command will create an environment called *UAT*:
 
 ```bash
 octo create-environment --name UAT --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-:::success
-**Tip**
-Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Environments](/docs/infrastructure/environments/index.md)

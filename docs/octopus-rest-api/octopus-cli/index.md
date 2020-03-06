@@ -39,7 +39,7 @@ hideInThisSection: true
 - **[promote-release](/docs/octopus-rest-api/octopus-cli/promote-release.md)**:  Promotes a release.
 - **[push](/docs/octopus-rest-api/octopus-cli/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 - **[push-metadata](/docs/octopus-rest-api/octopus-cli/push-metadata.md)**:  Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
-- **[version](/docs/octopus-rest-api/octopus-cli/version.md)**:  Output Octo command line tool version.
+- **[version](/docs/octopus-rest-api/octopus-cli/version.md)**:  Output Octopus CLI version.
 
 ## General Usage {#OctopusCLI-GeneralUsage}
 
@@ -88,4 +88,4 @@ Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-a
 The Octopus CLI is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the Octopus CLI project on GitHub](https://github.com/OctopusDeploy/OctopusCli), which leans heavily on the [Octopus Clients library](https://github.com/OctopusDeploy/OctopusClients).
 :::
 
-The server url, api key, username and password can be set as the environment variables `OCTOPUS_CLI_SERVER`, `OCTOPUS_CLI_API_KEY`, `OCTOPUS_CLI_USERNAME` and `OCTOPUS_CLI_PASSWORD` respectively. Values set via command line arguments take precedence over environment variables.
+The server URL, API key, username and password can be set as the environment variables `OCTOPUS_CLI_SERVER`, `OCTOPUS_CLI_API_KEY`, `OCTOPUS_CLI_USERNAME` and `OCTOPUS_CLI_PASSWORD` respectively. Values set via command line arguments take precedence over environment variables.

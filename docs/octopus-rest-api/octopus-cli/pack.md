@@ -4,14 +4,12 @@ description: Creates a package (.nupkg or .zip) from files on disk, without need
 position: 260
 ---
 
-Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj file.
-
-For examples of the `pack` command in use, see [Create Packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
-
-**pack options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create packages (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj file.
 
 ```text
-Usage: Octo pack [<options>]
+Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
+
+Usage: octo pack [<options>]
 
 Where [<options>] is any of:
 
@@ -69,4 +67,8 @@ Common options:
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
 ```
+## Learn more
 
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md)

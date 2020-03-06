@@ -1,14 +1,14 @@
 ---
-title: build-information
+title: Build information
 description: Pushes build information to Octopus Server.
 ---
 
-Pushes build information to Octopus Server.
-
-**build-information options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to push build information to the Octopus Server.
 
 ```text
-Usage: Octo build-information [<options>]
+Pushes build information to Octopus Server.
+
+Usage: octo build-information [<options>]
 
 Where [<options>] is any of:
 
@@ -76,10 +76,13 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Build information](/docs/packaging-applications/build-servers#build-information)

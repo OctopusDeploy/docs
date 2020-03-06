@@ -1,28 +1,17 @@
 ---
-title: cleaning-environments
+title: Cleaning environments
 description: Using the Octopus CLI to delete/remove machines with a particular status from environments on your Octopus instance.
 position: 10
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
 
-Learn more about working with [environments](/docs/infrastructure/environments/index.md).
-
-:::hint
-This command was added in version 3.3.4.
-:::
-
-:::success
 This is most useful when your environments can have temporary/ephemeral machines. The best example of this is in virtualized or cloud environments where new machines are created and destroyed frequently.
-:::
-
-:::success
-**Using Octopus 3.4 or newer?**
-We added first-class support for automatically [cleaning up environments](/docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md).
-:::
 
 ```text
-Usage: Octo clean-environment [<options>]
+Cleans all Offline Machines from an Environment
+
+Usage: octo clean-environment [<options>]
 
 Where [<options>] is any of:
 
@@ -94,22 +83,22 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Cleaningenvironments-Basicexample}
+## Basic example {#Cleaningenvironments-Basicexample}
 
-The following command will clean any *offline* machines from the *production* environment.
+The following command will clean any *offline* machines from the *production* environment:
 
 ```bash
 octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey
 ```
 
-:::success
-**Tip**
-Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), and [creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Environments](/docs/infrastructure/environments/index.md)
+- [Automatically clean up environments](/docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md)

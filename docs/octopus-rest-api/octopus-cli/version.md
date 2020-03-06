@@ -1,15 +1,15 @@
 ---
-title: version
+title: Version
 description: Output the Octopus CLI command line tool version.
 position: 290
 ---
 
-Output The Octopus CLI tool version.
-
-**version options**
+This command returns the version of the Octopus CLI tool version.
 
 ```text
-Usage: Octo version [<options>]
+Output Octopus CLI version.
+
+Usage: octo version [<options>]
 
 Where [<options>] is any of:
 
@@ -21,3 +21,7 @@ Common options:
                              option is json
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
