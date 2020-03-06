@@ -65,9 +65,14 @@ Where`[<options>]`is any of:
                              Comma-separated whitelist of domains that are
                                allowed to retrieve data (empty turns CORS off,
                                * allows all).
+      --xFrameOptions=VALUE  A directive to provide in the X-Frame-Options
+                               header
       --xFrameOptionAllowFrom=VALUE
-                             A uri to provide in the X-Frame-Option http
-                               header in conjunction with the ALLOW-FROM value.
+                             (DEPRECATED) A uri to provide in the X-Frame-
+                               Options http header in conjunction with the
+                               ALLOW-FROM value. The directive allow-from uri
+                               for X-Frame-Options has been deprecated and no
+                               longer works in modern browsers.
       --hstsEnabled=VALUE    Enables or disables sending the Strict-Transport-
                                Security (HSTS) header. Defaults to false.
       --hstsMaxAge=VALUE     Sets the max-age value (in seconds) of the
