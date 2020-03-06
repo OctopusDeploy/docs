@@ -1,5 +1,5 @@
 ---
-title: create-release
+title: Create release
 description: Using the Octopus CLI to create releases.
 position: 70
 ---
@@ -7,13 +7,6 @@ position: 70
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
 
 This command allows you to create a release, and optionally deploy it to one or more environments.
-
-Learn more about [releases](/docs/managing-releases/index.md).
-
-:::success
-**Using Channels?**
-If you are using [Channels](/docs/deployment-process/channels/index.md) (introduced in **Octopus 3.2**) this command will automatically select the most appropriate channel for your release, unless you provide a specific channel using `--channel=VALUE`.
-:::
 
 Usage:
 
@@ -260,3 +253,9 @@ octo create-release --project HelloWorld --deployto Production --server http://o
 ## Release Notes Supported Syntax
 We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
 Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Releases](/docs/managing-releases/index.md)

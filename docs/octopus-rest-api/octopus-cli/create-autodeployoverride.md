@@ -1,12 +1,10 @@
 ---
-title: create-autodeployoverride
+title: Create auto deployment override
 description: Using the Octopus CLI to create automatic deployment release overrides.
 position: 30
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.
-
-Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
 Override the release that auto deploy will use
@@ -86,7 +84,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Creatingautodeployoverrides-Basicexample}
+## Basic example {#Creatingautodeployoverrides-Basicexample}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
 
@@ -94,7 +92,7 @@ The following will create an automatic deployment release override for version 1
 octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-## Tenanted Example (By Name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted example (by name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
@@ -102,10 +100,16 @@ The following will create an automatic deployment release override for version 1
 octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-## Tenanted Example (By Tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
+## Tenanted example (by tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
 
 The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
 octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
 ```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md)

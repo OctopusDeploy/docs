@@ -8,7 +8,7 @@ Microsoft introduced the ability to install tools using the .NET Core CLI called
 
 The SDK version must be 2.1300, if you use a later version, the tool will complain you have an incorrect version installed.
 
-## Specific Location
+## Specific location
 A local installation can be done into a specified location using the `--tool-path` parameter.
 
 ```bash
@@ -29,7 +29,7 @@ export PATH="$PATH:/your/tool/folder"
 
 Once the tool folder is in the path you can run the Octopus CLI commands with .NET: `dotnet octo pack`.
 
-## User Installation
+## User installation
 
 In order to install The Octopus CLI for the current user you can do so by installing the tool globally using
 `--global` flag.

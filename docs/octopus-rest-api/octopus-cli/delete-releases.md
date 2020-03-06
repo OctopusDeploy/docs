@@ -1,12 +1,10 @@
 ---
-title: delete-releases
+title: Delete releases
 description: Deletes a range of releases
 position: 100
 ---
 
-Deletes a range [releases](/docs/managing-releases/index.md).
-
-**delete-releases options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete a range of [releases](/docs/managing-releases/index.md).
 
 ```text
 Deletes a range of releases
@@ -84,3 +82,8 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [releases](/docs/managing-releases/index.md)

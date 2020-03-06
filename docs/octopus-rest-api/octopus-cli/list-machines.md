@@ -1,8 +1,10 @@
 ---
-title: list-machines
+title: List machines
 description: Lists all machines
 position: 200
 ---
+
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all machines in your environments.
 
 ```text
 Lists all machines
@@ -84,4 +86,8 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
 

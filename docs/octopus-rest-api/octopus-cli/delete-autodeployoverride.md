@@ -1,12 +1,10 @@
 ---
-title: delete-autodeployoverride
+title: Delete auto deploy override
 description: Using the Octopus CLI to delete automatic deployment release overrides.
 position: 90
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete automatic deployment release overrides.
-
-Learn more about [automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md).
 
 ```text
 Delete auto deploy release overrides
@@ -84,7 +82,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic Example {#Deletingautodeployoverrides-Basicexample}
+## Basic example {#Deletingautodeployoverrides-Basicexample}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
 
@@ -92,7 +90,7 @@ The following will delete an automatic deployment release override for the proje
 octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-## Tenanted Example (By Name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
+## Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
 
@@ -100,10 +98,16 @@ The following will delete an automatic deployment release override for the proje
 octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
 ```
 
-## Tenanted Example (By Tags) {#Deletingautodeployoverrides-Tenantedexample(bytags)}
+## tenanted example (by tags) {#deletingautodeployoverrides-tenantedexample(bytags)}
 
 The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
 octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456
 ```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+- [Automatic deployments](/docs/projects/project-triggers/deployment-target-triggers.md)

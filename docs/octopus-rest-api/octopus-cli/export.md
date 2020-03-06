@@ -1,5 +1,5 @@
 ---
-title: export
+title: Export
 description: Using the Octopus CLI to export items from one Octopus Deploy Server to import into another.
 position: 130
 ---
@@ -85,7 +85,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Exporting a Project {#Export-Exportingaproject}
+## Exporting a project {#Export-Exportingaproject}
 
 The following options are required when exporting a project.
 
@@ -104,7 +104,7 @@ Usage:
 octo export --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=project --name=ProjectName --filePath=C:\path\to\export\file.json
 ```
 
-### Project Export Output {#Export-ProjectExportOutput}
+### Project export output {#Export-ProjectExportOutput}
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
@@ -123,7 +123,7 @@ Finding NuGet feed for step Rate Service
 Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
 ```
 
-### Project Export File Format {#Export-ProjectExportFileFormat}
+### Project export file format {#Export-ProjectExportFileFormat}
 
 ```json
 {
@@ -178,7 +178,7 @@ Export file C:\tmp\OctoFX_Rate_Service.json successfully created.
 When the project variables contain values marked 'sensitive', their values will not be exported. The variable will be created with an empty value, and you can then modify the variables manually, typing in the new sensitive values once you have imported the project. If the variable already exists on a re-import and has a value, the value will be kept.
 :::
 
-## Exporting a Release, or Range of Releases {#Export-Exportingarelease,orrangeofreleases}
+## Exporting a release, or range of releases {#Export-Exportingarelease,orrangeofreleases}
 
 The following options are required when exporting releases.
 
@@ -203,7 +203,7 @@ Usage for a range of releases:
 octo export --server=http://octopusdeploy/api --apiKey=ABCDEF123456 --type=release --project=ProjectName --releaseVersion=1.0.0-1.0.5 --filePath=C:\path\to\export\file.json
 ```
 
-### Release Export Output {#Export-ReleaseExportOutput}
+### Release export output {#Export-ReleaseExportOutput}
 
 ```powershell
 Octopus Deploy Command Line Tool, version 1.0.0.0
@@ -218,7 +218,7 @@ Found release 2.7.2067
 Export file C:\tmp\OctoFX_Rate_Service_release.json successfully created.
 ```
 
-### Release Export File Format {#Export-ReleaseExportFileFormat}
+### Release export file format {#Export-ReleaseExportFileFormat}
 
 ```json
 {
@@ -236,3 +236,9 @@ Export file C:\tmp\OctoFX_Rate_Service_release.json successfully created.
   }
 }
 ```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
+
