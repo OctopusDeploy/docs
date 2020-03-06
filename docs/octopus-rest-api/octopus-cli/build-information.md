@@ -85,4 +85,4 @@ Common options:
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Build information](/docs/packaging-applications/build-servers#build-information)
+- [Build information](/docs/packaging-applications/build-servers/index.md#build-information)
