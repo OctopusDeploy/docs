@@ -4,8 +4,6 @@ description: This section provides a conceptual overview of Octopus Deploy, and 
 position: 0
 ---
 
-Welcome!
-
 This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guides you through implementing them with your own [self-hosted Octopus Server](/docs/getting-started.md#self-hosted-octopus) or the hosted version [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
 
 ## Consistent releases
