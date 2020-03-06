@@ -7,7 +7,7 @@ position: 20
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to clean all offline Workers from a Worker pool.
 
 ```text
-Cleans all Offline Workers from a WorkerPool
+Cleans all Offline Workers from a WorkerPool.
 
 Usage: octo clean-workerpool [<options>]
 

@@ -7,7 +7,7 @@ position: 120
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to write deployments to an XML file that can be imported in Excel.
 
 ```text
-Writes deployments to an XML file that can be imported in Excel
+Writes deployments to an XML file that can be imported in Excel.
 
 Usage: octo dump-deployments [<options>]
 

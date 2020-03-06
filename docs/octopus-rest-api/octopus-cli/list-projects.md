@@ -7,7 +7,7 @@ position: 210
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the project in your octopus instance.
 
 ```text
-Lists all projects
+Lists all projects.
 
 Usage: octo list-projects [<options>]
 

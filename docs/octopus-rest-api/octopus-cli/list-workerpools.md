@@ -7,7 +7,7 @@ position: 240
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Worker pools.
 
 ```text
-List worker pools
+List worker pools.
 
 Usage: octo list-workerpools [<options>]
 

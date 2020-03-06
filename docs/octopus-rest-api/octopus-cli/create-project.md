@@ -7,7 +7,7 @@ position: 60
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a project inside a project group.
 
 ```text
-Creates a project
+Creates a project.
 
 Usage: octo create-project [<options>]
 

@@ -7,7 +7,7 @@ position: 250
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Workers.
 
 ```text
-Lists all workers
+Lists all workers.
 
 Usage: octo list-workers [<options>]
 
