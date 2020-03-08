@@ -21,7 +21,7 @@ We recommend using [Workers](https://octopus.com/workers) to handle all your dat
 1) You can run multiple deployments on them at the same time.
 2) You can place multiple VMs into a worker pool.  If a VM were to go down during a deployment, another VM would step in and take it's place.
 
-![](images/standard-database-worker-pool.md)
+![](images/standard-database-worker-pool.png)
 
 **Please Note:** Workers were added in version **2018.7.0.**
 

@@ -20,7 +20,7 @@ Automating database deployments is a complex topic.  There are a lot of question
 
 Octopus Deploy integrates with several third-party database tools, RoundhousE, DbUp, ApexSQL, and Redgate, to name a few.  Those tools have to run somewhere.  They have to run as a specific database account which has permissions to make schema changes.  Before implementing the tooling, some scaffolding needs to be done.
 
-Learn more about [configuration settings](/docs/deployment-examples/database-deployments/configuration.md).
+Learn more about [configuration settings](/docs/deployment-examples/database-deployments/configuration/index.md).
 
 ## Databases Servers
 
