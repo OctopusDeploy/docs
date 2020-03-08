@@ -442,7 +442,7 @@ docs/deploying-applications/deploying-html-and-javascript-applications.md -> doc
 docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/index.md
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/deploying-applications/iis-websites-and-application-pools.md -> docs/deployment-examples/iis-websites-and-application-pools.md
-docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/sql-server-databases.md
+docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/databases-deployments/index.md
 docs/deploying-applications/windows-services.md -> docs/deployment-examples/windows-services.md
 docs/deploying-applications/aws-deployments/index.md -> docs/deployment-examples/aws-deployments/index.md
 docs/deploying-applications/aws-deployments/cloudformation/index.md -> docs/deployment-examples/aws-deployments/cloudformation/index.md
