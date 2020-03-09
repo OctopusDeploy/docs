@@ -1,12 +1,19 @@
 ---
-title: Configuration
+title: Database configuration
 description: Configuring your database and Octopus Deploy for database deployments.
+position: 10
 ---
 
-Deploying a Web Application or a Service is very straight-forward. Install the Tentacle on the server to be deployed to. Databases are different. Production databases are typically clusters or high-availability groups. They comprise more than one node hidden behind a VIP or virtual IP Address.
+Database deployments are often more complicated than deploying a web application or service as production databases are typically clusters or high-availability groups. They are often comprised of more than one node hidden behind a VIP (virtual IP address).
 
 ![](images/common-database-with-vip.png)
 
-Database deployment tooling doesn't need to run an executable directly on the database server. Instead, it needs to run somewhere, which connects to the database over a port (1433 for SQL Server, 1521 for Oracle, 3306 for MySQL, and 5432 for PostgreSQL) as a specific user to run scripts.  That user account running the scripts needs to have permission to modify the database.  
+Database deployment tooling doesn't need to run an executable directly on the database server. Instead, it needs to run somewhere that connects to the database over a specific port as specific user to run scripts:
 
-This section will address where to install the Tentacle and basics on permissions.
+ - SQL Server: `1433`
+ - Oracle: `1521`
+ - MySQL: `3306`
+ - PostgreSQL: `5432`
+
+The user account running the scripts needs permission to modify the database.  
+

@@ -2,42 +2,52 @@
 title: Databases
 description: Database deployments
 position: 140
+hideInThisSectionHeader: true
 ---
 
-Automating database deployments is often the final frontier for an automated CI/CD pipeline.  We are here to help.  In this section, we aim to provide as much information as possible to help you get started.  
+Automating database deployments is a complex topic and often the final step in an automated CI/CD pipeline. In this section, we aim to provide you with as much information as possible to get you started.  
 
-## Getting Started
-Automating database deployments is a complex topic.  There are a lot of questions to answer and decisions to make.  To help get started, we have written a series of blog posts.  
+We have also written a series of blog posts on the topic:
 
 - [Why consider database deployment automation?](https://octopus.com/blog/why-consider-database-deployment-automation)
-- [Database deployment automation approaches.](https://octopus.com/blog/database-deployment-automation-approaches)
-- [How to design an automated database deployment process.](https://octopus.com/blog/designing-db-deployment-process)
-- [Automated database deployment process: case study.](https://octopus.com/blog/use-case-for-designing-db-deployment-process)
-- [Implementing an automated database deployment process.](https://octopus.com/blog/implementing-db-deployment-process)
-- [Pitfalls with rollbacks and automated database deployments.](https://octopus.com/blog/database-rollbacks-pitfalls)
+- [Database deployment automation approaches](https://octopus.com/blog/database-deployment-automation-approaches)
+- [How to design an automated database deployment process](https://octopus.com/blog/designing-db-deployment-process)
+- [Automated database deployment process: case study](https://octopus.com/blog/use-case-for-designing-db-deployment-process)
+- [Implementing an automated database deployment process](https://octopus.com/blog/implementing-db-deployment-process)
+- [Pitfalls with rollbacks and automated database deployments](https://octopus.com/blog/database-rollbacks-pitfalls)
 
-## Configuration
+## Third-party tools
 
-Octopus Deploy integrates with several third-party database tools, RoundhousE, DbUp, ApexSQL, and Redgate, to name a few.  Those tools have to run somewhere.  They have to run as a specific database account which has permissions to make schema changes.  Before implementing the tooling, some scaffolding needs to be done.
+Octopus Deploy integrates with several third-party database tools:
+
+- RoundhousE
+- DbUp
+- ApexSQL
+- Redgate
+- [and more](https://library.octopus.com/listing/database)
+
+Before those tools can run, they need to be configured to run as a specific database account that has permission to make schema changes.
 
 Learn more about [configuration settings](/docs/deployment-examples/database-deployments/configuration/index.md).
 
-## Databases Servers
+## Databases servers
 
-Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice.  The tool you pick will dictate the database server (SQL Server, Oracle, MySQL, PostgreSQL, etc.) you can deploy to.  Please see the `In This Section` to pick the database server of your choice.
+Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice. The database server you use (SQL Server, Oracle, MySQL, PostgreSQL, etc.), will determine which tool you can choose. <!--Please see the `In This Section` to pick the database server of your choice.
 
 :::highlight
 You'll notice this section is heavier on SQL Server than other database servers.  For a long time, our primary users were .NET developers deploying to SQL Server; our guides reflected that.  But that is very limiting.  There are a lot of great database servers out there.  Our goal is to cover as many of the popular database servers as we can.  If we are missing a guide, please email [advice@octopus.com](mailto:advice@octopus.com), and we will do our best to help you out.
-:::
+::: -->
 
 ### SQL Server
 
-If your framework is .NET chances are you are deploying to SQL Server.  The deployment tooling has evolved along with it since its early days in 1989, running on OS/2.  We have written a number of guides and blog posts on the subject.
+If you are deploying to SQL Server, we have written a number of guides and blog posts on the subject.
 
 - [Using DbUp and Workers to Automate Database Deployments](https://octopus.com/blog/dbup-database-deployments)
 - [Database Deployment Automation using state-based Redgate SQL Change Automation](https://octopus.com/blog/database-deployment-automation-using-redgate-sql-change-automation)
 - [Deploying to SQL Server with a DacPac](https://octopus.com/blog/will-it-deploy-episode-04)
 - [Deploying to SQL Server with Entity Framework Core](https://octopus.com/blog/will-it-deploy-episode-03)
+
+Learn about [SQL Server permissions](/docs/deployment-examples/database-deployments/sql-server/index.md).
 
 ### Oracle
 
@@ -54,13 +64,14 @@ MySQL is one of the most popular databases in the world.  Even better, it is fre
 - [Deploying a Java web app with a MySQL backend through Octopus Deploy](https://octopus.com/blog/deploying-java-with-mysql)
 - [Using DbUp and Workers to Automate Database Deployments](https://octopus.com/blog/dbup-database-deployments) (the article uses SQL Server as the example, but DbUp can deploy to MySQL).
 
-## Advanced Topics
+## Advanced topics
 
 Automating database deployments is often the final piece of a fully automated CI/CD pipeline.  The next thought is, "what else can I do?"  We've written some blog posts to help out with the "what next?" question.
 
 - [Automated blue/green database deployments](https://octopus.com/blog/databases-with-blue-green-deployments)
-- [Using adhoc scripts in your database deployment automation pipeline](https://octopus.com/blog/database-deployment-automation-adhoc-scripts)
+- [Using ad-hoc scripts in your database deployment automation pipeline](https://octopus.com/blog/database-deployment-automation-adhoc-scripts)
 
 ## Learn more 
 
 - [Database blog posts](https://www.octopus.com/blog/tag/database%20deployments)
+

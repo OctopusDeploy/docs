@@ -1,5 +1,5 @@
 ---
-title: Permissions
+title: Recommended database permissions
 description: Permission recommendations for database deployments.
 position: 15
 ---
