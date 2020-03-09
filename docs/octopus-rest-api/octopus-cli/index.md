@@ -115,9 +115,7 @@ If you're using powershell on windows use `powershell` if you're using powershel
 :::hint
 You can review changes to your profile without writing to disk by using the `--dryRun` option
 
-```powershell
-octo install-autocomplete --shell powershell --dryRun
-```
+`octo install-autocomplete --shell powershell --dryRun`
 :::
 
 3. Either restart your shell environment or 'dot source' your profile.
