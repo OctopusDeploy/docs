@@ -2,7 +2,7 @@
 title: Install Tentacles and Workers for database deployments
 description: Where to install Tentacles and how to configure Workers.
 position: 10
----    
+---
 
 Do not install Tentacles directly on your database servers, instead, use [Workers](https://octopus.com/workers) or install Tentacles on jump boxes for database deployments.
 
