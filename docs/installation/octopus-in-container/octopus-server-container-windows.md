@@ -1,5 +1,5 @@
 ---
-title: Octopus Deploy Server Container Windows
+title: Octopus Deploy Server Windows Container
 description: An Octopus Deploy Server instance can be run directly from within a container.
 position: 1
 ---
@@ -11,12 +11,7 @@ Running the Octopus Deploy Server inside a container provides a simple way to se
 Although there are a few different configuration options, a simple example of starting up an Octopus Deploy Server container is as follows:
 
 ```PowerShell
-docker run --interactive 
-           --detach `
-           --name OctopusServer `
-           --publish 1322:81 `
-           --env DB_CONNECTION_STRING="..." `
-           octopusdeploy/octopusdeploy:2019.13.4
+docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --volume "C:\Octopus\Data:C:\Octopus" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
 We run in detached mode with `--detach` to allow the container to run in the background.
@@ -25,11 +20,11 @@ The `--interactive` argument ensures that `STDIN` is kept open which is required
 
 Setting `--name OctopusServer` just gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
 
-Using `--publish 1322:81` we map the _container port_ `81` to `1322` on the host so that the Octopus instance is accessible outside this sever.
+Using `--publish 1322:8080` we map the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
 
 To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
-In this example, we are running the image `octopusdeploy/octopusdeploy:2019.13.4`. The tag maps directly to the Octopus Server version that is bundled inside the image.
+In this example, we are running the image `!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
 ## Configuration
 
@@ -85,14 +80,7 @@ Similar to moving an instance, to perform the container upgrade you will need th
 When you have the Master Key, you can stop the running Octopus Server container instance (delete it if you plan on using the same name), and run _almost_ the same command as before, but this time, pass in the Master Key as an environment variable and reference the new Octopus Server version. When this new container starts up, it will use the same credentials and detect that the database has already been set up and use the Master Key to access its sensitive values:
 
 ```PowerShell
-docker run --interactive
-           --detach `
-           --name OctopusServer `
-           --publish "1322:81" `
-           --env DB_CONNECTION_STRING="..." `
-           --volume "E:/Octopus/Logs:C:/TaskLogs" `
-           --env MASTER_KEY=5qJcW9E6B99teMmrOzaYNA== `
-           octopusdeploy/octopusdeploy:2019.13.4
+docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --env MASTER_KEY=5qJcW9E6B99teMmrOzaYNA== --volume "C:\Octopus\Data:C:\Octopus" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
 While you don't strictly _need_ to mount the internal directory locations, it will mean that the newly upgraded server will still have access to all the same packages, logs, and artifacts as before. The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.

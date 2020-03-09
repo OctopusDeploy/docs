@@ -31,7 +31,7 @@ services:
       ACCEPT_EULA: "${OCTOPUS_ACCEPT_EULA}"
       ADMIN_EMAIL: "${ADMIN_EMAIL}"
     ports:
-     - "5441:81"
+     - "1322:8080"
     depends_on:
       db:
         condition: service_healthy
@@ -122,9 +122,9 @@ services:
       DB_CONNECTION_STRING: "${DB_CONNECTION_STRING}"
       ACCEPT_EULA: "${OCTOPUS_ACCEPT_EULA}"
       ADMIN_EMAIL: "${ADMIN_EMAIL}"
-    ports:
-     - "81"
-     - "10943"
+    ports: 
+      - "1322":"8080"
+      - "10943"
     depends_on:
       db:
         condition: service_healthy
@@ -141,7 +141,7 @@ services:
       ServerPassword: "${ADMIN_PASSWORD}"
       TargetEnvironment: "Development"
       TargetRole: "app-server"
-      ServerUrl: "http://octopus:81"
+      ServerUrl: "http://octopus:1322"
     stdin_open: true
     volumes:
       - "./ListeningApplications:C:/Applications"
@@ -155,7 +155,7 @@ services:
       ServerPassword: "${ADMIN_PASSWORD}"
       TargetEnvironment: "Development"
       TargetRole: "web-server"
-      ServerUrl: "http://octopus:81"
+      ServerUrl: "http://octopus:1322"
       ServerPort: "10943"
     stdin_open: true
     volumes:
