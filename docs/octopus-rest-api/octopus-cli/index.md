@@ -80,7 +80,7 @@ octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
-**Creating API keys**
+## Creating API keys {#OctopusCLI-CreatingAPIKeys}
 Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 
@@ -89,3 +89,56 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 :::
 
 The server URL, API key, username and password can be set as the environment variables `OCTOPUS_CLI_SERVER`, `OCTOPUS_CLI_API_KEY`, `OCTOPUS_CLI_USERNAME` and `OCTOPUS_CLI_PASSWORD` respectively. Values set via command line arguments take precedence over environment variables.
+
+## Tab completion for commands and options {#OctopusCLI-TabCompletion}
+Tab completion is available for the following shell environments: `powershell`, `pwsh` (powershell core), `bash` & `zsh`. This feature requires that `octo` or `Octo` is available from your $PATH, which is the default state if installed via a package manager or chocolatey. If you've manually installed the CLI, then please ensure your $PATH is also updated if you wish to use this feature. This is an optional feature that requires additional [installation steps](#OctopusCLI-TabCompletionInstallation) on a per user basis, since this feature relies on builtin shell auto completion facilities.
+
+### Additional installation steps for tab completion. {#OctopusCLI-TabCompletionInstallation}
+
+1. Check that `octo` is available on your path.
+
+```bash
+which octo
+```
+This should return a valid location on your path like `/usr/bin/octo`
+
+2. Install tab completion scripts into your profile, choosing from `powershell`, `pwsh`, `bash` or `zsh`.
+
+```bash
+octo install-autocomplete --shell zsh
+```
+
+:::hint
+If you're using powershell on windows use `powershell` if you're using powershell core on windows, mac or linux, use `pwsh`.
+:::
+
+:::hint
+You can review changes to your profile without writing to disk by using the `--dryRun` option
+
+```powershell
+octo install-autocomplete --shell powershell --dryRun
+```
+:::
+
+3. Either restart your shell environment or 'dot source' your profile.
+
+**Bash**
+
+```bash
+. ~/.bashrc
+```
+
+**Zsh**
+```bash
+. ~/.zshrc
+```
+
+**Powershell/pwsh**
+```powershell
+. $PROFILE
+```
+
+4. You can now discover sub-commands by typing `octo [searchterm]` and then hitting the [tab] key. Providing no search term will show the full list of sub-commands available.
+
+![animation showing the tab completion feature in zsh to list all environments in the default space](./images/autocomplete.gif)
+
