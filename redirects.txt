@@ -442,7 +442,7 @@ docs/deploying-applications/deploying-html-and-javascript-applications.md -> doc
 docs/deploying-applications/deploying-mobile-applications.md -> docs/deployment-examples/index.md
 docs/deploying-applications/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/deploying-applications/iis-websites-and-application-pools.md -> docs/deployment-examples/iis-websites-and-application-pools.md
-docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/sql-server-databases.md
+docs/deploying-applications/sql-server-databases.md -> docs/deployment-examples/database-deployments/index.md
 docs/deploying-applications/windows-services.md -> docs/deployment-examples/windows-services.md
 docs/deploying-applications/aws-deployments/index.md -> docs/deployment-examples/aws-deployments/index.md
 docs/deploying-applications/aws-deployments/cloudformation/index.md -> docs/deployment-examples/aws-deployments/cloudformation/index.md
@@ -1002,3 +1002,4 @@ docs/octopus-rest-api/octo.exe-command-line/version.md -> docs/octopus-rest-api/
 docs/packaging-applications/create-packages/octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
 docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
 docs/octopus-concepts/api.md -> docs/octopus-concepts/rest-api.md
+docs/deployment-examples/sql-server-databases -> docs/deployment-examples/database-deployments/index.md
