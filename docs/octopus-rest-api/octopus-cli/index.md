@@ -81,8 +81,8 @@ Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
 **Create an API key**
-:::
 Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::
 
 :::hint
 The Octopus CLI is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the Octopus CLI project on GitHub](https://github.com/OctopusDeploy/OctopusCli), which leans heavily on the [Octopus Clients library](https://github.com/OctopusDeploy/OctopusClients).
