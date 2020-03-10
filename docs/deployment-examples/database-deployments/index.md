@@ -32,11 +32,7 @@ Learn more about [configuration settings](/docs/deployment-examples/database-dep
 
 ## Databases servers
 
-Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice. The database server you use (SQL Server, Oracle, MySQL, PostgreSQL, etc.), will determine which tool you can choose. <!--Please see the `In This Section` to pick the database server of your choice.
-
-:::highlight
-You'll notice this section is heavier on SQL Server than other database servers.  For a long time, our primary users were .NET developers deploying to SQL Server; our guides reflected that.  But that is very limiting.  There are a lot of great database servers out there.  Our goal is to cover as many of the popular database servers as we can.  If we are missing a guide, please email [advice@octopus.com](mailto:advice@octopus.com), and we will do our best to help you out.
-::: -->
+Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice. The database server you use (SQL Server, Oracle, MySQL, PostgreSQL, etc.), will determine which tool you can choose. 
 
 ### SQL Server
 
