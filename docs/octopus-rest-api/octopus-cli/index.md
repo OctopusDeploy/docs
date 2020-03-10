@@ -80,7 +80,7 @@ octo ... --server http://your-octopus-server/ --apiKey API-ABCDEF123456
 Most commands also support [JSON formatted output](formatted-output.md).
 
 :::success
-## Creating API keys {#OctopusCLI-CreatingAPIKeys}
+## Create an API key {#OctopusCLI-CreatingAPIKeys}
 Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 
@@ -135,4 +135,3 @@ octo install-autocomplete --shell powershell --dryRun
 4. You can now discover sub-commands by typing `octo [searchterm]` and hitting the [tab] key. If you don't provide a search term, the full list of available sub-commands will be shown.
 
 ![animation showing the tab completion feature in Zsh to list all environments in the default space](images/autocomplete.gif)
-
