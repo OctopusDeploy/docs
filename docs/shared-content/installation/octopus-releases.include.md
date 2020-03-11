@@ -1,0 +1,1 @@
+From Octopus `2020.1`, we ship six new releases of Octopus Deploy Server annually. Each release receives **six months support**, including critical patches. The releases are rolled out to Octopus Cloud instances before being made available to download for self-hosted instances of the Octopus Server.

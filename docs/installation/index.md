@@ -7,6 +7,10 @@ hideInThisSection: true
 
 !include <octopus-deploy-server>
 
+## Releases of Octopus Deploy Server
+
+!include <octopus-releases>
+
 ## Download the Octopus installer {#downloads}
 
 <a href="/downloads/server" class="btn btn-lg btn-primary" style="height: 46px;">
