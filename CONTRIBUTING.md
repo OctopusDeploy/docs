@@ -28,6 +28,7 @@ Before we can accept your contribution, you need you to sign the [Contribution L
   - [Application Paths](#application-paths)
   - [Links](#links)
   - [Code Samples](#code-samples)
+  - [Referencing Docker Images](#docker-images)
   - [Alerts](#alerts)
   - [Lists](#lists)
   - [Working with Long-Term Support Releases and Fast Ring Releases](#working-with-long-term-support-releases-and-fast-ring-releases)
@@ -315,6 +316,22 @@ Snippets are highlighted by Highlight.js
 | text         | text           |
 
 **Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
+
+### Docker Images
+
+When referencing docker images, use the syntax:
+
+`!docker-image <org/image:tag>`
+
+This will get replaced with the most recently published version of the image.
+
+For example:
+
+`!docker-image <octopusdeploy/octo:alpine>`
+
+would get replaced by:
+
+`octopusdeploy/octo:6.17.3-alpine`
 
 ### Alerts
 
