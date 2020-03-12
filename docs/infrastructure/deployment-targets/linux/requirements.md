@@ -39,6 +39,18 @@ Octopus can execute Python scripts on SSH targets provided the following criteri
 - Python3 is on the path for the SSH user executing the deployment
 - pip is installed or the pycryptodome python package is installed
 
+## ScriptCS and F#
+
+Support for ScriptCS and F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
+
+ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/scriptcs/scriptcs/issues/1183)).
+
+Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
+
+:::warning 
+ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
+:::
+
 ## Self-contained Calamari {#self-contained-calamari}
 
 When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).
@@ -49,23 +61,11 @@ Self-contained Calamari is built as a [.NET Core self-contained distributable](h
 
 [.NET Core has some dependencies](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) which must be installed on the target server.
 
-### Self-contained Calamari limitations {#self-contained-calamari-limitations}
-
-ScriptCS and F# scripts can not execute when using a self-contained Calamari build.
-
-ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/scriptcs/scriptcs/issues/1183)).
-
-Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
-
 ## Calamari on Mono {#mono-calamari}
 
 [Calamari](/docs/octopus-rest-api/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/).
 
 Version **3.10** or greater of Mono is required; however, we recommended a minimum of version **4.8.0**.
-
-:::warning 
-As of April 2019, there are problems executing ScriptCS scripts on Mono **5.16** and higher. We recommend migrating to self-contained Calamari if possible, or using Mono **5.14.x**  
-:::
 
 You can find instructions for installing Mono in the [Mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
@@ -89,10 +89,6 @@ Note that [substitute variables in files](/docs/deployment-process/configuration
 If you configure your deployment such that the target pulls down the package itself directly from the NuGet repository, the correct SSL certificates need to also be available to Mono. By default, Mono pre **3.12** didn’t trust any certificates and the root certs in question would need to be either manually imported, or synced with Mozilla’s list by invoking `mozroots` or `cert-sync`. Thankfully Mono's latest builds perform this step during installation so it should “just work”.
 
 See [Mono’s security FAQ](http://www.mono-project.com/docs/faq/security/) for more details.
-
-#### ScriptCS and F# only in >= Mono 4.0
-
-Support for ScriptCS and F# scripts are only available with **Mono 4** and above.
 
 #### Mono on OSX
 
