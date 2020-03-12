@@ -325,13 +325,21 @@ When referencing docker images, use the syntax:
 
 This will get replaced with the most recently published version of the image.
 
-For example:
+#### Example 1 - with tags
 
 `!docker-image <octopusdeploy/octo:alpine>`
 
 would get replaced by:
 
 `octopusdeploy/octo:6.17.3-alpine`
+
+#### Example 2 - without tags
+
+`!docker-image <octopusdeploy/octo>`
+
+would get replaced by:
+
+`octopusdeploy/octo:6.17.3`
 
 ### Alerts
 
