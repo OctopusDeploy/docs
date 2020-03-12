@@ -6,6 +6,10 @@ position: 154
 
 !include <octopus-deploy-server>
 
+## Octopus Deploy Server releases
+
+!include <octopus-releases>
+
 The Octopus Deploy Server can be installed in a self-hosted environment or accessed through the managed Octopus Cloud service.
 
 ## Learn more
