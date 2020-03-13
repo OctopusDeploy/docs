@@ -1,4 +1,4 @@
-# Contributing to the Octopus Deploy Documentation
+# Contributing to the Octopus Deploy documentation
 
 This document covers the process for contributing to the documentation and code samples that are hosted on the [Octopus Deploy documentation site](https://octopus.com/docs/).
 
