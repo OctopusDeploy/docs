@@ -39,7 +39,7 @@ If the release is not deployed automatically, you can click **DEPLOY TO (Environ
 
 Deployments scheduled for the future can be viewed under the Project Overview page, on the **Dashboard**, and the **Tasks** section of the Octopus Web Portal.
 
-#### Scheduling deployments with the Octopus CLI
+### Scheduling deployments with the Octopus CLI
 
 For everyone using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), you can use the following option:
 
