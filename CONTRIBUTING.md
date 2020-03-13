@@ -6,38 +6,37 @@ Documentation is stored in this repository as Markdown files. The site is render
 
 Before we can accept your contribution, you need you to sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs).
 
-## In This Document
+## In this document
 
-- [Contribute a Quick Fix](#contribute-a-quick-fix)
-- [Contribute More Complex Changes](#contribute-more-complex-changes)
+- [Contribute a quick fix](#contribute-a-quick-fix)
+- [Contribute more complex changes](#contribute-more-complex-changes)
 - [Conventions](#conventions)
-  - [Voice and Style](#voice-and-style)
-  - [How to Structure Content](#how-to-structure-content)
-- [Working with Files and Folders](#working-with-files-and-folders)
-  - [Index Pages](#index-pages)
+  - [Voice and style](#voice-and-style)
+  - [How to structure content](#how-to-structure-content)
+- [Working with files and folders](#working-with-files-and-folders)
+  - [Index pages](#index-pages)
   - [Filenames](#filenames)
   - [Headers](#headers)
-  - [Using and Defining Includes](#using-and-defining-includes)
-  - [Reusing Content in Multiple Docs](#reusing-content-in-multiple-docs)
+  - [Using and defining includes](#using-and-defining-includes)
+  - [Reusing content in multiple docs](#reusing-content-in-multiple-docs)
   - [Redirects](#redirects)
-  - [Linking to the Octopus Guides](#linking-to-the-octopus-guides)
-- [Working With the Content](#working-with-the-content)
-  - [Table of Contents](#table-of-contents)
+  - [Linking to the octopus guides](#linking-to-the-octopus-guides)
+- [Working with the content](#working-with-the-content)
+  - [Table of contents](#table-of-contents)
   - [Headings](#headings)
   - [Images](#images)
-  - [Application Paths](#application-paths)
+  - [Application paths](#application-paths)
   - [Links](#links)
-  - [Code Samples](#code-samples)
-  - [Referencing Docker Images](#docker-images)
+  - [Code samples](#code-samples)
+  - [Referencing Docker images](#docker-images)
   - [Alerts](#alerts)
   - [Lists](#lists)
-  - [Working with Long-Term Support Releases and Fast Ring Releases](#working-with-long-term-support-releases-and-fast-ring-releases)
 
-## Contribute a Quick Fix
+## Contribute a quick fix
 
 If you spotted a typo, a small error, or a simple omission that you'd like to fix, you can make these changes in the GitHub editor. Once the changes have been made, GitHub makes it easy to [submit your changes as a new branch and start a pull request(PR)](https://help.github.com/articles/editing-files-in-another-user-s-repository/). We will review your PR and accept it or suggest changes.
 
-## Contribute More Complex Changes
+## Contribute more complex changes
 
 If you'd like to contribute more complex changes to the documentation, you'll need an understanding of [Git and GitHub.com](https://guides.github.com/activities/hello-world/) and an awareness of the [conventions](#conventions) used throughout our documentation.
 
@@ -53,7 +52,7 @@ The basic process is:
 
 Our goal is to make the documentation as accessible as possible to the reader. These conventions are intended to help our contributors maintain a consistent style and voice throughout the documentation.
 
-### Voice and Style
+### Voice and style
 
 Not everybody who reads the Octopus Deploy documentation is a native English speaker with a degree in computer science, though many are. To make the documentation as widely accessible as possible we recommend:
 
@@ -66,7 +65,7 @@ Not everybody who reads the Octopus Deploy documentation is a native English spe
 - Avoid overly formal language or an academic style.
 - Avoid slang, colloquialisms, and other terms the reader might not be familiar with.
 
-### How to Structure Content
+### How to structure content
 
 When creating new documentation, you should structure it as follows:
 
@@ -84,21 +83,21 @@ When creating new documentation, you should structure it as follows:
   > 2. Give the project a name that's meaningful to you, and anybody else who'll work on the project.
   > 3. ...
 
-3. Reference.
+3. Reference/advanced used cases, FAQs
 
   If there are lists of parameters or additional options available, provide the details in a list or table for easy access after the procedural content. If there are common troubleshooting steps users might need to perform, list them here.
 
 4. Next.
 
-  Provide links to related documentation to help the reader continue their journey.
+  Provide links to related documentation, the blog, or other resources to help the reader continue their journey.
 
-## Working with Files and Folders
+## Working with files and folders
 
 The folder structure in the GitHub docs repository, determines the structure of [www.octopus.com/docs](https://www.octopus.com/docs) and the navigation menu for the docs. For instance, the contents of the file located at `docs/installation/requirements.md` can be viewed at the URL [www.octopus.com/docs/installation/requirements](https://octopus.com/docs/installation/requirements). Note, the markdown file extension `.md` is not present in the URL.
 
 The only exception to this rule, is index pages, see the next section for details.
 
-### Index Pages
+### Index pages
 
 Each directory needs an index.md page with the content that will be displayed on the equivalent page in the docs. For instance, the contents of the file `docs/installation/index.md` is available at the URL: [www.octopus.com/docs/installation](https://octopus.com/docs/installation). Note, `index.md` is not part of the URL.
 
@@ -148,7 +147,7 @@ The "In This Section" section [contains a header](_shared/in-this-section.md), i
 hideInThisSectionHeader: true
 ```
 
-### Using and Defining Includes
+### Using and defining includes
 
 Sometimes you need to the same content in multiple pages, using includes lets you write the content once, and include it in more than one place. Markdown includes are pulled into the document prior to passing the content through the markdown conversion.
 
@@ -158,13 +157,13 @@ To create an include, add a file anywhere in the docs repository that is suffixe
 
 Don't include a YAML header with includes.
 
-### Reusing Content in Multiple Docs
+### Reusing content in multiple docs
 
 Sometimes the content that you create is needed in multiple docs. For instance, perhaps your document touches elements on both configuration features and variables and could be included with the docs about variables, the docs about configuration features, and in the deployment example docs. If you added the content to all three areas of the documentation, you would then need to keep all three copies up to date if anything changes.
 
 With includes you can create the content once, and then include it in all the docs that need that content. This makes it easier for users to find relevant content where they need it. See [Using and Defining Includes](#using-and-defining-includes) for details on creating the includes content. Once the content has been created, it should be saved to the `docs/shared-content/` folder.
 
-#### Considerations for Creating Reusable Content
+### Considerations for creating reusable content
 
 Remember when you reuse content in this manner readers will come to it from different contexts. For this reason it's important to make sure the content fits with each context it will be used with. Some things that can help are to ensure the content works as a standalone piece, for instance, **How to Configure X**, give the section a title and include an introduction so readers understand what this section will cover even though they might be approaching it from different contexts. Lastly, review the content in each context yourself to ensure it fits in each instance.
 
@@ -204,11 +203,9 @@ If you'd like to pre-fill more than one option, add multiple queries parameters 
 
 https://octopus.com/docs/guides?application=PHP&buildServer=TeamCity&destination=NGINX
 
+## Working with the content
 
-
-## Working With the Content
-
-### Table of Contents
+### Table of contents
 
 You can include a table of contents by adding `!toc` to the markdown. The table of contents lists all headers (H1, H2, etc) in the current document.
 
@@ -238,7 +235,7 @@ Images can be added using the following markdown syntax:
 
 **All** images should have [alt text](https://en.wikipedia.org/wiki/Alt_attribute).
 
-### Application Paths
+### Application paths
 
 In order to be consistent when referencing certain areas of the application we have created a markdown extension to render application paths. To render an application path use the following syntax:
 
@@ -264,13 +261,13 @@ One addition to standard markdown is the auto creation of anchors for headings.
 
 So if you have a heading like this:
 
-    ## My Heading
+    ## My heading
 
 it will be converted to this:
 
     <h2>
       <a name="my-heading"/>
-      My Heading
+      My heading
     </h2>
 
 Which means elsewhere in the page you can link to it with this:
@@ -280,7 +277,7 @@ Which means elsewhere in the page you can link to it with this:
 
 You do not need to create anchors in the markdown, they will be generated automatically, but if you add them manually, do not use special characters in the anchor text as they will cause the link to be truncated.
 
-### Code Samples
+### Code samples
 
 Use GitHub-style fenced code blocks. For example:
 
@@ -317,19 +314,19 @@ Snippets are highlighted by Highlight.js
 
 **Always use fenced code blocks with a language.** If no language is defined then highlightjs will guess the language and it regularly gets it wrong.
 
-### Docker Images
+### Docker images
 
 When referencing docker images, use the syntax:
 
 `!docker-image <org/image:tag>`
 
-This will get replaced with the most recently published version of the image.
+This will be replaced with the most recently published version of the image.
 
 #### Example 1 - with tags
 
 `!docker-image <octopusdeploy/octo:alpine>`
 
-would get replaced by:
+Will be replaced with:
 
 `octopusdeploy/octo:6.17.3-alpine`
 
@@ -337,7 +334,7 @@ would get replaced by:
 
 `!docker-image <octopusdeploy/octo>`
 
-would get replaced by:
+Will be replaced with:
 
 `octopusdeploy/octo:6.17.3`
 
@@ -380,7 +377,7 @@ Lists can be created using a few different styles, please be aware that `Roman` 
 
 You don't have to provide sequential number for list items, that is `1, 2, 3...`, you can just use `1, 1, 1...` unless you insert a break in the list to include some other text. If you include a break in the text, it is recommended that you number your list items correctly, so that the numbers don't reset after the break.
 
-#### Nested Lists
+#### Nested lists
 
 You can nest lists, by adding two spaces before the nested list items.
 
@@ -432,38 +429,7 @@ Which is rendered as:
 a. Item 1
 b. Item 2
 
-### Working with Long-Term Support Releases and Fast Ring Releases
-
-In Q4 2018 Octopus introduced Long-Term Support releases. LTS releases are released on a three month cadence and each LTS release is supported for six months. This means there will be two current LTS releases at any point in time. The documentation for the latest release is the version of the docs that is displayed on the docs site by default. However, copies of legacy docs go all the way back to version **3.6** and are available in a persistent archive at [www.legacydocs.octopus.com](https://legacydocs.octopus.com).
-
-#### Include the Version
-
-To add a new version to the version to the legacy docs, all you need to do is add the version to the versions.json file versions array. For instance, when we released Octopus 2018.3 we changed the version listed directly under "versions" and "default" from 2018.2 to 2018.3, and added an entry in the legacy array for 2018.2:
-
-```json
-{
-   "versions": [
-     "2018.3"
-   ],
-   "default": "2018.3",
-   "legacy": [
-    {
-      "version": "2018.2",
-      "firstReleased": "8 Feb 2018"
-     },
-     {
-      "version": "2018.1",
-      "firstReleased": "24 Jan 2018"
-     },
-     {
-      "version": "4.1",
-      "firstReleased": "5 Dec 2017"
-     }
-   ]
- }
-```
-
-#### Version Specific Docs
+### Version specific docs
 
 As we make changes to the way the product works or add new features we need to specify which version of the software the changes appears in. This ensure users can access documentation for the version of Octopus they are using.
 
@@ -476,7 +442,6 @@ Provide the instructions for 2018.3 and later below this heading.
 \#\# Configuring X in Octopus 2018.2 and earlier
 
 Provide the instructions for 2018.2 and earlier below this heading.
-
 
 If the documentation is for a completely new feature, you can add a version to the YAML header at the beginning of the document that explains the feature. For instance:
 
@@ -491,7 +456,7 @@ version: 2018.11
 
 With the version information added to the header, the documentation for New Awesome Feature will appear in the docs for version 2018.11 and above, but it will also be available as pre-release documentation from the version selector on the docs site prior to the docs version being updated on the site.
 
-#### Version Specific Partials
+### Version specific partials
 
 Partials are version specific files that contain markdown that is included inside other markdown documents. Version specific partials are useful when a feature changes between releases, and you need to display one version of the documentation to users viewing older versions of the docs, and a different version of the same page (or part of the same page) to users viewing a newer version of the doc.
 
@@ -518,11 +483,11 @@ They are only rendered in the target page when the version filter matches the co
 
 Partials must be added to the same folder as the page that will use the partial.
 
-## Useful Characters
+## Useful characters
 
 Just go to http://htmlarrows.com/symbols/
 
-## More Information
+## More information
 
-* [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
