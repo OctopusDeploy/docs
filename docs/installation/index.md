@@ -5,7 +5,7 @@ description: How to install the Octopus Server.
 hideInThisSection: true
 ---
 
-!include <octopus-deploy-server>
+!include <octopus-server>
 
 ## Download the Octopus installer {#downloads}
 

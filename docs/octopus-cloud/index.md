@@ -9,7 +9,7 @@ hideInThisSectionHeader: true
 
 ## Octopus Server
 
-!include <octopus-deploy-server>
+!include <octopus-server>
 
 ## Create an Octopus account
 

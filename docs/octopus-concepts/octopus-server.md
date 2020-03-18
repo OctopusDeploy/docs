@@ -4,7 +4,7 @@ description: The Octopus Server provides the REST API and the Octopus Web Portal
 position: 154
 ---
 
-!include <octopus-deploy-server>
+!include <octopus-server>
 
 The Octopus Server can be installed in a self-hosted environment or accessed through the managed Octopus Cloud service.
 
