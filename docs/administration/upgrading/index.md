@@ -14,7 +14,7 @@ We highly recommend using the latest release for your self-hosted installation o
 
 ## Considerations for upgrading
 
-When we ship a patch, like `2020.1.3`, you should patch your Octopus Server. It will be less risk to upgrade than to leave your Octopus Server unpatched.
+When we ship a patch, like `2020.1.7`, you should patch your Octopus Server. It will be less risk to upgrade than to leave your Octopus Server unpatched.
 
 When we ship a new release, you can choose to stay on your current version as long as it is still covered by our six months of support, but we recommend keeping up with the current release when possible.
 
