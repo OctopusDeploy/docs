@@ -79,7 +79,7 @@ You should also consider how long the actual upgrade may take:
 
 ## Upgrading Octopus Server {#UpgradingfromOctopus3.x-UpgradingOctopusServerUpgradingOctopusServer}
 
-Upgrading the Octopus Deploy Server is easy, you will just need to follow these steps:
+Upgrading the Octopus Server is easy, you will just need to follow these steps:
 
 1. Schedule a maintenance window: Octopus Server will be unavailable during the upgrade (unless you are [upgrading Octopus HA](#upgrading-octopus-ha)).
 1. Switch your server to [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and wait until all current tasks and deployments have completed. This ensures that no further changes will be made that may potentially become lost if the upgrade fails and you need to rollback.
@@ -106,7 +106,7 @@ Once you have downloaded the required version of the Octopus Server MSI no furth
 
 :::success
 **No need to upgrade the Tentacle**
-All **Tentacle 3.x** versions are compatible with all modern Octopus Server versions from **3.x** onwards. Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Deploy Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
+All **Tentacle 3.x** versions are compatible with all modern Octopus Server versions from **3.x** onwards. Given that the deployment code is now embedded within Calamari, and this gets pushed out automatically as needed by the Octopus Server, you no longer need be concerned about ensuring the version number between Tentacle and Server remain in lockstep. We hope splitting the Tentacle helps relieve some of the hassle and friction involved with upgrading Octopus and provides better communication about changes to Tentacle.
 :::
 
 ## Upgrading Octopus HA {#upgrading-octopus-ha}
@@ -223,7 +223,7 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 
 Some server configuration values are moved from the config file into the database in 3.5+.
 
-If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart Octopus Deploy Server.
+If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart the Octopus Server.
 
 ## Upgrading to Octopus 2019.x or greater
 

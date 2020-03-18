@@ -10,7 +10,7 @@ This section provides an overview of Octopus Deploy concepts and links to the re
 
 As an Octopus user, you define the process for deploying your software. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want developers to deploy to dev environments but not testing or production, and members of QA to deploy to test environments, but not to production. Taking this approach means that even if different members of the team trigger deployments, the deployment process remains consistent. After releases have been created, they can be deployed as many times as you need.
 
-## Octopus Deploy Server
+## Octopus Server
 
 You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud). Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://www.octopus.com/free).
 
@@ -44,7 +44,7 @@ Learn more about managing your [infrastructure](/docs/infrastructure/index.md).
 
 Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository or an external feed; however, you can push packages manually to the repository if you choose to.
 
-Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Deploy Server with our [REST API](/docs/octopus-rest-api/index.md).
+Learn more about [packaging your applications](/docs/packaging-applications/index.md) or how to automate your existing tool chain to push packages to your Octopus Server with our [REST API](/docs/octopus-rest-api/index.md).
 
 ## Deploying applications
 

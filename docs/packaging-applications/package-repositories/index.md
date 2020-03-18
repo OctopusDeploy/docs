@@ -6,7 +6,7 @@ position: 30
 
 When planning your Octopus installation, you need to decide how to host your packages. Your [build server](/docs/packaging-applications/build-servers/index.md) should create your packages and publish them to a package repository.
 
-The Octopus Deploy Server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) and supports the following external repositories:
+The Octopus Server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) and supports the following external repositories:
 
  - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).

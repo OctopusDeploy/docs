@@ -55,7 +55,7 @@ When configuring your Tentacle, you can configure advanced options, such as [pro
 
 ## Example: Listening Tentacle {#AutomatingTentacleinstallation-Example:ListeningTentacle}
 
-The following example configures a [listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Deploy Server:
+The following example configures a [listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), and registers it with an Octopus Server:
 
 **Using Tentacle.exe to create Listening Tentacle instance**
 
@@ -106,7 +106,7 @@ Want to register your Tentacles another way? Take a look at the examples in our 
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
 
-The following example configures a [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Deploy Server:
+The following example configures a [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), and registers it with an Octopus Server:
 
 **Polling Tentacle**
 

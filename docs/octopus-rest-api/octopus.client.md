@@ -49,7 +49,7 @@ To use from C#, first install the package via the NuGet Package Manager:
 PM> Install-Package Octopus.Client
 ```
 
-Alternatively, the client is available in both the installation directory of Octopus Deploy Server and Tentacle.
+Alternatively, the client is available in both the installation directory of Octopus Server and Tentacle.
 
 ### Synchronous API {#Octopus.Client-SynchronousAPI}
 

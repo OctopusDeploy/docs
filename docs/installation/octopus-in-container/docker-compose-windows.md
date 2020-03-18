@@ -51,7 +51,7 @@ We will provide some of the environment variables to run this container with an 
 # It is highly recommended this value is changed as it's the password used for the database user.
 SA_PASSWORD=N0tS3cr3t!
 
-# Tag for the Octopus Deploy Server image. Use "latest" to pull the latest image or specify a specific tag
+# Tag for the Octopus Server image. Use "latest" to pull the latest image or specify a specific tag
 OCTOPUS_VERSION=2019.13.4
 
 DB_CONNECTION_STRING=Server=db,1433;Initial Catalog=Octopus;Persist Security Info=False;User ID=sa;Password=N0tS3cr3t!;MultipleActiveResultSets=False;Connection Timeout=30;

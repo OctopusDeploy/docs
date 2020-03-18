@@ -4,7 +4,7 @@ description: As a self-hosted Octopus Deploy user, you need to manually upgrade 
 position: 190
 ---
 
-When you self-host the Octopus Deploy Server, you need to manually upgrade the server to take advantage of features in new releases of Octopus Deploy. 
+When you self-host the Octopus Server, you need to manually upgrade the server to take advantage of features in new releases of Octopus Deploy. 
 
 If you are upgrading a version of Octopus Deploy prior to version 3, we have supported upgrade paths that will help you upgrade to a modern version of Octopus Deploy: [Upgrading older versions of Octopus](/docs/administration/upgrading/legacy/index.md).
 

@@ -36,7 +36,7 @@ Be aware that the path in this URL after the domain name was **case sensitive** 
 That's OK, you can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 :::
 
-## Configure Octopus Deploy Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
+## Configure Octopus Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
 You can configure the GoogleApps settings from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
 

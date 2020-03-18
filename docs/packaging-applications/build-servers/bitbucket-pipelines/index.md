@@ -31,7 +31,7 @@ For example:
 
 | Variable name       | Description|
 | ------------- | ------- |
-| OCTOPUS_SERVER | The Octopus Deploy Server URL you wish to push the final package to |
+| OCTOPUS_SERVER | The Octopus Server URL you wish to push the final package to |
 | OCTOPUS_APIKEY | The Octopus Deploy API Key required for authentication |
 
 ## BitBucket pack and push configuration

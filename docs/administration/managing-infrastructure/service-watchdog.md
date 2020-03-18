@@ -4,7 +4,7 @@ description: The Octopus Server and Tentacle watchdog command can be used to con
 position: 2300
 ---
 
-In some environment the Windows Services for Octopus Deploy Server and Tentacle may not reliably start when the server is rebooted.  This typically occurs during a restart after Windows Updates have been installed.
+In some environment the Windows Services for Octopus Server and Tentacle may not reliably start when the server is rebooted.  This typically occurs during a restart after Windows Updates have been installed.
 
 ## Why does it happen? {#ServiceWatchdog-Whydoesithappen?}
 
@@ -66,7 +66,7 @@ Tentacle.exe watchdog --delete --create --instances * --interval 10
 
 ### Logging {#ServiceWatchdog-Logging}
 
-Octopus Deploy Server and Tentacle will generally endeavor to write all log entries to the instance's log file.  The watchdog is however running outside of the context of any single instance, so it writes to a log file in the user's profile.  The user in question here is the user that the Scheduled Task is running as, and as mentioned above that defaults to the Local System user.
+Octopus Server and Tentacle will generally endeavor to write all log entries to the instance's log file.  The watchdog is however running outside of the context of any single instance, so it writes to a log file in the user's profile.  The user in question here is the user that the Scheduled Task is running as, and as mentioned above that defaults to the Local System user.
 
 :::hint
 The default log file location is therefore **C:\Windows\System32\config\systemprofile\AppData\Local\Octopus\Logs**
@@ -76,7 +76,7 @@ This is only for information related to which instances the the watchdog attempt
 
 ### Tentacle vs Octopus Server {#ServiceWatchdog-TentaclevsOctopusServer}
 
-The above commands work equally for Octopus Deploy Server and Tentacle (by using **Octopus.Server.exe** instead of **Tentacle.exe**).  Noting that the Tentacle Watchdog will only check Tentacle instances and the Octopus Server Watchdog will only check server instances.  They can both be configured simultaneously on the same machine.
+The above commands work equally for Octopus Server and Tentacle (by using **Octopus.Server.exe** instead of **Tentacle.exe**).  Noting that the Tentacle Watchdog will only check Tentacle instances and the Octopus Server Watchdog will only check server instances.  They can both be configured simultaneously on the same machine.
 
 :::hint
 To specify only the default instance for server, use the name **OctopusServer**. For example,

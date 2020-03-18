@@ -108,7 +108,7 @@ Next you will need to assign your app to people or groups within your Okta direc
 
    ![](okta-authentication/okta-assign-to-groups.png)
 
-## Configure Octopus Deploy Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
+## Configure Octopus Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
 You will need the **Client ID** (aka **Audience**) and **Issuer** obtained from the Okta portal as described above.
 
