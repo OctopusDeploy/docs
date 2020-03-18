@@ -1,7 +1,7 @@
 ---
 title: Delete releases
 description: Deletes a range of releases
-position: 100
+position: 110
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete a range of [releases](/docs/managing-releases/index.md).

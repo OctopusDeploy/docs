@@ -1,43 +1,22 @@
 ---
-title: Push
-description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
-position: 300
+title: Allow release progression
+description: Allows a release to progress to next phase
 ---
 
-Pushes a [package](/docs/packaging-applications/create-packages/index.md) (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
-
-Learn more about the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
-
-**push options**
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to allow a release to progress to next phase.
 
 ```text
-Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+Allows a release to progress to next phase.
 
-Usage: octo push [<options>]
+Usage: octo allow-releaseprogression [<options>]
 
 Where [<options>] is any of:
 
-Package pushing:
+Deletion:
 
-      --package=VALUE        Package file to push. Specify multiple packages
-                             by specifying this argument multiple times:
-                             --package package1 --package package2
-      --overwrite-mode=VALUE If the package already exists in the repository,
-                             the default behavior is to reject the new
-                             package being pushed (FailIfExists). You can use
-                             the overwrite mode to OverwriteExisting or
-                             IgnoreIfExists.
-      --replace-existing     If the package already exists in the repository,
-                             the default behavior is to reject the new
-                             package being pushed. You can pass this flag to
-                             overwrite the existing package. This flag may be
-                             deprecated in a future version; passing it is
-                             the same as using the OverwriteExisting
-                             overwrite-mode.
-      --use-delta-compression=VALUE
-                             Allows disabling of delta compression when
-                             uploading packages to the Octopus Server. (True
-                             or False. Defaults to true.)
+      --project=VALUE        Name or ID of the project
+      --version, --releaseNumber=VALUE
+                             Release version/number
 
 Common options:
 

@@ -1,7 +1,7 @@
 ---
 title: List environments
 description: List environments
-position: 180
+position: 190
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the environments on your Octopus instance.

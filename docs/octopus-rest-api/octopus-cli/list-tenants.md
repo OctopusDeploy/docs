@@ -1,7 +1,7 @@
 ---
 title: List tenants
 description: List tenants
-position: 230
+position: 240
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to List tenants.

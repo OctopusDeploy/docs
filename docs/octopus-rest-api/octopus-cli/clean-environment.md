@@ -1,7 +1,7 @@
 ---
 title: Cleaning environments
 description: Using the Octopus CLI to delete/remove machines with a particular status from environments on your Octopus instance.
-position: 10
+position: 20
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.

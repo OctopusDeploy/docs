@@ -1,7 +1,7 @@
 ---
 title: Push metadata
 description: Pushes package metadata to Octopus Server.
-position: 285
+position: 305
 ---
 
 This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.

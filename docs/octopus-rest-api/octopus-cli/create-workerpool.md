@@ -1,7 +1,7 @@
 ---
 title: Create Worker pool
 description: Creates a pool for workers
-position: 80
+position: 90
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a worker pool.

@@ -1,7 +1,7 @@
 ---
 title: Create auto deployment override
 description: Using the Octopus CLI to create automatic deployment release overrides.
-position: 30
+position: 40
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.

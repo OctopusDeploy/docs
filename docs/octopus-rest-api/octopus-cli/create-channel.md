@@ -1,7 +1,7 @@
 ---
 title: Create channel
 description: Using the Octopus CLI to create channels.
-position: 40
+position: 50
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create channels on your Octopus instance.
