@@ -1,9 +1,6 @@
 ## Download the Tentacle installer
 
-- [Octopus Tentacle](https://octopus.com/downloads/slowlane/WindowsX64/OctopusTentacle)
-- [Octopus Tentacle for Linux (GZip)](https://octopus.com/downloads/slowlane/Linux_x64TarGz/OctopusTentacle)
-- [Octopus Tentacle for Linux (APT)](https://download.octopusdeploy.com/linux-tentacle/tentacle_5.0.12_amd64.deb)
-- [Octopus Tentacle for Linux (RPM)](https://download.octopusdeploy.com/linux-tentacle/tentacle-5.0.12-1.x86_64.rpm)
+Octopus Tentacle is available to download for both Windows and Linux (GZip, APT, and RPM) from the [downloads page](https://octopus.com/downloads).
 
 :::warning
 If you are using Windows Server 2003 with .NET Framework 4.0, you will need to download either:
