@@ -11,9 +11,11 @@ hideInThisSection: true
 
 `octo` supports the following commands:
 
+- **[allow-releaseprogression](/docs/octopus-rest-api/octopus-cli/allow-releaseprogression.md)**:  Allow a release from progressing to next phase.
 - **[build-information](/docs/octopus-rest-api/octopus-cli/build-information.md)**:  Pushes build information to Octopus Server.
 - **[clean-environment](/docs/octopus-rest-api/octopus-cli/clean-environment.md)**:  Cleans all Offline Machines from an Environment.
 - **[clean-workerpool](/docs/octopus-rest-api/octopus-cli/clean-workerpool.md)**:  Cleans all Offline Workers from a WorkerPool.
+- **[complete](/docs/octopus-rest-api/octopus-cli/complete.md)**:  Supports command line auto completion.
 - **[create-autodeployoverride](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md)**:  Override the release that auto deploy will use.
 - **[create-channel](/docs/octopus-rest-api/octopus-cli/create-channel.md)**:  Creates a channel for a project.
 - **[create-environment](/docs/octopus-rest-api/octopus-cli/create-environment.md)**:  Creates a deployment environment.
@@ -26,6 +28,7 @@ hideInThisSection: true
 - **[dump-deployments](/docs/octopus-rest-api/octopus-cli/dump-deployments.md)**:  Writes deployments to an XML file that can be imported in Excel.
 - **[export](/docs/octopus-rest-api/octopus-cli/export.md)**:  Exports an object to a JSON file. Deprecated. Please see [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
 - **[import](/docs/octopus-rest-api/octopus-cli/import.md)**:  Imports an Octopus object from an export file. Deprecated. Please see [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
+- **[install-autocomplete](/docs/octopus-rest-api/octopus-cli/install-autocomplete.md)**:  Install a shell auto-complete script into your shell profile, if they aren't already there. Supports pwsh, zsh, bash & powershell.
 - **[list-deployments](/docs/octopus-rest-api/octopus-cli/list-deployments.md)**:  List a number of deployments by project, environment or by tenant.
 - **[list-environments](/docs/octopus-rest-api/octopus-cli/list-environments.md)**:  List environments.
 - **[list-latestdeployments](/docs/octopus-rest-api/octopus-cli/list-latestdeployments.md)**:  List the releases last-deployed in each environment.
@@ -36,6 +39,7 @@ hideInThisSection: true
 - **[list-workerpools](/docs/octopus-rest-api/octopus-cli/list-workerpools.md)**:  List worker pools.
 - **[list-workers](/docs/octopus-rest-api/octopus-cli/list-workers.md)**:  Lists all workers.
 - **[pack](/docs/octopus-rest-api/octopus-cli/pack.md)**:  Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj.
+- **[prevent-releaseprogression](/docs/octopus-rest-api/octopus-cli/prevent-releaseprogression.md)**:  Prevent a release from progressing to next phase.
 - **[promote-release](/docs/octopus-rest-api/octopus-cli/promote-release.md)**:  Promotes a release.
 - **[push](/docs/octopus-rest-api/octopus-cli/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 - **[push-metadata](/docs/octopus-rest-api/octopus-cli/push-metadata.md)**:  Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.

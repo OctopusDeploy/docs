@@ -1,37 +1,24 @@
 ---
-title: List Workers
-description: Lists all workers
-position: 250
+title: allow-releaseprogression
+description: Allow a release from progressing to next phase.
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Workers.
+Allow a release from progressing to next phase.
+
+**allow-releaseprogression options**
 
 ```text
-Lists all workers.
+Allow a release from progressing to next phase.
 
-Usage: octo list-workers [<options>]
+Usage: octo allow-releaseprogression [<options>]
 
 Where [<options>] is any of:
 
-Listing Workers:
+Allowing release progression.:
 
-      --workerpool=VALUE     Name of a worker pool to filter by. Can be
-                             specified many times.
-      --status=VALUE         [Optional] Status of Machines filter by (Online,
-                             Offline, Unknown, NeedsUpgrade,
-                             CalamariNeedsUpgrade, Disabled). Can be
-                             specified many times.
-      --health-status, --healthstatus=VALUE
-                             [Optional] Health status of Machines filter by
-                             (Healthy, Unavailable, Unknown, HasWarnings,
-                             Unhealthy). Can be specified many times.
-      --disabled=VALUE       [Optional] Disabled status filter of Machine.
-      --calamari-outdated=VALUE
-                             [Optional] State of Calamari to filter. By
-                             default ignores Calamari state.
-      --tentacle-outdated=VALUE
-                             [Optional] State of Tentacle version to filter.
-                             By default ignores Tentacle state
+      --project=VALUE        Name or ID of the project
+      --version, --releaseNumber=VALUE
+                             Release version/number
 
 Common options:
 
@@ -87,8 +74,3 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Learn more
-
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
-- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Workers](/docs/infrastructure/workers/index.md)
