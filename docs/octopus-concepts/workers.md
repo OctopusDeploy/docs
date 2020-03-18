@@ -1,6 +1,6 @@
 ---
 title: Workers
-description: Workers are machines that can execute steps that don't need to be performed on the Octopus Deploy Server or deployment targets.
+description: Workers are machines that can execute steps that don't need to be performed on the Octopus Server or deployment targets.
 position: 210
 ---
 

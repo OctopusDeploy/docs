@@ -131,7 +131,7 @@ Once the App Role(s) have been defined, users/groups from Azure AD may be mapped
 If you only have one Role it will be automatically assigned. If you have **multiple** Roles a popup will appear when you click the **Assign** button so you can select the Role to assign.
 :::
 
-## Configure Octopus Deploy Server {#AzureADauthentication-ConfiguringOctopusDeployServer}
+## Configure Octopus Server {#AzureADauthentication-ConfiguringOctopusDeployServer}
 
 
 ### Get the client ID and issuer {#AzureADauthentication-GettheClientIDandIssuer}

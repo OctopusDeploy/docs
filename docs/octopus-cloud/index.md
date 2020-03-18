@@ -7,7 +7,7 @@ hideInThisSectionHeader: true
 
 !include <octopus-cloud>
 
-## Octopus Deploy Server
+## Octopus Server
 
 !include <octopus-deploy-server>
 

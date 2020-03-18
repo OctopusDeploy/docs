@@ -53,7 +53,7 @@ We will provide some of the environment variables to run this container with an 
 # It is highly recommended this value is changed as it's the password used for the database user.
 SA_PASSWORD=N0tS3cr3t!
 
-# Tag for the Octopus Deploy Server image. Use "latest" to pull the latest image or specify a specific tag
+# Tag for the Octopus Server image. Use "latest" to pull the latest image or specify a specific tag
 OCTOPUS_SERVER_TAG=latest
 
 # Sql Server image. Set this variable to the version you wish to use. Default is to use the latest.

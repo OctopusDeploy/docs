@@ -66,9 +66,9 @@ sudo npm install pm2 -g
 
 ## Create and push a Node.js project {#create-and-push-node.js-project}
 
-In this section we will package and publish a Node.js application to your Octopus Deploy Server from your development workstation.
+In this section we will package and publish a Node.js application to your Octopus Server from your development workstation.
 
-You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed on your development machine with an Octopus Deploy Server instance available.
+You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) installed on your development machine with an Octopus Server instance available.
 
 The sample project for this guide is a Node.js app that hosts the [expressjs](http://expressjs.com/) web server to serve some static content as well as return config variables that will be used by the client. There are several npm modules that you can use in a Node.js process to package your project and push it to an Octopus Deploy instance.
 
@@ -223,7 +223,7 @@ Using the [octopackjs](https://github.com/OctopusDeploy/octopackjs) npm module
 
 ## Publish package {#Create&amp;PushNode.jsProject-PublishPackage}
 
-Next, publish the project package to the Octopus Deploy Server with the following command:
+Next, publish the project package to the Octopus Server with the following command:
 
 ```bash
 npm run publish

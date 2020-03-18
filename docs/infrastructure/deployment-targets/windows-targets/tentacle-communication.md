@@ -1,6 +1,6 @@
 ---
 title: Tentacle communication modes
-description: Tentacles can be configured to communicate with the central Octopus Deploy Server in Listening or Polling mode.
+description: Tentacles can be configured to communicate with the Octopus Server in Listening or Polling mode.
 position: 30
 ---
 
