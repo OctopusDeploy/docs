@@ -17,7 +17,7 @@ Where [<options>] is any of:
       --licenseBase64=VALUE  Base64 encoded version of the license key XML
       --licenseFile=VALUE    Path to the file containing the license key XML
                                in plain text
-      --skipLicenseCheck     Skips the licence check when setting the license
+      --skipLicenseCheck     Skips the license check when setting the license
 
 Or one of the common options:
 
