@@ -131,10 +131,10 @@ The following table shows which Octopus resources are space-scoped, system-scope
 | Environments          | True                        |               |
 | Lifecycles            | True                        |               |
 | Projects              | True                        |               |
-| Variable Sets         | True                        |               |
-| Deployment Targets    | True                        |               |
+| Variable sets         | True                        |               |
+| Deployment targets    | True                        |               |
 | Tenants               | True                        |               |
-| Octopus Server Nodes  |                             | True          |
+| Octopus Server nodes  |                             | True          |
 | Authentication        |                             | True          |
 | Users                 |                             | True          |
 | License               |                             | True          |

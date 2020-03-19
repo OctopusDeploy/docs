@@ -19,9 +19,9 @@ Octopus Deploy supports the Docker Registry [Version 1](https://docs.docker.com
 
 ### How Octopus Server and deployment targets integrate with Docker Registries {#DockerRegistriesasFeeds-HowOctopusServerandDeploymentTargetsintegratewithDockerRegistries}
 
-The Docker Registries you configure need to be accessed by both the Octopus Server  and your [Deployment Targets](/docs/infrastructure/index.md).
+The Docker Registries you configure need to be accessed by both the Octopus Server  and your [deployment targets](/docs/infrastructure/index.md).
 
-The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the Deployment Targets themselves and they will pull the Images directly from the Docker Registry.
+The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the deployment targets themselves and they will pull the Images directly from the Docker Registry.
 
 ## Docker registry API version discovery {#DockerRegistriesasFeeds-VersionDiscovery}
 When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry details to allow the version detection to take place and confirm that your credentials are correct.
@@ -31,12 +31,12 @@ Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expec
 
 :::hint
 **Container Images Are Downloaded Directly by the Deployment Target**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the Deployment Targets in the same way that it does with other [supported packages](/docs/packaging-applications/index.md#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your Deployment Targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
+Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/index.md#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
 :::
 
 :::success
 **Accessing Docker registries from different security zones**
-It is possible that the URI to the Docker Registry will be different for the Octopus Server and the Deployment Targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the Deployment Target.
+It is possible that the URI to the Docker Registry will be different for the Octopus Server and the deployment targets. You can use the *Registry Path* field when configuring the Docker Registry in Octopus to provide an alternative URI to use on the deployment target.
 :::
 
 ### Working with Docker container images in Octopus {#DockerRegistriesasFeeds-WorkingwithDockerContainerImagesinOctopus}

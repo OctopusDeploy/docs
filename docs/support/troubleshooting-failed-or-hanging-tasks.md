@@ -38,9 +38,9 @@ The tool that manages connections between the Octopus Server and your Tentacles 
 
 ### Connections to external services
 
-Steps that execute on Deployment Targets or Workers may need to reach out to contact other external services. In these cases, a useful first step to help diagnose the problem is to attempt to manually perform the same connection, this can help to isolate the problem to a networking issue rather than a problem with Octopus Deploy.
+Steps that execute on deployment targets or workers may need to reach out to contact other external services. In these cases, a useful first step to help diagnose the problem is to attempt to manually perform the same connection, this can help to isolate the problem to a networking issue rather than a problem with Octopus Deploy.
 
-Remember these connections are usually initiated by your Deployment Targets or Workers, and not by the Octopus Server. You may need to remotely connect to these remote machines, and then initiate a connection from those machines. This is distinct from attempting to establish the connection on the machine that hosts Octopus Server itself.
+Remember these connections are usually initiated by your deployment targets or workers, and not by the Octopus Server. You may need to remotely connect to these remote machines, and then initiate a connection from those machines. This is distinct from attempting to establish the connection on the machine that hosts Octopus Server itself.
 
 ## Hanging tasks
 

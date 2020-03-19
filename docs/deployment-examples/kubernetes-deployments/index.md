@@ -5,11 +5,11 @@ position: 100
 hideInThisSectionHeader: true
 ---
 
-Octopus provides integrated support for deploying Kubernetes resources such as [Deployments](/docs/deployment-examples/kubernetes-deployments/deploy-container/index.md), [Services](/docs/deployment-examples/kubernetes-deployments/deploy-service/index.md), and [Ingress](/docs/deployment-examples/kubernetes-deployments/deploy-ingress/index.md), as well as running scripts against a Kubernetes cluster.
+Octopus provides integrated support for deploying Kubernetes resources such as [deployments](/docs/deployment-examples/kubernetes-deployments/deploy-container/index.md), [services](/docs/deployment-examples/kubernetes-deployments/deploy-service/index.md), and [ingress](/docs/deployment-examples/kubernetes-deployments/deploy-ingress/index.md), as well as running scripts against a Kubernetes cluster.
 
 ## Kubernetes targets
 
-Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run. Learn how to configure [Kubernetes Deployment Targets](/docs/infrastructure/deployment-targets/kubernetes-target/index.md).
+Kubernetes targets are used by the Kubernetes steps to define the context in which deployments and scripts are run. Learn how to configure [Kubernetes deployment targets](/docs/infrastructure/deployment-targets/kubernetes-target/index.md).
 
 ## Learn more
 
