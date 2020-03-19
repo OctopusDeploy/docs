@@ -1,32 +1,25 @@
 ---
-title: Build information
-description: Pushes build information to Octopus Server.
-position: 5
+title: Prevent release progression
+description: Prevents a release from progressing to next phase
+position: 265
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to push build information to the Octopus Server.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to prevent a release from progressing to next phase.
 
 ```text
-Pushes build information to Octopus Server.
+Prevents a release from progressing to next phase.
 
-Usage: octo build-information [<options>]
+Usage: octo prevent-releaseprogression [<options>]
 
 Where [<options>] is any of:
 
-Build information pushing:
+Deletion:
 
-      --package-id=VALUE     The ID of the package. Specify multiple packages
-                             by specifying this argument multiple times:
-                             --package-id 'MyCompany.MyApp' --package-id
-                             'MyCompany.MyApp2'.
-      --version=VALUE        The version of the package; defaults to a
-                             timestamp-based version
-      --file=VALUE           Octopus Build Information Json file.
-      --overwrite-mode=VALUE If the build information already exists in the
-                             repository, the default behavior is to reject
-                             the new build information being pushed
-                             (FailIfExists). You can use the overwrite mode
-                             to OverwriteExisting or IgnoreIfExists.
+      --project=VALUE        Name or ID of the project
+      --version, --releaseNumber=VALUE
+                             Release version/number
+      reason=VALUE           Reason to prevent this release from progressing 
+                             to next phase
 
 Common options:
 
@@ -86,4 +79,3 @@ Common options:
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Build information](/docs/packaging-applications/build-servers/index.md#build-information)

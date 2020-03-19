@@ -11,35 +11,37 @@ hideInThisSection: true
 
 `octo` supports the following commands:
 
+- **[allow-releaseprogression](/docs/octopus-rest-api/octopus-cli/allow-releaseprogression.md)**: Allows a release to progress to next phase.
 - **[build-information](/docs/octopus-rest-api/octopus-cli/build-information.md)**:  Pushes build information to Octopus Server.
 - **[clean-environment](/docs/octopus-rest-api/octopus-cli/clean-environment.md)**:  Cleans all Offline Machines from an Environment.
 - **[clean-workerpool](/docs/octopus-rest-api/octopus-cli/clean-workerpool.md)**:  Cleans all Offline Workers from a WorkerPool.
-- **[create-autodeployoverride](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md)**:  Override the release that auto deploy will use.
+- **[create-autodeployoverride](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md)**:  Overrides the release that auto deploy will use.
 - **[create-channel](/docs/octopus-rest-api/octopus-cli/create-channel.md)**:  Creates a channel for a project.
 - **[create-environment](/docs/octopus-rest-api/octopus-cli/create-environment.md)**:  Creates a deployment environment.
 - **[create-project](/docs/octopus-rest-api/octopus-cli/create-project.md)**:  Creates a project.
 - **[create-release](/docs/octopus-rest-api/octopus-cli/create-release.md)**:  Creates (and, optionally, deploys) a release.
 - **[create-workerpool](/docs/octopus-rest-api/octopus-cli/create-workerpool.md)**:  Creates a pool for workers.
-- **[delete-autodeployoverride](/docs/octopus-rest-api/octopus-cli/delete-autodeployoverride.md)**:  Delete auto deploy release overrides.
+- **[delete-autodeployoverride](/docs/octopus-rest-api/octopus-cli/delete-autodeployoverride.md)**:  Deletes auto deploy release overrides.
 - **[delete-releases](/docs/octopus-rest-api/octopus-cli/delete-releases.md)**:  Deletes a range of releases.
 - **[deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release.md)**:  Deploys a release.
 - **[dump-deployments](/docs/octopus-rest-api/octopus-cli/dump-deployments.md)**:  Writes deployments to an XML file that can be imported in Excel.
 - **[export](/docs/octopus-rest-api/octopus-cli/export.md)**:  Exports an object to a JSON file. Deprecated. Please see [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
 - **[import](/docs/octopus-rest-api/octopus-cli/import.md)**:  Imports an Octopus object from an export file. Deprecated. Please see [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
-- **[list-deployments](/docs/octopus-rest-api/octopus-cli/list-deployments.md)**:  List a number of deployments by project, environment or by tenant.
-- **[list-environments](/docs/octopus-rest-api/octopus-cli/list-environments.md)**:  List environments.
-- **[list-latestdeployments](/docs/octopus-rest-api/octopus-cli/list-latestdeployments.md)**:  List the releases last-deployed in each environment.
+- **[list-deployments](/docs/octopus-rest-api/octopus-cli/list-deployments.md)**:  Lists a number of deployments by project, environment or by tenant.
+- **[list-environments](/docs/octopus-rest-api/octopus-cli/list-environments.md)**:  Lists environments.
+- **[list-latestdeployments](/docs/octopus-rest-api/octopus-cli/list-latestdeployments.md)**:  Lists the releases last-deployed in each environment.
 - **[list-machines](/docs/octopus-rest-api/octopus-cli/list-machines.md)**:  Lists all machines.
 - **[list-projects](/docs/octopus-rest-api/octopus-cli/list-projects.md)**:  Lists all projects.
-- **[list-releases](/docs/octopus-rest-api/octopus-cli/list-releases.md)**:  List releases by project.
-- **[list-tenants](/docs/octopus-rest-api/octopus-cli/list-tenants.md)**:  List tenants.
-- **[list-workerpools](/docs/octopus-rest-api/octopus-cli/list-workerpools.md)**:  List worker pools.
+- **[list-releases](/docs/octopus-rest-api/octopus-cli/list-releases.md)**:  Lists releases by project.
+- **[list-tenants](/docs/octopus-rest-api/octopus-cli/list-tenants.md)**:  Lists tenants.
+- **[list-workerpools](/docs/octopus-rest-api/octopus-cli/list-workerpools.md)**:  Lists worker pools.
 - **[list-workers](/docs/octopus-rest-api/octopus-cli/list-workers.md)**:  Lists all workers.
 - **[pack](/docs/octopus-rest-api/octopus-cli/pack.md)**:  Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj.
+- **[prevent-releaseprogression](/docs/octopus-rest-api/octopus-cli/prevent-releaseprogression.md)**: Prevents a release from progressing to next phase.
 - **[promote-release](/docs/octopus-rest-api/octopus-cli/promote-release.md)**:  Promotes a release.
 - **[push](/docs/octopus-rest-api/octopus-cli/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 - **[push-metadata](/docs/octopus-rest-api/octopus-cli/push-metadata.md)**:  Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
-- **[version](/docs/octopus-rest-api/octopus-cli/version.md)**:  Output Octopus CLI version.
+- **[version](/docs/octopus-rest-api/octopus-cli/version.md)**:  Outputs Octopus CLI version.
 
 ## General Usage {#OctopusCLI-GeneralUsage}
 
