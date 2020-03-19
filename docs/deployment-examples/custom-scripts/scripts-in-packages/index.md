@@ -11,7 +11,7 @@ You can add any of the following script files in any of the scripting languages 
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
-Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/deployment-process/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md).
+Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run – see the section on [what order are conventions run in](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md).
 
 ## Including the Scripts in the Package
 
@@ -20,7 +20,7 @@ Octopus will detect these scripts and invoke them at the appropriate time during
 3. Include these scripts at the root of your package. Octopus will not search subdirectories.
 
 :::hint
-Avoid duplicate scripts into your package, like `PreDeploy.sh` and `PreDeploy.ps1`, hoping Octopus will choose the right script on your behalf. Octopus will try to execute both of these scripts during the pre-deploy phase of the step since both bash and PowerShell are cross-platform runtimes. This might lead to surprising behaviour.
+Avoid duplicate scripts into your package, like `PreDeploy.sh` and `PreDeploy.ps1`, hoping Octopus will choose the right script on your behalf. Octopus will try to execute both of these scripts during the pre-deploy phase of the step since both bash and PowerShell are cross-platform runtimes. This might lead to surprising behavior.
 :::
 
 ## Running a Script When A Step Fails
