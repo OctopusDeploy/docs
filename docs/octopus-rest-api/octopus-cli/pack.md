@@ -67,6 +67,7 @@ Common options:
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
 ```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

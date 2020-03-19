@@ -7,18 +7,18 @@ position: 265
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to prevent a release from progressing to next phase.
 
 ```text
-Prevents a release from progressing to next phase.
+Prevent a release from progressing to next phase.
 
 Usage: octo prevent-releaseprogression [<options>]
 
 Where [<options>] is any of:
 
-Deletion:
+Preventing release progression.:
 
       --project=VALUE        Name or ID of the project
       --version, --releaseNumber=VALUE
                              Release version/number
-      reason=VALUE           Reason to prevent this release from progressing 
+      --reason=VALUE         Reason to prevent this release from progressing
                              to next phase
 
 Common options:
