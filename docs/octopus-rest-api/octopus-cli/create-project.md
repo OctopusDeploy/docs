@@ -1,7 +1,7 @@
 ---
 title: Create project
 description: Using the Octopus CLI to create projects.
-position: 70
+position: 60
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create a project inside a project group.

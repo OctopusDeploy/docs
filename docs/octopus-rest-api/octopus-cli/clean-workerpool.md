@@ -1,7 +1,7 @@
 ---
 title: Clean Worker pool
 description: Cleans all Offline Workers from a Worker Pool
-position: 30
+position: 20
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to clean all offline Workers from a Worker pool.

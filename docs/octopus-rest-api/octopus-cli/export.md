@@ -1,7 +1,7 @@
 ---
 title: Export
 description: Using the Octopus CLI to export items from one Octopus Deploy Server to import into another.
-position: 140
+position: 130
 ---
 
 :::warning

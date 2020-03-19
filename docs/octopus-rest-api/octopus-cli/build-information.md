@@ -1,7 +1,7 @@
 ---
 title: Build information
 description: Pushes build information to Octopus Server.
-position: 10
+position: 5
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to push build information to the Octopus Server.

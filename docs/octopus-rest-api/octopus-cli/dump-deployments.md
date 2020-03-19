@@ -1,7 +1,7 @@
 ---
 title: Dump deployments
 description: Writes deployments to an XML file that can be imported in Excel.
-position: 130
+position: 120
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to write deployments to an XML file that can be imported in Excel.

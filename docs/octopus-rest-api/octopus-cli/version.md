@@ -1,7 +1,7 @@
 ---
 title: Version
 description: Output the Octopus CLI command line tool version.
-position: 310
+position: 290
 ---
 
 This command returns the version of the Octopus CLI tool version.

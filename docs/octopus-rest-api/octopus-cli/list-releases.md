@@ -1,7 +1,7 @@
 ---
 title: List releases
 description: List releases by project
-position: 230
+position: 220
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list releases by project.

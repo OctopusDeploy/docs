@@ -1,7 +1,7 @@
 ---
 title: Deploy release
 description: Using the Octopus CLI to deploy releases.
-position: 120
+position: 110
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to deploy releases that have [already been created](/docs/octopus-rest-api/octopus-cli/create-release.md).

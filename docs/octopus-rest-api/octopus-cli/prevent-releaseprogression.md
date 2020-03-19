@@ -1,7 +1,7 @@
 ---
 title: Prevent release progression
 description: Prevents a release from progressing to next phase
-position: 280
+position: 265
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to prevent a release from progressing to next phase.

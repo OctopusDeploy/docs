@@ -1,7 +1,7 @@
 ---
 title: List Workers
 description: Lists all workers
-position: 260
+position: 250
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Workers.

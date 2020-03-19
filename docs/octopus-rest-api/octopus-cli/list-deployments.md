@@ -1,7 +1,7 @@
 ---
 title: List deployments
 description: List a number of deployments by project, environment or by tenant.
-position: 180
+position: 170
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list deployments by project, environment, or tenant: 

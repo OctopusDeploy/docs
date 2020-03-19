@@ -1,7 +1,7 @@
 ---
 title: Create release
 description: Using the Octopus CLI to create releases.
-position: 80
+position: 70
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to automate the creation of releases using the **`create-release`** command. This allows you to easily integrate Octopus with other continuous integration servers.
