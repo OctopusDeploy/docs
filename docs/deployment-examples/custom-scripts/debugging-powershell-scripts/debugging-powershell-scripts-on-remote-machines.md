@@ -79,4 +79,4 @@ When you are finished debugging, run to the end of the script and the deployment
 
 ## Learn more
 
-- [PowerShell blog posts](https://www.octopus.com/blog/tag/powershell)
+- [PowerShell blog posts](https://octopus.com/blog/tag/powershell)

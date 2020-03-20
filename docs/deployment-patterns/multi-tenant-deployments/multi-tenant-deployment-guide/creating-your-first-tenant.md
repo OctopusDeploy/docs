@@ -30,4 +30,4 @@ In the following steps we will [create a multi-tenant project](/docs/deployment
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

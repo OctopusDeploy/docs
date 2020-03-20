@@ -465,4 +465,4 @@ The following variables can be defined as variables in your project to modify th
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)

@@ -89,4 +89,4 @@ You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripti
 
 ## Learn more
 
-- [Linux blog posts](https://www.octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux)

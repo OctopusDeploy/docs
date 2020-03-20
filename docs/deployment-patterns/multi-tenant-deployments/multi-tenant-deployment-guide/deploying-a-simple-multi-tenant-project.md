@@ -76,4 +76,4 @@ Now that we can deploy the **Mojo** project to your tenant, we need to make sur
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

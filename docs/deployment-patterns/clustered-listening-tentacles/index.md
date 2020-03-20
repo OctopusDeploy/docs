@@ -143,4 +143,4 @@ Congratulations! You have successfully configured an active/passive server clust
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

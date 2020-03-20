@@ -180,5 +180,5 @@ Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/Octopu
 
 ## Learn more
 
-- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=Jenkins)
- - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
+- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?buildServer=Jenkins)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira)

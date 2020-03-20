@@ -53,4 +53,4 @@ Now that deployment targets can be automatically removed from a deployment, it m
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

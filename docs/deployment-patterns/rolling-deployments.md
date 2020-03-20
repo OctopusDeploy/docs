@@ -91,4 +91,4 @@ This five minute video (with captions) will guide you through setting up a rolli
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

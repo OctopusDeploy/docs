@@ -56,4 +56,4 @@ You can use the following advanced filters to refine the result of the audit tra
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)
