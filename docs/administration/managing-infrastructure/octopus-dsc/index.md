@@ -10,5 +10,5 @@ For the latest information about OctopusDSC please refer to the GitHub [OctopusD
 
 You can use DSC to install:
 
-- [The Octopus Deploy Server](/docs/installation/automating-installation.md#desired-state-configuration).
+- [The Octopus Server](/docs/installation/automating-installation.md#desired-state-configuration).
 - [Octopus Tentacles](/docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md#AutomatingTentacleinstallation-DSCDesiredStateConfiguration).

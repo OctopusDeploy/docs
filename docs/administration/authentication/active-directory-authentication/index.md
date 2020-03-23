@@ -5,7 +5,7 @@ position: 0
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy can use Windows credentials to identify users. This option is chosen during installation of the Octopus Deploy Server, or can be configured later.
+Octopus Deploy can use Windows credentials to identify users. This option is chosen during installation of the Octopus Server, or can be configured later.
 
 :::hint
 **Domain user required during setup**
@@ -57,14 +57,14 @@ Using this option, the credentials are posted back to the Octopus Server, and Oc
 Keep in mind that if your Octopus Server isn't [configured to use HTTPS](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md), these are posted in plain text (just like signing in to any other website).
 :::
 
-If the Octopus Deploy Server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
+If the Octopus Server and its users are on the **same domain**, it is sufficient to provide a simple username in this field, for example *paul**.*User Principal Names, of the form *user@domain.com* are also accepted in this scenario.
 
 If the server and its users are on different domains, or **many domains** are in use, the *DOMAIN\user* username format must be provided for users who are not a member of the domain the server is in.
 
 See below for more details and examples related to Trusted Domains.
 
 :::hint
-Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Deploy Server is in (which as stated above is not supported).
+Users will receive the error "**Username not found.  UPN format may not be supported for your domain configuration."** if they have entered a UPN and their details could not be located in the domain. This could occur because the UPN really doesn't exist, or it exists in a domain other than the one the Octopus Server is in (which as stated above is not supported).
 :::
 
 Forms-based authentication can also be disabled:
@@ -81,7 +81,7 @@ This will result in integrated sign in being the only option:
 
 ## Switching between username/password and Active Directory Authentication {#ActiveDirectoryauthentication-Switchingbetweenusername/passwordandActiveDirectoryauthentication}
 
-It is possible to reconfigure an existing Octopus Deploy Server to use a different authentication mode.
+It is possible to reconfigure an existing Octopus Server to use a different authentication mode.
 
 :::problem
 **User accounts are distinct**
@@ -132,7 +132,7 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 
 ### Trusted domains {#ActiveDirectoryauthentication-TrustedDomains}
 
-Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Deploy Server is a member of will always be allowed to log in.  Users from domains that the Octopus Deploy Server's domain trusts will also be able to log in.
+Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Server is a member of will always be allowed to log in.  Users from domains that the Octopus Server's domain trusts will also be able to log in.
 
 The following diagram illustrates a typical configuration when there is a two way trust between the domains.
 

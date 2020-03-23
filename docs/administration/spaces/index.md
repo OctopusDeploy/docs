@@ -9,7 +9,7 @@ version: 2019.1
 Spaces was introduced in the **Octopus 2019.1** fast lane release and was first available in a long-term support version with the **2019.3** release.
 :::
 
-With Spaces you can partition your Octopus Deploy Server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
+With Spaces you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure they work with from the spaces they are members of. Users can be members of multiple teams and have access to multiple spaces, but the entities and infrastructure they work with will only be available in the space it is assigned to.
 
 ## Spaces creates hard walls in your Octopus Server
 
@@ -78,7 +78,7 @@ You can delete spaces when you are the **space manager**. Deleting a space canno
 
 The **Default space** is provided to existing installations as a mechanism to ensure that the instance operates in much the same way as it did prior to upgrading to a version of Octopus that supports spaces. Enabled by default, its primary function is to provide an initial space for any existing resources. This also effectively hides the existence of spaces until you're ready to start using them.
 
-We create the default space when you install or upgrade your Octopus Deploy Server. In the case of an upgrade, we put all of the space scoped resources (like Projects, Environment, etc) into this space. For new installations, anything you create will be added to the default space.
+We create the default space when you install or upgrade your Octopus Server. In the case of an upgrade, we put all of the space scoped resources (like Projects, Environment, etc) into this space. For new installations, anything you create will be added to the default space.
 
 If you don't want to think about spaces, just leave everything in the Default space!
 
@@ -131,10 +131,10 @@ The following table shows which Octopus resources are space-scoped, system-scope
 | Environments          | True                        |               |
 | Lifecycles            | True                        |               |
 | Projects              | True                        |               |
-| Variable Sets         | True                        |               |
-| Deployment Targets    | True                        |               |
+| Variable sets         | True                        |               |
+| Deployment targets    | True                        |               |
 | Tenants               | True                        |               |
-| Octopus Server Nodes  |                             | True          |
+| Octopus Server nodes  |                             | True          |
 | Authentication        |                             | True          |
 | Users                 |                             | True          |
 | License               |                             | True          |

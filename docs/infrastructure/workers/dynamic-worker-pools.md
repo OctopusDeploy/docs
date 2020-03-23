@@ -58,4 +58,4 @@ Some of the tool installations are locked to a specific version, where others ma
 
 ## Learn more
 
-- [Worker blog posts](https://www.octopus.com/blog/tag/workers) 
+- [Worker blog posts](https://octopus.com/blog/tag/workers) 

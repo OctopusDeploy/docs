@@ -94,4 +94,4 @@ The obvious solution is, don't use passwords that are likely to occur in normal 
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)

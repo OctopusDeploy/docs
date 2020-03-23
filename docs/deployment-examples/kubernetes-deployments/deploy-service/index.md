@@ -67,4 +67,4 @@ There are some advanced use cases where creating a Service resource without sele
 ## Learn more
 
 - Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
-- [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)

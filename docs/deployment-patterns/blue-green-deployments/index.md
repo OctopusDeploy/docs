@@ -37,4 +37,4 @@ Configuring your [lifecycle](/docs/deployment-process/lifecycles/index.md) will 
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

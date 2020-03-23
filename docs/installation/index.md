@@ -1,11 +1,11 @@
 ---
 title: Installation
 position: 20
-description: How to install the central Octopus Deploy Server.
+description: How to install the Octopus Server.
 hideInThisSection: true
 ---
 
-!include <octopus-deploy-server>
+!include <octopus-server>
 
 ## Download the Octopus installer {#downloads}
 
@@ -14,9 +14,9 @@ hideInThisSection: true
     Download
 </a>
 
-## Self-hosted Octopus Deploy Server
+## Self-hosted Octopus Server
 
-When installed, the self-hosted Octopus Deploy Server:
+When installed, the self-hosted Octopus Server:
 
 - Runs as a Windows service called **OctopusDeploy**.
 - Stores its data in an [SQL Server Database](/docs/installation/sql-server-database.md). ([SQL Server Express](http://downloadsqlserverexpress.com/) is an easy way of getting started.)
@@ -30,7 +30,7 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
 2. Accept the default **Destination Folder** or choose a different location and click **Next**.
 3. Click **Install**, and give the app permission to **make changes to your device**.
-4. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Deploy Server.
+4. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Server.
 5. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key** and click **Next**.
 6. Accept the default **Home Directory** or enter a location of your choice and click **Next**.
 7. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
@@ -45,7 +45,7 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 10. Accept the default port and directory or enter your own and click **Next**.
 11. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/administration/authentication/active-directory-authentication/index.md), enter the active directory user details.
 
-  You can configure addition [Authentication Providers](/docs/administration/authentication/index.md) for the Octopus Deploy Server after the server has been installed.
+  You can configure addition [Authentication Providers](/docs/administration/authentication/index.md) for the Octopus Server after the server has been installed.
 
 12. Click **Install**.
 

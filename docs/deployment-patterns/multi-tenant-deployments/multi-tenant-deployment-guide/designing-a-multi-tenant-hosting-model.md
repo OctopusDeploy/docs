@@ -6,7 +6,7 @@ position: 5
 
 Previous step: [Working with groups of tenants using tags](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md)
 
-This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [Environments](/docs/infrastructure/environments/index.md), [Deployment Targets](/docs/infrastructure/index.md), and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
+This page describes how to design and implement both **dedicated** and **shared** multi-tenant hosting models using [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/index.md), and [tenant tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
 
 :::hint
 **Tenanted and untenanted deployments**
@@ -101,4 +101,4 @@ We will [design and implement a multi-tenant upgrade process](/docs/deployment-p
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

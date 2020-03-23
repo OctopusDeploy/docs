@@ -1,18 +1,18 @@
 ---
 title: Installation requirements
-description: Software and hardware requirements for installing the central Octopus Deploy Server.
+description: Software and hardware requirements for installing the Octopus Server.
 position: 1
 ---
 
-If you are hosting your Octopus Deploy Server yourself, these are the minimum requirements.
+If you are hosting your Octopus Server yourself, these are the minimum requirements.
 
 ## Operating system
 
-The Octopus Deploy Server is hosted on a Microsoft Windows operating system, however, once your Octopus Deploy Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an offline package drop.
+The Octopus Server is hosted on a Microsoft Windows operating system, however, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an offline package drop.
 
 ## Windows Server
 
-Octopus Deploy Server can be hosted on any modern Windows Server. We automatically test the Octopus Deploy Server on the following versions of Windows Server:
+Octopus Server can be hosted on any modern Windows Server. We automatically test the Octopus Server on the following versions of Windows Server:
 
 - Windows Server 2008 R2
 - Windows Server 2012
@@ -20,13 +20,13 @@ Octopus Deploy Server can be hosted on any modern Windows Server. We automatical
 - Windows Server 2016
 - Windows Server 2019
 
-Octopus Deploy Server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure the Octopus Server yourself.
+Octopus Server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure the Octopus Server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
 ## Windows desktop
 
-Octopus Deploy Server will run on client/desktop versions of Windows, such as Windows 7 and Windows 10. This can be an easy way to trial Octopus Deploy Server; however, we do not support Octopus Server for production workloads unless it is hosted on a server operating system.
+Octopus Server will run on client/desktop versions of Windows, such as Windows 7 and Windows 10. This can be an easy way to trial Octopus Server; however, we do not support Octopus Server for production workloads unless it is hosted on a server operating system.
 
 !include <sql>
 

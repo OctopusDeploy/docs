@@ -194,4 +194,4 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 ## Learn more
 
-- [Linux blog posts](https://www.octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux)

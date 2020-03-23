@@ -4,7 +4,7 @@ description: Octopus Server and Tentacle log file locations and details.
 position: 1
 ---
 
-Octopus Deploy Server and Tentacles write diagnostic log messages to their local Windows filesystem. The files are rolled periodically to avoid consuming excessive space.
+Octopus Server and Tentacles write diagnostic log messages to their local Windows filesystem. The files are rolled periodically to avoid consuming excessive space.
 
 :::success
 **Recent Errors**

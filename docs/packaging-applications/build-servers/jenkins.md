@@ -42,7 +42,7 @@ After you have installed the Octopus Deploy plugin. First navigate to {{Manage J
 
 :::success
 **Creating API keys**
-Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Deploy Server.
+Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Server.
 :::
 
 ### Octopus CLI
@@ -63,9 +63,9 @@ Then we can let the plugin know where it is installed.
 
 Next, navigate to {{Manage Jenkins > Configure System}}.
 
-#### Octopus Deploy server settings
+#### Octopus Server settings
 
-Here you can create the link to your Octopus Deploy Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
+Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
 
 ![](images/jenkins/octopusdeploy-servers.png)
 
@@ -77,7 +77,7 @@ During our Jenkins job, we will:
 
 1. Compile the code, and run unit tests.
 2. Create NuGet packages with OctoPack.
-3. Publish these NuGet packages to the Octopus Deploy Server.
+3. Publish these NuGet packages to the Octopus Server.
 4. Create a release in Octopus, ready to be deployed.
 
 Jenkins uses the MSBuild plugin to compile .NET solutions, the Maven Plugin for Java solutions, or a variety of others depending on your tech/language stack.
@@ -180,5 +180,5 @@ Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/Octopu
 
 ## Learn more
 
-- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=Jenkins)
- - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
+- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?buildServer=Jenkins)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira)

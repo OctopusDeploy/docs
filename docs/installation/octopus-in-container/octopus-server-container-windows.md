@@ -1,14 +1,14 @@
 ---
-title: Octopus Deploy Server Windows Container
-description: An Octopus Deploy Server instance can be run directly from within a container.
+title: Octopus Server Windows Container
+description: An Octopus Server instance can be run directly from within a container.
 position: 1
 ---
 
-If you want to run an Octopus Deploy Linux container, please refer to the [Octopus Deploy Server Container Linux](/docs/installation/octopus-in-container/octopus-server-container-linux.md) documentation.
+If you want to run an Octopus Deploy Linux container, please refer to the [Octopus Server Container Linux](/docs/installation/octopus-in-container/octopus-server-container-linux.md) documentation.
 
-Running the Octopus Deploy Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
+Running the Octopus Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
-Although there are a few different configuration options, a simple example of starting up an Octopus Deploy Server container is as follows:
+Although there are a few different configuration options, a simple example of starting up an Octopus Server container is as follows:
 
 ```PowerShell
 docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env ACCEPT_EULA="Y" --volume "C:\Octopus\Data:C:\Octopus" !docker-image <octopusdeploy/octopusdeploy>

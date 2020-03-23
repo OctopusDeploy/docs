@@ -69,5 +69,5 @@ Automating database deployments is often the final piece of a fully automated CI
 
 ## Learn more 
 
-- [Database blog posts](https://www.octopus.com/blog/tag/database%20deployments)
+- [Database blog posts](https://octopus.com/blog/tag/database%20deployments)
 
