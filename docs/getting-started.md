@@ -12,7 +12,7 @@ As an Octopus user, you define the process for deploying your software. You spec
 
 ## Octopus Server
 
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud). Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://www.octopus.com/free).
+You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud). Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
 
 ## Self-hosted Octopus
 

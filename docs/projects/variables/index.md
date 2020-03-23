@@ -142,5 +142,5 @@ When applying permissions on variables via scopes, the only options that are che
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)
 - [Using variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) 

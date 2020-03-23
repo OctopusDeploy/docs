@@ -80,4 +80,4 @@ Due to the different platform, some environment variables available on a windows
 
 ## Learn more
 
-- [Linux blog posts](https://www.octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux)

@@ -236,4 +236,4 @@ For more information, see [Variable Filters](https://octopus.com/docs/projects/v
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)

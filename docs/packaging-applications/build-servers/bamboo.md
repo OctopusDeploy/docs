@@ -272,4 +272,4 @@ Error conditions encountered by the add-on have unique error codes, which are li
 
 ## Learn more
 
-- Generate an Octopus guide for [Bamboo and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=Bamboo).
+- Generate an Octopus guide for [Bamboo and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?buildServer=Bamboo).

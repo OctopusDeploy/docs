@@ -110,4 +110,4 @@ export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 ## Learn more
 
 - Configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md)
-- [Linux blog posts](https://www.octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux)

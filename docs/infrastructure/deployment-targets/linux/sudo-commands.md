@@ -73,4 +73,4 @@ While the above instructions should work on common platforms like Ubuntu or RedH
 
 ## Learn more
 
-- [Linux blog posts](https://www.octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux)

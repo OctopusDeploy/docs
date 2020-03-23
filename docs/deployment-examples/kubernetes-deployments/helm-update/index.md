@@ -64,4 +64,4 @@ Although the helm client tool can be overridden for use during the step executio
 ## Learn more
 
 - Generate an Octopus guide for [Kubernetes and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Kubernetes)
-- [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
