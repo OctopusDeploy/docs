@@ -30,6 +30,12 @@ Before those tools can run, they need to be configured to run as a specific data
 
 Learn more about [configuration settings](/docs/deployment-examples/database-deployments/configuration/index.md).
 
+## Common Deployment Process Patterns
+
+There is a learning curve when adopting automated database deployments.  That leads to quite a bit of trepidation, especially when combined with the fact databases are the lifeblood of most applications.  We have there are some common deployment patterns you can adopt to build trust and level-up the tooling knowledge quickly.
+
+Learn more about [common patterns](/docs/deployment-examples/database-deployments/common-patterns/index.md).
+
 ## Databases servers
 
 Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice. The database server you use (SQL Server, Oracle, MySQL, PostgreSQL, etc.), will determine which tool you can choose. 

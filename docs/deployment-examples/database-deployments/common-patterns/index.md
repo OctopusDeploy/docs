@@ -11,13 +11,13 @@ Databases are the lifeblood of most applications.  One missing column can bring 
 
 Most database tooling provides the ability to create a "what-if" report.  Octopus Deploy can take that report and upload it as an artifact which DBAs, Database Developers, or anyone else can review and approve.  This section will walk through some common techniques for notifications, approvals, and process in general.
 
-See our [Manual Approvals](manual-approvals.md) documentation for more details.
+See the [Manual Approvals documentation](manual-approvals.md) for more details.
 
 ## Automatic Approvals
 
 Manual approvals are a great starting out, when the number of projects required for approval is low.  The number of notifications will expotentially grow as time goes on.  It is common to the frequency of deployments go from once a quarter to once a week.  It is important for the signal to noise ratio to remain high.  Having a DBA spend time approving minor stored procedure changes is not productive.  This section will walk through how to take the manual approval process and add some logic for automated approvals.
 
-TODO Add Link
+See the [Automatic Approvals documentation](automatic-approvals.md) for more details.
 
 ## Restore from Production to Test environments
 
