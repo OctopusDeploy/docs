@@ -4,15 +4,15 @@ description: How to do database deployments with DACPAC.
 position: 
 ---
 
-One of the most complex aspects of full stack deployments is automating database changes.  There are two schools of thought in how changes should be implemented; state-based and migration-based.  The state-based approach captures the state of the database and uses that to compare against the target.  Differences are automatically scripted  and applied to the target so it matches the given state.  The migration-based approach starts with an intial script to define your database, then uses versioned scripts applied in sequence to migrate the database over time.
+One of the most complex aspects of full-stack deployments is automating database changes.  There are two schools of thought in how changes should be implemented; state-based and migration-based.  The state-based approach captures the state of the database and uses that to compare against the target.  Differences are automatically scripted and applied to the target so it matches the given state.  The migration-based approach starts with an initial script to define your database, then uses versioned scripts applied in sequence to migrate the database over time.
 
 ## Microsoft Data-tier application package (DACPAC)
-Starting with SQL Server 2008, Microsoft introduced a new project type called Database Projects.  These projects use the state-based approach to applying changes to your database.  Initially, Database Projects were not available as part of the initial Visual Studio install and had to be downloaded separately. This download was referred to as SQL Server Data Tools (SSDT) and included project types for Database projects, SQL Server Reporting Services (SSRS) projects, and SQL Server Integration Services (SSIS) projects.  Modern versions of Visual Studio has SSDT available to choose when installing or modifying an existing installation.
+Starting with SQL Server 2008, Microsoft introduced a new project type called Database Projects.  These projects use the state-based approach to applying changes to your database.  Initially, Database Projects were not available as part of the initial Visual Studio install and had to be downloaded separately. This download was referred to as SQL Server Data Tools (SSDT) and included project types for Database projects, SQL Server Reporting Services (SSRS) projects, and SQL Server Integration Services (SSIS) projects.  Modern versions of Visual Studio have SSDT available to choose when installing or modifying an existing installation.
 
 ### Installing SSDT for Visual Studio
 For earlier versions of Visual Studio such as 2015 and below, installing the SSDT was a matter of locating the download for your version of Visual Studio.  Microsoft has provided a convenient way of finding the appropriate download on [this page](https://docs.microsoft.com/en-us/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi?view=sql-server-ver15).
 
-For more modern versions of Visual Studio (2017+), the option appears on the project type selection screen during intial installation or when modifying an existing installation.
+For more modern versions of Visual Studio (2017+), the option appears on the `Workloads` selection screen during initial installation or when modifying an existing installation.
 
 #### Visual Studio 2017 Installer
 To install the SSDT for Visual Studio 2017, scroll to the `Web & Cloud` category and select the `Data storage and processing` option
@@ -24,7 +24,7 @@ To install the SSDT for Visual Studio 2019, scroll to the `Other Toolsets` categ
 
 ![](images/visual-studio-2019-installer.png)
 
-For both versions Visual Studio, a new project type of SQL Server Database Project:
+For both versions Visual Studio, there will be a new project type of SQL Server Database Project:
 
 Visual Studio 2017
 ![](images/visual-studio-2017-project.png)
@@ -35,7 +35,7 @@ Visual Studio 2019
 (The remainder of the images in this guide will use Visual Studio 2019)
 
 ### Connecting the project to the database
-Once you've chosen the SQL Server Database Project type, chose Next.  Fill in the project name and click Create
+Once you've chosen the SQL Server Database Project type, choose Next.  Fill in the project name and click **Create**
 
 ![](images/visual-studio-2019-project-new.png)
 
@@ -49,7 +49,7 @@ Click on Select Connection
 
 ![](images/visual-studio-2019-connect-database2.png)
 
-Fill in the details for connecting to the server and database.  In this screenshot, I'm using a SQL Account to connect to the database server simply because I'm not running an Active Directory domain.  Otherwise I could have chosen Windows Authentication.  Click Connect when done.
+Fill in the details for connecting to the server and database.  In this screenshot, I'm using a SQL Account to connect to the database server simply because I'm not running an Active Directory domain.  Otherwise, I could have chosen Windows Authentication.  Click Connect when done.
 
 ![](images/visual-studio-2019-connect-database3.png)
 
@@ -93,7 +93,7 @@ For databases that have a dependency on other databases, it is possible to add a
 :::
 
 ### Build definition
-Building the SQL Server Database Project can be done pretty much any build server (Azure DevOps, TeamCity, Jenkins, Bamboo, etc...).  The requirements for building are similar to those of Visual Studio itself, MSBuild and the SSDT.  The recommended approach to this is to install the Visual Studio build tools on the build agent(s) for the version of Visual Studio that you're using.  Just like Visual Studio, if you're using older versions, you'll need to locate the SSDT and install that separately.  If you're using the more modern versions, the option to install will SSDT will be on the Visual Studio tools installer.  This guide will use Azure DevOps as the build platform, but any build server can do this.
+Building the SQL Server Database Project can be done pretty much any build server (Azure DevOps, TeamCity, Jenkins, Bamboo, etc...).  The requirements for the build agents are similar to those of Visual Studio itself, MSBuild and the SSDT.  The recommended approach to this is to install the Visual Studio build tools on the build agent(s) for the version of Visual Studio that you're using.  Just like Visual Studio, if you're using older versions, you'll need to locate the SSDT and install that separately.  If you're using the more modern versions, the option to install will SSDT will be on the Visual Studio tools installer.  This guide will use Azure DevOps as the build platform, but any build server can do this.
 
 #### Creating the definition
 From our Azure DevOps repo, click on Pipelines then New Pipeline
@@ -104,11 +104,11 @@ Because it's easier to follow, we're going to use the classic editor without YAM
 
 ![](images/azure-devops-build-classic.png)
 
-For this guide, we're going to be using a Azure DevOps Git repo with the master branch
+For this guide, we're going to be using an Azure DevOps Git repo with the master branch
 
 ![](images/azure-devops-build-source.png)
 
-Our build process is going to be quite simple and doesn't need a template, we'll choose `Empty job` to start off with.
+Our build process is going to be quite simple and doesn't need a template, we'll choose `Empty job` to start with.
 
 ![](images/azure-devops-build-empty.png)
 
@@ -137,7 +137,7 @@ The Octopus Deploy extension is available in the Marketplace, install the extens
 ![](images/azure-devops-build-package.png)
 
 Fill in the properties of the task
-- Package ID: Give the package a meaninful name
+- Package ID: Give the package a meaningful name
 - Package Format: Chose whichever package type you wish
 - Package Version:  Use the build server build number to associate a package version back to a build number
 - Source Path: This will be the same path as what we set the MSBuild argument to, $(build.stagingdirectory)
@@ -241,10 +241,10 @@ This is the original step template written for DACPAC deployments.  This step te
 This version of the template does not need be exected directly on the Deployment Target and can be run from a Worker.  This version requires two packages to be supplied; the DACPAC and a package containing the DLLs to deploy DACPACs.  This would be ideal for situations where you would like to use a Worker and don't have access to the Internet.  With this version, you need to know the Feed Id, which can be problematic when not using the Default space.
 
 #### SQL - Deploy DACPAC from Package Parameter
-Similar to `SQL - Deploy DACPAC`, this version will automatically download a temporary version of the SqlServer PowerShell module if it cannot find the DLLs locally for DACPAC deployment (and install the NuGet Package Provider).  It also has the ability to run from a Worker like `SQL - Deploy DACPAC from Referenced Package`.  However, the differece is that it uses a Package Parameter instead of a Package Reference making it easier to use in multi-space instances.
+Similar to `SQL - Deploy DACPAC`, this version will automatically download a temporary version of the SqlServer PowerShell module if it cannot find the DLLs locally for DACPAC deployment (and install the NuGet Package Provider).  It also can run from a Worker like `SQL - Deploy DACPAC from Referenced Package`.  However, the difference is that it uses a Package Parameter instead of a Package Reference making it easier to use in multi-space instances.
 
 :::hint
-All three templates support use of SqlCmd Variables.  To use SqlCmd variables, apply a specific naming convention to your project variable by prefixing `SqlCmdVariable.` to the SqlCmd Variable.  For example, if your SqlCmd Variable is named MyVariable, then you would create an Octopus variable called SqlCmdVariable.MyVariable
+All three templates support the use of SqlCmd Variables.  To use SqlCmd variables, apply a specific naming convention to your project variable by prefixing `SqlCmdVariable.` to the SqlCmd Variable.  For example, if your SqlCmd Variable is named MyVariable, then you would create an Octopus variable called SqlCmdVariable.MyVariable
 :::
 
 For this guide, we'll be using the `SQL - Deploy DACPAC from Package Parameter` step template
@@ -258,10 +258,10 @@ Fill in the template inputs:
 - Extract target database to dacpac - false
 - Target Servername - Project.SQLServer.Name variable
 - Target Database - Project.Database.Name variable
-- Target Database Version - Select from the drop down if DLLs are locally installed, otherwise you can leave it blank
+- Target Database Version - Select from the drop-down if DLLs are locally installed, otherwise you can leave it blank
 - Use Integrated Security - False (if using SQL Authentication)
 - Username - Project.SQLServer.Admin.User.Name variable
-- Password - Project.SQLServer.Adming.User.Password variable
+- Password - Project.SQLServer.Admin.User.Password variable
 - Enable multi subnet failover 
 - Additional deployment contributors
 - DACPAC Package - The package from the repository, OctoFXDemo.dacac for this guide
