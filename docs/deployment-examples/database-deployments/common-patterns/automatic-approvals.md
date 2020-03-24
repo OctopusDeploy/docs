@@ -16,10 +16,10 @@ The general auto-approval process will look something like this:
 2. Run a script to:
     1. Open up the "what-if" report.
     2. Loop through a list of schema change commands, such as `Drop Table`, `Create Table`, `Drop Column`, `Alter Table`, `Drop User`.
-    3. If a schema change command is found set an [Output Variable](/docs/projects/variables/output-variables.md) to `True`.
-    4. If no schema change command is found set the same [Output Variable](/docs/projects/variables/output-variables.md) to `False`. 
-3. Notify the approvers when that [Output Variable](/docs/projects/variables/output-variables.md) is `True` using [Run Conditions](docs/deployment-process/conditions.md#run-condition)
-4. Pause for a [Manual Intervention](/docs/deployments-process/steps/manual-interventions-and-approvals.md) when that [Output Variable](/docs/projects/variables/output-variables.md) is `True` using [Run Conditions](docs/deployment-process/conditions.md#run-condition).
+    3. If a schema change command is found set an [output variable](/docs/projects/variables/output-variables.md) to `True`.
+    4. If no schema change command is found set the same [output variable](/docs/projects/variables/output-variables.md) to `False`. 
+3. Notify the approvers when that [output variable](/docs/projects/variables/output-variables.md) is `True` using [run conditions](docs/deployment-process/conditions.md#run-condition)
+4. Pause for a [manual intervention](/docs/deployments-process/steps/manual-interventions-and-approvals.md) when that [output variable](/docs/projects/variables/output-variables.md) is `True` using [run conditions](docs/deployment-process/conditions.md#run-condition).
 5. Deploy database changes.
 6. Send notifications on the status of deployments.
 
@@ -47,6 +47,10 @@ We recommend setting the output variable to `True` or `False` because that is wh
 
 We recommend the auto-approval step write logs using `Write-Host` for PowerShell or `echo` for Bash scripts.  That output is captured by Octopus Deploy and can be viewed in the `Task Log` tab on the deployment screen.  We've when debugging scripts, the more logging, the better.
 
-For important logs, such as when a command is found, leverage the [Write Highlight](https://octopus.com/docs/deployment-examples/custom-scripts/logging-messages-in-scripts) command.  That is a custom command Octopus Deploy injects into the deployment process.  Using that command will show the message on the task summary screen.
+For important logs, such as when a command is found, leverage the [write highlight](https://octopus.com/docs/deployment-examples/custom-scripts/logging-messages-in-scripts) command.  That is a custom command Octopus Deploy injects into the deployment process.  Using that command will show the message on the task summary screen.
 
 ![](images/auto_approve_write_highlight.png)
+
+## Example
+
+View a working example on our [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/dbup-sql-server-worker-pool-variable-type/deployments/process).
