@@ -11,8 +11,8 @@ As a convention-oriented deployment tool, Octopus can perform a number of action
 Octopus supports the following scripting environments:
 
  - PowerShell scripts (.ps1)
- - C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs)
  - Bash scripts (.sh)
+ - C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs)
  - F# scripts (.fsx)
  - Python scripts (.py)
 
