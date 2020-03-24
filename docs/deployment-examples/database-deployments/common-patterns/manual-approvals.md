@@ -10,7 +10,7 @@ The high-level overview of the process is:
 
 1) Use database deployment tooling to generate the "what-if" report and create an [artifact](/docs/deployment-process/artifacts.md).
 2) Send out a notification to approvers.
-3) Pause the deployment using a [manual intervention](/docs/deployments-process/steps/manual-interventions-and-approvals.md).  Approvers sign-on to Octopus Deploy, download the "what-if" report, review it, and approve it.
+3) Pause the deployment using a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md).  Approvers sign-on to Octopus Deploy, download the "what-if" report, review it, and approve it.
 4) Use database deployment tooling to deploy database changes.
 5) Once the deployment is complete, a notification of deployment status is sent to the team.
 6) In Production, failures are sent to DBAs.
@@ -36,7 +36,7 @@ The end goal is to create a single file that can be uploaded as an [artifact](/d
 
 ## Manual Interventions
 
-This document uses the word `approvers` instead of `DBAs`.  That is intentional.  In our experience, especially as everyone is learning the tooling and process, there will be different approvers for each environment.  Having a script run `Drop Table` unintentionally even in `Development` can ruin a day.  To prevent a bad script being run, the deployment process is paused using a [manual intervention](/docs/deployments-process/steps/manual-interventions-and-approvals.md) for someone to look for scripts that might cause significant harm to the database.    
+This document uses the word `approvers` instead of `DBAs`.  That is intentional.  In our experience, especially as everyone is learning the tooling and process, there will be different approvers for each environment.  Having a script run `Drop Table` unintentionally even in `Development` can ruin a day.  To prevent a bad script being run, the deployment process is paused using a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) for someone to look for scripts that might cause significant harm to the database.    
 
 For lower environments, `Development`, `Test`, or `QA`, the approver might be a developer, lead developer, or database developer.  Production level environments, `Staging`, `Pre-Prod`, or `Production`, the approvers are typically DBAs.  
 
