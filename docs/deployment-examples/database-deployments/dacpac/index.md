@@ -49,7 +49,7 @@ Click on Select Connection
 
 ![](images/visual-studio-2019-connect-database2.png)
 
-Fill in the details for connecting to the server and database.  In this screenshot, I'm using a SQL Account to connect to the database server simply because I'm not running an Active Directory domain.  Otherwise, I could have chosen Windows Authentication.  Click Connect when done.
+Fill in the details for connecting to the server and database.  In this screenshot, I'm using a SQL Account to connect to the database server simply because I'm not running an Active Directory domain.  Otherwise, I could have chosen Windows Authentication.  Click **Connect** when done.
 
 ![](images/visual-studio-2019-connect-database3.png)
 
@@ -64,7 +64,7 @@ You should see the following once the import has completed.
 Our import didn't do much because this was an empty database, but we have something to compare the project with now.
 
 :::hint
-This guide uses an empty database to start with, however, using an existing database will work just the same.  The import process will populate your project with the existing objects from the database.
+This guide uses an empty database to start with, however, using an existing, populated database will work just the same.  The import process will populate your project with the existing objects from the database.
 :::
 
 At this point, we can start creating our database schema (tables, views, stored procedures, etc...)
