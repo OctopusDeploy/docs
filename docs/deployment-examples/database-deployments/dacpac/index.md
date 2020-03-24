@@ -243,6 +243,10 @@ This version of the template does not need be exected directly on the Deployment
 #### SQL - Deploy DACPAC from Package Parameter
 Similar to `SQL - Deploy DACPAC`, this version will automatically download a temporary version of the SqlServer PowerShell module if it cannot find the DLLs locally for DACPAC deployment (and install the NuGet Package Provider).  It also has the ability to run from a Worker like `SQL - Deploy DACPAC from Referenced Package`.  However, the differece is that it uses a Package Parameter instead of a Package Reference making it easier to use in multi-space instances.
 
+:::hint
+All three templates support use of SqlCmd Variables.  To use SqlCmd variables, apply a specific naming convention to your project variable by prefixing `SqlCmdVariable.` to the SqlCmd Variable.  For example, if your SqlCmd Variable is named MyVariable, then you would create an Octopus variable called SqlCmdVariable.MyVariable
+:::
+
 For this guide, we'll be using the `SQL - Deploy DACPAC from Package Parameter` step template
 
 Fill in the template inputs:
@@ -289,3 +293,9 @@ Click **DEPLOY** on the Development row or the **DEPLOY TO DEVELOPMENT** button
 Finally, click **DEPLOY**
 
 ![](images/octopus-project-release-deploy2.png)
+
+Your results should look like:
+
+![](images/octopus-project-deploy-complete.png)
+
+You can see that the first step (Gather changes) creates two [artifacts](https://octopus.com/docs/deployment-process/artifacts), an XML file reporting which objects will be changed and the script it's going to use to apply those changes.  Step 3 (Deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.
