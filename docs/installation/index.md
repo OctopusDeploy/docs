@@ -28,14 +28,14 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 ## Install Octopus
 
 1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
-2. Accept the default **Destination Folder** or choose a different location and click **Next**.
-3. Click **Install**, and give the app permission to **make changes to your device**.
-4. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Server.
-5. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key** and click **Next**.
-6. Accept the default **Home Directory** or enter a location of your choice and click **Next**.
-7. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
+1. Accept the default **Destination Folder** or choose a different location and click **Next**.
+1. Click **Install**, and give the app permission to **make changes to your device**.
+1. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Server.
+1. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key** and click **Next**.
+1. Accept the default **Home Directory** or enter a location of your choice and click **Next**.
+1. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
-  Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md) or using a [Managed Service Account](/docs/installation/managed-service-account.md).
+Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md) or using a [Managed Service Account](/docs/installation/managed-service-account.md).
 
 8. On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
 9. Enter a name for the database, and click **Next** and **OK** to **create the database**.
