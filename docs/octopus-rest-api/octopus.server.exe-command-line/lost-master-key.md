@@ -33,11 +33,10 @@ Where [<options>] is any of:
                                this test.
       --scrubPii             Use this switch to scrub all personally
                                identifiable information from the database.
-      --skipLicenseCheck     Skips the licence check when performing a schema
+      --skipLicenseCheck     Skips the license check when performing a schema
                                upgrade
 
 Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-
