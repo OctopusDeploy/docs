@@ -6,7 +6,48 @@ position: 30
 
 Below are some details of how deployments are performed to SSH targets.
 
-Also see the [Node.js sample](/docs/deployment-examples/node-deployments/node-on-linux.md) for an example of deploying to a Linux target
+## Features
+
+The vast majority of Octopus features are supported when deploying to SSH targets.
+
+Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
+
+Windows-specific features such as IIS and Windows Services are not supported when deploying to non-Windows targets.
+
+## Scripts
+
+You can execute scripts using almost any intalled scripting runtime. Learn about what you can do with [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+
+:::hint
+**Environment Variable Differences**
+If you are writing a cross-platform script, be aware of the differences between environment variables for each platform. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
+:::
+
+### Example: Using variables in Bash
+
+Your script can use a [variable value](/docs/projects/variables/index.md) by invoking the `get_octopusvariable` function. For example, to echo out the installation directory call
+
+> `echo "Installed to step: " $(get_octopusvariable "Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath")`
+
+You can also set an [output variable](/docs/projects/variables/output-variables.md):
+
+> ```
+> set_octopusvariable RandomNumber 3
+> ```
+
+### Example: Collecting an artifact
+
+Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/deployment-process/artifacts.md):
+
+> ```
+> new_octopusartifact "./subdir/anotherdir/myfile"
+> ```
+
+which results in the server retrieving that file, at the end of that step. Keep in mind that this means the file must be accessible over SFTP using the same credentials as that used during execution.
+
+## Transport
+
+The package and any supporting deployment files are uploaded via SFTP.
 
 ## File footprint {#SSHTargets-Footprint}
 
@@ -16,68 +57,15 @@ Also see the [Node.js sample](/docs/deployment-examples/node-deployments/node-on
 
 By making all paths relative to the user's home directory, you can then theoretically use the same physical machine with multiple user accounts acting as separate targets. The Octopus Server can then treat each machine\user as a separate SSH endpoint which will update Calamari and deploy independently of each other.
 
-## Transport
-
-The package and any supporting deployment files are uploaded via SFTP.
-
-## Calamari
-
-Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This obviously means the server needs to be able to un-tar that package however this should be available by default in most distros.
-
 ## Package acquisition
 
 Leveraging Calamari means that the deployment can obtain the package via the same methods as a target running the Tentacle agent; either pushed from the server or directly from a NuGet repository. There is therefore no bottleneck in acquisition if there are multiple SSH endpoints all trying to retrieve the same package independently.
 
-## Features
+## Calamari
 
-The vast majority of Octopus features are supported when deploying to SSH targets.
-
-Keep in mind the platform differences such as file paths or separators, line breaks, environment variables and security considerations.
-
-Obviously Windows-specific features such as IIS and Windows Services are not supported when deploying to non-Windows targets.
-
-## Scripts
-
-As yet we do not support running PowerShell scripts on Linux, either on their own as a script task, or as pre-deploy/deploy/post-deploy steps. We do however support running bash scripts on SSH endpoints. Conversely, bash is not yet supported on normal Windows Tentacles even with Cygwin available.
-
-The deployment process will check for scripts either provided in the deployment step itself or embedded in the package, looking for `PreDeploy.sh`, `Deploy.sh` and `PostDeploy.sh` (names are case-sensitive). If these scripts are found, Calamari will then execute their contents at the appropriate time. 
-
-If you want to start some background task in a script that runs while the deployment continues to complete, you should become familiar with the `screen` command. For example, running:
-
-```bash
-echo "Going to Sleep..."
-screen -d -m sleep 20
-echo "I'm Awake!"
-```
-will write out the two echo lines in succession while the sleep command continues to run in the background. This will mean that the deployment can complete while the sleep process is still running.
-
-## Variables
-
-The same variables that are accessible to PowerShell scripts are available to the bash scripts, albeit using a different syntax. All scripts that run are wrapped inside bootstrapping code that provides access to getting/setting variables and the ability to designate build artifacts.
-
-Getting access to a variable involves invoking a function named `get_octopusvariable`. For example, to echo out the installation directory call
-
-> `echo "Installed to step: " $(get_octopusvariable "Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath")`
-
-Setting a variable:
-
-> ```
-> set_octopusvariable RandomNumber 3
-> ```
-
-Collecting artifacts:
-
-> ```
-> new_octopusartifact "./subdir/anotherdir/myfile"
-> ```
-
-which results in the server retrieving that file, at the end of that step. Keep in mind that this means the file must be accessible over SFTP using the same credentials as that used during execution.
-
-:::warning
-**Environment Variable Differences**
-Due to the different platform, some environment variables available on a windows machine will either be named differently or possibly non-existent on other platforms. For example the Windows based variable `env:USERNAME` roughly correlates to `env:USER` on an Ubuntu machine however `env:ProgramFiles(x86)` has no corollary.
-:::
+Calamari is the tool Octopus uses to execute deployments on a remote computer. Before any processing is begun we do an initial check to ensure the available Calamari executable on the endpoint is up to date with the server. If not, we push up the latest Calamari package and then recommence the task. The Calamari package is sent as a `.tar.gz` so it can be extracted with minimal dependencies. This means the server needs to be able to un-tar that package, however, this should be available by default in most distros.
 
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Node.js sample](/docs/deployment-examples/node-deployments/node-on-linux.md)
