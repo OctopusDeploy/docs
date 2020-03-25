@@ -27,7 +27,7 @@ Where [<options>] is any of:
                                this option when pointing to an existing
                                database which uses an existing master key.
       --upgrade              Upgrades the database to the expected schema
-      --skipLicenseCheck     Skips the licence check when performing a schema
+      --skipLicenseCheck     Skips the license check when performing a schema
                                upgrade
       --skipDatabaseCompatibilityCheck
                              Skips the database compatibility check
@@ -38,4 +38,3 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-
