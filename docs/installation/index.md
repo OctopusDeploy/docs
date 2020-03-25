@@ -79,7 +79,7 @@ The **Octopus Web Portal**  is where you'll manage your infrastructure, projects
 
 ## Troubleshooting
 
-If you've had any problems with the installation, review the [troubleshooting page](/docs/installation/troubleshooting.md).
+If you have any problems with the installation, review the [troubleshooting page](/docs/installation/troubleshooting.md).
 
 ## Learn more
 
