@@ -38,4 +38,3 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-
