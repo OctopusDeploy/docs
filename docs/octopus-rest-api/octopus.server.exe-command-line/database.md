@@ -21,7 +21,7 @@ Where [<options>] is any of:
                                to use, and saves it in the config file. If
                                omitted, the value from the config file will be
                                used to perform operations on the database.
-      --masterKey=VALUE      [Optional] Sets the master key to use when
+      --masterKey=VALUE      [Optional] Sets the Master Key to use when
                                encrypting/decrypting data. If omitted, the
                                value from the config file will be used. Use
                                this option when pointing to an existing
