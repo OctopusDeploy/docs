@@ -253,6 +253,23 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |WinRM-HTTP|`TCP 5985`|Octopus Server|Anywhere|DENY|Prevents attackers from using the Octopus Server as a beachhead into your network via unsecured WinRM.|
 |All outbound|`ALL`|Octopus Server|Anywhere|???|Depends on how fine-grained control you want over what your Octopus Server can do. It also depends on where your workers are, and where you are deploying to. Allowing all outbound traffic is a good place to start, then perform network analysis to decide on your next step.|
 
+## Harden your containers
+
+If you run an [Octopus Deploy container](/docs/installation/octopus-in-container) these are a few of the steps you can take to secure it. 
+
+- Store your containers on a separate partition.
+- Assign resources carefully
+  - Consider pinning CPUs to namespaces in order to give them a boundary. 
+  - Consider the amount of memory required, too much and the container is susceptible to denial of service attacks, too little or the use of ballooning will hinder performance. 
+- Network namespaces - consider which containers reside in each network namespace as all processes in a namespace can talk to the namespace interface.
+
+The security of your containers and Docker configuration can be analysed in detail by using [Docker Bench for Security](https://github.com/docker/docker-bench-security) from the [Center for Internet Security](https://www.cisecurity.org/about-us/). 
+
+## Samples
+
+We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus.  Here you can sign in as `Guest` and take a look at some examples where we have used Octopus for hardening tasks. 
+
 ## Getting help
 
 We are more than happy to help if you are having trouble with self-hosting Octopus Deploy, or are concerned about the security or integrity of your Octopus installation. Don't hesitate to [get in touch](https://octopus.com/support)!
+
