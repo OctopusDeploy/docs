@@ -11,3 +11,4 @@ Supports command line auto completion.
 --help
 --helpOutputFormat
 ```
+
