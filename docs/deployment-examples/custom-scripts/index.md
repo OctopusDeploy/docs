@@ -12,9 +12,9 @@ Octopus supports the following scripting environments:
 
  - PowerShell scripts (.ps1)
  - Bash scripts (.sh)
+ - Python scripts (.py)
  - C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs)
  - F# scripts (.fsx)
- - Python scripts (.py)
 
  Octopus can run these scripts on almost any operating system as long as the script runtime is installed and configured correctly.
 
