@@ -40,9 +40,9 @@ This document uses the word `approvers` instead of `DBAs`.  That is intentional.
 
 For lower environments, `Development`, `Test`, or `QA`, the approver might be a developer, lead developer, or database developer.  Production level environments, `Staging`, `Pre-Prod`, or `Production`, the approvers are typically DBAs.  
 
-:highlight
+:::hint
 Our recommendation is to follow a crawl-walk-run for each team adopting database deployments.  
-:
+:::
 
 The crawl phase is when a team starts adopting automated database deployments.  During that time, there should be, at a minimum, two manual interventions.  One for the lower environments which developers on the team approve, and another for production environments for DBAs to approve.  All of these approvals allows everyone to gain experience with the process and tooling.  That, in turn, builds trust.
 
@@ -60,9 +60,9 @@ All too often, DBAs review scripts too late in the process.  Having them review 
 
 But, having a DBA approve every change to `Development` isn't feasible.  They'd spend all day, every day, approving and reviewing changes.  
 
-:highlight
+:::hint
 Our recommendation is for a DBA to review and approve scripts towards the end of the QA test effort.
-:
+:::
 
 Typically when QA feels good about a release, they will sign off on a promotion to a `Staging` or `Pre-Prod` environment.  It makes more sense for a DBA to approve a release to `Staging` or `Pre-Prod` rather than `Production`.  Approving during a non-production deployment gives the DBA more time and less stress to approve a deployment.  At the same time, it might make sense to review changes for both `Staging` and `Production`.   We often see a new version deployed to `Staging` several times before going to `Production`.  There is a significant difference between `Staging` and `Production`.  In that case, add another "what-if" report step, but have it run in `Staging` and generate that report for `Production`.
 

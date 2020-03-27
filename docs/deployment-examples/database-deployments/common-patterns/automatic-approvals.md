@@ -16,10 +16,10 @@ The general auto-approval process will look something like this:
 2. Run a script to:
     1. Open up the "what-if" report.
     2. Loop through a list of schema change commands, such as `Drop Table`, `Create Table`, `Drop Column`, `Alter Table`, `Drop User`.
-    3. If a schema change command is found set an [output variable](/docs/projects/variables/output-variables.md) to `True`.
-    4. If no schema change command is found set the same [output variable](/docs/projects/variables/output-variables.md) to `False`. 
-3. Notify the approvers when that [output variable](/docs/projects/variables/output-variables.md) is `True` using [run conditions](/docs/deployment-process/conditions/index.md#run-condition)
-4. Pause for a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) when that [output variable](/docs/projects/variables/output-variables.md) is `True` using [run conditions](/docs/deployment-process/conditions/index.md#run-condition).
+    3. If a schema change command is found set an DBA Approval Required [output variable](/docs/projects/variables/output-variables.md) to `True`.
+    4. If no schema change command is found set the same DBA Approval Required [output variable](/docs/projects/variables/output-variables.md) to `False`. 
+3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables.md) is `True` using [run conditions](/docs/deployment-process/conditions/index.md#run-condition)
+4. Pause for a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables.md) is `True` using [run conditions](/docs/deployment-process/conditions/index.md#run-condition).
 5. Deploy database changes.
 6. Send notifications on the status of deployments.
 
@@ -39,9 +39,9 @@ Creating a variable also makes it much easier to use in a [run condition](/docs/
 
 ![](images/auto_approve_run_conditions.png)
 
-:highlight
+:::hint
 We recommend setting the output variable to `True` or `False` because that is what the [run conditions](/docs/deployment-process/conditions/index.md#run-condition) look for.  If you need an if/then statement, then in include it in the auto-approval script.
-:
+:::
 
 ## Logging
 

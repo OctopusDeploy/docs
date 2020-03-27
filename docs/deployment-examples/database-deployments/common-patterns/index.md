@@ -19,8 +19,14 @@ Manual approvals are a great starting out, when the number of projects required 
 
 Learn more about [automatic approvals](/docs/deployment-examples/database-deployments/common-patterns/automatic-approvals.md).
 
-## Restore from Production to Test environments
+## AdHoc Data Change Scripts
 
-Real-world test data is a common request we come across.  The natural inclination is to copy Production down to Test.  But doing so opens up a whole world of data compliance and privacy concerns.  This section will walk through recommendations and techniques on creating a process to successfully restore Production to Test environments.
+Sometimes an application causes data to get into an odd state.  It is hard to reproduce that and it has happened once or twice.  The priority on the bug is low.  But the data needs to be fixed.  That is where an adhoc data change script comes in.  It will fix a specific record in a specific database in a specific environment.  It doesn't make sense to push it through all environments.  
 
-TODO Add Link
+Learn more about [adhoc Data Change Scripts](/docs/deployment-examples/database-deployments/common-patterns/adhoc-data-changes.md)
+
+## Backups and Rollbacks
+
+Most database deployment tooling wraps everything in a transaction.  The entire changeset goes or nothing goes.  However, we have encountered companies who also want to take a backup of the database prior to any changes.  If something goes wrong then the process should automatically roll everything back.  In our experience, that is very dangerous and rife a lot of "what-if" scenarios.
+
+Our recommendation is to roll-forward.  Learn more about [automatic backups and rollbacks](/docs/deployment-examples/database-deployments/common-patterns/backups-rollbacks.md).
