@@ -258,7 +258,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 If you run an [Octopus Deploy container](/docs/installation/octopus-in-container/index.md) these are a few of the steps you can take to secure it. 
 
 - Store your containers on a separate partition.
-- Assign resources carefully
+- Assign resources carefully:
   - Consider pinning CPUs to namespaces in order to give them a boundary. 
   - Consider the amount of memory required, too much and the container is susceptible to denial of service attacks, too little or the use of ballooning will hinder performance. 
 - Network namespaces - consider which containers reside in each network namespace as all processes in a namespace can talk to the namespace interface.
@@ -272,4 +272,3 @@ We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Spa
 ## Getting help
 
 We are more than happy to help if you are having trouble with self-hosting Octopus Deploy, or are concerned about the security or integrity of your Octopus installation. Don't hesitate to [get in touch](https://octopus.com/support)!
-
