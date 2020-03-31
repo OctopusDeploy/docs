@@ -21,7 +21,7 @@ Cleanup:
       --status=VALUE         Status of Machines clean up (Online, Offline,
                              Unknown, NeedsUpgrade, CalamariNeedsUpgrade,
                              Disabled). Can be specified many times.
-      --health-status, --healthstatus=VALUE
+      --health-status, --healthStatus=VALUE
                              Health status of Machines to clean up (Healthy,
                              Unavailable, Unknown, HasWarnings, Unhealthy).
                              Can be specified many times.

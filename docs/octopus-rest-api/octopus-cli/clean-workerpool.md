@@ -15,7 +15,7 @@ Where [<options>] is any of:
 
 WorkerPool Cleanup:
 
-      --workerpool=VALUE     Name of a worker pool to clean up.
+      --workerPool=VALUE     Name of a worker pool to clean up.
       --health-status=VALUE  Health status of Workers to clean up (Healthy,
                              Unavailable, Unknown, HasWarnings, Unhealthy).
                              Can be specified many times.

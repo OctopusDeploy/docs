@@ -21,7 +21,7 @@ Listing:
                              Offline, Unknown, NeedsUpgrade,
                              CalamariNeedsUpgrade, Disabled). Can be
                              specified many times.
-      --health-status, --healthstatus=VALUE
+      --health-status, --healthStatus=VALUE
                              [Optional] Health status of Machines filter by
                              (Healthy, Unavailable, Unknown, HasWarnings,
                              Unhealthy). Can be specified many times.

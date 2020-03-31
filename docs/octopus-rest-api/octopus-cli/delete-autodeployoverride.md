@@ -23,7 +23,7 @@ Delete auto deploy release override:
                              apply to. Specify this argument multiple times
                              to add multiple tenants or use `*` wildcard for
                              all tenants.
-      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
+      --tenantTag=VALUE      [Optional] A tenant tag used to match tenants
                              that the override will apply to. Specify this
                              argument multiple times to add multiple tenant
                              tags
