@@ -260,7 +260,7 @@ If you run an [Octopus Deploy container](/docs/installation/octopus-in-container
 - Store your containers on a separate partition.
 - Assign resources carefully:
   - Consider pinning CPUs to namespaces in order to give them a boundary. 
-  - Consider the amount of memory required, too much and the container is susceptible to denial of service attacks, too little or the use of ballooning will hinder performance. 
+  - Consider the amount of memory required, if you assign too much the container is susceptible to denial of service attacks, but if you assign too little or make use of memory ballooning performance will be impacted. 
 - Consider which containers reside in each network namespace as all processes in a namespace can talk to the namespace interface.
 
 The security of your containers and Docker configuration can be analyzed in detail by using [Docker Bench for Security](https://github.com/docker/docker-bench-security) from the [Center for Internet Security](https://www.cisecurity.org/about-us/). 
