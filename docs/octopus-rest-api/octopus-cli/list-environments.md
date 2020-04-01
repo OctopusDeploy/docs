@@ -7,7 +7,7 @@ position: 180
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the environments on your Octopus instance.
 
 ```text
-List environments.
+Lists environments.
 
 Usage: octo list-environments [<options>]
 
@@ -66,6 +66,7 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

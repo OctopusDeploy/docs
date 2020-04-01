@@ -16,15 +16,15 @@ Where [<options>] is any of:
 Deletion:
 
       --project=VALUE        Name of the project
-      --minversion=VALUE     Minimum (inclusive) version number for the range
+      --minVersion=VALUE     Minimum (inclusive) version number for the range
                              of versions to delete
-      --maxversion=VALUE     Maximum (inclusive) version number for the range
+      --maxVersion=VALUE     Maximum (inclusive) version number for the range
                              of versions to delete
       --channel=VALUE        [Optional] if specified, only releases
                              associated with the channel will be deleted;
                              specify this argument multiple times to target
                              multiple channels.
-      --whatif               [Optional, Flag] if specified, releases won't
+      --whatIf               [Optional, Flag] if specified, releases won't
                              actually be deleted, but will be listed as if
                              simulating the command
 

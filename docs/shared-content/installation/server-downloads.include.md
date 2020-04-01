@@ -1,15 +1,6 @@
-### Download the long-term support Octopus Server {#slow-lane}
+### Download the Octopus Server
 
-The latest long-term support version of Octopus Deploy:
+The latest version of the Octopus Deploy Server can be downloaded from the [downloads page](https://octopus.com/downloads).
 
-- [Octopus Server x64](https://octopus.com/downloads/slowlane/WindowsX64/OctopusServer)
-- [Octopus Server 32-bit/x86](https://octopus.com/downloads/slowlane/WindowsX86/OctopusServer)
 
-If you need an older version of a long-term support release, visit the [previous downloads page](https://octopus.com/downloads/previous) to locate the specific version you need.
-
-### Download fast lane Octopus Server {#fast-lane}
-
-The latest version of Octopus Deploy with the latest features:
-
-- [Octopus Server x64](https://octopus.com/downloads/fastlane/WindowsX64/OctopusServer)
-- [Octopus Server 32-bit/x86](https://octopus.com/downloads/fastlane/WindowsX86/OctopusServer)
+We recommend using the [latest version](https://octopus.com/downloads) of the Octopus Deploy Server. If you need an older version of the Octopus Deploy Server, visit the [previous downloads page](https://octopus.com/downloads/previous) to locate the specific version you need.
