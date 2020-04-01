@@ -201,7 +201,6 @@ With the release created, choose the Environment to deploy to.  You can do this 
 
 Finally, click **DEPLOY**
 
-:::hint
 If you receive an error message like
 ```
 /etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 17: $'\r': command not found 
