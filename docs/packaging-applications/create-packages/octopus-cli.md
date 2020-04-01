@@ -8,15 +8,9 @@ The Octopus CLI (`octo`) is a command line tool that interacts with the [Octop
 
 ## Installation
 
-We recommend installing The Octopus CLI as a global tool using .NET Core which makes `octo` available as a command via the .NET CLI.
+The [Octopus CLI downloads page](https://octopus.com/downloads/octopuscli) provides installation options for various platforms.
 
-If you have the .NET Core `2.1.300` SDK available you can install the Octopus CLI on a machine or build agent as a global tool with the following command:
-
-```bash
-dotnet tool install Octopus.DotNet.Cli --global
-```
-
-Check the output to make sure the installation works correctly. After the installation has completed, you can run the following to verify the version of the Octopus CLI that was installed (if you're using Windows, remember to open a new command prompt):
+After installation, you can run the following to verify the version of the Octopus CLI that was installed (if you're using Windows, remember to open a new command prompt):
 
 ```
 dotnet octo --version

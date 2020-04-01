@@ -7,7 +7,7 @@ position: 30
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.
 
 ```text
-Override the release that auto deploy will use.
+Overrides the release that auto deploy will use.
 
 Usage: octo create-autodeployoverride [<options>]
 
@@ -25,7 +25,7 @@ Auto deploy release override:
                              apply to. Specify this argument multiple times
                              to add multiple tenants or use `*` wildcard for
                              all tenants.
-      --tenanttag=VALUE      [Optional] A tenant tag used to match tenants
+      --tenantTag=VALUE      [Optional] A tenant tag used to match tenants
                              that the override will apply to. Specify this
                              argument multiple times to add multiple tenant
                              tags

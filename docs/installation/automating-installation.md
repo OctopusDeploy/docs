@@ -8,9 +8,7 @@ Octopus comes in a MSI that can be deployed via group policy or other means.
 
 ## Downloads
 
-You can use the permanent links below to download the fast lane or slow lane versions of the Octopus Server.
-
-Read more about long-term support, fast lanes, and slow lanes in this [blog post](https://octopus.com/blog/octopus-release-2018.10-lts).
+You can use the permanent link below to download the Octopus Server.
 
 !include <server-downloads>
 
