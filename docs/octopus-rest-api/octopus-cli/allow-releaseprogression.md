@@ -1,6 +1,7 @@
 ---
 title: Allow release progression
 description: Allows a release to progress to next phase
+position: 5
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to allow a release to progress to next phase.
