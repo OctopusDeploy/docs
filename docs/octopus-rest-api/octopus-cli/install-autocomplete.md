@@ -1,6 +1,7 @@
 ---
 title: Install autocomplete
 description: Install a shell auto-complete script into your shell profile, if they aren't already there. Supports pwsh, zsh, bash & powershell.
+position: 155
 ---
 
 Install a shell auto-complete script into your shell profile, if they aren't already there. Supports pwsh, zsh, bash & powershell.
