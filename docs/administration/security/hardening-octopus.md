@@ -255,7 +255,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 ## Harden your containers
 
-If you run an [Octopus Deploy container](/docs/installation/octopus-in-container/index.md) these are a few of the steps you can take to secure it. 
+If you run an [Octopus Deploy container](/docs/installation/octopus-in-container/index.md), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
 
 - Store your containers on a separate partition.
 - Assign resources carefully:
