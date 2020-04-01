@@ -1,5 +1,5 @@
 ---
-title: pack
+title: Pack
 description: Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
 position: 260
 ---

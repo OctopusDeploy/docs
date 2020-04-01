@@ -1,6 +1,7 @@
 ---
 title: Complete
 description: Supports command line auto completion.
+position: 25
 ---
 
 Supports command line auto completion.
