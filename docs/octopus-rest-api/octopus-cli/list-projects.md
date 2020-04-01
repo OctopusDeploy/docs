@@ -66,6 +66,7 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

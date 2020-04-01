@@ -1,5 +1,5 @@
 ---
-title: pack
+title: Pack
 description: Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj
 position: 260
 ---
@@ -23,7 +23,7 @@ Basic options:
                              valid SemVer; defaults to a timestamp-based
                              version
       --outFolder=VALUE      [Optional] The folder into which the generated
-                             NUPKG file will be written; defaults to '.'
+                             NuPkg file will be written; defaults to '.'
       --basePath=VALUE       [Optional] The root folder containing files and
                              folders to pack; defaults to '.'
       --verbose              [Optional] verbose output
@@ -46,7 +46,7 @@ NuGet packages:
 
 Zip packages:
 
-      --compressionlevel=VALUE
+      --compressionLevel=VALUE
                              [Optional] Set compression level of package:
                              none, fast, optimal (default).
 
@@ -67,6 +67,7 @@ Common options:
       --outputFormat=VALUE   [Optional] Output format, only valid option is
                              json
 ```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

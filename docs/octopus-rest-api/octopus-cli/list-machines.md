@@ -21,7 +21,7 @@ Listing:
                              Offline, Unknown, NeedsUpgrade,
                              CalamariNeedsUpgrade, Disabled). Can be
                              specified many times.
-      --health-status, --healthstatus=VALUE
+      --health-status, --healthStatus=VALUE
                              [Optional] Health status of Machines filter by
                              (Healthy, Unavailable, Unknown, HasWarnings,
                              Unhealthy). Can be specified many times.
@@ -86,8 +86,8 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-

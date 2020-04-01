@@ -1,18 +1,19 @@
 ---
 title: Allow release progression
 description: Allows a release to progress to next phase
+position: 5
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to allow a release to progress to next phase.
 
 ```text
-Allows a release to progress to next phase.
+Allows a release to progress to the next phase.
 
 Usage: octo allow-releaseprogression [<options>]
 
 Where [<options>] is any of:
 
-Deletion:
+Allowing release progression.:
 
       --project=VALUE        Name or ID of the project
       --version, --releaseNumber=VALUE

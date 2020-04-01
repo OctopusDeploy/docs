@@ -1,7 +1,7 @@
 ---
-title: Cleaning environments
+title: Clean environments
 description: Using the Octopus CLI to delete/remove machines with a particular status from environments on your Octopus instance.
-position: 10
+position: 15
 ---
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
@@ -21,7 +21,7 @@ Cleanup:
       --status=VALUE         Status of Machines clean up (Online, Offline,
                              Unknown, NeedsUpgrade, CalamariNeedsUpgrade,
                              Disabled). Can be specified many times.
-      --health-status, --healthstatus=VALUE
+      --health-status, --healthStatus=VALUE
                              Health status of Machines to clean up (Healthy,
                              Unavailable, Unknown, HasWarnings, Unhealthy).
                              Can be specified many times.
