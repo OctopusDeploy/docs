@@ -201,7 +201,8 @@ With the release created, choose the Environment to deploy to.  You can do this 
 
 Finally, click **DEPLOY**
 
-:::hint
+### Troubleshooting
+
 If you receive an error message like
 ```
 /etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 17: $'\r': command not found 
@@ -214,7 +215,6 @@ your build server has converted line endings from LF to CRLF, which doesn't play
 Workarounds are:
 - Run the following command on your build agent `git config --global core.eol lf`
 - Set the `text eol=lf` setting within the `.gitattributes` of the git repo
-:::
 
 You should receive the following output from the deployment
 
