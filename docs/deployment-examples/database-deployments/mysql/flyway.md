@@ -214,7 +214,6 @@ your build server has converted line endings from LF to CRLF, which doesn't play
 Workarounds are:
 - Run the following command on your build agent `git config --global core.eol lf`
 - Set the `text eol=lf` setting within the `.gitattributes` of the git repo
-:::
 
 You should receive the following output from the deployment
 
