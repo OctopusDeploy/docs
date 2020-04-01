@@ -7,7 +7,7 @@ position: 230
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to List tenants.
 
 ```text
-List tenants.
+Lists tenants.
 
 Usage: octo list-tenants [<options>]
 

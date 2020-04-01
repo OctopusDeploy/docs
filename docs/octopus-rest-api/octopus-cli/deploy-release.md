@@ -16,32 +16,32 @@ Where [<options>] is any of:
 Deployment:
 
       --progress             [Optional] Show progress of the deployment
-      --forcepackagedownload [Optional] Whether to force downloading of
+      --forcePackageDownload [Optional] Whether to force downloading of
                              already installed packages (flag, default false).
-      --waitfordeployment    [Optional] Whether to wait synchronously for
+      --waitForDeployment    [Optional] Whether to wait synchronously for
                              deployment to finish.
-      --deploymenttimeout=VALUE
+      --deploymentTimeout=VALUE
                              [Optional] Specifies maximum time (timespan
                              format) that the console session will wait for
                              the deployment to finish(default 00:10:00). This
                              will not stop the deployment. Requires --
-                             waitfordeployment parameter set.
-      --cancelontimeout      [Optional] Whether to cancel the deployment if
+                             waitForDeployment parameter set.
+      --cancelOnTimeout      [Optional] Whether to cancel the deployment if
                              the deployment timeout is reached (flag, default
                              false).
-      --deploymentchecksleepcycle=VALUE
+      --deploymentCheckSleepCycle=VALUE
                              [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
                              checks (default 00:00:10)
-      --guidedfailure=VALUE  [Optional] Whether to use Guided Failure mode.
+      --guidedFailure=VALUE  [Optional] Whether to use guided failure mode.
                              (True or False. If not specified, will use
                              default setting from environment)
-      --specificmachines=VALUE
+      --specificMachines=VALUE
                              [Optional] A comma-separated list of machine
                              names to target in the deployed environment. If
                              not specified all machines in the environment
                              will be considered.
-      --excludemachines=VALUE
+      --excludeMachines=VALUE
                              [Optional] A comma-separated list of machine
                              names to exclude in the deployed environment. If
                              not specified all machines in the environment
@@ -51,19 +51,19 @@ Deployment:
                              override this setting to force re-deployment
                              (flag, default false).
       --skip=VALUE           [Optional] Skip a step by name
-      --norawlog             [Optional] Don't print the raw log of failed
+      --noRawLog             [Optional] Don't print the raw log of failed
                              tasks
-      --rawlogfile=VALUE     [Optional] Redirect the raw log of failed tasks
+      --rawLogFile=VALUE     [Optional] Redirect the raw log of failed tasks
                              to a file
   -v, --variable=VALUE       [Optional] Values for any prompted variables in
                              the format Label:Value. For JSON values,
                              embedded quotation marks should be escaped with
                              a backslash.
-      --deployat=VALUE       [Optional] Time at which deployment should start
+      --deployAt=VALUE       [Optional] Time at which deployment should start
                              (scheduled deployment), specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
-      --nodeployafter=VALUE  [Optional] Time at which scheduled deployment
+      --noDeployAfter=VALUE  [Optional] Time at which scheduled deployment
                              should expire, specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
@@ -72,12 +72,12 @@ Deployment:
                              to add multiple tenants or use `*` wildcard to
                              deploy to all tenants who are ready for this
                              release (according to lifecycle).
-      --tenanttag=VALUE      Create a deployment for tenants matching this
+      --tenantTag=VALUE      Create a deployment for tenants matching this
                              tag; specify this argument multiple times to
                              build a query/filter with multiple tags, just
                              like you can in the user interface.
       --project=VALUE        Name or ID of the project
-      --deployto=VALUE       Name or ID of the environment to deploy to, e.g-
+      --deployTo=VALUE       Name or ID of the environment to deploy to, e.g-
                              ., 'Production' or 'Environments-1'; specify
                              this argument multiple times to deploy to
                              multiple environments.

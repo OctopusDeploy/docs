@@ -13,7 +13,7 @@ The supported upgrade paths are as follows:
 - Currently running `1.x`? Upgrade `1.x` to `1.6` to `2.6.5` to `2018.10 LTS` to any newer version
 - Currently running `2.x`? Upgrade `2.x` to `2.6.5` to `2018.10 LTS` to any newer version
 - Currently running `2.6.5`? Upgrade `2.6.5` to `2018.10 LTS` to any newer version
-- Currently running a modern version of Octopus like `3.x`, `4.x`, `2018.x`, or newer? Upgrade to any newer version - we generally recommend choosing LTS
+- Currently running a modern version of Octopus like `3.x`, `4.x`, `2018.x`, or newer? Upgrade to any newer version
 
 :::warning
 **Broken upgrade paths**

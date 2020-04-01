@@ -22,11 +22,7 @@ If you need guidance installing Jenkins for the first time, see the [Jenkins doc
 
 ## Installing the Octopus Jenkins plugin
 
-Plugins are central to Jenkins, and a number of plugins are required to follow the steps on this page. Before you start, you'll need to ensure the following plugins are installed enabled.
-
-If you navigate to Manage Jenkins > Manage Plugins you can add these:
-
-- [Mask Passwords Plugin](https://plugins.jenkins.io/mask-passwords): required to store your Octopus API keys and keep them out of the console.
+Plugins are central to expanding Jenkins' functionality, and a number of plugins are may be needed depending on the projects you are building. Before you start, you'll need to ensure the following plugins are installed and enabled.
 
 If you're building a .NET project:
 - [MSBuild Plugin](https://plugins.jenkins.io/msbuild): to compile your Visual Studio solution.
@@ -34,7 +30,7 @@ If you're building a .NET project:
 If you're building a Java project:
 - [Maven Plugin](https://plugins.jenkins.io/maven-plugin): to compile your Java project.
 
-Having at least installed the *Mask Passwords Plugin* you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
+Once any of the above plugins are installed, you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
 ## Configure the Octopus Deploy plugin
 

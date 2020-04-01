@@ -1003,4 +1003,5 @@ docs/packaging-applications/create-packages/octo.exe.md -> docs/packaging-applic
 docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
 docs/octopus-concepts/api.md -> docs/octopus-concepts/rest-api.md
 docs/deployment-examples/sql-server-databases -> docs/deployment-examples/database-deployments/index.md
+docs/administration/upgrading/long-term-support.md -> docs/installation/index.md
 docs/octopus-concepts/octopus-deploy-server.md -> docs/octopus-concepts/octopus-server.md
