@@ -6,9 +6,19 @@ position: 70
 
 This guide is for customers managing their self-hosted installation of Octopus. If you are using Octopus Cloud we take care of everything for you, and you will have early access to all the latest features.
 
-We highly recommend using releases with long-term support (LTS) for your self-hosted installation of Octopus. We ship a new release with LTS every three months, where each release comes with six months of support. Learn about our [long-term support program](long-term-support.md).
+## Octopus Deploy Server releases
 
-Everything you need can be [downloaded from our web site](https://octopus.com/downloads).
+!include <octopus-releases>
+
+We highly recommend using the latest release for your self-hosted installation of Octopus. We ship a new release every two months, and each release comes with six months of support.
+
+## Considerations for upgrading
+
+When we ship a patch, like `2020.1.7`, you should patch your Octopus Server. It will be less risk to upgrade than to leave your Octopus Server unpatched.
+
+When we ship a new release, you can choose to stay on your current version as long as it is still covered by our six months of support, but we recommend keeping up with the current release when possible.
+
+Everything you need can be downloaded from [octopus.com/downloads](https://octopus.com/downloads).
 
 ## What would you like to do?
 
