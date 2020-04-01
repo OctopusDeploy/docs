@@ -5,7 +5,7 @@ position: 20
 hideInThisSectionHeader: true
 ---
 
-Linux servers can be configured as [Deployment Targets](/docs/infrastructure/deployment-targets/index.md) in Octopus.   
+Linux servers can be configured as [deployment targets](/docs/infrastructure/deployment-targets/index.md) in Octopus.   
 
 The Octopus Server can communicate with Linux targets via SSH or the [Linux Tentacle](https://octopus.com/docs/infrastructure/deployment-targets/linux/tentacle).  
 
@@ -89,4 +89,4 @@ You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripti
 
 ## Learn more
 
-- [Linux blog posts](https://www.octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux)

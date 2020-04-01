@@ -21,7 +21,7 @@ If you want to add your own indexes we would recommend running the System Integr
 
 :::warning
 **Azure automatic indexes**
-Azure SQL Databases are a great way to set-up your Octopus database to be managed in the cloud. One feature that this product can provide is [automatic index management](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-advisor-portal). While this is a great way to set-up your databases and forget about them, allowing Azure to decide and act on potential performance benefits, this means that indexes will be potentially created without you being aware of them. As noted above you will need to be aware what custom indexes exist and remove them before performing an update to the Octopus Deploy Server to ensure that any new schema changes can be applied smoothly.
+Azure SQL Databases are a great way to set-up your Octopus database to be managed in the cloud. One feature that this product can provide is [automatic index management](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-advisor-portal). While this is a great way to set-up your databases and forget about them, allowing Azure to decide and act on potential performance benefits, this means that indexes will be potentially created without you being aware of them. As noted above you will need to be aware what custom indexes exist and remove them before performing an update to the Octopus Server to ensure that any new schema changes can be applied smoothly.
 :::
 
 ## What you can do to help {#Providingdatabaseperformancemetrics-Whatyoucandotohelp}

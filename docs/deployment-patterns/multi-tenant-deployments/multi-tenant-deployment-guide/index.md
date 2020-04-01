@@ -19,4 +19,4 @@ Download: [Octopus.Sampler.1.0.0.zip](https://github.com/OctopusDeploy/Sampler/r
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

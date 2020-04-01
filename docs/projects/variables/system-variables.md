@@ -191,8 +191,6 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Web.ProjectLink` <br/>A path relative to the Octopus Server URL at which the project can be viewed | */app/projects/projects-123*|
 |`Octopus.Web.ReleaseLink` <br/>A path relative to the Octopus Server URL at which the release can be viewed | */app/releases/releases-123*|
 |`Octopus.Web.DeploymentLink` <br/>A path relative to the Octopus Server URL at which the deployment can be viewed | */app/deployment/deployments-123*|
-|`Octopus.Web.RunbookSnapshotLink` <br/>A path relative to the Octopus Server URL at which the runbook snapshot can be viewed | */app/snapshots/runbookSnapshots-123*|
-|`Octopus.Web.RunbookRunLink` <br/>A path relative to the Octopus Server URL at which the runbook run can be viewed | */app/runs/runbookRuns-123*|
 
 ### Deployment changes {#deployment-changes}
 
@@ -428,6 +426,22 @@ Octopus.Deployment.ErrorDetail
 Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
 :::
 
+## Runbook {#Systemvariables-Runbook}
+
+| Name and description | Example |
+| ------------------------------- | -------- |
+|`Octopus.Runbook.Id` <br/>The ID of the runbook | *Runbooks-123*|
+|`Octopus.Runbook.Name` <br/>The name of the runbook | *Restore Database*|
+|`Octopus.RunbookRun.Created` <br/>The date and time at which the runbook was run | *Friday, March 13, 2020 6:23:38 AM*|
+|`Octopus.RunbookRun.CreatedUtc` <br/>The date and time at which the runbook was run in UTC format | *3/13/20 6:23:38 AM +00:00*|
+|`Octopus.RunbookRun.Id` <br/>The ID of the run | *RunbookRuns-123*|
+|`Octopus.RunbookRun.Name` <br/>The name of the run | *Run on Production*|
+|`Octopus.RunbookSnapshot.Id` <br/>The ID of the snapshot being run | *RunbookSnapshots-123*|
+|`Octopus.RunbookSnapshot.Name` <br/>The name of the snapshot | *Snapshot SGKSPY3*|
+|`Octopus.RunbookSnapshot.Notes` <br/>Notes associated with the snapshot, in Markdown format | *Restores the database*|
+|`Octopus.Web.RunbookSnapshotLink` <br/>A path relative to the Octopus Server URL at which the runbook snapshot can be viewed | */app/snapshots/runbookSnapshots-123*|
+|`Octopus.Web.RunbookRunLink` <br/>A path relative to the Octopus Server URL at which the runbook run can be viewed | */app/runs/runbookRuns-123*|
+
 ## User-modifiable settings {#Systemvariables-User-modifiablesettings}
 
 The following variables can be defined as variables in your project to modify the way Octopus behaves.
@@ -451,4 +465,4 @@ The following variables can be defined as variables in your project to modify th
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)

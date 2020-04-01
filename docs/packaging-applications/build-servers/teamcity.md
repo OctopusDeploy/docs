@@ -58,4 +58,4 @@ Traditionally the Octopus TeamCity plugin required a Windows build agent to work
 
 ## Learn more
 
-- Generate an Octopus guide for [TeamCity and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=TeamCity).
+- Generate an Octopus guide for [TeamCity and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?buildServer=TeamCity).

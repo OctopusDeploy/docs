@@ -64,7 +64,7 @@ A file selection can be removed by expanding the appropriate selection and click
 File selections aren't formally removed or added until the step has been saved.
 :::
 
-##### Bucket key prefix
+#### Bucket key prefix
 
 A prefix delimited with forward slash `/` characters is seen in S3 as folders.
 Here are a few examples to help you get those files in the right folder structure:
@@ -80,7 +80,7 @@ The single file selection lets you upload a single file to an S3 bucket which mu
 
 ![Single file selection](single-file-selection.png)
 
-##### Bucket keys
+#### Bucket keys
 A custom key delimited with forward slash `/` characters is seen in S3 as folders.
 Here are a few examples to help you get those files in the right structure:
 

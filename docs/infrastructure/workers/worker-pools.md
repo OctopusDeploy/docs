@@ -101,4 +101,4 @@ Not yet.  At the moment, the only time an exclusive lease is taken out is if a T
 
 ## Learn more
 
-- [Worker blog posts](https://www.octopus.com/blog/tag/workers) 
+- [Worker blog posts](https://octopus.com/blog/tag/workers) 

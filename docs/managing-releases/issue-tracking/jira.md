@@ -171,4 +171,4 @@ The following illustrates Octopus attempting to send an _in_progress_, and then 
 
  ## Learn more
 
- - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira)

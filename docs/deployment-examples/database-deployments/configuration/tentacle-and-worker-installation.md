@@ -31,11 +31,11 @@ Workers were added in Octopus **2018.7.0.**
 
 We recommend having separate Worker pools per deployment type. 
 
-Out of the box, the Worker in the default Worker pool is your Octopus Deploy Server, and we don't recommend running database deployments from your Octopus Deploy server directly for the following reasons:
+Out of the box, the Worker in the default Worker pool is your Octopus Server, and we don't recommend running database deployments from your Octopus Server directly for the following reasons:
 
 1. You often need to install additional tooling or SDKs unrelated to Octopus Deploy.
 2. The database deployment tools might need to run on Linux while Octopus Deploy is running on Windows.
-3. It can slow down other deployments because the Octopus Deploy server will allocate resources for database deployments in addition to everything else.
+3. It can slow down other deployments because the Octopus Server will allocate resources for database deployments in addition to everything else.
 
 :::hint
 A worker can be assigned to more than one pool.

@@ -7,9 +7,9 @@ hideInThisSectionHeader: true
 
 !include <octopus-cloud>
 
-## Octopus Deploy Server
+## Octopus Server
 
-!include <octopus-deploy-server>
+!include <octopus-server>
 
 ## Create an Octopus account
 
@@ -115,4 +115,4 @@ To change your password for the Octopus instance and Octopus account:
 
 ## Learn more
 
-- [Octopus Cloud blog posts](https://www.octopus.com/blog/tag/octopus%20Cloud)
+- [Octopus Cloud blog posts](https://octopus.com/blog/tag/octopus%20Cloud)

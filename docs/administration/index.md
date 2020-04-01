@@ -5,4 +5,4 @@ position: 90
 hideInThisSectionHeader: true
 ---
 
-This section provides information that is important for managing your Octopus Deploy Server.
+This section provides information that is important for managing your Octopus Server.

@@ -7,7 +7,7 @@ position: 30
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create automatic deployment release overrides.
 
 ```text
-Override the release that auto deploy will use.
+Overrides the release that auto deploy will use.
 
 Usage: octo create-autodeployoverride [<options>]
 

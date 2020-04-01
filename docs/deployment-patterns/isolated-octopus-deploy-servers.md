@@ -1,6 +1,6 @@
 ---
-title: Isolated Octopus Deploy Servers
-description: Working with isolated Octopus Deploy Servers due to infrastructure or governance requirements.
+title: Isolated Octopus Servers
+description: Working with isolated Octopus Servers due to infrastructure or governance requirements.
 position: 3
 ---
 
@@ -44,4 +44,4 @@ In this scenario you would install Tentacle onto the customer's servers, but con
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

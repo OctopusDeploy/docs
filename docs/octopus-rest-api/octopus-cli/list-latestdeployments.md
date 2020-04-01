@@ -7,7 +7,7 @@ position: 190
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the releases last deployed in each environment.
 
 ```text
-List the releases last-deployed in each environment.
+Lists the releases last-deployed in each environment.
 
 Usage: octo list-latestdeployments [<options>]
 
@@ -73,8 +73,8 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-

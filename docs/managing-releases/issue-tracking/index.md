@@ -15,4 +15,4 @@ For an overview of the integration, the features these integrations enable, and 
 
  ## Learn more
 
- - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira)

@@ -22,11 +22,7 @@ If you need guidance installing Jenkins for the first time, see the [Jenkins doc
 
 ## Installing the Octopus Jenkins plugin
 
-Plugins are central to Jenkins, and a number of plugins are required to follow the steps on this page. Before you start, you'll need to ensure the following plugins are installed enabled.
-
-If you navigate to Manage Jenkins > Manage Plugins you can add these:
-
-- [Mask Passwords Plugin](https://plugins.jenkins.io/mask-passwords): required to store your Octopus API keys and keep them out of the console.
+Plugins are central to expanding Jenkins' functionality, and a number of plugins are may be needed depending on the projects you are building. Before you start, you'll need to ensure the following plugins are installed and enabled.
 
 If you're building a .NET project:
 - [MSBuild Plugin](https://plugins.jenkins.io/msbuild): to compile your Visual Studio solution.
@@ -34,7 +30,7 @@ If you're building a .NET project:
 If you're building a Java project:
 - [Maven Plugin](https://plugins.jenkins.io/maven-plugin): to compile your Java project.
 
-Having at least installed the *Mask Passwords Plugin* you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
+Once any of the above plugins are installed, you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
 
 ## Configure the Octopus Deploy plugin
 
@@ -42,7 +38,7 @@ After you have installed the Octopus Deploy plugin. First navigate to {{Manage J
 
 :::success
 **Creating API keys**
-Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Deploy Server.
+Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) so the plugin can interact with your Octopus Server.
 :::
 
 ### Octopus CLI
@@ -63,9 +59,9 @@ Then we can let the plugin know where it is installed.
 
 Next, navigate to {{Manage Jenkins > Configure System}}.
 
-#### Octopus Deploy server settings
+#### Octopus Server settings
 
-Here you can create the link to your Octopus Deploy Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
+Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) for it.
 
 ![](images/jenkins/octopusdeploy-servers.png)
 
@@ -77,7 +73,7 @@ During our Jenkins job, we will:
 
 1. Compile the code, and run unit tests.
 2. Create NuGet packages with OctoPack.
-3. Publish these NuGet packages to the Octopus Deploy Server.
+3. Publish these NuGet packages to the Octopus Server.
 4. Create a release in Octopus, ready to be deployed.
 
 Jenkins uses the MSBuild plugin to compile .NET solutions, the Maven Plugin for Java solutions, or a variety of others depending on your tech/language stack.
@@ -180,5 +176,5 @@ Have a look at the [Octopus-Jenkins-Plugin repository](https://github.com/Octopu
 
 ## Learn more
 
-- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://www.octopus.com/docs/guides?buildServer=Jenkins)
- - [Jira blog posts](https://www.octopus.com/blog/tag/jira)
+- Generate an Octopus guide for [Jenkins and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?buildServer=Jenkins)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira)

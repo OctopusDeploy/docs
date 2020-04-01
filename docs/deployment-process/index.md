@@ -17,11 +17,11 @@ The project overview page is where you access settings for the project and defin
 
 ![Project Overview](project-overview.png) -->
 
-## A l Hello World deployment process
+## A Hello World deployment process
 
 For this example process, we'll use Octopus Deploy to create a simple process with only one step that runs a script on a deployment target. The process uses a **Test** environment with one **Deployment Target** that has the target role **server**.
 
-If you need a refresher on **Environments**, **Deployment Targets**, or how to configure them, review the [Infrastructure docs](docs/infrastructure/index.md).
+If you need a refresher on **environments**, **deployment targets**, or how to configure them, review the [infrastructure docs](docs/infrastructure/index.md).
 
 1. From the Octopus Web portal, select **Projects** from the main navigation, and click **ADD PROJECT**.
 2. Name the project, for instance, *Hello World*, and click **Save**.

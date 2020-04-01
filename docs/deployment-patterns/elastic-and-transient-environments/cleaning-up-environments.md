@@ -47,4 +47,4 @@ As of **Octopus 2018.1**, machine clean up is part of health checks and machine 
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://www.octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

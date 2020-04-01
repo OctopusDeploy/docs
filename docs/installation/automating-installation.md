@@ -8,7 +8,7 @@ Octopus comes in a MSI that can be deployed via group policy or other means.
 
 ## Downloads
 
-You can use the permanent link below to download the Octopus Deploy Server.
+You can use the permanent link below to download the Octopus Server.
 
 !include <server-downloads>
 
@@ -48,7 +48,7 @@ msiexec /i Octopus.<version>.msi /quiet RUNMANAGERONEXIT=no INSTALLLOCATION="<in
 
 ### 3. Configuration
 
-The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Deploy Server is done later, via the script you saved above.
+The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Octopus Server is done later, via the script you saved above.
 
 To run the script start an admin shell prompt and execute the script, this should apply all the settings to the new instance.
 

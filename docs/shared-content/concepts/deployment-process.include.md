@@ -1,4 +1,4 @@
-The deployment process is the steps the Octopus Deploy Server orchestrates to deploy your software.
+The deployment process is the steps the Octopus Server orchestrates to deploy your software.
 
 You define your deployment processes by creating projects and then adding steps and variables to the project. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed.
 

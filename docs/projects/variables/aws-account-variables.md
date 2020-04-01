@@ -46,4 +46,4 @@ For instructions to set up an AWS account in Octopus, see [AWS accounts](/docs/i
 
 ## Learn more
 
-- [Variable blog posts](https://www.octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables)

@@ -255,4 +255,4 @@ See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/d
 ## Learn more
 
 - [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md)
-- [Kubernetes blog posts](https://www.octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
