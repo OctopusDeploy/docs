@@ -1,7 +1,7 @@
 ---
 title: JSON formatted output
 description: Formatting output from the Octopus CLI
-position: 140
+position: 1
 ---
 
 Introduced in version **4.30.0**, most commands support printing the result in JSON format.
