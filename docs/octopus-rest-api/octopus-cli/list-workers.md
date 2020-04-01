@@ -15,13 +15,13 @@ Where [<options>] is any of:
 
 Listing Workers:
 
-      --workerpool=VALUE     Name of a worker pool to filter by. Can be
+      --workerPool=VALUE     Name of a worker pool to filter by. Can be
                              specified many times.
       --status=VALUE         [Optional] Status of Machines filter by (Online,
                              Offline, Unknown, NeedsUpgrade,
                              CalamariNeedsUpgrade, Disabled). Can be
                              specified many times.
-      --health-status, --healthstatus=VALUE
+      --health-status, --healthStatus=VALUE
                              [Optional] Health status of Machines filter by
                              (Healthy, Unavailable, Unknown, HasWarnings,
                              Unhealthy). Can be specified many times.
