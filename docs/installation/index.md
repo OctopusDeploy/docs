@@ -81,13 +81,10 @@ Click **Open in browser** to launch the **Octopus Web Portal** and log in using 
 
 The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, deployment process, access the built-in repository, and manage your deployments and releases.
 
-## Troubleshooting
-
-If you have any problems with the installation, review the [troubleshooting page](/docs/installation/troubleshooting.md).
-
 ## Learn more
 
+ - [Troubleshooting the Octopus installation](/docs/installation/troubleshooting.md)
  - [Configure your infrastructure](/docs/infrastructure/index.md)
- - [Upgrading guide](/docs/administration/upgrading/index.md).
+ - [Upgrading guide](/docs/administration/upgrading/index.md)
  - [Automating Octopus installation](/docs/installation/automating-installation.md)
- - [Troubleshooting the Octopus installation](/docs/installation/troubleshooting.md).
+
