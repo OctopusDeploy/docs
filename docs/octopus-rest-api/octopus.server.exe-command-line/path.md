@@ -21,7 +21,7 @@ Where [<options>] is any of:
                                with caution
       --cacheDirectory=VALUE Directory to use for temporary files and cachin-
                                g, e.g. downloaded packages. The data in this
-                               directory can be removed when the Octopus server
+                               directory can be removed when the Octopus Server
                                is not running. This directory should not be
                                shared between nodes.
       --nugetRepository=VALUE
@@ -34,4 +34,3 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-
