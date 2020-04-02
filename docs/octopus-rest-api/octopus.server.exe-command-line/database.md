@@ -25,7 +25,7 @@ Where [<options>] is any of:
                                encrypting/decrypting data. If omitted, the
                                value from the config file will be used. Use
                                this option when pointing to an existing
-                               database which uses an existing master key.
+                               database that uses an existing Master Key.
       --upgrade              Upgrades the database to the expected schema
       --skipLicenseCheck     Skips the licence check when performing a schema
                                upgrade
