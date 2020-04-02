@@ -30,9 +30,9 @@ Before those tools can run, they need to be configured to run as a specific data
 
 Learn more about [configuration settings](/docs/deployment-examples/database-deployments/configuration/index.md).
 
-## Common Deployment Process Patterns
+## Common deployment process patterns
 
-There is a learning curve when adopting automated database deployments.  That leads to quite a bit of trepidation, especially when combined with the fact databases are the lifeblood of most applications.  We have there are some common deployment patterns you can adopt to build trust and level-up the tooling knowledge quickly.
+There is a learning curve with adopting automated database deployments, and that can lead to quite a bit of trepidation, especially when combined with the fact databases are the lifeblood of most applications. There are some common deployment patterns you can adopt to build trust and level-up tooling knowledge quickly.
 
 Learn more about [common patterns](/docs/deployment-examples/database-deployments/common-patterns/index.md).
 
