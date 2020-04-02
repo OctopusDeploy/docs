@@ -20,7 +20,7 @@ To make a variable a **sensitive variable**, you need to enter the variable edit
 
 For variable type, select **Sensitive**.
 
-![Variable editor](images/variable-editor.jpg)
+![Variable editor](images/variable-editor.jpg "width=500")
 
 ## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
