@@ -34,7 +34,7 @@ There are many Ingress Controller resources available. [NGINX](https://g.octopus
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
-![Ingress](../ingress.svg)
+![Ingress](../ingress.svg "width=500")
 
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
