@@ -1,5 +1,5 @@
 ---
-title: PCI compliance and octopus deploy
+title: PCI compliance and Octopus Deploy
 description: Using Octopus Deploy in PCI compliant environments.
 position: 90
 ---
