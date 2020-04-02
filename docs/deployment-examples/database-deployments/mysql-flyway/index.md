@@ -97,7 +97,7 @@ When the build is complete, you should have something like this
 
 ![](images/jenkins-build-success.png)
 
-Now that the build is complete, it's time to configure out Octopus Deploy project
+Now that the build is complete, it's time to configure the Octopus Deploy project.
 
 ## Octopus Deploy
 From the Dashboard of Octopus Deploy, click on Projects
