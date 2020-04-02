@@ -27,13 +27,13 @@ Where [<options>] is any of:
                                load and save data in the expected format.
       --skipCurrentMasterKeyTest
                              By default this command will test whether the
-                               existing Master Key can decrypt the Octopus
+                               existing master key can decrypt the Octopus
                                Server X.509 certificate. Use this switch if you
                                are certain you want to ignore the results of
                                this test.
       --scrubPii             Use this switch to scrub all personally
                                identifiable information from the database.
-      --skipLicenseCheck     Skips the license check when performing a schema
+      --skipLicenseCheck     Skips the licence check when performing a schema
                                upgrade
 
 Or one of the common options:
