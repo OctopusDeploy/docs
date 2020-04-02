@@ -25,7 +25,6 @@ docs/guides/use-the-team-foundation-build-custom-task/manually-install-the-build
 docs/administration/subscription_events.md -> docs/administration/managing-infrastructure/subscriptions/index.md
 docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/reference/download-permalinks.md -> docs/installation/index.md
-docs/key-concepts/environments/index.md -> docs/infrastructure/environments/index.md
 docs/key-concepts/environments/machine-policies.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/key-concepts/projects/index.md -> docs/projects/index.md
 docs/key-concepts/projects/deployment-processes.md -> docs/deployment-process/index.md
