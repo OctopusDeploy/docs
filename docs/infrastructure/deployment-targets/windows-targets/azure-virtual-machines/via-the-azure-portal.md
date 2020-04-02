@@ -6,19 +6,19 @@ position: 1
 
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
 
-![Azure VM Properties - Extensions Tab](azure-portal-extensions-menu-item.png)
+![Azure VM Properties - Extensions Tab](azure-portal-extensions-menu-item.png "width=500")
 
 Click **Add** to add a new extension.
 
-![Azure VM Properties - Add extensions button](azure-portal-extensions-add.png)
+![Azure VM Properties - Add extensions button](azure-portal-extensions-add.png "width=500")
 
 Select the **Octopus Deploy Tentacle Agent** extension, and click **Create**.
 
-![Add Extension - Create Octopus Deploy Tentacle Agent](azure-portal-extensions-about-extension.png)
+![Add Extension - Create Octopus Deploy Tentacle Agent](azure-portal-extensions-about-extension.png "width=500")
 
 Fill in the settings, and click **OK**.
 
-![ Octopus Deploy Tentacle Agent properties](azure-portal-extensions-extension-properties.png)
+![ Octopus Deploy Tentacle Agent properties](azure-portal-extensions-extension-properties.png "width=500")
 
 A deployment will be initiated which adds the extension to your virtual machine.
 

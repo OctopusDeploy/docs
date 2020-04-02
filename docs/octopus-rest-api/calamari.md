@@ -6,7 +6,7 @@ position: 150
 
 Prior to **Octopus 3.0**, Tentacles were responsible for performing deployment steps. Tentacles were *smart*. They knew how to transform configuration files, modify IIS, and much, much more.
 
-![](images/3278198.png)
+![](images/3278198.png "width=500")
 
 There were a few cons to this architecture:
 

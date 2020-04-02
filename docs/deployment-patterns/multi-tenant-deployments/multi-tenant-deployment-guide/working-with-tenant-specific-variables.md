@@ -19,7 +19,7 @@ When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md
 
 To add variables for a tenant, select the tenant from the **Tenants** page and click **Variables**.
 
-![Tenant variables](images/tenant-variables.png)
+![Tenant variables](images/tenant-variables.png "width=500")
 
 **Common variables** and **Project variables** can be added per tenant.
 
@@ -78,7 +78,7 @@ Let's start with the end in mind by creating the project variables we need. You'
 
 The result should look like the screenshot below:
 
-![](images/5865610.png)
+![](images/5865610.png "width=500")
 
 ### Step 2: Create project variable templates
 
@@ -98,7 +98,7 @@ Rather than managing lots of duplicate data, we will use some default values tha
 
 The result should look like the screenshot below:
 
-![](images/5865609.png)
+![](images/5865609.png "width=500")
 
 ### Step 3: Create the *environment variables* library variable set
 
@@ -116,7 +116,7 @@ In the previous step we created some variable templates that use the `Environmen
 
 The result should look like the screenshot below:
 
-![](images/5865607.png)
+![](images/5865607.png "width=500")
 
 ### Step 4: Create the *standard tenant details* library variable set
 
@@ -132,7 +132,7 @@ In previous steps we also created some variable templates that depend on a varia
 
 The result should look like the screenshot below:
 
-![](images/5865608.png)
+![](images/5865608.png "width=500")
 
 ### Step 5: Include the library variable sets into the project
 
@@ -145,23 +145,23 @@ Now we have created the library variable sets we need to include them in the **M
 
 Go to our tenant **Beverley Sanchez** and go to **{{Variables,Common variables}}** where you should be able to fill in the variables required by our **Standard tenant details** variable set:
 
-![](images/5865611.png)
+![](images/5865611.png "width=500")
 
 Now go to the *Project variables* tab and you should see the variables required by the **Mojo** project for each environment **Beverley Sanchez** will be deployed into, in this case just **MT Production**. Leave the convention-based variables alone, and click the *Set* button to set a random password for the database, and click *Save* to save your changes.
 
-![](images/5865612.png)
+![](images/5865612.png "width=500")
 
 ### Step 7: Validate the variable values for the project
 
 Go to the **{{Variables,All variables}}** tab of the **Mojo** project and you can inspect all of the variables that will be used by the project. If something is wrong, you can click on the link to the source of the value and fix the problem.
 
-![](images/5865620.png)
+![](images/5865620.png "width=500")
 
 ### Step 8: Deploy
 
 Go to the **Mojo** project, create a new release, and deploy it to the **MT Production** environment for **Beverley Sanchez** and you should see all of the variables flowing through properly now.
 
-![](images/5865613.png)
+![](images/5865613.png "width=500")
 
 ### Step 9: Review
 

@@ -10,7 +10,7 @@ Octopus supports the deployment of Kubernetes resources through the `Deploy Kube
 
 To begin, add the `Deploy Kubernetes containers` step to a project.
 
-![Deploy Container Step](deploy-container-step.png)
+![Deploy Container Step](deploy-container-step.png "width=500")
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
 
@@ -573,7 +573,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](pod-annotations.png)
+![](pod-annotations.png "width=500")
 
 This will result in a Deployment resource YAML file something like this following.
 
@@ -629,7 +629,7 @@ spec:
 
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
-![](pod-annotation-deployed.png)
+![](pod-annotation-deployed.png "width=500")
 
 #### Deployment annotations
 
@@ -637,7 +637,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](deployment-annotation.png)
+![](deployment-annotation.png "width=500")
 
 This will result in a Deployment resource YAML file something like this following.
 

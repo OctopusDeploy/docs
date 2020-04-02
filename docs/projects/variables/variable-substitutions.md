@@ -35,11 +35,11 @@ Binding syntax can be used to dynamically change the values of deployment step s
 
 Most text fields that support binding to variables will have a variable insert button:
 
-![](images/3278296.png)
+![](images/3278296.png "width=500")
 
 For settings that support variables but aren't text (such as drop downs or check-boxes), a button is displayed to toggle custom expression modes:
 
-![](images/3278297.png)
+![](images/3278297.png "width=500")
 
 ## Extended syntax {#VariableSubstitutionSyntax-ExtendedSyntax}
 

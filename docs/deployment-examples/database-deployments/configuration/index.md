@@ -6,7 +6,7 @@ position: 10
 
 Database deployments are often more complicated than deploying a web application or service as production databases are typically clusters or high-availability groups. They are often comprised of more than one node hidden behind a VIP (virtual IP address).
 
-![](images/common-database-with-vip.png)
+![](images/common-database-with-vip.png "width=500")
 
 Database deployment tooling doesn't need to run an executable directly on the database server. Instead, it needs to run somewhere that connects to the database over a specific port as specific user to run scripts:
 

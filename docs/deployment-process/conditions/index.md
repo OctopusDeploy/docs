@@ -13,7 +13,7 @@ For each [step](/docs/deployment-process/steps/index.md) that you define in your
 - Specify whether the step runs before or after package acquisition.
 - Make the step a required step that cannot be skipped.
 
-![Conditions](images/conditions.png)
+![Conditions](images/conditions.png "width=500")
 
 Some of these options will only appear if they're available. For instance, the [channels](/docs/deployment-process/channels/index.md) option is only visible if you have created one or more channels.
 

@@ -6,7 +6,7 @@ position: 30
 
 [Service resources](http://g.octopushq.com/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
 
-![Deploy service step](deploy-service-step.png)
+![Deploy service step](deploy-service-step.png "width=500")
 
 ## Service name
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.

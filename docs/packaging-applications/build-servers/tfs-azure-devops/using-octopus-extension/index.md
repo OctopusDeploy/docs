@@ -113,7 +113,7 @@ In the new Team Foundation build process, the arguments below should be in the 
 Octopack is not supported for .NET Core and we suggest using the Azure DevOps extensions instead.
 :::
 
-![](images/3278377.png)
+![](images/3278377.png "width=500")
 
 ## Add steps to your build or release process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
 
@@ -153,9 +153,9 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?
 
 If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **{{Utility,Publish}}** Artifact step to make the package available to the Release process.
 
-![](images/5865475.png)
+![](images/5865475.png "width=500")
 
-![](images/5865476.png)
+![](images/5865476.png "width=500")
 
 ### Add a push package(s) to Octopus step {#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep}
 
@@ -179,7 +179,7 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items
 
 Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
 
-![](images/3278502.png)
+![](images/3278502.png "width=500")
 
 ### Add a deploy Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
 

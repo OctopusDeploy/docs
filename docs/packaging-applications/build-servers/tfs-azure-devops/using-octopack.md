@@ -14,7 +14,7 @@ When defining your build definition, you can expand the **Advanced** properties 
 /p:RunOctoPack=true
 ```
 
-![](images/3278177.png)
+![](images/3278177.png "width=500")
 
 :::success
 **OctoPack**
@@ -33,7 +33,7 @@ In most cases, you'll want to push your newly-created package to the built-in Oc
 /p:OctoPackPublishApiKey=API-ABCDEFGMYAPIKEY
 ```
 
-![](images/3278173.png)
+![](images/3278173.png "width=500")
 
 :::success
 **Built-in Nuget and API keys**

@@ -30,13 +30,13 @@ The instructions at [Creating an AWS Account](/docs/infrastructure/deployment-ta
 
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`.
 
-![AWS Account Variable](images/aws-account-variable.png)
+![AWS Account Variable](images/aws-account-variable.png "width=500")
 
 The `Add Variable` window is then displayed and lists all the AWS accounts.
 
 Select the account that was created in the previous step to assign it to the variable.
 
-![AWS Account Variable Selection](images/aws-account-variable-selection.png)
+![AWS Account Variable Selection](images/aws-account-variable-selection.png "width=500")
 
 ### Selecting the account
 
@@ -46,11 +46,11 @@ Under the `Managed Account` section, select `AWS Account`. This will display two
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance.
 
-![AWS Account](images/step-aws-account.png)
+![AWS Account](images/step-aws-account.png "width=500")
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
-![AWS Role](images/step-aws-role.png)
+![AWS Role](images/step-aws-role.png "width=500")
 
 :::hint
 If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
@@ -76,15 +76,15 @@ The Terraform template can come from two sources: directly entered source code o
 
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
-![Source Code](images/step-aws-sourcecode.png)
+![Source Code](images/step-aws-sourcecode.png "width=500")
 
 This will present a dialog in which the Terraform template can be pasted, in either JSON or HCL.
 
-![Source Code Dialog](images/step-aws-code-dialog.png)
+![Source Code Dialog](images/step-aws-code-dialog.png "width=500")
 
 Once the `OK` button is clicked, the input variables defined in the template will be shown under the `Variables` section.
 
-![Parameters](images/step-parameters.png)
+![Parameters](images/step-parameters.png "width=500")
 
 Terraform variables are either strings, lists or maps.
 
@@ -104,7 +104,7 @@ You can optional run Terraform from a subdirectory in the package by specifying 
 Given that Terraform templates and variable files are plain text, you may find it convenient to use the GitHub Repository Feed to provide the packages used by Terraform steps. Using GitHub releases means you do not have to manually create and upload a package, and can instead tag a release and download it directly from GitHub.
 :::
 
-![Package](images/step-aws-package.png)
+![Package](images/step-aws-package.png "width=500")
 
 #### Variable replacements
 
@@ -152,7 +152,7 @@ The `Custom terraform init parameters` option can be optionally set to include a
 
 The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform apply` action.
 
-![Terraform Advanced Options](images/terraform-advanced.png)
+![Terraform Advanced Options](images/terraform-advanced.png "width=500")
 
 ## Output variables
 

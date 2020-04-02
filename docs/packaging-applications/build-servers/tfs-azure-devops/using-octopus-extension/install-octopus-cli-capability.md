@@ -49,6 +49,6 @@ Microsoft provide a number of starting points to create your own build agent ima
 
 If you're having difficulties downloading the Octopus CLI when you run each step (perhaps due to firewalls and proxies) we also offer another helpful step: `Octopus tools installer`
 
-![Octopus tools installer](/images/octopus-tools-installer.png)
+![Octopus tools installer](/images/octopus-tools-installer.png "width=500")
 
 This step will fallback to using an embedded version of `octo` if the selected version cannot be successfully downloaded.

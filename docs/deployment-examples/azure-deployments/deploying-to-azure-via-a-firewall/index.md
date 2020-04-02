@@ -35,7 +35,7 @@ Get-AzResourceGroup
 
 If everything is working as expected, you will see output showing all the Azure Resource Groups you have access to:
 
-![Screenshot of Azure Resource Groups](image.png)
+![Screenshot of Azure Resource Groups](image.png "width=500")
 
 If you need to add firewall exclusions to a whitelist, here are a few things to take into consideration:
 

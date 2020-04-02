@@ -15,4 +15,4 @@ You can specify multiple Lifecycles to control which projects are deployed to wh
 
 Lifecycles are managed from the library page by navigating to **{{Library,Lifecyles}}**:
 
-![The lifecyles area of the Octopus Web Portal](/docs/shared-content/concepts/images/lifecycles.png)
+![The lifecyles area of the Octopus Web Portal](/docs/shared-content/concepts/images/lifecycles.png "width=500")

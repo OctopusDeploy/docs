@@ -6,7 +6,7 @@ position: 40
 
 [Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
-![Deploy ingress step](deploy-ingress-step.png)
+![Deploy ingress step](deploy-ingress-step.png "width=500")
 
 ## Ingress name
 

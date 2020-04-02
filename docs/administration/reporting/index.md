@@ -21,7 +21,7 @@ The data allows you to report on questions like:
 
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus Server.
 
-![](images/3278354.png)
+![](images/3278354.png "width=500")
 
 ## Getting started {#Reporting-Gettingstarted}
 
@@ -37,25 +37,25 @@ To change the source of the data:
 
 1. Go to the **DATA** ribbon tab in Excel, then click **Connections**:
 
-   ![](images/3278356.png)
+   ![](images/3278356.png "width=500")
 
 2. Select the **Octopus Deployment history** connection, then click **Properties...**
 
-   ![](images/3278357.png)
+   ![](images/3278357.png "width=500")
 
 3. Go to the **Definition** tab, then click **Browse...**
 
-   ![](images/3278358.png)
+   ![](images/3278358.png "width=500")
 
 4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.
 
-   ![](images/3278360.png)
+   ![](images/3278360.png "width=500")
 
 ## Refreshing the data {#Reporting-Refreshingthedata}
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
-![](images/3278361.png)
+![](images/3278361.png "width=500")
 
 ## Using the XML feed {#Reporting-UsingtheXMLFeed}
 
@@ -107,7 +107,7 @@ This is due to that the revocation information for the certificate is not retrie
 
 If your reporting tool of choice can't consume the XML feed, you can query the SQL table directly. Octopus maintains a **DeploymentHistory** table, with the exact same information that the XML Feed exposes. This may work better for tools like **SQL Server Reporting Services**.
 
-![](images/3278362.png)
+![](images/3278362.png "width=500")
 
 A few notes about accessing the table directly:
 

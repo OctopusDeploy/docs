@@ -22,7 +22,7 @@ In order to deploy Cloud Services they must be packaged into the Cloud Service .
 
 Packaging into a .cspkg can be done in Visual Studio by right-clicking on the Cloud Service and selecting "Package...".  This action with generate a .cspkg and .cscfg file which can be deployed to Azure Cloud Services.
 
-![Packaging an Azure Cloud Service](vs-package.png)
+![Packaging an Azure Cloud Service](vs-package.png "width=500")
 
 ### Generate a NuGet package {#CloudServiceConcepts-GenerateaNuGetpackage}
 
@@ -36,7 +36,7 @@ octo pack --id=HelloCloud --basePath=C:\PathToAzureCloudService
 
 The Octopus CLI will generate a NuGet package containing the .cspkg and .cscfg files:
 
-![NuGet Package Explorer](nuget-package-explorer.png)
+![NuGet Package Explorer](nuget-package-explorer.png "width=500")
 
 Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopus.com/demo/HelloCloud.1.0.0.nupkg)
 
@@ -44,7 +44,7 @@ Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://
 
 In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from **{{Library > Packages}}** and is a suitable place to upload your Cloud Service NuGet package:
 
-![Package feed](package-feed.png)
+![Package feed](package-feed.png "width=500")
 
 ## Cloud Service accounts {#CloudServiceConcepts-CloudServiceAccounts}
 
@@ -91,7 +91,7 @@ If you have scaled your Windows Azure service using the management portal (for e
 
 Any of the fields above can be switched to use a custom expression by clicking the control next to the field:
 
-![](vip-swap-binding-pointer.png)
+![](vip-swap-binding-pointer.png "width=500")
 
 ### Deployment process {#CloudServiceConcepts-Deploymentprocess}
 

@@ -6,9 +6,9 @@ position: 5
 
 When you create a release, you can add notes:
 
-![Editing release notes](images/release-notes-edit.png)
+![Editing release notes](images/release-notes-edit.png "width=500")
 
-![Viewing release notes](images/release-notes-view.png)
+![Viewing release notes](images/release-notes-view.png "width=500")
 
 ## Using variables in release notes
 
@@ -18,7 +18,7 @@ Only variables in scope when the release is created will be available for use in
 
 [Build information](/docs/packaging-applications/build-servers/index.md#build-information) associated with packages in the release may also be used in release notes.
 
-![Build information variables in release notes](images/release-notes-build-information.png)
+![Build information variables in release notes](images/release-notes-build-information.png "width=500")
 
 ## Accessing release notes during a deployment
 

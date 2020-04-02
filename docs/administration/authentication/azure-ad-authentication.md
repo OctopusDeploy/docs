@@ -27,21 +27,21 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 
 1. Login to the "[Azure Portal](https://portal.azure.com)" , click on your account positioned at the top-right of the screen, then select your desired directory.
 
-   ![Switch Azure Directories](images/switch-azure-directories.png)
+   ![Switch Azure Directories](images/switch-azure-directories.png "width=500")
 
 2. Click the **All services** button and select the **Azure Active Directory** service.
 
-   ![Open AzureAD service](images/aad-service.png)
+   ![Open AzureAD service](images/aad-service.png "width=500")
 
 3. Select **App registrations** then choose **New application registration**
 
-   ![New App registration](images/new-app-registration.png)
+   ![New App registration](images/new-app-registration.png "width=500")
 
 4. Choose a **Name** like *Octopus Deploy*, specify **Application Type** of *Web app/API*, and enter a value for **Sign-On URL** like *https://octopus.example.com* Then click **Create**.
  - The value you specify for Name will appear at the top of the Azure authentication page when the users are entering their credentials.
  - The value you specify for Sign-On URL should be the URL to your Octopus Server. This address is linked within your browser, so only has to be resolvable on your network, not from the public Internet.
 
-   ![Filling the App registration form](images/new-app-registration-form.png)
+   ![Filling the App registration form](images/new-app-registration-form.png "width=500")
 
 #### Configure trusted reply URLs {#AzureADauthentication-ConfiguringtrustedReplyURLs}
 
@@ -49,12 +49,12 @@ During the authentication with Azure AD, the user will be directed to an Azure p
 
 1. Find your new App registration in AzureAD.
 To ensure your new App registration appears in the list, you will need to set the filter to **All apps**.
-   ![Finding the App registration](images/find-app-registration.png)
+   ![Finding the App registration](images/find-app-registration.png "width=500")
 
 2. Select **Settings** and choose **Reply URLs**. Under the Reply URLs section, enter the public URL to your Octopus Server with `/api/users/authenticatedToken/AzureAD` attached to the end.
 In our example this would be `https://octopus.example.com/api/users/authenticatedToken/AzureAD`.
 
-   ![Setting the App registration ReplyURL](images/set-app-registration-replyurl.png)
+   ![Setting the App registration ReplyURL](images/set-app-registration-replyurl.png "width=500")
 
 Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. The specification highly recommends using SSL to ensure the security and integrity of your tokens. You can use `http` here if you do not have SSL enabled on the public interface of your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 
@@ -65,7 +65,7 @@ If you want to manage user/team membership via AAD, you will need to configure R
 
 1. Under the App Registration, select **Manifest** and select **Edit** to modify your manifest as required.
 
-  ![Editing an App registration manifest](images/edit-app-registration-manifest.png)
+  ![Editing an App registration manifest](images/edit-app-registration-manifest.png "width=500")
 
 The example below illustrates two roles, one for administrators and one for application testers.
 
@@ -99,7 +99,7 @@ Make sure you replace the `NEWGUID`s with a generated guid (unique per entry).
 
 Once you have completed editing the manifest, select the **Save** option.
 
-  ![Saving an App registration manifest](images/save-app-registration-manifest.png)
+  ![Saving an App registration manifest](images/save-app-registration-manifest.png "width=500")
 
 
 :::hint
@@ -117,13 +117,13 @@ Once the App Role(s) have been defined, users/groups from Azure AD may be mapped
 
  1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
 
-  ![Editing App registration users](images/edit-app-registration-users.png)
+  ![Editing App registration users](images/edit-app-registration-users.png "width=500")
 
 2. Choose **Users and groups** and select **Add user** to create a new role assignment.
 
 3. Select the users which you would like to assign roles to. Next, under **Select Role** specify one of the AppRoles that you added to the App registration manifest.
 
-  ![Editing App registration users role](images/edit-app-registration-users-role.png)
+  ![Editing App registration users role](images/edit-app-registration-users-role.png "width=500")
 
 4. To save your changes, select the **Assign** button.
 
@@ -142,11 +142,11 @@ There are two values you will need from the Azure AD configuration to complete t
 
 1. In the Azure portal, the **Application ID** in your App's **Essentials section** is your **Client ID**
 
-  ![Getting the App registration](images/get-app-registration-id.png)
+  ![Getting the App registration](images/get-app-registration-id.png "width=500")
 
 2. The GUID for the **Issuer** is your Azure Active Directory Tenant ID which can be found in the **Properties** sheet of Azure Active Directory
 
- ![Get the AzureAD tenant from the Portal](images/get-aad-tenant-portal.png)
+ ![Get the AzureAD tenant from the Portal](images/get-aad-tenant-portal.png "width=500")
 
 ### Setting the client ID and issuer in Octopus Deploy {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
@@ -167,7 +167,7 @@ Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --az
 
 Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,Azure AD}}** and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
 
-![Settings](images/azure-ad-settings.png)
+![Settings](images/azure-ad-settings.png "width=500")
 
 ### Assign app registration roles to Octopus teams (Optional) {#AzureADauthentication-SettingtheClientIDandIssuerintoOctopusDeploy}
 
@@ -178,10 +178,10 @@ If you followed the optional steps for modifying the App registration's manifest
 2. Either Create a new **Team** or select an existing one.
 
 3. Under the **Members** section, select the option **Add External Group/Role**.
- ![Adding Octopus Teams from External Providers](images/add-octopus-teams-external.png)
+ ![Adding Octopus Teams from External Providers](images/add-octopus-teams-external.png "width=500")
 
 4. Enter the details from your App registration's manifest. In this example we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name**.
- ![Add Octopus Teams Dialog](images/add-octopus-teams-external-dialog.png)
+ ![Add Octopus Teams Dialog](images/add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
 
@@ -232,12 +232,12 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log".
 
-   ![Preserve Logs](/docs/administration/authentication/images/5866122.png)
+   ![Preserve Logs](/docs/administration/authentication/images/5866122.png "width=500")
 
 3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
 4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
-   ![Id Token](/docs/administration/authentication/images/5866123.png)
+   ![Id Token](/docs/administration/authentication/images/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Azure AD.
 6. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email** and **name** claims. If these claims are not present you will likely see unexpected behavior.

@@ -15,7 +15,7 @@ In **Octopus 4.0**, we added the ability to manage most of the available configu
 
 In the Octopus Web Portal, you can access configuration by navigating to **{{Configuration,Settings}}**, this will show which configuration items are available.
 
-![Web Portal Configuration](octopus-v4-config-webportal.png)
+![Web Portal Configuration](octopus-v4-config-webportal.png "width=500")
 
 ## Octopus.Client
 

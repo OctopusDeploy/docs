@@ -11,4 +11,4 @@ A *healthy* deployment target completes a health check without any errors or wa
 
 You can review the health status of you deployment targets by navigating to **{{Infrastructure,Deployment Targets}}**.
 
-![Health status of deployment targets](/docs/shared-content/concepts/images/health-status.png)
+![Health status of deployment targets](/docs/shared-content/concepts/images/health-status.png "width=500")

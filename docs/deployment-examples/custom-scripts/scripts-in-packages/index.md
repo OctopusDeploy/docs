@@ -71,11 +71,11 @@ Make sure the scripts are located in the root of your package.
 
 Make sure the scripts are actually included in your package. Extract your package and inspect the contents to make sure the scripts are included as you expect. For example, if you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action = Content**.
 
-![](3277766.png)
+![](3277766.png "width=500")
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
-![](3277765.png)
+![](3277765.png "width=500")
 
 Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack/index.md).
 

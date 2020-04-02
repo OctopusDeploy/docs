@@ -30,13 +30,13 @@ If you change the Octopus Server installation path (e.g. *C:\Program Files\Octop
 
 When the installer finishes, Octopus Manager will appear. Make sure the Octopus service is running by clicking **Start**.
 
-![](images/3277991.png)
+![](images/3277991.png "width=500")
 
 ## Upgrading Tentacles {#UpgradingfromOctopus2.0-UpgradingTentacles}
 
 After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus Web Portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
-![](images/3277990.png)
+![](images/3277990.png "width=500")
 
 Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
 
@@ -50,7 +50,7 @@ Instead, we added a check in **Octopus 2.1.3** that checks if a per-user install
 
 > A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
 
-![](images/3278002.png)
+![](images/3278002.png "width=500")
 
 ### Uninstall Octopus 2.0 {#UpgradingfromOctopus2.0-UninstallingOctopus2.0}
 
@@ -63,7 +63,7 @@ When upgrading from one version of Octopus to another we actually perform an uni
 
 You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features** in the Windows Control Panel:
 
-![](images/3278003.png)
+![](images/3278003.png "width=500")
 
 After you have uninstalled the old version of Octopus, you can install the new version.
 

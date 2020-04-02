@@ -16,7 +16,7 @@ Just like non-sensitive variables they can [reference other variables](/docs/pro
 
 To make a variable a **sensitive variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
-![Open Variable Editor](images/open-editor.png)
+![Open Variable Editor](images/open-editor.png "width=500")
 
 For variable type, select **Sensitive**.
 

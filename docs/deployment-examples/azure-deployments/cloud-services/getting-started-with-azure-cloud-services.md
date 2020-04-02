@@ -14,7 +14,7 @@ You will need a NuGet package containing the Azure Cloud Service application you
 
 Upload your NuGet package to the Octopus [built-in package repository](/docs/packaging-applications/package-repositories/index.md):
 
-![Package feed](package-feed.png)
+![Package feed](package-feed.png "width=500")
 
 ## Create an account {#GettingstartedwithAzureCloudServices-Createanaccount}
 
@@ -24,13 +24,13 @@ To set up a new Azure Management Certificate account, follow the directions in [
 
 In order to deploy a Cloud Service we require an Octopus environment to deploy to. Cloud Services have slots which map nicely to environments. Create a new environment called "Staging":
 
-![Create environment](create-env.png)
+![Create environment](create-env.png "width=500")
 
 ## Create a project {#GettingstartedwithAzureCloudServices-Createaproject}
 
 Now have the NuGet package we want to deploy, the account we are going to use for the deployment and an environment to deploy to, all we need is a project to do all the work.  Create a new project:
 
-![Create project](create-project.png)
+![Create project](create-project.png "width=500")
 
 In the project's process add a new Deploy an Azure Cloud Service step:
 
@@ -38,10 +38,10 @@ In the project's process add a new Deploy an Azure Cloud Service step:
 
 Select the NuGet package that you are going to deploy and the Azure account to use for the deployment. The settings for this step should look something like this:
 
-![Cloud Service Step Template](cloud-service-step.png)
+![Cloud Service Step Template](cloud-service-step.png "width=500")
 
 Save the step and create a release for your project. Deploy the release to the Staging environment:
 
-![Deploy Cloud Service](deploy-cloud-service.png)
+![Deploy Cloud Service](deploy-cloud-service.png "width=500")
 
 Grab a coffee and by the time you get back your application should be deployed to the staging slot of your Azure Cloud Service.

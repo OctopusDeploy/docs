@@ -18,13 +18,13 @@ If your **Octopus 1.x** installation is at an earlier version than **Octopus 1.6
 
 Below is the dashboard from an **Octopus 1.6** server that will be used as an example for this walk-through.
 
-![](images/3278001.png)
+![](images/3278001.png "width=500")
 
 Before attempting to migrate, make sure that you don't have any projects, environments, or machines with duplicated names (this is no longer allowed in **Octopus 2.0**, and the migration wizard will report an error if it finds duplicates).
 
 Then go to the **Storage** tab in the **Configuration** area, and make sure that you have a recent backup:
 
-![](images/3277999.png)
+![](images/3277999.png "width=500")
 
 ## Install Octopus 2.0 {#UpgradingfromOctopus1.6-InstallOctopus2.0}
 
@@ -38,11 +38,11 @@ View our [guide to installing an Octopus 2.0](/docs/installation/index.md), whic
 
 On the **Octopus 2.0** server, open the Octopus Manager from your start menu/start screen.
 
-![](images/3277998.png)
+![](images/3277998.png "width=500")
 
 In the Octopus Manager, click **Import from 1.6...**
 
-![](images/3277997.png)
+![](images/3277997.png "width=500")
 
 When the wizard appears, select the backup file from **Octopus 1.6** that you created earlier
 
@@ -52,19 +52,19 @@ Next, you'll be asked if you want to change the Tentacle port on all machines th
 If you don't change the Tentacle port, make sure you completely shut down your **Octopus 1.6** server after the upgrade, or remove the upgraded machines from it. Leaving the **Octopus 1.6** server running will generate large numbers of invalid connection attempts from the old server to the new Tentacles, and this can adversely affect performance.
 :::
 
-![](images/3277995.png)
+![](images/3277995.png "width=500")
 
 Next, click Import and your **Octopus 1.6** backup will be imported.
 
-![](images/3277994.png)
+![](images/3277994.png "width=500")
 
 The import process will take a few minutes to run, and any errors will be reported in the output window.
 
-![](images/3277993.png)
+![](images/3277993.png "width=500")
 
 At this point, you should be able to view the imported projects, environments and machines, but all the machines will be offline.
 
-![](images/3277992.png)
+![](images/3277992.png "width=500")
 
 ## Permissions {#UpgradingfromOctopus1.6-Permissions}
 

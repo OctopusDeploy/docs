@@ -6,7 +6,7 @@ position: 172
 
 !include <operations-runbooks-intro>
 
-![](docs/shared-content/images/runbooks-cutout.png)
+![](docs/shared-content/images/runbooks-cutout.png "width=500")
 
 ## Learn more
 

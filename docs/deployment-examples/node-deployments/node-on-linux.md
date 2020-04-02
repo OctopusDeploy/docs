@@ -106,7 +106,7 @@ npm start
 
 If the site runs correctly, when you navigate to http://localhost:8081 you should see a page with words that appear to be missing. These will be populated in the config files during the deployment.
 
-![App with missing variables](images/missing-variables.png)
+![App with missing variables](images/missing-variables.png "width=500")
 
 ## Configure the publish task {#CreatePushNode.jsProject-ConfigurePublishTask}
 
@@ -262,7 +262,7 @@ The next step is to create a project that will extract the package.
  
 Ensure the target role matches the target role that was assigned to the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 
-![](images/step-details.png)
+![](images/step-details.png "width=500")
 
 ### Variable substitution {#ConfigureOctopusDeployProject-VariableSubstitution}
 
@@ -271,7 +271,7 @@ Ensure the target role matches the target role that was assigned to the machine 
 3. Enable the *Substitute variables in files* feature.
 4. Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
-![](images/substitute-variables.png)
+![](images/substitute-variables.png "width=500")
 
 5. Navigate to the **Variables** section and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped, and click **Save**.
 
@@ -305,7 +305,7 @@ The package will be uploaded to the server and unpacked, and the environment spe
 
 Navigating to the host machine after deploying to the *prod* environment will result in a page similar to:
 
-![](images/successful-deployment.png)
+![](images/successful-deployment.png "width=500")
 
 :::hint
 **Trouble browsing to your site?**
