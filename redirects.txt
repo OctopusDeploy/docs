@@ -7,7 +7,6 @@ docs/administration/moving-your-octopus/replicating-your-octopus-instance-in-a-t
 docs/api-and-integration/visual-studio-team-services-vsts -> docs/packaging-applications/build-servers/tfs-azure-devops/index.md
 docs/api-and-integration/team-foundation-server-tfs -> docs/packaging-applications/build-servers/tfs-azure-devops/index.md
 docs/administration/subscription_events.md -> docs/administration/managing-infrastructure/subscriptions/index.md
-docs/installation/installing-tentacles/running-tentacle-under-a-specific-user-account-for-use-in-powershell.md -> docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md
 docs/packaging-applications/nuget-packages/using-octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
 docs/packaging-applications/nuget-packages/using-octopack/index.md -> docs/packaging-applications/create-packages/octopack/index.md
 docs/packaging-applications/nuget-packages/using-octopack/octopack-to-include-buildevent-files.md -> docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md
@@ -17,11 +16,6 @@ docs/installation/installing-octopus/automating-installation.md -> docs/installa
 docs/installation/installing-octopus/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-for-the-octopus-windows-service.md
 docs/installation/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-for-the-octopus-windows-service.md
 docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
-docs/installation/installing-tentacles/index.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
-docs/installation/installing-tentacles/listening-tentacles.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
-docs/installation/installing-tentacles/polling-tentacles/index.md -> docs/infrastructure/deployment-targets/windows-targets/index.md
-docs/installation/installing-tentacles/polling-tentacles-web-sockets.md -> docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-web-sockets.md
-docs/installation/installing-tentacles/automating-tentacle-installation.md -> docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md
 docs/infrastructure/environments/accounts/index.md -> docs/infrastructure/index.md
 docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
 docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
@@ -36,16 +30,6 @@ docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> doc
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/infrastructure/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
-docs/patterns/index.md -> docs/deployment-patterns/index.md
-docs/patterns/blue-green-deployments/index.md -> docs/deployment-patterns/blue-green-deployments/index.md
-docs/patterns/blue-green-deployments/blue-green-deployments-in-iis.md -> docs/deployment-patterns/blue-green-deployments/blue-green-deployments-in-iis.md
-docs/patterns/branching.md -> docs/deployment-patterns/branching.md
-docs/patterns/canary-deployments.md -> docs/deployment-patterns/canary-deployments.md
-docs/patterns/clustered-listening-tentacles.md -> docs/deployment-patterns/clustered-listening-tentacles/index.md
-docs/patterns/isolated-octopus-deploy-servers.md -> docs/deployment-patterns/isolated-octopus-deploy-servers.md
-docs/patterns/multi-region-deployment-pattern.md -> docs/deployment-patterns/multi-region-deployment-pattern.md
-docs/patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
-docs/patterns/rolling-deployments.md -> docs/deployment-patterns/rolling-deployments.md
 docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
