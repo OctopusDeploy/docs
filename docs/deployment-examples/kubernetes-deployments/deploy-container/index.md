@@ -20,7 +20,7 @@ The second feature is the `Service`. This feature is used to build a [Service re
 
 The third feature is the `Ingress`. This feature is used to build a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
 
-![Deploy Container Resources](deploy-container.svg)
+![Deploy Container Resources](deploy-container.svg "width=500")
 
 :::hint
 Kubernetes terminology overlaps with a number of general concepts in Octopus. For example, Kubernetes has the notion of a Deployment, which is distinct from the act of performing a deployment in Octopus.
