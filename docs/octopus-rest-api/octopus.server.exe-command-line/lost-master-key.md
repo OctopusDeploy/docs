@@ -27,7 +27,7 @@ Where [<options>] is any of:
                                load and save data in the expected format.
       --skipCurrentMasterKeyTest
                              By default this command will test whether the
-                               existing master key can decrypt the Octopus
+                               existing Master Key can decrypt the Octopus
                                Server X.509 certificate. Use this switch if you
                                are certain you want to ignore the results of
                                this test.
