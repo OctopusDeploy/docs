@@ -6,15 +6,8 @@ position: 57
 
 Runbooks were introduced in **Octopus 2019.11**
 
-A deployment is only one phase in the life of an application. There are typically many other tasks that are performed to keep an application operating. A large part of DevOps is running operations separate from deploying applications, and this is where runbooks helps.
+!include <operations-runbooks-intro>
 
-Runbooks are used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
-
-![Runbooks](runbooks-list.png "width=500")
-
-## Projects
-
-Runbooks are contained in [projects](/docs/projects/index.md).
 
 To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
 
