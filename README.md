@@ -9,6 +9,20 @@ See the [Octopus style guide](https://github.com/OctopusDeploy/OctoStyle) for in
 * [Working with images](https://octopusdeploy.github.io/OctoStyle/images)
 * [Predefined snippets to include in your text](https://octopusdeploy.github.io/OctoStyle/octopus-snippets)
 
+## Snippets
+
+The documentation includes snippets from the [snippets repo](https://github.com/OctopusDeploy/snippets). For more information see [Octopus snippets](https://octopusdeploy.github.io/OctoStyle/octopus-snippets).
+
+If the latest snippets do not appear in the output, use the following to update the snippets:
+
+```
+cd docs/docs/shared-content/snippets/
+git fetch
+git merge
+```
+
+And merge the docs repo.
+
 ## How to contribute a change to the docs
 
 * Fork this repo and create a branch for your changes.
