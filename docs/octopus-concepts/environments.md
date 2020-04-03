@@ -1,7 +1,6 @@
 ---
 title: Environments
 description: Environments represent the different phases in your deployment process from development, to testing, and finally into production.
-position: 50
 ---
 
 !include <environments>

@@ -1,7 +1,6 @@
 ---
 title: Health checks
 description: Octopus periodically runs health checks on deployment targets and workers to ensure that they are available and running the latest version of Calamari.
-position: 70
 ---
 
 !include <health-checks>

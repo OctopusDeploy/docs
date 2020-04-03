@@ -1,7 +1,6 @@
 ---
 title: REST API
 description: The Octopus Deploy is built API first, meaning anything you can do in the Octopus Web Portal, you can also do over the REST API.
-position: 172
 ---
 
 !include <rest-api>

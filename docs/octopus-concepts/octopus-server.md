@@ -1,7 +1,6 @@
 ---
 title: Octopus Server
 description: The Octopus Server provides the REST API and the Octopus Web Portal to manage your deployments and infrastructure.
-position: 154
 ---
 
 !include <octopus-server>
