@@ -2,7 +2,12 @@ This repository contains the documentation for [Octopus Deploy](https://octopus.
 
 Contributions to help improve this documentation are welcome, however, you must sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs) before we can accept your contribution.
 
-See the [Octopus style guide](https://github.com/OctopusDeploy/OctoStyle) for information about [using markdown](markdown.md).
+See the [Octopus style guide](https://github.com/OctopusDeploy/OctoStyle) for information including:
+
+* [Markdown quick reference](https://octopusdeploy.github.io/OctoStyle/markdown)
+* [Capitalization](https://octopusdeploy.github.io/OctoStyle/capitalization)
+* [Working with images](https://octopusdeploy.github.io/OctoStyle/images)
+* [Predefined snippets to include in your text](https://octopusdeploy.github.io/OctoStyle/octopus-snippets)
 
 ## How to contribute a change to the docs
 
