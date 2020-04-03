@@ -1,6 +1,7 @@
 ---
 title: Upgrading self-hosted Octopus
 description: As a self-hosted Octopus Deploy user, you need to manually upgrade the server to take advantages of the newest features.
+position: 190
 ---
 
 When you self-host the Octopus Server, you need to manually upgrade the server to take advantage of features in new releases of Octopus Deploy. 

@@ -1,6 +1,7 @@
 ---
 title: Deployment process
 description: Your deployment process consists of the steps the deployment automation server will take to deploy your software.
+position: 40
 ---
 
 !include <deployment-process>
