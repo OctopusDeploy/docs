@@ -1,216 +1,224 @@
 ---
 title: MySQL flyway deployment
 description: How to do MySQL database deployments with Flyway.
-position: 1000
+position: 30
 ---
 
-[Flyway](https://flywaydb.org/) is an open source [migrations-based](https://octopus.com/blog/sql-server-deployment-options-for-octopus-deploy) database deployment tool supported by Redgate.  It's a command-line utility that uses Java to execute script files against several database technologies such as Microsoft SQL Server, MySQL, MariaDB, and PostgreSQL.  Along with a free Community edition, there is also a paid Pro and Enterprise versions available.  Flyway is a popular tool with the open source community.  This guide will demonstrate how to use Flyway with a MySQL database.
+[Flyway](https://flywaydb.org/) is a popular open source [migrations-based](https://octopus.com/blog/sql-server-deployment-options-for-octopus-deploy) database deployment tool supported by Redgate.  It's a command-line utility that uses Java to execute script files against several database technologies such as Microsoft SQL Server, MySQL, MariaDB, and PostgreSQL.  There is a free Community edition, and paid Pro and Enterprise versions available. This guide demonstrates how to use Flyway with a MySQL database.
 
-## Including Flyway with your project
-Adding Flyway to your project is pretty simple, just [download the archive](https://flywaydb.org/download/) file and extract it to disk.  Once the files are extracted, move them into your project folder structure.  The Flyway download comes with everything it needs to execute, including a version of the Java Runtime Environment (JRE).  
+## Include Flyway with your project
 
-![](images/visual-studio-code-add-flyway.png)
+To add Flyway to your project:
+
+1. [Download the archive file](https://flywaydb.org/download/).
+1. Extract the archive to disk.
+1. Move the files into your project directory structure.  
+
+The Flyway download comes with everything it needs to execute, including a version of the Java Runtime Environment (JRE):
+
+![Flyway included in a Visual Studio project](images/visual-studio-code-add-flyway.png)
 
 :::hint
-If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` subfolder.  It is often the case that source control will ignore any folder with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
+If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` sub-directory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
 :::
 
-## Adding scripts to your Flyway project
-Within the Flyway folder structure is a folder called `sql`.  This folder is where all of your scripts are placed.  To control the execution order, the [documenation](https://flywaydb.org/documentation/) states that the files need to be named in a specific way.  Flyway is capable of doing Versioned Migrations, Undo Migrations, and Repeatable Migrations.  All script files follow this naming structure:
+## Add scripts to your Flyway project
 
-- Prefix: V for Versioned, U for Undo, and R for Repeatable (this guide will focus on Versioned migrations)
-- Version: Numbers with dots or underscores as separators
-- Separator: Two underscores
-- Description: A meaningful name with underscores or spaces to separate the words
-- Suffix: Usually `.sql`
+Within the Flyway directory structure is a directory called `sql`.  This directory is where your scripts belong.  To control the execution order, the [documentation](https://flywaydb.org/documentation/) states  the files must be named in a specific way.  Flyway is capable of doing versioned migrations, undo migrations, and repeatable migrations.  All script files follow this naming structure:
 
-Examples of what a filename would look like are `V1__initDB.sql`, `V1_1__populateDb.sql`, or `V1.1__populateDb.sql`
+- Prefix: V for versioned, U for undo, and R for repeatable (this guide will focus on versioned migrations).
+- Version: Numbers with dots or underscores as separators.
+- Separator: Two underscores.
+- Description: A meaningful name with underscores or spaces to separate the words.
+- Suffix: Usually `.sql`.
 
-![](images/visual-studio-code-scripts.png)
+Example filenames are:
 
-## Executing a migration
-As previously stated, Flyway is a command-line utility.  Flyway was originally designed to be cross-platform so the downloaded archive will work on either Windows or Linux.  For Windows, the `flyway.cmd` file is used when executing.  For Linux, the file `flyway` is a Bash script for execution.  Both OS methods use the same arguments for deployment.
+- `V1__initDB.sql`
+- `V1_1__populateDb.sql`
+- `V1.1__populateDb.sql`
+
+## Execute a migration
+
+Flyway is a command-line utility that was originally designed to be cross-platform so the downloadable archive will work on either Windows or Linux.  For Windows, the `flyway.cmd` file is used when executing.  For Linux, the file `flyway` is a Bash script for execution.  
+
+Both OS methods use the same arguments for deployment.
 
 ## Including Flyway in your build
-Flyway itself is already compiled, so there's no need to do anything for building.  However, it can still be included in a build process to package it up for deployment with Octopus Deploy.  This guide will use Jenkins as the build platform.  
 
-### Add Package step
-Within a Jenkins project, click Add Build Step and choose `Octopus Deploy Package application`
+Flyway itself is already compiled, so there's no need to do anything for building.  However, it can still be included in a build process to package it up for deployment with Octopus Deploy.  This guide uses Jenkins as the build platform.  
 
-![](images/jenkins-build-add-step.png)
+## Add a package step
+
+Within a Jenkins project, navigate to **Build Environment**, and in the **Build** section, click **Add Build Step** and choose **Octopus Deploy Package application**.
 
 :::hint
-You will need to make sure you install the Octopus Deploy Jenkins plugin to make use of these templates.  In addition, you'll need to download the Octopus Deploy CLI on to the Jenkins build agent(s)
+The [Octopus Deploy Jenkins plugin](/docs/packaging-applications/build-servers/jenkins.md#install-the-octopus-jenkins-plugin) needs to be installed to use these templates.  You also need to download the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on to the Jenkins build agent(s).
 :::
 
-Fill in the inputs
-- Package ID: A unique name for this package like `petclinic.mysql.flyway`
-- Version Number: The unique version number for this package
-- Package format: zip | nuget
-- Package base folder: ${WORKSPACE}\flyway
+Fill in the inputs:
+- Package ID: A unique name for this package like `petclinic.mysql.flyway`.
+- Version Number: The unique version number for this package.
+- Package format: Zip or nuget.
+- Package base directory: `${WORKSPACE}\flyway`.
 - Package include paths:
-- Package output folder: ${WORKSPACE}
+- Package output directory: `${WORKSPACE}`.
 
-![](images/jenkins-build-package-flyway.png)
+### Jenkins build number formating
 
-:::hint
-To configure Jenkins to produce build numbers in a format like yyyy.mm.dd.hhmmss (2020.03.25.145344), install the following plugins
-- Build Name and Description Setter
-- Date Parameter Plugin
+To configure Jenkins to produce build numbers in a format like yyyy.mm.dd.hhmmss (2020.03.25.145344), install the following plugins:
+- Build Name and Description Setter.
+- Date Parameter Plugin.
 
-![](images/jenkins-plugins.png)
+Once the plugins are installed, configure your Jenkins project to be parameterized by navigating to the **General** tab and checking the `This project is parameterized` checkbox.
 
-Once those are installed, configure your Jenkins project to be parameterized in the General tab
+Then use the Date parameter to create some parameters:
 
-![](images/jenkins-build-parameterized.png)
-
-Then use the Date parameter to create some parameters
+- Date parameter
+  - **Name**: Year
+  - **Date Format**: yyyy
+  - **Default Value**: LocalDate.now();
+- Date parameter
+  - **Name**: Day
+  - **Date Format**: dd
+  - **Default Value**: LocalDate.now();
+- Date parameter
+  - **Name**: Month
+  - **Date Format**: MM
+  - **Default Value**: LocalDate.now();
 
 ![](images/jenkins-build-date-parameters.png)
 
-Lastly, set the build name in the Build Environment section
+Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance: 
 
-![](images/jenkins-build-set-name.png)
-:::
+`${Year}.${Month}.${Day}.${Time}`
 
-### Add push step
-Add an Octopus Deploy Push step to your build
+## Add a push step
 
-![](images/jenkins-build-add-push-step.png)
+Add an Octopus Deploy Push step to your build by navigating to the **Build** tab, clicking the **Add build step** drop-down list and selecting **Octopus Deploy: Push packages**.
 
-Fill in the fields
-- Octopus Deploy Server: The values for the drop-down for this come from the Jenkins server configuration.  To configure this, go to Jenkins home screen -> Manage Jenkins -> Configure System then scroll down to the Octopus Deploy Plugin section.
-- Space: Select the space to deploy to.  You can leave this blank for the Default space
-- Package paths: `/*.nupkg`
+Fill in the fields:
+- **Octopus Deploy Server**: The values for the drop-down for this come from the Jenkins server configuration.  To configure this, navigate to {{Jenkins home screen,Manage Jenkins,Configure System}}, and then scroll down to the **Octopus Deploy Plugin** section:
+- **Space**: Select the space to deploy to.  You can leave this blank for the Default space
+- **Package paths**: `/*.nupkg`
 
 ![](images/jenkins-build-push-packages.png)
 
-Those are the only two steps that are needed to package and push a Flyway project to Octopus Deploy.  Once saved, click on `Build with Parameters`
+Those are the only two steps that are needed to package and push a Flyway project to Octopus Deploy.  After saving, click on **Build with Parameters**.
 
-![](images/jenkins-build-with-parameters.png)
-
-The generated Date parameters will display.  Click `Build` to continue.
+The generated Date parameters will display.  Click **Build** to continue:
 
 ![](images/jenkins-build-parameters.png)
 
-When the build is complete, you should have something like this
+When the build is complete, you should have something like this:
 
 ![](images/jenkins-build-success.png)
 
 Now that the build is complete, it's time to configure the Octopus Deploy project.
 
 ## Octopus Deploy
-From the Dashboard of Octopus Deploy, click on Projects
+
+From the Octopus Web Portal, navigate to the **Projects** tab:
 
 ![](images/octopus-projects.png)
 
-Select the Project Group and click the **ADD PROJECT** or the green **ADD PROJECT** button in the upper right-hand corner.
+Select the **Project Group** and click the green **ADD PROJECT** button.
 
-![](images/octopus-projects-add.png)
-
-Give the project a unique name, (optional) a description, select the Project Group and the Lifecycle.  If you've clicked on the **ADD PROJECT** button on a specific project group, this selection will be pre-populated.
+Give the project a unique name, a description, select the **Project Group** and the **Lifecycle**.  If you've clicked on the **ADD PROJECT** button on a specific project group, this selection will be pre-populated.
 
 ![](images/octopus-projects-new.png)
 
 ### Variables
-Once in the new project, click on Variables to set up some variables
 
-![](images/octopus-project-variables.png)
+In the new project, click **Variables** to configure the following variables:
 
-Add the following variables:
-- Project.MySql.Database.Name: Name of the database
-- Project.MySql.Database.Server.Name: Name or IP address of the database server
-- Project.MySql.Database.Server.Port: Port that MySql is listening on
-- Project.MySql.Database.Admin.User.Name: User account with elevated permissions on the database
-- Project.MySql.Database.Admin.User.Password: Password for the user account
-- Project.MySql.ConnectionString: jdbc:mysql://#{Project.MySql.Database.Server.Name}:#{Project.MySql.Database.Server.Port}/#{Project.MySql.Database.Name}?useUnicode=true
+- `Project.MySql.Database.Name`: The name of the database.
+- `Project.MySql.Database.Server.Name`: The name or IP address of the database server.
+- `Project.MySql.Database.Server.Port`: The port that MySql is listening on.
+- `Project.MySql.Database.Admin.User.Name`: The user account with elevated permissions on the database.
+- `Project.MySql.Database.Admin.User.Password`: The password for the user account.
+- `Project.MySql.ConnectionString`: `jdbc:mysql://#{Project.MySql.Database.Server.Name}:#{Project.MySql.Database.Server.Port}/#{Project.MySql.Database.Name}?useUnicode=true`.
 
 ![](images/octopus-project-variables-defined.png)
 
 ### Deployment process
-The variables needed to be defined first so that we could use them within the deployment process.  Click on the `Process` tab, then **ADD STEP**.
 
-![](images/octopus-project-process-add.png)
+With variables defined, we can use them within the deployment process.  Click on the **Process** tab, and **ADD STEP**.
 
-Filter the steps by `flyway`
+Filter the steps by entering `flyway` into the search box:
 
 ![](images/octopus-project-filter-step-template.png)
 
 Five results will be returned, three for PowerShell and two for Bash.
 
-#### Flyway Info from a Referenced Package
-This template will compare the scripts in the scripts folder against the ones that have already been run and display the status of each script using a Package Parameter.  This template is available for both PowerShell and Bash.
+#### Flyway info from a referenced package
 
-#### Flyway Migrate
-This template performs the Flyway Migrate command and applies any scripts that haven't been run to the database and records which ones were applied so they won't be run again.  It also contains the ability to run the Redgate SQLCompare to run a drift check.  This template is available for both PowerShell and Bash.
+This template will compare the scripts in the scripts directory against the ones that have already been run and display the status of each script using a package parameter.  This template is available for both PowerShell and Bash.
 
-#### Flyway Migrate from a referenced Package
-This template is nearly identical to the Flyway Migrate step with the difference being this version uses a Package Parameter instead of Feed Id and Package Id.  This is only available in the PowerShell variant at this time.
+#### Flyway migrate
 
-Choose the `Flyway Info from a Referenced Package` for whichever OS you intend to deploy.  This guide will make use of the Bash versions for use with Linux Tentacles.
+This template performs the Flyway migrate command and applies any scripts that haven't been run to the database and records which ones were applied so they won't be run again.  It also includes the ability to run Redgate SQLCompare to run a drift check.  This template is available for both PowerShell and Bash.
+
+#### Flyway migrate from a referenced package
+
+This template is similar to the Flyway migrate step but uses a package parameter instead of feed ID and package ID.  This is only available in PowerShell at this time.
+
+Choose the **Flyway Info from a Referenced Package** for whichever OS you intend to deploy.  This guide uses the Bash version for use with Linux Tentacles:
 
 ![](images/octopus-project-flyway-info-step.png)
 
 Fill in the fields:
-- Relative path to flyway.cmd (optional): Use if your flyway bash file isn't within the root of the package.
-- locations (relative path, optional): Use if your `sql` folder is not off the root folder
-- Target -url (required): Connection string to MySql - #{Project.MySql.ConnectionString}
-- Target -user (required): User account with elevated rights - #{Project.MySql.Database.Admin.User.Name}
-- Target -password (required): Password for the user account - #{Project.MySql.Database.Admin.User.Password}
-- Flyway package: The package for deployment
+- **Relative path to flyway.cmd (optional)**: Use if your flyway bash file isn't within the root of the package.
+- **Locations (relative path, optional)**: Use if your `sql` directory is not off the root directory.
+- **Target -url (required)**: Connection string to MySql - `#{Project.MySql.ConnectionString}`.
+- **Target -user (required)**: User account with elevated rights - `#{Project.MySql.Database.Admin.User.Name}`.
+- **Target -password (required)**: Password for the user account - `#{Project.MySql.Database.Admin.User.Password}`.
+- **Flyway package**: The package for deployment.
 
 ![](images/octopus-project-flyway-info-step-added.png)
 
-Add a `Manual Intervention` step and scope it to the Production environment.  This will pause the deployment so you can review what is about to be executed and determine whether or not to proceed when deploying to Production.
+Add a `Manual Intervention` step and scope it to the **Production** environment.  This will pause the deployment so you can review what is about to be executed and determine whether or not to proceed when deploying to **Production**.
 
 ![](images/octopus-project-manual-intervention.png)
 
-Add the `Flyway Migrate` step.  The fields for this are identical to the `Flyway Info` step that was added previously.
+Add the **Flyway Migrate** step.  The fields for this are identical to the **Flyway Info** step that was added previously:
 
-- Relative path to flyway.cmd (optional): Use if your flyway bash file isn't within the root of the package.
-- locations (relative path, optional): Use if your `sql` folder is not off the root folder
-- Target -url (required): Connection string to MySql - #{Project.MySql.ConnectionString}
-- Target -user (required): User account with elevated rights - #{Project.MySql.Database.Admin.User.Name}
-- Target -password (required): Password for the user account - #{Project.MySql.Database.Admin.User.Password}
-- Run pre-deploy drift check: Used if you have Redgate SQLCompare
-- Path to Redgate comparison tool (required for drift-check): Path to the SQLCompare executable
-- Shadow -url (required for drift-check): Connection string to shadow database
-- Shadow -user (required for drift-check): Shadow database user account
-- Shadow -password (required for drift-check): Password for shadow database user
-- Flyway package: Package to deploy
+- **Relative path to flyway.cmd (optional)**: Use if your flyway bash file isn't within the root of the package.
+- **Locations (relative path, optional)**: Use if your `sql` directory is not off the root directory.
+- **Target -url (required)**: Connection string to MySql - `#{Project.MySql.ConnectionString}`.
+- **Target -user (required)**: User account with elevated rights - `#{Project.MySql.Database.Admin.User.Name}`.
+- **Target -password (required)**: Password for the user account - `#{Project.MySql.Database.Admin.User.Password}`.
+- **Run pre-deploy drift check**: Used if you have Redgate SQLCompare.
+- **Path to Redgate comparison tool (required for drift-check)**: Path to the SQLCompare executable.
+- **Shadow -url (required for drift-check)**: Connection string to shadow database.
+- **Shadow -user (required for drift-check)**: Shadow database user account.
+- **Shadow -password (required for drift-check)**: Password for shadow database user.
+- **Flyway package**: The package to deploy.
 
 ![](images/octopus-project-flyway-migrate1.png)
 ![](images/octopus-project-flyway-migrate2.png)
 
-When done, the deployment process should look like this:
+When complete, the deployment process will look like this:
 
 ![](images/octopus-project-process.png)
 
 ### Creating the release
-With the deployment process defined, the project can create a release for deployment.  Click on **CREATE RELEASE**
 
-![](images/octopus-project-create-release-button.png)
+With the deployment process defined, the project can create a release for deployment.  Click **CREATE RELEASE** and click **SAVE**.
 
-Click **SAVE**
-
-![](images/octopus-project-release-save.png)
-
-With the release created, choose the Environment to deploy to.  You can do this by either choosing the row with the **DEPLOY** button enabled or using the **DEPLOY TO ** in the upper right-hand corner.
-
-![](images/octopus-project-deploy-environment.png)
-
-Finally, click **DEPLOY**
+With the release created, click **DEPLOY TO...** and select the environment, then click **DEPLOY**.
 
 ### Troubleshooting
 
-If you receive an error message like
+If you receive an error message like the following:
+
 ```
-/etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 17: $'\r': command not found 
+/etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 17: $'\r': command not found
 /etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 20: syntax error near unexpected token `$'in\r''
-/etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 20: ` case "`uname`" in 
+/etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 20: ` case "`uname`" in
 ```
 
-your build server has converted line endings from LF to CRLF, which doesn't play nice.  This typically happens on Windows-based build servers.
+Your build server has converted line endings from LF to CRLF.  This typically happens on Windows-based build servers.
 
 Workarounds are:
 - Run the following command on your build agent `git config --global core.eol lf`
