@@ -87,7 +87,7 @@ Then use the Date parameter to create some parameters:
   - **Date Format**: MM
   - **Default Value**: LocalDate.now();
 
-![](images/jenkins-build-date-parameters.png)
+![An image showing the Jenkins' date parameters](images/jenkins-build-date-parameters.png)
 
 Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance: 
 
@@ -95,24 +95,22 @@ Lastly, set the build name in the **Build Environment** section, by checking the
 
 ## Add a push step
 
-Add an Octopus Deploy Push step to your build by navigating to the **Build** tab, clicking the **Add build step** drop-down list and selecting **Octopus Deploy: Push packages**.
+Add an Octopus Deploy Push step to your build by navigating to the **Build** tab, click the **Add build step** drop-down list and select **Octopus Deploy: Push packages**, and complete the following fields:
 
-Fill in the fields:
 - **Octopus Deploy Server**: The values for the drop-down for this come from the Jenkins server configuration.  To configure this, navigate to {{Jenkins home screen,Manage Jenkins,Configure System}}, and then scroll down to the **Octopus Deploy Plugin** section:
 - **Space**: Select the space to deploy to.  You can leave this blank for the Default space
 - **Package paths**: `/*.nupkg`
-
-![](images/jenkins-build-push-packages.png)
+- **Overwrite mode**: Fail if exists.
 
 Those are the only two steps that are needed to package and push a Flyway project to Octopus Deploy.  After saving, click on **Build with Parameters**.
 
 The generated Date parameters will display.  Click **Build** to continue:
 
-![](images/jenkins-build-parameters.png)
+![The generated date parameters](images/jenkins-build-parameters.png)
 
 When the build is complete, you should have something like this:
 
-![](images/jenkins-build-success.png)
+![Jenkins console output](images/jenkins-build-success.png)
 
 Now that the build is complete, it's time to configure the Octopus Deploy project.
 
@@ -120,13 +118,11 @@ Now that the build is complete, it's time to configure the Octopus Deploy projec
 
 From the Octopus Web Portal, navigate to the **Projects** tab:
 
-![](images/octopus-projects.png)
+![The Octopus project tab](images/octopus-projects.png)
 
-Select the **Project Group** and click the green **ADD PROJECT** button.
+Select the **Project Group** and click the **ADD PROJECT** button.
 
 Give the project a unique name, a description, select the **Project Group** and the **Lifecycle**.  If you've clicked on the **ADD PROJECT** button on a specific project group, this selection will be pre-populated.
-
-![](images/octopus-projects-new.png)
 
 ### Variables
 
@@ -139,17 +135,13 @@ In the new project, click **Variables** to configure the following variables:
 - `Project.MySql.Database.Admin.User.Password`: The password for the user account.
 - `Project.MySql.ConnectionString`: `jdbc:mysql://#{Project.MySql.Database.Server.Name}:#{Project.MySql.Database.Server.Port}/#{Project.MySql.Database.Name}?useUnicode=true`.
 
-![](images/octopus-project-variables-defined.png)
+![Variables defined in the Octopus Web Portal](images/octopus-project-variables-defined.png)
 
 ### Deployment process
 
-With variables defined, we can use them within the deployment process.  Click on the **Process** tab, and **ADD STEP**.
+With variables defined, we can use them in the deployment process.  Click on the **Process** tab, and **ADD STEP**.
 
-Filter the steps by entering `flyway` into the search box:
-
-![](images/octopus-project-filter-step-template.png)
-
-Five results will be returned, three for PowerShell and two for Bash.
+Filter the steps by entering `flyway` into the search box.
 
 #### Flyway info from a referenced package
 
@@ -161,11 +153,11 @@ This template performs the Flyway migrate command and applies any scripts that h
 
 #### Flyway migrate from a referenced package
 
-This template is similar to the Flyway migrate step but uses a package parameter instead of feed ID and package ID.  This is only available in PowerShell at this time.
+This template is similar to the Flyway migrate step but uses a package parameter instead of a feed ID and package ID.  This is only available in PowerShell at this time.
+
+## Configure the step
 
 Choose the **Flyway Info from a Referenced Package** for whichever OS you intend to deploy.  This guide uses the Bash version for use with Linux Tentacles:
-
-![](images/octopus-project-flyway-info-step.png)
 
 Fill in the fields:
 - **Relative path to flyway.cmd (optional)**: Use if your flyway bash file isn't within the root of the package.
@@ -175,11 +167,9 @@ Fill in the fields:
 - **Target -password (required)**: Password for the user account - `#{Project.MySql.Database.Admin.User.Password}`.
 - **Flyway package**: The package for deployment.
 
-![](images/octopus-project-flyway-info-step-added.png)
+Add a `Manual Intervention` step and scope it to the **Production** environment.  This will pause the deployment so you can review what will be executed and determine whether or not to proceed when deploying to **Production**.
 
-Add a `Manual Intervention` step and scope it to the **Production** environment.  This will pause the deployment so you can review what is about to be executed and determine whether or not to proceed when deploying to **Production**.
-
-![](images/octopus-project-manual-intervention.png)
+![A manual intervention step in Octopus Deploy](images/octopus-project-manual-intervention.png)
 
 Add the **Flyway Migrate** step.  The fields for this are identical to the **Flyway Info** step that was added previously:
 
@@ -195,12 +185,9 @@ Add the **Flyway Migrate** step.  The fields for this are identical to the **Fly
 - **Shadow -password (required for drift-check)**: Password for shadow database user.
 - **Flyway package**: The package to deploy.
 
-![](images/octopus-project-flyway-migrate1.png)
-![](images/octopus-project-flyway-migrate2.png)
-
 When complete, the deployment process will look like this:
 
-![](images/octopus-project-process.png)
+![The complete deployment process in Octopus Deploy](images/octopus-project-process.png)
 
 ### Creating the release
 
@@ -223,9 +210,3 @@ Your build server has converted line endings from LF to CRLF.  This typically ha
 Workarounds are:
 - Run the following command on your build agent `git config --global core.eol lf`
 - Set the `text eol=lf` setting within the `.gitattributes` of the git repo
-
-You should receive the following output from the deployment
-
-![](images/octopus-project-deploy-complete.png)
-![](images/octopus-project-deploy-info-step.png)
-![](images/octopus-project-deploy-migrate-step.png)
