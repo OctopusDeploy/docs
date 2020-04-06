@@ -20,7 +20,7 @@ Octopus Deploy will take those packages and push them to development, test, and 
 
 If you need guidance installing Jenkins for the first time, see the [Jenkins documentation](https://jenkins.io/doc/book/installing/), or the blog post, [installing Jenkins from Scratch](https://octopus.com/blog/installing-jenkins-from-scratch).
 
-## Installing the Octopus Jenkins plugin
+## Install the Octopus Jenkins plugin {#install-the-octopus-jenkins-plugin}
 
 Plugins are central to expanding Jenkins' functionality, and a number of plugins are may be needed depending on the projects you are building. Before you start, you'll need to ensure the following plugins are installed and enabled.
 
