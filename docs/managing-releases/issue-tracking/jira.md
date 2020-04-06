@@ -68,7 +68,7 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
 1. Configure the Jira extension in Octopus Deploy.
 
-    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and enter the following values for your Jira instance:
+    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Integration}}** and enter the following values for your Jira instance:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-internal-jira-instance/
 
@@ -102,7 +102,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
 2. Configure the Jira extension in Octopus Deploy.
 
-    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Issue Tracker}}** and copy the following values from the Jira App configuration page:
+    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Jira Integration}}** and copy the following values from the Jira App configuration page:
 
     - **Jira Base URL**. This tells Octopus where your Jira instance is located and enables Octopus to render the links back to Jira issues. i.e., https://your-jira-instance.atlassian.net.
     - **Jira Connect App Password**.
@@ -126,7 +126,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
 5. Configure the Octopus plugin in Jira.
 
-    Navigate to the **{{Configuration,Settings,Jira Issue Tracker}}** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
+    Navigate to the **{{Configuration,Settings,Jira Integration}}** page in Octopus, copy the **Octopus InstallationID**, and add it to Jira App configuration.
 
 6. In Octopus Deploy update your environment settings.
 
@@ -156,7 +156,7 @@ For this connectivity test to succeed the Octopus Server must be able to connect
 
 ### Deployments
 
-When the Jira issue tracker is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
+When the Jira Integration is enabled and configured with Connect App settings, you will see blocks similar to the following appear in the log during your deployments. These show the state updates Octopus is sending through to Jira, and if you expand them the details include information about the Jira issues for traceability.
 
 ![Deployment task log](images/deploy-task-log-green.png "width=500")
 
