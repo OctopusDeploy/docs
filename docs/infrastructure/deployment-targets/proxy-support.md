@@ -67,7 +67,7 @@ After configuring the proxy, restart the Octopus Server to apply your changes.
 Do not enable SSL offloading for Tentacle Communication - the Tentacle communication protocol uses Client Certificate Authentication and requires an uninterrupted TLS tunnel.
 :::
 
-## Which Proxy should i configure? {#ProxySupport-WhichproxyshouldIconfigure?}
+## Which proxy should I configure? {#ProxySupport-WhichproxyshouldIconfigure?}
 
 Depending on the context of the operation you are trying to perform, you will need to configure different components in your Octopus Deploy installation.
 
@@ -83,17 +83,17 @@ If your package step is configured with "Each Tentacle will download the package
 
 ### Working with Docker registry {#ProxySupport-WorkingwithDockerRegistry}
 
-The Octopus Server will query your external Docker Registry when creating releases. You should configure the Web Request Proxy using the Octopus Server Manager.
+The Octopus Server will query your external Docker Registry when creating releases. You should configure the web request proxy using the Octopus Server Manager.
 
-The Docker steps will access your external Docker Registry when deploying. You should configure the Web Request Proxy using the Tentacle Manager on each of your Tentacles as required.
+The Docker steps will access your external Docker Registry when deploying. You should configure the web request proxy using the Tentacle Manager on each of your Tentacles as required.
 
 ### Making web requests from custom scripts {#ProxySupport-MakingwebrequestsfromCustomScripts}
 
-You should configure the Web Request Proxy using either the Octopus Server Manager or Tentacle Manager depending on where your custom script actually executes.
+You should configure the web request proxy using either the Octopus Server Manager or Tentacle Manager depending on where your custom script actually executes.
 
 #### PowerShell Core scripts
 
-If you are executing a PowerShell script with a version of PowerShell Core earlier than Version `7.0.0`, any usages of `System.Net.Http.HttpClient` may ignore the proxy that has been configured. Each instance of `HttpClient` should be manually configured with an appropriate proxy.
+If you are executing a PowerShell script with a version of PowerShell Core earlier than version `7.0.0`, any usages of `System.Net.Http.HttpClient` may ignore the proxy that has been configured. Each instance of `HttpClient` should be manually configured with an appropriate proxy.
 
 For convenience, the `$OctopusProxy` variable is available for your scripts to use, and the variable is assigned a configured instance of `System.Net.WebProxy`. 
 
@@ -111,8 +111,8 @@ You should use the Tentacle Manager to configure the Polling Tentacle Proxy Sett
 
 ### Configuring a Listening Tentacle to communicate via proxy {#ProxySupport-ConfiguringaListeningTentacletocommunicateviaproxy}
 
-You should configure a Proxy in your Octopus Server, and configure the Listening Tentacle Deployment Target to use that Proxy. See above for an example of configuring a Listening Tentacle.
+You should configure a proxy in your Octopus Server, and configure the Listening Tentacle Deployment Target to use that proxy. See above for an example of configuring a Listening Tentacle.
 
 ### Configuring a proxy for communication with an SSH target {#ProxySupport-ConfiguringaproxyforcommunicatingwithanSSHtarget}
 
-You should configure a Proxy in your Octopus Server, and configure the SSH Deployment Target to use that Proxy. See above for an example of configuring an SSH endpoint.
+You should configure a proxy in your Octopus Server, and configure the SSH Deployment Target to use that proxy. See above for an example of configuring an SSH endpoint.
