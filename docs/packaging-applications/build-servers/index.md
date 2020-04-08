@@ -62,6 +62,12 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 ![Build information on package version page](images/build-information-package-version.png "width=500")
 
+:::hint
+
+You can push build information to Octopus that relate to packages, before they exist in the Octopus built-in repository.
+
+:::
+
 ## Using build information in release notes #{release-notes}
 
 The build information associated with packages is available for use in [release notes](/docs/managing-releases/release-notes.md) (and [release notes templates](/docs/managing-releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
