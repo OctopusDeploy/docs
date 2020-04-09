@@ -69,9 +69,14 @@ Where [<options>] is any of:
                              Comma-separated whitelist of domains that are
                                allowed to retrieve data (empty turns CORS off,
                                * allows all).
+      --xFrameOptions=VALUE  A directive to provide in the X-Frame-Options
+                               header
       --xFrameOptionAllowFrom=VALUE
-                             A uri to provide in the X-Frame-Option http
-                               header in conjunction with the ALLOW-FROM value.
+                             (DEPRECATED) A uri to provide in the X-Frame-
+                               Options http header in conjunction with the
+                               ALLOW-FROM value. The directive allow-from uri
+                               for X-Frame-Options has been deprecated and no
+                               longer works in modern browsers.
       --hstsEnabled=VALUE    Enables or disables sending the Strict-Transport-
                                Security (HSTS) header. Defaults to false.
       --hstsMaxAge=VALUE     Sets the max-age value (in seconds) of the
@@ -123,7 +128,9 @@ Where [<options>] is any of:
                              When Domain authentication is used, specifies
                                the scheme (Basic, Digest,
                                IntegratedWindowsAuthentication, Negotiate,
-                               Ntlm).
+                               Ntlm). You will need to restart all Octopus
+                               Server nodes in your cluster for these changes
+                               to take effect.
       --allowFormsAuthenticationForDomainUsers=VALUE
                              When Domain authentication is used, specifies
                                whether the HTML-based username/password form
@@ -196,7 +203,7 @@ Where [<options>] is any of:
                              Set whether GitHub issue tracker integration is
                                enabled.
       --GitHubBaseUrl=VALUE  Set the base url for the Git repositories.
-      --jiraIsEnabled=VALUE  Set whether Jira Integration is
+      --jiraIsEnabled=VALUE  Set whether Jira issue tracker integration is
                                enabled.
       --jiraBaseUrl=VALUE    Enter the base url of your Jira instance. Once
                                set, work item references will render as links.
