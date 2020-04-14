@@ -1,10 +1,9 @@
 ## SQL Server Database
 
+Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition [SQL Server Failover Cluster](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) or [SQL Server AlwaysOn Availability Group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), or even one of the hosted database-as-a-service offerings.
+
 The following versions of SQL Server Database are supported and automatically tested against every release of Octopus Server:
 
-- SQL Server 2012
-- SQL Server 2014
-- SQL Server 2016
 - SQL Server 2017
 - SQL Server 2019
 
@@ -21,5 +20,3 @@ Supported editions:
 :::warning
 **Warning:** Octopus does not support database mirroring or SQL Server replication. Having these features turned on may cause errors during configuration. [More information](/docs/administration/data/octopus-database/index.md#Octopusdatabase-highavailability).
 :::
-
-
