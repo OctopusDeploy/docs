@@ -28,8 +28,6 @@ Octopus Server will run on client/desktop versions of Windows, such as Windows 7
 
 !include <sql>
 
-Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition [SQL Server Failover Cluster](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) or [SQL Server AlwaysOn Availability Group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), or even one of the hosted database-as-a-service offerings.
-
 ## .NET Framework
 
 We try to keep the .NET Framework requirements for Octopus Server as stable as possible:
