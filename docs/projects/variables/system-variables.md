@@ -179,6 +179,8 @@ Deployment-level variables are drawn from the project and release being deployed
 |`Octopus.Release.CurrentForEnvironment.Id` <br/>The ID of the release of the last successful deployment to the current environment | *releases-122*|
 |`Octopus.Release.CurrentForEnvironment.Number` <br/>The version number of the release the last successful deployment to the current environment | *1.2.2*|
 |`Octopus.Release.Created` <br/>The date and time at which the release was created | *Tuesday 10th September 1:23 PM*|
+|`Octopus.Space.Id` <br/>The ID of the Space | *Spaces-1*|
+|`Octopus.Space.Name` <br/>The name of the Space | *Dev Space*|
 |`Octopus.Task.Argument[_name_]` <br/>Argument values provided when creating the task | *deployments-123*|
 |`Octopus.Task.Id` <br/>The ID of the task | *servertasks-123*|
 |`Octopus.Task.Name` <br/>The name of the task | *Deploy release 1.2.3 to Production*|
