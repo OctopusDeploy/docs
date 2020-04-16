@@ -1,7 +1,7 @@
 ---
 title: Deploying to SQL Server using Redgate SQL Change Automation 
 description: Guide on how to configure Octopus Deploy to deploy to SQL Server with Redgate SQL Change Automation
-position: 30
+position: 25
 ---
 
 [Redgate's SQL Change Automation](https://www.red-gate.com/products/sql-development/sql-change-automation/) is one of many database deployment tooling Octopus Deploy integrates with.  This guide will walk through how to configure Octopus Deploy to leverage Redgate's SQL Change Automation.

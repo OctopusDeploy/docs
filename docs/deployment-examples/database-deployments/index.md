@@ -44,12 +44,7 @@ Octopus Deploy is database server agnostics; it calls the command-line interface
 
 If you are deploying to SQL Server, we have written a number of guides and blog posts on the subject.
 
-- [Using DbUp and Workers to Automate Database Deployments](https://octopus.com/blog/dbup-database-deployments)
-- [Database Deployment Automation using state-based Redgate SQL Change Automation](https://octopus.com/blog/database-deployment-automation-using-redgate-sql-change-automation)
-- [Deploying to SQL Server with a DacPac](https://octopus.com/blog/will-it-deploy-episode-04)
-- [Deploying to SQL Server with Entity Framework Core](https://octopus.com/blog/will-it-deploy-episode-03)
-
-Learn about [SQL Server permissions](/docs/deployment-examples/database-deployments/sql-server/index.md).
+Read them in the [SQL Server section](/docs/deployment-examples/database-deployments/sql-server/index.md).
 
 ### Oracle
 
