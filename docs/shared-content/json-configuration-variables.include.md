@@ -62,7 +62,7 @@ You can also replace an entire object. For the example above you could set Octop
 
 ### Array variables {#JSONConfigurationVariablesFeature-Arrayvariables}
 
-Octopus can also replace a value in a JSON array by using the zero-based index of the array in the variable name.
+Octopus can replace a value in a JSON array by using the zero-based index of the array in the variable name.
 
 For example, the variable `foo:bar:1` with a value `qux` will update the value of the second element in the array to be `qux`:
 
@@ -79,6 +79,23 @@ For example, the variable `foo:bar:1` with a value `qux` will update the value
 }
 ```
 
-You can also replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of `["baz","qux"]`.
+You can replace an entire array. For the example above you could set Octopus Variable `foo:bar` to a value of `["baz","qux"]`.
+
+The properties of objects in arrays can be replaced. In the example below defining an Octopus variable `foo:bar:0:key` with the value of `baz` replaces the `key` property of the first object in the array:
+
+**Hierarchical JSON**
+
+```json
+{
+   "foo": {
+      "bar": [
+		{
+            "key": "foo",
+            "value": "bar"
+        },
+		"qux"
+	  ]
+   }
+}
 
 Note that you can even use the [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
