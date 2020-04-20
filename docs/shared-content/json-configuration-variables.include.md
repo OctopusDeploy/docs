@@ -97,5 +97,6 @@ The properties of objects in arrays can be replaced. In the example below defini
 	  ]
    }
 }
+```
 
 Note that you can even use the [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
