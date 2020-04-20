@@ -94,7 +94,7 @@ The properties of objects in arrays can be replaced. In the example below defini
         "value": "bar"
       },
       "qux"
-	  ]
+    ]
   }
 }
 ```
