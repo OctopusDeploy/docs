@@ -87,15 +87,15 @@ The properties of objects in arrays can be replaced. In the example below defini
 
 ```json
 {
-   "foo": {
-      "bar": [
-		{
-            "key": "foo",
-            "value": "bar"
-        },
-		"qux"
+  "foo": {
+    "bar": [
+      {
+        "key": "foo",
+        "value": "bar"
+      },
+      "qux"
 	  ]
-   }
+  }
 }
 ```
 
