@@ -307,14 +307,14 @@ Hit F5 to compile and run the app, a URL will be output to the terminal to which
 
 It's returned a `200 OK`, and there is a message in Slack!
 
-![Slack message](images/slack-message.png)
+![Slack message](images/slack-message.png "width=800")
 
 
 ### Build the Azure App Function
 
 This example uses [Github Actions](https://github.com/features/actions) to build the function code, package it, and push it to Octopus, which deploys it to Azure. 
 
-![Build output](images/github-action-build-output.png)
+![Build output](images/github-action-build-output.png "width=800")
 
 The build YAML can be found in `.github/workflows/AzureSlackFunction.yaml` [here](http://g.octopushq.com/SamplesSubscriptionsRepo).
 
@@ -322,7 +322,7 @@ The build YAML can be found in `.github/workflows/AzureSlackFunction.yaml` [here
 
 The Azure Function App created here is deployed to with Octopus, using a Deployment Target type of Azure Web App.  Instructions on how to do this are [here](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
-There is a [Project](/docs/projects) to deploy the Function App.  
+There is a [Project](/docs/projects/index.md) to deploy the Function App.  
 
 ![Octopus Project](images/octopus-azure-function-project.png "width=800")
 
@@ -340,5 +340,6 @@ If an Octopus user is amended, the change is shown in the audit trail.
 
 And the message gets sent from the subscription webhook to the Azure Function App in Azure and on to Slack.
 
-![Slack message](images/slack-message-final.png)
+![Slack message](images/slack-message-final.png "width=800")
+
 
