@@ -8,13 +8,12 @@ For a [step](/docs/deployment-process/steps/index.md) running on a [worker](docs
 
 ## Setup a container 
 
-- Set a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry.  or link to https://octopus.com/blog/build-a-real-world-docker-cicd-pipeline#add-docker-hub-as-an-external-feed
+- Set a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry. 
 - Add a project and define a deployment process. 
 - Select a worker pool. 
 - Select to run on a container for worker. 
 - Choose the previously added container registry. 
 - Enter an image name if already known. (e.g. !docker-image <octopusdeploy/worker-tools:ubuntu.18.04>)
-- Alternatively use the wizard to chose appropriate image. 
 - Save.
 - Create release & deploy.
 
