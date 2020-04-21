@@ -21,6 +21,7 @@ For a [step](/docs/deployment-process/steps/index.md) running on a [worker](docs
 Your first deployment on a Docker container might take a while as it will download all the dependencies on the docker image. These dependencies will be installed as a part of deployment process execution automatically. Alternatively, you can pre-pull the desired docker image before your first deployment to avoid any delays.
 
 ## Minimum requirements for your custom image to run as a worker
+The worker will need Docker installed. 
 
 ## Document how to build a docker image, using the example of our image
 
