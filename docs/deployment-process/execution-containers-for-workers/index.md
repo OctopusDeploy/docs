@@ -1,6 +1,6 @@
 ---
 title: Execution containers for workers
-description: Setting an execution container for workers in steps to define your project's deployment process.
+description: How to set a step in your deployment process to run inside a container.
 position: 15
 ---
 
