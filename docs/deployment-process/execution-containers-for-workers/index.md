@@ -1,5 +1,5 @@
 ---
-title: Execution container for workers
+title: Execution containers for workers
 description: Setting an execution container for workers in steps to define your project's deployment process.
 position: 15
 ---
@@ -35,4 +35,3 @@ Supports version format:
 - Major
 - Major.Minor
 - Major.Minor.Patch
-
