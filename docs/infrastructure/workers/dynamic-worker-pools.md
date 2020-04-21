@@ -41,6 +41,7 @@ Each worker is provisioned with a baseline of tools including, but not limited t
 :::hint
 The version of `kubectl` can be overridden by setting the variable `Octopus.Action.Kubernetes.CustomKubectlExecutable` to the following value `c:\tools\kubectl\version\kubectl.exe`
 where version is one of the following:
+
 - `1.11.1`
 - `1.11.3`
 - `1.12.1`
@@ -48,7 +49,9 @@ where version is one of the following:
 - `1.14.9`
 - `1.15.6`
 - `1.16.3`
-:::
+- `1.17.5`
+- `1.18.0`
+  :::
 
 ::: hint
 The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing.
@@ -58,4 +61,4 @@ Some of the tool installations are locked to a specific version, where others ma
 
 ## Learn more
 
-- [Worker blog posts](https://octopus.com/blog/tag/workers) 
+- [Worker blog posts](https://octopus.com/blog/tag/workers)
