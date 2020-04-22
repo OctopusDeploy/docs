@@ -6,7 +6,7 @@ position: 15
 
 For a [step](/docs/deployment-process/steps/index.md) running on a [worker](/docs/infrastructure/workers/index.md) or on [Octopus server](/docs/infrastructure/workers/built-in-worker.md) that you define in your [deployment processes](/docs/deployment-process/index.md), you can select a container for the step's execution. 
 
-## Minimum requirements for your custom image to run as a worker
+## Minimum requirements for your step to run in a container
 The worker will need Docker installed. 
 
 ## Setup a container registry and an image 
@@ -22,5 +22,4 @@ The worker will need Docker installed.
 
 ## First deployment on a docker container
 Your first deployment on a Docker container might take a while as it will download all the dependencies on the docker image. These dependencies will be installed as a part of deployment process execution automatically. Alternatively, you can pre-pull the desired docker image before your first deployment to avoid any delays.
-
 
