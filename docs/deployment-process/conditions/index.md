@@ -81,7 +81,7 @@ The currently-running machine could be substituted in this expression:
 #{if Octopus.Action[Step01].Output[#{Octopus.Machine.Name}].ShouldRun == "True"}True#{/if}
 ```
 
-This will evaluate to True on Web01 and False on Web02.
+This will evaluate to `True` on Web01 and `False` on Web02.
 
 Machine-level variable expressions are also supported in [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) using child steps.
 
