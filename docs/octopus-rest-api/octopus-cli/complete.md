@@ -21,7 +21,7 @@ Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid
-                             option is json
+                             [Optional] Output format for help, valid options
+                             are Default or Json
 ```
 
