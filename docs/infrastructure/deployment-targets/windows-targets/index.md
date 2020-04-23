@@ -6,7 +6,7 @@ position: 10
 
 When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on your Windows servers so they can communicate with the Octopus Server.
 
-Once installed, Tentacles:
+When installed, Tentacles:
 
 - Run as a Windows service called **OctopusDeploy Tentacle**.
 - Wait for tasks from Octopus (deploy a package, run a script, etc).
