@@ -44,7 +44,6 @@ Octopus Deploy is database server agnostics; it calls the command-line interface
 
 If you are deploying to SQL Server, see the [SQL Server section](/docs/deployment-examples/database-deployments/sql-server/index.md).
 
-Read them in the [SQL Server section](/docs/deployment-examples/database-deployments/sql-server/index.md).
 
 ### Oracle
 
