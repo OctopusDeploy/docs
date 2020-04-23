@@ -12,7 +12,7 @@ You need Docker installed and running on the worker, in order to use execution c
 
 ## How to use execution containers for workers 
 
-- Set a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry
+- Configure a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry.
   - [Add Docker Hub as an external feed](https://octopus.com/blog/build-a-real-world-docker-cicd-pipeline#add-docker-hub-as-an-external-feed)
 - Add a project and define a deployment process
 - Set the `Execution Location` for your step to `Run on a worker`
