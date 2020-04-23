@@ -14,16 +14,16 @@ You need Docker installed and running on the worker, in order to use execution c
 
 - Configure a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry.
   - [Add Docker Hub as an external feed](https://octopus.com/blog/build-a-real-world-docker-cicd-pipeline#add-docker-hub-as-an-external-feed)
-- Add a project and define a deployment process
-- Set the `Execution Location` for your step to `Run on a worker`
-- In `Container Image` select `Runs on a worker inside a container`
-- Choose the previously added container registry
-- Enter an image name if already known. (e.g. !docker-image <octopusdeploy/worker-tools:1.0.1-ubuntu.18.04>)
-- Save
-- Create release & deploy
+- Add a project and define a deployment process.
+- Set the `Execution Location` for your step to `Run on a worker`.
+- In `Container Image` select `Runs on a worker inside a container`.
+- Choose the previously added container registry.
+- Enter an image name if already known. (e.g. !docker-image <octopusdeploy/worker-tools:1.0.1-ubuntu.18.04>).
+- Click **Save**.
+- Click **Create release & deploy**.
 
 :::hint
-Same process can be repeated for a Runbook
+The same process can be repeated for a runbook.
 :::
 
 ![](images/selector.png "width=500")
@@ -35,15 +35,15 @@ Your first deployment on a Docker container might take a while as it will downlo
 
 You can find our recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools)
 
-Pick an image suitable to your needs based on:
+Pick an image that is suitable for your needs based on:
 - OS + distribution
 
-Supports version format:
+The image also needs to supports the version formats:
 - Major
 - Major.Minor
 - Major.Minor.Patch
 
-e.g. If the operating system on your worker is Linux, you can use any of the following images: 
+If the operating system on your worker is Linux, you can use any of the following images: 
 
 - octopusdeploy/worker-tools:ubuntu.18.04
 - octopusdeploy/worker-tools:1-ubuntu.18.04
