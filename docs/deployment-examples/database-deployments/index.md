@@ -42,7 +42,7 @@ Octopus Deploy is database server agnostics; it calls the command-line interface
 
 ### SQL Server
 
-If you are deploying to SQL Server, we have written a number of guides and blog posts on the subject.
+If you are deploying to SQL Server, see the [SQL Server section](/docs/deployment-examples/database-deployments/sql-server/index.md).
 
 Read them in the [SQL Server section](/docs/deployment-examples/database-deployments/sql-server/index.md).
 
@@ -71,4 +71,3 @@ Automating database deployments is often the final piece of a fully automated CI
 ## Learn more 
 
 - [Database blog posts](https://octopus.com/blog/tag/database%20deployments)
-
