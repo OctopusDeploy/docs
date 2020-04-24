@@ -13,7 +13,11 @@ Get-Module -ListAvailable -Name Azure*
 
 If you wish to use a different version, you can install the Azure PowerShell modules on your Octopus Server, and configure Octopus to use the installed version.  The procedure to configure this differs depending on which version of Octopus Deploy you are using:
 
-## Octopus 2018.5.5 or newer {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5(ornewer)}
+## Octopus 2020.1 or newer {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2020.1(ornewer)}
+
+Within the PowerShell Azure step, there will be an option called "Azure Tools". Toggle the setting to **Use Azure Tools pre-installed on the worker**.
+
+## Octopus 2018.5.5 to 2019.13.7 {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5-to-2019.13.7}
 
 We made this configurable by variables in **Octopus 2018.5.5** to be more flexible. Create a [variable](/docs/projects/variables/index.md) named **OctopusUseBundledAzureModules** and set its value to **False**.
 
