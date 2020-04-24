@@ -42,7 +42,7 @@ Following DevOps principles, everything that can be automated should be automate
     - `db_backupoperator`: Permission to backup the database.
     - `db_securityadmin`: Permission to modify role membership and manage permissions.
     - `db_accessadmin`: Permission to add or remove access to the database for logins.
-    - Can View Any Definition.
+    - Grant `View any definition`.
 
 Be sure to assign the deployment account those database roles in the model database.  That is the system database used by SQL Server as a base when a new database is created.  This means the deployment account will be assigned those roles going forward.
 
@@ -59,7 +59,7 @@ Security admins should be treated the same as system admins, as they can grant p
     - `db_backupoperator`: Permission to backup the database.
     - `db_securityadmin`: Permission to modify role membership and manage permissions.
     - `db_accessadmin`: Permission to add or remove access to the database for logins.
-    - Can View Any Definition.
+    - Grant `View any definition`.
 
 ## No database creation or user creation, everything else automated permission recommendation
 
@@ -72,7 +72,7 @@ If granting that level of access is not workable or allowed, we recommend the fo
     - `db_backupoperator`: Permission to backup the database.
     - `db_securityadmin`: Permission to modify role membership and manage permissions.
     - `db_accessadmin`: Permission to add or remove access to the database for logins.
-    - Can View Any Definition.
+    - Grant `View any definition`.
 
 ## Manual user creation both server and database permission recommendation
 
@@ -83,4 +83,4 @@ Here are the most restrictive permissions for automating database deployments.  
     - `db_datareader`: Permission to read all the data from all user tables.
     - `db_datawriter`: Permission to add, delete, or change data from all user tables.
     - `db_backupoperator`: Permission to backup the database.
-    - Can View Any Definition.
+    - Grant `View any definition`.
