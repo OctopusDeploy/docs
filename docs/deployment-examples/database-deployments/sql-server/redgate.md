@@ -6,55 +6,45 @@ position: 25
 
 [Redgate's SQL change automation](https://www.red-gate.com/products/sql-development/sql-change-automation/) is one of many database deployment tooling Octopus Deploy integrates with.  This guide walks through configuring Octopus Deploy to leverage Redgate's SQL change automation.
 
-In addition to Octopus Deploy, the following items are required.  This guide will provide examples using Azure DevOps and TeamCity as the CI tool.  The core concepts are the same.  
+In addition to Octopus Deploy, the following items are required.  This guide provides examples using Azure DevOps and TeamCity as the CI too, however, the core concepts are the same with all the tools.  
 
-- Redgate SQL Toolbelt
-    - Get 14-day free trial [here](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download).  
+- Redgate SQL Toolbelt:
+    - [14-day free trial(https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
 - CI Tool (pick one):
-    - Jenkins - download [here](https://jenkins.io/download).
-    - TeamCity - download [here](https://www.jetbrains.com/teamcity/download/).
-    - Azure DevOps Server - try [here](https://azure.microsoft.com/en-us/services/devops/server/).
-    - Azure DevOps - try [here](https://go.microsoft.com/fwlink/?LinkId=2014881).
-    - Bamboo - download [here](https://www.atlassian.com/software/bamboo/download).
+    - [Jenkins](https://jenkins.io/download)
+    - [TeamCity](https://www.jetbrains.com/teamcity/download/)
+    - [Azure DevOps Server](https://azure.microsoft.com/en-us/services/devops/server/)
+    - [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014881)
+    - [Bamboo](https://www.atlassian.com/software/bamboo/download)
 - SQL Server Management Studio (SSMS):
-    - Download for free [here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms).
+    - [Free download](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 - SQL Server (pick one):
-    - SQL Express - download [here](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express).
-    - SQL Developer - download [here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
+    - [SQL Express](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
+    - [SQL Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-## Octopus Deploy prep work
+## Octopus Deploy preparation work
 
-Some prep work will need to be completed prior to creating and configuring projects in Octopus Deploy.  
+The following preparation needs to be completed prior to creating and configuring projects in Octopus Deploy:  
 
-1. [Configure a worker pool](https://octopus.com/docs/deployment-examples/database-deployments/configuration/tentacle-and-worker-installation#general-worker-pool-configuration) for Redgate SQL Change Automation to run on.
-2. Install a [tentacle on a Windows VM](https://octopus.com/docs/infrastructure/deployment-targets/windows-targets). 
-3. Install the `Redgate` [step templates](https://octopus.com/docs/deployment-process/steps/community-step-templates#add-a-community-step-template-from-the-octopus-library) from the [Octopus Library](https://library.octopus.com/listing)    
+1. [Configure a worker pool](#configure-a-worker-pool) for Redgate SQL change automation to run on.
+2. Install a [Tentacle on a Windows VM](#install-the-tentacle-on-a-windows-server). 
+3. Install the **Redgate** [step template](#install-step-templates).
 
-### Configuring a worker pool
+### Configure a worker pool
 
-This documentation is going to assume a Windows VM already has the tentacle installed on it.  This guide will start with the worker pool creation and how to register that tentacle as a worker.  
+This documentation assumes a Windows VM already has the Tentacle installed on it.  This guide will start with the worker pool creation and how to register that tentacle as a worker.  
 
-To configure a worker pool in Octopus Deploy, go to `Infrastructure` -> `Worker Pools`.  Click on the button `Add Worker Pool`.
+1. To configure a worker pool in the Octopus Web portal, go to {{Infrastructure,Worker Pools}}, and click **Add Worker Pool**.
+2. When the modal window appears, enter a name, and if you see the **Static** and **Dynamic** options, select **Static** as the worker pool type:
 
-![](images/redgate-octopus-create-worker-pool.png)
+![Create worker pool modal](images/redgate-octopus-create-worker-pool-modal.png "width=500")
 
-When the modal window appears, enter a name and select `Static` as the worker pool type.
-
-:::highlight
-Depending on your version of Octopus Deploy you may not see the `Static` and `Dynamic` options.  `Dynamic` worker pools were created for Octopus Cloud.
-::
-
-![](images/redgate-octopus-create-worker-pool-modal.png)
-
-Once the worker pool is created, it is time to add the VM the tentacle was installed on.  To do that, click on the `Add Worker` button.
-
-![](images/redgate-octopus-create-worker-pool-edit-screen.png)
-
-Select `Windows` and then select the tentacle communication mode.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode.  
+3. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
+4. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
 
 ![](images/redgate-octopus-create-worker-select-tentacle-type.png)
 
-### Install the Tentacle on a Window server
+### Install the Tentacle on a Windows server {#install-the-tentacle-on-a-windows-server}
 
 With the worker pool created, it is now time to install the tentacle on a Windows server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
 
@@ -107,7 +97,7 @@ The registration process will connect to the RESTful API of the Octopus Server. 
 After the credentials have been verified, select the worker option on the next screen.
 
 :::highlight
-Under the covers, there is nothing different between a worker and a target.  They are both tentacles.  The difference is in how the tentacle is registered with Octopus.  The Octopus Deploy server treats workers differently than targets.
+Under the covers, there is nothing different between a worker and a target.  They are both Tentacles.  The difference is in how the Tentacle is registered with Octopus.  The Octopus Deploy server treats workers differently than targets.
 :::
 
 ![](images/polling-tentacle-select-worker.png)
@@ -120,7 +110,7 @@ The polling tentacle will not be created and registered with the Octopus Server 
 
 ![](images/polling-tentacle-install-tentacle.png)
 
-### Install Step Templates
+### Install step templates {#install-step-templates}
 
 For this guide the following step templates will be used:
 
