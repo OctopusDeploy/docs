@@ -263,7 +263,7 @@ If you run an [Octopus Deploy container](/docs/installation/octopus-in-container
   - Consider the amount of memory required, if you assign too much the container is susceptible to denial of service attacks, but if you assign too little or make use of memory ballooning performance will be impacted. 
 - Consider which containers reside in each network namespace as all processes in a namespace can talk to the namespace interface.
 
-The security of your containers and Docker configuration can be analyzed in detail by using [Docker Bench for Security](https://github.com/docker/docker-bench-security) from the [Center for Internet Security](https://www.cisecurity.org/about-us/). 
+The security of your Linux container host and its Docker configuration can be analyzed in detail by using [Docker Bench for Security](https://github.com/docker/docker-bench-security) from the [Center for Internet Security](https://www.cisecurity.org/about-us/). For more generalized advice for your platform they provide their benchmarks as [PDF documents](https://www.cisecurity.org/benchmark/docker/).
 
 ## Samples
 
