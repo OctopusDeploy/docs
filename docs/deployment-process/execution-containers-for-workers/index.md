@@ -43,7 +43,7 @@ Your first deployment in a Docker container might take a while as it will downlo
 
 
 - You can use any image that meets the minimum tooling requirements to run your chosen step. 
-- You can use our recommended images
+- You can use our recommended images (see below).
 - You can build your own based on the recommended images.
 
 ## The worker-tools docker images 
