@@ -1,10 +1,10 @@
 ---
-title: Deploying to SQL Server using Redgate SQL Change Automation 
-description: Guide on how to configure Octopus Deploy to deploy to SQL Server with Redgate SQL Change Automation
+title: Deploy to SQL Server using Redgate SQL change automation 
+description: Guide to configuring Octopus Deploy to deploy to SQL Server with Redgate SQL change automation
 position: 25
 ---
 
-[Redgate's SQL Change Automation](https://www.red-gate.com/products/sql-development/sql-change-automation/) is one of many database deployment tooling Octopus Deploy integrates with.  This guide will walk through how to configure Octopus Deploy to leverage Redgate's SQL Change Automation.
+[Redgate's SQL change automation](https://www.red-gate.com/products/sql-development/sql-change-automation/) is one of many database deployment tooling Octopus Deploy integrates with.  This guide walks through configuring Octopus Deploy to leverage Redgate's SQL change automation.
 
 In addition to Octopus Deploy, the following items are required.  This guide will provide examples using Azure DevOps and TeamCity as the CI tool.  The core concepts are the same.  
 
@@ -54,7 +54,7 @@ Select `Windows` and then select the tentacle communication mode.  It is up to y
 
 ![](images/redgate-octopus-create-worker-select-tentacle-type.png)
 
-### Installing the tentacle on a Window server
+### Install the Tentacle on a Window server
 
 With the worker pool created, it is now time to install the tentacle on a Windows server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
 
@@ -92,7 +92,7 @@ The `Next` button will tell the Octopus Server to connect to that tentacle.  The
 
 #### Polling Tentacles
 
-The process to register polling tentacles as workers takes place in the `Tentacle Manager` on the server hosting the tentacle.  Select the polling tentacle to get started with the wizard.
+The process to register Polling Tentacles as workers takes place in the `Tentacle Manager` on the server hosting the tentacle.  Select the polling tentacle to get started with the wizard.
 
 ![](images/polling-tentacle-selection.png)
 
@@ -255,6 +255,6 @@ The final step for this guide is `Redgate - Deploy Database Release`.  It will t
 
 ![](images/octopus-redgate-deploy-database-release.png)
 
-## Working Example
+## Working example
 
 An example of this process has been configured on the [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-sql-server/deployments).
