@@ -11,7 +11,7 @@ Execution containers for workers are not supported for [Dynamic Worker pools](/d
 :::
 
 ## Minimum requirements
-You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker)), in order to use execution containers for workers
+You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
 
 
 ## How to use execution containers for workers 
