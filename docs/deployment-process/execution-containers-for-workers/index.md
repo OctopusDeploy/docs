@@ -22,7 +22,6 @@ You need Docker installed and running on the worker, in order to use execution c
 - Set the `Execution Location` for your step to `Run on a worker`.
 - In `Container Image` select `Runs on a worker inside a container`.
 - Choose the previously added container registry.
-- Enter an image name if already known. (e.g. !docker-image <octopusdeploy/worker-tools:ubuntu.18.04>).
 - Click **Save**.
 - Click **Create release & deploy**.
 
