@@ -33,7 +33,11 @@ The same process can be repeated for a runbook.
 ![](images/selector.png "width=500")
 
 ## First deployment on a docker container
-Your first deployment on a Docker container might take a while as it will download all the dependencies on the docker image. These dependencies will be installed as a part of deployment process execution automatically. Alternatively, you can pre-pull the desired docker image before your first deployment to avoid any delays.
+:::hint
+Pre-pulling your chosen image will save you time during deployments.
+:::
+
+Your first deployment in a Docker container might take a while as it will download all the dependencies on the docker image. These dependencies will be installed as a part of deployment process execution automatically. Alternatively, you can pre-pull the desired docker image before your first deployment to avoid any delays.
 
 ## What docker image should I use?
 
