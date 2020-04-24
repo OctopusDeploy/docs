@@ -59,114 +59,76 @@ Importing the database will populate your project with the existing objects from
 
 The project is now ready for creating database schema objects (tables, views, stored procedures, etc...)
 
-## Comparing project the database schema
-Once the project has some objects, we can compare the project to the target database.  Right-click on the Project, then choose `Schema Compare...`
+## Compare the project to the database schema
 
-![](images/visual-studio-2019-project-schema-compare.png)
+When the project has some objects, we can compare the project to the target database. 
 
-Select the target database connection
+1. Right-click on the project and choose **Schema Compare...**.
+2. Select the target database connection by clicking {{ Select Target, Select Connection }}, and select the connection.
+3. Click **Compare**.
 
-![](images/visual-studio-2019-project-schema-compare-target.png)
-![](images/visual-studio-2019-project-schema-compare-connection.png)
-![](images/visual-studio-2019-project-schema-compare-select.png)
+Visual studio will now compare the project to the database and list the steps it will take during a deployment:
 
-Once you've selected the target, click on Compare
-
-![](images/visual-studio-2019-project-schema-compare-project.png)
-
-Visual studio will then compare the project to the database and list out what it will do on a deployment
-
-![](images/visual-studio-2019-project-schema-compare-results.png)
+![The results of the Schema Compare in Visual Studio](images/visual-studio-2019-project-schema-compare-results.png "width=500")
 
 :::hint
-For databases that have a dependency on other databases, it is possible to add a reference to another database project.  This should be done with caution as you could end up with a circular dependency where database A depends on database B and database B depends on database A.  In this situation, neither database project will compile.
+For databases that have a dependency on other databases, it is possible to add a reference to another database project.  This should be done with caution to avoid circular dependencies with each database depending on each other, as this will result in neither database project compiling.
 :::
 
 ## Build definition
-Building the SQL Server Database Project can be done pretty much any build server (Azure DevOps, TeamCity, Jenkins, Bamboo, etc...).  The requirements for the build agents are similar to those of Visual Studio itself, MSBuild and the SSDT.  The recommended approach to this is to install the Visual Studio build tools on the build agent(s) for the version of Visual Studio that you're using.  Just like Visual Studio, if you're using older versions, you'll need to locate the SSDT and install that separately.  If you're using the more modern versions, the option to install will SSDT will be on the Visual Studio tools installer.  This guide will use Azure DevOps as the build platform, but any build server can do this.
 
-### Creating the definition
-From our Azure DevOps repo, click on Pipelines then New Pipeline
+You can use most build servers to build the SQL Server Database project, you just need to install the Visual Studio build tools for the version of Visual Studio that you're using on the build agent.
 
-![](images/azure-devops-build-create.png)
+This guide uses Azure DevOps as the build platform, but any build server can do this.
 
-Because it's easier to follow, this example will use the classic editor without YAML
+### Create the build definition
 
-![](images/azure-devops-build-classic.png)
+To create the build definition, take the following steps:
 
-This guide uses an Azure DevOps Git repo with the master branch
+:::warning
+Note, this example uses the classic editor without YAML.
+:::
 
-![](images/azure-devops-build-source.png)
-
-The build process is going to be quite simple and doesn't need a template, choose `Empty job` to start with.
-
-![](images/azure-devops-build-empty.png)
-
-After choosing the build pool to use, click on the `+` to add a step to the build definition
-
-![](images/azure-devops-build-add-task.png)
-
-Click on the Build category and scroll down to `Visual Studio build`
+1. From the Azure DevOps repo, click {{ Pipelines, New Pipeline }}.
+2. Select **Empty job** to start.
+3. Choose a build pool, then click on the **+** to add a step to the build definition.
+4. Click on the Build category and scroll down to **Visual Studio build**.
 
 :::hint
 An MSBuild task will accomplish the same thing
 :::
 
-![](images/azure-devops-build-add-visual-studio-build.png)
+5. Add `/p:OutDir=$(build.stagingdirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
 
-Add `/p:OutDir=$(build.stagingdirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
+![MSBuild arguments](images/azure-devops-build-visual-studio-arguments.png)
 
-![](images/azure-devops-build-visual-studio-arguments.png)
-
-Click on the `+` to add an Octopus Package step
+6. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
 
 :::hint
 The Octopus Deploy extension is available in the Marketplace, install the extension if you haven't already done so.
 :::
 
-![](images/azure-devops-build-package.png)
-
-Fill in the properties of the task
-- Package ID: Give the package a meaningful name
-- Package Format: Chose whichever package type you wish
-- Package Version:  Use the build server build number to associate a package version back to a build number
-- Source Path: This will be the same path as what we set the MSBuild argument to, $(build.stagingdirectory)
-- Output Path: Location to store the created package
+7. Add the properties for the task:
+    - **Package ID**: Give the package a meaningful name.
+    - **Package Format**: Chose whichever package type you wish.
+    - **Package Version**:  Use the build server build number to associate a package version back to a build number.
+    - **Source Path**: This will be the same path as what we set the MSBuild argument to, `$(build.stagingdirectory)`.
+    - **Output Path**: Location to store the created package.
 
 :::hint
-For Azure DevOps, the build number can be formatted on the Options tab under Build number format.  This guide uses the format of `$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)`
-
-![](images/azure-devops-build-format-number.png)
+For Azure DevOps, the build number can be formatted on the Options tab under Build number format.  This guide uses the format `$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)`.
 :::
 
-Expand the Advanced Options section
-- Include: The only file we need for deployment is the .dapac itself.  Add the filename here, this example uses OctoFXDemo.dacpac
+8. Expand the Advanced Options section and add:
+	- **Include**: The only file we need for deployment is the .dapac itself.  Add the filename here, this example uses `OctoFXDemo.dacpac`.
+9. The final step in the definition pushes the package to a repository.  This guide uses Octopus Deploy's built-in package repository. Click on the **+**, select **Package**, and select **Push Package(s) to Octopus**.
+10. Next, create a connection to the Octopus Server, by clicking **+ New** and add the connection details, then click **OK**.
+11. Select the space in your Octopus instance to push to from the drop-down menu.
+12. Enter the package(s) that you would like pushed to the Octopus repository and the individual packages or use wildcard syntax:
+	1. Individual packages, for instance, `$(build.stagingdirectory)\OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg`
+	2. A wildcard `$(build.stagingdirectory)\*.nupkg`.
 
-![](images/azure-devops-build-octo-package.png)
-
-The final step in the definition will be pushing the package to a repository.  This guide will make use of the built-in Octopus Deploy NuGet package repository.
-
-Click on the `+` to add an Octopus Push step
-
-![](images/azure-devops-build-push.png)
-
-This step requires that a connection to the Octopus server be created.  Click on the `+ New` button
-
-![](images/azure-devops-build-add-octo-connection.png)
-
-Add the connection details and click OK
-
-![](images/azure-devops-build-octo-connection.png)
-
-Choose the Space to push to
-
-![](images/azure-devops-build-octo-space.png)
-
-Enter the package(s) that you would like pushed to the Octopus repository.  This can be individual packages such as `OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg` or something more generic like using a wildcard `*.nupkg`.  For this guide, I'll be using the wildcard approach.  You will also need to provide the path to where to find the package.  I used `$(build.stagingdirectory)\*.nupkg`
-
-![](images/azure-devops-build-octo-push.png)
-
-These three steps are all that we need for our build definition.  Queue the build to get our artifact pushed to our Octopus Server.
+Queue the build to push the artifact to the Octopus Server:
 
 ![](images/azure-devops-build-successful.png)
 
