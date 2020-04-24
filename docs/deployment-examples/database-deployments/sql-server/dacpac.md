@@ -30,40 +30,32 @@ Visual Studio 2017
 Visual Studio 2019
 ![](images/visual-studio-2019-project.png)
 
-(The remainder of the images in this guide will use Visual Studio 2019)
-
-## Connecting the project to the database
-Once the SQL Server Database Project type has been selected, choose Next.  Fill in the project name and click **Create**
-
-![](images/visual-studio-2019-project-new.png)
-
-After the project has been created, it will need to connect to a database.  This example will use a pre-existing database called OctoFXDemo.
-
-Right-click on the Project -> Import -> Database
-
-![](images/visual-studio-2019-connect-database1.png)
-
-Click on Select Connection
-
-![](images/visual-studio-2019-connect-database2.png)
-
-Fill in the details for connecting to the server and database.  In this screenshot, a SQL Account is used to connect to the database server.  Click **Connect** when done.
-
-![](images/visual-studio-2019-connect-database3.png)
-
-Once the connection has been selected, the Start button will enable.  Click Start to begin the process
-
-![](images/visual-studio-2019-connect-database4.png)
-
-You should see the following once the import has completed.
-
-![](images/visual-studio-2019-connect-database-import-complete.png)
-
-Since this example uses an empty database, the import didn't do much.
-
-:::hint
-This guide uses an empty database to start with, however, using an existing, populated database will work just the same.  The import process will populate your project with the existing objects from the database.
+:::success
+This guide uses Visual Studio 2019
 :::
+
+## Connect the project to the database
+
+With SSDT for Visual Studio installed you can connect the project to the database with the following steps. First, we create the project:
+
+1. Navigate to the **Other Toolsets** category.
+2. Click the **Data storage and processing** option.
+3. Select **SQL Server Database Project** and click **Next**.
+4. Enter the project name and click **Create**.
+
+The project has been created, now we connect it to a database. This example uses a pre-existing database called OctoFXDemo:
+
+1. Right-click the project name, then click **{{ Import,Database }}**.
+2. Click **Select Connection**.
+3. Add the **Server Name** and select the type of authentication. In this screenshot, an SQL Account is used to connect to the database server.  
+
+![Connection details for the database](images/visual-studio-2019-connect-database.png "width=500")
+
+4. Click **Connect** and then click **Start** to import the database.
+
+Importing the database will populate your project with the existing objects from the database. You will see a summary of the importing process:
+
+![Summary of the database import process](images/visual-studio-2019-connect-database-import-complete.png "width=500")
 
 The project is now ready for creating database schema objects (tables, views, stored procedures, etc...)
 
