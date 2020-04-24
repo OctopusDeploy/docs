@@ -50,7 +50,7 @@ We provide recommended images on DockerHub [octopusdeploy/worker-tools](https://
 Pick an image that is suitable for your needs based on:
 - OS + distribution
 
-The image also needs to supports the version formats:
+The worker tools images have multiple release tracks, based on how you would like to receive updates as they're pushed to docker hub.
 - Major
 - Major.Minor
 - Major.Minor.Patch
