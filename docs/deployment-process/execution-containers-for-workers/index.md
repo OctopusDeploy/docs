@@ -35,7 +35,7 @@ The same process can be repeated for a runbook.
 ## First deployment on a docker container
 Your first deployment on a Docker container might take a while as it will download all the dependencies on the docker image. These dependencies will be installed as a part of deployment process execution automatically. Alternatively, you can pre-pull the desired docker image before your first deployment to avoid any delays.
 
-## How to construct an image name
+## What docker image should I use?
 
 You can find our recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools)
 
