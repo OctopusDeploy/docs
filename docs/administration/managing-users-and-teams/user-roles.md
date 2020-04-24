@@ -12,7 +12,9 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 
 | User role            | Description                              |
 | -------------------- | ---------------------------------------- |
+| Build Server         | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. |
 | Certificate Manager  | Certificate managers can edit certificates and export private-keys |
+| Deployment Creator   | Deployment creators can create new deployments and runbook runs. |
 | Environment Manager  | Environment managers can view and edit environments and their machines. |
 | Environment Viewer   | Environment viewers can view environments and their machines, but not edit them. |
 | Package Publisher    | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
@@ -21,6 +23,9 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 | Project Initiator    | All project viewer permissions, plus: create new projects. |
 | Project Deployer     | All project contributor permissions, plus: deploying releases, but not creating them. |
 | Project Lead         | All project contributor permissions, plus: creating releases, but not deploying them. |
+| Release Creator      | Release creators can create new releases and runbook snapshots. |
+| Runbook Consumer     | Runbook consumers can view and execute runbooks. |
+| Runbook Producer     | Runbook producers can edit and execute runbooks. |
 | System Administrator | System administrators can do everything at the system level.  |
 | System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
 | Tenant manager       | Tenant managers can edit tenants and their tags |
