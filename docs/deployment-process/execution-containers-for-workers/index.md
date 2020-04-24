@@ -37,7 +37,15 @@ Your first deployment on a Docker container might take a while as it will downlo
 
 ## What docker image should I use?
 
-You can find our recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools)
+
+- You can use any image that meets the minimum tooling requirements to run your chosen step. 
+- You can use our recommended images
+- You can build your own based on the recommended images.
+
+## The worker-tools docker images 
+
+We provide recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) that include common tools used for octopus steps. 
+
 
 Pick an image that is suitable for your needs based on:
 - OS + distribution
