@@ -132,122 +132,73 @@ Queue the build to push the artifact to the Octopus Server:
 
 ![](images/azure-devops-build-successful.png)
 
-## Creating the Octopus Deploy project
-The build successfully pushed the artifacts for deployment, now we need to create the Octopus Deploy project to deploy it.
+## Create the Octopus Deploy project
 
-From the Dashboard of Octopus Deploy, click on Projects
+Now that the build server has been configured to push the artifact to the Octopus Server, we need to create a project in Octopus deploy to deploy the package.
 
-![](images/octopus-projects.png)
+1. From the Octopus Web Portal, click the **Projects** tab.
+2. Select the Project Group and click the **ADD PROJECT**.
+3. Give the project a unique name, a description (optional) , select the Project Group and the Lifecycle, and click **SAVE**.
 
-Select the Project Group and click the **ADD PROJECT** or the green **ADD PROJECT** button in the upper right-hand corner.
+### Define the project variables
 
-![](images/octopus-projects-add.png)
+1. Click **Variables** from the project's overview screen.
+2. Define the following variables:
+	- `Project.SQLServer.Name`
+	- `Project.SQLServer.Admin.User.Name` (optional)
+	- `Project.SQLServer.Admin.User.Password` (optional)
+	- `Project.Database.Name`
+	- `Project.DACPAC.Name`
 
-Give the project a unique name, (optional) a description, select the Project Group and the Lifecycle.  If you've clicked on the **ADD PROJECT** button on a specific project group, this selection will be pre-populated.
-
-![](images/octopus-projects-new.png)
-
-After you click **SAVE**, you will be brought to your new Project.  Before defining our deployment process, let's define some variables that will be used in the deployment process steps.  Click on **Variables**.
-
-![](images/octopus-project-variables.png)
-
-Define the following:
-- Project.SQLServer.Name
-- Project.SQLServer.Admin.User.Name (optional)
-- Project.SQLServer.Admin.User.Password (optional)
-- Project.Database.Name
-- Project.DACPAC.Name
-
-It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from Library Variable Sets or Step Template variables.  Prefixing Project. to the front indicates that this is a Project variable.
+It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from library variable sets or step template variables.  Prefixing `Project.` to the front indicates that this is a project variable.
 
 :::hint
-If you're using Integrated Authentication (Windows), you do not need either of the Project.SQLServer.Admin* variables.
+If you're using Integrated Authentication with Windows, you do not need either of the `Project.SQLServer.Admin*` variables.
 :::
 
-![](images/octopus-project-variables2.png)
+![The project variables in the Octopus Web Portal](images/octopus-project-variables.png "width=500")
 
-Note that both Project.SQLServer.Admin.Password and Project.SQLServer.Name both have multiple values associated with them, but for different Environment specifications.  This is known as scoping.  Scoping a variable to an Environment lets Octopus Deploy know that when deploying to the Development environment to use the value of SQLSERVERDEV for the Project.SQLServer.Name variable.
+Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have multiple variables that are scoped to different environments. Learn more about [scoping variables](/docs/projects/variables/index.md#scoping-variables).
 
-With variables defined, we can add steps to our deployment process.  Click on the **Process** tab.
+### Define the deployment process
 
-![](images/octopus-project-process-tab.png)
+With variables defined, we can add steps to our deployment process. 
 
-Click on **ADD STEP**
+1. Click the **Process** tab.
+2. Click  **ADD STEP**.
+3. Search for `dacpac` steps, select the **SQL - Deploy DACPAC from Package Parameter** step, and enter the following details:
+	- **DACPACPackageName**: The name of the dacpac file.  The `Project.DACPAC.Name` variable was created for this field.
+	- **Publish profile name**: Complete this field if you use Publish profiles.
+	- **Report**: True.
+	- **Script**: True.
+	- **Deploy**: False.
+	- **Extract target database to dacpac**: False.
+	- **Target Servername**: `Project.SQLServer.Name` variable.
+	- **Target Database**: `Project.Database.Name` variable.
+	- **Target Database Version**: Select from the drop-down if DLLs are locally installed, otherwise you can leave it blank.
+	- **Use Integrated Security**: False (if using SQL Authentication).
+	- **Username**: `Project.SQLServer.Admin.User.Name` variable.
+	- **Password**: `Project.SQLServer.Admin.User.Password` variable.
+	- **Enable multi subnet failover** 
+	- **Additional deployment contributors**
+	- **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.
 
-![](images/octopus-project-add-step.png)
+4. Add a manual intervention step, scoped to production, so the report from the previous step can be examined before deploying to production.
+5. Add another **SQL - Deploy DACPAC from Referenced Package** step, and change the Report and Script values to `False`, and the Deploy value to `True`.
 
-Filter by `dacpac`
-
-![](images/octopus-project-step-filter.png)
-
-There will be three results returned
-
-![](images/octopus-project-step-filter-results.png)
-
-All three Step Templates have close to the same code within them and support the same features.  However, there are some differences.
-
-### SQL - Deploy DACPAC
-This is the original step template written for DACPAC deployments.  This step template requires the template to be run on a Deployment Target.  Recent versions of SQL Server are not placing the DLLs necessary to perform a DACPAC deployment on the servers directly, in such situations, this template will temporarily download the SqlServer PowerShell module, if not found locally, to load the DLLs necessary.  It's important to note that if the NuGet PowerShell Package Provider is not present on the target, it will be installed.
-
-### SQL - Deploy DACPAC from Referenced Package
-This version of the template does not need be exected directly on the Deployment Target and can be run from a Worker.  This version requires two packages to be supplied; the DACPAC and a package containing the DLLs to deploy DACPACs.  This would be ideal for situations where you would like to use a Worker and don't have access to the Internet.  With this version, you need to know the Feed Id, which can be problematic when not using the Default space.
-
-### SQL - Deploy DACPAC from Package Parameter
-Similar to `SQL - Deploy DACPAC`, this version will automatically download a temporary version of the SqlServer PowerShell module if it cannot find the DLLs locally for DACPAC deployment (and install the NuGet Package Provider).  It also can run from a Worker like `SQL - Deploy DACPAC from Referenced Package`.  However, the difference is that it uses a Package Parameter instead of a Package Reference making it easier to use in multi-space instances.
-
-:::hint
-All three templates support the use of SqlCmd Variables.  To use SqlCmd variables, apply a specific naming convention to your project variable by prefixing `SqlCmdVariable.` to the SqlCmd Variable.  For example, if your SqlCmd Variable is named MyVariable, then you would create an Octopus variable called SqlCmdVariable.MyVariable
-:::
-
-This guide uses the `SQL - Deploy DACPAC from Package Parameter` step template
-
-Fill in the template inputs:
-- DACPACPackageName - Name of the dacpac file.  The Project.DACPAC.Name variable was created for this field.
-- Publish profile name - Fill this in if you use Publish profiles
-- Report - True
-- Script - True
-- Deploy - False
-- Extract target database to dacpac - False
-- Target Servername - Project.SQLServer.Name variable
-- Target Database - Project.Database.Name variable
-- Target Database Version - Select from the drop-down if DLLs are locally installed, otherwise you can leave it blank
-- Use Integrated Security - False (if using SQL Authentication)
-- Username - Project.SQLServer.Admin.User.Name variable
-- Password - Project.SQLServer.Admin.User.Password variable
-- Enable multi subnet failover 
-- Additional deployment contributors
-- DACPAC Package - The package from the repository, OctoFXDemo.dacac for this guide
-
-![](images/octopus-project-dacpac1.png)
-![](images/octopus-project-dacpac2.png)
-![](images/octopus-project-dacpac3.png)
-
-This first step will report out what changes will be done without applying.  This allows for a manual intervention step to be placed for Production deployments in between the report and the deploy steps.
-
-Add a manual intervention step, scoping it to Production
-
-Finally, add another `SQL - Deploy DACPAC from Referenced Package` step, changing the Report and Script values to False, and the Deploy value to True.
-
-When done, the deployment process should look like this:
+The deployment process should look like this:
 
 ![](images/octopus-project-steps.png)
 
-Create a Release by clicking on the **CREATE RELEASE** button
+### Create and deploy a release
 
-![](images/octopus-project-create-release.png)
+1. Create a release by clicking on the **CREATE RELEASE** button.
+2. Click **SAVE**.
+3. Click the **DEPLOY TO DEVELOPMENT** button.
+4. Finally, click **DEPLOY**.
 
-Click **SAVE**
-
-![](images/octopus-project-create-release-save.png)
-
-Click **DEPLOY** on the Development row or the **DEPLOY TO DEVELOPMENT** button
-
-Finally, click **DEPLOY**
-
-![](images/octopus-project-release-deploy2.png)
-
-The results should look like:
+The results will look like:
 
 ![](images/octopus-project-deploy-complete.png)
 
-The first step (Gather changes) creates two [artifacts](https://octopus.com/docs/deployment-process/artifacts), an XML file reporting which objects will be changed and the script it's going to use to apply those changes.  Step 3 (Deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.
+The first part of this process gathers the changes and creates two [artifacts](https://octopus.com/docs/deployment-process/artifacts), an XML file that reports which objects will be changed and the script it will use to apply those changes.  The deployment (deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.
