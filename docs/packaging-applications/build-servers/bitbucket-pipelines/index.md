@@ -57,4 +57,4 @@ pipelines:
 ## Learn more
 
 - [Bitbucket feature documentation](https://bitbucket.org/product/features/pipelines)
-- [Webinar: Integrating your Atlassian Cloud Pipeline with Octopus Deploy](youtube.com/embed/yPjooXDJUA0)
+- [Webinar: Integrating your Atlassian Cloud Pipeline with Octopus Deploy](https://youtube.com/embed/yPjooXDJUA0)
