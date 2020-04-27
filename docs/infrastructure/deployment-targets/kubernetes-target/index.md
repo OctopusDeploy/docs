@@ -55,10 +55,6 @@ users:
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/deployment-targets/tokens.md) account.
     - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/deployment-targets/azure/index.md) allow Azure Active Directory accounts to be used.
 
-    :::warning
-    Azure accounts are not currently supported on SSH workers. If you attempt to use an Azure account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with Azure accounts.
-    :::
-
     :::hint
     The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
     :::
