@@ -4,7 +4,7 @@ description: Script modules allow users to create collections of functions that 
 position: 120
 ---
 
-Script modules allow users to create collections of langauge specific functions that can be used in deployment processes across multiple projects.
+Script modules allow users to create collections of language specific functions that can be used in deployment processes across multiple projects.
 
 ## Creating a script module {#ScriptModules-CreatingaScriptmodule}
 

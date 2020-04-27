@@ -16,8 +16,8 @@ Where [<options>] is any of:
 Basic options:
 
       --id=VALUE             The ID of the package; e.g. MyCompany.MyApp
-      --format=VALUE         Package format. Options are: NuPkg, Zip.
-                             Defaults to NuPkg, though we recommend Zip going
+      --format=VALUE         Package format. Valid values are Zip and Nupkg.
+                             Default is Nupkg, though we recommend Zip going
                              forward
       --version=VALUE        [Optional] The version of the package; must be a
                              valid SemVer; defaults to a timestamp-based
@@ -47,8 +47,9 @@ NuGet packages:
 Zip packages:
 
       --compressionLevel=VALUE
-                             [Optional] Set compression level of package:
-                             none, fast, optimal (default).
+                             [Optional] Sets the compression level of the
+                             package. Valid values are None, Fast and Optima-
+                             l. Default is Optimal.
 
 Advanced options:
 
@@ -62,10 +63,10 @@ Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid
-                             option is json
-      --outputFormat=VALUE   [Optional] Output format, only valid option is
-                             json
+                             [Optional] Output format for help, valid options
+                             are Default or Json
+      --outputFormat=VALUE   [Optional] Output format, valid options are
+                             Default or Json
 ```
 
 ## Learn more

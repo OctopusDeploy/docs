@@ -37,6 +37,12 @@ We try to keep the .NET Framework requirements for Octopus Server as stable as p
 - **Octopus 2019.7** and later requires [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkID=863265) or newer.
 - **Octopus 2020.1** and later is a fully self-contained distribution bundling the .NET Core 3.1 runtime - no .NET Framework is required.
 
+## Windows PowerShell
+
+- **Windows PowerShell 2.0.** This is automatically installed on 2008 R2.
+- **Windows PowerShell 3.0 or 4.0** are recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
+- **Windows PowerShell 5.1** is required to run Azure steps.
+
 ## Supported browsers {#supported-browsers}
 
 The Octopus Server includes the Octopus Web Portal user interface and we try to keep this as stable as possible:

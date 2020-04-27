@@ -13,9 +13,15 @@ Linux Tentacle is a .NET Core application distributed as a [self-contained deplo
 
 ## Known limitations
 
-Linux Tentacle is intended to provide feature parity with Windows Tentacle. The currently known limitations of Linux Tentacle are:
+Support for ScriptCS and F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
 
-- C# and F# script types are not supported. The alternatives are PowerShell Core, Bash and Python scripts.
+ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/scriptcs/scriptcs/issues/1183)).
+
+Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
+
+:::warning 
+ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
+:::
 
 ## Downloads
 

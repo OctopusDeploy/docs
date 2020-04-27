@@ -22,11 +22,10 @@ Package pushing:
       --package=VALUE        Package file to push. Specify multiple packages
                              by specifying this argument multiple times:
                              --package package1 --package package2
-      --overwrite-mode=VALUE If the package already exists in the repository,
-                             the default behavior is to reject the new
-                             package being pushed (FailIfExists). You can use
-                             the overwrite mode to OverwriteExisting or
-                             IgnoreIfExists.
+      --overwrite-mode=VALUE Determines behavior if the package already
+                             exists in the repository. Valid values are
+                             FailIfExists, OverwriteExisting and
+                             IgnoreIfExists. Default is FailIfExists.
       --replace-existing     If the package already exists in the repository,
                              the default behavior is to reject the new
                              package being pushed. You can pass this flag to
@@ -43,10 +42,10 @@ Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid
-                             option is json
-      --outputFormat=VALUE   [Optional] Output format, only valid option is
-                             json
+                             [Optional] Output format for help, valid options
+                             are Default or Json
+      --outputFormat=VALUE   [Optional] Output format, valid options are
+                             Default or Json
       --server=VALUE         [Optional] The base URL for your Octopus Server,
                              e.g., 'https://octopus.example.com/'. This URL
                              can also be set in the OCTOPUS_CLI_SERVER

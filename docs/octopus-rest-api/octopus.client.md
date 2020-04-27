@@ -8,7 +8,7 @@ Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClien
 
 Because the Octopus Deploy application itself is built entirely on the API, any programming language that can make HTTP requests to the API can do anything that could be done by a user of the application itself.
 
-Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Client). The package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5 and later, and the .NET Standard build is cross-platform and compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core and can be used from PowerShell Core.
+Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Client). The package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5.2, and the .NET Standard build is cross-platform and compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core and can be used from PowerShell Core.
 
 ## Getting Started {#Octopus.Client-Gettingstarted}
 
@@ -19,7 +19,7 @@ Details for where to find the API, how to authenticate, and the available resour
 To use from PowerShell, use the `Install-Package` command from the Microsoft [PackageManagement](https://docs.microsoft.com/en-us/powershell/module/packagemanagement) module:
 ```powershell
 Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
-$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net45/Octopus.Client.dll"
+$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net452/Octopus.Client.dll"
 Add-Type -Path $path
 ```
 

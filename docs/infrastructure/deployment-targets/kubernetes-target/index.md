@@ -55,24 +55,16 @@ users:
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/deployment-targets/tokens.md) account.
     - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/deployment-targets/azure/index.md) allow Azure Active Directory accounts to be used.
 
-    :::warning
-    Azure accounts are not currently supported on SSH workers. If you attempt to use an Azure account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with Azure accounts.
-    :::
-
     :::hint
     The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
     :::
 
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) allow IAM accounts and roles to be used.
 
-    :::warning
-    AWS accounts are not currently supported on SSH workers. If you attempt to use an AWS account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with AWS accounts.
-    :::
-
     The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   
 
     :::hint
-    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
+    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the
     [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
     :::
 
