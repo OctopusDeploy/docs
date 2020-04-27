@@ -65,14 +65,10 @@ users:
 
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) allow IAM accounts and roles to be used.
 
-    :::warning
-    AWS accounts are not currently supported on SSH workers. If you attempt to use an AWS account with an SSH worker, you will receive an error like `Calamari.exe: cannot execute binary file `. The workaround is to use a Windows worker for Kubernetes targets with AWS accounts.
-    :::
-
     The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   
 
     :::hint
-    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator.exe` executable available on the path. See the
+    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the
     [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
     :::
 
