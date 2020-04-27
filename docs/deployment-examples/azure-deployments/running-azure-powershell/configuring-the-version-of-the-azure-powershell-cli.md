@@ -15,7 +15,7 @@ The procedure to configure this differs depending on which version of Octopus De
 
 ## Octopus 2020.1 or newer {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2020.1(ornewer)}
 
-Within the PowerShell Azure step, there will be an option called "Azure Tools". Toggle the setting to **Use Azure Tools pre-installed on the worker**.
+Within the PowerShell Azure step, is an option called "Azure Tools". Toggle the setting to **Use Azure Tools pre-installed on the worker**.
 
 ## Octopus 2018.5.5 to 2019.13.7 {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5-to-2019.13.7}
 
