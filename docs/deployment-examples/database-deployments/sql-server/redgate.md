@@ -42,73 +42,61 @@ This documentation assumes a Windows VM already has the Tentacle installed on it
 3. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
 4. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
 
-![](images/redgate-octopus-create-worker-select-tentacle-type.png)
+![Tentacle communication mode selection in the Octopus Web Portal](images/redgate-octopus-create-worker-select-tentacle-type.png "width=500")
 
 ### Install the Tentacle on a Windows server {#install-the-tentacle-on-a-windows-server}
 
-With the worker pool created, it is now time to install the tentacle on a Windows server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
+Next, install the Tentacle on a Windows server.  Aside from the latest version of .NET, no other software is required.  The Redgate tooling will be automatically downloaded during the deployment.  
 
 :::highlight
-The server will need access to the PowerShell gallery to download the Redgate tooling.  
+The server needs to access the PowerShell gallery to download the Redgate tooling.  
 :::
 
 #### Listening Tentacles
 
-Use the Octopus Server UI to register a listening tentacle.  You will need to download the tentacle onto the server and select listening.
+Use the Octopus Web Portal to register a Listening Tentacle.  You will need to download the Tentacle onto the server and select Listening as the communication mode.
 
-![](images/tentacle-gui-listening-tentacle.png)
-
-Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in `Configuration` -> `Thumbprint`.  This is the thumbprint of the server's certificate.  The server and the tentacle will exchange the certificates to ensure a two-way trust is established.
+Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in {{Configuration,Thumbprint}}.  This is the thumbprint of the server's certificate.  The server and the tentacle will exchange the certificates to ensure a two-way trust is established.
 
 :::highlight
-The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  Your thumbprint will be very different.
+The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  Your thumbprint will be different.
 :::
 
-![](images/listening-tentacle-thumbprint.png)
+![Example thumbprint for a Listening Tentacle](images/listening-tentacle-thumbprint.png "width=500")
 
-Once the tentacle is configured, enter in the IP address or the host name.
+After the Tentacle is configured, enter in the IP address or the host name.
 
 :::highlight
-If you enter the host name of a private server, the Octopus Server will need to be able to connect to your DNS server to find that host.  
+If you enter the host name of a private server, the Octopus Server will need to connect to your DNS server to find that host.  
 :::
 
-By default the listening tentacle will listen on port `10933`.  If you configured something different be sure to change it in this form.  Once the form is filled out, click the `Next` button.
+By default, the Listening Tentacle will listen on port `10933`.  If you configured a different port, enter the port on this form, and click **Next**.
 
-![](images/redgate-octopus-create-listening-worker.png)
+![The screen to create a Listening Tentacle](images/redgate-octopus-create-listening-worker.png "width=500")
 
-The `Next` button will tell the Octopus Server to connect to that tentacle.  The listening tentacle will only accept a connection if it the server's thumbprint matches.  After the communication is successful, provide a display name for the worker.  Depending on the screen this wizard was started from, the worker pool may or may not be pre-populated.  Clicking the `Save` button will save the worker to the database.
-
-![](images/redgate-octopus-save-listening-worker.png)
+The Octopus Server will attempt to connect to the Tentacle.  The listening tentacle will only accept a connection if it the server's thumbprint matches.  After the communication is successful, provide a display name for the worker.  Depending on the screen this wizard was started from, the worker pool may or may not be pre-populated.  Click **Save** to save the worker to the database.
 
 #### Polling Tentacles
 
-The process to register Polling Tentacles as workers takes place in the `Tentacle Manager` on the server hosting the tentacle.  Select the polling tentacle to get started with the wizard.
+The process to register Polling Tentacles as workers takes place in the **Tentacle Manager** on the server hosting the Tentacle.  Select the polling Tentacle to get started with the wizard.
 
-![](images/polling-tentacle-selection.png)
-
-One the credentials screen use a username / password or an [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) of a user who has permissions to add worker pools.  This account will only be used for registration.  
+On the credentials screen enter a username and password or the [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) of a user who has permissions to add worker pools.  This account will only be used for registration.  
 
 :::highlight
-The registration process will connect to the RESTful API of the Octopus Server.  It will connect over port 80 or 443 using the http/https protocol.  After registration the default port the tentacle will connect to is port 10943.
+The registration process will connect to the RESTful API of the Octopus Server.  It will connect over port 80 or 443 using the http/https protocol.  After registration the default port the Tentacle will connect to is port 10943.
 :::
-
-![](images/polling-tentacle-credentials.png)
 
 After the credentials have been verified, select the worker option on the next screen.
 
 :::highlight
-Under the covers, there is nothing different between a worker and a target.  They are both Tentacles.  The difference is in how the Tentacle is registered with Octopus.  The Octopus Deploy server treats workers differently than targets.
+Under the covers, there is nothing different between a worker and a target.  They are both Tentacles.  The difference is in how the Tentacle is registered with Octopus.  The Octopus Server treats workers differently than targets.
 :::
 
-![](images/polling-tentacle-select-worker.png)
+Select the space, give the worker a display name, and select the worker pool.
 
-Select the space, give the worker a display name and select the worker pool.
+![The screen to register a Polling Tentacle](images/tentacle-manager-register-polling-tentacle.png "width=500")
 
-![](images/tentacle-manager-register-polling-tentacle.png)
-
-The polling tentacle will not be created and registered with the Octopus Server as a worker until the big green `Install` button is pressed.
-
-![](images/polling-tentacle-install-tentacle.png)
+Press **Install** to create the Tentacle and register it with the Octopus Server.
 
 ### Install step templates {#install-step-templates}
 
@@ -117,9 +105,7 @@ For this guide the following step templates will be used:
 - [Redgate - Create Database Release (Worker Friendly)](https://library.octopus.com/step-templates/47d29b57-5bca-4205-ac62-ce10cdf8bab9/actiontemplate-redgate-create-database-release-(worker-friendly))
 - [Redgate - Deploy from Database Release (Worker Friendly)](https://library.octopus.com/step-templates/adf9a009-8bbb-4b82-8f3b-6fb12ef4ba18/actiontemplate-redgate-deploy-from-database-release-(worker-friendly))
 
-First those step templates will need to be installed from the Library onto the Octopus Server.  Go to `Library` -> `Step Templates` and click the `Browse` button.
-
-![](images/redgate-octopus-browse-step-templates.png)
+To install the steps from the library, navigate to {{Library,Step Templates}} and click **Browse**.
 
 The list of categories is alphabetical.  Find the `Redgate` category.
 
