@@ -46,25 +46,9 @@ Your first deployment in a Docker container might take a while as it will downlo
 - You can use our recommended images (see below).
 - You can build your own based on the recommended images.
 
-## The worker-tools docker images 
+## The octopusdeploy/worker-tools docker images 
 
 We provide recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) that include common tools used for octopus steps. 
-
-
-Pick an image that is suitable for your needs based on:
-- OS + distribution
-
-The worker tools images have multiple release tracks, based on how you would like to receive updates as they're pushed to docker hub.
-- Major
-- Major.Minor
-- Major.Minor.Patch
-
-If the operating system on your worker is Linux, you can use any of the following images: 
-
-- octopusdeploy/worker-tools:ubuntu.18.04
-- octopusdeploy/worker-tools:1-ubuntu.18.04
-- octopusdeploy/worker-tools:1.0-ubuntu.18.04
-- octopusdeploy/worker-tools:1.0.1-ubuntu.18.04
 
 :::hint
 We highly recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker
