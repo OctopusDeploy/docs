@@ -4,7 +4,7 @@ description: How to set a step in your deployment/runbook process to run inside 
 position: 15
 ---
 
-For a [step](/docs/deployment-process/steps/index.md) running on a [worker](docs/infrastructure/workers/index.md) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker.md) that you define in your [deployment processes](/docs/deployment-process/index.md), you can select a container for the step's execution.
+For a [step](/docs/deployment-process/steps/index.md) running on a [worker](docs/infrastructure/workers/index.md) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker.md), you can select a container for the step's execution.
 
 :::warning
 Execution containers for workers are not supported for [Dynamic Worker pools](/docs/infrastructure/workers/dynamic-worker-pools.md).
