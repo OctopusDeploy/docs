@@ -49,7 +49,8 @@ For more information regarding the 'system or space level', please see [system a
 #### Build Server
 
 | Space Permission            | Description                              |
-| BuiltInFeedAdminister       | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |    
+| --------------------------- | ---------------------------------------- |
+| BuiltInFeedAdminister       | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |
 | BuiltInFeedDownload         | Create runbook runs (restrictable to Environments, Projects, Tenants) |
 | BuiltInFeedPush             | Create/update build information |
 | DeploymentCreate            | Deploy releases to target environments (restrictable to Environments, Projects, Tenants) |
@@ -58,7 +59,7 @@ For more information regarding the 'system or space level', please see [system a
 | FeedView                    | Replace or delete build information |
 | LibraryVariableSetView      | Replace or delete packages in the built-in package repository (restrictable to Projects) |
 | LifecycleView               | Retrieve the contents of packages in the built-in package repository (restrictable to Projects) |
-| BuildInformationPush        | View a release of a project (restrictable to Projects, ProjectsViaTenants) |       
+| BuildInformationPush        | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | BuildInformationAdminister  | View deployments (restrictable to Environments, Projects, Tenants) |
 | ProcessView                 | View environments (restrictable to Environments) |
 | ProjectView                 | View library variable sets (restrictable to Environments, Tenants) |
@@ -74,6 +75,7 @@ For more information regarding the 'system or space level', please see [system a
 #### Certificate Manager
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | CertificateView             | Create certificates (restrictable to Environments, Tenants) |
 | CertificateCreate           | Delete certificates (restrictable to Environments, Tenants) |
 | CertificateEdit             | Edit certificates (restrictable to Environments, Tenants) |
@@ -85,6 +87,7 @@ For more information regarding the 'system or space level', please see [system a
 #### Deployment Creator
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | DeploymentCreate            | Create runbook runs (restrictable to Environments, Projects, Tenants) |
 | DeploymentView              | Deploy releases to target environments (restrictable to Environments, Projects, Tenants) |
 | EnvironmentView             | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
@@ -102,9 +105,11 @@ For more information regarding the 'system or space level', please see [system a
 #### Environment Manager
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View teams (system) |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | EnvironmentCreate           | Cancel server tasks (space) (restrictable to Environments, Projects, Tenants) |
 | EnvironmentEdit             | Create accounts (restrictable to Environments, Tenants) |
 | EnvironmentDelete           | Create environments |
@@ -136,9 +141,11 @@ For more information regarding the 'system or space level', please see [system a
 #### Environment Viewer
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View teams (system) |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | EnvironmentView             | View accounts (restrictable to Environments, Tenants) |
 | MachineView                 | View certificates (restrictable to Environments, Tenants) |
 | TaskView                    | View environments (restrictable to Environments) |
@@ -152,8 +159,9 @@ For more information regarding the 'system or space level', please see [system a
 #### Package Publisher
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | BuiltInFeedAdminister       | Create/update build information |
-| BuiltInFeedDownload         | Push new packages to the built-in package repository (restrictable to Projects) |  
+| BuiltInFeedDownload         | Push new packages to the built-in package repository (restrictable to Projects) |
 | BuiltInFeedPush             | Replace or delete build information |
 | FeedView                    | Replace or delete packages in the built-in package repository (restrictable to Projects) |
 | BuildInformationPush        | Retrieve the contents of packages in the built-in package repository (restrictable to Projects) |
@@ -162,11 +170,13 @@ For more information regarding the 'system or space level', please see [system a
 #### Project Contributor
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View other user's roles |
 | UserView                    | View teams (system) |
 | UserRoleView                | View users |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ArtifactCreate              | Block a release from progressing to the next lifecycle phase (restrictable to Projects) |
 | ActionTemplateView          | Create library variable sets |
 | ActionTemplateCreate        | Create step templates |
@@ -182,9 +192,10 @@ For more information regarding the 'system or space level', please see [system a
 | InterruptionViewSubmitResponsible | Edit triggers (restrictable to Projects) |
 | MachineView                 | Edit variables belonging to a project (restrictable to Environments, Projects, Tenants) |
 | DefectReport                | Explicitly create (run) server tasks (space) (restrictable to Environments, Projects, Tenants) |
-| DefectResolve               | Manually create artifacts (restrictable to Environments, Projects, Tenants) |      
+| DefectResolve               | Manually create artifacts (restrictable to Environments, Projects, Tenants) |
 | VariableView                | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team (restrictable to Environments, Projects, Tenants) |
-| VariableEdit                | Unblock a release so it can progress to the next phase (restrictable to Projects) || TriggerCreate               | View a release of a project (restrictable to Projects, ProjectsViaTenants) |       
+| VariableEdit                | Unblock a release so it can progress to the next phase (restrictable to Projects) |
+| TriggerCreate               | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | TriggerDelete               | View certificates (restrictable to Environments, Tenants) |
 | TriggerEdit                 | View deployments (restrictable to Environments, Projects, Tenants) |
 | RunbookView                 | View environments (restrictable to Environments) |
@@ -204,20 +215,22 @@ For more information regarding the 'system or space level', please see [system a
 | LifecycleView               | View tenants (restrictable to Tenants) |
 | MachinePolicyView           | View the artifacts created manually and during deployment (restrictable to Environments, Projects, Tenants) |
 | TenantView                  | View the deployment process and channels associated with a project (restrictable to Projects, ProjectsViaTenants) |
-| TriggerView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |      
+| TriggerView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |
 | CertificateView             | View triggers (restrictable to Projects) |
 | RunbookRunView              | View variables belonging to a project or library variable set (restrictable to Environments, Projects, Tenants) |
 
 #### Project Deployer
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View other user's roles |
 | UserView                    | View teams (system) |
 | UserRoleView                | View users |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | DeploymentCreate            | Block a release from progressing to the next lifecycle phase (restrictable to Projects) |
-| InterruptionSubmit          | Cancel server tasks (space) (restrictable to Environments, Projects, Tenants) |    
+| InterruptionSubmit          | Cancel server tasks (space) (restrictable to Environments, Projects, Tenants) |
 | TaskCancel                  | Create library variable sets |
 | RunbookRunCreate            | Create runbook runs (restrictable to Environments, Projects, Tenants) |
 | ArtifactCreate              | Create step templates |
@@ -237,7 +250,8 @@ For more information regarding the 'system or space level', please see [system a
 | DefectReport                | Manually create artifacts (restrictable to Environments, Projects, Tenants) |
 | DefectResolve               | Take responsibility for and submit interruptions generated during deployments (restrictable to Environments, Projects, Tenants) |
 | VariableView                | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team (restrictable to Environments, Projects, Tenants) |
-| VariableEdit                | Unblock a release so it can progress to the next phase (restrictable to Projects) || TriggerCreate               | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
+| VariableEdit                | Unblock a release so it can progress to the next phase (restrictable to Projects) |
+| TriggerCreate               | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | TriggerDelete               | View certificates (restrictable to Environments, Tenants) |
 | TriggerEdit                 | View deployments (restrictable to Environments, Projects, Tenants) |
 | RunbookView                 | View environments (restrictable to Environments) |
@@ -264,16 +278,19 @@ For more information regarding the 'system or space level', please see [system a
 #### Project Initiator
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View other user's roles |
 | UserView                    | View teams (system) |
 | UserRoleView                | View users |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ProjectCreate               | Block a release from progressing to the next lifecycle phase (restrictable to Projects) |
 | ProjectEdit                 | Create projects (restrictable to ProjectGroups) |
 | ProjectDelete               | Delete projects (restrictable to Projects, ProjectsViaTenants) |
 | DefectReport                | Edit project details (restrictable to Projects, ProjectsViaTenants) |
-| DefectResolve               | Unblock a release so it can progress to the next phase (restrictable to Projects) || ReleaseView                 | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
+| DefectResolve               | Unblock a release so it can progress to the next phase (restrictable to Projects) |
+| ReleaseView                 | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | ProjectView                 | View certificates (restrictable to Environments, Tenants) |
 | DeploymentView              | View deployments (restrictable to Environments, Projects, Tenants) |
 | ProcessView                 | View environments (restrictable to Environments) |
@@ -290,19 +307,21 @@ For more information regarding the 'system or space level', please see [system a
 | TenantView                  | View tenants (restrictable to Tenants) |
 | TriggerView                 | View the artifacts created manually and during deployment (restrictable to Environments, Projects, Tenants) |
 | CertificateView             | View the deployment process and channels associated with a project (restrictable to Projects, ProjectsViaTenants) |
-| RunbookView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |      
+| RunbookView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |
 | RunbookRunView              | View triggers (restrictable to Projects) |
 
 #### Project Lead
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View other user's roles |
 | UserView                    | View teams (system) |
 | UserRoleView                | View users |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ReleaseCreate               | Block a release from progressing to the next lifecycle phase (restrictable to Projects) |
-| ReleaseEdit                 | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |    
+| ReleaseEdit                 | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |
 | ReleaseDelete               | Create library variable sets |
 | ArtifactEdit                | Create step templates |
 | ArtifactDelete              | Create triggers (restrictable to Projects) |
@@ -311,7 +330,7 @@ For more information regarding the 'system or space level', please see [system a
 | ActionTemplateCreate        | Delete library variable sets |
 | ActionTemplateEdit          | Delete step templates |
 | ActionTemplateDelete        | Delete triggers (restrictable to Projects) |
-| ProcessEdit                 | Edit a release of a project (restrictable to Projects, ProjectsViaTenants) |       
+| ProcessEdit                 | Edit a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | ProjectEdit                 | Edit library variable sets (restrictable to Environments, Tenants) |
 | FeedView                    | Edit project details (restrictable to Projects, ProjectsViaTenants) |
 | LibraryVariableSetCreate    | Edit runbooks (restrictable to Projects, ProjectsViaTenants) |
@@ -321,9 +340,10 @@ For more information regarding the 'system or space level', please see [system a
 | InterruptionViewSubmitResponsible | Edit triggers (restrictable to Projects) |
 | MachineView                 | Edit variables belonging to a project (restrictable to Environments, Projects, Tenants) |
 | DefectReport                | Explicitly create (run) server tasks (space) (restrictable to Environments, Projects, Tenants) |
-| DefectResolve               | Manually create artifacts (restrictable to Environments, Projects, Tenants) |      
+| DefectResolve               | Manually create artifacts (restrictable to Environments, Projects, Tenants) |
 | VariableView                | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team (restrictable to Environments, Projects, Tenants) |
-| VariableEdit                | Unblock a release so it can progress to the next phase (restrictable to Projects) || TriggerCreate               | View a release of a project (restrictable to Projects, ProjectsViaTenants) |       
+| VariableEdit                | Unblock a release so it can progress to the next phase (restrictable to Projects) |
+| TriggerCreate               | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | TriggerDelete               | View certificates (restrictable to Environments, Tenants) |
 | TriggerEdit                 | View deployments (restrictable to Environments, Projects, Tenants) |
 | RunbookView                 | View environments (restrictable to Environments) |
@@ -343,18 +363,20 @@ For more information regarding the 'system or space level', please see [system a
 | LifecycleView               | View tenants (restrictable to Tenants) |
 | MachinePolicyView           | View the artifacts created manually and during deployment (restrictable to Environments, Projects, Tenants) |
 | TenantView                  | View the deployment process and channels associated with a project (restrictable to Projects, ProjectsViaTenants) |
-| TriggerView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |      
+| TriggerView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |
 | CertificateView             | View triggers (restrictable to Projects) |
 | RunbookRunView              | View variables belonging to a project or library variable set (restrictable to Environments, Projects, Tenants) |
 
 #### Project Viewer
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View other user's roles |
 | UserView                    | View teams (system) |
 | UserRoleView                | View users |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ReleaseView                 | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | ProjectView                 | View certificates (restrictable to Environments, Tenants) |
 | DeploymentView              | View deployments (restrictable to Environments, Projects, Tenants) |
@@ -378,18 +400,20 @@ For more information regarding the 'system or space level', please see [system a
 #### Release Creator
 
 | Space Permission            | Description                              |
-| EnvironmentView             | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |    
+| --------------------------- | ---------------------------------------- |
+| EnvironmentView             | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |
 | FeedView                    | Edit runbooks (restrictable to Projects, ProjectsViaTenants) |
 | ProcessView                 | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | ProjectView                 | View environments (restrictable to Environments) |
 | ReleaseCreate               | View package feeds and the packages in them |
 | ReleaseView                 | View runbooks (restrictable to Projects, ProjectsViaTenants) |
 | RunbookView                 | View the deployment process and channels associated with a project (restrictable to Projects, ProjectsViaTenants) |
-| RunbookEdit                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |      
+| RunbookEdit                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |
 
 #### Runbook Consumer
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ProjectView                 | Create runbook runs (restrictable to Environments, Projects, Tenants) |
 | EnvironmentView             | View certificates (restrictable to Environments, Tenants) |
 | ArtifactView                | View environments (restrictable to Environments) |
@@ -406,13 +430,14 @@ For more information regarding the 'system or space level', please see [system a
 | CertificateView             | View teams (space) |
 | MachineView                 | View tenants (restrictable to Tenants) |
 | RunbookView                 | View the artifacts created manually and during deployment (restrictable to Environments, Projects, Tenants) |
-| RunbookRunView              | View the details of projects (restrictable to Projects, ProjectsViaTenants) |      
+| RunbookRunView              | View the details of projects (restrictable to Projects, ProjectsViaTenants) |
 | RunbookRunCreate            | View triggers (restrictable to Projects) |
 
 #### Runbook Producer
 
 | Space Permission            | Description                              |
-| ProjectCreate               | Cancel server tasks (space) (restrictable to Environments, Projects, Tenants) |    
+| --------------------------- | ---------------------------------------- |
+| ProjectCreate               | Cancel server tasks (space) (restrictable to Environments, Projects, Tenants) |
 | ProjectEdit                 | Create library variable sets |
 | ProjectDelete               | Create projects (restrictable to ProjectGroups) |
 | LifecycleView               | Create runbook runs (restrictable to Environments, Projects, Tenants) |
@@ -432,7 +457,7 @@ For more information regarding the 'system or space level', please see [system a
 | TriggerDelete               | Edit triggers (restrictable to Projects) |
 | TriggerEdit                 | Edit variables belonging to a project (restrictable to Environments, Projects, Tenants) |
 | RunbookEdit                 | Explicitly create (run) server tasks (space) (restrictable to Environments, Projects, Tenants) |
-| RunbookRunDelete            | Manually create artifacts (restrictable to Environments, Projects, Tenants) |      
+| RunbookRunDelete            | Manually create artifacts (restrictable to Environments, Projects, Tenants) |
 | ArtifactCreate              | Take responsibility for and submit interruptions generated during deployments (restrictable to Environments, Projects, Tenants) |
 | ArtifactEdit                | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team (restrictable to Environments, Projects, Tenants) |
 | ArtifactDelete              | View certificates (restrictable to Environments, Tenants) |
@@ -452,21 +477,23 @@ For more information regarding the 'system or space level', please see [system a
 | TriggerView                 | View teams (space) |
 | CertificateView             | View tenants (restrictable to Tenants) |
 | MachineView                 | View the artifacts created manually and during deployment (restrictable to Environments, Projects, Tenants) |
-| RunbookView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |      
+| RunbookView                 | View the details of projects (restrictable to Projects, ProjectsViaTenants) |
 | RunbookRunView              | View triggers (restrictable to Projects) |
 | RunbookRunCreate            | View variables belonging to a project or library variable set (restrictable to Environments, Projects, Tenants) |
 
 #### Space Manager
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TeamView                    | View other user's roles |
 | UserView                    | View teams (system) |
 | UserRoleView                | View users |
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ProjectEdit                 | Block a release from progressing to the next lifecycle phase (restrictable to Projects) |
 | ProjectView                 | Cancel server tasks (space) (restrictable to Environments, Projects, Tenants) |
-| ProjectCreate               | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |    
+| ProjectCreate               | Create a release for a project (restrictable to Projects, ProjectsViaTenants) |
 | ProjectDelete               | Create accounts (restrictable to Environments, Tenants) |
 | ProcessView                 | Create certificates (restrictable to Environments, Tenants) |
 | ProcessEdit                 | Create environments |
@@ -506,7 +533,7 @@ For more information regarding the 'system or space level', please see [system a
 | ProjectGroupEdit            | Delete tenants (restrictable to Tenants) |
 | ProjectGroupDelete          | Delete triggers (restrictable to Projects) |
 | TeamCreate                  | Deploy releases to target environments (restrictable to Environments, Projects, Tenants) |
-| TeamView                    | Edit a release of a project (restrictable to Projects, ProjectsViaTenants) |       
+| TeamView                    | Edit a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | TeamEdit                    | Edit accounts (restrictable to Environments, Tenants) |
 | TeamDelete                  | Edit certificates (restrictable to Environments, Tenants) |
 | TaskView                    | Edit environments (restrictable to Environments) |
@@ -534,13 +561,14 @@ For more information regarding the 'system or space level', please see [system a
 | TenantCreate                | Explicitly create (run) server tasks (space) (restrictable to Environments, Projects, Tenants) |
 | TenantEdit                  | Export certificate private-keys (restrictable to Environments, Tenants) |
 | TenantView                  | Manually create artifacts (restrictable to Environments, Projects, Tenants) |
-| TenantDelete                | Push new packages to the built-in package repository (restrictable to Projects) |  
+| TenantDelete                | Push new packages to the built-in package repository (restrictable to Projects) |
 | TagSetCreate                | Replace or delete build information |
 | TagSetEdit                  | Replace or delete packages in the built-in package repository (restrictable to Projects) |
 | TagSetDelete                | Retrieve the contents of packages in the built-in package repository (restrictable to Projects) |
 | MachinePolicyCreate         | Take responsibility for and submit interruptions generated during deployments (restrictable to Environments, Projects, Tenants) |
 | MachinePolicyView           | Take responsibility for and submit interruptions generated during deployments when the user is in a designated responsible team (restrictable to Environments, Projects, Tenants) |
-| MachinePolicyEdit           | Unblock a release so it can progress to the next phase (restrictable to Projects) || MachinePolicyDelete         | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
+| MachinePolicyEdit           | Unblock a release so it can progress to the next phase (restrictable to Projects) |
+| MachinePolicyDelete         | View a release of a project (restrictable to Projects, ProjectsViaTenants) |
 | ProxyCreate                 | View accounts (restrictable to Environments, Tenants) |
 | ProxyView                   | View certificates (restrictable to Environments, Tenants) |
 | ProxyEdit                   | View deployments (restrictable to Environments, Projects, Tenants) |
@@ -572,6 +600,7 @@ For more information regarding the 'system or space level', please see [system a
 #### System Administrator
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | AdministerSystem            | Cancel server tasks (system) |
 | ConfigureServer             | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
 | EventView                   | Create spaces |
@@ -596,8 +625,9 @@ For more information regarding the 'system or space level', please see [system a
 #### System Manager
 
 | System Permission           | Description                              |
+| --------------------------- | ---------------------------------------- |
 | ConfigureServer             | Cancel server tasks (system) |
-| EventView                   | Configure server settings like Authentication, SMTP, and HTTP Security Headers |   
+| EventView                   | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
 | TeamCreate                  | Create spaces |
 | TeamView                    | Create teams (system) |
 | TeamEdit                    | Delete spaces |
@@ -619,6 +649,7 @@ For more information regarding the 'system or space level', please see [system a
 #### Tenant Manager
 
 | Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
 | TenantCreate                | Create tenants |
 | TenantEdit                  | Delete tenants (restrictable to Tenants) |
 | TenantDelete                | Edit tenants (restrictable to Tenants) |
