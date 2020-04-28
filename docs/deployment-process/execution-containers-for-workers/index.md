@@ -40,7 +40,7 @@ Pre-pulling your chosen image will save you time during deployments.
 
 When you choose to run one or more of your deployment steps in a container, your deployment process will `docker pull` the image you provide at the start of each deployment during package acquisition.
 
-For your first deployment, this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
+For your first deployment this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
 
 ## What docker image should I use?
 
