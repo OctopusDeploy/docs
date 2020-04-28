@@ -107,15 +107,11 @@ For this guide the following step templates will be used:
 
 To install the steps from the library, navigate to {{Library,Step Templates}} and click **Browse**.
 
-The list of categories is alphabetical.  Find the `Redgate` category.
+The list of categories is alphabetical.  Find the **Redgate** category, and select the first template, **Redgate - Create Database Release (Worker Friendly)**.
 
-![](images/redgate-browse-for-steptemplates.png)
+![Selecting the Redgate step template](images/redgate-select-steptemplate.png "width=500")
 
-Select the first step template, `Redgate - Create Database Release (Worker Friendly)`.
-
-![](images/redgate-select-steptemplate.png)
-
-Repeat the same process for `Redgate - Deploy Database Release (Worker Friendly)`.  
+Repeat the same process for **Redgate - Deploy Database Release (Worker Friendly)**.  
 
 :::highlight
 The non-worker friendly version of these step templates are there for customers using a version of Octopus Deploy older than **2019.10.0**.  That version added the ability to provide a package variable in a step template.
@@ -123,114 +119,110 @@ The non-worker friendly version of these step templates are there for customers 
 
 ## Build Server
 
-Octopus Deploy is the deployment tool.  A build server, such as Jenkins, TeamCity, Azure DevOps, Bamboo, Bitbucket Pipelines, CircleCI, or GitHub actions is still required.  A link to a number of build tools were provided at the start of this guide.  The build server will take the database which was saved to source control and create a .NuGet package for Octopus Deploy to consume.
+A build server, such as Jenkins, TeamCity, Azure DevOps, Bamboo, Bitbucket Pipelines, CircleCI, or GitHub actions is required.  A link to a number of build tools were provided at the start of this guide.  The build server will take the database which was saved to source control and create a .NuGet package for Octopus Deploy to consume.
 
-Octopus Deploy and Redgate provide a number of plug-ins for several build servers.  
+Octopus Deploy and Redgate provide a number of plugins for several build servers.  
 
 - Jenkins:
-    - Octopus - download [here](https://plugins.jenkins.io/octopusdeploy/).
-    - Redgate - download [here](https://plugins.jenkins.io/redgate-sql-ci).
+    - [Octopus plugin](https://plugins.jenkins.io/octopusdeploy/).
+    - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci).
 - TeamCity:
-    - Octopus - download [here](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
-    - RedGate - download [here](https://www.red-gate.com/dlmas/TeamCity-download).
+    - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
+    - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).
 - VSTS/TFS:
-    - Octopus - download [here](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
-    - Redgate - download [here](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
+    - [Octopus plugin](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
+    - [Redgate plugin](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
 - Bamboo:
-    - Octopus - download [here](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview).
-    - Redgate - download [here](https://marketplace.atlassian.com/apps/1213347/redgate-dlm-automation-for-bamboo?hosting=server&tab=overview).
+    - [Octopus plugin](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview).
+    - [Redgate plugin](https://marketplace.atlassian.com/apps/1213347/redgate-dlm-automation-for-bamboo?hosting=server&tab=overview).
 
 ### Azure DevOps
 
-Three steps are required in Azure DevOps for this process to work.  
+In Azure DevOps there are three steps to this process.
 
-![](images/azure-devops-build-database-overview.png)
+The first step builds the database package from source control.  The plugin provided by Redgate offers multiple operations, but for this step, select **Build a SQL Source Control project**.  The sub folder path is a relative path.  It needs to be the same directory configured in SQL Source Control.  Finally, configure the build number, we recommend specifying the build number using a **SemVer** versioning strategy.
 
-The first step will build the database package from source control.  The plug-in provided by Redgate offers multiple operations.  For this step, select `Build a SQL Source Control project`.  The sub folder path is a relative path.  It needs to be the same directory configured in SQL Source Control.  Finally is the build number.  It is recommended to specify the build number using a `SemVer` versioning strategy.  
+![Build step in Azure DevOps](images/azure-devops-build-database-package.png "width=500")
 
-![](images/azure-devops-build-database-package.png)
+The push package to Octopus step can be a little tricky.  The folder where the package is saved is not very apparent in the previous step. In this example, the package was saved in `$(Build.Repository.Localpath)`.
 
-The push package to Octopus step can be a little tricky.  The folder where the package is saved is not very apparent in the previous step.  Often times it takes a lot of digging through the logs to find the right folder.  In this example, the package was saved in `$(Build.Repository.Localpath)`.
-
-![](images/azure-devops-push-database-package.png)
-
-The full path for this example is.
+The full path for this example is:
 
 ```
     $(Build.Repository.Localpath)\RandomQuotes-SQLChangeAutomation.1.0.$(Build.BuildNumber).nupkg
 ```
 
-The Octopus Deploy Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](https://octopus.com/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension#add-a-connection-to-octopus-deploy).
+The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](https://octopus.com/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension#add-a-connection-to-octopus-deploy).
 
-The last step is to create a release in Octopus Deploy and deploy it to dev using the plug-in.  Select the project from the drop down list, and enter the same build number as the package.  Expand the `Deployment` section and select an environment to deploy to.  Clicking the "Show Deployment Progress" will stop the build and force it to wait on Octopus to complete.
+The last step is to create a release in Octopus Deploy and deploy it to dev using the plugin.  Select the project from the drop-down list, and enter the same build number as the package.  Expand the **Deployment** section and select an environment to deploy to.  Clicking _Show Deployment Progress_ will stop the build and force it to wait for Octopus to complete.
 
-![](images/azure-devops-create-octopus-database-release.png)
+![The release step in Azure DevOps](images/azure-devops-create-octopus-database-release.png "width=500")
 
 ### TeamCity
 
 The TeamCity setup is very similar to the Azure DevOps.  Only three steps are needed.
 
-![](images/teamcity-build-sql-automation-overview.png)
+![Build step overview in TeamCity](images/teamcity-build-sql-automation-overview.png "width=500")
 
-The first step, the build database package step, has similar options to Azure DevOps.  Provide the folder where the database is stored as well as the package version.
+The first step is the build database package step. This step has similar options to Azure DevOps; provide the folder where the database is stored as well as the package version:
 
-![](images/teamcity-redgate-build-database.png)
+![TeamCity build database package step](images/teamcity-redgate-build-database.png "width=500")
 
-The kicker is the package version only appears in the advanced options.  Not setting it could result in `Invalid package version number` errors.
+The package version only appears in the advanced options, and not setting it could result in `Invalid package version number` errors:
 
-![](images/teamcity-redgate-build-advanced-options.png)
+![TeamCity build database package step advance options](images/teamcity-redgate-build-advanced-options.png "width=500")
 
 The publish package step requires all three of the options to be populated.  By default, the Redgate tool will create the NuGet package in the root working directory.
 
-![](images/teamcity-publish-package.png)
+![TeamCity Create and Push package step](images/teamcity-publish-package.png "width=500")
 
-The final step is creating and deploying the release.  Very similar to before, provide the name of the project, the release number and the environment to deploy to.
+The final step is creating and deploying the release.  Very similar to before, provide the name of the project, the release number and the environment to deploy to:
 
-![](images/teamcity-create-database-release.png)
+![[The release step in TeamCity](images/teamcity-create-database-release.png "width=500")
 
-## Create and configure Octopus Deploy project
+## Create and configure the Octopus Deploy project
 
 This guide will follow the [manual approvals process](/docs/deployment-examples/database-deployments/common-patterns/manual-approvals.md).  
 
 The deployment process will be:
 
 1. Create delta script using Redgate's tooling.
-2. In `Staging` and `Production` notify DBAs of pending script.
-3. In `Staging` and `Production` pause for manual approval of delta script.
+2. In **Staging** and **Production** notify DBAs of pending script.
+3. In **Staging** and **Production** pause for manual approval of delta script.
 4. Run delta script using Redgate's tooling.
-5. Notify team of deployment status.
+5. Notify the team of the deployment status.
 6. On failure, page the DBAs.
 
-In Octopus Deploy, that process will look like the following screenshot.  This example uses `Slack` as the notification technology.  Octopus Deploy supports a number of different mechanisms to notify users, including email, `Slack`, `Microsoft Teams` and `Twilio` to name a few.
+In Octopus Deploy, that process will look like the following screenshot.  This example uses **Slack** as the notification technology.  Octopus Deploy supports a number of different mechanisms to notify users, including email, Slack, Microsoft Teams, and Twilio to name a few.
 
-![](images/redgate-octopus-deploy-deployment-process-overview.png)
+![Deployment process overview in Octopus Deploy](images/redgate-octopus-deploy-deployment-process-overview.png)
 
-Before adding steps to the process, a number of variables will need to be created.  It is recommended to namespace the variables using [ProjectName].[Component].[Sub-component].
+Before adding steps to the process, a number of variables need to be created.  We recommend namespacing the variables using [ProjectName].[Component].[Sub-component].
 
-- Project.Database.Name - The name of the database on that SQL Server to deploy to.
-- Project.Database.Password - The password of the user account who has permissions to deploy.  This is not required if using integrated security.
-- Project.Database.Server - The SQL Server name or IP address to deploy to.
-- Project.Database.UserName - The username of the user account who has permissions to deploy.  This is not required if using integrated security.
-- Project.Redgate.ExportPath - where the tooling will create and export the database release to.  Because this process uses workers, you'll need to save the files to a file share (or have one worker).
+- **Project.Database.Name**: The name of the database on the SQL Server to deploy to.
+- **Project.Database.Password**: The password of the user account who has permissions to deploy.  This is not required if you're using integrated security.
+- **Project.Database.Server**: The SQL Server name or IP address to deploy to.
+- **Project.Database.UserName**: The username of the user account who has permissions to deploy.  This is not required if you're using integrated security.
+- **Project.Redgate.ExportPath**: Where the tooling will create and export the database release to.  Because this process uses workers, you need to save the files to a file share (or have one worker).
 
-![](images/redgate-octopus-deploy-variables.png)
+![Variables in the Octopus Web Portal](images/redgate-octopus-deploy-variables.png "width=500")
 
-The first step in the deployment process, `Redgate - Create Database Release` will compare what is in the NuGet package and generate a delta script.  Only the highlighted parameters are required.  
+The first step in the deployment process, **Redgate - Create Database Release** will compare what is in the NuGet package and generate a delta script.  Only the highlighted parameters are required.  
 
-![](images/redgate-octopus-create-database-release.png)
+![Create Database Release screen](images/redgate-octopus-create-database-release.png "width=500")
 
-Configuring the notification step is dependent on the choice of technology.  That won't be covered for the guide.  For the manual intervention step, provide instructions, as well as the teams allowed to approve this release.  
+Configuring the notification step is dependent on the choice of technology.  That isn't covered for the guide.  For the manual intervention step, provide instructions, as well as the teams allowed to approve this release.  
 
 :::highlight
-The choice of two teams in this example was intentional.  The DBAs are the ones who should approve it.  The `Octopus Manager` team is there in the event of an emergency.  Something is broken and the `Octopus Manager` needs to fix it.  
+The choice of two teams in this example was intentional.  The DBAs are the ones who should approve it.  The **Octopus Manager** team is there in the event of an emergency and the **Octopus Manager** needs to fix it.  
 :::
 
-![](images/redgate-octopus-manual-intervention-step.png)
+![Octopus manual intervention step](images/redgate-octopus-manual-intervention-step.png "width=500")
 
-The final step for this guide is `Redgate - Deploy Database Release`.  It will take the delta script created in the first step and run it on the specified server.  The number of options on this step are limited compared to the create release step.  
+The final step for this guide is **Redgate - Deploy Database Release**.  It takes the delta script created in the first step and runs it on the specified server.  The number of options on this step are limited compared to the create release step.  
 
-![](images/octopus-redgate-deploy-database-release.png)
+![Deploy from database release step](images/octopus-redgate-deploy-database-release.png)
 
 ## Working example
 
-An example of this process has been configured on the [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-sql-server/deployments).
+An example of this process has been configured on the Octopus [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-sql-server/deployments).
