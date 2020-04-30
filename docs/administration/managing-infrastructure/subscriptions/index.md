@@ -14,7 +14,7 @@ Subscriptions can be accessed from the `Configuration` menu.
 For earlier versions of Octopus, Subscriptions can be accessed from the **{{Configuration > Audit > Subscriptions}}** menu. See the version-selector of the documentation to jump to your specific Octopus version.
 :::
 
-![](subscriptions-menu.png "width=800")
+![](images/subscriptions-menu.png "width=800")
 
 ## Email notifications {#Subscriptions-EmailNotifications}
 
@@ -28,7 +28,7 @@ Let's say you have some critical projects and you want your administrators to re
 
 Consider the following example:
 
-![](subscriptions-email-example.png "width=800")
+![](images/subscriptions-email-example.png "width=800")
 
 We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
 
@@ -169,35 +169,55 @@ The following is a list of all options for subscriptions including Event Groups,
 |Action Template Version|
 |Api Key|
 |Artifact|
+|Auto Deploy Queue Item|
+|Build Information|
 |Certificate|
 |Channel|
 |Community Action Template|
 |Dashboard Configuration|
 |Dashboard Item|
+|Deleted Space|
 |Deployment|
 |Deployment Environment|
 |Deployment History|
 |Deployment Process|
+|Deployment Summary|
 |Event|
 |Extension Configuration|
 |Feed|
+|Has Id|
+|Indexed Package Summary|
 |Interruption|
 |Invitation|
+|Latest And Count|
+|Latest Successful Deployment To Machine|
 |Library Variable Set|
 |Lifecycle|
 |Machine|
 |Machine Policy|
+|Name Only|
+|Octopus Server Node| 
 |Project|
 |Project Group|
 |Project Trigger|
 |Proxy|
 |Release|
+|Runbook|
+|Runbook Run|
+|Runbook Run History|
+|Runbooks Dashboard Item|
+|Runbooks Snapshot|
 |Server Task|
+|Space|
 |Subscription|
 |Tag Set|
 |Team|
 |Tenant|
 |Tenant Variable|
+|Variable Set|
+|Worker|
+|Worker Pool|
+|Worker Task Lease|
 |User|
 |User Role|
 |Variable Set|
