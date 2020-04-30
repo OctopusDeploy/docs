@@ -28,8 +28,6 @@ Octopus Server will run on client/desktop versions of Windows, such as Windows 7
 
 !include <sql>
 
-Octopus works with a wide range of versions and editions of SQL Server, from a local SQL Server Express instance, all the way to an Enterprise Edition [SQL Server Failover Cluster](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server) or [SQL Server AlwaysOn Availability Group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), or even one of the hosted database-as-a-service offerings.
-
 ## .NET Framework
 
 We try to keep the .NET Framework requirements for Octopus Server as stable as possible:
@@ -38,6 +36,12 @@ We try to keep the .NET Framework requirements for Octopus Server as stable as p
 - **Octopus 2018.5** and later requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
 - **Octopus 2019.7** and later requires [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkID=863265) or newer.
 - **Octopus 2020.1** and later is a fully self-contained distribution bundling the .NET Core 3.1 runtime - no .NET Framework is required.
+
+## Windows PowerShell
+
+- **Windows PowerShell 2.0.** This is automatically installed on 2008 R2.
+- **Windows PowerShell 3.0 or 4.0** are recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
+- **Windows PowerShell 5.1** is required to run Azure steps.
 
 ## Supported browsers {#supported-browsers}
 

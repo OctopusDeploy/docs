@@ -16,9 +16,10 @@ Where [<options>] is any of:
 WorkerPool Cleanup:
 
       --workerPool=VALUE     Name of a worker pool to clean up.
-      --health-status=VALUE  Health status of Workers to clean up (Healthy,
-                             Unavailable, Unknown, HasWarnings, Unhealthy).
-                             Can be specified many times.
+      --health-status=VALUE  Health status of Workers to clean up. Valid
+                             values are Healthy, Unavailable, Unknown,
+                             HasWarnings and Unhealthy. Can be specified many
+                             times.
       --disabled=VALUE       [Optional] Disabled status filter of Worker to
                              clean up.
       --calamari-outdated=VALUE
@@ -32,10 +33,10 @@ Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid
-                             option is json
-      --outputFormat=VALUE   [Optional] Output format, only valid option is
-                             json
+                             [Optional] Output format for help, valid options
+                             are Default or Json
+      --outputFormat=VALUE   [Optional] Output format, valid options are
+                             Default or Json
       --server=VALUE         [Optional] The base URL for your Octopus Server,
                              e.g., 'https://octopus.example.com/'. This URL
                              can also be set in the OCTOPUS_CLI_SERVER

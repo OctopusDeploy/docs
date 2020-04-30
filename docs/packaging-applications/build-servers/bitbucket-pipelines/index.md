@@ -54,5 +54,7 @@ pipelines:
           - octo push --package ./out/$BITBUCKET_REPO_SLUG.$VERSION.zip  --server $OCTOPUS_SERVER --apiKey $OCTOPUS_APIKEY
 ```
 
-## Further Information
-For more in-depth information about using BitBucket Pipelines, we would recommend checking out their [feature documentation](https://bitbucket.org/product/features/pipelines).
+## Learn more
+
+- [Bitbucket feature documentation](https://bitbucket.org/product/features/pipelines)
+- [Webinar: Integrating your Atlassian Cloud Pipeline with Octopus Deploy](https://youtube.com/embed/yPjooXDJUA0)

@@ -436,7 +436,7 @@ The `Period` defines how frequently in seconds the probe is executed. The defaul
 
 The `Liveness probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
 
-* `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
+* `Command`, newline-separated commands which are executed inside the container. If the return value is `0`, it is considered to be healthy.
 * `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
 * `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
 
