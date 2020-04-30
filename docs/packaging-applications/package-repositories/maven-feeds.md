@@ -39,6 +39,10 @@ The packaging type is determined automatically from the extensions supported by 
 * rar
 * war
 
+:::warning
+Octopus assumes that there is only one artifact for a given group and artifact ID. You can not specify the extension if a group and artifact ID holds two or more extension types. In addition, artifacts with classifiers like source and javadoc are ignored.
+:::
+
 So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
 
 ## Searching for Maven artifacts
