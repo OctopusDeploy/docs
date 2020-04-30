@@ -82,7 +82,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of
 
 The output of the template will be an HTML email like:
 
-![](images/email-output.png)
+![](images/email-output.png "width=500")
 
 ### Including step status
 

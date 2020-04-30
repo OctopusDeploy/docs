@@ -21,8 +21,8 @@ Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid
-                             option is json
+                             [Optional] Output format for help, valid options
+                             are Default or Json
       --server=VALUE         [Optional] The base URL for your Octopus Server,
                              e.g., 'https://octopus.example.com/'. This URL
                              can also be set in the OCTOPUS_CLI_SERVER

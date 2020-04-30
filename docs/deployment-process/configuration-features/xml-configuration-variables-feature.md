@@ -8,7 +8,7 @@ The XML configuration variables feature is one of the [configuration features](/
 
 This feature can be enabled for package deploy steps.
 
-![XML configuration variables screenshot](images/xml-configuration-variables-feature.png)
+![XML configuration variables screenshot](images/xml-configuration-variables-feature.png "width=500")
 
 Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables/index.md).
 

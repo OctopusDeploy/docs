@@ -13,7 +13,7 @@ For each [step](/docs/deployment-process/steps/index.md) that you define in your
 - Specify whether the step runs before or after package acquisition.
 - Make the step a required step that cannot be skipped.
 
-![Conditions](images/conditions.png)
+![Conditions](images/conditions.png "width=500")
 
 Some of these options will only appear if they're available. For instance, the [channels](/docs/deployment-process/channels/index.md) option is only visible if you have created one or more channels.
 
@@ -40,9 +40,7 @@ Run condition lets you specify that a step should run:
 - Always run.
 - When a variable expression evaluates to true.
 
-:::warning
-Note: variable expressions with machine level variables are not supported.
-:::
+### Variable expressions
 
 You can use the following expression to run a step only when the deployment is successful and when a variable evaluates to true:
 
@@ -57,6 +55,35 @@ You can achieve the opposite effect by swapping `unless` with `if`:
 ```
 
 It's also possible to check the status of specific [steps and actions](/docs/projects/variables/system-variables.md#Systemvariables-DeploymentStatusTrackingdeploymentstatus).
+
+### Machine-level variable expressions
+
+You can use a step's machine-level output variables to achieve machine-level variable expressions.
+
+For example, assuming you're setting an output variable in a script step (Step01) that runs on several machines (Web01 and Web02) as follows:
+
+```
+# Step01
+$machineToSucceed = "Web01"
+$shouldCurrentMachineSucceed = $OctopusParameters["Octopus.Machine.Name"] -eq $machineToSucceed
+Set-OctopusVariable -name "ShouldRun" -value "$shouldCurrentMachineSucceed"
+```
+
+That can be used in a variable expression on a subsequent step:
+
+```
+#{if Octopus.Action[Step01].Output[Web01].ShouldRun == "True"}True#{/if}
+```
+
+The currently-running machine could be substituted in this expression:
+
+```
+#{if Octopus.Action[Step01].Output[#{Octopus.Machine.Name}].ShouldRun == "True"}True#{/if}
+```
+
+This will evaluate to `True` on Web01 and `False` on Web02.
+
+Machine-level variable expressions are also supported in [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) using child steps.
 
 ## Start trigger
 

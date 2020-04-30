@@ -20,19 +20,19 @@ Any machines registered with Octopus as [workers](/docs/infrastructure/workers/i
 
 The Script Console can be found under the Tasks area:
 
-![](images/3277924.png)
+![](images/3277924.png "width=500")
 
 Inside the Script Console, you can choose whether to run your script on an individual machine, or an entire group of machines.
 
-![](images/5865617.png)
+![](images/5865617.png "width=500")
 
 When you run the script, you'll be taken to the task output page which shows the progress and any output from the script:
 
-![](images/3277922.png)
+![](images/3277922.png "width=500")
 
 The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the ... overflow menu to change or run the script again.
 
-![](images/3277921.png)
+![](images/3277921.png "width=500")
 
 ## Collect artifacts {#ScriptConsole-Collectingartifacts}
 
@@ -42,7 +42,7 @@ Sometimes you might like to collect files from each of the machines as part of y
 
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/managing-users-and-teams/auditing.md) tab in the Configuration area.
 
-![](images/3277919.png)
+![](images/3277919.png "width=500")
 
 ## Targeting the Octopus Server
 

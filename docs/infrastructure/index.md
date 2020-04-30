@@ -7,7 +7,7 @@ hideInThisSection: True
 
 With Octopus Deploy the machines and services you deploy your software to are managed on the **Infrastructure** tab of the Octopus Web Portal:
 
-![The infrastructure tab of Octopus Deploy](images/infrastructure.png)
+![The infrastructure tab of Octopus Deploy](images/infrastructure.png "width=500")
 
 ## Deployment targets
 

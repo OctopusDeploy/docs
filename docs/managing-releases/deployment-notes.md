@@ -8,7 +8,7 @@ When a release is deployed to an environment, it can be thought of as deploying 
 
 Deployment notes summarize these changes by rolling up the [release notes](/docs/managing-releases/release-notes.md) from all releases since the previous deployment of the project to the environment.  
 
-![Deployment notes](images/deployment-notes.png)
+![Deployment notes](images/deployment-notes.png "width=500")
 
 ## Versioning and pre-releases  {#Versioning}
 
@@ -25,7 +25,7 @@ It can be useful to access the changes associated with a deployment in the deplo
 
 A common example of this is for use in the [email step](/docs/deployment-process/steps/email-notifications.md).  
 
-![Deployment notes variables in email step](images/deployment-notes-email-step.png)
+![Deployment notes variables in email step](images/deployment-notes-email-step.png "width=500")
 
 In scenarios where you want to use Release Notes Templates and Emails steps together, there can be some complications depending on the layout of the email content you need. The easiest option is to use the release notes directly from the releases:
 

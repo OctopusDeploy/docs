@@ -6,7 +6,7 @@ position: 40
 
 [Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
-![Deploy ingress step](deploy-ingress-step.png)
+![Deploy ingress step](deploy-ingress-step.png "width=500")
 
 ## Ingress name
 
@@ -34,7 +34,7 @@ There are many Ingress Controller resources available. [NGINX](https://g.octopus
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
-![Ingress](../ingress.svg)
+![Ingress](../ingress.svg "width=500")
 
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.

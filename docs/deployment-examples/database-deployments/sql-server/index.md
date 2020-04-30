@@ -20,11 +20,11 @@ The level of elevated permissions is up to you.   More restrictions placed on th
 
 First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles are applicable.  Microsoft has provided a chart of the server roles and their specific permissions.
 
-![](images/permissions-of-server-roles.png)
+![](images/permissions-of-server-roles.png "width=500")
 
 Next, decide what permissions the deployment account can have at the database level.  Again, Microsoft has provided a chart of the database roles and their specific permissions.   
 
-![](images/permissions-of-database-roles.png)
+![](images/permissions-of-database-roles.png "width=500")
 
 With those two charts in mind, below are some recommended permissions sets.  
 

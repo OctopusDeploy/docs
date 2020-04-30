@@ -1,12 +1,12 @@
 ---
 title: Operations Runbooks
 description: Octopus 
-position: 172
+position: 154
 ---
 
 !include <operations-runbooks-intro>
 
-![](docs/shared-content/images/runbooks-cutout.png)
+![](docs/shared-content/images/runbooks-cutout.png "width=500")
 
 ## Learn more
 

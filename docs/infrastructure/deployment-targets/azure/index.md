@@ -207,7 +207,7 @@ When using **Management Certificate**, Octopus authenticates with Azure using an
 
 ```powershell
 openssl pkcs12 -in AzureCert.pfx -password pass:MySecret -nodes -out temp.pem
-openssl pkcs12 -export -in temp.pem -passout pass -out PasswordFreeAzureCert.pfx
+openssl pkcs12 -export -in temp.pem -passout pass: -out PasswordFreeAzureCert.pfx
 del temp.pem
 ```
 

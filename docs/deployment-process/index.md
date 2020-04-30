@@ -15,7 +15,7 @@ Now that you have access to an [Octopus Server](/docs/getting-started.md#octopus
 
 The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.
 
-![Project Overview](project-overview.png) -->
+![Project Overview](project-overview.png "width=500") -->
 
 ## A Hello World deployment process
 
@@ -40,7 +40,7 @@ Write-Host "Hello, World!"
 
 This will deploy the release. In the task summary, you'll see the release was deployed to your *Test* environment, and the step *Hello world* ran on the deployment target, in this case *TWeb01*.
 
-![Hello world task summary](images/hello-world.png)
+![Hello world task summary](images/hello-world.png "width=500")
 
 This is an example of a very simple process, the following sections go into more detail about each part of the process.
 

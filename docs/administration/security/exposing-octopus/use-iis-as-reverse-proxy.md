@@ -58,7 +58,7 @@ In a web browser, navigate to <https://servername> (note the 's').
 
 You should see the IIS default page displayed in your browser.
 
-![IIS Default Page](images/default-page.png)
+![IIS Default Page](images/default-page.png "width=500")
 
 ## Configure URLRewrite
 
@@ -76,7 +76,7 @@ In the action pane, click on "Add Rule(s)".
 
 Under "Select a Rule Template", choose "Reverse Proxy".
 
-![Adding a Reverse Proxy Rule in URL Rewrite](images/addrules.png).
+![Adding a Reverse Proxy Rule in URL Rewrite](images/addrules.png "width=500").
 
 If you have never enabled reverse proxy functionality before, you'll be prompted to enable it.
 
@@ -86,7 +86,7 @@ Select "Enable SSL offloading".
 
 Click OK.
 
-![Configuring a Reverse Proxy Rule](images/rprules.png)
+![Configuring a Reverse Proxy Rule](images/rprules.png "width=500")
 
 :::success
 There is no need to specify outbound rules, as the Octopus Portal always uses relative links.

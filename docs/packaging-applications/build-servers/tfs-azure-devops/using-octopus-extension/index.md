@@ -50,7 +50,7 @@ Specify a **Connection Name** and specify the **Server Url** to your Octopus
 
 Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field.
 
-![](images/new-octopus-connection-2.jpg)
+![](images/new-octopus-connection-2.jpg "width=500")
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
@@ -113,7 +113,7 @@ In the new Team Foundation build process, the arguments below should be in the 
 Octopack is not supported for .NET Core and we suggest using the Azure DevOps extensions instead.
 :::
 
-![](images/3278377.png)
+![](images/3278377.png "width=500")
 
 ## Add steps to your build or release process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
 
@@ -135,9 +135,9 @@ This step is only required if you are not [using OctoPack](/docs/packaging-appli
 
 Add a step to your Build or Release process, choose **Package**, click **Add** next to the **Package Application** task.
 
-![](images/add-package-step.jpg)
+![](images/add-package-step.jpg "width=500")
 
-![](images/configure-package-step.jpg)
+![](images/configure-package-step.jpg "width=500")
 
 :::success
 **Package versioning**
@@ -153,17 +153,17 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?
 
 If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **{{Utility,Publish}}** Artifact step to make the package available to the Release process.
 
-![](images/5865475.png)
+![](images/5865475.png "width=500")
 
-![](images/5865476.png)
+![](images/5865476.png "width=500")
 
 ### Add a push package(s) to Octopus step {#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackage(s)toOctopusStep}
 
 Add a step to your build or release process, choose **Package**, click **Add** the **Push Packages(s) to Octopus** task.
 
-![](images/add-push-step.jpg)
+![](images/add-push-step.jpg "width=500")
 
-![](images/configure-push-step.jpg)
+![](images/configure-push-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/push.md) for more details).
 
@@ -171,23 +171,23 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items
 
 Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Create Octopus Release** task.
 
-![](images/add-createrelease-step.jpg)
+![](images/add-createrelease-step.jpg "width=500")
 
-![](images/configure-createrelease-step.jpg)
+![](images/configure-createrelease-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/create-release.md) for more details).
 
 Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
 
-![](images/3278502.png)
+![](images/3278502.png "width=500")
 
 ### Add a deploy Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
 
 Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Deploy Octopus Release** task.
 
-![](images/add-deploy-step.jpg)
+![](images/add-deploy-step.jpg "width=500")
 
-![](images/configure-deploy-step.jpg)
+![](images/configure-deploy-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
 
@@ -195,9 +195,9 @@ See the [Extension Marketplace page](https://marketplace.visualstudio.com/items
 
 Add a step to your build or release process, choose **Deploy**, click **Add** next to the **Promote Octopus Release** task.
 
-![](images/add-promote-step.jpg)
+![](images/add-promote-step.jpg "width=500")
 
-![](images/configure-promote-step.jpg)
+![](images/configure-promote-step.jpg "width=500")
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
 
@@ -209,8 +209,8 @@ Hover over the widget and click the wrench icon to configure the widget.
 
 Select an Octopus Deploy connection (see the [Add a Connection](#add-a-connection-to-octopus-deploy) section for details), a Project, and an Environment.
 
-![](images/widget-setup-preview.jpg)
+![](images/widget-setup-preview.jpg "width=500")
 
 The widget should refresh to show the current status of the selected project in the selected environment.
 
-![](images/multiple-widget-preview.jpg)
+![](images/multiple-widget-preview.jpg "width=500")

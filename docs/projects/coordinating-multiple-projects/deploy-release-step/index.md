@@ -5,11 +5,11 @@ description: The deploy release step allows you to trigger the deployment of a r
 
 Introduced in **Octopus 2018.2.1**, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/projects/coordinating-multiple-projects/index.md).
 
-![Deploy release step card](deploy-release-card.png)
+![Deploy release step card](deploy-release-card.png "width=500")
 
 when you add a _Deploy Release_ step to your deployment process, you can then select the project which will be deployed.
 
-![Deploy release select project](deploy-release-step-select-project.png)
+![Deploy release select project](deploy-release-step-select-project.png "width=500")
 
 You can add many _Deploy Release_ steps to your process, if you wish to deploy releases of many projects.
 
@@ -27,7 +27,7 @@ A _Deploy Release_ step can be configured to:
 
 Variables can be passed to the deployment triggered by the _Deploy Release_ step. These will be made available to steps within the child deployment's process, just like regular [project variables](/docs/projects/variables/index.md).  Variables passed in will override existing variables in the child project if the names collide.
 
-![Deploy release variables](deploy-release-step-variables.png)
+![Deploy release variables](deploy-release-step-variables.png "width=500")
 
 ### Output variables
 

@@ -10,7 +10,7 @@ This example is from the sample project in the [Channels Walk-through](https://
 
 Step 1 calculates a name by convention, which is used by subsequent steps.
 
-![Deployment Process](images/deployment-process.png)
+![Deployment Process](images/deployment-process.png "width=500")
 
 ## Creating an output variable
 ```powershell PowerShell

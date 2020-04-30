@@ -18,20 +18,20 @@ The Octopus Deploy team supports many of the most popular integration plugins/ex
 
 Lets take for example this TeamCity **Octopus Deploy: Create Release** step:
 
-![](images/5672462.png)
+![](images/5672462.png "width=500")
 
 Each of the values marked on the fields above can be seen in the `octo` call made by the build server later on:
 
-![](images/5672463.png)
+![](images/5672463.png "width=500")
 
 *This is a screenshot of a TeamCity log fragment edited for visual purposes. You can check the real log output in our [Shared TeamCity server](http://teamcity.octopus.com/viewLog.html?buildId=440630&buildTypeId=OctoFX_OctoFX&tab=buildLog&state=1021%2C1023#_state=1021,1023&focus=1024) by logging in as a guest. You might have to click on that link once to login, and then a second time to go to the highlighted line in the log*
 
 The same holds true for this **Package Application** step in Azure DevOps and its log output:
 
-![](images/5672464.png)
+![](images/5672464.png "width=500")
 
 
-![](images/5672465.png)
+![](images/5672465.png "width=500")
 
 The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octopus-cli/index.md).
 

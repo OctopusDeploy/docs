@@ -21,7 +21,7 @@ Before creating the step, you must have created an [Azure Service Principal Acco
 
 ## Creating the Resource Group step {#DeployusinganAzureResourceGroupTemplate-CreatingtheResourceGroupStep}
 
-![](create-azure-resource-group-step.png)
+![](create-azure-resource-group-step.png "width=500")
 
 Select the **Account** and **Resource Group** to be used.
 
@@ -47,7 +47,7 @@ Octopus will perform [variable-substitution](/docs/projects/variables/variable-s
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
 :::
 
-![](azure-resource-group-json-template.png)
+![](azure-resource-group-json-template.png "width=500")
 
 ### Sensitive data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
 
@@ -57,13 +57,13 @@ Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documen
 
 The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
-![](azure-resource-group-sensitive-data.png)
+![](azure-resource-group-sensitive-data.png "width=500")
 
 ### Template contained in a package {#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage}
 
 By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
-![](azure-resource-group-package-source-template.png)
+![](azure-resource-group-package-source-template.png "width=500")
 
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 

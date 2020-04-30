@@ -9,7 +9,7 @@ Support for deploying Helm charts, was introduced in **Octopus 2018.9**. Helm Ch
 ## Helm feed
 A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/topics/chart_repository/). This repository is effectively just a HTTP server that houses an `index.yaml` which describes the charts available on that server. Octopus uses this index file to determine the available "packages" (Charts) and versions. A chart is a tarball that looks like `alpine-0.1.2.tgz` which for this example Octopus will interpret as having PackageID `alpine` and version `0.1.2`. There are various ways you can host a chart repository, including third party tools like [ChartMuseum](https://github.com/chartmuseum/chartmuseum) or [Artifactory](https://www.jfrog.com/confluence/display/RTF/Helm+Chart+Repositories), or even hosting your own [static web server](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories).
 
-![Helm Feed](/helm-feed.png)
+![Helm Feed](/helm-feed.png "width=500")
 
 For more information about Helm Chart repositories and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/chart_repository/).
 
@@ -20,11 +20,11 @@ Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provid
 Remember that since the Kubernetes cluster connection context is available via the kubectl script step, any helm commands that you want to perform that don't fit into the existing helm upgrade step can easily be scripted as per usual.
 :::
 
-![Helm upgrade step](step-card.png)
+![Helm upgrade step](step-card.png "width=500")
 
 ### Upgrade options
 
-![Upgrade options](upgrade-options.png)
+![Upgrade options](upgrade-options.png "width=500")
 
 #### Kubernetes release
 The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alpha numeric and dash (-) characters.
@@ -47,7 +47,7 @@ Since it is quite common to have different versions of Helm across your deployme
 
 ### Template values
 
-![Template Values](/template-values.png)
+![Template Values](/template-values.png "width=500")
 
 The configuration for the Kubernetes resources required in a Helm Chart can be provided by making use of [Chart Templates](https://docs.helm.sh/chart_template_guide/). In each of the following options, the values file are passed into the `helm upgrade` command with the `-f` argument. The template values are applied in the order that they are displayed (i.e. with values provided the `Explicit key values` option taking a higher precedence than the same value obtained via the `Raw values YAML` option).
 

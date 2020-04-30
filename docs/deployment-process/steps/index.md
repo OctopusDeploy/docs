@@ -48,10 +48,10 @@ With your deployment configured you're ready to create a [release](/docs/managin
 
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployment-examples/package-deployments/index.md) and execute [custom scripts](/docs/deployment-examples/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/deployment-targets/index.md#target-roles) **web-server**.
 
-![A simple deployment process](images/simple-process.png)
+![A simple deployment process](images/simple-process.png "width=500")
 
 ## Example: A rolling deployment process
 
 Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 
-![A Rolling Deployment](images/rolling-process.png)
+![A Rolling Deployment](images/rolling-process.png "width=500")

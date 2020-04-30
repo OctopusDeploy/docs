@@ -10,7 +10,7 @@ Octopus supports the deployment of Kubernetes resources through the `Deploy Kube
 
 To begin, add the `Deploy Kubernetes containers` step to a project.
 
-![Deploy Container Step](deploy-container-step.png)
+![Deploy Container Step](deploy-container-step.png "width=500")
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
 
@@ -20,7 +20,7 @@ The second feature is the `Service`. This feature is used to build a [Service re
 
 The third feature is the `Ingress`. This feature is used to build a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
 
-![Deploy Container Resources](deploy-container.svg)
+![Deploy Container Resources](deploy-container.svg "width=500")
 
 :::hint
 Kubernetes terminology overlaps with a number of general concepts in Octopus. For example, Kubernetes has the notion of a Deployment, which is distinct from the act of performing a deployment in Octopus.
@@ -85,7 +85,7 @@ If a previous Octopus deployment was performed, there will be both a Deployment 
 
 This existing Deployment resource is considered to be the green half of the blue/green deployment.
 
-![Phase 1](phase1.svg)
+![Phase 1](phase1.svg "width=500")
 
 #### Phase 2
 
@@ -95,7 +95,7 @@ Because the names of distinct resources must be unique in Kubernetes, Octopus wi
 
 At the end of Phase 2 there are three resources in Kubernetes: the green Deployment resource, the Blue Deployment resource, and the Service resource which is still pointing at the green Deployment resource.
 
-![Phase 2](phase2.svg)
+![Phase 2](phase2.svg "width=500")
 
 #### Phase 3
 
@@ -109,7 +109,7 @@ The [progression deadline](#progression-deadline) field can be used to limit how
 
 If the Deployment resource was successfully created, we move to phase 4. If the Deployment resource was not successfully created, the deployment process stops with an error and leaves the service pointing to the green Deployment resource.
 
-![Phase 3](phase3.svg)
+![Phase 3](phase3.svg "width=500")
 
 #### Phase 4
 
@@ -127,7 +127,7 @@ If the deployment fails at phase 3, the Kubernetes cluster can be left with mult
 This means failed deployments can be retried, and once successful, all previous Deployment resources will be cleaned up.
 :::
 
-![Phase 4](phase4.svg)
+![Phase 4](phase4.svg "width=500")
 
 #### Deployment strategy summary
 
@@ -573,7 +573,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](pod-annotations.png)
+![](pod-annotations.png "width=500")
 
 This will result in a Deployment resource YAML file something like this following.
 
@@ -629,7 +629,7 @@ spec:
 
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
-![](pod-annotation-deployed.png)
+![](pod-annotation-deployed.png "width=500")
 
 #### Deployment annotations
 
@@ -637,7 +637,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
-![](deployment-annotation.png)
+![](deployment-annotation.png "width=500")
 
 This will result in a Deployment resource YAML file something like this following.
 
@@ -776,19 +776,19 @@ A Service resource can be one of three different types:
 #### Cluster IP
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
-![Cluster IP](../cluster-ip.svg)
+![Cluster IP](../cluster-ip.svg "width=500")
 
 #### Node port
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
-![Node Port](../node-port.svg)
+![Node Port](../node-port.svg "width=500")
 
 #### Load balancer
 A Load Balancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
 
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
 
-![Loadbalancer](../loadbalancer.svg)
+![Loadbalancer](../loadbalancer.svg "width=500")
 
 #### Cluster IP address
 
@@ -808,7 +808,7 @@ The `Protocol` field defines the protocol exposed by the port. It can be `TCP` o
 
 If the Service resource is a NodePort or LoadBalancer, then there is an additional optional `Node Port` field that defines the port exposed on the nodes that direct traffic to the Service resource. If not defined, a port number will be automatically assigned.
 
-![Service ports](../ports.svg)
+![Service ports](../ports.svg "width=500")
 
 ### Ingress
 
@@ -836,7 +836,7 @@ There are many Ingress Controller resources available. [NGINX](https://g.octopus
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
-![Ingress](../ingress.svg)
+![Ingress](../ingress.svg "width=500")
 
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.

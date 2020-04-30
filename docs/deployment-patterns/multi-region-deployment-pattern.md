@@ -8,13 +8,13 @@ position: 6
 
 Your application is deployed to multiple geographic regions (or multiple Data Centers) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
 
-![](images/5865791.png)
+![](images/5865791.png "width=500")
 
 ## Strict solution using environments {#Multi-regiondeploymentpattern-StrictsolutionusingEnvironments}
 
 You can use [Environments](/docs/infrastructure/environments/index.md) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
-![](images/5865781.png)
+![](images/5865781.png "width=500")
 
 By using this pattern you can:
 
@@ -32,7 +32,7 @@ By using this pattern you can:
 
 In **Octopus 3.4** we introduced [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md) which enable you to configure [Rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
-![](images/5865782.png)
+![](images/5865782.png "width=500")
 
 By using this pattern you can:
 
@@ -47,27 +47,27 @@ Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant
 
 1. Use [variable templates](/docs/projects/variables/variable-templates.md) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
 
-![](images/5865790.png)
+![](images/5865790.png "width=500")
 
 2. Provide logos for your regions to make them easier to distinguish:
 
-![](images/5865788.png)
+![](images/5865788.png "width=500")
 
 3. Quickly see the progress of deploying the latest release to your entire production environment on the main dashboard:
 
-![](images/5865785.png)
+![](images/5865785.png "width=500")
 
 4. Quickly see which releases have been deployed to which regions using the Dashboard and Project Overview:
 
-![](images/5865786.png)
+![](images/5865786.png "width=500")
 
 5. Quickly promote releases to your production regions, in a particular sequence, or simultaneously:
 
-![](/images/5865789.png)
+![](/images/5865789.png "width=500")
 
 6. Use [Scheduled Deployments](/docs/managing-releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
 
-![](images/5865787.png)
+![](images/5865787.png "width=500")
 
 You do give up the advantage of enforcing the order in which you deploy your application to your regions, but you gain the flexibility to promote to your regions in different order depending on the circumstances.
 

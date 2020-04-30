@@ -14,7 +14,7 @@ You enable configuration features as you define the [steps](/docs/deployment-pro
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click the link.
 1. Select the features you would like to enable by clicking the relevant check-boxes in the list and click **OK**.
 
-![Configuration features screenshot](configuration-features.png)
+![Configuration features screenshot](configuration-features.png "width=500")
 
 The features you have enabled will now be available in the **Features** section of the step you are defining.
 

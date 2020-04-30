@@ -25,7 +25,7 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 
 ![](5865912.png "width=170")
 
-![](azure-new-powershell-script-step.png)
+![](azure-new-powershell-script-step.png "width=500")
 
 ### Staying up to date
 

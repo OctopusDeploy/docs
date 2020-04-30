@@ -22,20 +22,19 @@ Build information pushing:
       --version=VALUE        The version of the package; defaults to a
                              timestamp-based version
       --file=VALUE           Octopus Build Information Json file.
-      --overwrite-mode=VALUE If the build information already exists in the
-                             repository, the default behavior is to reject
-                             the new build information being pushed
-                             (FailIfExists). You can use the overwrite mode
-                             to OverwriteExisting or IgnoreIfExists.
+      --overwrite-mode=VALUE Determines behavior if the package already
+                             exists in the repository. Valid values are
+                             FailIfExists, OverwriteExisting and
+                             IgnoreIfExists. Default is FailIfExists.
 
 Common options:
 
       --help                 [Optional] Print help for a command
       --helpOutputFormat=VALUE
-                             [Optional] Output format for help, only valid
-                             option is json
-      --outputFormat=VALUE   [Optional] Output format, only valid option is
-                             json
+                             [Optional] Output format for help, valid options
+                             are Default or Json
+      --outputFormat=VALUE   [Optional] Output format, valid options are
+                             Default or Json
       --server=VALUE         [Optional] The base URL for your Octopus Server,
                              e.g., 'https://octopus.example.com/'. This URL
                              can also be set in the OCTOPUS_CLI_SERVER

@@ -28,7 +28,7 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-![](images/5865518.png)
+![](images/5865518.png "width=500")
 
 ## Bring your own Azure SDK {#AzurePowerShellscripts-BringyourownAzureSDK}
 

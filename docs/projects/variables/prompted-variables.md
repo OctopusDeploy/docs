@@ -9,21 +9,21 @@ As you work with [variables](/docs/projects/variables/index.md) in Octopus, ther
 
 To make a variable a **prompted variable**, enter the variable editor when creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
-![Open variable editor](images/open-editor.png)
+![Open variable editor](images/open-editor.png "width=500")
 
 When defining a prompted variable, you can provide a friendly name and description, and specify if the value is required. A required variable must be supplied when the deployment is created and must not be empty or white space.
 
-![Prompted variable](images/prompted-variable.png)
+![Prompted variable](images/prompted-variable.png "width=500")
 
 You can identify prompted variables by looking for the icon next to the value:
 
-![](images/prompted-variable-icon.png)
+![](images/prompted-variable-icon.png "width=500")
 
 ## Providing a value for the variable {#Promptedvariables-Providingavalueforthevariable}
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
 
-![Required prompted variable](images/3278301.png)
+![Required prompted variable](images/3278301.png "width=500")
 
 These variables will be ordered alphabetically by label (or name, if the variable label is not provided).
 

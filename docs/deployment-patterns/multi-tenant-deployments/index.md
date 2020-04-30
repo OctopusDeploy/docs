@@ -36,13 +36,13 @@ Starting with **Octopus 3.4** you can manage tenants as a first-class citizen en
 8. Easily scale to large numbers of tenants using tags to manage tenants as groups instead of individuals.
 9. Easily implement simple multi-tenant deployment scenarios, and scale to support complex scenarios as your needs require.
 
-## Why should i care about multi-tenant deployments in Octopus Deploy? {#Multi-tenantdeployments-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy?}
+## Why should I care about multi-tenant deployments in Octopus Deploy? {#Multi-tenantdeployments-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy?}
 
 > **Have you ever wanted to have multiple instances of your project deployed to each environment? You should consider multi-tenant deployments in Octopus Deploy.**
 
 Tenants in Octopus Deploy allow you to deploy your projects into multiple isolated containers inside your environments. It's kind of like slicing up your environment into multiple pieces.
 
-![](images/multi-tenant-deployment.png)
+![](images/multi-tenant-deployment.png "width=500")
 
 The multi-tenant features in Octopus Deploy will simplify your deployments in all of these scenarios:
 

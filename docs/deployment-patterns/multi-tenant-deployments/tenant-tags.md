@@ -14,7 +14,7 @@ Have you read [our guide](/docs/deployment-patterns/multi-tenant-deployments/mul
 
 ## What can you do with tenant tags? {#TenantTags-Whatcanyoudowithtenanttags?}
 
-![](images/tag-sets.png)
+![](images/tag-sets.png "width=500")
 
 With tenant tags you can:
 
@@ -32,7 +32,7 @@ With tenant tags you can:
 
 Go to **{{Library,Tenant tag sets}}** to create, modify and reorder tag sets and tags.
 
-![](images/tenant-importance.png)
+![](images/tenant-importance.png "width=500")
 
 
 ### Design your tag sets carefully
@@ -51,7 +51,7 @@ Order is important for tag sets, and tags within those tag sets. Octopus will so
 
 This example of configuring a tenanted deployment target shows how the tenant filter field order is defined based on the order of the tag sets and tags in the library.
 
-![](images/5865645.png)
+![](images/5865645.png "width=500")
 
 ## Tag-based filters {#TenantTags-Tag-basedfilters}
 
@@ -64,7 +64,7 @@ When filtering tenants, Octopus will combine tags within the same tag set using 
 
 Let's take a look at an example (click the image to zoom):
 
-![](images/5865646.png)
+![](images/5865646.png "width=500")
 
 In this example Octopus will execute a query like the one shown below:
 
@@ -87,7 +87,7 @@ If you want to use tenant tags to automate Octopus Deploy you should use the **C
 
 Consider an example deploying a release to the tenants tagged with the **Early adopter** tag in the **Upgrade ring** tag set.
 
-![](images/upgrade-ring.png)
+![](images/upgrade-ring.png "width=500")
 
 ```powershell
 # Deploys My Project 1.0.1 to all tenants tagged as early adopters

@@ -20,7 +20,7 @@ AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. 
 
 In the **Before build script** section add `nuget restore` as AppVeyor will not perform this operation by default.
 
-![AppVeyor MSBuild Build](images/appveyor_build_msbuild.png)
+![AppVeyor MSBuild Build](images/appveyor_build_msbuild.png "width=500")
 
 ### AppVeyor environment variables
 
@@ -49,7 +49,7 @@ Next, flag the generated archive as an artifact of the build and should be made 
 
 You can use a wildcard to pick up the dynamically generated package.
 
-![AppVeyor npm Build](images/appveyor_artifact.png)
+![AppVeyor npm Build](images/appveyor_artifact.png "width=500")
 
 ### Push to Octopus
 
@@ -57,7 +57,7 @@ Next, go to the **Deployment** page in your project's settings and click **Add d
 
 Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
-![AppVeyor Deploy](images/appveyor_deploy.png)
+![AppVeyor Deploy](images/appveyor_deploy.png "width=500")
 
 When you define an "Octopus package" in AppVeyor through the **Package Web Applications for Octopus Deployment** flag or the **Artifacts** page, then AppVeyor will automatically select that package to push to your Octopus Server. Set the **Artifact(s)** field on the **Deployment** page if you have manually created an archive.
 

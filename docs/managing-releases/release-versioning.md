@@ -3,11 +3,11 @@ title: Release versioning
 description: Select how the next release number is generated when creating a release.
 position: 125
 ---
-You can define how the next release number will be generate when creating a release.
+You can define how the next release number will be generated when creating a release.
 
 Navigate to the **Project** tab, select the project and click **{{Settings,Release Versioning}}**:
 
-![Release Versioning](images/release-versioning.png)
+![Release Versioning](images/release-versioning.png "width=500")
 
 You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:
 

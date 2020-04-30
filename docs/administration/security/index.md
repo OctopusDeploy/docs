@@ -76,7 +76,7 @@ In many scenarios you will want to expose parts of your Octopus Deploy installat
 
 Learn about [safely exposing Octopus Deploy](/docs/administration/security/exposing-octopus/index.md).
 
-### Safely executing scripts on the octopus server
+### Safely executing scripts on the Octopus Server
 
 To make Octopus as useful as possible after installation, you can perform many kinds of deployments without setting up other infrastructure. We achieve this using a concept called a worker, and in a default installation, this is called the built-in worker. Depending on your scenario, this can have a big impact on the security and integrity of your Octopus Server.
 
