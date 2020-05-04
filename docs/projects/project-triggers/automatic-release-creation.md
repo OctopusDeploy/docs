@@ -103,4 +103,4 @@ When you are using automatic release creation there are many reasons why a relea
 
 ## Learn more
 
-Take a look at the [Octopus Guides](/docs/guides/index.md) which covers building and packaging your application, creating releases and deploying to your environments for your CI/CD pipeline.
+Take a look at the [Octopus Guides](https://octopus.com/docs/guides) which covers building and packaging your application, creating releases and deploying to your environments for your CI/CD pipeline.
