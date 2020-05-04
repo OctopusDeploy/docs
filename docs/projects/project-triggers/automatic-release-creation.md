@@ -4,26 +4,28 @@ description: Automatic release creation allows you to automatically create a new
 position: 15
 ---
 
-:::success
-**Consider using a build server extension**
-We have extensions/plugins available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
-
-- [TeamCity](/docs/packaging-applications/build-servers/teamcity.md).
-- [Azure DevOps (formerly VSO) and TFS 2015](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
-  :::
-
-:::success
-Take a look at the [end-to-end guide for Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md) which covers building and packaging your application, creating releases and deploying to your environments.
-:::
-
 :::hint
-**Built-in repository only**
-External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) is supported.
+**Consider using a build server extension**
+We have [extensions/plugins](/docs/packaging-applications/build-servers/index.md) available for the most popular build servers. These extensions will help you [create packages](/docs/packaging-applications/index.md), [push those packages to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), create releases and deploy them to your environments:
+
+ - [AppVeyor](/docs/packaging-applications/build-servers/appveyor/index.md)
+ - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
+ - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
+ - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
+ - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
+ - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
+ - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
+
 :::
 
 ## Getting started {#AutomaticReleaseCreation-Gettingstarted}
 
-If you use the[ built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
+If you use the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/index.md), you can now select a package, that when uploaded it will automatically create a release.
+
+:::warning
+**Built-in repository only**
+External package repositories **cannot be used to automatically create releases**, only the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) is supported.
+:::
 
 From the project's trigger tab, under the section called **Automatic Release Creation**, click **Setup**, and then select the package that will trigger the release:
 
@@ -76,7 +78,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 5. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release.
 
-6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the conversation about [automatically creating pre-releases](/docs/projects/project-triggers/automatic-release-creation.md) above.
+6. Ensure you are pushing a package that Octopus will consider as the **latest available package** - see the section above on [automatically creating pre-releases](#AutomaticReleaseCreation-Automaticallycreatingpre-releases).
 
 7. Ensure the release creation package step **DOES NOT use variables for the PackageId** - Octopus will only create a release where the package is constant.
 
@@ -84,7 +86,7 @@ When you are using automatic release creation there are many reasons why a relea
 
 9. When using Channels the package **must satisfy the version rules** for the Channel being used for automatic release creation - try creating some releases manually.
 
-10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](/docs/projects/project-triggers/automatic-release-creation.md).
+10. Are you pushing **pre-release** packages? See the section above on [automatically creating pre-releases](#AutomaticReleaseCreation-Automaticallycreatingpre-releases).
 
 11. Ensure the account pushing the package has the required permissions for **each** of the **Projects** and **Environments** that will be involved in creating (and potentially deploying) the release. Consider which of the following permissions may be required depending on your circumstances:  
 
@@ -98,3 +100,7 @@ When you are using automatic release creation there are many reasons why a relea
     - `ProcessView`  
     - `ReleaseCreate`  
     - `VariableView`
+
+## Learn more
+
+Take a look at the [Octopus Guides](/docs/guides/index.md) which covers building and packaging your application, creating releases and deploying to your environments for your CI/CD pipeline.
