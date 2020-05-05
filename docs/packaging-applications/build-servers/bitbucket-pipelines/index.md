@@ -8,24 +8,39 @@ position: 40
 
 [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines) is Atlassian's cloud-based continuous integration server, built using pre-configured docker containers.
 
-Octopus Deploy can be integrated with BitBucket Pipelines using our up-to-date [Octopus CLI docker container image](https://hub.docker.com/r/octopusdeploy/octo/) of our [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) command line tool.
+:::warning
+As Bitbucket Pipelines is only available as a cloud offering, your Octopus Server must be accessible over the Internet.
+:::
+
+## Integrating with Bitbucket Pipelines
 
 When using Octopus Deploy with BitBucket, BitBucket Pipelines will be responsible for:
 
 - Checking for changes in source control.
 - Compiling the code.
 - Running unit tests.
-- Creating NuGet packages for deployment.
+- Creating packages for deployment.
 
-Octopus Deploy will be used to take those NuGet packages and to push them to development, test and production environments.
+Octopus Deploy will be used to take those packages and to push them to development, test and production environments.
 
-:::warning
-If you're using the cloud offering of BitBucket Pipelines, your Octopus Server must be accessible over the Internet.
+Octopus Deploy can be integrated with BitBucket Pipelines in two ways:
+
+- using our up-to-date [Octopus CLI Docker image](https://hub.docker.com/r/octopusdeploy/octo/) of our [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) command line tool.
+- using our new **experimental** BitBucket Pipe called [octo](https://bitbucket.org/octopusdeploy/octo/src/master/README.md).
+
+:::warning 
+**Experimental Pipe:**
+
+The `octo` Bitbucket Pipe is currently experimental.
+
+If you want to try out the latest integration, and only need to use some of the more commonly used commands, for example to manage your packages, releases and deployments - then using the Pipe will be the right choice for you. 
+
+However, If you need full control over integrating your Bitbucket Pipeline with Octopus, then the pre-configured CLI Docker image would be the recommended method to do that. 
 :::
 
 ## BitBucket Pipelines environment variables
 
-You can use environment variables in your Pipelines (available from the **{{Settings > Environment Variables}}** menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
+You can use [environment variables](https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html) in your Pipelines (available from the **{{Settings > Environment Variables}}** menu of your BitBucket repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
 
 For example:
 
@@ -34,13 +49,13 @@ For example:
 | OCTOPUS_SERVER | The Octopus Server URL you wish to push the final package to |
 | OCTOPUS_APIKEY | The Octopus Deploy API Key required for authentication |
 
-## BitBucket pack and push configuration
+## BitBucket Pipeline configuration
 
 When you enable BitBucket Pipelines for your repository, BitBucket stores all the information it requires into a `bitbucket-pipelines.yml` file in the base of your repository. This is the file we need to modify to run our build, pack and/or push package commands.
 
-### Example of packing and pushing
+### Docker CLI Example of packing and pushing
 
-To show the basics working, here's an example pipeline step using the Octo.exe docker container which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
+To show the basics working, here's an example pipeline step using the `octo` CLI Docker image which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
 
 ```yml
 pipelines:
@@ -54,7 +69,40 @@ pipelines:
           - octo push --package ./out/$BITBUCKET_REPO_SLUG.$VERSION.zip  --server $OCTOPUS_SERVER --apiKey $OCTOPUS_APIKEY
 ```
 
+### Pipe Example of packing and pushing
+
+To show how you can achieve the same pack and push commands as above, here's an example pipeline step, but this time using the `octo` Bitbucket Pipe.
+
+```yml
+- step:
+    name: octo pack + push
+    script:
+      - pipe: !include <image-version-octo-bitbucket-pipe>
+        variables:
+          CLI_COMMAND: 'pack'
+          ID: $BITBUCKET_REPO_SLUG
+          FORMAT: 'Zip'
+          VERSION: $VERSION
+          OUTPUT_PATH: './out'
+      - pipe: !include <image-version-octo-bitbucket-pipe>
+        variables:
+          CLI_COMMAND: 'push'
+          OCTOPUS_SERVER: $OCTOPUS_SERVER
+          OCTOPUS_APIKEY: $OCTOPUS_API_KEY
+          OCTOPUS_SPACE: $OCTOPUS_SPACE
+          PACKAGES: [ "./out/$BITBUCKET_REPO_SLUG.$VERSION.zip" ]
+```
+
+:::success
+**Example Bitbucket Pipeline with Octo Pipe:**
+View a working Pipeline example on our [samples Bitbucket repository](https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/).
+
+See the corresponding Octopus project on our [samples instance](https://samples.octopus.app/app#/Spaces-85/projects/petclinic/).
+:::
+
 ## Learn more
 
 - [Bitbucket feature documentation](https://bitbucket.org/product/features/pipelines)
+- [Bitbucket Pipe for Octopus Deploy: octo](https://octopus.com/blog/octopus-bitbucket-pipe)
+- [Bitbucket Pipelines: Pipes and integrating with Octopus Deploy](https://octopus.com/blog/bitbucket-pipes-and-octopus-deploy)
 - [Webinar: Integrating your Atlassian Cloud Pipeline with Octopus Deploy](https://youtube.com/embed/yPjooXDJUA0)
