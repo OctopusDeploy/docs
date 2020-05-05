@@ -31,7 +31,7 @@ For example, to reference the Maven artifact with the group of `org.wildfly.swar
 
 ![Maven Artifact Names](images/maven-artifact-names.png "width=500")
 
-The packaging type is determined automatically from the extensions supported by Octopus, which are:
+Prior to 2020.3.0, the packaging type is determined automatically from the extensions supported by Octopus, which are:
 
 * zip
 * jar
@@ -39,11 +39,9 @@ The packaging type is determined automatically from the extensions supported by 
 * rar
 * war
 
-:::warning
-Octopus assumes that there is only one artifact for a given group and artifact ID. You can not specify the extension if a group and artifact ID holds two or more extension types. In addition, artifacts with classifiers like source and javadoc are ignored.
-:::
-
 So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
+
+Since 2020.3.0, Maven artifacts can be specified with an optional packaging selection. For example, the artifact ID of `org.example:myartifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `myartifact`. If no packaging selection is specified, the first matching package is selected from the list of extensions above.
 
 ## Searching for Maven artifacts
 
