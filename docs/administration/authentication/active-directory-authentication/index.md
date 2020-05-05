@@ -35,7 +35,7 @@ By default, Octopus issues an NTLM challenge to the browser, but you can configu
 Octopus.Server.exe configure --webAuthenticationScheme=IntegratedWindowsAuthentication
 ```
 
-You can use `IntegratedWindowsAuthentication` to instruct Octopus to use Kerberos instead. [Read about other supported values](https://msdn.microsoft.com/en-us/library/system.net.authenticationschemes(v=vs.110).aspx).
+You can use `IntegratedWindowsAuthentication` to instruct Octopus to [use Kerberos](#ActiveDirectoryAuthentication-UsingNegotiate) instead. [Read about other supported values](https://msdn.microsoft.com/en-us/library/system.net.authenticationschemes(v=vs.110).aspx).
 
 :::hint
 **How it works**
@@ -43,6 +43,21 @@ Octopus is built on top of HTTP.sys, the same kernel driver that IIS is built on
 
 When the link is clicked, it redirects to a page which is configured to tell HTTP.sys to issue the browser challenge. The browser and HTTP.sys negotiate the authentication just like an IIS website would. The user principal is then passed to Octopus. Octopus will then query Active Directory for other information about the user.
 :::
+
+### Using Negotiate to take advantage of Kerberos {#ActiveDirectoryAuthentication-UsingNegotiate}
+
+By default `IntegratedWindowsAuthentication` & `Negotiate` will try to use `Kerberos` first, and then fall back to `NTLM` if it fails.
+
+:::hint
+**Server configuration required**
+Please note that this may require additional configuration to work correctly in your network. Generally, this will require a Service Principal Name (SPN) to be set for the `HTTP` service class, using the machine name. For example, if you have an Octopus Deploy hosted on the `od.mydomain.local` domain name, that is installed on a machine called `winserv2019` then the corresponding SPN will be needed:
+:::
+
+```powershell
+C:\> setspn.exe -S HTTP/od.mydomain.local winserv2019
+```
+
+For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 
