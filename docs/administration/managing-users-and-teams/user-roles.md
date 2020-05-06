@@ -44,7 +44,7 @@ In addition to the above users roles, **Octopus 2019.1** and above also comes wi
 | Space Manager        | Space managers can do everything within the context of the space they own. |
 
 :::success
-For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md)
+For more information regarding the _system or space level_, please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md).
 :::
 
 ## Creating user roles (LTS) {#UserRoles-CreatingUserRolesLTS}
