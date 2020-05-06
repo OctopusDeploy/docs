@@ -31,7 +31,7 @@ The data migration tools are not suitable for every imaginable scenario. In thes
 
 ## Unsupported scenarios
 
-Sometimes using the data migration tool may look like it could solve a problem, but in fact will make things worse. Here are some scenario's we've seen that are explicitly not supported.
+Sometimes using the data migration tool may look like it could solve a problem, but in fact will make things worse. Here are some scenarios we've seen that are explicitly not supported.
 
 ## Export -> Modify -> Import
 
