@@ -29,6 +29,14 @@ The data migration tools are not suitable for every imaginable scenario. In thes
 1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
 1. To move your entire Octopus Cloud instance to a self-hosted Octopus Server please [contact our support team](mailto:support@octopus.com) for advice and assistance.
 
+## Unsupported scenarios
+
+Sometimes using the data migration tool may look like it could solve a problem, but in fact will make things worse. Here are some scenario's we've seen that are explicitly not supported.
+
+## Export -> Modify -> Import
+
+Unfortunately, since the import isn't running all of the same validation checks as the API, using an `export` -> `modify` -> `import` can modify your data in such a way that is invalid for the API. Some scenarios _might work_ but because at this point you're effectively hand editing your data, it isn't something we support.
+
 ## Tips
 
 1. Data migration is an advanced topic and you should take time to understand the tools, what they can do, and what they are not suitable for.
