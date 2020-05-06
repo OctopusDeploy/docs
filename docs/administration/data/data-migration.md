@@ -29,7 +29,8 @@ The data migration tools are not suitable for every imaginable scenario. In thes
 1. To move your entire Octopus Server from a self-hosted installation to Octopus Cloud, see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
 1. To move your entire Octopus Cloud instance to a self-hosted Octopus Server please [contact our support team](mailto:support@octopus.com) for advice and assistance.
 
-## Unsupported scenarios
+:::problem
+**Unsupported scenarios**
 
 Sometimes using the data migration tool may look like it could solve a problem, but in fact will make things worse. Here are some scenarios we've seen that are explicitly not supported.
 
