@@ -32,7 +32,7 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 The built-in user roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own user roles.
 
 :::success
-To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/administration/managing-users-and-teams/default-permissions.md)
+To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/administration/managing-users-and-teams/default-permissions.md).
 :::
 
 ### Additional user roles for spaces
