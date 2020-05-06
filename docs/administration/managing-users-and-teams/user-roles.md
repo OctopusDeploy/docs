@@ -1,8 +1,7 @@
 ---
-title: user roles
-description: user roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
+title: User roles
+description: User roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 ---
-
 
 User roles and group permissions play a major part in the Octopus security model. These roles are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 
@@ -27,10 +26,14 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 | Runbook Consumer     | Runbook consumers can view and execute runbooks. |
 | Runbook Producer     | Runbook producers can edit and execute runbooks. |
 | System Administrator | System administrators can do everything at the system level.  |
-| System manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
-| Tenant manager       | Tenant managers can edit tenants and their tags |
+| System Manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
+| Tenant Manager       | Tenant managers can edit tenants and their tags |
 
 The built-in user roles can be modified to contain more or less roles to suit specific needs. But instead of modifying the built-in ones, we recommend that you leave them as an example and instead create your own user roles.
+
+:::success
+To view the default permissions for each of the built-in user roles, please see [default permissions](/docs/administration/managing-users-and-teams/default-permissions.md).
+:::
 
 ### Additional user roles for spaces
 
@@ -41,7 +44,7 @@ In addition to the above users roles, **Octopus 2019.1** and above also comes wi
 | Space Manager        | Space managers can do everything within the context of the space they own. |
 
 :::success
-For more information regarding the 'system or space level', please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md)  
+For more information regarding the _system or space level_, please see [system and space permissions](/docs/administration/managing-users-and-teams/system-and-space-permissions.md).
 :::
 
 ## Creating user roles (LTS) {#UserRoles-CreatingUserRolesLTS}
@@ -78,7 +81,7 @@ If you are using **Octopus 2019.1** or later, a custom User Role can be created 
 
 Once the custom role is saved, the new role will be available to be assigned to teams in Octopus. [Some rules apply](/docs/administration/managing-users-and-teams/system-and-space-permissions.md#SystemAndSpacePermissions-RulesOfTheRoad), depending on the mix of system or space level permissions you chose.
 
-When applying roles to a team, you are able to optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md) based on the environment they are authorized for.   
+When applying roles to a team, you can optionally specify a scope for each role applied. This enables some complex scenarios, like granting a team [different levels of access](/docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md) based on the environment they are authorized for.
 
 ![](images/define-scope-for-user-role.png "width=500")
 
