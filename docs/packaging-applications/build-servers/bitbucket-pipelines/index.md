@@ -26,7 +26,7 @@ Octopus Deploy will be used to take those packages and to push them to developme
 Octopus Deploy can be integrated with BitBucket Pipelines in two ways:
 
 - Using the up-to-date [Octopus CLI Docker image](https://hub.docker.com/r/octopusdeploy/octo/) of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) command-line tool.
-- using our new **experimental** BitBucket Pipe called [octo](https://bitbucket.org/octopusdeploy/octo/src/master/README.md).
+- Using the new **experimental** BitBucket Pipe called [octo](https://bitbucket.org/octopusdeploy/octo/src/master/README.md).
 
 :::warning 
 **Experimental Pipe:**
