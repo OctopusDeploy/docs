@@ -10,12 +10,12 @@ This page describes any outbound network requests made by Octopus and Tentacle, 
 
 For security reasons, we minimize the number of outbound requests made by the Tentacle deployment agent. The only outbound requests you should see are for:
 
-- [Certificate revocation list checking](http://en.wikipedia.org/wiki/Revocation_list), which is a security feature of the .NET framework.
-- [Automatic root certificate updates](http://help.octopus.com/discussions/problems/30827), again triggered by the .NET framework.
+- [Certificate revocation list checking](http://en.wikipedia.org/wiki/Revocation_list), which is a security feature of .NET Core.
+- [Automatic root certificate updates](http://help.octopus.com/discussions/problems/30827), again triggered by the .NET Core.
 - NuGet package downloads (only when using the **Tentacle downloads directly from NuGet** option).
 - Connections back to the Octopus Server (only when Tentacle is configured in [polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles)).
 
-It's possible that PowerShell scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
+It's possible that scripts in your packages may make outbound requests; in this case you should take care when deploying packages created by a third party.
 
 ## Outbound requests by Octopus {#Outboundrequests-OutboundrequestsbyOctopus}
 
@@ -48,7 +48,7 @@ In addition, when the "Include statistics" option is enabled, we'll send some sp
 | Metrics       | Since   |
 | ------------- | ------- |
 | The number of environments that you have | <2.6 |
-| The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services and SSH connections) | <2.6 |
+| The number of machines and deployment targets that you have (including Listening Tentacles, Polling Tentacles, Offline package drops, Azure Web Apps, Azure Cloud Services, Kubernetes and SSH connections) | <2.6 |
 | The number of projects that you have | <2.6 |
 | The number of each of the different types of deployment steps that you have | <2.6 |
 | The number of releases and deployments that you have done in the last 90 days | <2.6 |
@@ -67,6 +67,8 @@ In addition, when the "Include statistics" option is enabled, we'll send some sp
 | Whether you have a custom account configured for the built-in worker | 2018.2.2 |
 | The number of non built-in workers you have | 2018.2.2 |
 | The number of monthly active users that you have | 2019.5.1 |
+| The number and type of issue trackers that you use | 2019.4 |
+| The number of Runbooks and Runbook runs, snapshots, Triggers that you have | 2019.11 |
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
