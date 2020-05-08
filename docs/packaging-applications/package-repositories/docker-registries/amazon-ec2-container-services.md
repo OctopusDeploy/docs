@@ -1,15 +1,15 @@
 ---
-title: AWS EC2 container services
-description: How to add an AWS Docker Registry as an Octopus Deploy feed for use in Docker steps.
+title: AWS Elastic Container Registry (ECR)  
+description: How to add an AWS Elastic Container Registry as an Octopus feed 
 position: 2
 ---
 
-## Amazon - EC2 container service
+## AWS Elastic Container Registry (ECR)  
 
-AWS provides a v2 Docker Image registry and is available through their [EC2 Container Service](https://aws.amazon.com/ecs/) offering. From **Octopus 2018.8.0**, support for EC2 Container registries is provided as a special feed type itself.
+AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . From **Octopus 2018.8.0**, support for EC2 Container registries is provided as a special feed type itself.
 
 ### Setting up an AWS elastic container registry
-From the AWS Services dashboard go to `EC2 Container Service`.
+From the AWS Services dashboard go to `Elastic Container Registry`.
 
  ![AWS Services](images/aws-services.png "width=500")
 
@@ -28,7 +28,8 @@ Further links for getting your AWS registry set up are available in their [onlin
 
 Save and test your registry to ensure that the connection is authorized successfully.
 
-### Previous version of Octopus Deploy
+### Older versions of Octopus Deploy
+
 The first class AWS ECR feed type was provided in **Octopus 2018.8.0** to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
 
 After configuring your registry in AWS as outlined above you will need to obtain the Docker Feed credentials by manually invoking a command via the AWS cli. Details for setting this up can be found in the [AWS installation guides](http://docs.aws.amazon.com/cli/latest/userguide/installing.html). With the cli installed, run (with the appropriate region)
