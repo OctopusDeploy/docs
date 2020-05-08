@@ -130,7 +130,11 @@ Where [<options>] is any of:
                                IntegratedWindowsAuthentication, Negotiate,
                                Ntlm). You will need to restart all Octopus
                                Server nodes in your cluster for these changes
-                               to take effect.
+                               to take effect. Please note that using Negotiate
+                               or IntegratedWindowsAuthentication [may require
+                               additional server configuration](https://-
+                               g.octopushq.com/AuthAD) in order to work
+                               correctly.
       --allowFormsAuthenticationForDomainUsers=VALUE
                              When Domain authentication is used, specifies
                                whether the HTML-based username/password form
