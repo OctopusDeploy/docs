@@ -55,7 +55,7 @@ When you enable BitBucket Pipelines for your repository, BitBucket stores all th
 
 ### Docker CLI Example of packing and pushing
 
-To show the basics working, here's an example pipeline step using the `octo` CLI Docker image which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
+Here's an example pipeline step that demonstrates using the `octo` CLI Docker image, which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.
 
 ```yml
 pipelines:
