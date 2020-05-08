@@ -69,7 +69,7 @@ pipelines:
           - octo push --package ./out/$BITBUCKET_REPO_SLUG.$VERSION.zip  --server $OCTOPUS_SERVER --apiKey $OCTOPUS_APIKEY
 ```
 
-### Pipe Example of packing and pushing
+### Pipe example of packing and pushing
 
 To show how you can achieve the same pack and push commands as above, here's an example pipeline step, but this time using the `octo` Bitbucket Pipe.
 
