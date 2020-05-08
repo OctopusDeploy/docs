@@ -33,7 +33,7 @@ Octopus Deploy can be integrated with BitBucket Pipelines in two ways:
 
 The `octo` Bitbucket Pipe is currently experimental.
 
-If you want to try out the latest integration, and only need to use some of the more commonly used commands, for example to manage your packages, releases and deployments - then using the Pipe will be the right choice for you. 
+If you want to try the latest integration, and only need to use some of the more commonly used commands, for example, to manage your packages, releases, and deployments, then using the experimental Pipe might be the right choice for you. 
 
 However, If you need full control over integrating your Bitbucket Pipeline with Octopus, then the pre-configured CLI Docker image would be the recommended method to do that. 
 :::
