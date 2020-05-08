@@ -21,7 +21,7 @@ When using Octopus Deploy with BitBucket, BitBucket Pipelines will be responsibl
 - Running unit tests.
 - Creating packages for deployment.
 
-Octopus Deploy will be used to take those packages and to push them to development, test and production environments.
+Octopus Deploy will be used to take those packages and to push them to development, test, and production environments.
 
 Octopus Deploy can be integrated with BitBucket Pipelines in two ways:
 
