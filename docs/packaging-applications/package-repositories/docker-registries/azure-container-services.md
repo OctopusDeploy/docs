@@ -1,14 +1,14 @@
 ---
-title: Azure container services
-description: How to add an Azure Docker Registry as an Octopus Deploy feed for use in Docker steps.
+title: Azure Container Registry
+description: How to add an Azure Container Registry as an Octopus Deploy feed
 position: 1
 ---
 
-## Azure container services
+## Azure Container Registry 
 
-Microsoft Azure provides a v2 image registry available through the [Azure Container Registry](https://azure.microsoft.com/en-au/services/container-registry/) offering which currently in preview.
+Microsoft Azure provides a docker image registry known as [Azure Container Registry](https://azure.microsoft.com/en-au/services/container-registry/).
 
-## Setting up a registry
+### Configuring an Azure Container Registry as an Octopus Feed 
 
 Select **Azure Container Registry** from the Azure marketplace and select **create** to create a new registry.
 
@@ -18,7 +18,10 @@ Make sure you select **Enable** under the **Admin user** option. This is what wi
 
 ![Azure Container Services Access Key blade](images/azure-blade.png "width=500")
 
+Azure Container Registries can be configured as an external feed in Octopus by navigation to {{Library, External Feeds }} and adding an new feed of type `Docker`. 
+
 Once the service has been provisioned, go to the Container Registry details and load the **Access Key** blade. The login server indicates the HTTPS url that needs to be supplied into the Octopus Registry feed. In the case above this will be `https:\\myoctoregistry-on.azurecr.io`.
+
 With the Admin user toggle enabled, you will be provided with username and password credentials that should be copied into your Octopus Deploy feed. The password can be regenerated at any time so long as you keep your Octopus instance updated with the new credentials.
 
 ![Azure Container Services Registry Feed](images/azure-feed.png "width=500")
