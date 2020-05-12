@@ -10,25 +10,7 @@ Starting with SQL Server 2008, Microsoft introduced a new project type called Da
 ## Installing SSDT for Visual Studio
 For earlier versions of Visual Studio such as 2015 and below, installing the SSDT was a matter of locating the download for your version of Visual Studio.  Microsoft has provided a convenient way of finding the appropriate download on [this page](https://docs.microsoft.com/en-us/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi?view=sql-server-ver15).
 
-For more modern versions of Visual Studio (2017+), the option appears on the `Workloads` selection screen during initial installation or when modifying an existing installation.
-
-### Visual Studio 2017 Installer
-To install the SSDT for Visual Studio 2017, scroll to the `Web & Cloud` category and select the `Data storage and processing` option
-
-![](images/visual-studio-2017-installer.png)
-
-### Visual Studio 2019 Installer
-To install the SSDT for Visual Studio 2019, scroll to the `Other Toolsets` category and select the `Data storage and processing` option.
-
-![](images/visual-studio-2019-installer.png)
-
-For both versions Visual Studio, there will be a new project type of SQL Server Database Project:
-
-Visual Studio 2017
-![](images/visual-studio-2017-project.png)
-
-Visual Studio 2019
-![](images/visual-studio-2019-project.png)
+For more modern versions of Visual Studio (2017+), checkout [Microsofts installation instructions](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
 
 :::success
 This guide uses Visual Studio 2019
