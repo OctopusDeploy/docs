@@ -76,13 +76,13 @@ By default, your Octopus Server implements a strict Content Security Policy (CSP
 
 You can see the `Content-Security-Policy` of your Octopus Server by inspecting any of the HTTP responses sent to your browser.
 
-Learn about [HTTP security headers used by Octopus Deploy](/docs/administration/security/http-security-headers.md).
+Learn about [HTTP security headers used by Octopus Deploy](/docs/security/http-security-headers.md).
 
 ### Built-in XSS filters are enforced in modern browsers
 
 The Octopus Server forces modern browsers to enable their built-in XSS filters, even if these filters were disabled by the user, by adding the `X-XSS-Protection` header to every HTTP response.
 
-Learn about [HTTP security headers used by Octopus Deploy](/docs/administration/security/http-security-headers.md).
+Learn about [HTTP security headers used by Octopus Deploy](/docs/security/http-security-headers.md).
 
 ## Frequently asked questions {#faq}
 

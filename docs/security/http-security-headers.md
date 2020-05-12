@@ -52,7 +52,7 @@ First available in **Octopus 3.12.7**.
 
 ### Strict-Transport-Security (HSTS)
 
-The `Strict-Transport-Security` header is used to instruct browsers that all future requests (for a specified amount of time) are sent over HTTPS, even if the user types `http://` into the browser address bar. This is not enabled by default, but as it can cause issues if implemented incorrectly, please read [our HSTS documentation](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS) before implementing.
+The `Strict-Transport-Security` header is used to instruct browsers that all future requests (for a specified amount of time) are sent over HTTPS, even if the user types `http://` into the browser address bar. This is not enabled by default, but as it can cause issues if implemented incorrectly, please read [our HSTS documentation](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS) before implementing.
 
 First available in **Octopus 3.13.0**.
 
@@ -84,7 +84,7 @@ The Octopus portal does not support this header.
 
 ## Octopus Server communications port
 
-The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](/docs/administration/security/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
+The Octopus Server listens on a port (usually 10943) for connections from polling Tentacles. It uses a [custom communications protocol](/docs/security/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
 
 While there is limited scope for attack on this page, as some security scanning tools can report errors on this page, the following headers are supported on this port since **Octopus 3.17.13**.
 
@@ -114,7 +114,7 @@ The Octopus Server sets this header to `1; block`, enabling the filters and inst
 
 ## Octopus Tentacle communications port
 
-The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](/docs/administration/security/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
+The Octopus Tentacle listens on a port (usually 10933) for connections from the Octopus Server. It uses a [custom communications protocol](/docs/security/octopus-tentacle-communication/index.md) with self signed certificates, and shows a diagnostics page when accessed via a web browser.
 
 While there is limited scope for attack on this page, as some security scanning tools can report errors on this page, the following headers are supported on this port since **Tentacle 3.16.1**.
 

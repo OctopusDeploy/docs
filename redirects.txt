@@ -611,7 +611,7 @@ docs/administration/security/cve/shattered-and-octopus-deploy.md -> docs/securit
 docs/administration/security/cve/spectre-meltdown-and-octopus-deploy.md -> docs/security/cve/spectre-meltdown-and-octopus-deploy.md
 docs/administration/security/cve/xss-and-octopus-deploy.md -> docs/security/cve/xss-and-octopus-deploy.md
 docs/administration/security/exposing-octopus/index.md -> docs/security/exposing-octopus/index.md
-docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md -> docs/security/exposing-the-octopus-web-portal-over-https.md
+docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md -> docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
 docs/administration/security/exposing-octopus/lets-encrypt-integration.md -> docs/security/exposing-octopus/lets-encrypt-integration.md
 docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md -> docs/security/exposing-octopus/use-iis-as-reverse-proxy.md
 docs/administration/security/octopus-tentacle-communication/index.md -> docs/security/octopus-tentacle-communication/index.md

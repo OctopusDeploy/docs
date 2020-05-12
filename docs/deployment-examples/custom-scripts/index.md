@@ -83,7 +83,7 @@ Octopus does not provide support for script integrity. While this may sound alar
 
 For example, when Calamari invokes PowerShell.exe, it uses the `Unrestricted` execution policy for the session. You can see how PowerShell scripts are executed in more detail by [looking at the open-source Calamari project](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell).
 
-Learn about [script integrity](/docs/administration/security/script-integrity.md).
+Learn about [script integrity](/docs/security/script-integrity.md).
 
 ### Developing and testing scripts {#Customscripts-Testingscripts}
 

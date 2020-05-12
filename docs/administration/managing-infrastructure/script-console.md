@@ -53,4 +53,4 @@ However, please consider the security implications of allowing ad-hoc scripts to
 - The Tentacle agent should run as a user account with the lowest privileges required for your scenario, preventing someone from compromising your Octopus Server.
 - Register the Tentacle in a special environment, then configure a team in Octopus with permission to execute ad-hoc scripts in this environment.
 
-Learn more about [hardening Octopus](/docs/administration/security/hardening-octopus.md).
+Learn more about [hardening Octopus](/docs/security/hardening-octopus.md).
