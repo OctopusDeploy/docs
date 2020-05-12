@@ -20,14 +20,14 @@ The following platforms are explicitly supported (we run automated tests against
 - Ubuntu 18.04 LTS
 - Ubuntu 16.04 LTS
 - Redhat (RHEL) 7.2
-- Centos 7.6
+- Centos 7.7
 - Amazon Linux 2
-- Debian 9.6
+- Debian 9.12
 - Fedora 23
-- MacOS 10.12.5
-- openSUSE 42.3
-- SUSE LES 12 SP2
-- FreeBSD 11.2
+- MacOS 10.15.3
+- openSUSE 15.1
+- SUSE LES 12 SP5
+- FreeBSD 11.3
 
 ## Configuring SSH targets
 
