@@ -26,12 +26,12 @@ Octopus Deploy will be used to take those packages and to push them to developme
 Octopus Deploy can be integrated with BitBucket Pipelines in two ways:
 
 - Using the up-to-date [Octopus CLI Docker image](https://hub.docker.com/r/octopusdeploy/octo/) of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) command-line tool.
-- Using the new **experimental** BitBucket Pipe called [octo](https://bitbucket.org/octopusdeploy/octo/src/master/README.md).
+- Using the new **experimental** BitBucket Pipe called [octopus-cli-run](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README.md).
 
 :::warning 
 **Experimental Pipe:**
 
-The `octo` Bitbucket Pipe is currently experimental.
+The `octopus-cli-run` Bitbucket Pipe is currently experimental.
 
 If you want to try the latest integration, and only need to use some of the more commonly used commands, for example, to manage your packages, releases, and deployments, then using the experimental Pipe might be the right choice for you. 
 
@@ -71,7 +71,7 @@ pipelines:
 
 ### Pipe example of packing and pushing
 
-To show how you can achieve the same pack and push commands as above, here's an example pipeline step, but this time using the `octo` Bitbucket Pipe.
+To show how you can achieve the same pack and push commands as above, here's an example pipeline step, but this time using the `octopus-cli-run` Bitbucket Pipe.
 
 ```yml
 - step:
@@ -94,7 +94,7 @@ To show how you can achieve the same pack and push commands as above, here's an 
 ```
 
 :::success
-**Example Bitbucket Pipeline with Octo Pipe:**
+**Example Bitbucket Pipeline with octopus-cli-run Pipe:**
 View a working Pipeline example on our [samples Bitbucket repository](https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/).
 
 See the corresponding Octopus project on our [samples instance](https://samples.octopus.app/app#/Spaces-85/projects/petclinic/).
@@ -103,6 +103,6 @@ See the corresponding Octopus project on our [samples instance](https://samples.
 ## Learn more
 
 - [Bitbucket feature documentation](https://bitbucket.org/product/features/pipelines)
-- [Bitbucket Pipe for Octopus Deploy: octo](https://octopus.com/blog/octopus-bitbucket-pipe)
+- [Bitbucket Pipe for Octopus Deploy: octopus-cli-run](https://octopus.com/blog/octopus-bitbucket-pipe)
 - [Bitbucket Pipelines: Pipes and integrating with Octopus Deploy](https://octopus.com/blog/bitbucket-pipes-and-octopus-deploy)
 - [Webinar: Integrating your Atlassian Cloud Pipeline with Octopus Deploy](https://youtube.com/embed/yPjooXDJUA0)
