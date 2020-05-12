@@ -36,7 +36,7 @@ docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/administration/providing-database-performance-metrics.md -> docs/support/providing-database-performance-metrics.md
 docs/administration/use-iis-as-reverse-proxy.md -> docs/security/exposing-octopus/use-iis-as-reverse-proxy.md
-docs/administration/custom-certificates-with-octopus-server-and-tentacle.md -> docs/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
+docs/administration/custom-certificates-with-octopus-server-and-tentacle.md -> docs/security/octopus-tentacle-communication/custom-certificates-with-octopus-server-and-tentacle.md
 docs/administration/security-headers.md -> docs/security/http-security-headers.md
 docs/administration/security-and-encryption.md -> docs/security/data-encryption.md
 docs/administration/fips-and-octopus-deploy.md -> docs/security/fips-and-octopus-deploy.md
