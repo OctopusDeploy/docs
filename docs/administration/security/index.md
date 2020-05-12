@@ -1,7 +1,7 @@
 ---
 title: Security
 description: Security considerations for Octopus Administrators.
-position: 95
+position: 20
 ---
 
 We pride ourselves on making Octopus Deploy a secure product. The security and integrity of your Octopus Deploy installation is the result of a partnership between us as the software vendor, and you as the host and administrators of your installation.
@@ -42,13 +42,13 @@ If you are hosting the Octopus Server yourself, you take responsibility for the 
 
 Octopus Deploy encrypts any data which we deem to be sensitive. You can also instruct Octopus Deploy to encrypt sensitive variables which can be used as part of your deployments.
 
-Learn about [data encryption](/docs/security/data-encryption.md) and [sensitive variables](/docs/projects/variables/sensitive-variables.md).
+Learn about [data encryption](/docs/administration/security/data-encryption.md) and [sensitive variables](/docs/projects/variables/sensitive-variables.md).
 
 ### Secure communication
 
 Your Octopus Server communicates with the machines you configure as targets for your deployments using transport encryption and tamper proofing techniques.
 
-Learn about [secure communication](/docs/security/octopus-tentacle-communication/index.md).
+Learn about [secure communication](/docs/administration/security/octopus-tentacle-communication/index.md).
 
 ### Auditing
 
@@ -74,7 +74,7 @@ The following sections describe the responsibilities taken by whomever is hostin
 
 In many scenarios you will want to expose parts of your Octopus Deploy installation to external networks. You should take care to understand the security implications of exposing your Octopus Deploy installation, and how to configure it correctly to prevent unwanted guests from accessing or interfering in your deployments.
 
-Learn about [safely exposing Octopus Deploy](/docs/security/exposing-octopus/index.md).
+Learn about [safely exposing Octopus Deploy](/docs/administration/security/exposing-octopus/index.md).
 
 ### Safely executing scripts on the Octopus Server
 

@@ -4,12 +4,12 @@ description: Working with isolated Octopus Servers due to infrastructure or gove
 position: 3
 ---
 
-Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus Server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/security/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/deployment-targets/windows-targets/index.md), giving you multiple options to work around firewall issues.
+Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus Server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/administration/security/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/deployment-targets/windows-targets/index.md), giving you multiple options to work around firewall issues.
 
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus Servers. Common examples are:
 
 - Solution providers with an internal Octopus Server for pre-production deployments while developing a solution, and then Octopus Servers managed by the client for production deployments, on different networks
-- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy.md).
+- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/administration/security/pci-compliance-and-octopus-deploy.md).
 
 On this page, we discuss two different scenarios, and the features and options that exist for dealing with them.
 
