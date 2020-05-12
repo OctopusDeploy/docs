@@ -47,8 +47,8 @@ Generally speaking, the latest available version of Octopus Server will be the m
 
 For Octopus Server to be useful you need to expose its HTTP API to your users, and perhaps your infrastructure and some external services. There are many different approaches to solving this problem, but at its core you will want to:
 
-1. Use HTTPS over SSL. Learn about [safely exposing your Octopus Server](/docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md).
-1. Configure the built in HTTP security features as appropriate for your scenario. Learn about [HTTP security headers](/docs/administration/security/http-security-headers.md).
+1. Use HTTPS over SSL. Learn about [safely exposing your Octopus Server](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md).
+1. Configure the built in HTTP security features as appropriate for your scenario. Learn about [HTTP security headers](/docs/security/http-security-headers.md).
 
 ### Configure your Workers {#configuring-workers}
 
@@ -64,7 +64,7 @@ Learn about [external workers](/docs/infrastructure/workers/index.md).
 
 Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
 
-- Learn about [Octopus Server to Tentacle communication](/docs/administration/security/octopus-tentacle-communication/index.md).
+- Learn about [Octopus Server to Tentacle communication](/docs/security/octopus-tentacle-communication/index.md).
 - Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/linux/index.md).
 
 The decisions you need to make are:

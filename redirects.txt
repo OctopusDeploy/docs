@@ -35,31 +35,31 @@ docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-exam
 docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/administration/providing-database-performance-metrics.md -> docs/support/providing-database-performance-metrics.md
-docs/administration/use-iis-as-reverse-proxy.md -> docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md
-docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
-docs/administration/security-headers.md -> docs/administration/security/http-security-headers.md
-docs/administration/security-and-encryption.md -> docs/administration/security/data-encryption.md
-docs/administration/fips-and-octopus-deploy.md -> docs/administration/security/fips-and-octopus-deploy.md
-docs/administration/security/cve/fips-and-octopus-deploy.md -> docs/administration/security/fips-and-octopus-deploy.md
-docs/administration/outbound-requests.md -> docs/administration/security/outbound-requests.md
-docs/administration/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
-docs/administration/security/csrf-and-octopus-deploy.md -> docs/administration/security/cve/csrf-and-octopus-deploy.md
-docs/installation/expose-the-octopus-web-portal-over-https.md -> docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
+docs/administration/use-iis-as-reverse-proxy.md docs/security/exposing-octopus/use-iis-as-reverse-proxy.md
+docs/administration/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md docs/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md
+docs/administration/security-headers.md docs/security/http-security-headers.md
+docs/administration/security-and-encryption.md docs/security/data-encryption.md
+docs/administration/fips-and-octopus-deploy.md docs/security/fips-and-octopus-deploy.md
+docs/administration/security/cve/fips-and-octopus-deploy.md docs/security/fips-and-octopus-deploy.md
+docs/administration/outbound-requests.md docs/security/outbound-requests.md
+docs/administration/csrf-and-octopus-deploy.md docs/security/cve/csrf-and-octopus-deploy.md
+docs/administration/security/csrf-and-octopus-deploy.md docs/security/cve/csrf-and-octopus-deploy.md
+docs/installation/expose-the-octopus-web-portal-over-https.md docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
 docs/administration/process-dumps.md -> docs/support/process-dumps.md
 docs/administration/docker/docker-run-with-networking.md -> docs/deployment-examples/docker-containers/docker-run-with-networking.md
 docs/administration/docker/index.md -> docs/deployment-examples/docker-containers/index.md
 docs/administration/script-modules.md -> docs/deployment-examples/custom-scripts/script-modules.md
-docs/administration/pci-compliance-and-octopus-deploy.md -> docs/administration/security/pci-compliance-and-octopus-deploy.md
-docs/administration/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md -> docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md
-docs/administration/octopus-tentacle-communication/index.md -> docs/administration/security/octopus-tentacle-communication/index.md
-docs/administration/lets-encrypt-integration.md -> docs/administration/security/exposing-octopus/lets-encrypt-integration.md
+docs/administration/pci-compliance-and-octopus-deploy.md docs/security/pci-compliance-and-octopus-deploy.md
+docs/administration/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md
+docs/administration/octopus-tentacle-communication/index.md docs/security/octopus-tentacle-communication/index.md
+docs/administration/lets-encrypt-integration.md docs/security/exposing-octopus/lets-encrypt-integration.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/projects/variables/variable-substitutions.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/projects/project-triggers/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
-docs/administration/security/hardening-octopus-server.md -> docs/administration/security/hardening-octopus.md
+docs/administration/security/hardening-octopus-server.md docs/security/hardening-octopus.md
 docs/packaging-applications/creating-packages/versioning-in-octopus-deploy.md -> docs/packaging-applications/create-packages/versioning.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/administration/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
@@ -596,3 +596,24 @@ docs/octopus-concepts/api.md -> docs/octopus-concepts/rest-api.md
 docs/deployment-examples/sql-server-databases -> docs/deployment-examples/database-deployments/index.md
 docs/administration/upgrading/long-term-support.md -> docs/installation/index.md
 docs/octopus-concepts/octopus-deploy-server.md -> docs/octopus-concepts/octopus-server.md
+docs/administration/security/index.md -> docs/security/index.md
+docs/administration/security/built-in-worker.md -> docs/security/built-in-worker.md
+docs/administration/security/data-encryption.md -> docs/security/data-encryption.md
+docs/administration/security/fips-and-octopus-deploy.md -> docs/security/fips-and-octopus-deploy.md
+docs/administration/security/hardening-octopus.md -> docs/security/hardening-octopus.md
+docs/administration/security/http-security-headers.md -> docs/security/http-security-headers.md
+docs/administration/security/outbound-requests.md -> docs/security/outbound-requests.md
+docs/administration/security/pci-compliance-and-octopus-deploy.md -> docs/security/pci-compliance-and-octopus-deploy.md
+docs/administration/security/script-integrity.md -> docs/security/script-integrity.md
+docs/administration/security/cve/index.md -> docs/security/cve/index.md
+docs/administration/security/cve/csrf-and-octopus-deploy.md -> docs/security/cve/csrf-and-octopus-deploy.md
+docs/administration/security/cve/shattered-and-octopus-deploy.md -> docs/security/cve/shattered-and-octopus-deploy.md
+docs/administration/security/cve/spectre-meltdown-and-octopus-deploy.md -> docs/security/cve/spectre-meltdown-and-octopus-deploy.md
+docs/administration/security/cve/xss-and-octopus-deploy.md -> docs/security/cve/xss-and-octopus-deploy.md
+docs/administration/security/exposing-octopus/index.md -> docs/security/exposing-octopus/index.md
+docs/administration/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md -> docs/security/exposing-the-octopus-web-portal-over-https.md
+docs/administration/security/exposing-octopus/lets-encrypt-integration.md -> docs/security/exposing-octopus/lets-encrypt-integration.md
+docs/administration/security/exposing-octopus/use-iis-as-reverse-proxy.md -> docs/security/exposing-octopus/use-iis-as-reverse-proxy.md
+docs/administration/security/octopus-tentacle-communication/index.md -> docs/security/octopus-tentacle-communication/index.md
+docs/administration/security/octopus-tentacle-communication/how-to-use-custom-certificates-with-octopus-server-and-tentacle.md -> docs/security/octopus-tentacle-communication/custom-certificates-with-octopus-server-and-tentacle.md
+docs/administration/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md -> docs/security/octopus-tentacle-communication/troubleshooting-schannel-and-tls.md

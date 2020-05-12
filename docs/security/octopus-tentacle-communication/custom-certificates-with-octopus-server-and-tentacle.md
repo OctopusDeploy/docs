@@ -1,5 +1,5 @@
 ---
-title: How to use custom certificates with Octopus Server and Tentacle
+title: Custom certificates with Octopus Server and Tentacle
 description: How to use custom certificates with Octopus Server and Tentacle.
 position: 1
 ---

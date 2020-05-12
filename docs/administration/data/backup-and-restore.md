@@ -11,7 +11,7 @@ A successful disaster recovery plan for Octopus Deploy requires the ability to r
 
 :::problem
 **Without your Master Key, backups are useless**
-Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/administration/security/data-encryption.md).
+Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption.md).
 :::
 
 :::hint
@@ -40,9 +40,9 @@ Learn about [Octopus file storage](/docs/administration/managing-infrastructure/
 
 ## Encrypted data {#Backupandrestore-Encrypteddata}
 
-Certain sensitive information in the [Octopus database is encrypted](/docs/administration/security/data-encryption.md). This information is encrypted using your Octopus Server "Master Key", a randomly generated string. This Master Key will be needed if you ever plan to restore the database to a new server. You will be prompted for this key during the setup process when connecting to an existing database. If you have already setup the server you can [change the Master Key](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md) so that it will work with the restored database.
+Certain sensitive information in the [Octopus database is encrypted](/docs/security/data-encryption.md). This information is encrypted using your Octopus Server "Master Key", a randomly generated string. This Master Key will be needed if you ever plan to restore the database to a new server. You will be prompted for this key during the setup process when connecting to an existing database. If you have already setup the server you can [change the Master Key](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md) so that it will work with the restored database.
 
 :::problem
 **It's worth repeating! Without your Master Key, backups are useless**
-Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/administration/security/data-encryption.md).
+Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption.md).
 :::
