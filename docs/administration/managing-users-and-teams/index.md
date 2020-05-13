@@ -14,7 +14,7 @@ You can manage teams from the **Teams** tab under **Configuration** in the Octop
 
 ## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/administration/authentication/active-directory-authentication/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
 [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/administration/managing-users-and-teams/service-accounts.md).
 
