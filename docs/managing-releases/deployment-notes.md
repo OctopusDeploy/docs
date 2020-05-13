@@ -21,7 +21,7 @@ Octopus treats pre-releases as a *work in progress* that will fall under the ban
 ## Deployment change variables
 
 It can be useful to access the changes associated with a deployment in the deployment process.
-[Deployment change variables](/docs/projects/variables/system-variables.md#deployment-notes) are available during a deployment.
+[Deployment change variables](/docs/projects/variables/system-variables.md#deployment-changes) are available during a deployment.
 
 A common example of this is for use in the [email step](/docs/deployment-process/steps/email-notifications.md).  
 
