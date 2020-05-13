@@ -640,3 +640,4 @@ docs/administration/managing-users-and-teams/security-and-un-scoped-variables.md
 docs/administration/managing-users-and-teams/service-accounts.md -> docs/security/users-and-teams/service-accounts.md
 docs/administration/managing-users-and-teams/system-and-space-permissions.md -> docs/security/users-and-teams/system-and-space-permissions.md
 docs/administration/managing-users-and-teams/user-roles.md -> docs/security/users-and-teams/user-roles.md
+docs/administration/managing-users-and-teams/external-groups-and-roles.md -> docs/security/users-and-teams/external-groups-and-roles
