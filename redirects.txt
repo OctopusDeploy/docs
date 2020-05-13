@@ -625,7 +625,7 @@ docs/administration/authentication/googleapps-authentication.md -> docs/security
 docs/administration/authentication/guest-login.md -> docs/security/authentication/guest-login.md
 docs/administration/authentication/octopusid-authentication.md -> docs/security/authentication/octopusid-authentication.md
 docs/administration/authentication/okta-authentication.md -> docs/security/authentication/okta-authentication.md
-docs/administration/authentication/troubleshooting-authentication-problems.md -> docs/security/authentication/toubleshooting-authentication-problems.md
+docs/administration/authentication/troubleshooting-authentication-problems.md -> docs/security/authentication/troubleshooting-authentication-problems.md
 docs/administration/authentication/active-directory-authentication/index.md -> docs/security/authentication/active-directory/index.md
 docs/administration/authentication/active-directory-authentication/moving-active-directory-domains.md -> docs/security/authentication/active-directory/moving-active-directory-domains.md
 docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/security/authentication/active-directory/customer-containers-for-ad-authentication.md
