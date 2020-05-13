@@ -114,7 +114,12 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
-The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined, empty, `False` or `0`. All other values are considered to be *truthy*.
+The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined, an empty string, `False` or `0`. All other values are considered to be *truthy*.
+
+:::warning
+**All variables are strings**
+Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
+:::
 
 ### Complex syntax
 Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
