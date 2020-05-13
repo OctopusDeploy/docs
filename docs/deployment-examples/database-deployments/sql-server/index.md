@@ -1,86 +1,46 @@
 ---
-title: SQL Server permissions
-description: Permission recommendations for deployments to SQL Server.
-position: 15
+title: SQL Server deployments
+description: Automating deployments to SQL Server
+position: 10
+hideInThisSection: true
 ---
 
-When you decided on the permissions required to automate your database deployments, you'll need to find the balance between functionality and security. Below are some considerations around permissions and a couple of recommendations.
+There are a number of tools Octopus Deploy integrates with to deploy to SQL Server, and it can be a bit overwhelming to get started.  This section will help get started on automating deployments to SQL Server.
 
-## Application account permissions 
+We have written a number of "iteration zero" blog posts that examine the benefits and approaches to automating database deployments:
 
-Applications should run under their own service accounts with the least amount of rights.  Each environment for each application should have its own service account.  
+- [Why consider database deployment automation?](https://octopus.com/blog/why-consider-database-deployment-automation)
+- [Database deployment automation approaches](https://octopus.com/blog/database-deployment-automation-approaches)
+- [How to design an automated database deployment process](https://octopus.com/blog/designing-db-deployment-process)
+- [Automated database deployment process: case study](https://octopus.com/blog/use-case-for-designing-db-deployment-process)
+- [Implementing an automated database deployment process](https://octopus.com/blog/implementing-db-deployment-process)
+- [Pitfalls with rollbacks and automated database deployments](https://octopus.com/blog/database-rollbacks-pitfalls)
 
-Having separate service accounts for each environment can make automated database deployments very tricky.  None of the service account should be stored in source control, instead, assign permissions to roles, and attach the correct user for the environment to that role.
+## Common deployment process patterns
 
-## Deployment permission considerations
+There is a learning curve with adopting automated database deployments, and that can lead to quite a bit of trepidation, after all, databases are the lifeblood of most applications. There are some common deployment patterns you can adopt to build trust and level-up tooling knowledge quickly.
 
-The account used to make schema changes requires elevated permissions.  Because of that, create a special service account to handle database deployments.  Do not use the same account used by an application.  If the application service account has permissions to modify the schema, and it was compromised, it could cause a lot of damage.
+Learn more about [common patterns](/docs/deployment-examples/database-deployments/common-patterns/index.md).
 
-The level of elevated permissions is up to you.   More restrictions placed on the deployment account means more manual steps.  Deployments will fail due to missing or restricted permissions.  Octopus will provide the error message to fix the issue, but it will need manual intervention to resolve the issue.  It is up to you to decide which is best.
+## Permissions
 
-First, decide what the deployment account should have the ability to do at the server level.  From there, research which server roles are applicable.  Microsoft has provided a chart of the server roles and their specific permissions.
+The database account used in the database deployment process needs enough permissions to make appropriate changes, but it should not have so much control it could damage an entire server.  
 
-![](images/permissions-of-server-roles.png "width=500")
+Learn more about [user permissions for SQL Server](/docs/deployment-examples/database-deployments/sql-server/permissions.md).
 
-Next, decide what permissions the deployment account can have at the database level.  Again, Microsoft has provided a chart of the database roles and their specific permissions.   
+## Guides
 
-![](images/permissions-of-database-roles.png "width=500")
+We have written a number of guides and blog posts on the various tooling Octopus Deploy interacts with.  
 
-With those two charts in mind, below are some recommended permissions sets.  
+- [Docs: Deploying to SQL Server with Redgate SQL Change Automation](/docs/deployment-examples/database-deployments/sql-server/redgate.md)
+- [Docs: Deploying to SQL Server with a DacPac](/docs/deployment-examples/database-deployments/sql-server/dacpac.md)
+- [Blog: Using DbUp and Workers to Automate Database Deployments](https://octopus.com/blog/dbup-database-deployments)
+- [Blog: Deploying to SQL Server with Entity Framework Core](https://octopus.com/blog/will-it-deploy-episode-03)
+- [Blog: Ad hoc SQL data scripts](https://octopus.com/blog/database-deployment-automation-adhoc-scripts-with-runbooks)
 
-## Fully automated database deployments permission recommendation
+See working examples on our [samples instance](https://samples.octopus.app/app#/Spaces-106).
 
-Following DevOps principles, everything that can be automated should be automated.  This includes creating databases, user management, schema changes, and data changes.  Octopus Deploy plus the third-party tool of your choice can handle that. The deployment account should have these roles assigned:
+## Learn more
 
-- Server Permissions:
-    - `dbcreator`: The ability to create new databases.
-    - `securityadmin`: The ability to create new users and grant them permissions (you will need a check-in place to ensure it doesn't grant random people sysadmin roles).
-- Database Permissions:
-    - `db_ddladmin`: Can run any Data Definition Language (DDL) command in a database.
-    - `db_datareader`: Can read all the data from all user tables.
-    - `db_datawriter`: Can add, delete, or change data from all user tables.
-    - `db_backupoperator`: Can backup the database.
-    - `db_securityadmin`: Can modify role membership and manage permissions.
-    - `db_accessadmin`: Can add or remove access to the database for logins.
-    - Can View Any Definition.
-
-Be sure to assign the deployment account those database roles in the model database.  That is the system database used by SQL Server as a base when a new database is created.  This means the deployment account will be assigned to those roles going forward.
-
-## Fully automated database deployments permission recommendation {#SQLServerdatabases-ManualUsers}
-
-Security admins should be treated the same as system admins, as they can grant permissions at the server level.  For security purposes, it is common to see that role restricted.  In that case, below are the recommended permissions.  It can do everything except create a new SQL Login.
-
-- Server Permissions:
-    - `dbcreator`: The ability to create new databases.
-- Database Permissions:
-    - `db_ddladmin`: Can run any Data Definition Language (DDL) command in a database.
-    - `db_datareader`: Can read all the data from all user tables.
-    - `db_datawriter`: Can add, delete, or change data from all user tables.
-    - `db_backupoperator`: Can backup the database.
-    - `db_securityadmin`: Can modify role membership and manage permissions.
-    - `db_accessadmin`: Can add or remove access to the database for logins.
-    - Can View Any Definition.
-
-## No database creation or user creation, everything else automated permission recommendation
-
-If granting that level of access is not workable or allowed, we recommend the following.  It requires SQL Users to be manually created and the database to already exist.  The process can add existing users to databases as well as deploy everything.
-
-- Database Permissions:
-    - `db_ddladmin`: Can run any Data Definition Language (DDL) command in a database.
-    - `db_datareader`: Can read all the data from all user tables.
-    - `db_datawriter`: Can add, delete, or change data from all user tables.
-    - `db_backupoperator`: Can backup the database.
-    - `db_securityadmin`: Can modify role membership and manage permissions.
-    - `db_accessadmin`: Can add or remove access to the database for logins.
-    - Can View Any Definition.
-
-## Manual user creation both server and database permission recommendation
-
-Here are the most restrictive permissions for automating database deployments.  No new database users can be created.  No new schemas can be created.  Users cannot be added to roles.  Table and stored procedure changes can be made.
-
-- Database Permissions:
-    - `db_ddladmin`: Can run any Data Definition Language (DDL) command in a database.
-    - `db_datareader`: Can read all the data from all user tables.
-    - `db_datawriter`: Can add, delete, or change data from all user tables.
-    - `db_backupoperator`: Can backup the database.
-    - Can View Any Definition.
+- [Blog: Automated blue/green database deployments](https://octopus.com/blog/databases-with-blue-green-deployments)
+- [Blog: Using ad-hoc scripts in your database deployment automation pipeline](https://octopus.com/blog/database-deployment-automation-adhoc-scripts)
