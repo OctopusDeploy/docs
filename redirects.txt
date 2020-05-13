@@ -632,7 +632,7 @@ docs/administration/authentication/active-directory-authentication/specifying-a-
 docs/administration/authentication/active-directory-authentication/troubleshooting-active-directory-integration.md -> docs/security/authentication/active-directory/troubleshooting-active-directory-integration.md
 docs/administration/managing-users-and-teams/index.md -> docs/security/users-and-teams/index.md
 docs/administration/managing-users-and-teams/auditing.md -> docs/security/users-and-teams/auditing.md
-docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-priviledges.md -> docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-privileges.md
+docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-priviledges.md -> docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-priviledges.md
 docs/administration/managing-users-and-teams/default-permissions.md -> docs/security/users-and-teams/default-permissions.md
 docs/administration/managing-users-and-teams/external-groups-and-rolls.md -> docs/security/users-and-teams/external-groups-and-roles.md
 docs/administration/managing-users-and-teams/resetting-passwords.md -> docs/security/users-and-teams/resetting-passwords.md
