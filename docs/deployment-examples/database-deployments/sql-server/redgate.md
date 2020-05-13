@@ -9,7 +9,7 @@ position: 25
 In addition to Octopus Deploy, the following items are required.  This guide provides examples using Azure DevOps and TeamCity as the CI too, however, the core concepts are the same with all the tools.  
 
 - Redgate SQL Toolbelt:
-    - [14-day free trial(https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
+    - [14-day free trial](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
 - CI Tool (pick one):
     - [Jenkins](https://jenkins.io/download)
     - [TeamCity](https://www.jetbrains.com/teamcity/download/)
@@ -225,4 +225,4 @@ The final step for this guide is **Redgate - Deploy Database Release**.  It take
 
 ## Working example
 
-An example of this process has been configured on the Octopus [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-sql-server/deployments).
+An example of this process has been configured on the Octopus [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-simple-example/deployments/process).
