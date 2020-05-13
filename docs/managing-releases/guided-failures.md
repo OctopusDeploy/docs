@@ -32,7 +32,7 @@ To override the guided failure settings of the environments being deployed to an
 If something goes wrong during the deployment, Octopus will interrupt the deployment, and request guidance for how to handle the failure.
 
 1. When a deployment encounters an error, Octopus will interrupt the deployment and wait for manual intervention.
-1. A user with the correct [permissions](/docs/administration/managing-users-and-teams/user-roles.md) can claim the manual intervention by clicking **ASSIGN TO ME**.
+1. A user with the correct [permissions](/docs/security/users-and-teams/user-roles.md) can claim the manual intervention by clicking **ASSIGN TO ME**.
 1. Next, the user can choose between the following options:
   - **FAIL**: mark the deployment as failed, don't try anything else.
   - **RETRY**: retry the step where the error occurred.

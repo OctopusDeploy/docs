@@ -25,7 +25,7 @@ The guest user is created as a standard user managed by Octopus. If you are usin
 
 ![](images/3277968.png "width=500")
 
-As with any standard user, you can [assign the guest account to different teams](/docs/administration/managing-users-and-teams/index.md) to give them permissions to view projects or environments.
+As with any standard user, you can [assign the guest account to different teams](/docs/security/users-and-teams/index.md) to give them permissions to view projects or environments.
 
 :::success
 **Guest is read-only**

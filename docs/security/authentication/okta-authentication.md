@@ -138,7 +138,7 @@ In versions prior to **Octopus 2018.3.5** the Role Claim Type and Scope had diff
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 
-Octopus still requires a [user account](/docs/administration/managing-users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/administration/managing-users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
+Octopus still requires a [user account](/docs/security/users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
 :::hint
 **How Octopus matches external identities to user accounts**

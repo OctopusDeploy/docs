@@ -25,13 +25,13 @@ If you are using the UsernamePassword provider, you will need to invite your tea
 
 When a user signs in to Octopus for the first time using an external authentication provider, Octopus will automatically create a new user account for them as a convenience. If you prefer to control which users can access Octopus, you can disable auto user creation and manually invite users instead.
 
-Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
 
 Learn about [auto user creation](/docs/security/authentication/auto-user-creation.md).
 
 ## Manage teams
 
-In Octopus, you can group your users into teams and use the role-based permission system to control what they can see and do. Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+In Octopus, you can group your users into teams and use the role-based permission system to control what they can see and do. Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
 
 You can manually manage the members of your teams, or you can configure certain external authentication providers to manage your teams for you automatically.
 

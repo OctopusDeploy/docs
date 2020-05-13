@@ -85,7 +85,7 @@ For your convenience Octopus Deploy provides a built-in role called **Package P
 
 :::hint
 **Consider using a service account**
-Instead of using your own API key, consider using a [Service Account](/docs/administration/managing-users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
+Instead of using your own API key, consider using a [Service Account](/docs/security/users-and-teams/service-accounts.md) to provide limited permissions since packages will normally be pushed by an automated service like your build server. Service Accounts are API-only accounts that cannot be used sign in to the Octopus Web Portal.
 :::
 
 :::hint

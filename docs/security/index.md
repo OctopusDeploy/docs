@@ -54,7 +54,7 @@ Learn about [secure communication](/docs/security/octopus-tentacle-communication
 
 Arguably one of the most appreciated features in Octopus Deploy is our support for detailed auditing of important activity.
 
-Learn about [auditing](/docs/administration/managing-users-and-teams/auditing.md).
+Learn about [auditing](/docs/security/users-and-teams/auditing.md).
 
 ### Prevention of common vulnerabilities and exploits
 
@@ -94,7 +94,7 @@ Learn about [authentication providers](/docs/security/authentication/index.md).
 
 Once a person has verified their identity, you can control which activities these users can perform.
 
-Learn about [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
 
 ### HTTP security headers
 
