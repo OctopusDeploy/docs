@@ -621,7 +621,7 @@ docs/administration/authentication/index.md -> docs/security/authentication/inde
 docs/administration/authentication/authentication-automation-with-octopusdsc.md -> docs/security/authentication/authentication-automation-with-octopusdsc.md
 docs/administration/authentication/auto-user-creation.md -> docs/security/authentication/auto-user-creation.md
 docs/administration/authentication/azure-ad-authentication.md -> docs/security/authentication/azure-ad-authentication.md
-docs/administration/authentication/googleapps-authentication.md -> docs/security/authentication/googleapps-authetication.md
+docs/administration/authentication/googleapps-authentication.md -> docs/security/authentication/googleapps-authentication.md
 docs/administration/authentication/guest-login.md -> docs/security/authentication/guest-login.md
 docs/administration/authentication/octopusid-authentication.md -> docs/security/authentication/octopusid-authentication.md
 docs/administration/authentication/okta-authentication.md -> docs/security/authentication/okta-authentication.md
