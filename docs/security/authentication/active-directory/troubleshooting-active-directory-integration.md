@@ -76,7 +76,7 @@ Notes:
 If specifying a container.
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 
-See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/security/authentication/active-directory/customer-containers-for-ad-authentication.md).
+See the following documentation page for further information on configuring Octopus to use a [specific Active Directory contianer](/docs/security/authentication/active-directory/custom-containers-for-ad-authentication.md).
 
 Similarly, the following script duplicates the logic we use to search for groups (when you're trying to find one to add to a Team).
 
@@ -170,4 +170,3 @@ To resolve this issue, open Active Directory Administrative Center for the domai
 Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). There is a [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265) that can be tracked for updates.
 
 For users on a different domain to the domain the Octopus Server is a member of, the workaround is to use forms authentication instead of the `Sign in with a domain account` button. As of `2020.1.7` the server will detect this issue when users attempt to sign in across domains, and it will provide guidance to those users who are impacted.
-
