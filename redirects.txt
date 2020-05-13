@@ -628,5 +628,5 @@ docs/administration/authentication/okta-authentication.md -> docs/security/authe
 docs/administration/authentication/troubleshooting-authentication-problems.md -> docs/security/authentication/troubleshooting-authentication-problems.md
 docs/administration/authentication/active-directory-authentication/index.md -> docs/security/authentication/active-directory/index.md
 docs/administration/authentication/active-directory-authentication/moving-active-directory-domains.md -> docs/security/authentication/active-directory/moving-active-directory-domains.md
-docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/security/authentication/active-directory/customer-containers-for-ad-authentication.md
+docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/security/authentication/active-directory/custom-containers-for-ad-authentication.md
 docs/administration/authentication/active-directory-authentication/troubleshooting-active-direction-integration.md -> docs/security/authentication/active-directory/troubleshooting-active-directory-integration.md
