@@ -8,7 +8,7 @@ If you want to run an Octopus Deploy Windows container or a Tentacle Windows Con
 
 For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
-The following example is a simple `docker-compose.yml` file combining an SQL Server instance with a dependent Octopus Server:
+The following example is a simple `docker-compose.yml` file combining a SQL Server instance with a dependent Octopus Server:
 
 ```YAML
 version: '2.1'

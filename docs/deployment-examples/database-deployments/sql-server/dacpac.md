@@ -29,7 +29,7 @@ The project has been created, now we connect it to a database. This example uses
 
 1. Right-click the project name, then click **{{ Import,Database }}**.
 2. Click **Select Connection**.
-3. Add the **Server Name** and select the type of authentication. In this screenshot, an SQL Account is used to connect to the database server.  
+3. Add the **Server Name** and select the type of authentication. In this screenshot, a SQL Account is used to connect to the database server.  
 
 ![Connection details for the database](images/visual-studio-2019-connect-database.png "width=500")
 
@@ -43,7 +43,7 @@ The project is now ready for creating database schema objects (tables, views, st
 
 ## Compare the project to the database schema
 
-When the project has some objects, we can compare the project to the target database. 
+When the project has some objects, we can compare the project to the target database.
 
 1. Right-click on the project and choose **Schema Compare...**.
 2. Select the target database connection by clicking {{ Select Target, Select Connection }}, and select the connection.
@@ -144,7 +144,7 @@ Note, both `Project.SQLServer.Admin.Password` and `Project.SQLServer.Name` have 
 
 ### Define the deployment process
 
-With variables defined, we can add steps to our deployment process. 
+With variables defined, we can add steps to our deployment process.
 
 1. Click the **Process** tab.
 2. Click  **ADD STEP**.
@@ -161,7 +161,7 @@ With variables defined, we can add steps to our deployment process.
 	- **Use Integrated Security**: False (if using SQL Authentication).
 	- **Username**: `Project.SQLServer.Admin.User.Name` variable.
 	- **Password**: `Project.SQLServer.Admin.User.Password` variable.
-	- **Enable multi subnet failover** 
+	- **Enable multi subnet failover**
 	- **Additional deployment contributors**
 	- **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.
 

@@ -8,7 +8,7 @@ To store environments, projects, variables, releases, and deployment history, Oc
 
 ## Install Octopus Server {#Octopusdatabase-InstallingOctopusServer}{#installing}
 
-Octopus Server requires access to an SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database requirements](/docs/installation/sql-server-database.md) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
+Octopus Server requires access to a SQL Server to use for storing relational data. You can create the database ahead of time, or you can let the installer create the database on your behalf. Refer to [SQL Server Database requirements](/docs/installation/sql-server-database.md) for more information on the SQL Server editions supported by Octopus Deploy and installation instructions.
 
 ## Routine maintenance {#maintenance}
 
