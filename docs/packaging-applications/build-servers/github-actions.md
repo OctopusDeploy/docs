@@ -12,7 +12,7 @@ position: 55
 The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
 :::
 
-## Integrating with Bitbucket Pipelines
+## Integrating with GitHub Actions
 
 When using Octopus Deploy with GitHub Actions, the workflow will be responsible for:
 
