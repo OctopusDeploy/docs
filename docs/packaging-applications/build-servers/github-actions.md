@@ -151,7 +151,7 @@ jobs:
 ```
 
 :::success
-**Example Bitbucket Pipeline with octopus-cli-run Pipe:**
+**Example GitHub Actions Repo:**
 
 View a working Pipeline example on our [samples GitHub repository](https://github.com/OctopusSamples/OctopusTrident/blob/master/.github/workflows/packageredgate.yml).
 
