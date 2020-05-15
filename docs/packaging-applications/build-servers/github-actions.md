@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions
-description: GitHub Actions can leverage the Octo CLI to pack, build, push, and create releases for Octopus Deploy.
+description: GitHub Actions can leverage the Octopus CLI to pack, build, push, and create releases for Octopus Deploy.
 position: 55
 ---
 
@@ -9,7 +9,7 @@ position: 55
 [GitHub Actions](https://github.com/features/actions) is GitHubs's cloud-based continuous integration server.
 
 :::warning
-The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) requires your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
+The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
 :::
 
 ## Integrating with Bitbucket Pipelines
@@ -23,11 +23,11 @@ When using Octopus Deploy with GitHub Actions, the workflow will be responsible 
 
 Octopus Deploy will be used to take those packages and to push them to development, test, and production environments.
 
-Octopus Deploy can be integrated with GitHub Actions using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) command-line tool.  The Octopus CLI can be downloaded directly from our website or using popular package management software such as APT for Ubuntu, Chocolatey for Windows and Homebrew for MacOS.  All GitHub-hosted runners include the same package management software.
+Octopus Deploy can be integrated with GitHub Actions using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md).  The Octopus CLI can be downloaded directly from our website or using popular package management software such as APT for Ubuntu, Chocolatey for Windows and Homebrew for MacOS.  All GitHub-hosted runners include the same package management software.
 
 ## GitHub Actions secrets
 
-You can use [encrypted secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in your workflow (available from the **{{Settings > Secrets}}** menu of your GitHub repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is ideally not something you store in your source control).
+You can use [encrypted secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in your workflow (available from the **{{Settings > Secrets}}** menu of your GitHub repository), which is a great place to store sensitive information such as your Octopus Deploy API keys (which is not something you should store in your source control).
 
 For example:
 
@@ -38,11 +38,11 @@ For example:
 
 ## GitHub Actions configuration
 
-When you create your first GitHub Action for your repository, GitHub stores the actions as workflows in the .github/workflows folder in your repository. You will need to modify those files to run the build, pack and/or push package commands.
+When you create your first GitHub Action for your repository, GitHub stores the actions as workflows in the `.github/workflows` folder in your repository. You need to modify those files to run the build, pack, and/or push package commands.
 
 ### Example workflows
 
-Here's an example workflow that demonstrates using the Octo CLI tooling, which packs the current state of your repository into a zip file and then pushes that package to Octopus Deploy.  
+Here's an example workflow that demonstrates using the Octopus CLI tooling, which packs the current state of your repository into a zip file, and then pushes that package to Octopus Deploy.  
 
 :::warning
 GitHub Actions includes a number of [default environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables).  These examples use those plus encrypted secrets from above.
@@ -152,6 +152,7 @@ jobs:
 
 :::success
 **Example Bitbucket Pipeline with octopus-cli-run Pipe:**
+
 View a working Pipeline example on our [samples GitHub repository](https://github.com/OctopusSamples/OctopusTrident/blob/master/.github/workflows/packageredgate.yml).
 
 See the corresponding Octopus project on our [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-feature-branch-example/deployments).
