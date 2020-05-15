@@ -153,7 +153,7 @@ jobs:
 :::success
 **Example GitHub Actions Repo:**
 
-View a working Pipeline example on our [samples GitHub repository](https://github.com/OctopusSamples/OctopusTrident/blob/master/.github/workflows/packageredgate.yml).
+View a working GitHub Actions example on our [samples GitHub repository](https://github.com/OctopusSamples/OctopusTrident/blob/master/.github/workflows/packageredgate.yml).
 
 See the corresponding Octopus project on our [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/redgate-feature-branch-example/deployments).
 :::
