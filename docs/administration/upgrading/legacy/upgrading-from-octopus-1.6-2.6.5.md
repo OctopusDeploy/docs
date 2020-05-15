@@ -68,7 +68,7 @@ At this point, you should be able to view the imported projects, environments an
 
 ## Permissions {#UpgradingfromOctopus1.6-Permissions}
 
-The **Octopus 2.x** migrator will not import permission settings from **Octopus 1.6**, due to changes made between the permission models. After you upgrade to **Octopus 2.x**, you will need to configure [Teams](/docs/administration/managing-users-and-teams/index.md) to assign permissions.
+The **Octopus 2.x** migrator will not import permission settings from **Octopus 1.6**, due to changes made between the permission models. After you upgrade to **Octopus 2.x**, you will need to configure [Teams](/docs/security/users-and-teams/index.md) to assign permissions.
 
 ## Upgrading Tentacles {#UpgradingfromOctopus1.6-UpgradingTentacles}
 

@@ -9,7 +9,7 @@ Previous step: [Designing a multi-tenant upgrade process](/docs/deployment-patt
 This page describes several common approaches to structuring roles and teams to secure a multi-tenant Octopus instance. Using the permissions system in Octopus you can configure internal team members with different roles who interact with tenants in different ways. You can also configure Octopus to provide access for your external customers. This page explores several of those roles for both internal and external parties.
 
 :::success
-To get the most out of this guide you will need to understand how to [manage users and teams](/docs/administration/managing-users-and-teams/index.md) and how to [work with custom roles](/docs/administration/managing-users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
+To get the most out of this guide you will need to understand how to [manage users and teams](/docs/security/users-and-teams/index.md) and how to [work with custom roles](/docs/security/users-and-teams/user-roles.md). Octopus provides an expressive permissions system and you can customize the security configuration to your particular scenario.
 :::
 
 ## Account manager
@@ -141,7 +141,7 @@ Just like the previous examples, create a user account and test Octopus behaves 
 
 ### Step 3: Configure user accounts for the tenant
 
-Now you can create standard Octopus [user accounts](/docs/administration/managing-users-and-teams/index.md) and add them as members of the tenant-specific team.
+Now you can create standard Octopus [user accounts](/docs/security/users-and-teams/index.md) and add them as members of the tenant-specific team.
 
 ## Next steps
 

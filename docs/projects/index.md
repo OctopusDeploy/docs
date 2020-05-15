@@ -85,7 +85,7 @@ To edit or delete a project group click the project group’s ... overflow menu 
 
 ## Project permissions
 
-For information about project permissions, see [managing users and teams](/docs/administration/managing-users-and-teams/index.md).
+For information about project permissions, see [managing users and teams](/docs/security/users-and-teams/index.md).
 
 ## Clone a project
 

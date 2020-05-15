@@ -53,7 +53,7 @@ If you forget your username or password for your Octopus account or Octopus inst
 
 ## Reset the instance user password
 :::hint
-This feature is [being deprecated.](https://Octopus.com/docs/administration/authentication/octopusid-authentication)
+This feature is [being deprecated.](https://Octopus.com/docs/security/authentication/octopusid-authentication)
 :::
 
 If you forget your username or password for the instance, you can request a **new user invite**.
@@ -73,7 +73,7 @@ You can add new users to your Octopus Cloud instance from within your Octopus.co
 1. Click **Invite a user**, enter their name and email address.
 1. Click **Submit**.
 
-If the user already has an [Octopus ID](/docs/administration/authentication/octopusid-authentication.md), they can **Sign in** to view their newly accessible instance within the correct Organization. Otherwise, they can **Register** for a new account with the email address the invitation was sent to.  All invitees will be set with the **Instance User** role. Users with the **User Instance** role will not be able to change any instance account settings or invite other users.
+If the user already has an [Octopus ID](/docs/security/authentication/octopusid-authentication.md), they can **Sign in** to view their newly accessible instance within the correct Organization. Otherwise, they can **Register** for a new account with the email address the invitation was sent to.  All invitees will be set with the **Instance User** role. Users with the **User Instance** role will not be able to change any instance account settings or invite other users.
 
 By default, all invitees will be added to the **Everyone** team within the Octopus instance and will not have any permissions. After they have signed in for the first time, you will need to add them to a team with more permissions.
 

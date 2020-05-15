@@ -6,7 +6,7 @@ position: 7
 
 API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-api/index.md) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.
 
-See the [Service Accounts docs](/docs/administration/managing-users-and-teams/service-accounts.md) for information about creating service accounts.
+See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts.md) for information about creating service accounts.
 
 ## Creating an API Key {#HowtocreateanAPIkey-CreatinganAPIkey}
 

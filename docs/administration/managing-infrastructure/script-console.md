@@ -40,7 +40,7 @@ Sometimes you might like to collect files from each of the machines as part of y
 
 ## Audit records {#ScriptConsole-Auditrecords}
 
-Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/administration/managing-users-and-teams/auditing.md) tab in the Configuration area.
+Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/security/users-and-teams/auditing.md) tab in the Configuration area.
 
 ![](images/3277919.png "width=500")
 
@@ -53,4 +53,4 @@ However, please consider the security implications of allowing ad-hoc scripts to
 - The Tentacle agent should run as a user account with the lowest privileges required for your scenario, preventing someone from compromising your Octopus Server.
 - Register the Tentacle in a special environment, then configure a team in Octopus with permission to execute ad-hoc scripts in this environment.
 
-Learn more about [hardening Octopus](/docs/administration/security/hardening-octopus.md).
+Learn more about [hardening Octopus](/docs/security/hardening-octopus.md).
