@@ -41,7 +41,11 @@ Prior to 2020.3.0, the packaging type is determined automatically from the exten
 
 So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
 
-Since 2020.3.0, Maven artifacts can be specified with an optional packaging selection. For example, the artifact ID of `org.example:myartifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `myartifact`. If no packaging selection is specified, the first matching package is selected from the list of extensions above.
+Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:myartifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `myartifact`, or `org.example:myartifact:jar:sources` will select the JAR package with the `sources` classification. 
+
+The packaging must be defined when using a classifier.
+
+If no packaging selection is specified, the first matching package is selected from the list of extensions above.
 
 ## Searching for Maven artifacts
 
