@@ -58,6 +58,12 @@ In our example this would be `https://octopus.example.com/api/users/authenticat
 
 Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. The specification highly recommends using SSL to ensure the security and integrity of your tokens. You can use `http` here if you do not have SSL enabled on the public interface of your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 
+#### Enable ID Tokens
+
+1. Within your new App registration in AzureAD navigate to Authentication
+2. Ensure the ID Tokens box is enabled
+
+   ![Enable ID Token](images/azuread_id_token.png "width=500")
 
 #### Mapping AAD users into Octopus teams (optional) {#AzureADauthentication-MappingRolesMappingAADUsersintoOctopusTeams(optional)}
 
