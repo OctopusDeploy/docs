@@ -17,12 +17,30 @@ This page outlines our recommended steps to move your SQL database to another se
 Octopus.Server.exe database --connectionString="VALUE"
 ```
 :::hint
-Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-server-database.md) documentation page.
+**Database connection string tips**
+- Ensure the user specified in the connection string has access to the database as a **dbo_owner**. Refer to our [SQL server database](/docs/installation/sql-server-database.md) documentation page.
+- When running the Octopus Deploy service as a Local System account, Windows Authentication can be used only if the SQL server instance is hosted on the same machine. To host SQL Server remotely, use SQL Server Authentication, or run the Octopus Deploy service as a custom account.
 :::
 
-:::hint
-When running the Octopus Deploy service as a Local System account, Windows Authentication can be used only if the SQL server instance is hosted on the same machine. To host SQL Server remotely, use SQL Server Authentication, or run the Octopus Deploy service as a custom account.
-:::
+## Step-by-step process for Octopus HA {#Movethedatabase-StepByStepOctopusHA}
+
+When you are using [Octopus High Availability](/docs/administration/high-availablity) clusters, you should generally follow the same instructions as above, but repeat certain steps for each node.
+
+1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md)
+2. Toggle the [Drain](https://octopus.com/docs/administration/high-availability/managing-high-availability-nodes#ManagingHighAvailabilityNodes-Drain) option for each Octopus Server node in {{ Configuration,Nodes }}
+3. Stop the service on each Octopus Server node when all deployments have completed. You can stop the service via the Octopus Manager, or via the command line using the following command.
+`Octopus.Server.exe service --stop`
+4. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption.md#Securityandencryption-YourMasterKey).
+5. Take a backup of your Octopus database.
+6. Restore the database on your new server.
+7. On each Octopus Server node, run the following command to update the connection string (where "VALUE" is your connection string).
+```
+Octopus.Server.exe database --connectionString="VALUE"
+```
+8. Start the service on each Octopus Server node. You can start the service via the Octopus Manager, or via the command line using the following command.
+`Octopus.Server.exe service --start`
+9. Disable the Node Drain option for each Octopus Server node in {{ Configuration,Nodes }}
+10. Take your Octopus instance out of Maintenance Mode.
 
 ## Moving from Azure SQL to AWS RDS
 
