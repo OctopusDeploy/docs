@@ -52,6 +52,30 @@ For your first deployment this may take a while since your docker image won't be
 
 We provide recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) that include common tools used for octopus steps. 
 
+
+
+The images include cross-platform support for Windows 2019 and Ubuntu 18.04, and you can select the `latest` image tag or a specific version based on major, minor, or specific patch versions. The following tools come pre-installed with the images:
+
+- Powershell Core
+- .NET Core SDK (3.1 LTS)
+- Java SDK
+- Azure CLI
+- Az Powershell Core Modules
+- AWS CLI
+- Node.js
+- kubectl
+- Helm 3
+- Terraform
+- Python
+- Azure Function Core Tools
+- Google Cloud CLI
+- ScriptCS (Window-only)
+- F# (Windows-only)
+
 :::hint
-We highly recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker
+**Custom images:**
+We highly recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker.
+
+The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing.
+
 :::
