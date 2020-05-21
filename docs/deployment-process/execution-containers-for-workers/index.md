@@ -69,13 +69,12 @@ The images include cross-platform support for Windows 2019 and Ubuntu 18.04, and
 - Python
 - Azure Function Core Tools
 - Google Cloud CLI
-- ScriptCS (Window-only)
+- ScriptCS (Windows-only)
 - F# (Windows-only)
 
 :::hint
 **Custom images:**
-We highly recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker.
-
-The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing.
+- We highly recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker.
+- The versions and tools used above are subject to change, this list is intended to represent the general configuration at the time of writing.
 
 :::
