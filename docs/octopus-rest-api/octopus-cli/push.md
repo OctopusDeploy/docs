@@ -51,13 +51,13 @@ Common options:
                              can also be set in the OCTOPUS_CLI_SERVER
                              environment variable.
       --apiKey=VALUE         [Optional] Your API key. Get this from the user
-                             profile page. Your must provide an apiKey or
+                             profile page. You must provide an apiKey or
                              username and password. If the guest account is
                              enabled, a key of API-GUEST can be used. This
                              key can also be set in the OCTOPUS_CLI_API_KEY
                              environment variable.
       --user=VALUE           [Optional] Username to use when authenticating
-                             with the server. Your must provide an apiKey or
+                             with the server. You must provide an apiKey or
                              username and password. This Username can also be
                              set in the OCTOPUS_CLI_USERNAME environment
                              variable.
