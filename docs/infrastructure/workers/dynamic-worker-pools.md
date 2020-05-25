@@ -28,7 +28,6 @@ Each worker is provisioned with a baseline of tools including, but not limited t
 
 - Octopus Client (latest)
 - .NET Frameworks (3.5+)
-- .NET Core (latest LTS)
 - Chocolatey (latest)
 - Nuget CLI (latest)
 - AWS IAM Authenticator (0.3.0)
