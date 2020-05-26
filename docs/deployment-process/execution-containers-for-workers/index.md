@@ -11,7 +11,7 @@ Execution containers for workers are not currently supported for Octopus Cloud [
 The dynamic workers do not have Docker installed. This will be addressed in the near future. 
 :::
 
-When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/index.md#register-a-worker-as-a-listening-tentacle), and [Calamari](/docs/octopus-rest-api/calamari.md) will still be pushed to the worker.  The difference is that the specified image will be run as a container and Calamari will be executed inside the container (using the [docker exec](https://docs.docker.com/engine/reference/commandline/exec/) command).
+When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/index.md#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container (using the [docker exec](https://docs.docker.com/engine/reference/commandline/exec/) command).
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 
