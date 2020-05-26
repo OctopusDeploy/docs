@@ -49,7 +49,7 @@ Learn more about the [permissions required for the Octopus Windows Service](/doc
 10. Accept the default port and directory or enter your own and click **Next**.
 11. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/security/authentication/active-directory/index.md), enter the active directory user details.
 
-  You can configure addition [Authentication Providers](/docs/security/authentication/index.md) for the Octopus Server after the server has been installed.
+  You can configure additional [Authentication Providers](/docs/security/authentication/index.md) for the Octopus Server after the server has been installed.
 
 12. Click **Install**.
 
