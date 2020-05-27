@@ -4,9 +4,7 @@ description: How to install the Tentacle using Desired State configuration (DSC)
 position: 6
 ---
 
-While the [Azure VM Extension](index.md) is the recommended approach to installing the Tentacle, it does not expose all possible configuration options and permutations. If you need more power and custom configurations, you can use [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC).
-
-The following example shows how to install a Tentacle during VM provisioning.
+The following example shows how to install a Tentacle during VM provisioning with [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC).
 
 1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder.
 2. Create a configuration file (eg `OctopusTentacle.ps1`) next to the `OctopusDSC` folder:
