@@ -4,6 +4,10 @@ description: How to diagnose and resolve installation issues with the Tentacle V
 position: 8
 ---
 
+:::warning
+The VM extension is depreciated and will be unsupported from 2021.
+:::
+
 ## Diagnosing Issues {#AzureVirtualMachines-Diagnosingissues}
 
 If, for some reason, the machine fails to register after 20 minutes, you can access logs on the VM to determine what went wrong.

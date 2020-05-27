@@ -4,6 +4,10 @@ description: How to install the Tentacle VM extension using an Azure Resource Ma
 position: 5
 ---
 
+:::warning
+The VM extension is depreciated and will be unsupported from 2021.
+:::
+
 An Azure Resource Manager (ARM) template is a JSON file that defines a set of Azure resources that can be automatically read and provisioned by Azure.
 
 Using an ARM template, you can deploy the Tentacle VM extension at the same time you create the virtual machine, or update the resource group to apply the extension later.
