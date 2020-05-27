@@ -1,7 +1,7 @@
 ---
 title: Installing the Tentacle VM extension via the Azure CLI
 description: How to install the Tentacle VM Extension using the Azure Command Line Interface (CLI)
-position: 4
+position: 5
 ---
 
 The VM Extension can be installed onto a virtual machine via the [Azure command line](https://docs.microsoft.com/en-us/azure/xplat-cli-install). The instructions are slightly different depending on whether you are using the the [Resource](#AzureResourceManagerMode) model or the [Classic](#AzureServiceManagementMode) model.

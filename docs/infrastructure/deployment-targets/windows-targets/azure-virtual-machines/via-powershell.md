@@ -1,7 +1,7 @@
 ---
 title: Installing the Tentacle VM extension via PowerShell
 description: How to install the Tentacle VM Extension using the PowerShell
-position: 3
+position: 4
 ---
 
 The Azure VM Extension can be added to your virtual machine using the Azure PowerShell cmdlets.

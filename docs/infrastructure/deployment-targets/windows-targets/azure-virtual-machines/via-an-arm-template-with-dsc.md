@@ -1,7 +1,7 @@
 ---
 title: Installing the Tentacle via DSC in an ARM template
 description: How to install the Tentacle using Desired State configuration (DSC) in Azure Resource Manager (ARM) Template
-position: 6
+position: 1
 ---
 
 The following example shows how to install a Tentacle during VM provisioning with [Desired State Configuration](https://msdn.microsoft.com/en-us/powershell/dsc/overview) (DSC).

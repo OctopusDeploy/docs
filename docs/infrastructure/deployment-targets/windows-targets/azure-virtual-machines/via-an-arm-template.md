@@ -1,7 +1,7 @@
 ---
 title: Installing the Tentacle VM extension via an ARM template
 description: How to install the Tentacle VM extension using an Azure Resource Manager (ARM) template
-position: 5
+position: 6
 ---
 
 An Azure Resource Manager (ARM) template is a JSON file that defines a set of Azure resources that can be automatically read and provisioned by Azure.
