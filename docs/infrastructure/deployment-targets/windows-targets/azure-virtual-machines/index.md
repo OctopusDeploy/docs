@@ -5,11 +5,13 @@ position: 70
 hideInThisSectionHeader: true
 ---
 
-If you deploy software to virtual machines (VM's) hosted in Microsoft Azure, Octopus Deploy provides a [VM Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-features?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that makes it easy to install the [Tentacle agent](/docs/infrastructure/deployment-targets/windows-targets/index.md).
+Tentacles can be configured during virtual machine provisioning via Desired State Configuration (DSC). The process for integrating DSC with Azure VM provisioning is documented [here](/docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc/index.md).
 
-The extension has been tested and is supported on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016.
+An Azure VM extension is also available, and has been has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. 
 
-When enabled, the extension automatically downloads the latest Tentacle MSI, installs it, and registers the agent with your [Octopus Server](/docs/installation/index.md). After Azure deploys the extension to your VM, it executes a series of commands very similar to the those listed in our guide to [automatically installing the Tentacle agent](/docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md).
+However the VM extension has limited functionality, with no support for spaces or workers. Microsoft [no longer supports third party extensions](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/how-to-create-and-publish-Azure-third-party-VM-extension-offer/m-p/12741/highlight/true#M454), and as such the VM extension will not be updated with new features.
+
+Support is available for the VM extension until the end of 2020, during which time reasonable efforts will be made to fix bugs, subject to any limitations due to Microsoft no longer supporting third party extensions. From 2021 the VM extension is unsupported.
 
 :::warning
 **Important Note**
