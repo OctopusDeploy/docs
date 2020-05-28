@@ -5,7 +5,7 @@ position: 8
 ---
 
 :::warning
-The VM extension is depreciated and will be unsupported from 2021.
+The VM extension is deprecated and will be unsupported from 2021.
 :::
 
 ## Diagnosing Issues {#AzureVirtualMachines-Diagnosingissues}

@@ -5,7 +5,7 @@ position: 4
 ---
 
 :::warning
-The VM extension is depreciated and will be unsupported from 2021.
+The VM extension is deprecated and will be unsupported from 2021.
 :::
 
 The VM Extension can be installed onto a virtual machine via the [Azure command line](https://docs.microsoft.com/en-us/azure/xplat-cli-install). The instructions are slightly different depending on whether you are using the the [Resource](#AzureResourceManagerMode) model or the [Classic](#AzureServiceManagementMode) model.

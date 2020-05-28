@@ -5,7 +5,7 @@ position: 5
 ---
 
 :::warning
-The VM extension is depreciated and will be unsupported from 2021.
+The VM extension is deprecated and will be unsupported from 2021.
 :::
 
 An Azure Resource Manager (ARM) template is a JSON file that defines a set of Azure resources that can be automatically read and provisioned by Azure.

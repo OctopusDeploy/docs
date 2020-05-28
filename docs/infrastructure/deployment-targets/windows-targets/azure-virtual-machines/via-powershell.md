@@ -5,7 +5,7 @@ position: 3
 ---
 
 :::warning
-The VM extension is depreciated and will be unsupported from 2021.
+The VM extension is deprecated and will be unsupported from 2021.
 :::
 
 The Azure VM Extension can be added to your virtual machine using the Azure PowerShell cmdlets.

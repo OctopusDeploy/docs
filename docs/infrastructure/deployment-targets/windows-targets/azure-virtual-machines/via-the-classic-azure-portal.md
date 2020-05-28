@@ -5,7 +5,7 @@ position: 2
 ---
 
 :::warning
-The VM extension is depreciated and will be unsupported from 2021.
+The VM extension is deprecated and will be unsupported from 2021.
 :::
 
 The Azure VM Extension cannot be installed via the Classic Azure Portal, as it lacks support for adding extensions. We recommend either using the new Azure Portal, or using the [CLI](via-the-azure-cli.md) or [PowerShell](via-powershell.md) methods.

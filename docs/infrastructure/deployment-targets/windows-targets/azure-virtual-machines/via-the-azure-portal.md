@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::warning
-The VM extension is depreciated and will be unsupported from 2021.
+The VM extension is deprecated and will be unsupported from 2021.
 :::
 
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
