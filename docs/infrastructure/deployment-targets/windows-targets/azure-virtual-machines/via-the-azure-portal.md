@@ -4,6 +4,10 @@ description: How to install a Tentacle using the Azure VM Extension via the new 
 position: 2
 ---
 
+:::warning
+The VM extension is deprecated and will be unsupported from 2021.
+:::
+
 After creating a virtual machine on Azure using the management portal, browse to the virtual machine, then click on **Extensions**:
 
 ![Azure VM Properties - Extensions Tab](azure-portal-extensions-menu-item.png "width=500")
