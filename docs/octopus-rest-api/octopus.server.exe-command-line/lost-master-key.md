@@ -15,8 +15,8 @@ Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
       --iReallyWantToResetAllMySensitiveData
-                             Confirm you really want to generate a new master
-                               key and reset all your sensitive data.
+                             Confirm you really want to generate a new Master
+                               Key and reset all your sensitive data.
       --iHaveBackedUpMyDatabase
                              Confirm you have taken a backup of your database
                                in its current state. If something goes wrong at
