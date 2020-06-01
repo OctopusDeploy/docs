@@ -102,7 +102,7 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 -EndDate (new-object System.DateTime 2018, 12, 31)
 ```
 
-Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account).
+Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_lease_privilege).
 
 ## Resource permissions {#resource-permissions}
 
@@ -115,6 +115,8 @@ Now, you can [add the Service Principal Account in Octopus](#add-service-princip
 
 :::hint
 Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
+
+It will also need the *Reader* role on subscription itself.
 :::
 
 ### Note on least privilege {#note_on_lease_privilege}
