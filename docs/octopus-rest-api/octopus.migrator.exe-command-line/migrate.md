@@ -14,7 +14,7 @@ Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
       --file=VALUE           Octopus 2.6 (.octobak) file
-      --master-key=VALUE     Master key used to decrypt the file
+      --master-key=VALUE     Master Key used to decrypt the file
       --dry-run              Do not commit changes, just print what would
                                have happened
       --maxage=VALUE         Ignore historical data older than x days
