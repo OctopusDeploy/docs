@@ -1,3 +1,10 @@
+---
+title: Report on deployments using Excel & XML
+description: How to report on deployments using Excel & XML
+position: 11
+---
+
+
 ## Direct table access {#Reporting-Directtableaccess}
 
 If your reporting tool of choice can't consume the XML feed, you can query the SQL table directly. Octopus maintains a **DeploymentHistory** table, with the exact same information that the XML Feed exposes. This may work better for tools like **SQL Server Reporting Services**.

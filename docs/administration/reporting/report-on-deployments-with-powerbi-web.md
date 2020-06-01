@@ -35,6 +35,6 @@ For example:
  - Web API by using your API key
  - Organization account, which would likely be your Azure Active Directory account, as long as you had [Azure Active Directory](/docs/security/authentication/azure-ad-authentications) enabled.
 
-4. Once you've decided what authentication to use, you will then be able to establish a connection to your Octopus Reporting endpoint. This may take some time to load particularly when running remotely on an Octopus Server with several years worth of data, and it may also slow Octopus down for other users. 
+4. Once you've decided what authentication to use, you will then be able to establish a connection to your Octopus Reporting endpoint. This may take some time to load particularly when running remotely on an Octopus Server with several years worth of data, and it may also slow Octopus down for other users.
 
    ![](images/PowerBI-Step4.png "width=500")
