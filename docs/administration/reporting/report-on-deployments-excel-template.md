@@ -20,7 +20,7 @@ Please make sure you [unblock the file](https://www.google.com.au/search?q=windo
 
 To change the source of the data:
 
-1. Go to the **DATA** ribbon tab in Excel, then click **Connections**:
+1. Go to the **DATA** ribbon tab in Excel, then click **Queries & Connections**:
 
    ![](images/3278356.png "width=500")
 
