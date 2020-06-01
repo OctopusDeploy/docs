@@ -207,8 +207,7 @@ Where [<options>] is any of:
                              Set whether GitHub issue tracker integration is
                                enabled.
       --GitHubBaseUrl=VALUE  Set the base url for the Git repositories.
-      --jiraIsEnabled=VALUE  Set whether Jira issue tracker integration is
-                               enabled.
+      --jiraIsEnabled=VALUE  Set whether Jira Integration is enabled.
       --jiraBaseUrl=VALUE    Enter the base url of your Jira instance. Once
                                set, work item references will render as links.
       --customextension=VALUE
