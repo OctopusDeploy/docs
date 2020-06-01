@@ -5,7 +5,7 @@ position: 11
 ---
 
 :::hint
-This works with Octopus Cloud and Octopus Server and is our recommended approach. 
+This works with Octopus Cloud and Octopus Server and is our recommended approach.
 ::::
 
 1. Go to the **Home** ribbon tab in PowerBI, then click **Get Data** and then select **Web**:
@@ -23,7 +23,6 @@ Where:
 
 For example:
 
-
 `https://myoctopusserverurl.com/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
    ![](images/PowerBI-Step2.png "width=500")
@@ -31,15 +30,11 @@ For example:
 3. You can use any of the following options to authenticate to your Octopus server.
 
  - Anonymous Authentication using Guest Access and you'll need to specify this by appending `apikey=API-GUEST` to the end of your Octopus URL. For example `https://demo.octopus.com/api/reporting/deployments/xml?apikey=API-GUEST`
+ - Windows Credentials
+ - Username and Password
+ - Web API by using your API key
+ - Organization account, which would likely be your Azure Active Directory account, as long as you had [Azure Active Directory](/docs/security/authentication/azure-ad-authentications) enabled.
 
-   ![](images/3278358.png "width=500")
+4. Once you've decided what authentication to use, you will then be able to establish a connection to your Octopus Reporting endpoint. This may take some time to load particularly when running remotely on an Octopus Server with several years worth of data, and it may also slow Octopus down for other users. 
 
-4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.
-
-   ![](images/3278360.png "width=500")
-
-## Refreshing the data {#Reporting-Refreshingthedata}
-
-Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
-
-![](images/3278361.png "width=500")
+   ![](images/PowerBI-Step4.png "width=500")
