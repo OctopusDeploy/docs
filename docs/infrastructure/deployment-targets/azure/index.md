@@ -146,6 +146,10 @@ Now that you have the following values, you can add your account to Octopus:
 
 Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
 
+:::hint
+A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
+:::
+
 ## Creating a new Service Principal credential
 
 If you need to create a new **Service Principal Credential** this can be done either with [PowerShell](#new-add-service-principal-credential-with-powershell) or the [Azure Portal](#new-add-service-principal-credential-azure-portal).
