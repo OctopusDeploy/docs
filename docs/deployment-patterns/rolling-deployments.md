@@ -113,6 +113,6 @@ This five minute video (with captions) will guide you through setting up a rolli
     d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
 
 ## Learn more
-- [View rolling deployment examples on our samples instance](https://samples.octopus.app/app#/Spaces-45/).
-- [Rolling deployment knowledge base articles](https://help.octopus.com/tags/rolling-deployment/).
+- [View rolling deployment examples on our samples instance](https://g.octopushq.com/PatternRollingSamplesSpace).
+- [Rolling deployment knowledge base articles](https://g.octopushq.com/RollingDeployTaggedKBArticles).
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
