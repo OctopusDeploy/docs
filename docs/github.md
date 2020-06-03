@@ -20,7 +20,7 @@ Unless noted, all public repositories in this organization are licensed under th
 
 ### Support
 
-Support for product related repositories in active development is included as part of your customer agreement.  We will make a note of which repositories are not supported in the repository ReadMe file.  Please do not create issues, as the issue trackers may or may not be actively monitored.  Instead, email [support@octopus.com](support@octopus.com) for the issue to be triaged and prioritized.
+Support for product related repositories in active development is included as part of your customer agreement.  We will make a note of which repositories are not supported in the repository ReadMe file.  Please do not create issues, as the issue trackers may or may not be actively monitored.  Instead, email [support@octopus.com](mailto:support@octopus.com) for the issue to be triaged and prioritized.
 
 ### Pull Requests
 
