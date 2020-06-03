@@ -92,7 +92,7 @@ In a follow-up step, you can add it back to the web farm if the service status i
 #{if Octopus.Action[Sanity Test Web Service].Output[#{Octopus.Machine.Name}].ShouldAddBackToWebFarm == "True"}True#{/if}
 ```
 
-Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables/index.md) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
+Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables.md) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
 
 ## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
