@@ -71,6 +71,29 @@ You can edit the parent step to change the roles that the steps run on or the wi
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
 
+
+### Child step variable run conditions {#Rollingdeployments-childstepvariablerunconditions}
+
+It’s possible to add variable [run conditions](/docs/deployment-process/conditions/index.md) to child steps in a rolling deployment. Both [variable expressions](/docs/deployment-process/conditions/index.md#variable-expressions) and [machine-level](/docs/deployment-process/conditions/index.md#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
+
+For example, if you are deploying a web service update to a web farm in a rolling deployment, you could sanity test the service in a step called `Sanity Test Web Service`. This step would run after the update step and set the service status in an output variable:
+
+```powershell
+# $serviceStatus would be set by your own sanity test
+$serviceStatus = "OK" 
+
+$shouldAddBackToWebFarm = $serviceStatus -eq "OK"
+Set-OctopusVariable -name "ShouldAddBackToWebFarm" -value "$shouldAddBackToWebFarm"
+```
+
+In a follow-up step, you can add it back to the web farm if the service status is positive with a machine-level variable run condition:
+
+```powershell
+#{if Octopus.Action[Sanity Test Web Service].Output[#{Octopus.Machine.Name}].ShouldAddBackToWebFarm == "True"}True#{/if}
+```
+
+Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables/index.md) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
+
 ## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
 
 This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.rolling-deployments
@@ -90,5 +113,6 @@ This five minute video (with captions) will guide you through setting up a rolli
     d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
 
 ## Learn more
-
+- [View rolling deployment examples on our samples instance](https://samples.octopus.app/app#/Spaces-45/).
+- [Rolling deployment knowledge base articles](https://help.octopus.com/tags/rolling-deployment/).
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
