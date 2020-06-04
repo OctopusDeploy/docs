@@ -1,6 +1,6 @@
 ---
 title: Reporting
-description: Octopus reporting with excel template
+description: Octopus reporting with an excel template
 position: 100
 ---
 
