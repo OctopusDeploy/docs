@@ -12,7 +12,7 @@ Navigate to the **Project** tab, select the project and click **{{Settings,Relea
 You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:
 
 ```text
-1.2.#{"{"}Octopus.Version.NextPatch{"}"}-pre
+1.2.#{Octopus.Version.NextPatch}-pre
 ```
 
 These special variables take the form:
@@ -48,7 +48,7 @@ The version can also include Octopus *semantic version mask* characters i and c 
 Finally, date fields can be also be used, for example:
 
 ```text
-#{"{"}Octopus.Date.Year}.#{"{"}Octopus.Date.Month{"}"}.#{"{"}Octopus.Date.Day{"}"}
+#{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}
 ```
 
 These take the form:
