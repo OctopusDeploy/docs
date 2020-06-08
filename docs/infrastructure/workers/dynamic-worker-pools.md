@@ -15,7 +15,7 @@ The Default Worker Pools for our latest cloud instances are configured to use a 
 Workers are created on demand and are assigned to a customer when required. Once you've finished using a worker, the worker is destroyed and not reused.  
 
 ::: info
-Octopus Cloud defines **finished** as the worker has been idle for an hour (60 minutes).  If your cloud instance does another deployment or runbook run within an hour, the same worker will be re-used.  No matter what, Octopus Cloud will destroy the worker after 72 hours (3 days).  These settings can be adjusted for your instance.  Reach out to [support@octopus.com](mailto:support@octopus.com) to request any adjustments.
+Octopus Cloud defines the use of the worker as **finished** when it has been idle for an hour (60 minutes). If your cloud instance does another deployment or runbook run within an hour, the same worker will be re-used.  No matter what, Octopus Cloud will destroy the worker after 72 hours (3 days).  These settings can be adjusted for your instance.  Reach out to [support@octopus.com](mailto:support@octopus.com) to request any adjustments.
 :::
 
 ### Isolated
