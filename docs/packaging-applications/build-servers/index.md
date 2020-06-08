@@ -53,15 +53,15 @@ The Verbose logging option can be used to include more detail in the build logs.
 
 As of `2019.10.0`, the build information for a package can be viewed by navigating to **{{Library,Build Information}}**
 
-![Library Build information](images/Capture.png "width=500")
+![Library Build information](images/Capture.PNG "width=500")
 
 The build information for a package can be viewed on any release which contains the package.
 
-![Build information on release page](images/Capture2.png "width=500")
+![Build information on release page](images/Capture2.PNG "width=500")
 
 For packages pushed to the Octopus built-in repository, the build information can also be viewed in the package version details by navigating to **{{Library, Packages}}** and selecting the package.
 
-![Build information on package version page](images/Capture3.png "width=500")
+![Build information on package version page](images/Capture3.PNG "width=500")
 
 :::warning 
 
