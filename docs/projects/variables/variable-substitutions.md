@@ -158,7 +158,7 @@ More complex sets of related values are handled using multiple variables:
 | `Endpoint[A].Address`     | `http://a.example.com` |       |
 | `Endpoint[A].Description` | `Master`               |       |
 | `Endpoint[B].Address`     | `http://b.example.com` |       |
-| `Endpoint[B].Description` | `Slave`                |       |
+| `Endpoint[B].Description` | `Replica`                |       |
 
 Given the template:
 
@@ -174,7 +174,7 @@ The result will be:
 ```powershell
 Listening on:
  - Endpoint A at http://a.example.com is Master
- - Endpoint B at http://b.example.com is Slave
+ - Endpoint B at http://b.example.com is Replica
 ```
 
 #### Iterating over comma-separated values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
