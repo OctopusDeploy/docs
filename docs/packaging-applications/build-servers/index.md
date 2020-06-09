@@ -37,6 +37,8 @@ The Build Information step is currently available in the official Octopus [TeamC
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::
 
+Build information is independent from the packages that it relates to. You can pass build information to Octopus before the packages have been pushed to either the built-in repository or an external feed.
+
 ## Build information step {#build-information-step}
 
 The TeamCity version of the _Build Information_ step is shown below.
@@ -65,13 +67,7 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 :::warning 
 
-Commit messages will only be shown in the build information if you are using GitHub. Subversion does not have this functionality. 
-
-:::
-
-:::hint
-
-You can push build information to Octopus that relate to packages, before they exist in the Octopus built-in repository.
+Commit messages and deep links may not be shown if an unsupported `VcsType` is passed to Octopus as part of the build information call. Currently we support values of `Git` and `TFVC` (TFS / Azure DevOps). `SVN` (Subversion) is **not supported**.
 
 :::
 
