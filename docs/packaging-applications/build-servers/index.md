@@ -53,15 +53,21 @@ The Verbose logging option can be used to include more detail in the build logs.
 
 As of `2019.10.0`, the build information for a package can be viewed by navigating to **{{Library,Build Information}}**
 
-![Library Build information](images/library-build-information.png "width=500")
+![Library Build information](images/library-build-information-2.png "width=500")
 
 The build information for a package can be viewed on any release which contains the package.
 
-![Build information on release page](images/build-information-release.png "width=500")
+![Build information on release page](images/build-information-release-2.png "width=500")
 
 For packages pushed to the Octopus built-in repository, the build information can also be viewed in the package version details by navigating to **{{Library, Packages}}** and selecting the package.
 
-![Build information on package version page](images/build-information-package-version.png "width=500")
+![Build information on package version page](images/build-information-package-version-2.png "width=500")
+
+:::warning 
+
+Commit messages will only be shown in the build information if you are using GitHub. Subversion does not have this functionality. 
+
+:::
 
 :::hint
 
