@@ -22,11 +22,11 @@ You can block a Release of a Project from being used in any future deployments, 
 
 ![](images/5865856.png "width=500")
 
-Select the option to "**Block deployment**."
+Select the option to "**Prevent Progression**."
 
 ![](images/5865857.png "width=500")
 
-Input a reason why you're blocking it, so your team is aware and on the same page, and hit "**Block**."
+Input a reason why you're blocking it, so your team is aware and on the same page, and hit "**Prevent Progression**."
 
 ![](images/5865858.png "width=500")
 
