@@ -28,6 +28,10 @@ Where [<options>] is any of:
                              Threshold of free disk space (in gigabytes)
                                where packages are cleaned up from cache
                                regardless of age. Default: 1
+      --cacheDirectoryFullThreshold=VALUE
+                             Threshold of the size of the cache folder(in
+                               gigabytes) where packages are cleaned up from
+                               cache regardless of age. Default: 0 (no limit)
       --maxConcurrentTasks=VALUE
                              Deprecated: may be removed in a future release
                                (currently has no effect; set Task Cap instead).
