@@ -32,7 +32,7 @@ Input a reason why you're blocking it, so your team is aware and on the same pag
 
 ## Resolve and unblock {#BlockingDeployments-ResolveandUnblock}
 
-Once you're happy with the deployment process continuing, go back to the release page of the project, and select "**Resolve and unblock**."
+Once you're happy with the deployment process continuing, go back to the release page of the project, and select "**Unblock**."
 
 ![](images/5865859.png "width=500")
 
