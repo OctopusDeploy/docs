@@ -643,3 +643,4 @@ docs/administration/managing-users-and-teams/user-roles.md -> docs/security/user
 docs/administration/managing-users-and-teams/external-groups-and-roles.md -> docs/security/users-and-teams/external-groups-and-roles.md
 docs/deploying-applications/deployment-process/configuration-features/index.md -> docs/deployment-process/configuration-features/index.md
 docs/managing-releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progression.md
+docs/deployment-applications/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
