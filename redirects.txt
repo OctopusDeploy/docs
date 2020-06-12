@@ -642,4 +642,4 @@ docs/administration/managing-users-and-teams/system-and-space-permissions.md -> 
 docs/administration/managing-users-and-teams/user-roles.md -> docs/security/users-and-teams/user-roles.md
 docs/administration/managing-users-and-teams/external-groups-and-roles.md -> docs/security/users-and-teams/external-groups-and-roles.md
 docs/deploying-applications/deployment-process/configuration-features/index.md -> docs/deployment-process/configuration-features/index.md
-docs/managing-releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progresson.md
+docs/managing-releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progression.md
