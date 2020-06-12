@@ -522,7 +522,7 @@ docs/deployment-process/variables/variable-filters.md -> docs/projects/variables
 docs/deployment-process/variables/variable-substitutions.md -> docs/projects/variables/variable-substitutions.md
 docs/deployment-process/variables/variable-templates.md -> docs/projects/variables/variable-templates.md
 docs/deployment-process/releases/index.md ->docs/managing-releases/index.md
-docs/deployment-process/releases/blocking-deployments.md -> docs/managing-releases/blocking-deployments.md
+docs/deployment-process/releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progession.md
 docs/deployment-process/releases/deleting-releases.md -> docs/managing-releases/deleting-releases.md
 docs/deployment-process/releases/deployment-notes.md -> docs/managing-releases/deployment-notes.md
 docs/deployment-process/releases/guided-failures.md -> docs/managing-releases/guided-failures.md
@@ -544,7 +544,7 @@ docs/deployment-process/operations-runbooks/index.md -> docs/operations-runbooks
 docs/deployment-process/issue-tracking/index.md -> docs/managing-releases/issue-tracking/index.md
 docs/deployment-process/issue-tracking/azure-devops.md -> docs/managing-releases/issue-tracking/azure-devops.md
 docs/release-management/index.md -> docs/managing-releases/index.md
-docs/release-management/blocking-deployments.md -> docs/managing-releases/blocking-deployments.md
+docs/release-management/blocking-deployments.md -> docs/managing-releases/prevent-release-progression.md
 docs/release-management/deleting-releases.md -> docs/managing-releases/deleting-releases.md
 docs/release-management/deployment-notes.md -> docs/managing-releases/deployment-notes.md
 docs/release-management/guided-failures.md -> docs/managing-releases/guided-failures.md
@@ -642,3 +642,4 @@ docs/administration/managing-users-and-teams/system-and-space-permissions.md -> 
 docs/administration/managing-users-and-teams/user-roles.md -> docs/security/users-and-teams/user-roles.md
 docs/administration/managing-users-and-teams/external-groups-and-roles.md -> docs/security/users-and-teams/external-groups-and-roles.md
 docs/deploying-applications/deployment-process/configuration-features/index.md -> docs/deployment-process/configuration-features/index.md
+docs/managing-releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progresson.md
