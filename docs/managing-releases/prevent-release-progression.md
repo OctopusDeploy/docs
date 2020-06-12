@@ -35,7 +35,7 @@ Provide a reason, so your team is aware and on the same page, and hit **Prevent 
 
 ## Resolve and unblock {#BlockingDeployments-ResolveandUnblock}
 
-When you're happy for the deployment process continuing, go back to the release page of the project, and select "**Unblock**."
+When you're happy for the deployment process continuing, go back to the release page of the project, and select "**Unblock**":
 
 ![](images/5865859.png "width=500")
 
