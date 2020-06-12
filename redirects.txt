@@ -522,7 +522,7 @@ docs/deployment-process/variables/variable-filters.md -> docs/projects/variables
 docs/deployment-process/variables/variable-substitutions.md -> docs/projects/variables/variable-substitutions.md
 docs/deployment-process/variables/variable-templates.md -> docs/projects/variables/variable-templates.md
 docs/deployment-process/releases/index.md ->docs/managing-releases/index.md
-docs/deployment-process/releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progession.md
+docs/deployment-process/releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progression.md
 docs/deployment-process/releases/deleting-releases.md -> docs/managing-releases/deleting-releases.md
 docs/deployment-process/releases/deployment-notes.md -> docs/managing-releases/deployment-notes.md
 docs/deployment-process/releases/guided-failures.md -> docs/managing-releases/guided-failures.md
