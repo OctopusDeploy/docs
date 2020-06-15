@@ -9,5 +9,5 @@ position: 45
 
 ## Learn more
 
-- Manager your [deployment targets](/docs/infrastructure/deployment-targets/index.md)
+- Manage your [deployment targets](/docs/infrastructure/deployment-targets/index.md)
 - [Infrastructure](/docs/infrastructure/index.md)
