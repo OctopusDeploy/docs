@@ -65,7 +65,7 @@ Here you can create the link to your Octopus Server. You can add more than one i
 
 ![](images/jenkins/octopusdeploy-servers.png "width=500")
 
-After the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy) is configured, you can configure a Jenkins Project.
+After the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy) is configured, you can configure a Jenkins *Freestyle* or *Pipeline* Project.
 
 ## Build job
 
@@ -101,6 +101,8 @@ The two supported formats are `zip` and `nuget`.
 
 To see the full set of additional arguments that can be supplied see the [pack documentation](/docs/octopus-rest-api/octopus-cli/pack.md)
 
+[Pack syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline.md#pack)
+
 ![](images/jenkins/package-application.png "width=500")
 
 This action works well combined with the next action `Push Packages`.
@@ -114,6 +116,8 @@ This action will push all packages that match the `Package paths` supplied.
 :::hint
 Note that the package paths defined here should be full paths, not including any wildcards.
 :::
+
+[Push Package syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline.md#push)
 
 ![](images/jenkins/push-packages.png "width=500")
 
