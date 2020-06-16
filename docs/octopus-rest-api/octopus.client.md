@@ -222,21 +222,18 @@ var projects = repositoryForSpace.Projects.GetAll();
 
 ## Loading in an Octopus Step {#Octopus.Client-Loadinginanoctopusstep}
 
-You can use Octopus.Client from inside Octopus (for example in a script step, a package install script, or the script console) by loading it from the server or Tentacle application directory. The credentials would still need to be supplied to establish the connection. For example:
+You can use Octopus.Client from inside Octopus (for example in a script step or a package install script) by referencing it as an package. You can configure [nuget.org](https://api.nuget.org/v3/index.json) as the [External Feed](https://octopus.com/docs/packaging-applications/package-repositories/nuget-feeds) that provides this package. Octopus will automatically extract this package for you, allowing your script to reference the .dll file it contains using a relative path. For example:
 
 ```powershell PowerShell
-Add-Type -Path C:\Program Files\Octopus Deploy\Octopus\Octopus.Client.dll'
+Add-Type -Path 'Octopus.Client/lib/netstandard2.0/Octopus.Client.dll'
 ```
 ```cs C#
-#r "C:\\Program Files\\Octopus Deploy\\Octopus\\Octopus.Client.dll"
+#r "Octopus.Client/lib/netstandard2.0/Octopus.Client.dll"
 using Octopus.Client;
 using Octopus.Client.Model;
 ```
 
-:::hint
-**Tip**
-The variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` was added in server version 3.7.12, which can be used to obtain the directory that contains the Octopus.Client assembly. For prior versions of the server, the variable `Octopus.Tentacle.Agent.ProgramDirectoryPath` can be used, but that will not work for steps that run on the Octopus Server or cloud regions.
-:::
+The credentials would still need to be supplied to establish the connection. 
 
 ## Documentation and Samples {#Octopus.Client-Documentationandsamples}
 
