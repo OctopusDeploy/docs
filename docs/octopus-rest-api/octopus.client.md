@@ -235,6 +235,10 @@ using Octopus.Client.Model;
 
 The credentials would still need to be supplied to establish the connection. 
 
+:::warning
+Octopus Server and Tentacle both ship with a version of `Octopus.Client.dll` in the installation directory. Avoid using this in your scripts as this is considered an implementation detail of those products. As such it is subject to change at any time, and not guaranteed to work with your version of Octopus Server.
+:::
+
 ## Documentation and Samples {#Octopus.Client-Documentationandsamples}
 
 [Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api)**, along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).
