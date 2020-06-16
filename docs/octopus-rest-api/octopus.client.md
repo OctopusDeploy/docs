@@ -222,7 +222,7 @@ var projects = repositoryForSpace.Projects.GetAll();
 
 ## Loading in an Octopus Step {#Octopus.Client-Loadinginanoctopusstep}
 
-You can use Octopus.Client from inside Octopus (for example in a script step or a package install script) by referencing it as an package. You can configure [nuget.org](https://api.nuget.org/v3/index.json) as the [External Feed](https://octopus.com/docs/packaging-applications/package-repositories/nuget-feeds) that provides this package. Octopus will automatically extract this package for you, allowing your script to reference the .dll file it contains using a relative path. For example:
+You can use Octopus.Client from inside Octopus (for example in a script step or a package install script) by referencing it as an package. You can configure [nuget.org](https://api.nuget.org/v3/index.json) as an [External Feed](https://octopus.com/docs/packaging-applications/package-repositories/nuget-feeds) that provides this package. Octopus will automatically extract this package for you, allowing your script to reference the .dll file it contains using a relative path. For example:
 
 ```powershell PowerShell
 Add-Type -Path 'Octopus.Client/lib/netstandard2.0/Octopus.Client.dll'
