@@ -22,11 +22,11 @@ If you wish to use AWS credentials managed by Octopus when deploying Terraform t
 Using AWS credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable.
 :::
 
-## Create an AWS account
+### Create an AWS account
 
 The instructions at [Creating an AWS Account](/docs/infrastructure/deployment-targets/aws/index.md##create-an-aws-account) detail the procedure for creating an account in Octopus.
 
-### Create a AWS account project variable
+#### Create a AWS account project variable
 
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`.
 
@@ -38,11 +38,11 @@ Select the account that was created in the previous step to assign it to the var
 
 ![AWS Account Variable Selection](images/aws-account-variable-selection.png "width=500")
 
-### Selecting the account
+#### Selecting the account
 
 Under the `Managed Account` section, select `AWS Account`. This will display two additional sections where the AWS account can be selected, and the default AWS region optionally defined.
 
-### AWS section
+#### AWS section
 
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance.
 
@@ -60,13 +60,48 @@ If you select `Yes` to `Execute using the AWS service role for an EC2 instance`,
 Credentials defined in the Terraform template take precedence over any credentials defined in the step.
 :::
 
-### Region section
+#### Region section
 
 You can optionally define the default region to use when interacting with AWS in the `Region` section.
 
 :::hint
 Regions defined in the Terraform template take precedence over the default value defined in the step.
 :::
+
+## Azure Account Support
+
+If you wish to use Azure credentials managed by Octopus when deploying Terraform templates, the Azure account will need to be added to Octopus, and a variable referencing the account configured in the project.
+
+:::hint
+Using Azure credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable.
+:::
+
+### Create an Azure account
+
+The instructions at [Creating an Azure Account](/docs/infrastructure/deployment-targets/azure/index.md) detail the procedure for creating an account in Octopus.
+
+#### Create a Azure account project variable
+
+[Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**.
+
+The [Azure PowerShell](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+
+![Azure Account variable](images/azure-account-variable.png "width=500")
+
+The **Add Variable** window is then displayed and lists all the Azure accounts.
+
+Select the account that was created in the previous step to assign it to the variable.
+
+![Azure account variable selection](images/azure-account-variable-selection.png "width=500")
+
+#### Selecting the account
+
+Under the `Managed Account` section, select `Azure Account`.
+
+:::hint
+Credentials defined in the Terraform template take precedence over any credentials defined in the step.
+:::
+
 
 ### Template section
 
