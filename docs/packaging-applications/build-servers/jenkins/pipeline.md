@@ -49,6 +49,39 @@ Example:
 octopusPushPackage overwriteMode: 'FailIfExists', packagePaths: 'blah.1.0.0.zip', serverId: 'octopus-server', spaceId: 'Spaces-1', toolId: 'octocli'
 ```
 
+## Push Package Info {#build-information}
+
+Step: **_octopusPushBuildInformation_**
+
+_**octopusPushBuildInformation** allows you to push package information to an Octopus Server
+
+| Parameters                    | Required | Description                                                                                                      |
+|-------------------------------|----------|------------------------------------------------------------------------------------------------------------|
+| `toolId`                      | Yes      | The Octopus CLI tool to use |
+| `serverId`                    | Yes      | The id of the target server to push the package |
+| `spaceId`                     | Yes      | The id Space on the server to push the package |
+| `packageId`                   | Yes      | The id of the packages to push the version information, multiple values can be provided seperated by `\n` |
+| `commentParser`               | Yes      | Valid values are `GitHub` and `Jira`  |
+| `overwriteMode`               | Yes      | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists` |
+| `gitUrl`                      | No       | The URL of the repository for the package(s). |
+| `gitCommit`                   | No       | The commit Id for the repository. Available via `git checkout` |
+| `verboseLogging`              | No       | Turn on verbose logging. Valid values are `true` or `false`. |
+| `additionalArgs`              | No       | Additional arguments to pass to the Octo CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command.|
+
+Example:
+```powershell
+octopusPushBuildInformation 
+    toolId: 'octocli', 
+    serverId: 'octopus-server', 
+    spaceId: 'Spaces-1', 
+    commentParser: 'GitHub', 
+    overwriteMode: 'FailIfExists', 
+    packageId: 'packageId1\npackageId2', 
+    packageVersion: '1.2.3', 
+    verboseLogging: false,
+    additionalArgs: ''
+```
+
 ## Create Release {#create-release}
 
 Step: **_octopusCreateRelease_**
@@ -143,36 +176,5 @@ octopusDeployRelease
     waitForDeployment: true
     cancelOnTimeout: true,
     verboseLogging: false, 
-    additionalArgs: ''
-```
-
-## Push Package Info {#build-information}
-
-Step: **_octopusPushBuildInformation_**
-
-_**octopusPushBuildInformation** allows you to push package information to an Octopus Server
-
-| Parameters                    | Required | Description                                                                                                      |
-|-------------------------------|----------|------------------------------------------------------------------------------------------------------------|
-| `toolId`                      | Yes      | The Octopus CLI tool to use |
-| `serverId`                    | Yes      | The id of the target server to push the package |
-| `spaceId`                     | Yes      | The id Space on the server to push the package |
-| `packageId`                   | Yes      | The id of the packages to push the version information, multiple values can be provided seperated by `\n` |
-| `commentParser`               | Yes      | Valid values are `GitHub` and `Jira`  |
-| `overwriteMode`               | Yes      | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists` |
-| `verboseLogging`              | No       | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs`              | No       | Additional arguments to pass to the Octo CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command.|
-
-Example:
-```powershell
-octopusPushBuildInformation 
-    toolId: 'octocli', 
-    serverId: 'octopus-server', 
-    spaceId: 'Spaces-1', 
-    commentParser: 'GitHub', 
-    overwriteMode: 'FailIfExists', 
-    packageId: 'packageId1\npackageId2', 
-    packageVersion: '1.2.3', 
-    verboseLogging: false,
     additionalArgs: ''
 ```
