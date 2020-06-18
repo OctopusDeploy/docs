@@ -25,7 +25,7 @@ _**octopusPack** allows you to create a package from files on disk during your p
 
 Example:
 ```powershell
-octopusPack additionalArgs: '-author "My Company"', includePaths: './bin/Release/publish/', outputPath: './artifacts/', overwriteExisting: false, packageFormat: 'zip', packageId: '', packageVersion: '', sourcePath: '', toolId: 'octocli', verboseLogging: false
+octopusPack additionalArgs: '-author "My Company"', outputPath: './artifacts/', overwriteExisting: false, packageFormat: 'zip', packageId: 'OctoPetShop', packageVersion: '1.1.${BUILD_NUMBER}', sourcePath: './bin/Release/publish/', toolId: 'octocli', verboseLogging: false
 ```
 
 ## Push {#push}
@@ -46,7 +46,7 @@ _**octopusPushPackage** allows you to push packages to the package repository in
 
 Example:
 ```powershell
-octopusPushPackage overwriteMode: 'FailIfExists', packagePaths: 'blah.1.0.0.zip', serverId: 'octopus-server', spaceId: 'Spaces-1', toolId: 'octocli'
+octopusPushPackage overwriteMode: 'FailIfExists', packagePaths: './artifacts/OctoPetShop.1.1.${BUILD_NUMBER}.zip', serverId: 'octopus-server', spaceId: 'Spaces-1', toolId: 'octocli'
 ```
 
 ## Push Package Info {#build-information}
@@ -70,16 +70,7 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 
 Example:
 ```powershell
-octopusPushBuildInformation 
-    toolId: 'octocli', 
-    serverId: 'octopus-server', 
-    spaceId: 'Spaces-1', 
-    commentParser: 'GitHub', 
-    overwriteMode: 'FailIfExists', 
-    packageId: 'packageId1\npackageId2', 
-    packageVersion: '1.2.3', 
-    verboseLogging: false,
-    additionalArgs: ''
+octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug'
 ```
 
 ## Create Release {#create-release}
@@ -114,27 +105,7 @@ _**octopusCreateRelease** allows you to push packages to the package repository 
 
 Example:
 ```powershell
-octopusCreateRelease 
-    serverId: 'octopus-server', 
-    spaceId: 'Spaces-1', 
-    project: 'Random Quotes', 
-    releaseVersion: '0.0.0', 
-    channel: 'Default', 
-    toolId: 'octocli', 
-    packageConfigs: [[packageName: 'package', packageReferenceName: 'refName', packageVersion: '1.2.3']]
-    defaultPackageVersion: '', 
-    deployThisRelease: false, 
-    cancelOnTimeout: false, 
-    deploymentTimeout: '', 
-    environment: 'test', 
-    tenant: 'Tenant 1', 
-    tenantTag: 'importance/high', 
-    jenkinsUrlLinkback: false, 
-    releaseNotes: false, 
-    releaseNotesSource: 'scm',
-    verboseLogging: false,
-    waitForDeployment: false,
-    additionalArgs: '', 
+octopusCreateRelease serverId: 'octopus-server', spaceId: 'Spaces-1', project: 'Random Quotes', releaseVersion: '2.3.${BUILD_NUMBER}', toolId: 'octocli',     packageConfigs: [[packageName: 'Nuget.CommandLine', packageReferenceName: 'NugetCLI', packageVersion: '5.5.1']] deployThisRelease: true, cancelOnTimeout: false, deploymentTimeout: '00:15:00', environment: 'test', tenant: 'The Tenant', tenantTag: 'importance/high', jenkinsUrlLinkback: true, releaseNotes: true,  releaseNotesSource: 'scm'
 ```
 
 ## Deploy Release {#deploy-release}
@@ -162,19 +133,5 @@ _**octopusDeployRelease** allows you to push packages to the package repository 
 
 Example:
 ```powershell
-octopusDeployRelease 
-    toolId: 'octocli', 
-    serverId: 'octopus-server', 
-    spaceId: 'Spaces-1', 
-    project: '1', 
-    environment: 'test', 
-    releaseVersion: '1.2.4', 
-    tenant: 'tenant 1', 
-    tenantTag: 'importance/high', 
-    variables: '', 
-    deploymentTimeout: '00:01:00',
-    waitForDeployment: true
-    cancelOnTimeout: true,
-    verboseLogging: false, 
-    additionalArgs: ''
+octopusDeployRelease toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', project: 'OctoPetShop', environment: 'test', releaseVersion: '1.2.${BUILD_NUMBER}', deploymentTimeout: '00:05:00', waitForDeployment: false, cancelOnTimeout: true
 ```
