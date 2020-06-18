@@ -15,10 +15,10 @@ _**octopusPack** allows you to create a package from files on disk during your p
 | `toolId`                      | Yes      | The Octopus CLI tool to use |
 | `packageId`                   | Yes      | The id of the package                                                                                  |
 | `packageFormat`               | Yes      | The format of the package, `zip` or `nupkg`                                                              |
+| `sourcePath`                  | Yes      | Path containing files and directories to include in package |
 | `overwriteExisting`           | No       | Overwrite an existing package with the same name and version. Valid values are `true` or `false`. Defaults to `false`    |
 | `includePaths`                | No       | New-line seperated paths to include files                              |
-| `sourcePath`                  | No       | Path containing files and directories to include in package. Defaults to working directory |
-| `outputPath`                  | No       | Path to write final package |
+| `outputPath`                  | No       | Path to write final package. Defaults to `.` |
 | `packageVersion`              | No       | Package version, defaults to a timestamp-based version. |
 | `verboseLogging`              | No       | Turn on verbose logging. Valid values are `true` or `false`. |
 | `additionalArgs`              | No       | Additional arguments to pass to the Octo CLI [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command|
@@ -46,7 +46,7 @@ _**octopusPushPackage** allows you to push packages to the package repository in
 
 Example:
 ```powershell
-octopusPushPackage additionalArgs: '', overwriteMode: 'FailIfExists', packagePaths: 'blah.1.0.0.zip', serverId: 'octopus-server', spaceId: 'Spaces-1', toolId: 'octocli', verboseLogging: false
+octopusPushPackage overwriteMode: 'FailIfExists', packagePaths: 'blah.1.0.0.zip', serverId: 'octopus-server', spaceId: 'Spaces-1', toolId: 'octocli'
 ```
 
 ## Create Release {#create-release}
