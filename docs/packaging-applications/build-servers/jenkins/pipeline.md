@@ -70,7 +70,7 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 
 Example:
 ```powershell
-octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug'
+octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug', gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', gitCommit: 'abc123'
 ```
 
 ## Create Release {#create-release}
