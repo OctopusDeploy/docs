@@ -13,7 +13,7 @@ We have [extensions/plugins](/docs/packaging-applications/build-servers/index.md
  - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
  - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
  - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
- - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
+ - [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md)
  - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
 
 :::
