@@ -13,7 +13,7 @@ Your continuous integration/build server will package your applications and make
  - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines/index.md)
  - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
  - [Github Actions](/docs/packaging-applications/build-servers/github-actions.md)
- - [Jenkins](/docs/packaging-applications/build-servers/jenkins.md)
+ - [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md)
  - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
 
 ## Build information {#build-information}
@@ -32,7 +32,7 @@ Build information is passed to Octopus as a file using a custom format. The reco
 
 :::hint
 **Build server support**
-The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins.md) plugins.
+The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) plugins.
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::
