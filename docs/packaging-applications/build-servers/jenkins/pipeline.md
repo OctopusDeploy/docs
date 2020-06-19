@@ -73,6 +73,22 @@ Example:
 octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug', gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', gitCommit: 'abc123'
 ```
 
+Due to limitations in Jenkins Pipelines, you will need to pass the Git URL and Git Commit values to the `octopusPushBuildInformation`. 
+
+For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitCommit: '${GIT_COMMIT}'`. 
+For a inline pipeline definifition configure the step as:
+
+```powershell
+steps {
+    script {
+        def checkoutVars = checkout([$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/OctopusSamples/RandomQuotes-Java.git']]])
+        env.GIT_URL = checkoutVars.GIT_URL
+        env.GIT_COMMIT = checkoutVars.GIT_COMMIT
+    }
+    octopusPushBuildInformation commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'randomquotes', packageVersion: "1.0.${BUILD_NUMBER}", serverId: "octopus-server", spaceId: "Spaces-2", toolId: 'Default', gitUrl: "${GIT_URL}", gitCommit: "${GIT_COMMIT}"
+}
+```
+
 ## Create Release {#create-release}
 
 Step: **_octopusCreateRelease_**
