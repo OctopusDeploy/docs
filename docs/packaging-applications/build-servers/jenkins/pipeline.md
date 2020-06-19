@@ -70,12 +70,13 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 
 Example:
 ```powershell
-octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug', gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', gitCommit: 'abc123'
+octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug', gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', gitCommit: '${GIT_COMMIT}'
 ```
 
-Due to limitations in Jenkins Pipelines, you will need to pass the Git URL and Git Commit values to the `octopusPushBuildInformation`. 
+Due to _limitations in Jenkins Pipelines_, you will need to pass the *Git URL* and *Git Commit* values to the `octopusPushBuildInformation`. 
+Including these values will allow the build information to provide correct URL links to the source.
 
-For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitCommit: '${GIT_COMMIT}'`. 
+For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitCommit: '${GIT_COMMIT}'`, the `checkoutVars` script will not be required.
 For a inline pipeline definifition configure the step as:
 
 ```powershell
