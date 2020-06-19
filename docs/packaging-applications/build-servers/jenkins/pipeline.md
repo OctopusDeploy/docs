@@ -14,8 +14,8 @@ Step name: **_octopusPack_**
 
 _**octopusPack** allows you to create a package from files on disk during your pipeline execution_.
 
-| Parameters | Required | Description |
-|------------|----------|-------------|
+| Parameters      | Required | Description |
+|-----------------|----------|-------------|
 | `toolId` | Yes | The Octopus CLI tool to use. |
 | `packageId` | Yes | The ID of the package. |
 | `packageFormat` | Yes | The format of the package, `zip` or `nupkg`. |
@@ -38,8 +38,8 @@ Step name: **_octopusPushPackage_**
 
 _**octopusPushPackage** allows you to push packages to the package repository in an Octopus Server_.
 
-| Parameters | Required | Description |
-|------------|----------|-------------|
+| Parameters      | Required | Description |
+|-----------------|----------|-------------|
 | `toolId` | Yes | The Octopus CLI tool to use. |
 | `serverId` | Yes | The ID of the target server to push the package. |
 | `spaceId` | Yes | The ID Space on the server to push the package. |
@@ -59,8 +59,8 @@ Step: **_octopusPushBuildInformation_**
 
 _**octopusPushBuildInformation** allows you to push package information to an Octopus Server_.
 
-| Parameters | Required | Description |
-|------------|----------|-------------|
+| Parameters      | Required | Description |
+|-----------------|----------|-------------|
 | `toolId` | Yes | The Octopus CLI tool to use. |
 | `serverId` | Yes | The ID of the target server to push the package. |
 | `spaceId` | Yes | The ID Space on the server to push the package. |
@@ -100,8 +100,8 @@ Step: **_octopusCreateRelease_**
 
 _**octopusCreateRelease** allows you to push packages to the package repository in an Octopus Server_.
 
-| Parameters | Required | Description |
-|------------|----------|-------------|
+| Parameters           | Required | Description |
+|----------------------|----------|-------------|
 | `toolId` | Yes | The Octopus CLI tool to use. |
 | `serverId` | Yes | The ID of the target server to push the package. |
 | `spaceId` | Yes | The ID Space on the server to push the package. |
@@ -135,8 +135,8 @@ Step: **_octopusDeployRelease_**
 
 _**octopusDeployRelease** allows you to push packages to the package repository in an Octopus Server_.
 
-| Parameters | Required | Description |
-|------------|----------|-------------|
+| Parameters           | Required | Description |
+|----------------------|----------|-------------|
 | `toolId` | Yes | The Octopus CLI tool to use. |
 | `serverId` | Yes | The ID of the target server to push the package. |
 | `spaceId` | Yes | The ID Space on the server to push the package. |
