@@ -81,7 +81,7 @@ Due to _limitations in Jenkins Pipelines_, you will need to pass the *Git URL* a
 Including these values will allow the build information to provide correct URL links to the source.
 
 For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitCommit: '${GIT_COMMIT}'`, the `checkoutVars` script will not be required.
-For a inline pipeline definifition configure the step as:
+For a inline pipeline definition configure the step as:
 
 ```powershell
 steps {
