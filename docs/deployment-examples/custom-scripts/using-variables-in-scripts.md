@@ -57,7 +57,7 @@ print(connectionString)
 ```
 
 :::success
-To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Integration/Scripting/FSharp/Bootstrap.fsi).
+To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Common/Features/Scripting/FSharp/Bootstrap.fsi).
 :::
 
 ## Variables in PowerShell scripts {#Customscripts-VariablesinPowerShellscripts}
