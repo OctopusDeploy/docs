@@ -44,7 +44,7 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
  - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL
 
  :::hint
- Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. The specification highly recommends using SSL to ensure the security and integrity of your tokens. You can use `http` here if you do not have SSL enabled on the public interface of your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+ Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `http` here so you will need to use `https` with a SSL certificate from a Certificate Authority, or from [LetsEncrypt](https://letsencrypt.org/) using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration) or one from Active Directory Certificate Services.
  :::
 
    ![Filling the App registration form](images/aad-new-app-registration-form.png "width=500")
@@ -53,7 +53,6 @@ In order to configure the your instance of Octopus Deploy as an App, you will ne
 
 1. Within your new App registration in AzureAD navigate to Authentication
 2. Ensure the ID Tokens box is enabled
-3. Optionally specify Logout URL if using Single Sign on
 
    ![Enable ID Token](images/aad_id_token.png "width=500")
 
