@@ -9,7 +9,7 @@ description:  Migrating between self-hosted and Octopus Cloud.
 :::
 
 :::warning
-**Warning:** our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between On-Premise and Cloud installations.
+**Warning:** our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
 :::
 
 ## Migrating to Octopus Cloud
@@ -24,7 +24,7 @@ To get started migrating from self-hosted to cloud, [email our support team](mai
 
 - Email [support@octopus.com](mailto:support@octopus.com) to book in a mutually convenient time. We'll reply with the specific steps that are involved.
 - Upgrade to the [latest version of Octopus](https://octopus.com/downloads). This will help eliminate any compatibility problems that could occur.
-- Schedule two days of possible downtime for your deployments, while we migrate your instance across to the cloud.
+- Schedule two days of possible downtime for your deployments, so we can migrate your instance to the cloud.
 - Due to the length of time required to complete the migration, we will only be able to schedule one migration per week. We will let you know the timeframe when you contact support.
 
 ## Migrating from Octopus Cloud
@@ -39,24 +39,26 @@ To get started migrating from self-hosted to cloud, [email our support team](mai
 
 Start by [installing](/docs/installation/index.md) a new Octopus Server. 
 
-Restore the database backup provided by Octopus Support, ensuring that the user account under which the Octopus Service is running has access to the database.
+Restore the database backup provided by Octopus support, ensuring that the user account under which the Octopus service is running has access to the database.
 
 Using the [database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md) command, set the connection string and the Master Key.
 `Octopus.Server.exe database --connectionString=<connection string to restored database> --masterKey=<Master Key provided by Octopus Support>`
 
-From the provided zip file, copy the *task logs*, *artifacts* and *packages* to the corresponding folders under the Octopus Home folder, by default this is `C:\Octopus`.
-Update the paths for the *task logs*, *artifacts* and *packages* folders using the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command.
+From the provided zip file, copy the *task logs*, *artifacts*, and *packages* to the corresponding folders under the Octopus home folder, by default this is `C:\Octopus`.
+
+Update the paths for the *task logs*, *artifacts*, and *packages* folders using the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command.
 
 `Octopus.Server.exe path --nugetRepositry=<path to packages folder> --artifacts=<path to artifacts folder> --tasklogs=<path to task logs folder>`
 
-Restart the Octopus Service.
+Restart the Octopus service.
 
-Once you have completed these steps, login to your local instance and check that everythings looks correct. Somethings to take note of:
-- Task logs are showing. Ensure that the log is showing correctly for a recent deployment.
-- Packages have been indexed correctly. Check that your Package Library contains the packages you expect.
-- Tentacles are healthy. 
-    The server address has changed so you may need to update the configuration on Polling Tentacles using `Tentacle.exe` or the Tentacle Manager. For Listening Tentacles, you may need to update the Tentacle address in the Deployment Target page.
+After you have completed these steps, login to your local instance and check that everything looks correct. In particular:
 
-## Got questions?
+- **Task logs**. Ensure that the log is showing correctly for a recent deployment.
+- **Packages have been indexed correctly**. Check your package library contains the packages you expect.
+- **Tentacles are healthy**: 
+    The server address has changed so you may need to update the configuration on Polling Tentacles using **Tentacle.exe** or the Tentacle Manager. For Listening Tentacles, you may need to update the Tentacle address on the deployment target page.
 
-If you're unsure of anything, please [email our support team](mailto:support@octopus.com) and ask the question. We're always happy to help, and we can provide more specific information when you are ready to migrate.
+## Questions?
+
+If you're unsure about anything, please [email our support team](mailto:support@octopus.com). We're always happy to help, and we can provide more specific information when you are ready to migrate.

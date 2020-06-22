@@ -1,7 +1,7 @@
 ---
 title: Data
 position: 10
-description: How to work with your data in Octopus Cloud.
+description: How to work with your data in Octopus Cloud instance.
 ---
 
 We make backups of instance databases and store these securely so that we have multiple restore points in the unlikely event of a disaster.
@@ -10,7 +10,7 @@ We evaluate our backup and recovery strategy frequently to improve resiliency an
 
 ## Importing data
 
-Due to some key differences between the self-hosted and cloud configurations, it currently **isn't** possible to use the existing [Migration API](/docs/octopus-rest-api/migration-api/index.md). If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
+Due to some key differences between the self-hosted and cloud configurations, it currently **isn't** possible to use the existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) to import data. If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
 
 ## Exporting your data
 

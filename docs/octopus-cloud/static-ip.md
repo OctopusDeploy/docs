@@ -15,7 +15,5 @@ A list of static IP addresses your instance could be using can be found within t
 1. Log in to [Octopus.com](https://www.octopus.com).
 1. Click your profile in the upper right.
 1. Click the company name under Organization. 
-1. On the next page, find the Octopus Cloud instance you want to get the IP addresses for and click Manage. 
-
-From this page, you can scroll down and see the list of static IP addresses that your instance can use.
-
+1. On the next page, find the Octopus Cloud instance you want to get the IP addresses for and click **Manage**. 
+1. Scroll down to the **Technical** section of the page, and you will see the static IP addresses your instance can use. 
