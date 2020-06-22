@@ -82,8 +82,24 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
 1. **Package your application.**
 
-   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them up ready for deployment.
+   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them into a package ready for deployment. See [build server integrations](/docs/packaing-applications/build-servers/index.md).
 
 1. **Octopus Deploy deploys your software to your infrastructure.**
 
    Octopus deploys your software to the infrastructure you've configured, whether this is on-premises servers or cloud services. Because you likely want to deploy your software into a testing environment before deploying into production, Octopus promotes releases of your software through your environments, for instance, to dev, testing, staging, and production, and because each environment has slightly different configurations, Octopus manages those for you too.
+
+## Next steps
+
+You already use version control and a build server, adding Octopus Deploy to deploy your software and manage your operations tasks follows these steps:
+
+1. [Download](https://octopus.com/free) and [Install the self-hosted Octopus Server](/docs/installation/index.md) or [sign up for an instance of [Octopus Cloud](https://octopus.com/free).
+1. Create the [environments](/docs/infrastructure/environments/index.md) that represent the stages of your deployment pipeline, for instance, **dev*, **test**, and **production**.
+1. Configure your [deployment targets](/docs/infrastructure/deployment-targets/index.md), that is the servers and services where your software will be deployed, so they're reachable from the Octopus server.
+1. Configure your [build server](/docs/packaging-applications/build-servers/index.md) to [package your application](/docs/packaging-applications/index.md) and make the packages available in a [package repository](/docs/packaging-applications/package-repository/index.md).
+1. Define any [variables](/docs/projects/variables/index.md) you need, for instance, configuration strings that vary between environments so that the same deployment process will work across all of your environments.
+1. Define your [deployment process](/docs/deployment-process/index.md) by adding the steps your Octopus Server must take to deploy your packaged software to your the deployment targets in your environments.
+1. Create and [manage releases](/docs/managing-releases/index.md) of your software.
+1. Define [runbooks](docs/operations-runbooks/index.md) to maintain your infrastucture and quickly respond to outages to minizime download.
+
+
+
