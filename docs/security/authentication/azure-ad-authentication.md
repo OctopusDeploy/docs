@@ -37,14 +37,14 @@ To configure your instance of Octopus Deploy as an App, you will need administra
 
    ![New App registration](images/aad-new-app-registration.png "width=500")
 
-4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Sign-On URL** like *https://octopus.example.com/api/users/authenticatedToken/AzureAD* Then click **Register**.
- - The URL must be using HTTPS
- - When users input their credentials, the value you specify for Name will appear at the top of the Azure authentication page.
- - The value you specify for Sign-On URL should be the URL to your Octopus Server. This address is linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
- - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL
+4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Sign-On URL** like *https://octopus.example.com/api/users/authenticatedToken/AzureAD*. Then click **Register**.
+ -The URL must be using HTTPS
+ -When users input their credentials, the value you specify for Name will appear at the top of the Azure authentication page.
+ -The value you specify for Sign-On URL should be the URL to your Octopus Server. This address is linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
+ -Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL
 
  :::hint
- Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here, so you will need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/) or [GoDaddy](https://godaddy.com and you can also do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration.md) or one from Active Directory Certificate Services.
+ Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here, so you will need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/) or [GoDaddy](https://godaddy.com) and you can also do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration.md) or one from Active Directory Certificate Services.
  :::
 
    ![Filling the App registration form](images/aad-new-app-registration-form.png "width=500")
@@ -84,16 +84,16 @@ Make sure you replace the `NEWGUID`s with a generated GUID (unique per entry), a
    {
       "id": "NEWGUID1",
       "allowedMemberTypes": ["User"],
-      "description": "Octopus Administrators",
-      "displayName": "Octopus Admins",
+      "description": "OctopusAdministrators",
+      "displayName": "OctopusAdmins",
       "isEnabled": true,
       "value": "octopusAdmins"
    },
    {
       "id": "NEWGUID2",
       "allowedMemberTypes": ["User"],
-      "description": "Octopus Testers",
-      "displayName": "Octopus Testers",
+      "description": "OctopusTesters",
+      "displayName": "OctopusTesters",
       "isEnabled": true,
       "value": "octopusTesters"
    }
@@ -104,7 +104,6 @@ Make sure you replace the `NEWGUID`s with a generated GUID (unique per entry), a
 Once you have completed editing the manifest, select the **Save** option.
 
   ![Saving an App registration manifest](images/aad-save-app-registration-manifest.png "width=500")
-
 
 :::hint
 The **value** property is the most important one. This value becomes the external Role ID you will use later on when [adding this Role to a Team](/docs/security/users-and-teams/index.md) in Octopus Deploy.
@@ -119,14 +118,12 @@ For more advanced scenarios, please see the [Azure manifest file documentation](
 
 Once the App Role(s) have been defined, users/groups from Azure AD may be mapped into these Roles.
 
- 1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
-
+1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
   ![Editing App registration users](images/aad-edit-app-registration-users.png "width=500")
 
 2. Choose **Users and groups** and select **Add user** to create a new role assignment.
 
 3. Select the users which you would like to assign roles to. Next, under **Select Role**, specify one of the AppRoles that you added to the App registration manifest.
-
   ![Editing App registration users role](images/aad-edit-app-registration-users-role.png "width=500")
 
 4. To save your changes, select the **Assign** button.
@@ -136,7 +133,6 @@ If you only have one Role it will be automatically assigned. If you have **multi
 :::
 
 ## Configure Octopus Server
-
 
 ### Get the client ID and Issuer
 
@@ -153,7 +149,7 @@ In the Azure portal, you can get the **Application ID** on your App's Overview p
 :::success
 Your **Client ID** should be a GUID.
 
-Your ** Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant.
+Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant.
 :::
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
@@ -180,7 +176,7 @@ If you followed the optional steps for modifying the App registration's manifest
 3. Under the **Members** section, select the option **Add External Group/Role**.
  ![Adding Octopus Teams from External Providers](images/add-octopus-teams-external.png "width=500")
 
-4. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `Octopus Testers` as the **Display Name**.
+4. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
  ![Add Octopus Teams Dialog](images/add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
@@ -203,7 +199,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 !include <admin-user>
 
-## What next?
+## The next steps
 
 Now you're using an external identity provider; it is easy to increase your security. You could consider configuring [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication), after all, Octopus Deploy has access to your production environments!
 
@@ -223,7 +219,7 @@ Unfortunately, the security-related configuration is sensitive to everything. Ma
 
 ### Check OpenID Connect metadata is working
 
-You can see the OpenID Connect metadata by going to the Issuer address in your browser, adding`/.well-known/openid-configuration` to the end. In our example, this would have been something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`.
+You can see the OpenID Connect metadata by going to the Issuer address in your browser, adding `/.well-known/openid-configuration` to the end. In our example, this would have been something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`.
 
 ### Inspect the contents of the security token
 
