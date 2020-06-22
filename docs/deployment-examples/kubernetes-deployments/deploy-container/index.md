@@ -820,6 +820,12 @@ Each Ingress resource must have a unique name, defined in the `Ingress name` fie
 
 The name of the ingress resource is not affected by the deployment strategy.
 
+#### Ingress class name
+
+[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined the the `Ingress Class Name` field.
+
+See the [Kubernetes documentation](https://g.octopushq.com/K8SIngressClassDocs) for more information.
+
 #### Ingress host rules
 
 Ingress resources configure routes based on the host that the request was sent to. New hosts can be added by clicking the `Add Host Rule` button.
