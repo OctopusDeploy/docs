@@ -13,24 +13,29 @@ hideInThisSectionHeader: true
 
 ## Create an Octopus account
 
-An Octopus account lets you manage your instances of Octopus Cloud.
-:::hint
-Skip the steps below by registering with your Google or Microsoft account.
-:::
+An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [octopus.com/register](https://octopus.com/register).
+
+You can register for an account with your existing Google or Microsoft account or create a unique log in for Octopus:
 
 1. Enter your name.
 1. Provide your email address and create a password. Please note, these credentials are for your Octopus account and you will use them to log into your Octopus instance through single sign-on.
 1. On the next screen, verify your email address.
 1. After your email has been verified, you will be logged into your Octopus account.
 
+Now that you've created an Octopus account, you can create a new instance of Octopus Cloud.
+
 ## Create a cloud instance
 
-1. From the **products** screen, click **Start a free 30-day Cloud trial**.
-1. Enter an **instance name** for your Octopus Cloud instance.
-1. Choose a URL for the instance.
-1. Confirm the details you've provided, agree to the terms and click **Deploy my Octopus!**.
+To create a new instance of Octopus Cloud, make sure you are logged into your Octopus account:
 
-You will be taken to the account provisioning screen. It will take a couple of minutes for your Octopus Cloud instance to be ready. You will receive an email when the instance is ready to use.
+1. Click **Create a new cloud instance**.
+1. Enter the URL you would like to use to access your instance: `<yoururl>.octopus.app`. If the URL you selected is not available, enter a different URL.
+1. Select the region you would like your instance to be hosted in.
+1. Add your company name.
+1. Review the terms of our customer agreement, privacy policy, and acceptable usage policy.
+1. Click **Agree, deploy my Octopus!**.
+
+You will be taken to the account provisioning screen. Your Octopus Cloud instance should be ready within a minute or so. You will receive an email when the instance is ready to use.
 
 When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
 
@@ -38,31 +43,28 @@ When the instance is ready, you will see it (and any other instances you have ac
 
 Factors such as geographical distance, network bandwidth, and network congestion may cause package uploads to your Octopus Cloud Server to take longer than expected.
 
-If you are having difficulty uploading packages to your Octopus built-in package feed within the default timeout threshold - which is usually within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you could try increasing the timeout threshold of the Octopus CLI or `nuget.exe` to a value that suits you. We also recommend using the Octopus CLI, `Octopus.Client`, or the `TeamCity Plugin (v4.41.0+)` because they have the advantage of utilizing delta compression.
+If you are having difficulty uploading packages to your Octopus built-in package feed within the default timeout threshold, typically within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you could try increasing the timeout threshold of the Octopus CLI or `nuget.exe` to a value that suits you. We also recommend using the Octopus CLI, **Octopus.Client**, or the **TeamCity Plugin (v4.41.0+)** because they have the advantage of using delta compression.
 
 In the near future, the Octopus Cloud will become available in additional regions and you'll have the ability to move between regions.
+
+## Change your password
+
+To change your password for the Octopus instance and Octopus account:
+
+1. Go to [Octopus.com/signin](https://octopus.com/signin).
+1. Click the drop-down menu next to your username in the top right corner.
+1. Click profile.
+1. Click the **Change Password** link.
+1. Enter your new password.
+1. Confirm the new password, and click **Change password**.
 
 ## Reset the Octopus account password
 
 If you forget your username or password for your Octopus account or Octopus instance, you can reset them via Octopus.com
 
-1. Visit [Octopus.com/signin](https://Octopus.com/signin).
-1. Click 'Forgot your password?'
+1. Visit [octopus.com/signin](https://Octopus.com/signin).
+1. Click **Forgot your password?**
 1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
-
-
-## Reset the instance user password
-:::hint
-This feature is [being deprecated.](https://Octopus.com/docs/security/authentication/octopusid-authentication)
-:::
-
-If you forget your username or password for the instance, you can request a **new user invite**.
-
-1. Log in to your Octopus account.
-1. Select your cloud instance.
-1. Click the **new user invite** link.
-
-
 
 ## Invite users to your Octopus Cloud instance {#OctopusCloud-Invitingusers}
 
@@ -85,7 +87,7 @@ By default, all invitees will be added to the **Everyone** team within the Octop
 
 ## Set the outage window
 
-In order to keep your instance of Octopus Cloud updated and running the latest version, we will occasionally need to take it offline to update the software. You can let us know the best time for this to occur by setting the outage window.
+In order to keep your instance of Octopus Cloud updated and running the latest version, we will occasionally need to take it offline to update the software. You can let us know the best time for this to do this by setting the outage window.
 
 1. Log in to you Octopus account.
 1. Select your cloud instance.
@@ -101,17 +103,6 @@ https://\<yoururl\>.octopus.app/app#/users/sign-in
 ## Octopus Cloud version
 
 We keep your instance of Octopus Cloud up to date and running the latest version of Octopus Deploy. To check which version your instance is running, log into the Octopus Web Portal, and click the drop-down menu that appears next to your name in the top right corner. The version is displayed at the top of the display.
-
-## Change your password
-
-To change your password for the Octopus instance and Octopus account:
-
-1. Go to [Octopus.com/signin](https://octopus.com/signin).
-1. Click the drop-down menu next to your username in the top right corner.
-1. Click profile.
-1. Click the **Change Password** link.
-1. Enter your new password.
-1. Confirm the new password, and click **Change password**.
 
 ## Learn more
 
