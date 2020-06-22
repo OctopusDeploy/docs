@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::hint
-Azure Active Directory (AAD) authentication is available in **Octopus 3.5** and later and only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud).
+Azure Active Directory (AAD) authentication is available in **Octopus 3.5** and later and only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
 :::
 
 To use Azure Active Directory (AAD) authentication with Octopus, you will need to get a few pieces lined up just right:
@@ -44,7 +44,7 @@ To configure your instance of Octopus Deploy as an App, you will need administra
  - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL
 
  :::hint
- Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here, so you will need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/) or [GoDaddy](https://godaddy.com and you can also do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration) or one from Active Directory Certificate Services.
+ Please take care when adding this URL! They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here, so you will need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/) or [GoDaddy](https://godaddy.com and you can also do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration.md) or one from Active Directory Certificate Services.
  :::
 
    ![Filling the App registration form](images/aad-new-app-registration-form.png "width=500")
