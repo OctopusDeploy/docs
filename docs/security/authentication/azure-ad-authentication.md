@@ -219,7 +219,7 @@ Unfortunately, the security-related configuration is sensitive to everything. Ma
 
 ### Check OpenID Connect metadata is working
 
-You can see the OpenID Connect metadata by going to the Issuer address in your browser, adding `/.well-known/openid-configuration` to the end. In our example, this would have been something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`.
+You can see the OpenID Connect metadata by going to the Issuer address in your browser, adding `/.well-known/openid-configuration` to the end. In our example, this would be something like `https://login.microsoftonline.com/b91ebf6a-84be-4c6f-97f3-32a1d0a11c8a/.well-known/openid-configuration`.
 
 ### Inspect the contents of the security token
 
