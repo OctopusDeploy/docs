@@ -215,7 +215,7 @@ Unfortunately, the security-related configuration is sensitive to everything. Ma
 
 - You don't have any typos or copy-paste errors.
 - Remember, things are case-sensitive.
-- Remember to remove or add slash characters as we've instructed - they matter too!
+- Remember to remove or add slash characters.
 
 ### Check OpenID Connect metadata is working
 
