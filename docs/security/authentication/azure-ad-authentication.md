@@ -203,7 +203,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 Now you're using an external identity provider; it is easy to increase your security. You could consider configuring [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication), after all, Octopus Deploy has access to your production environments!
 
-You should also consider disabling any authentication providers you aren't using, like username and password authentication, which can now be disabled since **Octopus 3.5**.
+You should also consider disabling any authentication providers you aren't using, like username and password authentication.
 
 ## Troubleshooting
 
