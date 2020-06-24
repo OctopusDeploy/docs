@@ -207,7 +207,7 @@ You should also consider disabling any authentication providers you aren't using
 
 ## Troubleshooting
 
-We do our best to log warnings to your Octopus Server log whenever possible. If you are having difficulty configuring Octopus to authenticate with Azure Active Directory, check your [server logs](/docs/support/log-files.md) for warnings.
+If you are having difficulty configuring Octopus to authenticate with Azure Active Directory, check your [server logs](/docs/support/log-files.md) for warnings.
 
 ### Double and triple check your configuration
 
