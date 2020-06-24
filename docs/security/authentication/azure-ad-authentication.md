@@ -243,5 +243,5 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 If you aren't able to resolve the authentication problems yourself using these troubleshooting tips, please reach out to our [support team](https://octopus.com/support) with:
 
 1. The contents of your OpenID Connect Metadata or the link to download it (see above) can be different for each Azure AD App.
-2. A copy of the decoded payload for some security tokens (see above) may work as expected, and others are not.
+2. A copy of the decoded payload for some security tokens (see above) may work as expected, and others will not.
 3. A screenshot of the Octopus User Accounts, including their username, email address, and Name.
