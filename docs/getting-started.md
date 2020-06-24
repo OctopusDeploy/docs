@@ -82,7 +82,7 @@ We designed Octopus Deploy for teams that follow agile delivery practices. A typ
 
 1. **Package your application.**
 
-   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them into a package ready for deployment. See [build server integrations](/docs/packaing-applications/build-servers/index.md).
+   When the build is ready, your CI/build server takes all the files your software needs to run and bundles them into a package ready for deployment. See [build server integrations](/docs/packaging-applications/build-servers/index.md).
 
 1. **Octopus Deploy deploys your software to your infrastructure.**
 
@@ -100,5 +100,4 @@ You already use version control and a build server, adding Octopus Deploy to dep
 1. Define your [deployment process](/docs/deployment-process/index.md) by adding the steps your Octopus Server must take to deploy your packaged software to your the deployment targets in your environments.
 1. Create and [manage releases](/docs/managing-releases/index.md) of your software.
 1. Define [runbooks](docs/operations-runbooks/index.md) to maintain your infrastructure and quickly respond to outages to minimize downtime.
-
 
