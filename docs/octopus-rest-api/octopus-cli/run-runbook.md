@@ -181,6 +181,6 @@ You can run a runbook on ALL tenants in an environment by using the `--tenant=*`
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
-- [Octopus Runbooks](/docs/operations-runbooks)
+- [Operations Runbooks](/docs/operations-runbooks/index.md)
+- [Octopus REST API](/docs/octopus-rest-api/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Releases](/docs/managing-releases/index.md)
