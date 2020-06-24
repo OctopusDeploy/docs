@@ -214,7 +214,7 @@ If you are having difficulty configuring Octopus to authenticate with Azure Acti
 Unfortunately, the security-related configuration is sensitive to everything. Make sure:
 
 - You don't have any typos or copy-paste errors.
-- remember, things are case-sensitive.
+- Remember, things are case-sensitive.
 - Remember to remove or add slash characters as we've instructed - they matter too!
 
 ### Check OpenID Connect metadata is working
