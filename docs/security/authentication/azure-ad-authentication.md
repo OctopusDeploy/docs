@@ -27,15 +27,15 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 
 1. Log in to the [Azure Portal](https://portal.azure.com), click on your account positioned at the top-right of the screen, then select your desired directory:
 
-   ![Switch Azure Directories](images/aad-portal.png "width=500")
+![Switch Azure Directories](images/aad-portal.png "width=500")
 
 2. Select the hamburger menu in the [Azure Portal](https://portal.azure.com)  and select **Azure Active Directory** from the Azure menu:
 
-   ![Open AzureAD service](images/aad-service.png "width=500")
+![Open AzureAD service](images/aad-service.png "width=500")
 
 3. Select **App registrations** then choose **New application registration**:
 
-   ![New App registration](images/aad-new-app-registration.png "width=500")
+![New App registration](images/aad-new-app-registration.png "width=500")
 
 4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Sign-On URL** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
  - The URL must use HTTPS.
@@ -119,12 +119,14 @@ For more advanced scenarios, please see the [Azure manifest file documentation](
 After the App Role(s) have been defined, users/groups from Azure AD may be mapped into these Roles.
 
 1. Under the App Registration, select your App registrations name under **Managed application in local directory**.
-  ![Editing App registration users](images/aad-edit-app-registration-users.png "width=500")
+
+![Editing App registration users](images/aad-edit-app-registration-users.png "width=500")
 
 2. Choose **Users and groups** and select **Add user** to create a new role assignment.
 
 3. Select the users you would like to assign roles to. Next, under **Select Role**, specify one of the AppRoles that you added to the App registration manifest.
-  ![Editing App registration users role](images/aad-edit-app-registration-users-role.png "width=500")
+
+![Editing App registration users role](images/aad-edit-app-registration-users-role.png "width=500")
 
 4. To save your changes, select the **Assign** button.
 
@@ -174,10 +176,12 @@ If you followed the optional steps to modify the App registration's manifest to 
 2. Either create a new **Team** or choose an existing one.
 
 3. Under the **Members** section, select the option **Add External Group/Role**.
- ![Adding Octopus Teams from external providers](images/add-octopus-teams-external.png "width=500")
+ 
+![Adding Octopus Teams from external providers](images/add-octopus-teams-external.png "width=500")
 
 4. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
- ![Add Octopus Teams Dialog](images/add-octopus-teams-external-dialog.png "width=500")
+ 
+![Add Octopus Teams Dialog](images/add-octopus-teams-external-dialog.png "width=500")
 
 5. Save your changes by clicking the **Save** button.
 
@@ -230,12 +234,12 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 1. Open the Developer Tools of your browser and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools, this is called "Preserve Log".
 
-   ![Preserve Logs](images/5866122.png "width=500")
+![Preserve Logs](images/5866122.png "width=500")
 
 3. Attempt to sign into Octopus using Azure AD and find the HTTP POST coming back to your Octopus instance from Azure AD on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
 4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/), which will decode the token for you.
 
-   ![ID Token](images/5866123.png "width=500")
+![ID Token](images/5866123.png "width=500")
 
 5. Don't worry if jwt.io complains about the token signature; it doesn't support RS256, which is used by Azure AD.
 6. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
