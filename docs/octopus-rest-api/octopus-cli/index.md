@@ -43,6 +43,7 @@ hideInThisSection: true
 - **[promote-release](/docs/octopus-rest-api/octopus-cli/promote-release.md)**:  Promotes a release.
 - **[push](/docs/octopus-rest-api/octopus-cli/push.md)**:  Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 - **[push-metadata](/docs/octopus-rest-api/octopus-cli/push-metadata.md)**:  Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
+- **[run-runbook](/docs/octopus-rest-api/octopus-cli/run-runbook.md)**:  Runs an existing runbook.
 - **[version](/docs/octopus-rest-api/octopus-cli/version.md)**:  Outputs Octopus CLI version.
 
 ## General Usage {#OctopusCLI-GeneralUsage}
