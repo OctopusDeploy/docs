@@ -25,7 +25,7 @@ If you run into any issues, refer to the documentation for the type of deploymen
 - [Windows](/docs/infrastructure/deployment-targets/windows-targets/index.md)
 - [Linux](/docs/infrastructure/deployment-targets/linux/index.md)
 - [Azure](/docs/infrastructure/deployment-targets/azure/index.md)
-- [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-cluster/index.md)
+- [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-target/index.md)
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions.md)
 

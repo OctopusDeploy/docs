@@ -12,7 +12,7 @@ If you're using an Octopus Cloud instance, use you Octopus Account to log at the
 
 `https://yoururl.octopus.app`
 
-If you're using the self-hosted Octopus Server, you can launch the web portal from the Octopus Manager or navigate to the URL you've defined if you've already [updated the Web Portal Bindings](docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https), and log in with the credentials you created during the installation process.
+If you're using the self-hosted Octopus Server, you can launch the web portal from the Octopus Manager or navigate to the URL you've defined if you've already [updated the Web Portal Bindings](docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md), and log in with the credentials you created during the installation process.
 
 ## The Web Portal 
 
