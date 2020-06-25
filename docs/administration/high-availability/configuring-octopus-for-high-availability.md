@@ -108,15 +108,26 @@ Finally, you need to tell Octopus to store artifacts, task logs and packages in 
 
 **Configure shared storage**
 
+There are two options for configuring shared storage: setting the root shared storage directory, or setting each directory individually.
+
+Set the root shared storage directory when all of the shared directories will reside under the same root. Each shared diretory will reside in a sub-directory under the directory that you specify:
+
+```powershell
+Octopus.Server.exe path --clusterShared \\OctoShared\OctopusData
+```
+
+Setting the root shared storage directory is the recommend approach because any future shared paths will automatically appear in this directory without being explicity configured. The other option is to set each directory individually:
+
 ```powershell
 Octopus.Server.exe path --artifacts \\Octoshared\OctopusData\Artifacts
 Octopus.Server.exe path --taskLogs \\Octoshared\OctopusData\TaskLogs
 Octopus.Server.exe path --nugetRepository \\Octoshared\OctopusData\Packages
+Octopus.Server.exe path --telemetry \\Octoshared\OctopusData\Telemetry
 ```
 
-(Note that all three paths are not required to be in the same file share(s))
+(Note that all paths are not required to be in the same file share(s))
 
-This configuration is stored in the database, so you only have to perform this once - other nodes will read it from the database.
+No matter which option you choose, the configuration is stored in the database, so you only have to perform this once - other nodes will read it from the database.
 
 #### Configure the second and additional nodes {#ConfiguringOctopusforHighAvailability-Configuringthesecondandadditionalnodes}
 
