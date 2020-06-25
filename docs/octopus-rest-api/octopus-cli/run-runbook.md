@@ -34,13 +34,13 @@ Run Runbook:
                              default setting from environment)
       --specificMachines=VALUE
                              [Optional] A comma-separated list of machine
-                             names to target in the specified environment/s. If
-                             not specified all machines in the environment
+                             names to target in the specified environment/s.
+                             If not specified all machines in the environment
                              will be considered.
       --excludeMachines=VALUE
                              [Optional] A comma-separated list of machine
-                             names to exclude in the specified environment/s. If
-                             not specified all machines in the environment
+                             names to exclude in the specified environment/s.
+                             If not specified all machines in the environment
                              will be considered.
       --tenant=VALUE         [Optional] Run a runbook on the tenant with this
                              name or ID; specify this argument multiple times
@@ -60,7 +60,7 @@ Run Runbook:
                              should expire, specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
-      -v, --variable=VALUE   [Optional] Values for any prompted variables in
+  -v, --variable=VALUE       [Optional] Values for any prompted variables in
                              the format Label:Value. For JSON values,
                              embedded quotation marks should be escaped with
                              a backslash. Specify this argument multiple
@@ -133,8 +133,6 @@ Common options:
       --space=VALUE          [Optional] The name or ID of a space within
                              which this command will be executed. The default
                              space will be used if it is omitted.
-      --keepalive=VALUE      [Optional] How frequently (in seconds) to send a
-                             TCP keepalive packet.
       --logLevel=VALUE       [Optional] The log level. Valid options are
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
