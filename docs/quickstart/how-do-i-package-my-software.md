@@ -1,6 +1,6 @@
 ---
 title: How do I package my software?
-description:
+description: Learn how to package your software for deployment with Octopus Deploy.
 position: 40
 ---
 
