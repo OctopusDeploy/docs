@@ -309,7 +309,6 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Azure.PackageExtractionPath` <br/>If set by the user, the temporary path to extract Azure packages into during deployment | Z:\Temp\packages\|
 |`Octopus.Action.Azure.SubscriptionId` <br/>The Azure Subscription Id being targeted by this action | *8affaa7d-3d74-427c-93c5-2d7f6a16e754*|
 |`Octopus.Action.Azure.ResourceGroupDeploymentName` <br/>Override the auto-generated resource group deployment name when deploying a resource group | my-resourcegroupdeployment-name|
-|`Octopus.Action.Azure.ExtensionsDirectory` <br/>Set the directoy that will be used to find Azure CLI extensions instead of the default install directory| Z:\Azure\Modules|
 
 
 ## Azure Cloud Service {#Systemvariables-AzureCloudService}
