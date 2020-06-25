@@ -30,7 +30,7 @@ Click **Open in browser** from the **Octopus Manager** to launch the Octopus Web
 
 For more information and other installation options, see the [installation documentation](/docs/installation/index.md).
 
-Next []() - jump to the next section
+Now that you've installed the self-hosted Octopus Server, it's time to log into the [Octopus Web Portal](/docs/quickstart/the-octopus-web-portal.md).
 
 ## Octopus Cloud
 
@@ -46,4 +46,4 @@ To create an Octopus Cloud instance, you need to first create an Octopus account
 To learn more, see the [Octopus Cloud documentation](/docs/octopus-cloud/index.md).
 
 
-Next []() - jump to the next section
+Now that you've created an Octopus Cloud instance, it's time to log into the [Octopus Web Portal](/docs/quickstart/the-octopus-web-portal.md).
