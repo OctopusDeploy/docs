@@ -40,7 +40,9 @@ You can change the projects settings by accessing the settings menu on the proje
 - Package re-deployment
     - Specify to always deploy all packages or to skip any package steps that are already installed.
 - Deployment targets
-    - Specify if deployments are allow if there are no deployment targets.
+    - Specify if deployments are allowed if there are no deployment targets:
+        - Deployments with no target are allowed - There must be at least one enabled healthy target to deploy to in the environment.
+        - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
 - Deployment target status
     - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
 - [Deployment changes template](docs/managing-releases/deployment-notes.md#Templates)
