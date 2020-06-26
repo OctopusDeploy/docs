@@ -41,7 +41,7 @@ Target roles tell Octopus which deployment targets within an environment should 
 - db-server
 
 :::success
-To learn more about managing your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
+To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
 :::
 
 Next, [how do I package my software](/docs/quickstart/how-do-i-package-my-software.md)
