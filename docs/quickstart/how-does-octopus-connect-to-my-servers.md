@@ -1,6 +1,6 @@
 ---
 title: How does Octopus connect to my servers?
-description: Learn how to configure the servers you deploy software to with Octopus Deploy.
+description: Learn how to configure the servers and services you deploy software to with Octopus Deploy.
 position: 30
 ---
 
@@ -18,7 +18,7 @@ Environments represent the different phases of your deployment pipeline, for ins
 
 1. Navigate to **{{ Infrastructure, Deployment Targets }}** and click **ADD DEPLOYMENT TARGET**.
 1. Select the type of deployment target you are adding.
-1. Select the type of connection your deployment target will make, and follow the on screen instructions.
+1. Select the type of connection your deployment target will make, and follow the on-screen instructions.
 
 If you run into any issues, refer to the documentation for the type of deployment target you are configuring:
 
@@ -29,7 +29,7 @@ If you run into any issues, refer to the documentation for the type of deploymen
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions.md)
 
-As you configure you deployment targets select the environment they will belong to, and assign the target role(s).
+As you configure your deployment targets, select the environment they will belong to, and assign the target role(s).
 
 
 ## Target roles
@@ -39,5 +39,9 @@ Target roles tell Octopus which deployment targets within an environment should 
 - web-server
 - app-server
 - db-server
+
+:::success
+To learn more about managing your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
+:::
 
 Next, [how do I package my software](/docs/quickstart/how-do-i-package-my-software.md)
