@@ -9,7 +9,7 @@ Set the file paths that Octopus will use for storage
 **path options**
 
 ```text
-Usage: Octopus.Server path [<options>]
+Usage: octopus.server path [<options>]
 
 Where [<options>] is any of:
 
@@ -19,8 +19,6 @@ Where [<options>] is any of:
       --skipDatabaseSchemaUpgradeCheck
                              Skips the database schema upgrade checks. Use
                                with caution
-      --clusterShared=VALUE  Set the root path where shared files will be
-                               stored for Octopus clusters
       --cacheDirectory=VALUE Directory to use for temporary files and cachin-
                                g, e.g. downloaded packages. The data in this
                                directory can be removed when the Octopus Server
@@ -31,7 +29,6 @@ Where [<options>] is any of:
                                repository
       --artifacts=VALUE      Set the path where artifacts are stored
       --taskLogs=VALUE       Set the path where task logs are stored
-      --telemetry=VALUE      Set the path where telemetry is stored
 
 Or one of the common options:
 
