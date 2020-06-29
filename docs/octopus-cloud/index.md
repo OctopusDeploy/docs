@@ -13,15 +13,13 @@ hideInThisSectionHeader: true
 
 ## Create an Octopus account
 
-An Octopus account lets you manage your instances of Octopus Cloud. You can register for your Octopus account at [octopus.com/register](https://octopus.com/register).
+An Octopus account lets you manage your instances of Octopus Cloud.
 
 !include <octopus-account>
 
 Now that you've created an Octopus account, you can create a new instance of Octopus Cloud.
 
 ## Create a cloud instance
-
-To create a new instance of Octopus Cloud, make sure you are logged into your Octopus account:
 
 !include <octopus-cloud-instance>
 

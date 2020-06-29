@@ -1,18 +1,10 @@
 ---
-title: The Octopus Web Portal
-description: Get to know the Octopus Web Portal.
+title: Get to know the Octopus Web Portal
+description: A brief introduction to the Octopus Web Portal.
 position: 20
 ---
 
 Whether you're self-hosting the Octopus Server or using Octopus Cloud, the Octopus Web Portal is where you manage your infrastructure, deployments, releases, runbooks, access the built-in repository, grant your team access to projects, and create your automated deployment and runbook processes.
-
-## Log in to the Octopus Web Portal
-
-If you're using an Octopus Cloud instance, use your Octopus account to log in at the URL you defined when you created the instance:
-
-`https://yoururl.octopus.app`
-
-If you're using the self-hosted Octopus Server, you can launch the web portal from the Octopus Manager or navigate to the URL you've defined if you've already [updated the Web Portal Bindings](docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md), and log in with the credentials you created during the installation process.
 
 ## The Web Portal 
 

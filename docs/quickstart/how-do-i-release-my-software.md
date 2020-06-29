@@ -1,5 +1,5 @@
 ---
-title: How do I release my software
+title: Release your software
 description: Learn how to release your software with Octopus Deploy.
 position: 60
 ---

@@ -1,5 +1,5 @@
 ---
-title: How does Octopus connect to my servers?
+title: Connect your servers to Octopus
 description: Learn how to configure the servers and services you deploy software to with Octopus Deploy.
 position: 30
 ---
