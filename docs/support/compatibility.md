@@ -54,5 +54,5 @@ We'd recommend checking Microsofts documentation on supported Operating Systems 
 | 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
 :::hint
-In **Octopus 1.0➜2.6.5** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0** and you can read more about it on our [blog](/blog/3.0-switching-to-sql/index.md).
+In **Octopus 1.0➜2.6.5** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0** and you can read more about it on our [blog](https://octopus.com/blog/3.0-switching-to-sql).
 :::
