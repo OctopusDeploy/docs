@@ -27,3 +27,32 @@ The table below outlines partially forwards compatible scenarios between Octopus
 | Octopus Server    | Octopus.Client & Octopus CLI (octo) | Calamari     | Tentacle    | TeamCity Plugin |
 | --------------    | ----------------------------------- | --------     | --------    | --------------- |
 | 2019.1  ➜ latest | 4.30.7 ➜ 4.47.0                    | 3.5 ➜ 4.12.0 | 3.0 ➜ 3.25 | 3.3 ➜ latest   |
+
+## Operating System compatibility
+
+We recommend using an up to date version of Windows Server for Octopus which is generally one of the last two versions of Windows Server. The table below outlines the backward compatibility of Octopus and Windows Server editions.
+
+| Octopus Server    | Minimum Windows Server version
+| --------------    | ----------------------------------- |
+| 2019.1  ➜ latest  | Server 2012 R2+                     |
+| 2019.4  ➜ 2019.13 | Sever 2008 R2                       |
+| 3.1  ➜ 2019.3     | Server 2008+                        |
+| 1.0  ➜ 3.0        | Server 2003+                        |
+
+## SQL Server compatibility
+
+We recommend using an up to date version of SQL Server for Octopus which is generally one of the last versions of SQL Server for security, and performance benefits. The table below outlines the backward compatibility of Octopus and SQL Server editions.
+
+:::hint
+We'd recommend checking Microsofts documentation on supported Operating Systems for SQL Server versions. As an example, SQL Server 2005 is only supported on Windows Server 2008 and 2008 R2 and we do not recommend this version.
+:::
+
+| Octopus Server    | Minimum SQL Server version          | Azure SQL
+| --------------    | ----------------------------------- |----------   |
+| 2019.1  ➜ latest  | SQL Server 2017+                    | Supported   |
+| 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
+| 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
+
+:::hint
+In **Octopus 1.0➜2.6.5** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0** and you can read more about it on our [blog](/blog/3.0-switching-to-sql/index.md).
+:::
