@@ -62,6 +62,8 @@ When a manual step is completed, details of the interruption are saved as variab
 
 ## Learn more
 
-- [Advanced Manual Approvals](/docs/deployment-examples/database-deployments/common-patterns/manual-approvals#manual-interventions)
-- [Automated Approvals](/docs/deployment-examples/database-deployments/common-patterns/automatic-approvals)
-- [Automated Approval Sample](https://samples.octopus.app/app#/Spaces-202/projects/octofx/deployments/process)
+- [Advanced manual approvals](/docs/deployment-examples/database-deployments/common-patterns/manual-approvals#manual-interventions)
+- [Automated approvals](/docs/deployment-examples/database-deployments/common-patterns/automatic-approvals.md)
+- [Automated approval sample](https://samples.octopus.app/app#/Spaces-202/projects/octofx/deployments/process.md)
+- [Automatic approvals for your database deployments](/blog/autoapprove-database-deployments.md)
+- [Building trust in an automated database deployment process](/blog/building-trust-in-automated-db-deployments.md)
