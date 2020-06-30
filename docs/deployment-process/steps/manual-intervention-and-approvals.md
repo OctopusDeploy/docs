@@ -59,3 +59,11 @@ When a manual step is completed, details of the interruption are saved as variab
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username` | The username of the user who submitted the interruption form | *jjones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName` | The display name of the user who submitted the interruption form | *Jamie Jones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *jamie.jones@example.com* |
+
+## Learn more
+
+- [Advanced manual approvals](/docs/deployment-examples/database-deployments/common-patterns/manual-approvals.md)
+- [Automated approvals](/docs/deployment-examples/database-deployments/common-patterns/automatic-approvals.md)
+- [Automated approval sample](https://samples.octopus.app/app#/Spaces-202/projects/octofx/deployments/process.md)
+- [Automatic approvals for your database deployments](https://octopus.com/blog/autoapprove-database-deployments.md)
+- [Building trust in an automated database deployment process](https://octopus.com/blog/building-trust-in-automated-db-deployments.md)
