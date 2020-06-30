@@ -13,15 +13,27 @@ hideInThisSectionHeader: true
 
 ## Create an Octopus account
 
-An Octopus account lets you manage your instances of Octopus Cloud.
+An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [octopus.com/register](https://octopus.com/register).
 
-!include <octopus-account>
+You can register for an account with your existing Google or Microsoft account or create a unique log in for Octopus:
+
+1. Enter your name.
+1. Provide your email address and create a password. Please note, these credentials are for your Octopus account and you will use them to log into your Octopus instance through single sign-on.
+1. On the next screen, verify your email address.
+1. After your email has been verified, you will be logged into your Octopus account.
 
 Now that you've created an Octopus account, you can create a new instance of Octopus Cloud.
 
 ## Create a cloud instance
 
-!include <octopus-cloud-instance>
+To create a new instance of Octopus Cloud, make sure you are logged into your Octopus account:
+
+1. Click **Create a new cloud instance**.
+1. Enter the URL you would like to use to access your instance: `<yoururl>.octopus.app`. If the URL you selected is not available, enter a different URL.
+1. Select the region you would like your instance to be hosted in.
+1. Add your company name.
+1. Review the terms of our customer agreement, privacy policy, and acceptable usage policy.
+1. Click **Agree, deploy my Octopus!**.
 
 You will be taken to the account provisioning screen. Your Octopus Cloud instance should be ready within a minute or so. You will receive an email when the instance is ready to use.
 

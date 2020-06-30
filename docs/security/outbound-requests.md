@@ -66,14 +66,20 @@ In addition, when the "Include statistics" option is enabled, we'll send some sp
 | The number of Azure accounts and AWS accounts | 2018.2.2 |
 | Whether you have a custom account configured for the built-in worker | 2018.2.2 |
 | The number of non built-in workers you have | 2018.2.2 |
+| Number of projects using release note templates and the date of the last metadata event | 2019.4.0 |
 | The number of monthly active users that you have | 2019.5.1 |
+| The operating systems of the server and targets | 2019.5.4 |
 | The number and type of issue trackers that you use | 2019.4 |
-| The number of Runbooks and Runbook runs, snapshots, Triggers that you have | 2019.11 |
+| The number of Runbooks and Runbook runs, snapshots, Triggers that you have | 2019.10 |
+| Whether the server is running in a container | 2020.1.21 |
+| The usage of step configuration options | 2020.2.5 |
+| Aggregated type, result code and duration of database and api calls | 2020.2.14 |
+| Counts of specific kinds of events that occur internally, e.g. usage of deprecated code paths, errors | 2020.3.0 |
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
 Together, this information helps us when making decisions about the product. For example, we expected users to only have a handful of machines, but the statistics tell us that some customers have over 900; we now take that into account when designing the user experience.
 
-Be assured that **we only send a *count* of the items, and no other details** - names, descriptions, URI's and so on are _never_ included.
+Be assured that **we only send a *count* and *durations* of the items in predetermined, fixed categories, and no other details** - names, descriptions, URI's and so on are _never_ included.
 
 Please do consider enabling usage statistics reporting. We look at the data every week, and it really does help us to make a better product.

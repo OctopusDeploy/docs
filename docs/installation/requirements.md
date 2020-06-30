@@ -10,7 +10,7 @@ If you are hosting your Octopus Server yourself, these are the minimum requireme
 
 The Octopus Server is hosted on a Microsoft Windows operating system, however, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an offline package drop.
 
-### Windows Server {#windows-server}
+### Windows Server
 
 Octopus Server can be hosted on any modern Windows Server. We automatically test the Octopus Server on the following versions of Windows Server:
 
