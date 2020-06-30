@@ -1,7 +1,7 @@
 ---
-title: Report on deployments using Excel & XML
-description: How to report on deployments using Excel & XML
-position: 10
+title: Report on deployments using Excel
+description: How to report on deployments using Excel.
+position: 11
 ---
 
 :::hint
@@ -36,19 +36,16 @@ Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create
 The output will appear as follows:
 
 ```powershell
-octo dump-deployments --server https://samples.octopus.app --apiKey API-GUEST --filepath C:\Development\Deployments.xml
-Octopus Deploy Command Line Tool, version 7.3.2
-
-Detected automation environment: "NoneOrUnknown"
-Space name unspecified, process will run in the default space context
-Handshaking with Octopus Server: https://samples.octopus.app
-Handshake successful. Octopus version: 2020.2.9; API version: 3.0.0
-Authenticated as: Guest
-Listing projects, project groups and environments
+Handshaking with Octopus Server: https://demo.octopus.com
+Handshake successful. Octopus version: 2.5.9.554; API version: 3.0.0
+Listing projects
+Listing project groups
+Listing environments
 Dumping deployments...
-Wrote 30 of 72 deployments...
-Wrote 60 of 72 deployments...
-Wrote 72 of 72 deployments...
+Wrote 30 of 112 deployments...
+Wrote 60 of 112 deployments...
+Wrote 90 of 112 deployments...
+Wrote 112 of 112 deployments...
 ```
 
 The command will produce an XML file with contents similar to the following:
@@ -56,20 +53,20 @@ The command will produce an XML file with contents similar to the following:
 ```xml
 <Deployments>
   <Deployment>
-    <Environment>Production</Environment>
-    <Project>Web App</Project>
-    <ProjectGroup>Deployment - Orchestration</ProjectGroup>
-    <Created>2020-05-15T17:07:47</Created>
-    <Name>Deploy to Production</Name>
-    <Id>Deployments-4992</Id>
+    <Environment>Acceptance</Environment>
+    <Project>OctoFX Trading Website</Project>
+    <ProjectGroup>OctoFX</ProjectGroup>
+    <Created>2014-10-08T14:10:25</Created>
+    <Name>Deploy to Acceptance</Name>
+    <Id>deployments-18046</Id>
   </Deployment>
   <Deployment>
-    <Environment>Production</Environment>
-    <Project>All OctoPetShop</Project>
-    <ProjectGroup>Deployment - Orchestration</ProjectGroup>
-    <Created>2020-05-15T17:07:23</Created>
-    <Name>Deploy to Production</Name>
-    <Id>Deployments-4991</Id>
+    <Environment>Test</Environment>
+    <Project>OctoFX Trading Website</Project>
+    <ProjectGroup>OctoFX</ProjectGroup>
+    <Created>2014-10-03T13:06:29</Created>
+    <Name>Deploy to Test</Name>
+    <Id>deployments-18044</Id>
   </Deployment>
   .....
 ```

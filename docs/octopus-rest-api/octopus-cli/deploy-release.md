@@ -58,8 +58,7 @@ Deployment:
   -v, --variable=VALUE       [Optional] Values for any prompted variables in
                              the format Label:Value. For JSON values,
                              embedded quotation marks should be escaped with
-                             a backslash. Specify this argument multiple
-                             times to add multiple variables.
+                             a backslash.
       --deployAt=VALUE       [Optional] Time at which deployment should start
                              (scheduled deployment), specified as any valid
                              DateTimeOffset format, and assuming the time
