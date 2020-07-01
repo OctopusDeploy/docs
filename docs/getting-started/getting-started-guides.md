@@ -1,0 +1,17 @@
+---
+title: Getting started guides
+description: A getting start guide to help you get up and running with Octopus Deploy as quickly as possible.
+position: 10
+---
+
+These guides aims to familiarize you with Octopus Deploy by providing simple step-by-step instructions to achieve and understand the following common scenarios:
+
+## The Basics
+
+- [What is a CICD pipeline?](/docs/getting-started/the-cicd-pipeline.md)
+- [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md)
+- [Get to know the Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md)
+- [Connect your servers to Octopus](/docs/getting-started/connect-your-servers-to-ocotpus.md)
+- [Package your software](/docs/getting-started/package-your-software.md)
+- [Define your deployment process](/docs/getting-started/how-do-i-define-a-deployment-process.md)
+- Release your software

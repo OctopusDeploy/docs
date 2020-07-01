@@ -1,7 +1,7 @@
 ---
 title: Setup Octopus Deploy
-description: Learn how to start using Octopus Deploy self-hosted server or Octopus Cloud.
-position: 10
+description: Learn how to setup an instance Octopus Deploy self-hosted server or Octopus Cloud.
+position: 30
 ---
 
 Octopus deploy is available in two variants:
@@ -23,7 +23,8 @@ To install the Octopus Server on a [supported Windows Server](/docs/installation
 1. Start the installer and follow the setup wizard prompts.
 1. Click **Finish** to exit the installer and grant **Octopus.Manager.Server** permission to make changes to your device.
 1. Click **Get started...**, follow the on-screen instructions, and accept the defaults.
-1. On the **Database** page, follow the instructions to download and install SQL Server Express, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you.
+1. On the **Database** page, follow the instructions to download and install SQL Server Express.
+1. Click the drop-down arrow in the **Server Name** field to detect the SQL Server database. Octopus will create the database for you.
 1. Continue to follow the prompts, and click **Finished** when the installation has completed.
 
 Your self-hosted Octopus Server is now ready to use.
@@ -36,7 +37,7 @@ To launch the Octopus Web Portal, click **Open in browser** from the **Octopus M
 For more information and other installation options, see the [installation documentation](/docs/installation/index.md).
 :::
 
-Now that you've installed the self-hosted Octopus Server, it's time to explore the [Octopus Web Portal](/docs/quickstart/the-octopus-web-portal.md).
+Now that you've installed the self-hosted Octopus Server, it's time to explore the [Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md).
 
 ## Octopus Cloud
 
@@ -49,8 +50,10 @@ To create an Octopus Cloud instance, you need to first create an Octopus account
 !include <octopus-account>
 !include <octopus-cloud-instance>
 
+When your Octopus Cloud instance is ready, you can log in at the URL you defined during the registration process: `<yoururl>.octopus.app`.
+
 :::success
 To learn more about Octopus Cloud, see the [Octopus Cloud documentation](/docs/octopus-cloud/index.md).
 :::
 
-Now that you've created an Octopus Cloud instance, it's time to explore the [Octopus Web Portal](/docs/quickstart/the-octopus-web-portal.md).
+Now that you've created an Octopus Cloud instance, it's time to explore the [Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md).

@@ -1,7 +1,7 @@
 ---
-title: Connect your servers to Octopus
+title: Connect your deployment targets to Octopus
 description: Learn how to configure the servers and services you deploy software to with Octopus Deploy.
-position: 30
+position: 50
 ---
 
 Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into environments. 
@@ -44,4 +44,4 @@ Target roles tell Octopus which deployment targets within an environment should 
 To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
 :::
 
-Next, [how do I package my software](/docs/quickstart/how-do-i-package-my-software.md)
+Next, [how do I package my software](/docs/getting-started/how-do-i-package-my-software.md)

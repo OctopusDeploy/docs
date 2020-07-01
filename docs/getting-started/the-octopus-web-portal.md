@@ -1,7 +1,7 @@
 ---
 title: Get to know the Octopus Web Portal
 description: A brief introduction to the Octopus Web Portal.
-position: 20
+position: 40
 ---
 
 Whether you're self-hosting the Octopus Server or using Octopus Cloud, the Octopus Web Portal is where you manage your infrastructure, deployments, releases, runbooks, access the built-in repository, grant your team access to projects, and create your automated deployment and runbook processes.
@@ -34,4 +34,4 @@ The **Configuration** tab is where you can access the audit logs, create teams, 
 Anything you can do with the Octopus Web Portal can also be done with the [Octopus REST API](/docs/octopus-rest-api/index.md).
 :::
 
-Next, [how does Octopus connect to my servers?](/docs/quickstart/how-does-octopus-connect-to-my-servers.md).
+Next, [connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md).
