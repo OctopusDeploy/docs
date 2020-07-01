@@ -62,3 +62,4 @@ There is no *one size fits all* approach for Octopus Server. The best approach i
 ## Learn more
 
 - [Installation](/docs/installation/index.md).
+- [Compatability](/docs/support/compatibility.md)
