@@ -508,7 +508,7 @@ docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md
 docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-process/project-triggers/scheduled-project-trigger.md -> docs/projects/project-triggers/scheduled-deployment-trigger.md
 docs/getting-started/terms.md -> docs/octopus-concepts/index.md
-docs/overview.md -> docs/getting-started
+docs/overview.md -> docs/getting-started/index.md
 docs/deployment-process/variables/index.md -> docs/projects/variables/index.md
 docs/deployment-process/variables/aws-account-variables.md -> docs/projects/variables/aws-account-variables.md
 docs/deployment-process/variables/azure-account-variables.md -> docs/projects/variables/azure-account-variables.md

@@ -5,7 +5,7 @@ hideInThisSection: false
 position: 50
 ---
 
-Now that you have access to an [Octopus Server](/docs/getting-started.md#octopus-deploy-server), your [infrastructure is configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you're ready to start deploying your software.
+Now that you have access to an Octopus Server, your [infrastructure is configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you're ready to start deploying your software.
 
 !include <deployment-process>
 
