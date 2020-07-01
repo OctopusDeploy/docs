@@ -12,6 +12,6 @@ These guides aims to familiarize you with Octopus Deploy by providing simple ste
 - [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md)
 - [Get to know the Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md)
 - [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
-- [Package your software](/docs/getting-started/package-your-software.md)
+- [Package your software](/docs/getting-started/package-your-applications.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
 - Release your software
