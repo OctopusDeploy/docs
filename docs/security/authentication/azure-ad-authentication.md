@@ -114,7 +114,7 @@ The **value** property is the most important one. This value becomes the externa
 For more advanced scenarios, please see the [Azure manifest file documentation](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-manifest/).
 :::
 
-#### Configure users and groups in Azure AD
+#### Configure users and groups in Azure AD (optional)
 
 After the App Role(s) have been defined, users/groups from Azure AD may be mapped into these Roles.
 
@@ -142,16 +142,16 @@ There are two values you need from the Azure AD configuration to complete the Oc
 
 #### Using the Azure portal
 
-In the Azure portal, you can get the **Application ID** on your App's Overview page. Your **Client ID** and the **Directory ID** are also listed here:
+In the Azure portal, you can will see the **Application (client) ID**  and **Directory (tenant) ID** on your App's Overview page.
 
 ![Getting the App registration](images/aad-get-app-registration-id.png "width=500")
 
 ### Setting the client ID and Issuer in Octopus Deploy
 
 :::success
-Your **Client ID** should be a GUID.
+Your **Client ID** should be a GUID and this is the **Application (client) ID** in the Azure App Registration Portal.
 
-Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant.
+Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
 :::
 
 When you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
@@ -167,7 +167,7 @@ Alternatively, these settings can be defined through the user interface by selec
 
 ![Settings](images/aad-azure-ad-settings.png "width=500")
 
-### Assign app registration roles to Octopus teams (Optional)
+### Assign app registration roles to Octopus teams (optional)
 
 If you followed the optional steps to modify the App registration's manifest to include new roles, you can assign them to **Teams** in the Octopus Portal.
 
