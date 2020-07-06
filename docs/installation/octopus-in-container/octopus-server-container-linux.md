@@ -4,9 +4,13 @@ description: An Octopus Server instance can be run directly from within a contai
 position: 1
 ---
 
+:::warning
 If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
+:::
 
+:::important
 **Octopus Deploy Linux Containers are part of our Early Access Program (EAP) and may contain bugs or be unstable.**
+:::
 
 Note: When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
