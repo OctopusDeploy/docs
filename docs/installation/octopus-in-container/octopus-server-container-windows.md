@@ -4,7 +4,9 @@ description: An Octopus Server instance can be run directly from within a contai
 position: 1
 ---
 
+:::warning
 If you want to run an Octopus Deploy Linux container, please refer to the [Octopus Server Container Linux](/docs/installation/octopus-in-container/octopus-server-container-linux.md) documentation.
+:::
 
 Running the Octopus Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
