@@ -142,14 +142,14 @@ There are two values you need from the Azure AD configuration to complete the Oc
 
 #### Using the Azure portal
 
-In the Azure portal, you can will see the **Application (client) ID**  and **Directory (tenant) ID** on your App's Overview page.
+In the Azure portal, you can see the **Application (client) ID**  and **Directory (tenant) ID** on your App's Overview page.
 
 ![Getting the App registration](images/aad-get-app-registration-id.png "width=500")
 
 ### Setting the client ID and Issuer in Octopus Deploy
 
 :::success
-Your **Client ID** should be a GUID and this is the **Application (client) ID** in the Azure App Registration Portal.
+Your **Client ID** should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.
 
 Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
 :::
