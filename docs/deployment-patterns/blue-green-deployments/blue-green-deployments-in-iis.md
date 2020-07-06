@@ -1,6 +1,7 @@
 ---
 title: Blue-green deployments in IIS
 description: Implementing blue-green deployments in IIS with Octopus.
+position: 20
 ---
 
 With some custom scripting you can achieve reduced downtime deployments in IIS on a single server, without the need for an external load-balancer. This might help if you only deploy a single instance of your application, or you cannot control the load-balancer itself but you can control IIS and your deployments.
@@ -48,4 +49,6 @@ You can achieve this kind of result using an NGINX server as a reverse proxy to 
 
 ## Learn more
 
+- [View Blue/Green deployment examples on our samples instance](https://g.octopushq.com/PatternBlueGreenSamplesSpace).
+- [Blue/Green deployment knowledge base articles](https://g.octopushq.com/BlueGreenTaggedKBArticles).
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
