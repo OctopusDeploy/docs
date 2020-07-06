@@ -644,3 +644,4 @@ docs/administration/managing-users-and-teams/external-groups-and-roles.md -> doc
 docs/deploying-applications/deployment-process/configuration-features/index.md -> docs/deployment-process/configuration-features/index.md
 docs/managing-releases/blocking-deployments.md -> docs/managing-releases/prevent-release-progression.md
 docs/deployment-applications/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
+docs/deployment-patterns/clustered-listening-tentacles/index.md -> docs/infrastructure/deployment-targets/windows-targets/clustered-listening-tentacles/index.md
