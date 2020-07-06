@@ -1,7 +1,7 @@
 ---
 title: Isolated Octopus Servers
 description: Working with isolated Octopus Servers due to infrastructure or governance requirements.
-position: 3
+position: 9
 ---
 
 Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus Server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/security/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/deployment-targets/windows-targets/index.md), giving you multiple options to work around firewall issues.
@@ -41,7 +41,3 @@ Your Octopus Deploy license includes the ability to install and configure up to 
 > An agency manages lots of small applications on behalf of their customers, and wants to use Octopus to manage deployments. Quite often the production environment is managed by the customer and even after being convinced to allow the Tentacle agent to be installed on their servers, they want communication to be controlled by a proxy server.
 
 In this scenario you would install Tentacle onto the customer's servers, but configure all communication to go via the customer's proxy server. Learn about [proxy support](/docs/infrastructure/deployment-targets/proxy-support.md) in Octopus Deploy.
-
-## Learn more
-
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
