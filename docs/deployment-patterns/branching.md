@@ -1,7 +1,7 @@
 ---
 title: Branching
 description: Implementing different branching strategies with Octopus Deploy.
-position: 4
+position: 60
 ---
 
 This section describes how different branching strategies can be modeled in Octopus Deploy.

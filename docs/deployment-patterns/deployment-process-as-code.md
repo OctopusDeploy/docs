@@ -1,7 +1,7 @@
 ---
 title: Deployment process as code
 description: With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else. This page describes the different options available in Octopus to store your deployment process as code.
-position: 4
+position: 70
 ---
 
 With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else.

@@ -1,7 +1,7 @@
 ---
 title: Canary deployments
 description: Implementing canary deployments, i.e. rolling out releases to a subset of users or servers, with Octopus.
-position: 0
+position: 50
 ---
 
 Canary deployments are a pattern for rolling out releases to a subset of users or servers. The idea is to first deploy the change to a small subset of servers, test it, and then roll the change out to the rest of the servers. The canary deployment serves as an early warning indicator with less impact on downtime: if the canary deployment fails, the rest of the servers aren't impacted.
