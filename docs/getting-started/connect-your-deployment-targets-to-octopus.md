@@ -44,4 +44,4 @@ Target roles tell Octopus which deployment targets within an environment should 
 To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
 :::
 
-Next, [how do I package my software](/docs/getting-started/package-your-applications.md)
+Next, learn how to [package your applications](/docs/getting-started/package-your-applications.md).

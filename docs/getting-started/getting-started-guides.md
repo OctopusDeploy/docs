@@ -6,7 +6,7 @@ position: 10
 
 These guides aims to familiarize you with Octopus Deploy by providing simple step-by-step instructions to achieve and understand the following common scenarios:
 
-## The Basics
+## The basics
 
 - [What is a CICD pipeline?](/docs/getting-started/the-cicd-pipeline.md)
 - [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md)
@@ -14,4 +14,4 @@ These guides aims to familiarize you with Octopus Deploy by providing simple ste
 - [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
 - [Package your software](/docs/getting-started/package-your-applications.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
-- Release your software
+- [Create a release](/docs/getting-started/create-a-release.md)
