@@ -1,7 +1,7 @@
 ---
 title: Multi-region deployment pattern
 description: Implementing multi-region deployments, i.e. deploying to multiple geographic regions, with Octopus.
-position: 6
+position: 40
 ---
 
 ## Scenario {#Multi-regiondeploymentpattern-Scenario}

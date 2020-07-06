@@ -1,7 +1,7 @@
 ---
 title: Multi-tenant deployment pattern
 description: How to use Octopus to manage deployments of your applications to multiple end-customers.
-position: 5
+position: 30
 ---
 
 This sections describes how to use Octopus to manage deployments of your applications to multiple end-customers.

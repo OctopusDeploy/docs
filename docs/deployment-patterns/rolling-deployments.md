@@ -1,7 +1,7 @@
 ---
 title: Rolling deployments
 description: Implementing rolling deployments, i.e. deploying to release to servers one-by-one, with Octopus.
-position: 5
+position: 20
 ---
 
 Rolling deployments are a pattern whereby, instead of deploying a package to all servers at once, we slowly roll out the release by deploying it to each server one-by-one. In load balanced scenarios, this allows us to reduce overall downtime.
