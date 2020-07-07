@@ -3,30 +3,27 @@ title: Worker Pool variables
 description: Create a worker pool variable and use it in deployment steps
 position: 60
 ---
+
 :::hint
-Worker Pool variables are only available in **Octopus 2020.1** and later.
+Worker pool variables are only available in **Octopus 2020.1** and later.
 :::
 
-## Add a Worker Pool to Octopus
+Worker pool variables are [variables](/docs/projects/variables) which can be used to select where a deployment or [runbook](/docs/projects/variables.md) is executed. Steps that use workers can specify a worker pool directly on the step or have the step depend on a worker pool variable.  First you should set up your [worker](/docs/infrastructure/workers/index.md) and [worker pool](/docs/infrastructure/workers/worker-pools.md) infrastructure before you can use worker pool variables.
 
-Steps that use workers can specify a worker pool directly on the step or have the step depend on a worker pool variable.  First you should set up your [worker](/docs/infrastructure/workers/index.md) and [worker pool](/docs/infrastructure/workers/worker-pools.md) infrastructure before you can use Worker Pool variables.
+In Octopus, you can scope worker pools to:
 
-## Worker Pool variables scopes
+- [Environments](/docs/octopus-concepts/environments.md)
+- [Processes](/docs/octopus-concepts/deployment-process/md)
+- [Steps](/docs/deployment-process/steps.md)
+- [Channels](/docs/deployment-process/channels.md)
 
-In Octopus, you can scope Worker Pools to:
+## Adding and creating worker pool variables
 
-- Environments
-- Processes
-- Steps
-- Channels
-
-## Adding and creating Worker Pool variables
-
-1. Enter variable name and select **Open Editor** select **Change Type** drop-down and select **Worker Pool**.
+1. Enter variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
 
 ![addworkerpoolvariable](images/workerpoolvariable-add.png "width=500")
 
-2. In the the **Add Variable** window it lists all the available worker pools. Select the correct Worker Pool and then define the Scope for the Worker Pool. 
+2. In the the **Add Variable** window it lists all the available worker pools. Select the worker pool and then define the scope for the worker pool.
 
 ![addworkerpoolvariable](images/workerpoolvariable-changetype.png "width=500")
 
@@ -34,11 +31,15 @@ In Octopus, you can scope Worker Pools to:
 
 ## Step Configuration
 
-By default, deployment steps are not configured to run on a Worker Pool set by a variable and you will need to change your deployment step to the variable required.
+:::hint
+Worker pool variables need to be configured on **all steps** in your deployment process that require it.
+:::
+
+By default, deployment steps are not configured to run on a worker pool set by a variable and you will need to change your deployment step to the variable required.
 
 1. Open step and ensure the deployment step is configured to run on a worker.
 
-2. Select **Runs on a worker from a pool selected via a variable**
+2. Select **Runs on a worker from a pool selected via a variable**.
 
 3. Pick the worker pool variable.
 
@@ -48,11 +49,11 @@ By default, deployment steps are not configured to run on a Worker Pool set by a
 
 ## Worker Pool Variable Examples
 
-There are a range of use cases for Worker Pool Variables
+There are a range of use cases for worker pool variables
 
 ### Environment
 
-Worker Pool Variables have a range of use cases to consider when setting up. The default would be to use environment specific Worker Pools to separate this for Development, Test and Production. Often these sit in different network segments, and often Production is in the cloud or in a DMZ and this would help with Security.
+Worker pool variables have a multiple use cases for consideration during set up. The most common would be to use environment specific Worker Pools to separate this for Development, Test and Production. Often these sit in different network segments, and often Production is in the cloud or in a DMZ and this would help with Security.
 
 ![addworkerpoolvariable](images/workerpoolvariable-environments.png "width=500")
 
@@ -61,6 +62,8 @@ Worker Pool Variables have a range of use cases to consider when setting up. The
 You can specify to run Deployment tasks in parallel and to use different Worker Pools to enable better concurrency of tasks.
 
 ### Role separation
+
+In some cases you will want to specify different Worker Pools for different steps and an example of that is using a separate Worker Pool for Application deployments and a different Worker Pool for Database deployments.
 
 ### Security
 
