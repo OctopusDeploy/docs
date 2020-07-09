@@ -31,7 +31,6 @@ If you run into any issues, refer to the documentation for the type of deploymen
 
 As you configure your deployment targets, select the environment they will belong to, and assign the target role(s).
 
-
 ## Target roles
 
 Target roles tell Octopus which deployment targets within an environment should be deployed to. This ensures your software is deployed to the right deployment target. Some example target roles are: 

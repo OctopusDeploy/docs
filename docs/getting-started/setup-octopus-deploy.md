@@ -29,7 +29,7 @@ To install the Octopus Server on a [supported Windows Server](/docs/installation
 
 Your self-hosted Octopus Server is now ready to use.
 
-Before you do anything else, click the **View master key** link, copy your master key, and store it somewhere safe.
+Before you do anything else, click the **View Master Key** link, copy your Master Key, and store it somewhere safe.
 
 To launch the Octopus Web Portal, click **Open in browser** from the **Octopus Manager** and log in with the credentials you configured during the installation process.
 

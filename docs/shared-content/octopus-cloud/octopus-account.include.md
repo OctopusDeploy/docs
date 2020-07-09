@@ -1,4 +1,4 @@
-You can register for an account with your existing Google or Microsoft account or create a unique log in for Octopus:
+You can register for an account with your existing Google or Microsoft account or create a unique login for Octopus:
 
 1. Enter your name.
 1. Provide your email address and create a password. 
