@@ -10,7 +10,11 @@ The following is a sample package that could be deployed with Octopus Deploy:
 
 > [hello-world.1.0.0.zip](https://octopus.com/images/docs/hello-world.1.0.0.zip)
 
-Packages must have a package ID, for instance, `hello-world`, a version number, for instance, `1.0.0`, and the package format, for instance, `.zip`.
+Packages must have the following attributes:
+
+- Package ID. i.e., `hello-world`.
+- Version number, i.e., `1.0.0`. 
+- Package format, i.e., `.zip`.
 
 :::success
 To learn more about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications/index.md).
