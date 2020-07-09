@@ -36,4 +36,4 @@ The package is now available in the built-in repository and is ready to be deplo
 To learn more about packaging applications, build server integrations, and package repositories, refer to the [packaging applications documentation](/docs/packaging-applications/index.md).
 :::
 
-Next, [define your deployment process](/docs/getting-started/define-your-deployment-process.md).
+Next, learn how to [define your deployment process](/docs/getting-started/define-your-deployment-process.md).
