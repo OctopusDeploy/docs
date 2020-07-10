@@ -130,4 +130,4 @@ In an HA Octopus setup, each node has a task cap and can invoke a built-in worke
 ## Learn more
 
 - [Worker blog posts](https://octopus.com/blog/tag/workers)
-- [Worker pool variables](/projects/variables/worker-pool-variables.md)
+- [Worker pool variables](/docs/projects/variables/worker-pool-variables.md)
