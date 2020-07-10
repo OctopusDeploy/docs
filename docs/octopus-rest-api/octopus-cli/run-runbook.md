@@ -70,9 +70,9 @@ Run Runbook:
       --progress             [Optional] Show progress of the runbook run
       --runTimeout=VALUE     [Optional] Specifies maximum time (timespan
                              format) that the console session will wait for
-                             the runbook run to finish(default 00:10:00).
+                             the runbook run to finish (default 00:10:00).
                              This will not stop the run. Requires --
-                             waitfordeployment parameter set.
+                             waitForRun parameter to be set.
       --cancelOnTimeout      [Optional] Whether to cancel the runbook run if
                              the run timeout is reached (flag, default false).
       --runCheckSleepCycle=VALUE
