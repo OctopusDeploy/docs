@@ -49,7 +49,7 @@ By default, deployment steps are not configured to run on a worker pool set by a
 
 ## Worker Pool Variable examples
 
-Worker pool variables have multiple use cases for consideration during set up. The benefit of Worker Pool variables is that you can use them separately or combine the examples.
+Worker pool variables have multiple use cases for consideration during set up. The benefit of worker pool variables is that you can use them separately or combine the examples.
 
 ### Environment
 
@@ -73,7 +73,7 @@ Licensing requirements of Software installed on Workers may mean that the Softwa
 
 ![addworkerpoolvariable](images/workerpoolvariable-networkisolation.png "width=500")
 
-### Multi-cloud and multi-region workers
+### Multi-Cloud and Multi-Region workers
 
 [Multi-cloud](https://en.wikipedia.org/wiki/Multicloud) and Multi-Region strategies are commonplace. It's common to have workloads spread over multiple clouds and locations such as:
 
