@@ -35,7 +35,7 @@ In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables)
 Worker pool variables need to be configured on **all steps** in your deployment process that requires it.
 :::
 
-By default, deployment steps are not configured to run on a worker pool set by a variable, and you will need to change your deployment step to the variable required.
+By default, deployment steps are not configured to run on a worker pool set by a variable, and you will need to change your deployment step to the required variable.
 
 1. Open step and configure the deployment step to run on a worker.
 
