@@ -54,7 +54,7 @@ Write-Host "URL: $hostURL"
 **Project Settings**
 If you look at the project settings you may notice a new set of options related to how the new multi-tenant deployment features should impact the project. By default every project will disable the tenanted deployment features, and each project can opt-in to the features as required.
 
-![](images/5865692.png "width=500")
+![](images/multi-tenant-project-settings.png "width=500")
 
 We'll leave this setting alone right now and let Octopus configure it for us in the next steps.
 :::
