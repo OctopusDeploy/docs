@@ -45,7 +45,7 @@ By default, deployment steps are not configured to run on a worker pool set by a
 
 4. Save the step.
 
-## Worker Pool Variable examples
+## Worker pool variable examples
 
 Worker pool variables have multiple use cases for consideration during set up. The benefit of worker pool variables is that you can use them separately or combine the examples.
 
