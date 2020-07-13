@@ -8,7 +8,7 @@ position: 60
 Worker pool variables are only available in **Octopus 2020.1** and later.
 :::
 
-Worker pool variables are [variables](/docs/projects/variables/index.md) which can be used to select where a deployment or a [runbook](/docs/operations-runbooks/index.md) is executed. Steps that use workers can specify a worker pool directly on the step or have the step depend on a worker pool variable.  First you should set up your [worker](/docs/infrastructure/workers/index.md) and [worker pool](/docs/infrastructure/workers/worker-pools.md) infrastructure before you can use worker pool variables.
+Worker pool variables are [variables](/docs/projects/variables/index.md) which can be used to select where a deployment or a [runbook](/docs/operations-runbooks/index.md) is executed. Steps that use workers can specify a worker pool directly on the step or have the step depend on a worker pool variable.  Before you can use worker pool variables, you must set up your [worker](/docs/infrastructure/workers/index.md) and [worker pool](/docs/infrastructure/workers/worker-pools.md) infrastructure.
 
 In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables) worker pools to:
 
@@ -69,7 +69,7 @@ Licensing requirements of software installed on workers may mean that the softwa
 
 [Network isolation](https://en.wikipedia.org/wiki/Network_segmentation) or [DMZ or a perimeter network](https://en.wikipedia.org/wiki/DMZ_(computing)) are common for most companies. They are considered best practices for most scenarios to control and manage the flow of your network and keep items separated. Using worker pool variables will allow you to control where your deployment or scripts run, which will ensure scripts or deployments can't access networks they may not be permitted to access.
 
-![addworkerpoolvariable](images/workerpoolvariable-networkisolation.png "width=500")
+![Worker pool variable network isolation](images/workerpoolvariable-networkisolation.png "width=500")
 
 ### Multi-Cloud and Multi-Region workers
 
@@ -81,7 +81,7 @@ Licensing requirements of software installed on workers may mean that the softwa
 - On-Premises
 - Private Cloud
 
-![addworkerpoolvariable](images/workerpoolvariable-multicloud.png "width=500")
+![multi-cloud worker pool variable](images/workerpoolvariable-multicloud.png "width=500")
 
 ## Learn more
 
