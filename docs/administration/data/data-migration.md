@@ -9,7 +9,7 @@ Octopus comes with a data migrator which can help in certain scenarios like movi
 ## Suitable scenarios
 
 - Copying projects and their dependencies from one Octopus Server to another as a one-time operation, or periodically in a single direction where there is a single source of truth.
-  - This can be useful when you have [isolated Octopus Servers](/docs/deployment-patterns/isolated-octopus-deploy-servers.md)
+  - This can be useful when you have [isolated Octopus Servers](/docs/installation/isolated-octopus-deploy-servers.md)
 - Splitting a single Octopus Server across multiple separate Octopus Servers by moving projects and their dependencies around.
 - Consolidating multiple Octopus Servers into a single Octopus Server by moving projects and their dependencies around.
 - Advanced auditing of your Octopus configuration using source control.
