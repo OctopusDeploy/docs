@@ -50,3 +50,6 @@ In project testproject on server https://api.crc.testing:6443
 ```
 
 #### Project names are Namespaces
+When creating projects within OpenShift, you are creating Namespaces in the K8s cluster.  The Project Name of your project is the Namespace within the K8s cluster.
+
+## Conne
