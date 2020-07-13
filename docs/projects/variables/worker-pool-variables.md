@@ -25,7 +25,7 @@ In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables)
 
 2. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
 
-![addworkerpoolvariable](images/workerpoolvariable-changetype.png "width=500")
+![Add worker pool variable type](images/workerpoolvariable-changetype.png "width=500")
 
 3. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to roles or targets as the pool is resolved during the planning phase of the deployment.
 
