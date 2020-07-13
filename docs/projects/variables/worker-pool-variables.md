@@ -39,7 +39,6 @@ By default, deployment steps are not configured to run on a worker pool set by a
 
 1. Open step and configure the deployment step to run on a worker.
 2. Select **Runs on a worker from a pool selected via a variable**.
-
 3. Pick the worker pool variable.
 
 ![addworkerpoolvariable](images/workerpoolvariable-selection.png "width=500")
