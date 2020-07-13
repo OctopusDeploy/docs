@@ -17,7 +17,7 @@ In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables)
 - [Steps](/docs/deployment-process/steps/index.md)
 - [Channels](/docs/deployment-process/channels/index.md)
 
-## Adding and creating worker pool variables
+## Add and create worker pool variables
 
 1. Enter variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
 
