@@ -1,6 +1,6 @@
 ---
 title: Runbooks Publishing
-description: ublishing makes a runbook available to scheduled triggers and consumers
+description: publishing makes a runbook available to scheduled triggers and consumers
 position: 30
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Runbooks vs deployments
-description: Dexribing the diffrences between a deployment and a runbook
+description: Describing the differences between a deployment and a runbook
 position: 10
 ---
 
@@ -24,7 +24,6 @@ A [project's variables](/docs/projects/variables/index.md) are shared between th
 
 **Scoping to Steps/Actions**
 - You cannot currently scope project variables to a deployment process step and a runbook process step, but we do aim to support this in the near future.
-
 
 ## Environments
 
