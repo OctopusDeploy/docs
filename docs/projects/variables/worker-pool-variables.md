@@ -57,7 +57,7 @@ The most common would be to use environment-specific worker pools to separate th
 
 ### Performance & Role separation
 
-Worker pool variables enable different worker pools for different steps, and an example of that is using a separate worker pool for application deployments and a different worker pool for database deployments.
+Worker pool variables enable different worker pools for different steps, for example, you could use a separate worker pool for application deployments and a different worker pool for database deployments.
 
 Running deployment tasks in parallel using different worker pools to enable better concurrency of tasks. Using worker pool variables for multiple tasks using parallel deployments on different workers would increase concurrency and performance of your deployment process.
 
