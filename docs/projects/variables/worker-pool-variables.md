@@ -21,7 +21,7 @@ In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables)
 
 1. Enter the variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
 
-![addworkerpoolvariable](images/workerpoolvariable-add.png "width=500")
+![Add worker pool variable](images/workerpoolvariable-add.png "width=500")
 
 2. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
 
