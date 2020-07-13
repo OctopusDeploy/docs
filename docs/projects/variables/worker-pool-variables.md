@@ -63,7 +63,7 @@ Running deployment tasks in parallel using different worker pools can enable bet
 
 Licensing requirements of software installed on workers may mean that the software can't be justified on all workers. You may choose to install the software on a small subsection of workers.
 
-![addworkerpoolvariable](images/workerpoolvariable-roleseparation.png "width=500")
+![Separation of roles for worker pool variables](images/workerpoolvariable-roleseparation.png "width=500")
 
 ### Network & Security
 
