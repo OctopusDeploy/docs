@@ -65,7 +65,7 @@ Licensing requirements of software installed on workers may mean that the softwa
 
 ![Separation of roles for worker pool variables](images/workerpoolvariable-roleseparation.png "width=500")
 
-### Network & Security
+### Network and security
 
 [Network isolation](https://en.wikipedia.org/wiki/Network_segmentation) or [DMZ or a perimeter network](https://en.wikipedia.org/wiki/DMZ_(computing)) are common for most companies. They are considered best practices for most scenarios to control and manage the flow of your network and keep items separated. Using worker pool variables will allow you to control where your deployment or scripts run, which will ensure scripts or deployments can't access networks they may not be permitted.
 
