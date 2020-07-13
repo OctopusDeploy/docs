@@ -19,7 +19,7 @@ In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables)
 
 ## Add and create worker pool variables
 
-1. Enter variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
+1. Enter the variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
 
 ![addworkerpoolvariable](images/workerpoolvariable-add.png "width=500")
 
