@@ -43,7 +43,7 @@ By default, deployment steps are not configured to run on a worker pool set by a
 
 ![Select the worker pool variable](images/workerpoolvariable-selection.png "width=500")
 
-4. Save step.
+4. Save the step.
 
 ## Worker Pool Variable examples
 
