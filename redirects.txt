@@ -535,7 +535,7 @@ docs/deployment-process/project-triggers/index.md -> docs/projects/project-trigg
 docs/deployment-process/project-triggers/automatic-release-creation.md -> docs/projects/project-triggers/automatic-release-creation.md
 docs/deployment-process/project-triggers/deployment-target-triggers.md -> docs/projects/project-triggers/deployment-target-triggers.md
 docs/deployment-process/project-triggers/scheduled-deployment-trigger.md -> docs/projects/project-triggers/scheduled-deployment-trigger.md
-docs/deployment-process/project-triggers/scheduled-runbook-trigger.md -> docs/projects/project-triggers/scheduled-runbook-trigger.md
+docs/deployment-process/project-triggers/scheduled-runbook-trigger.md -> docs/operations-runbooks/scheduled-runbook-trigger/index.md
 docs/deployment-process/projects/index.md -> docs/projects/index.md
 docs/deployment-process/projects/coordinating-multiple-projects/index.md -> docs/projects/coordinating-multiple-projects/index.md
 docs/deployment-process/projects/coordinating-multiple-projects/project-coordination-code-samples.md -> docs/projects/coordinating-multiple-projects/project-coordination-code-samples.md
@@ -646,3 +646,4 @@ docs/managing-releases/blocking-deployments.md -> docs/managing-releases/prevent
 docs/deployment-applications/configuration-files/index.md -> docs/deployment-process/configuration-features/index.md
 docs/deployment-patterns/clustered-listening-tentacles/index.md -> docs/infrastructure/deployment-targets/windows-targets/clustered-listening-tentacles/index.md
 docs/deployment-patterns/isolated-octopus-deploy-servers.md -> docs/installation/isolated-octopus-deploy-servers.md
+docs/projects/project-triggers/scheduled-runbook-trigger.md -> docs/operations-runbooks/scheduled-runbook-trigger/index.md
