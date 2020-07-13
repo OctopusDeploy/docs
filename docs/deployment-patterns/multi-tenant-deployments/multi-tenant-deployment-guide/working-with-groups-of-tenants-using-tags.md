@@ -14,11 +14,11 @@ Working with a small number of tenants is quite easy, they all fit on one page, 
 
 Consider the example of setting up new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
 
-![](images/5865648.png "width=500")
+![](images/multi-tenant-deployment-target-all.png "width=500")
 
 *In the example above we are configuring a single deployment target for each tenant individually - what a headache!*
 
-![](images/5865647.png "width=500")
+![](images/multi-tenancy-deployment-target.png "width=500")
 
 *In the example above we are configuring a single deployment target for a group of tenants using a single tag - what a dream!*
 
@@ -50,13 +50,13 @@ Let's create a tag set called **Tenant importance** with some tags that represe
 
 | Name     | Description                            | Color      |
 | -------- | -------------------------------------- | ---------- |
-| VIP      | Very important tenant - pay attention! | Dark Red   |
+| VIP      | Very important tenant                  | Dark Red   |
 | Standard | These are our standard customers       | Light Gray |
 | Trial    | These are trial customers              | Purple     |
 
 The result should look like the screen below:
 
-![](images/tenant-importance.png "width=500")
+![](images/multi-tenant-tags-importance.png "width=500")
 
 :::success
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
@@ -88,9 +88,11 @@ if ($tenantName) {
     Write-Host "Email to $contactEmail - Hi $tenantName, just wanted to let you know we've upgraded $projectName in your $environmentName environment."
 }
 ```
-    *This script doesn't do anything, it just simulates sending an email to notify our VIP tenants of the new deployment.*
+
+*This script doesn't do anything, it just simulates sending an email to notify our VIP tenants of the new deployment.*
+
 3. Modify the step to make sure it is only executed when deploying our project for VIP tenants.
-    ![](images/5865655.png "width=500")
+    ![](images/multi-tenant-vip-email.png "width=500")
 
 :::success
 **Tenant filter design/preview**
