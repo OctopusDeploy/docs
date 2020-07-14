@@ -18,7 +18,7 @@ In this example, we'll use SQL Authentication and provide both a SQL username an
 
 1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
 2. Give the Runbook a name and click **SAVE**.
-3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEPP**.
+3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Backup Database**.
 5. Fill out all the parameters in the step. It's best practice to use [variables](https://octopus.com/docs/projects/variables) rather than entering the values directly in the step parameters.
 
