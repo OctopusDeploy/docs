@@ -4,7 +4,7 @@ description: Example of your to backup your mssql database using a runbook
 position: 40
 ---
 
-Backing up databases to protect application data should be a common practice in most organisations. Using a Runbook in Octopus can make this process easy and simple allowing you to run backups ad-hoc or on a [scheduled trigger](https://octopus.com/docs/operations-runbooks/scheduled-runbook-trigger). 
+Backing up databases to protect application data should be a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to run backups ad-hoc or on a [scheduled trigger](https://octopus.com/docs/operations-runbooks/scheduled-runbook-trigger). 
 
 **Permissions**
 
