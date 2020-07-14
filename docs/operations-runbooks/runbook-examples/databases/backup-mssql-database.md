@@ -15,8 +15,10 @@ In this example, you will be backing up a Microsoft SQL database. The step used 
 
 
 1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
-2. Add a new step template from our [community library](https://octopus.com/docs/deployment-process/steps/community-step-templates) called **SQL - Backup Database**.
-3. You need to fill out all the fields in the step, and it's best practice to use [variables](https://octopus.com/docs/projects/variables) rather than entering the values directly in the step fields.
+2. Give the Runbook a name and click **SAVE**.
+3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEPP**.
+3. Add a new step template from our [community library](https://octopus.com/docs/deployment-process/steps/community-step-templates) called **SQL - Backup Database**.
+4. You need to fill out all the fields in the step, and it's best practice to use [variables](https://octopus.com/docs/projects/variables) rather than entering the values directly in the step fields.
 
 
 | Field  | Meaning | Example | Notes |
