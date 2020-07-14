@@ -1,10 +1,10 @@
 ---
 title: Scheduled runbook triggers
 description: Scheduled runbook triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to environments of your choosing.
-position: 4
+position: 40
 ---
 
-Scheduled deployment triggers were introduced in **Octopus 2019.11**.
+Scheduled runbook triggers were introduced in **Octopus 2019.11**.
 
 Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/operations-runbooks/index.md) that will cause an automatic runbook run to environments of your choosing.
 
