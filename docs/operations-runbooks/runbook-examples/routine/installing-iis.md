@@ -45,7 +45,7 @@ There are over 25 additional IIS features you could choose to install as part of
 Get-WindowsOptionalFeature -Online | where FeatureName -like 'IIS-*'
 ```
 
-The following code installs the additional features found from the previous `Get-WindowsOptionalFeature` command using the [Enable-WindowsOptionalFeature](https://docs.microsoft.com/en-us/powershell/module/dism/enable-windowsoptionalfeature?view=win10-ps) PowerShell cmdlet:
+The following code installs all of the additional features found from the previous `Get-WindowsOptionalFeature` command using the [Enable-WindowsOptionalFeature](https://docs.microsoft.com/en-us/powershell/module/dism/enable-windowsoptionalfeature?view=win10-ps) PowerShell cmdlet:
 
 ```ps
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
