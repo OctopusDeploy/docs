@@ -1,6 +1,6 @@
 ---
 title: Installing IIS
-description: With Octopus Deploy you can install IIS with a Runbook as part of a routine operatons task.
+description: With Octopus Deploy you can install IIS with a Runbook as part of a routine operations task.
 position: 10
 ---
 
