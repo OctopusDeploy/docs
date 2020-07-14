@@ -1,6 +1,6 @@
 ---
-title: Runbooks Permissions
-description: Permissions are available to help you manage access to Runbooks
+title: Runbooks permissions
+description: Permissions are available to help you manage access to Runbooks.
 position: 20
 
 ---
