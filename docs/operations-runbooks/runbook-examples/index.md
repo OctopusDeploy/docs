@@ -10,16 +10,16 @@ Once software is in production and customers rely on it, operations teams quickl
 
 It could be:
 
-- **Routine operations** tasks, that happens infrequently. For example:
+- **Routine operations** tasks that happen infrequently. For example:
   - Patching a server.
   - Stopping a website.
   - Renewing SSL certificates.
 
-- **Emergency operations** tasks which you have to respond to quickly, following an alert. For example:
+- **Emergency operations** tasks that you have to respond to quickly following an alert. For example:
   - Failing over to a disaster recovery site.
   - Restart a server.
 
-- **Infrastructure provisioning** tasks, that are used with an [elastic or transient](/docs/deployment-patterns/elastic-and-transient-environments/index.md) environment. For example:
+- **Infrastructure provisioning** tasks that are used with an [elastic or transient](/docs/deployment-patterns/elastic-and-transient-environments/index.md) environment. For example:
   - Deploying an AWS CloudFormation template.
   - Deploying an Azure ARM template.
 
