@@ -37,7 +37,7 @@ The script checks to see if IIS is already installed by inspecting the `InstallS
 It’s possible you may need to set the [Execution policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) to an appropriate value (as part of the script) in order for it to run successfully. 
 :::
 
-### Additional IIS Features
+### Additional IIS features
 
 There are over 25 additional IIS features you could choose to install as part of your Runbook. To list all of the IIS Windows features, run the following PowerShell:
 
