@@ -647,3 +647,4 @@ docs/deployment-applications/configuration-files/index.md -> docs/deployment-pro
 docs/deployment-patterns/clustered-listening-tentacles/index.md -> docs/infrastructure/deployment-targets/windows-targets/clustered-listening-tentacles/index.md
 docs/deployment-patterns/isolated-octopus-deploy-servers.md -> docs/installation/isolated-octopus-deploy-servers.md
 docs/projects/project-triggers/scheduled-runbook-trigger.md -> docs/operations-runbooks/scheduled-runbook-trigger/index.md
+docs/deployment-examples/azure-deployments/resource-groups/index.md -> docs/operations-runbooks/examples/azure/resource-groups/index.md
