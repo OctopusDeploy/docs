@@ -1,6 +1,6 @@
 ---
-title: Runbooks vs deployments
-description: Describing the differences between a deployment and a runbook
+title: Runbooks vs Deployments
+description: Describing the differences between a deployment and a runbook.
 position: 10
 ---
 

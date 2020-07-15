@@ -1,10 +1,8 @@
 ---
-title: Runbooks Publishing
-description: publishing makes a runbook available to scheduled triggers and consumers
+title: Runbooks publishing
+description: Publishing makes a runbook available to scheduled triggers and consumers.
 position: 30
 ---
-
-## Publishing
 
 Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRun` permission, but without the `RunbookEdit` permission).  Triggers and consumers will always execute the published snapshot.
 
