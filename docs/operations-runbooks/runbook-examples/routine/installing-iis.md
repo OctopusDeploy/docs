@@ -39,7 +39,7 @@ It’s possible you may need to set the [Execution policy](https://docs.microsof
 
 ### Additional IIS features
 
-There are over 25 additional IIS features you could choose to install as part of your Runbook. To list all of the IIS Windows features, run the following PowerShell:
+There are over 25 additional IIS features you could choose to install as part of your runbook. To list all of the IIS Windows features, run the following PowerShell:
 
 ```ps
 Get-WindowsOptionalFeature -Online | where FeatureName -like 'IIS-*'
