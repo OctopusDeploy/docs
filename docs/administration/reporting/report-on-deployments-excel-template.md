@@ -58,7 +58,7 @@ For example:
 `https://demo.octopus.com/api/reporting/deployments/xml?apikey=API-GUEST`
 `https://myoctopus/api/reporting/deployments/xml?apikey=API-1234567891234567891234567`
 
-The XML feed can be consumed programmatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/).
+The XML feed can be consumed programmatically, or via Excel or [Microsoft PowerBI](https://powerbi.microsoft.com/). We have a blog on how to do this using [PowerBI](https://octopus.com/blog/powerbi-report-for-octopus-deploy)
 
 Since a user-specific API key is used to consume the data, only data that the user can see will appear in the report.
 
@@ -87,3 +87,7 @@ This is due to that the revocation information for the certificate is not retrie
 8. Cancel the Data Connection Wizard.
 9. Paste the URL in the File Name field.
 :::
+
+## Learn more
+
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting).

@@ -41,3 +41,7 @@ You may want to look at [enabling HTTP logging](/docs/administration/managing-in
 **Limitation**
 - This approach is only supported in Octopus Server. For Octopus Cloud you will need to use the API.
 ::::
+
+## Learn more
+
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting).

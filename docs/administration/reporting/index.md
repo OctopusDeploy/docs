@@ -10,7 +10,7 @@ Currently Octopus doesn't display this reporting data in the user interface anyw
 
 Raw data is provided in two ways:
 
-- As an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically.
+- As an XML feed, which can be consumed by tools like Microsoft Excel or PowerBI (preferred), or programmatically. We have a blog on how to do this using [PowerBI](https://octopus.com/blog/powerbi-report-for-octopus-deploy).
 - As a table in the Octopus SQL database.
 
 The data allows you to report on questions like:
@@ -20,3 +20,7 @@ The data allows you to report on questions like:
 - How long do deployments take on average?
 
 If you're using Octopus Cloud, you will only be able to work with the API for your Reporting needs, and if you're using Octopus Server on-Premises or in the Cloud you will be able to use all approaches mentioned in the Reporting section.
+
+## Learn more
+
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting).

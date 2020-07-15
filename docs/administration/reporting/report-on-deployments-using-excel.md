@@ -140,3 +140,7 @@ There are two major limits to this approach to be aware of:
 1. As you have seen, only a small amount of data is available for use for reporting.
 2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting.
 :::
+
+## Learn more
+
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting).
