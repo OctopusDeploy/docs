@@ -6,7 +6,7 @@ position: 50
 
 Runbooks were introduced in **Octopus 2019.11**
 
-Once software is in production and customers rely on it, operations teams quickly find themselves needing to support that software with procedures to ensure things stay running smoothly.
+When software is in production and customers rely on it, operations teams quickly find themselves needing to support that software with procedures to ensure things stay running smoothly.
 
 It could be:
 
