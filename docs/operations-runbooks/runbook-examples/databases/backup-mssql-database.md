@@ -23,19 +23,19 @@ In this example, we'll use SQL Authentication and provide both a SQL username an
 5. Fill out all the parameters in the step. It's best practice to use [variables](https://octopus.com/docs/projects/variables) rather than entering the values directly in the step parameters.
 
 
-| Parameter  | Description | Example
-| ------------- | ------------- | -------------
-| Server | Database connection string | dbserver01 
-| Database | Name of database to backup | mydatabase
-| Backup Directory | Path to backup data file to | C:\backups\
-| SQL Login | SQL Username | admin
-| SQL Password | SQL Password | Pa$$word
-| Compression Option | Disable or enable compression | Enabled
-| Devices | Number of backup devices to use for backup | 1
-| Backup File Suffix | Suffix added to backup file name |prod
-| Connection Timeout | How long the backup should run | 3600
-| Backup Action | Full or incremental backup| FULL
-| Copy Only | Just do a copy only backup | True
+| Parameter  | Description | Example |
+| ------------- | ------------- | ------------- |
+| Server | Database connection string | dbserver01 |
+| Database | Name of database to backup | mydatabase |
+| Backup Directory | Path to backup data file to | C:\backups\ |
+| SQL Login | SQL Username | admin |
+| SQL Password | SQL Password | Pa$$word |
+| Compression Option | Disable or enable compression | Enabled |
+| Devices | Number of backup devices to use for backup | 1 |
+| Backup File Suffix | Suffix added to backup file name |prod |
+| Connection Timeout | How long the backup should run | 3600 |
+| Backup Action | Full or incremental backup| FULL |
+| Copy Only | Just do a copy only backup | True |
 
 
 :::warning
