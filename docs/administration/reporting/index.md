@@ -24,4 +24,3 @@ If you're using Octopus Cloud, you will only be able to work with the API for yo
 ## Learn more
 
 - [Reporting blog posts](https://octopus.com/blog/tag/reporting)
-- [Blog: How to build a PowerBI report for Octopus Deploy](https://octopus.com/blog/powerbi-report-for-octopus-deploy)
