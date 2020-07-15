@@ -21,5 +21,5 @@ Out of the box, Octopus provides built-in steps to help manage your Infrastructu
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-- [Azure deployment examples](/docs/deployment-examples/azure-deployments).
+- [Azure deployment examples](/docs/deployment-examples/azure-deployments/index.md).
 - [Azure blog posts](https://octopus.com/blog/tag/azure).
