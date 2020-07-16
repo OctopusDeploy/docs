@@ -1,6 +1,6 @@
 ---
 title: Azure
-description: Octopus Deploy can help you to automate the provisioning of Infrastructure in Azure using Runbooks.
+description: Octopus Deploy can help you to automate the provisioning of infrastructure in Azure using runbooks.
 position: 50
 hideInThisSectionHeader: true
 ---
