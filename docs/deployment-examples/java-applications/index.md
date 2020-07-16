@@ -369,4 +369,4 @@ The Java deployment steps include a number of unique error codes that may be dis
 - Generate an Octopus guide for [Java, Tomcat, and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?application=Java&destination=Tomcat).
 - [Java blog posts](http://octopus.com/blog/tag/java)
 - [Webinar: Octopus 101: Deploy Your First Java Application](https://www.youtube.com/watch?v=AM6GyYr2n4Y)
-- [Install Tomcat Runbook example](/docs/operations-runbooks/runbook-examples/routine/install-tomcat.md).
+- [Install Tomcat Runbook example](/docs/operations-runbooks/runbook-examples/routine/installing-tomcat.md).
