@@ -27,6 +27,33 @@ A [project's variables](/docs/projects/variables/index.md) are shared between th
 
 ## Environments
 
-Runbooks can be executed against any environment for which the user has an appropriately scoped `RunbookRun` permission.
+In Octopus 2020.2 and earlier, runbooks could be executed against any environment for which the user had an appropriately scoped `RunbookRun` permission.
 
-Lifecycles do not apply to runbooks (only deployments).
+From **Octopus 2020.3**, it’s also possible to choose which environments a runbook can be run in by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
+
+![Runbook environments choice](runbook-runsettings-environments.png "width=500")
+
+You can select the runbook to run in:
+- All environments (the default).
+- Only specific environments.
+- Environments from the [Project Lifecycle](/docs/deployment-process/lifecycles/index.md).
+
+:::hint
+In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](docs/deployment-process/conditions#environments) in each step of the runbook process.
+:::
+
+## Retention policy
+
+Lifecycles and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
+
+![Runbook retention policies](runbook-runsettings-retention.png "width=500")
+
+You can choose to:
+- Keep **all** of the runbook runs.
+- Keep a limited number of runbook runs (the default).
+
+The retention policy is applied **per environment**. For example, if you had three environments, Development, Staging and Production and you set the retention policy limit to 10, that would keep a total of **30** runbook runs - 10 in *each* of Development, Staging and Production.
+
+:::hint
+In Octopus 2020.2 and earlier, the runbook retention policy could not be set. Instead, Octopus would keep the last 1000 runs.
+:::
