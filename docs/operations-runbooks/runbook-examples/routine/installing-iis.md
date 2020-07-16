@@ -80,7 +80,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
 ## Samples
 
-We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more Runbooks.
+We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
 ## Learn more
 
