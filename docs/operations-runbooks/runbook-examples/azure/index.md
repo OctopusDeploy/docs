@@ -1,11 +1,11 @@
 ---
 title: Azure
-description: Octopus Deploy can help you to automate the provisioning of infrastructure in Azure using runbooks.
+description: Octopus Deploy can help you automate the provisioning of infrastructure in Azure using runbooks.
 position: 50
 hideInThisSectionHeader: true
 ---
 
-Octopus is great for helping you perform repeatable and controlled deployments of your applications into [Azure](https://azure.microsoft.com/), but you can also use it to manage your Infrastructure in Azure too. Runbooks can be used to help automate this without having to create new deployment releases.
+Octopus is great for helping you perform repeatable and controlled deployments of your applications into [Azure](https://azure.microsoft.com/), but you can also use it to manage your infrastructure in Azure. Runbooks can be used to help automate this without having to create new deployment releases.
 
 Typical routines could be:
 
@@ -14,7 +14,7 @@ Typical routines could be:
 - Managing firewall rules.
 - Tearing down a Resource group.
 
-Out of the box, Octopus provides built-in steps to help manage your Infrastructure in Azure:
+Out-of-the-box, Octopus provides built-in steps to help manage your infrastructure in Azure:
 - [Resource Group Templates](/docs/operations-runbooks/runbook-examples/azure/resource-groups/index.md).
 - [Executing PowerShell scripts using the Azure cmdlets](/docs/deployment-examples/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md).
 
