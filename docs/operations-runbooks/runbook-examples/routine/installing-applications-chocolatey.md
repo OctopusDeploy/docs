@@ -6,8 +6,6 @@ position: 30
 
 [Chocolately](https://chocolatey.org/) is a popular package manager for Windows. It allows you to automate the installation of software used by the machines you deploy to, for example [.NET](https://dotnet.microsoft.com/).
 
-It can also be used to install Windows Features by leveraging [DISM, or Deployment Imaging Service Management](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism).
-
 With Operation Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/octopus-concepts/deployment-targets.md) or [workers](/docs/octopus-concepts/workers.md).
 
 ## Create the runbook
@@ -88,7 +86,7 @@ The script will run the `choco install` command if the `dotnetfx` package isn’
 
 ### .NET Core
 
-To install the .NET Core runtime, we use the `dotnetcore` Chocolatey package.
+To install .NET Core, we use the `dotnetcore` Chocolatey package.
 
 To add this to a Runbook:
 
@@ -110,7 +108,75 @@ else {
 }
 ```
 
-The script will run the `choco install` command if the `dotnetcore` package isn’t installed already.
+The script will run the `choco install` command if the `dotnetcore` package isn’t installed already. Configure any other settings for the step and click **Save**, and you have a runbook step to install .NET Core.
+
+### Windows features
+
+Chocolatey can also be used to install Windows Features by leveraging [DISM, or Deployment Imaging Service Management](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism).
+
+:::hint
+To find out what features are available to install on the machine, you can run the command:
+
+```
+Dism /online /Get-Features
+```
+:::
+
+The command to install DISM features through Chocolatey is:
+
+```
+choco install [Feature Name] /y /source windowsfeatures
+```
+
+Where `[Feature Name]` is the name of the Windows feature you wish to install.
+
+To add this to a runbook step to install multiple features:
+
+1. Click **Script**, and then select the **Run a Script** step.
+1. Give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+
+```ps
+# Octopus Variable with a comma separated list of features to install
+$dismAppList = "#{Project.Chocolatey.DISM.RequiredFeatures}" 
+
+if ([string]::IsNullOrWhiteSpace($dismAppList) -eq $false){
+    Write-Host "DISM Features Specified"    
+
+    $appsToInstall = $dismAppList -split "," | foreach { "$($_.Trim())" }
+
+    foreach ($app in $appsToInstall)
+    {
+        Write-Host "Installing $app"
+        & choco install $app /y /source windowsfeatures | Write-Output
+    }
+}
+```
+
+5. Add a Project [variable](/docs/projects/variables/index.md) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
+
+![Chocolately DISM variable](images/install-chocolatey-dism-variable.png "width=500")
+
+The features which would be installed are:
+- IIS-WindowsAuthentication
+- NetFx4Extended-ASPNET45
+- IIS-Security
+
+Configure any other settings for the step and click **Save**, and you have a runbook step to install Windows features.
+
+## Automating tentacle installation with chocolatey packages
+
+The Tentacle agent can be automatically installed from the command line. This is very useful if you're deploying to a large number of servers, or you're provisioning servers automatically.
+
+In addition, it’s also possible to automate the installation of chocolatey packages at the same time during the tentacle installation.
+
+We have a number of bootstrap scripts available in our OctopusSamples [Infrastructure as Code (IaC)](https://github.com/OctopusSamples/IaC/) GitHub repository. The following scripts are available to support Chocolatey package installation as part of a tentacle installation:
+
+- [BootstrapTentacleAndRunChoco.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChoco.ps1) - This script installs a [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) tentacle and will install any chocolately packages specified in the `$chocolateyAppList` parameter.
+- [BootstrapTentacleAndRunChocoPolling.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChocoPolling.ps1) - This script installs a [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) tentacle and will install any chocolately packages specified in the `$chocolateyAppList` parameter.
+
+These scripts support both standard Chocolatey packages, and ones sourced through DISM too.
 
 ## Samples
 
