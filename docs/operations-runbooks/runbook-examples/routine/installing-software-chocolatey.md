@@ -1,6 +1,6 @@
 ---
-title: Installing applications with Chocolatey
-description: With Octopus Deploy you can install applications with Chocolatey by using a runbook as part of a routine operations task.
+title: Installing software with Chocolatey
+description: With Octopus Deploy you can install software with Chocolatey by using a runbook as part of a routine operations task.
 position: 30
 ---
 
