@@ -27,7 +27,7 @@ Before you can use Chocolatey, it must be installed. To do this, you can use an 
 
 You can now use this step in conjunction with other Runbook steps to install your software with Chocolatey.
 
-## Common usages
+## Common packages
 
 There are plenty of different types of software you may wish to install using Chocolatey. The next few sections outline some of the common ones you can install with a runbook using the [Run a script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step.
 
