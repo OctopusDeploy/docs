@@ -6,7 +6,7 @@ position: 10
 
 For many organizations, [IIS](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview) remains an essential piece of software for running their web-applications. With Operation Runbooks, you can create a runbook as part of a routine operations task to install IIS and any additional IIS features you need on your [deployment targets](/docs/octopus-concepts/deployment-targets.md).
 
-## Creating the runbook
+## Create the runbook
 
 To create a runbook to install IIS:
 
@@ -15,7 +15,7 @@ To create a runbook to install IIS:
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
-1. Choose the target role on which to run this step.
+1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
 ```ps

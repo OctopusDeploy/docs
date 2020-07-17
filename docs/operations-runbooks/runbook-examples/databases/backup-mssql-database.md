@@ -14,7 +14,7 @@ In this example, you will be backing up a Microsoft SQL Server database using a 
 
 In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployment-examples/database-deployments/sql-server/permissions.md).
 
-## Creating the Runbook
+## Create the Runbook
 
 1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
 2. Give the Runbook a name and click **SAVE**.
