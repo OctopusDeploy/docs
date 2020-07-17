@@ -58,6 +58,6 @@ In project testproject on server https://api.crc.testing:6443
 
 When you create projects within OpenShift, you are creating Namespaces in the K8s cluster.  The project name of your project is the Namespace within the K8s cluster.
 
-## Connecting a Rancher Kubernetes Deployment Target
+## Connecting an OpenShift Kubernetes Deployment Target
 
 Adding an OpenShift K8s target is done in exactly the same way you would add any other [Kubernetes target](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes-target#add-a-kubernetes-target).
