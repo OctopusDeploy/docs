@@ -49,7 +49,7 @@ In this example, you will stop an IIS [Application Pool](https://docs.microsoft.
 To add this step to a runbook:
 
 1. Add the community step template called **IIS AppPool - Stop**, and give the step a name.
-1. Choose the *Execution Location* on which to run this step.
+1. Choose the **Execution Location** on which to run this step.
 1. Fill out all of the required parameters in the step, using [variables](/docs/projects/variables/index.md) where appropriate:
 
 | Parameter  | Description | Example |
@@ -69,8 +69,8 @@ In this example, you will restart an IIS Website using a step template from our 
 To add this step to a runbook:
 
 1. Add the community step template called **IIS Website - Restart**, and give the step a name.
-1. Choose the *Execution Location* on which to run this step.
-1. Fill out the only required parameter: **Website name**, using a variable if appropriate.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables/index.md) if appropriate.
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to restart an IIS website.
 
@@ -83,8 +83,8 @@ In this example, you will delete an IIS Website using a step template from our [
 To add this step to a runbook:
 
 1. Add the community step template called **IIS Website - Delete**, and give the step a name.
-1. Choose the *Execution Location* on which to run this step.
-1. Fill out the only required parameter: **Website name**, using a variable if appropriate.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables/index.md) if appropriate.
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to delete an IIS website.
 
