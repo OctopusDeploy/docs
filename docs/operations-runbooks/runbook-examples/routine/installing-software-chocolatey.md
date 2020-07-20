@@ -1,19 +1,19 @@
 ---
-title: Installing software with Chocolatey
-description: With Octopus Deploy you can install software with Chocolatey by using a runbook as part of a routine operations task.
+title: Install software with Chocolatey
+description: Create runbooks to install software with Chocolatey as part of a routine operations task.
 position: 30
 ---
 
-[Chocolately](https://chocolatey.org/) is a popular package manager for Windows. It allows you to automate the installation of software used by the machines you deploy to, for example [.NET](https://dotnet.microsoft.com/).
+[Chocolately](https://chocolatey.org/) is a popular package manager for Windows. It allows you to automate the installation of software used by the machines where you deploy your software, for example, systems running [.NET](https://dotnet.microsoft.com/).
 
-With Operation Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/octopus-concepts/deployment-targets.md) or [workers](/docs/octopus-concepts/workers.md).
+With Operation Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/octopus-concepts/deployment-targets.md) or [Workers](/docs/octopus-concepts/workers.md).
 
 ## Create the runbook
 
 To create a runbook to install software with Chocolatey:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
-1. Give the runbook a Name and click **SAVE**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
 
 Next, you need to ensure Chocolatey is installed.
 
@@ -25,11 +25,11 @@ Before you can use Chocolatey, it must be installed. To do this, you can use an 
 1. Choose the **Execution Location** on which to run this step.
 1. *Optionally*, configure any [conditions](/docs/deployment-process/conditions/index.md) for the step, and click **Save**.
 
-You can now use this step in conjunction with other Runbook steps to install your software with Chocolatey.
+You can now use this step in conjunction with other runbook steps to install your software with Chocolatey.
 
 ## Common packages
 
-There are plenty of different types of software you may wish to install using Chocolatey. The next few sections outline some of the common ones you can install with a runbook using the [Run a script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step.
+There are plenty of different types of software you can install with Chocolatey. The next few sections outline some of the common ones you can install with a runbook using the [Run a script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step.
 
 ### Test for installed chocolatey package
 
@@ -60,9 +60,9 @@ The script checks to see if the package specified in `$Package` is already insta
 
 ### .NET Framework
 
-There are different versions of the .NET Framework you could install using Chocolatey. This example will use the `dotnetfx` package from Chocolatey.
+There are different versions of the .NET Framework you can install using Chocolatey. This example will use the `dotnetfx` package from Chocolatey.
 
-To add this to a Runbook:
+To add this to a runbook:
 
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
@@ -82,13 +82,13 @@ else {
 }
 ```
 
-The script will run the `choco install` command if the `dotnetfx` package isn’t installed already.
+The script will run the `choco install` command if the `dotnetfx` package isn’t already installed.
 
 ### .NET Core
 
 To install .NET Core, we use the `dotnetcore` Chocolatey package.
 
-To add this to a Runbook:
+To add this to a runbook:
 
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
@@ -108,11 +108,11 @@ else {
 }
 ```
 
-The script will run the `choco install` command if the `dotnetcore` package isn’t installed already. Configure any other settings for the step and click **Save**, and you have a runbook step to install .NET Core.
+The script will run the `choco install` command if the `dotnetcore` package isn’t already installed. Configure any other settings for the step and click **Save**, and you have a runbook step to install .NET Core.
 
 ### Windows features
 
-Chocolatey can also be used to install Windows Features by leveraging [DISM, or Deployment Imaging Service Management](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism).
+Chocolatey can also be used to install Windows features by leveraging [DISM, or Deployment Imaging Service Management](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism).
 
 :::hint
 To find out what features are available to install on the machine, you can run the command:
@@ -154,11 +154,11 @@ if ([string]::IsNullOrWhiteSpace($dismAppList) -eq $false){
 }
 ```
 
-5. Add a Project [variable](/docs/projects/variables/index.md) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
+5. Add a project [variable](/docs/projects/variables/index.md) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
 
 ![Chocolately DISM variable](images/install-chocolatey-dism-variable.png "width=500")
 
-The features which would be installed are:
+The features which will be installed are:
 - IIS-WindowsAuthentication
 - NetFx4Extended-ASPNET45
 - IIS-Security
@@ -167,16 +167,16 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 ## Automating tentacle installation with chocolatey packages
 
-The Tentacle agent can be automatically installed from the command line. This is very useful if you're deploying to a large number of servers, or you're provisioning servers automatically.
+The Tentacle agent can be automatically installed from the command-line. This is very useful if you're deploying to a large number of servers or you're provisioning servers automatically.
 
-In addition, it’s also possible to automate the installation of chocolatey packages at the same time during the tentacle installation.
+In addition, it’s also possible to automate the installation of chocolatey packages at the same time as the Tentacle installation.
 
-We have a number of bootstrap scripts available in our OctopusSamples [Infrastructure as Code (IaC)](https://github.com/OctopusSamples/IaC/) GitHub repository. The following scripts are available to support Chocolatey package installation as part of a tentacle installation:
+We have a number of bootstrap scripts available in our OctopusSamples [Infrastructure as Code (IaC)](https://github.com/OctopusSamples/IaC/) GitHub repository. The following scripts are available to support Chocolatey package installation as part of a Tentacle installation:
 
-- [BootstrapTentacleAndRunChoco.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChoco.ps1) - This script installs a [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) tentacle and will install any chocolately packages specified in the `$chocolateyAppList` parameter.
-- [BootstrapTentacleAndRunChocoPolling.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChocoPolling.ps1) - This script installs a [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) tentacle and will install any chocolately packages specified in the `$chocolateyAppList` parameter.
+- [BootstrapTentacleAndRunChoco.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChoco.ps1) - This script installs a [Listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) and will install any Chocolately packages specified in the `$chocolateyAppList` parameter.
+- [BootstrapTentacleAndRunChocoPolling.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChocoPolling.ps1) - This script installs a [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) and will install any Chocolately packages specified in the `$chocolateyAppList` parameter.
 
-These scripts support both standard Chocolatey packages, and ones sourced through DISM too.
+These scripts support both standard Chocolatey packages and ones sourced through DISM.
 
 ## Samples
 
