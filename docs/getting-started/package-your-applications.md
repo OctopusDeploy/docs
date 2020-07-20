@@ -1,7 +1,7 @@
 ---
-title: Package your applications
+title: Package your software
 description: Learn how to package your applications for deployment with Octopus Deploy.
-position: 60
+position: 70
 ---
 
 Deploying software with Octopus Deploy often involves packaging your software into a supported package format and making it available from a package feed.

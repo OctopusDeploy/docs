@@ -1,7 +1,7 @@
 ---
 title: The CI/CD pipeline
 description: Understand a typical CI/CD pipeline.
-position: 20
+position: 30
 ---
 
 CI/CD refers to continuous integration and continuous deployment. A typical CI/CD pipeline involves a continuous integration server (or build server) and a continuous deployment server.

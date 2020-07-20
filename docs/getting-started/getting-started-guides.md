@@ -19,6 +19,6 @@ These guides aims to familiarize you with Octopus Deploy by providing simple ste
 ## The Basics {#the-basics}
 
 - [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
-- [Package your software](/docs/getting-started/package-your-applications.md)
+- [Package your software](/docs/getting-started/package-your-software.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
 - [Create a release](/docs/getting-started/create-a-release.md)
