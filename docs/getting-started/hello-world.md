@@ -6,9 +6,9 @@ position: 10
 
 Octopus Deploy can help with your complex deployment scenarios, but it can also deploy simple projects. 
 
-This sections walks you through the simplest deployment possible to help you familiarize yourself with the process and the Octopus Web Portal.
+This section walks you through the simplest deployment possible to help you familiarize yourself with the process and the Octopus Web Portal.
 
-TODO: Add this is a cloud instance, but the process is... 
+The steps in this procedure are completed in an Octopus Cloud instance, but the process is almost identical in self-hosted instances of Octopus Server.
 
 ## Environments
 
@@ -21,11 +21,6 @@ Octopus organizes the servers and services where you deploy your software into e
 
 You now have your first environment.
 
-<!-- 1. Add a description for the environment.
-1. Select the check-box in the **Default Guided Failure Mode** section if you want Octopus Deploy to prompt users for intervention if a deployment to this environment fails. Learn more about [guided failure mode](/docs/managing-releases/guided-failures.md).
-1. Select the check-box in the **Dynamic Infrastructure** section if deployments to this environment are allowed to create infrastructure such as targets and accounts. Learn more about [Dynamic Infrastructure](docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md).
-1. Click **SAVE**. -->
-
 ## Projects
 
 Projects are used to collect all the assets that make up your deployment processes. To deploy our simple hello world script, we first need a project. 
@@ -33,7 +28,7 @@ Projects are used to collect all the assets that make up your deployment process
 ## Create a project
 
 1. Navigate to the **Projects** tab, and click **ADD PROJECT**.
-1. Give the project a name, for instance, *Hello world*, and click **Save**.
+1. Give the project a name, for instance, *Hello, world*, and click **Save**.
 
 You now have your first project and are ready to define your deployment process.
 
@@ -46,17 +41,38 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 1. From the *Hello world* project you created in the previous section, click **DEFINE YOUR DEPLOYMENT PROCESS**.
 1. Click **ADD STEP**.
 1. Select the **Script** tile to filter the types of steps.
-1. Click **ADD** on the **Run a Script** tile.
+1. Scroll down and click **ADD** on the **Run a Script** tile.
 1. Accept the default name for the script and leave the **Enabled** checkbox ticked.
 1. In the **Execution Location** section, select **Run once on a worker**.
 1. Scroll down to the **Script** and enter the following PowerShell script in the **Inline Source Code** section:
 
 ```PowerShell
 Write-Host "Hello, World!"
-​```
+```
 
 1. Click **SAVE**.
 
+You have created your first deployment process. Next, we'll create a release and deploy it.
+
 ## Releases
 
+A release is a snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. Our hellow world deployment process only has one step that executes the script we entered in the provious section.
+
+When you deploy the release, you are executing the deployment process with all the associated details, as they existed when the release was created.
+
 ### Create and deploy a release 
+
+1. Click **CREATE RELEASE**.
+1. The release is created and given a version number. There is a space to add release notes. Click **SAVE**.
+1. To deploy this version of the release, click **DEPLOY TO TEST...**.
+
+The next screen gives you the details of the release you are about to deploy:
+
+![Deploy release screen in the Octopus Web Portal](images/deploy-release.png)
+
+4. To delpoy the release, click **Deploy**.
+5. The next screen displays a task summary. If you click the **TASK LOG**, you'll see the steps Octopus took execute your hello world script.
+
+Because we didn't define any deployment targets for the **Test** environment, Octopus leased a dynamic worker that was then used to execute the hello world script.
+
+
