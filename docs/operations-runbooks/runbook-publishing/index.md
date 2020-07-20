@@ -4,6 +4,20 @@ description: Publishing makes a runbook available to scheduled triggers and cons
 position: 30
 ---
 
+## Snapshots
+Runbooks and deployments define their processes in exactly the same manor.  However, where a deployment has a Release, a Runbook has what is called a Snapshot.  For a given runbook, you can have two snapshots:
+- Draft
+- Published
+
+Similar to releases, the version of any packages that are used in the runbook are also snapshotted.  This means if a newer version of the package is uploaded, you will need to create a new snapshot of the runbook.
+
+### Draft snapshot
+A draft snapshot of a Runbook is exactly what it sounds like, a draft version of the currently published version.  Drafts are meant to give you a place to work and save a Runbook that is a work in progress or has not yet been approved for general use.
+
+### Published snapshot
+A published snapshot is the "Production" ready version of the Runbook.  The concept of a `Published` snapshot was to help avoid confusion in what version of the Runbook you're supposed to run if you're not the author.
+
+## Publishing a snapshot
 Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRun` permission, but without the `RunbookEdit` permission).  Triggers and consumers will always execute the published snapshot.
 
 The published snapshot contains the process, variables, and packages. This allows editing and testing the runbook without impacting the published version.   
