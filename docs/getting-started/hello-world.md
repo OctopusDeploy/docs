@@ -73,6 +73,9 @@ The next screen gives you the details of the release you are about to deploy:
 4. To delpoy the release, click **Deploy**.
 5. The next screen displays a task summary. If you click the **TASK LOG**, you'll see the steps Octopus took execute your hello world script.
 
-Because we didn't define any deployment targets for the **Test** environment, Octopus leased a dynamic worker that was then used to execute the hello world script.
+Because we didn't define any deployment targets for the **Test** environment, Octopus leased a dynamic worker (a machine that execute tasks on behalf of the Octopus Server) that was then used to execute the hello world script.
 
+## Learn more
 
+- [Getting started: Before you start](/docs/getting-started/getting-started-guides.md#before-you-start)
+- [Getting started: The basics](/docs/getting-started/getting-started-guides.md#the-basics)

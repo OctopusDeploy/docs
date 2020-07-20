@@ -10,13 +10,13 @@ These guides aims to familiarize you with Octopus Deploy by providing simple ste
 
 - [Deploy a hello world script](/docs/getting-started/hello-world.md)
 
-## Before you start
+## Before you start {#before-you-start}
 
 - [What is a CI/CD pipeline?](/docs/getting-started/the-cicd-pipeline.md)
 - [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md)
 - [Get to know the Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md)
 
-## The Basics
+## The Basics {#the-basics}
 
 - [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
 - [Package your software](/docs/getting-started/package-your-applications.md)
