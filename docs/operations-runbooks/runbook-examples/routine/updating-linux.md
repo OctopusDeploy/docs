@@ -73,8 +73,9 @@ then
    echo "Something went wrong."
 fi
 ```
-
-
 :::info
 You'll note the use of `2>&1` which redirects the stderr  stream to stdout.  Bash writes diagnostic messages to stderr which Octopus interprets as an error so your Runbook will show a success with warnings message.  The `if` statement checks to see if an error was actually encountered and will fail the step if it was.
 :::
+
+## Samples
+We have a [Target - Wildfly](https://g.octopushq.com/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
