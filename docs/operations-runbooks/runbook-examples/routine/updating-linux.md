@@ -15,11 +15,9 @@ To create a runbook to perform updates on your Linux machines:
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. In the **Inline source code** section, select **Bash** and add the following code which matches your Linux distro.
+1. In the **Inline source code** section, select **Bash** and add the following code that matches your Linux distro:
 
-    Ubuntu:
-
-    ```bash
+    ```bash Ubuntu
     # Run update command
     sudo apt-get update 2>&1
 
@@ -39,9 +37,7 @@ To create a runbook to perform updates on your Linux machines:
     fi
     ```
 
-    CentOS/RHEL:
-
-    ```bash
+    ```bash CentOS/RHEL
     # Run update command
     sudo yum check-update 2>&1
 
@@ -54,11 +50,9 @@ To create a runbook to perform updates on your Linux machines:
 
     This step will download a list of available updates then display them.  This step is split out from the actual update process so that you can place any gates such as approvals between listing what is available for update and actually performing the update.
 
-8.  Repeat steps 3-7 above, adding the following code to perform the update in the **Inline source code** section for your Linux distro.
+8.  Repeat steps 3-7 above, adding the following code to perform the update in the **Inline source code** section that matches your Linux distro:
 
-    Ubuntu:
-
-    ```bash
+    ```bash Ubuntu
     # Perform upgrade
     sudo apt-get upgrade -y 2>&1
 
@@ -68,8 +62,6 @@ To create a runbook to perform updates on your Linux machines:
         fail_step "apt-get upgrade failed!"
     fi
     ```
-    
-    CentOS/RHEL:
 
     ```bash CentOS/RHEL
     # Perform upgrade
