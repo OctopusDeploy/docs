@@ -34,7 +34,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 1. In **{{Configuration,Teams,Roles}}** click **Add custom role** and call it **Tenant project deployer**.
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
-3. Choose the following permissions:
+3. Choose the following permissions under [**Space Permissions**](/docs/security/users-and-teams/system-and-space-permissions):
    1. AccountView
    2. ArtifactView
    3. DeploymentCreate
@@ -55,22 +55,29 @@ It is usually a good idea to build smaller roles that can be composed together i
    18. TaskCancel
    19. TaskCreate
    20. TaskView
-   21. TaskViewLog
-   22. TeamView
-   23. TenantEdit
-   24. TenantView
-   25. VariableView
-   26. VariableViewUnscoped
+   21. TeamView
+   22. TenantEdit
+   23. TenantView
+   24. VariableView
+   25. VariableViewUnscoped
 
 ### Step 2: Configure the account managers team
 
 Now we will create a team for all the Account Managers and add the role we created in the last step.
 
-1. In **{{Configuration,Teams}}** click Add team and call it **Account Managers**.
-2. Click the **Add role** button and add the **Tenant project deployer role**.
-3. Click the **Add member** button and add any user accounts that will form part of this team.
+1. In **{{Configuration,Teams}}** click Add team and call it **Account Managers**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces.md) and then select **Save**.
 
-![](images/account-managers.png "width=500")
+![](images/multi-tenant-account-managers.md "width=500")
+
+2. Under **User Roles** select **Include User Role** button.
+
+![](images/multi-tenant-include-user-role.png "width=500")
+
+3. From the dropdown select the **Tenant project deployer role**.
+
+![](images/multi-tenant-select-user-role.png "width=500")
+
+4. Under **{{Members,Add member}}**  and add any user accounts that will form part of this team.
 
 ### Step 3: Test
 
@@ -86,7 +93,7 @@ You will probably notice you can see all tenants, projects and environments. We 
 
 Quite often you will want to allocate certain tenants to a team, or restrict which projects/environments a team can access. Using the team you just created you can experiment with reducing scope. You can restrict the team to a specific list of tenants, projects and/or environments.
 
-![](images/account-managers-tenants.png "width=500")
+![](images/multi-tenant-reduce-scope.png "width=500")
 
 ## Infrastructure manager
 
@@ -105,7 +112,7 @@ In this example we will create a new team and combine multiple roles together to
 
 1. Create a new team called Tenant Environment Managers.
 2. Add the Tenant viewer and Environment manager roles to the team:
-   ![](images/tenant-environment-managers.png "width=500")
+   ![](images/multi-tenant-environment-managers-team.png "width=500")
 3. Add any specific tenant/environment scoping that makes sense.
 4. Add any specific members to the team that make sense.
 
@@ -133,7 +140,7 @@ Firstly we need to create a team with scope limited to the single tenant.
 2. Add any roles you desire, in our example we're providing the tenant with the **Tenant project deployer** role.
 3. Scope the team to a single tenant:
 
-![](images/self-service.png "width=500")
+![](images/multi-tenant-self-service-team.png "width=500")
 
 ### Step 2: Test
 
