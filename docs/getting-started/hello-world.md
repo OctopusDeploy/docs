@@ -6,13 +6,15 @@ position: 20
 
 Octopus Deploy can help with your complex deployment scenarios, but it can also deploy simple projects. 
 
-This section walks you through the simplest deployment possible to help you familiarize yourself with the process and the Octopus Web Portal.
+This section walks you through the simplest deployment possible to help familiarize you with the process and the Octopus Web Portal.
 
 The steps in this procedure are completed in an Octopus Cloud instance, but the process is almost identical in self-hosted instances of Octopus Server.
 
 ## Environments
 
 Octopus organizes the servers and services where you deploy your software into environments. Typical environments are **Dev**, **Test**, and **Production**, and they represent the stages of your deployment pipeline.
+
+![Typical environments in the Octopus Web Portal](images/environments.png)
 
 ### Add an environment
 
@@ -25,6 +27,8 @@ You now have your first environment.
 
 Projects are used to collect all the assets that make up your deployment processes. To deploy our simple hello world script, we first need a project. 
 
+![The projects page in the Octopus Web Portal](images/projects.png)
+
 ## Create a project
 
 1. Navigate to the **Projects** tab, and click **ADD PROJECT**.
@@ -35,6 +39,8 @@ You now have your first project and are ready to define your deployment process.
 ## Deployment process
 
 The deployment process is the steps the Octopus Server orchestrates to deploy your software. For our simple hello world script, we will only have one step.
+
+![The Hello world deployment process](images/deployment-process.png)
 
 ### Define the deployment process
 
@@ -56,7 +62,7 @@ You have created your first deployment process. Next, we'll create a release and
 
 ## Releases
 
-A release is a snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. Our hellow world deployment process only has one step that executes the script we entered in the provious section.
+A release is a snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. Our hello world deployment process only has one step that executes the script we entered in the previous section.
 
 When you deploy the release, you are executing the deployment process with all the associated details, as they existed when the release was created.
 
@@ -70,10 +76,12 @@ The next screen gives you the details of the release you are about to deploy:
 
 ![Deploy release screen in the Octopus Web Portal](images/deploy-release.png)
 
-4. To delpoy the release, click **Deploy**.
+4. To deploy the release, click **Deploy**.
 5. The next screen displays a task summary. If you click the **TASK LOG**, you'll see the steps Octopus took execute your hello world script.
 
 Because we didn't define any deployment targets for the **Test** environment, Octopus leased a dynamic worker (a machine that execute tasks on behalf of the Octopus Server) that was then used to execute the hello world script.
+
+![](images/deployed-release.png)
 
 ## Learn more
 
