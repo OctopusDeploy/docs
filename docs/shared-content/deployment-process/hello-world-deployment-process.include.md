@@ -12,9 +12,11 @@ To define a simple deployment process in the Octopus Web Portal that executes a 
 8. In the **execution location** section, click **Run on the Octopus Server**.
 9. In the **script section**, paste the following PowerShell script into the **Inline Source Code** editor:
 
-```PowerShell
+
+```
 Write-Host "Hello, World!"
-​```
+```
+​
 
 10. Click **SAVE**.
 
