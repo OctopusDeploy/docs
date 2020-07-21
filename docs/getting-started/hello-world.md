@@ -48,7 +48,7 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 1. Click **ADD STEP**.
 1. Select the **Script** tile to filter the types of steps.
 1. Scroll down and click **ADD** on the **Run a Script** tile.
-1. Accept the default name for the script and leave the **Enabled** checkbox ticked.
+1. Accept the default name for the script and leave the **Enabled** check-box ticked.
 1. In the **Execution Location** section, select **Run once on a worker**.
 1. Scroll down to the **Script** and enter the following PowerShell script in the **Inline Source Code** section:
 
@@ -56,7 +56,7 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 Write-Host "Hello, World!"
 ```
 
-1. Click **SAVE**.
+8. Click **SAVE**.
 
 You have created your first deployment process. Next, we'll create a release and deploy it.
 
