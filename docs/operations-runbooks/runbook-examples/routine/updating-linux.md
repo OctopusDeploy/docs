@@ -70,8 +70,7 @@ To create a runbook to perform updates on your Linux machines:
     # Check for error
     if [[ $? -ne 0 ]]
     then
-    # fail_step "yum update failed!"
-    echo "Something went wrong."
+        fail_step "yum update failed!"
     fi
     ```
 
