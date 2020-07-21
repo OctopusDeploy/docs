@@ -81,7 +81,7 @@ The next screen gives you the details of the release you are about to deploy:
 
 Because we didn't define any deployment targets for the **Test** environment, Octopus leased a dynamic worker (a machine that execute tasks on behalf of the Octopus Server) that was then used to execute the hello world script.
 
-![](images/deployed-release.png)
+![The results of the Hello world deployment](images/deployed-release.png)
 
 ## Learn more
 
