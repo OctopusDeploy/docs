@@ -87,7 +87,7 @@ These deployment targets will now be included in deployments for any tenants mat
 Now let's select some tenants that should be hosted on **Shared-Farm-1**:
 
 1. Create some new tenants (or find existing ones) and tag them with **Hosting/Shared-Farm-1**:
-![](images/multi-tenant-shared-server.png"width=500")
+![](images/multi-tenant-shared-server.png "width=500")
 
 ### Step 4: Deploy
 
