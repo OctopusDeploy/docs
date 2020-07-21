@@ -11,4 +11,5 @@ Emergency operations could be
 - Switching application slots for and Azure Web Application
 
 ## In this section
-- Failing over DNS
+- Manually failing over DNS
+- Using monitoring to perform fail over
