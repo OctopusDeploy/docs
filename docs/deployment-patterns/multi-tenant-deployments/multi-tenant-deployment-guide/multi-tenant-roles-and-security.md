@@ -34,7 +34,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 1. In **{{Configuration,Teams,Roles}}** click **Add custom role** and call it **Tenant project deployer**.
 2. Set the description to **Tenant project deployers can deploy releases on behalf of tenants**
-3. Choose the following permissions under [**Space Permissions**](/docs/security/users-and-teams/system-and-space-permissions):
+3. Choose the following permissions under [**Space Permissions**](/docs/security/users-and-teams/system-and-space-permissions.md):
    1. AccountView
    2. ArtifactView
    3. DeploymentCreate
@@ -65,7 +65,7 @@ It is usually a good idea to build smaller roles that can be composed together i
 
 Now we will create a team for all the Account Managers and add the role we created in the last step.
 
-1. In **{{Configuration,Teams}}** click Add team and call it **Account Managers**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces.md) and then select **Save**.
+1. In **{{Configuration,Teams}}** click Add team and call it **Account Managers**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces/index.md) and then select **Save**.
 
 ![](images/multi-tenant-account-managers.md "width=500")
 
