@@ -1,9 +1,9 @@
 ---
 title: Updating Linux
-description: With Octopus Deploy you can update Linux with a runbook as part of a routine operations task.
+description: With Octopus Deploy you can update and patch Linux machines with a runbook as part of a routine operations task.
 position: 50
 ---
-Like all other operating systems, Linux needs updates and patches to keep it up-to-date and secure.  with Runbooks, you could automate the process of performing routine mainenance such as installing updates.  Going one step further, you could schedule this activity using a Runbook scheduled trigger.
+Like all other operating systems, Linux needs updates and patches to keep it up-to-date and secure.  With Runbooks, you could automate the process of performing routine maintenance such as installing updates.  Going one step further, you could also schedule this activity using a scheduled runbook trigger.
 
 ## Create the runbook
 
@@ -15,67 +15,78 @@ To create a runbook to perform updates on an Ubuntu machine:
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. In the **Inline source code** section, select **Bash** and add the following code:
+1. In the **Inline source code** section, select **Bash** and add the following code which matches your Linux distro.
 
-```bash Ubuntu
-# Run update command
-sudo apt-get update 2>&1
+    Ubuntu:
 
-# Check for error
-if [[ $? -ne 0 ]]
-then
-    fail_step "apt-get update failed!"
-fi
+    ```bash
+    # Run update command
+    sudo apt-get update 2>&1
 
-# List upgradable packages
-apt list --upgradable 2>&1
+    # Check for error
+    if [[ $? -ne 0 ]]
+    then
+        fail_step "apt-get update failed!"
+    fi
 
-# Check for error
-if [[ $? -ne 0 ]]
-then
-    fail_step "List update failed!"
-fi
-```
+    # List upgradable packages
+    apt list --upgradable 2>&1
 
-```bash CentOS/RHEL
-# Run update command
-sudo yum check-update 2>&1
+    # Check for error
+    if [[ $? -ne 0 ]]
+    then
+        fail_step "List update failed!"
+    fi
+    ```
 
-# Check for error
-if [[ $? -ne 0 ]]
-then
-    fail_step "yum check update failed!"
-fi
-```
+    CentOS/RHEL:
 
-This step will download a list of available updates then display them.  This step is split out from the actual update process so that you can place any gates such as approvals between listing what is available for update and actually performing the update.
+    ```bash
+    # Run update command
+    sudo yum check-update 2>&1
 
-8.  Repeat steps 3-7 and add the following to perform the update:
+    # Check for error
+    if [[ $? -ne 0 ]]
+    then
+        fail_step "yum check update failed!"
+    fi
+    ```
 
-```bash Ubuntu
-# Perform upgrade
-sudo apt-get upgrade -y 2>&1
+    This step will download a list of available updates then display them.  This step is split out from the actual update process so that you can place any gates such as approvals between listing what is available for update and actually performing the update.
 
-# Check for error
-if [[ $? -ne 0 ]]
-then
-    fail_step "apt-get upgrade failed!"
-fi
-```
-```bash CentOS/RHEL
-# Perform upgrade
-sudo yum update -y 2>&1
+8.  Repeat steps 3-7 above, adding the following code to perform the update in the **Inline source code** section for your Linux distro.
 
-# Check for error
-if [[ $? -ne 0 ]]
-then
-   # fail_step "yum update failed!"
-   echo "Something went wrong."
-fi
-```
+    Ubuntu:
+
+    ```bash
+    # Perform upgrade
+    sudo apt-get upgrade -y 2>&1
+
+    # Check for error
+    if [[ $? -ne 0 ]]
+    then
+        fail_step "apt-get upgrade failed!"
+    fi
+    ```
+    
+    CentOS/RHEL:
+
+    ```bash CentOS/RHEL
+    # Perform upgrade
+    sudo yum update -y 2>&1
+
+    # Check for error
+    if [[ $? -ne 0 ]]
+    then
+    # fail_step "yum update failed!"
+    echo "Something went wrong."
+    fi
+    ```
+    
 :::info
-You'll note the use of `2>&1` which redirects the stderr  stream to stdout.  Bash writes diagnostic messages to stderr which Octopus interprets as an error so your Runbook will show a success with warnings message.  The `if` statement checks to see if an error was actually encountered and will fail the step if it was.
+You'll note the use of `2>&1` which redirects the stderr stream to stdout.  Bash writes diagnostic messages to stderr which Octopus interprets as an error so your Runbook will show a success with warnings message.  The `if` statement checks to see if an error was actually encountered and will fail the step if it errored.
 :::
 
 ## Samples
+
 We have a [Target - Wildfly](https://g.octopushq.com/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
