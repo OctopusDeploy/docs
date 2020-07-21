@@ -58,7 +58,13 @@ The retention policy is applied **per environment**. For example, if you had thr
 In Octopus 2020.2 and earlier, the runbook retention policy could not be set. Instead, Octopus would keep the last 1000 runs.
 :::
 
-## Snapshots vs. Releases
-Runbooks work similar with Deployments in that they create a copy of the process to be used with execution.  For a runbook this is referred to as a `[snapshot](https://octopus.com/docs/operations-runbooks/runbook-publishing#snapshots)` versus a `release` for a deployment.  Runbooks can have two different types of `snapshots`:
+## Snapshots vs Releases
+
+Runbooks work similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/operations-runbooks/runbook-publishing/index.md#snapshots) versus a [release](/docs/octopus-concepts/releases.md) for a deployment. Runbooks can have two different types of snapshots:
 - Draft
 - Published
+
+:::hint
+**Package versions are included in a snapshot**
+Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, then you will need to create a new snapshot of the runbook.
+:::
