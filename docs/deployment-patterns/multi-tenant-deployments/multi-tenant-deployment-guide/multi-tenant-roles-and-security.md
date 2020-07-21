@@ -67,7 +67,7 @@ Now we will create a team for all the Account Managers and add the role we creat
 
 1. In **{{Configuration,Teams}}** click Add team and call it **Account Managers**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces/index.md) and then select **Save**.
 
-![](images/multi-tenant-account-managers.md "width=500")
+![](images/multi-tenant-account-managers.png "width=500")
 
 2. Under **User Roles** select **Include User Role** button.
 
