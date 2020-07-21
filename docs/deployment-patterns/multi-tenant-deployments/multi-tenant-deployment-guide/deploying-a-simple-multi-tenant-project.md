@@ -38,7 +38,7 @@ You can connect each tenant to any number of projects and for each project, any 
 - You can also provide most of your tenants with a single environment while offering specific customers extra environments. For example, you could give particular customers with a test/staging/acceptance environment where they can test new releases before upgrading their production environment.
   :::
 
-## Deploying the project to your tenant {#Deployingasimplemulti-tenantproject-Deployingtheprojecttoyourtenant}
+## Deploying the project to your tenant
 
 Your tenant is connected to the **Mojo** project; you can start deploying releases to your tenant.
 
@@ -70,7 +70,7 @@ At some point in time, you may want to disable untenanted deployments and requir
 ![](images/multi-tenant-project-tenancy-settings.png "width=500")
 :::
 
-## Next steps {#Deployingasimplemulti-tenantproject-Nextsteps}
+## Next steps
 
 Now that we can deploy the **Mojo** project to your tenant, we need to make sure it is configured correctly for each tenant - we are going to [start working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
 

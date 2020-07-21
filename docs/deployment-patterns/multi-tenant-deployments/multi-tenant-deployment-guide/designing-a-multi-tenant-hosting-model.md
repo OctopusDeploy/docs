@@ -20,16 +20,20 @@ We talk more about tenanted and untenanted deployments in [Deploying a simple mu
 
 :::warning
 **Mixing tenanted and untenanted deployments on the same machine**
-Between **Octopus 3.4** and **Octopus 3.14**, you cannot mix tenanted and untenanted deployments on the same machine(s). You can work around this by creating a single dummy tenant for your untenanted project, as described in that GitHub Issue. 
+Between **Octopus 3.4** and **Octopus 3.14**, you couldn't mix tenanted and untenanted deployments on the same machine(s). You can work around this by creating a single dummy tenant for your untenanted project.
 :::
 
-From **Octopus 3.15.0** you can mark a deployment target as:
+From **Octopus 3.15.0** you can mark a deployment target for as:
 
 1. Exclude from tenanted deployments.
 2. Include only in tenanted deployments
 3. Include in both tenanted and untenanted deployments.
 
 ![](images/multi-tenant-deployment-target-tenancy-selection.png "width=500")
+
+:::hint
+In this guide, we focus on only tenanted deployment targets, and we generally recommend keeping tenanted and untenanted deployment targets separate, particularly in Production. You could use the same deployment targets for other environments but it's better to avoid this situation.
+:::
 
 ## Multi-tenant hosting
 

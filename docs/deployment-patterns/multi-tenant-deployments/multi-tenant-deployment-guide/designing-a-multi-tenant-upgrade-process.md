@@ -54,7 +54,7 @@ You can also use the Project Overview to deploy to individual tenants by selecti
 
 You can deploy to all of the tenants in an environment using the Octopus UI, the Octopus CLI, or any build-server extensions. Octopus will create a deployment for each tenant, ready for that release to be deployed to the project/environment. Octopus will automatically exclude the tenants who are not ready for that release yet - perhaps they haven't met their lifecycle requirements.
 
-As a general rule, we don't recommend deploying to all tenants when there are hundreds of them. This may cause an unnecessary overload on your Octopus instance, and this is when we would recommend deploying using [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
+As a general rule, we don't recommend deploying to all tenants when there are hundreds of tenants. This may cause an unnecessary overload on your Octopus instance, and this is when we would recommend deploying using [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
 
 ### Using the Octopus CLI
 

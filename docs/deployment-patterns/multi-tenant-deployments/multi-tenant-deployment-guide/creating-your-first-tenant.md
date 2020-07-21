@@ -18,9 +18,15 @@ You've created your first tenant, but you may have noticed you cannot do much wi
 
 ## Add your logo
 
-Try adding a logo for your tenant - this will make it much easier to distinguish your tenants. You can do this by clicking on the tenant's logo placeholder or going to the Settings tab on the tenant.
+Try adding a logo for your tenant - this will make it much easier to distinguish your tenants. You can do this within the Octopus Tenant section by clicking on the tenant's logo placeholder or going to the Settings tab on the tenant.
 
-In reality, your tenants would be other businesses, and you could use their logo to help quickly identify the correct tenant.
+Your tenants would likely be other businesses, and you could use their logo to help quickly identify the correct tenant.
+
+You could consider using logos based on:
+
+- Customer logos
+- Data center region(s) or flags
+- Individual tester(s) photo/avatar
 
 ## Next steps
 

@@ -46,6 +46,7 @@ if ($tenantName) {
 Write-Host "Database Connection String: $databaseConnectionString"
 Write-Host "URL: $hostURL"
 ```
+
 *This script doesn't do anything, it just simulates deploying an application with or without a tenant, showing the resulting database connection string.*
 
 **That's it!** You are now ready to start connecting tenants to your project to deploy to those tenants, which is what we will do in the next steps.
