@@ -12,3 +12,5 @@ Typical database maintenance could be:
 - Creating Databases 
 - Index rebuilding 
 - Checking Database integrity
+- Restoring Databases
+- Restoring Databases to another environment
