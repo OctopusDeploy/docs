@@ -27,3 +27,8 @@ $ipAddressProd = $OctopusParameters["OctoFX.Production.IP.Address"]
 az network dns record-set a add-record --resource-group $resourceGroup --zone-name $zoneName --record-set-name www --ipv4-address $ipAddressProd
 az network dns record-set a remove-record --resource-group $resourceGroup --zone-name $zoneName --record-set-name www --ipv4-address $ipAddressDR
 ```
+
+This script within a runbook lets your switch your DNS entry at the click of a button and lets you go back to sleep when this happens in the wee hours of the night.
+
+## Samples
+We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
