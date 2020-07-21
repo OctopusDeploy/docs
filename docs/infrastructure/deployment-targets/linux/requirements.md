@@ -78,7 +78,7 @@ Although previous versions of Mono should work in most deployment scenarios, any
 
 #### Configuration transformations only available in Mono >= 4.2.3  
 
-The [configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
+The [.NET configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 

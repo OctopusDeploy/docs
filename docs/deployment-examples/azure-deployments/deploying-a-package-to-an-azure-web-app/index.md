@@ -47,7 +47,7 @@ The following features are available when deploying a package to an Azure Web Ap
 
 - [Custom scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Substitute variables in files](/docs/projects/variables/variable-substitutions.md)
 
@@ -72,8 +72,8 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 2. Extract the package on the Octopus Server to a temporary location.
 3. Any configured or packaged `PreDeploy` scripts are executed.
 4. [Substitute variables in files ](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)(if configured).
-5. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
-6. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+5. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+6. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 7. Any configured or packaged `Deploy` scripts are executed.
 8. Push your package content to the Web App in Azure.
 9. Any configured or packaged `PostDeploy` scripts are executed.
