@@ -4,20 +4,22 @@ description: Publishing makes a runbook available to scheduled triggers and cons
 position: 30
 ---
 
+Runbooks and deployments define their processes in exactly the same way. However, where a deployment has a [release](/docs/octopus-concepts/releases.md), a runbook has what is called a Snapshot. 
+
 ## Snapshots
 
-Runbooks and deployments define their processes in exactly the same manor. However, where a deployment has a [release](/docs/octopus-concepts/releases.md), a runbook has what is called a Snapshot. For a given runbook, you can have two snapshots:
+For a given runbook, you can have two snapshots:
 - Draft
 - Published
 
-Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, then you will need to create a new snapshot of the runbook.
+Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, you need to create a new snapshot of the runbook.
 
 ### Draft snapshot
 
 A draft snapshot of a runbook is exactly what it sounds like, a draft version of the currently published version. Drafts are meant to give you a place to work and save a runbook that is a work in progress or has not yet been approved for general use.
 
 :::hint
-Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/operations-runbooks/scheduled-runbook-trigger/index.md), only published snapshots can. 
+Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/index.md), only published snapshots can. 
 :::
 
 ### Published snapshot

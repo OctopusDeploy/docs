@@ -23,6 +23,6 @@ It could be:
   - Deploying an AWS CloudFormation template.
   - Deploying an Azure ARM template.
 
-These procedures can all be automated with [Operations Runbooks](/docs/operations-runbooks/index.md). 
+These procedures can all be automated with [runbooks](/docs/runbooks/index.md). 
 
 This section goes into details for specific runbook examples.

@@ -10,6 +10,6 @@ position: 160
 
 - [Projects](/docs/projects/index.md)
 - [Deployment processes](/docs/deployment-process/index.md)
-- [Operations Runbooks](/docs/operations-runbooks/index.md)
+- [Runbooks](/docs/runbooks/index.md)
 - [Variables](/docs/projects/variables/index.md)
 - [Release management](/docs/managing-releases/index.md)
