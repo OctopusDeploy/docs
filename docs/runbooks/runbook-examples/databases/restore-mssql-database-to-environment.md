@@ -3,7 +3,7 @@ title: Restore SQL database to another environment
 description: With Octopus Deploy you can restore a MSSQL database to another environment with a Runbook.
 position: 30
 ---
-[Restore SQL Database](/docs/operations-runbooks/runbook-examples/databases/restore-mssql-database) covers the basics of how to set up a basic runbook for restoring a database.  Extending on that idea is creating a runbook that can restore a database to a different environment, such as restoring Production down to Test.  Using a runbook, you can create a self-service method for developers restore the Production database to a lower level environment to test bugs, fixes, and even the deployment process itself.
+[Restore SQL Database](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md) covers the basics of how to set up a basic runbook for restoring a database.  Extending on that idea is creating a runbook that can restore a database to a different environment, such as restoring Production down to Test.  Using a runbook, you can create a self-service method for developers restore the Production database to a lower level environment to test bugs, fixes, and even the deployment process itself.
 
 The advantage of using the runbook is developers don't need any extra permissions to the database server itself.  This can save a ton of time by not having to fill out a support ticket or track down a DBA to perform the restore for you.
 

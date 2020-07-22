@@ -4,7 +4,7 @@ description: With Octopus Deploy you can restore a MSSQL database with a Runbook
 position: 20
 ---
 
-Restoring databases is a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to restore backups ad-hoc or on a [scheduled trigger](/docs/operations-runbooks/scheduled-runbook-trigger/index.md). 
+Restoring databases is a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to restore backups ad-hoc or on a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger/index.md). 
 
 ## Permissions
 
