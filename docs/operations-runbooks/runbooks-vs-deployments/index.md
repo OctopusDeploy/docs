@@ -66,5 +66,5 @@ Runbooks work similar to deployments in that they also take a copy of the proces
 
 :::hint
 **Package versions are included in a snapshot**
-Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, then you will need to create a new snapshot of the runbook.
+Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, you will need to create a new snapshot of the runbook.
 :::

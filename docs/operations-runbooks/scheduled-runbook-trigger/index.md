@@ -9,7 +9,7 @@ Scheduled runbook triggers were introduced in **Octopus 2019.11**.
 Scheduled runbook triggers allow you to define unattended behavior for your [Runbook](/docs/operations-runbooks/index.md) that will cause an automatic runbook run to environments of your choosing.
 
 :::hint
-Draft snapshots can't be used to create a scheduled runbook trigger, only published snapshots can. 
+Only published snapshots can be used to create a scheduled runbook trigger, draft snapshots cannot be used to create a scheduled trigger.
 :::
 
 ## Schedule
