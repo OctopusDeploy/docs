@@ -4,7 +4,7 @@ description: With Octopus Deploy you can update and patch Windows machines with 
 position: 60
 ---
 
-It is not always possible to use products such as Microsfot System Center Configuration Manager to orchestrate the installation of patches for Windows, especially if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of Octopus Deploy runbooks and [triggers]((/docs/runbooks/scheduled-runbook-trigger/index.md)) to periodically check and apply updates to your application infrastructure.
+It is not always possible to use products such as Microsfot System Center Configuration Manager to orchestrate the installation of patches for Windows, especially if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of Octopus Deploy runbooks and [triggers](/docs/runbooks/scheduled-runbook-trigger/index.md) to periodically check and apply updates to your application infrastructure.
 
 ## Create the runbook
 
