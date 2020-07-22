@@ -1,7 +1,7 @@
 ---
 title: Azure
 description: Octopus Deploy can help you automate the provisioning of infrastructure in Azure using runbooks.
-position: 50
+position: 60
 hideInThisSectionHeader: true
 ---
 
