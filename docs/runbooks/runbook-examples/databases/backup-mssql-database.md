@@ -4,7 +4,7 @@ description: With Octopus Deploy you can backup a MSSQL database with a Runbook.
 position: 10
 ---
 
-Backing up databases to protect application data should be a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to run backups ad-hoc or on a [scheduled trigger](/docs/operations-runbooks/scheduled-runbook-trigger/index.md). 
+Backing up databases to protect application data should be a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to run backups ad-hoc or on a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger/index.md). 
 
 ## Permissions
 
