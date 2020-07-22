@@ -1,3 +1,9 @@
+---
+title: Manually failover DNS
+description: With Octopus Deploy you can manually failover DNS with a Runbook.
+position: 10
+---
+
 Power outages, natural disasters, or fibre lines being cut in construction projects are just a few things that can cause outages.  One of the most common Disaster Recovery (DR) methods is to have a secondary site where you can update the Domain Name System (DNS) record and be back online.
 
 :::info
