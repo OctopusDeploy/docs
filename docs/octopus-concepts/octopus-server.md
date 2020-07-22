@@ -14,4 +14,4 @@ The Octopus Server can be installed in a self-hosted environment or accessed thr
 - [Octopus Cloud](/docs/octopus-cloud/index.md)
 - [Octopus REST API](/docs/octopus-rest-api/index.md)
 - [Deployment process](/docs/deployment-process/index.md)
-- [Operations Runbooks](/docs/operations-runbooks/index.md)
+- [Runbooks](/docs/runbooks/index.md)

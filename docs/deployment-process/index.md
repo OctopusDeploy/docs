@@ -9,14 +9,6 @@ Now that you have access to an Octopus Server, your [infrastructure is configure
 
 !include <deployment-process>
 
-<!-- tailor to deployment processes/ releases and do the same for operations runbooks
-
-## Project Overview
-
-The project overview page is where you access settings for the project and define the release process. After you've deployed a few releases, the overview page will give you a visual summary of the project's releases and which environments they've been deployed to.
-
-![Project Overview](project-overview.png "width=500") -->
-
 !include <hello-world-deployment-process>
 
 ## Create a release

@@ -1,6 +1,6 @@
 ---
 title: Emergency operations
-description: This section includes examples of how to use Runbooks to help automate disaster recovery operations.
+description: This section includes examples of how to use runbooks to help automate disaster recovery operations.
 position: 10
 ---
 

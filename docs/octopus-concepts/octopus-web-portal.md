@@ -12,5 +12,5 @@ position: 159
 - [Install the self-hosted Octopus Server](/docs/installation/index.md)
 - [Octopus Cloud](/docs/octopus-cloud/index.md)
 - [Deployment process](/docs/deployment-process/index.md)
-- [Operations Runbooks](/docs/operations-runbooks/index.md)
+- [Runbooks](/docs/runbooks/index.md)
 - [Projects](/docs/projects/index.md)
