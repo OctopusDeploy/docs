@@ -70,7 +70,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
-!include <json-configuration-variables>
+!include <structured-configuration-variables>
 
 
 ## Learn more
