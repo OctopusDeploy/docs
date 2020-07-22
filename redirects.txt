@@ -660,7 +660,7 @@ docs/operations-runbooks/runbook-examples/emergency/monitor-failover-dns.md -> d
 docs/operations-runbooks/runbook-examples/routine/index.md -> docs/runbooks/runbook-examples/routine/index.md
 docs/operations-runbooks/runbook-examples/routine/iis-maintenance.md -> docs/runbooks/runbook-examples/routine/iis-maintenance.md
 docs/operations-runbooks/runbook-examples/routine/installing-iis.md -> docs/runbooks/runbook-examples/routine/installing-iis.md
-docs/operations-runbooks/runbook-examples/routine/installing-software-chocoloatey.md -> docs/runbooks/runbook-examples/routine/installing-software-chocolatey.md
+docs/operations-runbooks/runbook-examples/routine/installing-software-chocolatey.md -> docs/runbooks/runbook-examples/routine/installing-software-chocolatey.md
 docs/operations-runbooks/runbook-examples/routine/installing-tomcat.md -> docs/runbooks/runbook-examples/routine/installing-tomcat.md
 docs/operations-runbooks/runbook-examples/routine/updating-linux.md -> docs/runbooks/runbook-examples/routine/updating-linux.md
 docs/operations-runbooks/runbook-examples/services/index.md -> docs/runbooks/runbook-examples/services/index.md
