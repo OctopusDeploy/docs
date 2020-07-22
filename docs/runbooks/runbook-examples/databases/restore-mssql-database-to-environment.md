@@ -13,7 +13,7 @@ The advantage of using the runbook is developers don't need any extra permission
 2. Give the Runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Restore Database**.
-5. Fill out all the parameters in the step. We recommend to using [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
+5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -29,7 +29,7 @@ The advantage of using the runbook is developers don't need any extra permission
 | Date Format | Date format to use if backup is suffixed with a date stamp (e.g. yyyy-MM-dd) | yyyy-MM-dd |
 
 6. Add a new step template from the community library called **SQL - Fix Orphaned User**.  This is needed because the SID associated with the login for the database will be different and needs to be re-associated.
-7. Fill out all the parameters in the step 
+7. Fill out all the parameters in the step.
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -39,10 +39,14 @@ The advantage of using the runbook is developers don't need any extra permission
 | Database Name | Name of the database for the account | MyDatabase |
 | SQL Login | Name of the account to be fixed | MyOrphanedAccount |
 
-After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts! You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
+After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts!
+
+You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
 
 ## Samples
+
 We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
 ## Learn More
+
 - [SQL Backup - Community Step template](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database)

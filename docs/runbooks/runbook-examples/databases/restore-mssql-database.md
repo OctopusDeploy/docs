@@ -42,7 +42,9 @@ Use variables where possible so you can assign scopes to values. This will ensur
 After adding all of the required parameters, click **Save**, and you have a basic runbook to restore your SQL database! You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
 
 ## Samples
+
 We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
 ## Learn More
+
 - [SQL Backup - Community Step template](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database)
