@@ -15,8 +15,8 @@ Sensitive information is encrypted using AES128 with the Master Key as the encry
 :::
 
 :::hint
-**Operations Runbooks**
-[Octopus Runbooks](/docs/operations-runbooks/index.md) can help you automate your disaster recovery process.
+**Runbooks**
+[Octopus runbooks](/docs/runbooks/index.md) can help you automate your disaster recovery process.
 :::
 
 ## Octopus SQL Database

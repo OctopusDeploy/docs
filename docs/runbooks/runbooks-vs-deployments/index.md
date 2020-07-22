@@ -4,7 +4,7 @@ description: Describing the differences between a deployment and a runbook.
 position: 10
 ---
 
-For users familiar with Octopus prior to the introduction of Operations Runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
+For users familiar with Octopus prior to the introduction of runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
 
 - No release needs to be created to execute a runbook.
 - Lifecycles do not apply to runbooks.
@@ -60,11 +60,11 @@ In Octopus 2020.2 and earlier, the runbook retention policy could not be set. In
 
 ## Snapshots vs Releases
 
-Runbooks work similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/operations-runbooks/runbook-publishing/index.md#snapshots) versus a [release](/docs/octopus-concepts/releases.md) for a deployment. Runbooks can have two different types of snapshots:
+Runbooks work similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/index.md#snapshots) versus a [release](/docs/octopus-concepts/releases.md) for a deployment. Runbooks can have two different types of snapshots:
 - Draft
 - Published
 
 :::hint
 **Package versions are included in a snapshot**
-Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, then you will need to create a new snapshot of the runbook.
+Similar to releases, the version of any packages that are used in the runbook are also snapshotted. This means if a newer version of the package is uploaded, and you wish to use it in your runbook, you will need to create a new snapshot of the runbook.
 :::

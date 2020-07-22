@@ -53,7 +53,7 @@ A deployment is only one phase in the life of an application. There are typicall
 
 Runbooks are used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
 
-Learn more about [Octopus Runbooks](/docs/operations-runbooks/index.md).
+Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
 ## Learn more
 
