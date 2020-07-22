@@ -651,7 +651,7 @@ docs/deployment-examples/azure-deployments/resource-groups/index.md -> docs/runb
 docs/operations-runbooks/index.md -> docs/runbooks/index.md
 docs/operations-runbooks/runbook-examples/index.md -> docs/runbooks/runbook-examples/index.md
 docs/operations-runbooks/runbook-examples/azure/index.md -> docs/runbooks/runbook-examples/azure/index.md
-docs/operations-runbooks/runbook-examples/azure/resource-groups.md -> docs/runbooks/runbook-examples/azure/resource-groups.md
+docs/operations-runbooks/runbook-examples/azure/resource-groups/index.md -> docs/runbooks/runbook-examples/azure/resource-groups/index.md
 docs/operations-runbooks/runbook-examples/databases/index.md -> docs/runbooks/runbook-examples/databases/index.md
 docs/operations-runbooks/runbook-examples/databases/backup-mssql-database.md -> docs/runbooks/runbook-examples/databases/backup-mssql-database.md
 docs/operations-runbooks/runbook-examples/emergency/index.md -> docs/runbooks/runbook-examples/emergency/index.md
