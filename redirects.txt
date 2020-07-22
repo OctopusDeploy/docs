@@ -669,5 +669,4 @@ docs/operations-runbooks/runbook-permissions/index.md -> docs/runbooks/runbook-p
 docs/operations-runbooks/runbook-publishing/index.md -> docs/runbooks/runbook-publishing/index.md
 docs/operations-runbooks/runbooks-vs-deployments/index.md -> docs/runbooks/runbooks-vs-deployments/index.md
 docs/operations-runbooks/scheduled-runbook-trigger/index.md -> docs/runbooks/scheduled-runbook-trigger/index.md
-
 docs/deployment-process/configuration-features/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/structured-configuration-variables-feature.md
