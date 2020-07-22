@@ -3,12 +3,46 @@ title: Restore SQL database to another environment
 description: With Octopus Deploy you can restore a MSSQL database to another environment with a Runbook.
 position: 30
 ---
-Restoring databases requires that the user have some elevated permissions.  These permissions are typically held by Database Administrators (DBA) and sometimes SQL developers.  The process of restoring a database often includes filling out a ticket and waiting for that ticket to be actioned.  With runbooks, the DBA team can configure a self-service method for standard developers to restore a Production database down to Test without a ticket or even a DBA being involved.
+[Restore SQL Database](/docs/operations-runbooks/runbook-examples/databases/restore-mssql-database) covers the basics of how to set up a basic runbook for restoring a database.  Extending on that idea is creating a runbook that can restore a database to a different environment, such as restoring Production down to Test.  Using a runbook, you can create a self-service method for developers restore the Production database to a lower level environment to test bugs, fixes, and even the deployment process itself.
 
-## Permissions
-Using a runbook, a developer needs no permissions to the database server itself.  The permissions necessary to perform a restore are held either by the account the Tentacle is running as (in Active Directory enviroments) or the SQL Account that is configured to run the restore step.  The only permission that would be required is the ability to run the runbook itself.
+The advantage of using the runbook is developers don't need any extra permissions to the database server itself.  This can save a ton of time by not having to fill out a support ticket or track down a DBA to perform the restore for you.
 
-## Variables
-Variables can be used and scoped to control which environments the database is coming from and going to.
+## Create the Runbook
 
+1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
+2. Give the Runbook a name and click **SAVE**.
+3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+4. Add a new step template from the community library called **SQL - Restore Database**.
+5. Fill out all the parameters in the step. We recommend to using [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
 
+| Parameter  | Description | Example |
+| ------------- | ------------- | ------------- |
+| Server | Name database server | SQLserver1 |
+| Database | Name of the database to restore | MyDatabase |
+| Backup Directory | Location of where the backup file resides | \\\mybackupserver\backupfolder |
+| SQL login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
+| SQL password | Password for the SQL Account | MyPassword |
+| Compression Option | Use compression for this backup | Enabled |
+| Devices | The number of backup devices to use for the backup | 1 |
+| Backup file suffix | Specify a suffix to add to the backup file names. If left blank, the current date, in the format given by the DateFormat parameter, is used | ProdRestore |
+| Separator | Separator used between database name and suffix | _ |
+| Date Format | Date format to use if backup is suffixed with a date stamp (e.g. yyyy-MM-dd) | yyyy-MM-dd |
+
+6. Add a new step template from the community library called **SQL - Fix Orphaned User**.  This is needed because the SID associated with the login for the database will be different and needs to be re-associated.
+7. Fill out all the parameters in the step 
+
+| Parameter  | Description | Example |
+| ------------- | ------------- | ------------- |
+| SQL Server | Name of the server | SQLserver1 |
+| SQL Login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
+| SQL Password | Password for the SQL Account | MyPassword |
+| Database Name | Name of the database for the account | MyDatabase |
+| SQL Login | Name of the account to be fixed | MyOrphanedAccount |
+
+After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts! You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
+
+## Samples
+We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
+
+## Learn More
+- [SQL Backup - Community Step template](https://library.octopus.com/step-templates/34b4fa10-329f-4c50-ab7c-d6b047264b83/actiontemplate-sql-backup-database)
