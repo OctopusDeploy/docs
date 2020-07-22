@@ -89,7 +89,7 @@ else
 }
 ```
 :::warning
-Be aware that the `-AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to get the rest of the available updates.
+Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to get the rest of the available updates.
 :::
 
 ## Samples
