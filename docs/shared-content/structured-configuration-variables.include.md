@@ -19,7 +19,7 @@ or
 
 Octopus will find the target files and replace any matching configuration settings with the value of matching Octopus variables.
 
-### Selecting Target Files {#StructuredConfigurationVariablesFeature-SelectingTargetFiles}
+### Selecting target files {#StructuredConfigurationVariablesFeature-SelectingTargetFiles}
 
 Target files are files that should have variable replacement applied to them. Multiple files can be supplied by seperating them with a comma or a new line. 
 
