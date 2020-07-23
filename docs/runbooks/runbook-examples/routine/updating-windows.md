@@ -4,7 +4,9 @@ description: With Octopus Deploy you can update and patch Windows machines with 
 position: 60
 ---
 
-It is not always possible to use products such as Microsfot System Center Configuration Manager to orchestrate the installation of patches for Windows, especially if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of Octopus Deploy runbooks and [triggers](/docs/runbooks/scheduled-runbook-trigger/index.md) to periodically check and apply updates to your application infrastructure.
+It’s not always possible to use products such as [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/en-us/mem/configmgr/) (formerly SCCM or Microsoft System Center Configuration Manager) to orchestrate the installation of patches for Windows.
+
+This is especially true if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of runbooks and [scheduled runbook triggers](/docs/runbooks/scheduled-runbook-trigger/index.md) to periodically check and apply updates to your application infrastructure.
 
 ## Create the runbook
 
@@ -17,6 +19,7 @@ To create a runbook to perform updates on your Windows machines:
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **PowerShell** and add the following code:
+
 ```PowerShell
 function Get-NugetPackageProviderNotInstalled
 {
@@ -92,7 +95,7 @@ else
 Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to get the rest of the available updates.
 :::
 
-With the process defined, you can set up the update to execute automatically with a trigger!
+With the process defined, you can set the update to execute automatically with a scheduled runbook trigger. In order to create a scheduled runbook trigger, your runbook must first be [published](/docs/runbooks/runbook-publishing/index.md).
 
 ## Create the trigger
 
@@ -108,6 +111,7 @@ With the process defined, you can set up the update to execute automatically wit
 
 Using this method, you can set it and forget it!
 
+
 ## Samples
 
-We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
+We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFx` project.
