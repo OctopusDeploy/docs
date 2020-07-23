@@ -8,7 +8,7 @@ Highly regulated industries such as finance need to make sure the Operating Syst
 
 ## Create the runbook
 
-To create a runbook to install Tomcat on an Ubuntu machine:
+To create a runbook to harden your Windows installation:
 
 1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
