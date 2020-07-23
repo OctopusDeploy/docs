@@ -27,7 +27,9 @@ Use variables where possible so you can assign scopes to values. This will ensur
 After adding all of the required parameters, click **Save**, and you have a basic runbook to restart a service on Ubuntu. You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
 
 ## Samples
+
 We have a [Target - Wildfly](https://g.octopushq.com/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
 
 ## Learn More
+
 - [Linux Service - Start, Stop, Restart community step template](https://library.octopus.com/step-templates/cc2aa1d1-975b-4ac4-a145-094bbd92a2c9/actiontemplate-linux-service-start,-stop,-restart)
