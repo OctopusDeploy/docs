@@ -11,9 +11,10 @@ Updating the IP address of a DNS entry is quick and easy, but you are at the mer
 :::
 
 ## Infrastructure as a Service (IaaS) DNS failover
+
 Popular IaaS providers such as Azure, AWS, or GCP provide a CLI to make it easy update your DNS record to point to another site with just a couple of commands.
 
-The following example uses the Azure CLI to update the DNS record for www.OctopusSamples.com
+The following example uses the Azure CLI to update the DNS record for www.octopussamples.com
 
 ## Create the runbook
 
@@ -37,4 +38,5 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
 This script within a runbook lets your switch your DNS entry with the click of a button, so no matter when disaster strikes, it is easy to recover.
 
 ## Samples
+
 We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
