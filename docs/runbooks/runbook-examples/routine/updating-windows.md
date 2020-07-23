@@ -92,6 +92,22 @@ else
 Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to get the rest of the available updates.
 :::
 
+With the process defined, you can set up the update to execute automatically with a trigger!
+
+## Create the trigger
+
+1. To create a trigger, navigate to **{{Project, Operations, Triggers, Add Scheduled Trigger}}**.
+2. Give the trigger a name and a description
+3. Fill in Trigger Action section:
+   - Runbook: Select the runbook to execute.
+   - Target environments: Select the environment(s) this runbook will execute against.
+4. Fill in the **Trigger Schedule** section:
+   - Schedule: Daily | Days per month | Cron expression.
+5. Scheduled Timezone:
+   - Select timezone: Select the timezone to use when evaluating when to run.
+
+Using this method, you can set it and forget it!
+
 ## Samples
 
 We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
