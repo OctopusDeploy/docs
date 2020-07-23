@@ -8,7 +8,7 @@ Having a server that is publically available needs to be as secure as you can ma
 
 ## Create the runbook
 
-To create a runbook to manage your IIS websites:
+To create a runbook to harden your IIS server:
 
 1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
