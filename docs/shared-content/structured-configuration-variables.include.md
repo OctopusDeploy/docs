@@ -47,6 +47,15 @@ Application/**/*.yaml
 
 The Target File field also supports [extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) which can allow conditionals and loops to be used to specify files. 
 
+### How the file type for target files is determined
+
+Structured Configuration Variables allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Calamari will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to allow backwards compatability from when this feature only supported replacement in JSON files. 
+
+If it doesn't parse as JSON, it will then use the file extension to determine if it should parse as YAML. If the file has the extension `yml` or `yaml`, Calamari will attempt to do variable replacement on the file as if it is a YAML file. 
+
+The type of the file can also be manually specified for cases when your file might not end in a file format this is automatically parsed. For example, if you have a YAML file called `application.config` that won't parse as YAML automatically as it doesn't end in `yml` or `yaml`. When specifying the file in the `Target Files` field, the following can be done to force the file to parse as YAML: `<yaml> application.config`. This also applies to json like the following: `<json> application.config`. 
+
+
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
 
 Given this example of a target config file:
