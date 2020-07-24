@@ -55,7 +55,7 @@ docs/administration/octopus-tentacle-communication/index.md -> docs/security/oct
 docs/administration/lets-encrypt-integration.md -> docs/security/exposing-octopus/lets-encrypt-integration.md
 docs/administration/octopus-server-configuration-file.md -> docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md
 docs/deployment-process/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
-docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
+docs/deployment-process/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-templates.md
 docs/deployment-process/variable-substitution-syntax.md -> docs/projects/variables/variable-substitutions.md
 docs/deployment-process/steps/automatic-release-creation.md -> docs/projects/project-triggers/automatic-release-creation.md
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
@@ -97,7 +97,7 @@ docs/deployment-process/deploy-to-a-specific-subset-of-targets.md -> docs/managi
 docs/deployment-process/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md -> docs/projects/coordinating-multiple-projects/deploy-release-step/index.md
 docs/deployment-process/steps/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
-docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
+docs/deployment-process/steps/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-templates.md
 docs/deployment-process/steps/deploying-packages/delta-compression-for-package-transfers.md -> docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md
 docs/deployment-process/steps/deploying-packages/package-deployment-feature-ordering.md -> docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md
 docs/deployment-process/steps/deploying-packages/stage-package-uploads.md -> docs/deployment-examples/package-deployments/stage-package-uploads.md
@@ -134,7 +134,7 @@ docs/deployment-process/configuration-files/configuration-transforms.md -> docs/
 docs/deployment-process/configuration-files/configure-environment-specific-configuration-transforms-while-keeping-sensitive-values-in-octopus.md -> docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md
 docs/deployment-process/configuration-files/configuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
 docs/deployment-process/configuration-files/custom-installation-directory.md -> docs/deployment-process/configuration-features/custom-installation-directory.md
-docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-files.md
+docs/deployment-process/configuration-files/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-templates.md
 docs/deployment-process/configuration-files/confiuration-variables.md -> docs/deployment-process/configuration-features/xml-configuration-variables-feature.md
 docs/deployment-examples/deploying-asp.net-core-web-applications/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/json-configuration-variables-feature.md
 docs/administration/workers/external-workers.md -> docs/infrastructure/workers/index.md
