@@ -12,7 +12,7 @@ This is especially true if your VMs are in the cloud and not connected to your A
 
 To create a runbook to perform updates on your Windows machines:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
@@ -92,7 +92,7 @@ else
 }
 ```
 :::warning
-Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to get the rest of the available updates.
+Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to install the rest of the available updates.
 :::
 
 With the process defined, you can set the update to execute automatically with a scheduled runbook trigger. In order to create a scheduled runbook trigger, your runbook must first be [published](/docs/runbooks/runbook-publishing/index.md).
@@ -100,7 +100,7 @@ With the process defined, you can set the update to execute automatically with a
 ## Create the trigger
 
 1. To create a trigger, navigate to **{{Project, Operations, Triggers, Add Scheduled Trigger}}**.
-2. Give the trigger a name and a description
+2. Give the trigger a name and a description.
 3. Fill in Trigger Action section:
    - Runbook: Select the runbook to execute.
    - Target environments: Select the environment(s) this runbook will execute against.
@@ -109,7 +109,7 @@ With the process defined, you can set the update to execute automatically with a
 5. Scheduled Timezone:
    - Select timezone: Select the timezone to use when evaluating when to run.
 
-Using this method, you can set it and forget it!
+Using this method, you can set it and forget it.
 
 
 ## Samples

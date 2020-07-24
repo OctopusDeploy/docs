@@ -1,16 +1,19 @@
 ---
 title: Restore SQL database to another environment
-description: With Octopus Deploy you can restore a MSSQL database to another environment with a Runbook.
+description: With Octopus Deploy you can restore a MSSQL database to another environment with a runbook.
 position: 30
 ---
-[Restore SQL Database](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md) covers the basics of how to set up a basic runbook for restoring a database.  Extending on that idea is creating a runbook that can restore a database to a different environment, such as restoring Production down to Test.  Using a runbook, you can create a self-service method for developers restore the Production database to a lower level environment to test bugs, fixes, and even the deployment process itself.
 
-The advantage of using the runbook is developers don't need any extra permissions to the database server itself.  This can save a ton of time by not having to fill out a support ticket or track down a DBA to perform the restore for you.
+To restore a SQL database with a runbook see [restore SQL database](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md).  
+
+This section shows you how to restore a database to a different environment, for instance restoring from production down to test.  Using a runbook, you can create a self-service method for developers to restore the production database to a lower level environment to test bugs, fixes, and even the deployment process itself.
+
+Using the runbook means developers don't need any extra permissions to the database server itself, eliminating the time normal spent filling out a support ticket or tracking down a DBA to perform the restore.
 
 ## Create the Runbook
 
-1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
-2. Give the Runbook a name and click **SAVE**.
+1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
+2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Restore Database**.
 5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
@@ -39,7 +42,7 @@ The advantage of using the runbook is developers don't need any extra permission
 | Database Name | Name of the database for the account | MyDatabase |
 | SQL Login | Name of the account to be fixed | MyOrphanedAccount |
 
-After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts!
+After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
 
 You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
 
