@@ -70,7 +70,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Configuration {#DeployingASP.NETCoreWebApplications-Configuration}
 
-Refer to [structured configuration variables](/docs/deployment-process/structured-configuration-variables-feature.md) on how to setup configuration.
+Refer to [structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md) on how to setup configuration.
 
 
 ## Learn more
