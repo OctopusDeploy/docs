@@ -21,7 +21,7 @@ Octopus will find the target files and replace any matching configuration settin
 
 ### Selecting target files {#StructuredConfigurationVariablesFeature-SelectingTargetFiles}
 
-Target files are files that should have variable replacement applied to them. Multiple files can be supplied by seperating them with a comma or a new line. 
+Target files are files that should have variable replacement applied to them. Multiple files can be supplied by seperating them with a new line. 
 
 There are a few options for supplying which files to use such as supplying a full path to the file, using a wild card to find all files in a directory, or using a wild card on the directory to find all files in that directory or deeper:
 
