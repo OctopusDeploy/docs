@@ -10,16 +10,18 @@ It is an unfortunate fact that web servers are under near constant attack.  Whet
 
 To create a runbook to harden your Apache web server:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **Bash** and add the following code:
+
 :::warning
 The following script is only an example of what can be done.  Please review the script carefully if you intend to implement.
 :::
+
 ```bash
 #!/bin/bash
 #
@@ -199,8 +201,8 @@ echo '> Restart Apache Server:'
 service httpd restart &
 ```
 
-This will provide basic hardening of an Apache installation at the click of a button!
+This will provide basic hardening of an Apache installation at the click of a button.
 
 ## Samples
 
-We have a [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
+We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more runbooks in the `Deployment Target Management` project.
