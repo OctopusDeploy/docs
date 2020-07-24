@@ -12,6 +12,7 @@ There are different types of maintenance you can perform on an IIS website. The 
 
 - Start an Application Pool using the step template: [IIS AppPool - Start](https://library.octopus.com/step-templates/9db77671-0fe3-4aef-a014-551bf1e5e7ab/actiontemplate-iis-apppool-start).
 - Stop an Application Pool using the step template: [IIS AppPool - Stop](https://library.octopus.com/step-templates/3aaf34a5-90eb-4ea1-95db-15ec93c1e54d/actiontemplate-iis-apppool-stop).
+- Restart an Application Pool using the step template: [IIS AppPool - Restart](https://library.octopus.com/step-templates/de4a85ca-38cc-4a30-8244-64612e3a7921/actiontemplate-iis-apppool-restart).
 - Restart a website using the step template: [IIS Website - Restart](https://library.octopus.com/step-templates/6a17bd83-ef96-4c22-b212-91a89ca92fe6/actiontemplate-iis-website-restart).
 - Delete a Website using the step template: [IIS Website - Delete](https://library.octopus.com/step-templates/a032159b-0742-4982-95f4-59877a31fba3/actiontemplate-iis-website-delete).
 
@@ -61,6 +62,20 @@ To add this step to a runbook:
 Configure any other settings for the step and click **Save**, and you have a runbook step to stop an IIS Application Pool.
 
 ![Runbook IIS maintenance Stop App-Pool](images/iis-maintenance-stop-app-pool.png "width=500")
+
+## Restart App-Pool
+
+In this example, you will restart an IIS Application Pool using a step template from our [community library](/docs/deployment-process/steps/community-step-templates.md) called [IIS AppPool - Restart](https://library.octopus.com/step-templates/de4a85ca-38cc-4a30-8244-64612e3a7921/actiontemplate-iis-apppool-restart). 
+
+To add this step to a runbook:
+
+1. Add the community step template called **IIS AppPool - Restart**, and give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Application pool name**, using a [variable](/docs/projects/variables/index.md) if appropriate.
+
+Configure any other settings for the step and click **Save**, and you have a runbook step to restart an IIS Application Pool.
+
+![Runbook IIS maintenance Restart App-Pool](images/iis-maintenance-restart-app-pool.png "width=500")
 
 ## Restart website
 
