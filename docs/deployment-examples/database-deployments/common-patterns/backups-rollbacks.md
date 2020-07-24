@@ -51,7 +51,7 @@ Databases often contain personally identifiable (PII) data, along with credit ca
 4. If you are storing credentials (username/password) in Octopus Deploy, mark the values as [sensitive](/docs/projects/variables/sensitive-variables.md).  Sensitive variables are write-only through the Octopus Deploy API.  The only time they are decrypted is during a deployment.
 5. If the database server supports it, use integrated security.  The Tentacles will [run as a specific user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).  
 
-## Leveraging Operations Runbooks for backup and restore
+## Leveraging runbook for backup and restore
 
 Runbooks were added to Octopus Deploy in version: **2019.11**.
 

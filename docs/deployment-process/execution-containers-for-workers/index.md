@@ -23,7 +23,7 @@ You need Docker installed and running on the [worker](docs/infrastructure/worker
 
 - Configure a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry.
   - [Add Docker Hub as an external feed](https://octopus.com/blog/build-a-real-world-docker-cicd-pipeline#add-docker-hub-as-an-external-feed).
-- Add a project and define a deployment process (or add a [runbook](/docs/operations-runbooks/index.md)).
+- Add a project and define a deployment process (or add a [runbook](/docs/runbooks/index.md)).
 - Set the **Execution Location** for your step to **Run on a worker**.
 - In **Container Image** select **Runs on a worker inside a container**.
 - Choose the previously added container registry.

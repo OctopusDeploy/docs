@@ -11,5 +11,5 @@ position: 30
 - [Configuration features](/docs/deployment-process/configuration-features/index.md)
 - [Projects](/docs/projects/index.md)
 - [Deployment processes](/docs/deployment-process/index.md)
-- [Operations Runbooks](/docs/operations-runbooks/index.md)
+- [Runbooks](/docs/runbooks/index.md)
 - [Variables](/docs/projects/variables/index.md)
