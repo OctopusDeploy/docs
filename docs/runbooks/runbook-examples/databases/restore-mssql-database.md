@@ -1,22 +1,22 @@
 ---
 title: Restore SQL database
-description: With Octopus Deploy you can restore a MSSQL database with a Runbook.
+description: With Octopus Deploy you can restore a MSSQL database with a runbook.
 position: 20
 ---
 
-Restoring databases is a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to restore backups ad-hoc or on a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger/index.md). 
+Restoring databases is a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to restore backups ad-hoc or according to a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger/index.md). 
 
 ## Permissions
 
-In this example, you will be restoring a Microsoft SQL Server database using a step template from our [community library](/docs/deployment-process/steps/community-step-templates.md) called [SQL - Restore Database](https://library.octopus.com/step-templates/469b6d9d-761a-4f94-9745-20e9c2f93841/actiontemplate-sql-restore-database). This template supports both:
-- SQL Authentication.
-- Integrated Authentication. 
+In this example, you will restore a Microsoft SQL Server database using a step template from our [community library](/docs/deployment-process/steps/community-step-templates.md) called [SQL - Restore Database](https://library.octopus.com/step-templates/469b6d9d-761a-4f94-9745-20e9c2f93841/actiontemplate-sql-restore-database). This template supports both:
+- SQL authentication.
+- Integrated authentication. 
 
-In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployment-examples/database-deployments/sql-server/permissions.md).
+In this example, we'll use SQL authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information about this in the [permissions documentation](/docs/deployment-examples/database-deployments/sql-server/permissions.md).
 
 ## Create the Runbook
 
-1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
+1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 2. Give the Runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Restore Database**.
@@ -39,7 +39,7 @@ In this example, we'll use SQL Authentication and provide both a SQL username an
 Use variables where possible so you can assign scopes to values. This will ensure credentials and database connections are correct for the environment you're deploying to.
 :::
 
-After adding all of the required parameters, click **Save**, and you have a basic runbook to restore your SQL database! You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
+After adding all of the required parameters, click **Save**, and you have a basic runbook to restore your SQL database. You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
 
 ## Samples
 
