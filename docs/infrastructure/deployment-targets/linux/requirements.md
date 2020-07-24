@@ -76,13 +76,13 @@ You can find instructions for installing Mono in the [Mono documentation](http:/
 
 Although previous versions of Mono should work in most deployment scenarios, any deployments that involve the target accessing endpoints that require TLSv1.2 (for example downloading from [Maven](/docs/packaging-applications/package-repositories/maven-feeds.md) or [GitHub](/docs/packaging-applications/package-repositories/github-feeds.md) feeds) may fail.
 
-#### Configuration transformations only available in Mono >= 4.2.3  
+#### .NET Configuration transformations only available in Mono >= 4.2.3  
 
 The [.NET configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 
-Note that [substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) can still be used without issue on earlier Mono versions.
+Note that [substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) can still be used without issue on earlier Mono versions.
 
 #### Package repository SSL certificates
 

@@ -123,9 +123,9 @@ The example below shows a web app called **OctoFX.TradingWebsite**. All the file
 
 ![Sample Package of a Web App](images/sample-web-app-package.png "width=500")
 
-### Config transformation
+### .NET configuration transformation
 
-OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
+OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your .NET configuration transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
 
 ### .NET XML configuration transforms
 

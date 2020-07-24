@@ -15,7 +15,7 @@ Octopus will extract your package and parse your `*.config` files looking for an
 :::hint
 You can perform simple convention-based replacements in .NET XML configuration files using this feature. We also have a feature tailored to [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
 
-If you are looking for something more flexible, we have the [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) enabling you to perform complex transformations on any kind of file.
+If you are looking for something more flexible, we have the [Substitute Variables in Templates feature](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) enabling you to perform complex transformations on any kind of file.
 :::
 
 ## How to use this feature
@@ -124,4 +124,4 @@ There may be other variables you would like Octopus to replace in your configura
 
 Learn how to do this [with a fully worked example](/docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
 
-This example uses the [.NET XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) together.
+This example uses the [.NET XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [Substitute Variables in Templates feature](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) together.

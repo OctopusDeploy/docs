@@ -6,7 +6,7 @@ position: 30
 
 It is possible to combine the configuration features that you use in your deployments. One scenario where this is useful is if you need to provide environment specific configuration that includes sensitive values.
 
-This can be achieved using both the [Substitute Variables in Files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) feature and the [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) features.
+This can be achieved using both the [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) feature and the [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) features.
 
 ## One transform and variable replacement
 
@@ -63,6 +63,6 @@ On deployment to your Staging environment, your process would go like this:
 1. Your package, complete with your original `Web.Config` and your `Web.Release.Config` transform file, will be extracted to the target.
 2. Variable Substitution will run against your `Web.Release.Config` file (assuming it's been listed in the Target files setting).
 This will change the `#{OctoFXDatabase}` string to the Staging connection string, and will insert `False` into the `TestMode` element.
-3. Then, the .NET Config Transformation feature will run and apply this new transform file to your `Web.Config`.
+3. Then, the .NET configuration transformation feature will run and apply this new transform file to your `Web.Config`.
 
 The end result is a correctly transformed configuration for your staging environment. All without a specific Staging transform file, and while keeping your `Web.Config` file clean for development.

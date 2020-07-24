@@ -62,7 +62,7 @@ The following features are available when deploying a package to a Service Fabri
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [JSON Configuration Variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
-- [Substitute Variables in Files](/docs/projects/variables/variable-substitutions.md)
+- [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
 
 :::hint
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
@@ -75,7 +75,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
 1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
-1. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
+1. [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) (if configured).
 1. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
 1. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 1. [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md) (if configured) are replaced.

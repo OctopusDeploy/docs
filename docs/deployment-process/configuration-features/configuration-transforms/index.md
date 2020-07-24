@@ -26,9 +26,9 @@ An example web.config transformation that removes the `<compilation debug="true
 The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test .NET configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
-## Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
+## Naming .NET configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your .NET configuration transforms by on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
+This feature will run your .NET configuration transforms by on looking for transform files named with the following conventions. The .NET configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.<Environment>.config`
@@ -73,7 +73,7 @@ To make sure Octopus can run the .NET configuration transforms for your Windows 
 
 ## Additional .NET configuration transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
-You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` check-box.
+You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run .NET configuration transformation files` check-box.
 
 ![](images/additional-transforms.png "width=500")
 
@@ -82,7 +82,7 @@ As a general rule, you should not include the path to the files unless the trans
 
 ### Explicit {#Configurationfiles-Explicit}
 
-**Explicit config transform**
+**Explicit .NET configuration transform**
 
 ```powershell
 Transform.config => Target.config
@@ -92,7 +92,7 @@ The above transform definition will apply **Transform.config** to **Target.confi
 
 ### Relative path
 
-**Relative path config transform**
+**Relative path .NET configuration transform**
 
 ```powershell
 Path\Transform.config => Target.config
@@ -106,7 +106,7 @@ Wildcards can be used to select any matching file. For example, **\*.config** wi
 
 They can be used anywhere in the transform filename (the left side), but only at the start of the destination filename (the right side).
 
-**Wildcard config transform**
+**Wildcard .NET configuration transform**
 
 ```powershell
 *.Transform.config => *.config
@@ -114,7 +114,7 @@ They can be used anywhere in the transform filename (the left side), but only at
 
 The above transform definition will apply **foo.Transform.config** to **foo.config** and **bar.Transform.config** to **bar.config**.
 
-**Wildcard config transform**
+**Wildcard .NET configuration transform**
 
 ```powershell
 *.Transform.config => Target.config
@@ -122,7 +122,7 @@ The above transform definition will apply **foo.Transform.config** to **foo.conf
 
 The above transform definition will apply **foo.Transform.config** and **bar.Transform.config** to **Target.config**.
 
-**Wildcard config transform**
+**Wildcard .NET configuration transform**
 
 ```powershell
 Transform.config => Path\*.config
@@ -134,9 +134,9 @@ The above transform definition will apply **Transform.config** to **foo.config**
 If you would like to define the order of all of your transformations, if you list them in the order of transformation inside the Additional transforms feature then Octopus will use that order to run the transforms.
 :::
 
-## Suppressing configuration transformation errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
+## Suppressing .NET configuration transformation errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
 
-As of **Octopus 3.0**, any exceptions that are thrown by the Microsoft config transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
+As of **Octopus 3.0**, any exceptions that are thrown by the Microsoft .NET configuration transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
 
 ```text
 Warning    14:56:06
