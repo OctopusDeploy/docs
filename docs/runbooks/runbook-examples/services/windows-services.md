@@ -4,16 +4,16 @@ description: With Octopus Deploy you can start, stop, or restart Windows service
 position: 100
 ---
 
-When developing a Windows Service, starting, stopping, and restarting are all common activities.  However, once deployed to a server, the ability to start, stop, or restart a service requires the user have either elevated permissions or at least be [granted the ability](http://woshub.com/set-permissions-on-windows-service/#:~:text=In%20the%20list%20of%20services,and%20pause%20permission%20is%20enough.) to remotely perform the operation.  If it's not possible (or feasible) to grant that permission, you may need to fill out a ticket and wait for a server administrator to do it for you, which can kill productivity.  Using a runbook, you can give developers a self-service option to starting, stopping, or restaring a Windows service without having to give them access to the server or performing permissions wizardry.
+When developing a Windows Service, starting, stopping, and restarting are all common activities.  However, once deployed to a server, the ability to start, stop, or restart a service requires the user to have either elevated permissions or at least be [granted the ability](http://woshub.com/set-permissions-on-windows-service/#:~:text=In%20the%20list%20of%20services,and%20pause%20permission%20is%20enough.) to remotely perform the operation.  If it's not possible (or feasible) to grant that permission, you may need to fill out a ticket and wait for a server administrator to do it for you, which can kill productivity.  Using a runbook, you can give developers a self-service option to starting, stopping, or restaring a Windows service without having to give them access to the server or performing permissions wizardry.
 
-For Windows Services, there are three Community Step Templates available, one for each action
+For Windows Services, there are three Community Step Templates available, one for each action:
 - [Start Service](https://library.octopus.com/step-templates/60733bf3-1617-4d85-a40f-4b6a0b9289ef/actiontemplate-windows-service-start)
 - [Stop Service](https://library.octopus.com/step-templates/ab3eb4cf-5fc1-4168-be8d-02246d919ca8/actiontemplate-windows-service-stop)
 - [Restart Service](https://library.octopus.com/step-templates/d1df734a-c0da-4022-9e70-8e1931b083da/actiontemplate-windows-service-restart)
 
 ## Create the Runbook
 
-1. To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.
+1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 2. Give the Runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add one of the templates listed above.
