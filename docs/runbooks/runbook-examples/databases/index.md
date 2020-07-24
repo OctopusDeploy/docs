@@ -9,9 +9,9 @@ Octopus is great for automating your database deployments, but databases also ne
 
 Typical database maintenance could be:
 
-- [Database Backups](/docs/runbooks/runbook-examples/backup-mssql-database.md)
+- [Database Backups](/docs/runbooks/runbook-examples/databases/backup-mssql-database.md)
 - Creating Databases 
 - Index rebuilding 
 - Checking Database integrity
-- [Restoring Databases](/docs/runbooks/runbook-examples/restore-mssql-database.md)
-- [Restoring Databases to another environment](/docs/runbooks/runbook-examples/restore-mssql-database.md)
+- [Restoring Databases](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md)
+- [Restoring Databases to another environment](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md)
