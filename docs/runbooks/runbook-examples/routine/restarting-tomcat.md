@@ -1,10 +1,10 @@
 ---
-title: Restarting Tomcat
-description: With Octopus Deploy you can restart a Tomcat web server as part of a routine operations task.
+title: Restarting Tomcat Web application
+description: With Octopus Deploy you can restart a Tomcat web application as part of a routine operations task.
 position: 110
 ---
 
-There are times when web servers get into a state where they are no longer serving content.  Often in these situations a simple restart of the web server software is all that is required to remedy the situation, letting you get back to a working state while your pour through the logs looking for the cause.  Issuing the restart command is typically done from the server itself, or some type of remote access.  Using a runbook you can provide a self-service method for restarting Tomcat.
+Restarting a Tomcat app requires the user to have permissions to do so.  It is not always feasible to grant access to Tomcat, however, using an Octopus runbook, you don't have to.  Octopus Deploy comes with a built-in step with the capability to restart a Tomcat App.  This allows you to provide a self-service method of starting or stopping a Tomcat app without granting any permissions.
 
 ## Create the runbook
 
@@ -13,29 +13,20 @@ To create a runbook to restart Tomcat:
 1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
-1. Click **Script**, and then select the **Run a Script** step.
+1. Click **Built-in steps**, and then select the **Start/Stop App in Tomcat** step.
 1. Give the step a name.
-1. Choose the **Execution Location** on which to run this step.
-1. In the **Inline source code** section, add the following code:
+1. Fill in the parameters of the step
 
-:::info
-If Tomcat is running as a Service refer to the following:
-- [Linux](/docs/runbooks/runbook-examples/services/restart-linux-service.md)
-- [Windows]
-:::
+| Parameter  | Description | Example |
+| ------------- | ------------- | ------------- |
+| Tomcat Manage URL | URL of the Tomcat Manager | http://localhost:8080/manager |
+| Management user | Name of the management account | tomcat |
+| Managment password | Password for the management account | MySecretPassword!!! |
+| Context path | The relative URL to your application | /myapp |
+| Deployment version | Version number of your application | 1.0.0.1 |
 
-Stop Tomcat:
-```Linux
-/opt/tomcat/apache-tomcat-9.0.37/bin/shutdown.sh
-```
-```Windows
-C:\Program Files\Apache Software Foundation\Tomcat 9.0\bin\shutdown.bat
-```
+The last option under `Advanced Options` is a radio button with two options
+- Leave the application running (default)*
+- Stop the application
 
-Start Tomcat:
-```Linux
-/opt/tomcat/apache-tomcat-9.0.37/bin/startup.sh
-```
-```Windows
-C:\Program Files\Apache Software Foundation\Tomcat 9.0\bin\startup.bat
-```
+*This option will start the app if in a stopped state.
