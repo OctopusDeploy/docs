@@ -4,13 +4,13 @@ description: With Octopus Deploy you can harden your Windows machines with a run
 position: 80
 ---
 
-Highly regulated industries such as finance need to make sure the Operating System (OS) is secure to protect from data breaches.  This often requires strict controls be implemented to reduce their attack surface.  In Windows Active Directory environments, this type of hardening can be performed by implementing Group Policy Objects (GPO).  In cases where GPO isn't an option, such as non-domain joined cloud servers, you could use a runbook to harden your Windows installation.
+Highly regulated industries such as finance need to make sure the Operating Systems (OS) are secure and protected from data breaches.  This often requires strict controls be implemented to reduce their attack surface.  In Windows Active Directory environments, this type of hardening can be performed by implementing Group Policy Objects (GPO).  In cases where GPO isn't an option, such as non-domain joined cloud servers, you could use a runbook to harden your Windows installation.
 
 ## Create the runbook
 
 To create a runbook to harden your Windows installation:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
@@ -20,6 +20,7 @@ To create a runbook to harden your Windows installation:
 :::warning
 The following script is an example of what can be done, please review the script carefully before using.
 :::
+
 ```PowerShell
 Function Test-RegistryValue {
     param(
@@ -248,8 +249,8 @@ catch {
 }
 ```
 
-Now you can have the peace of mind that the OS has been hardened!
+Now you can have the peace of mind that the OS has been hardened.
 
 ## Samples
 
-We have a [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
+We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
