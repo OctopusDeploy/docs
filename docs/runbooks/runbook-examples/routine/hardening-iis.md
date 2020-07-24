@@ -4,18 +4,19 @@ description: With Octopus Deploy you can harden your IIS server with a runbook a
 position: 60
 ---
 
-Having a server that is publically available needs to be as secure as you can make it.  Hackers are constantly finding new exploits so maintaining your security posture is a must.  With Octopus Deploy runbooks, you can define a single process that can harden your IIS installations according to [NIST guidelines](https://nvd.nist.gov/ncp/checklist/759) at the click of a button.
+Your publicly available servers need to be as secure as you can make them.  Hackers are constantly finding new exploits so maintaining your security posture is a must.  With Octopus Deploy runbooks, you can define a single process that can harden your IIS installations according to [NIST guidelines](https://nvd.nist.gov/ncp/checklist/759) at the click of a button.
 
 ## Create the runbook
 
 To create a runbook to harden your IIS server:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
 1. Give the runbook a Name and click **SAVE**.
 1. Add a **Run a Script** step and past in the following example PowerShell:
 :::warning
 The following script makes a number of registry changes and alterations to ciphers, key hashes, key exchange algorithms, and cipher suite ordering.  Be sure to review the changes that it will implement before proceeding.
 :::
+
 ```PowerShell
 function Set-IISSecurity {
 
@@ -227,9 +228,9 @@ function Set-IISSecurity {
 }
 ```
 
-Once your IIS server has rebooted, your installation will now be hardened against common attacks!
+After your IIS server has rebooted, your installation will be hardened against common attacks.
 
 ## Samples
 
-We have a [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
+We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
 
