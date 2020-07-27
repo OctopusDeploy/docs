@@ -59,7 +59,7 @@ Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
 We've created a getting started [YouTube playlist](https://www.youtube.com/playlist?list=PLAGskdGvlaw1hVRHZRxpke1X2pkKwQptA) that covers the basics:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLAGskdGvlaw1hVRHZRxpke1X2pkKwQptA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLAGskdGvlaw370oBEZgWwC3f3egJ3P9Uf" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The rest of this section includes the following guides that are designed to familiarize you with Octopus Deploy by providing simple step-by-step instructions to achieve and understand the following common scenarios:
 
