@@ -676,7 +676,7 @@ docs/octopus-concepts/deployment-process.md -> docs/getting-started/octopus-conc
 docs/octopus-concepts/deployment-targets.md -> docs/getting-started/octopus-concepts/deployment-targets.md
 docs/octopus-concepts/environments.md -> docs/getting-started/octopus-concepts/environments.md
 docs/octopus-concepts/health-checks.md -> docs/getting-started/octopus-concepts/health-checks.md
-docs/octopus-concepts/lifecycle .md -> docs/getting-started/octopus-concepts/lifecycle.md
+docs/octopus-concepts/lifecycle.md -> docs/getting-started/octopus-concepts/lifecycle.md
 docs/octopus-concepts/octopus-cli.md -> docs/getting-started/octopus-concepts/octopus-cli.md
 docs/octopus-concepts/octopus-cloud.md -> docs/getting-started/octopus-concepts/octopus-cloud.md
 docs/octopus-concepts/octopus-server.md -> docs/getting-started/octopus-concepts/octopus-server.md
