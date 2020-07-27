@@ -1,5 +1,5 @@
 ---
-title: Creaet MySQL database
+title: Create MySQL database
 description: With Octopus Deploy you can create a MySQL database with a Runbook.
 position: 40
 ---
