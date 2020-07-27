@@ -678,7 +678,7 @@ docs/octopus-concepts/environments.md -> docs/getting-started/octopus-concepts/e
 docs/octopus-concepts/health-checks.md -> docs/getting-started/octopus-concepts/health-checks.md
 docs/octopus-concepts/lifecycle.md -> docs/getting-started/octopus-concepts/lifecycle.md
 docs/octopus-concepts/octopus-cli.md -> docs/getting-started/octopus-concepts/octopus-cli.md
-docs/octopus-concepts/octopus-cloud.md -> docs/getting-started/octopus-concepts/octopus-cloud.md
+docs/octopus-concepts/octopus-cloud.md -> docs/octopus-cloud/index.md
 docs/octopus-concepts/octopus-server.md -> docs/getting-started/setup-octopus-deploy.md
 docs/octopus-concepts/octopus-web-portal.md -> docs/getting-started/the-octopus-web-portal.md
 docs/getting-started/octopus-concepts/octopus-web-portal.md -> docs/getting-started/the-octopus-web-portal.md
@@ -694,3 +694,4 @@ docs/octopus-concepts/workers.md -> docs/getting-started/octopus-concepts/worker
 docs/getting-started/octopus-concepts/deployment-process.md -> docs/getting-started/define-your-deployment-process.md
 docs/getting-started/octopus-concepts/deployment-targets.md -> docs/getting-started/connect-your-deployment-targets-to-octopus.md
 docs/getting-started/octopus-concepts/octopus-server.md -> docs/getting-started/setup-octopus-deploy.md
+docs/getting-started/octopus-concepts/octopus-cloud.md -> docs/octopus-cloud/index.md
