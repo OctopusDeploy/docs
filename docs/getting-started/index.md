@@ -55,9 +55,9 @@ Runbooks are used to automate routine maintenance and emergency operations tasks
 
 Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
-## Hello World!
+## Hello World Videos
 
-We've created a Getting Started: Hello World [YouTube playlist](https://www.youtube.com/playlist?list=PLAGskdGvlaw1hVRHZRxpke1X2pkKwQptA) that covers the basics:
+We've created a Getting Started: Hello World YouTube playlist that covers the basics:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLAGskdGvlaw370oBEZgWwC3f3egJ3P9Uf" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
