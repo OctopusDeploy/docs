@@ -263,7 +263,7 @@ $jsonPayload = @{
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/tasks" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers @{"X-Octopus-ApiKey"="$apiKey"}
 ```
 
-Forcing the health check like this all allow you to immediatly deploy to your target if it is included in your process
+Forcing the health check like this will allow you to immediatly deploy to your target if it is included in your process.
 
 ## Samples
 
