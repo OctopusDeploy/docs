@@ -13,5 +13,5 @@ Octopus includes a Migration API that provides the ability to back-up and restor
 ## Learn more
 
 - [Octopus REST API](/docs/octopus-rest-api/index.md)
-- [Octopus CLI](/docs/octopus-concepts/octopus-cli.md)
+- [Octopus CLI](/docs/getting-started/octopus-concepts/octopus-cli.md)
 - [Migration API](/docs/octopus-rest-api/migration-api/index.md)

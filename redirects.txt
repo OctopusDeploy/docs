@@ -507,7 +507,7 @@ docs/deployment-examples/node-on-linux-deployments/configure-octopus-deploy-proj
 docs/deployment-examples/node-on-linux-deployments/configuring-target-machine.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-examples/node-on-linux-deployments/create-and-push-node.js-project.md -> docs/deployment-examples/node-deployments/node-on-linux.md
 docs/deployment-process/project-triggers/scheduled-project-trigger.md -> docs/projects/project-triggers/scheduled-deployment-trigger.md
-docs/getting-started/terms.md -> docs/octopus-concepts/index.md
+docs/getting-started/terms.md -> docs/getting-started/octopus-concepts/index.md
 docs/overview.md -> docs/getting-started/index.md
 docs/deployment-process/variables/index.md -> docs/projects/variables/index.md
 docs/deployment-process/variables/aws-account-variables.md -> docs/projects/variables/aws-account-variables.md
@@ -670,3 +670,26 @@ docs/operations-runbooks/runbook-publishing/index.md -> docs/runbooks/runbook-pu
 docs/operations-runbooks/runbooks-vs-deployments/index.md -> docs/runbooks/runbooks-vs-deployments/index.md
 docs/operations-runbooks/scheduled-runbook-trigger/index.md -> docs/runbooks/scheduled-runbook-trigger/index.md
 docs/getting-started/getting-started-guides.md -> docs/getting-started/index.md
+docs/octopus-concepts/index.md -> docs/getting-started/octopus-concepts/index.md
+docs/octopus-concepts/configuration-features.md -> docs/getting-started/octopus-concepts/configuration-features.md
+docs/octopus-concepts/deployment-process.md -> docs/getting-started/octopus-concepts/deployment-process.md
+docs/octopus-concepts/deployment-targets.md -> docs/getting-started/octopus-concepts/deployment-targets.md
+docs/octopus-concepts/environments.md -> docs/getting-started/octopus-concepts/environments.md
+docs/octopus-concepts/health-checks.md -> docs/getting-started/octopus-concepts/health-checks.md
+docs/octopus-concepts/lifecycles.md -> docs/getting-started/octopus-concepts/lifecycles.md
+docs/octopus-concepts/octopus-cli.md -> docs/getting-started/octopus-concepts/octopus-cli.md
+docs/octopus-concepts/octopus-cloud.md -> docs/getting-started/octopus-concepts/octopus-cloud.md
+docs/octopus-concepts/octopus-server.md -> docs/getting-started/octopus-concepts/octopus-server.md
+docs/octopus-concepts/octopus-web-portal.md -> docs/getting-started/octopus-concepts/octopus-web-portal.md
+docs/octopus-concepts/operatons-runbooks.md -> docs/getting-started/octopus-concepts/runbooks.md
+docs/octopus-concepts/projects.md -> docs/getting-started/octopus-concepts/projects.md
+docs/octopus-concepts/releases.md -> docs/getting-started/octopus-concepts/releases.md
+docs/octopus-concepts/rest-api.md -> docs/getting-started/octopus-concepts/rest-api.md
+docs/octopus-concepts/target-roles.md -> docs/getting-started/octopus-concepts/target-roles.md
+docs/octopus-concepts/tentacles.md -> docs/getting-started/octopus-concepts/tentacles.md
+docs/octopus-concepts/upgrading.md -> docs/getting-started/octopus-concepts/upgrading.md
+docs/octopus-concepts/variables.md -> docs/getting-started/octopus-concepts/variables.md
+docs/octopus-concepts/workers.md -> docs/getting-started/octopus-concepts/workers.md
+
+
+
