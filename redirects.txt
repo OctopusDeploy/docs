@@ -679,7 +679,7 @@ docs/octopus-concepts/health-checks.md -> docs/getting-started/octopus-concepts/
 docs/octopus-concepts/lifecycle.md -> docs/getting-started/octopus-concepts/lifecycle.md
 docs/octopus-concepts/octopus-cli.md -> docs/getting-started/octopus-concepts/octopus-cli.md
 docs/octopus-concepts/octopus-cloud.md -> docs/getting-started/octopus-concepts/octopus-cloud.md
-docs/octopus-concepts/octopus-server.md -> docs/getting-started/octopus-concepts/octopus-server.md
+docs/octopus-concepts/octopus-server.md -> docs/getting-started/setup-octopus-deploy.md
 docs/octopus-concepts/octopus-web-portal.md -> docs/getting-started/the-octopus-web-portal.md
 docs/getting-started/octopus-concepts/octopus-web-portal.md -> docs/getting-started/the-octopus-web-portal.md
 docs/octopus-concepts/operations-runbooks.md -> docs/getting-started/octopus-concepts/runbooks.md
