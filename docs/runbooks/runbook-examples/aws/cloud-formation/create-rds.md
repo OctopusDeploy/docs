@@ -1,6 +1,7 @@
 ---
 title: Provision an AWS RDS instance
 description: Provision an AWS RDS using a runbook
+position: 10
 ---
 
 AWS Relational Database Service (RDS) is a managed database server in the cloud. RDS provides a cost-efficient, relational database and manages common database administration tasks.  Using a runbook, Octopus makes it easy to provide an automated method for creating RDS instances.
@@ -56,7 +57,18 @@ Set-OctopusVariable -name "AWS.Subnet2.Id" -value $subnet2Id
 Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 ```
 6. Add a **Deploy an AWS CloudFormation template** step
-1. Paste in the following template code:
+1. Fill in the parameters for the step
+
+| Parameter  | Description | Example |
+| ------------- | ------------- | ------------- |
+| AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Library Variable Seet |
+| Region | The region your resources will be located in | us-west-1 |
+| CloudFormation stack name | Name of the stack you're creating | MySuperStack |
+| Role ARN | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing any operations. This role will be used for any future operations on the stack. | MyARN |
+| Select IAM Capability | Capability of IAM | Use dropdown to select capability |
+| Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
+
+8. Paste in the following template code:
 :::info
 Note the use of Octostache variables, you will need to make sure you create these for this example to work.  You will also see use of the output variables created in the previous step.
 :::
