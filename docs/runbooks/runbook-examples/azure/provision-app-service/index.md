@@ -3,27 +3,30 @@ title: Provision an Azure an Azure App Service
 description: Provision an Azure App Service using a runbook
 ---
 
-One of the most convenient aspects of Platform as a Service (PaaS) is the ability to spin up and tear down resources quickly.  This ability can be used for a number of different reasons; feature branching, testing, cost savings, etc...  Whatever the reason, you can spin up resources in Azure with a runbook
+One of the most convenient aspects of Platform as a Service (PaaS) is the ability to spin up and tear down resources quickly.  This ability can be used for a number of different reasons: feature branching, testing, cost savings, etc... 
 
-To provision an Azure App Service, there are a couple of things that will need to be in place:
+You can use runbooks in Octopus to spin up resources in Azure.
+
+To provision an Azure App Service, there are a couple of things that need to be in place:
 - Resource group
 - App Service Plan
 
 :::hint
-We recommend grouping the resources for testing or a feature branch into their own Azure Resource Group.  Doing this makes it easier to make sure you destroy all the resources you created by simply deleting the resource group itself.
+We recommend grouping the resources for testing a feature branch into their own Azure Resource Group.  Doing this makes it easier to make sure you destroy all the resources you created by simply deleting the resource group itself.
 :::
 
-## Create the Runbook
+## Create the runbook
 
 :::hint
-A quick way to create the App Service Plan is go use the Azure Portal UI to begin the creation process.  At the end, export the App Plan as an Azure Resource Manager (ARM) template and use that as a basis to start from.
+A quick way to create the App Service Plan is go use the Azure Portal UI to begin the creation process, and export the App Plan as an Azure Resource Manager (ARM) template and use that as a basis to start from.
 :::
 
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
-2. Give the Runbook a name and click **SAVE**.
+2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
-4. Add a **Run an Azure script** step
+4. Add a **Run an Azure script** step.
 5. Create an Azure Resource Group using the following code:
+
 ```PowerShell
 $resourceGroupName = $OctopusParameters["Azure.ResourceGroup.Name"]
 $resourceGroupLocation = $OctopusParameters["Azure.Location.Abbr"]
@@ -39,8 +42,9 @@ if ($createResourceGroup -eq $true){
 	New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 }
 ```
-6. Add a **Deploy an Azure Resource Manager Template** step
+6. Add a **Deploy an Azure Resource Manager Template** step.
 7. Add the template code (example below):
+
 ```
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -91,7 +95,7 @@ if ($createResourceGroup -eq $true){
     ]
 }
 ```
-Fill in the Parameters from the template
+Fill in the parameters from the template:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -103,9 +107,9 @@ Fill in the Parameters from the template
 | workerSizeId | Scaling worker size Id | 0 |
 | numberOfWorkers | Number of workers | 1 |
 
-With the Resource Group and App Service Plan created, you can create an Azure Web App target
+With the Resource Group and App Service Plan created, you can create an Azure Web App target.
 
-8. Add a **Deploy an Azure Resource Manager Template** step
+8. Add a **Deploy an Azure Resource Manager Template** step.
 9. Add the template code (example below):
 ```
 {
@@ -170,7 +174,7 @@ With the Resource Group and App Service Plan created, you can create an Azure We
     ]
 }
 ```
-Fill in the Parameters from the template
+Fill in the parameters from the template:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -183,7 +187,8 @@ Fill in the Parameters from the template
 | phpVersion | Version of PHP | OFF |
 | errorLink | Uri of the error link | https://s-octopetshop.scm.azurewebsites.net/detectors?type=tools&name=eventviewer |
 
-10. Add a **Run a script** step to register the Azure Web App as a target
+10. Add a **Run a script** step to register the Azure Web App as a target:
+
 ```PowerShell
 # Define parameters
 $baseUrl = $OctopusParameters['Global.Base.Url']
@@ -232,7 +237,8 @@ $jsonPayload = @{
 # Register the target to Octopus Deploy
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/$spaceId/machines" -Headers @{"X-Octopus-ApiKey"="$apiKey"} -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
-11. Add another **Run a script** step to force a health check
+11. Add another **Run a script** step to force a health check:
+
 ```PowerShell
 # Define parameters
 $baseUrl = $OctopusParameters['Global.Base.Url']
@@ -263,7 +269,7 @@ $jsonPayload = @{
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/tasks" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers @{"X-Octopus-ApiKey"="$apiKey"}
 ```
 
-Forcing the health check like this will allow you to immediatly deploy to your target if it is included in your process.
+Forcing the health check like this will allow you to immediately deploy to your target if it is included in your process.
 
 ## Samples
 
