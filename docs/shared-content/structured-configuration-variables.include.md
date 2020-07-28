@@ -57,9 +57,6 @@ Structured Configuration Variables allows for replacement in both JSON and YAML 
 
 If it doesn't parse as JSON, it will then use the file extension to determine if it should parse as YAML. If the file has the extension `yml` or `yaml`, Calamari will attempt to do variable replacement on the file as if it is a YAML file. 
 
-The type of the file can also be manually specified for cases when your file might not end in a file format this is automatically parsed. For example, if you have a YAML file called `application.config` that won't parse as YAML automatically as it doesn't end in `yml` or `yaml`. When specifying the file in the `Target Files` field, the following can be done to force the file to parse as YAML: `<yaml> application.config`. This also applies to json like the following: `<json> application.config`. 
-
-
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
 
 Given this example of a target config file:
