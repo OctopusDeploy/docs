@@ -28,11 +28,11 @@ Customers cannot add new workers nor make changes to the configuration of the wo
 
 ### Types of Dynamic Worker
 
-Each dynamic worker pool can specify the worker image used. As of July 2020, `WindowsDefault` is the default, which is Windows Server Core 2016. `Windows2019` (Windows Server Core 2019) worker images are rolling out. Once the rollout is complete, Windows Server Core 2016 will be marked as deprecated.
+Each dynamic worker pool can specify the worker image used. As of July 2020, `WindowsDefault` is the default, which is Windows Server Core 2016. `Windows2019` (Windows Server Core 2019) worker images are rolling out. After the rollout is complete, Windows Server Core 2016 will be marked as deprecated.
 
 Editing a dynamic worker pool allows you to modify the image used.
 
-When an image is marked as deprecated, you will start to see warnings in the Octopus UI, and in the deployment log. After a suitable deprecation period, deployments will start to fail if they target an image that has hit end-of-life.
+When an image is marked as deprecated, you will see warnings in the Octopus UI, and in the deployment log. After a suitable deprecation period, deployments will start to fail if they target an image that has hit end-of-life.
 
 ### Batteries included
 
