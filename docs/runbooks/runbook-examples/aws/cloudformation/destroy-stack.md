@@ -1,7 +1,7 @@
 ---
 title: Destroy an AWS CloudFormation stack
 description: Teardown resources by destroying an AWS CloudFormation stack
-position: 10
+position: 20
 ---
 
 Along with teh ability to automate the creation of AWS resources, CloudFormation provides a simple method for destroying the resources it created as part of a stack.  Using a runbook, you can automate tearing down environments when they're no longer needed.
