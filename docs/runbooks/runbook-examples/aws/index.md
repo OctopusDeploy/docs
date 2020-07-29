@@ -1,7 +1,6 @@
 ---
 title: AWS
 description: Octopus Deploy can help you automate the provisioning of infrastructure in AWS using runbooks.
-position: 70
 hideInThisSectionHeader: true
 ---
 
