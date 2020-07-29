@@ -1,25 +1,20 @@
 ---
-title: Azure
-description: Octopus Deploy can help you automate the provisioning of infrastructure in Azure using runbooks.
-position: 60
+title: AWS
+description: Octopus Deploy can help you automate the provisioning of infrastructure in AWS using runbooks.
+position: 70
 hideInThisSectionHeader: true
 ---
 
-Octopus is great for helping you perform repeatable and controlled deployments of your applications into [Azure](https://azure.microsoft.com/), but you can also use it to manage your infrastructure in Azure. Runbooks can be used to help automate this without having to create new deployment releases.
+Runbooks are a powerful tool that can be used to ensure that infrastructure is created in a repeatable and consistent fashion.  Octopus comes with a number of built-in step templates to help interface with the AWS cloud platform
 
-Typical routines could be:
+- Run an AWS CLI Script
+- Deploy an AWS CloudFormation template
+- Apply an AWS CloudFormation Change Set
+- Delete an AWS CloudFormation stack
+- Upload a package to an AWS S3 bucket
 
-- Creating a new [Resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-groups).
-- Spinning up a new Virtual Machine.
-- Managing firewall rules.
-- Tearing down a Resource group.
+Combining the power of runbooks and AWS, you can easily automate common tasks such as:
 
-Out-of-the-box, Octopus provides built-in steps to help manage your infrastructure in Azure:
-- [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups/index.md).
-- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployment-examples/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md).
-
-## Learn more
-
-- Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-- [Azure blog posts](https://octopus.com/blog/tag/azure).
-- [Azure deployment examples](/docs/deployment-examples/azure-deployments/index.md).
+- Creating resource stacks with CloudFormation
+- Managing firewall rules
+- Destroying resources
