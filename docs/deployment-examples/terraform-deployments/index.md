@@ -13,3 +13,7 @@ The `Apply a Terraform template` step can be used to create or update a resource
 **Where do Terraform Steps execute?**
 All Terraform steps execute on a worker.  By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/infrastructure/workers/index.md) and the different configuration options.
 :::
+
+:::warning
+If the Terraform tool is updated beyond version 0.11 and you are using the "Source Code" option within a Terraform step, you will receive syntax warnings within Octopus. You can update the Terraform tool beyond version 0.11 without issue if you only intend to use the "File inside a package" option within the terraform step.
+:::
