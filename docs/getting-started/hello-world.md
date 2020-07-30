@@ -85,5 +85,5 @@ Because we didn't define any deployment targets for the **Test** environment, Oc
 
 ## Learn more
 
-- [Getting started: Before you start](/docs/getting-started/getting-started-guides.md#before-you-start)
-- [Getting started: The basics](/docs/getting-started/getting-started-guides.md#the-basics)
+- [Getting started: Before you start](/docs/getting-started/index.md#before-you-start)
+- [Getting started: The basics](/docs/getting-started/index.md#the-basics)

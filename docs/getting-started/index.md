@@ -55,7 +55,29 @@ Runbooks are used to automate routine maintenance and emergency operations tasks
 
 Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
-## Learn more
+## Hello World Videos
 
-Read the [getting started guides](/docs/getting-started/getting-started-guides.md) to master the fundamentals.
+We've created a Getting Started: Hello World YouTube playlist that covers the basics:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLAGskdGvlaw370oBEZgWwC3f3egJ3P9Uf" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Getting started guides
+
+The rest of this section includes the following guides that are designed to familiarize you with Octopus Deploy by providing simple step-by-step instructions to achieve and understand the following common scenarios:
+
+### Hello World!
+
+- [Deploy a hello world script](/docs/getting-started/hello-world.md)
+
+### Before you start {#before-you-start}
+
+- [What is a CI/CD pipeline?](/docs/getting-started/the-cicd-pipeline.md)
+- [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md)
+- [Get to know the Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md)
+
+### The Basics {#the-basics}
+
+- [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
+- [Package your software](/docs/getting-started/package-your-software.md)
+- [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
+- [Create a release](/docs/getting-started/create-a-release.md)

@@ -6,7 +6,7 @@ position: 20
 
 Managing [IIS](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview) can often be challenging in an environment where you have a large estate of machines and need to carefully control who can access those machines.
 
-With Operation Runbooks, you can create a runbook as part of a routine operations task to manage your IIS websites deployed on [deployment targets](/docs/octopus-concepts/deployment-targets.md) without ever needing someone to log in.
+With Operation Runbooks, you can create a runbook as part of a routine operations task to manage your IIS websites deployed on [deployment targets](/docs/getting-started/connect-your-deployment-targets-to-octopus.md) without ever needing someone to log in.
 
 There are different types of maintenance you can perform on an IIS website. The next few sections outline how to achieve some of the more common tasks you can perform with a runbook using step templates from our [community library](/docs/deployment-process/steps/community-step-templates.md):
 
