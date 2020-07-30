@@ -25,7 +25,7 @@ Octopus will find the target files and replace any matching configuration settin
 
 ### Selecting target files {#StructuredConfigurationVariablesFeature-SelectingTargetFiles}
 
-Target files are files that should have variable replacement applied to them. Multiple files can be supplied by seperating them with a new line. 
+Target files are files that should have variable replacement applied to them. Multiple files can be supplied by seperating them with a new line.
 
 There are a few options for supplying which files to use such as supplying a full path to the file, using a wild card to find all files in a directory, or using a wild card on the directory to find all files in that directory or deeper:
 
@@ -49,13 +49,13 @@ Config\*.json
 Application/**/*.yaml
 ```
 
-The Target File field also supports [extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) which can allow conditionals and loops to be used to specify files. 
+The Target File field also supports [extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) which can allow conditionals and loops to be used to specify files.
 
 ### How the file type for target files is determined
 
-Structured Configuration Variables allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Calamari will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to allow backwards compatability from when this feature only supported replacement in JSON files. 
+Structured Configuration Variables allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Calamari will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to allow backwards compatability from when this feature only supported replacement in JSON files.
 
-If it doesn't parse as JSON, it will then use the file extension to determine if it should parse as YAML. If the file has the extension `yml` or `yaml`, Calamari will attempt to do variable replacement on the file as if it is a YAML file. 
+If it doesn't parse as JSON, it will then use the file extension to determine if it should parse as YAML. If the file has the extension `yml` or `yaml`, Calamari will attempt to do variable replacement on the file as if it is a YAML file.
 
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
 
@@ -103,7 +103,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in th
 
 **Hierarchical YAML**
 ```yaml
-weatherApi: 
+weatherApi:
   url: dev.weather.com
   key: DEV1234567
 ```
@@ -122,7 +122,7 @@ You can also replace an entire object. For the example above you could set Octop
 
 **Replaced Hierarchical YAML**
 ```yaml
-weatherApi: 
+weatherApi:
   url: test.weather.com
   key: TEST7654321
 ```
@@ -138,15 +138,15 @@ Octopus can replace a value in a JSON array or a YAML sequence by using the zero
       "bar": [
          "item1",
          "item2"
-	  ]
+     ]
    }
 }
 ```
 
 **Example Hierarchical YAML**
 ```yaml
-foo: 
-  bar: 
+foo:
+  bar:
     - item1
     - item2
 ```
@@ -160,15 +160,15 @@ Variables can be set for `foo:bar:1` with a value `qux` which will update the v
       "bar": [
          "item1",
          "qux"
-	  ]
+     ]
    }
 }
 ```
 
 **Replaced Sequence Index Hierarchical YAML**
 ```yaml
-foo: 
-  bar: 
+foo:
+  bar:
     - item1
     - qux
 ```
@@ -182,15 +182,15 @@ It's possible to replace an entire array or sequence too. With the previous exam
       "bar": [
          "baz",
          "qux"
-	  ]
+     ]
    }
 }
 ```
 
 **Replaced Sequence Hierarchical YAML**
 ```yaml
-foo: 
-  bar: 
+foo:
+  bar:
     - baz
     - qux
 ```
@@ -206,16 +206,16 @@ The properties of objects in arrays can be replaced. In the example below defini
             "key": "baz",
             "value": "qux"
          }
-	  ]
+     ]
    }
 }
 ```
 
 **Replaced Map Property in Sequence Hierarchical YAML**
 ```yaml
-foo: 
-  bar: 
-    - 
+foo:
+  bar:
+    -
       key: foo
       value: bar
     - qux
