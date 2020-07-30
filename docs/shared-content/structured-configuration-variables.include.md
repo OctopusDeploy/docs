@@ -49,7 +49,7 @@ Config\*.json
 Application/**/*.yaml
 ```
 
-The Target File field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
+The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 
@@ -71,7 +71,7 @@ Given this example of a target config file:
 }
 ```
 
-If you define [variables](/docs/projects/variables/index.md) in your Octopus Project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
+If you define [variables](/docs/projects/variables/index.md) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
 
 ```json
 {
@@ -108,7 +108,7 @@ weatherApi:
   key: DEV1234567
 ```
 
-You can also replace an entire object. For the example above, you could set Octopus Variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
+You can also replace an entire object. For the example above, you could set Octopus variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
 
 **Replaced Hierarchical JSON**
 ```json
@@ -173,7 +173,7 @@ foo:
     - qux
 ```
 
-It's possible to replace an entire array or sequence too. In the previous example above, if the Octopus Variable `foo:bar` was set to `["baz","qux"]`, it would create outputs like:
+It's possible to replace an entire array or sequence too. In the previous example, if the Octopus variable `foo:bar` was set to `["baz","qux"]`, it would create outputs like:
 
 **Replaced Array Hierarchical JSON**
 ```json
