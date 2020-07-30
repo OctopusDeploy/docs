@@ -13,6 +13,7 @@ In addition to automating the creation of AWS resources, CloudFormation provides
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Delete an AWS CloudFormation stack** step.
 1. Fill in the parameters for the template:
+
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
 | Region | The region your resources are located | us-west-1 |
