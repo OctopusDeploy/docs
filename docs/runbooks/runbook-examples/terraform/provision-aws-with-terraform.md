@@ -1,12 +1,12 @@
 ---
-title: Provision AWS resources with a Terraform template
-description: With runbooks, you can use Terraform to creat resources in AWS
+title: Provision AWS resources with Terraform
+description: With runbooks, you can use Terraform to create resources in AWS.
 position: 20
 ---
 
 AWS CloudFormation is a great tool to use to provisions resources, however, it doesn't keep track of state.  With runbooks, you can use Terraform to provision resources on AWS as well as keep them in the desired state.
 
-The following example will use Terraform to dynamically create worker machines based on autoscaling rules.  Instead of defining the Terraform template directly in the step template, this example will make use of a package.  The package will consist of will consist of the following files:
+The following example will use Terraform to dynamically create worker machines based on auto-scaling rules.  Instead of defining the Terraform template directly in the step template, this example will make use of a package.  The package will consist of the following files:
 - autoscaling.tf
 - autoscalingpolicy.tf
 - backend.tf
@@ -19,10 +19,11 @@ The following example will use Terraform to dynamically create worker machines b
 The different AWS resources types have been separated into their respective files to make it easier to maintain.
 
 ## autoscaling.tf
-This file contains the definitions for creating the autoscaling configuraiton in AWS
+
+This file contains the definitions for creating the auto-scaling configuration in AWS:
 
 <details>
-<summary>File contents</summary>
+<summary>autoscaling.tf</summary>
 <p>
 
 ```
@@ -107,10 +108,11 @@ resource "aws_autoscaling_group" "dynamic-windows-worker-autoscaling" {
 </details>
 
 ## autoscalingpolicy.tf
-This file contains the policy definition that goes with the autoscaling definition
+
+This file contains the policy definition that goes with the auto-scaling definition:
 
 <details>
-<summary>File contents</summary>
+<summary>autoscalingpolicy.tf</summary>
 <p>
 
 ```
@@ -234,9 +236,11 @@ resource "aws_cloudwatch_metric_alarm" "windows-worker-cpu-alarm-scaledown" {
 </details>
 
 ## backend.tf
-It is important to note that due to retention policy settings, the folder in which the package is extracted and run may not persist.  For this reason, it is recommended to store the state information in another location such as AWS S3.
+
+It is important to note that due to retention policy settings, the folder in which the package is extracted and run may not persist.  For this reason, we recommend you store the state information in another location such as AWS S3:
+
 <details>
-<summary>File contents</summary>
+<summary>backend.tf</summary>
 <p>
 
 ```
@@ -252,10 +256,11 @@ terraform {
 </details>
 
 ## installTentacle.sh
-This contains a bash script to automatically install the Octopus Deploy Tentacle on the Linux EC2 instance being created.
+
+This contains a bash script to automatically install the Octopus Deploy Tentacle on the Linux EC2 instance being created:
 
 <details>
-<summary>File contents</summary>
+<summary>installTentacle.sh</summary>
 <p>
 
 ```bash
@@ -286,25 +291,19 @@ sudo /opt/octopus/tentacle/Tentacle service --install --start
 </details>
 
 ## provider.tf
-Contains the provider information for Terraform
-
-<details>
-<summary>File contents</summary>
-<p>
+Contains the provider information for Terraform:
 
 ```
 provider "aws" {
   region     = "${var.AWS_REGION}"
 }
 ```
-</p>
-</details>
 
 ## securitygroup.tf
-This contains the security group information for AWS
+This contains the security group information for AWS:
 
 <details>
-<summary>File contents</summary>
+<summary>securitygroup.tf</summary>
 <p>
 
 ```
@@ -349,10 +348,10 @@ resource "aws_security_group" "allow-octopusserver" {
 </details>
 
 ## vars.tf
-This contains the variables that are referenced in other files.  Note there are Octostache (Octopus variable syntax) to make use of Octopus variables.
+This contains the variables that are referenced in other files.  Note there are Octostache (Octopus variable syntax) to make use of Octopus variables:
 
 <details>
-<summary>File contents</summary>
+<summary>vars.tf</summary>
 <p>
 
 ```
@@ -386,10 +385,10 @@ variable "INSTANCE_USERNAME" {
 </details>
 
 ## vpc.tf
-This contains the definition of the VPC and other network resources that other AWS resources will use
+This contains the definition of the VPC and other network resources that other AWS resources will use:
 
 <details>
-<summary>File contents</summary>
+<summary>vpc.tf</summary>
 <p>
 
 ```
@@ -519,7 +518,7 @@ resource "aws_route_table_association" "worker-public-3-a" {
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
-1. Add a **Apply a Terraform template** step
+1. Add a **Apply a Terraform template** step.
 1. Fill in the template properties
 - Template Source: File inside a package
 - Package: Choose the package which contains the files above
