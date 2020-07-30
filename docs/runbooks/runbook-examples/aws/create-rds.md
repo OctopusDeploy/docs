@@ -6,7 +6,7 @@ position: 10
 
 AWS Relational Database Service (RDS) is a managed database server in the cloud. RDS provides a cost-efficient, relational database and manages common database administration tasks.  Using a runbook, Octopus makes it easy to provide an automated method for creating RDS instances.
 
-In this example, we'll utilize the built-in steps of Octopus deploy to create an AWS PostgreSQL RDS instance.
+In this example, we'll use the built-in steps of Octopus Deploy to create an AWS PostgreSQL RDS instance.
 
 ## Create the runbook
 
@@ -15,9 +15,10 @@ In this example, we'll utilize the built-in steps of Octopus deploy to create an
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an AWS CLI script** step.
 :::info
-This example assumes that you already have a Virtual Private Cloud (VPC), subnets, and security groups created.  The Id's of these resources will be needed for our RDS instance
+This example assumes that you already have a Virtual Private Cloud (VPC), subnets, and security groups created.  The ID's of these resources will be needed for our RDS instance.
 :::
-1. Past in the following example code - this will find the VPC, subnet, and security group Id values and assign them to ouput variables to be used later:
+1. Past in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
+
 ```PowerShell
 # Get reference to VPC
 $vpcList = $(aws ec2 describe-vpcs --filter Name=tag:Name,Values=#{AWS.CloudFormation.VPC.Name}) | ConvertFrom-Json
@@ -56,8 +57,8 @@ Set-OctopusVariable -name "AWS.Subnet1.Id" -value $subnet1Id
 Set-OctopusVariable -name "AWS.Subnet2.Id" -value $subnet2Id
 Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 ```
-6. Add a **Deploy an AWS CloudFormation template** step
-1. Fill in the parameters for the step
+6. Add a **Deploy an AWS CloudFormation template** step.
+1. Fill in the parameters for the step:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
