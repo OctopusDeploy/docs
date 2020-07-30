@@ -1,10 +1,10 @@
 :::info
-This Configuration Feature used to be called JSON Configuration Variarbles but has been re-named with the added support for YAML
+This Configuration Feature used to be called JSON Configuration Variarbles but has been re-named with the added support for YAML.
 :::
 
-With the Structured Configuration Variables feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in the JSON and YAML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals.
+With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in the JSON and YAML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals.
 
-This is designed to work natively with [.NET Core Structured configuration files](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md) but works equally well with any JSON files.
+This is designed to work natively with [.NET Core Structured configuration files](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md), but works equally well with any JSON or YAML files.
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
@@ -21,41 +21,41 @@ or
 **/application.yaml
 ```
 
-Octopus will find the target files and replace any matching configuration settings with the value of matching Octopus variables.
+Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.
 
 ### Selecting target files {#StructuredConfigurationVariablesFeature-SelectingTargetFiles}
 
-Target files are files that should have variable replacement applied to them. Multiple files can be supplied by seperating them with a new line.
+Specify files that should have variable replacement applied to them. Multiple files can be supplied by separating them with a new line.
 
-There are a few options for supplying which files to use such as supplying a full path to the file, using a wild card to find all files in a directory, or using a wild card on the directory to find all files in that directory or deeper:
+You can supply full paths to files, use wildcards to find multiple files in a directory, or use wildcards for a directory to find all files at that level or deeper:
 
 **Specific file path**
 ```
 ExampleProject/appSettings.json
 ```
 
-**Match any .yaml files in root directory**
+**Match any .yaml files in the root directory**
 ```
 *.yaml
 ```
 
-**Match any .json files in a specific directory**
+**Match any .json files in the specified directory**
 ```
 Config\*.json
 ```
 
-**Match any .yaml files in specified folder or deeper**
+**Match any .yaml files in the specified directory or deeper**
 ```
 Application/**/*.yaml
 ```
 
-The Target File field also supports [extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) which can allow conditionals and loops to be used to specify files.
+The Target File field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 
-Structured Configuration Variables allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Calamari will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to allow backwards compatability from when this feature only supported replacement in JSON files.
+**Structured Configuration Variables** allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
 
-If it doesn't parse as JSON, it will then use the file extension to determine if it should parse as YAML. If the file has the extension `yml` or `yaml`, Calamari will attempt to do variable replacement on the file as if it is a YAML file.
+If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML.
 
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
 
@@ -71,7 +71,7 @@ Given this example of a target config file:
 }
 ```
 
-If you define the [variables](/docs/projects/variables/index.md) `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` in the variables section of your [deployment process](/docs/projects/variables/index.md) with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file in your packaged application is updated to become:
+If you define [variables](/docs/projects/variables/index.md) in your Octopus Project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
 
 ```json
 {
@@ -83,7 +83,7 @@ If you define the [variables](/docs/projects/variables/index.md) `weatherApiUrl`
 }
 ```
 
-Note, the `tempImageFolder` setting remains untouched and that the types of `port` and `debug` have not been changed. Octopus will attempt to keep the original type if the new value matches the type of the old value.
+Note that the `tempImageFolder` setting remains untouched, and the types of `port` and `debug` have not been changed. Octopus will attempt to keep the original type if the new value matches the type of the old value.
 
 ### Hierarchical variables {#StructuredConfigurationVariablesFeature-Hierarchicalvariables}
 
@@ -108,7 +108,7 @@ weatherApi:
   key: DEV1234567
 ```
 
-You can also replace an entire object. For the example above you could set Octopus Variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}` which will result in this:
+You can also replace an entire object. For the example above, you could set Octopus Variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
 
 **Replaced Hierarchical JSON**
 ```json
@@ -151,7 +151,7 @@ foo:
     - item2
 ```
 
-Variables can be set for `foo:bar:1` with a value `qux` which will update the value of the second element in the array or sequence to be `qux` like so:
+Variables can be set for `foo:bar:1` with a value `qux` which will update the value of the second element in the array or sequence to be `qux`, like so:
 
 **Replaced Array Index Hierarchical JSON**
 ```json
@@ -173,7 +173,7 @@ foo:
     - qux
 ```
 
-It's possible to replace an entire array or sequence too. With the previous example above, if the Octopus Variable `foo:bar` was to a value of `["baz","qux"]` it would create outputs like:
+It's possible to replace an entire array or sequence too. In the previous example above, if the Octopus Variable `foo:bar` was set to `["baz","qux"]`, it would create outputs like:
 
 **Replaced Array Hierarchical JSON**
 ```json
@@ -195,7 +195,7 @@ foo:
     - qux
 ```
 
-The properties of objects in arrays can be replaced. In the example below defining an Octopus variable `foo:bar:0:key` with the value of `baz` replaces the `key` property of the first object in the array:
+The properties of objects in arrays can be replaced. In the example below, defining an Octopus variable `foo:bar:0:url` with the value of `test.weather.com` replaces the `url` property of the first object in the array:
 
 **Replaced Object Property in Array Hierarchical JSON**
 ```json
@@ -203,8 +203,8 @@ The properties of objects in arrays can be replaced. In the example below defini
    "foo": {
       "bar": [
          {
-            "key": "baz",
-            "value": "qux"
+            "url": "test.weather.com",
+            "key": "DEV1234567"
          }
      ]
    }
@@ -216,9 +216,6 @@ The properties of objects in arrays can be replaced. In the example below defini
 foo:
   bar:
     -
-      key: foo
-      value: bar
-    - qux
+      url: test.weather.com
+      key: DEV1234567
 ```
-
-Note that you can even use the [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md) patterns in this file selection input box itself to do things like reference environment specific files, or conditionally include them based on scoped variables.
