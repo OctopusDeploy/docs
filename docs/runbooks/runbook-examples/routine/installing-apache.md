@@ -1,5 +1,5 @@
 ---
-title: Insalling Apache
+title: Installing Apache
 description: With Octopus Deploy you can install Apache with a runbook as part of a routine operations task.
 position: 80
 ---
@@ -8,13 +8,13 @@ position: 80
 
 ## Create the runbook
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
-1. Give the runbook a Name and click **SAVE**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. In the **Inline source code** section, select the appropiate language and add the following code:
+1. In the **Inline source code** section, select the appropriate language and add the following code:
 
 ```bash Ubuntu
 # Update repos
