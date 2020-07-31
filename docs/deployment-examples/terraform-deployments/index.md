@@ -17,3 +17,7 @@ All Terraform steps execute on a worker.  By default, that will be the built-in 
 :::warning
 If the Terraform tool is updated above version 0.11 and you are using the **Source Code** option within a Terraform step, you will receive syntax warnings within Octopus. You can update the Terraform tool to a version higher than 0.11 without issue if you only use the **File inside a package** option within the terraform step.
 :::
+
+## Learn more
+
+- [Manage Terraform with runbooks](/docs/runbooks/runbook-examples/terraform/index.md)
