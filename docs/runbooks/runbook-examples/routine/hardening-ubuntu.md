@@ -18,7 +18,7 @@ To create a runbook to harden your Ubuntu server:
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **Bash** and add the following code:
 :::warning
-The following script will make changes to the default installation of SSH.  Please review carefully if you plan to implement.
+The following script will make changes to the default installation of SSH and disables the root logon.  Please review carefully if you plan to implement.
 :::
 
 ```bash
@@ -29,6 +29,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # harden SSH - grab the Octopus project variable SSH_PORT
+sudo cp /etc/ssh/sshd_config /etc/ssh/backup.sshd_config
 SSH_PORT=$(get_octopusvariable "SSH_PORT")
 sudo cat > /etc/ssh/sshd_config <<EOL
 Port $SSH_PORT
@@ -69,7 +70,17 @@ UseDNS no
 MaxStartups 2
 EOL
 
-# install fail2ban
+# Install fail2ban
 sudo apt-get install fail2ban
+
+# Create new user with sudo rights
+newAdminUser=$(get_octopusvariable "AdminUser")
+sudo adduser $newAdminUser
+sudo usermod -aG sudo $newAdminUser
+su - $newAdminUser
+
+# Disable root login
+sudo passwd -l root
 ```
 
+The above script is a very basic hardening of Ubuntu.  Using the CIS guidelines, you could further harden the installation per your organizations requirements.
