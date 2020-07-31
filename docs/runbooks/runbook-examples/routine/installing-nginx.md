@@ -4,14 +4,14 @@ description: With Octopus Deploy you can install NGINX with a runbook as part of
 position: 80
 ---
 
-[NGINX](https://www.nginx.com/) is a popular web server technology used for a number of different scenarios like a standard web server, a reverse proxy, and even load balancing.  Configuration for those examples would vary, but using a runbook, you could automate the installation of NGINX as a routine operational task.
+[NGINX](https://www.nginx.com/) is a popular web server technology used for a number of different scenarios like a standard web server, a reverse proxy, and even load balancing.  Configuration for those examples varies, but with a runbook, you can automate the installation of NGINX as a routine operational task.
 
 ## Create the runbook
 
-To create a runbook to install Tomcat on an Ubuntu machine:
+To create a runbook to install NGINX on an Ubuntu machine:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
-1. Give the runbook a Name and click **SAVE**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
