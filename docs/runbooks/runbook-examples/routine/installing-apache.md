@@ -42,7 +42,12 @@ sudo systemctl enable httpd
 # Start the service
 sudo systemctl start httpd
 
-# Add firwall rule
+# Configure firewall
+# Uncomment out the line that meets your needs
+sudo firewall-cmd --permanent --zone=public --add-service=http --add-service=https # both ports 80 and 443
+# sudo firewall-cmd --permanent --zone=public --add-service=http # port 80 only
+# sudo firewall-cmd --permanent --zone-public --add-service=https  # port 443 only
+sudo firewall-cmd --reload
 
 ```
 ```PowerShell Windows
@@ -56,5 +61,12 @@ try{
 }
 
 # Use chocolatey to install Apache HTTP
-choco install apache-httpd
+choco install apache-httpd -y --params '"/installLocation:C:\apache /port:80"'
+
+# Add firewall rules
+New-NetFirewallRule -DisplayName "Apache-HTTP" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80
+#New-NetFirewallRule -DisplayName "Apache-HTTPS" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
 ```
+
+This will add a basic installation of the Apache HTTP web server.
+
