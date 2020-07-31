@@ -146,11 +146,9 @@ function Set-IISSecurity {
 	 
 	# Enable new secure ciphers.
 	# - RC4: It is recommended to disable RC4, but you may lock out WinXP/IE8 if you enforce this. This is a requirement for FIPS 140-2.
-	# - 3DES: It is recommended to disable these in near future.
 	$secureCiphers = @(
 	  'AES 128/128',
-	  'AES 256/256',
-	  'Triple DES 168/168'
+	  'AES 256/256'
 	)
 	Foreach ($secureCipher in $secureCiphers) {
 	  $key = (Get-Item HKLM:\).OpenSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers', $true).CreateSubKey($secureCipher)
@@ -207,12 +205,10 @@ function Set-IISSecurity {
 	  'TLS_DHE_DSS_WITH_AES_256_CBC_SHA',
 	  'TLS_DHE_DSS_WITH_AES_128_CBC_SHA256',
 	  'TLS_DHE_DSS_WITH_AES_128_CBC_SHA',
-	  'TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA',
 	  'TLS_RSA_WITH_AES_256_CBC_SHA256',
 	  'TLS_RSA_WITH_AES_256_CBC_SHA',
 	  'TLS_RSA_WITH_AES_128_CBC_SHA256',
-	  'TLS_RSA_WITH_AES_128_CBC_SHA',
-	  'TLS_RSA_WITH_3DES_EDE_CBC_SHA'
+	  'TLS_RSA_WITH_AES_128_CBC_SHA'
 	)
 	$cipherSuitesAsString = [string]::join(',', $cipherSuitesOrder)
 	New-ItemProperty -path 'HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002' -name 'Functions' -value $cipherSuitesAsString -PropertyType 'String' -Force | Out-Null
