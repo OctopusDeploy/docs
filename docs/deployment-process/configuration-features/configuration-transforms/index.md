@@ -1,14 +1,14 @@
 ---
-title: Configuration transforms
-description: Using configuration transformations.
+title: .NET Configuration transforms
+description: Using .NET configuration transformations.
 position: 70
 ---
 
-The Configuration Transforms feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The .NET Configuration Transforms feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 If this feature is enabled, Tentacle will also look for any files that follow the Microsoft [web.config transformation process](https://msdn.microsoft.com/en-us/library/dd465326.aspx) – **even files that are not web.config files!**.
 
-![Configuration Transforms screenshot](images/configuration-transforms.png "width=500")
+![.NET Configuration Transforms screenshot](images/configuration-transforms.png "width=500")
 
 An example web.config transformation that removes the `<compilation debug="true">` attribute is below:
 
@@ -22,13 +22,13 @@ An example web.config transformation that removes the `<compilation debug="true
 ```
 
 :::success
-**Testing configuration transforms**
-The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test configuration file transformations](https://webconfigtransformationtester.apphb.com/).
+**Testing .NET configuration transforms**
+The team at [AppHarbor](https://appharbor.com/) created a useful tool to [help test .NET configuration file transformations](https://webconfigtransformationtester.apphb.com/).
 :::
 
-## Naming configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
+## Naming .NET configuration transform files {#Configurationfiles-Namingconfigurationtransformfiles}
 
-This feature will run your configuration transforms by on looking for transform files named with the following conventions. The configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
+This feature will run your .NET configuration transforms by on looking for transform files named with the following conventions. The .NET configuration transformation files can either be named `*.Release.config`, `*.<Environment>.config`, or `*.<Tenant>.config` and will be executed in this order:
 
 1. `*.Release.config`
 2. `*.<Environment>.config`
@@ -56,13 +56,13 @@ When deploying to an environment named "**Test**", Octopus will execute the tran
 You can see how this is actually done by our [open source Calamari project](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Shared/Deployment/Conventions/ConfigurationTransformsConvention.cs).
 :::
 
-## Windows Service and console application configuration transforms need special treatment
+## Windows Service and console application .NET configuration transforms need special treatment
 
 Octopus looks for configuration transform files that match your executable's configuration file. Visual Studio has built-in support for this scenario for ASP.NET Web Applications, but it doesn't offer the same support for Windows Services and Console applications, you will need to take care of this yourself.
 
 In Visual Studio your configuration file will be **`app.config`** and is renamed during the build process to match the executable, e.g., The **`app.config`** file for **`YourService.exe`** is renamed to **`YourService.exe.config`**.
 
-To make sure Octopus can run the configuration transforms for your Windows Services and Console Applications:
+To make sure Octopus can run the .NET configuration transforms for your Windows Services and Console Applications:
 
 1. Make sure you name your configuration transform files properly based on the target executable filename e.g., `YourService.exe.Release.config`, `YourService.exe.Production.config`.
 2. Set the **Copy to Output Directory** property for the configuration transform files to **Copy If Newer**.
@@ -71,9 +71,9 @@ To make sure Octopus can run the configuration transforms for your Windows Servi
 ![](images/console-support.png "width=500")
 
 
-## Additional configuration transforms {#Configurationfiles-AdditionalConfigurationTransforms}
+## Additional .NET configuration transforms {#Configurationfiles-AdditionalConfigurationTransforms}
 
-You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run configuration transformation files` check-box.
+You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run .NET configuration transformation files` check-box.
 
 ![](images/additional-transforms.png "width=500")
 
@@ -82,7 +82,7 @@ As a general rule, you should not include the path to the files unless the trans
 
 ### Explicit {#Configurationfiles-Explicit}
 
-**Explicit config transform**
+**Explicit .NET configuration transform**
 
 ```powershell
 Transform.config => Target.config
@@ -92,7 +92,7 @@ The above transform definition will apply **Transform.config** to **Target.confi
 
 ### Relative path
 
-**Relative path config transform**
+**Relative path .NET configuration transform**
 
 ```powershell
 Path\Transform.config => Target.config
@@ -106,7 +106,7 @@ Wildcards can be used to select any matching file. For example, **\*.config** wi
 
 They can be used anywhere in the transform filename (the left side), but only at the start of the destination filename (the right side).
 
-**Wildcard config transform**
+**Wildcard .NET configuration transform**
 
 ```powershell
 *.Transform.config => *.config
@@ -114,7 +114,7 @@ They can be used anywhere in the transform filename (the left side), but only at
 
 The above transform definition will apply **foo.Transform.config** to **foo.config** and **bar.Transform.config** to **bar.config**.
 
-**Wildcard config transform**
+**Wildcard .NET configuration transform**
 
 ```powershell
 *.Transform.config => Target.config
@@ -122,7 +122,7 @@ The above transform definition will apply **foo.Transform.config** to **foo.conf
 
 The above transform definition will apply **foo.Transform.config** and **bar.Transform.config** to **Target.config**.
 
-**Wildcard config transform**
+**Wildcard .NET configuration transform**
 
 ```powershell
 Transform.config => Path\*.config
@@ -134,9 +134,9 @@ The above transform definition will apply **Transform.config** to **foo.config**
 If you would like to define the order of all of your transformations, if you list them in the order of transformation inside the Additional transforms feature then Octopus will use that order to run the transforms.
 :::
 
-## Suppressing configuration transformation errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
+## Suppressing .NET configuration transformation errors {#Configurationfiles-SuppressingConfigurationTransformationErrors}
 
-As of **Octopus 3.0**, any exceptions that are thrown by the Microsoft config transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
+As of **Octopus 3.0**, any exceptions that are thrown by the Microsoft .NET configuration transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
 
 ```text
 Warning    14:56:06
@@ -148,7 +148,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at Microsoft.Web.XmlTransform.RemoveAttributes.Apply()
    at Microsoft.Web.XmlTransform.Transform.ApplyOnAllTargetNodes()
 Fatal    14:56:06
-One or more errors were encountered when applying the XML configuration transformation file: e:\Octopus\Applications\MyEnv\MyApp\1.0.0.1234\Web.Release.config. View the deployment log for more details, or set the special variable Octopus.Action.Package.IgnoreConfigTranformationErrors to True to ignore this error.
+One or more errors were encountered when applying the .NET XML configuration transformation file: e:\Octopus\Applications\MyEnv\MyApp\1.0.0.1234\Web.Release.config. View the deployment log for more details, or set the special variable Octopus.Action.Package.IgnoreConfigTranformationErrors to True to ignore this error.
 ```
 
 To suppress these errors and report them as informational only, use the `Octopus.Action.Package.IgnoreConfigTransformationErrors` variable defined in the [System Variables](/docs/projects/variables/system-variables.md) section of the documentation.

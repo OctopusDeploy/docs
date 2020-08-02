@@ -14,7 +14,7 @@ You enable configuration features as you define the [steps](/docs/deployment-pro
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click the link.
 1. Select the features you would like to enable by clicking the relevant check-boxes in the list and click **OK**.
 
-![Configuration features screenshot](configuration-features.png "width=500")
+![Configuration features screenshot](images/configuration-features.png "width=500")
 
 The features you have enabled will now be available in the **Features** section of the step you are defining.
 
@@ -26,8 +26,8 @@ You can configure the following features:
 - [Custom deployment scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
 - [Configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
-- [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md)
+- [.NET Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
+- [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
 - IIS6+ Home directory
 - [NGINX Web Server](/docs/deployment-process/configuration-features/nginx-web-server.md)
 - Red Gate database deployment
