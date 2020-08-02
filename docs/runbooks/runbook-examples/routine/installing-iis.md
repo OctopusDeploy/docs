@@ -4,7 +4,7 @@ description: With Octopus Deploy you can install IIS with a runbook as part of a
 position: 10
 ---
 
-For many organizations, [IIS](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview) remains an essential piece of software for running their web-applications. With Operation Runbooks, you can create a runbook as part of a routine operations task to install IIS and any additional IIS features you need on your [deployment targets](/docs/octopus-concepts/deployment-targets.md).
+For many organizations, [IIS](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview) remains an essential piece of software for running their web-applications. With Operation Runbooks, you can create a runbook as part of a routine operations task to install IIS and any additional IIS features you need on your [deployment targets](/docs/getting-started/connect-your-deployment-targets-to-octopus.md).
 
 ## Create the runbook
 

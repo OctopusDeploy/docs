@@ -69,4 +69,5 @@ Automating database deployments is often the final piece of a fully automated CI
 
 ## Learn more 
 
+- [Manage database maintenance with runbooks](/docs/runbooks/runbook-examples/databases/index.md)
 - [Database blog posts](https://octopus.com/blog/tag/database%20deployments)
