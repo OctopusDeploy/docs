@@ -1,5 +1,5 @@
 :::info
-This Configuration Feature used to be called JSON Configuration Variarbles but has been re-named with the added support for YAML.
+This Configuration Feature used to be called JSON Configuration Variarbles in 2020.3.1 and previous, but has been re-named to Structured Configuration Variables with the added support for YAML replacement.
 :::
 
 With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in the JSON and YAML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals.
