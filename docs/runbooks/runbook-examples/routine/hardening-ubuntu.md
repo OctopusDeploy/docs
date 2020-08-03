@@ -6,6 +6,8 @@ position: 120
 
 Hackers, viruses, worms, and malware, today's world needs constant vigilance in terms of security.  To that end, it is important to make sure that your server attack surface is as minimal as you can make it.  With a runbook, you can automate the security configuration of an Ubuntu server.  It is recommended that you review the guidelines from [CIS](https://www.cisecurity.org/benchmark/ubuntu_linux/) to ensure that your server is as secure as possible.
 
+!include <security-disclaimer>
+
 ## Create the runbook
 
 To create a runbook to harden your Ubuntu server:
