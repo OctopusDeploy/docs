@@ -6,6 +6,8 @@ position: 60
 
 Your publicly available servers need to be as secure as you can make them.  Hackers are constantly finding new exploits so maintaining your security posture is a must.  With Octopus Deploy runbooks, you can define a single process that can harden your IIS installations according to [NIST guidelines](https://nvd.nist.gov/ncp/checklist/759) at the click of a button.
 
+!include <security-disclaimer>
+
 ## Create the runbook
 
 To create a runbook to harden your IIS server:
