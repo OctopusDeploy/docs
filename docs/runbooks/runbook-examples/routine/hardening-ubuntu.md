@@ -1,7 +1,7 @@
 ---
 title: Hardening an Ubuntu server
 description: With Octopus Deploy you can harden an Ubuntu server as part of a routine operations task.
-position: 120
+position: 70
 ---
 
 Hackers, viruses, worms, and malware, today's world needs constant vigilance in terms of security.  To that end, it is important to make sure that your server attack surface is as minimal as you can make it.  With a runbook, you can automate the security configuration of an Ubuntu server.  It is recommended that you review the guidelines from [CIS](https://www.cisecurity.org/benchmark/ubuntu_linux/) to ensure that your server is as secure as possible.

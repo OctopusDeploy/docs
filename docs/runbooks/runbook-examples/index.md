@@ -24,5 +24,3 @@ It could be:
   - Deploying an Azure ARM template.
 
 These procedures can all be automated with [runbooks](/docs/runbooks/index.md). 
-
-This section goes into details for specific runbook examples.

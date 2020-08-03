@@ -1,7 +1,7 @@
 ---
 title: Starting, stopping, and restarting Windows services
 description: With Octopus Deploy you can start, stop, or restart Windows services with a runbook as part of a routine operations task.
-position: 100
+position: 20
 ---
 
 When developing a Windows Service, starting, stopping, and restarting are all common activities.  However, once deployed to a server, the ability to start, stop, or restart a service requires the user to have either elevated permissions or at least be [granted the ability](http://woshub.com/set-permissions-on-windows-service/#:~:text=In%20the%20list%20of%20services,and%20pause%20permission%20is%20enough.) to remotely perform the operation.  If it's not possible (or feasible) to grant that permission, you may need to fill out a ticket and wait for a server administrator to do it for you, which can kill productivity.  Using a runbook, you can give developers a self-service option to starting, stopping, or restaring a Windows service without having to give them access to the server or performing permissions wizardry.
