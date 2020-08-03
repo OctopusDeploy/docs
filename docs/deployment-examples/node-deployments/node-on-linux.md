@@ -268,7 +268,7 @@ Ensure the target role matches the target role that was assigned to the machine 
 
 1. Click the *Configure features* link on the step.
 2. Disable the two configuration steps that are selected by default.
-3. Enable the *Substitute variables in files* feature.
+3. Enable the *Substitute variables in templates* feature.
 4. Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
 ![](images/substitute-variables.png "width=500")

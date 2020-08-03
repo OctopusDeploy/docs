@@ -47,9 +47,9 @@ The following features are available when deploying a package to an Azure Cloud 
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
-- [Substitute variables in files](/docs/projects/variables/variable-substitutions.md)
+- [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
 
 :::hint
 Please note these features actually run on the Octopus Server prior to deploying the Cloud Service package to Azure. They don't execute in the Azure Cloud Service instances you are eventually targeting.
@@ -82,9 +82,9 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location.
 4. Any configured or packaged `PreDeploy` scripts are executed.
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
-6. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
-7. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
-8. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+6. [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) (if configured).
+7. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+8. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 9. Any configured or package `Deploy` scripts are executed.
 10. Re-package the Cloud Service Package.
 11. Upload the Cloud Service Package to Azure Storage.
@@ -93,7 +93,7 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 
 ### Extract the Cloud Service package {#DeployingapackagetoanAzureCloudService-ExtracttheCloudServicePackage}
 
-Cloud Service Package files are extracted during deployment, in order to make available features such as Configuration Transforms and Variable Substitution.
+Cloud Service Package files are extracted during deployment, in order to make available features such as .NET Configuration Transforms and Variable Substitution.
 
 To extract the Cloud Service Package, it is first converted to the CTP format (also known as V20120315). This is the format described by Microsoft [documentation](https://msdn.microsoft.com/en-us/library/azure/jj151522.aspx), but is not used by default by the [CSPack ](https://msdn.microsoft.com/en-us/library/azure/gg432988.aspx)utility (passing the `/useCtpPackageFormat` switch is required for this format to be used).  This is just an implementation detail, but the documented archive layout gives a good starting point to understanding the layout of the extracted package.
 

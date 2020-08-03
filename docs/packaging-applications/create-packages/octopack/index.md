@@ -123,13 +123,13 @@ The example below shows a web app called **OctoFX.TradingWebsite**. All the file
 
 ![Sample Package of a Web App](images/sample-web-app-package.png "width=500")
 
-### Config transformation
+### .NET configuration transformation
 
-OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your config transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
+OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your .NET configuration transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
 
-### XML configuration transforms
+### .NET XML configuration transforms
 
-You can use [XML config transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/deployment-process/configuration-features/index.md).
+You can use [.NET XML configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/deployment-process/configuration-features/index.md).
 
 ## Include additional files using copy to output directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
 

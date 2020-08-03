@@ -1,21 +1,21 @@
 ---
-title: XML configuration variables feature
-description: The XML Configuration Variables feature updates your XML configuration files with the values from matching Octopus variables.
+title: .NET XML configuration variables feature
+description: The .NET XML Configuration Variables feature updates your .NET XML configuration files with the values from matching Octopus variables.
 position: 60
 ---
 
-The XML configuration variables feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 This feature can be enabled for package deploy steps.
 
-![XML configuration variables screenshot](images/xml-configuration-variables-feature.png "width=500")
+![.NET XML configuration variables screenshot](images/dotnet-xml-configuration-variables-feature.png "width=500")
 
 Octopus will extract your package and parse your `*.config` files looking for any `appSettings`, `connectionStrings`, and `applicationSettings` elements where the name matches one of your [variables](/docs/projects/variables/index.md).
 
 :::hint
-You can perform simple convention-based replacements in XML configuration files using this feature. We also have a feature tailored to [JSON and YAML configuration files](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md).
+You can perform simple convention-based replacements in .NET XML configuration files using this feature. We also have a feature tailored to [JSON and YAML configuration files](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md).
 
-If you are looking for something more flexible, we have the [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) enabling you to perform complex transformations on any kind of file.
+If you are looking for something more flexible, we have the [Substitute Variables in Templates feature](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) enabling you to perform complex transformations on any kind of file.
 :::
 
 ## How to use this feature
@@ -124,4 +124,4 @@ There may be other variables you would like Octopus to replace in your configura
 
 Learn how to do this [with a fully worked example](/docs/deployment-process/configuration-features/configuration-transforms/environment-specific-transforms-with-sensitive-values.md) which describes how Octopus can take care of your deployment environments, without impacting how you configure your application for your local development environment.
 
-This example uses the [XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [Substitute Variables in Files feature](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) together.
+This example uses the [.NET XML Configuration Transforms feature](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [Substitute Variables in Templates feature](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) together.

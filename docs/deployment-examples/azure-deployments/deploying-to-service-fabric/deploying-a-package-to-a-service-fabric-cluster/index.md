@@ -60,9 +60,9 @@ The following features are available when deploying a package to a Service Fabri
 
 - [Custom Scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [Structured Configuration Variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
-- [Substitute Variables in Files](/docs/projects/variables/variable-substitutions.md)
+- [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
 
 :::hint
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
@@ -75,9 +75,9 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
 1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
-1. [Substitute variables in files](/docs/deployment-process/configuration-features/substitute-variables-in-files.md) (if configured).
-1. [XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
-1. [XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+1. [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) (if configured).
+1. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+1. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 1. [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md) (if configured) are replaced.
 1. Any configured or package `Deploy` scripts are executed.
 1. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package.
@@ -86,7 +86,7 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 
 ### Extract the Service Fabric package
 
-Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as Configuration Transforms and Variable Substitution.
+Service Fabric package files are extracted during deployment, as the `Publish-UpgradedServiceFabricapplication` cmdlet used by Calamari requires an `ApplicationPackagePath` parameter to the extracted package. This also allows Octopus to use available features such as .NET Configuration Transforms and Variable Substitution.
 
 Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variable to `true` will cause the layout of the extracted package to be written into the Task Log. This may assist with finding the path to a particular file.
 

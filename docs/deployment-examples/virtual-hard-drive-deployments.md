@@ -10,7 +10,7 @@ The deploy a VHD Step was introduced in **Octopus 3.11.1**.
 The Deploy a VHD step requires the target Machine to be running Windows Server 2012 or newer, and the Tentacle service to have Administrator privileges.
 :::
 
-Octopus Deploy has built-in support for deploying Virtual Hard Drives. The feature allows you to deploy a package containing a VHD while taking advantage of Octopus features such as variable substitution in configuration files or running config transforms on files within the VHD. Octopus can then optionally attach the VHD to an existing Hyper-V virtual machine.
+Octopus Deploy has built-in support for deploying Virtual Hard Drives. The feature allows you to deploy a package containing a VHD while taking advantage of Octopus features such as variable substitution in configuration files or running .NET configuration transforms on files within the VHD. Octopus can then optionally attach the VHD to an existing Hyper-V virtual machine.
 
 ## Adding a VHD step {#DeployingVirtualHardDrives-AddingaVHDstep}
 
@@ -52,7 +52,7 @@ When a VHD is deployed the following steps take place:
 1. The package is extracted to a newly created folder.
 2. The VHD from the package is mounted. The mount point is available in deploy scripts using the `OctopusVhdMountPoint` variable (for example `$OctopusVhdMountPoint` in PowerShell).
 3. Any `PreDeploy` scripts in your package are run.
-4. Enabled step features such as configuration variables in JSON files, config transforms and substituting variables in files are run against the package folder and the application path within the mounted VHD.
+4. Enabled step features such as structured configuration variables, .NET configuration transforms and substituting variables in transforms are run against the package folder and the application path within the mounted VHD.
 5. `Deploy` scripts are run.
 6. The VHD is unmounted.
 7. If enabled, the VHD is attached to a Hyper-V virtual machine. The step waits for the virtual machine to reboot, so you should be able to interact with the running virtual machine in your `PostDeploy` scripts.

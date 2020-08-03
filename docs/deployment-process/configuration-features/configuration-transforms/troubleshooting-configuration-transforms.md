@@ -1,14 +1,14 @@
 ---
-title: Troubleshooting configuration transforms
-description: Using configuration transformations.
+title: Troubleshooting .NET configuration transforms
+description: Using .NET configuration transformations.
 position: 50
 ---
 
-If you're new to configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/projects/variables/system-variables.md) section of the documentation while you set it up the first time.
+If you're new to .NET configuration transformation, first check the package(s) part of the deployment are structured and contain what you expect. Following on from that review the deployment logs and output of the package(s) on your deployment targets to get investigate any unexpected behavior. You can try using the `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` variable defined in the [System Variables](/docs/projects/variables/system-variables.md) section of the documentation while you set it up the first time.
 
-## Advanced configuration transforms examples
+## Advanced .NET configuration transforms examples
 
-Configuration transforms can sometimes be complicated to setup. As a general rule, its best to have both configuration file and transform file in the same directory, however, this is not always achievable.
+.NET Configuration transforms can sometimes be complicated to setup. As a general rule, its best to have both configuration file and transform file in the same directory, however, this is not always achievable.
 
 This page lists the supported scenarios and the transform definitions required to apply the transform.
 
