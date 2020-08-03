@@ -73,6 +73,12 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+```text
+octo.exe allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08.03.82" --space="Target - Hybrid" --server="https://samples.octopus.app" --apiKey="MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
