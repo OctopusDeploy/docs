@@ -1,14 +1,189 @@
 ---
-title: Hardening IIS
-description: With Octopus Deploy you can harden your IIS server with a runbook as part of a routine operations task.
-position: 60
+title: Managing IIS
+description: With Octopus Deploy you can manage IIS with runbook as part of a routine operations task.
+position: 10
 ---
+
+For many organizations, IIS remains an essential piece of software for running their web-applications. 
+
+Managing IIS can often be challenging in an environment where you have a large estate of machines and need to carefully control who can access those machines.
+
+You can create a runbooks to execute as part of a routine operations task to manage your IIS websites without ever needing someone to log in.
+
+With runbooks, you can create runbooks to complete the following tasks as part of your routine operations:
+
+- [Install IIS runbook](#install-iis-runbook)
+- [install additional features](#install-additional-features)
+- [Start application pool runbook](#start-app-pool)
+- [Stop application pool runbook](#stop-app-pool)
+- [Restart application pool runbook](#restart-app-pool)
+- [Restart website runbook](#restart-website)
+- [Delete website runbook](#delete-website)
+- [Harden IIS]{#harden-iss}
+
+## Install IIS runbook {#install-iis-runbook}
+
+To create a runbook to install IIS:
+
+1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
+1. Give the runbook a Name and click **SAVE**.
+1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
+1. Click **Script**, and then select the **Run a Script** step.
+1. Give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+
+```ps
+if ((Get-WindowsFeature Web-Server).InstallState -eq "Installed") {
+    Write-Host "IIS is installed"
+} 
+else {
+    Write-Host "IIS is not installed and proceeding with Install"
+    
+    Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole
+    Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer
+}
+```
+
+The script checks to see if IIS is already installed by inspecting the `InstallState` for the `Web-Server` feature. If it’s installed it will skip the install of IIS.
+
+:::hint
+**Execution Policy:**
+It’s possible you may need to set the [Execution policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) to an appropriate value (as part of the script) in order for it to run successfully. 
+:::
+
+### Additional IIS features {#install-additional-features}
+
+There are over 25 additional IIS features you could choose to install as part of your runbook. To list all of the IIS Windows features, run the following PowerShell:
+
+```ps
+Get-WindowsOptionalFeature -Online | where FeatureName -like 'IIS-*'
+```
+
+The following code installs all of the additional features found from the previous `Get-WindowsOptionalFeature` command using the [Enable-WindowsOptionalFeature](https://docs.microsoft.com/en-us/powershell/module/dism/enable-windowsoptionalfeature?view=win10-ps) PowerShell cmdlet:
+
+```ps
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationDevelopment
+Enable-WindowsOptionalFeature -online -FeatureName NetFx4Extended-ASPNET45
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-NetFxExtensibility45
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HealthAndDiagnostics
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpLogging
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-LoggingLibraries
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-RequestMonitor
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpTracing
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-Security
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-RequestFiltering
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-Performance
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerManagementTools
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-IIS6ManagementCompatibility
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-Metabase
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementConsole
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-BasicAuthentication
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-StaticContent
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-DefaultDocument
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIExtensions
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIFilter
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
+```
+
+## Start application pool runbook {#start-app-pool}
+
+To create a runbook to start your IIS application pool:
+
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
+1. Add the community step template called [IIS AppPool - Start](https://library.octopus.com/step-templates/9db77671-0fe3-4aef-a014-551bf1e5e7ab/actiontemplate-iis-apppool-start), and give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Application Pool name**. 
+
+:::hint
+We recommend using [variables](/docs/projects/variables/index.md) where appropriate, rather than entering values directly in the step parameters.
+:::
+
+Optionally, configure any [conditions](/docs/deployment-process/conditions/index.md) for the step, click **Save**, and you have a runbook step to start an IIS Application Pool.
+
+![Runbook IIS maintenance Start App-Pool](images/iis-maintenance-start-app-pool.png "width=500")
+
+## Stop application pool runbook {#stop-app-pool}
+
+To create a runbook to stop your application pool:
+
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a Name and click **SAVE**.
+1. Add the community step template called [IIS AppPool - Stop](https://library.octopus.com/step-templates/3aaf34a5-90eb-4ea1-95db-15ec93c1e54d/actiontemplate-iis-apppool-stop), and give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out all of the required parameters in the step, using [variables](/docs/projects/variables/index.md) where appropriate:
+
+| Parameter  | Description | Example |
+| ------------- | ------------- | ------------- |
+| Application Pool Name | The name of the application pool in IIS. | AppPool-01 |
+| Status check interval | The delay in milliseconds, between each attempt to query the application pool to see if has stopped. | 500 |
+| Status check retries | The number of retries before an error is thrown. | 10 |
+
+Configure any other settings for the step and click **Save**, and you have a runbook step to stop an IIS Application Pool.
+
+![Runbook IIS maintenance Stop App-Pool](images/iis-maintenance-stop-app-pool.png "width=500")
+
+## Restart application pool runbook {#restart-app-pool}
+
+To create a runbook to restart your IIS application pool:
+
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
+1. Add the community step template called [IIS AppPool - Restart](https://library.octopus.com/step-templates/de4a85ca-38cc-4a30-8244-64612e3a7921/actiontemplate-iis-apppool-restart), and give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Application pool name**, using a [variable](/docs/projects/variables/index.md) if appropriate.
+
+Configure any other settings for the step and click **Save**, and you have a runbook step to restart an IIS Application Pool.
+
+![Runbook IIS maintenance Restart App-Pool](images/iis-maintenance-restart-app-pool.png "width=500")
+
+## Restart website runbook {#restart-website}
+
+To create a runbook to restart your IIS websites:
+
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
+1. Add the community step template called [IIS Website - Restart](https://library.octopus.com/step-templates/6a17bd83-ef96-4c22-b212-91a89ca92fe6/actiontemplate-iis-website-restart), and give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables/index.md) if appropriate.
+
+Configure any other settings for the step and click **Save**, and you have a runbook step to restart an IIS website.
+
+![Runbook IIS maintenance Restart Website](images/iis-maintenance-restart-website.png "width=500")
+
+## Delete website runbook {#delete-website}
+
+To create a runbook to delete your IIS websites:
+
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
+1. Add the community step template called [IIS Website - Delete](https://library.octopus.com/step-templates/a032159b-0742-4982-95f4-59877a31fba3/actiontemplate-iis-website-delete), and give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. Fill out the only required parameter: **Website name**, using a [variable](/docs/projects/variables/index.md) if appropriate.
+
+Configure any other settings for the step and click **Save**, and you have a runbook step to delete an IIS website.
+
+![Runbook IIS maintenance Delete Website](images/iis-maintenance-delete-website.png "width=500")
+
+## Optional Approvals
+
+You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
+
+## Harden IIS
 
 Your publicly available servers need to be as secure as you can make them.  Hackers are constantly finding new exploits so maintaining your security posture is a must.  With Octopus Deploy runbooks, you can define a single process that can harden your IIS installations according to [NIST guidelines](https://nvd.nist.gov/ncp/checklist/759) at the click of a button.
 
 !include <security-disclaimer>
 
-## Create the runbook
+### Create the runbook
 
 To create a runbook to harden your IIS server:
 
@@ -230,5 +405,9 @@ After your IIS server has rebooted, your installation will be hardened against c
 
 ## Samples
 
-We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
+We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
+## Learn more
+
+- Generate an Octopus guide for [IIS and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=IIS).
+- [PowerShell and IIS: 20 practical examples blog post](https://octopus.com/blog/iis-powershell).
