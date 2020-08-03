@@ -12,13 +12,14 @@ Hackers, viruses, worms, and malware, today's world needs constant vigilance in 
 
 To create a runbook to harden your Ubuntu server:
 
-1. From your project's overview page, navigate to {{Operations, Runbooks}}, and click **ADD RUNBOOK**.
-1. Give the runbook a Name and click **SAVE**.
+1. From your project's overview page, navigate to **{{Operations, Runbooks}}**, and click **ADD RUNBOOK**.
+1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, and then click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
 1. In the **Inline source code** section, select **Bash** and add the following code:
+
 :::warning
 The following script will make changes to the default installation of SSH and disables the root logon.  Please review carefully if you plan to implement.
 :::
