@@ -658,8 +658,8 @@ docs/operations-runbooks/runbook-examples/emergency/index.md -> docs/runbooks/ru
 docs/operations-runbooks/runbook-examples/emergency/manually-failover-dns.md -> docs/runbooks/runbook-examples/emergency/manually-failover-dns.md
 docs/operations-runbooks/runbook-examples/emergency/monitor-failover-dns.md -> docs/runbooks/runbook-examples/emergency/monitor-failover-dns.md
 docs/operations-runbooks/runbook-examples/routine/index.md -> docs/runbooks/runbook-examples/routine/index.md
-docs/operations-runbooks/runbook-examples/routine/iis-maintenance.md -> docs/runbooks/runbook-examples/routine/iis-maintenance.md
-docs/operations-runbooks/runbook-examples/routine/installing-iis.md -> docs/runbooks/runbook-examples/routine/installing-iis.md
+docs/operations-runbooks/runbook-examples/routine/iis-maintenance.md -> docs/runbooks/runbook-examples/routine/iis-runbooks.md
+docs/operations-runbooks/runbook-examples/routine/installing-iis.md -> docs/runbooks/runbook-examples/routine/iis-runbooks.md
 docs/operations-runbooks/runbook-examples/routine/installing-software-chocolatey.md -> docs/runbooks/runbook-examples/routine/installing-software-chocolatey.md
 docs/operations-runbooks/runbook-examples/routine/installing-tomcat.md -> docs/runbooks/runbook-examples/routine/installing-tomcat.md
 docs/operations-runbooks/runbook-examples/routine/updating-linux.md -> docs/runbooks/runbook-examples/routine/updating-linux.md
