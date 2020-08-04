@@ -78,19 +78,19 @@ Common options:
 This example will list the latest deployment to Production for project `DACPAC SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106)
 
 ```text
-octo.exe list-latestdeployments --project="DACPAC SQL Server" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
+octo list-latestdeployments --project="DACPAC SQL Server" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
 ```
 
 This example will list the latest deployment to Test and Production for project `DACPAC SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106)
 
 ```text
-octo.exe list-latestdeployments --project="DACPAC SQL Server" --environment="Test" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
+octo list-latestdeployments --project="DACPAC SQL Server" --environment="Test" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
 ```
 
 This example will list the latest deployment to Test and Production for project `DACPAC SQL Server` and `DBUp SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106)
 
 ```text
-octo.exe list-latestdeployments --project="DACPAC SQL Server" --environment="Test" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server" --project="DBUp SQL Server"
+octo list-latestdeployments --project="DACPAC SQL Server" --environment="Test" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server" --project="DBUp SQL Server"
 ```
 
 ## Learn more
