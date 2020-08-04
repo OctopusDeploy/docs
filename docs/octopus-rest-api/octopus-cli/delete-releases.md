@@ -82,6 +82,28 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+This example will delete releases in the `PetClinic - rolling deploy` project in the `Pattern - Rolling` space that match the following version range:
+
+- Minimum version: `2020.07.06.17`
+- Maximum version: `2020.07.06.18`
+
+```text
+octo delete-releases --project="PetClinic - rolling deploy" --space="Pattern - Rolling" --minVersion="2020.07.06.17" --maxVersion="2020.07.06.18" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
+```
+
+This example uses the `--whatIf` flag to display the releases that *would* be deleted in the `PetClinic - rolling deploy` project in the `Pattern - Rolling` space which match the following version range:
+
+- Minimum version: `2020.07.06.16`
+- Maximum version: `2020.07.06.20`
+
+This can be useful where you want to check the releases that would be deleted, before actually deleting them:
+
+```text
+octo delete-releases --project="PetClinic - rolling deploy" --space="Pattern - Rolling" --minVersion="2020.07.06.16" --maxVersion="2020.07.06.20" --whatIf --server="https://samples.octopus.app/" --apiKey="MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

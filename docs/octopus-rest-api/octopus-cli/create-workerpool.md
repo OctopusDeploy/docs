@@ -73,6 +73,20 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+This example will create a worker pool named **Docker Worker Pool** in the `Pattern - Rolling` space:
+
+```text
+octo create-workerpool --name="Docker Worker Pool" --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
+```
+
+This example will create a worker pool named **Docker Worker Pool** in the `Pattern - Rolling` space, and ignore any errors if the pool already exists:
+
+```text
+octo create-workerpool --name="Docker Worker Pool" --ignoreIfExists --space="Pattern - Rolling"  --server="https://samples.octopus.app/" --apiKey="MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
