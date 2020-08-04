@@ -100,7 +100,7 @@ octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://sampl
 This example will list the latest 5 deployments to Production for tenant Petlife
 
 ```
-octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5" --environment="Production" --tenant="Petlife"
+octo list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5" --environment="Production" --tenant="Petlife"
 ```
 
 ## Learn more
