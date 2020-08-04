@@ -69,6 +69,20 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+This example writes out deployment information from the `Default` space to a typical Windows file path:
+
+```text
+octo dump-deployments --filePath="C:\temp\octo-deployments.xml" --server="https://samples.octopus.app" --apiKey="MyApiKey"
+```
+
+This example writes out deployment information from the `Pattern - Rolling` space to a typical Linux file path:
+
+```text
+octo dump-deployments --filePath="/tmp/octo-deployments.xml" --space="Pattern - Rolling" --server="https://samples.octopus.app" --apiKey="MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
