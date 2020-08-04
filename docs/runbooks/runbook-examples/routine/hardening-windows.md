@@ -1,7 +1,7 @@
 ---
 title: Hardening Windows
 description: With Octopus Deploy you can harden your Windows machines with a runbook as part of a routine operations task.
-position: 80
+position: 60
 ---
 
 Highly regulated industries such as finance need to make sure the Operating Systems (OS) are secure and protected from data breaches.  This often requires strict controls be implemented to reduce their attack surface.  In Windows Active Directory environments, this type of hardening can be performed by implementing Group Policy Objects (GPO).  In cases where GPO isn't an option, such as non-domain joined cloud servers, you could use a runbook to harden your Windows installation.

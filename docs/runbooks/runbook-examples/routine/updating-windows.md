@@ -1,7 +1,7 @@
 ---
 title: Updating Windows
 description: With Octopus Deploy you can update and patch Windows machines with a runbook as part of a routine operations task.
-position: 60
+position: 40
 ---
 
 It’s not always possible to use products such as [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/en-us/mem/configmgr/) (formerly SCCM or Microsoft System Center Configuration Manager) to orchestrate the installation of patches for Windows.
