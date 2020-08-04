@@ -71,7 +71,7 @@ Common options:
 This example will display the projects within the default space
 
 ```text
-octo.exe list-projects --server="http://MyOctopusServer" --apiKey="API-MyApiKey" 
+octo list-projects --server="http://MyOctopusServer" --apiKey="API-MyApiKey" 
 ```
 
 ## Learn more
