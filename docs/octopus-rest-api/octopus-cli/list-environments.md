@@ -71,7 +71,7 @@ Common options:
 This example will list environments for space [Target - Docker](https://samples.octopus.app/app#/Spaces-103)
 
 ```text
-octo.exe list-environments --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - Docker"
+octo list-environments --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - Docker"
 ```
 
 ## Learn more
