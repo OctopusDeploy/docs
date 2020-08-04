@@ -72,6 +72,16 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+This example will list all releases for the Wingtip Toys project on the default space
+```text
+octo list-releases --project="WingtipToys" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
+This example will list all releases for projects `Dbup - AWS RDS`, `Flyway - AWS RDS`, and `RoundhousE - AWS RDS` on space [Target - MySQL](https://samples.octopus.app/app#/Spaces-242)
+``text
+octo list-releases --project="Dbup - AWS RDS" --project="Flyway - AWS RDS" --project="RoundhousE - AWS RDS" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - MySQL"
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
