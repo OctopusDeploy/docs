@@ -670,7 +670,6 @@ docs/operations-runbooks/runbook-publishing/index.md -> docs/runbooks/runbook-pu
 docs/operations-runbooks/runbooks-vs-deployments/index.md -> docs/runbooks/runbooks-vs-deployments/index.md
 docs/operations-runbooks/scheduled-runbook-trigger/index.md -> docs/runbooks/scheduled-runbook-trigger/index.md
 docs/deployment-process/configuration-features/json-configuration-variables-feature.md -> docs/deployment-process/configuration-features/structured-configuration-variables-feature.md
-docs/getting-started/getting-started-guides.md -> docs/getting-started/index.md
 docs/deployment-process/configuration-features/substitute-variables-in-files.md -> docs/deployment-process/configuration-features/substitute-variables-in-templates.md
 docs/octopus-concepts/index.md -> docs/getting-started/octopus-concepts/index.md
 docs/octopus-concepts/configuration-features.md -> docs/getting-started/octopus-concepts/configuration-features.md

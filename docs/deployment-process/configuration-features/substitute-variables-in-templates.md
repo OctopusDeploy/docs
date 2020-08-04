@@ -6,7 +6,7 @@ position: 80
 The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/index.md) into any file.
 
 :::hint
-You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [JSON configuration files](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md).
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md).
 :::
 
 ## How to substitute variables in a file

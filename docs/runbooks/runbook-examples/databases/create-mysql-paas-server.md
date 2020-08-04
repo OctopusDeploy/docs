@@ -6,7 +6,13 @@ position: 50
 
 Cloud based applications often need databases to store their data.  Cloud providers such as Azure, AWS, and Google Cloud Platform (GCP) all offer database Platform as a Service (PaaS) which allows you to create a database server without having to create the underlying infrastructure that goes along with it.  These servers are fully managed by the cloud platform provider, allowing you to focus on delivering software instead of worrying about maintenance.  This can easily be automated using a runbook.
 
-In this example, we'll create a MySQL database server on GCP.
+In this example, we'll create a MySQL database server on [Google Cloud](https://cloud.google.com/gcp).
+
+
+:::hint
+**gcloud CLI and authorization**
+Most of the commands used for interacting with Google in this next section make use of the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud). To use the **gcloud** CLI you usually need to authorize it. For further information on gcloud authorization, please refer to the [documentation](https://cloud.google.com/sdk/docs/authorizing).
+:::
 
 ## Create the runbook
 
@@ -36,7 +42,7 @@ else {
 }
 Set-OctopusVariable -name "DatabaseDoesntExist" -value $dbDoesntExist
 ```
-5. Add another **Run a script** with the run condition of #{Octopus.Action[Check if MySQL instance exists].Output.DatabaseDoesntExist} is true:
+5. Add another **Run a script** with the run condition of `#{Octopus.Action[Check if MySQL instance exists].Output.DatabaseDoesntExist}` is true:
 
 ```PowerShell
 $zone = $OctopusParameters["GCP.Zone"]
@@ -68,6 +74,11 @@ Test-LastExit "gcloud beta sql instances create"
 
 Write-Host "Completed creating mysql instance"
 ```
+6. Add project [variables](/docs/projects/variables/index.md) for use with the scripts
+
+:::hint
+If you have a keen eye, you may have noticed that the script above uses the gcloud `beta` option to create the MySQL database server. This is done to allow use of the `--network` flag where you can specify a specific network in which to place the database server. This can be useful if you want to specify a [private ip address](https://cloud.google.com/sql/docs/mysql/configure-private-ip) for your server.
+:::
 
 In just a few steps, you're able to create a MySQL database server on GCP.
 
