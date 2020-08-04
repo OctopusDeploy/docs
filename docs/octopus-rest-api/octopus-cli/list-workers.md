@@ -87,6 +87,22 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+This example will list worker machines in the `Default worker pool` in the default space
+```text
+octo list-workers --workerPool="Default worker pool" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
+This example will list all workers in MyWorkerPool that are disabled
+```text
+octo list-workers --workerPool="MyWorkerPool" --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --disabled="true"
+```
+
+This example will list all workers with a status of `Unknown` in the [Target - NGINX](https://samples.octopus.app/app#/Spaces-104) space
+```text
+octo list-workers --workerPool="Default worker pool" --server="https://samples.octopus.com" --apiKey="API--MyApiKey" --space="Target - NGINX" --health-status="Uknown"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
