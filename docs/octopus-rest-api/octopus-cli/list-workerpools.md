@@ -67,6 +67,17 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+This example will list the worker pools in the default space
+```text
+octo list-workerpools --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
+This example will list the worker pools in space [Target - PostgreSQL](https://samples.octopus.app/app#/Spaces-243)
+```text
+octo list-workerpools --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - PostgreSQL"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
