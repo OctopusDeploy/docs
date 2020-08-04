@@ -2,9 +2,7 @@
 This Configuration Feature used to be called JSON Configuration Variarbles but has been re-named with the added support for YAML.
 :::
 
-With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in the JSON and YAML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals.
-
-This is designed to work natively with [.NET Core Structured configuration files](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md), but works equally well with any JSON or YAML files.
+With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML and XML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals and XPath for matching XML elements.
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
@@ -31,7 +29,7 @@ You can supply full paths to files, use wildcards to find multiple files in a di
 
 **Specific file path**
 ```
-ExampleProject/appSettings.json
+ExampleProject\appSettings.json
 ```
 
 **Match any .yaml files in the root directory**
@@ -44,18 +42,20 @@ ExampleProject/appSettings.json
 Config\*.json
 ```
 
-**Match any .yaml files in the specified directory or deeper**
+**Match any .xml files in the specified directory or deeper**
 ```
-Application/**/*.yaml
+Application\**\*.xml
 ```
 
 The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 
-**Structured Configuration Variables** allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
+**Structured Configuration Variables** allows for replacement in both JSON, YAML and XML files. To determine what file type is being used, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
 
-If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML.
+If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML and if the extension is `xml` the file will be parsed as XML.
+
+## JSON and YAML
 
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
 
@@ -218,4 +218,74 @@ foo:
     -
       url: test.weather.com
       key: DEV1234567
+```
+
+## XML
+
+XML is replaced different to JSON and YAML. With those, it uses a special syntax to match the structure of the file. XML uses XPaths to do the replacement. 
+
+Supplied Octopus Variables that are valid XPaths will be used to replace content within XML files. An example is having a variable called `//environment` with the value of `production` will replace the text value of all `<environment>` nodes with `production`. 
+
+When selecting and replacing an element, the content that gets replaced can only be as rich as the content that is currently in there. For example, given the following example:
+
+```xml
+<configuration>
+   <logging>false</logging>
+</configuration>
+```
+
+if the Octopus Variable `/configuration/logging` was specified with the value `<loggingSystem>true</loggingSystem>`, the value would replace `false` would be encoded as the childen of `/configuration/logging` are text. It would become:
+
+```xml
+<configuration>
+   <logging>&lt;loggingSystem&gt;true&lt;/loggingSystem&gt;</logging>
+</configuration>
+```
+
+However, if the content to be replaced is like the following example:
+
+```xml
+<configuration>
+   <logging>
+      <developmentLoggingSystem />
+   </logging>
+</configuration>
+```
+
+and now the Octopus Variable `/configuration/logging` was set as `<productionLoggingSystem>` the children of `<logging>` are all elements and thus can be replaced with further XML elements like:
+
+```xml
+<configuration>
+   <logging>
+      <productionLoggingSystem>
+   </logging>
+</configuration>
+```
+
+### Replacing Attributes
+
+Replacing attributes is possible if selected with the XPath. An example a configuration file and replacing an attribute:
+
+```xml
+<configuration>
+    <email role='admin'>example@example.com</email>
+</configuration>
+```
+
+With the Octopus Variable `/configuration/email@role` set to the value of `developer` the output will look like:
+
+```xml
+<configuration>
+    <email role='developer'>example@example.com</email>
+</configuration>
+```
+### XML CDATA sections
+
+### Comments
+XPath can also select comments and replace them if that's a requirement. Using the XPath `/configuration/comment()` you can replace the comment in the following xml:
+
+```xml
+<configuration>
+   <!-- Comment -->
+</configuration>
 ```
