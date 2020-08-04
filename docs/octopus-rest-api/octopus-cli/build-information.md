@@ -82,6 +82,8 @@ Common options:
 ```
 
 ## Basic Example
+This example will upload [build information](https://octopus.com/docs/packaging-applications/build-servers#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
+
 <details>
 <summary>buildInfo.json</summary>
 <p>
