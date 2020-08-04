@@ -24,7 +24,7 @@ You can configure the following features:
 - [IIS web site and application pool](/docs/deployment-process/configuration-features/iis-website-and-application-pool.md)
 - [Windows Service](/docs/deployment-process/configuration-features/windows-services.md)
 - [Custom deployment scripts](/docs/deployment-examples/custom-scripts/index.md)
-- [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
+- [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
 - [Configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [.NET Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
 - [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)

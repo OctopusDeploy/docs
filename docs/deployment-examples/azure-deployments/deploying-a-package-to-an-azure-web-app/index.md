@@ -48,7 +48,7 @@ The following features are available when deploying a package to an Azure Web Ap
 - [Custom scripts](/docs/deployment-examples/custom-scripts/index.md)
 - [Configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [.NET Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
-- [JSON configuration variables](/docs/deployment-process/configuration-features/json-configuration-variables-feature.md)
+- [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
 - [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
 
 :::hint
