@@ -67,6 +67,13 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+This example will display the projects within the default space
+
+```text
+octo.exe list-projects --server="http://MyOctopusServer" --apiKey="API-MyApiKey" 
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
