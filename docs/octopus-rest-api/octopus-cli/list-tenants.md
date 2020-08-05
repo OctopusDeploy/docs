@@ -67,7 +67,8 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example
+## Basic examples
+
 This example will list the tenants on the default space
 
 ```text
