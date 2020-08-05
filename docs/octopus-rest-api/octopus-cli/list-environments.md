@@ -67,6 +67,16 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+
+!include <samples-instance>
+
+This example lists environments for space [Target - Docker](https://samples.octopus.app/app#/Spaces-103):
+
+```text
+octo list-environments --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - Docker"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

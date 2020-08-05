@@ -87,6 +87,34 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+!include <samples-instance>
+
+This example lists all machines on the instance:
+
+```text
+octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
+This example lists all machines that are in the Test environment:
+
+```text
+octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Test"
+```
+
+This example lists all machines that are in the Development environment and the Production environment:
+
+```text
+octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --environment="Production"
+```
+
+This example lists all machines that need a Calamari upgrade in space [Target - Hybrid](https://samples.octopus.app/app#/Spaces-342):
+
+```
+octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --calamari-outdated="true" --space="Target - Hybrid"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

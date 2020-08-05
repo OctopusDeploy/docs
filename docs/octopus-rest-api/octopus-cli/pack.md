@@ -69,6 +69,17 @@ Common options:
                              Default or Json
 ```
 
+## Basic example
+
+This example packs the contents of a temp directory:
+
+```text Windows
+octo pack --id="MyPackage" --format="zip" --version="1.0.0.0" --basePath="c:\temp\MyPackage" --outFolder="c:\temp"
+```
+```text Linux
+octo pack --id="MyPackage" --format="zip" --version="1.0.0.0" --basePath="/tmp/MyPackage" --outFolder="/tmp"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

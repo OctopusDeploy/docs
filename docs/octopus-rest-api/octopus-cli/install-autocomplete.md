@@ -4,7 +4,7 @@ description: Install a shell auto-complete script into your shell profile, if th
 position: 155
 ---
 
-Install a shell auto-complete script into your shell profile, if they aren't already there. Supports pwsh, zsh, bash & powershell.
+Install a shell auto-complete script into your shell profile, if they aren't already there. Supports pwsh, zsh, bash, and PowerShell.
 
 **install-autocomplete options**
 
@@ -32,3 +32,4 @@ Common options:
                              are Default or Json
 ```
 
+!include <octo-autocomplete-tabcompletion>

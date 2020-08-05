@@ -83,6 +83,25 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+This example cleans all workers in the Default Worker Pool which have a health-status of `Unhealthy` in the `Pattern - Rolling` space:
+
+
+```text
+octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Unhealthy" --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
+```
+
+This example cleans all workers from the Default Worker Pool where they are disabled and have one of the following health-status values:
+
+- `Healthy`
+- `Unhealthy`
+- `Unknown`
+
+```text
+octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Healthy" --health-status="Unhealthy" --health-status="Unknown" --disabled=True --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

@@ -81,6 +81,32 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example
+This example uploads [build information](https://octopus.com/docs/packaging-applications/build-servers#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
+
+
+```json
+{
+  "BuildEnvironment":"BitBucket",
+  "Branch":"master",
+  "BuildNumber":"288",
+  "BuildUrl":"https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/results/288",
+  "VcsType":"Git",
+  "VcsRoot":"http://bitbucket.org/octopussamples/petclinic",
+  "VcsCommitNumber":"314cf2c3ee916c92a384c2796a6abe332d678e4f",
+  "Commits":[
+      {
+         "Id":"314cf2c3ee916c92a384c2796a6abe332d678e4f",
+         "Comment":"PET-1 - test runbook with 0.15.0 of pipe"
+      }
+   ]
+}
+```
+
+```text
+octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" --file="buildInfo.json" --server="http://samples.octopus.app" --apiKey="API-MyKey" --space="Target - Wildfly"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

@@ -145,7 +145,7 @@ Common options:
 
 ## Basic Example {#Promotingreleases-Basicexample}
 
-The following command will promote the latest release of the*Web* projectdeployed to *Development*to the environment *Staging.*
+The following command promotes the latest release of the *Web* project deployed to Development to the environment Staging.
 
 ```bash
 octo promote-release --project Web --from Development --to Staging -progress --server http://MyOctopusServerURL.com --apikey MyAPIKey

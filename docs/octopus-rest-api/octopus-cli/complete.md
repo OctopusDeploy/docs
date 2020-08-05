@@ -25,3 +25,25 @@ Common options:
                              are Default or Json
 ```
 
+## Basic example
+
+This example displays supported commands that start with `list`:
+
+```text
+octo complete list
+```
+
+This returns the following results:
+
+```
+list-deployments
+list-environments
+list-latestdeployments
+list-machines
+list-projects
+list-releases
+list-tenants
+list-workerpools
+list-workers
+```
+

@@ -80,7 +80,7 @@ Common options:
 
 ## Basic example {#Creatingprojects-Basicexample}
 
-The following command will create a project called *MyWebApp* into the project group *MyProjectGroup*:
+The following command creates a project called *MyWebApp* into the project group *MyProjectGroup*:
 
 ```bash
 octo create-project --name MyWebApp --projectgroup MyProjectGroup --server http://MyOctopusServerURL.com --apikey MyAPIKey

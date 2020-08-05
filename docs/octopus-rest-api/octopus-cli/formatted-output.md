@@ -16,7 +16,7 @@ To access JSON formatted output, use the `--outputformat=json` parameter.
 octo list-projects --server http://your-octopus-server/ --apiKey API-ABCDEF123456 --outputformat=json
 ```
 
-This command will output the list of projects in parsable JSON format:
+This command outputs the list of projects in parsable JSON format:
 
 ```text
 [
@@ -37,7 +37,7 @@ $json = (./octo list-releases --server http://your-octopus-server/ --apikey API-
 $json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).AddMonths(-1))}
 ```
 
-This script will write out a list of releases for the last month:
+This script writes out a list of releases for the last month:
 
 ```text
 Version Assembled                     PackageVersions ReleaseNotes

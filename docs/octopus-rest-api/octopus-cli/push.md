@@ -92,6 +92,16 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+This example pushes a package to the built-in Octopus Deploy repository:
+
+```text Windows
+octo push --package="c:\temp\MyPackage.1.0.0.0.zip" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+```text Linux
+octo push --package="/tmp/MyPackage.1.0.0.0.zip" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)

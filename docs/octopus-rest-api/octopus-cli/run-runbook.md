@@ -140,7 +140,7 @@ Common options:
 
 ## Basic Examples {#RunningRunbooks-Basicexamples}
 
-This will run a runbook using the published snapshot:
+This runs a runbook using the published snapshot:
 
 ```bash
 octo run-runbook --runbook="Hello World"  \
@@ -150,7 +150,7 @@ octo run-runbook --runbook="Hello World"  \
                  --apiKey API-ABCDEF123456
 ```
 
-This will run a runbook using a specific snapshot (e.g. Snapshot KGHSL3L ):
+This runs a runbook using a specific snapshot (e.g., Snapshot KGHSL3L):
 
 ```bash
 octo run-runbook --runbook="Hello World"       \
@@ -161,7 +161,7 @@ octo run-runbook --runbook="Hello World"       \
                  --apiKey API-ABCDEF123456
 ```
 
-To specify multiple environments, you can do:
+To specify multiple environments, you can use the following:
 
 ```bash
 octo run-runbook --runbook="Hello World"  \
