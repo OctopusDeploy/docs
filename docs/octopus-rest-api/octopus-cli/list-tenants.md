@@ -67,6 +67,20 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic examples
+
+This example lists the tenants on the default space:
+
+```text
+octo list-tenants --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
+This example lists the tenants in the space [Tenants - SaaS](https://samples.octopus.app/app#/Spaces-2):
+
+```text
+octo list-tenants --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
