@@ -72,7 +72,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example
+## Basic examples
 
 This example lists all releases for the Wingtip Toys project on the default space:
 ```text
