@@ -75,7 +75,9 @@ Common options:
 
 ## Basic examples
 
-This example will create a worker pool named **Docker Worker Pool** in the `Pattern - Rolling` space:
+!include <samples-instance>
+
+This example creates a worker pool named **Docker Worker Pool** in the `Pattern - Rolling` space:
 
 ```text
 octo create-workerpool --name="Docker Worker Pool" --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
