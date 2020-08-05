@@ -79,7 +79,7 @@ Common options:
 ```
 
 ## Basic Example
-This example will list deployments for the specified project
+This example lists deployments for the specified project:
 
 ```
 octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS"
