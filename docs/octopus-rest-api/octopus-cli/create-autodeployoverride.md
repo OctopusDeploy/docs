@@ -86,7 +86,7 @@ Common options:
 
 ## Basic example {#Creatingautodeployoverrides-Basicexample}
 
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development*:
+The following creates an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment Development:
 
 ```bash
 octo create-autodeployoverride --project HelloWorld --environment Development --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
@@ -94,7 +94,7 @@ octo create-autodeployoverride --project HelloWorld --environment Development --
 
 ## Tenanted example (by name) {#Creatingautodeployoverrides-Tenantedexample(byname)}
 
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following creates an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment Development for the tenant *Acme*:
 
 ```bash
 octo create-autodeployoverride --project HelloWorld --environment Development --tenant Acme --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456
@@ -102,7 +102,7 @@ octo create-autodeployoverride --project HelloWorld --environment Development --
 
 ## Tenanted example (by tags) {#Creatingautodeployoverrides-Tenantedexample(bytags)}
 
-The following will create an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+The following creates an automatic deployment release override for version 1.3.0 of the project *HelloWorld* to the environment Development for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
 octo create-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --version 1.3.0 --server http://octopus/ --apikey API-ABCDEF123456

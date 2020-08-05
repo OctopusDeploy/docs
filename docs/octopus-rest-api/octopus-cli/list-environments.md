@@ -68,6 +68,9 @@ Common options:
 ```
 
 ## Basic example
+
+!include <samples-instance>
+
 This example lists environments for space [Target - Docker](https://samples.octopus.app/app#/Spaces-103):
 
 ```text

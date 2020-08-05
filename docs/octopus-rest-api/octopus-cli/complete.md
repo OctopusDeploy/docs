@@ -27,7 +27,7 @@ Common options:
 
 ## Basic example
 
-This example will display supported commands that start with `list`:
+This example displays supported commands that start with `list`:
 
 ```text
 octo complete list

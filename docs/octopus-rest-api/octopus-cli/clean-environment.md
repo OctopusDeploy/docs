@@ -90,7 +90,7 @@ Common options:
 
 ## Basic example {#Cleaningenvironments-Basicexample}
 
-The following command will clean any *offline* machines from the *production* environment:
+The following command cleans any *offline* machines from the Production environment:
 
 ```bash
 octo clean-environment --environment Production --status Offline --server http://MyOctopusServerURL.com --apikey MyAPIKey

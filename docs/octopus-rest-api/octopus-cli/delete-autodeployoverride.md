@@ -84,7 +84,7 @@ Common options:
 
 ## Basic example {#Deletingautodeployoverrides-Basicexample}
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development*:
+The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development:
 
 ```bash
 octo delete-autodeployoverride --project HelloWorld --environment Development --server http://octopus/ --apikey API-ABCDEF123456
@@ -92,7 +92,7 @@ octo delete-autodeployoverride --project HelloWorld --environment Development --
 
 ## Tenanted example (by name) {#Deletingautodeployoverrides-Tenantedexample(byname)}
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for the tenant *Acme*:
+The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development for the tenant *Acme*:
 
 ```bash
 octo delete-autodeployoverride --project HelloWorld --environment Development --tenant Acme --server http://octopus/ --apikey API-ABCDEF123456
@@ -100,7 +100,7 @@ octo delete-autodeployoverride --project HelloWorld --environment Development --
 
 ## tenanted example (by tags) {#deletingautodeployoverrides-tenantedexample(bytags)}
 
-The following will delete an automatic deployment release override for the project *HelloWorld* to the environment *Development* for all tenants with the *Hosting/Cloud* tag:
+The following deletes an automatic deployment release override for the project *HelloWorld* to the environment Development for all tenants with the *Hosting/Cloud* tag:
 
 ```bash
 octo delete-autodeployoverride --project HelloWorld --environment Development --tenanttag Hosting/Cloud --server http://octopus/ --apikey API-ABCDEF123456

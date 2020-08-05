@@ -85,14 +85,14 @@ Common options:
 
 ## Basic examples
 
-This example will clean all workers in the Default Worker Pool which have a health-status of `Unhealthy` in the `Pattern - Rolling` space:
+This example cleans all workers in the Default Worker Pool which have a health-status of `Unhealthy` in the `Pattern - Rolling` space:
 
 
 ```text
 octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Unhealthy" --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
 ```
 
-This example will clean all workers from the Default Worker Pool where they are disabled and have one of the following health-status values:
+This example cleans all workers from the Default Worker Pool where they are disabled and have one of the following health-status values:
 
 - `Healthy`
 - `Unhealthy`

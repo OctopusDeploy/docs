@@ -84,7 +84,9 @@ Common options:
 
 ## Basic examples
 
-This example will delete releases in the `PetClinic - rolling deploy` project in the `Pattern - Rolling` space that match the following version range:
+!include <samples-instance>
+
+This example deletes releases in the `PetClinic - rolling deploy` project in the `Pattern - Rolling` space that match the following version range:
 
 - Minimum version: `2020.07.06.17`
 - Maximum version: `2020.07.06.18`

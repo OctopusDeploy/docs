@@ -69,6 +69,8 @@ Common options:
 
 ## Basic examples
 
+!include <samples-instance>
+
 This example lists the tenants on the default space:
 
 ```text

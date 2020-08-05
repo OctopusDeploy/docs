@@ -88,6 +88,9 @@ Common options:
 ```
 
 ## Basic examples
+
+!include <samples-instance>
+
 This example lists all machines on the instance:
 
 ```text

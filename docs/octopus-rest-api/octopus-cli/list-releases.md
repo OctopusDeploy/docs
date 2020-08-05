@@ -74,14 +74,19 @@ Common options:
 
 ## Basic examples
 
+!include <samples-instance>
+
 This example lists all releases for the Wingtip Toys project on the default space:
+
 ```text
 octo list-releases --project="WingtipToys" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
 This example lists all releases for projects `Dbup - AWS RDS`, `Flyway - AWS RDS`, and `RoundhousE - AWS RDS` on space [Target - MySQL](https://samples.octopus.app/app#/Spaces-242):
-``text
+
+```text
 octo list-releases --project="Dbup - AWS RDS" --project="Flyway - AWS RDS" --project="RoundhousE - AWS RDS" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - MySQL"
+```
 
 ## Learn more
 
