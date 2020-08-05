@@ -93,7 +93,7 @@ Common options:
 ```
 
 ## Basic example
-This example pushes a package to the Octopus Deploy repository
+This example pushes a package to the Octopus Deploy repository:
 
 ```text Windows
 octo push --package="c:\temp\MyPackage.1.0.0.0.zip" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
