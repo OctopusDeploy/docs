@@ -69,7 +69,7 @@ Common options:
 
 ## Basic examples
 
-This example will list the tenants on the default space
+This example lists the tenants on the default space:
 
 ```text
 octo list-tenants --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
