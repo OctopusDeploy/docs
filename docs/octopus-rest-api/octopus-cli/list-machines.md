@@ -106,7 +106,7 @@ This example lists all machines that are in the Development environment and the 
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --environment="Production"
 ```
 
-This example will list all machines that need a Calamari upgrade in space [Target - Hybrid](https://samples.octopus.app/app#/Spaces-342)
+This example lists all machines that need a Calamari upgrade in space [Target - Hybrid](https://samples.octopus.app/app#/Spaces-342):
 
 ```
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --calamari-outdated="true" --space="Target - Hybrid"
