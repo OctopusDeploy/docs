@@ -222,20 +222,24 @@ foo:
 
 ## XML
 
-XML is replaced different to JSON and YAML. With those, it uses a special syntax to match the structure of the file. XML uses XPaths to do the replacement. 
+XML is replaced different to JSON and YAML. With those, it uses a special syntax to match the structure of the file, however XML uses XPaths to find the elements to do the replacements on. Octopus supports the use of both XPath 1 and XPath 2.
 
-Supplied Octopus Variables that are valid XPaths will be used to replace content within XML files. An example is having a variable called `//environment` with the value of `production` will replace the text value of all `<environment>` nodes with `production`. 
+Octopus Variables that are valid XPaths will be used to replace content within XML files. An example is having a variable called `//environment` with the value of `production`. This will replace the text value of all `<environment>` elements with the value of `production`. 
 
-When selecting and replacing an element, the content that gets replaced can only be as rich as the content that is currently in there. For example, given the following example:
+### Replacing Element content
 
+When selecting and replacing an element, the content that gets replaced can only be as rich as the content that is currently in there. For example, if a element is selected that has further elements within it, that is treated as as rich text and values that are replaced into that element will not be encoded and added to the elements as is. However, if you had an XPath that selected an element that only have text nodes inside of it, values replaced into that element will be encoded and will be text. This is to assist with replacing elements like `<connectionString>Server=.;Database=db;User Id=admin;Password=password;</connectionString>` as a password or similar may contain a `<` and a `>` such as if the password was something like `Pass<word>1`. In that case, it would be  encoded incorrectly and cause issues with the XML document. It's worth noting that an element that is self enclosing and thus has no children, such as `<logging />`, is considered as rich text. Given the following example:
+
+**XML Structure with text in logging element**
 ```xml
 <configuration>
    <logging>false</logging>
 </configuration>
 ```
 
-if the Octopus Variable `/configuration/logging` was specified with the value `<loggingSystem>true</loggingSystem>`, the value would replace `false` would be encoded as the childen of `/configuration/logging` are text. It would become:
+if the Octopus Variable `/configuration/logging` was specified with the value `<loggingSystem>true</loggingSystem>`, the value would replace `false` would be encoded as the childen of `/configuration/logging` are all text. It would become:
 
+**XML Structure with text in logging element replaced**
 ```xml
 <configuration>
    <logging>&lt;loggingSystem&gt;true&lt;/loggingSystem&gt;</logging>
@@ -244,6 +248,7 @@ if the Octopus Variable `/configuration/logging` was specified with the value `<
 
 However, if the content to be replaced is like the following example:
 
+**XML Structure with further elements in logging element**
 ```xml
 <configuration>
    <logging>
@@ -252,14 +257,41 @@ However, if the content to be replaced is like the following example:
 </configuration>
 ```
 
-and now the Octopus Variable `/configuration/logging` was set as `<productionLoggingSystem>` the children of `<logging>` are all elements and thus can be replaced with further XML elements like:
+and now the Octopus Variable `/configuration/logging` was set as `<productionLoggingSystem />` the children of `<logging>` are all elements and thus can be replaced with further XML elements like:
 
+**XML Structure with further elements in logging element replaced**
 ```xml
 <configuration>
    <logging>
-      <productionLoggingSystem>
+      <productionLoggingSystem />
    </logging>
 </configuration>
+```
+
+### Replacing mixed content elements
+
+A mixed content element is when an element has children that are text nodes and other elements. An example of this is:
+
+```xml
+<document>
+   This is <b>mixed</b> content
+</document>
+```
+
+There's two options when trying to replace the content within an element with mixed content. As there's at least one further element, this is consider a rich element so an XPath like `/document` with the value of `<logger />` would result in:
+
+```xml
+<document>
+   <logger />
+</document>
+```
+
+However, it's also possible to just replace the text nodes with the following XPath: `/document/text()`. If the value of that variable was set to `replaced`, the output would be the following:
+
+```xml
+<document>
+   replaced<b>mixed</b>replaced
+</document>
 ```
 
 ### Replacing Attributes
@@ -272,20 +304,75 @@ Replacing attributes is possible if selected with the XPath. An example a config
 </configuration>
 ```
 
-With the Octopus Variable `/configuration/email@role` set to the value of `developer` the output will look like:
+With the Octopus Variable `/configuration/email/@role` set to the value of `developer` the output will look like:
 
 ```xml
 <configuration>
     <email role='developer'>example@example.com</email>
 </configuration>
 ```
+
+When writing the XPaths, elements can be selected with attributes like `/configuration/email[@role='admin']` which will select elements in `configuration` called `email` with the attribute `role` set to `admin`.
+
 ### XML CDATA sections
 
-### Comments
-XPath can also select comments and replace them if that's a requirement. Using the XPath `/configuration/comment()` you can replace the comment in the following xml:
+CDATA elements can be replaced just like any other element by selecting it with the XPath. When the content of the CDATA tag is replaced, the CDATA tag is maintained in the output. In the following example, `development` in the CDATA tag can be replaced with `production` by having a variable `/document/environment/text()` with the value `production`:  
 
+**XML Structure with CDATA**
+```xml
+<document>
+   <environment><![CDATA[development]]></setting>
+</document>
+```
+
+**XML Structure with CDATA replaced**
+```xml
+<document>
+   <environment><![CDATA[production]]></environment>
+</document>
+```
+
+### Comments
+XPath can also select comments and replace them if that's a requirement. Using the Octopus Variable named `/configuration/comment()` and the value of `Replaced Comment` you can replace the comment in the following xml:
+
+**XML Structure with comment**
 ```xml
 <configuration>
    <!-- Comment -->
 </configuration>
+```
+
+**XML Structure with comment replaced**
+```xml
+<configuration>
+   <!-- Replaced Comment -->
+</configuration>
+```
+
+### Processing Instructions
+
+Processing Instructions can be replaced with the XPath processing instruction selector like so: `/document/processing-instruction('xml-stylesheet')`. When replacing a processing instruction, it's not possible to replace the individual attributes. The whole processing instruction gets replaced with the supplied value. Take the following example:
+
+**XML Structure Processing Instruction**
+```xml
+<document>
+   <?xml-stylesheet type="text/xsl" href="/Content/Glossary/main.xsl"?>
+</document>
+```
+
+When the Octopus Variable `/document/processing-instruction('xml-stylesheet')` is set to `new value` the output will be the following:
+
+**XML Structure Processing Instruction replaced**
+```xml
+<document>
+   <?xml-stylesheet new-value ?>
+</document>
+```
+
+### Namespaces
+
+When parsing the xml document, a namespace manager is built up first with all the local names and values from the defined namespaces. A limitation of namespaces in Octopus is that it's not possible to define the same namespace twice within a single XML document. Doing so will result in a warning being logged during a deployment and possible unexpected behaviour if trying to use XPaths with namespaces. An example of a warning is as follows:
+
+```
+The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
 ```
