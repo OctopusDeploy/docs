@@ -73,7 +73,8 @@ Common options:
 ```
 
 ## Basic example
-This example will list all releases for the Wingtip Toys project on the default space
+
+This example lists all releases for the Wingtip Toys project on the default space:
 ```text
 octo list-releases --project="WingtipToys" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
