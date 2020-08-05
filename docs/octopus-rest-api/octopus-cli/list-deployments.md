@@ -78,6 +78,31 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic Example
+This example lists deployments for the specified project:
+
+```
+octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS"
+```
+
+This example lists the latest 5 deployments for the specified project:
+
+```
+octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5"
+```
+
+This example lists the latest 5 deployments to production:
+
+```
+octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5" --environment="Production"
+```
+
+This example lists the latest 5 deployments to production for tenant Petlife:
+
+```
+octo list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5" --environment="Production" --tenant="Petlife"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
