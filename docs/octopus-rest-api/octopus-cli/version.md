@@ -21,6 +21,13 @@ Common options:
                              are Default or Json
 ```
 
+## Basic example
+This example will display the version of the Octopus CLI
+
+```text
+octo --version
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
