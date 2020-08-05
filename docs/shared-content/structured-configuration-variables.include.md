@@ -1,5 +1,5 @@
 :::info
-This Configuration Feature used to be called JSON Configuration Variarbles in versions before 2020.4.0, but has been re-named to Structured Configuration Variables with the added support for YAML replacement.
+This Configuration Feature used to be called JSON Configuration Variarbles in versions before 2020.4.0, but has been re-named to Structured Configuration Variables with the added support for YAML and XML replacement.
 :::
 
 With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML and XML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals and XPath for matching XML elements.
@@ -44,7 +44,7 @@ Config\*.json
 
 **Match any .xml files in the specified directory or deeper**
 ```
-Application\**\*.xml
+Application/**/*.xml
 ```
 
 The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
@@ -53,7 +53,7 @@ The **Target File** field also supports [Variable Substitution Syntax](/docs/pro
 
 **Structured Configuration Variables** allows for replacement in both JSON, YAML and XML files. To determine what file type is being used, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
 
-If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML and if the extension is `xml` the file will be parsed as XML.
+If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML and if the extension is `xml`, the file will be parsed as XML.
 
 ## JSON and YAML
 
@@ -371,7 +371,7 @@ When the Octopus Variable `/document/processing-instruction('xml-stylesheet')` i
 
 ### Namespaces
 
-When parsing the xml document, a namespace manager is built up first with all the local names and values from the defined namespaces. A limitation of namespaces in Octopus is that it's not possible to define the same namespace twice within a single XML document. Doing so will result in a warning being logged during a deployment and possible unexpected behaviour if trying to use XPaths with namespaces. An example of a warning is as follows:
+When parsing the xml document, a namespace manager is built up first with all the local names and values from the defined namespaces. A limitation of namespaces in Octopus is that it's not possible to define the same namespace twice within a single XML document. Doing so will result in a warning being logged during a deployment and possible unexpected behavior if trying to use XPaths with namespaces. An example of a warning is as follows:
 
 ```
 The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
