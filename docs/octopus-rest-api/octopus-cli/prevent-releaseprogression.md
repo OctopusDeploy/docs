@@ -75,6 +75,12 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
+## Basic example
+This example will prevent release 1.0.0.0 of WingtipToys from being deployed to the next environment
+```
+octo prevent-releaseprogression --project="WingtipToys" --releaseNumber="1.0.0.0" --reason="Invalid cast conversion exception" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
