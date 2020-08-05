@@ -85,7 +85,7 @@ This example lists deployments for the specified project:
 octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS"
 ```
 
-This example will list the latest 5 deployments for the specified project
+This example lists the latest 5 deployments for the specified project:
 
 ```
 octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS" --number="5"
