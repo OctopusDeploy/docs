@@ -94,7 +94,7 @@ This example lists worker machines in the `Default worker pool` in the default s
 octo list-workers --workerPool="Default worker pool" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
-This example will list all workers in MyWorkerPool that are disabled
+This example lists all workers in MyWorkerPool that are disabled:
 ```text
 octo list-workers --workerPool="MyWorkerPool" --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --disabled="true"
 ```
