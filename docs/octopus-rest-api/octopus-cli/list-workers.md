@@ -99,7 +99,7 @@ This example lists all workers in MyWorkerPool that are disabled:
 octo list-workers --workerPool="MyWorkerPool" --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --disabled="true"
 ```
 
-This example will list all workers with a status of `Unknown` in the [Target - NGINX](https://samples.octopus.app/app#/Spaces-104) space
+This example lists all workers with a status of `Unknown` in the [Target - NGINX](https://samples.octopus.app/app#/Spaces-104) space:
 ```text
 octo list-workers --workerPool="Default worker pool" --server="https://samples.octopus.com" --apiKey="API--MyApiKey" --space="Target - NGINX" --health-status="Uknown"
 ```
