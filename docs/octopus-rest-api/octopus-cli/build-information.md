@@ -84,9 +84,6 @@ Common options:
 ## Basic Example
 This example uploads [build information](https://octopus.com/docs/packaging-applications/build-servers#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
 
-<details>
-<summary>buildInfo.json</summary>
-<p>
 
 ```json
 {
@@ -105,8 +102,6 @@ This example uploads [build information](https://octopus.com/docs/packaging-appl
    ]
 }
 ```
-</p>
-</details>
 
 ```text
 octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" --file="buildInfo.json" --server="http://samples.octopus.app" --apiKey="API-MyKey" --space="Target - Wildfly"
