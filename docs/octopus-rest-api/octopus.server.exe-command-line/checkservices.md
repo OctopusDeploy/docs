@@ -4,7 +4,7 @@ description:  Checks the Octopus instances are running
 position: 30
 ---
 
-Use the `checkservices` command to checks the Octopus instances that are running
+The `checkservices` command checks the Octopus Server instances to see if they are running and start them if they're not.  The [watchdog](https://octopus.com/docs/administration/managing-infrastructure/service-watchdog) command sets up a scheduled task that calls `checkservices`.
 
 **Check Services options**
 
@@ -21,3 +21,9 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example will check to see if all of the instances are running on the machine and start them if they are not.
+
+```text
+octopus.server checkservices --instances=*
+```
