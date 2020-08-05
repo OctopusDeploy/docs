@@ -75,7 +75,7 @@ Common options:
 ```
 
 ## Basic example
-This example lists the latest deployment to production for project `DACPAC SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106):
+This example lists the latest deployment to Production for project `DACPAC SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106):
 
 ```text
 octo list-latestdeployments --project="DACPAC SQL Server" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
