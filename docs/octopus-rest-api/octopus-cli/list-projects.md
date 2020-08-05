@@ -68,7 +68,7 @@ Common options:
 ```
 
 ## Basic example
-This example will display the projects within the default space
+This example displays the projects within the default space:
 
 ```text
 octo list-projects --server="http://MyOctopusServer" --apiKey="API-MyApiKey" 
