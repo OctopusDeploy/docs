@@ -100,7 +100,7 @@ This example lists all machines that are in the Test environment:
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Test"
 ```
 
-This example will list all machines that are in the Development environment and the Production environment
+This example lists all machines that are in the Development environment and the Production environment:
 
 ```text
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --environment="Production"
