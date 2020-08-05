@@ -87,7 +87,7 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example
+## Basic examples
 This example lists all machines on the instance:
 
 ```text
