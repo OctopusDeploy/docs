@@ -70,7 +70,7 @@ Common options:
 ```
 
 ## Basic example
-This example will pack the contents of a temp directory
+This example packs the contents of a temp directory:
 
 ```text Windows
 octo pack --id="MyPackage" --format="zip" --version="1.0.0.0" --basePath="c:\temp\MyPackage" --outFolder="c:\temp"
