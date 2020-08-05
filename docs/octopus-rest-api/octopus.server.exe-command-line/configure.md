@@ -222,3 +222,8 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example changes the instance home directory to a new folder and enables auto login
+```text
+octopus.server configure --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
+```
