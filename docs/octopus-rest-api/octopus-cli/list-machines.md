@@ -94,7 +94,7 @@ This example lists all machines on the instance:
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
-This example will list all machines that are in the Test environment
+This example lists all machines that are in the Test environment:
 
 ```text
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Test"
