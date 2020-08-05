@@ -67,7 +67,8 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic example
+## Basic examples
+
 This example will list the worker pools in the default space
 ```text
 octo list-workerpools --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
