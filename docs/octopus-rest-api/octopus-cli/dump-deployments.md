@@ -69,17 +69,16 @@ Common options:
                              fatal. Defaults to 'debug'.
 ```
 
-## Basic examples
+## Basic example
 
-This example writes out deployment information from the `Default` space to a typical Windows file path:
+!include <samples-instance>
 
-```text
+This example writes out deployment information from the `Default` space to a temp directory:
+
+```text Windows
 octo dump-deployments --filePath="C:\temp\octo-deployments.xml" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```
-
-This example writes out deployment information from the `Pattern - Rolling` space to a typical Linux file path:
-
-```text
+```text Linux
 octo dump-deployments --filePath="/tmp/octo-deployments.xml" --space="Pattern - Rolling" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```
 
