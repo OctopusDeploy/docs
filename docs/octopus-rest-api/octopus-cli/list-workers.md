@@ -89,7 +89,7 @@ Common options:
 
 ## Basic examples
 
-This example will list worker machines in the `Default worker pool` in the default space
+This example lists worker machines in the `Default worker pool` in the default space:
 ```text
 octo list-workers --workerPool="Default worker pool" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
