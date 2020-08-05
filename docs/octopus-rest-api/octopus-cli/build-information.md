@@ -109,7 +109,7 @@ This example uploads [build information](https://octopus.com/docs/packaging-appl
 </details>
 
 ```text
-octo.exe build-information --package-id="PetClinic.web" --version="1.0.200803.1002" --file="buildInfo.json" --server="http://samples.octopus.app" --apiKey="API-MyKey" --space="Target - Wildfly"
+octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" --file="buildInfo.json" --server="http://samples.octopus.app" --apiKey="API-MyKey" --space="Target - Wildfly"
 ```
 
 ## Learn more
