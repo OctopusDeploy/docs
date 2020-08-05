@@ -32,3 +32,4 @@ Common options:
                              are Default or Json
 ```
 
+!include <octo-autocomplete-tabcompletion>
