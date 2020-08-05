@@ -22,7 +22,7 @@ Common options:
 ```
 
 ## Basic example
-This example will display the version of the Octopus CLI
+This example displays the version of the Octopus CLI:
 
 ```text
 octo --version
