@@ -35,7 +35,7 @@ octo complete list
 
 This returns the following results:
 
-```
+```text
 list-deployments
 list-environments
 list-latestdeployments
@@ -46,4 +46,3 @@ list-tenants
 list-workerpools
 list-workers
 ```
-

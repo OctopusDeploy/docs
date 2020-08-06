@@ -27,6 +27,7 @@ Or one of the common options:
 ```
 
 ## Basic example
+
 This example creates a new Octopus Server instance on the machine named `MyNewInstance` and sets the home directory:
 
 ```text
