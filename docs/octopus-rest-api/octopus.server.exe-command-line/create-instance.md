@@ -27,7 +27,7 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will create a new Octopus Server instance on the machine named `MyNewInstance` and set the home directory
+This example creates a new Octopus Server instance on the machine named `MyNewInstance` and sets the home directory:
 
 ```text
 octopus.server create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
