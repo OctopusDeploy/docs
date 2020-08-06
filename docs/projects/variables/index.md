@@ -7,7 +7,7 @@ hideInThisSectionHeader: true
 
 !include <variables>
 
-## Creating hello world variables
+## Creating hello world variables #{example}
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
