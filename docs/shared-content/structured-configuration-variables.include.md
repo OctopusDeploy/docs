@@ -346,8 +346,32 @@ CDATA sections can be replaced just like any other node by selecting them with t
 </document>
 ```
 
+### Processing Instructions
+
+Processing instructions can be replaced using the XPath processing instruction selector like so: `/document/processing-instruction('xml-stylesheet')`. When replacing a processing instruction, it's not possible to replace the individual attributes. The whole processing instruction gets replaced with the supplied value. Take the following example:
+
+**XML Structure Processing Instruction**
+```xml
+<document>
+   <?xml-stylesheet type="text/xsl" href="/Content/Glossary/main.xsl"?>
+</document>
+```
+
+When the Octopus variable `/document/processing-instruction('xml-stylesheet')` is set to `new value` the output will be the following:
+
+**XML Structure Processing Instruction Replaced**
+```xml
+<document>
+   <?xml-stylesheet new-value ?>
+</document>
+```
+
 ### Namespaces
 
 When parsing the XML document, Octopus collects all namespace declarations for use in XPath expressions, so you can use any of the declared prefixes.
 
-One limitation is that if the same prefix is declared more than once, only the first will be available in XPath expressions.
+One limitation is that if the same prefix is declared more than once in a document, only the first will be available in XPath expressions. Because this is a potentially surprising situation, a warning will be logged, similar to the following:
+
+```
+The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
+```
