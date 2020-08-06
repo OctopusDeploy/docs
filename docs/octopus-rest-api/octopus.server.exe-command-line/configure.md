@@ -223,12 +223,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example changes the instance home directory to a new folder and enables auto login:
+
+This example changes the instance home directory to a new folder and enables auto login for instance `OctopusServer`:
+
 ```text
-octopus.server configure --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
+octopus.server configure --instance="OctopusServer" --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
 ```
 
-This example changes the Tentacle listening port to 10953 for instance `MyNewInstance`:
+This example changes the Tentacle listening port to 10953 for instance `OctopusServer`:
+
 ```text
-octopus.server configure --instance="MyNewInstance" --commsListenPort="10953"
+octopus.server configure --instance="OctopusServer" --commsListenPort="10953"
 ```
