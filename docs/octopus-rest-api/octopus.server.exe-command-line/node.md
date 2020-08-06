@@ -36,3 +36,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example will drain the default node
+```
+octopus.server node --drain="true"
+```
+
+This example will set the task cap for the node to 15 on instanace MyNewInstance
+```
+octopus.server node --taskCap="15" --instance="MyNewInstance"
+```
