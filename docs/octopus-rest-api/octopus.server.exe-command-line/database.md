@@ -40,7 +40,8 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example creates a new database for the `MyNewInstance` instance.  This example expects the database for instance `MyNewInstance` doesn't exist, if it does, it will say it already exists and won't do anything:
+
+This example creates a new database for the `MyNewInstance` instance.  This example expects the database for instance `MyNewInstance` not to exist. If it does, it will say it already exists and won't do anything:
 
 ```text
 octopus.server database --create --instance="MyNewInstance"
