@@ -223,7 +223,7 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example changes the instance home directory to a new folder and enables auto login
+This example changes the instance home directory to a new folder and enables auto login:
 ```text
 octopus.server configure --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
 ```
