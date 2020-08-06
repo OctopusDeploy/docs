@@ -29,3 +29,8 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example will bind the default instance to an SSL certificate that has been imported to the local machine store
+```text
+octopus.server ssl-certificate --thumbprint="a52a138bcd3458100f3f7a9d21edb924bff84b6b" --certificate-store="My"
+```
