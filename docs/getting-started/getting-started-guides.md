@@ -29,7 +29,7 @@ The rest of this section includes guides that familiarize you with common scenar
 ### The Basics {#the-basics}
 
 - [Configure your environments](/docs/getting-started/environments.md)
-- [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
+- [Connect your deployment targets to Octopus](/docs/getting-started/deployment-targets.md)
 - [Package your software](/docs/getting-started/package-your-software.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
 - [Create a release](/docs/getting-started/create-a-release.md)

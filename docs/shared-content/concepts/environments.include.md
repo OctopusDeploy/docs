@@ -13,4 +13,4 @@ You can manage your environments by navigating to **{{Infrastructure,Environment
 
 You can add as many environments as you need.
 
-Now that you've configured your environments, it's time to connect your [deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md).
+Now that you've configured your environments, it's time to connect your [deployment targets to Octopus](/docs/getting-started/deployment-targets.md).
