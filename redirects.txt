@@ -674,7 +674,7 @@ docs/deployment-process/configuration-features/substitute-variables-in-files.md 
 docs/octopus-concepts/index.md -> docs/getting-started/octopus-concepts/index.md
 docs/octopus-concepts/configuration-features.md -> docs/getting-started/octopus-concepts/configuration-features.md
 docs/octopus-concepts/deployment-process.md -> docs/getting-started/define-your-deployment-process.md
-docs/octopus-concepts/deployment-targets.md -> docs/getting-started/connect-your-deployment-targets-to-octopus.md
+docs/octopus-concepts/deployment-targets.md -> docs/getting-started/deployment-targets.md
 docs/octopus-concepts/environments.md -> docs/getting-started/environments.md
 docs/octopus-concepts/health-checks.md -> docs/getting-started/octopus-concepts/health-checks.md
 docs/octopus-concepts/lifecycle.md -> docs/getting-started/octopus-concepts/lifecycle.md
@@ -693,7 +693,7 @@ docs/octopus-concepts/upgrading.md -> docs/getting-started/octopus-concepts/upgr
 docs/octopus-concepts/variables.md -> docs/getting-started/octopus-concepts/variables.md
 docs/octopus-concepts/workers.md -> docs/getting-started/octopus-concepts/workers.md
 docs/getting-started/octopus-concepts/deployment-process.md -> docs/getting-started/define-your-deployment-process.md
-docs/getting-started/octopus-concepts/deployment-targets.md -> docs/getting-started/connect-your-deployment-targets-to-octopus.md
+docs/getting-started/octopus-concepts/deployment-targets.md -> docs/getting-started/deployment-targets.md
 docs/getting-started/octopus-concepts/octopus-server.md -> docs/getting-started/setup-octopus-deploy.md
 docs/getting-started/octopus-concepts/octopus-cloud.md -> docs/octopus-cloud/index.md
 docs/getting-started/octopus-concepts/releases.md -> docs/getting-started/create-a-release.md
@@ -702,3 +702,4 @@ docs/runbooks/runbook-examples/routine/installing-iis.md -> docs/runbooks/runboo
 docs/runbooks/runbook-examples/routine/iis-maintenance.md -> docs/runbooks/runbook-examples/routine/iis-runbooks.md
 docs/getting-started/octopus-concepts/environments.md -> docs/getting-started/environments.md
 docs/getting-started/configure-your-environments.md -> docs/getting-started/environments.md
+docs/getting-started/connect-your-deployment-targets-to-octopus.md -> docs/getting-started/deployment-targets.md
