@@ -21,3 +21,17 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example lists all currently installed instances of Octopus on the machine:
+
+```text
+octopus.server list-instances
+```
+
+On a machine with multiple instances installed, an example of the output is:
+
+```text
+Instance 'MyNewInstance' uses configuration 'C:\MyNewInstance\MyNewInstance.config'.
+Instance 'OctopusServer' uses configuration 'C:\Octopus\OctopusServer.config'.
+```
