@@ -1,7 +1,7 @@
 ---
 title: Connect your deployment targets to Octopus
 description: Learn how to configure the servers and services you deploy software to with Octopus Deploy.
-position: 60
+position: 70
 ---
 
 Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into environments. 

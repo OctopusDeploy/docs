@@ -1,7 +1,7 @@
 ---
 title: Create a release
 description: Learn how to release your software with Octopus Deploy.
-position: 90
+position: 100
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/syfl59pR4ZU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
