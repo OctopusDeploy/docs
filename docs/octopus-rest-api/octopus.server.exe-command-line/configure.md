@@ -228,7 +228,7 @@ This example changes the instance home directory to a new folder and enables aut
 octopus.server configure --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
 ```
 
-This example changes the tentacle listening port to 10953 for instance MyNewInstance
+This example changes the Tentacle listening port to 10953 for instance `MyNewInstance`:
 ```text
 octopus.server configure --instance="MyNewInstance" --commsListenPort="10953"
 ```
