@@ -33,3 +33,21 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example will remove all trusted Octopus Servers
+```text
+tentacle configure --reset-trust
+```
+
+This example will trust the thumbprint from an Octopus Server
+```text
+tentacle configure --trust="9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40"
+```
+
+This example will change the Tentacle home directory to NewHome
+```text Windows
+tentacle configure --homedir="c:\NewHome"
+```
+```text Linux
+Tentacle configure --homedir="/NewHome"
+```
