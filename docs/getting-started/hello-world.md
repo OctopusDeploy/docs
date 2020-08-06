@@ -91,7 +91,4 @@ Because we didn't define any deployment targets for the **Test** environment, Oc
 
 ![The results of the Hello world deployment](images/deployed-release.png)
 
-## Learn more
-
-- [Getting started: Before you start](/docs/getting-started/index.md#before-you-start)
-- [Getting started: The basics](/docs/getting-started/index.md#the-basics)
+Now that you've created and deploy a basic hello world project, you're ready learn more about the [CI/CD pipeline](/docs/getting-started/the-cicd-pipeline.md), set up [Octopus Deploy](/docs/getting-started/setup-octopus-deploy), or explore the other [getting started guides](/docs/getting-started/getting-started-guides#getting-started-guides).
