@@ -39,7 +39,7 @@ Prompted variables can be combined with [sensitive variables](/docs/projects/var
 
 ## Restricting a prompted variable for runbooks
 
-By default a prompted variable will prompt when deploying a release, and when executing any runbooks in the project.
+By default a prompted variable will prompt when deploying a release and when executing any runbooks in the project.
 
 Prompted variables can be [scoped to specific processes](/docs/runbooks/runbook-variables/index.md#prompted-variables), causing them to only be shown when deploying, or only while executing runbooks.
 
