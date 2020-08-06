@@ -39,3 +39,9 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example will create a new database for the MyNewInstance instance
+
+```text
+octopus.server database --create --instance="MyNewInstance"
+```
