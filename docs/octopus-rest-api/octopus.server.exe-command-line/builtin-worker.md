@@ -43,3 +43,9 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example configures the built-in worker to use the local machine account of OctoWorker:
+
+```text
+octopus.server builtin-worker --username=".\OctoWorker" --password="My$uper$3cretP@ssword!"
+```
