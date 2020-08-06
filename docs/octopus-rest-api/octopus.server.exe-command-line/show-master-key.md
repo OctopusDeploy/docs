@@ -22,3 +22,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example will display the master key of the default instance
+```
+octopus.server show-master-key
+```
+
+This example will display the master key of the instance MyNewInstance in JSON format
+```
+octopus.server show-master-key --instance="MyNewInstance" --format="json"
+```
