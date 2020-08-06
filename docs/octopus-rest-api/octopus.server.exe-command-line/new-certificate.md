@@ -31,3 +31,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example will create a new certificate for instance MyNewInstance replacing the old one
+```text
+octopus.server new-certificate --instance="MyNewInstance" --replace
+```
+
+This example will create a new certificate and export it to a PFX file
+```text
+octopus.server new-certificate --export-pfx="c:\temp\new-certificate.pfx" --pfx-password="$uper$3cretPassw0rd"
+```
