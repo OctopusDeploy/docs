@@ -44,7 +44,7 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will configure the built-in worker to use the local machine account of OctoWorker
+This example configures the built-in worker to use the local machine account of OctoWorker:
 
 ```text
 octopus.server builtin-worker --username=".\OctoWorker" --password="My$uper$3cretP@ssword!"
