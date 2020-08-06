@@ -37,7 +37,7 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 Octopus provides the following filters:
 
 | Name                                    | Purpose                                           | Example input           | Example output                   |
-| --------------------------------------- | ------------------------------------------------- | ----------------------- | -------------------------------- |
+| --------------------------------------- |-------------------------------------------------- | ----------------------- | -------------------------------- |
 | `ToLower`                               | Forces values to lowercase                        | `Automated Deployment`  | `automated deployment`           |
 | `ToUpper`                               | Forces values to uppercase                        | `Automated Deployment`  | `AUTOMATED DEPLOYMENT`           |
 | `ToBase64`                              | Converts values to Base64 (using UTF encoding)    | `Bar`                   | `QmF6`                           |
@@ -45,10 +45,10 @@ Octopus provides the following filters:
 | `HtmlEscape`                            | Escapes entities for use in HTML content          | `1 < 2`                 | `1 \&lt; 2`                      |
 | `XmlEscape`                             | Escapes entities for use in XML content           | `1 < 2`                 | `1 \&lt; 2`                      |
 | `JsonEscape`                            | Escapes data for use in JSON strings              | `He said "Hello!"`      | `He said \\"Hello!\\"`           |
-| `YamlSingleQuoteEscape`                 | Escapes data for use in YAML single quoted strings| `The bee's knees`       | `The bee''s knees`               |
-| `YamlDoubleQuoteEscape`                 | Escapes data for use in YAML double quoted strings| `"Hello"\Goodbye`       | `\"Hello\"\\Goodbye`             |
-| `PropertiesKeyEscape`                   | Escapes data for use in .properties keys          | `Hey: x=y`              | `Hey\:\ x\=y`                    |
-| `PropertiesValueEscape`                 | Escapes data for use in .properties values        | `a\b=c`                 | `a\\b=c`                         |
+| `YamlSingleQuoteEscape` <br/>*2020.4.0* | Escapes data for use in YAML single quoted strings| `The bee's knees`       | `The bee''s knees`               |
+| `YamlDoubleQuoteEscape` <br/>*2020.4.0* | Escapes data for use in YAML double quoted strings| `"Hello"\Goodbye`       | `\"Hello\"\\Goodbye`             |
+| `PropertiesKeyEscape`   <br/>*2020.4.0* | Escapes data for use in .properties keys          | `Hey: x=y`              | `Hey\:\ x\=y`                    |
+| `PropertiesValueEscape` <br/>*2020.4.0* | Escapes data for use in .properties values        | `a\b=c`                 | `a\\b=c`                         |
 | `MarkdownToHTML`                        | Converts Markdown to HTML                         | `This \_rocks\_`        | `\<p>This \<em>rocks\</em>\</p>` |
 | [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date                          |                         | `2016-11-03T08:53:11.0946448`    |
 | [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC                   |                         | `2016-11-02T23:01:46.9441479Z`   |
