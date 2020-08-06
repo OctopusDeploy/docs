@@ -79,6 +79,9 @@ Common options:
 ```
 
 ## Basic Example
+
+!include <samples-instance>
+
 This example lists deployments for the specified project:
 
 ```
