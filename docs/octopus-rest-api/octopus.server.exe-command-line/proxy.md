@@ -29,3 +29,21 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example will enable Octopus Server to use a proxy server using the default Internet Explorer proxy
+
+```text
+octopus.server proxy --proxyEnable="true"
+```
+
+This example will enable Octopus Server to use a defined proxy server for instance MyNewInstance
+
+```
+octopus.server proxy --proxyEnable="true" --proxyHost="MyProxyServer" --instance="MyNewInstance"
+```
+
+This example will disable use of a proxy sever on the default instance
+
+```
+octopus.server proxy --proxyEnable="false"
+```
