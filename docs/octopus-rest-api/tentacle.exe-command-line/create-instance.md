@@ -22,3 +22,11 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example will create a new Tentacle instance
+```text Windows
+tentacle create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
+```
+```text Linux
+Tentacle create-instance --instance="MyNewInstance" --config="/MyNewInstance/MyNewInstance.config" --home="/MyNewInstance/Home"
+```
