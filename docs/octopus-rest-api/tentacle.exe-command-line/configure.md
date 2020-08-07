@@ -34,17 +34,21 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will remove all trusted Octopus Servers
+
+This example removes all trusted Octopus Servers:
+
 ```text
 tentacle configure --reset-trust
 ```
 
-This example will trust the thumbprint from an Octopus Server
+This example configures the Tentacle to trust the thumbprint from an Octopus Server of `9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40`:
+
 ```text
 tentacle configure --trust="9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40"
 ```
 
-This example will change the Tentacle home directory to NewHome
+This example changes the Tentacle home directory to `NewHome`:
+
 ```text Windows
 tentacle configure --homedir="c:\NewHome"
 ```
