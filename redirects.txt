@@ -703,3 +703,4 @@ docs/runbooks/runbook-examples/routine/iis-maintenance.md -> docs/runbooks/runbo
 docs/getting-started/octopus-concepts/environments.md -> docs/getting-started/environments.md
 docs/getting-started/configure-your-environments.md -> docs/getting-started/environments.md
 docs/getting-started/connect-your-deployment-targets-to-octopus.md -> docs/getting-started/deployment-targets.md
+docs/deploying-applications/deploy-java-applications/index.md -> docs/deployment-examples/java-applications/index.md
