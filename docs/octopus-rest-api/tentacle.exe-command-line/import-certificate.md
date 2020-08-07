@@ -28,10 +28,13 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example imports a certificate from a .pfx file
+
+This example imports a certificate from a .pfx file:
+
 :::hint
-This command will import the first certificate it finds.  If the .pfx file contains the entire certificate chain, will will attempt to load the fist one which is often the certificate for the Certificate Authority and fail with an error about unable to load the private key
+This command will import the first certificate it finds.  If the .pfx file contains the entire certificate chain, it will attempt to load the first one, which is often the certificate for the Certificate Authority and fail with an error about unable to load the private key.
 :::
+
 ```text Windows
 Tentacle import-certificate --from-file="c:\temp\MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
 ```
