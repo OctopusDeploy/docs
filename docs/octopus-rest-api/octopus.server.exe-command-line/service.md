@@ -50,7 +50,7 @@ This example starts the Octopus Server Windows service for the default instance:
 octopus.server service --start
 ```
 
-This example will stop all Octopus Server instances on the machine
+This example stops all Octopus Server instances on the machine:
 ```text
 octopus.server service --stop --instance=*
 ```
