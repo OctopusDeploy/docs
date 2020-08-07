@@ -37,4 +37,4 @@ Tentacle polling-proxy --proxyHost="" --proxyEnable="true"
 This example disables the proxy server for the `MyNewInstance` polling tentacle
 ```
 Tentacle polling-proxy --proxyEnable="false" --instance="MyNewInstance"
-```
+``` 
