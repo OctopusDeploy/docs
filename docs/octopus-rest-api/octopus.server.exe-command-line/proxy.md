@@ -37,7 +37,7 @@ This example enables Octopus Server to use a proxy server using the default Inte
 octopus.server proxy --proxyEnable="true"
 ```
 
-This example will enable Octopus Server to use a defined proxy server for instance MyNewInstance
+This example enables Octopus Server to use a defined proxy server for instance `MyNewInstance`:
 
 ```
 octopus.server proxy --proxyEnable="true" --proxyHost="MyProxyServer" --instance="MyNewInstance"
