@@ -32,7 +32,8 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will create a new certificate for instance MyNewInstance replacing the old one
+
+This example creates a new certificate for instance `MyNewInstance` and replaces the old one:
 ```text
 octopus.server new-certificate --instance="MyNewInstance" --replace
 ```
