@@ -20,7 +20,9 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will delete the instance MyNewInstance
+
+This example deletes the Tentacle instance `MyNewInstance`:
+
 ```text
 tentacle delete-instance --instance="MyNewInstance"
 ```
