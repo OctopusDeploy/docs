@@ -25,14 +25,18 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will create a watchdog task for the default instance
+
+This example creates a watchdog task for the `default` instance:
+
 ```text
 octopus.server watchdog --create --instances="default"
 ```
 
-This example will delete the watchdog task for instances default and MyNewInstance
-```
+This example deletes the watchdog tasks for instances named `default` and `MyNewInstance`:
+
+```text Comma separated
 octopus.server watchdog --delete --instances="default,MyNewInstance"
-or
+```
+```text Semi-colon separated
 octopus.server watchdog --delete --instances="default;MyNewInstance"
 ```
