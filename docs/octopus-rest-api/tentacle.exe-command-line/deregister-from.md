@@ -33,12 +33,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example deregisters a tentacle from the Octopus Server
+
+This example deregisters a tentacle from the Octopus Server:
+
 ```text
-Tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
-This example deregisters the `MyNewInstance` from the space `MyNewSpace`
+This example deregisters the instance `MyNewInstance` from the space `MyNewSpace`:
+
 ```text
-Tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
+tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
 ```
