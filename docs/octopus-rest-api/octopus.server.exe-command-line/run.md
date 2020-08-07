@@ -30,7 +30,8 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will start the default instance in debug mode in the console
+
+This example starts the default instance in debug mode in the console:
 
 ```text
 octopus.server run --console
