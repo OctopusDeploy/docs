@@ -32,3 +32,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example deregisters a tentacle from the Octopus Server
+```text
+Tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
+
+This example deregisters the `MyNewInstance` from the space `MyNewSpace`
+```text
+Tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
+```
