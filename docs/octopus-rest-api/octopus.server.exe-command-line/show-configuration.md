@@ -25,17 +25,21 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will display the configuration of the default instance
+
+This example displays the configuration of the default instance:
+
 ```text
 octopus.server show-configuration
 ```
 
-This example will display the configuration of the instance MyNewInstance in JSON format
+This example displays the configuration of the instance named `MyNewInstance` in JSON format:
+
 ```text
 octopus.server show-configuration --instance="MyNewInstance" --format="json"
 ```
 
-This example will export the default instance configuration to a file in JSON hierarchical format
+This example exports the default instance configuration to a file in JSON hierarchical format:
+
 ```text
 octopus.server show-configuration --file="c:\temp\config.json" --format="json-hierarchical"
 ```
