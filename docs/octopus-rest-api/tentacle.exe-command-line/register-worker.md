@@ -61,3 +61,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example registers a listening tentacle to the worker pool `MyWorkerPool`
+```text
+Tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool"
+```
+
+This example registers a polling tentacle to space `MyNewSpace` in worker pool `MyWorkerPool`
+```text
+Tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool --space="MyNewSpace" --comms-style="TentacleActive"
+```
