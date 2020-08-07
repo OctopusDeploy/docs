@@ -37,6 +37,12 @@ octo deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "V
 Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
 :::
 
+## Restricting a prompted variable for runbooks
+
+By default, a prompted variable will prompt when deploying a release and when executing any runbooks in the project.
+
+Prompted variables can be [scoped to specific processes](/docs/runbooks/runbook-variables/index.md#prompted-variables), causing them to only be shown when deploying releases, or only when executing runbooks.
+
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
