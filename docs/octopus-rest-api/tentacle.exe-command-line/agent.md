@@ -22,3 +22,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example starts the default tentacle in debug and console mode:
+
+```text
+tentacle agent --console
+```
