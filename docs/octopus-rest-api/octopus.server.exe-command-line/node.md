@@ -43,7 +43,7 @@ This example drains the default node:
 octopus.server node --drain="true"
 ```
 
-This example will set the task cap for the node to 15 on instanace MyNewInstance
+This example sets the task cap for the node to 15 on instanace `MyNewInstance`:
 ```
 octopus.server node --taskCap="15" --instance="MyNewInstance"
 ```
