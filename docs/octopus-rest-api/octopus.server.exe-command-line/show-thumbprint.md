@@ -1,10 +1,10 @@
 ---
 title: Show thumbprint
-description:  Shows the squid and thumbprint of the server instance
+description:  Shows the thumbprint of the server instance
 position: 193
 ---
 
-Use the show thumbprint command to show the squid and thumbprint of the server instance.
+Use the show thumbprint command to show the thumbprint of the server instance.
 
 **Show thumbprint options**
 
