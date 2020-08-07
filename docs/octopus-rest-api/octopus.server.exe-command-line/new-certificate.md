@@ -38,7 +38,7 @@ This example creates a new certificate for instance `MyNewInstance` and replaces
 octopus.server new-certificate --instance="MyNewInstance" --replace
 ```
 
-This example will create a new certificate and export it to a PFX file
+This example creates a new certificate and exports it to a PFX file:
 ```text
 octopus.server new-certificate --export-pfx="c:\temp\new-certificate.pfx" --pfx-password="$uper$3cretPassw0rd"
 ```
