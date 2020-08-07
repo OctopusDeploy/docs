@@ -20,3 +20,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example displays the version of the tentacle as text
+```
+Tentacle version
+```
+
+This example displays the version of the tentacle in JSON format
+```
+Tentacle version --format="json"
+```
