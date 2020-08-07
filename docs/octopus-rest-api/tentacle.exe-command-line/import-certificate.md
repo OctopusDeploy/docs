@@ -36,8 +36,8 @@ This command will import the first certificate it finds.  If the .pfx file conta
 :::
 
 ```text Windows
-Tentacle import-certificate --from-file="c:\temp\MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
+tentacle import-certificate --from-file="c:\temp\MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
 ```
 ```text Linux
-Tentacle import-certificate --from-file="/tmp/MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
+tentacle import-certificate --from-file="/tmp/MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
 ```
