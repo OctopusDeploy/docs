@@ -39,7 +39,7 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will configure all paths (artifacts, task logs, packages, and telemetry) to a network share 
+This example configures all paths (artifacts, task logs, packages, and telemetry) to a network share:
 ```text
 octopus.server path --clusterShared \\OctoShared\OctopusData
 ```
