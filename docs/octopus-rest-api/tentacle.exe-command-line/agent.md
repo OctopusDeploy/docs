@@ -23,7 +23,9 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will start the default tentacle in debug and console mode
+
+This example starts the default tentacle in debug and console mode:
+
 ```text
 tentacle agent --console
 ```
