@@ -19,3 +19,8 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example will delete the instance MyNewInstance
+```text
+tentacle delete-instance --instance="MyNewInstance"
+```
