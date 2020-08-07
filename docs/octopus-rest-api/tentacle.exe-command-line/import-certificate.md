@@ -27,3 +27,14 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example imports a certificate from a .pfx file
+:::hint
+This command will import the first certificate it finds.  If the .pfx file contains the entire certificate chain, will will attempt to load the fist one which is often the certificate for the Certificate Authority and fail with an error about unable to load the private key
+:::
+```text Windows
+Tentacle import-certificate --from-file="c:\temp\MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
+```
+```text Linux
+Tentacle import-certificate --from-file="/tmp/MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
+```
