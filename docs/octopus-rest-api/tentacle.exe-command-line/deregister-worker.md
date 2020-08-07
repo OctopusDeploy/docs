@@ -33,12 +33,13 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example deregisters a worker from the Octopus Server
+
+This example deregisters a worker from the Octopus Server:
 ```text
 Tentacle deregister-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
-This example deregisters the worker instance `MyNewInstance` from space `MyNewSpace`
+This example deregisters the worker instance `MyNewInstance` from space `MyNewSpace`:
 ```text
 Tentacle deregister-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
 ```
