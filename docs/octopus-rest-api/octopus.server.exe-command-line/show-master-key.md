@@ -23,12 +23,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will display the master key of the default instance
+
+This example displays the master key of the default instance:
+
 ```
 octopus.server show-master-key
 ```
 
-This example will display the master key of the instance MyNewInstance in JSON format
+This example displays the master key of the instance named `MyNewInstance` in JSON format:
+
 ```
 octopus.server show-master-key --instance="MyNewInstance" --format="json"
 ```
