@@ -44,7 +44,7 @@ This example will configure all paths (artifacts, task logs, packages, and telem
 octopus.server path --clusterShared \\OctoShared\OctopusData
 ```
 
-This example will configure the paths for the different components individually
+This example configures the paths for the different components individually:
 ```text
 octopus.server path --artifacts \\Octoshared\OctopusData\Artifacts
 octopus.server path --taskLogs \\Octoshared\OctopusData\TaskLogs
