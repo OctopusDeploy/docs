@@ -17,10 +17,26 @@ Where [<options>] is any of:
       --delete               Delete the watchdog task for the given instances
       --interval=VALUE       The interval, in minutes, at which that the
                                service(s) should be checked (default: 5)
-      --instances=VALUE      List of instances to be checked (default: *)
+      --instances=VALUE      List of instances (, or ; delimited) to be checked (default: *)
 
 Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example creates a watchdog task for the `default` instance:
+
+```text
+octopus.server watchdog --create --instances="default"
+```
+
+This example deletes the watchdog tasks for instances named `default` and `MyNewInstance`:
+
+```text Comma separated
+octopus.server watchdog --delete --instances="default,MyNewInstance"
+```
+```text Semi-colon separated
+octopus.server watchdog --delete --instances="default;MyNewInstance"
+```
