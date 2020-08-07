@@ -23,3 +23,18 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples (Windows only)
+This example creates the watchdog task for all instances
+```
+Tentacle watchdog --create --instances=*
+```
+
+This example creates the workdog service for instances `default` and `MyNewInstance`
+```
+Tentacle watchdog --create --isntances="Default,MyNewInstance"
+```
+
+This example deletes all watchdog tasks
+```
+Tentacle watchdog --delete
+```
