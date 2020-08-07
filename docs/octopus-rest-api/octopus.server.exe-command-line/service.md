@@ -45,7 +45,7 @@ This example restarts the Octopus Server Windows service for the instance `MyNew
 octopus.server service --restart --instance="MyNewInstance"
 ```
 
-This example will start the Octopus Server Windows service for the default instance
+This example starts the Octopus Server Windows service for the default instance:
 ```text
 octopus.server service --start
 ```
