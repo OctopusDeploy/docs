@@ -25,7 +25,7 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will disable all metrics for the default instance
+This example disables all metrics for the default instance:
 ```text
 octopus.server metrics --disable
 ```
