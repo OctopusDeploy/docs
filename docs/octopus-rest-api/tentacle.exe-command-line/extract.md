@@ -21,10 +21,12 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example extracts a package file to a destination directory
+
+This example extracts a package file to a destination directory:
+
 ```text Windows
-Tentacle extract --package="c:\temp\OctoFX.Web.1.0.20181.124538.nupkg" --destination="c:\temp\octofx"
+tentacle extract --package="c:\temp\OctoFX.Web.1.0.20181.124538.nupkg" --destination="c:\temp\octofx"
 ```
 ```text Linux
-Tentacle extract --package="/tmp/OctoFX.Web.1.0.20181.124538.nupkg" --destination="/tmp/octofx"
+tentacle extract --package="/tmp/OctoFX.Web.1.0.20181.124538.nupkg" --destination="/tmp/octofx"
 ```
