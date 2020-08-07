@@ -26,3 +26,21 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example displays the tentacle thumbprint in default (text) format
+```text
+Tentacle show-thumbprint
+```
+
+This example displays the tentacle thumbprint for the instance `MyNewInstance` in JSON format
+```text
+Tentacle show-thumbprint --instance="MyNewInstance" --format="JSON"
+```
+
+This example exports the thumbprint to a file
+```text Windows
+Tentacle show-thumbprint --export-file="c:\temp\thumbprint.txt"
+```
+```text Linux
+Tentacle show-thumbprint --export-file="/tmp/thumbprint.txt"
+```
