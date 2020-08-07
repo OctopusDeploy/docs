@@ -24,12 +24,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will display the thumbprint of the default instance
+
+This example displays the thumbprint of the default instance:
+
 ```text
 octopus.server show-thumbprint
 ```
 
-This example will export the thumbprint for the instance MyNewInstance to a file in JSON format
+This example exports the thumbprint for the instance named `MyNewInstance` to a file in JSON format:
+
 ```text
 octopus.server show-thumbprint --instance="MyNewInstance" --export-file="c:\temp\thumbprint.json" --format="json"
 ```
