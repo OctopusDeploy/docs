@@ -30,7 +30,8 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will enable Octopus Server to use a proxy server using the default Internet Explorer proxy
+
+This example enables Octopus Server to use a proxy server using the default Internet Explorer proxy:
 
 ```text
 octopus.server proxy --proxyEnable="true"
