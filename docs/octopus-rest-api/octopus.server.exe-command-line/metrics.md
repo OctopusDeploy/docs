@@ -30,7 +30,7 @@ This example disables all metrics for the default instance:
 octopus.server metrics --disable
 ```
 
-This example will enable tasks metrics on instance MyNewInstance
+This example enables tasks metrics on instance `MyNewInstance`:
 ```text
 octopus.server metrics --tasks="true" --instance="MyNewInstance"
 ```
