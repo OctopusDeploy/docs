@@ -1,5 +1,5 @@
 ---
-title: "Octopus Server Commands: External Worker"
+title: "External Worker"
 description: Configure the external worker used to run deployment actions and scripts on the Octopus Server
 position: 161
 ---
