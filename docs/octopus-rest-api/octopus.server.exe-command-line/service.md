@@ -40,7 +40,7 @@ Or one of the common options:
 ```
 ## Basic examples
 
-This example will restart the Octopus Server Windows service for the instance MyNewInstance
+This example restarts the Octopus Server Windows service for the instance `MyNewInstance`:
 ```text
 octopus.server service --restart --instance="MyNewInstance"
 ```
