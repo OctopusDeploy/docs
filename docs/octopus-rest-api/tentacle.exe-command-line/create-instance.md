@@ -23,7 +23,9 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will create a new Tentacle instance
+
+This example creates a new Tentacle instance named `MyNewInstance`:
+
 ```text Windows
 tentacle create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
 ```
