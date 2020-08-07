@@ -37,7 +37,8 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will drain the default node
+
+This example drains the default node:
 ```
 octopus.server node --drain="true"
 ```
