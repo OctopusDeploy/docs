@@ -38,3 +38,18 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example stops the default tentacle service
+```text
+Tentacle service --stop
+```
+
+This example restarts the instance `MyNewInstance`
+```text
+Tentacle service --restart --instance="MyNewInstance"
+```
+
+This example uninstalls the instance `MyNewInstance` service
+```text
+Tentacle service --uninstall --instance="MyNewInstance"
+```
