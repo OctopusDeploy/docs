@@ -43,7 +43,7 @@ This example enables Octopus Server to use a defined proxy server for instance `
 octopus.server proxy --proxyEnable="true" --proxyHost="MyProxyServer" --instance="MyNewInstance"
 ```
 
-This example will disable use of a proxy sever on the default instance
+This example prevents a proxy server from being used on the default instance:
 
 ```
 octopus.server proxy --proxyEnable="false"
