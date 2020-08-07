@@ -32,3 +32,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example will display the configuration of the tentacle on the machine in JSON format
+```text
+Tentacle show-configuration
+```
+
+This example will display the configuration of the tentacle on the machine as well as configuration on the server in JSON format
+```text
+Tentacle show-configuration --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
