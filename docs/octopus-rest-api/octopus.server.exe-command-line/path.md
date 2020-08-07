@@ -38,3 +38,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example configures all paths (artifacts, task logs, packages, and telemetry) to a network share:
+```text
+octopus.server path --clusterShared \\OctoShared\OctopusData
+```
+
+This example configures the paths for the different components individually:
+```text
+octopus.server path --artifacts \\Octoshared\OctopusData\Artifacts
+octopus.server path --taskLogs \\Octoshared\OctopusData\TaskLogs
+octopus.server path --nugetRepository \\Octoshared\OctopusData\Packages
+octopus.server --telemetry \\Octoshared\OctopusData\Telemetry
+```
