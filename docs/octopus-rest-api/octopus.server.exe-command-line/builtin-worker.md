@@ -1,5 +1,5 @@
 ---
-title: "Octopus Server commands: Built-in Worker"
+title: "Built-in Worker"
 description: Configure the built-in worker used to run deployment actions and scripts on the Octopus Server
 position: 160
 ---
