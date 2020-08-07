@@ -22,12 +22,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will display the version of Octopus Server installed
+
+This example displays the version of Octopus Server installed on the machine:
+
 ```text
 octopus.server version
 ```
 
-This example will display the version of Octopus Server installed in JSON format
+This example displays the version of Octopus Server installed on the machine, in JSON format:
+
 ```text
 octopus.server version --format="json"
 ```
