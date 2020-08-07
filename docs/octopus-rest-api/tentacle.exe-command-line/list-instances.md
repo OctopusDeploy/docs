@@ -21,3 +21,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example lists the instances of Tentacle on the machine
+```text
+Tentacle list-instances
+```
+
+This example lists the instances of Tentacle on the machine in JSON format
+```text
+Tentacle list-instances --format="JSON"
+```
