@@ -21,12 +21,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example displays the version of the tentacle as text
+
+This example displays the tentacle version in the default text format:
+
 ```
-Tentacle version
+tentacle version
 ```
 
-This example displays the version of the tentacle in JSON format
+This example displays the tentacle version in JSON format:
+
 ```
-Tentacle version --format="json"
+tentacle version --format="json"
 ```
