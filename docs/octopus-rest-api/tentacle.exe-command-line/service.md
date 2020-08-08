@@ -39,17 +39,21 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example stops the default tentacle service
+
+This example stops the default tentacle service:
+
 ```text
-Tentacle service --stop
+tentacle service --stop
 ```
 
-This example restarts the instance `MyNewInstance`
+This example restarts the tentacle service for instance `MyNewInstance`:
+
 ```text
-Tentacle service --restart --instance="MyNewInstance"
+tentacle service --restart --instance="MyNewInstance"
 ```
 
-This example uninstalls the instance `MyNewInstance` service
+This example uninstalls the tentacle service for instance `MyNewInstance`:
+
 ```text
-Tentacle service --uninstall --instance="MyNewInstance"
+tentacle service --uninstall --instance="MyNewInstance"
 ```
