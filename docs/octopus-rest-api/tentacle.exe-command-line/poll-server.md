@@ -33,3 +33,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example configures the Octopus Server that the polling tentacle polls:
+
+```text
+tentacle poll-server --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+```
