@@ -33,12 +33,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example will display the configuration of the tentacle on the machine in JSON format
+
+This example displays the configuration of the tentacle on the machine in JSON format:
+
 ```text
-Tentacle show-configuration
+tentacle show-configuration
 ```
 
-This example will display the configuration of the tentacle on the machine as well as configuration on the server in JSON format
+This example displays the configuration of the tentacle on the machine, as well as the configuration from the Octopus Server in JSON format:
+
 ```text
-Tentacle show-configuration --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle show-configuration --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
