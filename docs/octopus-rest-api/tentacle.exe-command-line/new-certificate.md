@@ -30,12 +30,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example creates and installs a new certificate to the default Tentacle instance
+
+This example creates and installs a new certificate for the default Tentacle instance:
+
 ```text
 Tentacle new-certificate
 ```
 
-This example creates, installs, and exports a new certificate for the instance `MyNewInstance`
+This example creates, installs, and exports a new certificate for the instance `MyNewInstance`:
+
 ```text Windows
 Tentacle new-certificate --instance="MyNewInstance" --export-pfx="c:\temp\MyNewInstance.pfx" --pfx-password="$uper$ecretP@ssw0rd"
 ```
