@@ -27,20 +27,24 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example displays the tentacle thumbprint in default (text) format
+
+This example displays the tentacle thumbprint in the default text format:
+
 ```text
-Tentacle show-thumbprint
+tentacle show-thumbprint
 ```
 
-This example displays the tentacle thumbprint for the instance `MyNewInstance` in JSON format
+This example displays the tentacle thumbprint for the instance `MyNewInstance` in JSON format:
+
 ```text
-Tentacle show-thumbprint --instance="MyNewInstance" --format="JSON"
+tentacle show-thumbprint --instance="MyNewInstance" --format="JSON"
 ```
 
-This example exports the thumbprint to a file
+This example exports the tentacle thumbprint to a file:
+
 ```text Windows
-Tentacle show-thumbprint --export-file="c:\temp\thumbprint.txt"
+tentacle show-thumbprint --export-file="c:\temp\thumbprint.txt"
 ```
 ```text Linux
-Tentacle show-thumbprint --export-file="/tmp/thumbprint.txt"
+tentacle show-thumbprint --export-file="/tmp/thumbprint.txt"
 ```
