@@ -77,12 +77,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example registers a listening tentacle to the Octopus server with the `Development` environment and `OctoFX-Web` role
+
+This example registers a listening tentacle to the Octopus server with the `Development` environment and `OctoFX-Web` role:
+
 ```
-Tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web"
+tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web"
 ```
 
-This example registers a polling tentacle with the `Development` environment and `OctoFX-Web` role to the `OctoFX` space
+This example registers a polling tentacle with the `Development` environment and `OctoFX-Web` role in the `OctoFX` space:
+
 ```
-Tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"
+tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"
 ```
