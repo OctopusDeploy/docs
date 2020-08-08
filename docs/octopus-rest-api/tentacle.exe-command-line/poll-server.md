@@ -34,7 +34,9 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example configures the server the polling tentacle polls
+
+This example configures the Octopus Server that the polling tentacle polls:
+
 ```text
-Tentacle poll-server --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
+tentacle poll-server --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
