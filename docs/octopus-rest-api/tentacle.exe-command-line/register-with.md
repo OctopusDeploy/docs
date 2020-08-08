@@ -76,3 +76,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example registers a listening tentacle to the Octopus server with the `Development` environment and `OctoFX-Web` role:
+
+```
+tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web"
+```
+
+This example registers a polling tentacle with the `Development` environment and `OctoFX-Web` role in the `OctoFX` space:
+
+```
+tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"
+```

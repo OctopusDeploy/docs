@@ -29,12 +29,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example configures the polling tentacle to use the Internet Explorer porxy
+
+This example configures the polling tentacle to use the default Internet Explorer proxy:
+
 ```
-Tentacle polling-proxy --proxyHost="" --proxyEnable="true"
+tentacle polling-proxy --proxyHost="" --proxyEnable="true"
 ```
 
-This example disables the proxy server for the `MyNewInstance` polling tentacle
+This example disables the proxy server for the polling tentacle instance `MyNewInstance`:
+
 ```
-Tentacle polling-proxy --proxyEnable="false" --instance="MyNewInstance"
-```
+tentacle polling-proxy --proxyEnable="false" --instance="MyNewInstance"
+``` 

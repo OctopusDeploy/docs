@@ -33,3 +33,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example configures the tentacle to communicate with the Octopus Server in listening mode:
+
+```text
+tentacle server-comms --style="TentaclePassive" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D"
+```
+
+This example configures the tentacle instance `MyNewInstance` to communicate with the Octopus Server in polling mode:
+
+```
+tentacle server-coms --style="TentacleActive" --instance="MyNewInstance" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D" --host="https://MyOctopusServer"
+```

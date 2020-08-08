@@ -23,3 +23,27 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples 
+
+:::warning
+**Windows only**
+These examples apply to tentacles installed on Windows only.
+:::
+
+This example creates the watchdog scheudled task for all instances:
+
+```
+tentacle watchdog --create --instances=*
+```
+
+This example creates the workdog scheduled task for instances `default` and `MyNewInstance`:
+
+```
+tentacle watchdog --create --isntances="Default,MyNewInstance"
+```
+
+This example deletes all watchdog scheduled tasks:
+
+```
+tentacle watchdog --delete
+```

@@ -22,3 +22,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example replaces the trusted thumbprint value of `3FAFA8E1EE6A1133701190306E2CBAFA39C30C8D` with a new value of `5FAEA8E1EE6A4535701190536E2CBAFA39C30C8F` for any matching instances:
+
+```
+tentacle update-trust --oldThumpbrint="3FAFA8E1EE6A1133701190306E2CBAFA39C30C8D" --newThumbprint="5FAEA8E1EE6A4535701190536E2CBAFA39C30C8F"
+```
