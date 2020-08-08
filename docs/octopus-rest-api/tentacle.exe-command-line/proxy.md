@@ -28,3 +28,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example configures the proxy server for a listening tentacle:
+
+```text
+tentacle proxy --proxyHost="" --proxyEnable="true"
+```
+
+This example disables the proxy server for the instance `MyNewInstance`:
+
+```text
+tentacle proxy --proxyEnable="false" --instance="MyNewInstance"
+```
