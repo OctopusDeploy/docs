@@ -62,12 +62,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example registers a listening tentacle to the worker pool `MyWorkerPool`
+
+This example registers a listening tentacle to the worker pool `MyWorkerPool`:
+
 ```text
-Tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool"
+tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool"
 ```
 
-This example registers a polling tentacle to space `MyNewSpace` in worker pool `MyWorkerPool`
+This example registers a polling tentacle to the worker pool `MyWorkerPool` in the space `MyNewSpace`:
+
 ```text
-Tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool --space="MyNewSpace" --comms-style="TentacleActive"
+tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool --space="MyNewSpace" --comms-style="TentacleActive"
 ```
