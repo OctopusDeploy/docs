@@ -28,3 +28,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example configures the polling tentacle to use the default Internet Explorer proxy:
+
+```
+tentacle polling-proxy --proxyHost="" --proxyEnable="true"
+```
+
+This example disables the proxy server for the polling tentacle instance `MyNewInstance`:
+
+```
+tentacle polling-proxy --proxyEnable="false" --instance="MyNewInstance"
+``` 
