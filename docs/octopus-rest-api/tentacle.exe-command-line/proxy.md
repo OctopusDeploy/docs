@@ -29,12 +29,15 @@ Or one of the common options:
 ```
 
 ## Basic examples
-This example configures the proxy server for a listening tentacle
+
+This example configures the proxy server for a listening tentacle:
+
 ```text
-Tentacle proxy --proxyHost="" --proxyEnable="true"
+tentacle proxy --proxyHost="" --proxyEnable="true"
 ```
 
-This example disables the proxy server for the instance `MyNewInstance` 
+This example disables the proxy server for the instance `MyNewInstance`:
+
 ```text
-Tentacle proxy --proxyEnable="false" --instance="MyNewInstance"
+tentacle proxy --proxyEnable="false" --instance="MyNewInstance"
 ```
