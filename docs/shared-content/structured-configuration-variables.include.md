@@ -1,5 +1,5 @@
 :::info
-This Configuration Feature used to be called JSON Configuration Variarbles in versions before 2020.4.0, but has been re-named to Structured Configuration Variables with the added support for YAML, XML, and Properties configuration file replacements.
+This Configuration Feature was previously called JSON Configuration Variables. In version **2020.4.0**, we added support for YAML, XML, and Properties configuration file replacements and renamed the feature Structured Configuration Variables.
 :::
 
 With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
