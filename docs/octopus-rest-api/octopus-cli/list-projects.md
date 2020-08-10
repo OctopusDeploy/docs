@@ -68,6 +68,7 @@ Common options:
 ```
 
 ## Basic example
+
 This example displays the projects within the default space:
 
 ```text

@@ -21,3 +21,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example displays the version of Octopus Server installed on the machine:
+
+```text
+octopus.server version
+```
+
+This example displays the version of Octopus Server installed on the machine, in JSON format:
+
+```text
+octopus.server version --format="json"
+```

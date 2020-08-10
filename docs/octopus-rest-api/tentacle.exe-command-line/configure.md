@@ -3,7 +3,7 @@ title: Configure
 description: Using the Tentacle.exe command line executable to configure Tentacle settings.
 ---
 
-Sets Tentacle settings such as the port number and thumbprints
+Sets Tentacle settings such as the port number and thumbprints.
 
 **Configure options**
 
@@ -33,3 +33,25 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example removes all trusted Octopus Servers:
+
+```text
+tentacle configure --reset-trust
+```
+
+This example configures the Tentacle to trust the thumbprint from an Octopus Server of `9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40`:
+
+```text
+tentacle configure --trust="9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40"
+```
+
+This example changes the Tentacle home directory to `NewHome`:
+
+```text Windows
+tentacle configure --homedir="c:\NewHome"
+```
+```text Linux
+Tentacle configure --homedir="/NewHome"
+```

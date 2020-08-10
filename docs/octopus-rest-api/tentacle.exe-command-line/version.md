@@ -3,7 +3,7 @@ title: version
 description: Show the Tentacle version information
 ---
 
-Show the Tentacle version information
+Show the Tentacle version information.
 
 **version options**
 
@@ -20,3 +20,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example displays the Tentacle version in the default text format:
+
+```
+tentacle version
+```
+
+This example displays the Tentacle version in JSON format:
+
+```
+tentacle version --format="json"
+```

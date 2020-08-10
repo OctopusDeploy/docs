@@ -26,3 +26,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example creates a new Octopus Server instance on the machine named `MyNewInstance` and sets the home directory:
+
+```text
+octopus.server create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
+```

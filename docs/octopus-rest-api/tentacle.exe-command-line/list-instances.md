@@ -4,7 +4,7 @@ description: Using the Tentacle.exe command line executable to query Tentacle se
 version: "[3.12,)"
 ---
 
-Lists all installed Octopus instances
+Lists all installed Octopus Tentacle instances.
 
 **List instances options**
 
@@ -21,3 +21,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example lists all Octopus Tentacle instances on the machine:
+
+```text
+Tentacle list-instances
+```
+
+This example lists all Octopus Tentacle instances on the machine in JSON format:
+
+```text
+Tentacle list-instances --format="JSON"
+```

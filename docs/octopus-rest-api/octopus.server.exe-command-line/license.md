@@ -24,3 +24,26 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example supplies the license in a Base64 encoded string to use for the Octopus Server instance named `OctopusServer`:
+
+```text
+octopus.server license --instance="OctopusServer" --licenseBase64="RXhhbXBsZVN0cmluZ1NpbXVsYXRpbmdMaWNlbnNlS2V5QXNCYXNlNjQ="
+```
+
+:::warning
+Please note: the value used in the `--licenseBase64` here is not a valid license key for use with Octopus.
+:::
+
+This example supplies the license in a file named `octopus-server-licensekey.xml` to use for the Octopus Server instance named `OctopusServer`:
+
+```text
+octopus.server license --instance="OctopusServer" --licenseFile="C:\temp\octopus-server-licensekey.xml"
+```
+
+This example supplies the license in a file named `octopus-server-licensekey.xml` to use for the Octopus Server instance named `OctopusServer`, skipping the license check when setting it:
+
+```text
+octopus.server license --instance="OctopusServer" --licenseFile="C:\temp\octopus-server-licensekey.xml" --skipLicenseCheck
+```

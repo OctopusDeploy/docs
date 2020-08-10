@@ -3,7 +3,7 @@ title: Register Worker
 description: Using the Tentacle.exe command line executable to register this machine as a Worker with an Octopus Server.
 ---
 
-Registers this machine as a Worker with an Octopus Server
+Registers this machine as a Worker with an Octopus Server.
 
 **Register with options**
 
@@ -61,3 +61,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example registers a listening Tentacle to the worker pool `MyWorkerPool`:
+
+```text
+tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool"
+```
+
+This example registers a polling Tentacle to the worker pool `MyWorkerPool` in the space `MyNewSpace`:
+
+```text
+tentacle register-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --workerpool="MyWorkerPool --space="MyNewSpace" --comms-style="TentacleActive"
+```

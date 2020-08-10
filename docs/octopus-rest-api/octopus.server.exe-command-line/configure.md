@@ -222,3 +222,16 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example changes the instance home directory to a new folder and enables auto login for instance `OctopusServer`:
+
+```text
+octopus.server configure --instance="OctopusServer" --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
+```
+
+This example changes the Tentacle listening port to 10953 for instance `OctopusServer`:
+
+```text
+octopus.server configure --instance="OctopusServer" --commsListenPort="10953"
+```

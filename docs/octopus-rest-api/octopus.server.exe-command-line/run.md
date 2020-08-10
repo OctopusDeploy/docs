@@ -29,3 +29,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example starts the default instance in debug mode in the console:
+
+```text
+octopus.server run --console
+```

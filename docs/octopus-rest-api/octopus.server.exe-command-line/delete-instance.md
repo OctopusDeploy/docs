@@ -20,3 +20,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example deletes the Octopus Server instance on the machine named `MyNewInstance`:
+
+```text
+octopus.server delete-instance --instance="MyNewInstance"
+```

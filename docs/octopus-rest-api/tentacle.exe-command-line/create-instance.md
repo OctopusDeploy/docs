@@ -3,7 +3,7 @@ title: Create instance
 description: Using the Tentacle.exe command line executable to register a new instance of the Tentacle service.
 ---
 
-Registers a new instance of the Tentacle service
+Registers a new instance of the Tentacle service.
 
 **Create instance options**
 
@@ -22,3 +22,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example creates a new Tentacle instance named `MyNewInstance`:
+
+```text Windows
+tentacle create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
+```
+```text Linux
+Tentacle create-instance --instance="MyNewInstance" --config="/MyNewInstance/MyNewInstance.config" --home="/MyNewInstance/Home"
+```

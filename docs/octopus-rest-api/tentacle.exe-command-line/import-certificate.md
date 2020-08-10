@@ -3,7 +3,7 @@ title: Import certificate
 description: Using the Tentacle.exe command line executable to replace the certificate that Tentacle uses to authenticate itself.
 ---
 
-Replace the certificate that Tentacle uses to authenticate itself
+Replace the certificate that Tentacle uses to authenticate itself.
 
 **Import certificate options**
 
@@ -27,3 +27,17 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example imports a certificate from a .pfx file:
+
+:::hint
+This command will import the first certificate it finds.  If the .pfx file contains the entire certificate chain, it will attempt to load the first one, which is often the certificate for the Certificate Authority, and fail will with an error that it is unable to load the private key.
+:::
+
+```text Windows
+tentacle import-certificate --from-file="c:\temp\MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
+```
+```text Linux
+tentacle import-certificate --from-file="/tmp/MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
+```

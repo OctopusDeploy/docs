@@ -14,7 +14,7 @@ We've created a Getting Started: Hello World YouTube playlist that covers the ba
 
 ## Getting started guides
 
-The rest of this section includes the following guides that are designed to familiarize you with Octopus Deploy by providing simple step-by-step instructions to achieve and understand the following common scenarios:
+The rest of this section includes guides that familiarize you with common scenarios in Octopus Deploy though step-by-step instructions:
 
 ### Hello World!
 
@@ -23,12 +23,13 @@ The rest of this section includes the following guides that are designed to fami
 ### Before you start {#before-you-start}
 
 - [What is a CI/CD pipeline?](/docs/getting-started/the-cicd-pipeline.md)
-- [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md)
+- [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md) (On-premises Octopus Server or Octopus Cloud)
 - [Get to know the Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md)
 
 ### The Basics {#the-basics}
 
-- [Connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
+- [Configure your environments](/docs/getting-started/environments.md)
+- [Connect your deployment targets to Octopus](/docs/getting-started/deployment-targets.md)
 - [Package your software](/docs/getting-started/package-your-software.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
 - [Create a release](/docs/getting-started/create-a-release.md)

@@ -1,18 +1,10 @@
 ---
 title: Connect your deployment targets to Octopus
 description: Learn how to configure the servers and services you deploy software to with Octopus Deploy.
-position: 60
+position: 70
 ---
 
-Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into environments. 
-
-Environments represent the different phases of your deployment pipeline, for instance, **{{ Dev, Test, Prod }}**. You can have as many environments as you need with as many deployment targets in each environment as you need.
-
-## Create your environments
-
-1. Navigate to **{{ Infrastructure, Environments }}** and click **ADD ENVIRONMENT**.
-1. Give your new environment a name, for instance `dev`, and click **Save**.
-1. Repeat this process to create as many environments as you need.
+Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/getting-started/environments.md). 
 
 ## Add your deployment targets
 

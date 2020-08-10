@@ -3,7 +3,7 @@ title: Service
 description: Using the Tentacle.exe command line executable to start, stop, install and configure the Tentacle service.
 ---
 
-Start, stop, install and configure the Tentacle service
+Start, stop, install and configure the Tentacle service.
 
 **Service options**
 
@@ -38,3 +38,22 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example stops the default Tentacle service:
+
+```text
+tentacle service --stop
+```
+
+This example restarts the Tentacle service for instance `MyNewInstance`:
+
+```text
+tentacle service --restart --instance="MyNewInstance"
+```
+
+This example uninstalls the Tentacle service for instance `MyNewInstance`:
+
+```text
+tentacle service --uninstall --instance="MyNewInstance"
+```

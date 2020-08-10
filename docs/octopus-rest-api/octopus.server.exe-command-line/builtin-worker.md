@@ -1,5 +1,5 @@
 ---
-title: "Octopus Server commands: Built-in Worker"
+title: "Built-in Worker"
 description: Configure the built-in worker used to run deployment actions and scripts on the Octopus Server
 position: 160
 ---
@@ -43,3 +43,9 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+This example configures the built-in worker to use the local machine account of OctoWorker:
+
+```text
+octopus.server builtin-worker --username=".\OctoWorker" --password="My$uper$3cretP@ssword!"
+```

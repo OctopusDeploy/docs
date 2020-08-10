@@ -222,6 +222,10 @@ The following filters are available:
 - HtmlEscape
 - XmlEscape
 - JsonEscape
+- YamlSingleQuoteEscape
+- YamlDoubleQuoteEscape
+- PropertiesKeyEscape
+- PropertiesKeyEscape
 - Markdown
 - NowDate
 - NowDateUtc

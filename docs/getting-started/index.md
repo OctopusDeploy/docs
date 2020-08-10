@@ -31,7 +31,7 @@ Organizing your infrastructure into environments lets you define your deployment
 
 You can also use [Octopus Runbooks](#octopus-runbooks) to manage the same infrastructure your software is deployed to.
 
-Learn how to [connect your deployment targets to Octopus](/docs/getting-started/connect-your-deployment-targets-to-octopus.md)
+Learn how to [connect your deployment targets to Octopus](/docs/getting-started/deployment-targets.md)
 
 ## Packaging applications
 

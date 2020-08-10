@@ -3,7 +3,7 @@ title: New certificate
 description: Using the Tentacle.exe command line executable to create and install a new certificate for this Tentacle.
 ---
 
-Creates and installs a new certificate for this Tentacle
+Creates and installs a new certificate for this Tentacle.
 
 **New certificate options**
 
@@ -29,3 +29,19 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+
+This example creates and installs a new certificate for the default Tentacle instance:
+
+```text
+tentacle new-certificate
+```
+
+This example creates, installs, and exports a new certificate for the instance `MyNewInstance`:
+
+```text Windows
+tentacle new-certificate --instance="MyNewInstance" --export-pfx="c:\temp\MyNewInstance.pfx" --pfx-password="$uper$ecretP@ssw0rd"
+```
+```text Linux
+tentacle new-certificate --instance="MyNewInstance" --export-pfx="/tmp/MyNewInstance.pfx" --pfx-password="$uper$ecretP@ssw0rd"
+```

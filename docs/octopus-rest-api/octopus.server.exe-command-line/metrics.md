@@ -24,3 +24,13 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic examples
+This example disables all metrics for the default instance:
+```text
+octopus.server metrics --disable
+```
+
+This example enables tasks metrics on instance `MyNewInstance`:
+```text
+octopus.server metrics --tasks="true" --instance="MyNewInstance"
+```
