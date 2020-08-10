@@ -57,7 +57,7 @@ Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |
-| ^[^\\+].* | matches any pre-release | Enforce inability to push to production by specifying lifecycle that stops at staging |
+| \^[\^\\+].* | matches any pre-release | Enforce inability to push to production by specifying lifecycle that stops at staging |
 | ^(\|\\+.*)$ | matches any non pre-release, but allows build metadata | Ensure a script step only runs for non pre-release packages |
 | ^$ | matches versions with no pre-release or metadata components| Official releases are filtered to have nothing other than core version components (e.g. 1.0.0 )|
 | ^beta | matches pre-releases like `beta` and `beta0003` | Deploy pre-releases using a Lifecycle that goes directly to a pre-release Environment |
