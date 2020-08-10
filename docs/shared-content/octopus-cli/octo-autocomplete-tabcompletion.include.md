@@ -17,11 +17,9 @@ octo install-autocomplete --shell zsh
 ```
 
 :::hint
-If you're using PowerShell on Windows use `powershell` if you're using PowerShell Core on Windows, Mac or Linux, use `pwsh`.
-:::
-
-:::hint
-You can review changes to your profile without writing to disk by using the `--dryRun` option
+**Tips:**
+- If you're using PowerShell on Windows use `powershell`. If you're using PowerShell Core on Windows, Mac or Linux, use `pwsh`.
+- You can review changes to your profile without writing to disk by using the `--dryRun` option:
 
 ```powershell
 octo install-autocomplete --shell powershell --dryRun

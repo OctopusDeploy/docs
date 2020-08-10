@@ -89,10 +89,6 @@ Most commands also support [JSON formatted output](formatted-output.md).
 Learn about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 
-:::hint
-The Octopus CLI is built and maintained by the Octopus Deploy team, but it is also open source. You can [view the Octopus CLI project on GitHub](https://github.com/OctopusDeploy/OctopusCli), which leans heavily on the [Octopus Clients library](https://github.com/OctopusDeploy/OctopusClients).
-:::
-
 The server URL, API key, username and password can be set as the environment variables `OCTOPUS_CLI_SERVER`, `OCTOPUS_CLI_API_KEY`, `OCTOPUS_CLI_USERNAME` and `OCTOPUS_CLI_PASSWORD` respectively. Values set via command line arguments take precedence over environment variables.
 
 !include <octo-autocomplete-tabcompletion>
