@@ -381,22 +381,22 @@ The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, 
 Given this example of a target properties file:
 
 ```
-weatherApiUrl = dev.weather.com,
-weatherApiKey = DEV1234567,
-tempImageFolder = C:\\temp\\img,
+weatherApiUrl = dev.weather.com
+weatherApiKey = DEV1234567
+tempImageFolder = C:\\temp\\img
 logsFolder = C:\\logs
-port = 8080,
+port = 8080
 debug = true
 ```
 
 If you define [variables](/docs/projects/variables/index.md) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
 
 ```
-weatherApiUrl = test.weather.com,
-weatherApiKey = TEST7654321,
-tempImageFolder = D:\\temp\\img,
+weatherApiUrl = test.weather.com
+weatherApiKey = TEST7654321
+tempImageFolder = D:\\temp\\img
 logsFolder = C:\\logs
-port = 80,
+port = 80
 debug = false
 ```
 
