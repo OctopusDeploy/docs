@@ -402,4 +402,4 @@ debug = false
 
 Note that the `logsFolder` setting remains untouched as there was no variable defined to override the value and that `tempImageFolder` has been encoded with the double `\`. Octopus will encode the variable in the correct encoding for the properties file format. 
 
-Unlike JSON, YAML, and XML, it's not possible to do hirachical replacement in a properties file as properties files are simple key value files. 
+Unlike JSON, YAML, and XML, it's not possible to do hierarchical replacement in a properties file as properties files are simple key value files. 
