@@ -3,7 +3,7 @@ title: Server comms
 description: Using the Tentacle.exe command line executable to configure how the Tentacle communicates with the Octopus Server.
 ---
 
-Configure how the Tentacle communicates with an Octopus Server
+Configure how the Tentacle communicates with an Octopus Server.
 
 **Server communication options**
 
@@ -35,13 +35,13 @@ Or one of the common options:
 
 ## Basic examples
 
-This example configures the tentacle to communicate with the Octopus Server in listening mode:
+This example configures the Tentacle to communicate with the Octopus Server in listening mode:
 
 ```text
 tentacle server-comms --style="TentaclePassive" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D"
 ```
 
-This example configures the tentacle instance `MyNewInstance` to communicate with the Octopus Server in polling mode:
+This example configures the Tentacle instance `MyNewInstance` to communicate with the Octopus Server in polling mode:
 
 ```
 tentacle server-coms --style="TentacleActive" --instance="MyNewInstance" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D" --host="https://MyOctopusServer"

@@ -3,7 +3,7 @@ title: version
 description: Show the Tentacle version information
 ---
 
-Show the Tentacle version information
+Show the Tentacle version information.
 
 **version options**
 
@@ -22,13 +22,13 @@ Or one of the common options:
 
 ## Basic examples
 
-This example displays the tentacle version in the default text format:
+This example displays the Tentacle version in the default text format:
 
 ```
 tentacle version
 ```
 
-This example displays the tentacle version in JSON format:
+This example displays the Tentacle version in JSON format:
 
 ```
 tentacle version --format="json"

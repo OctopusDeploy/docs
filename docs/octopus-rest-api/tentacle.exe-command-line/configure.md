@@ -3,7 +3,7 @@ title: Configure
 description: Using the Tentacle.exe command line executable to configure Tentacle settings.
 ---
 
-Sets Tentacle settings such as the port number and thumbprints
+Sets Tentacle settings such as the port number and thumbprints.
 
 **Configure options**
 

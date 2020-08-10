@@ -3,7 +3,7 @@ title: Poll server
 description: Using the Tentacle.exe command line executable to configure the Octopus Server this Tentacle will poll.
 ---
 
-Configures an Octopus Server that this Tentacle will poll
+Configures an Octopus Server that this Tentacle will poll.
 
 **Poll server options**
 
@@ -35,7 +35,7 @@ Or one of the common options:
 
 ## Basic example
 
-This example configures the Octopus Server that the polling tentacle polls:
+This example configures the Octopus Server that the polling Tentacle polls:
 
 ```text
 tentacle poll-server --server="https://MyOctopusServer" --apiKey="API-MyApiKey"

@@ -3,7 +3,7 @@ title: watchdog
 description: Configure a scheduled task to monitor the Tentacle service(s)
 ---
 
-Configure a scheduled task to monitor the Tentacle service(s)
+Configure a scheduled task to monitor the Tentacle service(s).
 
 **watchdog options**
 
@@ -27,10 +27,10 @@ Or one of the common options:
 
 :::warning
 **Windows only**
-These examples apply to tentacles installed on Windows only.
+These examples apply to Tentacles installed on Windows only.
 :::
 
-This example creates the watchdog scheudled task for all instances:
+This example creates the watchdog scheduled task for all instances:
 
 ```
 tentacle watchdog --create --instances=*
@@ -39,7 +39,7 @@ tentacle watchdog --create --instances=*
 This example creates the workdog scheduled task for instances `default` and `MyNewInstance`:
 
 ```
-tentacle watchdog --create --isntances="Default,MyNewInstance"
+tentacle watchdog --create --instances="Default,MyNewInstance"
 ```
 
 This example deletes all watchdog scheduled tasks:

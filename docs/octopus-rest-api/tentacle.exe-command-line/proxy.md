@@ -3,7 +3,7 @@ title: Proxy
 description: Using the Tentacle.exe command line executable to configure the HTTP proxy used by Octopus.
 ---
 
-Configure the HTTP proxy used by Octopus
+Configure the HTTP proxy used by Octopus.
 
 **Proxy options**
 
@@ -30,7 +30,7 @@ Or one of the common options:
 
 ## Basic examples
 
-This example configures the proxy server for a listening tentacle:
+This example configures the proxy server for a listening Tentacle:
 
 ```text
 tentacle proxy --proxyHost="" --proxyEnable="true"

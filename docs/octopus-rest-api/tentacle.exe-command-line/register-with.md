@@ -3,7 +3,7 @@ title: Register with
 description: Using the Tentacle.exe command line executable to register this machine as a deployment target with an Octopus Server.
 ---
 
-Registers this machine as a deployment target with an Octopus Server
+Registers this machine as a deployment target with an Octopus Server.
 
 **Register with options**
 
@@ -78,13 +78,13 @@ Or one of the common options:
 
 ## Basic examples
 
-This example registers a listening tentacle to the Octopus server with the `Development` environment and `OctoFX-Web` role:
+This example registers a listening Tentacle to the Octopus Server with the `Development` environment and `OctoFX-Web` role:
 
 ```
 tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web"
 ```
 
-This example registers a polling tentacle with the `Development` environment and `OctoFX-Web` role in the `OctoFX` space:
+This example registers a polling Tentacle with the `Development` environment and `OctoFX-Web` role in the `OctoFX` space:
 
 ```
 tentacle register-with --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"

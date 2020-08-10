@@ -3,7 +3,7 @@ title: Create instance
 description: Using the Tentacle.exe command line executable to register a new instance of the Tentacle service.
 ---
 
-Registers a new instance of the Tentacle service
+Registers a new instance of the Tentacle service.
 
 **Create instance options**
 

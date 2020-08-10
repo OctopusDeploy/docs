@@ -3,7 +3,7 @@ title: Deregister Worker
 description: Using the Tentacle.exe command line executable to deregister a Worker from an Octopus Server.
 ---
 
-Deregisters this Worker from an Octopus Server
+Deregisters this Worker from an Octopus Server.
 
 **Deregister Worker options**
 

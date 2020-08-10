@@ -3,7 +3,7 @@ title: Deregister from
 description: Using the Tentacle.exe command line executable to deregister a deployment target from an Octopus Server.
 ---
 
-Deregisters this deployment target from an Octopus Server
+Deregisters this deployment target from an Octopus Server.
 
 **Deregister from options**
 
@@ -34,7 +34,7 @@ Or one of the common options:
 
 ## Basic examples
 
-This example deregisters a tentacle from the Octopus Server:
+This example deregisters a Tentacle from the Octopus Server:
 
 ```text
 tentacle deregister-from --server="https://MyOctopusServer" --apiKey="API-MyApiKey"

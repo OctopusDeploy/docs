@@ -30,13 +30,13 @@ Or one of the common options:
 
 ## Basic examples
 
-This example configures the polling tentacle to use the default Internet Explorer proxy:
+This example configures the polling Tentacle to use the default Internet Explorer proxy:
 
 ```
 tentacle polling-proxy --proxyHost="" --proxyEnable="true"
 ```
 
-This example disables the proxy server for the polling tentacle instance `MyNewInstance`:
+This example disables the proxy server for the polling Tentacle instance `MyNewInstance`:
 
 ```
 tentacle polling-proxy --proxyEnable="false" --instance="MyNewInstance"

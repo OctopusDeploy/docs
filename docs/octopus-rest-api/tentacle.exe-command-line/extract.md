@@ -3,7 +3,7 @@ title: Extract
 description: Extracts a NuGet package
 ---
 
-Extracts a NuGet package
+Extracts a NuGet package.
 
 **extract options**
 

@@ -3,7 +3,7 @@ title: Agent
 description: Starts the Tentacle Agent in debug mode
 ---
 
-Starts the Tentacle Agent in debug mode
+Starts the Tentacle Agent in debug mode.
 
 **agent options**
 
@@ -24,7 +24,7 @@ Or one of the common options:
 
 ## Basic example
 
-This example starts the default tentacle in debug and console mode:
+This example starts the default Tentacle in debug and console mode:
 
 ```text
 tentacle agent --console
