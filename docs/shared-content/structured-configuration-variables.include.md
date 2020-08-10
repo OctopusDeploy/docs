@@ -1,10 +1,8 @@
 :::info
-This Configuration Feature used to be called JSON Configuration Variarbles in versions before 2020.4.0, but has been re-named to Structured Configuration Variables with the added support for YAML replacement.
+This Configuration Feature used to be called JSON Configuration Variarbles in versions before 2020.4.0, but has been re-named to Structured Configuration Variables with the added support for YAML and XML replacement.
 :::
 
-With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in the JSON and YAML configuration files of your applications. This lets you define different values based on the scope of the deployment. This feature uses a matching syntax so you can update configuration nested in JSON and YAML objects and array literals.
-
-This is designed to work natively with [.NET Core Structured configuration files](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md), but works equally well with any JSON or YAML files.
+With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML, and XML configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
@@ -31,7 +29,7 @@ You can supply full paths to files, use wildcards to find multiple files in a di
 
 **Specific file path**
 ```
-ExampleProject/appSettings.json
+ExampleProject\appSettings.json
 ```
 
 **Match any .yaml files in the root directory**
@@ -44,18 +42,20 @@ ExampleProject/appSettings.json
 Config\*.json
 ```
 
-**Match any .yaml files in the specified directory or deeper**
+**Match any .xml files in the specified directory or deeper**
 ```
-Application/**/*.yaml
+Application/**/*.xml
 ```
 
 The **Target File** field also supports [Variable Substitution Syntax](/docs/projects/variables/variable-substitutions.md), to allow things like referencing environment-specific files, or conditionally including them based on scoped variables. [Extended template syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) allows conditionals and loops to be used.
 
 ### How the file type for target files is determined
 
-**Structured Configuration Variables** allows for replacement in both JSON and YAML files. To determine if a file is JSON or YAML, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
+**Structured Configuration Variables** allows for replacement in JSON, YAML, and XML files. To determine what file type is being used, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
 
-If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML.
+If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, and if the extension is `xml`, the file will be parsed as XML.
+
+## JSON and YAML
 
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
 
@@ -89,7 +89,7 @@ Note that the `tempImageFolder` setting remains untouched, and the types of `por
 
 It is common (and encouraged) to use hierarchical variables in Structured configuration files. This is supported in Octopus variables by using a nested path syntax delimited by *colon* characters.
 
-For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus Variables `weatherApi:url` and `weatherApi:key`.
+For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus variables `weatherApi:url` and `weatherApi:key`.
 
 **Hierarchical JSON**
 ```json
@@ -218,4 +218,160 @@ foo:
     -
       url: test.weather.com
       key: DEV1234567
+```
+
+## XML
+
+For XML files, the values to replace are located using the standard XPath syntax. Octopus supports both XPath 1 and XPath 2.
+
+Octopus variables with names that are valid XPath expressions are matched against the target XML files. For example, if you have a variable called `//environment` with the value `production`, it will replace the contents of all `<environment>` elements with `production`.
+
+### Replacing content
+
+When replacing content, the replacement can only be as rich as what was originally there. If you select an element that contains only text, the replacement will be treated as text and structure-defining characters will be encoded as entity references. However, if you select an element that contains further element structures, the replacement is treated as an XML fragment, and structure-defining characters will be added as is.
+
+This means that if you replace a password or connection string, any characters like `<` and `>` will be safely encoded within the string. For example, assume the target file contains the following:
+
+```xml
+<connectionString>Server=.;Database=db;User Id=admin;Password=password;</connectionString>
+```
+
+If you define a variable called `//connectionString` with the value `Server=.;Database=db;User Id=admin;Password=Pass<word>1;` the structure will be updated as follows:
+
+```xml
+<connectionString>Server=.;Database=db;User Id=admin;Password=Pass&lt;word&gt;1;</connectionString>
+```
+
+It's worth noting that an empty element, such as `<rules />`, contains no element structures and will only be filled with text. For example, assume the target file contains the following:
+
+**Empty XML Element**
+```xml
+<configuration>
+   <logging>
+      <rules />
+   </logging>
+</configuration>
+```
+
+If the Octopus variable `/configuration/logging/rules` is specified with the value `<rule level="trace" />`, the value will be encoded as text, becoming:
+
+**Empty XML Element Filled**
+```xml
+<configuration>
+  <logging>
+    <rules>&lt;rule level='trace' /&gt;</rules>
+  </logging>
+</configuration>
+```
+
+However, if the variable is named `/configuration/logging` to match the parent element, with the value `<rules><rule level="trace" /></rules>`, the value will be treated as an XML fragment because it is replacing an element structure (the `<rules />` element). This becomes:
+
+**Empty XML Element Parent Replaced**
+```xml
+<configuration>
+  <logging>
+    <rules>
+      <rule level="trace" />
+    </rules>
+  </logging>
+</configuration>
+```
+
+### Replacing mixed content elements
+
+Sometimes an element will contain a mixture of text and element structures. An example of this is:
+
+```xml
+<document>This is <b>mixed</b> content</document>
+```
+
+Because it contains an element structure, a replacement will be treated as an XML fragment. A variable named `/document` with the value of `<logger />` would result in:
+
+```xml
+<document>
+  <logger />
+</document>
+```
+
+Another option is to match and replace individual text nodes. A variable named `/document/child::text()[1]` with the value `just <text>` would result in:
+
+```xml
+<document>just &lt;text&gt;<b>mixed</b> content</document>
+```
+
+### Replacing Attributes
+
+Matching and replacing attribute values is supported with XPath. For example, assume the target file contains the following:
+
+```xml
+<configuration>
+    <email role="admin">admin@example.com</email>
+    <email role="user">user@example.com</email>
+</configuration>
+```
+
+With the Octopus variable `/configuration/email/@role` with the value `developer`, the output will look like:
+
+```xml
+<configuration>
+  <email role="developer">admin@example.com</email>
+  <email role="developer">user@example.com</email>
+</configuration>
+```
+
+Alternatively, to replace an element *based on its attribute*, you can apply the condition as a predicate. With a variable named `/configuration/email[@role='admin']` with the value `chief@example.org`, the output will look like:
+
+```xml
+<configuration>
+  <email role="admin">chief@example.org</email>
+  <email role="user">user@example.com</email>
+</configuration>
+```
+
+### XML CDATA sections
+
+CDATA sections can be replaced just like any other node by selecting them with the XPath. When the content of the CDATA section is replaced, the CDATA presentation is maintained in the output. In the following example, `development` in the CDATA tag can be replaced with `prod<1>` by having a variable `/document/environment/text()` with the value `prod<1>`:
+
+**XML Structure with CDATA**
+```xml
+<document>
+    <environment><![CDATA[development]]></environment>
+</document>
+```
+
+**XML Structure with CDATA Replaced**
+```xml
+<document>
+  <environment><![CDATA[prod<1>]]></environment>
+</document>
+```
+
+### Processing Instructions
+
+Processing instructions can be replaced using the XPath processing instruction selector like so: `/document/processing-instruction('xml-stylesheet')`. When replacing a processing instruction, it's not possible to replace the individual attributes. The whole processing instruction gets replaced with the supplied value. Take the following example:
+
+**XML Structure Processing Instruction**
+```xml
+<document>
+   <?xml-stylesheet type="text/xsl" href="/Content/Glossary/main.xsl"?>
+</document>
+```
+
+When the Octopus variable `/document/processing-instruction('xml-stylesheet')` is set to `new value` the output will be the following:
+
+**XML Structure Processing Instruction Replaced**
+```xml
+<document>
+   <?xml-stylesheet new-value ?>
+</document>
+```
+
+### Namespaces
+
+When parsing the XML document, Octopus collects all namespace declarations for use in XPath expressions, so you can use any of the declared prefixes.
+
+One limitation is that if the same prefix is declared more than once in a document, only the first will be available in XPath expressions. Because this is a potentially surprising situation, a warning will be logged, similar to the following:
+
+```
+The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
 ```
