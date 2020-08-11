@@ -33,4 +33,4 @@ As you configure your deployment targets, select the environment they will belon
 To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
 :::
 
-Next, learn how to [package your software](/docs/getting-started/package-your-software.md).
+Next, learn how to [package your software](/docs/getting-started/package-your-software.md) or you can return to the [getting started guides](/docs/getting-started/getting-started-guides.md).

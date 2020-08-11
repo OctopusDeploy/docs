@@ -10,4 +10,4 @@ Octopus deploys your software by following the deployment process you define. A 
 
 !include <hello-world-deployment-process>
 
-Next, learn how to [create a release](/docs/getting-started/create-a-release.md).
+Next, learn how to [create a release](/docs/getting-started/create-a-release.md) or you can return to the [getting started guides](/docs/getting-started/getting-started-guides.md).

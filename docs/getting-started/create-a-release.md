@@ -13,3 +13,5 @@ position: 100
 :::success
 To learn more about managing your releases, see the [managing releases documentation](/docs/octopus-cloud/index.md).
 :::
+
+Return to the [getting started guides](/docs/getting-started/getting-started-guides.md).
