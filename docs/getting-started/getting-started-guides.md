@@ -26,10 +26,11 @@ The rest of this section includes guides that familiarize you with common scenar
 - [Setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md) (On-premises Octopus Server or Octopus Cloud)
 - [Get to know the Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md)
 
-### The Basics {#the-basics}
+### Octopus fundamentals {#octopus-fundamentals}
 
 - [Configure your environments](/docs/getting-started/environments.md)
 - [Connect your deployment targets to Octopus](/docs/getting-started/deployment-targets.md)
 - [Package your software](/docs/getting-started/package-your-software.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
 - [Create a release](/docs/getting-started/create-a-release.md)
+- [Upgrading your self-hosted Octopus Server](docs/getting-started/upgrading.md)
