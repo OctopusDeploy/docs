@@ -33,5 +33,5 @@ The rest of this section includes guides that familiarize you with common scenar
 - [Package your software](/docs/getting-started/package-your-software.md)
 - [Define your deployment process](/docs/getting-started/define-your-deployment-process.md)
 - [Create a release](/docs/getting-started/create-a-release.md)
-- [Lifecycles](docs/getting-started/lifecycles.md)
+- [Lifecycles](docs/getting-started/lifecycle.md)
 - [Upgrading your self-hosted Octopus Server](/docs/getting-started/upgrading.md)

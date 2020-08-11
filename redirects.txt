@@ -707,3 +707,4 @@ docs/deploying-applications/deploy-java-applications/index.md -> docs/deployment
 docs/getting-started/octopus-concepts/target-roles.md -> docs/getting-started/deployment-targets.md
 docs/getting-started/octopus-concepts/upgrading.md -> docs/getting-started/upgrading.md
 docs/deployment-process/lifecycles/index.md -> docs/managing-releases/lifecycles/index.md
+docs/getting-started/octopus-concepts/lifecycle.md -> docs/getting-started/lifecycle.md
