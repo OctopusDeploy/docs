@@ -27,11 +27,7 @@ As you configure your deployment targets, select the environment they will belon
 
 ## Target roles
 
-Target roles tell Octopus which deployment targets within an environment should be deployed to. This ensures your software is deployed to the right deployment target. Some example target roles are: 
-
-- web-server
-- app-server
-- db-server
+!include <target-roles>
 
 :::success
 To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
