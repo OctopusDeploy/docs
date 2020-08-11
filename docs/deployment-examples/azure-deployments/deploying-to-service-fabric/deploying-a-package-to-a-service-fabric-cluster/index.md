@@ -104,7 +104,7 @@ When your application is deployed to more than one geographic region, you are li
 
 Your process can be modified by using [variables scoped](/docs/projects/variables/index.md#scoping-variables) by environment or deployment target.
 
-You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/deployment-process/lifecycles/index.md) to create a strict release promotion process.
+You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/managing-releases/lifecycles/index.md) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 

@@ -58,7 +58,7 @@ Defining retention policies is done within lifecycles. Each phase can have a dif
 
 ![](images/3278386.png "width=500")
 
-You can read more about [lifecycles](/docs/deployment-process/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+You can read more about [lifecycles](/docs/managing-releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 

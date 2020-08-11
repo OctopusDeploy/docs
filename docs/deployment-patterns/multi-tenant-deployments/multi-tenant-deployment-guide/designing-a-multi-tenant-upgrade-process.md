@@ -9,7 +9,7 @@ Previous step: [Designing a multi-tenant hosting model](/docs/deployment-pattern
 This page describes how to design a multi-tenant upgrade process using some of the features built into Octopus Deploy.
 
 :::success
-You should understand [Lifecycles](/docs/deployment-process/lifecycles/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) before continuing with this guide.
+You should understand [Lifecycles](/docs/managing-releases/lifecycles/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) before continuing with this guide.
 :::
 
 ## Upgrading tenanted applications
@@ -18,7 +18,7 @@ Quite often, you want to upgrade tenanted applications by rolling the upgrade th
 
 ## Tenants and lifecycles
 
-You often want to provide a tenant-specific "test" environment where the customers can test upgrades before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/deployment-process/lifecycles/index.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
+You often want to provide a tenant-specific "test" environment where the customers can test upgrades before you upgrade their "production" environment. This is how Octopus Deploy behaves out of the box - if a tenant is connected to multiple environments of a project, you will be required to promote a release through the environments in the order defined by the [Lifecycle](/docs/managing-releases/lifecycles/index.md). Let's build on our working example and test this out. We are going to perform an untenanted deployment into the **MT Dev** environment, then promote those releases to our test team in the **MT Test** environment, upgrade the **MT Staging** environment for our tenant, and finally upgrade their instance of the application in the **MT Production** environment.
 
 ## Step 1: Configure the lifecycle
 
@@ -111,7 +111,7 @@ You may decide to use channels as a safety measure, to restrict test releases to
 
 ### Step 1: Create the lifecycle
 
-Firstly we will create a new [Lifecycle](/docs/deployment-process/lifecycles/index.md).
+Firstly we will create a new [Lifecycle](/docs/managing-releases/lifecycles/index.md).
 
 ![](images/multi-tenancy-limited-lifecycle.png "width=300")
 
@@ -141,7 +141,7 @@ Quite often, you want to involve certain customers in testing early releases of 
 
 ### Step 1: Create the lifecycle
 
-Firstly we will create a new [Lifecycle](/docs/deployment-process/lifecycles/index.md).
+Firstly we will create a new [Lifecycle](/docs/managing-releases/lifecycles/index.md).
 
 ![](images/multi-tenant-beta-lifecycle.png "width=500")
 

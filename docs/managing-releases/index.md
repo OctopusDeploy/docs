@@ -16,7 +16,7 @@ By navigating to the project's overview page and selecting **Releases**, you can
 
 ## Deploy your releases
 
-After creating the release, if the [lifecycle](/docs/deployment-process/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
+After creating the release, if the [lifecycle](/docs/managing-releases/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
 
 If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 

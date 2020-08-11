@@ -33,7 +33,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
-3. Select the [Lifecycle](/docs/deployment-process/lifecycles/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/deployment-process/lifecycles/index.md) for information about creating new lifecycles.
+3. Select the [Lifecycle](/docs/managing-releases/lifecycles/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/managing-releases/lifecycles/index.md) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
@@ -84,7 +84,7 @@ Once a project has more than one Channel, there a number of places they may be u
 
 ### Controlling deployment lifecycle {#Channels-ControllingDeploymentLifecycle}
 
-Each Channel defines which [Lifecycle](/docs/deployment-process/lifecycles/index.md) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
+Each Channel defines which [Lifecycle](/docs/managing-releases/lifecycles/index.md) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
 
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a Lifecycle that deploys the software to an environment your early access users have access to.
 

@@ -21,7 +21,7 @@ Some of these options will only appear if they're available. For instance, the [
 
 You can choose which [environments](/docs/infrastructure/environments/index.md) steps apply to:
 
-- Run for all applicable [lifecycle](/docs/deployment-process/lifecycles/index.md) environments (default).
+- Run for all applicable [lifecycle](/docs/managing-releases/lifecycles/index.md) environments (default).
 - Run only for specific environments.
 - Skip specific environments.
 

@@ -29,7 +29,7 @@ varying-azure-subscription-by-environment.md -> docs/deployment-examples/azure-d
 docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> docs/projects/project-triggers/deployment-target-triggers.md
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployment-examples/package-deployments/dynamically-selecting-packages.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
-docs/infrastructure/lifecycles/index.md -> docs/deployment-process/lifecycles/index.md
+docs/infrastructure/lifecycles/index.md -> docs/managing-releases/lifecycles/index.md
 docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/deployment-patterns/multi-tenant-deployments/index.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
@@ -706,3 +706,4 @@ docs/getting-started/connect-your-deployment-targets-to-octopus.md -> docs/getti
 docs/deploying-applications/deploy-java-applications/index.md -> docs/deployment-examples/java-applications/index.md
 docs/getting-started/octopus-concepts/target-roles.md -> docs/getting-started/deployment-targets.md
 docs/getting-started/octopus-concepts/upgrading.md -> docs/getting-started/upgrading.md
+docs/deployment-process/lifecycles/index.md -> docs/managing-releases/lifecycles/index.md

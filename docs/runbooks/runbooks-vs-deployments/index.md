@@ -36,7 +36,7 @@ From **Octopus 2020.3**, it’s also possible to choose which environments a run
 You can select the runbook to run in:
 - All environments (the default).
 - Only specific environments.
-- Environments from the [Project Lifecycle](/docs/deployment-process/lifecycles/index.md).
+- Environments from the [Project Lifecycle](/docs/managing-releases/lifecycles/index.md).
 
 :::hint
 In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](docs/deployment-process/conditions/index.md#environments) in each step of the runbook process.
@@ -44,7 +44,7 @@ In Octopus 2020.2 and earlier, if you need to restrict the environment that a ru
 
 ## Retention policy
 
-Project [Lifecycles](/docs/deployment-process/lifecycles/index.md) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
+Project [Lifecycles](/docs/managing-releases/lifecycles/index.md) and their retention policies do not apply to runbooks (only deployments). From **Octopus 2020.3**, it’s possible to set a retention policy for a runbook by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
 
 ![Runbook retention policies](runbook-runsettings-retention.png "width=500")
 

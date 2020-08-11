@@ -44,7 +44,7 @@ When a release is set to be created this way, the audit will tell you that is ho
 
 ![Release history](images/history.png "width=500")
 
-If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/deployment-process/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
+If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/managing-releases/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
 :::hint
 The release number that is created is guided by the Release Versioning settings under **{{Project,Settings}}**. It will use the rules defined.
