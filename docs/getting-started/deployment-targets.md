@@ -4,6 +4,8 @@ description: Learn how to configure the servers and services you deploy software
 position: 70
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CBws8yDaN4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/getting-started/environments.md). 
 
 ## Add your deployment targets
