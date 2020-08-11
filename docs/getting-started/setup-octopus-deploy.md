@@ -11,6 +11,8 @@ Octopus deploy is available in two variants:
 
 ## Self-hosted Octopus Server
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6H8g8vFmzWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 If you want to host the Octopus Server on infrastructure of your choosing, you can download the installer, install the server, and manage it on infrastructure of your choice, providing it meets the installation [requirements](/docs/installation/requirements.md). 
 
 You will also need to maintain the server, backup the database, and apply upgrades. 
