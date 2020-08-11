@@ -687,7 +687,7 @@ docs/octopus-concepts/operations-runbooks.md -> docs/getting-started/octopus-con
 docs/octopus-concepts/projects.md -> docs/getting-started/octopus-concepts/projects.md
 docs/octopus-concepts/releases.md -> docs/getting-started/create-a-release.md
 docs/octopus-concepts/rest-api.md -> docs/getting-started/octopus-concepts/rest-api.md
-docs/octopus-concepts/target-roles.md -> docs/getting-started/octopus-concepts/target-roles.md
+docs/octopus-concepts/target-roles.md -> docs/getting-started/deployment-targets.md
 docs/octopus-concepts/tentacles.md -> docs/getting-started/octopus-concepts/tentacles.md
 docs/octopus-concepts/upgrading.md -> docs/getting-started/octopus-concepts/upgrading.md
 docs/octopus-concepts/variables.md -> docs/getting-started/octopus-concepts/variables.md
@@ -704,3 +704,4 @@ docs/getting-started/octopus-concepts/environments.md -> docs/getting-started/en
 docs/getting-started/configure-your-environments.md -> docs/getting-started/environments.md
 docs/getting-started/connect-your-deployment-targets-to-octopus.md -> docs/getting-started/deployment-targets.md
 docs/deploying-applications/deploy-java-applications/index.md -> docs/deployment-examples/java-applications/index.md
+docs/getting-started/octopus-concepts/target-roles.md -> docs/getting-started/deployment-targets.md
