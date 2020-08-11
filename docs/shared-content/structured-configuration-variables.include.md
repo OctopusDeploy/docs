@@ -1,8 +1,8 @@
 :::info
-This Configuration Feature used to be called JSON Configuration Variarbles in versions before 2020.4.0, but has been re-named to Structured Configuration Variables with the added support for YAML and XML replacement.
+This Configuration Feature was previously called JSON Configuration Variables. In version **2020.4.0**, we added support for YAML, XML, and Properties configuration file replacements and renamed the feature Structured Configuration Variables.
 :::
 
-With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML, and XML configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
+With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
@@ -51,9 +51,9 @@ The **Target File** field also supports [Variable Substitution Syntax](/docs/pro
 
 ### How the file type for target files is determined
 
-**Structured Configuration Variables** allows for replacement in JSON, YAML, and XML files. To determine what file type is being used, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
+**Structured Configuration Variables** allows for replacement in JSON, YAML, XML, and Properties files. To determine what file type is being used, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
 
-If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, and if the extension is `xml`, the file will be parsed as XML.
+If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, if the extension is `xml`, the file will be parsed as XML, and finally if the extension is `properties` the file will be parsed as a Java Properties format.
 
 ## JSON and YAML
 
@@ -375,3 +375,31 @@ One limitation is that if the same prefix is declared more than once in a docume
 ```
 The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
 ```
+
+## Java Properties 
+
+Given this example of a target properties file:
+
+```
+weatherApiUrl = dev.weather.com
+weatherApiKey = DEV1234567
+tempImageFolder = C:\\temp\\img
+logsFolder = C:\\logs
+port = 8080
+debug = true
+```
+
+If you define [variables](/docs/projects/variables/index.md) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
+
+```
+weatherApiUrl = test.weather.com
+weatherApiKey = TEST7654321
+tempImageFolder = D:\\temp\\img
+logsFolder = C:\\logs
+port = 80
+debug = false
+```
+
+Note that the `logsFolder` setting remains untouched as there was no variable defined to override the value and that `tempImageFolder` has been encoded with the double `\`. Octopus will encode the variable in the correct encoding for the properties file format. 
+
+Unlike JSON, YAML, and XML, it's not possible to do hierarchical replacement in a properties file as properties files are simple key value files. 

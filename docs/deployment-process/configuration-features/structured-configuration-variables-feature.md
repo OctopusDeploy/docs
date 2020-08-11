@@ -1,6 +1,6 @@
 ---
 title: Structured configuration variables
-description: The Structured Configuration Variables feature updates your JSON, YAML, and XML configuration files with the values from matching Octopus variables.
+description: The Structured Configuration Variables feature updates your JSON, YAML, XML, and Properties configuration files with values from matching Octopus variables.
 position: 50
 ---
 
