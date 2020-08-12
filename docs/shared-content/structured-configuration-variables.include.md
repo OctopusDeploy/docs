@@ -6,8 +6,8 @@ With the **Structured Configuration Variables** feature you can define [variabl
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
-1. To enable Structured Configuration Variables on a step [step](/docs/deployment-process/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
-2. In the **Structured Configuration Variables** section of the step, specify the relative paths within the package to your Structured configuration files. For instance:
+1. To enable Structured Configuration Variables on a [step](/docs/deployment-process/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
+2. In the **Structured Configuration Variables** section of the step, specify the relative paths within the package to your structured configuration files. For instance:
 
 ```
 approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
@@ -20,7 +20,7 @@ or
 ```
 
 :::info
-If using Structured Configuration Variables on a Run a script step, please refer to [package files](https://octopus.com/docs/deployment-examples/custom-scripts/run-a-script-step#referencing-packages-package-files) to learn about extracted paths.
+If you are using Structured Configuration Variables on a Run a script step, please refer to [package files](https://octopus.com/docs/deployment-examples/custom-scripts/run-a-script-step#referencing-packages-package-files) to learn about extracted paths.
 :::
 
 Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.
@@ -61,7 +61,7 @@ If the file doesn't parse as JSON, Octopus refers to its file extension. If it i
 
 ### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
 
-Octopus uses Octopus variable names to find the structure that should be replaced within the target files. When navigating the document, if variables are found that match the same structure, the value in the target file will be replaced with the matching variable value. With JSON, and YAML, the variable names use a `:` seperated format to match the file structure such as `app:port`. With XML, the Octopus variable name is an XPath. Finally, Java Properties don't have a hierarchy and thus will match the properties key on regular Octopus variable names. An example for each supported file type can be found in the following table:
+Octopus uses Octopus variable names to find the structure that should be replaced within the target files. When navigating the document, if variables are found that match the same structure, the value in the target file will be replaced with the matching variable value. With JSON and YAML, the variable names use a `:` separated format to match the file structure such as `app:port`. With XML, the Octopus variable name is an XPath. Finally, Java Properties don't have a hierarchy and thus will match the properties key on regular Octopus variable names. An example for each supported file type can be found in the following table:
 
 | Format | Input file | Octopus variable name | Octopus variable value | Output file |
 | ------ | ---------- | ---- | ----- | ----------- |
