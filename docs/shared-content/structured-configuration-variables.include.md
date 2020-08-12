@@ -59,6 +59,17 @@ The **Target File** field also supports [Variable Substitution Syntax](/docs/pro
 
 If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, if the extension is `xml`, the file will be parsed as XML, and finally if the extension is `properties` the file will be parsed as a Java Properties format.
 
+### Variable Replacement
+
+Octopus uses Octopus variable names to find which values should be replaced within the target files. When navigating the document, if variables are found that match the same file structure, the value in the target file will be replaced with the matching variable. With JSON, and YAML, the variable names use a `:` seperated format to match the file structure like `app:port`. With XML, the Octopus variable name is an XPath. Finally, Java Properties don't have a hierarchy and thus will match the properties key on the Octopus variable name. An example for each supported file type can be found in the following table:
+
+| Format | Input file | Octopus variable name | Octopus variable value | Output file |
+| ------ | ---------- | ---- | ----- | ----------- |
+| JSON   | {"app": {"port": 80 }} | app:port | 4444 | {"app": {"port": 4444}} |
+| YAML   | app:<br/>&nbsp;&nbsp;port: 80 | app:port | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
+| XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | /app/port | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
+| Java Properties | app_port: 80 | app_port | 4444 | app_port: 4444 |
+
 ## JSON and YAML
 
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
