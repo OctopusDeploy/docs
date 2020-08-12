@@ -1,24 +1,25 @@
 ---
 title: Delete an AWS CloudFormation stack
-description: Use a runbook to teardown resources by destroying an AWS CloudFormation stack.
+description: Use a runbook to teardown resources by deleting an AWS CloudFormation stack.
 position: 10
 ---
 
-In addition to automating the creation of AWS resources, CloudFormation provides a simple method for destroying the resources it created as part of a stack.  Using a runbook, you can automate tearing down environments when they're no longer needed.
+In addition to automating the creation of AWS resources, CloudFormation provides a simple method for deleting the resources it created as part of a stack.  Using a runbook, you can automate tearing down environments when they're no longer needed.
 
-Octopus supports the deletion of an existing AWS CloudFormation stack through the Delete an AWS CloudFormation stack step. This step deletes a CloudFormation stack using AWS credentials managed by Octopus.
+Octopus supports the deletion of an existing AWS CloudFormation stack through the **Delete an AWS CloudFormation stack** step. This step deletes a CloudFormation stack using AWS credentials managed by Octopus.
 
 The proceeding instructions can be followed to configure the Delete an AWS CloudFormation stack step.
-
-![Delete Stack](images/deploy-cloudformation-step.png)
 
 ## Create the runbook
 
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
-1. Add a **Delete an AWS CloudFormation stack** step.
-1. Fill in the parameters for the template:
+1. Choose the **Delete an AWS CloudFormation stack** step:
+
+![Delete Stack](images/deploy-cloudformation-step.png)
+
+5. Fill in the parameters for the step:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
@@ -55,7 +56,7 @@ Unselecting the **Wait for completion** check-box will allow the step to complet
 
 ![AWS Region](images/step-aws-region.png "width=500")
 
-In a single step, you can destroy all the resources created within a CloudFormation stack.
+In a single step, you can delete all the resources created within a CloudFormation stack.
 
 ## Samples
 
