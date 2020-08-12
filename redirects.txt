@@ -708,3 +708,4 @@ docs/getting-started/octopus-concepts/target-roles.md -> docs/getting-started/de
 docs/getting-started/octopus-concepts/upgrading.md -> docs/getting-started/upgrading.md
 docs/deployment-process/lifecycles/index.md -> docs/managing-releases/lifecycles/index.md
 docs/getting-started/octopus-concepts/lifecycle.md -> docs/getting-started/lifecycle.md
+docs/runbooks/runbook-examples/aws/destroy-stack.md -> docs/runbooks/runbook-examples/aws/delete-stack.md
