@@ -6,8 +6,8 @@ With the **Structured Configuration Variables** feature you can define [variabl
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
-1. When you define the package [step](/docs/deployment-process/steps/index.md) in your [project](/docs/projects/index.md) enable the Structured Configuration Variables feature by clicking the **CONFIGURE FEATURES** link, selecting **Structured Configuration Variables** then clicking **OK**.
-2. In the **Features** section of the step template, specify the relative paths within the package to your Structured configuration files. For instance:
+1. To enable Structured Configuration Variables on a step [step](/docs/deployment-process/steps/index.md) in your [project](/docs/projects/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, selecting **Structured Configuration Variables**, then clicking **OK**.
+2. In the **Structured Configuration Variables** section of the step, specify the relative paths within the package to your Structured configuration files. For instance:
 
 ```
 approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
@@ -18,6 +18,10 @@ or
 ```
 **/application.yaml
 ```
+
+:::info
+If using Structured Configuration Variables on a Run a script step, please refer to [package files](https://octopus.com/docs/deployment-examples/custom-scripts/run-a-script-step#referencing-packages-package-files) to learn about extracted paths.
+:::
 
 Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.
 
