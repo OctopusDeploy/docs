@@ -4,9 +4,11 @@ description: With Octopus Deploy you backup a MySQL database witha Runbook
 position: 60
 ---
 
+There are many different ways to backup a MySQL database. In this case, we will use mysqldump utility provided by MySQL to dump data and table structures from a specific database. It requires the deployment target to have the MySQL installation binaries and local access to the MySQL instance where the database is hosted.
+
 In the following example, we'll use the [MySQL - backup database](https://library.octopus.com/step-templates/4fa6d062-d4da-4a02-849e-dec804554453/actiontemplate-mysql-backup-database - Backup Database) community step template.
 
-There are many different ways to backup a MySQL database. In this case, we will use mysqldump utility provided by MySQL to dump data and table structures from a specific database. It requires the deployment target to have the MySQL installation binaries and local access to the MySQL instance where the database is hosted.
+
 
 ## Create the Runbook
 
