@@ -1,7 +1,7 @@
 ---
 title: Guided failures
 description: Guided failures allow problematic deployments to be reviewed and managed human intervention.  
-position: 9
+position: 15
 ---
 
 When deployments encounter errors, they will typically fail. However, the **guided failure** mode provides an option to prompt a user to intervene when a deployment encounters an error so that the deployment can continue. With guided failure mode enabled, the user can fail the process, and retry or ignore any steps that failed the first time.
