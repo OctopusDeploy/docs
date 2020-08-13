@@ -684,7 +684,7 @@ docs/octopus-concepts/octopus-server.md -> docs/getting-started-guides/setup-oct
 docs/octopus-concepts/octopus-web-portal.md -> docs/getting-started-guides/the-octopus-web-portal.md
 docs/getting-started/octopus-concepts/octopus-web-portal.md -> docs/getting-started-guides/the-octopus-web-portal.md
 docs/octopus-concepts/operations-runbooks.md -> docs/getting-started-guides/octopus-concepts/runbooks.md
-docs/octopus-concepts/projects.md -> docs/getting-started-guides/octopus-concepts/projects.md
+docs/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md
 docs/octopus-concepts/releases.md -> docs/getting-started-guides/releases.md
 docs/octopus-concepts/rest-api.md -> docs/getting-started-guides/octopus-concepts/rest-api.md
 docs/octopus-concepts/target-roles.md -> docs/getting-started-guides/deployment-targets.md
@@ -714,7 +714,7 @@ docs/getting-started/getting-started-guides.md -> docs/getting-started-guides/in
 docs/getting-started/octopus-concepts/configuration-features.md -> docs/getting-started-guides/octopus-concepts/configuration-features.md
 docs/getting-started/octopus-concepts/health-checks.md -> docs/getting-started-guides/octopus-concepts/health-checks.md
 docs/getting-started/octopus-concepts/octopus-cli.md -> docs/getting-started-guides/octopus-concepts/octopus-cli.md
-docs/getting-started/octopus-concepts/projects.md -> docs/getting-started-guides/octopus-concepts/projects.md
+docs/getting-started/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md
 docs/getting-started/octopus-concepts/rest-api.md -> docs/getting-started-guides/octopus-concepts/rest-api.md
 docs/getting-started/octopus-concepts/runbooks.md -> docs/getting-started-guides/octopus-concepts/runbooks.md
 docs/getting-started/octopus-concepts/tentacles.md -> docs/getting-started-guides/octopus-concepts/tentacles.md
@@ -733,3 +733,4 @@ docs/getting-started/the-octopus-web-portal.md -> docs/getting-started-guides/th
 docs/getting-started/upgrading.md -> docs/getting-started-guides/upgrading.md
 docs/getting-started/octopus-concepts/index.md -> docs/getting-started-guides/octopus-concepts/index.md
 docs/getting-started-guides/create-a-release.md -> docs/getting-started-guides/releases.md
+docs/getting-started-guides/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md

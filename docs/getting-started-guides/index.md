@@ -30,7 +30,7 @@ The rest of this section includes guides that familiarize you with common scenar
 ### Octopus fundamentals {#octopus-fundamentals}
 
 - [Configure your environments](/docs/getting-started-guides/environments.md)
-- [Projects and Project Groups](/docs/getting-started-guides/projects.md)
+- [Projects and project groups](/docs/getting-started-guides/projects.md)
 - [Connect your deployment targets to Octopus](/docs/getting-started-guides/deployment-targets.md)
 - [Package your software](/docs/getting-started-guides/package-your-software.md)
 - [Define your deployment process](/docs/getting-started-guides/deployment-process.md)
