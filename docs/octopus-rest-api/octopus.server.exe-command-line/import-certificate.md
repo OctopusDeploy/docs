@@ -33,7 +33,7 @@ Or one of the common options:
 
 ## Basic example
 
-This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/getting-started/octopus-concepts/tentacles.md):
+This example imports a certificate from the file `OctopusServer-certificate.pfx` to replace the existing certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/getting-started-guides/octopus-concepts/tentacles.md):
 
 ```text
 octopus.server import-certificate --instance="OctopusServer" --from-file="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"

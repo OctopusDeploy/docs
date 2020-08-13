@@ -15,7 +15,7 @@ As an Octopus user, you define the process for deploying your applications. You 
 
 You can install your own self-hosted instance of the **Octopus Server** or use the hosted version **Octopus Cloud**. Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
 
-Learn how to [setup Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md).
+Learn how to [setup Octopus Deploy](/docs/getting-started-guides/setup-octopus-deploy.md).
 
 ## The Octopus Web Portal
 
@@ -31,13 +31,13 @@ Organizing your infrastructure into environments lets you define your deployment
 
 You can also use [Octopus Runbooks](#octopus-runbooks) to manage the same infrastructure your software is deployed to.
 
-Learn how to [connect your deployment targets to Octopus](/docs/getting-started/deployment-targets.md)
+Learn how to [connect your deployment targets to Octopus](/docs/getting-started-guides/deployment-targets.md)
 
 ## Packaging applications
 
 Before you can deploy software with Octopus Deploy, you need to bundle all the files required for the software to run into a supported package. The package must be versioned and stored in a repository. Octopus Deploy includes a built-in repository. We recommend configuring your existing tool chain to push packages automatically to the built-in repository or an external feed; however, you can push packages manually to the repository if you choose to.
 
-Learn how to [package your software](/docs/getting-started/package-your-software.md).
+Learn how to [package your software](/docs/getting-started-guides/package-your-software.md).
 
 ## Deploying applications
 
@@ -45,7 +45,7 @@ Octopus Deploy is designed to work with teams following agile software developme
 
 The deployment process that Octopus executes is a series of steps and a set of variables that you define with the Octopus Web Portal or the Octopus REST API. Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also use steps from the community-contributed step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-Learn how to [define deployment process](/docs/getting-started/define-your-deployment-process.md).
+Learn how to [define deployment process](/docs/getting-started-guides/deployment-process.md).
 
 ## Runbook automation {#octopus-runbooks}
 
@@ -57,4 +57,4 @@ Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
 ## Getting Started: Hello world
 
-The [getting started guides](/docs/getting-started/getting-started-guides.md) will help you master the fundamentals of Octopus Deploy.
+The [getting started guides](/docs/getting-started-guides/index.md) will help you master the fundamentals of Octopus Deploy.

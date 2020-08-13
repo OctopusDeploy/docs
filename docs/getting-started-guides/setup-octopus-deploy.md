@@ -39,7 +39,7 @@ To launch the Octopus Web Portal, click **Open in browser** from the **Octopus M
 For more information and other installation options, see the [installation documentation](/docs/installation/index.md).
 :::
 
-Now that you've installed the self-hosted Octopus Server, it's time to explore the [Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md).
+Now that you've installed the self-hosted Octopus Server, it's time to explore the [Octopus Web Portal](/docs/getting-started-guides/the-octopus-web-portal.md).
 
 ## Octopus Cloud
 
@@ -58,4 +58,4 @@ When your Octopus Cloud instance is ready, you can log in at the URL you defined
 To learn more about Octopus Cloud, see the [Octopus Cloud documentation](/docs/octopus-cloud/index.md).
 :::
 
-Now that you've created an Octopus Cloud instance, it's time to explore the [Octopus Web Portal](/docs/getting-started/the-octopus-web-portal.md) or you can return to the [getting started guides](/docs/getting-started/getting-started-guides.md).
+Now that you've created an Octopus Cloud instance, it's time to explore the [Octopus Web Portal](/docs/getting-started-guides/the-octopus-web-portal.md) or you can return to the [getting started guides](/docs/getting-started-guides/index.md).
