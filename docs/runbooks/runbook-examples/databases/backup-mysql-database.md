@@ -1,6 +1,6 @@
 ---
 title: Backup MySQL database
-description: With Octopus Deploy you backup a MySQL database with a Runbook
+description: With Octopus Deploy you can backup a MySQL database with a Runbook
 position: 60
 ---
 
