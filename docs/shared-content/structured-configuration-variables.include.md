@@ -6,8 +6,8 @@ With the **Structured Configuration Variables** feature you can define [variabl
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
-1. To enable Structured Configuration Variables on a step [step](/docs/deployment-process/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
-2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your configuration files, relative to the working directory. For instance:
+1. To enable Structured Configuration Variables on a [step](/docs/deployment-process/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
+2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your structured configuration files, relative to the working directory. For instance:
 
 ```
 approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
