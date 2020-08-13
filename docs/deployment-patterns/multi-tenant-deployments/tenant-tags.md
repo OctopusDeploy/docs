@@ -26,7 +26,7 @@ With tenant tags you can:
 - Scope project variables to tags.
 - Design a multi-tenant hosting model - read more in our [guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 - Design a multi-tenant upgrade process - read more in our [guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
-- Control which releases can be deployed to tenants using [channels](/docs/managing-releases/channels/index.md) - read more in our [guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/index.md) - read more in our [guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
 
 ## Managing Tenant Tags {#TenantTags-Managingtenanttags}
 

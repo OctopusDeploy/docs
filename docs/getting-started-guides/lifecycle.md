@@ -25,7 +25,7 @@ By default, deployment processes will use the default lifecycle.
 1. Click **CHANGE** and select the required lifecycle and click **SAVE**.
 
 :::success
-To learn more about release management and lifecycles refer to [lifecycles documentation](/docs/managing-releases/lifecycles/index.md).
+To learn more about release management and lifecycles refer to [lifecycles documentation](/docs/releases/lifecycles/index.md).
 :::
 
 Return to the [getting started guides](/docs/getting-started-guides/index.md).

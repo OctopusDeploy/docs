@@ -18,13 +18,13 @@ You can use [Environments](/docs/infrastructure/environments/index.md) to repr
 
 By using this pattern you can:
 
-1. Use [lifecycles](/docs/managing-releases/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
+1. Use [lifecycles](/docs/releases/lifecycles/index.md) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
   * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe.
   * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions.
 2. Scope region-specific variables to the region-specific Environments.
 3. Quickly see which releases are deployed to which regions on the main dashboard.
 4. Quickly promote releases through your regions using the Project Overview.
-5. Use [Scheduled Deployments](/docs/managing-releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
+5. Use [Scheduled Deployments](/docs/releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage.
 
 **This is a really good solution if you want to enforce a particular order of deployments through your regions.**
 
@@ -65,7 +65,7 @@ Alternatively you could create [Tenants](/docs/deployment-patterns/multi-tenant
 
 ![](/images/5865789.png "width=500")
 
-6. Use [Scheduled Deployments](/docs/managing-releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
+6. Use [Scheduled Deployments](/docs/releases/index.md#scheduling-a-deployment) to plan deployments for times of low usage:
 
 ![](images/5865787.png "width=500")
 

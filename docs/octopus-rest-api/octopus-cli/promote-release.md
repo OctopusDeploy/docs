@@ -155,4 +155,4 @@ octo promote-release --project Web --from Development --to Staging -progress --s
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Releases](/docs/managing-releases/index.md)
+- [Releases](/docs/releases/index.md)

@@ -92,5 +92,5 @@ octo list-releases --project="Dbup - AWS RDS" --project="Flyway - AWS RDS" --pro
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Releases](/docs/managing-releases/index.md)
+- [Releases](/docs/releases/index.md)
 - [Projects](/docs/projects/index.md)

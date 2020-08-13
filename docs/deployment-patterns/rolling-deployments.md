@@ -102,7 +102,7 @@ This five minute video (with captions) will guide you through setting up a rolli
 
 ## Rolling deployments with guided failures
 
-[Guided failures](/docs/managing-releases/guided-failures.md) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
+[Guided failures](/docs/releases/guided-failures.md) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
 
 1. `Web01` is removed from the load balancer, the new release is deployed successfully and `Web01` is returned to the load-balanced pool.
 2. `Web02` is removed from the load balancer, but the deployment of the new release fails. You can choose what happens next while `Web01` and `Web03` are still in the load-balanced pool.

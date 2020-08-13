@@ -97,4 +97,4 @@ octo create-channel --project MyProject --name Experimental --lifecycle "Test On
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Channels](/docs/managing-releases/channels/index.md)
+- [Channels](/docs/releases/channels/index.md)
