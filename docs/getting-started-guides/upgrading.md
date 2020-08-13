@@ -49,4 +49,4 @@ You've successfully upgraded your Octopus Deploy Server.
 To learn more about upgrading, see our in depth [upgrading guides)](/docs/administration/upgrading/index.md).
 :::
 
-Return to the [getting started guides](/docs/getting-started/getting-started-guides.md).
+Return to the [getting started guides](/docs/getting-started-guides/index.md).

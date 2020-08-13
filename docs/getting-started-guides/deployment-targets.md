@@ -6,7 +6,7 @@ position: 70
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CBws8yDaN4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/getting-started/environments.md). 
+Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/getting-started-guides/environments.md). 
 
 ## Add your deployment targets
 
@@ -33,4 +33,4 @@ As you configure your deployment targets, select the environment they will belon
 To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
 :::
 
-Next, learn how to [package your software](/docs/getting-started/package-your-software.md) or you can return to the [getting started guides](/docs/getting-started/getting-started-guides.md).
+Next, learn how to [package your software](/docs/getting-started-guides/package-your-software.md) or you can return to the [getting started guides](/docs/getting-started-guides/index.md).

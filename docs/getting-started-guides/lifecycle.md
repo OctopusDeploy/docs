@@ -8,4 +8,4 @@ position: 120
 
 !include <lifecycles>
 
-Return to the [getting started guides](/docs/getting-started/getting-started-guides.md).
+Return to the [getting started guides](/docs/getting-started-guides/index.md).

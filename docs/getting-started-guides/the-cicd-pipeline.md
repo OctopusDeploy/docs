@@ -20,5 +20,5 @@ A typical CI/CD pipeline with Octopus Deploy looks like this:
 1. When a team member (perhaps a tester) wants to see what is in a particular release, they use Octopus to manually deploy a release to the **Test** environment.
 1. When the team is satisfied with the quality of the release and they are ready for it to go to production, they use Octopus to promote the release from the **Test** environment to the **Production** environment.
 
-Next, learn how to [setup up Octopus Deploy](/docs/getting-started/setup-octopus-deploy.md) or you can return to the [getting started guides](/docs/getting-started/getting-started-guides.md).
+Next, learn how to [setup up Octopus Deploy](/docs/getting-started-guides/setup-octopus-deploy.md) or you can return to the [getting started guides](/docs/getting-started-guides/index.md).
 

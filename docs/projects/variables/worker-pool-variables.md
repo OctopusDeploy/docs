@@ -12,8 +12,8 @@ Worker pool variables are [variables](/docs/projects/variables/index.md) which c
 
 In Octopus, you can [scope](/docs/projects/variables/index.md#scoping-variables) worker pools to:
 
-- [Environments](/docs/getting-started/environments.md)
-- [Processes](/docs/getting-started/define-your-deployment-process.md)
+- [Environments](/docs/getting-started-guides/environments.md)
+- [Processes](/docs/getting-started-guides/deployment-process.md)
 - [Steps](/docs/deployment-process/steps/index.md)
 - [Channels](/docs/managing-releases/channels/index.md)
 
