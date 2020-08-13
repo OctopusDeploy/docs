@@ -15,7 +15,7 @@ For each [step](/docs/deployment-process/steps/index.md) that you define in your
 
 ![Conditions](images/conditions.png "width=500")
 
-Some of these options will only appear if they're available. For instance, the [channels](/docs/deployment-process/channels/index.md) option is only visible if you have created one or more channels.
+Some of these options will only appear if they're available. For instance, the [channels](/docs/managing-releases/channels/index.md) option is only visible if you have created one or more channels.
 
 ## Environments
 
@@ -29,7 +29,7 @@ By default, steps will run on all environments specified in the lifecycle for th
 
 ## Channels
 
-If you have created one or more [channels](/docs/deployment-process/channels/index.md), you can specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).
+If you have created one or more [channels](/docs/managing-releases/channels/index.md), you can specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).
 
 ## Run condition
 

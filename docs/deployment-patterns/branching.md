@@ -50,7 +50,7 @@ Modeling this in Octopus is a little more complicated than the scenarios above, 
 
 ![](images/3278469.png "width=500")
 
-If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. [Channels](/docs/deployment-process/channels/index.md) are a feature in Octopus that lets you model differences in releases:
+If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. [Channels](/docs/managing-releases/channels/index.md) are a feature in Octopus that lets you model differences in releases:
 
 ![](images/3278470.png "width=500")
 

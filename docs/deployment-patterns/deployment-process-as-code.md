@@ -114,7 +114,7 @@ The general process should look something like this, tailored to your situation:
 
 #### Blessed branch approach
 
-In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `master` branch into Octopus, and use [Channels](/docs/deployment-process/channels/index.md) to safely introduce changes to your process and variables.
+In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `master` branch into Octopus, and use [Channels](/docs/managing-releases/channels/index.md) to safely introduce changes to your process and variables.
 
 The general process should look something like this, tailored to your situation:
 

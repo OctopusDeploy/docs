@@ -1,7 +1,7 @@
 ---
 title: Deployment notes
 description: Summarize the changes in a deployment
-position: 6
+position: 130
 ---
 
 When a release is deployed to an environment, it can be thought of as deploying all changes contained in all releases since the previous deployment to the environment.
