@@ -731,3 +731,4 @@ docs/getting-started/setup-octopus-deploy.md -> docs/getting-started-guides/setu
 docs/getting-started/the-cicd-pipeline.md -> docs/getting-started-guides/the-cicd-pipeline.md
 docs/getting-started/the-octopus-web-portal.md -> docs/getting-started-guides/the-octopus-web-portal.md
 docs/getting-started/upgrading.md -> docs/getting-started-guides/upgrading.md
+docs/getting-started/octopus-concepts/index.md -> docs/getting-started-guides/octopus-concepts/index.md
