@@ -709,3 +709,4 @@ docs/getting-started/octopus-concepts/upgrading.md -> docs/getting-started/upgra
 docs/deployment-process/lifecycles/index.md -> docs/managing-releases/lifecycles/index.md
 docs/getting-started/octopus-concepts/lifecycle.md -> docs/getting-started/lifecycle.md
 docs/runbooks/runbook-examples/aws/destroy-stack.md -> docs/runbooks/runbook-examples/aws/delete-stack.md
+docs/deployment-process/channels/index.md -> docs/managing-releases/channels/index.md

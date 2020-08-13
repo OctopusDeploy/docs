@@ -1,7 +1,7 @@
 ---
 title: Release notes
 description: Enrich your releases with notes
-position: 5
+position: 135
 ---
 
 When you create a release, you can add notes:

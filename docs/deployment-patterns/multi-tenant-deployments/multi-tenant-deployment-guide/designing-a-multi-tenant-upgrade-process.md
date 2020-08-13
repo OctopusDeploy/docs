@@ -107,7 +107,7 @@ You can also use the Project Overview to deploy to groups of tenants by grouping
 
 ## Using channels and tenant tags to restrict test releases to the test team
 
-You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/deployment-process/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
+You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/managing-releases/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the lifecycle
 
@@ -116,7 +116,7 @@ Firstly we will create a new [Lifecycle](/docs/managing-releases/lifecycles/inde
 ![](images/multi-tenancy-limited-lifecycle.png "width=300")
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/deployment-process/channels/index.md).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/managing-releases/channels/index.md).
 :::
 
 ### Step 2: Configure a channel for the test program
@@ -137,7 +137,7 @@ When you deploy this release, you will be able to choose from the limited set of
 
 ## Using Channels and tenant tags to implement an early access program
 
-Quite often, you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/deployment-process/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
+Quite often, you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/managing-releases/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the lifecycle
 
@@ -146,7 +146,7 @@ Firstly we will create a new [Lifecycle](/docs/managing-releases/lifecycles/inde
 ![](images/multi-tenant-beta-lifecycle.png "width=500")
 
 :::hint
-Learn more about [defining a limited Lifecycle for your test Channel](/docs/deployment-process/channels/index.md).
+Learn more about [defining a limited Lifecycle for your test Channel](/docs/managing-releases/channels/index.md).
 :::
 
 ### Step 2: Configure the tenant tags
@@ -173,7 +173,7 @@ Now when you are deploying **2.0.0-beta.1**, you will be able to select tenants 
 
 ## Pinning Tenants to a release
 
-Quite often, you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/deployment-process/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
+Quite often, you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/managing-releases/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
 
 ### Step 1: Create the upgrade ring/pinned tag
 
