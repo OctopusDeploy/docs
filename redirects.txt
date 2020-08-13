@@ -685,7 +685,7 @@ docs/octopus-concepts/octopus-web-portal.md -> docs/getting-started-guides/the-o
 docs/getting-started/octopus-concepts/octopus-web-portal.md -> docs/getting-started-guides/the-octopus-web-portal.md
 docs/octopus-concepts/operations-runbooks.md -> docs/getting-started-guides/octopus-concepts/runbooks.md
 docs/octopus-concepts/projects.md -> docs/getting-started-guides/octopus-concepts/projects.md
-docs/octopus-concepts/releases.md -> docs/getting-started-guides/create-a-release.md
+docs/octopus-concepts/releases.md -> docs/getting-started-guides/releases.md
 docs/octopus-concepts/rest-api.md -> docs/getting-started-guides/octopus-concepts/rest-api.md
 docs/octopus-concepts/target-roles.md -> docs/getting-started-guides/deployment-targets.md
 docs/octopus-concepts/tentacles.md -> docs/getting-started-guides/octopus-concepts/tentacles.md
@@ -696,7 +696,7 @@ docs/getting-started/octopus-concepts/deployment-process.md -> docs/getting-star
 docs/getting-started/octopus-concepts/deployment-targets.md -> docs/getting-started-guides/deployment-targets.md
 docs/getting-started/octopus-concepts/octopus-server.md -> docs/getting-started-guides/setup-octopus-deploy.md
 docs/getting-started/octopus-concepts/octopus-cloud.md -> docs/octopus-cloud/index.md
-docs/getting-started/octopus-concepts/releases.md -> docs/getting-started-guides/create-a-release.md
+docs/getting-started/octopus-concepts/releases.md -> docs/getting-started-guides/releases.md
 docs/runbooks/runbook-examples/routine/hardening-iis.md -> docs/runbooks/runbook-examples/routine/iis-runbooks.md
 docs/runbooks/runbook-examples/routine/installing-iis.md -> docs/runbooks/runbook-examples/routine/iis-runbooks.md
 docs/runbooks/runbook-examples/routine/iis-maintenance.md -> docs/runbooks/runbook-examples/routine/iis-runbooks.md
@@ -720,7 +720,7 @@ docs/getting-started/octopus-concepts/runbooks.md -> docs/getting-started-guides
 docs/getting-started/octopus-concepts/tentacles.md -> docs/getting-started-guides/octopus-concepts/tentacles.md
 docs/getting-started/octopus-concepts/variables.md -> docs/getting-started-guides/octopus-concepts/variables.md
 docs/getting-started/octopus-concepts/workers.md -> docs/getting-started-guides/octopus-concepts/workers.md
-docs/getting-started/create-a-release.md -> docs/getting-started-guides/create-a-release.md
+docs/getting-started/create-a-release.md -> docs/getting-started-guides/releases.md
 docs/getting-started/define-your-deployment-process.md -> docs/getting-started-guides/deployment-process.md
 docs/getting-started/deployment-targets.md -> docs/getting-started-guides/deployment-targets.md
 docs/getting-started/environments.md -> docs/getting-started-guides/environments.md
@@ -732,3 +732,4 @@ docs/getting-started/the-cicd-pipeline.md -> docs/getting-started-guides/the-cic
 docs/getting-started/the-octopus-web-portal.md -> docs/getting-started-guides/the-octopus-web-portal.md
 docs/getting-started/upgrading.md -> docs/getting-started-guides/upgrading.md
 docs/getting-started/octopus-concepts/index.md -> docs/getting-started-guides/octopus-concepts/index.md
+docs/getting-started-guides/create-a-release.md -> docs/getting-started-guides/releases.md
