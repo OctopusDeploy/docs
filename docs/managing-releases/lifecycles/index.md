@@ -6,7 +6,11 @@ position: 2
 
 !include <lifecycles>
 
-Lifecycles are a key component of [channels](/docs/managing-releases/channels/index.md) which give you even great control over how your software is deployed. Channels let you use multiple Lifecycles for a project and then automatically deploy to specific channels, using the defined lifecycle, based on the version of the software being deployed.
+Lifecycles enable a number of advanced deployment workflow features:
+
+- **Control the order of promotion**: for example, to prevent a release being deployed to *production* if it hasn't been deployed to *staging*.
+- **Automate deployment to specific environments**: for example, automatically deploy to *test* as soon as a release is created.
+- **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
 ## Create a new lifecycle
 
@@ -16,7 +20,7 @@ Lifecycles are a key component of [channels](/docs/managing-releases/channels/in
 
 Retention policies define how long releases are kept for, and how long extracted packages and files are kept on Tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
 
-4. Click **ADD PHASE**, to explicitly define the phases of the lifecycle.
+4. Click **ADD PHASE** to define the phases of the lifecycle.
 5. Give the phase a name.
 6. Click **ADD ENVIRONMENT** to define which environments can be deployed to during this phase of the lifecycle.
 
