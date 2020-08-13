@@ -6,8 +6,8 @@ With the **Structured Configuration Variables** feature you can define [variabl
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
-1. When you define the package [step](/docs/deployment-process/steps/index.md) in your [project](/docs/projects/index.md) enable the Structured Configuration Variables feature by clicking the **CONFIGURE FEATURES** link, selecting **Structured Configuration Variables** then clicking **OK**.
-2. In the **Features** section of the step template, specify the relative paths within the package to your Structured configuration files. For instance:
+1. To enable Structured Configuration Variables on a [step](/docs/deployment-process/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
+2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your structured configuration files, relative to the working directory. For instance:
 
 ```
 approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
@@ -18,6 +18,10 @@ or
 ```
 **/application.yaml
 ```
+
+:::info
+If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages-package-files) to learn more.
+:::
 
 Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.
 
@@ -54,6 +58,17 @@ The **Target File** field also supports [Variable Substitution Syntax](/docs/pro
 **Structured Configuration Variables** allows for replacement in JSON, YAML, XML, and Properties files. To determine what file type is being used, Octopus will first try and parse the file as JSON, and if it succeeds, it will treat the file as JSON. This is to ensure backwards compatibility, because this feature previously only supported JSON files.
 
 If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, if the extension is `xml`, the file will be parsed as XML, and finally if the extension is `properties` the file will be parsed as a Java Properties format.
+
+### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
+
+Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`. In XML files, structures can be identified by setting Octopus variable names to XPath expressions. Finally, Java Properties files have their keys matched against Octopus variable names. An example for each supported file type can be found in the following table:
+
+| Format | Input file | Octopus variable name | Octopus variable value | Output file |
+| ------ | ---------- | ---- | ----- | ----------- |
+| JSON   | {"app": {"port": 80 }} | app:port | 4444 | {"app": {"port": 4444}} |
+| YAML   | app:<br/>&nbsp;&nbsp;port: 80 | app:port | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
+| XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | /app/port | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
+| Java Properties | app_port: 80 | app_port | 4444 | app_port: 4444 |
 
 ## JSON and YAML
 
