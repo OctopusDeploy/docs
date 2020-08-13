@@ -1,7 +1,7 @@
 ---
 title: Deploying a Hello World script
 description: Learn how to deploy a simple hello world script with Octopus Deploy.
-position: 20
+position: 10
 ---
 
 Octopus Deploy can help with your complex deployment scenarios, but it can also deploy simple projects. 

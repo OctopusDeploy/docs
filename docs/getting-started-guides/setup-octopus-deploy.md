@@ -1,7 +1,7 @@
 ---
 title: Setup Octopus Deploy
 description: Learn how to setup an instance Octopus Deploy self-hosted server or Octopus Cloud.
-position: 40
+position: 30
 ---
 
 Octopus deploy is available in two variants:

@@ -1,7 +1,7 @@
 ---
 title: Get to know the Octopus Web Portal
 description: A brief introduction to the Octopus Web Portal.
-position: 50
+position: 40
 ---
 
 Whether you're self-hosting the Octopus Server or using Octopus Cloud, the Octopus Web Portal is where you manage your infrastructure, deployments, releases, runbooks, access the built-in repository, grant your team access to projects, and create your automated deployments and runbook processes.
