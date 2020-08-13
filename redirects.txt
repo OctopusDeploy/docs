@@ -92,7 +92,7 @@ docs/deployment-process/steps/configuration-files/index.md -> docs/deployment-pr
 docs/deployment-process/steps/configuration-files/advanced-configuration-transforms-examples.md -> docs/deployment-process/configuration-features/configuration-transforms/index.md
 docs/deployment-process/steps/deploying-packages/transfer-package.md -> docs/deployment-examples/package-deployments/transfer-package.md
 docs/deployment-process/steps/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md
-docs/deployment-process/manually-fail-a-running-or-cancelling-task.md -> docs/releases/manually-fail-a-running-or-cancelling-task.md
+docs/deployment-process/manually-fail-a-running-or-cancelling-task.md -> docs/releases/manually-fail-a-task.md
 docs/deployment-process/deploy-to-a-specific-subset-of-targets.md -> docs/releases/index.md
 docs/deployment-process/how-to-run-steps-on-the-octopus-server.md -> docs/deployment-examples/package-deployments/deploy-packages-to-your-octopus-server.md
 docs/deployment-process/coordinating-multiple-projects/deploy-release-step/index.md -> docs/projects/coordinating-multiple-projects/deploy-release-step/index.md
@@ -526,7 +526,7 @@ docs/deployment-process/releases/blocking-deployments.md -> docs/releases/preven
 docs/deployment-process/releases/deleting-releases.md -> docs/releases/deleting-releases.md
 docs/deployment-process/releases/deployment-notes.md -> docs/releases/deployment-notes.md
 docs/deployment-process/releases/guided-failures.md -> docs/releases/guided-failures.md
-docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md -> docs/releases/manually-fail-a-running-or-cancelling-task.md
+docs/deployment-process/releases/manually-fail-a-running-or-cancelling-task.md -> docs/releases/manually-fail-a-task.md
 docs/deployment-process/releases/release-notes.md -> docs/releases/release-notes.md
 docs/deployment-process/releases/release-versioning.md -> docs/releases/release-versioning.md
 docs/deployment-process/issue-tracking/github.md -> docs/releases/issue-tracking/github.md
@@ -548,7 +548,7 @@ docs/release-management/blocking-deployments.md -> docs/releases/prevent-release
 docs/release-management/deleting-releases.md -> docs/releases/deleting-releases.md
 docs/release-management/deployment-notes.md -> docs/releases/deployment-notes.md
 docs/release-management/guided-failures.md -> docs/releases/guided-failures.md
-docs/release-management/manually-fail-a-running-or-cancelling-task.md -> docs/releases/manually-fail-a-running-or-cancelling-task.md
+docs/release-management/manually-fail-a-running-or-cancelling-task.md -> docs/releases/manually-fail-a-task.md
 docs/release-management/release-notes.md -> docs/releases/release-notes.md
 docs/release-management/release-versioning.md -> docs/releases/release-versioning.md
 docs/release-management/issue-tracking/index.md -> docs/releases/issue-tracking/index.md
