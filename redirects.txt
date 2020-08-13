@@ -740,7 +740,7 @@ docs/managing-releases/issue-tracking/index.md -> docs/releases/issue-tracking/i
 docs/managing-releases/issue-tracking/azure-devops.md -> docs/releases/issue-tracking/azure-devops.md
 docs/managing-releases/issue-tracking/github.md -> docs/releases/issue-tracking/github.md
 docs/managing-releases/issue-tracking/jira.md -> docs/releases/issue-tracking/jira.md
-docs/managing-releases/lifecycle/index.md -> docs/releases/lifecycle/index.md
+docs/managing-releases/lifecycles/index.md -> docs/releases/lifecycles/index.md
 docs/managing-releases/deleting-releases.md -> docs/releases/deleting-releases.md
 docs/managing-releases/deployment-notes.md -> docs/releases/deployment-notes.md
 docs/managing-releases/guided-failures.md -> docs/releases/guided-failures.md
