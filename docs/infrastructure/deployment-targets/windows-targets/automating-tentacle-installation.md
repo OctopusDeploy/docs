@@ -45,7 +45,7 @@ While you can set a custom INSTALLLOCATION for the Tentacle, please be aware tha
 
 ## Configuration {#AutomatingTentacleinstallation-Configuration}
 
-The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Tentacle is done later, and this can automated too.
+The MSI installer simply extracts files and adds some shortcuts and event log sources. The actual configuration of Tentacle is done later, and this can be automated too.
 
 To configure the Tentacle in listening or polling mode, it's easiest to run the installation wizard once, and at the end, use the **Show Script** option in the setup wizard. This will show you the command-line equivalent to configure a Tentacle.
 
