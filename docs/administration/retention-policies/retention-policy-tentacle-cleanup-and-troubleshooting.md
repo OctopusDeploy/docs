@@ -58,14 +58,14 @@ Defining retention policies is done within lifecycles. Each phase can have a dif
 
 ![](images/3278386.png "width=500")
 
-You can read more about [lifecycles](/docs/managing-releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+You can read more about [lifecycles](/docs/releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 
 ## Retention policies with channels
 {#RetentionpolicyTentaclecleanupandtroubleshooting-Retentionpolicywithchannels}
 
-[Channels](/docs/managing-releases/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page which is provided from version `3.12.2`.
+[Channels](/docs/releases/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page which is provided from version `3.12.2`.
 
 ![Discrete Channel Release](images/discrete-channel-release.png "width=500")
 

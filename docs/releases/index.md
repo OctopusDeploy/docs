@@ -1,5 +1,5 @@
 ---
-title: Managing releases
+title: Releases
 description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
 position: 55
 ---
@@ -16,7 +16,7 @@ By navigating to the project's overview page and selecting **Releases**, you can
 
 ## Deploy your releases
 
-After creating the release, if the [lifecycle](/docs/managing-releases/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
+After creating the release, if the [lifecycle](/docs/releases/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
 
 If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
@@ -50,7 +50,7 @@ octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld
 
 ### Modify the guided failure mode
 
-Guide failure mode asks for users to intervene when a deployment encounters an error. Learn more about [guided failures](/docs/managing-releases/guided-failures.md).
+Guide failure mode asks for users to intervene when a deployment encounters an error. Learn more about [guided failures](/docs/releases/guided-failures.md).
 
 1. Select the release you want to deploy.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.

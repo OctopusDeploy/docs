@@ -172,4 +172,4 @@ You can deploy to ALL tenants in an environment by using the `--tenant=*` argume
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Releases](/docs/managing-releases/index.md)
+- [Releases](/docs/releases/index.md)

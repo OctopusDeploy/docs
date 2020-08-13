@@ -17,7 +17,7 @@ Before you can define your deployment processes or runbooks, you must create a p
 1. Click **SHOW ADVANCED**.
 1. Add a description for the project.
 1. If you want to change the [Project group](/docs/projects/index.md#project-group) select an existing project group from the drop-down menu.
-1. If you want to change the [Lifecycle](/docs/managing-releases/lifecycles/index.md) select an existing lifecycle from the drop down menu.
+1. If you want to change the [Lifecycle](/docs/releases/lifecycles/index.md) select an existing lifecycle from the drop down menu.
 1. Click **SHOW LIFECYCLE** if you'd like to see a visual representation of the selected lifecycle.
 1. Click **SAVE** and you will be taken to the newly created project's overview page.
 
@@ -32,8 +32,8 @@ You can change the projects settings by accessing the settings menu on the proje
 - [Logo](#project-logo)
 - Description
 - [Project Group](#project-group)
-- [Release Versioning](/docs/managing-releases/release-versioning.md)
-- [Release Notes Template](/docs/managing-releases/release-notes.md#Release-Notes-Templates)
+- [Release Versioning](/docs/releases/release-versioning.md)
+- [Release Notes Template](/docs/releases/release-notes.md#Release-Notes-Templates)
 
 ### Deployment settings
 
@@ -45,10 +45,10 @@ You can change the projects settings by accessing the settings menu on the proje
         - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
 - Deployment target status
     - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
-- [Deployment changes template](docs/managing-releases/deployment-notes.md#Templates)
+- [Deployment changes template](docs/releases/deployment-notes.md#Templates)
     - Specify a template for each deployment's changes.
 - Default failure mode
-    - Specify whether or not to use [guided failure mode](/docs/managing-releases/guided-failures.md).
+    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures.md).
 
 ## Project logo {#project-logo}
 

@@ -32,7 +32,7 @@ Learn more about managing [projects](/docs/projects/index.md).
 
 Lifecycles control how your software is promoted through your environments and which projects are associated with which environments.
 
-Learn more about [Lifecycles](/docs/managing-releases/lifecycles/index.md).
+Learn more about [Lifecycles](/docs/releases/lifecycles/index.md).
 
 ## Deployment steps
 
@@ -64,7 +64,7 @@ Learn more about [conditions](/docs/deployment-process/conditions/index.md).
 
 In Octopus you create releases to be deployed. Projects have multiple releases and releases can be deployed multiple times to across different infrastructure.
 
-Learn more about [releases](/docs/managing-releases/index.md).
+Learn more about [releases](/docs/releases/index.md).
 
 ## Working with the Octopus API
 

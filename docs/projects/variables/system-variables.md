@@ -98,7 +98,7 @@ The variables available for commits are:
 |`LinkUrl`| `#{commit.LinkUrl}` |
 |`Comment`| `#{commit.Comment}` |
 
-If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/managing-releases/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
+If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/releases/issue-tracking/index.md) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
 ```
 #{each issue in package.WorkItems}
@@ -201,8 +201,8 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.Changes` <br/>A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/managing-releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/managing-releases/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
-|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/managing-releases/deployment-notes.md). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
+|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
+|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
 

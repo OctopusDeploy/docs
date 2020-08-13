@@ -4,7 +4,7 @@ description: Channels allow you to dynamically change the deployment logic and l
 position: 10
 ---
 
-As you deploy your projects, you can assign [releases](/docs/managing-releases/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
+As you deploy your projects, you can assign [releases](/docs/releases/index.md) of projects to specific channels. This is useful when you want releases of a project to be treated differently depending on the criteria you've set. Without channels, you could find yourself duplicating projects in order to implement multiple release strategies. This would, of course, leave you trying to manage multiple duplicated projects. Channels lets you use one project, with multiple release strategies.
 
 Channels can be useful in the following scenarios:
 
@@ -33,7 +33,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 
 1. From the Channels page, click on the **ADD CHANNEL** button.
 2. Give the Channel a name and add a description. The channel name must be unique within the project.
-3. Select the [Lifecycle](/docs/managing-releases/lifecycles/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/managing-releases/lifecycles/index.md) for information about creating new lifecycles.
+3. Select the [Lifecycle](/docs/releases/lifecycles/index.md) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [Lifecycle docs](/docs/releases/lifecycles/index.md) for information about creating new lifecycles.
 4. If you want to make this the default Channel for the project, click the **Default Channel** check-box.
 5. Design the [version rules](#Channels-versionrules) that will be used to enforce which versions of your packages are deployed to this channel.
 
@@ -84,7 +84,7 @@ Once a project has more than one Channel, there a number of places they may be u
 
 ### Controlling deployment lifecycle {#Channels-ControllingDeploymentLifecycle}
 
-Each Channel defines which [Lifecycle](/docs/managing-releases/lifecycles/index.md) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
+Each Channel defines which [Lifecycle](/docs/releases/lifecycles/index.md) to use when promoting Releases between Environments. You can choose a Lifecycle for each Channel, or use the default Lifecycle defined by the Project.
 
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a Lifecycle that deploys the software to an environment your early access users have access to.
 

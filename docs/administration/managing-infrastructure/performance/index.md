@@ -30,7 +30,7 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 ### Retention policies
 
-Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/managing-releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
+Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
 
 _The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing.md) of every significant event in your Octopus._
 

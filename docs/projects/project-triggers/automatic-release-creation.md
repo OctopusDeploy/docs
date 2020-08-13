@@ -44,7 +44,7 @@ When a release is set to be created this way, the audit will tell you that is ho
 
 ![Release history](images/history.png "width=500")
 
-If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/managing-releases/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
+If you combine uploading a package with the automatic deployment feature within [Lifecycles phases](/docs/releases/lifecycles/index.md#Lifecycles-LifecyclePhases), you can push a package to the internal repository, create a release, and have it automatically deploy.
 
 :::hint
 The release number that is created is guided by the Release Versioning settings under **{{Project,Settings}}**. It will use the rules defined.
@@ -52,7 +52,7 @@ The release number that is created is guided by the Release Versioning settings 
 
 ## Channels {#AutomaticReleaseCreation-Channels}
 
-[Channels](/docs/managing-releases/channels/index.md) were introduced in **Octopus 3.2**, and at this point you must select the Channel that will be used for any automatically created releases. This means that **only one channel for each project can have an automatic release creation trigger enabled at any one time.** This can be painful, and here are some points you can consider:
+[Channels](/docs/releases/channels/index.md) were introduced in **Octopus 3.2**, and at this point you must select the Channel that will be used for any automatically created releases. This means that **only one channel for each project can have an automatic release creation trigger enabled at any one time.** This can be painful, and here are some points you can consider:
 
 - Use one of the [build-server extensions](/docs/packaging-applications/build-servers/index.md), or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release.md) to create releases instead of using ARC - this will automatically determine the best channel based on the release being created
 - Choose the channel that will be used most commonly for automatically creating releases, and create releases manually for the other channels.
