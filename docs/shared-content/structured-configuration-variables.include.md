@@ -61,7 +61,7 @@ If the file doesn't parse as JSON, Octopus refers to its file extension. If it i
 
 ### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
 
-Octopus uses Octopus variable names to find the structure that should be replaced within the target files. When navigating the document, if variables are found that match the same structure, the value in the target file will be replaced with the matching variable value. With JSON, and YAML, the variable names use a `:` seperated format to match the file structure such as `app:port`. With XML, the Octopus variable name is an XPath. Finally, Java Properties don't have a hierarchy and thus will match the properties key on regular Octopus variable names. An example for each supported file type can be found in the following table:
+Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`. In XML files, structures can be identified by setting Octopus variable names to XPath expressions. Finally, Java Properties files have their keys matched against Octopus variable names. An example for each supported file type can be found in the following table:
 
 | Format | Input file | Octopus variable name | Octopus variable value | Output file |
 | ------ | ---------- | ---- | ----- | ----------- |
