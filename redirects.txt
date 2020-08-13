@@ -521,7 +521,7 @@ docs/deployment-process/variables/system-variables.md -> docs/projects/variables
 docs/deployment-process/variables/variable-filters.md -> docs/projects/variables/variable-filters.md
 docs/deployment-process/variables/variable-substitutions.md -> docs/projects/variables/variable-substitutions.md
 docs/deployment-process/variables/variable-templates.md -> docs/projects/variables/variable-templates.md
-docs/deployment-process/releases/index.md ->docs/managing-releases/index.md
+docs/deployment-process/releases/index.md -> docs/releases/index.md
 docs/deployment-process/releases/blocking-deployments.md -> docs/releases/prevent-release-progression.md
 docs/deployment-process/releases/deleting-releases.md -> docs/releases/deleting-releases.md
 docs/deployment-process/releases/deployment-notes.md -> docs/releases/deployment-notes.md
