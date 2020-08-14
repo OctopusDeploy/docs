@@ -27,15 +27,11 @@ The interval is the interval at which the services should be checked, specified 
 The scheduled task's name for the above will be **Octopus Watchdog Tentacle**.
 
 :::hint
-By default the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
-:::
+**Tips:**
+- By default the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
+- If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task.  Any other values that have been changed in Windows Task Scheduler will not be changed.
 
-:::success
-If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task.  Any other values that have been changed in Windows Task Scheduler will not be changed.
-:::
-
-:::hint
-To specify only the default instance, use the name **Tentacle**. For example,
+- To specify only the default instance, use the name **Tentacle**. For example:
 
 ```
 Tentacle.exe watchdog --create --instances Tentacle --interval 10
