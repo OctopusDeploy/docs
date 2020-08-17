@@ -38,6 +38,7 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
+
 ## Basic examples
 
 This example restarts the Octopus Server Windows service for the instance `MyNewInstance`:

@@ -17,7 +17,7 @@ Where [<options>] is any of:
       --delete               Delete the watchdog task for the given instances
       --interval=VALUE       The interval, in minutes, at which that the
                                service(s) should be checked (default: 5)
-      --instances=VALUE      List of instances (, or ; delimited) to be checked (default: *)
+      --instances=VALUE      List of instances to be checked (default: *)
 
 Or one of the common options:
 
