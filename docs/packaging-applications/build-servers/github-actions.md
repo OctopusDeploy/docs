@@ -71,7 +71,7 @@ jobs:
       
     - name: Set version
       id: set-version
-      run: echo "::set-env PACKAGE_VERSION=$PACKAGE_PREFIX.$GITHUB_RUN_NUMBER"
+      run: echo "::set-env name=PACKAGE_VERSION::$PACKAGE_PREFIX.$GITHUB_RUN_NUMBER"
     
     - name: Make package directories
       run: mkdir -p ./packagesoutput/          
@@ -119,12 +119,12 @@ jobs:
       
     - name: Set version
       id: set-version
-      run: echo "::set-env PACKAGE_VERSION=${env:PACKAGE_PREFIX}.${env:GITHUB_RUN_NUMBER}"
+      run: echo "::set-env name=PACKAGE_VERSION::${env:PACKAGE_PREFIX}.${env:GITHUB_RUN_NUMBER}"
       shell: powershell
     
     - name: Make package directories
       run: New-Item "$PSScriptRoot\packagesoutput\" -ItemType Directory -Force
-      shell: powershell          
+      shell: powershell
     
     - name: Install Octopus CLI
       run: choco install octopustools -y
