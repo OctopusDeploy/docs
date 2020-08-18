@@ -6,7 +6,7 @@ position: 50
 
 Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/index.md) provided by Octopus, and don't require users to configure any infrastructure.  
 
-### On demand
+## On demand
 
 Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
 
@@ -14,11 +14,11 @@ Dynamic workers are created on demand and leased to an Octopus Cloud instance fo
 Octopus Cloud defines the use of the worker as **finished** when it has been idle for an hour (60 minutes). If your cloud instance does another deployment or runbook run within an hour, the same worker will be re-used.  No matter what, Octopus Cloud will destroy the worker after 72 hours (3 days). Please reach out to [support@octopus.com](mailto:support@octopus.com) if you need these values to be adjusted for your instance
 :::
 
-### Isolated
+## Isolated
 
 Each worker is provisioned exclusively to a specific customer, and is completely isolated from other customers.
 
-### Dynamic Worker Images
+## Dynamic Worker Images
 
 Each dynamic worker pool can specify the worker image used. As of August 2020, Windows Server Core 2016 is the default. Windows Server Core 2019 and Ubuntu Server 18.04 worker images are also available.
 
@@ -33,17 +33,17 @@ If you're writing a script that relies on a specific version of tooling (e.g., h
 | Default (eg `Windows (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g., helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades. |
 | Specific (e.g., `Windows Server Core 2019`) | The version of the operating system and dependencies are fixed and can be relied upon. | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs. When a worker image is decommissioned, you will need to take action to update your worker pool or deployments will fail. |
 
-### Deprecation
+## Deprecation
 
 When an image is marked as deprecated, you will see warnings in the Octopus UI, and in the deployment log. After a suitable deprecation period, deployments will start to fail if they target an image that has hit end-of-life.
 
 When you start getting warnings in your deployments and/or see deprecation warnings in the Octopus portal, please plan to modify your worker pool to use a newer image and test your scripts on the new image.
 
-### Available Dynamic Worker Images 
+## Available Dynamic Worker Images 
 
 Worker images are rebuilt on a regular basis, so they are up to date with the latest security patches.
 
-#### Windows Server Core 2019
+### Windows Server Core 2019
 
 Each `Windows Server Core 2019` worker is provisioned with a baseline of tools including (but not limited to):
 
@@ -65,7 +65,7 @@ Each `Windows Server Core 2019` worker is provisioned with a baseline of tools i
 
 Windows 2019 workers are capable of running [execution worker containers](https://octopus.com/blog/execution-containers).
 
-#### Windows Server Core 2016
+### Windows Server Core 2016
 
 Each `Windows Server Core 2016` worker is provisioned with a baseline of tools including (but not limited to):
 
@@ -86,7 +86,7 @@ Each `Windows Server Core 2016` worker is provisioned with a baseline of tools i
 
 Please note that [execution worker containers](https://octopus.com/blog/execution-containers) are not supported on Windows 2016 workers.
 
-#### Ubuntu 18.04
+### Ubuntu 18.04
 
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
 
@@ -101,7 +101,7 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 
 Windows 2016 and 2019 dynamic worker images come with many versions of `kubectl` available.
 
-A specific version can be used by [specifying a custom kubectl location](/docs/deployment-examples/kubernetes-deployments/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
+A specific version can be used by [specifying a custom kubectl location](/docs/deployment-examples/kubernetes-deployments) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
 - `1.11.1`
 - `1.11.3`
