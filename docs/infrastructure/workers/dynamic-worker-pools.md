@@ -49,7 +49,7 @@ When you start getting warnings in your deployments and/or see deprecation warni
 
 ### Batteries included
 
-Worker images are rebuilt on a regular basis, so are up to date with the latest security patches.
+Worker images are rebuilt on a regular basis, so they are up to date with the latest security patches.
 
 #### Windows Server Core 2016
 
