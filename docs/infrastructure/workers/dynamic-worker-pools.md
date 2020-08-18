@@ -4,15 +4,11 @@ description: Dynamic Worker pools are used in our cloud product to dynamically c
 position: 50
 ---
 
-Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by our Octopus Cloud to intialize a group of [workers](/docs/infrastructure/workers/index.md); when a task is assigned to a worker, the task will be executed by one of the workers in the pool.
-
-## Characteristics
-
-The Default Worker Pools are configured as a Dynamic Worker Pool, which means they have some different characteristics to older cloud instances and our self-hosted product.
+Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/index.md) provided by Octopus, and don't require users to configure any infrastructure.  
 
 ### On demand
 
-Workers are created on demand and are assigned to a customer when required. Once you've finished using a worker, the worker is destroyed and not reused.
+Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
 
 ::: info
 Octopus Cloud defines the use of the worker as **finished** when it has been idle for an hour (60 minutes). If your cloud instance does another deployment or runbook run within an hour, the same worker will be re-used.  No matter what, Octopus Cloud will destroy the worker after 72 hours (3 days). Please reach out to [support@octopus.com](mailto:support@octopus.com) if you need these values to be adjusted for your instance
@@ -20,19 +16,15 @@ Octopus Cloud defines the use of the worker as **finished** when it has been idl
 
 ### Isolated
 
-Each worker is provisioned so that they provide your task a sandbox that is completely isolated from our other customers.
+Each worker is provisioned exclusively to a specific customer, and is completely isolated from other customers.
 
-::: info
-Customers cannot add new workers nor make changes to the configuration of the workers. The workers are provisioned using our own service, meaning you don't need to configure anything for them to work in your environment.
-:::
-
-### Types of Dynamic Worker
+### Dynamic Worker Images
 
 Each dynamic worker pool can specify the worker image used. As of August 2020, Windows Server Core 2016 is the default. Windows Server Core 2019 and Ubuntu Server 18.04 worker images are also available.
 
-Editing a dynamic worker pool allows you to modify the image used. You can also setup a new worker pool to have some workers using different target images.
+Editing a dynamic worker pool allows you to modify the image used. 
 
-The available worker images list specific operating system versions (e.g.,`Windows Server Core 2016`, `Windows Server Core 2019`) but also generic "default" options such as `Windows (default)`. Choosing the default option means that your worker will get the latest stable worker image released. This is a good option to choose if you're running a basic script that doesn't have any dependencies.
+The available worker images list specific operating system versions (e.g.,`Windows Server Core 2016`, `Windows Server Core 2019`) but also generic "default" options such as `Windows (default)`. Choosing the default option means that your worker will get the latest stable worker image released. This is a good option to choose if you're running a basic script that doesn't have any dependencies on specific tool or operating system versions.
 
 If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend choosing a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
@@ -47,30 +39,9 @@ When an image is marked as deprecated, you will see warnings in the Octopus UI, 
 
 When you start getting warnings in your deployments and/or see deprecation warnings in the Octopus portal, please plan to modify your worker pool to use a newer image and test your scripts on the new image.
 
-### Batteries included
+### Available Dynamic Worker Images 
 
 Worker images are rebuilt on a regular basis, so they are up to date with the latest security patches.
-
-#### Windows Server Core 2016
-
-Each `Windows Server Core 2016` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET Core (2.1, 3.1)
-- .NET Framework 3.5
-- .NET Framework 4.7.2
-- AWS IAM Authenticator (0.5.1)
-- Chocolatey (latest)
-- Helm (2.9.1)
-- Kubectl (1.16.10)
-- Microsoft Service Fabric (6.1.480.9494)
-- Microsoft Service Fabric SDK (3.0.480)
-- Nuget CLI (latest)
-- Octopus Client (latest)
-- Pip (20.1.1)
-- Powershell Core (latest)
-- Python (3.7.4)
-
-Please note that [execution worker containers](https://octopus.com/blog/execution-containers) are not supported on Windows 2016 workers.
 
 #### Windows Server Core 2019
 
@@ -93,6 +64,27 @@ Each `Windows Server Core 2019` worker is provisioned with a baseline of tools i
 - Python (3.7.4)
 
 Windows 2019 workers are capable of running [execution worker containers](https://octopus.com/blog/execution-containers).
+
+#### Windows Server Core 2016
+
+Each `Windows Server Core 2016` worker is provisioned with a baseline of tools including (but not limited to):
+
+- .NET Core (2.1, 3.1)
+- .NET Framework 3.5
+- .NET Framework 4.7.2
+- AWS IAM Authenticator (0.5.1)
+- Chocolatey (latest)
+- Helm (2.9.1)
+- Kubectl (1.16.10)
+- Microsoft Service Fabric (6.1.480.9494)
+- Microsoft Service Fabric SDK (3.0.480)
+- Nuget CLI (latest)
+- Octopus Client (latest)
+- Pip (20.1.1)
+- Powershell Core (latest)
+- Python (3.7.4)
+
+Please note that [execution worker containers](https://octopus.com/blog/execution-containers) are not supported on Windows 2016 workers.
 
 #### Ubuntu 18.04
 
