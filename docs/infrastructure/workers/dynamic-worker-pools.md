@@ -112,7 +112,6 @@ A specific version can be used by [specifying a custom kubectl location](/docs/d
 - `1.16.10`
 - `1.17.5`
 - `1.18.0`
-  :::
 
 ## Learn more
 
