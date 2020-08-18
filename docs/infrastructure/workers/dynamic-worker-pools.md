@@ -97,11 +97,11 @@ Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools includ
 
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as kubectl and helm. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 
-## KubeCtl
+## kubectl on Windows Images
 
-:::hint
-The version of `kubectl` can be overridden by setting the variable `Octopus.Action.Kubernetes.CustomKubectlExecutable` to the following value `c:\tools\kubectl\version\kubectl.exe`
-where version is one of the following:
+Windows 2016 and 2019 dynamic worker images come with many versions of `kubectl` available.
+
+A specific version can be used by [specifying a custom kubectl location](/docs/deployment-examples/kubernetes-deployments/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
 - `1.11.1`
 - `1.11.3`
