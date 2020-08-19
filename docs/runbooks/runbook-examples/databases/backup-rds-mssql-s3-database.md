@@ -38,11 +38,12 @@ For more information on setting up AWS RDS instances for native backups, please 
 To use integrated SQL authentication, leave SQL Login, and SQL Password blank.
 :::
  
-The step template script will cover the following:
+The step template will do the following:
 
-* Execute SQL command to run backup database stored procedure.
-* Backup progress by percentage.
+* Invokes rds_backup_database stored procedure on RDS instance.
+* Display backup progress by percentage.
 * Upload backup file to S3 bucket.
+* The task will end when backup file is uploaded successfully 
  
 ## Samples
 
