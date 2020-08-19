@@ -1,5 +1,5 @@
 ---
-title: Backing up an AWS RDS Database to S3
+title: Backup RDS SQL database to S3
 description: Perform a native SQL backup for an RDS SQL database and store in an S3 bucket
 position: 20
 ---
