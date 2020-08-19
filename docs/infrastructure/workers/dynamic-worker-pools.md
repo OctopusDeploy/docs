@@ -4,7 +4,7 @@ description: Dynamic Worker pools are used in our cloud product to dynamically c
 position: 50
 ---
 
-Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/index.md) provided by Octopus, and don't require users to configure any infrastructure.  
+Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/index.md) provided by Octopus, and they don't require users to configure any infrastructure.  
 
 ## On demand
 
