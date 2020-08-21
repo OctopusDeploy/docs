@@ -1,23 +1,23 @@
 ---
 title: Backup RDS SQL database to S3
-description: Perform a native SQL backup for an RDS SQL database and store in an S3 bucket
+description: This section shows you how to perform a native SQL backup for an RDS SQL database and store in an S3 bucket.
 position: 90
 ---
 
-You can perform native backups of Amazon Relational database instances running SQL Server. You may may want to store that backup in S3 storage and using an Octopus Runbook is a great way to do this. 
+You can perform native backups of Amazon Relational Database instances running SQL Server. You may want to store the backup in S3 storage, and using an Octopus runbook is an easy way to automate the process. 
 
 In the following example, we'll use the [AWS RDS SQL Server - Backup to S3 Bucket](https://library.octopus.com/step-templates/3dd60fea-b98a-4760-8867-cbd049f7aa31/actiontemplate-aws-rds-sql-server-backup-to-s3-bucket) community step template.
 
 ## AWS Prerequisites
 
-* An AWS RDS SQL Server Instance.
+* An AWS RDS SQL Server instance.
 * An Amazon S3 Bucket.
 * An AWS Identity and Access Management (IAM) Role to access the bucket.
-* The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance
+* The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance.
 
 For more information on setting up AWS RDS instances for native backups, please see https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/.
 
-## Create the Runbook
+## Create the runbook
 
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 2. Give the Runbook a name and click **SAVE**.
@@ -27,23 +27,23 @@ For more information on setting up AWS RDS instances for native backups, please 
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| SQL Server | The SQL Server to perform the work on | mydatabase.region.rds.amazonaws.com |
+| SQL Server | The SQL Server to perform the work on. | mydatabase.region.rds.amazonaws.com |
 | SQL Login | The login of the user who has permissions to create a database. | backupuser |
-| SQL Password | The password of the user who has permissions to create SQL Logins | MyGreatPassword! |
+| SQL Password | The password of the user who has permissions to create SQL Logins. | MyGreatPassword! |
 | Database Name | The name of the database to backup | MyDatabase |
 | S3 Bucket Name | The name of the bucket (including any sub directories) | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
 :::hint
-To use integrated SQL authentication, leave SQL Login, and SQL Password blank.
+To use integrated SQL authentication, leave SQL Login and SQL Password blank.
 :::
  
 The step template will do the following:
 
-* Invokes rds_backup_database stored procedure on RDS instance.
+* Invokes rds_backup_database stored procedure on the RDS instance.
 * Display backup progress by percentage.
-* Upload backup file to S3 bucket.
-* The task will end when backup file is uploaded successfully 
+* Upload backup file to the S3 bucket.
+* The task will end when the backup file is uploaded successfully 
  
 ## Samples
 

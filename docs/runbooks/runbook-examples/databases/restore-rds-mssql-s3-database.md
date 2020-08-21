@@ -1,6 +1,6 @@
 ---
 title: Restore RDS SQL database from S3
-description: An example to show restoring a database backup file from an S3 bucket
+description: An example that demonstrates restoring a database backup file from an S3 bucket.
 position: 100
 ---
 
@@ -9,14 +9,14 @@ In the following example, we'll use the [AWS RDS SQL Server - Restore from S3 Bu
 
 ## AWS Prerequisites
 
-* An AWS RDS SQL Server Instance.
+* An AWS RDS SQL Server instance.
 * A SQL backup stored in an S3 bucket.
 * An AWS Identity and Access Management (IAM) Role to access the bucket.
 * The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance
 
 For more information on setting up AWS RDS instances for native backups, please see https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/.
 
-## Create the Runbook
+## Create the runbook
 
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 2. Give the Runbook a name and click **SAVE**.
@@ -26,23 +26,23 @@ For more information on setting up AWS RDS instances for native backups, please 
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| SQL Server | The SQL Server to perform the work on | mydatabase.region.rds.amazonaws.com |
+| SQL Server | The SQL Server to perform the work on. | mydatabase.region.rds.amazonaws.com |
 | SQL Login | The login of the user who has permissions to create a database. | backupuser |
-| SQL Password | The password of the user who has permissions to create SQL Logins | MyGreatPassword! |
-| Database Name | The name of the database to restore to | MyDatabase |
-| S3 Bucket Name | The name of the bucket (including any sub directories) where the backup is stored | MyS3Bucket/backups/sql |
+| SQL Password | The password of the user who has permission to create SQL Logins. | MyGreatPassword! |
+| Database Name | The name of the database to restore to. | MyDatabase |
+| S3 Bucket Name | The name of the bucket (including any sub directories) where the backup is stored. | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
 :::hint
-To use integrated SQL authentication, leave SQL Login, and SQL Password blank.
+To use integrated SQL authentication, leave SQL Login and SQL Password blank.
 :::
  
 The step template script will cover the following:
 
-* Download backup file from S3 bucket.
-* Invokes rds_restore_database stored procedure on RDS instance.
+* Download the backup file from the S3 bucket.
+* Invokes rds_restore_database stored procedure on the RDS instance.
 * Display restore progress by percentage.
-* The task will end when backup file is restored successfully 
+* The task will end when the backup file is restored successfully 
  
 ## Samples
 
