@@ -20,7 +20,7 @@ For more information on setting up AWS RDS instances for native backups, please 
 ## Create the runbook
 
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
-2. Give the Runbook a name and click **SAVE**.
+2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **AWS RDS SQL Server - Backup to S3 Bucket**.
 5. Fill out all the parameters in the step. It's best practice to use [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters:
@@ -30,8 +30,8 @@ For more information on setting up AWS RDS instances for native backups, please 
 | SQL Server | The SQL Server to perform the work on. | mydatabase.region.rds.amazonaws.com |
 | SQL Login | The login of the user who has permissions to create a database. | backupuser |
 | SQL Password | The password of the user who has permissions to create SQL Logins. | MyGreatPassword! |
-| Database Name | The name of the database to backup | MyDatabase |
-| S3 Bucket Name | The name of the bucket (including any sub directories) | MyS3Bucket/backups/sql |
+| Database Name | The name of the database to backup. | MyDatabase |
+| S3 Bucket Name | The name of the bucket (including any sub directories). | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
 :::hint

@@ -12,14 +12,14 @@ In the following example, we'll use the [AWS RDS SQL Server - Restore from S3 Bu
 * An AWS RDS SQL Server instance.
 * A SQL backup stored in an S3 bucket.
 * An AWS Identity and Access Management (IAM) Role to access the bucket.
-* The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance
+* The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance.
 
 For more information on setting up AWS RDS instances for native backups, please see https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/.
 
 ## Create the runbook
 
 1. To create a runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
-2. Give the Runbook a name and click **SAVE**.
+2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **AWS RDS SQL Server - Restore from S3 Bucket**.
 5. Fill out all the parameters in the step. It's best practice to use [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters:
