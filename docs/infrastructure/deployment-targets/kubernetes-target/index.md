@@ -244,6 +244,10 @@ Kubernetes targets can be created dynamically at deploy time with the PowerShell
 
 See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md) for more information.
 
+## Debugging
+
+Setting the Octopus variable `Octopus.Action.Kubernetes.OutputKubeConfig` to `True` for any deployment or runbook using a Kubernetes target will cause the generated kube config file to be printed into the logs (with passwords masked). This can be used to verify the configuration file used to connect to the Kubernetes cluster.
+
 ## Learn more
 
 - [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md)
