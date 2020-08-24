@@ -34,7 +34,7 @@ We recommend using an up to date version of Windows Server for Octopus which is 
 
 | Octopus Server    | Minimum Windows Server version
 | --------------    | ----------------------------------- |
-| 2019.1  ➜ latest  | Server 2012 R2+                     |
+| 2020.1  ➜ latest  | Server 2012 R2+                     |
 | 2019.4  ➜ 2019.13 | Sever 2008 R2                       |
 | 3.1  ➜ 2019.3     | Server 2008+                        |
 | 1.0  ➜ 3.0        | Server 2003+                        |
