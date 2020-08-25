@@ -32,7 +32,7 @@ TOMCAT_GROUP=#{Runbook.InstallTomcat.Tomcat.Group}
 TOMCAT_ADMIN_USER=#{Runbook.InstallTomcat.Tomcat.AdminUser}
 TOMCAT_ADMIN_PASSWORD=#{Runbook.InstallTomcat.Tomcat.AdminPassword}
 
-sudo apt update
+sudo apt-get update
 echo "Installing Java..."
 sudo apt install default-jdk -y
 
