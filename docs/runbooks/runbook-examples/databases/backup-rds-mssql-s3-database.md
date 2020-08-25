@@ -15,7 +15,7 @@ In the following example, we'll use the [AWS RDS SQL Server - Backup to S3 Bucke
 * An AWS Identity and Access Management (IAM) Role to access the bucket.
 * The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance.
 
-For more information on setting up AWS RDS instances for native backups, please see https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/.
+For more information on setting up AWS RDS instances for native backups, please see this [AWS knowledgebase article](https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/).
 
 ## Create the runbook
 
@@ -43,7 +43,7 @@ The step template will do the following:
 * Invokes rds_backup_database stored procedure on the RDS instance.
 * Display backup progress by percentage.
 * Upload backup file to the S3 bucket.
-* The task will end when the backup file is uploaded successfully 
+* The task will end when the backup file is uploaded successfully.
  
 ## Samples
 
