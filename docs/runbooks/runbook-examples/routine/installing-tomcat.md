@@ -39,9 +39,6 @@ sudo apt install default-jdk -y
 echo "Installing jq..."
 sudo apt install jq -y
 
-echo "Installing xmlstarlet..."
-sudo apt-get install xmlstarlet -y
-
 LATEST_TOMCAT=$(curl -s 'https://api.github.com/repos/apache/tomcat/tags' | jq -r .[].name | grep -v '-' | head -1)
 
 echo "Creating tomcat group ..."
@@ -97,18 +94,16 @@ sudo mv tomcat.service /etc/systemd/system/tomcat.service
 echo "Adding management user to tomcat-users.xml..."
 
 # Add management user
-sudo xmlstarlet ed -N s=http://tomcat.apache.org/xml -s '/s:tomcat-users' -t elem -n "role" -v ''\
--s /s:tomcat-users/role[1] -t attr -n rolename -v manager-gui\
--s '/s:tomcat-users' -t elem -n "role"\
--s /s:tomcat-users/role[2] -t attr -n rolename -v admin-gui\
--s /s:tomcat-users -t elem -n "role"\
--s /s:tomcat-users/role[3] -t attr -n rolename -v manager-script\
--s /s:tomcat-users -t elem -n user\
--s /s:tomcat-users/user -t attr -n username -v ${TOMCAT_ADMIN_USER}\
--s /s:tomcat-users/user -t attr -n password -v ${TOMCAT_ADMIN_PASSWORD}\
--s /s:tomcat-users/user -t attr -n roles -v "admin-gui,manager-gui,manager-script" /opt/tomcat/latest/conf/tomcat-users.xml > tomcat-users.xml
-
-sudo cp ./tomcat-users.xml /opt/tomcat/latest/conf/tomcat-users.xml
+sudo cat > /opt/tomcat/latest/conf/tomcat-users.xml <<EOF
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+  version="1.0">
+<role rolename="manager-script"/>
+<role rolename="manager-gui"/>
+<user username="${TOMCAT_ADMIN_USER}" password="${TOMCAT_ADMIN_PASSWORD}" roles="tomcat,manager-script,manager-gui"/>
+</tomcat-users>
+EOF
 
 echo "Starting Tomcat..."
 sudo systemctl daemon-reload
