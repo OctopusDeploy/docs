@@ -1,10 +1,10 @@
 ---
-title: Restarting Tomcat Web application
+title: Restarting a Tomcat Web application
 description: With Octopus Deploy you can restart a Tomcat web application as part of a routine operations task.
 position: 120
 ---
 
-Restarting a Tomcat app requires the user to have the correct permissions.  It is not always feasible to grant access to Tomcat, however, using an Octopus runbook, you don't have to.  Octopus Deploy comes with a built-in step with the capability to restart a Tomcat App.  This allows you to provide a self-service method of starting or stopping a Tomcat app without granting any permissions.
+Restarting a Tomcat app web application requires the user to have the correct permissions.  It is not always feasible to grant access to Tomcat, however, using an Octopus runbook, you don't have to. Octopus Deploy comes with a built-in step with the capability to restart a Tomcat App.  This allows you to provide a self-service method of starting or stopping a Tomcat app without granting any permissions.
 
 ## Create the runbook
 

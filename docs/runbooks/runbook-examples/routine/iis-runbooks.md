@@ -8,18 +8,18 @@ For many organizations, IIS remains an essential piece of software for running t
 
 Managing IIS can often be challenging in an environment where you have a large estate of machines and need to carefully control who can access those machines.
 
-You can create a runbooks to execute as part of a routine operations task to manage your IIS websites without ever needing someone to log in.
+You can create a runbook to execute as part of a routine operations task to manage your IIS websites without ever needing someone to log in.
 
-With runbooks, you can create runbooks to complete the following tasks as part of your routine operations:
+This next section shows how you can create runbooks to complete the following tasks as part of your routine operations:
 
 - [Install IIS runbook](#install-iis-runbook)
-- [install additional features](#install-additional-features)
+- [Install additional features](#install-additional-features)
 - [Start application pool runbook](#start-app-pool)
 - [Stop application pool runbook](#stop-app-pool)
 - [Restart application pool runbook](#restart-app-pool)
 - [Restart website runbook](#restart-website)
 - [Delete website runbook](#delete-website)
-- [Harden IIS]{#harden-iss}
+- [Harden IIS](#harden-iis)
 
 ## Install IIS runbook {#install-iis-runbook}
 
