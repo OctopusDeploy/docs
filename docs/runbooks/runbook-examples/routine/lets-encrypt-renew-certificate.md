@@ -1,5 +1,5 @@
 ---
-title: Renew a TLS certificate using Lets Encrypt
+title: Renew Let's Encrypt certificates
 description: Renew and store TLS certificates issued by Let's Encrypt with a runbook as part of a routine operations task.
 position: 130
 ---
