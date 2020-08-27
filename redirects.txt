@@ -663,8 +663,8 @@ docs/operations-runbooks/runbook-examples/routine/installing-iis.md -> docs/runb
 docs/operations-runbooks/runbook-examples/routine/installing-software-chocolatey.md -> docs/runbooks/runbook-examples/routine/installing-software-chocolatey.md
 docs/operations-runbooks/runbook-examples/routine/installing-tomcat.md -> docs/runbooks/runbook-examples/routine/installing-tomcat.md
 docs/operations-runbooks/runbook-examples/routine/updating-linux.md -> docs/runbooks/runbook-examples/routine/updating-linux.md
-docs/operations-runbooks/runbook-examples/services/index.md -> docs/runbooks/runbook-examples/services/index.md
-docs/operations-runbooks/runbook-examples/services/restart-linux-service.md -> docs/runbooks/runbook-examples/services/restart-linux-service.md
+docs/operations-runbooks/runbook-examples/services/index.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
+docs/operations-runbooks/runbook-examples/services/restart-linux-service.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
 docs/operations-runbooks/runbook-permissions/index.md -> docs/runbooks/runbook-permissions/index.md
 docs/operations-runbooks/runbook-publishing/index.md -> docs/runbooks/runbook-publishing/index.md
 docs/operations-runbooks/runbooks-vs-deployments/index.md -> docs/runbooks/runbooks-vs-deployments/index.md
@@ -748,3 +748,6 @@ docs/managing-releases/manually-fail-a-running-or-cancelling-task.md -> docs/rel
 docs/managing-releases/prevent-release-progression.md -> docs/releases/prevent-release-progression.md
 docs/managing-releases/release-notes.md -> docs/releases/release-notes.md
 docs/managing-releases/release-versioning.md -> docs/releases/release-versioning.md
+docs/runbooks/runbook-examples/services/index.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
+docs/runbooks/runbook-examples/services/restart-linux-service.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
+docs/runbooks/runbook-examples/services/windows-services.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
