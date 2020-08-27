@@ -32,7 +32,7 @@ This example assumes that you already have an ELB configured with a [listener](h
 
    :::hint
    If you select **Yes** to **Execute using the AWS service  role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
-  :::
+   :::
   
 1. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
