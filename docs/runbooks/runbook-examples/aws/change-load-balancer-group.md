@@ -22,33 +22,32 @@ This example assumes that you already have an ELB configured with a [listener](h
 1. Choose whether to use the bundled **AWS Tools**, or the ones pre-installed on the worker.
 1. Choose the **AWS Account** to use:
 
-   Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
+Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
 
-   ![AWS Account](images/step-aws-account.png "width=500")
+![AWS Account](images/step-aws-account.png "width=500")
 
-   The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
+The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
-   ![AWS Role](images/step-aws-role.png "width=500")
+![AWS Role](images/step-aws-role.png "width=500")
 
-   :::hint
-   If you select **Yes** to **Execute using the AWS service  role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
-   :::
+:::hint
+If you select **Yes** to **Execute using the AWS service  role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+:::
   
-1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+8. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
-   ```powershell
-   $listenerArn = $OctopusParameters["Project.AWS.ALB.ListenerArn"]
-   $targetGroup = $OctopusParameters["Project.AWS.ALB.TargetArn"]
+```powershell
+$listenerArn = $OctopusParameters["Project.AWS.ALB.ListenerArn"]
+$targetGroup = $OctopusParameters["Project.AWS.ALB.TargetArn"]
 
-   Write-Host "Modifying AWS ELB listener: $listenerArn to forward to targetGroup: $targetGroup"
-   
-   aws elbv2 modify-listener --listener-arn $listenerArn --default-actions Type=forward,TargetGroupArn=$targetGroup
-   ```
-   The script will modify the ELB listener specified in the `Project.AWS.ALB.ListenerArn` variable to forward traffic to the target group specified in the `Project.AWS.ALB.TargetArn` variable.
+Write-Host "Modifying AWS ELB listener: $listenerArn to forward to targetGroup: $targetGroup"
 
-1. Configure any other settings for the step and click **Save**.
+aws elbv2 modify-listener --listener-arn $listenerArn --default-actions Type=forward,TargetGroupArn=$targetGroup
+```
 
-In just a few steps, we've created a runbook to automate the modification of an AWS Elastic load-balancer to change its target group.
+The script will modify the ELB listener specified in the `Project.AWS.ALB.ListenerArn` variable to forward traffic to the target group specified in the `Project.AWS.ALB.TargetArn` variable.
+
+Configure any other settings for the step and click **Save**, and in just a few steps, we've created a runbook to automate the modification of an AWS Elastic load-balancer to change its target group.
 
 ## Samples
 
