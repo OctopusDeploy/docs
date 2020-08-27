@@ -49,7 +49,7 @@ We'd recommend checking Microsofts documentation on supported Operating Systems 
 
 | Octopus Server    | Minimum SQL Server version          | Azure SQL
 | --------------    | ----------------------------------- |----------   |
-| 2019.1  ➜ latest  | SQL Server 2017+                    | Supported   |
+| 2020.1  ➜ latest  | SQL Server 2017+                    | Supported   |
 | 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
 :::hint

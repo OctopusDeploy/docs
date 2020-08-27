@@ -4,8 +4,10 @@ Octopus works with a wide range of versions and editions of SQL Server, from a l
 
 The following versions of SQL Server Database are supported and automatically tested against every release of Octopus Server:
 
-- SQL Server 2017
-- SQL Server 2019
+| Octopus Server    | Minimum SQL Server version          | Azure SQL
+| --------------    | ----------------------------------- |----------   |
+| 2020.1  ➜ latest  | SQL Server 2017+                    | Supported   |
+| 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
 Supported editions:
 
