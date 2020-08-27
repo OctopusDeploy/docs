@@ -14,10 +14,12 @@ In this example, we'll use the built-in steps of Octopus Deploy to create an AWS
 1. Give the runbook a name and click **SAVE**.
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an AWS CLI script** step.
+
 :::info
 This example assumes that you already have a Virtual Private Cloud (VPC), subnets, and security groups created.  The ID's of these resources will be needed for our RDS instance.
 :::
-1. Past in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
+
+5. Paste in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
 
 ```PowerShell
 # Get reference to VPC
@@ -58,7 +60,7 @@ Set-OctopusVariable -name "AWS.Subnet2.Id" -value $subnet2Id
 Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 ```
 6. Add a **Deploy an AWS CloudFormation template** step.
-1. Fill in the parameters for the step:
+7. Fill in the parameters for the step:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
