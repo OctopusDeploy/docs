@@ -749,4 +749,5 @@ docs/managing-releases/prevent-release-progression.md -> docs/releases/prevent-r
 docs/managing-releases/release-notes.md -> docs/releases/release-notes.md
 docs/managing-releases/release-versioning.md -> docs/releases/release-versioning.md
 docs/runbooks/runbook-examples/services/index.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
-
+docs/runbooks/runbook-examples/services/restart-linux-service.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
+docs/runbooks/runbook-examples/services/windows-services.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
