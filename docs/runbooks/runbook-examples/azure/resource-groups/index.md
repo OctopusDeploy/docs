@@ -1,6 +1,7 @@
 ---
 title: Deploy an Azure Resource Manager template
-description: Deploy an Azure Resource Manager (ARM) templates.
+description: Deploy an Azure Resource Manager (ARM) template.
+position: 10
 ---
 
 Azure Resource Manager (ARM) support was introduced in **Octopus 3.3**.

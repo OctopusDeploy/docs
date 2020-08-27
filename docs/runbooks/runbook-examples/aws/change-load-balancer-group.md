@@ -22,7 +22,7 @@ This example assumes that you already have an ELB configured with a [listener](h
 1. Choose whether to use the bundled **AWS Tools**, or the ones pre-installed on the worker.
 1. Choose the **AWS Account** to use:
 
-Select the variable that references the **Amazon Web Services Account** under the **AWS Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
+Select the variable that references the **AWS Account** under the **Amazon Web Services Account** section or choose to execute using a service role assigned to the EC2 instance. If you don't have an **AWS Account Variable** yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables.md).
 
 ![AWS Account](images/step-aws-account.png "width=500")
 
