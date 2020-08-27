@@ -1,7 +1,7 @@
 ---
 title: Delete an AWS CloudFormation stack
 description: Use a runbook to teardown resources by deleting an AWS CloudFormation stack.
-position: 10
+position: 30
 ---
 
 In addition to automating the creation of AWS resources, CloudFormation provides a simple method for deleting the resources it created as part of a stack.  Using a runbook, you can automate tearing down environments when they're no longer needed.

@@ -19,6 +19,7 @@ Configuring your [lifecycle](/docs/releases/lifecycles/index.md) will need to be
 ## Learn more
 
 - [View Blue/Green deployment examples on our samples instance](https://g.octopushq.com/PatternBlueGreenSamplesSpace).
+- [Change load-balancer group Runbook example](/docs/runbooks/runbook-examples/aws/change-load-balancer-group.md).
 - [Blue/Green deployment knowledge base articles](https://g.octopushq.com/BlueGreenTaggedKBArticles).
 - [Ask Octopus Episode: Blue/Green Deployments](https://www.youtube.com/watch?v=qFqoVwVzeo0)
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

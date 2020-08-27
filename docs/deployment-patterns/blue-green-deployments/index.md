@@ -19,3 +19,7 @@ As well as reducing downtime, Blue-Green can be a powerful way to use extra hard
 - Staging: when blue is active, green becomes the staging environment for the next deployment.
 - Rollback: we deploy to blue and make it active. Then a problem is discovered. Since green still runs the old code, we can roll back easily.
 - Disaster recovery: after deploying to blue and we're satisfied that it is stable, we can deploy the new release to green too. This gives us a standby environment ready in case of disaster.
+
+## Learn More
+
+- [Change load-balancer group Runbook example](/docs/runbooks/runbook-examples/aws/change-load-balancer-group.md).
