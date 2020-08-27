@@ -51,7 +51,7 @@ Configure any other settings for the step and click **Save**, and in just a few 
 
 ## Samples
 
-We have a [Pattern - Blue-Green](https://g.octopushq.com/PatternBlueGreenSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Random Quotes Java` project.
+We have a [Pattern - Blue-Green](https://g.octopushq.com/PatternBlueGreenSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this runbook example named `Change Production Group` in the `Random Quotes Java` project.
 
 ## Learn more
 
