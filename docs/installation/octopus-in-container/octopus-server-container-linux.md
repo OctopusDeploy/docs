@@ -38,6 +38,16 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
 
+### Master Key
+
+If you do not specify a master key when Octopu is first run, Octopus will generate one for you, which you then must pass as the `MASTER_KEY` environment variable with each subsequent run. However, it is also possible to generate your own master key which is used by Octopus when configuring the database.
+
+Master keys must be a 128 bit string that is then base 64 encoded. You can generate a random string to use as the master key with the command:
+
+```
+openssl rand 16 | base64
+```
+
 ### Environment Variables
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
@@ -45,7 +55,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |  Name       |    |
 | ------------- | ------- |
 |**DB_CONNECTION_STRING**|Connection string to the database to use|
-|**MASTER_KEY**|The Master Key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. The Master Key is mandatory if the database exists|
+|**MASTER_KEY**|The Master Key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one. The Master Key is mandatory if the database exists.|
 |**OCTOPUS_SERVER_BASE64_LICENSE**|Your license key for Octopus Deploy. If left empty, it will try and create a free license key for use
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
