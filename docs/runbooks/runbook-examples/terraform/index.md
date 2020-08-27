@@ -1,7 +1,7 @@
 ---
 title: Terraform
 description: Octopus Deploy can help you automate provisioning infrastructure with Terraform using runbooks.
-position: 10
+position: 60
 ---
 
 Terraform is a popular, platform agnostic implementation of Infrastructure as Code (IaC).  Terraform is designed to ensure that the resources it creates are kept within the desired state, this is known as Desired State Configuration (DSC).
