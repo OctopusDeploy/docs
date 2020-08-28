@@ -157,7 +157,8 @@ In order to know if your machines behind the network load balancer are healthy y
 
 To add the step for creating the necessary health checks for the load balancer:
 
-1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -217,7 +218,8 @@ As we are creating a single load balancer which routes traffic for both the Test
 
 To add the step for creating the necessary target pools for the load balancer:
 
-1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -281,7 +283,8 @@ In order to direct traffic which hits the load balancer to the correct backend t
 
 To add the step for creating the necessary forwarding rules for the load balancer:
 
-1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
@@ -353,7 +356,8 @@ This step assumes you have already created one or more Compute Engine instance i
 
 To add the step for adding machines to a target pool for the load balancer:
 
-1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
+1. Click **ADD STEP**.
 1. Click **Script**, and then select the **Run a Script** step.
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
