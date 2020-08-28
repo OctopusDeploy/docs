@@ -96,7 +96,7 @@ Add the script module into your runbook process following [these instructions](/
 1. To create the runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 1. Give the runbook a name and click **SAVE**.
 
-Next, we'll add the steps to create the Network Load Balancer
+Next, we'll add the steps to create the Network Load Balancer.
 
 ### Create IP address for load balancer step {#create-ip-address-step}
 
