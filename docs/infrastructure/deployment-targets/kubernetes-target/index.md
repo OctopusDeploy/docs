@@ -64,8 +64,7 @@ users:
     The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   
 
     :::hint
-    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the
-    [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
+    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
     :::
 
     :::hint
