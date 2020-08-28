@@ -348,7 +348,7 @@ There are a number of variables used in the script:
 Finally, in order to have a functioning load balancer, we need virtual machines to add to the target pools.
 
 :::hint
-This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machinename-number`. This is to allow multiple machines be added to the target pool in a single step.
+This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machinename-number`. This is to allow multiple machines to be added to the target pool in a single step.
 :::
 
 To add the step for adding machines to a target pool for the load balancer:
