@@ -14,7 +14,7 @@ See the [blog post](https://octopus.com/blog/execution-containers) announcing th
 You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
 
 ## Octopus cloud dynamic worker pools 
-[Octopus Cloud dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools.md) images have Docker installed and support execution containers, with the exception of Windows 2016 images. Windows Server 2016 images do not have Docker installed, and cannot be used to run execution containers. 
+[Octopus Cloud dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools.md) images have Docker installed and support execution containers, with the exception of Windows 2016 images. Windows Server 2016 images do not have Docker installed, and they cannot be used to run execution containers. 
 
 
 ## How to use execution containers for workers 
@@ -44,7 +44,7 @@ For your first deployment this may take a while since your docker image won't be
 ## Which Docker images can I use? {#which-image}
 
 :::hint
-The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy
+The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
 :::
 
 When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
