@@ -8,7 +8,7 @@ Google Cloud (GCP) has a [Network Load Balancing solution](https://cloud.google.
 
 The other benefit of a network load balancer in GCP is that it supports any and all ports.
 
-In this example, we'll walk through how to to create a runbook with a number of [PowerShell Script steps](/docs/deployment-examples/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a Test and Production environment using ports to differentiate traffic:
+In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployment-examples/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a Test and Production environment using ports to differentiate traffic:
 
 - Port `8080` is used for traffic destined for the Test environment.
 - Port `80` is used for traffic destined for the Production environment.
