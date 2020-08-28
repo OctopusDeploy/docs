@@ -142,12 +142,12 @@ else {
 ```
 This script will check to see if an IP address matching the name specified in the variable `Project.GCP.LoadBalancer.ExternalIP.Name` already exists. If it does, it will complete as an IP address is present. If it doesn't exist, it will create a static IP address using the `compute addresses create` command.
 
-There are a number of variables used in the script which need to be created:
+There are a number of variables used in the script:
 
 | Variable name  | Description | Example |
 | -------------  | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
-| GCP.Region | The region to create the IP address | europe-west1 |
+| GCP.Region | The region to create the IP address in. | europe-west1 |
 | Project.GCP.LoadBalancer.ExternalIP.Name | The name of the IP address. | my-project-nlb-ip |
 | Project.GCP.LoadBalancer.NetworkTier | The network tier to assign to the reserved IP address. | PREMIUM or STANDARD |
 
@@ -168,7 +168,6 @@ To add the step for creating the necessary health checks for the load balancer:
 Set-GCPAuth
 
 $projectName = $OctopusParameters["Project.GCP.ProjectName"]
-$region = $OctopusParameters["GCP.Region"]
 $testHealthCheckName = $OctopusParameters["Project.GCP.LoadBalancer.Test.HealthCheckName"]
 $productionHealthCheckName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.HealthCheckName"]
 
@@ -202,19 +201,208 @@ CreateHealthCheckIfNotExists $testHealthCheckName "8080"
 CreateHealthCheckIfNotExists $productionHealthCheckName "80"
 ```
 
-This script will check to see if the health checks for both Test and Production exist. If they do, it will skip creating that environment's health check. If they don't exist, it will create a new HTTP health check using the `compute http-health-checks create` command.
+This script will check to see if the health checks exist for both Test and Production. If they do, it will skip creating that environment's health check. If they don't exist, it will create a new HTTP health check using the `compute http-health-checks create` command.
 
-There are a number of variables used in the script which need to be created:
+There are a number of variables used in the script:
 
 | Variable name  | Description | Example |
 | -------------  | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
-| GCP.Region | The region to create the IP address | europe-west1 |
 | Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lbhealth-http-8080 |
 | Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lbhealth-http-80 |
 
+### Create load balancer target pools step {#create-target-pools-step}
+
+As we are creating a single load balancer which routes traffic for both the Test and Production Environment we want to avoid re-using the same virtual machines. We use dedicated target pools for the Test and Production environments to do this. A [target pool](https://cloud.google.com/load-balancing/docs/target-pools) is the name given to a group of virtual machine instances hosted in Google Cloud.
+
+To add the step for creating the necessary target pools for the load balancer:
+
+1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Click **Script**, and then select the **Run a Script** step.
+1. Give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+
+```powershell
+# Activate service account
+Set-GCPAuth
+
+$projectName = $OctopusParameters["Project.GCP.ProjectName"]
+$region = $OctopusParameters["GCP.Region"]
+
+$testHealthCheckName = $OctopusParameters["Project.GCP.LoadBalancer.Test.HealthCheckName"]
+$productionHealthCheckName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.HealthCheckName"]
+$testTargetPoolName = $OctopusParameters["Project.GCP.LoadBalancer.Test.TargetPoolName"]
+$productionTargetPoolName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.TargetPoolName"]
+
+function CreateLoadBalancerTargetPoolIfNotExists([string]$targetPoolName, [string] $healthCheckName) {
+	Write-Host "Getting compute target-pools matching name: $targetPoolName"
+    Write-Host "##octopus[stderr-progress]"
+    $listedPoolName=(& gcloud compute target-pools list --project=$projectName --filter="region:($region) AND name=($targetPoolName)" --format="get(name)" --quiet)
+	Test-LastExit "gcloud compute target-pools list"
+    
+    if( -not ([string]::IsNullOrEmpty($listedPoolName))) 
+    {
+        Write-Highlight "Found existing target pool named: $listedPoolName"
+    }
+    else {
+    	Write-Highlight "Creating new target pool named: $targetPoolName as no existing match."
+        
+        $listedPoolName=(& gcloud compute target-pools create $targetPoolName --region=$region --http-health-check=$healthCheckName --project=$projectName --format="get(name)" --quiet)
+        Test-LastExit "gcloud compute target-pools create"
+        
+        if([string]::IsNullOrEmpty($listedPoolName)) 
+        {
+            Write-Error "Name for new target pool couldnt be determined from attempted create!"
+        }
+    }
+}
+
+CreateLoadBalancerTargetPoolIfNotExists $testTargetPoolName $testHealthCheckName 
+CreateLoadBalancerTargetPoolIfNotExists $productionTargetPoolName $productionHealthCheckName 
+```
+
+This script will check to see if the target pools exist for both Test and Production. If they do, it will skip creating that environment's pool. If they don't exist, it will create a new target pool using the `compute target-pools create` command.
+
+There are a number of variables used in the script:
+
+| Variable name  | Description | Example |
+| -------------  | ------------- | ------------- |
+| Project.GCP.ProjectName | Project in Google Cloud. | my-project |
+| GCP.Region | The region to create the target pools in. | europe-west1 |
+| Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lbhealth-http-8080 |
+| Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lbhealth-http-80 |
+| Project.GCP.LoadBalancer.Test.TargetPoolName | The name of the test environment target pool. | my-project-test-pool |
+| Project.GCP.LoadBalancer.Prod.TargetPoolName | The name of the prod environment target pool. | my-project-prod-pool |
+
+### Create load balancer forwarding rules step {#create-forwarding-rules-step}
+
+In order to direct traffic which hits the load balancer to the correct backend target pool, we need to specify a [forwarding rule](https://cloud.google.com/load-balancing/docs/using-forwarding-rules) for each port.
+
+To add the step for creating the necessary forwarding rules for the load balancer:
+
+1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Click **Script**, and then select the **Run a Script** step.
+1. Give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+
+```powershell
+# Activate service account
+Set-GCPAuth
+
+$projectName = $OctopusParameters["Project.GCP.ProjectName"]
+$region = $OctopusParameters["GCP.Region"]
+$loadBalancerIPName = $OctopusParameters["Project.GCP.LoadBalancer.ExternalIP.Name"]
+$testTargetPoolName = $OctopusParameters["Project.GCP.LoadBalancer.Test.TargetPoolName"]
+$productionTargetPoolName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.TargetPoolName"]
+$testForwardingRuleName = $OctopusParameters["Project.GCP.LoadBalancer.Test.ForwardingRule"]
+$productionForwardingRuleName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.ForwardingRule"]
+$networkTier = $OctopusParameters["Project.GCP.LoadBalancer.NetworkTier"]
+
+function CreateForwardingRulesForTargetPoolIfNotExists([string] $forwardingRuleName, [string] $targetPoolName, [string] $port) {
+	Write-Host "Getting compute forwarding-rules matching name: $forwardingRuleName"
+    Write-Host "##octopus[stderr-progress]"
+    $listedPortRange=(& gcloud compute forwarding-rules list --project=$projectName --filter="region:($region) AND name=($forwardingRuleName)" --format="get(portRange)" --quiet)
+	Test-LastExit "gcloud compute forwarding-rules list"
+    
+    if( -not ([string]::IsNullOrEmpty($listedPortRange))) 
+    {
+        Write-Highlight "Found existing forwarding-rule named: $forwardingRuleName with portRange: $listedPortRange"
+    }
+    else {
+    
+    	Write-Highlight "Creating new forwarding-rule named: $forwardingRuleName for port: $port as no existing match"
+        
+        $listedPortRange=(& gcloud compute forwarding-rules create $forwardingRuleName --region=$region --ports=$port --address=$loadBalancerIPName --target-pool=$targetPoolName --project=$projectName --network-tier=$networkTier --format="get(portRange)" --quiet)
+        Test-LastExit "gcloud compute forwarding-rules create"
+        
+        if([string]::IsNullOrEmpty($listedPortRange)) 
+        {
+            Write-Error "Port Range for new forwarding-rule couldnt be determined from create!"
+        }
+    }
+}
+
+CreateForwardingRulesForTargetPoolIfNotExists $testForwardingRuleName $testTargetPoolName "8080"
+CreateForwardingRulesForTargetPoolIfNotExists $productionForwardingRuleName $productionTargetPoolName "80"
+```
+
+This script will check to see if the forwarding rules exist for both Test and Production. If they do, it will skip creating that environment's rule. If they don't exist, it will create a new forwarding rule using the `compute forwarding-rules create` command.
+
+There are a number of variables used in the script:
+
+| Variable name  | Description | Example |
+| -------------  | ------------- | ------------- |
+| Project.GCP.ProjectName | Project in Google Cloud. | my-project |
+| GCP.Region | The region to create the rules in. | europe-west1 |
+| Project.GCP.LoadBalancer.ExternalIP.Name | The name of the IP address. | my-project-nlb-ip |
+| Project.GCP.LoadBalancer.Test.TargetPoolName | The name of the test environment target pool. | my-project-test-pool |
+| Project.GCP.LoadBalancer.Prod.TargetPoolName | The name of the prod environment target pool. | my-project-prod-pool |
+| Project.GCP.LoadBalancer.Test.ForwardingRule | The name of the test environment forwarding rule. | my-project-test-rule |
+| Project.GCP.LoadBalancer.Prod.ForwardingRule | The name of the prod environment forwarding rule. | my-project-prod-rule |
+| Project.GCP.LoadBalancer.NetworkTier | The network tier to assign to the forwarding rule. | PREMIUM or STANDARD |
+
+### Create add machines to target pool step {#create-machines-add-step}
+
+Finally, in order to have a functioning load balancer, we need virtual machines to add to the target pools.
+
+:::hint
+This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machinename-numerical`. This is to allow multiple machines be added to the target pool in a single step.
+:::
+
+To add the step for adding machines to a target pool for the load balancer:
+
+1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Click **Script**, and then select the **Run a Script** step.
+1. Give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+
+```powershell
+# Activate service account
+Set-GCPAuth
+
+$projectName = $OctopusParameters["Project.GCP.ProjectName"]
+$zone = $OctopusParameters["GCP.Zone"]
+$targetPoolName = $OctopusParameters["Project.GCP.Targets.LoadBalancer.Pool"]
+$targetMachineName = $OctopusParameters["Project.GCP.Targets.VM.Name"]
+$instanceNumberRequired = [int]$OctopusParameters["Project.GCP.Targets.NumberRequired"]
+
+$instances=@()
+For($i=1; $i -le $instanceNumberRequired; $i++) {
+	$instances += "$targetMachineName-$i"
+}
+
+$instanceCount = $instances.Length
+$instances = $instances -Join ","
+
+Write-Highlight "Adding $instanceCount instances to target-pool: $targetPoolName"
+Write-Host "Adding instances: $instances to target-pool: $targetPoolName"
+Write-Host "##octopus[stderr-progress]"
+$response=(& gcloud compute target-pools add-instances $targetPoolName --instances=$instances --instances-zone=$zone --project=$projectName --quiet)
+Test-LastExit "gcloud compute target-pools add-instances"
+
+Write-Host "Completed adding instances: $instances to target-pool: $targetPoolName"
+```
+
+This script will generate a list of machine names, and then add them to a target pool using the `compute target-pools` command.
+
+There are a number of variables used in the script:
+
+| Variable name  | Description | Example |
+| -------------  | ------------- | ------------- |
+| Project.GCP.ProjectName | Project in Google Cloud. | my-project |
+| GCP.Zone | The zone where the machines are located. | europe-west1 |
+| Project.GCP.Targets.LoadBalancer.Pool | The name of the target pool to add machines to. | my-project-test-pool |
+| Project.GCP.Targets.VM.Name | The base name of the machine in GCP. Used with Project.GCP.Targets.NumberRequired to add multiple machines  | my-project-vm-name |
+| Project.GCP.Targets.NumberRequired | The number of machines to add to the pool. | my-project-vm-name |
+
+And that's it! In a few steps, you have a network load balancer set up in Google Cloud routing traffic to both Test and Production machines.
 
 ## Samples
 
 We have a [Pattern - Rolling](https://g.octopushq.com/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. 
-You can sign in as `Guest` to take a look at this runbook example named `Configure GCP NLB Target Pools` in the `PetClinic Infrastructure` project.
+You can sign in as `Guest` to take a look at these runbook steps in the `PetClinic Infrastructure` project:
+- The runbook named `Configure GCP NLB Target Pools` includes all of the steps to create the network load balancer. 
+- The step to add machines to a target pool is included in the runbook named `Spin up GCP PetClinic Project Infrastructure`.
