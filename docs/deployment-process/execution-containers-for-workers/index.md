@@ -47,8 +47,8 @@ For your first deployment this may take a while since your docker image won't be
 The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy
 :::
 
-When a step is configured to use an execution container, Calamari (the Octopus deployment utility) is executed inside the specified container.
-Calamari is .NET Core self-contained executable, and the docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
+When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
+Calamari is a .NET Core self-contained executable, and the docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
 
 :::warning
 Images based on Alpine linux (or any distro using musl) can not currently be used as execution containers.
