@@ -751,3 +751,4 @@ docs/managing-releases/release-versioning.md -> docs/releases/release-versioning
 docs/runbooks/runbook-examples/services/index.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
 docs/runbooks/runbook-examples/services/restart-linux-service.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
 docs/runbooks/runbook-examples/services/windows-services.md -> docs/runbooks/runbook-examples/routine/services-runbooks.md
+docs/deploying-applications/certificates/index.md -> docs/deployment-examples/certificates/index.md
