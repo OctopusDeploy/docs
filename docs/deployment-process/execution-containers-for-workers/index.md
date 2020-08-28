@@ -54,9 +54,9 @@ Calamari is a .NET Core self-contained executable, and the Docker image will **n
 Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can not currently be used as execution containers.
 :::
 
-## The octopusdeploy/worker-tools docker images {#worker-tools-images} 
+## The octopusdeploy/worker-tools Docker images {#worker-tools-images} 
 
-For convenience, we provide some images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
+For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
 
 :::hint
 We recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker
