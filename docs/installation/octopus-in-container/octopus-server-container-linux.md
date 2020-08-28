@@ -48,6 +48,81 @@ Master keys must be a 128 bit string that is then base 64 encoded. You can gener
 openssl rand 16 | base64
 ```
 
+### Service Definition with systemd 
+
+You can use systemd to boot the Octopus Docker container each time the OS starts. To do this, create a file called `/etc/systemd/system/docker-octopusdeploy.service` with the following contents:
+
+:::hint
+Be sure to change the `ADMIN_PASSWORD` and `MASTER_KEY` from the defaults shown here.
+:::
+
+```
+[Unit]
+Description=Daemon for octopusdeploy
+After=docker-mssql.service docker.service
+Wants=
+Requires=docker-mssql.service docker.service
+StartLimitIntervalSec=20
+StartLimitBurst=3
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=0
+RestartSec=5
+Environment="HOME=/root"
+SyslogIdentifier=docker-octopusdeploy
+ExecStartPre=-/usr/bin/docker create --net octopus -m 0b -e "ADMIN_USERNAME=admin" -e "ADMIN_EMAIL=example@example.org" -e "ADMIN_PASSWORD=Password01!" -e "ACCEPT_EULA=Y" -e "DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!;ConnectRetryCount=6" -e "MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ==" -e "DISABLE_DIND=Y" -p 80:8080 -p 10943:10943 --restart=always --name octopusdeploy octopusdeploy/octopusdeploy:2020.3.2
+ExecStart=/usr/bin/docker start -a octopusdeploy
+ExecStop=-/usr/bin/docker stop --time=0 octopusdeploy
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Note that we assume a Docker bridge network called `octopus` exists. This can be created with the command:
+
+```
+docker network create -d bridge octopus
+```
+
+The Octopus service also relies on a MS SQL service define in the file `/etc/systemd/system/docker-mssql.service` with the following contents:
+
+```
+[Unit]
+Description=Daemon for mssql
+After=docker.service
+Wants=
+Requires=docker.service
+StartLimitIntervalSec=20
+StartLimitBurst=3
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=0
+RestartSec=5
+Environment="HOME=/root"
+SyslogIdentifier=docker-mssql
+ExecStartPre=-/usr/bin/docker create --net octopus -m 0b -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password01!" -e "MSSQL_PID=Express" -e "MSSQL_MEMORY_LIMIT_MB=2048" -p 1433:1433 --restart=always --name mssql mcr.microsoft.com/mssql/server:2019-latest
+ExecStart=/usr/bin/docker start -a mssql
+ExecStop=-/usr/bin/docker stop --time=0 mssql
+
+[Install]
+WantedBy=multi-user.target
+```
+
+To load the new service files, run:
+
+```
+systemctl daemon-reload
+```
+
+Then start the services with the commands:
+
+```
+systemctl start docker-mssql
+systemctl start docker-octopus
+```
+
 ### Environment Variables
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) about setting environment variables.
