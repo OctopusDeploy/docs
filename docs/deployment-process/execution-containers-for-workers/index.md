@@ -6,17 +6,15 @@ position: 15
 
 For a [step](/docs/deployment-process/steps/index.md) running on a [worker](docs/infrastructure/workers/index.md) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker.md), you can select a Docker image to execute the step inside of.
 
-:::warning
-Execution containers for workers are not currently supported for Octopus Cloud [Dynamic Worker pools](/docs/infrastructure/workers/dynamic-worker-pools.md).
-The dynamic workers do not have Docker installed. This will be addressed in the near future. 
-:::
-
 When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/index.md#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container (using the [docker exec](https://docs.docker.com/engine/reference/commandline/exec/) command).
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 
 ## Minimum requirements
 You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
+
+## Octopus cloud dynamic worker pools 
+[Octopus cloud dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools.md) images have docker installed and support execution containers, with the exception of Windows 2016 images. Windows 2016 images do not have docker installed, and cannot be used to run execution containers. 
 
 
 ## How to use execution containers for workers 
@@ -43,15 +41,22 @@ When you choose to run one or more of your deployment steps in a container, your
 
 For your first deployment this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
 
-## What docker image should I use?
+## Which docker image can I use? {#which-image}
 
-- You can use any image that meets the minimum tooling requirements to run your chosen step. 
-- You can use our recommended images (see below).
-- You can build your own based on the recommended images.
+:::hint
+The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy
+:::
 
-## The octopusdeploy/worker-tools docker images 
+When a step is configured to use an execution container, Calamari (the Octopus deployment utility) is executed inside the specified container.
+Calamari is .NET Core self-contained executable, and the docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
 
-We provide recommended images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) that include common tools used for octopus steps. 
+:::warning
+Images based on Alpine linux (or any distro using musl) can not currently be used as execution containers.
+:::
+
+## The octopusdeploy/worker-tools docker images {#worker-tools-images} 
+
+For convenience, we provide some images on DockerHub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
 
 :::hint
 We recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker
