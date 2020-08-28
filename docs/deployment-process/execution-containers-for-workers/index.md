@@ -14,7 +14,7 @@ See the [blog post](https://octopus.com/blog/execution-containers) announcing th
 You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
 
 ## Octopus cloud dynamic worker pools 
-[Octopus cloud dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools.md) images have docker installed and support execution containers, with the exception of Windows 2016 images. Windows 2016 images do not have docker installed, and cannot be used to run execution containers. 
+[Octopus Cloud dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools.md) images have Docker installed and support execution containers, with the exception of Windows 2016 images. Windows Server 2016 images do not have Docker installed, and cannot be used to run execution containers. 
 
 
 ## How to use execution containers for workers 
@@ -41,17 +41,17 @@ When you choose to run one or more of your deployment steps in a container, your
 
 For your first deployment this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
 
-## Which docker image can I use? {#which-image}
+## Which Docker images can I use? {#which-image}
 
 :::hint
 The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy
 :::
 
 When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
-Calamari is a .NET Core self-contained executable, and the docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
+Calamari is a .NET Core self-contained executable, and the Docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
 
 :::warning
-Images based on Alpine linux (or any distro using musl) can not currently be used as execution containers.
+Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can not currently be used as execution containers.
 :::
 
 ## The octopusdeploy/worker-tools docker images {#worker-tools-images} 
