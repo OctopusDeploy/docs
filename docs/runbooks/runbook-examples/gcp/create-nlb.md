@@ -84,7 +84,7 @@ function Set-GCPAuth() {
 }
 ```
 
-This script defines a function named `Set-GCPAuth` which utilises the `auth activate-service-account` command which is used in the runbook steps to authorize with Google Cloud.
+This script defines a function named `Set-GCPAuth` which utilizes the `auth activate-service-account` command which is used in the runbook steps to authorize with Google Cloud.
 
 Add the script module into your runbook process following [these instructions](/docs/deployment-examples/custom-scripts/script-modules.md#ScriptModules-UsingaScriptModuleonaDeployment):
 
