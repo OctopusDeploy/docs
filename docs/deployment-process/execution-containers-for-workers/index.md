@@ -41,7 +41,7 @@ When you choose to run one or more of your deployment steps in a container, your
 
 For your first deployment this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
 
-## Which Docker images can I use? {#which-image}
+## Which Docker images can I use? {#which-image} {#what-docker-image-should-i-use} <!--second anchor to avoid broken links to old header-->
 
 :::hint
 The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
