@@ -179,7 +179,7 @@ To publish your package to a NuGet feed, you can optionally use some extra MSBui
 - `/p:OctoPackAppendProjectToFeed=true`: Append the project name onto the feed so you can nest packages under folders on publish.
 - `/p:OctoPackAppendToPackageId=foo`: Append the extra name to the package ID (e.g. for feature branch packages). MyApp.Foo.1.2.3.nupkg.
 
-## Push you packages to the Octopus built-in repository
+## Push your packages to the Octopus built-in repository
 
 Octopus provides a [built-in package repository](/docs/packaging-applications/package-repositories/index.md) for your deployment packages. The Octopus built-in repository is generally the best choice for deployment packages because it offers better performance and most suitable [retention policies](/docs/administration/retention-policies/index.md).
 
