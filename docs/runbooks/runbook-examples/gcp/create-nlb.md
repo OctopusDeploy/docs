@@ -1,17 +1,17 @@
 ---
 title: Create Network Load Balancer
-description: With Runbooks, you can automate the creation of a Network Load Balancer to distribute traffic among virtual machine instances in GCP.
+description: With runbooks, you can automate the creation of a Network Load Balancer to distribute traffic among virtual machine instances in GCP.
 position: 10
 ---
 
-Google Cloud (GCP) has a [Network Load Balancing solution](https://cloud.google.com/load-balancing/docs/network/) which allows you to distribute traffic among virtual machine instances in the same region in a Virtual Private Cloud (VPC) network. A network load balancer can direct TCP or UDP traffic across regional backends.
+Google Cloud (GCP) has a [Network Load Balancing solution](https://cloud.google.com/load-balancing/docs/network/) that allows you to distribute traffic among virtual machine instances in the same region in a Virtual Private Cloud (VPC) network. A network load balancer can direct TCP or UDP traffic across regional backends.
 
 The other benefit of a network load balancer in GCP is that it supports any and all ports.
 
-In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployment-examples/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a Test and Production environment using ports to differentiate traffic:
+In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployment-examples/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a test and production environment using ports to differentiate traffic:
 
-- Port `8080` is used for traffic destined for the Test environment.
-- Port `80` is used for traffic destined for the Production environment.
+- Port `8080` is used for traffic destined for the test environment.
+- Port `80` is used for traffic destined for the production environment.
 
 ## Runbook pre-requisites {#runbook-prerequisites}
 
@@ -24,7 +24,7 @@ In order to execute this runbook successfully, there are a couple of pre-requisi
 
 In order to access Google Cloud, you usually have to use tools such as the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud), which this runbook uses.
 
-This example assumes you have either the gcloud CLI installed on the machine where you run the runbook, or that you are using [execution containers for workers](/docs/deployment-process/execution-containers-for-workers/index.md) with an image which includes the gcloud CLI.
+This example assumes you have either the gcloud CLI installed on the machine where you run the runbook, or that you are using [execution containers for workers](/docs/deployment-process/execution-containers-for-workers/index.md) with an image that includes the gcloud CLI.
 
 ### Google Cloud authorization {#gcloud-authorization}
 
@@ -32,7 +32,7 @@ The gcloud CLI needs to be authorized to access and manage resources in Google C
 
 This example assumes that you already have a Google Cloud [service account](https://cloud.google.com/docs/authentication#service_accounts) that can be used, as the commands used here make use of the gcloud CLI, which must be authorized before it can be used. 
 
-For further information on gcloud authorization, please refer to the [documentation](https://cloud.google.com/sdk/docs/authorizing).
+For further information on gcloud authorization, please refer to the [gcloud documentation](https://cloud.google.com/sdk/docs/authorizing).
 
 The next sections explains how to configure a service account to be authorized to use the gcloud CLI.
 
@@ -84,7 +84,7 @@ function Set-GCPAuth() {
 }
 ```
 
-This script defines a function named `Set-GCPAuth` which utilizes the `auth activate-service-account` command which is used in the runbook steps to authorize with Google Cloud.
+This script defines a function named `Set-GCPAuth` which uses the `auth activate-service-account` command that is used in the runbook steps to authorize with Google Cloud.
 
 Add the script module into your runbook process following [these instructions](/docs/deployment-examples/custom-scripts/script-modules.md#ScriptModules-UsingaScriptModuleonaDeployment):
 
@@ -96,7 +96,7 @@ Add the script module into your runbook process following [these instructions](/
 1. To create the runbook, navigate to **{{Project, Operations, Runbooks, Add Runbook}}**.
 1. Give the runbook a name and click **SAVE**.
 
-Next, we'll add the steps to create the Network Load Balancer.
+Next, we'll add the steps to create the network load balancer.
 
 ### Create IP address for load balancer step {#create-ip-address-step}
 
@@ -155,7 +155,7 @@ There are a number of variables used in the script:
 
 In order to know if your machines behind the network load balancer are healthy you need to include [health checks](https://cloud.google.com/load-balancing/docs/health-check-concepts).
 
-To add the step for creating the necessary health checks for the load balancer:
+Add the step to create the necessary health checks for the load balancer:
 
 1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
 1. Click **ADD STEP**.
@@ -202,7 +202,7 @@ CreateHealthCheckIfNotExists $testHealthCheckName "8080"
 CreateHealthCheckIfNotExists $productionHealthCheckName "80"
 ```
 
-This script will check to see if the health checks exist for both Test and Production. If they do, it will skip creating that environment's health check. If they don't exist, it will create a new HTTP health check using the `compute http-health-checks create` command.
+This script will check to see if the health checks exist for both test and production. If they do, it will skip creating that environment's health check. If they don't exist, it will create a new HTTP health check using the `compute http-health-checks create` command.
 
 There are a number of variables used in the script:
 
@@ -214,9 +214,9 @@ There are a number of variables used in the script:
 
 ### Create load balancer target pools step {#create-target-pools-step}
 
-As we are creating a single load balancer which routes traffic for both the Test and Production Environment we want to avoid re-using the same virtual machines. We use dedicated target pools for the Test and Production environments to do this. A [target pool](https://cloud.google.com/load-balancing/docs/target-pools) is the name given to a group of virtual machine instances hosted in Google Cloud.
+As we are creating a single load balancer that routes traffic for both the test and production environment we want to avoid re-using the same virtual machines. We use dedicated target pools for the test and production environments to do this. A [target pool](https://cloud.google.com/load-balancing/docs/target-pools) is the name given to a group of virtual machine instances hosted in Google Cloud.
 
-To add the step for creating the necessary target pools for the load balancer:
+Add the step to create the necessary target pools for the load balancer:
 
 1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
 1. Click **ADD STEP**.
@@ -279,9 +279,9 @@ There are a number of variables used in the script:
 
 ### Create load balancer forwarding rules step {#create-forwarding-rules-step}
 
-In order to direct traffic which hits the load balancer to the correct backend target pool, we need to specify a [forwarding rule](https://cloud.google.com/load-balancing/docs/using-forwarding-rules) for each port.
+In order to direct traffic that hits the load balancer to the correct backend target pool, we need to specify a [forwarding rule](https://cloud.google.com/load-balancing/docs/using-forwarding-rules) for each port.
 
-To add the step for creating the necessary forwarding rules for the load balancer:
+Add the step to create the necessary forwarding rules for the load balancer:
 
 1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
 1. Click **ADD STEP**.
@@ -331,7 +331,7 @@ CreateForwardingRulesForTargetPoolIfNotExists $testForwardingRuleName $testTarge
 CreateForwardingRulesForTargetPoolIfNotExists $productionForwardingRuleName $productionTargetPoolName "80"
 ```
 
-This script will check to see if the forwarding rules exist for both Test and Production. If they do, it will skip creating that environment's rule. If they don't exist, it will create a new forwarding rule using the `compute forwarding-rules create` command.
+This script will check to see if the forwarding rules exist for both test and production. If they do, it will skip creating that environment's rule. If they don't exist, it will create a new forwarding rule using the `compute forwarding-rules create` command.
 
 There are a number of variables used in the script:
 
@@ -354,7 +354,7 @@ Finally, in order to have a functioning load balancer, we need virtual machines 
 This step assumes you have already created one or more Compute Engine instance in Google Cloud to add to the target pool, which follow a naming convention of `machinename-number`. This is to allow multiple machines to be added to the target pool in a single step.
 :::
 
-To add the step for adding machines to a target pool for the load balancer:
+Add the step to add machines to a target pool for the load balancer:
 
 1. Navigate to **{{Project, Operations, Runbooks}}**, and choose the runbook.
 1. Click **ADD STEP**.
@@ -399,14 +399,15 @@ There are a number of variables used in the script:
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | GCP.Zone | The zone where the machines are located. | europe-west1 |
 | Project.GCP.Targets.LoadBalancer.Pool | The name of the target pool to add machines to. | my-project-test-pool |
-| Project.GCP.Targets.VM.Name | The base name of the machine in GCP. Used with Project.GCP.Targets.NumberRequired to add multiple machines  | my-project-vm-name |
+| Project.GCP.Targets.VM.Name | The base name of the machine in GCP. Used with Project.GCP.Targets.NumberRequired to add multiple machines.  | my-project-vm-name |
 | Project.GCP.Targets.NumberRequired | The number of machines to add to the pool. | my-project-vm-name |
 
-And that's it! In a few steps, you have a network load balancer set up in Google Cloud routing traffic to both Test and Production machines.
+And that's it! In a few steps, you have a network load balancer set up in Google Cloud routing traffic to both test and production machines.
 
 ## Samples
 
 We have a [Pattern - Rolling](https://g.octopushq.com/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. 
 You can sign in as `Guest` to take a look at these runbook steps in the `PetClinic Infrastructure` project:
+
 - The runbook named `Configure GCP NLB Target Pools` includes all of the steps to create the network load balancer. 
 - The step to add machines to a target pool is included in the runbook named `Spin up GCP PetClinic Project Infrastructure`.
