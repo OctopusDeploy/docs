@@ -1,5 +1,5 @@
 ---
-title: Runbook Variables 
+title: Runbook variables 
 description: How to use variables in runbooks 
 position: 24 
 ---
