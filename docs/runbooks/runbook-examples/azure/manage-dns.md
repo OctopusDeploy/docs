@@ -1,5 +1,5 @@
 ---
-title: Manage DNS Records in Azure
+title: Manage DNS records in Azure
 description: Create or delete DNS A records in Azure DNS using a runbook.
 position: 30
 ---
@@ -18,10 +18,9 @@ The next section shows how you can create runbooks to manage DNS records:
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Run an Azure Script** step, and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. Choose whether to use the bundled **Azure Tools**, or the ones pre-installed on the worker.
+1. Choose whether to use the bundled **Azure Tools** or the ones pre-installed on the worker.
 1. Choose the **Azure Account** to use:
-
-Select the variable that references the **Account** under the **Azure** section. If you don't have an **Azure Account Variable** yet, check our [documentation on how to create one](/docs/infrastructure/deployment-targets/azure/index.md).
+1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account Variable** yet, check our [documentation on how to create one](/docs/infrastructure/deployment-targets/azure/index.md).
 
 ![Azure Account variable](images/azure-account-variable.png "width=500")
 
@@ -31,7 +30,7 @@ Select the variable that references the **Account** under the **Azure** section.
 The [Azure Run a Script](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
 :::
   
-8. In the **Inline source code** section, add the following code as a **PowerShell** script:
+9. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
 :::hint
 Note the use of Octopus project variables, you will need to make sure you create these for this example to work.  You will also see use of an output variable for the IP address created in a step not shown here.
@@ -74,10 +73,8 @@ Configure any other settings for the step and click **Save**, and in just a few 
 1. Choose the **Execution Location** on which to run this step.
 1. Choose whether to use the bundled **Azure Tools**, or the ones pre-installed on the worker.
 1. Choose the **Azure Account** to use:
-
-Select the variable that references the **Account** under the **Azure** section. If you don't have an **Azure Account Variable** yet, check our [documentation on how to create one](/docs/infrastructure/deployment-targets/azure/index.md).
-  
-8. In the **Inline source code** section, add the following code as a **PowerShell** script:
+1. In the **Azure** section, select the variable that references the **Account**. If you don't have an **Azure Account Variable** yet, check our [documentation on how to create one](/docs/infrastructure/deployment-targets/azure/index.md).
+1. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
 :::hint
 Note the use of Octopus project variables, you will need to make sure you create these for this example to work.  You will also see use of an output variable for the IP address obtained in a step not shown here.
