@@ -180,6 +180,7 @@ catch
 }
 ```
 ```csharp C#
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 var octopusBaseURL = "https://youroctourl/api";
 var octopusAPIKey = "API-YOURAPIKEY";
 
