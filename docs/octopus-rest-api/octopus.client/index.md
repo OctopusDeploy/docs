@@ -1,7 +1,7 @@
 ---
 title: Octopus.Client
 description: Octopus.Client is an open source .NET library that makes it easy to write C# programs that interact with the Octopus Deploy REST API.
-position: 110
+position: 20
 ---
 
 Octopus.Client is an [open source](https://github.com/OctopusDeploy/OctopusClients) .NET library that makes it easy to write C# programs or PowerShell scripts that manipulate the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md).

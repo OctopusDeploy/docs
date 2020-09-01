@@ -1,7 +1,7 @@
 ---
 title: Octopus.Server.exe command line
 description: Octopus.Server.exe is the executable that runs the Octopus instance, it can also be called from the command line.
-position: 120
+position: 50
 hideInThisSection: true
 ---
 
