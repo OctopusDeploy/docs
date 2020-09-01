@@ -10,7 +10,7 @@ The Jenkins Pipeline support requires plugin version 3.0.0 or later and Jenkins 
 
 :::warn
 The `toolId` parameter refers to the **Name** of the Global Tool Configuration for Octopus CLI, available at {{Manage Jenkins > Global Tool Configuration}}.
-The `serverId` parameter refers to the **Server Id ** of the OctopusDeploy Plugin configuration, available at {{Manage Jenkins > Configure System}}.
+The `serverId` parameter refers to the **Server ID** of the OctopusDeploy Plugin configuration, available at {{Manage Jenkins > Configure System}}.
 :::
 
 ## Pack {#pack}
@@ -22,7 +22,7 @@ _**octopusPack** allows you to create a package from files on disk during your p
 | Parameters      | Required | Description |
 |-----------------|----------|-------------|
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
-| `packageId` | Yes | The Id of the package. |
+| `packageId` | Yes | The ID of the package. |
 | `packageFormat` | Yes | The format of the package, `zip` or `nupkg`. |
 | `sourcePath` | Yes      | Path containing files and directories to include in package. |
 | `overwriteExisting` | No | Overwrite an existing package with the same name and version. Valid values are `true` or `false`. Defaults to `false`.|
@@ -55,8 +55,8 @@ _**octopusPushPackage** allows you to push packages to the package repository in
 | Parameters      | Required | Description |
 |-----------------|----------|-------------|
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
-| `serverId` | Yes | The configured Server Id of the target server to push the package. |
-| `spaceId` | Yes | The Id of the Space on the server to push the package. |
+| `serverId` | Yes | The configured Server ID of the target server to push the package. |
+| `spaceId` | Yes | The ID of the Space on the server to push the package. |
 | `packagePaths` | Yes | The path to the package. |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
@@ -81,13 +81,13 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 | Parameters      | Required | Description |
 |-----------------|----------|-------------|
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
-| `serverId` | Yes | The configured Server Id of the target server to push the build information. |
-| `spaceId` | Yes | The Id of the Space on the server to push the build information. |
-| `packageId` | Yes | The Id of the packages to push the version information, multiple values can be provided seperated by `\n`. |
+| `serverId` | Yes | The configured Server ID of the target server to push the build information. |
+| `spaceId` | Yes | The ID of the Space on the server to push the build information. |
+| `packageId` | Yes | The ID of the packages to push the version information, multiple values can be provided separated by `\n`. |
 | `commentParser` | Yes | Valid values are `GitHub` and `Jira`.  |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `gitUrl` | No | The URL of the repository for the package(s). |
-| `gitCommit` | No | The commit Id for the repository. Available via `git checkout`. |
+| `gitCommit` | No | The commit ID for the repository. Available via `git checkout`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
 | `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command.|
 
@@ -133,9 +133,9 @@ _**octopusCreateRelease** allows you to push packages to the package repository 
 | Parameters           | Required | Description |
 |----------------------|----------|-------------|
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
-| `serverId` | Yes | The configured Server Id of the target server to create the release in. |
-| `spaceId` | Yes | The Id of the space on the server to create the release in. |
-| `project` | Yes | The Id of the project to create the release in. |
+| `serverId` | Yes | The configured Server ID of the target server to create the release in. |
+| `spaceId` | Yes | The ID of the space on the server to create the release in. |
+| `project` | Yes | The ID of the project to create the release in. |
 | `releaseVersion` | Yes | The version number for the release. |
 | `channel` | No | The name of the target channel. Defaults to `Default` channel. |
 | `packageConfigs` | No | Collection of package versions to set when creating the release. |
@@ -183,9 +183,9 @@ _**octopusDeployRelease** allows you to push packages to the package repository 
 | Parameters           | Required | Description |
 |----------------------|----------|-------------|
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
-| `serverId` | Yes | The configured Server Id of the target server to deploy the release. |
-| `spaceId` | Yes | The Id of the Space on the server to deploy the release. |
-| `project` | Yes | The Id of the project to deploy the release. |
+| `serverId` | Yes | The configured Server ID of the target server to deploy the release. |
+| `spaceId` | Yes | The ID of the Space on the server to deploy the release. |
+| `project` | Yes | The ID of the project to deploy the release. |
 | `environment` | Yes | Environment to deploy release. |
 | `releaseVersion` | Yes | The version number for the release. |
 | `cancelOnTimeout` | No | Cancel the deployment after the `waitForDeployment` time. Valid values are `true` or `false`. Defaults to `false`.  |
