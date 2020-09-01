@@ -14,6 +14,7 @@ Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Cl
 Details for where to find the API, how to authenticate, and the resources that are available can be found on [the API documentation site](https://g.octopushq.com/ApiDocs), and [swagger documentation is also available](https://demo.octopus.com/swaggerui).
 :::
 
-## Documentation and Samples {#Octopus.Client-Documentationandsamples}
+## Octopus.Client Examples
 
-[Documentation](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki) and [samples](https://github.com/OctopusDeploy/OctopusDeploy-Api) for the Octopus Deploy REST API are available on the **[Octopus REST API GitHub site](https://github.com/OctopusDeploy/OctopusDeploy-Api)**, along with [Octopus.Client samples](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).
+We have many examples showing how to use Octopus.Client in both our [API examples](/docs/octopus-rest-api/examples/index.md), and on the [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).
+
