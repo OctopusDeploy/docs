@@ -4,7 +4,7 @@
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$space = "Spaces-1"
+$spaceName = "default"
 $role = "My role"
 $scriptBody = "Write-Host `"Hello world`""
 
@@ -13,11 +13,14 @@ $projectName = "MyProject"
 
 try
 {
+    # Get space
+    $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
+    
     # Get project
-    $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$space/projects/all" -Headers $header) | Where-Object {$_.Name -eq $projectName}
+    $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $header) | Where-Object {$_.Name -eq $projectName}
 
     # Get deployment process
-    $deploymentProcess = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$space/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header)
+    $deploymentProcess = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header)
 
     # Get current steps
     $steps = $deploymentProcess.Steps
@@ -66,7 +69,7 @@ try
     $jsonPayload = $deploymentProcess | ConvertTo-Json -Depth 10
 
     # Submit request
-    Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$space/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header -Body $jsonPayload
+    Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header -Body $jsonPayload
 }
 catch
 {
@@ -85,19 +88,24 @@ $projectName = "MyProject"
 # Create repository object
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI,$apikey 
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
+
+# Get reference to space
+$space = $repository.Spaces.FindByName($spaceName)
+$repositoryForSpace = $client.ForSpace($space)
 
 try
 {
     # Get project
-    $project = $repository.Projects.FindByName($projectName)
+    $project = $repositoryForSpace.Projects.FindByName($projectName)
 
     # Get project process
-    $process = $repository.DeploymentProcesses.Get($project.DeploymentProcessId)
+    $process = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
 
     # Define new step
-    $stepName = "Run a script" 
-    $role = "My role" 
-    $scriptBody = "Write-Host 'Hello world'" 
+    $stepName = "Run a script" # The name of the step
+    $role = "My role" # The machine role to run this step on
+    $scriptBody = "Write-Host 'Hello world'" # The script to run
     $step = New-Object Octopus.Client.Model.DeploymentStepResource
     $step.Name = $stepName
     $step.Condition = [Octopus.Client.Model.DeploymentStepCondition]::Success
@@ -112,7 +120,7 @@ try
     # Add step to process
     $step.Actions.Add($scriptAction)
     $process.Steps.Add($step)
-    $repository.DeploymentProcesses.Modify($process)
+    $repositoryForSpace.DeploymentProcesses.Modify($process)
 }
 catch
 {
@@ -128,23 +136,29 @@ using Octopus.Client.Model;
 
 // Declare working varibles
 var octopusURL = "http://OctoTemp";
-var octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY";
+var octopusAPIKey = "API-YOURAPIKEY";
 string stepName = "Run a script";
 string roleName = "My role";
 string scriptBody = "Write-Host \"Hello world\"";
 string projectName = "MyProject";
+string spaceName = "default";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
 
 try
 {
+    // Get space
+    var space = repository.Spaces.FindByName(spaceName);
+    var repositoryForSpace = client.ForSpace(space);
+
     // Get project
-    var project = repository.Projects.FindByName(projectName);
+    var project = repositoryForSpace.Projects.FindByName(projectName);
 
     // Get the deployment process
-    var deploymentProcess = repository.DeploymentProcesses.Get(project.DeploymentProcessId);
+    var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
 
     // Create new step object
     Octopus.Client.Model.DeploymentStepResource newStep = new DeploymentStepResource();
@@ -163,7 +177,7 @@ try
     deploymentProcess.Steps.Add(newStep);
 
     // Update process
-    repository.DeploymentProcesses.Modify(deploymentProcess);
+    repositoryForSpace.DeploymentProcesses.Modify(deploymentProcess);
 }
 catch (Exception ex)
 {
