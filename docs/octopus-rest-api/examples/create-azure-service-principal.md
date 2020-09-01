@@ -10,18 +10,18 @@ These scripts provide an example of how to programatically create an Azure Servi
 ## Usage
 
 Provide values for:
-- Azure Cliend Id
-- Azure Secret/Password
-- Azure Subscriptoin Number
-- Azure Tentant Id
-- Octopus URL
-- Octopus API Key
-- Octopus Account Name
-- (Optional) Octopus Account Description
-- Octopus Account Participation Type (Tenanted|Untenanted|TenantedOrUntenanted)
-- (Optional) Array of Tenant Tags
-- (Optional) Array of Tenant Ids
-- (Optional) Array of Environment Ids
+- Azure Client Id.
+- Azure Secret/Password.
+- Azure Subscription Number.
+- Azure Tenant Id.
+- Octopus URL.
+- Octopus API Key.
+- Octopus Account Name.
+- (Optional) Octopus Account Description.
+- Octopus Account Participation Type (Tenanted|Untenanted|TenantedOrUntenanted).
+- (Optional) Array of Tenant Tags.
+- (Optional) Array of Tenant Ids.
+- (Optional) Array of Environment Ids.
 
 ## Create Azure account
 
