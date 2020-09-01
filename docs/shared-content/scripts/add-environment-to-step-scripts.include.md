@@ -1,62 +1,144 @@
 ```powershell
+# Define working variables
+$octopusURL = "https://youroctourl"
+$octopusAPIKey = "API-YOURAPIKEY"
+$header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
+$spaceName = "default"
+$projectName = "MyProject"
+$stepName = "Run a script"
+$environmentNames = @("Development", "Test")
+$environments = @()
 
-```
-```powershell PowerShell (Octopus.Client)
-Add-Type -Path 'Octopus.Client.dll'
+try
+{
+    # Get space
+    $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-$apikey = 'API-KEY' # Get this from your profile
-$octopusURI = 'https://localhost' # Your server address
-$spaceName = '' # Space for projects
-$stepToModify = '' # name of the step you wish to add environment conditions to
-$environmentNames = @('')  # List of Environment names you wish to add as a condition the step to.
+    # Get environments
+    $environments += (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/environments/all" -Headers $header) | Where-Object {$environmentNames -contains $_.Name} | Select -Property Id
 
-# Create endpoint and client
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI, $apikey
-$client = New-Object Octopus.Client.OctopusClient $endpoint
+    # Get project
+    $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.id)/projects/all" -Headers $header) | Where-Object {$_.Name -eq $projectName}
 
-$repository = $client.ForSystem()
+    # Get project deployment process
+    $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header
 
-# Get space specific repository and get all projects in space
-$space = $repository.Spaces.FindByName($spaceName)
-$repositoryForSpace = $client.ForSpace($space)
-$projects = $repositoryForSpace.Projects.GetAll()
-$environments = $repositoryForSpace.Environments.GetAll()
+    # Get specific step
+    $step = $deploymentProcess.Steps | Where-Object {$_.Name -eq $stepName}
 
-foreach ($project in $projects) {
-    $projectName = $project.Name
-    Write-Host "Working on project: $projectName"
-
-    # Get Deployment process for project
-    $process = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
-    
-    # Get step to modify
-    $step = $process.Steps | Where-Object {$_.Name -eq $stepToModify} | Select-Object -First 1
-
-    if($null -ne $step) {
-
-        # get action which matches step name
-        $action = $step.Actions | Where-Object {$_.Name -eq $stepToModify} | Select-Object -First 1
-
-        if($null -ne $action) {
-            # Get each environmentid to add to the step
-            foreach($envName in $environmentNames) {
-                $envId = $environments | Where-Object {$_.Name -eq $envName} | Select-Object -First 1 -ExpandProperty Id
-                $added = $action.Environments.Add($envId)
-                if($added) {
-                    Write-Host "Added Environment condition for '$envName' to Step '$stepToModify' in Project: '$projectName'."
-                }
-                else {
-                    Write-Warning "Didn't add Environment condition for '$envName' to Step '$stepToModify' in Project: '$projectName', perhaps its already there?"
-                }
-            }
-        }
+    # Loop through the actions of the step and apply environment(s)
+    foreach ($action in $step.Actions)
+    {
+        # Add/upate environment(s)
+        $action.Environments = $environments.Id
     }
 
+    # Update the deployment process
+    Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header -Body ($deploymentProcess | ConvertTo-Json -Depth 10)
+}
+catch
+{
+    Write-Host $_.Exception.Message
+}
+```
+```powershell PowerShell (Octopus.Client)
+Add-Type -Path "path\to\Octopus.Client.dll"
+
+$apikey = "API-YOURAPIKEY"
+$octopusURL = "https://youroctourl"
+$spaceName = "default"
+$stepName = "Run a script"
+$environmentNames = @("Development", "Test")
+$projectName = "MyProject"
+
+# Create endpoint and client
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $apikey
+$client = New-Object Octopus.Client.OctopusClient $endpoint
+
+try
+{
+    $repository = $client.ForSystem()
+
+    # Get space specific repository and get all projects in space
+    $space = $repository.Spaces.FindByName($spaceName)
+    $repositoryForSpace = $client.ForSpace($space)
+    $project = $repositoryForSpace.Projects.FindByName($projectName)
+    $environments = $repositoryForSpace.Environments.GetAll() | Where-Object {$environmentNames -contains $_.Name} | Select -Property Id
+
+    # Get process
+    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
+
+    # Get step
+    $step = $deploymentProcess.Steps | Where-Object {$_.Name -eq $stepName}
+
+    # Update the action
+    foreach ($action in $step.Actions)
+    {
+        foreach ($id in $environments.Id)
+        {
+            $action.Environments.Add($id)
+        }
+    }
+    
     # Update deployment process
-    Write-Host "Saving $projectName's deployment process."
-    $repositoryForSpace.DeploymentProcesses.Modify($process) | Out-Null
+    $repositoryForSpace.DeploymentProcesses.Modify($deploymentProcess)
+}
+catch
+{
+    Write-Host $_.Exception.Message
 }
 ```
 ```csharp C#
+// Declare working varibles
+var octopusURL = "https://youroctourl";
+var octopusAPIKey = "API-YOURAPIKEY";
+string spaceName = "default";
+string projectName = "MyProject";
+string[] environmentNames = { "Development", "Test" };
+string stepName = "Run a script";
 
+// Create repository object
+var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
+var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
+
+try
+{
+    // Get space
+    var space = repository.Spaces.FindByName(spaceName);
+    var repositoryForSpace = client.ForSpace(space);
+
+    // Get environment ids
+    List<string> environmentIds = new List<string>();
+    foreach (var environmentName in environmentNames)
+    {
+        environmentIds.Add(repositoryForSpace.Environments.FindByName(environmentName).Id);
+    }
+
+    // Get project
+    var project = repositoryForSpace.Projects.FindByName(projectName);
+
+    // Get deployment process
+    var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
+
+    // Get the step
+    var step = deploymentProcess.Steps.Where(s => s.Name == stepName).FirstOrDefault();
+
+    // Update the action
+    foreach (var action in step.Actions)
+    {
+        foreach (string environmentId in environmentIds)
+        {
+            action.Environments.Add(environmentId);
+        }
+    }
+
+    // Update the deployment process
+    repositoryForSpace.DeploymentProcesses.Modify(deploymentProcess);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    return;
+}
 ```
