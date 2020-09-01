@@ -3,7 +3,7 @@
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$space = "Spaces-1"
+$spaceName = "default"
 
 # Certificate details
 $certificateName = "MyCertificate"
@@ -15,8 +15,11 @@ $certificateContent = [Convert]::ToBase64String((Get-Content -Path $certificateF
 
 try
 {
+    # Get space
+    $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
+
     # Get existing certificate
-    $certificate = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$space/certificates/all" -Headers $header) | Where-Object {$_.Name -eq $certificateName}
+    $certificate = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/certificates/all" -Headers $header) | Where-Object {$_.Name -eq $certificateName}
 
     # Create JSON payload
     $jsonPayload = @{
@@ -25,7 +28,7 @@ try
     }
 
     # Submit request
-    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$space/certificates/$($certificate.Id)/replace" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
+    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/certificates/$($certificate.Id)/replace" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
 }
 catch
 {
@@ -34,21 +37,27 @@ catch
 ```
 ```powershell PowerShell (Octopus.Client)
 # Load Octopus Client assembly
-Add-Type -Path 'C:\octopus.client\Octopus.Client.dll' 
+Add-Type -Path 'path\to\Octopus.Client.dll' 
 
 # Provide credentials for Octopus
-$apikey = 'API-YOURAPIKEY' # Get this from your profile
-$octopusURI = 'https://youroctourl' # Your server address
+$apikey = 'API-YOURAPIKEY' 
+$octopusURI = 'https://youroctourl' 
+$spaceName = "default"
 
 # Create repository object
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI,$apikey 
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
+$client = New-Object Octopus.Client.OctopusClient $endpoint
 
 try
 {
+    # Get space
+    $space = $repository.Spaces.FindByName($spaceName)
+    $repositoryForSpace = $client.ForSpace($space)
+    
     # Get current certificate
     $certificateName = "MyCertificate"
-    $currentCertificate = $repository.Certificates.FindByName($certificateName);
+    $currentCertificate = $repositoryForSpace.Certificates.FindByName($certificateName);
 
     # Get replacement certificate
     $replacementPfxPath = "path\to\replacement\file.pfx"
@@ -56,7 +65,7 @@ try
     $pfxPassword = "PFX-file-password"
 
     # Replace certificate
-    $replacementCertificate = $repository.Certificates.Replace($currentCertificate, $pfxBase64, $pfxPassword);
+    $replacementCertificate = $repositoryForSpace.Certificates.Replace($currentCertificate, $pfxBase64, $pfxPassword);
 }
 catch
 {
@@ -75,19 +84,25 @@ var octopusAPIKey = "API-APIKEY";
 string pfxFilePath = "C:\\path\\to\\thecert.pfx";
 string pfxFilePassword = "PFX-file-password";
 string certificateName = "MyCertificate";
+string spaceName = "default";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
 
 try
 {
+    // Get space
+    var space = repository.Spaces.FindByName(spaceName);
+    var repositoryForSpace = client.ForSpace(space);
+
     // Convert file to base64
     string base64Certificate = Convert.ToBase64String(System.IO.File.ReadAllBytes(pfxFilePath));
 
     // Replace certificate object
-    Octopus.Client.Model.CertificateResource octopusCertificate = repository.Certificates.FindByName(certificateName);
-    repository.Certificates.Replace(octopusCertificate, base64Certificate, pfxFilePassword);
+    Octopus.Client.Model.CertificateResource octopusCertificate = repositoryForSpace.Certificates.FindByName(certificateName);
+    repositoryForSpace.Certificates.Replace(octopusCertificate, base64Certificate, pfxFilePassword);
 }
 catch (Exception ex)
 {
