@@ -5,6 +5,8 @@ $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $space = "Spaces-1"
+$role = "My role"
+$scriptBody = "Write-Host `"Hello world`""
 
 # Project details
 $projectName = "MyProject"
@@ -24,7 +26,7 @@ try
     $steps += @{
       Name = "Run a script"
       Properties = @{
-        'Octopus.Action.TargetRoles' = "Test-Role"
+        'Octopus.Action.TargetRoles' = $role
       }  
       Condition = "Success"
       StartTrigger = "StartAfterPrevious"
@@ -43,7 +45,7 @@ try
                 'Octopus.Action.Script.ScriptSource' = "Inline"
                 'Octopus.Action.Script.Syntax' = "PowerShell"
                 'Octopus.Action.Script.ScriptFilename' = $null
-                'Octopus.Action.Script.ScriptBody' = "Write-Host `"Hello world`""
+                'Octopus.Action.Script.ScriptBody' = $scriptBody
             }
             Packages = @()
             IsDisabled = $false
@@ -72,38 +74,51 @@ catch
 }
 ```
 ```powershell PowerShell (Octopus.Client)
-Add-Type -Path 'Octopus.Client.dll' 
+# Load Octopous Client assembly
+Add-Type -Path 'c:\octopus.client\Octopus.Client.dll' 
 
-$apikey = 'API-MCPLE1AQM2VKTRFDLIBMORQHBXA' # Get this from your profile
-$octopusURI = 'http://localhost' # Your server address
+# Declare Octopus variables
+$apikey = 'API-YOURAPIKEY' 
+$octopusURI = 'https://youroctourl'
+$projectName = "MyProject"
 
-$projectId = "Projects-100" # Get this from /api/projects
-$stepName = "Run a script" # The name of the step
-$role = "demo-role" # The machine role to run this step on
-$scriptBody = "Write-Host 'Hello world'" # The script to run
-
+# Create repository object
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURI,$apikey 
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
 
-$project = $repository.Projects.Get($projectId)
-$process = $repository.DeploymentProcesses.Get($project.DeploymentProcessId)
+try
+{
+    # Get project
+    $project = $repository.Projects.FindByName($projectName)
 
-$step = New-Object Octopus.Client.Model.DeploymentStepResource
-$step.Name = $stepName
-$step.Condition = [Octopus.Client.Model.DeploymentStepCondition]::Success
-$step.Properties.Add("Octopus.Action.TargetRoles", $role)
+    # Get project process
+    $process = $repository.DeploymentProcesses.Get($project.DeploymentProcessId)
 
-$scriptAction = New-Object Octopus.Client.Model.DeploymentActionResource
-$scriptAction.ActionType = "Octopus.Script"
-$scriptAction.Name = $stepName
-$scriptAction.Properties.Add("Octopus.Action.Script.ScriptBody", $scriptBody)
+    # Define new step
+    $stepName = "Run a script" 
+    $role = "My role" 
+    $scriptBody = "Write-Host 'Hello world'" 
+    $step = New-Object Octopus.Client.Model.DeploymentStepResource
+    $step.Name = $stepName
+    $step.Condition = [Octopus.Client.Model.DeploymentStepCondition]::Success
+    $step.Properties.Add("Octopus.Action.TargetRoles", $role)
 
-$step.Actions.Add($scriptAction)
+    # Define script action
+    $scriptAction = New-Object Octopus.Client.Model.DeploymentActionResource
+    $scriptAction.ActionType = "Octopus.Script"
+    $scriptAction.Name = $stepName
+    $scriptAction.Properties.Add("Octopus.Action.Script.ScriptBody", $scriptBody)
 
-$process.Steps.Add($step)
-
-$repository.DeploymentProcesses.Modify($process)
-
+    # Add step to process
+    $step.Actions.Add($scriptAction)
+    $process.Steps.Add($step)
+    $repository.DeploymentProcesses.Modify($process)
+}
+catch
+{
+    # Display error
+    Write-Host $_.Exception.Message
+}
 ```
 ```csharp C#
 #r "path\to\Octopus.Client.dll"
@@ -115,7 +130,7 @@ using Octopus.Client.Model;
 var octopusURL = "http://OctoTemp";
 var octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY";
 string stepName = "Run a script";
-string roleName = "Test-role";
+string roleName = "My role";
 string scriptBody = "Write-Host \"Hello world\"";
 string projectName = "MyProject";
 
