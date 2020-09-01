@@ -106,8 +106,8 @@ catch
 $octopusBaseURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
 
-# Load the Octopus.Client assembly
-Add-type -Path "c:\Octopus.Client\Octopus.Client.dll"
+# Load the Octopus.Client assembly from where you have it located.
+Add-type -Path "C:\Octopus.Client\Octopus.Client.dll"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusBaseURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
