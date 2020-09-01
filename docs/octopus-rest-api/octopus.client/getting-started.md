@@ -36,7 +36,7 @@ PM> Install-Package Octopus.Client
 
 !include <octopus-client-shipped-with-server-and-tentacle>
 
-### Synchronous API {#Octopus.Client-SynchronousAPI}
+## Synchronous API {#Octopus.Client-SynchronousAPI}
 
 The easiest way to use the client is via the `OctopusRepository` helper:
 
@@ -66,7 +66,7 @@ $repository.Users.SignIn($loginCreds)
 repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
 
-### Asynchronous API (Octopus.Client 4.0+) {#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
+## Asynchronous API (Octopus.Client 4.0+) {#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
 
 The easiest way to use the client is via the `OctopusAsyncClient`:
 

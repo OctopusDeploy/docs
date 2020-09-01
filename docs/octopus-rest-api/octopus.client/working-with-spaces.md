@@ -6,7 +6,7 @@ position: 40
 
 **Octopus 2019.1** introduced [Spaces](/docs/administration/spaces/index.md). Working with anything other than the default space in the Octopus.Client library requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
 
-### `OctopusClient.ForSpace`
+## `OctopusClient.ForSpace`
 
 ```powershell PowerShell
 # Create endpoint and client
@@ -35,7 +35,7 @@ var repositoryForSpace = client.ForSpace(space);
 var projects = repositoryForSpace.Projects.GetAll();
 ```
 
-### `OctopusRepositoryExtensions.ForSpace`
+## `OctopusRepositoryExtensions.ForSpace`
 
 ```powershell PowerShell
 # Create endpoint and repository

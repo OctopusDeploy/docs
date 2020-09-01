@@ -382,7 +382,7 @@ docs/api-and-integration/metadata/index.md -> docs/packaging-applications/build-
 docs/api-and-integration/metadata/github.md -> docs/releases/issue-tracking/github.md
 docs/api-and-integration/metadata/jira.md -> docs/releases/issue-tracking/jira.md
 docs/api-and-integration/metadata/release-notes-templates.md -> docs/releases/release-notes.md
-docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client.md
+docs/api-and-integration/octopus.client.md -> docs/octopus-rest-api/octopus.client/index.md
 docs/api-and-integration/calamari.md -> docs/octopus-rest-api/calamari.md
 docs/api-and-integration/tentacle.exe-command-line/watchdog.md -> docs/octopus-rest-api/tentacle.exe-command-line/watchdog.md
 docs/api-and-integration/tentacle.exe-command-line/version.md -> docs/octopus-rest-api/tentacle.exe-command-line/version.md
