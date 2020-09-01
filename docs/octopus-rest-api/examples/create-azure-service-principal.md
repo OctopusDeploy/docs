@@ -1,6 +1,6 @@
 ---
 title: Create an Azure service principal
-description: Example scripts to create an Azure service principal
+description: Example scripts to create an Azure service principal in Octopus.
 ---
 
 ## Description
