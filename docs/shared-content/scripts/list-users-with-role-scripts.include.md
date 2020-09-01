@@ -105,6 +105,10 @@ catch
 # Define working variables
 $octopusBaseURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
+
+# Load the Octopus.Client assembly from where you have it located.
+Add-type -Path "C:\Octopus.Client\Octopus.Client.dll"
+
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusBaseURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
 
@@ -226,7 +230,7 @@ try
                 // Output space name
                 Console.WriteLine(string.Format("Space: {0}", repository.Spaces.Get(scopedUserRole.SpaceId).Name));
 
-                Console.WriteLine("Users:")
+                Console.WriteLine("Users:");
 
                 // Loop through team members
                 foreach (var member in team.MemberUserIds)
@@ -256,6 +260,6 @@ try
 }
 catch (Exception ex)
 {
-    Console.Writeline(ex.Message);
+    Console.WriteLine(ex.Message);
 }
 ```
