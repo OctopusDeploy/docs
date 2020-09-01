@@ -15,7 +15,7 @@ The Octopus REST API is designed:
 
 :::success
 **Using C#?**
-If you plan to use the REST API from C# or another .NET project, see the [Octopus.Client](/docs/octopus-rest-api/octopus.client.md) assembly.
+If you plan to use the REST API from C# or another .NET project, see the [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) assembly.
 :::
 
 ## REST API Documentation via Swagger

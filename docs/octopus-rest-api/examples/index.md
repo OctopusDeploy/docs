@@ -20,4 +20,4 @@ The C# examples are written using [dotnet script](https://github.com/filipw/dotn
 
 ### Octopus.Client examples
 
-Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client.md) require the library to be installed and a path to the library to be provided.
+Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) require the library to be installed and a path to the library to be provided.
