@@ -8,6 +8,11 @@ This page lists the arguments you can supply to the Octopus Jenkins Pipelines co
 
 The Jenkins Pipeline support requires plugin version 3.0.0 or later and Jenkins version 2.190.1 or later.
 
+:::warn
+The `toolId` parameter refers to the **Name** of the Global Tool Configuration for Octopus CLI, available at {{Manage Jenkins > Global Tool Configuration}}.
+The `serverId` parameter refers to the **Server ID** of the OctopusDeploy Plugin configuration, available at {{Manage Jenkins > Configure System}}.
+:::
+
 ## Pack {#pack}
 
 Step name: **_octopusPack_**
@@ -16,7 +21,7 @@ _**octopusPack** allows you to create a package from files on disk during your p
 
 | Parameters      | Required | Description |
 |-----------------|----------|-------------|
-| `toolId` | Yes | The Octopus CLI tool to use. |
+| `toolId` | Yes | The configured Octopus CLI tool to use. |
 | `packageId` | Yes | The ID of the package. |
 | `packageFormat` | Yes | The format of the package, `zip` or `nupkg`. |
 | `sourcePath` | Yes      | Path containing files and directories to include in package. |
@@ -29,7 +34,16 @@ _**octopusPack** allows you to create a package from files on disk during your p
 
 Example:
 ```powershell
-octopusPack additionalArgs: '-author "My Company"', outputPath: './artifacts/', overwriteExisting: false, packageFormat: 'zip', packageId: 'OctoPetShop', packageVersion: '1.1.${BUILD_NUMBER}', sourcePath: './bin/Release/publish/', toolId: 'octocli', verboseLogging: false
+octopusPack \
+  additionalArgs: '-author "My Company"', \
+  outputPath: './artifacts/', \
+  overwriteExisting: false, \
+  packageFormat: 'zip', \
+  packageId: 'OctoPetShop', \
+  packageVersion: '1.1.${BUILD_NUMBER}', \
+  sourcePath: './bin/Release/publish/', \
+  toolId: 'octocli', \
+  verboseLogging: false
 ```
 
 ## Push {#push}
@@ -40,9 +54,9 @@ _**octopusPushPackage** allows you to push packages to the package repository in
 
 | Parameters      | Required | Description |
 |-----------------|----------|-------------|
-| `toolId` | Yes | The Octopus CLI tool to use. |
-| `serverId` | Yes | The ID of the target server to push the package. |
-| `spaceId` | Yes | The ID Space on the server to push the package. |
+| `toolId` | Yes | The configured Octopus CLI tool to use. |
+| `serverId` | Yes | The configured Server ID of the target server to push the package. |
+| `spaceId` | Yes | The ID of the Space on the server to push the package. |
 | `packagePaths` | Yes | The path to the package. |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
@@ -50,7 +64,12 @@ _**octopusPushPackage** allows you to push packages to the package repository in
 
 Example:
 ```powershell
-octopusPushPackage overwriteMode: 'FailIfExists', packagePaths: './artifacts/OctoPetShop.1.1.${BUILD_NUMBER}.zip', serverId: 'octopus-server', spaceId: 'Spaces-1', toolId: 'octocli'
+octopusPushPackage \
+  overwriteMode: 'FailIfExists', \
+  packagePaths: './artifacts/OctoPetShop.1.1.${BUILD_NUMBER}.zip', \
+  serverId: 'octopus-server', \
+  spaceId: 'Spaces-1', \
+  toolId: 'octocli'
 ```
 
 ## Push package info {#build-information}
@@ -61,10 +80,10 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 
 | Parameters      | Required | Description |
 |-----------------|----------|-------------|
-| `toolId` | Yes | The Octopus CLI tool to use. |
-| `serverId` | Yes | The ID of the target server to push the package. |
-| `spaceId` | Yes | The ID Space on the server to push the package. |
-| `packageId` | Yes | The ID of the packages to push the version information, multiple values can be provided seperated by `\n`. |
+| `toolId` | Yes | The configured Octopus CLI tool to use. |
+| `serverId` | Yes | The configured Server ID of the target server to push the build information. |
+| `spaceId` | Yes | The ID of the Space on the server to push the build information. |
+| `packageId` | Yes | The ID of the packages to push the version information, multiple values can be provided separated by `\n`. |
 | `commentParser` | Yes | Valid values are `GitHub` and `Jira`.  |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `gitUrl` | No | The URL of the repository for the package(s). |
@@ -74,7 +93,18 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 
 Example:
 ```powershell
-octopusPushBuildInformation toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'OctoPetShopService', packageVersion: '1.2.${BUILD_NUMBER}', verboseLogging: false, additionalArgs: '--debug', gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', gitCommit: '${GIT_COMMIT}'
+octopusPushBuildInformation \
+  toolId: 'octocli', \
+  serverId: 'octopus-server', \
+  spaceId: 'Spaces-1', \
+  commentParser: 'GitHub', \
+  overwriteMode: 'FailIfExists', \
+  packageId: 'OctoPetShopService', \
+  packageVersion: '1.2.${BUILD_NUMBER}', \
+  verboseLogging: false, \
+  additionalArgs: '--debug', \
+  gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', \
+  gitCommit: '${GIT_COMMIT}'
 ```
 
 Due to _limitations in Jenkins Pipelines_, you will need to pass the *Git URL* and *Git Commit* values to the `octopusPushBuildInformation`. 
@@ -102,9 +132,9 @@ _**octopusCreateRelease** allows you to push packages to the package repository 
 
 | Parameters           | Required | Description |
 |----------------------|----------|-------------|
-| `toolId` | Yes | The Octopus CLI tool to use. |
-| `serverId` | Yes | The ID of the target server to push the package. |
-| `spaceId` | Yes | The ID Space on the server to push the package. |
+| `toolId` | Yes | The configured Octopus CLI tool to use. |
+| `serverId` | Yes | The configured Server ID of the target server to create the release in. |
+| `spaceId` | Yes | The ID of the space on the server to create the release in. |
 | `project` | Yes | The ID of the project to create the release in. |
 | `releaseVersion` | Yes | The version number for the release. |
 | `channel` | No | The name of the target channel. Defaults to `Default` channel. |
@@ -126,7 +156,22 @@ _**octopusCreateRelease** allows you to push packages to the package repository 
 
 Example:
 ```powershell
-octopusCreateRelease serverId: 'octopus-server', spaceId: 'Spaces-1', project: 'Random Quotes', releaseVersion: '2.3.${BUILD_NUMBER}', toolId: 'octocli',     packageConfigs: [[packageName: 'Nuget.CommandLine', packageReferenceName: 'NugetCLI', packageVersion: '5.5.1']] deployThisRelease: true, cancelOnTimeout: false, deploymentTimeout: '00:15:00', environment: 'test', tenant: 'The Tenant', tenantTag: 'importance/high', jenkinsUrlLinkback: true, releaseNotes: true,  releaseNotesSource: 'scm'
+octopusCreateRelease \
+  serverId: 'octopus-server', \
+  spaceId: 'Spaces-1', \
+  project: 'Random Quotes', \
+  releaseVersion: '2.3.${BUILD_NUMBER}', \
+  toolId: 'octocli', \
+  packageConfigs: [[packageName: 'Nuget.CommandLine', packageReferenceName: 'NugetCLI', packageVersion: '5.5.1']], \
+  deployThisRelease: true, \
+  cancelOnTimeout: false, \
+  deploymentTimeout: '00:15:00', \
+  environment: 'test', \
+  tenant: 'The Tenant', \
+  tenantTag: 'importance/high', \
+  jenkinsUrlLinkback: true, \
+  releaseNotes: true, \
+  releaseNotesSource: 'scm'
 ```
 
 ## Deploy release {#deploy-release}
@@ -137,10 +182,10 @@ _**octopusDeployRelease** allows you to push packages to the package repository 
 
 | Parameters           | Required | Description |
 |----------------------|----------|-------------|
-| `toolId` | Yes | The Octopus CLI tool to use. |
-| `serverId` | Yes | The ID of the target server to push the package. |
-| `spaceId` | Yes | The ID Space on the server to push the package. |
-| `project` | Yes | The ID of the project to create the release in. |
+| `toolId` | Yes | The configured Octopus CLI tool to use. |
+| `serverId` | Yes | The configured Server ID of the target server to deploy the release. |
+| `spaceId` | Yes | The ID of the Space on the server to deploy the release. |
+| `project` | Yes | The ID of the project to deploy the release. |
 | `environment` | Yes | Environment to deploy release. |
 | `releaseVersion` | Yes | The version number for the release. |
 | `cancelOnTimeout` | No | Cancel the deployment after the `waitForDeployment` time. Valid values are `true` or `false`. Defaults to `false`.  |
@@ -154,5 +199,14 @@ _**octopusDeployRelease** allows you to push packages to the package repository 
 
 Example:
 ```powershell
-octopusDeployRelease toolId: 'octocli', serverId: 'octopus-server', spaceId: 'Spaces-1', project: 'OctoPetShop', environment: 'test', releaseVersion: '1.2.${BUILD_NUMBER}', deploymentTimeout: '00:05:00', waitForDeployment: false, cancelOnTimeout: true
+octopusDeployRelease \
+  toolId: 'octocli', \
+  serverId: 'octopus-server', \
+  spaceId: 'Spaces-1', \
+  project: 'OctoPetShop', \
+  environment: 'test', \
+  releaseVersion: '1.2.${BUILD_NUMBER}', \
+  deploymentTimeout: '00:05:00', \
+  waitForDeployment: false, \
+  cancelOnTimeout: true
 ```
