@@ -19,7 +19,14 @@ try
     $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
     # Get existing certificate
-    $certificate = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/certificates/all" -Headers $header) | Where-Object {$_.Name -eq $certificateName}
+    $certificate = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/certificates/all" -Headers $header) | Where-Object {($_.Name -eq $certificateName) -and ($null -eq $_.Archived)}
+
+    # Check to see if multiple certificates were returned
+    if ($certificate -is [array])
+    {
+        # Throw exception
+        throw "Multiple certificates returned!"        
+    }
 
     # Create JSON payload
     $jsonPayload = @{
@@ -57,7 +64,14 @@ try
     
     # Get current certificate
     $certificateName = "MyCertificate"
-    $currentCertificate = $repositoryForSpace.Certificates.FindByName($certificateName);
+    $currentCertificate = $repositoryForSpace.Certificates.FindAll() | Where-Object {($_.Name -eq $certificateName) -and ($null -eq $_.Archived)} # Octopus supports multiple certificates of the same name.  The FindByName() method returns the first one it finds, so it is not useful in this scenario
+
+    # Check to see if multiple certificates were returned
+    if ($currentCertificate -is [array])
+    {
+        # throw error
+        throw "Multiple certificates returned!"
+    }
 
     # Get replacement certificate
     $replacementPfxPath = "path\to\replacement\file.pfx"
@@ -100,9 +114,18 @@ try
     // Convert file to base64
     string base64Certificate = Convert.ToBase64String(System.IO.File.ReadAllBytes(pfxFilePath));
 
-    // Replace certificate object
-    Octopus.Client.Model.CertificateResource octopusCertificate = repositoryForSpace.Certificates.FindByName(certificateName);
-    repositoryForSpace.Certificates.Replace(octopusCertificate, base64Certificate, pfxFilePassword);
+    // Get certificates
+    List<Octopus.Client.Model.CertificateResource> octopusCertificate = repositoryForSpace.Certificates.FindAll().Where(c => c.Name == certificateName && c.Archived == null).ToList();
+
+    // Check to see if multiple were returned
+    if (octopusCertificate.Count > 1)
+    {
+        // throw error
+        throw new Exception("Multiple certificates returned!");
+    }
+
+    // Replace certificate
+    repositoryForSpace.Certificates.Replace(octopusCertificate.FirstOrDefault(), base64Certificate, pfxFilePassword);
 }
 catch (Exception ex)
 {
