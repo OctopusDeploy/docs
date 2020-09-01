@@ -3,13 +3,13 @@
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$space = "Spaces-1"
+$spaceName = "default"
 
 # Azure service principle details
 $azureSubscriptionNumber = "Subscription-Guid"
 $azureTenantId = "Tenant-Guid"
 $azureClientId = "Client-Guid"
-$azureSecret = "SecretPassword"
+$azureSecret = "Secret"
 
 # Octopus Account details
 $accountName = "Azure Account"
@@ -21,6 +21,9 @@ $accountEnvironmentIds = @()
 
 try
 {
+    # Get space
+    $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
+    
     # Create JSON payload
     $jsonPayload = @{
         AccountType = "AzureServicePrincipal"
@@ -43,12 +46,11 @@ try
     }
 
     # Add Azure account
-    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$space/accounts" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
+    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/accounts" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
 }
 catch
 {
     Write-Host $_.Exception.Message
-    exit
 }
 ```
 ```powershell PowerShell (Octopus.Client)
@@ -61,7 +63,7 @@ $octopusAPIKey = "API-YOURAPIKEY"
 $azureSubscriptionNumber = "Subscription-Guid"
 $azureTenantId = "Tenant-Guid"
 $azureClientId = "Client-Guid"
-$azureSecret = "SecretPassword"
+$azureSecret = "Secret"
 
 # Octopus Account details
 $accountName = "Azure Account"
@@ -70,13 +72,19 @@ $accountTenantParticipation = "Untenanted"
 $accountTenantTags = @()
 $accountTenantIds = @()
 $accountEnvironmentIds = @()
+$spaceName = "default"
 
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
 $repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
 
 try
 {
+    # Get space
+    $space = $repository.Spaces.FindByName($spaceName)
+    $repositoryForSpace = $client.ForSpace($space)
+
     # Create azure service principal object
     $azureAccount = New-Object Octopus.Client.Model.Accounts.AzureServicePrincipalAccountResource
     $azureAccount.ClientId = $azureClientId
@@ -91,7 +99,7 @@ try
     $azureAccount.EnvironmentIds = New-Object Octopus.Client.Model.ReferenceCollection $accountEnvironmentIds
 
     # Create account
-    $repository.Accounts.Create($azureAccount)
+    $repositoryForSpace.Accounts.Create($azureAccount)
 }
 catch
 {
@@ -101,6 +109,9 @@ catch
 ```csharp C#
 #r "path\to\Octopus.Client.dll"
 
+using Octopus.Client;
+using Octopus.Client.Model;
+
 var OctopusURL = "https://youroctourl";
 var OctopusAPIKey = "API-YOURAPIKEY";
 
@@ -108,7 +119,7 @@ var OctopusAPIKey = "API-YOURAPIKEY";
 string azureSubscriptionNumber = "Subscription-Guid";
 string azureClientId = "Client-Guid";
 string azureTenantId = "Tenant-Guid";
-string azureSecret = "SecretPassword";
+string azureSecret = "Secret";
 
 // Octopus Account details
 string octopusAccountName = "Azure Account";
@@ -117,13 +128,19 @@ Octopus.Client.Model.TenantedDeploymentMode octopusAccountTenantParticipation = 
 Octopus.Client.Model.ReferenceCollection octopusAccountTenantTags = null;
 Octopus.Client.Model.ReferenceCollection octopusAccountTenantIds = null;
 Octopus.Client.Model.ReferenceCollection octopusAccountEnvironmentIds = null;
+string spaceName = "default";
 
 var endpoint = new OctopusServerEndpoint(OctopusURL, OctopusAPIKey);
 var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
 var azureAccount = new Octopus.Client.Model.Accounts.AzureServicePrincipalAccountResource();
 
 try
 {
+    // Get space
+    var space = repository.Spaces.FindByName(spaceName);
+    var repositoryForSpace = client.ForSpace(space);
+
     // Fill in account details
     azureAccount.ClientId = azureClientId;
     azureAccount.TenantId = azureTenantId;
@@ -137,11 +154,12 @@ try
     azureAccount.EnvironmentIds = octopusAccountEnvironmentIds;
 
     // Create account
-    repository.Accounts.Create(azureAccount);
+    repositoryForSpace.Accounts.Create(azureAccount);
 }
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
     return;
 }
+
 ```
