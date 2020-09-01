@@ -1,3 +1,4 @@
+---
 title: Working directly with the Client
 description: How to use the IOctopusClient type in the Octopus.Client library.
 position: 30

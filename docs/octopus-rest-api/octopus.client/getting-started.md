@@ -1,5 +1,6 @@
+---
 title: Getting started
-description: Getting started with the Octopus.Client
+description: Getting started with the Octopus.Client.
 position: 10
 ---
 

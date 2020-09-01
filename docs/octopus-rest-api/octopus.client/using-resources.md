@@ -1,3 +1,4 @@
+---
 title: Working with Resources
 description: How to load, modify and save resources with the Octopus.Client library.
 position: 20
