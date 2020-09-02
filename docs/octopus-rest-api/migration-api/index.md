@@ -1,7 +1,7 @@
 ---
 title: Migration API
 description: Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely.
-position: 180
+position: 90
 ---
 
 Octopus includes a migration API that provides the ability to back-up and restore parts of an Octopus Deploy instance remotely (available from version **Octopus 2018.6.0**).
@@ -136,7 +136,7 @@ If you are using the Spaces feature of Octopus Deploy on the source server, you 
 
 ### Octopus.Clients example
 
-The [Octopus.Clients library](/docs/octopus-rest-api/octopus.client.md) can also help you run a migration.
+The [Octopus.Clients library](/docs/octopus-rest-api/octopus.client/index.md) can also help you run a migration.
 
 Here's an example showing you how that might look, performing a `partial-export` from a _source server_ and sending it to a _destination server_, then automatically running the associated `import` on the _destination server_:
 
