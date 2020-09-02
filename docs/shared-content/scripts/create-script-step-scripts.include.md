@@ -1,4 +1,4 @@
-```powershell
+```powershell PowerShell
 
 # Define working variables
 $octopusURL = "https://youroctourl"
