@@ -1,14 +1,18 @@
 ---
 title: Add environment to step
 description: An example script that scopes a step to an environment.
+position: 70
 ---
 
 ## Description
+
 These scripts demonstate how to programmatically add an environment scope to an existing step so that it only runs in specific environments.
 
 ## Usage
-Provide values for the following:
-- Octopus Url
+
+Provide values for:
+
+- Octopus URL
 - Octopus API Key
 - Name of the space you want to use
 - Name of the step to add the environment to
