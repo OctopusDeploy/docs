@@ -40,8 +40,6 @@ try
         IsDisabled = $false
     }
 
-    $jsonPayload
-
     # Register new target to space
     Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/machines" -Headers $header -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 }
