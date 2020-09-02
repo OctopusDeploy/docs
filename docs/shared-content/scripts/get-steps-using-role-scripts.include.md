@@ -54,7 +54,7 @@ $repositoryForSpace = $client.ForSpace($space)
 
 $projectList = $repositoryForSpace.Projects.GetAll()
 
-"Looking for steps with the role $($Role) in them..."
+"Looking for steps with the role $($roleName) in them..."
 
 foreach($project in $projectList)
 {
