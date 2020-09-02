@@ -81,7 +81,7 @@ try
     $newTarget = $repositoryForSpace.Machines.Discover($hostName, $tentaclePort)
 
     # Add properties to host
-    foreach ($environments in $environments)
+    foreach ($environment in $environments)
     {
         # Add to target
         $newTarget.EnvironmentIds.Add($environment.Id) | Out-Null
