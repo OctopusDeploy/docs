@@ -8,7 +8,7 @@ These scripts will display all projects in a space that target the given role.
 
 ## Usage
 Provide values for the following:
-- Octopus Url
+- Octopus URL
 - Octopus API Key
 - Name of the role to search for
 - Name of the space to search
