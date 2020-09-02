@@ -1,14 +1,21 @@
 ---
 title: List users with role
 description: An example script to list all users that have a specific role by team.
+position: 90
 ---
 
+## Description
 
 This script will list all users with a given role by team.  You can also filter the list by specifying a space name.
 
 ## Usage
 
-Provide values for `Octopus URL`,  `Octopus API Key`, `User Role Name`, and optionally `Space Name` to list users who have that role and from what team.
+Provide values for:
+
+- Octopus URL
+- Octopus API Key
+- User Role Name
+- (Optional) Space Name
 
 ## Example output
 
@@ -36,6 +43,7 @@ External security groups:
 TestDomain\SpecialGroup
 
 ### Space name AzureDevOps
+
 Team: ShawnTest  
 Space: AzureDevOps  
 Adam Close  

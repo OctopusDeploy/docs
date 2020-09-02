@@ -1,6 +1,7 @@
 ---
-title: Add a certificate to Octopus Deploy
-description: An example script to add a certificate to Octopus Deploy.
+title: Add a certificate
+description: An example script to add a certificate to the Octopus certificate library.
+position: 30
 ---
 
 ## Description
@@ -9,11 +10,12 @@ This script uploads a certificate file in pfx format to the Octopus [certificate
 
 ## Usage
 
-Provide values for the following:
-- PFX file path.
-- PFX file password.
-- Octopus Deploy server URL.
-- Octopus Deploy API Key.
-- Certificate Name.
+Provide values for:
+
+- Octopus URL
+- Octopus API Key
+- PFX file path
+- PFX file password
+- Certificate Name
 
 !include <create-certificate-scripts>

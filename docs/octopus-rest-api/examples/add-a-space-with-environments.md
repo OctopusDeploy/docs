@@ -1,6 +1,7 @@
 ---
 title: Add a Space with environments
 description: An example script to create a new space and populate it with some default environments.
+position: 10
 ---
 
 ## Description
@@ -13,7 +14,13 @@ Then the script will create the [Environments](/docs/infrastructure/environments
 
 ## Usage
 
-Provide values for `Octopus URL`, `Octopus API Key`, `Space Name`, `Environments`, and a combination of `Manager Teams` and `Manager Team Members` to create a space with the provided names and environments.
+Provide values for:
+
+- Octopus URL
+- Octopus API Key
+- Space Name
+- Environments
+- A combination of Manager Teams and Manager Team Members
 
 ## Scripts
 
