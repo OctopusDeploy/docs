@@ -1,0 +1,25 @@
+---
+title: Register listening tentacle
+description: An example script to register a listening tentacle.
+---
+
+## Description
+
+These scripts demonstrate how to programmatically register a listening tentacle.
+
+## Usage
+
+Provide values for the following:
+- Octopus URL
+- Octopus API Key
+- Name of the space to work with
+- Hostname (DNS entry will also work) of the machine to register
+- Communications style (API method only): `TentaclePassive` for listening
+- Port number the Tentacle is listening on
+- An array of Environments for the Tentacle
+- An array of Roles for the Tentacle
+
+## Scripts
+
+!include <register-listening-tentacle-scripts>
+
