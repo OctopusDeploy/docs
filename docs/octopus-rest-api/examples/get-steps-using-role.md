@@ -4,7 +4,7 @@ description: Example scripts to find all steps targeting a role
 ---
 
 ## Description
-These scripts will display all projects in a space that target the given role
+These scripts will display all projects in a space that target the given role.
 
 ## Usage
 Provide values for the following:
