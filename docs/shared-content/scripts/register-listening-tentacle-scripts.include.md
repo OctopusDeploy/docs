@@ -110,10 +110,10 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working varibles
-var octopusURL = "http://octotemp";
-var octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY";
+var octopusURL = "https://youroctourl";
+var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";
-string hostName = "OctoTempTentacle";
+string hostName = "MyHost";
 int tentaclePort = 10933;
 string[] environmentNames = { "Development", "Production" };
 string[] roles = { "MyRole" };
