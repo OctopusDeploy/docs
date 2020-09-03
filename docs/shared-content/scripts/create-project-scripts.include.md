@@ -38,7 +38,7 @@ catch
 ```
 ```powershell PowerShell (Octopus.client)
 # Load octopus.client assembly
-Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
+Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
