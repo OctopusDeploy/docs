@@ -1,5 +1,5 @@
 ---
-title: Register listening tentacle
+title: Register Listening Tentacle
 description: An example script to register a listening tentacle.
 ---
 
@@ -22,4 +22,3 @@ Provide values for the following:
 ## Scripts
 
 !include <register-listening-tentacle-scripts>
-
