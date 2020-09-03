@@ -1,6 +1,6 @@
 ---
 title: Register Polling Tentacle
-description: An example script to register a polling tentacle.
+description: An example script to register a Polling Tentacle.
 ---
 
 ## Description
