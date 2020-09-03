@@ -4,7 +4,7 @@ description: An example script to register a listening tentacle.
 ---
 
 
-These scripts demonstrate how to programmatically register a listening tentacle.
+These scripts demonstrate how to programmatically register a Listening Tentacle.
 
 ## Usage
 
