@@ -4,8 +4,6 @@ description: An example script to create a new space and populate it with some d
 position: 10
 ---
 
-## Description
-
 This script is a starter for bootstrapping a new [Space](/docs/administration/spaces/index.md) in your Octopus instance.
 
 It creates a new space with the provided name, description, and managers. At least one manager team or member must be provided.

@@ -3,8 +3,7 @@ title: Create an Azure service principal
 description: Example scripts to create an Azure service principal in Octopus.
 ---
 
-
-These scripts demonstrate how to programmatically cancel queued deployments.
+This script demonstrates how to programmatically cancel queued deployments.
 
 ## Usage
 

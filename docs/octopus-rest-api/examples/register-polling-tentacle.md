@@ -4,7 +4,7 @@ description: An example script to register a Polling Tentacle.
 ---
 
 
-These scrips demonstrate how to programmatically add a Polling Tentacle.  Polling Tentacles usually self-register during the installation process, but in cases where the Tentacle was deleted from the server and needs to be re-added, these scripts will show you how.
+This script demonstrates how to programmatically add a Polling Tentacle.  Polling Tentacles usually self-register during the installation process, but in cases where the Tentacle was deleted from the server and needs to be re-added, this script shows you how.
 
 ## Usage
 Provide values for the following:

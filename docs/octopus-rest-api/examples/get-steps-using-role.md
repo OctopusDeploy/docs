@@ -1,12 +1,10 @@
 ---
 title: Get all steps using role
-description: Example scripts to find all steps targeting a role
+description: Example scripts to find all steps targeting a role.
 position: 80
 ---
 
-## Description
-
-These scripts will display all projects in a space that target the given role.
+This script displays all projects in a space that target the given role.
 
 ## Usage
 

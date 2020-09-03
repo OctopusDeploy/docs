@@ -4,8 +4,6 @@ description: Example scripts to create and deploy a release
 position: 50
 ---
 
-## Description
-
 These scripts create and deploy a release, including examples for choosing a channel and deploying to tenants.
 
 ## Usage

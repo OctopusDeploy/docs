@@ -1,12 +1,10 @@
 ---
-title: Add a Run a script step
-description: An example script to add a Run a script step to a project.
+title: Add a run a script step
+description: An example script to add a run a script step to a project.
 position: 60
 ---
 
-## Description
-
-These scripts demonstrate how to programmatically add a [Run A Script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step to a project, which runs on a deployment target matching a specified [target role](/docs/infrastructure/deployment-targets/index.md#target-roles).
+This script demonstrates how to programmatically add a [Run A Script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step to a project, which runs on a deployment target that matches a specified [target role](/docs/infrastructure/deployment-targets/index.md#target-roles).
 
 ## Usage
 

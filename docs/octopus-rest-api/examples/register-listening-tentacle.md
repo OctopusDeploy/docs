@@ -3,8 +3,7 @@ title: Register Listening Tentacle
 description: An example script to register a listening tentacle.
 ---
 
-
-These scripts demonstrate how to programmatically register a Listening Tentacle.
+This script demonstrates how to programmatically register a Listening Tentacle.
 
 ## Usage
 
@@ -16,7 +15,7 @@ Provide values for the following:
 - Communications style (API method only): `TentaclePassive` for listening
 - Port number the Tentacle is listening on
 - An array of environments for the Tentacle
-- An array of Roles for the Tentacle
+- An array of roles for the Tentacle
 
 ## Scripts
 

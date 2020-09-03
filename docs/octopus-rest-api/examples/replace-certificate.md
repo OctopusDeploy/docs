@@ -4,9 +4,7 @@ description: An example script to replace an existing certificate in Octopus Dep
 position: 40
 ---
 
-## Description
-
-These scripts replace an existing certificate in the Octopus [certificate library](/docs/deployment-examples/certificates/index.md).
+This script replaces an existing certificate in the Octopus [certificate library](/docs/deployment-examples/certificates/index.md).
 
 ## Usage
 
