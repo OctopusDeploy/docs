@@ -94,7 +94,7 @@ This will result in integrated sign in being the only option:
 
 ![Integrated Sign In Only](images/ad-integrated-only.png "width=500")
 
-## Switching between username/password and Active Directory Authentication {#ActiveDirectoryauthentication-Switchingbetweenusername/passwordandActiveDirectoryauthentication}
+## Switching between username/password and Active Directory Authentication {#ActiveDirectoryauthentication-SwitchingbetweenusernamepasswordandActiveDirectoryauthentication}
 
 It is possible to reconfigure an existing Octopus Server to use a different authentication mode.
 
@@ -121,7 +121,7 @@ Octopus.Server.exe admin --username=YOURUSERNAME
 
 The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication/index.md)).
 
-### Select username/password authentication {#ActiveDirectoryauthentication-Toselectusername/passwordauthentication}
+### Select username/password authentication {#ActiveDirectoryauthentication-Toselectusernamepasswordauthentication}
 
 To switch from Active Directory authentication to username/password authentication, use the following script from an administrative command prompt on the Octopus Server:
 
