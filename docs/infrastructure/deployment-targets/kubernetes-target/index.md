@@ -247,6 +247,80 @@ See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/d
 
 Setting the Octopus variable `Octopus.Action.Kubernetes.OutputKubeConfig` to `True` for any deployment or runbook using a Kubernetes target will cause the generated kube config file to be printed into the logs (with passwords masked). This can be used to verify the configuration file used to connect to the Kubernetes cluster.
 
+If Kubernetes targets fail their health checks, the best way to diagnose the issue to to run a `Run a kubectl CLI Script` step with a script that can inspect the various settings that must be in place for a Kubernetes target to function correctly. Octopus deployments will run against unhealthy targets by default, so the fact that the target failed its health check does not prevent these kinds of debugging steps from running.
+
+An example script for debugging a Kubernetes target is shown below:
+
+```PowerShell
+$ErrorActionPreference = 'SilentlyContinue'
+
+# The details of the AWS Account. This will be populated for EKS clusters using the AWS authentication scheme.
+# AWS_SECRET_ACCESS_KEY will be redacted, but that means it was populated successfully.
+Write-Host "Getting the AWS user"
+Write-Host "AWS_ACCESS_KEY_ID: $($env:AWS_ACCESS_KEY_ID)"
+Write-Host "AWS_SECRET_ACCESS_KEY: $($env:AWS_SECRET_ACCESS_KEY)"
+
+# The details of the Azure Account. This will be populated for an AKS cluster using the Azure authentication scheme.
+Write-Host "Getting the Azure user"
+cat azure-cli/azureProfile.json
+
+# View the generated config. kubectl will redact any secrets from this output.
+Write-Host "kubectl config view"
+kubectl config view
+
+# View the environment variable that defines the kube config path
+Write-Host "KUBECONFIG is $($env:KUBECONFIG)"
+
+# Save kube config as artifact (will expose credentials in log). This is useful to take the generated config file
+# and run it outside of octopus.
+# New-OctopusArtifact $env:KUBECONFIG
+
+# List any proxies. Failure to connect to the cluster when a proxy is configured may be casued by the proxy.
+Write-Host "HTTP_PROXY: $($env:HTTP_PROXY)"
+Write-Host "HTTPS_PROXY: $($env:HTTPS_PROXY)"
+Write-Host "NO_PROXY: $($env:NO_PROXY)"
+
+# Execute the same command that the target health check runs.
+Write-Host "Simulating a health check"
+kubectl version --short
+
+# Write a custom kube config. This is useful when you have a config that works, and you want to confirm it works in Octopus.
+Write-Host "Health check with custom config file"
+Set-Content -Path "myconfig.yml" -Value @"
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ca-cert-goes-here
+    server: https://myk8scluster
+  name: test
+contexts:
+- context:
+    cluster: test
+    user: testadmin
+  name: testadmin
+- context:
+    cluster: test
+    user: test
+  name: test
+current-context: test
+kind: Config
+preferences: {}
+users:
+- name: testadmin
+  user:
+    token: auth-token-goes-here
+- name: test
+  user:
+    client-certificate-data: certificate-data-goes-here
+    client-key-data: certificate-key-gies-here
+"@
+
+kubectl version --short --kubeconfig myconfig.yml
+
+exit 0
+
+```
+
 ## Learn more
 
 - [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md)
