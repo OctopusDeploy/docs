@@ -11,7 +11,7 @@ try
     $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
     # Get tasks
-    $tasks = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/tasks" -Headers $header).Items | Where-Object {$_.State -eq "Queued" -and $_.HasBeenPickedUpByProcessor -eq $false}
+    $tasks = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/tasks" -Headers $header).Items | Where-Object {$_.State -eq "Queued" -and $_.HasBeenPickedUpByProcessor -eq $false -and $_.Name -eq "Deploy"}
 
     # Loop through tasks
     foreach ($task in $tasks)
