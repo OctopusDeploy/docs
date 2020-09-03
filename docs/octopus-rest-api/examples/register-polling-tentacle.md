@@ -1,0 +1,22 @@
+---
+title: Register Polling Tentacle
+description: An example script to register a Polling Tentacle.
+---
+
+
+These scrips demonstrate how to programmatically add a Polling Tentacle.  Polling Tentacles usually self-register during the installation process, but in cases where the Tentacle was deleted from the server and needs to be re-added, these scripts will show you how.
+
+## Usage
+Provide values for the following:
+- Octopus URL
+- Octopus API Key
+- Name of the space to work with
+- Hostname of the machine to register
+- Tentacle thumbprint
+- Tentacle identifier
+- Array of environments
+- Array of roles
+
+## Scripts
+
+!include <register-polling-tentacle-scripts>
