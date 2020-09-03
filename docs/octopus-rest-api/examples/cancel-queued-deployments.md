@@ -1,6 +1,6 @@
 ---
-title: Create an Azure service principal
-description: Example scripts to create an Azure service principal in Octopus.
+title: Cancel queued deploymentss
+description: An example script to cancel queued deployments.
 position: 70
 ---
 
