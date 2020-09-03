@@ -1,6 +1,6 @@
 ---
 title: Delete machines by role
-description: An example script to delete machines by role
+description: An example script to delete machines by role.
 ---
 
 ## Description
