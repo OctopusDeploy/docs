@@ -1,7 +1,7 @@
 ---
 title: How to Create an API Key
 description: How to create an API key to interact with Octopus without the need for a username and password.
-position: 7
+position: 10
 ---
 
 API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-api/index.md) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.
