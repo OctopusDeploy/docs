@@ -1,7 +1,7 @@
 ---
 title: Add environment to step
 description: An example script that scopes a step to an environment.
-position: 70
+position: 90
 ---
 
 This script demonstrates how to programmatically add an environment scope to an existing step so that it only runs in specific environments.

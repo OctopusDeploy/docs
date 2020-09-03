@@ -1,4 +1,4 @@
-```powershell PowerShell
+```powershell PowerShell (REST API)
 # Define working variables
 $octopusBaseURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
