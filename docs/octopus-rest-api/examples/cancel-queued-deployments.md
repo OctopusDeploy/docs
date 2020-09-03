@@ -1,5 +1,5 @@
 ---
-title: Cancel queued deploymentss
+title: Cancel queued deployments
 description: An example script to cancel queued deployments.
 position: 70
 ---
