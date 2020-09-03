@@ -6,9 +6,6 @@ description: An example script to delete machines by role.
 
 These scripts demonstrate how to programmatically delete machines with the specified role from the Octopus Server.
 
-:::warning
-These scripts will remove the machines from the space on the Octopus Server, use with caution
-:::
 
 ## Usage
 Provide values for the following:
