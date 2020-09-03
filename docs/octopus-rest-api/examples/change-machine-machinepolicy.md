@@ -1,13 +1,15 @@
 ---
-title: Change machine policy
-description: An example script that changes a machines machine policy.
+title: Change target's machine policy
+description: An example script that changes a machine policy of a deployment target.
+position: 140
 ---
 
-These scripts demonstrate how to programmatically change a machine's machine policy.
+This script demonstrates how to programmatically changes a machine policy of a deployment target.
 
 ## Usage
 
 Provide values for the following:
+
 - Octopus URL
 - Octopus API Key
 - Name of the space to use
