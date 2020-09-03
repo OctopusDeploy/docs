@@ -1,6 +1,7 @@
 ---
 title: Register Listening Tentacle
 description: An example script to register a listening tentacle.
+position: 40
 ---
 
 This script demonstrates how to programmatically register a Listening Tentacle.
