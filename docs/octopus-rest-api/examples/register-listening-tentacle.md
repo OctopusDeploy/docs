@@ -15,7 +15,7 @@ Provide values for the following:
 - Hostname (DNS entry will also work) of the machine to register
 - Communications style (API method only): `TentaclePassive` for listening
 - Port number the Tentacle is listening on
-- An array of Environments for the Tentacle
+- An array of environments for the Tentacle
 - An array of Roles for the Tentacle
 
 ## Scripts
