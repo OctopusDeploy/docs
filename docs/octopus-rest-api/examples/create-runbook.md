@@ -14,6 +14,6 @@ Provide values for the following:
 - Name of the project
 - Name of the runbook to create
 
-## Scripts
+## Script
 
 !include <create-runbook-scripts>
