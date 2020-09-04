@@ -1,7 +1,6 @@
 ---
-title: Create project
-description: An example script that creates a project.
-
+title: Delete project releases
+description: An example script that deletes releases for a project.
 ---
 
 This script demonstrates how to programmatically delete releases for a project.
@@ -13,6 +12,6 @@ Provide values for the following:
 - Name of the space to use
 - Name of the project
 
-## Scripts
+## Script
 
 !include <delete-project-releases-scripts>
