@@ -14,6 +14,6 @@ Provide values for the following:
 - Name of the runbook
 - Array of environment names
 
-## Scripts
+## Script
 
 !include <run-runbook-scripts>
