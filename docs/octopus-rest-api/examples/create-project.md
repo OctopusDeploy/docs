@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the project group to add the project to
 - Name of the lifecycle to use for the project
 
-## Scripts
+## Script
 
 !include <create-project-scripts>
