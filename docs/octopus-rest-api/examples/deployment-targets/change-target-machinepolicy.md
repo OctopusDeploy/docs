@@ -4,7 +4,7 @@ description: An example script that changes a machine policy of a deployment tar
 position: 140
 ---
 
-This script demonstrates how to programmatically changes a machine policy of a deployment target.
+This script demonstrates how to programmatically change a machine policy of a deployment target.
 
 ## Usage
 
