@@ -416,7 +416,7 @@ docs/api-and-integration/octopus.migrator.exe-command-line/migrate.md -> docs/oc
 docs/api-and-integration/octopus.migrator.exe-command-line/partial-export.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/partial-export.md
 docs/api-and-integration/octopus.migrator.exe-command-line/version.md -> docs/octopus-rest-api/octopus.migrator.exe-command-line/version.md
 docs/api-and-integration/examples/index.md -> docs/octopus-rest-api/examples/index.md
-docs/api-and-integration/examples/add-a-space-with-environments.md -> docs/octopus-rest-api/examples/add-a-space-with-environments.md
+docs/api-and-integration/examples/add-a-space-with-environments.md -> docs/octopus-rest-api/examples/spaces/add-a-space-with-environments.md
 docs/api-and-integration/examples/delete-a-space.md -> docs/octopus-rest-api/examples/delete-a-space.md
 docs/api-and-integration/octo.exe-command-line/clean-environment.md -> docs/octopus-rest-api/octopus-cli/clean-environment.md
 docs/api-and-integration/octo.exe-command-line/clean-workerpool.md -> docs/octopus-rest-api/octopus-cli/clean-workerpool.md
@@ -754,25 +754,24 @@ docs/runbooks/runbook-examples/services/windows-services.md -> docs/runbooks/run
 docs/deploying-applications/certificates/index.md -> docs/deployment-examples/certificates/index.md
 docs/octopus-rest-api/examples/create-script-step -> docs/octopus-rest-api/examples/index.md
 docs/deploying-applications/docker-containers/index.md -> docs/deployment-examples/docker-containers/index.md
-docs/octopus-rest-api/examples/create-azure-service-principal.md -> docs/octopus-rest-api/examples/accounts/create-azure-service-principal.md
-docs/octopus-rest-api/examples/create-certificate.md -> docs/octopus-rest-api/examples/certificates/create-certificate.md
-docs/octopus-rest-api/examples/replace-certificate.md -> docs/octopus-rest-api/examples/certificates/replace-certificate.md
-docs/octopus-rest-api/examples/add-environment-to-step.md -> docs/octopus-rest-api/examples/deployment-process/add-environment-to-step.md
-docs/octopus-rest-api/examples/create-script-step.md -> docs/octopus-rest-api/examples/deployment-process/create-script-step.md
-docs/octopus-rest-api/examples/get-steps-using-role.md -> docs/octopus-rest-api/examples/deployment-process/get-steps-using-role.md
-docs/octopus-rest-api/examples/add-azure-web-app.md -> docs/octopus-rest-api/examples/deployment-targets/add-azure-web-app.md
-docs/octopus-rest-api/examples/change-machine-machinepolicy.md -> docs/octopus-rest-api/examples/deployment-targets/change-target-machinepolicy.md
-docs/octopus-rest-api/examples/delete-machines-by-role.md -> docs/octopus-rest-api/examples/deployment-targets/delete-machines-by-role.md
-docs/octopus-rest-api/examples/register-listening-tentacle.md -> docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md
-docs/octopus-rest-api/examples/register-polling-tentacle.md -> docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md
-docs/octopus-rest-api/examples/create-and-deploy-a-release.md -> docs/octopus-rest-api/examples/deployments/create-and-deploy-a-release.md
-docs/octopus-rest-api/examples/cancel-queued-deployments.md -> docs/octopus-rest-api/examples/deployments/cancel-queued-deployments.md
-docs/octopus-rest-api/examples/create-project.md -> docs/octopus-rest-api/examples/projects/create-project.md
-docs/octopus-rest-api/examples/delete-project-releases.md -> docs/octopus-rest-api/examples/releases/delete-project-releases.md
-docs/octopus-rest-api/examples/create-runbook.md -> docs/octopus-rest-api/examples/runbooks/create-runbook.md
-docs/octopus-rest-api/examples/create-runbook.md -> docs/octopus-rest-api/examples/runbooks/create-runbook.md
-docs/octopus-rest-api/examples/publish-runbook.md -> docs/octopus-rest-api/examples/runbooks/publish-runbook.md
-docs/octopus-rest-api/examples/run-runbook.md -> docs/octopus-rest-api/examples/runbooks/run-runbook.md
-docs/octopus-rest-api/examples/add-a-space-with-environments.md -> docs/octopus-rest-api/examples/spaces/add-a-space-with-environments.md
-docs/octopus-rest-api/examples/delete-a-space.md -> docs/octopus-rest-api/examples/spaces/delete-a-space.md
-docs/octopus-rest-api/examples/list-users-with-role.md -> docs/octopus-rest-api/examples/users/list-users-with-role.md
+docs/octopus-rest-api/examples/create-azure-service-principal -> docs/octopus-rest-api/examples/accounts/create-azure-service-principal.md
+docs/octopus-rest-api/examples/create-certificate-> docs/octopus-rest-api/examples/certificates/create-certificate.md
+docs/octopus-rest-api/examples/replace-certificate -> docs/octopus-rest-api/examples/certificates/replace-certificate.md
+docs/octopus-rest-api/examples/add-environment-to-step -> docs/octopus-rest-api/examples/deployment-process/add-environment-to-step.md
+docs/octopus-rest-api/examples/create-script-step -> docs/octopus-rest-api/examples/deployment-process/create-script-step.md
+docs/octopus-rest-api/examples/get-steps-using-role -> docs/octopus-rest-api/examples/deployment-process/get-steps-using-role.md
+docs/octopus-rest-api/examples/add-azure-web-app -> docs/octopus-rest-api/examples/deployment-targets/add-azure-web-app.md
+docs/octopus-rest-api/examples/change-machine-machinepolicy -> docs/octopus-rest-api/examples/deployment-targets/change-target-machinepolicy.md
+docs/octopus-rest-api/examples/delete-machines-by-role-> docs/octopus-rest-api/examples/deployment-targets/delete-machines-by-role.md
+docs/octopus-rest-api/examples/register-listening-tentacle -> docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md
+docs/octopus-rest-api/examples/register-polling-tentacle -> docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md
+docs/octopus-rest-api/examples/create-and-deploy-a-release-> docs/octopus-rest-api/examples/deployments/create-and-deploy-a-release.md
+docs/octopus-rest-api/examples/cancel-queued-deployments -> docs/octopus-rest-api/examples/deployments/cancel-queued-deployments.md
+docs/octopus-rest-api/examples/create-project -> docs/octopus-rest-api/examples/projects/create-project.md
+docs/octopus-rest-api/examples/delete-project-releases -> docs/octopus-rest-api/examples/releases/delete-project-releases.md
+docs/octopus-rest-api/examples/create-runbook -> docs/octopus-rest-api/examples/runbooks/create-runbook.md
+docs/octopus-rest-api/examples/publish-runbook -> docs/octopus-rest-api/examples/runbooks/publish-runbook.md
+docs/octopus-rest-api/examples/run-runbook -> docs/octopus-rest-api/examples/runbooks/run-runbook.md
+docs/octopus-rest-api/examples/add-a-space-with-environments -> docs/octopus-rest-api/examples/spaces/add-a-space-with-environments.md
+docs/octopus-rest-api/examples/delete-a-space-> docs/octopus-rest-api/examples/spaces/delete-a-space.md
+docs/octopus-rest-api/examples/list-users-with-role -> docs/octopus-rest-api/examples/users/list-users-with-role.md
