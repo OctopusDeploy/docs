@@ -4,7 +4,7 @@ description: An example script that creates a project.
 
 ---
 
-These scripts demonstrate how to programmatically create a project in Octopus Deploy
+This script demonstrates how to programmatically create a project in Octopus Deploy.
 
 ## Usage
 Provide values for the following:
