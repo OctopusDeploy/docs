@@ -4,7 +4,7 @@ description: An example script to publish a runbook.
 
 ---
 
-These scripts demonstrate how to programmatically publish a runbook.
+This script demonstrates how to programmatically publish a runbook.
 
 ## Usage
 Provide values for the following:
