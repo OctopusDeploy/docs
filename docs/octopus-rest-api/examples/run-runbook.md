@@ -3,7 +3,7 @@ title: Add an Azure Web App
 description: An example script to add an Azure Web App as a deployment target.
 ---
 
-These scripts demonstrate how to programmatically run a published runbook.
+This script demonstrates how to programmatically run a published runbook.
 
 ## Usage
 Provide values for the following:
