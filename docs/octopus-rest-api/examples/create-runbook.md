@@ -4,7 +4,7 @@ description: An example script that creates a project.
 
 ---
 
-These script demonstrate how to programmatically create a runbook.
+This script demonstrates how to programmatically create a runbook.
 
 ## Usage
 Provide values for the following:
