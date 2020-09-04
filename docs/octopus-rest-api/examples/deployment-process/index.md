@@ -4,7 +4,7 @@ description: This section includes examples of how to use the REST API to manage
 position: 30
 ---
 
-You can use the REST API to manage a project's [deployment process]((/docs/deployment-process/index.md)). Typical tasks might be:
+You can use the REST API to manage a project's [deployment process](/docs/deployment-process/index.md). Typical tasks might be:
 
 - Changing the  [package feed](/docs/packaging-applications/package-repositories/index.md) for a step.
 - Finding steps in a deployment process which use a specific [target role](/docs/infrastructure/deployment-targets/index.md#target-roles).
