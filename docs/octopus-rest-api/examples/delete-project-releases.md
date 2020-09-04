@@ -4,7 +4,7 @@ description: An example script that creates a project.
 
 ---
 
-These scripts demonstrate how to programmatically delete releases for a project.
+This script demonstrates how to programmatically delete releases for a project.
 
 ## Usage
 Provide values for the following:
