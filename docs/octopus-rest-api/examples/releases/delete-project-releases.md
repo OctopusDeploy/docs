@@ -6,6 +6,7 @@ description: An example script that deletes releases for a project.
 This script demonstrates how to programmatically delete releases for a project.
 
 ## Usage
+
 Provide values for the following:
 - Octopus URL
 - Octopus API Key
