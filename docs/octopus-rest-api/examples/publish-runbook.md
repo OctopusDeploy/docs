@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the runbook
 - Name for the new snapshot
 
-## Scripts
+## Script
 
 !include <publish-runbook-scripts>
