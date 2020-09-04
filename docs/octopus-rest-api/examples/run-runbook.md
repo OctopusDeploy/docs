@@ -1,6 +1,6 @@
 ---
 title: Run a published runbook
-description: An example script to add an Azure Web App as a deployment target.
+description: An example script to run a published runbook.
 ---
 
 This script demonstrates how to programmatically run a published runbook.
