@@ -10,11 +10,32 @@ Deployments can have a strong impact on the people whose work depends on the sys
 - Let testers know when a new version is available in UAT.
 - Use email in conjunction with [manual interventions approvals](/docs/deployment-process/steps/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment.
 
-Before you can add email steps to your deployment processes, you need to add your SMTP  configuration.
+Before you can add email steps to your deployment processes, you need to add your SMTP configuration.
 
 ## SMTP configuration
 
-To add you SMTP configuration navigate to **{{Configuration,SMTP}}** and enter your server's details.
+To add your SMTP configuration navigate to **{{Configuration,SMTP}}** and set the following values:
+
+| Property           | Description                            | Example |
+| ------------------ | ------------------------------------   | ----------- |
+| SMTP Host          | The DNS hostname for your SMTP server. | smtp.yourmailserver.com |
+| SMTP Port          | The TCP port for your SMTP server.     | 25 |
+| Timeout            | The timeout for SMTP operations. Value is in miliseconds. | 12000 (12 seconds) |
+| Use SSL/TLS        | This option controls whether or not Octopus enforces using an SSL/TLS-wrapped connection. | True |
+| From Address       | The address which all emails will be sent 'From'. | octopus@mydomain.com |
+| Credentials        | Optional SMTP login / password if your SMTP server requires authentication. | mylogin@mydomain.com / SuperSecretPa$$word |
+
+Click **SAVE AND TEST** to save the SMTP configuration and verify the values are valid:
+
+![](images/smtp-configuration.png "width=500")
+
+You will be prompted for an email address to send a test email to:
+
+![](images/smtp-test-email.png "width=500")
+
+Enter a test email address and click **OK**. A Send test email task will start to verify your SMTP Configuration:
+
+![](images/smtp-verify-task.png "width=500")
 
 ## Add an email step
 
