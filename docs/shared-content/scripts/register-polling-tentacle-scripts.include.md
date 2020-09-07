@@ -6,7 +6,6 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
 $communicationsStyle = "TentacleActive" # Listening mode
 $hostName = "MyHost"
-$tentaclePort = "10934"
 $environmentNames = @("Development", "Production")
 $roles = @("MyRole")
 $environmentIds = @()
@@ -65,8 +64,6 @@ $tentacleThumbprint = "TentacleThumbprint"
 $tentacleIdentifier = "PollingTentacleIdentifier" # Must match value in Tentacle.config file on tentacle machine; ie poll://RandomCharacters
 $environmentNames = @("Development", "Production")
 $roles = @("MyRole")
-$environmentIds = @()
-
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint

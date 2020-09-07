@@ -98,10 +98,8 @@ catch
         Write-Output "An error occurred: $($_.Exception.Message)"
     }
 }
-
 ```
 ```powershell PowerShell (Octopus.Client)
-
 # Define working variables
 $octopusBaseURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"

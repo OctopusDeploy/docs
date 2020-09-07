@@ -4,12 +4,10 @@ $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
-$communicationsStyle = "TentaclePassive" # Listening mode
 $hostName = "MyHost"
 $tentaclePort = "10933"
 $environmentNames = @("Development", "Production")
 $roles = @("MyRole")
-$environmentIds = @()
 
 try
 {

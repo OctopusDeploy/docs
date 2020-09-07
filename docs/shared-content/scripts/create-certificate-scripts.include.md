@@ -84,7 +84,6 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-
 ```csharp C#
 #r "path\to\Octopus.Client.dll"
 

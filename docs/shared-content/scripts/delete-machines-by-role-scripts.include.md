@@ -1,6 +1,6 @@
 ```powershell PowerShell (REST API)
 # Define working variables
-$octopusBaseURL = "https://youroctourl/api"
+$octopusURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
@@ -31,7 +31,7 @@ catch
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusBaseURL = "https://youroctourl/api"
+$octopusURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
 $spaceName = "default"
 $role = "MyRole"
