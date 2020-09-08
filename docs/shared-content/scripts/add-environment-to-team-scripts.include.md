@@ -42,7 +42,7 @@ catch
 ```
 ```powershell PowerShell (Octopus.Client)
 # Load octopus.client assembly
-Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
+Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "https://youroctourl"
@@ -96,8 +96,8 @@ using Octopus.Client;
 using Octopus.Client.Model;
 
 // Declare working varibles
-var octopusURL = "http://octotemp";
-var octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY";
+var octopusURL = "https://youroctourl";
+var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";
 string[] environmentNames = { "Development", "Production" };
 string teamName = "MyTeam";
