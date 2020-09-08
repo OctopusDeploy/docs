@@ -36,7 +36,7 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
-```powershell PowerShell (Octopus.client)
+```powershell PowerShell (Octopus.Client)
 # Load octopus.client assembly
 Add-Type -Path "path\to\Octopus.Client.dll"
 
