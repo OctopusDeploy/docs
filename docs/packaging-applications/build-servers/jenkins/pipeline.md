@@ -72,6 +72,31 @@ octopusPushPackage \
   toolId: 'octocli'
 ```
 
+Examples for the `packagePaths` parameter:
+
+### Absolute path 
+
+The path to the package can be provided as an absolute path on the Jenkins server or Agent. `${WORKSPACE}` is the directory which the job runs within.
+ - `packagePaths: "${WORKSPACE}/artifacts/Package.0.0.${BUILD_NUMBER}.zip"`.
+ - `packagePaths: "/home/jenkins/workspace/artifacts/Package.0.0.${BUILD_NUMBER}.zip"`.
+
+### Relative path
+
+The path is a relative path from the `WORKSPACE` directory.
+ - `packagePaths: "artifacts/Package.0.0.${BUILD_NUMBER}.zip"`
+
+### Glob Patterns
+
+The package selection can also be done using ANT glob patterns.
+ - `packagePaths: "artifacts/**/*.0.0.${BUILD_NUMBER}.zip"`.
+   - This will pick up all the packages, in all folders under the `artifacts` directory with a name matching the `0.0` version and current build number.
+
+### Multiple paths
+
+The `packagePaths` parameter also supports multiple values from the above options seperated by a `\n` character.
+ - `packagePaths: "artifacts/package1/Package1.0.0.${BUILD_NUMBER}.zip\nartifacts/package2/Package2.0.0.${BUILD_NUMBER}.zip"`
+
+
 ## Push package info {#build-information}
 
 Step: **_octopusPushBuildInformation_**
