@@ -773,4 +773,6 @@ docs/octopus-rest-api/examples/delete-project-releases.md -> docs/octopus-rest-a
 docs/octopus-rest-api/examples/create-runbook.md -> docs/octopus-rest-api/examples/runbooks/create-runbook.md
 docs/octopus-rest-api/examples/publish-runbook.md -> docs/octopus-rest-api/examples/runbooks/publish-runbook.md
 docs/octopus-rest-api/examples/run-runbook.md -> docs/octopus-rest-api/examples/runbooks/run-runbook.md
-docs/octopus-rest-api/examples/list-users-with-role.md -> docs/octopus-rest-api/examples/users/list-users-with-role.md
+docs/octopus-rest-api/examples/list-users-with-role.md -> docs/octopus-rest-api/examples/users-and-teams/list-users-with-role.md
+docs/octopus-rest-api/examples/users/index.md -> docs/octopus-rest-api/examples/users-and-teams/index.md
+docs/octopus-rest-api/examples/users/list-users-with-role.md -> docs/octopus-rest-api/examples/users-and-teams/list-users-with-role.md
