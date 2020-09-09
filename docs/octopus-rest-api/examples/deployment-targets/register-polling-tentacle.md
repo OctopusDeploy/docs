@@ -1,7 +1,6 @@
 ---
 title: Register Polling Tentacle
 description: An example script to register a Polling Tentacle.
-position: 50
 ---
 
 

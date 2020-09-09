@@ -1,7 +1,7 @@
 ---
 title: Get all steps using package
 description: Example scripts to find all steps which reference a specific package.
-position: 100
+
 ---
 
 This script displays all projects in a space that reference the specified package.

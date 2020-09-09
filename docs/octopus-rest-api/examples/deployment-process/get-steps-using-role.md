@@ -1,7 +1,7 @@
 ---
 title: Get all steps using role
 description: Example scripts to find all steps targeting a role.
-position: 100
+
 ---
 
 This script displays all projects in a space that target the given role.

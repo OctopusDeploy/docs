@@ -1,7 +1,6 @@
 ---
 title: Create API Key
 description: An example script that creates an API Key.
-
 ---
 
 This script demonstrates how to programmatically create a new API Key.
