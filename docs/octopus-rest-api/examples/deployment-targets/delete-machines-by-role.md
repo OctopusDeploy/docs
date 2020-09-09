@@ -1,9 +1,9 @@
 ---
-title: Delete machines by role
-description: An example script to delete machines by role.
+title: Delete targets by role
+description: An example script to delete targets by role.
 ---
 
-This script demonstrates how to programmatically delete machines with the specified role from the Octopus Server.
+This script demonstrates how to programmatically delete deployment targets with the specified role from the Octopus Server.
 
 ## Usage
 Provide values for the following:
@@ -14,4 +14,4 @@ Provide values for the following:
 
 ## Scripts
 
-!include <delete-machines-by-role-scripts>
+!include <delete-targets-by-role-scripts>
