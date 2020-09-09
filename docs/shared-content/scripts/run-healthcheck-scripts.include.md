@@ -31,7 +31,6 @@ try
         $MachineIds = $EnvironmentID += (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/machines/all" -Headers $header) | Where-Object {$_.Name -eq $EnvironmentName} | Select-Object -ExpandProperty Id -Join ", "
     }
     
-    
     # Create json payload
     $jsonPayload = @{
         SpaceId = "$($space.Id)"
@@ -102,6 +101,7 @@ catch
 }
 ```
 ```csharp C#
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;

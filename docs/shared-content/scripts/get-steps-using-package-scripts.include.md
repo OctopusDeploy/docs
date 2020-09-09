@@ -80,6 +80,7 @@ foreach($project in $projectList)
 }
 ```
 ```csharp C#
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
