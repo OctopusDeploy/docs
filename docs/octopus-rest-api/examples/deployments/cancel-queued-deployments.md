@@ -1,7 +1,6 @@
 ---
 title: Cancel queued deployments
 description: An example script to cancel queued deployments.
-position: 70
 ---
 
 This script demonstrates how to programmatically cancel queued deployments.

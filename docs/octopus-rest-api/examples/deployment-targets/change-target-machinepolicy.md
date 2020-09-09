@@ -1,7 +1,6 @@
 ---
 title: Change target's machine policy
 description: An example script that changes a machine policy of a deployment target.
-position: 140
 ---
 
 This script demonstrates how to programmatically change a machine policy of a deployment target.

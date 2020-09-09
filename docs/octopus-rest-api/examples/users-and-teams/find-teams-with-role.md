@@ -1,7 +1,6 @@
 ---
 title: Find teams with role
 description: An example script that finds all teams using a specific role.
-
 ---
 
 This script demonstrates how to programmatically find all teams using a specific role.

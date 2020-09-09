@@ -1,7 +1,6 @@
 ---
 title: Delete a Space
 description: An example script to delete a space.
-position: 250
 ---
 
 This script deletes a [Space](/docs/administration/spaces/index.md) from your Octopus instance.
