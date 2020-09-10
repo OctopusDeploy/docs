@@ -1,22 +1,22 @@
 ```powershell PowerShell (REST API)
-# Define working variables
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
-$feedName = "nuget.org"
 
 try
 {
     # Get space
     $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-    # Get feedID
-    $feed = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/feeds/all" -Headers $header) | Where-Object {$_.Name -eq $feedName}
-    $feedID = $feed.Id
+    # Get all feeds
+    $feeds = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/feeds/all" -Headers $header)
     
-    # Delete Feed
-    Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/feeds/$feedID" -Headers $header -Method Delete
+    # Enumerate each feed
+    foreach($feed in $feeds)
+    {
+        $feed
+    }
 }
 catch
 {
@@ -29,9 +29,7 @@ Add-Type -Path "C:\Octo\Octopus.Client.dll"
 # Octopus variables
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
-
 $spaceName = "default"
-$feedName = "nuget.org"
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
@@ -45,10 +43,14 @@ try
     # Create space specific repository
     $repositoryForSpace = [Octopus.Client.OctopusRepositoryExtensions]::ForSpace($repository, $space)
 
-    # Get Existing feed
-    $feed = $repositoryForSpace.Feeds.FindByName($feedName)
+    # Get all feeds
+    $feeds = $repositoryForSpace.Feeds.FindAll()
 
-    $repositoryForSpace.Feeds.Delete($feed) | Out-Null
+    # Enumerate each feed
+    foreach($feed in $feeds)
+    {
+        $feed
+    }
 }
 catch
 {
@@ -67,7 +69,6 @@ var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 
 string spaceName = "Default";
-string feedName = "nuget to delete";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -79,12 +80,17 @@ try
     // Get space
     var space = repository.Spaces.FindByName(spaceName);
     var repositoryForSpace = client.ForSpace(space);
-    
-    // Get Feed
-    var feed = repositoryForSpace.Feeds.FindByName(feedName);
-    
-    // Delete feed
-    repositoryForSpace.Feeds.Delete(feed);
+
+    // Get All feeds
+    var feeds = repositoryForSpace.Feeds.FindAll();
+
+    foreach (var feed in feeds)
+    {
+        Console.WriteLine("Feed Id: {0}", feed.Id);
+        Console.WriteLine("Feed Name: {0}", feed.Name);
+        Console.WriteLine("Feed Type: {0}", feed.FeedType);
+        Console.WriteLine();
+    }
 }
 catch (Exception ex)
 {
