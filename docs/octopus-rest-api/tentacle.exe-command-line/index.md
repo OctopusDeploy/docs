@@ -9,7 +9,7 @@ hideInThisSection: true
 
 ## Commands {#tentacleCommandLine-Commands}
 
-Tentacle supports the following commands:
+`tentacle` supports the following commands:
 
 - **[agent](/docs/octopus-rest-api/tentacle.exe-command-line/agent.md)**:  Starts the Tentacle Agent in debug mode.
 - **[checkservices](/docs/octopus-rest-api/tentacle.exe-command-line/checkservices.md)**:  Checks the Tentacle instances are running.
@@ -22,7 +22,7 @@ Tentacle supports the following commands:
 - **[import-certificate](/docs/octopus-rest-api/tentacle.exe-command-line/import-certificate.md)**:  Replace the certificate that Tentacle uses to authenticate itself.
 - **[list-instances](/docs/octopus-rest-api/tentacle.exe-command-line/list-instances.md)**:  Lists all installed Tentacle instances.
 - **[new-certificate](/docs/octopus-rest-api/tentacle.exe-command-line/new-certificate.md)**:  Creates and installs a new certificate for this Tentacle.
-- **[polling-proxy](/docs/octopus-rest-api/tentacle.exe-command-line/polling-proxy.md)**:  Configure the HTTP proxy used by polling Tentacles to reach the Octopus Server.
+- **[polling-proxy](/docs/octopus-rest-api/tentacle.exe-command-line/polling-proxy.md)**:  Configure the HTTP proxy used by polling tentacles to reach the Octopus Server.
 - **[poll-server](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server.md)**:  Configures an Octopus Server that this Tentacle will poll.
 - **[proxy](/docs/octopus-rest-api/tentacle.exe-command-line/proxy.md)**:  Configure the HTTP proxy used by Octopus.
 - **[register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md)**:  Registers this machine as a deployment target with an Octopus Server.
