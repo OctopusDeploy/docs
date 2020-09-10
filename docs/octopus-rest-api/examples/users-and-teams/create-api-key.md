@@ -15,8 +15,8 @@ Provide values for:
 
 - Octopus URL
 - Octopus API Key
-- Name of the user to create the API Key for.
-- Description of the API Key's purpose.
+- Name of the user to create the API Key for
+- Description of the API Key's purpose
 
 ## Scripts
 
