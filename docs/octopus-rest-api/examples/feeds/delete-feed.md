@@ -1,9 +1,9 @@
 ---
 title: Delete feed
-description: An example script that deletes an existing external feed in Octopus using the REST API and Octopus.Client.
+description: An example script that deletes an existing feed in Octopus using the REST API and Octopus.Client.
 ---
 
-These scripts show how to programmatically delete an existing external feed in Octopus.
+These scripts show how to programmatically delete an existing feed in Octopus.
 
 ## Usage
 
