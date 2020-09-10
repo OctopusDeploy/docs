@@ -5,7 +5,6 @@ $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $librarySetName = "MyLibrarySet"
 
-
 try
 {
     # Get space
@@ -58,8 +57,6 @@ try
     
     # Get Projects
     $projects = $repositoryForSpace.Projects.GetAll()
-
-
 
     # Show all projects using set
     Write-Host "The following projects are using $librarySetName"

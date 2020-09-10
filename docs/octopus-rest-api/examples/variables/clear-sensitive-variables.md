@@ -14,7 +14,7 @@ Provide values for the following:
 - Octopus API Key
 
 :::warning
-**These scripts will clear all sensitive variable values from an Octopus instance. Take care when running this script or one based on it.**
+**This script will clear all sensitive variable values from an Octopus instance. Take care when running this script or one based on it.**
 :::
 
 ## Scripts

@@ -8,12 +8,17 @@ This script demonstrates how to programmatically add or update a project variabl
 
 ## Usage
 
-Provide values for the following::
+Provide values for the following:
+
 - Octopus URL
 - Octopus API Key
 - Name of the space to use
 - Name of the project
-- Hash table for the variable properties
+- The variable properties including:
+  - Variable name
+  - Variable value
+  - Variable type
+  - If the variable is sensitive 
 
 ## Scripts
 
