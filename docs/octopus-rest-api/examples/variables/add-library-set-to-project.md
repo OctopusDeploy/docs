@@ -1,5 +1,5 @@
 ---
-title: Add libarary set to a project
+title: Add library set to a project
 description: An example script that adds a library variable set to a project.
 
 ---
