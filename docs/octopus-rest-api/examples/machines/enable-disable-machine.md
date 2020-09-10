@@ -16,4 +16,4 @@ Provide values for the following:
 
 ## Scripts
 
-!include <enable-disable-machines-scripts>
+!include <enable-disable-machine-scripts>
