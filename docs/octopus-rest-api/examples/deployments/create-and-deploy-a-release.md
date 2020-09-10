@@ -1,7 +1,6 @@
 ---
 title: Create and deploy a release
-description: Example scripts to create and deploy a release
-position: 60
+description: Example scripts to create and deploy a release.
 ---
 
 These scripts create and deploy a release, including examples for choosing a channel and deploying to tenants.

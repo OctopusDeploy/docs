@@ -1,7 +1,6 @@
 ---
 title: Publish a runbook
 description: An example script to publish a runbook.
-
 ---
 
 This script demonstrates how to programmatically publish a runbook.

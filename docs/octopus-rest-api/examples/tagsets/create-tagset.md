@@ -1,7 +1,6 @@
 ---
 title: Create tag set
 description: An example script that creates a Tenant tag set.
-
 ---
 
 This script demonstrates how to programmatically create a Tenant tag set in Octopus Deploy.

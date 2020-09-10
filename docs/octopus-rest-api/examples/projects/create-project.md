@@ -1,7 +1,6 @@
 ---
 title: Create project
 description: An example script that creates a project.
-
 ---
 
 This script demonstrates how to programmatically create a project in Octopus Deploy.

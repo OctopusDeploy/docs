@@ -1,7 +1,6 @@
 ---
 title: Add environment to team
 description: An example script that adds an environment to a team user role.
-
 ---
 
 This script demonstrates how to programmatically add an environment to a user role for a team.

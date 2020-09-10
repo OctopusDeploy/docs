@@ -1,7 +1,6 @@
 ---
 title: Add a Space with environments
 description: An example script to create a new space and populate it with some default environments.
-position: 10
 ---
 
 This script is a starter for bootstrapping a new [Space](/docs/administration/spaces/index.md) in your Octopus instance.
