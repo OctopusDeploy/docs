@@ -133,7 +133,10 @@ catch
 }
 ```
 ```csharp C#
-// Declare working varibles
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
+#r "path\to\Octopus.Client.dll"
+
+// Declare working variables
 var octopusURL = "https://youroctourl";
 var octopusAPIKey = "API-YOURAPIKEY";
 var spaceName = "default";
@@ -184,7 +187,6 @@ try
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
-    Console.ReadLine();
     return;
 }
 ```
