@@ -11,7 +11,6 @@ $variable = @{
     IsSensitive = $false
 }
 
-
 try
 {
     # Get space
@@ -173,7 +172,6 @@ try
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
-    Console.ReadLine();
     return;
 }
 ```
