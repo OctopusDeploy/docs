@@ -14,4 +14,8 @@ Provide values for:
 - Name of the space to use
 - Name of the feed to delete
 
+:::warning
+**This script will delete the feed with the specified name. This operation is destructive and cannot be undone.**
+:::
+
 !include <delete-feed-scripts>

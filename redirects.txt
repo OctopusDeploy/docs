@@ -776,3 +776,4 @@ docs/octopus-rest-api/examples/run-runbook.md -> docs/octopus-rest-api/examples/
 docs/octopus-rest-api/examples/list-users-with-role.md -> docs/octopus-rest-api/examples/users-and-teams/list-users-with-role.md
 docs/octopus-rest-api/examples/users/index.md -> docs/octopus-rest-api/examples/users-and-teams/index.md
 docs/octopus-rest-api/examples/users/list-users-with-role.md -> docs/octopus-rest-api/examples/users-and-teams/list-users-with-role.md
+docs/octopus-rest-api/examples/feeds/get-feeds.md -> docs/octopus-rest-api/examples/feeds/retrieve-feeds.md
