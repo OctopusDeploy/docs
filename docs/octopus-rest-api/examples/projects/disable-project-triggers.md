@@ -1,6 +1,6 @@
 ---
 title: Disable project triggers
-description: An example script that disables project triggers.
+description: An example script that disables a project's triggers using the REST API and Octopus.Client in Octopus.
 ---
 
 This script demonstrates how to programmatically disable triggers for a project in Octopus Deploy.
