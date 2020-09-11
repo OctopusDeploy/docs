@@ -11,3 +11,4 @@ You can use the REST API to create and manage your [deployment targets](/docs/in
 - Adding an [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md).
 - Updating a deployment target's [environments](/docs/infrastructure/environments/index.md).
 - Deleting a target based on a matching [target role](/docs/infrastructure/deployment-targets/index.md#target-roles).
+- Upgrading targets
