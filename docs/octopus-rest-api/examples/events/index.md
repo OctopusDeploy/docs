@@ -1,9 +1,10 @@
 ---
-title: Feeds
-description: This section includes examples of how to use the REST API to create and manage feeds in Octopus.
-position: 
+title: Events
+description: This section includes examples of how to use the REST API to find events from Octopus.
+position: 60
 ---
 
-You can use the REST API to review events on Octopus Deploy.  Typical tasks might include:
+You can use the REST API to review events on Octopus Deploy. Typical tasks might include:
 
-- Getting events by date.
+- Finding events by date.
+- Finding events which were deployed by a certain user.
