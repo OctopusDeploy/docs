@@ -8,3 +8,4 @@ You can use the REST API to create and manage your Octopus [releases](/docs/rele
 - Creating a release.
 - Deleting releases for a project.
 - Update a release variable snapshot.
+- Creating a release with a specific version.
