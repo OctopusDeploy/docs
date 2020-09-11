@@ -106,7 +106,6 @@ try
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
-    Console.ReadLine();
     return;
 }
 ```
