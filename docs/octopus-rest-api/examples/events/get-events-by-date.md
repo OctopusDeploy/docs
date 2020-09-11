@@ -1,9 +1,9 @@
 ---
-title: Create feed
-description: An example script that creates a nuget feed in Octopus.
+title: Retrieve events by date
+description: An example script that retrieve events by date using the REST API and Octopus.Client in Octopus.
 ---
 
-This script demonstrates how to programmatically get events by date.
+This script demonstrates how to programmatically retrieve events by date.
 
 ## Usage
 
