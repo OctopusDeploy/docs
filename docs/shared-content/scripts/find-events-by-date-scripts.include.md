@@ -1,7 +1,7 @@
 ```powershell PowerShell (REST API)
 # Define working variables
 $octopusURL = "http://octotemp"
-$octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY"
+$octopusAPIKey = "API-APIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $eventDate = "9/9/2020"
 
@@ -30,7 +30,7 @@ Add-Type -Path "c:\octopus.client\Octopus.Client.dll"
 
 # Octopus variables
 $octopusURL = "http://octotemp"
-$octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY"
+$octopusAPIKey = "API-APIKEY"
 $spaceName = "default"
 $eventDate = "9/9/2020"
 
