@@ -1,6 +1,6 @@
 ---
 title: Delete projects with no process 
-description: An example script that deletes projects that have no deployment process using the REST API and Octopus.Client in Octopus.
+description: An example script that deletes projects that have no deployment process in Octopus using the REST API and Octopus.Client.
 ---
 
 This script demonstrates how to programmatically delete projects with no deployment process in Octopus Deploy.

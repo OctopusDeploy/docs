@@ -1,6 +1,6 @@
 ---
 title: Find events by date
-description: An example script that finds events by date using the REST API and Octopus.Client in Octopus.
+description: An example script that finds events by date in Octopus using the REST API and Octopus.Client.
 ---
 
 This script demonstrates how to programmatically finds events for a specific date.
