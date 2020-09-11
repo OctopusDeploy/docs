@@ -11,3 +11,4 @@ You can use the REST API to create and manage your Octopus [projects](/docs/proj
   - where they have a manual intervention step.
   - where they have a specific package referenced.
 - Deleting a project.
+- Deleting projects with empty processes.
