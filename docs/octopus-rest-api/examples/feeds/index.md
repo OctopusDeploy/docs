@@ -8,3 +8,4 @@ You can use the REST API to create and manage your [package repositories](/docs/
 
 - Creating a new feed.
 - Modifying an existing feed.
+- Push a package to the built-in feed.
