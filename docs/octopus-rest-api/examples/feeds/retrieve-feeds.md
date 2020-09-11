@@ -1,5 +1,5 @@
 ---
-title: Get all feeds
+title: Retrieve all feeds
 description: An example script that retrieves all feeds in Octopus.
 ---
 
