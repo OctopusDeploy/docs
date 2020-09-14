@@ -1,6 +1,6 @@
 ---
 title: Remove project from team
-description: An example script that removes a project from a team.
+description: An example script that upgrades a list of deployment targets.
 ---
 
 This script demonstrates how to programmatically upgrade deployment targets.
