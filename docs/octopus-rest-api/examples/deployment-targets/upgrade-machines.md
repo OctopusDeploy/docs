@@ -13,3 +13,7 @@ Provide values for:
 - Octopus API Key
 - Name of the space to work with
 - Array of machine names
+
+## Scripts
+
+!include <upgrade-machines-scripts>
