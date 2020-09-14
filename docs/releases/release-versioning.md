@@ -85,3 +85,11 @@ This can be achieved using the following expression:
 #{Octopus.Version.NextRevision}
 #{/if}#{/if}
 ```
+
+The expression above is equivalent to:
+
+```
+#{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i
+```
+
+The difference is that the `i` is not replaced until the release is saved where the complex expression will show the next increment number before it is saved.
