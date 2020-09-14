@@ -11,6 +11,7 @@ Provide values for:
 
 - Octopus URL
 - Octopus API Key
+- Name of the space to use
 - Name of the tenant to create
 - A list of Project names to connect the new tenant with
 - A list of Environment names to connect the new tenant with
