@@ -57,3 +57,31 @@ These take the form:
 Octopus.Date.(Day|Month|Year|DayOfYear)
 Octopus.Time.(Hour|Minute|Second)
 ```
+
+## Complex Expressions
+
+The full power of the [Octopus variable syntax](/docs/projects/variables/variable-substitutions.md#complex-syntax) (powered by [Octostache](https://github.com/OctopusDeploy/Octostache)) is available in version templates.  In particular, [conditional expressions](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Conditionalsconditionals) can be used to model some complex scenarios. 
+
+### Example: Date with incrementing revision
+
+A relatively common versioning scheme is: 
+
+```
+YEAR.MONTH.DAY.REVISION
+```
+
+where `REVISION` starts at 0 each day and increments with each release. i.e. The releases on one day might be `2020.10.2.0`, `2020.10.2.1`, `2020.10.2.2` ... and the following day may be: `2020.10.3.0`, `2020.10.3.1` etc.   
+
+This can be achieved using the following expression:
+
+```
+#{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.
+#{if Octopus.Date.Day==Octopus.Version.LastPatch}
+#{Octopus.Version.NextRevision}
+#{else}
+#{if Octopus.Version.LastRevision!=0}
+0
+#{else}
+#{Octopus.Version.NextRevision}
+#{/if}#{/if}
+```
