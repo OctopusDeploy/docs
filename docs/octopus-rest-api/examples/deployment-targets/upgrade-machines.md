@@ -1,5 +1,5 @@
 ---
-title: Remove project from team
+title: Upgrade targets
 description: An example script that upgrades a list of deployment targets.
 ---
 
