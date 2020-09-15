@@ -1,5 +1,5 @@
 ---
-title: Add environment to team
+title: Add environment to a team
 description: An example script that adds an environment to a team user role.
 ---
 
@@ -16,6 +16,6 @@ Provide values for:
 - Name of the user role
 - Array of environment names
 
-## Scripts
+## Script
 
 !include <add-environment-to-team-scripts>

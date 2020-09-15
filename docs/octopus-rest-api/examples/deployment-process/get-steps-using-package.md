@@ -1,6 +1,6 @@
 ---
-title: Get all steps using package
-description: Example scripts to find all steps which reference a specific package.
+title: Get all steps that use a package
+description: Example scripts to find all steps that reference a specific package.
 
 ---
 
@@ -15,6 +15,6 @@ Provide values for:
 - Name of the space to search
 - The package ID to search for
 
-## Scripts
+## Script
 
 !include <get-steps-using-package-scripts>
