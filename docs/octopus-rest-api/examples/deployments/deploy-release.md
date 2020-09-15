@@ -16,6 +16,6 @@ Provide values for:
 - Environment Name
 - Release Version
 
-## Scripts
+## Script
 
 !include <deploy-release-scripts>

@@ -16,6 +16,6 @@ Provide values for the following:
 **This script will delete deployment targets matching the specified role. This operation is destructive and cannot be undone.**
 :::
 
-## Scripts
+## Script
 
 !include <delete-targets-by-role-scripts>

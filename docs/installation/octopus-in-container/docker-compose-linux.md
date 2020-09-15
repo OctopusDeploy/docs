@@ -121,4 +121,4 @@ Run the same `docker-compose` command as provided above, and Docker will detect 
 ## Learn more
 
  - [Docker blog posts](http://octopus.com/blog/tag/docker)
- - [Linux blog posts](https://octopus.com/blog/linux)
+ - [Linux blog posts](https://octopus.com/blog/tag/linux)

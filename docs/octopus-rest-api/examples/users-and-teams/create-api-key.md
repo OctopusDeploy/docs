@@ -1,5 +1,5 @@
 ---
-title: Create API Key
+title: Create an API Key
 description: An example script that creates an API Key.
 ---
 
@@ -18,6 +18,6 @@ Provide values for:
 - Name of the user to create the API Key for
 - Description of the API Key's purpose
 
-## Scripts
+## Script
 
 !include <create-api-key-scripts>

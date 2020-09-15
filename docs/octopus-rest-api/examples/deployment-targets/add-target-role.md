@@ -1,5 +1,5 @@
 ---
-title: Add target role
+title: Add a target role
 description: An example script that adds a target role to a deployment target.
 ---
 
@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the machine to update
 - Name of the target role to add
 
-## Scripts
+## Script
 
 !include <add-target-role-scripts>

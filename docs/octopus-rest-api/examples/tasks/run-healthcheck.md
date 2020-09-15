@@ -1,5 +1,5 @@
 ---
-title: Run health check
+title: Run a health check
 description: An example script that creates and runs a health check task.
 ---
 
