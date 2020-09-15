@@ -1,5 +1,5 @@
 ---
-title: Create release with specific version
+title: Create a release with specific version
 description: An example script that creates a release with a specific version number.
 ---
 

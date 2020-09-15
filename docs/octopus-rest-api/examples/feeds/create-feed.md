@@ -1,5 +1,5 @@
 ---
-title: Create feed
+title: Create a feed
 description: An example script that creates a nuget feed in Octopus.
 ---
 

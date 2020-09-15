@@ -1,5 +1,5 @@
 ---
-title: Add environment to step
+title: Add an environment to step
 description: An example script that scopes a step to an environment.
 ---
 

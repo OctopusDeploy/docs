@@ -1,5 +1,5 @@
 ---
-title: Delete feed
+title: Delete a feed
 description: An example script that deletes an existing feed in Octopus using the REST API and Octopus.Client.
 ---
 

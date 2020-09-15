@@ -1,5 +1,5 @@
 ---
-title: Create project
+title: Create a project
 description: An example script that creates a project.
 ---
 

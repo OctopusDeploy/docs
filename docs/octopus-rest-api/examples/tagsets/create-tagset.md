@@ -1,5 +1,5 @@
 ---
-title: Create tag set
+title: Create a tag set
 description: An example script that creates a Tenant tag set.
 ---
 

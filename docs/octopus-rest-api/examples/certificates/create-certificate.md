@@ -1,5 +1,5 @@
 ---
-title: Add a certificate
+title: Create a certificate
 description: An example script to add a certificate to the Octopus certificate library.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Create tenant
+title: Create a tenant
 description: An example script that creates a tenant.
 ---
 

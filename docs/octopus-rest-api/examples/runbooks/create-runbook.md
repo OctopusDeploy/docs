@@ -1,5 +1,5 @@
 ---
-title: Create runbook
+title: Create a runbook
 description: An example script that creates a runbook.
 ---
 
