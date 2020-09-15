@@ -13,6 +13,6 @@ Provide values for the following:
 - Name of the space to work with
 - Name of the user role
 
-## Scripts
+## Script
 
 !include <find-teams-with-role-scripts>
