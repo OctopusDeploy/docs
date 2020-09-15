@@ -92,7 +92,7 @@ catch (Exception ex)
     return;
 }
 ```
-```python python3
+```python Python3
 import json
 import requests
 
