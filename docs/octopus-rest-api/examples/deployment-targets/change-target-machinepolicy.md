@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the machine to update
 - Name of the machine policy to update to
 
-## Scripts
+## Script
 
 !include <change-machine-machinepolicy-scripts>

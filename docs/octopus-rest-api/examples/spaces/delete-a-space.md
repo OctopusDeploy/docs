@@ -17,6 +17,6 @@ Provide values for:
 **Be very careful when deleting a Space. This operation is destructive and cannot be undone.**
 :::
 
-## Scripts
+## Script
 
 !include <delete-a-space-scripts>

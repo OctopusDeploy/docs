@@ -1,6 +1,6 @@
 ---
 title: Deploy existing release
-description: Example scripts to deploy an existing release.
+description: An example script to deploy an existing release.
 ---
 
 This script demonstrates how to programmatically deploy an existing release.

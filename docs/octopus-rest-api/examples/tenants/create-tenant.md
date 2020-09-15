@@ -17,6 +17,6 @@ Provide values for:
 - A list of Environment names to connect the new tenant with
 - A list of Tenant tags to use with the new tenant
 
-## Scripts
+## Script
 
 !include <create-a-tenant-scripts>

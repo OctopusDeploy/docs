@@ -3,7 +3,7 @@ title: Add an Azure Web App
 description: An example script to add an Azure Web App as a deployment target.
 ---
 
-This script demonstrate how to programmatically add an Azure Web App as a deployment target.
+This script demonstrates how to programmatically add an Azure Web App as a deployment target.
 
 ## Usage
 
@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the Azure Web App
 - Name of the Azure Resource Group
 
-## Scripts
+## Script
 
 !include <add-azure-web-app-scripts>

@@ -17,6 +17,6 @@ Provide values for the following:
 - An array of environments for the Tentacle
 - An array of roles for the Tentacle
 
-## Scripts
+## Script
 
 !include <register-listening-tentacle-scripts>

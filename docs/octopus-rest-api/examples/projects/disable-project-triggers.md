@@ -13,6 +13,6 @@ Provide values for the following:
 - Name of the space to use
 - Name of the project
 
-## Scripts
+## Script
 
 !include <disable-project-triggers-scripts>

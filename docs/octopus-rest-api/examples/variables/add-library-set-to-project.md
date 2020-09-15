@@ -1,7 +1,6 @@
 ---
 title: Add library set to a project
 description: An example script that adds a library variable set to a project.
-
 ---
 
 This script demonstrates how to programmatically add a library variable set to a project.
@@ -15,6 +14,6 @@ Provide values for the following::
 - Name of the project
 - Name of the library set
 
-## Scripts
+## Script
 
 !include <add-library-set-to-project-scripts>

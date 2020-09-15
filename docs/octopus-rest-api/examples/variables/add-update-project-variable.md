@@ -1,7 +1,6 @@
 ---
 title: Add or update project variable
 description: An example script that adds or updates a project variable.
-
 ---
 
 This script demonstrates how to programmatically add or update a project variable.
@@ -20,6 +19,6 @@ Provide values for the following:
   - Variable type
   - If the variable is sensitive 
 
-## Scripts
+## Script
 
 !include <add-update-project-variable-scripts>

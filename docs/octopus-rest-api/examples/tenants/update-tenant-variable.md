@@ -16,6 +16,6 @@ Provide values for:
 - Name of the Project template
 - The new variable value
 
-## Scripts
+## Script
 
 !include <update-tenant-variable-scripts>

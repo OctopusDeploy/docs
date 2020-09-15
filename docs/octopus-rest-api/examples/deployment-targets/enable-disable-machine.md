@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the machine
 - Boolean value for enabled
 
-## Scripts
+## Script
 
 !include <enable-disable-machine-scripts>
