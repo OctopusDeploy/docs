@@ -14,7 +14,7 @@ try
     # Get feedID
     $feed = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/feeds/all" -Headers $header) | Where-Object {$_.Name -eq $feedName}
     $feedID = $feed.Id
-    
+
     # Delete Feed
     Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/feeds/$feedID" -Headers $header -Method Delete
 }
@@ -79,10 +79,10 @@ try
     // Get space
     var space = repository.Spaces.FindByName(spaceName);
     var repositoryForSpace = client.ForSpace(space);
-    
+
     // Get Feed
     var feed = repositoryForSpace.Feeds.FindByName(feedName);
-    
+
     // Delete feed
     repositoryForSpace.Feeds.Delete(feed);
 }
@@ -91,4 +91,33 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
     return;
 }
+```
+```python python3
+import json
+import requests
+
+octopus_server_uri = 'https://your.octopus.app/api'
+octopus_api_key = 'API-YOURAPIKEY'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+
+space_name = "Default"
+feed_name = "nuget.org"
+
+uri = '{0}/spaces/all'.format(octopus_server_uri)
+response = requests.get(uri, headers=headers)
+response.raise_for_status()
+
+spaces = json.loads(response.content.decode('utf-8'))
+space = next((x for x in spaces if x['Name'] == space_name), None)
+
+uri = '{0}/{1}/feeds/all'.format(octopus_server_uri, space['Id'])
+response = requests.get(uri, headers=headers)
+response.raise_for_status()
+
+feeds = json.loads(response.content.decode('utf-8'))
+feed = next((x for x in feeds if x['Name'] == feed_name), None)
+
+uri = '{0}/{1}/feeds/{2}'.format(octopus_server_uri, space['Id'], feed['Id'])
+response = requests.delete(uri, headers=headers)
+response.raise_for_status()
 ```
