@@ -47,6 +47,6 @@ Adam Close
 External security groups:  
 TestDomain\SpecialGroup  
 
-## Scripts
+## Script
 
 !include <list-users-with-role-scripts>

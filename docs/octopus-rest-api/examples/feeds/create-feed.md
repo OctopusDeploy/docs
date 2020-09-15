@@ -1,9 +1,9 @@
 ---
-title: Create feed
+title: Create a feed
 description: An example script that creates a nuget feed in Octopus.
 ---
 
-These scripts show how to programmatically create a NuGet external feed in Octopus.
+This script demonstrates how to programmatically create a NuGet external feed in Octopus.
 
 ## Usage
 

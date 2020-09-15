@@ -18,6 +18,6 @@ Provide values for the following:
 **This script will delete deployment targets which match the specified name. This operation is destructive and cannot be undone.**
 :::
 
-## Scripts
+## Script
 
 !include <delete-targets-by-name-scripts>

@@ -19,6 +19,6 @@ Provide values for:
 - Environments
 - A combination of Manager Teams and Manager Team Members
 
-## Scripts
+## Script
 
 !include <add-a-space-with-environments-scripts>

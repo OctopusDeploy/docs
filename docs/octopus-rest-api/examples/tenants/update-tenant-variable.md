@@ -1,5 +1,5 @@
 ---
-title: Update tenant variable
+title: Update tenant variables
 description: An example script that updates tenant variables for a specific project tenplate with a single value across each connected environment in Octopus using the REST API and Octopus.Client.
 ---
 
@@ -16,6 +16,6 @@ Provide values for:
 - Name of the Project template
 - The new variable value
 
-## Scripts
+## Script
 
 !include <update-tenant-variable-scripts>

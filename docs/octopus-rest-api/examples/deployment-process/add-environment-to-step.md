@@ -1,7 +1,6 @@
 ---
-title: Add environment to step
+title: Add an environment to step
 description: An example script that scopes a step to an environment.
-
 ---
 
 This script demonstrates how to programmatically add an environment scope to an existing step so that it only runs in specific environments.
@@ -17,6 +16,6 @@ Provide values for:
 - List of environments to add to the step
 - Name of project to modify
 
-## Scripts
+## Script
 
 !include <add-environment-to-step-scripts>

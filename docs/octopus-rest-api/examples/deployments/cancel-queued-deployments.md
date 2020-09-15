@@ -12,6 +12,6 @@ Provide values for the following
 - Octopus API Key
 - Name of the space to work with
 
-## Scripts
+## Script
 
 !include <cancel-queued-deployments-scripts>

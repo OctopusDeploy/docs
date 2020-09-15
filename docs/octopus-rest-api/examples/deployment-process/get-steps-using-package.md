@@ -1,7 +1,6 @@
 ---
 title: Get all steps that use a package
-description: Example scripts to find all steps that reference a specific package.
-
+description: An example script to find all steps that reference a specific package.
 ---
 
 This script displays all projects in a space that reference the specified package.

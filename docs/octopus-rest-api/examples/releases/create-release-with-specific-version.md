@@ -1,5 +1,5 @@
 ---
-title: Create release with specific version
+title: Create a release with specific version
 description: An example script that creates a release with a specific version number.
 ---
 
@@ -15,6 +15,6 @@ Provide values for the following:
 - Name of the channel
 - Version number of the release to create
 
-## Scripts
+## Script
 
 !include <create-release-with-version-scripts>

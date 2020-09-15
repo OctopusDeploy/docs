@@ -14,6 +14,6 @@ Provide values for:
 - Name of the space to work with
 - Array of machine names
 
-## Scripts
+## Script
 
 !include <upgrade-machines-scripts>

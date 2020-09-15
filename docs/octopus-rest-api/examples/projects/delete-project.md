@@ -1,5 +1,5 @@
 ---
-title: Delete project
+title: Delete a project
 description: An example script that deletes a project.
 ---
 
