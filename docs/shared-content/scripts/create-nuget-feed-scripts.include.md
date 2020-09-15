@@ -166,7 +166,7 @@ octopus_server_uri = 'https://your.octopus.app/api'
 octopus_api_key = 'API-YOURAPIKEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 
-space_name = "Default"
+space_name = 'Default'
 
 feed = {
     'Id': None,
