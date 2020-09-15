@@ -152,7 +152,7 @@ try
     var space = repository.Spaces.FindByName(spaceName);
     var repositoryForSpace = client.ForSpace(space);
 
-    // Loop through projets
+    // Loop through projects
     foreach (var project in repositoryForSpace.Projects.GetAll())
     {
         var variableSet = repositoryForSpace.VariableSets.Get(project.VariableSetId);
