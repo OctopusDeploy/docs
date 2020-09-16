@@ -2,6 +2,7 @@
 title: API examples
 description: A set of examples using the Octopus REST API to accomplish tasks.
 position: 40
+hideInThisSectionHeader: true
 ---
 
 As you work with the Octopus API, you may need some guidance on how to perform certain actions or what parameters to provide. The [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api) contains many examples using the API, with solutions covering:
@@ -32,3 +33,7 @@ Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) 
 ### Python examples
 
 The Python examples are written using Python 3 and use the [Requests](https://requests.readthedocs.io/en/master/) library.
+
+## Explore examples
+
+Explore the REST API examples further in this section:
