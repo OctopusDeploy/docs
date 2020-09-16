@@ -12,7 +12,7 @@ Before you can configure the SSH key pair account in Octopus, you need to genera
 
 ### Generating a key pair on Linux {#SSHKeyPair-Linux}
 
-1. Run the following command on your Linux server: `ssh-keygen`
+1. Run the following command on your Linux server: `ssh-keygen -m PEM`
 1. Accept the default location: `~/.ssh/id_rsa`
 1. Enter a passphrase (or press enter for no passphrase).
 1. If you entered a passphrase, re-enter the passphrase.
