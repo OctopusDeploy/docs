@@ -2,16 +2,11 @@
 title: Database examples
 description: Examples of using Runbooks to help automate database maintenance.
 position: 30
-hideInThisSection: true
+hideInThisSectionHeader: true
 ---
 
 Octopus is great for automating your database deployments, but databases also need routine maintenance, and Runbooks can be used to automate this without creating new deployment releases. 
 
-Typical database maintenance could be:
+## Learn more
 
-- [Database Backups](/docs/runbooks/runbook-examples/databases/backup-mssql-database.md)
-- Creating Databases 
-- Index rebuilding 
-- Checking Database integrity
-- [Restoring Databases](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md)
-- [Restoring Databases to another environment](/docs/runbooks/runbook-examples/databases/restore-mssql-database.md)
+Typical database tasks could include:
