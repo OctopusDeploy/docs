@@ -91,7 +91,7 @@ Note that project leads can create releases but not deploy them, while project d
 The roles assigned by a team can be scoped by project or environment.
 
 :::hint
-You can learn more about in our [User Roles documentation](/docs/security/users-and-teams/user-roles.md)
+You can learn more about User Roles in our [documentation](/docs/security/users-and-teams/user-roles.md).
 :::
 
 ## System teams {#Managingusersandteams-Systemteams}
