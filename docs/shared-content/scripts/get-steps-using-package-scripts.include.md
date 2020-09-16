@@ -162,11 +162,11 @@ for project in projects:
     for step in process['Steps']:
         packages = [package for action in step['Actions'] for package in action['Packages']]
 
-        if (packages is None):
+        if packages is None:
             continue
 
         ids = [package['PackageId'] for package in packages]
 
-        if (package_id in ids):
+        if package_id in ids:
             print('Step \'{0}\' of project \'{1}\' is using package \'{2}\''.format(step['Name'], project['Name'], package_id))
 ```
