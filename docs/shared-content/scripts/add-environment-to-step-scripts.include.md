@@ -173,17 +173,13 @@ environments = []
 spaces = get_octopus_resource('{0}/spaces/all'.format(octopus_server_uri))
 space = next((x for x in spaces if x['Name'] == space_name), None)
 
-environments = get_octopus_resource(
-    '{0}/{1}/environments/all'.format(octopus_server_uri, space['Id']))
-environments = [e['Id']
-                for e in environments if e['Name'] in environment_names]
+environments = get_octopus_resource('{0}/{1}/environments/all'.format(octopus_server_uri, space['Id']))
+environments = [e['Id'] for e in environments if e['Name'] in environment_names]
 
-projects = get_octopus_resource(
-    '{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']))
+projects = get_octopus_resource('{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']))
 project = next((x for x in projects if x['Name'] == project_name), None)
 
-uri = '{0}/{1}/deploymentprocesses/{2}'.format(
-    octopus_server_uri, space['Id'], project['DeploymentProcessId'])
+uri = '{0}/{1}/deploymentprocesses/{2}'.format(octopus_server_uri, space['Id'], project['DeploymentProcessId'])
 process = get_octopus_resource(uri)
 step = next((s for s in process['Steps'] if s['Name'] == step_name), None)
 
