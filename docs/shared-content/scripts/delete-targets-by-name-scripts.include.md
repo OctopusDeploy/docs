@@ -12,8 +12,8 @@ try
     $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
     # Get machine list
-    $targetList = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/machines?name=$machineName&skip=0&take=1000" -Headers $header) 
-    
+    $targetList = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/machines?name=$machineName&skip=0&take=1000" -Headers $header)
+
     # Loop through list
     foreach ($target in $targetList.Items)
     {
@@ -100,4 +100,35 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
     return;
 }
+```
+```python Python3
+import json
+import requests
+
+octopus_server_uri = 'https://your.octopus.app/api'
+octopus_api_key = 'API-YOURAPIKEY'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+
+
+def get_octopus_resource(uri):
+    response = requests.get(uri, headers=headers)
+    response.raise_for_status()
+
+    return json.loads(response.content.decode('utf-8'))
+
+
+def get_by_name(uri, name):
+    resources = get_octopus_resource(uri)
+    return next((x for x in resources if x['Name'] == name), None)
+
+
+space_name = 'Default'
+target_name = 'Your Target Name'
+
+space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
+target = get_by_name('{0}/{1}/machines/all'.format(octopus_server_uri, space['Id']), target_name)
+
+uri = '{0}/{1}/machines/{2}'.format(octopus_server_uri, space['Id'], target['Id'])
+response = requests.delete(uri, headers=headers)
+response.raise_for_status()
 ```
