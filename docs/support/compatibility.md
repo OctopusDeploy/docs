@@ -43,14 +43,16 @@ We recommend using an up to date version of Windows Server for Octopus which is 
 
 We recommend using an up to date version of SQL Server for Octopus which is generally one of the last versions of SQL Server for security, and performance benefits. The table below outlines the backward compatibility of Octopus and SQL Server editions.
 
-:::hint
-We'd recommend checking Microsofts documentation on supported Operating Systems for SQL Server versions. As an example, SQL Server 2005 is only supported on Windows Server 2008 and 2008 R2 and we do not recommend this version.
-:::
-
 | Octopus Server    | Minimum SQL Server version          | Azure SQL
 | --------------    | ----------------------------------- |----------   |
-| 2020.1  ➜ latest  | SQL Server 2017+                    | Supported   |
+| 2020.1.x ➜ Latest | SQL Server 2016+                    | Supported   |
 | 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
+
+:::hint
+The following versions of Octopus have a requirement for SQL Server 2017+. This requirement has been relaxed to SQL Server 2016+ with any patch version later than specified in this note.
+2020.2.1 ➜ 2020.2.18
+2020.3.1 ➜ 2020.3.5
+:::
 
 :::hint
 In **{{Octopus 1.0, 2.6.5}}** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0** and you can read more about it on our [blog](https://octopus.com/blog/3.0-switching-to-sql).
