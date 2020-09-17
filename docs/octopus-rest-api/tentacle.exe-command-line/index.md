@@ -9,7 +9,7 @@ hideInThisSection: true
 
 ## Commands {#tentacleCommandLine-Commands}
 
-Tentacle supports the following commands:
+`tentacle` supports the following commands:
 
 - **[agent](/docs/octopus-rest-api/tentacle.exe-command-line/agent.md)**:  Starts the Tentacle Agent in debug mode.
 - **[checkservices](/docs/octopus-rest-api/tentacle.exe-command-line/checkservices.md)**:  Checks the Tentacle instances are running.
