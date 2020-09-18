@@ -713,7 +713,7 @@ docs/deployment-process/channels/index.md -> docs/releases/channels/index.md
 docs/getting-started/getting-started-guides.md -> docs/getting-started-guides/index.md
 docs/getting-started/octopus-concepts/configuration-features.md -> docs/deployment-process/configuration-features/index.md
 docs/getting-started/octopus-concepts/health-checks.md -> docs/getting-started-guides/octopus-concepts/health-checks.md
-docs/getting-started/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli.md
+docs/getting-started/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/getting-started/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md
 docs/getting-started/octopus-concepts/rest-api.md -> docs/octopus-rest-api/index.md
 docs/getting-started/octopus-concepts/runbooks.md -> docs/getting-started-guides/octopus-concepts/runbooks.md
