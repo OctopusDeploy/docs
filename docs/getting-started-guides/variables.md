@@ -3,6 +3,9 @@ title: Variables
 description: Octopus allows you to define variables and scope them for use in different phases of your deployments.
 position: 20950
 ---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hd71uhcD61E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 !include <variables>
 
 ## Learn more

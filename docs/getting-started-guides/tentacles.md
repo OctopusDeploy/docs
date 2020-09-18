@@ -4,6 +4,8 @@ description: Octopus Deploy communicates with Tentacles installed on Windows and
 position: 75
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v6621BId7fE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 When you use Octopus Deploy to deploy software to Windows or Linux servers, the Octopus Server communicates with Tentacles installed on those servers. The Tentacles perform the tasks necessary to deploy the software.
 
 Windows Tentacles are a lightweight agent service and Linux Tentacles are a .NET Core application.
