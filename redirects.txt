@@ -779,3 +779,4 @@ docs/octopus-rest-api/examples/users/list-users-with-role.md -> docs/octopus-res
 docs/octopus-rest-api/examples/feeds/get-feeds.md -> docs/octopus-rest-api/examples/feeds/retrieve-feeds.md
 docs/getting-started-guides/octopus-concepts/configuration-features.md -> docs/deployment-process/configuration-features/index.md
 docs/getting-started-guides/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli/index.md
+docs/getting-started-guides/octopus-concepts/rest-api.md -> docs/octopus-rest-api/octopus-rest-api/index.md
