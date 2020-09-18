@@ -676,7 +676,7 @@ docs/octopus-concepts/configuration-features.md -> docs/deployment-process/confi
 docs/octopus-concepts/deployment-process.md -> docs/getting-started-guides/deployment-process.md
 docs/octopus-concepts/deployment-targets.md -> docs/getting-started-guides/deployment-targets.md
 docs/octopus-concepts/environments.md -> docs/getting-started-guides/environments.md
-docs/octopus-concepts/health-checks.md -> docs/getting-started-guides/octopus-concepts/health-checks.md
+docs/octopus-concepts/health-checks.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/octopus-concepts/lifecycle.md -> docs/getting-started-guides/lifecycle.md
 docs/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/octopus-concepts/octopus-cloud.md -> docs/octopus-cloud/index.md
@@ -712,7 +712,7 @@ docs/runbooks/runbook-examples/aws/destroy-stack.md -> docs/runbooks/runbook-exa
 docs/deployment-process/channels/index.md -> docs/releases/channels/index.md
 docs/getting-started/getting-started-guides.md -> docs/getting-started-guides/index.md
 docs/getting-started/octopus-concepts/configuration-features.md -> docs/deployment-process/configuration-features/index.md
-docs/getting-started/octopus-concepts/health-checks.md -> docs/getting-started-guides/octopus-concepts/health-checks.md
+docs/getting-started/octopus-concepts/health-checks.md -> docs/infrastructure/deployment-targets/machine-policies/health-checks.md
 docs/getting-started/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/getting-started/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md
 docs/getting-started/octopus-concepts/rest-api.md -> docs/octopus-rest-api/index.md
