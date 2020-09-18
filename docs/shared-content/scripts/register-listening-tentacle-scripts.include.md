@@ -58,8 +58,6 @@ $hostName = "MyHost"
 $tentaclePort = "10933"
 $environmentNames = @("Development", "Production")
 $roles = @("MyRole")
-$environmentIds = @()
-
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
