@@ -22,7 +22,7 @@ try
     }
 
     # Discover new target
-    $newTarget = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/machines/discover?host=$hostName&port=$tenctaclePort&type=TentaclePassive" -Headers $header
+    $newTarget = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/machines/discover?host=$hostName&port=$tentaclePort&type=TentaclePassive" -Headers $header
 
     # Create JSON payload
     $jsonPayload = @{
@@ -54,7 +54,6 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $spaceName = "default"
-$communicationsStyle = "TentaclePassive" # Listening mode
 $hostName = "MyHost"
 $tentaclePort = "10933"
 $environmentNames = @("Development", "Production")
