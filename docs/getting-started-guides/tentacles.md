@@ -1,7 +1,7 @@
 ---
 title: Tentacles
 description: Octopus Deploy communicates with Tentacles installed on Windows and Linux servers to deploy your software.
-position: 181
+position: 75
 ---
 
 When you use Octopus Deploy to deploy software to Windows or Linux servers, the Octopus Server communicates with Tentacles installed on those servers. The Tentacles perform the tasks necessary to deploy the software.
