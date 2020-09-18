@@ -557,7 +557,7 @@ docs/release-management/issue-tracking/github.md -> docs/releases/issue-tracking
 docs/release-management/issue-tracking/jira.md -> docs/releases/issue-tracking/jira.md
 docs/installation/octopus-in-container/octopus-server-container.md -> docs/installation/octopus-in-container/octopus-server-container-windows.md
 docs/installation/octopus-in-container/docker-compose.md -> docs/installation/octopus-in-container/docker-compose-windows.md
-docs/octopus-concepts/octo.exe.md -> docs/getting-started-guides/octopus-concepts/octopus-cli.md
+docs/octopus-concepts/octo.exe.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/octopus-rest-api/octo.exe-command-line/build-information.md -> docs/octopus-rest-api/octopus-cli/build-information.md
 docs/octopus-rest-api/octo.exe-command-line/clean-environment.md -> docs/octopus-rest-api/octopus-cli/clean-environment.md
 docs/octopus-rest-api/octo.exe-command-line/clean-workerpool.md -> docs/octopus-rest-api/octopus-cli/clean-workerpool.md
@@ -592,7 +592,7 @@ docs/octopus-rest-api/octo.exe-command-line/push-metadata.md -> docs/octopus-res
 docs/octopus-rest-api/octo.exe-command-line/version.md -> docs/octopus-rest-api/octopus-cli/version.md
 docs/packaging-applications/create-packages/octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
 docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
-docs/octopus-concepts/api.md -> docs/getting-started-guides/octopus-concepts/rest-api.md
+docs/octopus-concepts/api.md -> docs/octopus-rest-api/index.md
 docs/deployment-examples/sql-server-databases -> docs/deployment-examples/database-deployments/index.md
 docs/administration/upgrading/long-term-support.md -> docs/installation/index.md
 docs/octopus-concepts/octopus-deploy-server.md -> docs/getting-started-guides/setup-octopus-deploy.md
@@ -686,7 +686,7 @@ docs/getting-started/octopus-concepts/octopus-web-portal.md -> docs/getting-star
 docs/octopus-concepts/operations-runbooks.md -> docs/getting-started-guides/octopus-concepts/runbooks.md
 docs/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md
 docs/octopus-concepts/releases.md -> docs/getting-started-guides/releases.md
-docs/octopus-concepts/rest-api.md -> docs/getting-started-guides/octopus-concepts/rest-api.md
+docs/octopus-concepts/rest-api.md -> docs/octopus-rest-api/index.md
 docs/octopus-concepts/target-roles.md -> docs/getting-started-guides/deployment-targets.md
 docs/octopus-concepts/tentacles.md -> docs/getting-started-guides/octopus-concepts/tentacles.md
 docs/octopus-concepts/upgrading.md -> docs/getting-started-guides/upgrading.md
@@ -715,7 +715,7 @@ docs/getting-started/octopus-concepts/configuration-features.md -> docs/deployme
 docs/getting-started/octopus-concepts/health-checks.md -> docs/getting-started-guides/octopus-concepts/health-checks.md
 docs/getting-started/octopus-concepts/octopus-cli.md -> docs/getting-started-guides/octopus-concepts/octopus-cli.md
 docs/getting-started/octopus-concepts/projects.md -> docs/getting-started-guides/projects.md
-docs/getting-started/octopus-concepts/rest-api.md -> docs/getting-started-guides/octopus-concepts/rest-api.md
+docs/getting-started/octopus-concepts/rest-api.md -> docs/octopus-rest-api/index.md
 docs/getting-started/octopus-concepts/runbooks.md -> docs/getting-started-guides/octopus-concepts/runbooks.md
 docs/getting-started/octopus-concepts/tentacles.md -> docs/getting-started-guides/octopus-concepts/tentacles.md
 docs/getting-started/octopus-concepts/variables.md -> docs/getting-started-guides/octopus-concepts/variables.md
