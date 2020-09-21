@@ -87,7 +87,7 @@ Octopus.updateProgress 50 "Woah, we're halfway there!"
 ```
 ```python Python3
 updateprogress(10)
-updateprogress(50, 'Woah, we're halfway there!')
+updateprogress(50, 'Woah, we\'re halfway there!')
 ```
 
 ## Service message
