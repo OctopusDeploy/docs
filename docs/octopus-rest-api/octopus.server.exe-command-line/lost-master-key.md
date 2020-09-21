@@ -4,7 +4,11 @@ description: Get your Octopus Server working again after losing your Master Key
 position: 122
 ---
 
-Get your Octopus Server working again after losing your Master Key
+Get your Octopus Server working again after losing your Master Key.
+
+:::warning
+Before using this command, we recommend taking a look at our [guide on recovering after losing your master key](/docs/administration/managing-infrastructure/lost-master-key.md).
+:::
 
 **lost-master-key options**
 
@@ -41,3 +45,15 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example will re-create the master key for the instance named `OctopusServer`.
+
+:::problem
+**Please note:**
+The command below will replace the existing Master Key with a newly generated Master Key, and **reset all sensitive data** in the Octopus instance - be sure you have taken a database backup before running this.
+:::
+
+```text
+octopus.server lost-master-key --instance="OctopusServer" --iReallyWantToResetAllMySensitiveData --iHaveBackedUpMyDatabase
+```
