@@ -65,6 +65,31 @@ Highlight messages will be show in bold and blue in the task log. They will also
 
 Wait log messages will be show in a different color in the log. Their primary use is to show when the deployment is waiting for something to occur (eg acquire a lock). We intend to use this message in the future to show a visual representation of your deployment progress. You can log your own wait messages, to indicate the deployment is paused in preparation for this. A wait is considered over when another log message of a different level is written.
 
+## Progress log level
+
+Progress messages will display and update a progress bar on your deployment tasks while they are running. You can provide the percentage complete and an optional message to display with the progress bar.
+
+```ps PowerShell
+Update-Progress 10
+Update-Progress 50 "Woah, we're halfway there!"
+```
+```cs C#
+Octopus.UpdateProgress(10);
+Octopus.UpdateProgress(50, "Woah, we're halfway there!");
+```
+```bash Bash
+update_progress 10
+update_progress 50 "Woah, we're halfway there!"
+```
+```fs F#
+Octopus.updateProgress 10
+Octopus.updateProgress 50 "Woah, we're halfway there!"
+```
+```python Python3
+updateprogress(10)
+updateprogress(50, 'Woah, we're halfway there!')
+```
+
 ## Service message
 
 The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines will be treated with the relevant log level.
