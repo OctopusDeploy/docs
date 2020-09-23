@@ -25,6 +25,88 @@ catch
     Write-Host $_.Exception.Message
 }
 ```
+```powershell PowerShell (Octopus.Client)
+# Load octopus.client assembly
+Add-Type -Path "path\to\Octopus.Client.dll"
+
+# Octopus variables
+$octopusURL = "https://your.octopus.app"
+$octopusAPIKey = "API-YOURAPIKEY"
+$spaceName = "Default"
+$packageName = "packageName"
+$packageVersion = "1.0.0.0"
+$outputFolder = "C:\Temp\"
+
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
+$repository = New-Object Octopus.Client.OctopusRepository $endpoint
+$client = New-Object Octopus.Client.OctopusClient $endpoint
+
+try
+{
+    # Get space
+    $space = $repository.Spaces.FindByName($spaceName)
+    $repositoryForSpace = $client.ForSpace($space)
+
+    # Get package
+    $package = $repositoryForSpace = $repositoryForSpace.BuiltInPackageRepository.GetPackage($packageName, $packageVersion)
+
+    # Download Package
+    $filePath = [System.IO.Path]::Combine($outputFolder, "$($package.PackageId).$($package.Version)$($package.FileExtension)")
+    Invoke-RestMethod -Method Get -Uri "$octopusURL/$($package.Links.Raw)" -Headers $header -OutFile $filePath
+    Write-Host "Downloaded file to $filePath"
+}
+catch
+{
+    Write-Host $_.Exception.Message
+}
+```
+```csharp C#
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
+#r "path\to\Octopus.Client.dll"
+
+using Octopus.Client;
+using Octopus.Client.Model;
+
+// Declare working varibles
+var octopusURL = "https://youroctourl";
+var octopusAPIKey = "API-YOURAPIKEY";
+
+string spaceName = "Default";
+string packageName = "packagename";
+string packageVersion = "1.0.0.0";
+string outputFolder = @"C:\Temp\";
+
+octopusURL = octopusURL.TrimEnd('/');
+
+// Create repository object
+var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
+var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
+
+try
+{
+    // Get space
+    var space = repository.Spaces.FindByName(spaceName);
+    var repositoryForSpace = client.ForSpace(space);
+
+    // Get package details
+    var packageDetails = repositoryForSpace.BuiltInPackageRepository.GetPackage(packageName, packageVersion);
+
+    // Download package
+    var webClient = new System.Net.WebClient();
+    webClient.Headers["X-Octopus-ApiKey"] = octopusAPIKey;
+    var uri = new Uri(octopusURL + "/" + packageDetails.Links["Raw"]);
+    var filePath = Path.Combine(outputFolder, string.Format("{0}.{1}{2}", packageName, packageVersion, packageDetails.FileExtension));
+    
+    webClient.DownloadFile(uri, filePath);
+    Console.WriteLine("Downloaded file to {0}", filePath);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    return;
+}
+```
 ```python Python3
 import json
 import requests
