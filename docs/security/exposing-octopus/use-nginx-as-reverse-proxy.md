@@ -82,7 +82,7 @@ server {
 }
 ```
 
-The Dockerfile will copy that template file to `/etc/nginx/templates/defualt.conf.template` and copy in the certificate and key files.  
+The Dockerfile will copy that template file to `/etc/nginx/templates/default.conf.template` and copy in the certificate and key files.  
 
 ```
 FROM nginx:latest
