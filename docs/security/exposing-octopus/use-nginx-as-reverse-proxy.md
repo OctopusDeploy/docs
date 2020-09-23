@@ -60,7 +60,7 @@ http {
 
 ## NGINX hosted in a Docker Container
 
-NGINX 1.19 added support for environment variables.  Instead of modifying the `nginx.conf` file, you'll create a `default.conf.template` file.  The environment variable is ${OCTOPUS_SERVER}.
+NGINX 1.19 added support for environment variables.  Instead of modifying the `nginx.conf` file, you'll create a `default.conf.template` file.  The environment variable is `${OCTOPUS_SERVER}`.  That value will be replaced when the Docker container starts up.
 
 ```
 upstream octopusdeploy {
