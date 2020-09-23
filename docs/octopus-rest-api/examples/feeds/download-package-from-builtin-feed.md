@@ -14,6 +14,7 @@ Provide values for:
 - Name of the space to use
 - Name of the package
 - Version of the package to download
+- The output folder to save the package to
 
 ## Script
 
