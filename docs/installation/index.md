@@ -7,10 +7,6 @@ hideInThisSection: true
 
 !include <octopus-server>
 
-## Releases of Octopus Deploy Server
-
-!include <octopus-releases>
-
 ## Self-hosted Octopus Server
 
 When installed, the self-hosted Octopus Server:
@@ -75,6 +71,10 @@ If you don't have a copy of your Master Key and your hardware fails, you will no
 Click **Open in browser** to launch the **Octopus Web Portal** and log in using the authentication details you set up during the configuration process.
 
 The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, deployment process, access the built-in repository, and manage your deployments and releases.
+
+## Releases of Octopus Deploy Server
+
+!include <octopus-releases>
 
 ## Learn more
 
