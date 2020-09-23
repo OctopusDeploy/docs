@@ -22,7 +22,7 @@ At the end of this walk-through, you should be able to:
 - Communicate with Octopus Deploy over a secure connection.
 - Use NGINX as a load balancer.
 
-Unlike a web server such as Microsoft's Internet Information Services (IIS), NGINX doesn't have a user interface.  All configuration in NGINX is done via a configuration file such as the `nginx.conf` file.  SSL certificate doesn't have to be "installed" in a certificate store.  They are placed in a folder, and the configuration file references them.  See [NGINX's documentation](https://docs.nginx.com/nginx/admin-guide/) for more details.
+Unlike a web server such as Microsoft's Internet Information Services (IIS), NGINX doesn't have a user interface.  All configuration in NGINX is done via a configuration file such as the `nginx.conf` file.  An SSL certificate doesn't have to be "installed" in a certificate store.  They are placed in a folder, and the configuration file references them.  See [NGINX's documentation](https://docs.nginx.com/nginx/admin-guide/) for more details.
 
 ## NGINX hosted on a server
 Follow these steps if you're running NGINX directly on a server, such as Windows or Linux.
