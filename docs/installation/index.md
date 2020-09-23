@@ -13,13 +13,11 @@ When installed, the self-hosted Octopus Server:
 
 - Runs as a Windows service called **OctopusDeploy**.
 - Stores its data in an [SQL Server Database](/docs/installation/sql-server-database.md). ([SQL Server Express](http://downloadsqlserverexpress.com/) is an easy way of getting started.)
-- Has an embedded HTTP server which serves the [Octopus REST API](/docs/octopus-rest-api/index.md) and the  **Octopus Web Portal** that you will use to manage your [infrastructure](/docs/infrastructure/index.md) and [deployments](/docs/deployment-process/index.md).
+- Includes an embedded HTTP server which serves the [Octopus REST API](/docs/octopus-rest-api/index.md) and the  **Octopus Web Portal** that you will use to manage your [infrastructure](/docs/infrastructure/index.md), [deployments](/docs/deployment-process/index.md), [runbooks](/docs/runbooks/index.md), and coordinate your [releases](/docs/releases/index.md).
 
 Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database.md) that you can use with Octopus Deploy.
 
 ## Install Octopus
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6H8g8vFmzWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. [Download](https://octopus.com/downloads/server) the Octopus installer.
 1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
