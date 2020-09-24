@@ -44,20 +44,52 @@ Octopus is built on top of HTTP.sys, the same kernel driver that IIS is built on
 When the link is clicked, it redirects to a page which is configured to tell HTTP.sys to issue the browser challenge. The browser and HTTP.sys negotiate the authentication just like an IIS website would. The user principal is then passed to Octopus. Octopus will then query Active Directory for other information about the user.
 :::
 
-### Using Negotiate to take advantage of Kerberos {#ActiveDirectoryAuthentication-UsingNegotiate}
 
-By default `IntegratedWindowsAuthentication` & `Negotiate` will try to use `Kerberos` first, and then fall back to `NTLM` if it fails.
+### **Kerberos vs NTLM security for AD Authentication** {#ActiveDirectoryAuthentication-NTLMvKerberos}
 
-:::hint
-**Server configuration required**
-Please note that this may require additional configuration to work correctly in your network. Generally, this will require a Service Principal Name (SPN) to be set for the `HTTP` service class, using the machine name. For example, if you have an Octopus Deploy hosted on the `od.mydomain.local` domain name, that is installed on a machine called `winserv2019` then the corresponding SPN will be needed:
+It is possible to use either `NTLM` or `Kerberos` authentication for your Active Directory authentication. By default selecting `IntegratedWindowsAuthentication` & `Negotiate` will result in Octopus Deploy attempting to use `Kerberos` first, and then silently falling back to `NTLM` if `Kerberos` authentication fails. 
+
+Without some additional configuration, AD authentication, whether forms based or integrated, would usually fail on `kerberos` authentication and failback to `NTLM`.
+
+### **Configuring your Domain for Kerberos Authentication** {#ActiveDirectoryAuthentication-ConfiguringKerberos}
+
+The following configuration is required for Kerberos authentication
+- A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus Hosts FQDN and NETBIOS name
+- Included FQDNs of all Octopus Deploy Hosts and Octopus clusters within your trusted sites or Intranet zones
+- Client Machines configured to allow auto logon with current user name and password
+
+
+**SPN Configuration**
+
+Set a `HTTP` service class SPN for the NETBIOS name and FQDN of your OD hosts. For example, if you are hosting `od.mydomain.local` from server `octoserver1` you would require the following registered service principal names for your server.
+```
+HTTP/od
+HTTP/od.mydomain.local
+```
+These can be registered by running the following commands in a elevated command prompt or powershell session.
+
+```
+setspn.exe -S HTTP/od octoserver1
+setspn.exe -S HTTP/od.mydomain.local octoserver1 
+```
+:::note
+Remember if you are running a HA cluster, you will need to add additional SPN entries for each host you are using.  Load Balancer urls are not required to be included as an SPN entry.
 :::
 
-```powershell
-C:\> setspn.exe -S HTTP/od.mydomain.local winserv2019
-```
-
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
+
+**Internet Security Configuration**
+
+Include all FQDNs and cluster hosts within your trusted internet sites. This can be done many ways, including via [Group Policy](https://www.petenetlive.com/KB/Article/0000146), scripting and via [most browsers settings menu](https://www.computerhope.com/issues/ch001952.htm)  
+
+Additionally, it's important to configure client machines to allow auto logon with current user credentials for the trusted internet sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
+
+![Client Security](images/clientsecurity.png "width=500")
+
+**Internet Explorer** go to Tools > Internet Options > Security tab and click Custom level... to configure Security Settings.
+In the Security Settings - Internet Zone window, go to User Authentication > Logon and select Automatic logon with current username and password.
+
+
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 
