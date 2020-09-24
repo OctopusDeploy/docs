@@ -59,6 +59,14 @@ Octopus provides the following filters:
 | [`Substring`](#substring)               | Extracts a range of characters by position        | `Octopus Deploy`        | `Deploy`                         |
 | [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string        | `A b:c+d/e` | `A%20b:c+d/e`       |
 | [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string   | `A b:c+d/e` | `A%20b%3Ac%2Bd%2Fe` |
+| `VersionMajor` <br/>*2020.5.0           | Extracts the major version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `1` |
+| `VersionMinor` <br/>*2020.5.0           | Extracts the minor version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `2` |
+| `VersionPatch` <br/>*2020.5.0           | Extracts the patch version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `3` |
+| `VersionRevision` <br/>*2020.5.0           | Extracts the revision version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `4` |
+| `VersionPreRelease` <br/>*2020.5.0           | Extracts the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `mybranch.1.2` |
+| `VersionPreReleasePrefix` <br/>*2020.5.0           | Extracts the prefix from the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `mybranch` |
+| `VersionPreReleaseCounter` <br/>*2020.5.0           | Extracts the counter from the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `1.2` |
+| `VersionMetadata` <br/>*2020.5.0           | Extracts the metadata field from a version string | `1.2.3.4-mybranch.1.2+build10` | `build10` |
 
 ### NowDate and NowDateUtc
 
