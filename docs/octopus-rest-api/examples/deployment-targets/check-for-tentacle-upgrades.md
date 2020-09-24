@@ -1,5 +1,5 @@
 ---
-title: Change Tentacles for available upgrades
+title: Check Tentacles for available upgrades
 description: An example script to check targets and workers for available Tentacle upgrades.
 ---
 
