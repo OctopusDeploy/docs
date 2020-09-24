@@ -7,16 +7,16 @@ $spaceName = "Default"
 
 try {
     # Get space id
-    $spaces = Invoke-RestMethod -Method Get -Uri "$octopusBaseURL/spaces/all" -Headers $headers -ErrorVariable octoError
+    $spaces = Invoke-RestMethod -Method Get -Uri "$octopusURL/spaces/all" -Headers $header -ErrorVariable octoError
     $space = $spaces | Where-Object { $_.Name -eq $spaceName }
     Write-Host "Using Space named $($space.Name) with id $($space.Id)"
 
     # Create space specific url
-    $octopusSpaceUrl = "$octopusBaseURL/$($space.Id)"
+    $octopusSpaceUrl = "$octopusURL/$($space.Id)"
 
     # Get tentacles
-    $targets = Invoke-RestMethod -Method Get -Uri "$octopusSpaceUrl/machines/all" -Headers $headers -ErrorVariable octoError
-    $workers = Invoke-RestMethod -Method Get -Uri "$octopusSpaceUrl/workers/all" -Headers $headers -ErrorVariable octoError
+    $targets = Invoke-RestMethod -Method Get -Uri "$octopusSpaceUrl/machines/all" -Headers $header -ErrorVariable octoError
+    $workers = Invoke-RestMethod -Method Get -Uri "$octopusSpaceUrl/workers/all" -Headers $header -ErrorVariable octoError
 
     ($targets + $workers)
     | Where-Object { $_.Endpoint -and $_.Endpoint.TentacleVersionDetails }
@@ -39,11 +39,11 @@ catch {
 # Load octopus.client assembly
 Add-Type -Path 'C:\path\to\Octopus.Client.dll'
 
-$octopusBaseURL = "https://your.octopus.app/api"
+$octopusURL = "https://your.octopus.app/api"
 $octopusAPIKey = "API-YOURAPIKEY"
 $spaceName = "Default"
 
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusBaseURL, $octopusAPIKey
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
 $client = New-Object Octopus.Client.OctopusClient $endpoint
 
