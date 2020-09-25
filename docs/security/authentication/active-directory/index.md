@@ -115,21 +115,21 @@ In the **Security Settings - Internet Zone** window, go to {{ User Authenticatio
 ### **Setting trusted Sites via Group Policy Object** {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
 To set trusted sites via GPO:
 
-Open the **Group Policy Management Editor**.
-Go to {{User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page }}.
-Select the **Site to Zone Assignment List**.
-Select **Enabled** and click Show to edit the list. Zone value 2 is for trusted sites.
-Click **OK** then **Apply** and **OK**.
+1. Open the **Group Policy Management Editor**.
+1. Go to {{User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page }}.
+1. Select the **Site to Zone Assignment List**.
+1. Select **Enabled** and click Show to edit the list. Zone value 2 is for trusted sites.
+1. Click **OK** then **Apply** and **OK**.
 
 
 ### Setting trusted Sites via Group Policy Object {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
 
-Open the **Group Policy Management Editor**.
-Go to {{ User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page}}.
-Select the **Logon Options**.
-Select **Enabled** and click the drop-down menu that has appeared.
-Select **Automatic logon with current username and password**
-Click **OK** 
+1. Open the **Group Policy Management Editor**.
+1. Go to {{ User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page}}.
+1. Select the **Logon Options**.
+1. Select **Enabled** and click the drop-down menu that has appeared.
+1. Select **Automatic logon with current username and password**.
+1. Click **OK** 
 
 That is all the is needed for kerberos to be used as the logon method when using intergrated sign-in or Forms-based authentication.
 
