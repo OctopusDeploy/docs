@@ -100,9 +100,8 @@ This can be done in several ways, including via Group Policy, scripting or via [
 
 
 
-**Internet Security Configuration - Allow Current User Credentials**
-
-Additionally, you need to configure client machines to allow auto logon with current user credentials for the sites that have been added to the trusted sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
+**Internet Security Configuration - Allow Current User Credentials to be sent**
+You will need to configure client machines to allow auto logon with current user credentials for the sites that have been added to the trusted sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
 
 You can access Internet Security Settings a number of ways.
 **Internet Explorer** go to {{ Tools > Internet Options > Security }} tab, Select "Trusted Zones" then **Custom level...**.
@@ -111,6 +110,9 @@ You can access Internet Security Settings a number of ways.
 In the **Security Settings - Internet Zone** window, go to {{ User Authentication > Logon }} and select **Automatic logon with current username and password**.
 
 ![Client Security](images/clientsecurity.png "width=500")
+
+
+
 
 ### **Setting trusted Sites via Group Policy Object** {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
 To set trusted sites via GPO:
@@ -122,7 +124,7 @@ To set trusted sites via GPO:
 1. Click **OK** then **Apply** and **OK**.
 
 
-### Setting trusted Sites via Group Policy Object {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
+### Setting Auto Logon via Group Policy Object {#ActiveDirectoryAuthentication-SettingAutoLogon}
 
 1. Open the **Group Policy Management Editor**.
 1. Go to {{ User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page}}.
