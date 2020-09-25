@@ -44,20 +44,95 @@ Octopus is built on top of HTTP.sys, the same kernel driver that IIS is built on
 When the link is clicked, it redirects to a page which is configured to tell HTTP.sys to issue the browser challenge. The browser and HTTP.sys negotiate the authentication just like an IIS website would. The user principal is then passed to Octopus. Octopus will then query Active Directory for other information about the user.
 :::
 
-### Using Negotiate to take advantage of Kerberos {#ActiveDirectoryAuthentication-UsingNegotiate}
 
-By default `IntegratedWindowsAuthentication` & `Negotiate` will try to use `Kerberos` first, and then fall back to `NTLM` if it fails.
+### Kerberos vs NTLM security for AD Authentication {#ActiveDirectoryAuthentication-NTLMvKerberos}
 
-:::hint
-**Server configuration required**
-Please note that this may require additional configuration to work correctly in your network. Generally, this will require a Service Principal Name (SPN) to be set for the `HTTP` service class, using the machine name. For example, if you have an Octopus Deploy hosted on the `od.mydomain.local` domain name, that is installed on a machine called `winserv2019` then the corresponding SPN will be needed:
+It is possible to use either `NTLM` or `Kerberos` authentication for your Active Directory authentication. By default, selecting `IntegratedWindowsAuthentication` & `Negotiate` will result in Octopus Deploy attempting to use `Kerberos` first, and then silently falling back to `NTLM` if `Kerberos` authentication fails. 
+
+Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail on `kerberos` authentication and failback to `NTLM`.
+
+### Configuring Kerberos Authentication for Active Directory {#ActiveDirectoryAuthentication-ConfiguringKerberos}
+
+The following configuration is required for Kerberos authentication:
+- A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus host NETBIOS name. If you are accessing your Host via its FQDN then you will need to also add an FQDN also for the `HTTP` service class. (Please Note: Whether you've configured your Octopus host to use `HTTP` or `HTTPS`, you will only need to set an `HTTP` SPN.)
+- Included FQDNs of all Octopus Deploy Hosts and Octopus clusters within your trusted sites or Intranet zones.
+- Client Machines configured to allow auto logon with current user name and password.
+
+
+**SPN Configuration**
+
+Set an `HTTP` service class SPN for the NETBIOS name and FQDN of your OD hosts. For example, if you are hosting `od.mydomain.local` from server `octoserver1` you will require the following registered service principal names for your server:
+```
+HTTP/od
+HTTP/od.mydomain.local
+```
+These can be registered by running the following commands in an elevated command prompt or PowerShell session:
+
+```
+setspn.exe -S HTTP/od octoserver1
+setspn.exe -S HTTP/od.mydomain.local octoserver1 
+```
+:::note
+If you are running a HA cluster, you need to add additional SPN entries for each host you are using.  Load Balancer/cluster URLs are not required to be included as an SPN entry.
 :::
 
-```powershell
-C:\> setspn.exe -S HTTP/od.mydomain.local winserv2019
+For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
+
+**Internet Security Configuration - Adding Octopus to the Trusted Zone**
+
+The aim here is to make sure the current user's logon credentials can be sent through to Octopus and authenticated against the SPNs. It is important to remember that a URI is considered to be in the "Internet Zone" whenever it contains a `.`. 
+
+```Internet Zone
+http://host.local
+http://192.168.x.x
+http://127.0.0.1
+http://octopus.yourdomain.com
+http://clusterurl.yourdomain.com
+
+Intranet Zone
+http://host
+http://local
 ```
 
-For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
+Accessing a host via the NETBIOS name will usually mean that the site is considered part of the "Intranet" zone unless the NETBIOS name has been added to "Trusted Sites" list. (More detail [here](https://support.microsoft.com/en-au/help/303650/intranet-site-is-identified-as-an-internet-site-when-you-use-an-fqdn-o)). Although there are a number of ways this can be configured, we recommend the following way of including all URIs that are used to access Octopus, to be added to the "Trusted Sites" zone.
+
+This can be done in several ways, including via Group Policy, scripting or via [browsers settings menu](https://www.computerhope.com/issues/ch001952.htm).  
+
+
+
+**Internet Security Configuration - Allow Current User Credentials**
+
+Additionally, you need to configure client machines to allow auto logon with current user credentials for the sites that have been added to the trusted sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
+
+You can access Internet Security Settings a number of ways.
+**Internet Explorer** go to {{ Tools > Internet Options > Security }} tab, Select "Trusted Zones" then **Custom level...**.
+**Windows 10/Windoows Server** Search for "Internet Options" or {{ Control Panel > Network and Internet > Internet Options}}.
+
+In the **Security Settings - Internet Zone** window, go to {{ User Authentication > Logon }} and select **Automatic logon with current username and password**.
+
+![Client Security](images/clientsecurity.png "width=500")
+
+### **Setting trusted Sites via Group Policy Object** {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
+To set trusted sites via GPO:
+
+1. Open the **Group Policy Management Editor**.
+1. Go to {{User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page }}.
+1. Select the **Site to Zone Assignment List**.
+1. Select **Enabled** and click Show to edit the list. Zone value 2 is for trusted sites.
+1. Click **OK** then **Apply** and **OK**.
+
+
+### Setting trusted Sites via Group Policy Object {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
+
+1. Open the **Group Policy Management Editor**.
+1. Go to {{ User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page}}.
+1. Select the **Logon Options**.
+1. Select **Enabled** and click the drop-down menu that has appeared.
+1. Select **Automatic logon with current username and password**.
+1. Click **OK** 
+
+That is all the is needed for kerberos to be used as the logon method when using intergrated sign-in or Forms-based authentication.
+
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 
