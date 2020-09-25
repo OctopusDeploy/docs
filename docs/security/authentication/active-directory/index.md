@@ -47,7 +47,7 @@ When the link is clicked, it redirects to a page which is configured to tell HTT
 
 ### Kerberos vs NTLM security for AD Authentication {#ActiveDirectoryAuthentication-NTLMvKerberos}
 
-It is possible to use either `NTLM` or `Kerberos` authentication for your Active Directory authentication. By default, selecting `IntegratedWindowsAuthentication` & `Negotiate` will result in Octopus Deploy attempting to use `Kerberos` first, and then silently falling back to `NTLM` if `Kerberos` authentication fails. 
+It is possible to use either `NTLM` or `Kerberos` authentication for Active Directory authentication. By default, selecting `IntegratedWindowsAuthentication` & `Negotiate` will result in Octopus Deploy attempting to use `Kerberos` first and then silently falling back to `NTLM` if `Kerberos` authentication fails. 
 
 Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail on `kerberos` authentication and failback to `NTLM`.
 
@@ -72,15 +72,18 @@ These can be registered by running the following commands in an elevated command
 setspn.exe -S HTTP/od octoserver1
 setspn.exe -S HTTP/od.mydomain.local octoserver1 
 ```
+
 :::note
-If you are running a HA cluster, you need to add additional SPN entries for each host you are using.  Load Balancer/cluster URLs are not required to be included as an SPN entry.
+**HA Clusters**
+If you are running a HA Octopus Deploy environment, you need to add additional SPN entries for each host you are using.  
+Cluster URLs are not required to be included in SPN.
 :::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
 
 **Internet Security Configuration - Adding Octopus to the Trusted Zone**
 
-The aim here is to make sure the current user's logon credentials can be sent through to Octopus and authenticated against the SPNs. It is important to remember that a URI is considered to be in the "Internet Zone" whenever it contains a `.`. 
+The aim here is to allow the current user's logon credentials to be sent through to Octopus and authenticated against the SPNs. It is important to remember that a URI is considered to be in the "Internet Zone" whenever it contains a `.`. 
 
 ```Internet Zone
 http://host.local
@@ -94,18 +97,19 @@ http://host
 http://local
 ```
 
-Accessing a host via the NETBIOS name will usually mean that the site is considered part of the "Intranet" zone unless the NETBIOS name has been added to "Trusted Sites" list. (More detail [here](https://support.microsoft.com/en-au/help/303650/intranet-site-is-identified-as-an-internet-site-when-you-use-an-fqdn-o)). Although there are a number of ways this can be configured, we recommend the following way of including all URIs that are used to access Octopus, to be added to the "Trusted Sites" zone.
+Accessing a host via a typical NETBIOS name will mean that the "Intranet zone" rules will be implemented **unless the NETBIOS name has been added to "Trusted Sites" list**. (More detail [here](https://support.microsoft.com/en-au/help/303650/intranet-site-is-identified-as-an-internet-site-when-you-use-an-fqdn-o)). The recommend way to include configure this section, is to add all potential URIs that will be used to access Octopus, to the "Trusted Sites" zone.
 
-This can be done in several ways, including via Group Policy, scripting or via [browsers settings menu](https://www.computerhope.com/issues/ch001952.htm).  
+This can be done in several ways including via Group Policy, scripting or via [browsers settings menu](https://www.computerhope.com/issues/ch001952.htm).  
 
 
 
 **Internet Security Configuration - Allow Current User Credentials to be sent**
-You will need to configure client machines to allow auto logon with current user credentials for the sites that have been added to the trusted sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
 
-You can access Internet Security Settings a number of ways.
+All **client machines** will need to be configured to allow auto logon. We can set this on all sites added to the trusted sites zone. This can be done via Group Policy, via scripts or via the Browsers GUI. Changing this setting through most browsers, will change the setting at the user level, so all browsers should adhere to the auto logon setting for that userprofile.
+
+You can set the Auto-Logon setting via Internet Security Settings
 **Internet Explorer** go to {{ Tools > Internet Options > Security }} tab, Select "Trusted Zones" then **Custom level...**.
-**Windows 10/Windoows Server** Search for "Internet Options" or {{ Control Panel > Network and Internet > Internet Options}}.
+**Windows 10/Windoows Server** Search for "Internet Options" or {{ open Control Panel > Network and Internet > Internet Options}}.
 
 In the **Security Settings - Internet Zone** window, go to {{ User Authentication > Logon }} and select **Automatic logon with current username and password**.
 
@@ -114,7 +118,8 @@ In the **Security Settings - Internet Zone** window, go to {{ User Authenticatio
 
 
 
-### **Setting trusted Sites via Group Policy Object** {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
+### Adding Trusted Sites via Group Policy Object {#ActiveDirectoryAuthentication-AddingtrustedSitesviaGPO}
+
 To set trusted sites via GPO:
 
 1. Open the **Group Policy Management Editor**.
@@ -124,7 +129,7 @@ To set trusted sites via GPO:
 1. Click **OK** then **Apply** and **OK**.
 
 
-### Setting Auto Logon via Group Policy Object {#ActiveDirectoryAuthentication-SettingAutoLogon}
+### Allowing Auto Logon via Group Policy Object {#ActiveDirectoryAuthentication-AllowingAutoLogon}
 
 1. Open the **Group Policy Management Editor**.
 1. Go to {{ User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page}}.
@@ -137,8 +142,7 @@ That is all the is needed for kerberos to be used as the logon method when using
 
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
-
-Octopus also lets users sign in by entering their Active Directory credentials manually using the HTML form. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
+Octopus alllows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
 ![Login Screen](images/ad-forms.png "width=500")
 
