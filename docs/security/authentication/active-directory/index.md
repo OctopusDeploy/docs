@@ -97,17 +97,18 @@ http://host
 http://local
 ```
 
-Accessing a host via a typical NETBIOS name will mean that the "Intranet zone" rules will be implemented **unless the NETBIOS name has been added to "Trusted Sites" list**. (More detail [here](https://support.microsoft.com/en-au/help/303650/intranet-site-is-identified-as-an-internet-site-when-you-use-an-fqdn-o)). The recommend way to include configure this section, is to add all potential URIs that will be used to access Octopus, to the "Trusted Sites" zone.
+Accessing a host via the NETBIOS name will mean that the "Intranet zone" rules will be applied. **This can be overruled by adding the NETBIOS name to "Trusted Sites" list**. (More detail [here](https://support.microsoft.com/en-au/help/303650/intranet-site-is-identified-as-an-internet-site-when-you-use-an-fqdn-o)). 
 
-This can be done in several ways including via Group Policy, scripting or via [browsers settings menu](https://www.computerhope.com/issues/ch001952.htm).  
+The recommend way to configure this, is to add all potential URIs that will be used to access Octopus, to the "Trusted Sites" list.
+This can be done in several ways including via Group Policy, scripting or via [internet security settings menu](https://www.computerhope.com/issues/ch001952.htm). 
 
 
 
-**Internet Security Configuration - Allow Current User Credentials to be sent**
+**Internet Security Configuration - Allow Automatic logon via browser**
 
-All **client machines** will need to be configured to allow auto logon. We can set this on all sites added to the trusted sites zone. This can be done via Group Policy, via scripts or via the Browsers GUI. Changing this setting through most browsers, will change the setting at the user level, so all browsers should adhere to the auto logon setting for that userprofile.
+All **client machines** will need to be configured to allow automatic logon. We can set this option on all sites added to the trusted sites zone. This can be done via Group Policy, scripting or via the internet security settings menu. 
 
-You can set the Auto-Logon setting via Internet Security Settings
+To enable the option via the Internet Security Settings
 **Internet Explorer** go to {{ Tools > Internet Options > Security }} tab, Select "Trusted Zones" then **Custom level...**.
 **Windows 10/Windoows Server** Search for "Internet Options" or {{ open Control Panel > Network and Internet > Internet Options}}.
 
