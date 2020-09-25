@@ -51,7 +51,7 @@ It is possible to use either `NTLM` or `Kerberos` authentication for your Active
 
 Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail on `kerberos` authentication and failback to `NTLM`.
 
-### **Configuring Kerberos Authentication for Active Directory** {#ActiveDirectoryAuthentication-ConfiguringKerberos}
+### Configuring Kerberos Authentication for Active Directory {#ActiveDirectoryAuthentication-ConfiguringKerberos}
 
 The following configuration is required for Kerberos authentication:
 - A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus host NETBIOS name. If you are accessing your Host via its FQDN then you will need to also add an FQDN also for the `HTTP` service class. (Please Note: Whether you've configured your Octopus host to use `HTTP` or `HTTPS`, you will only need to set an `HTTP` SPN.)
