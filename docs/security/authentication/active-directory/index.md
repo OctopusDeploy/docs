@@ -51,10 +51,10 @@ It is possible to use either `NTLM` or `Kerberos` authentication for your Active
 
 Without some additional configuration, AD authentication, whether forms based or integrated, would usually fail on `kerberos` authentication and failback to `NTLM`.
 
-### **Configuring your Domain for Kerberos Authentication** {#ActiveDirectoryAuthentication-ConfiguringKerberos}
+### **Configuring Kerberos Authentication for Active Directory** {#ActiveDirectoryAuthentication-ConfiguringKerberos}
 
 The following configuration is required for Kerberos authentication
-- A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus Hosts FQDN and NETBIOS name
+- A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus host NETBIOS name. If you are accessing your Host via it's FQDN then you will need to also add a FQDN also for the `HTTP` service class. (Please Note: Whether you've configured your Octopus host to use `HTTP` or `HTTPS`, you will only need to set a `HTTP` SPN.)
 - Included FQDNs of all Octopus Deploy Hosts and Octopus clusters within your trusted sites or Intranet zones
 - Client Machines configured to allow auto logon with current user name and password
 
@@ -73,22 +73,65 @@ setspn.exe -S HTTP/od octoserver1
 setspn.exe -S HTTP/od.mydomain.local octoserver1 
 ```
 :::note
-Remember if you are running a HA cluster, you will need to add additional SPN entries for each host you are using.  Load Balancer urls are not required to be included as an SPN entry.
+Remember if you are running a HA cluster, you will need to add additional SPN entries for each host you are using.  Load Balancer/cluster urls are not required to be included as an SPN entry.
 :::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
 
-**Internet Security Configuration**
+**Internet Security Configuration - Adding Octopus to the Trusted Zone**
 
-Include all FQDNs and cluster hosts within your trusted internet sites. This can be done many ways, including via [Group Policy](https://www.petenetlive.com/KB/Article/0000146), scripting and via [most browsers settings menu](https://www.computerhope.com/issues/ch001952.htm)  
+The aim here is to make sure the current users logon credentials are able to be sent through to Octopus and be authenticated against the SPNs. It is important to remember that a URI is considered to be in the "Internet Zone" whenever it contains a ".". 
 
-Additionally, it's important to configure client machines to allow auto logon with current user credentials for the trusted internet sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
+```Internet Zone
+http://host.local
+http://192.168.x.x
+http://127.0.0.1
+http://octopus.yourdomain.com
+http://clusterurl.yourdomain.com
+
+Intranet Zone
+http://host
+http://local
+```
+
+Accessing a host via the NETBIOS name will usually mean that the site is considered part of the "Intranet" zone unless the NETBIOS name has been add to "Trusted Sites" list. (More detail [here](https://support.microsoft.com/en-au/help/303650/intranet-site-is-identified-as-an-internet-site-when-you-use-an-fqdn-o)) So although there is a number of ways this can be configured, we recommend the following way of including all URIs that are used to access Octopus, to be added to the "Trusted Sites" zone.
+
+This can be done in several ways, including via Group Policy, scripting or via [browsers settings menu](https://www.computerhope.com/issues/ch001952.htm)  
+
+
+
+**Internet Security Configuration - Allow Current User Credentials **
+
+Additionally, you need to configure client machines to allow auto logon with current user credentials for the sites that have been added to the trusted sites. Again this can be done via Group Policy, programmatically or via the Browsers GUI. Changing the setting through Internet Explorer, will change the setting for other popular browsers as well.
+
+You can access Internet Security Settings a number of ways.
+**Internet Explorer** go to Tools > Internet Options > Security tab, Select "Trusted Zones" then **Custom level...**.
+**Windows 10/Windoows Server** Search for "Internet Options" or Control Panel -> Network and Internet -> Internet Options.
+
+In the **Security Settings - Internet Zone** window, go to **User Authentication** > **Logon** and select **Automatic logon with current username and password**.
 
 ![Client Security](images/clientsecurity.png "width=500")
 
-**Internet Explorer** go to Tools > Internet Options > Security tab and click Custom level... to configure Security Settings.
-In the Security Settings - Internet Zone window, go to User Authentication > Logon and select Automatic logon with current username and password.
+### **Setting trusted Sites via Group Policy Object** {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
+To set trusted sites via GPO
 
+Open the **Group Policy Management Editor**.
+Go to **User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page**.
+Select the **Site to Zone Assignment List**.
+Select **Enabled** and click Show to edit the list. Zone value 2 is for trusted sites
+Click **OK** then **Apply** and **OK**.
+
+
+### **Setting trusted Sites via Group Policy Object** {#ActiveDirectoryAuthentication-SettingtrustedSitesviaGPO}
+
+Open the **Group Policy Management Editor**.
+Go to **User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer > Internet Control Panel > Security Page**.
+Select the **Logon Options**.
+Select **Enabled** and click the drop-down menu that has appeared.
+Select **Automatic logon with current username and password**
+Click **OK** 
+
+That is all the is needed for kerberos to be used as the logon method when using intergrated sign-in or Forms-based authentication.
 
 
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
