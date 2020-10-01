@@ -19,13 +19,13 @@ Where [<options>] is any of:
       --skipDatabaseSchemaUpgradeCheck
                              Skips the database schema upgrade checks. Use
                                with caution
-      --clusterShared=VALUE  Set the root path where shared files will be
-                               stored for Octopus clusters
       --cacheDirectory=VALUE Directory to use for temporary files and cachin-
                                g, e.g. downloaded packages. The data in this
                                directory can be removed when the Octopus Server
                                is not running. This directory should not be
                                shared between nodes.
+      --clusterShared=VALUE  Set the root path where shared files will be
+                               stored for Octopus clusters
       --nugetRepository=VALUE
                              Set the package path for the built-in package
                                repository
