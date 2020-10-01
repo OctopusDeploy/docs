@@ -110,15 +110,16 @@ Deployment:
                              should expire, specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
-      --tenant=VALUE         Create a deployment for the tenant with this
-                             name or ID; specify this argument multiple times
-                             to add multiple tenants or use `*` wildcard to
-                             deploy to all tenants who are ready for this
-                             release (according to lifecycle).
-      --tenantTag=VALUE      Create a deployment for tenants matching this
-                             tag; specify this argument multiple times to
-                             build a query/filter with multiple tags, just
-                             like you can in the user interface.
+      --tenant=VALUE         [Optional] Create a deployment for the tenant
+                             with this name or ID; specify this argument
+                             multiple times to add multiple tenants or use
+                             `*` wildcard to deploy to all tenants who are
+                             ready for this release (according to lifecycle).
+      --tenantTag=VALUE      [Optional] Create a deployment for tenants
+                             matching this tag; specify this argument
+                             multiple times to build a query/filter with
+                             multiple tags, just like you can in the user
+                             interface.
       --deployTo=VALUE       [Optional] Name or ID of the environment to
                              automatically deploy to, e.g., 'Production' or
                              'Environments-1'; specify this argument multiple
