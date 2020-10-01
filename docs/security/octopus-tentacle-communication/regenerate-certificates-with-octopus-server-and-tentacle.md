@@ -1,8 +1,7 @@
 ---
 title: How to regenerate certificates with Octopus Server and Tentacle
 description: How to regenerate the certificates used for communication between Octopus Server and its Tentacles.
-position: 19
-version: "[3.14,)"
+position: 2
 ---
 
 Octopus uses self-signed certificates to securely communicate between Tentacles and the Octopus Server. Prior to Octopus 3.14, the certificates were SHA1, and following the [shattered](https://octopus.com/blog/shattered) exploit, the certificate generation was upgraded to SHA256. 
