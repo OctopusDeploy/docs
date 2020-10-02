@@ -343,6 +343,16 @@ Alternatively, to replace an element *based on its attribute*, you can apply the
 </configuration>
 ```
 
+Similar to the examples above, you can can also replace other attribute values.  With a variable named `/configuration/email[@role='admin']/@address` with the value `chief@example.org`, the output will look like:
+
+```xml
+<configuration>
+  <email role="admin" address="chief@example.org"></email>
+  <email role="user" address="user@example.com"></email>
+</configuration>
+```
+
+
 ### XML CDATA sections
 
 CDATA sections can be replaced just like any other node by selecting them with the XPath. When the content of the CDATA section is replaced, the CDATA presentation is maintained in the output. In the following example, `development` in the CDATA tag can be replaced with `prod<1>` by having a variable `/document/environment/text()` with the value `prod<1>`:
