@@ -4,6 +4,12 @@
 Linux Arm64 support is currently experimental.
 :::
 
+:::info
+Requirements: 
+ - Octopus Server 2020.5.0+
+ - 64-bit Linux operating system on ARM hardware
+:::
+
 ```bash Listening deployment target
 serverUrl="https://my-octopus"   # The url of your Octous server
 thumbprint=""       # The thumbprint of your Octopus Server
