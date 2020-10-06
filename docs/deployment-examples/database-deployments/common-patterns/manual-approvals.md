@@ -36,7 +36,7 @@ The goal is to create a single file that can be uploaded as an [artifact](/docs/
 
 ## Manual Interventions
 
-This document intentionally document uses the word `approvers` instead of `DBAs` because in our experience, especially as everyone is learning the tooling and process, there will be different approvers for each environment.  Having a script run `Drop Table` unintentionally even in `Development` can ruin a day.  To prevent a bad script being run, the deployment process is paused using a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) for someone to look for scripts that might cause significant harm to the database.    
+This document intentionally uses the word `approvers` instead of `DBAs` because in our experience, especially as everyone is learning the tooling and process, there will be different approvers for each environment.  Having a script run `Drop Table` unintentionally even in `Development` can ruin a day.  To prevent a bad script being run, the deployment process is paused using a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) for someone to look for scripts that might cause significant harm to the database.
 
 For lower environments, for instance, `Development`, `Test`, or `QA`, the approver might be a developer, lead developer, or database developer.  On production level environments, `Staging`, `Pre-Prod`, or `Production`, the approvers are typically DBAs.  
 
