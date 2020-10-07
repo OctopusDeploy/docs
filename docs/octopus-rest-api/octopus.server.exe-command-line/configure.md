@@ -59,8 +59,6 @@ Where [<options>] is any of:
                                get redirected to HTTPS)
       --requestLoggingEnabled=VALUE
                              Whether to enable logging of web requests
-      --azurePowerShellModule=VALUE
-                             Path to Azure PowerShell module to be used
       --customBundledPackageDirectory=VALUE
                              A custom folder for getting packages (like
                                Calamari) that are normally bundled with Octopus

@@ -8,6 +8,7 @@ $releaseVersion = "1.0.0.0"
 $channelName = "Default"
 $spaceName = "default"
 
+
 try
 {
     # Get space
@@ -16,49 +17,38 @@ try
     # Get project
     $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $header) | Where-Object {$_.Name -eq $projectName}
 
-    # Get deploymentProcess
-    $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header
-
     # Get channel
     $channel = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/channels" -Headers $header).Items | Where-Object {$_.Name -eq $channelName}
 
-    # Loop through the deployment process and gather selected packages
-    $selectedPackages = @()
-    foreach ($step in $deploymentProcess.Steps)
-    {
-        # Loop through the actions
-        foreach($action in $step.Actions)
-        {
-            # Check for packages
-            if ($null -ne $action.Packages)
-            {
-                # Loop through packages
-                foreach ($package in $action.Packages)
-                {
-                    # Get latest version of package
-                    $packageVersion = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/feeds/$($package.FeedId)/packages/versions?packageId=$($package.PackageId)&take=1" -Headers $header).Items[0].Version
+    # Create release payload
+    $releaseBody = @{
+        ChannelId        = $channel.Id
+        ProjectId        = $project.Id
+        Version          = $releaseVersion
+        SelectedPackages = @()
+    }
+    
+    # Get deployment process template
+    $template = Invoke-RestMethod -Uri "$octopusURL/api/$($space.id)/deploymentprocesses/deploymentprocess-$($project.id)/template?channel=$($channel.Id)" -Headers $header
 
-                    # Add package to selected packages
-                    $selectedPackages += @{
-                        ActionName = $action.Name
-                        Version = $packageVersion
-                        PackageReferenceName = $package.PackageId
-                    }
-                }
-            }
+    # Loop through the deployment process packages and add to release payload
+    $template.Packages | ForEach-Object {
+        $uri = "$octopusURL/api/$($space.id)/feeds/$($_.FeedId)/packages/versions?packageId=$($_.PackageId)&take=1"
+        $version = Invoke-RestMethod -Uri $uri -Method GET -Headers $header
+        $version = $version.Items[0].Version
+
+        $releaseBody.SelectedPackages += @{
+            ActionName           = $_.ActionName
+            PackageReferenceName = $_.PackageReferenceName
+            Version              = $version
         }
     }
 
-    # Create json payload
-    $jsonPayload = @{
-        ProjectId = $project.Id
-        ChannelId = $channel.Id
-        Version = $releaseVersion
-        SelectedPackages = $selectedPackages
-    }
-
     # Create the release
-    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/releases" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
+    $release = Invoke-RestMethod -Uri "$octopusURL/api/$($space.id)/releases" -Method POST -Headers $header -Body ($releaseBody | ConvertTo-Json -depth 10)
+    
+    # Display created release
+    $release
 }
 catch
 {
@@ -83,69 +73,49 @@ $client = New-Object Octopus.Client.OctopusClient $endpoint
 
 try
 {
-    # Get space
+    # Get space+repo
     $space = $repository.Spaces.FindByName($spaceName)
     $repositoryForSpace = $client.ForSpace($space)
 
     # Get project
     $project = $repositoryForSpace.Projects.FindByName($projectName)
 
-    # Get deployment process
-    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
-
     # Get channel
     $channel = $repositoryForSpace.Channels.FindOne({param($c) $c.Name -eq $channelName -and $c.ProjectId -eq $project.Id})
-
-    # Gather selected packages
-    $selectedPackages = @()
-    foreach ($step in $deploymentProcess.Steps)
-    {
-        # Loop through actions
-        foreach ($action in $step.Actions)
-        {
-            # Check for package
-            if ($null -ne $action.Packages)
-            {
-                # Loop through packages
-                foreach ($package in $action.Packages)
-                {
-                    # Get feed
-                    $feed = $repositoryForSpace.Feeds.Get($package.FeedId)
-
-                    # Check to see if it's the built in
-                    if ($feed.FeedType -eq [Octopus.Client.Model.FeedType]::BuiltIn)
-                    {
-                        # Get the package version
-                        $packageVersion = $repositoryForSpace.BuiltInPackageRepository.ListPackages($package.PackageId).Items[0].Version
-
-                        # Create selected package pobject
-                        $selectedPackage = New-Object Octopus.Client.Model.SelectedPackage
-                        $selectedPackage.ActionName = $action.Name
-                        $selectedPackage.PackageReferenceName = $package.PackageId
-                        $selectedPackage.Version = $packageVersion
-
-                        # Add to collection
-                        $selectedPackages += $selectedPackage
-                    }
-                }
-            }
-        }
-    }
 
     # Create a new release resource
     $release = New-Object Octopus.Client.Model.ReleaseResource
     $release.ChannelId = $channel.Id
     $release.ProjectId = $project.Id
     $release.Version = $releaseVersion
+    $release.SelectedPackages = New-Object 'System.Collections.Generic.List[Octopus.Client.Model.SelectedPackage]'
 
-    # Add selected packages
-    foreach ($selectedPackage in $selectedPackages)
-    {
+    # Get deployment process
+    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
+
+    # Get template
+    $template = $repositoryForSpace.DeploymentProcesses.GetTemplate($deploymentProcess, $channel)
+
+    # Loop through the deployment process packages and add to release payload
+    $template.Packages | ForEach-Object {
+        # Get feed 
+        $feed = $repositoryForSpace.Feeds.Get($package.FeedId)
+        $packageIds = @($package.PackageId)
+        $version = ($repositoryForSpace.Feeds.GetVersions($feed,$packageIds) | Select-Object -First 1).Version
+        $selectedPackage = New-Object Octopus.Client.Model.SelectedPackage
+        $selectedPackage.ActionName = $_.ActionName
+        $selectedPackage.PackageReferenceName = $_.PackageReferenceName
+        $selectedPackage.Version = $version
+
+        # Add to release
         $release.SelectedPackages.Add($selectedPackage)
     }
 
-    # Create release
-    $repositoryForSpace.Releases.Create($release, $false)
+    # Create the release
+    $releaseCreated = $repositoryForSpace.Releases.Create($release, $false)
+
+    # Display created release
+    $releaseCreated
 }
 catch
 {
@@ -174,7 +144,7 @@ var client = new OctopusClient(endpoint);
 
 try
 {
-    // Get space
+    // Get space+repo
     var space = repository.Spaces.FindByName(spaceName);
     var repositoryForSpace = client.ForSpace(space);
 
@@ -184,59 +154,39 @@ try
     // Get channel
     var channel = repositoryForSpace.Channels.FindOne(r => r.ProjectId == project.Id && r.Name == channelName);
 
-    // Get deployment process
-    var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
-
-    // Gather selected packages
-    List<Octopus.Client.Model.SelectedPackage> selectedPackages = new List<SelectedPackage>();
-    foreach (var step in deploymentProcess.Steps)
-    {
-        // Loop through actions
-        foreach (var action in step.Actions)
-        {
-            // Check to see if packages are in this action
-            if (action.Packages != null)
-            {
-                // Loop through packages
-                foreach (var package in action.Packages)
-                {
-                    // Get feed
-                    var feed = repositoryForSpace.Feeds.Get(package.FeedId);
-
-                    // Check to see if it's built in
-                    if (feed.FeedType == FeedType.BuiltIn)
-                    {
-                        // Get the package version
-                        var packageVersion = repositoryForSpace.BuiltInPackageRepository.ListPackages(package.PackageId).Items[0].Version;
-
-                        // Create selected package object
-                        Octopus.Client.Model.SelectedPackage selectedPackage = new SelectedPackage();
-                        selectedPackage.ActionName = action.Name;
-                        selectedPackage.PackageReferenceName = package.PackageId;
-                        selectedPackage.Version = packageVersion;
-
-                        // Add to list
-                        selectedPackages.Add(selectedPackage);
-                    }
-                }
-            }
-        }
-    }
-
     // Create release object
     Octopus.Client.Model.ReleaseResource release = new ReleaseResource();
     release.ChannelId = channel.Id;
     release.ProjectId = project.Id;
     release.Version = releaseVersion;
+    release.SelectedPackages = new List<Octopus.Client.Model.SelectedPackage>();
 
-    // Add packages
-    foreach (var selectedPackage in selectedPackages)
+    // Get deployment process
+    var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
+
+    // Get template
+    var template = repositoryForSpace.DeploymentProcesses.GetTemplate(deploymentProcess, channel);
+
+    // Loop through the deployment process packages and add to release payload
+    foreach (var package in template.Packages)
     {
+        // Get feed
+        var feed = repositoryForSpace.Feeds.Get(package.FeedId);
+        var packageVersion = repositoryForSpace.Feeds.GetVersions(feed, new[] { package.PackageId }).First().Version;
+
+        // Create selected package object
+        Octopus.Client.Model.SelectedPackage selectedPackage = new SelectedPackage();
+        selectedPackage.ActionName = package.ActionName;
+        selectedPackage.PackageReferenceName = package.PackageReferenceName;
+        selectedPackage.Version = packageVersion;
+
+        // Add to release
         release.SelectedPackages.Add(selectedPackage);
     }
 
     // Create release
-    repositoryForSpace.Releases.Create(release, false);
+    var releaseCreated = repositoryForSpace.Releases.Create(release, false);
+    Console.WriteLine("Created release with version: {0}", releaseCreated.Version);
 }
 catch (Exception ex)
 {

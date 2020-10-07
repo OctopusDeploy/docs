@@ -59,6 +59,14 @@ Octopus provides the following filters:
 | [`Substring`](#substring)               | Extracts a range of characters by position        | `Octopus Deploy`        | `Deploy`                         |
 | [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string        | `A b:c+d/e` | `A%20b:c+d/e`       |
 | [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string   | `A b:c+d/e` | `A%20b%3Ac%2Bd%2Fe` |
+| `VersionMajor` <br/>*2020.5.0           | Extracts the major version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `1` |
+| `VersionMinor` <br/>*2020.5.0           | Extracts the minor version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `2` |
+| `VersionPatch` <br/>*2020.5.0           | Extracts the patch version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `3` |
+| `VersionRevision` <br/>*2020.5.0           | Extracts the revision version field from a version string | `1.2.3.4-mybranch.1.2+build10` | `4` |
+| `VersionPreRelease` <br/>*2020.5.0           | Extracts the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `mybranch.1.2` |
+| `VersionPreReleasePrefix` <br/>*2020.5.0           | Extracts the prefix from the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `mybranch` |
+| `VersionPreReleaseCounter` <br/>*2020.5.0           | Extracts the counter from the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `1.2` |
+| `VersionMetadata` <br/>*2020.5.0           | Extracts the metadata field from a version string | `1.2.3.4-mybranch.1.2+build10` | `build10` |
 
 ### NowDate and NowDateUtc
 
@@ -86,15 +94,15 @@ The *Format* filter introduced in **Octopus 3.5** allows for converting of inpu
 
 The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
 
-| MyVar Value   | Filter Expression                       | Output                  |
-| ------------- | --------------------------------------- | ----------------------- |
-| `abc`         | `#{MyVar | Replace b}`                  | `ac`                    |
-| `abc`         | `#{MyVar | Replace b X}`                | `aXc`                   |
-| `a b c`       | `#{MyVar | Replace "a b" X}`            | `X c`                   |
-| `ab12c3`      | `#{MyVar | Replace "[0-9]+" X}`         | `abXcX`                 |
-| `abc`         | `#{MyVar | Replace "(.)b(.)" "$2X$1" }` | `cXa`                   |
-| `abc`         | `#{MyVar | Replace #{match}#{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
-| `abc`         | `#{MyVar | Replace #{match} _}`         | `a_c` (when `match`=`b`)                   |
+| MyVar Value   | Filter Expression                        | Output                  |
+| ------------- | ---------------------------------------- | ----------------------- |
+| `abc`         | `#{MyVar | Replace b}`                   | `ac`                    |
+| `abc`         | `#{MyVar | Replace b X}`                 | `aXc`                   |
+| `a b c`       | `#{MyVar | Replace "a b" X}`             | `X c`                   |
+| `ab12c3`      | `#{MyVar | Replace "[0-9]+" X}`          | `abXcX`                 |
+| `abc`         | `#{MyVar | Replace "(.)b(.)" "$2X$1" }`  | `cXa`                   |
+| `abc`         | `#{MyVar | Replace #{match} #{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
+| `abc`         | `#{MyVar | Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
 
 ### Trim
 

@@ -551,6 +551,86 @@ myservice
 an argument with a space
 ```
 
+#### Startup probe
+
+The [Startup probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that must complete before the Liveness probe begins. This is useful to accomodate any inital delay in booting a container.
+
+:::hint
+If defined, the startup probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the startup probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
+:::
+
+The `Success threshold` defines many consecutive times the probe must succeed for the container to be considered successful after a failure. The default value is 1.
+
+The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is marked Unready. The default value is 3.
+
+The `Timeout` defines the number of seconds to wait for a probe response. The default value is 1 second.
+
+The `Initial delay` defines the number of seconds to wait after the container has started before the probe is initiated.
+
+The `Period` defines how frequently in seconds the probe is executed. The default value is 10.
+
+The `Startup probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
+
+* `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
+* `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
+* `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
+
+#### Command
+
+The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck myservice "an argument with a space"`, you would enter the following text into the `Health check commands` field:
+```
+/opt/healthcheck
+myservice
+an argument with a space
+```
+
+#### Http
+
+The Http probe type has five fields.
+
+The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
+
+The `Path` field defines the URL path that the HTTP GET request will be sent to.
+
+The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defaults to `http`.
+
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+
+Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
+
+#### TCP socket
+
+The TCP socket probe type has two fields.
+
+The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
+
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+
+#### Command
+
+The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
+
+This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
+
+Docker images can define an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+
+When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
+
+If the `Command` field is specified, it will override the value of the Docker image `ENTRYPOINT`. So if the `Command` was set to `echo`, the resulting command would be `echo hello world`.
+
+If the `Command arguments` field is specified, it will override the Docker image `CMD`. So if the `Command arguments` was set to `hello Octopus` then the resulting command would be `print hello Octopus`.
+
+Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/myapp myservice "an argument with a space"`, you would enter the following text into the `Command` field:
+```
+/opt/myapp
+```
+
+And the following into the `Command arguments` field:
+```
+myservice
+an argument with a space
+```
+
 #### Pod security context
 
 The `Pod Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
