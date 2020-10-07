@@ -12,16 +12,12 @@ See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts.
 
 You can create API keys by performing the following steps:
 
-1. From the Octopus Web Portal, sign in, and view your profile:
-![](images/select-profile.png "width=500")
-2. Go to the API keys tab. This lists any previous API keys that you have created:
-![](images/api-keys-view.png "width=500")
-3. Click on **New API key**, and give the API key a name that you can use to remember what the key was for:
-![](images/new-api-key.png "width=500")
-4. Click **Generate new**, and copy the new API key to your clipboard:
-![](images/api-key.png "width=500")
+1. Log into the Octopus Web Portal, click your profile image and select **Profile**.
+1. Click **My API Keys**.
+1. Click **New API key**, state the purpose of the API key and click **Generate new**.
+1. Copy the new API key to your clipboard.
 
 :::warning
 **Write Your Key Down**
-Once you generate an API key, it cannot be retrieved from the Octopus Web Portal again - we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
+After you generate an API key, it cannot be retrieved from the Octopus Web Portal again, we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::
