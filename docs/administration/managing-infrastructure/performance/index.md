@@ -62,7 +62,7 @@ We offer four options for scaling your Octopus Server:
 - scale up by controlling the **task cap** and providing more server resources as required.
 - scale out using [Octopus High Availability](/docs/administration/high-availability/index.md).
 - scale out using [Workers](/docs/infrastructure/workers/index.md).
-- dividing up your Octopus environment using [Spaces](https://g.octopushq.com/spaces) - which we released in  **Octopus 2019.1**.
+- dividing up your Octopus environment using [Spaces](https://g.octopushq.com/spaces).
 
 ### Task cap
 

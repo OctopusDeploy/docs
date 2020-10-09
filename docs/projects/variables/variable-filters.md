@@ -106,7 +106,7 @@ The *Replace* filter performs a regular expression replace function on the varia
 
 ### Trim
 
-The *Trim* filter introduced in **Octopus 2019.8.0** removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
+The *Trim* filter removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
 
 | MyVar Value | Filter Expression       | Output   |
 | ----------- | ----------------------- | -------- |
@@ -116,7 +116,7 @@ The *Trim* filter introduced in **Octopus 2019.8.0** removes any whitespace from
 
 ### Truncate
 
-The *Truncate* filter introduced in **Octopus 2019.8.0** limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
+The *Truncate* filter limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
 
 | MyVar Value      | Filter Expression       | Output       |
 | ---------------- | ----------------------- | ------------ |
@@ -125,7 +125,7 @@ The *Truncate* filter introduced in **Octopus 2019.8.0** limits the length of th
 
 ### Substring
 
-The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
+The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
 
 | MyVar Value      | Filter Expression          | Output       |
 | ---------------- | -------------------------- | ------------ |
@@ -135,7 +135,7 @@ The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of ch
 
 ### UriPart
 
-The *UriPart* filter introduced in **Octopus 2019.10.9** parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
+The *UriPart* filter parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
 
 | MyVar Value                             | Filter Expression                    | Output                     |
 | --------------------------------------- | ------------------------------------ | -------------------------- |

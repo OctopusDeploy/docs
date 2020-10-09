@@ -4,8 +4,6 @@ description: With Octopus runbook automation you can automate routine or emergen
 position: 55
 ---
 
-Runbooks were introduced in **Octopus 2019.11**
-
 !include <runbooks-intro>
 
 To create a runbook, navigate to {{Project, Operations, Runbooks, Add Runbook}}.

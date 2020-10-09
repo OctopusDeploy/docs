@@ -4,7 +4,7 @@ description: How to work with Spaces in the Octopus.Client library.
 position: 40
 ---
 
-**Octopus 2019.1** introduced [Spaces](/docs/administration/spaces/index.md). Working with anything other than the default space in the Octopus.Client library requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
+Working with anything other than the default space in the Octopus.Client library requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
 
 ## `OctopusClient.ForSpace`
 
