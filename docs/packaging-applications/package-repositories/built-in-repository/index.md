@@ -44,8 +44,8 @@ $ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip
 
 You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/index.md) - `POST /api/packages/raw HTTP 1.1`.
 
-- [C# example (LINQPad)](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/LINQPad/Push%20Package%20to%20Built-In%20Repository.linq)
-- [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Packages/PushPackage.ps1)
+- [C# example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/Feeds/PushPackage.cs)
+- [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/PushPackage.ps1)
 
 ## Using NuGet.exe push {#UsingNuGetexePush}
 
