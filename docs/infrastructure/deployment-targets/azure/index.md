@@ -18,7 +18,7 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
 :::warning
-Management Certificates are used to authenticate with Service Management APIs, those are slowly being depreciated by Microsoft.  As such, we no longer provide instructions on how to create them.   See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  
+Management Certificates are used to authenticate with Service Management APIs, those are being depreciated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.
 :::
 
 ## Creating an Azure Service Principal account {#azure-service-principal}
@@ -216,8 +216,34 @@ A newly created Service Principal may take several minutes before the credential
 Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
 ::warning
-The Azure Service Management APIs are being depreciated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  As such the instructions previously on this page have been removed.
+The Azure Service Management APIs are being depreciated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
 ::
+
+To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
+
+### Step 1: Management Certificate {#CreatinganAzureManagementCertificateAccount-Step2:ManagementCertificate}
+
+When using **Management Certificate**, Octopus authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus will generate a certificate. Keep in mind that since Octopus securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
+
+**Remove .pfx password**
+
+```powershell
+openssl pkcs12 -in AzureCert.pfx -password pass:MySecret -nodes -out temp.pem
+openssl pkcs12 -export -in temp.pem -passout pass: -out PasswordFreeAzureCert.pfx
+del temp.pem
+```
+
+If Octopus generates your certificate, you need to upload the certificate to the Azure Management Portal.  After clicking **Save**, the Account settings page provides instructions for downloading the certificate public-key from Octopus and uploading it into the Azure Management Portal.
+
+Uploaded certificates can be viewed on the 'Management Certificates' tab of the 'Settings' page in the Azure Portal.
+
+The certificate will be named **Octopus Deploy -``{Your Account Name}**.
+
+### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
+
+Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployment-examples/azure-deployments/index.md) for more details.
+
+You can now configure Octopus to deploy to Azure via the Azure Service Management (ASM) API.
 
 ## Azure account variables {#azure-account-variables}
 
