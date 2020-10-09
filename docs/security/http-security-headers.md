@@ -12,13 +12,9 @@ The Octopus Web Portal supports a number of security related browser headers, de
 
 The `Server` browser header is set to `Octopus Deploy/ Microsoft-HTTPAPI/2.0`. This setting is not configurable.
 
-First available in **Octopus 2.6.5**.
-
 ### Access-Control-Allow-* (CORS)
 
 The Cross Origin Resource Security (CORS) headers are used to instruct browsers to allow/disallow requests from other websites to access the Octopus portal. By default, it is disabled, preventing any access. To modify this setting, you can use the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md) command.
-
-First available in **Octopus 2.6.5**.
 
 ### Cache-Control
 
