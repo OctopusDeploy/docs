@@ -128,11 +128,6 @@ Alternatively these settings can be defined through the user interface by select
 
 ![Settings](okta/okta-settings.png "width=500")
 
-:::info
-
-In versions prior to **Octopus 2018.3.5** the Role Claim Type and Scope had different defaults and these values will need to be updated. For new installations of **Octopus 2018.3.5** and greater these values should default to the above values.
-
-:::
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 

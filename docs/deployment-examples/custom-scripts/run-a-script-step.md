@@ -66,10 +66,6 @@ When you call external scripts (sourced from a file inside a package) you can pa
 
 ## Referencing packages
 
-:::hint
-The ability to reference packages was added in **Octopus 2018.8**
-:::
-
 In addition to being able to [source the custom script from a package](#Standalonescripts-Choosingwheretosourcethescript), it is often desirable to reference other packages.  Scenarios where this can be useful include:
 
 - Executing a utility contained in a package

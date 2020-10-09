@@ -3,8 +3,6 @@ title: Deploy an AWS CloudFormation template
 description: Deploy an AWS CloudFormation Template.
 ---
 
-This feature was introduce to **Octopus 2018.2**.
-
 Octopus supports the deployment of AWS CloudFormation templates through the `Deploy an AWS CloudFormation Template` step. This step executes a CloudFormation template using AWS credentials managed by Octopus, and captures the CloudFormation outputs as Octopus output variables.
 
 The proceeding instructions can be followed to configure the `Deploy an AWS CloudFormation Template` step.

@@ -6,10 +6,6 @@ If instead you want to **dynamically** create you account during your deployment
 
 ## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
-:::hint
-The below instructions are valid Octopus Servers running version **Octopus 2018.5** and above. If you are running an older version, please select it from the **Version** green button at the top right of this page to enable the docs that suit your Octopus version.
-:::
-
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/deployment-process/steps/index.md).
 
 ![](5865899.png "width=170")

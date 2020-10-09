@@ -3,8 +3,6 @@ title: Apply a Terraform template
 description: Apply a Terraform template.
 ---
 
-Terraform support was introduced in **Octopus 2018.3**.
-
 Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using AWS credentials managed by Octopus, and captures the Terraform output variables as Octopus output variables.
 
 These instructions can be followed to configure the `Apply a Terraform template` step, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` step.

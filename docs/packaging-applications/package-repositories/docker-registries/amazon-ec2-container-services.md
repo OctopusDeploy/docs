@@ -6,7 +6,7 @@ position: 2
 
 ## AWS Elastic Container Registry (ECR)  
 
-AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . From **Octopus 2018.8.0**, support for EC2 Container registries is provided as a special feed type itself.
+AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . Support for EC2 Container registries is provided as a special feed type itself.
 
 ### Setting up an AWS elastic container registry
 From the AWS Services dashboard go to `Elastic Container Registry`.
@@ -30,7 +30,7 @@ Save and test your registry to ensure that the connection is authorized successf
 
 ### Older versions of Octopus Deploy
 
-The first class AWS ECR feed type was provided in **Octopus 2018.8.0** to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
+The first class AWS ECR feed type is provided in to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
 
 After configuring your registry in AWS as outlined above you will need to obtain the Docker Feed credentials by manually invoking a command via the AWS cli. Details for setting this up can be found in the [AWS installation guides](http://docs.aws.amazon.com/cli/latest/userguide/installing.html). With the cli installed, run (with the appropriate region)
 ```

@@ -60,8 +60,6 @@ testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
 
 ## Sensitive output variables
 
-Output variables can be created as sensitive (since **Octopus 2018.5.2**).
-
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
 ```

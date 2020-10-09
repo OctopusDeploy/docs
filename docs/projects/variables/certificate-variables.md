@@ -29,7 +29,7 @@ At deploy-time, certificate variables are expanded. For example, a variable _MyC
 | MyCertificate.PrivateKey        | The base64 encoded DER ASN.1 private key. This will be stored and transmitted as a [sensitive variable](/docs/projects/variables/sensitive-variables.md).                |
 | MyCertificate.CertificatePem    | The PEM representation of the certificate (i.e. the PublicKey with header\footer).  |
 | MyCertificate.PrivateKeyPem     | The PEM representation of the private key (i.e. the PrivateKey with header\footer).  |
-| MyCertificate.ChainPem    | The PEM representation of any chain certificates (intermediate or certificate-authority). This variable does not include the primary certificate. _Added in Octopus 2018.5_|
+| MyCertificate.ChainPem    | The PEM representation of any chain certificates (intermediate or certificate-authority). This variable does not include the primary certificate. |
 | MyCertificate.Subject           | The X.500 distinguished name of the subject            |
 | MyCertificate.SubjectCommonName | The un-attributed subject common name            |
 | MyCertificate.Issuer            | The X.500 distinguished name of the issuer             |

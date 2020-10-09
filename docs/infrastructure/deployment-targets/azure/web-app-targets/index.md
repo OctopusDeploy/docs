@@ -4,8 +4,6 @@ description: Azure Web App deployment targets allow you to reference existing We
 position: 20
 ---
 
-Azure Web App targets have been supported since **Octopus 2018.5**.
-
 Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
 
 ## Requirements

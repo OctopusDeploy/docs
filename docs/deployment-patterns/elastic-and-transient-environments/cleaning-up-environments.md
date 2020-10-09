@@ -32,7 +32,7 @@ In this example we will create a machine policy to automatically delete machines
 
 7. Turn the machine off and run a health check.
 
-In versions prior to **Octopus 2018.1** a separate scheduled task ran periodically and removed machines from Octopus.  As of **Octopus 2018.1**, machine deletion happens as part of health checks.
+Machine deletion happens as part of health checks.
 
 
 :::hint
@@ -41,7 +41,7 @@ Read more about [machine policies](/docs/infrastructure/deployment-targets/machi
 
 ## Troubleshooting Automatic Environment Clean Up {#Cleaningupenvironments-Troubleshootingautomaticenvironmentcleanup}
 
-As of **Octopus 2018.1**, machine clean up is part of health checks and machine clean up logs are not stored.  Machine clean up logging is written to the log of the health check task that performed the deletion.  Audit events recording the automatic clean up of machines can be accessed via the **{{Configuration,Diagnostics}}** page by selecting **Machine clean up events**, which redirects to the audit log of automatic machine removals.
+Machine clean up is part of health checks and machine clean up logs are not stored.  Machine clean up logging is written to the log of the health check task that performed the deletion.  Audit events recording the automatic clean up of machines can be accessed via the **{{Configuration,Diagnostics}}** page by selecting **Machine clean up events**, which redirects to the audit log of automatic machine removals.
 
 ![](images/deletion-audit.png "width=500")
 
