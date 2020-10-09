@@ -7,10 +7,6 @@ version: 4.0
 
 Octopus Deploy is made up of a number of different configuration sets and managing them can be performed through a few different channels.
 
-:::hint
-In **Octopus 4.0**, we added the ability to manage most of the available configuration, without needing to be directly on the server.
-:::
-
 ## Octopus Web Portal
 
 In the Octopus Web Portal, you can access configuration by navigating to **{{Configuration,Settings}}**, this will show which configuration items are available.

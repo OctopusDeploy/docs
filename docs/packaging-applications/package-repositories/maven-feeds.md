@@ -6,8 +6,6 @@ position: 30
 
 Maven repositories can be configured as an external feed, allowing the artifacts contained in the repository to be consumed by the Octopus steps that deploy Java packages, as well as the generic **Transfer a package** step.
 
-Support for Maven Repositories was added in **Octopus 4.1**.
-
 ## Adding an external Maven feed
 
 The following steps can be followed to add an external Maven feed.
