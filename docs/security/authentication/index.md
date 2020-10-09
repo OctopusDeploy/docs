@@ -4,7 +4,7 @@ description: Authentication options for Octopus Deploy including our internal pr
 position: 50
 ---
 
-Starting from **Octopus 3.5**, Octopus Deploy supports the most common authentication providers out-of-the-box, including special support for a Guest Login.
+Octopus Deploy supports the most common authentication providers out-of-the-box, including special support for a Guest Login.
 
 - [Active Directory Authentication](/docs/security/authentication/active-directory/index.md)
 - [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication.md)
@@ -62,7 +62,7 @@ Let's consider that we have UsernamePassword enabled and we create some users, a
 
 This scenario would work equally with Azure AD or GoogleApps in place of Active Directory.
 
-Starting from **Octopus 3.17**, there is also the ability to specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
+You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using GoogleApps. Whichever option is actually used to login, Octopus will identify them as the same user.
 
 ### Matching external identities to Octopus users {#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds}
 

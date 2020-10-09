@@ -42,10 +42,6 @@ Bash scripts are not able to be run on the Octopus Server, even if Bash is insta
 
 ## Choosing where to source the script {#Standalonescripts-Choosingwheretosourcethescript}
 
-:::hint
-The ability to source your script from a package shipped in **Octopus 3.3**
-:::
-
 You may also select the source of the script, either:
 
 - An ad-hoc or inline script, saved as part of the step itself, or:

@@ -176,10 +176,6 @@ set_octopusvariable "TestResult" "Passed"
 
 ### F# {#Outputvariables-F#}
 
-:::success
-F# support was introduced in **Octopus 3.4**.
-:::
-
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)
 
 From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.

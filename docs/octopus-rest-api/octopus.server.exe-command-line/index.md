@@ -47,10 +47,6 @@ Octopus.Server <command> [<options>]
 
 To get help for a specific command use:
 
-```powershell Octopus 3.14 or earlier
-Octopus.Server help <command>
-```
-
-```powershell Octopus 3.15 or later
+```powershell
 Octopus.Server <command> --help
 ```

@@ -3,8 +3,6 @@ title: Deploying a package to an Azure Cloud Service
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure Cloud Services.
 ---
 
-The Azure Cloud Service step was added in **Octopus 3.1**
-
 Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/).
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
@@ -140,7 +138,7 @@ The deployment is performed using a PowerShell script called `DeployToAzure.ps1
 
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
-1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): introduced in **Octopus 3.4** to enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions.
+1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) across multiple geographic regions.
 2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/index.md) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.

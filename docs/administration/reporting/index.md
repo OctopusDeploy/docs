@@ -4,7 +4,7 @@ description: Octopus reporting makes it easy to produce reports over your deploy
 position: 100
 ---
 
-**Octopus 3.1** added a reporting feature that makes it easy to produce reports over your deployment history, using your preferred reporting tools.
+The reporting feature makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 
 Currently Octopus doesn't display this reporting data in the user interface anywhere, but we do expose raw data that you can query or consume in your favorite reporting tools. Hopefully, you'll be able to import this data, combine it with data from other sources, and slice and dice it in ways that make the most sense to you.
 

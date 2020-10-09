@@ -5,9 +5,7 @@ position: 6
 version: 3.16
 ---
 
-:::hint
-Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service, is available in **Octopus 3.16** and later.
-:::
+Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service.
 
 To use Okta authentication with Octopus you will need to:
 

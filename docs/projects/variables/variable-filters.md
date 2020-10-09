@@ -82,7 +82,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 
 ### Format
 
-The *Format* filter introduced in **Octopus 3.5** allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
+The *Format* filter allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
 | MyVar Value           | Filter Expression                 | Output     |
 | --------------------- | --------------------------------- | ---------- |
@@ -170,7 +170,7 @@ Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 
 ## JSON parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
-Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
+Octostache 2.x includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
 Given the variable:
 
