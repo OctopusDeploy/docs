@@ -60,7 +60,7 @@ The capabilities of the extended syntax are:
 
 ### Index replacement {#VariableSubstitutionSyntax-IndexReplacement}
 
-Variable substitution inside an index was added in **Octopus 3.3.23**.  This makes it easy to dynamically retrieve variables within arrays/dictionaries.
+Variable substitution inside an index makes it easy to dynamically retrieve variables within arrays/dictionaries.
 
 Given the variables:
 
@@ -122,7 +122,7 @@ Note that when evaluating values, **all Octopus variables are strings** even if
 :::
 
 ### Complex syntax
-Additional conditional statements are supported in **Octopus 3.5** and onwards, including `==` and `!=`.
+Additional conditional statements are supported, including `==` and `!=`.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`, or:
 

@@ -60,8 +60,6 @@ testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
 
 ## Sensitive output variables
 
-Output variables can be created as sensitive (since **Octopus 2018.5.2**).
-
 ```powershell PowerShell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
 ```
@@ -175,10 +173,6 @@ set_octopusvariable "TestResult" "Passed"
 ```
 
 ### F# {#Outputvariables-F#}
-
-:::success
-F# support was introduced in **Octopus 3.4**.
-:::
 
 [FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)
 

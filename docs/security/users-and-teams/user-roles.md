@@ -37,7 +37,6 @@ To view the default permissions for each of the built-in user roles, please see 
 
 ### Additional user roles for spaces
 
-In addition to the above users roles, **Octopus 2019.1** and above also comes with the following built-in user role.
 
 | User Role            | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -47,27 +46,9 @@ In addition to the above users roles, **Octopus 2019.1** and above also comes wi
 For more information regarding the _system or space level_, please see [system and space permissions](/docs/security/users-and-teams/system-and-space-permissions.md).
 :::
 
-## Creating user roles (LTS) {#UserRoles-CreatingUserRolesLTS}
+## Creating user roles {#UserRoles-CreatingUserRoles}
 
-If you are using a version prior to **Octopus 2019.1** (including **2018.10-LTS**), a custom User Role can be created with any combination of permissions. To create a custom user role:
-
-1. Under the **Configuration** page, click **Roles**.
-
-   ![](images/roles-link.png "width=500")
-
-2. Click **Add custom role**.
-
-3. Select the set of permissions you'd like this new User Role to contain, and give the role a name and description.
-
-   ![](images/select-permissions.png "width=500")
-
-Once the custom role is saved, the new role will be available to be assigned to any team on Octopus.
-
-![](images/add-role.png "width=500")
-
-## Creating user roles with spaces {#UserRoles-CreatingUserRoles}
-
-If you are using **Octopus 2019.1** or later, a custom User Role can be created with any combination of permissions. To create a custom user role:
+A custom User Role can be created with any combination of permissions. To create a custom user role:
 
 1. Under the **Configuration** page, click **Roles**.
 

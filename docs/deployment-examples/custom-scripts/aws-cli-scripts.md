@@ -4,8 +4,6 @@ description: AWS CLI PowerShell Scripts.
 position: 90
 ---
 
-AWS support was introduced in **Octopus 4.3**.
-
 Octopus allows you to write custom PowerShell scripts that have access to the [AWS CLI](https://aws.amazon.com/cli/) and the [AWS PowerShell modules](https://aws.amazon.com/powershell/) via the `Run an AWS CLI Script` step. In addition, the script is run in an environment that handles authentication by creating the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` environment variables based on the AWS account that was selected for the step.
 
 The proceeding instructions can be followed to configure the `Run an AWS CLI Script` step.

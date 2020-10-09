@@ -80,7 +80,7 @@ If the linking process isn't linking a template that you believe should be linke
 
 ## Running script based custom step templates
 
-**Octopus 3.7** introduced the ability to run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/managing-infrastructure/performance/enable-web-request-logging.md) in the past.
+You can run script based custom step templates on a group of machines. This can be very handy to execute script based step templates to test them before starting to use them in your projects as well as performing regular admin or operations functions. This should be familiar to people who have used the [script console](/docs/administration/managing-infrastructure/performance/enable-web-request-logging.md) in the past.
 
 :::hint
 It's important to note that you can only run script based custom step templates. It's not currently possible to execute step templates based on other step types.

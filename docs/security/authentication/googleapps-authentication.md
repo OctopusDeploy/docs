@@ -4,10 +4,6 @@ description: Octopus Deploy can use GoogleApps authentication to identify users.
 position: 2
 ---
 
-:::hint
-GoogleApps authentication is available in **Octopus 3.5** and later
-:::
-
 To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an app).  Below are the details for how to configure the app.
 
 ## Configure GoogleApps {#GoogleAppsauthentication-ConfiguringGoogleApps}

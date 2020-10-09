@@ -41,6 +41,6 @@ Once you have created an [Octopus API key](/docs/octopus-rest-api/how-to-create-
 
 ## Logins
 
-As of **Octopus 3.17**, if you are using Active Directory there is also the option of using an Active Directory account's group membership to determine the service account's Team membership. To use this option all you need to do is add the Active Directory account as an external login entry for the service account.
+If you are using Active Directory there is also the option of using an Active Directory account's group membership to determine the service account's Team membership. To use this option all you need to do is add the Active Directory account as an external login entry for the service account.
 
 ![Add Active Directory login](images/add-adlogin.png "width=500")

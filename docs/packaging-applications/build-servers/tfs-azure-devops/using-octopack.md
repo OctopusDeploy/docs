@@ -55,7 +55,7 @@ The Octopus CLI has [plenty of commands](/docs/octopus-rest-api/octopus-cli/inde
 
 ### Using lifecycles and automatic deployments {#Deployingautomaticallyafterabuild-Using-AutomaticDeployments}
 
-**Octopus 2.6** introduced [lifecycles ](/docs/releases/lifecycles/index.md)and [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md). You can use these two features to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
+You can use [lifecycles ](/docs/releases/lifecycles/index.md)and [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) to automatically deploy to one or more environments when a new package is pushed to the built-in NuGet repository.
 
 First, turn on automatic release creation to create a new release when your package is pushed. Then, using the project Lifecycle configure one or more environments in your first phase to deploy automatically when a new release is available.
 

@@ -33,11 +33,7 @@ Make sure to [back up everything](/docs/administration/data/backup-and-restore.m
 
 Provision a new machine and install Octopus Server on it just like you would normally **except** you won't be able to point it at your existing database because you don't have the Master Key. We are going to get your new Octopus Server up and running on a new database, and then trick it into pointing at your new database.
 
-1. Install Octopus Server (the `lost-master-key` command was introduced in **Octopus 2018.3.6**):
-
-    - If you were using **Octopus 2018.3.6** or newer, please download and reinstall the exact same version.
-    - If you were using an older version of Octopus Server, please download and install the latest available version.
-
+1. Install Octopus Server.
 1. Either point it at a blank database you've created for this purpose, or let Octopus create a database for itself. **We will delete this afterwards.**
 1. Load the Octopus Server user interface, click around a little bit, and make sure it looks like a healthy but empty instance of Octopus Server.
 1. Run `Octopus.Server.exe service --stop` to stop the Octopus Server (we are going to reconfigure it).

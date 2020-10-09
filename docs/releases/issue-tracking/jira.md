@@ -4,7 +4,7 @@ description: Configure Jira Cloud and Jira Server issue tracking with Octopus.
 position: 20
 ---
 
-**Octopus 2019.4** introduced support to integrate Octopus with Jira issues. The integration includes the ability to:
+Octopus integrates with Jira issues. The integration includes the ability to:
 - Automatically add links to Jira issues from releases and deployments in Octopus.
 - View release and deployment details from Jira issues (Jira Cloud only).
 
@@ -138,7 +138,7 @@ When configured, this integration will provide Jira with updates about the progr
 
 ### Test the integration
 
-**Octopus 2019.7.13** introduced the ability to verify a connection can be made successfully between the Octopus Server and your Jira Cloud/Server instance.
+You can verify a connection can be made successfully between the Octopus Server and your Jira Cloud/Server instance.
 
 The **Connect App** `Test` button (found under `Jira Connect App Password`) checks the connectivity for pushing deployment data to your Jira Cloud instance.
 ![Connect App Test button](images/jiraconnectapp_testbutton.png "width=500")

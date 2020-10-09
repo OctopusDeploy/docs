@@ -12,7 +12,7 @@ When guest login is enabled, the sign in page for the Octopus Web Portal will pr
 
 ## Enable guest user via UI {#Guestlogin-Enableguestlogin}
 
-In **Octopus 4.0** we added the ability to enable your guest account via the UI. The option can be found under Configuration -> Settings -> Guest Login. From there you can select the **Is Enabled** button the active the the Guest account.
+You can enable your guest accounts from the Octopus Web Portal by navigating to {{Configuration,Settings,Guest Login}}. From there you can select the **Is Enabled** button the active the the Guest account.
 
 ![](images/enableguests1.jpg "width=500")
 ![](images/enableguests2.jpg "width=500")

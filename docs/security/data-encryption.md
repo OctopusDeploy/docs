@@ -39,14 +39,11 @@ When Octopus is installed, it generates a random string which will be used as th
 
 Depending on the version of Octopus Server you are using you may need to use a slightly different parsing:
 
-```powershell Octopus prior to 3.15 stripping extra whitespace
-$MasterKey = (.\Octopus.Server.exe show-master-key)[-1]
-```
 
-```powershell Octopus 3.15+ using text
+```powershell using text
 $MasterKey = .\Octopus.Server.exe show-master-key
 ```
 
-```powershell Octopus 3.15+ using JSON (if you're in the mood)
+```powershell using JSON (if you're in the mood)
 $MasterKey = (.\Octopus.Server.exe show-master-key --format=json | ConvertFrom-Json).MasterKey
 ```

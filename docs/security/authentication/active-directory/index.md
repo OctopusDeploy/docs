@@ -180,15 +180,6 @@ This will result in integrated sign in being the only option:
 
 It is possible to reconfigure an existing Octopus Server to use a different authentication mode.
 
-:::problem
-**User accounts are distinct**
-In versions prior **Octopus 3.5**, Octopus Deploy maintains different User records for Active Directory and username/password accounts. That is, a user *paul* created with username/password authentication will be a different account to the user *paul* found in Active Directory. This means that after switching between authentication types, teams and preferences will need to be reconfigured.
-
-When switching from username/password to Active Directory, after running the below commands you will find that duplicate accounts are created the first time an Active Directory user logs into Octopus Deploy. The pre-existing account should be either be deleted directly after the switch, or deleted after the user logs in for the first time using the Active Directory account. The Active Directory provisioned account will be recognizable as *paul*@domain compared to *paul*.
-
-In 3.5 the User records are handled differently, [learn more](/docs/security/authentication/index.md#AuthenticationProviders-usersandauthprovidersUsersandAuthenticationProviders).
-:::
-
 ### Select Active Directory authentication {#ActiveDirectoryauthentication-ToselectActiveDirectoryauthentication}
 
 To switch from username/password authentication to Active Directory authentication, use the following script from an administrative command prompt on the Octopus Server:

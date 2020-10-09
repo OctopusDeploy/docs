@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::hint
-Azure Active Directory (AAD) authentication is available in **Octopus 3.5** and later and only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
+Azure Active Directory (AAD) authentication only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
 :::
 
 To use Azure Active Directory (AAD) authentication with Octopus, you will need to do the following:

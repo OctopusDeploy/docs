@@ -4,10 +4,6 @@ description: How to enable web request logging to help the Octopus team analyze 
 position: 90
 ---
 
-:::hint
-This feature was added in **Octopus 3.0.12**.
-:::
-
 Octopus can be configured to log HTTP requests to text files, which can be very useful for analyzing usage patterns and detecting performance problems. By default, web request logging is **turned off**. This page explains how to turn the feature on, as well as the format of the logs.
 
 ## Log file format and retention {#Enablewebrequestlogging-Logfileformatandretention}

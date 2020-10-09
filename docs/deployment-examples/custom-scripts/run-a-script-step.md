@@ -42,10 +42,6 @@ Bash scripts are not able to be run on the Octopus Server, even if Bash is insta
 
 ## Choosing where to source the script {#Standalonescripts-Choosingwheretosourcethescript}
 
-:::hint
-The ability to source your script from a package shipped in **Octopus 3.3**
-:::
-
 You may also select the source of the script, either:
 
 - An ad-hoc or inline script, saved as part of the step itself, or:
@@ -69,10 +65,6 @@ When you call external scripts (sourced from a file inside a package) you can pa
 ![](images/5865636.png "width=500")
 
 ## Referencing packages
-
-:::hint
-The ability to reference packages was added in **Octopus 2018.8**
-:::
 
 In addition to being able to [source the custom script from a package](#Standalonescripts-Choosingwheretosourcethescript), it is often desirable to reference other packages.  Scenarios where this can be useful include:
 

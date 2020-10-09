@@ -4,7 +4,7 @@ description: Octopus can integrate with Let's Encrypt to setup and automatically
 position: 2300
 ---
 
-**Octopus 3.16** or newer can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
+Octopus can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
 
 **Octopus 2019.10.3, 2019.9.6 LTS, 2019.6.12 LTS** or newer use ACME v2, which is required after Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) in November 2019.
 

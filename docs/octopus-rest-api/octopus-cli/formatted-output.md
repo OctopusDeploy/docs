@@ -4,7 +4,7 @@ description: Formatting output from the Octopus CLI
 position: 1
 ---
 
-Introduced in version **4.30.0**, most commands support printing the result in JSON format.
+Most commands support printing the result in JSON format.
 
 :::warning
 [Dump Deployment](dump-deployments.md), [Export](export.md) and [Import](import.md) do not support JSON output.

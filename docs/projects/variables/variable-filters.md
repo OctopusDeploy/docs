@@ -82,7 +82,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 
 ### Format
 
-The *Format* filter introduced in **Octopus 3.5** allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
+The *Format* filter allows for converting of input based on an additionally provided argument that is passed to the *`.ToString()`* method.
 
 | MyVar Value           | Filter Expression                 | Output     |
 | --------------------- | --------------------------------- | ---------- |
@@ -92,7 +92,7 @@ The *Format* filter introduced in **Octopus 3.5** allows for converting of inpu
 
 ### Replace
 
-The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
+The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
 
 | MyVar Value   | Filter Expression                        | Output                  |
 | ------------- | ---------------------------------------- | ----------------------- |
@@ -106,7 +106,7 @@ The *Replace* filter introduced in **Octopus 2018.8.4** performs a regular expre
 
 ### Trim
 
-The *Trim* filter introduced in **Octopus 2019.8.0** removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
+The *Trim* filter removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
 
 | MyVar Value | Filter Expression       | Output   |
 | ----------- | ----------------------- | -------- |
@@ -116,7 +116,7 @@ The *Trim* filter introduced in **Octopus 2019.8.0** removes any whitespace from
 
 ### Truncate
 
-The *Truncate* filter introduced in **Octopus 2019.8.0** limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
+The *Truncate* filter limits the length of the input. If the input is longer than the length specified by the argument, the rest is replaced with an ellipsis.
 
 | MyVar Value      | Filter Expression       | Output       |
 | ---------------- | ----------------------- | ------------ |
@@ -125,7 +125,7 @@ The *Truncate* filter introduced in **Octopus 2019.8.0** limits the length of th
 
 ### Substring
 
-The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
+The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
 
 | MyVar Value      | Filter Expression          | Output       |
 | ---------------- | -------------------------- | ------------ |
@@ -135,7 +135,7 @@ The *Substring* filter introduced in **Octopus 2019.8.0** extracts a range of ch
 
 ### UriPart
 
-The *UriPart* filter introduced in **Octopus 2019.10.9** parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
+The *UriPart* filter parses the input as a URI and extracts a specified part of it. A  helpful error will be written to the output if there is an error in the input or the filter expression.
 
 | MyVar Value                             | Filter Expression                    | Output                     |
 | --------------------------------------- | ------------------------------------ | -------------------------- |
@@ -170,7 +170,7 @@ Server=#{if DatabaseServer}#{DatabaseServer}#{/if};
 
 ## JSON parsing {#VariableSubstitutionSyntax-JSONParsingjson}
 
-Octostache 2.x (bundled with **Octopus 3.5**) includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
+Octostache 2.x includes an update to support parsing JSON formatted variables natively, and using their contained properties for variable substitution.
 
 Given the variable:
 

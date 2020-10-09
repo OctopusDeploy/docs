@@ -4,8 +4,6 @@ description: Azure Service Fabric Cluster deployment targets allow you to refere
 position: 10
 ---
 
-Azure Service Fabric Cluster targets have been supported since **Octopus 2018.5**.
-
 Azure Service Fabric Cluster deployment targets let you reference existing Service Fabric Cluster apps that are available in your Azure subscription. You can then reference these by role during deployments.
 
 ## Requirements

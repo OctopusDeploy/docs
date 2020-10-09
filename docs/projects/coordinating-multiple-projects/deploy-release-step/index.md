@@ -3,7 +3,7 @@ title: Deploy release step
 description: The deploy release step allows you to trigger the deployment of a release of a project from another project
 ---
 
-Introduced in **Octopus 2018.2.1**, the _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/projects/coordinating-multiple-projects/index.md).
+The _Deploy Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/projects/coordinating-multiple-projects/index.md).
 
 ![Deploy release step card](deploy-release-card.png "width=500")
 
@@ -88,7 +88,7 @@ A project can contain multiple _Deploy Release_ steps which deploy a combination
 
 ## Rolling deployments
 
-From Octopus 2019.7.6 _Deploy Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
+_Deploy Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
 
 When executing a rolling deployment containing a _Deploy Release_ step, child deployments will be created per deployment target, as each target is rolled over.  i.e. if the rolling step specifies a target role which matches 10 deployment targets, then 10 child deployments will be created. 
 

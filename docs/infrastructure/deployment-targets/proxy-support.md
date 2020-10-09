@@ -6,8 +6,6 @@ position: 160
 
 Octopus has support for proxies in two use cases. You can specify a proxy server for Octopus to use when communicating with a Tentacle or SSH Target, you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
 
-Proxy support for Tentacle and SSH communications was added in **Octopus 3.4**.
-
 :::hint
 **HTTP proxies only**
 Octopus supports the use of HTTP proxies with support for SSL. There is no support for SOCKS proxies. See below for details on [choosing a proxy server](#Choosing-a-proxy-server).

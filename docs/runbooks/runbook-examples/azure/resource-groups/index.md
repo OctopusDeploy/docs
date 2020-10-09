@@ -4,10 +4,6 @@ description: Deploy an Azure Resource Manager (ARM) template.
 position: 10
 ---
 
-Azure Resource Manager (ARM) support was introduced in **Octopus 3.3**.
-
-Azure Key Vault support was introduced in **Octopus 3.3.25**.
-
 From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/):
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
