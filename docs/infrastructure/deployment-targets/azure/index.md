@@ -60,7 +60,7 @@ Now, you can [add the Service Principal Account in Octopus](#add-service-princip
 :::hint
 Note on roles: Your Service Principal will need to be assigned the *Contributor* role in order to deploy.
 
-It will also need the *Reader* role on subscription itself.
+It will also need the *Reader* role on the subscription itself.
 :::
 
 ### Note on least privilege {#note_on_lease_privilege}
@@ -216,7 +216,7 @@ A newly created Service Principal may take several minutes before the credential
 Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
 
 ::warning
-The Azure Service Management APIs are being depreciated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
+The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
 ::
 
 To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
