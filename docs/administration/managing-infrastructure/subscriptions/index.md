@@ -23,6 +23,8 @@ Emails may also include a link to your Octopus Audit screen, filtered to match t
 
 ## Example
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wtBrGaAMqfM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Let's say you have some critical projects and you want your administrators to receive an email if something is wrong with these deployments. You can setup an email subscription to notify your teams when these critical events have occurred.
 
 Consider the following example:

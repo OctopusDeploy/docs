@@ -22,6 +22,8 @@ Service accounts authenticate with the Octopus API using their [Octopus API Key
 
 ## Creating a service account {#ServiceAccounts-Creatingaserviceaccount}
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SMsZMpUwCZc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Creating a new Service account is very similar to creating a new User account:
 
 1. Go to **{{Configuration,Users}}** and click **Create user**.

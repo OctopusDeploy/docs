@@ -10,6 +10,8 @@ See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts.
 
 ## Creating an API Key {#HowtocreateanAPIkey-CreatinganAPIkey}
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f3-vRjpB0cE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 You can create API keys by performing the following steps:
 
 1. Log into the Octopus Web Portal, click your profile image and select **Profile**.
