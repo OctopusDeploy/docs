@@ -176,9 +176,9 @@ Write-Output "Client ID: $($azureAdApplication.ApplicationId)"
 
 The values required for the script above are:
 
-**Subscription ID**: The ID of the Azure subscription the account will interact with.
-**Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
-**Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **{{Azure Active Directory,Properties}}** in the **Tenant ID** field.
+- **Subscription ID**: The ID of the Azure subscription the account will interact with.
+- **Password**: A secret value created by you. Make sure you record it, as you will need to enter it into Octopus Deploy.
+- **Tenant ID**: The ID of the Active Directory tenant. You can find this in the Azure Portal by navigating to **{{Azure Active Directory,Properties}}** in the **Tenant ID** field.
 
 The Service Principal will default to expiring in 1 year from the time of creation.
 
