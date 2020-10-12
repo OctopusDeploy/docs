@@ -63,13 +63,13 @@ Note on roles: Your Service Principal will need to be assigned the *Contributor*
 It will also need the *Reader* role on the subscription itself.
 :::
 
-### Note on least privilege {#note_on_lease_privilege}
+### Note on least privilege {#note_on_least_privilege}
 
 In the PowerShell and Permissions example above the service principal is assigned the **Contributor** role on the subscription. This isn't always the best idea, you might want to apply a principle of least privilege to the access the service principal is granted. If that's the case, there are a couple of things worth noting.
 
 Firstly, you might want to constrain the service principal to a single resource group, in which case, you just need to assign it the **Contributor** role on the resource group.
 
-Next, if you might want to get even more granular you can constrain the service principal to a single resource, e.g. a Web App. _In this case, you have to assign the **Contributor** role on the Web App and explicitly assign the **Reader** role on the subscription itself_.
+Next, if you want to get even more granular you can constrain the service principal to a single resource, e.g. a Web App. _In this case, you have to assign the **Contributor** role on the Web App and explicitly assign the **Reader** role on the subscription itself_.
 
 The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployment-examples/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
