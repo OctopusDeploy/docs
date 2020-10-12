@@ -18,7 +18,7 @@ When you add an Azure account to Octopus, there are two ways to authenticate wit
 You can read about the differences in [this document](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/).
 
 :::warning
-Management Certificates are used to authenticate with Service Management APIs, those are being depreciated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.
+Management Certificates are used to authenticate with Service Management APIs, those are being deprecated by Microsoft.  See our [blog post](https://octopus.com/blog/azure-management-certs) for more details.  Instructions remain only for legacy purposes.  Please migrate to service principals as soon as possible.
 :::
 
 ## Creating an Azure Service Principal account {#azure-service-principal}
