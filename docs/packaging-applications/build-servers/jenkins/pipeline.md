@@ -112,7 +112,7 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `gitUrl` | No | The URL of the repository for the package(s). |
 | `gitBranch` | No | The branch that was checked out in the repository. Available via `git checkout`. |
-| `gitCommit` | No | The commit ID in the repository. Available via `git checkout`. |
+| `gitCommit` | No | The commit ID of the most recent commit on the branch. Available via `git checkout`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
 | `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command.|
 
