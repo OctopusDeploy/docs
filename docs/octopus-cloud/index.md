@@ -5,11 +5,13 @@ description: How to work with Octopus Cloud.
 hideInThisSectionHeader: true
 ---
 
-!include <octopus-cloud>
+Octopus Cloud is the hosted version of Octopus Deploy.
 
-## Octopus Server
+We designed Octopus Cloud and self-hosted Octopus to provide the same functionality. Octopus Cloud uses the same deployment automation server to define your deployment processes and runbooks and manage the releases of your software.
 
-!include <octopus-server>
+![Octopus Dashboard](/docs/shared-content/concepts/images/dashboard.png "width=500")
+
+You can sign up for Octopus Cloud at [octopus.com/free](https://octopus.com/free).
 
 ## Create an Octopus account
 
