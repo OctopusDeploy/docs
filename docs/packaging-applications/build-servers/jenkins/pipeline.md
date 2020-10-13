@@ -111,7 +111,8 @@ _**octopusPushBuildInformation** allows you to push package information to an Oc
 | `commentParser` | Yes | Valid values are `GitHub` and `Jira`.  |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `gitUrl` | No | The URL of the repository for the package(s). |
-| `gitCommit` | No | The commit ID for the repository. Available via `git checkout`. |
+| `gitBranch` | No | The branch that was checked out in the repository. Available via `git checkout`. |
+| `gitCommit` | No | The commit ID in the repository. Available via `git checkout`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
 | `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command.|
 
@@ -128,13 +129,14 @@ octopusPushBuildInformation \
   verboseLogging: false, \
   additionalArgs: '--debug', \
   gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', \
+  gitBranch: '${GIT_BRANCH}' \
   gitCommit: '${GIT_COMMIT}'
 ```
 
-Due to _limitations in Jenkins Pipelines_, you will need to pass the *Git URL* and *Git Commit* values to the `octopusPushBuildInformation`. 
+Due to _limitations in Jenkins Pipelines_, you will need to pass the *Git URL*, *Git Branch* and *Git Commit* values to the `octopusPushBuildInformation`. 
 Including these values will allow the build information to provide correct URL links to the source.
 
-For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitCommit: '${GIT_COMMIT}'`, the `checkoutVars` script will not be required.
+For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitBranch: '${GIT_BRANCH}' gitCommit: '${GIT_COMMIT}'`, the `checkoutVars` script will not be required.
 For a inline pipeline definition configure the step as:
 
 ```powershell
@@ -142,9 +144,10 @@ steps {
     script {
         def checkoutVars = checkout([$class: 'GitSCM', userRemoteConfigs: [[url: 'https://github.com/OctopusSamples/RandomQuotes-Java.git']]])
         env.GIT_URL = checkoutVars.GIT_URL
+        env.GIT_BRANCH = checkoutVars.GIT_BRANCH
         env.GIT_COMMIT = checkoutVars.GIT_COMMIT
     }
-    octopusPushBuildInformation commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'randomquotes', packageVersion: "1.0.${BUILD_NUMBER}", serverId: "octopus-server", spaceId: "Spaces-2", toolId: 'Default', gitUrl: "${GIT_URL}", gitCommit: "${GIT_COMMIT}"
+    octopusPushBuildInformation commentParser: 'GitHub', overwriteMode: 'FailIfExists', packageId: 'randomquotes', packageVersion: "1.0.${BUILD_NUMBER}", serverId: "octopus-server", spaceId: "Spaces-2", toolId: 'Default', gitUrl: "${GIT_URL}", gitBranch: "${GIT_BRANCH}", gitCommit: "${GIT_COMMIT}"
 }
 ```
 
