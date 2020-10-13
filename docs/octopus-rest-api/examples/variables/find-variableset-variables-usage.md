@@ -6,7 +6,7 @@ description: An example script that loads variables from a library variable set 
 This script demonstrates how to programmatically find usages of variables from a library variable set. It searches in all projects for a reference to each variable, and optionally deployment processes and runbook processes.
 
 :::hint
-Note: It's not possible to use the REST API to search through Sensitive variable values, as these values will be returned as `null`.
+Note: It's not possible to use the REST API to search through sensitive variable values, as these values will be returned as `null`.
 :::
 
 ## Usage
