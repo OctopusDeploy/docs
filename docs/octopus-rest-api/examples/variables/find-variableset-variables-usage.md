@@ -1,9 +1,9 @@
 ---
-title: Find variable usage
-description: An example script that finds references to a specific variable in project variables, deployment process and runbooks.
+title: Find library variable set variables usage
+description: An example script that loads variables from a library variable set and finds usages in project variables, and optionally deployment processes and runbooks.
 ---
 
-This script demonstrates how to programmatically search in all projects for a variable in the variables (either a named match, or referenced in another variable), and optionally any deployment process or runbook processes.
+This script demonstrates how to programmatically find usages of variables from a library variable set. It searches in all projects for a reference to each variable, and optionally deployment processes and runbook processes.
 
 :::hint
 Note: It's not possible to use the REST API to search through Sensitive variable values, as these values will be returned as `null`.
@@ -15,7 +15,7 @@ Provide values for the following::
 - Octopus URL
 - Octopus API Key
 - Name of the space to search
-- Name of the variable to search for
+- Name of the library variable set to use
 - Boolean value for searching in a project's deployment processes
 - Boolean value for searching in a project's runbook processes
 - A Path to export the results to a csv file
