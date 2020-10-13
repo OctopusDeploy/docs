@@ -28,7 +28,7 @@ try
     # Get space
     $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
     
-    Write-Host "Looking for usage of variable named $variableToFind in space: '$spaceName'"
+    Write-Host "Looking for usages of variable named $variableToFind in space: '$spaceName'"
 
     # Get all projects
     $projects = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $header
@@ -47,8 +47,8 @@ try
                 $result = [pscustomobject]@{
                     Project = $project.Name
                     MatchType = "Named Project Variable"
-                    Context = $null
-                    AdditionalContext = $null
+                    Context = $match.Name
+                    AdditionalContext = $match.Value
                     Property = $null
                     Link = "$octopusURL$($project.Links.Web)/variables"
                 }
@@ -66,8 +66,8 @@ try
                 $result = [pscustomobject]@{
                     Project = $project.Name
                     MatchType = "Referenced Project Variable"
-                    Context = $null
-                    AdditionalContext = $null
+                    Context = $match.Name
+                    AdditionalContext = $match.Value
                     Property = $null
                     Link = "$octopusURL$($project.Links.Web)/variables"
                 }
