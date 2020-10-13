@@ -48,8 +48,8 @@ try
                     Project = $project.Name
                     MatchType = "Named Project Variable"
                     Context = $match.Name
-                    AdditionalContext = $match.Value
                     Property = $null
+                    AdditionalContext = $match.Value
                     Link = "$octopusURL$($project.Links.Web)/variables"
                 }
                 
@@ -67,8 +67,8 @@ try
                     Project = $project.Name
                     MatchType = "Referenced Project Variable"
                     Context = $match.Name
-                    AdditionalContext = $match.Value
                     Property = $null
+                    AdditionalContext = $match.Value
                     Link = "$octopusURL$($project.Links.Web)/variables"
                 }
                 if($variableTracking -notcontains $result) {
@@ -95,8 +95,8 @@ try
                             Project = $project.Name
                             MatchType= "Step"
                             Context = $step.Name
-                            AdditionalContext = $null
                             Property = $propName
+                            AdditionalContext = $null
                             Link = "$octopusURL$($project.Links.Web)/deployments/process/steps?actionId=$($step.Actions[0].Id)"
                         }
                         if($variableTracking -notcontains $result) {
@@ -132,8 +132,8 @@ try
                                 Project = $project.Name
                                 MatchType = "Runbook Step"
                                 Context = $runbook.Name
-                                AdditionalContext = $step.Name
                                 Property = $propName
+                                AdditionalContext = $step.Name
                                 Link = "$octopusURL$($project.Links.Web)/operations/runbooks/$($runbook.Id)/process/$($runbook.RunbookProcessId)/steps?actionId=$($step.Actions[0].Id)"
                             }
                             if($variableTracking -notcontains $result) {
