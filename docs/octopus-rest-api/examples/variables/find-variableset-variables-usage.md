@@ -16,9 +16,9 @@ Provide values for the following::
 - Octopus API Key
 - Name of the space to search
 - Name of the library variable set to use
-- Boolean value for searching in a project's deployment processes
-- Boolean value for searching in a project's runbook processes
-- A Path to export the results to a csv file
+- Boolean value to toggle searching in a project's deployment process
+- Boolean value to toggle searching in a project's runbook processes
+- Optional path to export the results to a csv file
 
 ## Script
 
