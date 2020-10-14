@@ -94,6 +94,10 @@ To register a worker with an SSH Connection, see the instructions for configurin
 
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 
+:::hint
+For information on creating an API key, see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::
+
 ```
 .\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --workerpool "Default Worker Pool"
 ```
