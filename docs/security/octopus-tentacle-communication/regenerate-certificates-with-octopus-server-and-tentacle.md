@@ -61,7 +61,7 @@ If you see a warning message about `The X509 certificate CN=Octopus Portal was l
 Octopus.Server.exe new-certificate --instance OctopusServer --export-pfx="C:\PathToCertificate\newcert.pfx" --pfx-password MySecretPassword
 ```
 ```bash Linux
-./Octopus.Server.exe new-certificate --instance OctopusServer --export-pfx="/tmp/newcert.pfx" --pfx-password MySecretPassword
+./Octopus.Server new-certificate --instance OctopusServer --export-pfx="/tmp/newcert.pfx" --pfx-password MySecretPassword
 ```
 
 This will display output similar to the following:
