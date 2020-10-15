@@ -16,4 +16,4 @@ Provide values for:
 
 ## Script
 
-!include <create-channel-scripts>
+!include <create-lifecycle-scripts>
