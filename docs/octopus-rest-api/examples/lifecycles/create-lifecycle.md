@@ -16,4 +16,4 @@ Provide values for:
 
 ## Script
 
-!include <create-lifecycle-scripts>
+!include <create-a-lifecycle-scripts>
