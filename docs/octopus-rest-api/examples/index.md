@@ -11,6 +11,7 @@ As you work with the Octopus API, you may need some guidance on how to perform c
 - PowerShell using Octopus.Client.
 - C# using Octopus.Client.
 - Python using the REST API.
+- Go using the REST API.
 
 In addition, we also have a wide range of some of the more common examples here as well.
 
@@ -33,6 +34,10 @@ Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) 
 ### Python examples
 
 The Python examples are written using Python 3 and use the [Requests](https://requests.readthedocs.io/en/master/) library.
+
+### Go examples
+
+The Go examples are written using the [go-octopusdeploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
 
 ## Explore examples
 
