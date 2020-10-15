@@ -154,7 +154,7 @@ uri = '{0}/{1}/projects'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=project)
 response.raise_for_status()
 ```
-```go
+```go Go
 package main
 
 import (

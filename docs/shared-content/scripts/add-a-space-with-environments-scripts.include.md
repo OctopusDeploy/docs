@@ -161,7 +161,7 @@ foreach(var environmentName in environments)
     }
 }
 ```
-```go
+```go Go
 package main
 
 import (
