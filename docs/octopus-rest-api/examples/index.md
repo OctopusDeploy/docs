@@ -11,7 +11,7 @@ As you work with the Octopus API, you may need some guidance on how to perform c
 - PowerShell using Octopus.Client.
 - C# using Octopus.Client.
 - Python using the REST API.
-- Go using the Go Octopus Deploy client SDK found [here](https://github.com/OctopusDeploy/go-octopusdeploy).
+- Go using the REST API
 
 In addition, we also have a wide range of some of the more common examples here as well.
 
