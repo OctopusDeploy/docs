@@ -44,7 +44,7 @@ Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=Cli
 
 Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Hosted Domain`, `Client Id` and `Is Enabled`.
 
-![Settings](images/googleapps-settings.png "width=500")
+![Settings](images/google.png "width=500")
 
 ### Octopus user accounts are still required {#GoogleAppsauthentication-Octopususeraccountsarestillrequired}
 

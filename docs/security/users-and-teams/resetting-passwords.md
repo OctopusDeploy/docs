@@ -10,11 +10,11 @@ In the Octopus Web UI, click your username in the top right corner of the screen
 
 To change your password, select **Change password**:
 
-![](images/change-pwd.png "width=500")
+![](images/resetpassword.png "width=500")
 
 Enter and confirm your new password, then click **Save**:
 
-![](images/enter-new-pwd.png "width=500")
+![](images/newpassword.png "width=500")
 
 ## Resetting user passwords {#Resettingpasswords-Resettinguserpasswords}
 
@@ -22,15 +22,15 @@ Octopus Server administrators can reset the passwords of other users from the Oc
 
 Select the user whose password you want to change:
 
-![](images/select-user.png "width=500")
+![](images/usersearch.png "width=500")
 
 Click **Change password**:
 
-![](images/other-user-change-pwd.png "width=500")
+![](images/changeuserpwd.png "width=500")
 
 Enter and confirm the new password, then click **Save**:
 
-![](images/other-user-enter-new-pwd.png "width=500")
+![](images/userpasswordchange.png "width=500")
 
 ## Resetting administrator passwords {#Resettingpasswords-Resettingadministratorpasswords}
 
