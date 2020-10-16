@@ -2,7 +2,6 @@
 title: Active Directory authentication
 description: Octopus Deploy can use Windows credentials to identify users.
 position: 0
-hideInThisSectionHeader: true
 ---
 
 Octopus Deploy can use Windows credentials to identify users. This option is chosen during installation of the Octopus Server, or can be configured later.
@@ -236,6 +235,3 @@ In this example, DomainA trusts DomainB. Given that both domains trust users fro
 
 Learn about [configuring Teams to utilize Trusted Domains](/docs/security/users-and-teams/external-groups-and-roles.md).
 
-## Learn more
-
-- [Troubleshooting Active Directory integration](/docs/security/authentication/active-directory/troubleshooting-active-directory-integration.md)
