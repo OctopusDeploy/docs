@@ -17,7 +17,7 @@ A typical Octopus deployment requires that all deployment targets are available 
 This example uses the OctoFX project that does a deployment to two roles: **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** role and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
 
 1. Navigate to the OctoFX project overview page.
-2. Select the **Settings** option and expand the **Deployment Target Status** section.
+2. Select the **Settings** option and expand the **Deployment Target** section.
 3. Under *Unavailable Deployment targets* click **Skip** and select the roles that can be skipped, in our example (**TradingWebServer**). If no roles are selected, then any deployment target may be skipped.
 4. Create and deploy a release to an environment where deployment targets in the **TradingWebServer** role are unavailable. They will be automatically removed from the deployment.
 
@@ -33,12 +33,12 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 2. Select **Add Step** and then select **Health check**. For more information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
 3. Configure the Health Check step, exclude deployment targets if they are unavailable and include new deployment targets if they are found:
 
-   ![](images/5866102.png "width=500")
+   ![](images/healthcheck.png "width=500")
 
 4. Save the step.
 5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets in the **TradingWebServer** role are re-evaluated before the trading web site is deployed:
 
-   ![](images/5866099.png "width=500")
+   ![](images/evaluate.png "width=500")
 
 6. Deploy OctoFX to an environment that has some deployment targets in the **TradingWebServer** role that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
 
@@ -47,7 +47,7 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 
 In this case, the machine **SWeb01** has been found and included in the rest of the deployment:
 
-![](images/5866100.png "width=500")
+![](images/newtarget.png "width=500")
 
 Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
 
