@@ -17,4 +17,4 @@ Provide values for:
 
 ## Script
 
-!include <create-azure-service-principal-scripts>
+!include <create-aws-account-scripts>
