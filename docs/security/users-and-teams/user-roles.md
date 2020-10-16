@@ -74,14 +74,18 @@ To test the permissions go to **{{Configuration,Test Permissions}}** and selec
 
 The results will show:
 
-- The teams of which the user is a member of.
+- The teams of which the user is a member of. There are two separate Permission context that you can check.
+   - **Show System permissions** will show [System level permissions](/docs/security/users-and-teams/system-and-space-permissions.md)
+   - **Show permissions within a specific space** will show [Space specific Permissions](/docs/security/users-and-teams/system-and-space-permissions.md).
 - A chart detailing each role and on which Environment/Project this permission can be executed. The chart can be exported to a CSV file by clicking the Export button. Once the file is downloaded it can viewed in browser using [Online CSV Editor and Viewer](http://www.convertcsv.com/csv-viewer-editor.htm).
 
-![](images/test-permissions.png "width=500")
+![](images/systempermissions.png "width=500")
+
+![](images/spacelevelpermissions.png "width=500")
 
 If a user tries to perform an action without having enough permissions to do it, an error message will pop up showing which permissions the user is lacking, and which teams actually have these permissions.
 
-![](images/no-permissions.png "width=500")
+![](images/errors.png "width=500")
 
 :::warning
 As further versions of Octopus are released, we might create new roles to improve our security model. These new roles will not be automatically included in any of the built-in user roles, to avoid giving users permissions they are not supposed to have. These new roles will have to be added manually to a User Role by an administrator.
