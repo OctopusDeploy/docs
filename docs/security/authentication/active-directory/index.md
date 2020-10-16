@@ -63,7 +63,7 @@ Without some additional configuration, AD authentication, whether forms-based or
 
 :::hint
  **Service Accounts and Kerberos**
-From Octopus version 2020.1.0 onwards, an upgrade to .Net Core 3.1 and usage of the HTTP.sys library, the Octopus Deploy Service running with Domain Service Account credentials, does not have ability to read the HttpContext.User.Identity.Name property which is used for kerberos authentication. There will be a requirement to run the Octopus Deploy Service as Local System in order to allow for kerberos to succesfully Authenticate.
+From Octopus version 2020.1.0 onwards, an upgrade to .Net Core 3.1 and usage of the HTTP.sys library, the Octopus Deploy Service running with Domain Service Account credentials, does not have ability to read the HttpContext.User.Identity.Name property which is used for kerberos authentication. There will be a requirement to run the Octopus Deploy Service as Local System in order to allow for kerberos to succesfully Authenticate. You can read more about this here: https://github.com/OctopusDeploy/Issues/issues/6602
 :::
 
 ### Configuring Kerberos Authentication for Active Directory {#ActiveDirectoryAuthentication-ConfiguringKerberos}
