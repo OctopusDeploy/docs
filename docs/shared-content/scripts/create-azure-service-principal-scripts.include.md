@@ -205,7 +205,7 @@ uri = '{0}/{1}/accounts'.format(octopus_server_uri, space['Id'])
 response = requests.post(uri, headers=headers, json=account)
 response.raise_for_status()
 ```
-```go
+```go Go
 package main
 
 import (
