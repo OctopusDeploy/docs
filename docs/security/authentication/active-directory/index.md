@@ -26,7 +26,7 @@ This allows a one-click option to *Sign in with a domain account* as pictured be
 
 ![Login Screen](images/ad-integrated.png "width=500")
 
-This will instruct the Octopus Server to issue a browser challenge. NTLM Authentication usually doesn't require much configuration except for allowing NTLM to be used in your network. This is usually on by default.
+This will instruct the Octopus Server to issue a browser challenge. NTLM Authentication doesn't require much configuration except for allowing NTLM to be used in your network. This is on by default.
 
 
 
@@ -260,4 +260,3 @@ Another common scenario is to have a one way trust between the domains. This con
 In this example, DomainA trusts DomainB. Given that both domains trust users from DomainB, the Octopus service should be configured to run as an account from DomainB. If the service was configured to run as an account from DomainA then users from DomainB wouldn't be able to log in and Octopus wouldn't be able to query group information from DomainB.
 
 Learn about [configuring Teams to utilize Trusted Domains](/docs/security/users-and-teams/external-groups-and-roles.md).
-
