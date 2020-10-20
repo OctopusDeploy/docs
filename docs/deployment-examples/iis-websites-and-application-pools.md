@@ -53,6 +53,10 @@ You need to fill out the following fields for an IIS Virtual Directory deploymen
 The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
 :::
 
+:::warning
+We use PowerShell to create virtual and physical directories. There is a known limitation with PowerShell which prevents the creation of virtual directories with a leading dot directly under the parent website in IIS. There are two workarounds for this. First, you can manually create a virtual directory on the server using the IIS manager. Alternatively, you can create a physical directory with the same name as your virtual directory's target physical directory where your site or application will be installed. For example, you might create a physical directory in the website installation directory called `.well-known`, and then configure your IIS deployment step to create a virtual directory directly under the parent website directory. This issue has been documented [here](https://github.com/OctopusDeploy/Issues/issues/6586).
+:::
+
 ## Deploy IIS web application {#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application}
 
 :::success
