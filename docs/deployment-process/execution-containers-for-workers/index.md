@@ -10,11 +10,13 @@ When an execution container is configured for a step, Octopus will still connect
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 
-## Minimum requirements
+## Requirements
 You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
 
-## Octopus cloud dynamic worker pools 
-[Octopus Cloud dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools.md) images have Docker installed and support execution containers, with the exception of Windows 2016 images. Windows Server 2016 images do not have Docker installed, and they cannot be used to run execution containers. 
+### Octopus cloud dynamic worker pools 
+[Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) have Docker pre-installed and support execution containers, with the exception of Windows 2016 pools. Dynamic worker pools with a VM type of Windows Server Core 2016 do not have Docker installed, and they cannot be used to run execution containers. 
+
+![](images/hosted-worker-pools-execution-containers.png "width=500")
 
 
 ## How to use execution containers for workers 
