@@ -1,29 +1,25 @@
 ```powershell PowerShell (REST API)
+$ErrorActionPreference = "Stop";
+
 # Define working variables
-$octopusURL = "https://youroctourl"
+$octopusURL = "https://your.octopus.app"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$spaceName = "default"
+$spaceName = "Default"
 $packageName = "packageName"
 $packageVersion = "1.0.0.0"
-$filePath = "/path/to/save/file"
+$outputFolder = "/path/to/output/folder"
 
-try
-{
+# Get space
+$space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-    # Get space
-    $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
+# Get package details
+$package = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/packages/packages-$packageName.$packageVersion" -Headers $header)
 
-    # Get package details
-    Invoke-RestMethod -Method $method -Uri "$octopusURL/api/packages/packages-$packageName.$packageVersion" -Headers $header 
-
-    # Get package
-    Invoke-RestMethod -Method $method -Uri "$octopusURL/api/packages/$packageName.$packageVersion/raw" -Headers $header -OutFile $filePath
-}
-catch
-{
-    Write-Host $_.Exception.Message
-}
+# Get package
+$filePath = [System.IO.Path]::Combine($outputFolder, "$($package.PackageId).$($package.Version)$($package.FileExtension)")
+Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/packages/$packageName.$packageVersion/raw" -Headers $header -OutFile $filePath
+Write-Host "Downloaded file to $filePath"
 ```
 ```powershell PowerShell (Octopus.Client)
 # Load octopus.client assembly

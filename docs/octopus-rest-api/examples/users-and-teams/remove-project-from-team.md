@@ -1,5 +1,5 @@
 ---
-title: Remove as project from team
+title: Remove a project from team
 description: An example script that removes a project from a team.
 ---
 
