@@ -49,17 +49,31 @@ When the link is clicked, it redirects to a page which is configured to tell HTT
 
 ### Kerberos vs NTLM security for AD Authentication {#ActiveDirectoryAuthentication-NTLMvKerberos}
 
-It is possible to use either `NTLM` or `Kerberos` authentication for Active Directory authentication. By default, selecting `IntegratedWindowsAuthentication` & `Negotiate` will result in Octopus Deploy attempting to use `Kerberos` first and then silently falling back to `NTLM` if `Kerberos` authentication fails. 
+It is possible to use explicitly select either `NTLM`, `Negotiate` or `IntegratedWindowsAuthentication` authentication for Active Directory authentication. Using `Negotiate` or `IntegratedWindowsAuthentication` will use Kerberos authentication. In some cases this may result in `NTLM` connections based on the nature of the connecting client.
 
-Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail on `kerberos` authentication and failback to `NTLM`.
+This table describes the options you can choose in Octopus, and the protocols that may be used to authenticate your users as a result.
+
+|     Octopus Option              |    Protocols Used     |
+|---------------------------------|-----------------------|
+| NTLM                            |         NTLM          |
+| Negotiate                       |      Kerberos, NTLM   |
+| IntegratedWindowsAuthentication |      Kerberos, NTLM   |
+
+Without some additional configuration, AD authentication, whether forms-based or integrated, will usually fail to negotiate the use of `kerberos` authentication and instead choose `NTLM`.
 
 ### Supported Setups for Active Directory Authentication {#ActiveDirectoryAuthentication-SupportedAuthentication}
 
-|                                 | Single Octopus Server | High-Availability |
+Octopus Deploy supports various options for Active directory Authentication.
+
+:::hint
+Not all high availability and Active Directory configurations are supported. There are limitations on use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow kerberos to work](#ActiveDirectoryAuthentication-ConfiguringKerberos) with our web server.
+:::
+
+|     Octopus Option              | Single Octopus Server | High-Availability |
 |---------------------------------|-----------------------|-------------------|
-| NTLM                            |         NTLM          |       NTLM        |
-| Negotiate                       |      Kerberos/NTLM    |       NTLM        |
-| IntegratedWindowsAuthentication |       Kerberos        |       NTLM        |
+| NTLM                            |         Yes           |       Yes         |
+| Negotiate                       |         Yes           |       No          |
+| IntegratedWindowsAuthentication |         Yes           |       No          |
 
 :::hint
  **Service Accounts and Kerberos**
@@ -100,8 +114,7 @@ setspn.exe -S HTTP/od.mydomain.local octoserver1
 
 :::note
 **HA Clusters**
-If you are running a HA Octopus Deploy environment, you need to add additional SPN entries for each host you are using.  
-Cluster/Load Balance URLs are not required to be included as an SPN.
+If you are running a HA Octopus Deploy environment, kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#ActiveDirectoryAuthentication-SupportedAuthentication)
 :::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
