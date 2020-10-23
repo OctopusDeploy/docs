@@ -5,14 +5,12 @@ position: 1
 ---
 
 :::warning
-If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
+**Octopus Server Linux Containers are part of our Early Access Program (EAP) and may contain bugs or be unstable.**
 :::
 
-:::important
-**Octopus Deploy Linux Containers are part of our Early Access Program (EAP) and may contain bugs or be unstable.**
-:::
+This page describes how to run Octopus Deploy within an Linux Container. If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
 
-Note: When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+**Note:** When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 Running the Octopus Server inside a container provides a simple way to set up an Octopus Deploy instance, and upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
 
