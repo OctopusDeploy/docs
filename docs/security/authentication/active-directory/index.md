@@ -84,9 +84,9 @@ From Octopus version 2020.1.0 and above, an upgrade to .Net Core 3.1 and usage o
 
 Here's a simple checklist to help you on your way to allowing Kerberos Authentication.
 
-1. Change the Authentication Scheme 
-2. Set the Octopus Deploy HTTP/S Bindings to use a Fully Qualified Domain Name (FQDN) or NETBIOS name as per your usage
-3. Add the Octopus Deploy URL to the list of Trusted Sites
+1. Change the Authentication Scheme.
+2. Set the Octopus Deploy HTTP/S Bindings to use a Fully Qualified Domain Name (FQDN) or NETBIOS name as per your usage.
+3. Add the Octopus Deploy URL to the list of Trusted Sites.
 4. Allow Automatic logon via browser
 5. Set the appropriate SPNs
 6. Enable AES256 encryption for Kerberos tickets
