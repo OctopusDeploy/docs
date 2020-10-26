@@ -114,7 +114,7 @@ setspn.exe -S HTTP/od.mydomain.local octoserver1
 
 :::note
 **HA Clusters**
-If you are running a HA Octopus Deploy environment, kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#ActiveDirectoryAuthentication-SupportedAuthentication)
+If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#ActiveDirectoryAuthentication-SupportedAuthentication)
 :::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
