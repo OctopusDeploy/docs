@@ -66,7 +66,7 @@ Without some additional configuration, AD authentication, whether forms-based or
 Octopus Deploy supports various options for Active Directory Authentication.
 
 :::hint
-Not all high availability and Active Directory configurations are supported. There are limitations on use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow kerberos to work](#ActiveDirectoryAuthentication-ConfiguringKerberos) with our web server.
+Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#ActiveDirectoryAuthentication-ConfiguringKerberos) with our web server.
 :::
 
 |     Octopus Option              | Single Octopus Server | High-Availability |
