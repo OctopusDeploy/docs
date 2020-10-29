@@ -20,7 +20,11 @@ You can identify prompted variables by looking for the icon next to the value:
 ![](images/prompted-variable-icon.png "width=500")
 
 :::hint
-You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. Control type options are Single-line text box, Multi-line text box, Drop down, and Checkbox.
+You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. Control type options are:
+- Single-line text box
+- Multi-line text box
+- Drop-down
+- Checkbox
 :::
 
 ## Providing a value for the variable {#Promptedvariables-Providingavalueforthevariable}
