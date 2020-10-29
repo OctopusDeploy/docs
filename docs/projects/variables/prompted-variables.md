@@ -19,6 +19,14 @@ You can identify prompted variables by looking for the icon next to the value:
 
 ![](images/prompted-variable-icon.png "width=500")
 
+:::hint
+You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. Control type options are:
+- Single-line text box
+- Multi-line text box
+- Drop-down
+- Checkbox
+:::
+
 ## Providing a value for the variable {#Promptedvariables-Providingavalueforthevariable}
 
 When deploying (not creating a release), you'll be prompted to provide a value for the variable:
@@ -34,7 +42,7 @@ octo deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "V
 ```
 
 :::hint
-Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment.
+Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment. They can also be combined with [Azure Account variables](https://octopus.com/docs/projects/variables/azure-account-variables), [AWS Account variables](https://octopus.com/docs/projects/variables/aws-account-variables), [Certificate variables](https://octopus.com/docs/projects/variables/certificate-variables), and [Worker Pool variables](https://octopus.com/docs/projects/variables/worker-pool-variables), passing in the ID, e.g. `WorkerPools-1`.
 :::
 
 ## Restricting a prompted variable for runbooks
