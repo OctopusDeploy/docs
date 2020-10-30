@@ -42,6 +42,11 @@ Or one of the common options:
 This example configures all paths (artifacts, task logs, packages, and telemetry) to a network share:
 ```text
 octopus.server path --clusterShared \\OctoShared\OctopusData
+
+octopus.server path --artifacts Artifacts
+octopus.server path --taskLogs TaskLogs
+octopus.server path --nugetRepository Packages
+octopus.server path --telemetry Telemetry
 ```
 
 This example configures the paths for the different components individually:
@@ -49,5 +54,5 @@ This example configures the paths for the different components individually:
 octopus.server path --artifacts \\Octoshared\OctopusData\Artifacts
 octopus.server path --taskLogs \\Octoshared\OctopusData\TaskLogs
 octopus.server path --nugetRepository \\Octoshared\OctopusData\Packages
-octopus.server --telemetry \\Octoshared\OctopusData\Telemetry
+octopus.server path --telemetry \\Octoshared\OctopusData\Telemetry
 ```
