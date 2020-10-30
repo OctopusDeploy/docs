@@ -92,7 +92,7 @@ updateprogress(50, 'Woah, we\'re halfway there!')
 
 ## Service message
 
-The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines will be treated with the relevant log level.
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard output will be treated with the relevant log level.
 ```
 ##octopus[stdout-ignore]
 ##octopus[stdout-error]
@@ -102,7 +102,20 @@ The following service messages can be written directly to standard output which 
 ##octopus[stdout-highlight]
 ```
 
-To return to the default log level, write the following message:
+To return to the default standard output log level, write the following message:
 ```
 ##octopus[stdout-default]
+```
+
+
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. `stderr-progress` will cause error log lines to be written as `verbose` log lines.
+```
+##octopus[stderr-ignore]
+##octopus[stderr-error]
+##octopus[stderr-progress]
+```
+
+To return to the default standard error log level, write the following message:
+```
+##octopus[stderr-default]
 ```

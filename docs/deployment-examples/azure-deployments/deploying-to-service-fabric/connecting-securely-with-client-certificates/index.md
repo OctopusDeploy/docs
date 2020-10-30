@@ -103,7 +103,7 @@ In Octopus, Service Fabric deployment steps that use "Client Certificate" as the
 
 Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
 
-If you wish to learn more about how Octopus connects securely to Service Fabric clusters, the PowerShell scripts used by Calamari can be [viewed here](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari.Azure/Scripts/AzureServiceFabricContext.ps1).
+If you wish to learn more about how Octopus connects securely to Service Fabric clusters, the PowerShell scripts used by Calamari can be [viewed here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Scripts/AzureServiceFabricContext.ps1).
 
 ## Learn more
 

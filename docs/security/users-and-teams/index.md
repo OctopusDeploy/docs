@@ -50,7 +50,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
-![](images/dev-deployers-members.png "width=500")
+![](images/devdeployerteam.png "width=500")
 
 ### Restricting project and project group access
 

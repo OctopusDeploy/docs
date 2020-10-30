@@ -6,7 +6,7 @@ position: 55
 
 [GitHub](https://github.com/) is a popular git-based source-control platform.
 
-[GitHub Actions](https://github.com/features/actions) is GitHubs's cloud-based continuous integration server.
+[GitHub Actions](https://github.com/features/actions) is GitHub's cloud-based continuous integration server.
 
 :::warning
 The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).

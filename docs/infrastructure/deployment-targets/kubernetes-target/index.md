@@ -59,6 +59,10 @@ users:
     The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
     :::
 
+    :::hint
+    Selecting the **Login with administrator credentials** option, available since Octopus 2020.6, may be required to authenticate with an AKS cluster with Azure Active Directory integration, as this is the only way to perform a non-interactive login. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
+    :::
+
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) allow IAM accounts and roles to be used.
 
     The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   

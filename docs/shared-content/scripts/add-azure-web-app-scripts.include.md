@@ -1,4 +1,6 @@
 ```powershell PowerShell (REST API)
+$ErrorActionPreference = "Stop";
+
 # Define working variables
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
@@ -11,41 +13,34 @@ $roles = @("Myrole")
 $environmentIds = @()
 $azureWebAppName = "MyAzureWebAppName"
 
-try
+# Get space
+$space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
+
+# Get Azure account
+$azureAccount = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/accounts/all" -Headers $header) | Where-Object {$_.Name -eq $azureServicePrincipalName}
+
+# Get Environments
+$environments = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/environments/all" -Headers $header) | Where-Object {$environmentNames -contains $_.Name}
+foreach ($environment in $environments)
 {
-    # Get space
-    $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
-
-    # Get Azure account
-    $azureAccount = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/accounts/all" -Headers $header) | Where-Object {$_.Name -eq $azureServicePrincipalName}
-
-    # Get Environments
-    $environments = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/environments/all" -Headers $header) | Where-Object {$environmentNames -contains $_.Name}
-    foreach ($environment in $environments)
-    {
-        $environmentIds += $environment.Id
-    }
-
-    # Build json payload
-    $jsonPayload = @{
-        Name = $azureWebAppName
-        EndPoint = @{
-            CommunicationStyle = "AzureWebApp"
-            AccountId = $azureAccount.Id
-            ResourceGroupName = $azureResourceGroupName
-            WebAppName = $azureWebAppName
-        }
-        Roles = $roles
-        EnvironmentIds = $environmentIds
-    }
-
-    # Register the target to Octopus Deploy
-    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/machines" -Headers $header -Body ($jsonPayload | ConvertTo-Json -Depth 10)
+    $environmentIds += $environment.Id
 }
-catch
-{
-    Write-Host $_.Exception.Message
+
+# Build json payload
+$jsonPayload = @{
+    Name = $azureWebAppName
+    EndPoint = @{
+        CommunicationStyle = "AzureWebApp"
+        AccountId = $azureAccount.Id
+        ResourceGroupName = $azureResourceGroupName
+        WebAppName = $azureWebAppName
+    }
+    Roles = $roles
+    EnvironmentIds = $environmentIds
 }
+
+# Register the target to Octopus Deploy
+Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/machines" -Headers $header -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
 ```powershell PowerShell (Octopus.Client)
 # Load octopus.client assembly

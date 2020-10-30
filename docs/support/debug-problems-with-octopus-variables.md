@@ -41,7 +41,7 @@ This will log the variables available at the beginning of each step in the deplo
 
 It should look like this. You can have as many extra variables as you want besides these two.
 
-![](images/3278087.png "width=500")
+![](images/evaluatedvars.png "width=500")
 
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.
 4. Deploy the new release.

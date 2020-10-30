@@ -17,6 +17,14 @@ Provide values for:
 - A list of Environment names to connect the new tenant with
 - A list of Tenant tags to use with the new tenant
 
+:::hint
+**Note:** 
+In order for this script to execute correctly, please note the following:
+- The projects provided must have the Multi-tenanted deployment setting enabled.
+- The environments provided must exist.
+- The optional tenant tags provided must exist.
+:::
+
 ## Script
 
 !include <create-a-tenant-scripts>
