@@ -273,6 +273,7 @@ Action-level variables are available during execution of an action. Indexer noti
 
 | Name and description | Example |
 | -------------------- | ------- |
+|`Octopus.Action.Container.Image` <br/>The name of the container image being deployed | *OctoFx-RateService*|
 |`Octopus.Action.Id` <br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
 |`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
 |`Octopus.Action.Manual.Instructions` <br/>The instructions provided for a manual step | *Don't break anything* |
