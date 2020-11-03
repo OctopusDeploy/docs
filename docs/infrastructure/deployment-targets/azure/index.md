@@ -34,7 +34,7 @@ This step shows you how to create a Service Principal with the Azure Portal, if 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QDwDi17Dkfs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-1. In the Azure Portal, navigate to **{{Azure Active Directory,Properties}}** and copy the value from the **Tentant ID** field, this is your **Tenant ID**.
+1. In the Azure Portal, navigate to **{{Azure Active Directory,Properties}}** and copy the value from the **Tenant ID** field, this is your **Tenant ID**.
 1. Next you need your **Application ID**.
   - If you have created an AAD registered application, navigate to **{{Azure Active Directory,App Registrations}}**, click **View all applications**, select the app and copy the **Application ID**.  Please note, the Azure UI defaults to **Owned Applications** tab.  Click the **All Applications** tab to view all app registrations. 
   - If you haven't created a registered app, navigate to **{{Azure Active Directory,App Registrations}}**, click on **New registration** and add the details for your app, and click **Save**. Make note of the **Application ID**.
