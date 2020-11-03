@@ -57,7 +57,7 @@ The Octopus Server stores files in the following folders by default:
     - This is the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer.
     - This is where the Tentacle config file and deployment journal is stored.
 - `<Tentacle Home>\Tools`
-    - This is where the Calamari packages are installed so Tentacle can execute deployments on your behalf.
+    - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
 - `<Tentacle Home>\Files`
     - This is the package cache used to store the most recent packages in case they need to be used again.
 - `<Tentacle Home>\Logs`
