@@ -51,7 +51,7 @@ Or one of the common options:
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
-The Octopus Server stores files in the following folders by default:
+The Octopus Tentacle stores files in the following folders by default:
 
 - `C:\Octopus\Tentacle\<Instance>`
     - This is the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer.
@@ -65,26 +65,15 @@ The Octopus Server stores files in the following folders by default:
 - `<Tentacle Home>\Work`
     - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
-## Clean Up Post-2.6 Migration {#Tentacleconfigurationandfilestorage-Cleanuppost-2.6migration}
+## Clean up for older Tentacle versions {#cleanup-older-tentacles}
 
-In 2.6 Tentacle stored files in the following folders by default:
+For Octopus Server versions older than **2020.2**, Calamari packages were stored in:
 
-- `C:\Octopus\Applications`
-    - This is a mixed-purpose folder containing your deployed applications and some parts of Tentacle
-- `C:\Octopus\Applications\.Tentacle`
-    - This is where the deployment journal is stored
-- `C:\Octopus\Applications\.Tentacle\Octopus.Tentacle`
-    - This is where some versions of Tentacle put their "automatic upgrade" application files when Tentacle was upgraded from the Octopus Server
-- `C:\Octopus\Applications\.SQ-OCTOPUS-<SQUID>` where `<SQUID>` is a unique identifier for this Tentacle instance
-    - This is where some other versions of Tentacle put their "automatic upgrade" application files when Tentacle was upgraded from the Octopus Server
-- `C:\Octopus\Application\.Tentacle\Packages`
-    - This is the package cache used to store the most recent packages in case they need to be used again.
-- `C:\Octopus\Logs`
-    - This is where Tentacle stores its log files.
-- `C:\Octopus\Tentacle\<Instance>`
-    - This is where the Tentacle config file and Pipefish protocol files are stored, namely Actors, Messages and Streams.
+- `<Tentacle Home>\Calamari`. 
 
-Once a 2.6 Tentacle has been migrated to a modern version the following folders can safely be removed:
+This folder can be safely removed after upgrading to a newer version.
+
+Once a 2.6 Tentacle has been migrated to a modern version the following folders can also safely be removed:
 
 - `C:\Octopus\Applications\.Tentacle`
 - `C:\Octopus\Applications\.Tentacle\Octopus.Tentacle`
@@ -92,3 +81,4 @@ Once a 2.6 Tentacle has been migrated to a modern version the following folders 
 - `C:\Octopus\Application\.Tentacle\Packages`
 - `C:\Octopus\Logs`
 - `C:\Octopus\Tentacle\<Instance>`
+
