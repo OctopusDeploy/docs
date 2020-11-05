@@ -93,8 +93,11 @@ For information about project permissions, see [managing users and teams](/docs/
 
 Projects can be cloned.
 
-1. From the project's menu, select **settings**.
+1. From the project's menu, select **Settings**.
 2. Click the ... overflow menu, and select **Clone**.
+
+![Clone a project](images/clone-project.png "width=500")
+
 3. Give the new project you are cloning from the original project a name.
 4. Review the settings for the new project and when you are satisfied, click **SAVE**.
 
