@@ -12,11 +12,11 @@ We talk about Tentacles in this page, but the same process and logic applies to 
 
 ## What is deleted {#RetentionPolicies-Whatisdeleted}
 
-There are three different types of retention policies that run. Those on the Octopus Server, those on the Tentacle and those in the in-built NuGet repository.
+There are a number of different types of retention policies that run. Those on the Octopus Server, those on the Tentacle and those in the built-in package repository.
 
 ### Releases
 
-The Octopus Server settings delete **releases** from the database. This is a data deletion. It also cleans up any **artifacts**, **deployments, tasks, events** and **logs** attached to the release. Releases that are still on the overall dashboard are never deleted. It is assumed to be the working release and may still be promoted (even if their dates fall well outside the retention policy). No packages from the internal NuGet repository will be deleted as part of this policy, but they may be deleted by a corresponding repository retention policy.
+The Octopus Server settings delete **releases** from the database. This is a data deletion. It also cleans up any **artifacts**, **deployments, tasks, events** and **logs** attached to the release. Releases that are still on the overall dashboard are never deleted. It is assumed to be the working release and may still be promoted (even if their dates fall well outside the retention policy). No packages from the internal package repository will be deleted as part of this policy, but they may be deleted by a corresponding repository retention policy.
 
 ### Tentacle files
 
@@ -24,13 +24,20 @@ The Tentacle settings delete **packages**, and expanded **files and folders** f
 
 ### Built-in repository
 
-The in-built repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
+The built-in repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
 
 A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployment-examples/package-deployments/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
 
+### Build information
+
+[Build information](/docs/packaging-applications/build-servers/index.md#build-information) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
+- If the package is used by a release, it will be kept.
+- If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
+- If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories/index.md). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
+
 ## When the retention policies are applied {#RetentionPolicies-Whentheretentionpoliciesareapplied}
 
-Both the Octopus Server and NuGet repository retention policies are run under a scheduled task from the Octopus Server every 4 hours. This task does not apply retention policies to Tentacles.
+Both the Octopus Server and built-in repository retention policies are run under a scheduled task from the Octopus Server every 4 hours. This task does not apply retention policies to Tentacles.
 
 Tentacle retention policies are run **during a deployment**, specifically **after all package acquisition steps have completed**. So if you have a retention policy of 3 days and do not deploy to a Tentacle for 5 days, the files that are over 3 days old will not be deleted until after a deployment is run to that Tentacle. It will also only delete any packages or files that are associated with the **current project** being deployed. If it's a development server, and you have multiple projects deploying there, only the active deployed project files will be deleted. It does not have any information about other project's retention policies tagged with the deployment.
 
@@ -58,9 +65,9 @@ You can keep all, or select a number of releases to keep.
 
 You are also able to specify a number of days worth of releases and files to keep if this is preferred.
 
-## NuGet feed retention policy {#RetentionPolicies-NuGetfeedretentionpolicy}
+## Built-in feed retention policy {#RetentionPolicies-builtinfeed-retentionpolicy}
 
-You can find the in-built repository retention policy settings under **{{Library,Packages}}**.
+You can find the built-in repository retention policy settings under **{{Library,Packages}}**.
 
 ![](images/3278060.png "width=500")
 
