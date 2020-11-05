@@ -13,7 +13,19 @@ when you add a _Deploy Release_ step to your deployment process, you can then se
 
 You can add many _Deploy Release_ steps to your process, if you wish to deploy releases of many projects.
 
-When creating a release of a project containing _Deploy Release_ steps you can select the release version of each project, similar to the way versions of packages are selected.  
+## Creating a release
+
+When creating a release of a project containing _Deploy Release_ steps you can select the release version of each project, similar to the way versions of packages are selected:
+
+![Create release with deploy release steps](deploy-release-create-release-screen.png "width=500")
+
+### Channels
+
+The [Channel](/docs/releases/channels/index.md) used for any _Deploy Release_ steps is automatically determined by the release version of the project you select in the create release screen, since a channel is chosen when a release is created.
+
+:::hint
+It's not currently possible to select a channel to be used for a _Deploy Release_ step in either the deployment process editor or in the create release screen.
+:::
 
 ## Conditional deployment
 
@@ -97,6 +109,6 @@ When configuring a _Deploy Release_ step as a child step in a rolling deployment
 Otherwise, as the step rolls across multiple machines, it will see the current release as having already been deployed to the environment, and execution will be skipped.  
 :::
 
-:::warning
+## Canceling a deployment
+
 Canceling the deployment of the parent project as it's executing the Deploy a Release step won't cancel the deployment of the child project. The child deployment will continue to completion.
-:::
