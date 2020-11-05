@@ -57,6 +57,9 @@ The configuration for the Kubernetes resources required in a Helm Chart can be p
 - **Files in Additional Packages:** When using publicly available Helm Charts as the package source for this step, you may want to source your custom values files from outside Octopus, for example, through files committed to a [GitHub feed](/docs/packaging-applications/package-repositories/github-feeds.md). Files obtained through this option will have Octopus Variable replacement performed before being used.
 
 ## Known limitations
+:::warning
+Please note that [Cloud Dynamic Workers](https://octopus.com/docs/infrastructure/workers/dynamic-worker-pools#available-dynamic-worker-images) come with Helm 2.9.1 installed.  This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution.  To get around this problem, use the [Execution Containers](https://octopus.com/docs/deployment-process/execution-containers-for-workers) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  You will also need to edit the Default Worker Pool on your cloud instance and change the Worker Image to something other than Default (default uses Windos Server core 2016) or Windows Server Core 2016 as neither image have Docker installed.
+:::
 Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.
 
 Although the helm client tool can be overridden for use during the step execution as noted above, the acquisition process currently requires a version of the helm client locally to retrieve the chart. The version of helm available does not need to match the version of the tiller service.
