@@ -51,8 +51,8 @@ The capabilities of the extended syntax are:
 - [Conditionals](#VariableSubstitutionSyntax-Conditionalsconditionals) - `if`, `if-else` and `unless`
 - [Repetition](#VariableSubstitutionSyntax-Repetition) - `each`
 - [Filters](#VariableSubstitutionSyntax-Filters) - `HtmlEscape`, `Markdown` etc.
-- Differences from regular variable bindings
-- JSON Parsing
+- [Differences from regular variable bindings](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-Differencesfromregularvariablebindings)
+- [JSON Parsing](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-JSONParsingjson)
 
 :::hint
 [Octostache](https://github.com/OctopusDeploy/Octostache) is the open source component that powers this feature.
