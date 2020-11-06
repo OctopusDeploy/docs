@@ -144,14 +144,14 @@ When applying permissions on variables via scopes, the only options that are che
 
 ### Group variables into Variable Sets
 
-Variables sometimes naturally fit into groups, and often you'll find multiple applications will use these groups.  Octopus has [Variable Sets](/docs/variables/library-variable-sets.md); allowing you to group variables into a reusable set so that they can be used by other projects.
+Variables sometimes naturally fit into groups, and often you'll find multiple applications will use these groups.  Octopus has [Variable Sets](/docs/projects/variables/library-variable-sets.md); allowing you to group variables into a reusable set so that they can be used by other projects.
 
 ### Namespace variables
 
 We recommend namespacing your variables to make identifying their use clearer.  Examples of how this can work are:
 
 * A project-level variable that holds the value for a SQL Server user's password could be `Project.SQL.Password`.  Then you can have `Project.SQL.Username`.  This adds clarity to the variable's value and has the added advantage that the variables will show next to each other in the list of variables.
-* If you are using [Variable Sets](/docs/variables/library-variable-sets.md), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.  
+* If you are using [Variable Sets](/docs/projects/variables/library-variable-sets.md), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.  
 
 ### Keep variable numbers low 
 
