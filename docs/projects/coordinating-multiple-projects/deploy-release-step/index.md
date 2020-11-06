@@ -24,7 +24,7 @@ When creating a release of a project containing _Deploy a Release_ steps you can
 The [Channel](/docs/releases/channels/index.md) used for any _Deploy a Release_ step is automatically determined by the release version of the project you select in the create release screen, since a channel is chosen when a release is created.
 
 :::hint
-It's possible to have the _Deploy a Release_ step pick the channel for the child project you want it to use using [package version rules](/docs/releases/channels/index.md#Channels-versionrules). Watch our - [Ask Octopus Episode: Deployment Channels with Child Projects](https://www.youtube.com/watch?v=3oLVq1EpUfc) to see it in action.
+It's possible to choose child releases from specific channels when using the _Deploy a Release_ step using [package version rules](/docs/releases/channels/index.md#Channels-versionrules). Watch our - [Ask Octopus Episode: Deployment Channels with Child Projects](https://www.youtube.com/watch?v=3oLVq1EpUfc) to see it in action.
 :::
 
 ## Conditional deployment
