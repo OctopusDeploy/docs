@@ -140,6 +140,28 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
 
+## Variable Recommendations
+
+### Group variables into Variable Sets
+
+Variables sometimes naturally fit into groups, and often you'll find multiple applications will use these groups.  Octopus has [Variable Sets](/docs/variables/library-variable-sets.md); allowing you to group variables into a reusable set so that they can be used by other projects.
+
+### Namespace variables
+
+We recommend namespacing your variables to make identifying their use clearer.  Examples of how this can work are:
+
+* A project-level variable that holds the value for a SQL Server user's password could be `Project.SQL.Password`.  Then you can have `Project.SQL.Username`.  This adds clarity to the variable's value and has the added advantage that the variables will show next to each other in the list of variables.
+* If you are using [Variable Sets](/docs/variables/library-variable-sets.md), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.  
+
+### Keep variable numbers low 
+
+If you have many configuration settings for your application and are using a variable for each value, it's possible that Octopus may not be the best place for those values. Consider:
+
+- Are most settings relatively static?
+- Are the settings safe to be stored in clear text as they don't hold a sensitive value?
+
+If the answer to either of those questions is yes, it might be worth considering an external store for your variables; a source control repository, a configuration management system, or a database.
+
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
