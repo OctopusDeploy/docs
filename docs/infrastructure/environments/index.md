@@ -6,6 +6,23 @@ position: 10
 
 !include <environments>
 
+## Environment configuration
+
+Since environments are the phases that you move your code through, it forms the backbone of your deployment pipeline. Before you configure anything else, you should configure your environments.
+
+The most common setup is four environments. These are:
+
+1. **Development**, or **Dev** for short is for developers to experiment on. It is very much in flux, and you expect it to go up and down quite often.
+1. **Test/QA** - Quality assurance test functionality in the Test environment.
+1. **Staging/Pre-Production** - Staging is used as a final "sanity check" before deploying to Production.
+1. **Production** is what your users connect to.
+
+However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Not everyone names their environments the same way. One person's Test is another person's QA. It's important to us that our customers can define and name their environments in the way that best supports their needs.
+
+Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations.md) section for more tips.
+
+!include <add-new-environments>
+
 ## Edit your environments
 
 To edit individual environments, click the ... overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](#dynamic-infrastructure), or delete the environment.
