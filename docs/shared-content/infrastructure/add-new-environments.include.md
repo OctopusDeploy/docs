@@ -4,3 +4,7 @@
 1. Give your new environment a meaningful name and click **SAVE**.
 
 You can add as many environments as you need, and you can reuse your environments with different projects so there's no need to create environments per project.
+
+:::hint
+In general, keep the number of environments under ten. Having fewer environments makes configuring and maintaining your Octopus Server easier.
+:::
