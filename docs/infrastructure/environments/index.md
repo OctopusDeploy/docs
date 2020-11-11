@@ -25,7 +25,7 @@ Take a look at our [environment recommendations](/docs/infrastructure/environmen
 
 ## Edit your environments
 
-To edit individual environments, click the ... overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](#dynamic-infrastructure), or delete the environment.
+To edit individual environments, click the ... overflow menu for that environment. From here, it is possible to edit the environment, description, change the [guided failure mode](#guided-failure-mode), enable or disable [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md), or delete the environment.
 
 ## Environment permissions
 
