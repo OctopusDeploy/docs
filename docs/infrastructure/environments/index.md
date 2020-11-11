@@ -12,12 +12,12 @@ Since environments are the phases that you move your code through, it forms the 
 
 The most common setup is four environments. These are:
 
-1. **Development**, or **Dev** for short is for developers to experiment on. It is very much in flux, and you expect it to go up and down quite often.
-1. **Test/QA** - Quality assurance test functionality in the Test environment.
-1. **Staging/Pre-Production** - Staging is used as a final "sanity check" before deploying to Production.
-1. **Production** is what your users connect to.
+1. **Development** or **Dev** for short, is for developers to experiment on. It's generally in flux, and can often be expected to be unavailable.
+1. **Test/QA** - Quality assurance teams test functionality in the Test environment.
+1. **Staging/Pre-Production** - Staging is used as a final sanity check before deploying to Production.
+1. **Production** is where your end users normally use your software outside of testing.
 
-However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Not everyone names their environments the same way. One person's Test is another person's QA. It's important to us that our customers can define and name their environments in the way that best supports their needs.
+However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's important that you can name your environments in the way that best supports your organisation's needs.
 
 Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations.md) section for more tips.
 
