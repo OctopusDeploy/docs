@@ -17,7 +17,7 @@ The most common setup is four environments. These are:
 1. **Staging/Pre-Production** - Staging is used as a final sanity check before deploying to Production.
 1. **Production** is where your end users normally use your software outside of testing.
 
-However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's important that you can name your environments in the way that best supports your organisation's needs.
+However, we didn't design Octopus Deploy to force people to use a set of predefined environments. Some companies only have three environments. Others have many more. Likewise, not everyone names their environments the same way. One person's Test is another person's QA. It's important that you can name your environments in the way that best supports your organization's needs.
 
 Take a look at our [environment recommendations](/docs/infrastructure/environments/environment-recommendations.md) section for more tips.
 
