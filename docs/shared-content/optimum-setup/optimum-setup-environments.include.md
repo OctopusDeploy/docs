@@ -58,9 +58,9 @@ If don't have any targets or projects set up yet, creating seven environments is
 **Tip:** Adding images to your tenants makes them easier to find. You can do this by clicking on the tenant and selecting the settings link on the left. On that screen, you can upload an image for a tenant.
 :::
 
-Once added, you would update any targets and connect each project to include your newly created tenants.
+Once added, update any targets and connect each project to include the newly created tenants.
 
-Then when you choose a release to deploy you choose which data center to deploy to, Illinois or Texas.
+Then when choosing a release, select which data center tenant to deploy to, Illinois or Texas.
 
 ### Multiple Customers
 
