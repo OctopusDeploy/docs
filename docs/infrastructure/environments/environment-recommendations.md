@@ -4,4 +4,4 @@ description: Environments are the backbone of your deployment pipeline. Here we 
 position: 20
 ---
 
-!include <optimum-setup-environments>
+!include <environment-recommendations>

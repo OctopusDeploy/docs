@@ -24,7 +24,7 @@ In general, try to keep the number of environments under ten. Having fewer envir
 
 We recommend having the standard four or five environments, such as Dev, Test, Staging, and Production. If you have [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md), you could also add SpinUp, TearDown, and Maintenance. These environments can help when you build up infrastructure, tear down applications, or perform scheduled maintenance tasks.
 
-![The Environment overview](docs/shared-content/optimum-setup/images/environment-list.png "width=500")
+![The Environment overview](docs/shared-content/octopus-recommendations/images/environment-list.png "width=500")
 
 If you need to change the order of your environments later, you can use the [sort](/docs/infrastructure/environments/index.md#sort-your-environments) option.
 
@@ -46,11 +46,11 @@ Unfortunately, this doesn't scale very well. Every time you add a new data cente
 
 One scenario that we've seen is customers deploy to an on-premises data center for dev, test, and staging, but production is hosted in data centers in Illinois and Texas. Before pushing to production, they run some sanity checks in a staging environment in Illinois and Texas. If you create an environment per data center, you would have seven environments when you actually only need four.
 
-![Multi-tenancy Environments](docs/shared-content/optimum-setup/images/multi-tenancy-environments.png "width=500")
+![Multi-tenancy Environments](docs/shared-content/octopus-recommendations/images/multi-tenancy-environments.png "width=500")
 
 If don't have any targets or projects set up yet, creating seven environments is easy to do, but it doesn't scale. A better way would be to use the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) feature in Octopus. For this to work, you'd modeling each data center as a new tenant. To add the new tenants, navigate to the **Tenants** menu and click **ADD TENANT** in the top right corner.
 
-![Data Center tenants](docs/shared-content/optimum-setup/images/data-center-tenants.png "width=500")
+![Data Center tenants](docs/shared-content/octopus-recommendations/images/data-center-tenants.png "width=500")
 
 :::hint
 **Tip:** Adding images to your tenants makes them easier to find. You can do this by clicking on the tenant and selecting the settings link on the left. On that screen, you can upload an image for a tenant.
@@ -85,7 +85,7 @@ If you create an environment per tenant, you would have 14 environments. And tha
 
 This is where the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) feature in Octopus again shines. It allows you to keep the number of environments low, while creating a unique workflow per client.
 
-![Tenants as Customers](docs/shared-content/optimum-setup/images/multi-tenancy-customers.png "width=500")
+![Tenants as Customers](docs/shared-content/octopus-recommendations/images/multi-tenancy-customers.png "width=500")
 
 ## Conclusion
 
