@@ -8,7 +8,7 @@ position: 10
 
 ## Environment configuration
 
-Since environments are the phases that you move your code through, it forms the backbone of your deployment pipeline. Before you configure anything else, you should configure your environments.
+Since environments are the phases that you move your code through, they form the backbone of your deployment pipeline. Before you configure anything else, you should configure your environments.
 
 The most common setup is four environments. These are:
 
