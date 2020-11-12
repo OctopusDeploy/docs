@@ -28,6 +28,10 @@ We recommend having the standard four or five environments, such as Dev, Test, S
 
 If you need to change the order of your environments later, you can use the [sort](/docs/infrastructure/environments/index.md#sort-your-environments) option.
 
+### Deployment targets and environments
+
+Octopus will choose the targets to deploy to based on the environment, target roles, and if configured, tenants. This guarantees that the release is deployed to the appropriate targets. Sharing the same environments across projects ensures a consistent and maintainable Octopus experience.
+
 ## Common environment scenarios
 
 In this section, we walk you through some common scenarios we've seen with environments and how to work through them.
