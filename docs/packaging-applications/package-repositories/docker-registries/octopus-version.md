@@ -34,9 +34,9 @@ This versioning scheme allows for traditional labels like `1.0` or `V1.2.3.4`. A
 
 | Label   | Major  | Minor | Patch | Revision | Prerelease | Note |
 |---|---|---|---|---|---|---|
-| 1.0   | 1  | 0 | 0 | 0 |  |  | |
-| v1.0   | 1  | 0 | 0 | 0 |  |  | |
-| V1.0   | 1  | 0 | 0 | 0 |  |  | |
+| 1.0   | 1  | 0 | 0 | 0 |  |  |
+| v1.0   | 1  | 0 | 0 | 0 |  |  |
+| V1.0   | 1  | 0 | 0 | 0 |  |  |
 | 1.0-myfeature   | 1  | 0 | 0 | 0 | myfeature | |
 | 1.0myfeature   | 1  | 0 | 0 | 0 | myfeature | The separator between the last integer version component and the prerelease label is optional. |
 | myfeature   | 0  | 0 | 0 | 0 | myfeature | Integer version components are optional. |
