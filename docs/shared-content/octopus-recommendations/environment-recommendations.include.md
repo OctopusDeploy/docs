@@ -14,15 +14,15 @@ These are clearer than:
 
 > "I'm pushing to Dev Omaha 45." 
 
-Without context, it's not clear whether _Omaha_ refers to the data center or what the significance of _45_ is.
+Without context, it's not clear what _Omaha_ refers to, or what the significance of _45_ is.
 
-A good sign that you have well-modeled environments is that they don't need explanation. If it takes longer than a few seconds to explain your environments, that's a sign you should consider changing the naming.
+A good sign that you have well-modeled environments is that the names don't need an explanation. You should consider changing a name if it is not clear.
 
 ## Keep environment numbers low
 
 In general, try to keep the number of environments under ten. Having fewer environments makes configuring and maintaining your Octopus Server easier. 
 
-We recommend having the standard four or five environments, such as Dev, Test, Staging, and Production. If you have [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md), you could also add SpinUp, TearDown, and Maintenance. These environments can help when you build up infrastructure, tear down applications, or perform scheduled maintenance tasks.
+We recommend creating a standard set of environments. For example, Dev, Test, Staging, and Production. If you have [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md), you might also need SpinUp, TearDown, and Maintenance.
 
 ![The Environment overview](docs/shared-content/octopus-recommendations/images/environment-list.png "width=500")
 
@@ -38,11 +38,11 @@ In this section, we walk you through some common scenarios we've seen with envir
 
 ### Multiple Data Centers
 
-With cloud providers such as Azure, AWS, and Google Cloud, it's commonplace to deploy to multiple data centers, usually in different geographic regions. You might need to deploy the software in specific intervals or orders. For example, you might deploy to a data center in Illinois before deploying to one in Texas.
+Cloud providers such as Azure, AWS, and Google Cloud make deploying to many data centers commonplace. You might need to deploy the software at specific intervals or in a specific order. For example, you might deploy to a data center in Illinois before deploying to one in Texas.
 
-It can be tempting to name your environment _Production [Data Center]_ or _Production Omaha_. You might do this if you wanted to deploy to a specific data center, or because you want to know what version of the code is in each data center. 
+It can be tempting to name environments to match a data center location. For example _Production [Data Center]_ or _Production Omaha_. This is convenient as you can deploy to an individual data center at a time. You can also see what version of code is deployed to each data center.
 
-Unfortunately, this doesn't scale very well. Every time you add a new data center, you'll need to adjust many different parts of your infrastructure and Octopus configuration, such as:
+Unfortunately, this doesn't scale very well. Every time you add a new data center, your infrastructure and Octopus configuration will need modification, such as:
 
 - Adding a new environment.
 - Updating lifecycles.
