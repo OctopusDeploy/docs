@@ -45,7 +45,7 @@ Docker images with the same name are grouped together and referred to (in Docker
 
 ![](images/5865827.png "width=500")
 
-When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as a [Semantic Version](http://semver.org/). The tags that can be parsed as a valid [Semantic Version](http://semver.org/) will be available to be selected for deployment as the "version" of the Container Image(s).
+When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as an [Octopus Version](https://g.octopushq.com/OctopusVersionRegex/).
 
 ![](images/5865828.png "width=500")
 
