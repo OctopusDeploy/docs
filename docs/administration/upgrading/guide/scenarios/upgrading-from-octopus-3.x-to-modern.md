@@ -1,30 +1,31 @@
 ---
 title: Upgrading from Octopus 3.x to modern version
 description: Information on how to upgrade from Octopus Deploy 3.x to a modern version
-position: 4
+position: 10
 ---
-
-Upgrading from 3.x to a modern version of Octopus Deploy is a big jump.  In addition to a new UI, there are scores of new features, from workers, to spaces, to runbooks, to AWS support and more.
-
-## Risks
 
 It is possible to do an in-place upgrade of 3.x to a modern version of Octopus Deploy.  The upgrade logic was written with that scenario in mind.  With that said, keep in mind the last version 3.x, 3.17.14, was released on November 12th, 2017.  In that time span an API endpoint could've changed, or a key feature was depreceated in favor of something else.  
 
+This upgrade guide is designed to minimize risk by creating a cloned instance of Octopus Deploy, upgrading the cloned instance, and migrating over to that.
+
+## Alternative Approach
+
+The rest of this page will follow the recommended approach.  Depending on the size of your instance, the alternative approach might work better for you.
+
+1. Create a test instance using a subset of projects from your main instance.
+2. Upgrade that test instance to the latest version of Octopus Deploy.
+3. Test and verify the test instance.  
+4. Do an in-place upgrade of your main instance.
+
 ## Recommended Approach
 
-The recommended approach is to clone the existing instance and upgrade the clone.  This is possible because:
+!include <upgrade-clone-instance>
 
-- Modern versions of Octopus Deploy can communicate with [older tentacles](docs/support/compatibility).
-- The thumbprints for certificates and other sensitive items are stored in the Octopus Deploy database.  
+### Consider setting up a test instance
 
-A high-level overview of the process is:
+!include <upgrade-consider-test-instance>
 
-1. Backup the existing Octopus Deploy instance.
-1. Create a clone of the existing Octopus Deploy instance.
-2. Upgrade that cloned instance to a modern version of Octopus Deploy.
-3. Test the upgraded instance.
-4. Migrate from the old instance to the new instance.
-5. Turn off the old instance.
+To configure a test instance please see [this page](INCLUDE LINK).
 
 ## Backup existing Octopus Deploy Instance
 
@@ -46,19 +47,7 @@ Upgrading the cloned instance will be the same as performing an in-place upgrade
 
 ## Migrating from the old instance to the new instance
 
-It will be possible to run both instances side by side.  In fact, both of them can deploy to the same targets (assuming you are not using polling tentacles).  But there are a few items to keep in mind.
-
-- The Octopus Server is tightly coupled with Calamari.  Deploying to the same target from both servers will result in Calamari getting upgraded/downgraded a lot.  
-- The newer Octopus Server will prompt you to upgrade the tentacles.  While running both instances side by side you will want to avoid this.
-- The longer you wait to migrate, the greater the drift will be.  Any new releases, deployments, or process changes will need to be migrated over.  
-- Polling tentacles will require special care as they need to be informed to point to the new server.
-
-### Drift Concerns
-
-We've seen some customers run instances side by side for a few days, then migrate over.  For others, it could be several weeks.  The advantage of the cloned instance is you have the time to test the upgrade and ensure it is smooth for everyone.  But it could take several weeks to iron out all the kinks.  At that point the drift between the old and new instance could be quite large.
-
-The recommendation is to recreate the clone with a fresh backup of the old instance, and upgrade it to the latest version.  
-
+!inclue <upgrade-migrating-instances>
 
 ## Additional items to note
 
@@ -116,3 +105,9 @@ See the [Release Notes](https://octopus.com/downloads/compare?from=3.3.27&amp;to
 Some server configuration values are moved from the config file into the database in 3.5+.
 
 If you are upgrading to a 3.5+ version please backup your server config file prior to upgrading. If you need to downgrade then replace the config with the original file after the downgrade and restart the Octopus Server.
+
+## Troubleshooting {#UpgradingfromOctopus3.x-Troubleshooting}
+
+In a few cases a bug in a 3rd party component causes the installer displays a "Installation directory must be on a local hard drive" error. If this occurs, running the install again from an elevated command prompt using the following command (replacing Octopus.3.3.4-x64.msi with the name of the installer you are using):
+
+`msiexec /i Octopus.3.3.4-x64.msi WIXUI_DONTVALIDATEPATH="1"`
