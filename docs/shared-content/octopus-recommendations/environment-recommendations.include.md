@@ -14,7 +14,7 @@ These are clearer than:
 
 > "I'm pushing to Dev Omaha 45." 
 
-Without context, it's not clear whether Omaha refers to the data center or what the significance of 45 is.
+Without context, it's not clear whether _Omaha_ refers to the data center or what the significance of _45_ is.
 
 A good sign that you have well-modeled environments is that they don't need explanation. If it takes longer than a few seconds to explain your environments, that's a sign you should consider changing the naming.
 
