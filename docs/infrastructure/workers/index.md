@@ -74,7 +74,7 @@ You can choose between:
 - [Register a Worker as a Polling Mode](#register-a-worker-as-a-polling-tentacle).
 - [Register a Worker with an SSH Connection](#register-a-worker-with-an-ssh-connection).
 
-### Register a Worker as a Listening Tentacle
+### Register a Listening Tentacle as a Worker
 
 !include <install-tentacle-manager>
 !include <configure-listening>
@@ -82,7 +82,7 @@ You can choose between:
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
-### Register a Worker as a Polling Tentacle
+### Register a Polling Tentacle as a Worker
 
 It is not currently possible to configure a worker as a Polling Tentacle with the Tentacle Manager, please [Registering Workers with the Tentacle Executable](#registering-workers-with-the-tentacle-executable).
 
