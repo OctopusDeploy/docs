@@ -5,6 +5,10 @@
     b. Select the authentication mode and enter the details:
         i. The username and password you use to log into Octopus, or:
         i. Your Octopus API key, see [How to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+    
+    :::hint
+    The Octopus credentials specified here are only used once to configure the Tentacle. All future communication is performed over a [secure TLS connection using certificates](https://octopus.com/docs/security/octopus-tentacle-communication#Octopus-Tentaclecommunication-Scenario:PollingTentacles). 
+    :::
 1. Click **Verify credentials**, and then next.
 1. Give the machine a meaningful name and select which [environments](/docs/infrastructure/environments/index.md) the deployment target will be assigned to.
 1. Choose or create at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the deployment target.
