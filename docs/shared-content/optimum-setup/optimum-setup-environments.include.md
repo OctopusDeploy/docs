@@ -16,7 +16,7 @@ These are clearer than:
 
 Without context, it's not clear whether Omaha refers to the data center or what the significance of 45 is.
 
-A good sign that you have well-modeled environments is that they are easy to explain. If it takes longer than a few seconds to explain your environments, that's a sign you should consider changing the naming.
+A good sign that you have well-modeled environments is that they don't need explanation. If it takes longer than a few seconds to explain your environments, that's a sign you should consider changing the naming.
 
 ## Keep environment numbers low
 
