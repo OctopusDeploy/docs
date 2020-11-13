@@ -8,46 +8,33 @@ It is possible to do an in-place upgrade of 3.x to a modern version of Octopus D
 
 This upgrade guide is designed to minimize risk by creating a cloned instance of Octopus Deploy, upgrading the cloned instance, and migrating over to that.
 
+## Recommended Approach
+
+The recommended approach is to create a cloned instance, upgrade that, and then migrate over.
+
+Creating a clone of an existing instance involves:
+
+1. Restore the backup of the database as a new database on the desired SQL Server.  
+2. Downloading the same version of Octopus Deploy as the source from the [previous downloads page](https://octopus.com/downloads).
+3. Installing that version on a new server.
+4. Configuring an instance to point to the existing database.
+5. Copying all the files from the backed up folders from the source instance.
+6. Optional: Disabling targets, triggers and subscriptions
+7. Testing cloned instance.
+8. Migrating to the new instance.
+
+See the [create cloned instance documentation](INSERT LINK) for more details.
+
 ## Alternative Approach
 
-The rest of this page will follow the recommended approach.  Depending on the size of your instance, the alternative approach might work better for you.
+Creating a cloned instance involves quite a bit of work, but it is the least risky.  However, you might think it is more risky.  In that case the recommendation is to create a test instance.
 
 1. Create a test instance using a subset of projects from your main instance.
 2. Upgrade that test instance to the latest version of Octopus Deploy.
 3. Test and verify the test instance.  
 4. Do an in-place upgrade of your main instance.
 
-## Recommended Approach
-
-!include <upgrade-clone-instance>
-
-### Consider setting up a test instance
-
-!include <upgrade-consider-test-instance>
-
-To configure a test instance please see [this page](INCLUDE LINK).
-
-## Backup existing Octopus Deploy Instance
-
-!include <upgrade-octopus-backup>
-
-## Create a clone of the existing instance
-
-!include <upgrade-create-cloned-instance>
-
-## Upgrade the cloned instance to a modern version
-
-Upgrading the cloned instance will be the same as performing an in-place upgrade.
-
-!include <inplace-upgrade>
-
-## Test the upgraded instance
-
-!include <upgrade-test-instance>
-
-## Migrating from the old instance to the new instance
-
-!inclue <upgrade-migrating-instances>
+See the [create test instance documentation](INSERT LINK) for more details.
 
 ## Additional items to note
 
