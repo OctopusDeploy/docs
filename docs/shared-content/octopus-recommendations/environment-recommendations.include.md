@@ -40,7 +40,7 @@ In this section, we walk you through some common scenarios we've seen with envir
 
 Cloud providers such as Azure, AWS, and Google Cloud make deploying to many data centers commonplace. You might need to deploy the software at specific intervals or in a specific order. For example, you might deploy to a data center in Illinois before deploying to one in Texas.
 
-It can be tempting to name environments to match a data center location. For example _Production [Data Center]_ or _Production Omaha_. This is convenient as you can deploy to an individual data center at a time. You can also see what version of code is deployed to each data center.
+It can be tempting to name environments to match a data center location. For example _Production [Data Center]_ or _Production Omaha_. This is convenient as you can deploy to an individual data center at a time. You can also see what version of code is deployed in each data center.
 
 Unfortunately, this doesn't scale very well. Every time you add a new data center, your infrastructure and Octopus configuration will need modification, such as:
 
@@ -48,34 +48,33 @@ Unfortunately, this doesn't scale very well. Every time you add a new data cente
 - Updating lifecycles.
 - Updating any variables with environment scoped values.
 
-One scenario that we've seen is customers deploy to an on-premises data center for dev, test, and staging, but production is hosted in data centers in Illinois and Texas. Before pushing to production, they run some sanity checks in a staging environment in Illinois and Texas. If you create an environment per data center, you would have seven environments when you actually only need four.
+One scenario we've seen is customers deploy to an on-premises data center for dev and test. Separate data centers host staging and production environments in say Illinois and Texas. Before promoting code to production, they perform sanity checks in the staging environment. If you create an environment per data center, you'd have seven environments when you actually only need four.
 
 ![Multi-tenancy Environments](docs/shared-content/octopus-recommendations/images/multi-tenancy-environments.png "width=500")
 
-If don't have any targets or projects set up yet, creating seven environments is easy to do, but it doesn't scale. A better way would be to use the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) feature in Octopus. For this to work, you'd modeling each data center as a new tenant. To add the new tenants, navigate to the **Tenants** menu and click **ADD TENANT** in the top right corner.
+Creating seven environments like this doesn't scale. A better solution is using the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) feature in Octopus. With multi-tenancy, each data center is modeled as a tenant. To add a new tenant, follow our instructions on how to [create a tenant](docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
 
 ![Data Center tenants](docs/shared-content/octopus-recommendations/images/data-center-tenants.png "width=500")
 
 :::hint
-**Tip:** Adding images to your tenants makes them easier to find. You can do this by clicking on the tenant and selecting the settings link on the left. On that screen, you can upload an image for a tenant.
+**Tip:** Adding images to your tenants makes them easier to find. You can do this by clicking on the tenant and choosing **Settings**, and you can choose an image to upload in the **Logo** section.
 :::
 
-Once added, update any targets and connect each project to include the newly created tenants.
+Once added, connect each project and any deployment targets you wish them to be linked to.
 
-Then when choosing a release, select which data center tenant to deploy to, Illinois or Texas.
+When choosing a release, select which data center tenant to deploy to. In this example, Illinois or Texas.
 
 ### Multiple Customers
 
-In the same vein of deploying the same project to multiple data centers, we see a lot of customers deploy the same project to multiple clients.
+We also see customers deploy the same project to multiple clients.
 
-Each of their customers gets their own set of machines and other resources. Again, you might be tempted to configure a unique set of environments for each customer. You could create:
+Each of their customers gets their own set of machines and other resources. It's possible to configure a unique set of environments for each customer. You could create:
+
 - _Dev [Customer Name]_
-- _Staging [Customer Name]_ and
+- _Staging [Customer Name]_
 - _Production [Customer Name]_
 
-This will work for the first dozen or so customers, but again, it doesn't scale very well.
-
-Imagine if you had five clients:
+This will work for the first few customers, but again, it doesn't scale very well. Imagine if you had five clients:
 
 1. An internal testing customer
 1. Coca-Cola
@@ -83,14 +82,14 @@ Imagine if you had five clients:
 1. Nike
 1. Starbucks.  
 
-The internal customer deploys to all the environments, dev, test, staging, and prod. Coca-Cola and Nike have resources in test, staging, and production, while Ford and Starbucks only have resources in staging and production. 
+The internal customer deploys to all environments, dev, test, staging, and production. Coca-Cola and Nike deploy to test, staging, and production. Ford and Starbucks only deploy to staging and production.
 
-If you create an environment per tenant, you would have 14 environments. And that is only for five customers.
+If you create an environment per tenant, you'd have fourteen environments. And that is only for five customers.
 
-This is where the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) feature in Octopus again shines. It allows you to keep the number of environments low, while creating a unique workflow per client.
+This is where the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deployments/index.md) feature in Octopus again shines. It allows you to keep the number of environments low while creating a unique workflow per client.
 
 ![Tenants as Customers](docs/shared-content/octopus-recommendations/images/multi-tenancy-customers.png "width=500")
 
 ## Conclusion
 
-In summary, the major thing to remember when configuring Octopus is to keep the number of environments you create low, and leverage tenants to handle deployments to different data centers or customers.
+In summary, the thing to remember is to keep the number of Octopus environments you create low. Leverage tenants to handle deployments to different data centers or customers
