@@ -44,5 +44,5 @@ tentacle server-comms --style="TentaclePassive" --thumbprint="3FBFB8E1EE6B113370
 This example configures the Tentacle instance `MyNewInstance` to communicate with the Octopus Server in polling mode:
 
 ```
-tentacle server-coms --style="TentacleActive" --instance="MyNewInstance" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D" --host="https://MyOctopusServer"
+tentacle server-comms --style="TentacleActive" --instance="MyNewInstance" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D" --host="https://MyOctopusServer"
 ```
