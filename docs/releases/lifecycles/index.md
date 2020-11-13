@@ -12,6 +12,30 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Automate deployment to specific environments**: for example, automatically deploy to *test* as soon as a release is created.
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
+## Default lifecycle {#default-lifecycle}
+
+Octopus creates a default lifecycle for you. To view it, navigate to **{{Library,Lifecycles}}**, and it will be in the list named **Default Lifecycle**:
+
+![Default Lifecycle Library view](images/default-lifecycle.png "width=500")
+
+The phases shown are created implicitly by the default lifecycle. By convention, the default lifecycle will create one phase per environment. They appear in the same order the environments are listed on the environments page. To view the default conventions applied, click on the lifecycle and the information appears in the **Phases** section :
+
+![Default Lifecycle Library view](images/default-lifecycle-default-conventions.png "width=500")
+
+### Updating the Default lifecycle
+
+The default lifecycle handles most cases for small or straight-forward configurations.
+
+When a new environment is added, it will automatically be included in the default lifecycle. This also means that if the environments are reordered, the order of the implicit phases will change in the default lifecycle. These conventions can sometimes be helpful, but other times it can lead to performance problems.
+
+:::hint
+Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecyle low.
+:::
+
+We recommend updating the default lifecycle to define the phases you require. This helps to make configuring and maintaining your Octopus Server easier.
+
+In the next section, we look at what phases are and how they can be used to change the default lifecycle to have an explicit set of phases defined.
+
 ## Create a new lifecycle
 
 1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
