@@ -32,7 +32,7 @@ When a new environment is added, it will automatically be included in the defaul
 Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecyle low.
 :::
 
-We recommend updating the default lifecycle to define the phases you require. This helps to make configuring and maintaining your Octopus Server easier.
+We recommend updating the default lifecycle to define the phases you require. This makes configuring and maintaining your Octopus Server easier.
 
 In the next section, we look at what phases are and how they can be used to change the default lifecycle to have an explicit set of phases defined.
 
