@@ -12,29 +12,11 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Automate deployment to specific environments**: for example, automatically deploy to *test* as soon as a release is created.
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
-## Default lifecycle {#default-lifecycle}
+## Phases
 
-Octopus creates a default lifecycle for you. To view it, navigate to **{{Library,Lifecycles}}**, and it will be in the list named **Default Lifecycle**:
+A phase represents a stage in your deployment lifecycle. You deploy to phases in order, and you must have a successful deployment in one phase to move to the next phase. For example, there must be a successful deployment to the Development phase before you can proceed to the Testing phase. 
 
-![Default Lifecycle Library view](images/default-lifecycle.png "width=500")
-
-The phases shown are created implicitly by the default lifecycle. By convention, the default lifecycle will create one phase per environment. They appear in the same order the environments are listed on the environments page. To view the default conventions applied, click on the lifecycle and the information appears in the **Phases** section :
-
-![Default Lifecycle Library view](images/default-lifecycle-default-conventions.png "width=500")
-
-### Updating the Default lifecycle
-
-The default lifecycle handles most cases for small or straight-forward configurations.
-
-When a new environment is added, it will automatically be included in the default lifecycle. This also means that if the environments are reordered, the order of the implicit phases will change in the default lifecycle. These conventions can sometimes be helpful, but other times it can lead to performance problems.
-
-:::hint
-Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecyle low.
-:::
-
-We recommend updating the default lifecycle to define the phases you require. This makes configuring and maintaining your Octopus Server easier.
-
-In the next section, we look at what phases are and how they can be used to change the default lifecycle to have an explicit set of phases defined.
+Phases can also include multiple environments. This can be useful where you have more than one Testing environment.
 
 ## Create a new lifecycle
 
@@ -81,3 +63,46 @@ If you want to be able to deploy to any environment at any time, then simply cre
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
 ![](images/lifecycle-deployment-process.png "width=500")
+
+## Default lifecycle {#default-lifecycle}
+
+Octopus creates a default lifecycle for you. To view it, navigate to **{{Library,Lifecycles}}**, and it will be in the list named **Default Lifecycle**:
+
+![Default Lifecycle Library view](images/default-lifecycle.png "width=500")
+
+The phases shown are created implicitly by the default lifecycle. By convention, the default lifecycle will create one phase per environment. They appear in the same order the environments are listed on the environments page. To view the default conventions applied, click on the lifecycle and the information appears in the **Phases** section :
+
+![Default Lifecycle Library view](images/default-lifecycle-default-conventions.png "width=500")
+
+### Update the default lifecycle
+
+The default lifecycle handles most cases for small or straightforward configurations.
+
+When you create a new environment, it's automatically included in the default lifecycle. This also means that if you reorder the environments, the order of the phases will also change to match. These conventions can be helpful, but can sometimes lead to performance problems.
+
+:::hint
+Try to keep the number of environments in Octopus under ten. Having fewer environments keeps the number of phases in the default lifecyle low.
+:::
+
+We recommend updating the default lifecycle to define the phases you need. This makes configuring and maintaining your Octopus Server easier.
+
+In the next section, we look at configuring the default lifecycle to add your own phases.
+
+### Add a phase to the default lifecyle
+
+You can define your own phases for the default lifecycle. This helps to prevent having too many phases being added automatically. To add a new phase, in the default lifecycle, Click **ADD PHASE**. Here, we are creating a phase named **Development** and adding the Dev environment to the phase:
+
+![Add Dev lifecycle phase](images/default-lifecycle-add-dev-phase.png "width=500")
+
+
+This phase has the default option to manually deploy to the environment set. The Required to progress and Retention policy are also set to the default values.
+
+:::hint
+Phase names usually match the environment it contains. While this is a good practice, it's not a rule.
+:::
+
+You can repeat this process to create extra phases. In this example, we are creating a phase for Testing, Staging, and Production.
+
+![Add Dev lifecycle phase](images/default-lifecycle-phases-added.png "width=500")
+
+This allows you to explicitly configure the default lifecycle for deploying your software.
