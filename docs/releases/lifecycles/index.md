@@ -124,11 +124,9 @@ It's recommended to follow good deployment practises and validate any changes be
 
 ### Maintenance lifecycle
 
-A Maintenance lifecycle and environment can be used for projects that run maintenance tasks such as backups or software upgrades. It can be used for any tasks that you want to run regularly with the same benefits that Octopus provides for your application deployments.
+A Maintenance lifecycle can be used for projects that run maintenance tasks such as backups or software upgrades. This lifecycle can be used for any tasks that you want to run regularly with the same benefits that Octopus provides for your application deployments.
 
-Even though we have grouped the machines for these tasks in the Maintenance environment, you could also split them up into the Development, Testing, Staging, and Production environments if you want to run the tasks for machines in those environments at different times.
-
-Whichever you choose, you know the steps now, so go ahead and create that lifecycle with the phases that you want.
+It typically consists of just one phase and one environment, also called Maintenance. You can include this environment in all deployment targets you want to run these tasks against. You can also split them up into the Development, Testing, Staging, and Production environments if you want to run the tasks for targets in those environments at different times.
 
 ![Maintenance lifecycle](images/maintenance-lifecycle.png "width=500")
 
