@@ -6,9 +6,7 @@ position: 120
 
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
-:::success
-Only a subset of account types and deployment targets support being created dynamically. The ones which are supported are listed below.
-:::
+
 
 ## Enable dynamic infrastructure
 
@@ -34,6 +32,10 @@ To learn more about the things you can do with the API, take a look at our [API 
 ## Available commands and syntax
 
 Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
+
+:::warning
+Only a subset of account types and deployment targets support being created dynamically using the commands listed below.
+:::
 
 ### Accounts
 
@@ -69,7 +71,6 @@ This cannot be overridden through the commands.
 :::warning
 These commands are not available in the **Script Console**.
 :::
-
 
 ## Examples
 
