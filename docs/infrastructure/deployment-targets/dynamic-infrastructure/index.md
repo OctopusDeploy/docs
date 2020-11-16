@@ -4,7 +4,7 @@ description: Octopus resources created in cloud providers can also be modeled in
 position: 120
 ---
 
-You can use the Octopus API or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
+You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
 :::success
 Only a subset of account types and deployment targets support being created dynamically. The ones which are supported are listed below.
@@ -18,6 +18,18 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 1. Click the ... overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick or untick the check-box to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
+
+## Using the Octopus REST API
+
+Octopus comes with a REST API that can be used to register Octopus accounts and deployment targets dynamically:
+
+- [Create an AWS Account](/docs/octopus-rest-api/examples/accounts/create-aws-account.md)
+- [Create an Azure Service Principal Account](/docs/octopus-rest-api/examples/accounts/create-azure-service-principal.md)
+- [Add an Azure Web App target](/docs/octopus-rest-api/examples/deployment-targets/add-azure-web-app.md)
+- [Register a listening Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md)
+- [Register a Polling Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md)
+
+To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/index.md) section.
 
 ## Available commands and syntax
 
