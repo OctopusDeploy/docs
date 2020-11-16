@@ -94,7 +94,6 @@ You can define your own phases for the default lifecycle. This helps to prevent 
 
 ![Add Dev lifecycle phase](images/default-lifecycle-add-dev-phase.png "width=500")
 
-
 This phase has the default option to manually deploy to the environment set. The Required to progress and Retention policy are also set to the default values.
 
 :::hint
@@ -103,6 +102,22 @@ Phase names usually match the environment it contains. While this is a good prac
 
 You can repeat this process to create extra phases. In this example, we are creating a phase for Testing, Staging, and Production.
 
-![Add Dev lifecycle phase](images/default-lifecycle-phases-added.png "width=500")
+![Default lifecycle phases added](images/default-lifecycle-phases-added.png "width=500")
 
 This allows you to explicitly configure the default lifecycle for deploying your software.
+
+## Examples
+
+In this section, we cover some lifecycle examples and their phases.
+
+### 
+
+
+## Recommendations
+
+When configuring your lifecycles, here are some tips to consider:
+
+- Update the default lifecycle to define the phases you need. This makes configuring and maintaining your Octopus Server easier.
+- Keep the number of environments under ten to keep the phases added by the default lifecycle low.
+- Create a lifecycle for any projects which need a different promotion flow between environments. Remember to define phases for the lifecycle.
+- Set specific retention policies for your lifecycles. This will prevent keeping releases and files forever, reducing disk and database usage.
