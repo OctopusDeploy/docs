@@ -10,7 +10,7 @@ This section provides information about the responsibility we take to provide a 
 
 Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](https://octopus.com/documents/security-review-executive-report.pdf)
 
-We often hear from customers wanting to know more about our security posture. We've performed a [self assessment against various industry standard controls](/docs/security/caiq). Feel free to use this in any vendor assessments you'd like to perform.
+We often hear from customers wanting to know more about our security posture. We've performed a [self assessment against various industry standard controls](/docs/security/caiq/index.md). Feel free to use this in any vendor assessments you'd like to perform.
 
 ## Responsibility
 
