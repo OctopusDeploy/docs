@@ -4,10 +4,10 @@ description: Octopus resources created in cloud providers can also be modeled in
 position: 120
 ---
 
-Some resources can be created in Octopus from the same scripts that you use to create them in your cloud provider such as Azure, AWS or Google Cloud. By adding some additional commands, accounts and deployment targets can also be created within Octopus.
+You can use the Octopus API or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
 :::success
-Only a subset of account types and deployment targets support being created dynamically. Ones which are supported are listed below.
+Only a subset of account types and deployment targets support being created dynamically. The ones which are supported are listed below.
 :::
 
 ## Enable dynamic infrastructure
