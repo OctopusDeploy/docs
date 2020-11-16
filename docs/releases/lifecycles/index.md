@@ -12,6 +12,10 @@ Lifecycles enable a number of advanced deployment workflow features:
 - **Automate deployment to specific environments**: for example, automatically deploy to *test* as soon as a release is created.
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
+:::hint
+Lifecycles don't apply to [Runbooks](/docs/runbooks/index.md). Learn more about the [differences between Runbooks and Deployments](/docs/runbooks/runbooks-vs-deployments/index.md).
+:::
+
 ## Phases
 
 A phase represents a stage in your deployment lifecycle. You deploy to phases in order, and you must have a successful deployment in one phase to move to the next phase. For example, there must be a successful deployment to the Development phase before you can proceed to the Testing phase. 
@@ -88,7 +92,7 @@ We recommend updating the default lifecycle to define the phases you need. This 
 
 In the next section, we look at configuring the default lifecycle to add your own phases.
 
-### Add a phase to the default lifecyle
+### Adding a phase to the default lifecyle
 
 You can define your own phases for the default lifecycle. This helps to prevent having too many phases being added automatically. To add a new phase, in the default lifecycle, Click **ADD PHASE**. Here, we are creating a phase named **Development** and adding the Dev environment to the phase:
 
@@ -106,14 +110,29 @@ You can repeat this process to create extra phases. In this example, we are crea
 
 This allows you to explicitly configure the default lifecycle for deploying your software.
 
-## Examples
+## Examples {#lifecycle-examples}
 
-In this section, we cover some lifecycle examples and their phases.
+In this section, we cover some lifecycle examples and their included phases.
 
-### 
+### Hotfix lifecycle
 
+A hotfix lifecycle is useful when you have a critical bug-fix that needs to be deployed quickly. In this scenario, lower environments such as Development and Testing are skipped. Deploying to both typically takes too much time.
 
-## Recommendations
+It's recommended to follow good deployment practises and validate any changes before pushing to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging, and then promited to Production. However your lifecycle may be different to reflect how you decide to handle hotfixes.
+
+![Hotfix lifecycle](images/hotfix-lifecycle.png "width=500")
+
+### Maintenance lifecycle
+
+A Maintenance lifecycle and environment can be used for projects that run maintenance tasks such as backups or software upgrades. It can be used for any tasks that you want to run regularly with the same benefits that Octopus provides for your application deployments.
+
+Even though we have grouped the machines for these tasks in the Maintenance environment, you could also split them up into the Development, Testing, Staging, and Production environments if you want to run the tasks for machines in those environments at different times.
+
+Whichever you choose, you know the steps now, so go ahead and create that lifecycle with the phases that you want.
+
+![Maintenance lifecycle](images/maintenance-lifecycle.png "width=500")
+
+## Recommendations {#lifecycle-recommendations}
 
 When configuring your lifecycles, here are some tips to consider:
 
