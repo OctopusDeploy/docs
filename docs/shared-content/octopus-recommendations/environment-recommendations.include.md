@@ -92,4 +92,4 @@ This is where the [multi-tenancy](/docs/deployment-patterns/multi-tenant-deploym
 
 ## Conclusion
 
-In summary, the thing to remember is to keep the number of Octopus environments you create low. Leverage tenants to handle deployments to different data centers or customers
+In summary, the thing to remember is to keep the number of Octopus environments you create low. Leverage tenants to handle deployments to different data centers or customers.
