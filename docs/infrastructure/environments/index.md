@@ -37,7 +37,7 @@ If you're working with a large number of environments and deployment targets, th
 
 ## Sort your environments
 
-Click the ... overflow menu on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments.
+Click the overflow menu (...) on the environments sections to reveal the **reorder** menu and access a drag and drop pane to sort your environments.
 
 The order that environments are shown in the environments tab also affects:
 
