@@ -1,16 +1,19 @@
-Backing up Octopus Deploy involves these steps:
+## Backup Octopus Deploy
+
+Before doing any sort of upgrade it is critical you backup key components of Octopus Deploy.  This provides an extra layer of protection in the unlikely event something goes wrong.  It is better to have a backup and not need it, than it is to need backup and not have it.  Backing up Octopus Deploy involves these steps:
 
 1. Enable Maintenance Mode
 1. Backup the master key
 1. Backup the license key
-2. Backup the SQL Server Database
-3. Backup the server folders
+1. Backup the SQL Server Database
+1. Backup the server folders (optional)
 
 ### Enable Maintenance Mode
 
 Maintenance mode prevents non-Octopus Administrators from doing deployments or making changes.  To enable maintenance mode go to **{{Configuration, Maintenance}}** and set the button to `On`.  
 
 ### Backup the Octopus Master Key
+
 The master key is used by Octopus Deploy to encrypt and decrypt sensitive values in the Octopus Deploy database.  Without the master key you will need to re-enter all sensitive information.
 
 To view the master key you will need login permissions on the server hosting Octopus Deploy.  Once logged in open up the Octopus Manager and click the view master key button on the left menu.
@@ -39,7 +42,7 @@ BACKUP DATABASE [OctopusDeploy]
 
 The `BACKUP DATABASE` t-sql command has dozens of various options.  Please refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-ver15) or consult a DBA as to which options you should use.  
 
-### Backup the server folders
+### Backup the server folders - optional
 
 The server folders are use to store large binary data outside of the database.  By default they are located in `C:\Octopus`.  If you have High Availability configured, they are stored on a NAS or some other file share.
 

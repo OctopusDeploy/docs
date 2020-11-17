@@ -10,7 +10,7 @@ This upgrade guide is designed to minimize risk by creating a cloned instance of
 
 ## Recommended Approach
 
-The recommended approach is to create a cloned instance, upgrade that, and then migrate over.
+The recommended approach is to create a cloned instance, upgrade that, and then migrate over to the new instance.
 
 Creating a clone of an existing instance involves:
 
@@ -23,7 +23,7 @@ Creating a clone of an existing instance involves:
 7. Testing cloned instance.
 8. Migrating to the new instance.
 
-See the [create cloned instance documentation](INSERT LINK) for more details.
+Learn more about [creating a cloned instance](INSERT LINK).
 
 ## Alternative Approach
 
@@ -34,7 +34,7 @@ Creating a cloned instance involves quite a bit of work, but it is the least ris
 3. Test and verify the test instance.  
 4. Do an in-place upgrade of your main instance.
 
-See the [create test instance documentation](INSERT LINK) for more details.
+Learn more about [creating a test instance](INSERT LINK).
 
 ## Additional items to note
 

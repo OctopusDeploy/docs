@@ -13,7 +13,11 @@ Octopus Deploy 4.x/2018.x was the last version of Octopus Deploy prior to spaces
 
 ## Recommended Approach
 
-The recommended approach is to create a cloned instance, upgrade that and test everything out.  This will allow you to test the upgrade without actually upgrading.  That way you find out all the bits if anything goes wrong.
+An in-place upgrade should be the safest approach.  While there are significant backend changes, those have been tested and rested through thousands of upgrades.  
+
+Learn more about [doing an in-place upgrade](INSERT LINK).
+
+That being said, there is still risk involved.  The recommendation for this scenario is to create a cloned instance, test it out, then throw it away.  This will enable you test out the upgrade, verify any and all integrations work, and then do the actual upgrade on the production instance.
 
 Creating a clone of an existing instance involves:
 
@@ -23,18 +27,19 @@ Creating a clone of an existing instance involves:
 4. Configuring an instance to point to the existing database.
 5. Copying all the files from the backed up folders from the source instance.
 6. Optional: Disabling targets, triggers and subscriptions
-7. Test cloned instance.
+7. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 8. Do an in place upgrade of the existing instance.
+9. Delete cloned instance.
 
-To create a cloned instance please see the [the documentation page](INSERT LINK) for more details.
-
-To do an in-place upgrade please see [the documentation page](INSERT LINK) for more details.
+Learn more about [creating a cloned instance](INSERT LINK).
 
 ## Alternative Approach
 
-Creating a cloned instance involves quite a bit of work, lots of backups and restores.  An alternative approach is to create a test instance representing your production instance and upgrade that.  It won't be a full apples to apples comparison, but you'll be able to test out any API integration changes.  And having a test instance around is a good idea to test future upgrades.
+Creating a cloned instance involves quite a bit of work, with lots of backups and restores.  An alternative approach is to create a test instance with a subset of your projects from your production instance and upgrade that.  It won't be a full apples to apples comparison, but you'll be able to test out any API integration changes.  The other difference is to keep that test instance.  This will enable you test future upgrades.
 
 1. Create a test instance using a subset of projects from your main instance.
 2. Upgrade that test instance to the latest version of Octopus Deploy.
 3. Test and verify the test instance.  
 4. Do an in-place upgrade of your main instance.
+
+Learn more about [creating a test instance](INSERT LINK).
