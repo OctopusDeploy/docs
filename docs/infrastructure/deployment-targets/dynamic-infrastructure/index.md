@@ -1,14 +1,12 @@
 ---
-title: Managing resources using scripts
-description: Octopus resources can be created using service messages allowing resources that you currently can script in Azure to be modeled in Octopus (dynamic infrastructure).
+title: Dynamic infrastructure
+description: Octopus resources created in cloud providers can also be modeled in Octopus using service messages and scripts, which form part of dynamic infrastructure.
 position: 120
 ---
 
-Some resources can be created within Octopus from the same scripts that you use to create them on Azure. By adding some additional commands Web Apps you create on Azure can also be created within Octopus as deployment targets.
+You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
-:::success
-Only Azure Service Principal Accounts, Azure Web Apps, Azure Service Fabric, Azure Cloud Services and Kubernetes targets are supported.
-:::
+
 
 ## Enable dynamic infrastructure
 
@@ -19,9 +17,25 @@ Dynamic infrastructure can be enabled when a new environment is created, or it c
 1. Expand the **Dynamic infrastructure** section and tick or untick the check-box to enable or disable managing dynamic infrastructure.
 1. Click **SAVE**.
 
+## Using the Octopus REST API
+
+Octopus comes with a REST API that can be used to register Octopus accounts and deployment targets dynamically:
+
+- [Create an AWS Account](/docs/octopus-rest-api/examples/accounts/create-aws-account.md)
+- [Create an Azure Service Principal Account](/docs/octopus-rest-api/examples/accounts/create-azure-service-principal.md)
+- [Add an Azure Web App target](/docs/octopus-rest-api/examples/deployment-targets/add-azure-web-app.md)
+- [Register a listening Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md)
+- [Register a Polling Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md)
+
+To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/index.md) section.
+
 ## Available commands and syntax
 
 Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
+
+:::warning
+Only a subset of account types and deployment targets support being created dynamically using the commands listed below.
+:::
 
 ### Accounts
 
@@ -36,7 +50,7 @@ Each of the resource commands is available as a PowerShell function anywhere tha
 ### Targets
 
 :::warning
-Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Dynamic Targets in an Environment](/docs/infrastructure/environments/index.md#dynamic-targets-in-an-environment) for more information.
+Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrasturcture](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
 :::
 
 [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
@@ -57,7 +71,6 @@ This cannot be overridden through the commands.
 :::warning
 These commands are not available in the **Script Console**.
 :::
-
 
 ## Examples
 
