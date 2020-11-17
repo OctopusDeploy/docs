@@ -8,4 +8,6 @@ position: 50
 
 !include <environments>
 
+!include <add-new-environments>
+
 Next, learn how to connect your [deployment targets to Octopus](/docs/getting-started-guides/deployment-targets.md) or you can return to the [getting started guides](/docs/getting-started-guides/index.md).
