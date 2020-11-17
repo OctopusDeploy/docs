@@ -1,65 +1,65 @@
 ---
 title: Tenants
-description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
+description: Tenants allow you to deploy multiple instances of your project to an environment.
 position: 59
 ---
 
+This section describes the multi-tenancy feature of Octopus Deploy.
 
+## Multi-tenancy in Octopus {#tenants-multi-tenancyinoctopus}
 
-## Introducing multi-tenant deployments in Octopus {#Multi-tenantdeployments-Introducingmulti-tenantdeploymentsinOctopus}
-
-With tenants you can:
-
-1. Deploy multiple instances of your project into the same [Environment](/docs/infrastructure/environments/index.md);
-  - Tenant-per-customer
-  - Tenant-per-tester
-  - Tenant-per-feature/tenant-per-branch
-  - Tenant-per-geographical-region
-  - Tenant-per-datacenter
-2. Easily manage unique configuration settings using variables defined on the tenant.
-3. Promote releases to your tenants using safe customer-aware lifecycles, potentially through multiple environments:
-  - Tenant-specific UAT and Production environments.
-4. Tailor the deployment process of your projects per-tenant as necessary.
-5. Implement dedicated or shared hosting models for your tenants.
-6. Employ tenant-aware security for managing tenants and deploying projects, including 3rd-party self-service sign in.
-7. Implement early access or pre-release test programs incorporating 1st-party or 3rd-party testers.
-8. Easily scale to large numbers of tenants using tags to manage tenants as groups instead of individuals.
-9. Easily implement simple multi-tenant deployment scenarios, and scale to support complex scenarios as your needs require.
-
-## Why should I care about multi-tenant deployments in Octopus Deploy? {#Multi-tenantdeployments-WhyshouldIcareaboutmulti-tenantdeploymentsinOctopusDeploy}
-
-> **Have you ever wanted to have multiple instances of your project deployed to each environment? You should consider multi-tenant deployments in Octopus Deploy.**
-
-Tenants in Octopus Deploy allow you to deploy your projects into multiple isolated containers inside your environments. It's kind of like slicing up your environment into multiple pieces.
+Tenants in Octopus Deploy allow you to easily manage separate instances of your application in an environment. Without tenants, you can only deploy a single instance of your application to an environment.
 
 ![](images/multi-tenant-deployment.png "width=500")
 
-The multi-tenant features in Octopus Deploy will simplify your deployments in all of these scenarios:
+Tenants enable:
 
-- You want multiple isolated deployments in your Test/QA/UAT environment.
-- You want to provide each tester with an isolated test deployment so they can work on test data, and choose when to upgrade.
-- You want to provide isolated, time-limited, deployments for work on feature branches.
-- You want to manage deployments to individual targets across environments, like managing a fleet of embedded devices, or a fleet of laptops/workstations.
-- You deploy your application to multiple geographic regions - this way you can avoid creating multiple environments instead modeling each region as a tenant in the same environment - [example](/docs/deployment-patterns/multi-region-deployment-pattern.md).
-- You deploy unique instances of your application for each end-customer - keep reading!
+1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments/index.md).
+2. Managing configuration settings unique to each tenant.
+3. Promoting releases using safe tenant-aware lifecycles.
+4. Tailoring the deployment process using tenant tags.
+5. Deploying to shared or dedicated infrastructure per tenant.
+6. Limiting access to tenants by scoping team roles to tenants.
+7. Creating release rings so that you can easily deploy to alpha and beta tenants.
+8. Managing large groups tenants using tenant tags.
+9. Building simple multi-tenant deployment processes that can scale as you add more tenants.
 
-### You want to deploy a multi-tenant application {#Multi-tenantdeployments-Youwanttodeployamulti-tenantapplication}
+### Types of tenants {#tenants-typesoftenants}
 
-We built the multi-tenant features in Octopus Deploy for this kind of scenario:
+We designed tenants to be generic so that they can satisfy multiple use cases.
 
-- You want to deploy your project(s) to another customer.
-- You want to turn your project(s) into a SaaS application by deploying multiple instances of your project(s) to other customers.
+Tenants usually represent the customers of your application, especially when it comes to SaaS products.
 
-Consider the following example:
+Tenants can also represent:
 
-> NameBadge makes HR software for large corporate customers. They provide the software as a SaaS offering to their customers, and host the web site and associated services for them. Due to the application architecture, for each customer, they deploy:
->
-> - A different SQL database
-> - A copy of an ASP.NET website
-> - A copy of a Windows Service
+- Developers, testers, or other team members
+- Feature branches
+- Geographical regions or datacenters
 
-The key issue in this scenario is that the same components need to be deployed multiple times, one for each end-customer, with different configuration settings for each customer, possibly targeting multiple environments.
+### When to use tenants {#tenants-whentousetenants}
 
 :::success
-You don't need Octopus Deploy to implement a multi-tenant SaaS application: you can also architect your application so you can deploy it once and serve multiple customers. We have built multi-tenant deployments into Octopus for those situations where you want to deploy your application once for each end-customer.
+You don't need tenants to implement a multi-tenant SaaS application. You can architect your application so that one instance can serve multiple customers. We built multi-tenancy for situations where you want to deploy your application more than once in an environment.
 :::
+
+Here are some signs that you should consider using tenants:
+
+- You need to deploy different versions of your application to the same environment.
+- You are creating multiple environments of the same type. This could be multiple Test environments for different testers or multiple Production environments for different customers.
+
+## Enabling tenants
+
+You can enable tenanted deployments for a project by navigating to the project's settings
+
+## Variables {#tenants-variables}
+
+### Project templates
+
+### Library variable set templates
+
+### Snapshots
+
+## Connecting a tenant to a project
+
+## Tenant tags
+
