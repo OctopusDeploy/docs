@@ -8,4 +8,6 @@ Selecting an existing database will ask you to enter the master key.
 
 ![](images/enter-master-key.png)
 
-Enter the master key you backed up earlier and the manager will verify the connection works.
+Enter the master key you backed up earlier and the manager will verify the connection works.  
+
+Finish the wizard, keep an eye on each setting to ensure you match your main instance.  For example, if your main instance uses Active Directory, your cloned instance should also be configured to use Active Directory.  Once the wizard is finished and the instance is configured, login to the cloned instance to ensure your credentials still work.

@@ -1,10 +1,12 @@
 ---
 title: How to automate Octopus Deploy upgrades
 description: A how to guide on how to automate Octopus Deploy upgrades
-position: 5
+position: 4
 ---
 
 Actions required to upgrade Octopus Deploy can be automated.  This guides provides the steps necessary to do so.
+
+!include <upgrade-octopus-backup-master-key>
 
 ## Overview
 

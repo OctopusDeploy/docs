@@ -66,12 +66,10 @@ Please pick from one of these upgrade scenarios.
 
 - [Upgrade a major version change]()
 - [Upgrade a minor version change]()
-- [Upgrading the host OS or .NET]()
 - [Upgrade from 2018.x to a modern version]()
 - [Upgrade from 3.x to a modern version]()
 - [Automating Upgrades]()
-- [Creating a Test Instance]()
-- [Rolling back or downgrading]()
+- [Upgrading the host OS or .NET]()
 - Legacy Upgrades
   - [Upgrade from 2.6.5 to 2018.10.x]()
   - [Upgrade from 2.x to 2.6.5]()
