@@ -125,6 +125,10 @@ It's recommended to follow good deployment practices and validate any changes be
 
 ### Maintenance lifecycle
 
+:::success
+**Octopus 2019.10** introduced [Runbooks](/docs/runbooks/index.md) as an alternative to having a maintenance lifecycle. They allow you to automate routine maintenance and emergency operations tasks.
+:::
+
 A Maintenance lifecycle can be used for projects that run maintenance tasks such as backups or software upgrades. This lifecycle can be used for any tasks that you want to run regularly with the same benefits that Octopus provides for your application deployments.
 
 It typically consists of just one phase and one environment, also called Maintenance. You can include this environment in all deployment targets you want to run these tasks against. You can also split them up into the Development, Testing, Staging, and Production environments if you want to run the tasks for targets in those environments at different times.
