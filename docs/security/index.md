@@ -14,7 +14,7 @@ We often hear from customers wanting to know more about our security posture. We
 
 ## Responsibility
 
-Octopus Deploy take responsibility to provide a secure and stable platform for managing your deployments.
+Octopus Deploy has the responsibility of providing a secure and stable platform for managing your deployments.
 
 You have the responsibility for how that platform is implemented and exposed to your infrastructure and users.
 
