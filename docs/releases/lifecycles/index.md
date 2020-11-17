@@ -116,9 +116,9 @@ In this section, we cover some lifecycle examples and their included phases.
 
 ### Hotfix lifecycle
 
-A hotfix lifecycle is useful when you have a critical bug-fix that needs to be deployed quickly. In this scenario, lower environments such as Development and Testing are skipped. Deploying to both typically takes too much time.
+A hotfix lifecycle is useful when you have a critical bug-fix that needs to be deployed quickly. In this scenario, lower environments such as Development and Testing are skipped.
 
-It's recommended to follow good deployment practices and validate any changes before pushing to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging, and then promited to Production. However your lifecycle may be different to reflect how you decide to handle hotfixes.
+It's recommended to follow good deployment practices and validate any changes before pushing to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging, and then promoted to Production. Your lifecycle may be different to reflect how you decide to handle hotfixes.
 
 ![Hotfix lifecycle](images/hotfix-lifecycle.png "width=500")
 
