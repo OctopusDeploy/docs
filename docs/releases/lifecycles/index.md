@@ -18,7 +18,8 @@ Lifecycles don't apply to [Runbooks](/docs/runbooks/index.md). Learn more about 
 
 ## Phases
 
-A phase represents a stage in your deployment lifecycle. You deploy to phases in order, and you must have a successful deployment in one phase to move to the next phase. For example, there must be a successful deployment to the Development phase before you can proceed to the Testing phase. 
+A phase represents a stage in your deployment lifecycle. You deploy to phases in order, and you can choose how releases move between phases.
+For example, you can configure a lifecycle so that there must be a successful deployment to the Development phase before you can proceed to the Testing phase. You can also have a completely optional phase. This allows you to release to an environment in the next phase without being required to deploy to any in the optional phase.
 
 Phases can also include multiple environments. This can be useful where you have more than one Testing environment.
 
