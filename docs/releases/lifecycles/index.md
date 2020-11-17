@@ -23,6 +23,26 @@ For example, you can configure a lifecycle so that there must be a successful de
 
 Phases can also include multiple environments. This can be useful where you have more than one Testing environment.
 
+### No phases
+
+When no phases are defined in a lifecycle, Octopus will use a default convention to control which environments may be deployed to, and in which order. The default convention forces releases to be deployed to each environment in the order that they are defined on the environments page.
+
+:::warning
+When you add a new environment to Octopus, it will automatically be included in the list of environments available to the default convention. To prevent Octopus applying the default convention, define your own phases or restrict your lifecycle to specific environments.
+:::
+
+### Phases with environments
+
+It's possible to add one or multiple environments to a phase. When a phase has environments added to it, this defines which ones can be deployed to during this phase of the lifecycle.
+
+### Phases without environments
+
+When a phase is defined without any environments added to it, this phase of the lifecycle will deploy to all the environments that haven't been explicitly added to the lifecycle in previous phases. 
+
+:::hint
+Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
+:::
+
 ## Create a new lifecycle
 
 1. From the Lifecycle page, click on the **ADD LIFECYCLE** button.
