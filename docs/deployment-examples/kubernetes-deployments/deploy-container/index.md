@@ -46,6 +46,12 @@ When using the blue/green deployment strategy, the name entered in this field wi
 
 The desired number of Pod resources is set in the `Replicas` field. This is the number of replicas maintained by the ReplicaSet resource. This field is optional, and will default to a value of `1`.
 
+### Revision history limit
+
+The number of revisions of the resource that Kubernetes will maintain is set in the `Revision history limit` field.
+
+This field was added in Octopus 2020.6.
+
 ### Progression deadline
 
 An optional value that defines the maximum time in seconds for a deployment to make progress before it is considered to be failed. If this value is not specified, it will default to `600` seconds (or 10 minutes).
