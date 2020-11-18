@@ -10,11 +10,15 @@ This section provides information about the responsibility we take to provide a 
 
 Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](https://octopus.com/documents/security-review-executive-report.pdf)
 
+We often hear from customers who want to know more about our security posture. We've performed a [self assessment against various industry-standard controls](/docs/security/caiq/index.md). Feel free to use this in any vendor assessments you need to perform.
+
 ## Responsibility
 
-Octopus Deploy take responsibility to provide a secure and stable platform for managing your deployments.
+Octopus Deploy has the responsibility of providing a secure and stable platform for managing your deployments.
 
-You take responsibility for how that platform is implemented and exposed to your infrastructure and users.
+You have the responsibility for how that platform is implemented and exposed to your infrastructure and users.
+
+![A diagram depicting the shared responsibility model for Octopus Deploy](shared-responsibility.png)
 
 ### Octopus Cloud
 
