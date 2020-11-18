@@ -56,11 +56,11 @@ It keeps a record for every package and package extraction for each project and 
 
 Defining retention policies is done within lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
-![](images/3278386.png "width=500")
-
-You can read more about [lifecycles](/docs/releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+![](images/default-lifecycle-retention-policy.png "width=500")
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
+
+Learn more about [Lifecycles](/docs/releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
 ## Retention policies with channels
 {#RetentionpolicyTentaclecleanupandtroubleshooting-Retentionpolicywithchannels}
