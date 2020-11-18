@@ -1,4 +1,4 @@
-## Upgrade High Availability
+### Upgrade High Availability
 
 In general, upgrading a high avalabile instance of Octopus Deploy follows the same steps as a typical in-place upgrade.  Download the latest MSI and install that.  The key difference is to upgrade only one node first, as this will upgrade the database, then upgrade all the remaining nodes.  
 

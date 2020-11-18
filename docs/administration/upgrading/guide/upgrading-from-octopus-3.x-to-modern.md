@@ -12,6 +12,8 @@ It is possible to do an in-place upgrade of 3.x to a modern version of Octopus D
 
 The recommended approach is to create a cloned instance, upgrade that, and migrate over.  
 
+### Overview 
+
 Creating a clone of an existing instance involves:
 
 1. Enable maintenance mode on the main instance.

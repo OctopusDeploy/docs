@@ -63,6 +63,8 @@ An alternative approach to an in-place upgrade is to create a cloned instance an
 - Use the cloned instance as a test instance going forward
 - Migrate over to the cloned instance
 
+### Overview
+
 Creating a clone of an existing instance involves:
 
 1. Enable maintenance mode on the main instance.

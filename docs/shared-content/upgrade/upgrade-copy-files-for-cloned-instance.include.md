@@ -1,4 +1,4 @@
-### Copy all the files from the main instance
+#### Copy all the files from the main instance
 
 After the instane has been created, copy all the contents from the following folders from either the backed up location or the main instance.
 
