@@ -1,4 +1,4 @@
-#### Disabling All Targets - Optional
+### Disabling All Targets - Optional
 
 A cloned instance is what it says on the tin, a cloned instance.  Assuming you are not using polling Tentacles, all the deployments will "just work."  This is by design in the event the VM hosting Octopus Deploy is lost and you have to restore Octopus Deploy from a backup.  
 

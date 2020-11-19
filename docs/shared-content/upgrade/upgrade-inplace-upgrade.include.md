@@ -1,4 +1,4 @@
-#### Octopus Deploy Components
+### Octopus Deploy Components
 
 Before performing an in-place upgrade, it is important to make note of the various components of Octopus Deploy.  Most in-place upgrades will only change the install location and the SQL Server database.  Very rarely will an in-place upgrade change the home folder or server folders.
 
@@ -10,11 +10,11 @@ Before performing an in-place upgrade, it is important to make note of the vario
 - **Tentacles** Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Upgrading Tentacles is done after the server is updated.  It is also optional.  Any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](/docs/support/compatibility.md).  We recommend you upgrade them to get the latest bug fixes and security patches.  That upgrade doesn't have to happen right away.
 - **Calamari** The Tentacles facilite communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  A specific version Calamari is coupled with a specific version of Octopus Deploy.  Calamari is upgraded automatically during the first deployment to the target.
 
-#### Install the newer version of Octopus Deploy
+### Install the newer version of Octopus Deploy
 
 Installing a newer version of Octopus Deploy is as simple as running MSI and following the wizard.  The MSI will copy all the binaries to the install location.  Once the MSI is complete it will automatically launch the `Octopus Manager`.
 
-#### Validation Checks
+### Validation Checks
 
 Octopus Deploy will perform validation checks prior to upgrading the database.  These validation checks include (but not limited to):
 
@@ -23,6 +23,6 @@ Octopus Deploy will perform validation checks prior to upgrading the database.  
 
 If the validation checks fail, don't worry, install the [previously installed version of Octopus Deploy](https://octopus.com/downloads/previous) and you will be back up and running quickly.
 
-#### Database Upgrades
+### Database Upgrades
 
 Each release of Octopus Deploy contains 0 to N database scripts to upgrade the database.  The scripts are run in a transaction, when an error occurs, the transaction is rolled back.  If a rollback does happen, gather the logs and send them to support@octopus.com for troubleshooting.  You can install the previous version to get back up and running.

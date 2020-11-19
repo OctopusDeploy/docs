@@ -1,4 +1,4 @@
-#### Backup the server folders - optional
+### Backup the server folders
 
 The server folders are use to store large binary data outside of the database.  By default they are located in `C:\Octopus`.  If you have High Availability configured, they are stored on a NAS or some other file share.
 

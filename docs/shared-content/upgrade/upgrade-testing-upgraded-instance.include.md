@@ -1,4 +1,4 @@
-#### Testing the upgraded instance
+### Testing the upgraded instance
 
 It is up to you on the level of testing you wish to perform on your upgraded instance.  At a bare minimum you should:
 

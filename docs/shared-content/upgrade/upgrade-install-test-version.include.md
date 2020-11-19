@@ -1,4 +1,4 @@
-#### Installing Octopus Deploy
+### Installing Octopus Deploy
 
 Run the MSI you downloaded to install Octopus Deploy.  After you install Octopus Deploy the Octopus Manager will automatically launch.  Follow the wizard.  A few notes:
 
