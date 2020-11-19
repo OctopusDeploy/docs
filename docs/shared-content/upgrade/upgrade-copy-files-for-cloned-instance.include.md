@@ -1,6 +1,6 @@
 ### Copy all the files from the main instance
 
-After the instane has been created, copy all the contents from the following folders from either the backed up location or the main instance.
+After the instance has been created, copy all the contents from the following folders.
 
 - Artifacts -> default is `C:\Octopus\Artificats`
 - Packages -> default is `C:\Octopus\Packages`

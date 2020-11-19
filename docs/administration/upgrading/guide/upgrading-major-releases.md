@@ -8,12 +8,12 @@ A major release of Octopus Deploy is when the first number in the version is inc
 
 ## Mitigate risk with a test instance
 
-Major release upgrades typically carry a major change making rollbacks tricky.  For example:
+Major release upgrades typically carry a major change, making rollbacks tricky.  For example:
 
 - **2019.1.0** - introduced spaces, with several API changes and a new team model.
 - **2020.1.0** - deprecated support for SQL Server 2008 R2 and 2012.  
 
-Except in rare cases, a standard in-place upgrade will work.  However, there are other considerations, such as integrations, API scripts, and so on to consider.  A test instance, be it a full clone of your main instance, or only a subset of your main instance, will allow you to test the upgrade itself, along with testing deployments and other integrations before upgrading your main instance.  If anything goes wrong you have time to fix it.
+Except in rare cases, a standard in-place upgrade will work.  However, there are other considerations, such as integrations, API scripts, and so on to consider.  A test instance, be it a full clone of your main instance, or only a subset of your main instance, will allow you to test the upgrade itself, along with testing deployments and other integrations before upgrading your main instance.  If anything goes wrong, you have time to fix it.
 
 In general, the process looks like this:
 
@@ -32,7 +32,7 @@ The standard upgrade process is an in-place upgrade.  In-place upgrades update t
 
 The steps for this are:
 
-1. Download latest version of Octopus Deploy.
+1. Download the latest version of Octopus Deploy.
 1. Backup master key
 1. Enable maintenance mode on.
 1. Backup the database.
@@ -54,11 +54,11 @@ The steps for this are:
 
 ## Rollback Failed Upgrade
 
-While unlikely, it is possible an upgrade will fail.  It could fail on an database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  Depending on what failed, you have a decision to make.  If the cloned instance upgrade failed, it might make sense to start all over again.  Or, it might make sense to rollback to a previous version.  In either case, if you decide to rollback the process will be:
+While unlikely, an upgrade may fail.  It could fail on a database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  Depending on what failed, you have a decision to make.  If the cloned instance upgrade failed, it might make sense to start all over again.  Or, it might make sense to roll back to a previous version.  In either case, if you decide to roll back, the process will be:
 
 1. Restore the database backup.
 1. Restore the folders.
-1. Download and install the previous installed version of Octopus Deploy.
+1. Download and install the previously installed version of Octopus Deploy.
 1. Do some sanity checks.
 1. If maintenance mode is enabled, disable it.
 

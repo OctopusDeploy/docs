@@ -1,21 +1,21 @@
 ---
 title: How to automate Octopus Deploy upgrades
-description: A how to guide on how to automate Octopus Deploy upgrades
+description: A how-to guide on how to automate Octopus Deploy upgrades
 position: 4
 ---
 
-Actions required to upgrade Octopus Deploy can be automated.  This guides provides the steps necessary to do so.
+Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade.  This guide provides the steps necessary to do so.
 
 ## Overview
 
-This process is designed to follow best practices, including enabling maintenance mode along with backing up the database and master key. 
+This guide was written for upgrading Octopus Deploy on Windows. 
 
 ### Process 
 
 In general, the automatic upgrade process should:
 
 1. Backup master key and license
-1. Check for new version
+1. Check for a new version
 1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md)
 1. Stop the instance
 1. Backup the database
@@ -27,22 +27,22 @@ In general, the automatic upgrade process should:
 
 ### Checking for new versions
 
-There are two URLs which provide version information for Octopus Deploy.
+Two URLs provide version information for Octopus Deploy.
 
 - https://octopus.com/downloads/upgrade -> Returns the most recent version Octopus Deploy to download.
 - https://octopus.com/download/upgrade/v3 -> Returns all the versions, past and present, available for download in JSON format.
 
 Invoking the `/api` endpoint on your instance, for example [https://samples.octopus.app/api](https://samples.octopus.app/api), will return the version your instance is running.
 
-A specific version of the MSI can be downloaded from Octopus by going to: https://download.octopusdeploy.com/octopus/Octopus.[versionnumber]-x64.msi.  For example: https://download.octopusdeploy.com/octopus/Octopus.2020.4.1-x64.msi
+The pattern to download a specific version of Octopus Deploy is: https://download.octopusdeploy.com/octopus/Octopus.[versionnumber]-x64.msi.  For example https://download.octopusdeploy.com/octopus/Octopus.2020.4.1-x64.msi
 
-A script can be written to check the current installed version of Octopus and compare it against the latest version.  The script can include business rules such as:
+You can write a script to check Octopus's current installed version and compare it against the latest version with this information.  The script can include business rules such as:
 
 - Only download patch releases
 - Only download minor releases
 - Only download minor releases after it goes to .2.  For example, currently on 2020.3.4, wait until 2020.4.2 or higher
-- Only download the next major release after it goes to .3. For example, currently on 2019.13.7, wait until 2020.3.1 is release.
-- Download the latest and greatest release
+- Only download the next major release after it goes to .3. For example, currently, on 2019.13.7, wait until 2020.3.1 is released.
+- Download the latest release
 
 The script below enforces some of those business rules.
 
@@ -124,20 +124,31 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus"
 & .\octopus.server.exe node --instance="OctopusServer" --drain=true --wait=0
 & .\octopus.server.exe service --instance="OctopusServer" --stop
 ```
+### Backup the SQL Server database
+
+The simplest backup possible is a full database backup.  Execute the below T-SQL command to save a backup to a NAS or file share.
+
+```
+BACKUP DATABASE [OctopusDeploy]
+          TO DISK = '\\SomeServer\SomeDrive\OctopusDeploy.bak'
+             WITH FORMAT;
+```
+
+The `BACKUP DATABASE` T-SQL command has dozens of various options.  Please refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-ver15) or consult a DBA as to which options you should use.
 
 ### Installing the MSI
 
-Octopus Deploy is installed via an MSI.  This installation can be automated by calling `msiexec.exe` directly or using a third-party tool such as Chocolatey.
+The Octopus Deploy MSI installation can be automated by calling `msiexec.exe` directly or using a third-party tool such as Chocolatey.
 
 :::warning
-Any scripts to install Octopus Deploy must be run as administrator.
+Please run `msiexec.exe` as an administrator.  It is performing an installation, and you will be prompted by Windows to confirm.
 :::
 
 #### Using msiexec.exe
 
 Windows includes [msiexec.exe](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec) as part of the base installation.
 
-It can be invoked via PowerShell by using the Start-Process command.  This example will send in the `/i` and `/quiet` arguments to install the MSI without any user interaction.
+The `msiexec.exe` can be invoked via PowerShell by using the Start-Process command.  This example will send in the `/i` and `/quiet` arguments to install the MSI without user interaction.
 
 ```PowerShell
 $msi = "C:\Temp\OctopusDeploy.2020.4.2.msi"
@@ -148,9 +159,9 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 
 #### Using Chocolatey
 
-[Chocolatey](https://chocolatey.org) is a third-party package management tool designed to work with Windows.  If you are coming from Linux, it is similar to apt, or yum.  
+[Chocolatey](https://chocolatey.org) is a third-party package management tool designed to work with Windows.  If you are coming from Linux, it is similar to apt or yum.  
 
-This script will install chocolatey and then install Octopus Deploy.  The example use the `--version` argument to set a specific version.  Excluding that will cause the latest version to be installed.  The `-y` argument allows the install to proceed without user input.  For more information, please check out [Chocolatey's documentation.](https://chocolatey.org/docs/commandsinstall)
+This script will install chocolatey and then install Octopus Deploy.  The example uses the `--version` argument to set a specific version.  Excluding that will cause the latest version to be installed.  The `-y` argument allows the install to proceed without user input.  For more information, please check out [Chocolatey's documentation.](https://chocolatey.org/docs/commandsinstall)
 
 ```PowerShell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -252,7 +263,7 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 
 ## Upgrading High Availability Octopus Deploy instances
 
-It is possible to automate the upgrading of a Octopus Deploy High Availability instances, but it takes a bit more work than a single script.  The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a free license to do this [here](https://octopus.com/start).
+It is possible to automate the upgrading of Octopus Deploy High Availability instances, but it takes a bit more work than a single script.  The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a free license to do this [here](https://octopus.com/start).
 
 ![](images/upgrade-diagram.png)
 
@@ -263,7 +274,7 @@ Each HA node will need a Tentacle installed on it.  You will need two roles for 
 
 The process will look like:
 
-1. Check for new version (HAServer-Primary)
+1. Check for a new version (HAServer-Primary)
 2. Put server into maintenance mode (HAServer-Primary)
 3. Stop all nodes (HAServer)
 4. Install the MSI (HAServer)

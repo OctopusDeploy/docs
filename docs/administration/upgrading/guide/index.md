@@ -4,14 +4,14 @@ description: Everything you need to know about upgrading a modern version of Oct
 position: 1
 ---
 
-A modern version of Octopus Deploy is any version running on SQL Server.  When Octopus Deploy was originally introduced it ran on RavenDB.  Octopus Deploy 3.x migrated from RavenDB to Microsoft SQL Server.  This secton contains guides to covering various use cases you might encounter when upgrading a modern version of Octopus Deploy.
+A modern version of Octopus Deploy is any version running on SQL Server.  When Octopus Deploy was originally introduced, it ran on RavenDB.  Octopus Deploy 3.x migrated from RavenDB to Microsoft SQL Server.  This section contains guides to covering various use cases you might encounter when upgrading a modern version of Octopus Deploy.
 
 ## Upgrade Scenarios
 
-The default upgrade scenario is an in-place upgrade.  Thousands of customers upgrade every month without errors.  However, no upgrade process is ever 100% error free.  The typical errors we see are:
+The default upgrade scenario is an in-place upgrade.  Thousands of customers upgrade every month without errors.  However, no upgrade process is ever 100% error-free 100% of the time.  The typical errors we see are:
 
-- Compatability Errors: Upgrading to a new version isn't supported because of a license limitation, host OS version depreciation or SQL Server version depreciation.
-- Hyper-specific use cases: Windows is running a specific version of Windows without a random patch of .NET Framework installed.
+- Compatability Errors: Upgrading to a new version isn't supported by a license limitation, host OS version depreciation or SQL Server version depreciation.
+- Hyper-specific use cases: Windows runs a specific version of Windows without a random patch of .NET Framework installed.
 - Breaking changes introduced in the product: we do our best to minimize these, but they can happen.  For example, Octopus Deploy 2019.1.0 introduced spaces and how teams and roles were assigned.  Any API scripts manipulating teams had to be updated.
 
 Please choose from one of five common upgrade scenarios:
