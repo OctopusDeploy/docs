@@ -13,7 +13,15 @@ The deployment journal on the Tentacle is the source of truth for what Octopus w
 
 If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
 
-By default your deployment journal is located at: `C:\Octopus\DeploymentJournal.xml`. If you have multiple Tentacle instances configured on the same server you will find a unique deployment journal for each instance located at `C:\Octopus\[Instance Name]\DeploymentJournal.xml`, this is shown in the image shown below with the instance name set to `DWebApp01`.
+By default your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
+- For Windows Tentacles, the default directory is: `C:\Octopus`
+- For Linux Tentacles, the default directory is: `/etc/octopus`
+
+If you have multiple Tentacle instances configured on the same server you will find a unique deployment journal for each instance located at `<Tentacle Home>\[Instance Name]\DeploymentJournal.xml`.
+
+Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md#Tentacleconfigurationandfilestorage-Filestorage).
+
+An example DeploymentJournal.xml is shown below on a Windows Tentacle with the instance name set to `DWebApp01`:
 
 ![](images/3278384.png "width=500")
 
@@ -95,11 +103,17 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 ## Package and extraction directories {#retention-policy-package-directories}
 
-You can find your packages under `C:\Octopus\files`, or `C:\Octopus\[Instance Name])\files` if you have multiple Tentacle instances on one machine.
+You can find your packages in the `<Tentacle Home>\Files` directory.
+or `<Tentacle Home>\[Instance Name])\Files` if you have multiple 
+Tentacle instances on one machine.
+- For Windows Tentacles, the default directory is: `C:\Octopus\Files`
+- For Linux Tentacles, the default directory is: `/etc/octopus/files`
+
+Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md#Tentacleconfigurationandfilestorage-Filestorage).
 
 ![](images/3278387.png "width=500")
 
-Your extracted package files can be found under `C:\Octopus\Applications\[environment name]\[package name]\`
+By default your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
 
 So if you have multiple packages you will have multiple directories.
 

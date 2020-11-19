@@ -9,11 +9,11 @@ As you deploy more often and to different environments, files and releases can b
 
 ## What is deleted {#what-is-deleted}
 
-There are a number of different types of retention policies that run. Those on the Octopus Server, those on the Tentacle and those in the built-in package repository.
+There are a number of different types of retention policies that run. Those on the Octopus Server, those on the Tentacle, and those in the built-in package repository.
 
 ### Releases {#releases-whats-deleted}
 
-The Octopus Server settings delete **releases** from the database. This is a data deletion. It also cleans up any **artifacts**, **deployments, tasks, events** and **logs** attached to the release. No packages from the internal package repository will be deleted as part of this policy, but they may be deleted by a corresponding repository retention policy.
+The Octopus Server settings delete **releases** from the database. This is a data deletion. It also cleans up any **artifacts**, **deployments, tasks, events**, and **logs** attached to the release. No packages from the internal package repository will be deleted as part of this policy, but they may be deleted by a corresponding repository retention policy.
 
 #### Releases included on a dashboard
 
@@ -31,7 +31,7 @@ Octopus will never remove the latest release or the release previous to the late
 
 ### Tentacle files {#targets-whats-deleted}
 
-The Tentacle settings delete **packages**, and expanded **files and folders** from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/configuration-features/custom-installation-directory.md) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
+The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/configuration-features/custom-installation-directory.md) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
 :::hint
 We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) also.
@@ -76,9 +76,13 @@ Each phase will inherit the retention policy from the above phase, but this is s
 
 Releases determines what is kept on the Octopus Server, and Files on Tentacle determines what files are kept on the Tentacle.
 
-You can keep all, or select a number of releases to keep.
+In Octopus Server, you can keep all, or select a number of releases to keep.
 
-You are also able to specify a number of days worth of releases and files to keep if this is preferred.
+Alternatively, you can specify a number of days worth of releases and files to keep.
+
+:::hint
+Octopus Cloud instances are subject to [storage limits](https://octopus.com/pricing/faq#cloud-storage-limits). For releases, that limit is set to keep the last 30 days worth.
+:::
 
 ## Set Built-in feed retention policy {#set-builtinfeed-retentionpolicy}
 
@@ -86,7 +90,11 @@ You can find the built-in repository retention policy settings under **{{Library
 
 ![](images/3278060.png "width=500")
 
-This can also be set to keep packages forever, or for a set number of days:
+In Octopus Server, this can be set to keep packages forever, or for a set number of days.
+
+:::hint
+Octopus Cloud instances are subject to [storage limits](https://octopus.com/pricing/faq#cloud-storage-limits). For packages, that limit is set to keep the last 30 days worth.
+:::
 
 ![](images/3278059.png "width=500")
 
