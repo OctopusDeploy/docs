@@ -11,8 +11,6 @@ Octopus Deploy 4.x/2018.x was the last version of Octopus Deploy prior to spaces
 - Unique internal package feed per space.  Each space has a subfolder in the `Packages` directory to keep them segregated on the file system.  Before a package would be located at `C:\Octopus\packages\MyPackage.2020.1.1.zip`.  Now it is `C:\Octopus\packages\Spaces-1\MyPackage.2020.1.1.zip`
 - Almost every table in the database had a `Space-Id` column added to it.
 
-!include <upgrade-octopus-backup-master-key>
-
 ## Recommended Approach - Create test instance
 
 An in-place upgrade should be the safest approach.  Upgrade scripts assume you are upgrading from older versions of Octopus Deploy.  While the upgrade will work, there might be a new feature or breaking changes you will want to test first.  The recommended approach is to create a test instance containing a subset of projects representing your main instance.  Upgrade that test instance, verify it, and then upgrade the main instance.  
@@ -21,6 +19,7 @@ An in-place upgrade should be the safest approach.  Upgrade scripts assume you a
 
 The steps for this are:
 
+1. Backup master key and license.
 1. Download the same version of Octopus Deploy as your main instance.
 1. Install Octopus Deploy on a new VM.
 1. Export a subset of projects from the main instance.
@@ -35,6 +34,8 @@ The steps for this are:
 1. Do an in-place upgrade of your main instance.
 1. Test upgraded main instance.
 1. Disable maintenance mode.
+
+!include <upgrade-octopus-backup-master-key>
 
 !include <upgrade-download-same-version>
 
@@ -58,15 +59,13 @@ The steps for this are:
 
 ## Alternative Approach - Create cloned instance
 
-An alternative approach to an in-place upgrade is to create a cloned instance and upgrade that.  Once the cloned instance is created you can either:
-
-- Use the cloned instance as a test instance going forward
-- Migrate over to the cloned instance
+An alternative approach to an in-place upgrade is to create a cloned instance and upgrade that.  From there you can migrate over to the cloned instance, or do an in-place upgrade of your existing instance and use the cloned instance for testing future upgrades.  
 
 ### Overview
 
 Creating a clone of an existing instance involves:
 
+1. Backup master key and license.
 1. Enable maintenance mode on the main instance.
 1. Backup the database of the main instance.
 1. Disable maintenance mode on the main instance.
@@ -78,6 +77,8 @@ Creating a clone of an existing instance involves:
 1. Upgrade cloned instance.
 1. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 1. If migrating, then migrate over.  Otherwise leave the test instance alone, backup the folders and database, and upgrade the main intance.
+
+!include <upgrade-octopus-backup-master-key>
 
 !include <upgrade-octopus-backup-database>
 

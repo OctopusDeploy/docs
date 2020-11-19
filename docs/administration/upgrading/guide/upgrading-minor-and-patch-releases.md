@@ -53,4 +53,4 @@ Minor and patch releases are generally the easiest of the scenarios to rollback.
 
 The chance of an in-place upgrade failing is low.  However, there is still that chance.  In addition, there might be a new feature or a breaking change introduced.  We recommend creating a sandbox or test instance to test out new versions of Octopus Deploy.
 
-Learn more about [creating a test instance](INSERT LINK)
+Learn more about [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md).

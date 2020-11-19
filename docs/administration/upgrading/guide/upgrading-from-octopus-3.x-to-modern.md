@@ -4,18 +4,29 @@ description: Information on how to upgrade from Octopus Deploy 3.x to a modern v
 position: 6
 ---
 
-It is possible to do an in-place upgrade of 3.x to a modern version of Octopus Deploy.  With that said, the last version 3.x, 3.17.14, was released on November 12th, 2017.  Fundamentally, Octopus is almost an entirely different product.  We did our best to maintain backwards comptability, but there is a risk a hyper-specific scenario was missed, or a breaking change was introduced.  This guide will walk through the steps needed to reduce the risk.
+It is possible to do an in-place upgrade of 3.x to a modern version of Octopus Deploy.  With that said, the last version 3.x, 3.17.14, was released on November 12th, 2017.  Fundamentally, Octopus is almost an entirely different product.  We did our best to maintain backwards comptability, but there is a risk a hyper-specific scenario was missed, or a breaking change was introduced.  Here is an example of changs made to Octopus Deploy since 3.17.14 was released.
 
-!include <upgrade-octopus-backup-master-key>
+- The majority of endpoints in the API can accept a `Space-Id`, for example `/api/Spaces-1/projects?skip=0&take=100` whereas before it was `/api/projects?skip=0&take=100`.  If a `Space-Id` isn't supplied the default space is used.
+- Teams can be assigned to multiple roles and spaces.  Before a team could be assign to only one role.
+- Unique internal package feed per space.  Each space has a subfolder in the `Packages` directory to keep them segregated on the file system.  Before a package would be located at `C:\Octopus\packages\MyPackage.2020.1.1.zip`.  Now it is `C:\Octopus\packages\Spaces-1\MyPackage.2020.1.1.zip`
+- Almost every table in the database had a `Space-Id` column added to it.
+- Workers were introduced.
+- Azure Management APIs were depreciated.
+- Support for Kubernetes was introduced.
+- Terraform support was introduced.
+- Execution containers running on docker on workers was introduced.
+
+There is some risk involved with doing an in place upgrade.  This guide will walk through the steps needed to reduce the risk and keep downtime to a minimum.
 
 ## Recommended Approach - Create cloned instance
 
-The recommended approach is to create a cloned instance, upgrade that, and migrate over.  
+The recommended approach is to create a cloned instance, upgrade that, and test out the new functionality with any integrations.  From there you can migrate over to the cloned instance, or do an in-place upgrade of your existing instance and use the cloned instance for testing future upgrades.  
 
 ### Overview 
 
 Creating a clone of an existing instance involves:
 
+1. Backup master key and license.
 1. Enable maintenance mode on the main instance.
 1. Backup the database of the main instance.
 1. Disable maintenance mode on the main instance.
@@ -27,6 +38,8 @@ Creating a clone of an existing instance involves:
 1. Upgrade cloned instance.
 1. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 1. If migrating, then migrate over.  Otherwise leave the test instance alone, backup the folders and database, and upgrade the main intance.
+
+!include <upgrade-octopus-backup-master-key>
 
 !include <upgrade-octopus-backup-database>
 
@@ -58,6 +71,7 @@ Creating a cloned instance is quite a bit of work.  You have to worry about drif
 
 The steps for this are:
 
+1. Backup master key and license
 1. Download the same version of Octopus Deploy as your main instance.
 1. Install Octopus Deploy on a new VM.
 1. Export a subset of projects from the main instance.
@@ -72,6 +86,8 @@ The steps for this are:
 1. Do an in-place upgrade of your main instance.
 1. Test upgraded main instance.
 1. Disable maintenance mode.
+
+!include <upgrade-octopus-backup-master-key>
 
 !include <upgrade-download-same-version>
 

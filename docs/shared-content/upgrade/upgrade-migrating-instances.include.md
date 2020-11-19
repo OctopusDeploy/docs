@@ -43,4 +43,4 @@ After testing and verification comes the cutover.
 
 1. Enable maintenance mode on the old instance to put it into read-only mode.
 1. Ensure all CI servers are pointing to the new instance (or change DNS).
-1. You don't have to upgrade tentacles right away.  Newer versions of Octopus Deploy [can communicate with older versions of tentacles](/docs/support/compatibility).  You can upgrade a set at a time instead of upgrading everything.  Starting in 2020.x you can perform a search on the deployment target page and update only the returned tentacles.  Or, you can [upgrade tentacles per environment](https://www.youtube.com/watch?v=KVxdSdYAqQU&t=352s).  
+1. You don't have to upgrade tentacles right away.  Newer versions of Octopus Deploy [can communicate with older versions of tentacles](/docs/support/compatibility.md).  You can upgrade a set at a time instead of upgrading everything.  Starting in 2020.x you can perform a search on the deployment target page and update only the returned tentacles.  Or, you can [upgrade tentacles per environment](https://www.youtube.com/watch?v=KVxdSdYAqQU&t=352s).  

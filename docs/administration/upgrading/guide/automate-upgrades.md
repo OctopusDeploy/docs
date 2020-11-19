@@ -13,7 +13,7 @@ Actions required to upgrade Octopus Deploy can be automated.  This guides provid
 In general, the automatic upgrade process should:
 
 1. Check for new version
-1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode)
+1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md)
 1. Stop the instance
 1. Download and install the MSI
 1. Upgrade the database
