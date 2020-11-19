@@ -27,13 +27,13 @@ Now that you've created an Octopus account, you can create a new instance of Oct
 
 When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
 
+!include <octopus-cloud-regions>
+
 ## Uploading packages to Octopus Cloud servers
 
 Factors such as geographical distance, network bandwidth, and network congestion may cause package uploads to your Octopus Cloud Server to take longer than expected.
 
 If you are having difficulty uploading packages to your Octopus built-in package feed within the default timeout threshold, typically within 5 minutes, you might be affected by one or more of the factors mentioned above. In this case, you could try increasing the timeout threshold of the Octopus CLI or `nuget.exe` to a value that suits you. We also recommend using the Octopus CLI, **Octopus.Client**, or the **TeamCity Plugin (v4.41.0+)** because they have the advantage of using delta compression.
-
-In the near future, the Octopus Cloud will become available in additional regions and you'll have the ability to move between regions.
 
 ## Change your password
 
