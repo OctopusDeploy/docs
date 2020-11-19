@@ -51,11 +51,14 @@ Or one of the common options:
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
-The Octopus Tentacle stores files in the following folders by default:
+By default, the Octopus Tentacle stores all files in the following folder:
+- For Windows Tentacles, the default directory is: `C:\Octopus/<Instance>`. 
+- For Linux Tentacles, the default directory is: `/etc/octopus/<Instance>`
 
-- `C:\Octopus\Tentacle\<Instance>`
-    - This is the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer.
-    - This is where the Tentacle config file and deployment journal is stored.
+This is known as the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer. This is where both the Tentacle config file and deployment journal is stored.
+
+The Octopus Tentacle stores additional files in sub-folders of the home directory:
+
 - `<Tentacle Home>\Tools`
     - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
 - `<Tentacle Home>\Files`

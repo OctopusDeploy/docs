@@ -3,21 +3,29 @@ title: Retention policy Tentacle cleanup and troubleshooting
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 
-We get a lot of questions about why isn't the retention policy deleting all of my files on the Tentacle, or reporting a bug because files weren't deleted.
+We get a lot of questions asking why the retention policy isn't deleting all of the files on the Tentacle, or reporting a bug because files weren't deleted.
 
 This page will show what is checked, what is deleted and why something might not be deleted.
 
-## Deployment journal {#RetentionpolicyTentaclecleanupandtroubleshooting-DeploymentJournal}
+## Deployment journal {#retention-deployment-journal}
 
 The deployment journal on the Tentacle is the source of truth for what Octopus will know has been deployed to the Tentacle but more importantly what still exists on the Tentacle.
 
 If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
 
-By default your deployment journal is located at: C:\Octopus\DeploymentJournal.xml. If you have multiple Tentacle instances configured on the same server you will find a unique deployment journal for each instance located at c:\Octopus\[Instance Name]\DeploymentJournal.xml, this is shown in the image shown below with the instance name set to DWebApp01.
+By default your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
+- For Windows Tentacles, the default directory is: `C:\Octopus`
+- For Linux Tentacles, the default directory is: `/etc/octopus`
+
+If you have multiple Tentacle instances configured on the same server you will find a unique deployment journal for each instance located at `<Tentacle Home>\[Instance Name]\DeploymentJournal.xml`.
+
+Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md#Tentacleconfigurationandfilestorage-Filestorage).
+
+An example DeploymentJournal.xml is shown below on a Windows Tentacle with the instance name set to `DWebApp01`:
 
 ![](images/3278384.png "width=500")
 
-Below is a sample DeploymentJournal.xml:
+Below is a sample `DeploymentJournal.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,25 +60,23 @@ Below is a sample DeploymentJournal.xml:
 
 It keeps a record for every package and package extraction for each project and the relevant locations.
 
-## Defining your retention policy for your Tentacles {#RetentionpolicyTentaclecleanupandtroubleshooting-DefiningyourretentionpolicyforyourTentacles}
+## Defining your retention policy for your Tentacles {#retention-policy-tentacles}
 
 Defining retention policies is done within lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
-![](images/3278386.png "width=500")
-
-You can read more about [lifecycles](/docs/releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
+![](images/default-lifecycle-retention-policy.png "width=500")
 
 In this example the default for the Lifecycle is to Keep 3 releases on both Octopus Server and Tentacle.
 
-## Retention policies with channels
-{#RetentionpolicyTentaclecleanupandtroubleshooting-Retentionpolicywithchannels}
+Learn more about [Lifecycles](/docs/releases/lifecycles/index.md) and [Retention Policies](/docs/administration/retention-policies/index.md) on their own detailed pages.
 
-[Channels](/docs/releases/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag at under `Deployment Target settings` on the **{{Project,Process}}** page which is provided from version `3.12.2`.
+## Retention policies with channels {#retention-policy-channels}
+
+[Channels](/docs/releases/channels/index.md) can be used in Octopus to handle many different deployment scenarios. In some cases you may have a hotfix channel in which deployments, as they are promoted through their environments, should be considered as overriding deployments from the default channel for the given environment. Alternatively you may be using channels to deploy feature branches which involve having several concurrent releases active at any one time across different channels for the same environment. When using the feature branch type scenario, you will likely want retention policies to recognize that since both channels should be accessible at the same time, the retention policy rules should apply to each independently. This behavior can be enabled for each project via the `Discrete Channel Releases` flag under `Deployment settings` on the **{{Project,Settings}}** page.
 
 ![Discrete Channel Release](images/discrete-channel-release.png "width=500")
 
-
-## When the retention policy is run {#RetentionpolicyTentaclecleanupandtroubleshooting-Whentheretentionpolicyisrun}
+## When the retention policy is run {#retention-policies-run}
 
 For a Tentacle the retention policy is run at the end of a deployment, for that project only. So for this example the deployment looks for the project (project-1) and finds all releases within the deployment journal. It finds 4 in total (current is never counted) leaving 3, knowing it just deployed one, it deletes one copy of each package.
 
@@ -95,13 +101,19 @@ See below the messages you will have in your raw deployment logs at the end of a
 
 ```
 
-## Package and extraction directories {#RetentionpolicyTentaclecleanupandtroubleshooting-Packageandextractiondirectories}
+## Package and extraction directories {#retention-policy-package-directories}
 
-You can find your packages under C:\Octopus\files (or c:\Octopus\[Instance Name])\files)
+You can find your packages in the `<Tentacle Home>\Files` directory.
+or `<Tentacle Home>\[Instance Name])\Files` if you have multiple 
+Tentacle instances on one machine.
+- For Windows Tentacles, the default directory is: `C:\Octopus\Files`
+- For Linux Tentacles, the default directory is: `/etc/octopus/files`
+
+Learn more about where Tentacle [files are stored](/docs/administration/managing-infrastructure/tentacle-configuration-and-file-storage/index.md#Tentacleconfigurationandfilestorage-Filestorage).
 
 ![](images/3278387.png "width=500")
 
-Your extracted package files can be found under c:\Octopus\Applications\[environment name]\[package name]\
+By default your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
 
 So if you have multiple packages you will have multiple directories.
 
@@ -117,7 +129,7 @@ You can have multiple directories for the same version of each package like the 
 
 This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed to be a different set of files due to variables and transforms. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. This can mean a lot of folders if you use the same package in multiple steps.
 
-## Troubleshooting {#RetentionpolicyTentaclecleanupandtroubleshooting-Troubleshooting}
+## Troubleshooting {#retention-policy-troubleshooting}
 
 If you upgraded from Tentacle 2.x to a modern version of Tentacle the deployment journal location moved. Your choices are to clean up any old deployments manually, merge your deployment journals to the new location or run this [PowerShell Script](https://gist.github.com/vanessalove/dbc656b01df40939dcf8) on your Tentacles.
 
