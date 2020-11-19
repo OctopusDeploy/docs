@@ -23,15 +23,10 @@ The steps for this are:
 1. Disable maintenance mode.
 
 !include <upgrade-download-latest-version>
-
 !include <upgrade-octopus-backup-master-key>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-inplace-upgrade>
-
 !include <upgrade-testing-upgraded-instance>
-
 !include <upgrade-high-availability>
 
 ## Rollback Failed Upgrade
@@ -46,7 +41,6 @@ Minor and patch releases are generally the easiest of the scenarios to rollback.
 1. If maintenance mode is enabled, disable it.
 
 !include <upgrade-restore-backup>
-
 !include <upgrade-find-previous-version>
 
 ## Recommendation - creating a test instance

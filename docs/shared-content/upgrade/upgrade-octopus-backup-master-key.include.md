@@ -1,6 +1,6 @@
 ### Backup the Octopus Master Key
 
-Octopus Deploy uses the master key to encrypt and decrypt sensitive values in the Octopus Deploy database.  The master key is securely stored on the server, not in the database.  If the VM hosting Octopus Deploy is somehow destroyed or deleted, the master key goes with it.  In a pinch, you can restore a backup of Octopus Deploy's database without a master key.  However, you will need to re-enter all sensitive information because that process has to clear out all that data.  
+Octopus Deploy uses the master key to encrypt and decrypt sensitive values in the Octopus Deploy database.  The master key is securely stored on the server, not in the database.  If the VM hosting Octopus Deploy is somehow destroyed or deleted, the master key goes with it.  
 
 To view the master key, you will need login permissions on the server hosting Octopus Deploy.  Once logged in, open up the Octopus Manager and click the view master key button on the left menu.
 

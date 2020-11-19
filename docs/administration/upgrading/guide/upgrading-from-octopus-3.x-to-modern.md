@@ -4,7 +4,7 @@ description: Information on how to upgrade from Octopus Deploy 3.x to the latest
 position: 6
 ---
 
-It is possible to do an in-place upgrade of 3.x to a modern version of Octopus Deploy.  With that said, the last version of 3.x, 3.17.14, was released on November 12th, 2017.  Fundamentally, Octopus is almost an entirely different product.  We did our best to maintain backward compatibility, but there is a risk a hyper-specific scenario was missed or a breaking change was introduced.  Here is an example of changes made to Octopus Deploy since 3.17.14 was released.
+It is possible to do an in-place upgrade of 3.x to the latest version of Octopus Deploy.  With that said, the last version of 3.x, 3.17.14, was released on November 12th, 2017.  Fundamentally, Octopus is almost an entirely different product.  We did our best to maintain backward compatibility, but there is a risk a hyper-specific scenario was missed or a breaking change was introduced.  Here is an example of changes made to Octopus Deploy since 3.17.14 was released.
 
 - The majority of endpoints in the API can accept a `Space-Id`, for example `/api/Spaces-1/projects?skip=0&take=100` whereas before it was `/api/projects?skip=0&take=100`.  If a `Space-Id` isn't supplied, the default space is used.
 - Teams can be assigned to multiple roles and spaces.  Before, a team could be assigned to only one role.
@@ -40,27 +40,16 @@ Creating a clone of an existing instance involves:
 1. If migrating, then migrate over.  Otherwise, leave the test instance alone, backup the folders and database, and upgrade the main instance.
 
 !include <upgrade-octopus-backup-master-key>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-restore-backup>
-
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-cloned-version>
-
 !include <upgrade-copy-files-for-cloned-instance>
-
 !include <upgrade-disable-targets-cloned-instance>
-
 !include <upgrade-inplace-upgrade>
-
 !include <upgrade-testing-upgraded-instance>
-
 !include <upgrade-migrating-instances>
-
 !include <upgrade-octopus-backup-folders>
-
 !include <upgrade-main-instance-after-test-instance>
 
 ## Alternative Approach - Create a test instance
@@ -88,27 +77,16 @@ The steps for this are:
 1. Disable maintenance mode.
 
 !include <upgrade-octopus-backup-master-key>
-
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-test-version>
-
 !include <upgrade-export-import-test-projects>
-
 !include <upgrade-download-latest-version>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-inplace-upgrade>
-
 !include <upgrade-testing-upgraded-instance>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-octopus-backup-folders>
-
 !include <upgrade-main-instance-after-test-instance>
-
 !include <upgrade-high-availability>
 
 ## Rollback Failed Upgrade
@@ -122,9 +100,7 @@ While unlikely, an upgrade may fail.  It could fail on a database upgrade script
 1. If maintenance mode is enabled, disable it.
 
 !include <upgrade-restore-backup>
-
 !include <upgrade-rollback-folders>
-
 !include <upgrade-find-previous-version>
 
 ## Additional items to note

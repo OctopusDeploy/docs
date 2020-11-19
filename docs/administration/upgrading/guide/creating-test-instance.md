@@ -33,11 +33,8 @@ The process to create an instance with a subset of projects is:
 1. Test and verify the test instance.  
 
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-test-version>
-
 !include <upgrade-export-import-test-projects>
-
 !include <upgrade-testing-upgraded-instance>
 
 ### Test instance is a clone
@@ -61,15 +58,9 @@ Creating a clone of an existing instance involves:
 1. Disabling targets.
 
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-restore-backup>
-
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-cloned-version>
-
 !include <upgrade-copy-files-for-cloned-instance>
-
 !include <upgrade-disable-targets-cloned-instance>
-
 !include <upgrade-testing-upgraded-instance>

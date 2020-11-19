@@ -60,11 +60,8 @@ Creating a clone of an existing instance involves:
 If anything goes wrong, stop the cloned instance, and start back up the old instance.
 
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-cloned-version>
-
 !include <upgrade-copy-files-for-cloned-instance>
-
 !include <upgrade-octopus-backup-folders>
 
 ### Migrating over to a new instance
