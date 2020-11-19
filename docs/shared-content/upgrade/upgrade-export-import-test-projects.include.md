@@ -12,7 +12,7 @@ Octopus.Migrator.exe partial-export --instance=OctopusServer --project=AcmeWebSt
 This command ignores all deployment targets to prevent your test instance and your main instance from deploying to the same targets.
 :::
 
-### Import subset of projects
+#### Import subset of projects
 
 The data migration tool also includes [import functionality](/docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md).  First, copy all the project folders from the main instance to the test instance.  Then run this command for each project.
 

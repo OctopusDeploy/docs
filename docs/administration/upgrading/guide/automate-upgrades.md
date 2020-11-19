@@ -6,20 +6,26 @@ position: 4
 
 Actions required to upgrade Octopus Deploy can be automated.  This guides provides the steps necessary to do so.
 
-!include <upgrade-octopus-backup-master-key>
-
 ## Overview
+
+This process is designed to follow best practices, including enabling maintenance mode along with backing up the database and master key. 
+
+### Process 
 
 In general, the automatic upgrade process should:
 
+1. Backup master key and license
 1. Check for new version
 1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md)
 1. Stop the instance
+1. Backup the database
 1. Download and install the MSI
 1. Upgrade the database
 1. Start the instance back up
 
-## Checking for new versions
+!include <upgrade-octopus-backup-master-key>
+
+#### Checking for new versions
 
 There are two URLs which provide version information for Octopus Deploy.
 
@@ -77,7 +83,7 @@ if ($null -ne $versionToDownload -and $versionToDownload -ne $apiInformation.Ver
 }
 ```
 
-## Enabling / Disabling Maintenance Mode
+#### Enabling / Disabling Maintenance Mode
 
 You can enable or disable maintenace mode via an API script.  
 
@@ -108,9 +114,9 @@ $maintenanceResponse = Invoke-RestMethod $maintenanceUrl -Headers $header -Metho
 Write-Host "Maintenance's response: $maintenanceResponse"
 ```
 
-## Stop the instance
+#### Stop the instance
 
-[Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line) is the command line interface, or CLI, of the Octopus Manager.  The below script will stop the service.  Before it does that it will drain the node and wait for all the tasks to complete before stopping the service.
+[Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/index.md) is the command line interface, or CLI, of the Octopus Manager.  The below script will stop the service.  Before it does that it will drain the node and wait for all the tasks to complete before stopping the service.
 
 ```PowerShell
 Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus" 
@@ -119,7 +125,7 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus"
 & .\octopus.server.exe service --instance="OctopusServer" --stop
 ```
 
-## Installing the MSI
+#### Installing the MSI
 
 Octopus Deploy is installed via an MSI.  This installation can be automated by calling `msiexec.exe` directly or using a third-party tool such as Chocolatey.
 
@@ -127,7 +133,7 @@ Octopus Deploy is installed via an MSI.  This installation can be automated by c
 Any scripts to install Octopus Deploy must be run as administrator.
 :::
 
-### Using msiexec.exe
+##### Using msiexec.exe
 
 Windows includes [msiexec.exe](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec) as part of the base installation.
 
@@ -140,7 +146,7 @@ $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msi /qu
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 ```
 
-### Using Chocolatey
+##### Using Chocolatey
 
 [Chocolatey](https://chocolatey.org) is a third-party package management tool designed to work with Windows.  If you are coming from Linux, it is similar to apt, or yum.  
 
@@ -152,7 +158,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install octopusdeploy -y --version 2020.4.11
 ```
 
-## Upgrade the database and restarting the service
+#### Upgrade the database and restarting the service
 
 Upgrading the database and restarting the service is all done via the `Octopus.Server.exe` command line.  
 
@@ -163,7 +169,7 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus"
 & .\octopus.server.exe node --instance="OctopusServer" --drain=false 
 ```
 
-## Putting it all together
+### Putting it all together
 
 The final script might look like this:
 

@@ -10,6 +10,6 @@ SELECT TOP 5 [Version]
 
 Once you know the version to install, go to the [previous downloads page](https://octopus.com/downloads/previous).  
 
-### Installing the previous version
+#### Installing the previous version
 
 The key configuration items, such as connection string, files, instance information, etc., are not stored in the install directory of Octopus Deploy.  To install the previous version, first uninstall Octopus Deploy.  This will only delete items from the install directory, or `C:\Program Files\Octopus Deploy\Octopus`.  Then run the MSI to install the previous version.  

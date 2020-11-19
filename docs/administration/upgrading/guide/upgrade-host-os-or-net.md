@@ -46,6 +46,8 @@ Wait a few days or weeks.  If no oddities come up, go through the decommissionin
 
 Configuring High Availability can take time.  Or, you might be on an license which doesn't support HA.  The other option is to clone the instance and migrate over.
 
+### Process
+
 Creating a clone of an existing instance involves:
 
 1. Stop the current instance of Octopus Deploy.
