@@ -29,7 +29,7 @@ If you see a release that isn't being cleaned up, check the dashboards to see if
 
 #### Rollbacks
 
-Octopus will never remove the latest release or the release previous to the latest in any lifecycle phase. This is to allow you to deploy the previous release in case you need to rollback for any reason. Learn more about how [retention policies work with lifecycle phases](#retention-policies-and-lifecycle-phases) below.
+Octopus will never remove the latest release or the release previous to the latest in any lifecycle phase. This allows you to deploy the previous release in case you need to rollback for any reason. Learn more about how [retention policies work with lifecycle phases](#retention-policies-and-lifecycle-phases) below.
 
 ### Tentacle files {#targets-whats-deleted}
 
