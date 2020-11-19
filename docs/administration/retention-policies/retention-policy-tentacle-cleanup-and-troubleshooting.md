@@ -17,7 +17,7 @@ By default your deployment journal is located at: `C:\Octopus\DeploymentJournal
 
 ![](images/3278384.png "width=500")
 
-Below is a sample DeploymentJournal.xml:
+Below is a sample `DeploymentJournal.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
