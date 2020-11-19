@@ -17,11 +17,9 @@ The Octopus Server settings delete **releases** from the database. This is a dat
 
 #### Releases included on a dashboard
 
-One important thing to note about the release retention policy is that any releases displayed on either the main dashboard or a project dashboard are **never deleted**. This is true even if it matches a retention policy rule.
+One important thing to note about the release retention policy is that any releases displayed on either the main dashboard or a project dashboard are **never deleted**. This is true even if it matches a retention policy rule. 
 
-These releases are assumed to be a working release and may still be promoted (even if their dates fall well outside the retention policy).
-
-This can be helpful as it means you don't have to worry about a recent release in the Staging environment being deleted before it can be promoted to Production. 
+These releases are assumed to be a working release and may still be promoted (even if their dates fall well outside the retention policy). This can be helpful as it means you don't have to worry about a recent release in the Staging environment being deleted before it can be promoted to Production. 
 
 :::hint
 If you see a release that isn't being cleaned up, check the dashboards to see if it's being displayed.
