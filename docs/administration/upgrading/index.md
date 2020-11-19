@@ -29,8 +29,8 @@ That windows service is split across multiple folders to make upgrading easy and
 - **Home Folder** The home folder stores configuration, logs, and other items unique to your instance.  The home folder is separate from the install location to make it easier to upgrade, downgrade, uninstall/reinstall without affecting your instance.  The default location of the home folder is `C:\Octopus`.  Except in rare cases, this folder is left unchanged by the upgrade process.
 - **Instance Information** The Octopus Deploy Manager allows you to configure 1 to N instances per Windows Server.  The `Octopus Manager` stores a list of all the instances in the `C:\ProgramData\Octopus\OctopusServer\Instances` folder.   Except in rare cases, this folder is left unchanged by the upgrade proces..  
 - **Server Folders** Some information, such as logs, artifacts, and packages that Octopus Deploy captures is too big to store in a SQL Server database.  The server folders are subfolders in `C:\Octopus\`.  Except in rare cases, these folders are left unchanged by an upgrade.  
-- **Tentacles** Octopus Deploy connects to deployment targets via the tentacle service.  Each version of Octopus Deploy includes a specific tentacle version.  Upgrading tentacles is done after the server is updated.  It is also optional.  Any tentacle greater than 4.x will work [with any modern version of Octopus Deploy](docs/support/compatibility.md).  We recommend you upgrade them to get the latest bug fixes and security patches.  That upgrade doesn't have to happen right away.
-- **Calamari** The tentacles facilite communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  A specific version Calamari is coupled with a specific version of Octopus Deploy.  Calamari is upgraded automatically during the first deployment to the target.
+- **Tentacles** Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Upgrading Tentacles is done after the server is updated.  It is also optional.  Any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](docs/support/compatibility.md).  We recommend you upgrade them to get the latest bug fixes and security patches.  That upgrade doesn't have to happen right away.
+- **Calamari** The Tentacles facilite communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  A specific version Calamari is coupled with a specific version of Octopus Deploy.  Calamari is upgraded automatically during the first deployment to the target.
 
 ## Octopus Deploy Server release schedule
 
@@ -67,8 +67,8 @@ Please pick from one of these upgrade scenarios.  Starting with Octopus Deploy 3
 - [Upgrading minor and patch releases](/docs/administration/upgrading/guide/upgrading-minor-and-patch-releases.md)
 - [Upgrading major releases](/docs/administration/upgrading/guide/upgrading-major-releases.md)
 - [Upgrading from Octopus 4.x or 2018.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-4.x-2018.x-to-modern.md)
-- [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.xto-modern.md)
-- [Upgrading host OS or .NET version](/docs/administration/upgrading/guide/upgrading-host-os-or-net.md)
+- [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.x-to-modern.md)
+- [Upgrading host OS or .NET version](/docs/administration/upgrading/guide/upgrade-host-os-or-net.md)
 - Legacy Upgrades
   - [Upgrade from 2.6.5 to 2018.10.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md)
   - [Upgrade from 2.x to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5.md)

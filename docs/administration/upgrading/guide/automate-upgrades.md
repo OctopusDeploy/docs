@@ -250,9 +250,9 @@ It is possible to automate the upgrading of a Octopus Deploy High Availability i
 
 ![](images/upgrade-diagram.png)
 
-Each HA node will need a tentacle installed on it.  You will need two roles for this to work.
+Each HA node will need a Tentacle installed on it.  You will need two roles for this to work.
 
-- HAServer -> All tentacles will be assigned to this.
+- HAServer -> All Tentacles will be assigned to this.
 - HAServer-Primary -> this is the server which does the majority of the work (checking for new versions, upgrading the database, etc)
 
 The process will look like:

@@ -19,8 +19,8 @@ Please choose from one of five common upgrade scenarios:
 - [Upgrading minor and patch releases](/docs/administration/upgrading/guide/upgrading-minor-and-patch-releases.md)
 - [Upgrading major releases](/docs/administration/upgrading/guide/upgrading-major-releases.md)
 - [Upgrading from Octopus 4.x or 2018.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-4.x-2018.x-to-modern.md)
-- [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.xto-modern.md)
-- [Upgrading host OS or .NET version](/docs/administration/upgrading/guide/upgrading-host-os-or-net.md)
+- [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.x-to-modern.md)
+- [Upgrading host OS or .NET version](/docs/administration/upgrading/guide/upgrade-host-os-or-net.md)
 
 ## Mitigating Risk
 

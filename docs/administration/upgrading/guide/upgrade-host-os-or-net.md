@@ -67,24 +67,24 @@ If anything goes wrong, stop the cloned instance, and start back up the old inst
 
 ### Migrating over to new instance
 
-All the sensitive variables, certificates, and other items required to connect to your deployment targets are stored in the database.  Assuming you are not using polling tentacles (or if you are, the DNS name hasn't changed), everything should work out of the box.  Start running some tests on the new instance to make sure the new host OS or .NET version hasn't broken anything.
+All the sensitive variables, certificates, and other items required to connect to your deployment targets are stored in the database.  Assuming you are not using polling Tentacles (or if you are, the DNS name hasn't changed), everything should work out of the box.  Start running some tests on the new instance to make sure the new host OS or .NET version hasn't broken anything.
 
 ### Considerations
 
 As you migrate your instance, here are few items to consider.  
 
-1. Will the new instance's domain name be the same or will it change?  For example, will it change from https://octopusdeploy.mydomain.com to https://octopus.mydomain.com.  If it changes and you are using polling tentacles you will need to create new tentacle instances for the new Octopus Deploy instance.
+1. Will the new instance's domain name be the same or will it change?  For example, will it change from https://octopusdeploy.mydomain.com to https://octopus.mydomain.com.  If it changes and you are using polling Tentacles you will need to create new Tentacle instances for the new Octopus Deploy instance.
 2. What CI, or build servers, integrate with Octopus Deploy?  Do those plug-ins need to be updated?  You can find several of the plug-ins on the [downloads page](https://octopus.com/downloads).
 3. Do you have any internally developed tools or scripts that invoke the Octopus API?  We've done our best to maintain backward compatability, but there might be some changes.  
 4. What components do you use the most?  What does a testing plan look like? 
 5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to advice@octopus.com and to get pointed in the right direction.
 
-### Polling tentacles
+### Polling Tentacles
 
-A polling tentacle can only connect to one Octopus Deploy instance.  It connects via DNS name or IP address.  If the new instance's DNS name changes - for example the old instance was https://octopusdeploy.mydomain.com with the new instance set to https://octopus.mydomain.com - you'll need to clone each polling tentacle instance.
+A polling Tentacle can only connect to one Octopus Deploy instance.  It connects via DNS name or IP address.  If the new instance's DNS name changes - for example the old instance was https://octopusdeploy.mydomain.com with the new instance set to https://octopus.mydomain.com - you'll need to clone each polling Tentacle instance.
 
-Each polling tentacle will need to be cloned on each deployment target.  To make things easier, we have provided [this script](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/CloneTentacleInstance.ps1) to help clone a tentacle instance.  That script will look at the source instance, determine the roles, environments, and tenants, then create a cloned tentacle and register that cloned tentacle with your cloned instance.  
+Each polling Tentacle will need to be cloned on each deployment target.  To make things easier, we have provided [this script](https://github.com/OctopusDeployLabs/SpaceCloner/blob/master/CloneTentacleInstance.ps1) to help clone a Tentacle instance.  That script will look at the source instance, determine the roles, environments, and tenants, then create a cloned Tentacle and register that cloned Tentacle with your cloned instance.  
 
 :::hint
-Any script that clones a tentacle instance must be run on the deployment target.  It cannot be run on your development machine.  
+Any script that clones a Tentacle instance must be run on the deployment target.  It cannot be run on your development machine.  
 :::
