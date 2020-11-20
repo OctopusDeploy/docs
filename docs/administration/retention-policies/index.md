@@ -91,7 +91,7 @@ Undeployed releases will simply keep the number we have selected and no more. Wh
 
 ```text
                     |     == Success: Apply policy for Retention Policy Examples to Sample Project Default ==
-13:51:03   Info     |       Retention Policy Examples/[Default] - Project name: Retention Policy Examples
+13:51:03   Info     |       Retention Policy Examples/[Default] - Project name: Sample Project
                     |       Retention Policy Examples/[Default] - Channel name: Default
                     |       Retention Policy Examples/[Default] - Policy: Last 3 items
                     |       Retention Policy Examples/[Default] - Phase 1. Staging: Last 3 items (inherited)
