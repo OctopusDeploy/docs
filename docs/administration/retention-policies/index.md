@@ -64,44 +64,54 @@ But how does it work? For a release we determine what phase it is currently in. 
 
 If you have an Octopus Server retention policy for a project that has a final phase of keep all releases, once the release enters that phase it will never be deleted. But if you have a release that has not yet deployed to any environments in the final phase, and is set to only keep the last 3 releases, then the release will be deleted when it becomes the 4th release of the project that has not yet been deployed to any final phase environment. (Unless it is still on the dashboard!).
 
-### Example of retention policies being applied
+### Example release retention policy task
 
-In this project, we have a 2 phases and both are set to keep the last 3 releases. We have 15 releases in the project. 
+In this section we walk through what's deleted for an example project when the release retention policy task runs. Consider a project that has the following lifecycle defined:
 
-0.0.10 through 0.0.15 are created, but not deployed.
+![Release retention task example lifecycle](images/retention-lifecycle-example.png "width=500")
 
-0.0.7 through 0.0.9 are deployed to only Development.
+It contains two phases, both are set to keep the last 3 releases. 
 
-0.0.1 through 0.0.6 are deployed to both Development and Prod.
+The project has 15 releases, of which:
 
+- `0.0.10` through `0.0.15` have not been deployed to any environment.
+- `0.0.7` through `0.0.9` are deployed to Staging.
+- `0.0.1` through `0.0.6` are deployed to both Staging and Production.
 
-In the below example, you can see that retention will have its own count for undeployed releases, as well as each phase. For a release to be deleted, the count must be above the required number for each phase the release has been deployed to. For example, Release 0.0.2 is the fourth release kept for Development, but only the third for Production, so it will be kept. 
+When the retention policy runs for this lifecycle, it keeps a count of both **undeployed releases** it finds, as well as a separate count for **releases per phase**. 
 
-In this example scenario, each phase will keep a maximum of 5 releases; 1 for the current dashboard version, 1 for the dashboard version's rollback, and the 3 we have told it to keep. Undeployed releases will simply keep the amount we have selected and no more. Because of all this, we will only be deleting 4 releases.
+For a release to be deleted, the count must be greater than the required number for each phase the release has been deployed to. In this example, Release `0.0.2` is the fourth release kept for Staging, but only the third for Production, so it will be kept.
 
-```
+Each phase defined in this lifecycle will keep a maximum of **5 releases**:
+- 1 release for the current dashboard version.
+- 1 release for the dashboard version's rollback.
+- The last 3 releases, as configured in the phase.
+
+Undeployed releases will simply keep the number we have selected and no more. When the retention policy task runs, 4 releases are deleted:
+
+```text
                     |     == Success: Apply policy for Last 3 Releases, Tentacle Keeps 1 to Retention Policy Examples Default ==
 13:51:03   Info     |       Retention Policy Examples/[Default] - Project name: Retention Policy Examples
                     |       Retention Policy Examples/[Default] - Channel name: Default
                     |       Retention Policy Examples/[Default] - Policy: Last 3 items
-                    |       Retention Policy Examples/[Default] - Phase 1. Development: Last 3 items (inherited)
-                    |       Retention Policy Examples/[Default] - Phase 2. Prod: Last 3 items (inherited)
+                    |       Retention Policy Examples/[Default] - Phase 1. Staging: Last 3 items (inherited)
+                    |       Retention Policy Examples/[Default] - Phase 2. Production: Last 3 items (inherited)
 13:51:03   Info     |       Retention Policy Examples/[Default] - Releases currently on the dashboard: 0.0.9, 0.0.6
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.15 is in phase Development, with a policy of Last 3 items; it will be kept. Reason: Undeployed, kept so far = 0
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.14 is in phase Development, with a policy of Last 3 items; it will be kept. Reason: Undeployed, kept so far = 1
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.13 is in phase Development, with a policy of Last 3 items; it will be kept. Reason: Undeployed, kept so far = 2
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.12 is in phase Development, with a policy of Last 3 items; it will be deleted. Reason: Undeployed, but 3 of 3 have been kept
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.11 is in phase Development, with a policy of Last 3 items; it will be deleted. Reason: Undeployed, but 3 of 3 have been kept
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.10 is in phase Development, with a policy of Last 3 items; it will be deleted. Reason: Undeployed, but 3 of 3 have been kept
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.15 is in phase Staging, with a policy of Last 3 items; it will be kept. Reason: Undeployed, kept so far = 0
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.14 is in phase Staging, with a policy of Last 3 items; it will be kept. Reason: Undeployed, kept so far = 1
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.13 is in phase Staging, with a policy of Last 3 items; it will be kept. Reason: Undeployed, kept so far = 2
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.12 is in phase Staging, with a policy of Last 3 items; it will be deleted. Reason: Undeployed, but 3 of 3 have been kept
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.11 is in phase Staging, with a policy of Last 3 items; it will be deleted. Reason: Undeployed, but 3 of 3 have been kept
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.10 is in phase Staging, with a policy of Last 3 items; it will be deleted. Reason: Undeployed, but 3 of 3 have been kept
 13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.9 is on the dashboard, so it will be kept
 13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.8 is the previous release for a release on the dashboard, so it will be kept to allow rollback
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.7 has progressed through phase Development, with a policy of Last 3 items, but has not yet been deployed to phase Prod; it will be kept. Reason: Deployed to: Development, kept so far = 0
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.7 has progressed through phase Staging, with a policy of Last 3 items, but has not yet been deployed to phase Production; it will be kept. Reason: Deployed to: Staging, kept so far = 0
 13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.6 is on the dashboard, so it will be kept
 13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.5 is the previous release for a release on the dashboard, so it will be kept to allow rollback
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.4 is in phase Prod, with a policy of Last 3 items; it will be kept. Reason: Deployed to: Development, kept so far = 1; Deployed to: Production, kept so far = 0
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.3 is in phase Prod, with a policy of Last 3 items; it will be kept. Reason: Deployed to: Development, kept so far = 2; Deployed to: Production, kept so far = 1
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.2 is in phase Prod, with a policy of Last 3 items; it will be kept. Reason: Deployed to: Development, but 3 of 3 have been kept; Deployed to: Production, kept so far = 2
-13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.1 is in phase Prod, with a policy of Last 3 items; it will be deleted. Reason: Deployed to: Development, but 3 of 3 have been kept; Deployed to: Production, but 3 of 3 have been kept
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.4 is in phase Production, with a policy of Last 3 items; it will be kept. Reason: Deployed to: Staging, kept so far = 1; Deployed to: Production, kept so far = 0
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.3 is in phase Production, with a policy of Last 3 items; it will be kept. Reason: Deployed to: Staging, kept so far = 2; Deployed to: Production, kept so far = 1
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.2 is in phase Production, with a policy of Last 3 items; it will be kept. Reason: Deployed to: Staging, but 3 of 3 have been kept; Deployed to: Production, kept so far = 2
+13:51:03   Info     |       Retention Policy Examples/[Default] - Release 0.0.1 is in phase Production, with a policy of Last 3 items; it will be deleted. Reason: Deployed to: Staging, but 3 of 3 have been kept; Deployed to: Production, but 3 of 3 have been kept
 13:51:03   Verbose  |       Delete release 0.0.12
 13:51:03   Verbose  |       Delete release 0.0.11
 13:51:03   Verbose  |       Delete release 0.0.10
