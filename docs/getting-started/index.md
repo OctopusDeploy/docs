@@ -101,7 +101,7 @@ Echo "Hello, World!"
 You have created your first deployment process. Next, we'll create a release and deploy it.
 
 :::success
-Learn more about [define deployment process](/docs/getting-started-guides/deployment-process.md).
+Learn more about [define deployment process](/docs/deployment-process/index.md).
 :::
 
 ### Releases and deployments
@@ -212,7 +212,7 @@ To learn more about the manual intervention and approval step please refer to th
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CBws8yDaN4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.  Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/getting-started-guides/environments.md). 
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.  Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/infrastructure/environments/index.md). 
 
 1. Navigate to **{{ Infrastructure, Deployment Targets }}** and click **ADD DEPLOYMENT TARGET**.
 1. Select the type of deployment target you are adding.
@@ -283,11 +283,11 @@ Add a step to the hello world deployment process to push that package to the des
 1. Select *hello-world* as the **Package ID**.
 1. Click the **SAVE** button.
 
-![Deploy a package step with role and package selected](deploy-a-package-with-roles.png)
+![Deploy a package step with role and package selected](images/deploy-a-package-with-roles.png)
 
 Create a new release and deploy it to *Development*.  The release will deploy the *hello world* package to *dev-server-01*.
 
-![Deploy a package results](deploy-package-results.png)
+![Deploy a package results](images/deploy-package-results.png)
 
 :::success
 To learn more on how to package your software using your CI server of choice and deploy software to your specific deployment targets, please see our [End-to-End CI/CD pipeline tutorial](https://docs/guides).
