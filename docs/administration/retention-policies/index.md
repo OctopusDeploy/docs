@@ -64,9 +64,9 @@ But how does it work? For a release we determine what phase it is currently in. 
 
 If you have an Octopus Server retention policy for a project that has a final phase of keep all releases, once the release enters that phase it will never be deleted. But if you have a release that has not yet deployed to any environments in the final phase, and is set to only keep the last 3 releases, then the release will be deleted when it becomes the 4th release of the project that has not yet been deployed to any final phase environment. (Unless it is still on the dashboard!).
 
-### Example release retention policy task
+### Example lifecycle retention policy task
 
-In this section we walk through what's deleted for an example project when the release retention policy task runs. Consider a project that has the following lifecycle defined:
+In this section we walk through what's deleted for an example project when the lifecycle retention policy task runs. Consider a project that has the following lifecycle defined:
 
 ![Release retention task example lifecycle](images/retention-lifecycle-example.png "width=500")
 
@@ -90,7 +90,7 @@ Each phase defined in this lifecycle will keep a maximum of **5 releases**:
 Undeployed releases will simply keep the number we have selected and no more. When the retention policy task runs, 4 releases are deleted:
 
 ```text
-                    |     == Success: Apply policy for Last 3 Releases, Tentacle Keeps 1 to Retention Policy Examples Default ==
+                    |     == Success: Apply policy for Retention Policy Examples to Sample Project Default ==
 13:51:03   Info     |       Retention Policy Examples/[Default] - Project name: Retention Policy Examples
                     |       Retention Policy Examples/[Default] - Channel name: Default
                     |       Retention Policy Examples/[Default] - Policy: Last 3 items
