@@ -9,9 +9,15 @@ This guide is for customers managing their self-hosted installation of Octopus. 
 ## About this guide
 
 This guide provides various upgrade scenarios with the goal of mitigating risk.  
+
 ## Core concepts
 
-Octopus Deploy is a Windows Service (or Linux Service) that connects to a SQL Server database.  On Windows, that service installs via an MSI. 
+Octopus Deploy can be hosted:
+
+- As a Windows Service, installed via an MSI.
+- In a container, [Windows](docs/installation/octopus-in-container/octopus-server-container-windows.md) or [Linux](docs/installation/octopus-in-container/octopus-server-container-linux.md).
+
+It connects to a SQL Server database.
 
 ### Upgrade Process
 
@@ -21,21 +27,19 @@ The typical upgrade process is:
 
 ### Components
 
-That windows service is split across multiple folders to make upgrading easy and low risk.
+The Windows Service is split across multiple folders to make upgrading easy and low risk.
 
-- **Install Location** By default, Octopus Deploy install location is `C:\Program Files\Octopus Deploy\Octopus`.  The install location contains the binaries for Octopus Deploy and is updated by the MSI.
-- **SQL Server Database** Since `Octopus Deploy 3.x`, the back-end database has been SQL Server.  Each update can contain 0 to N database scripts embedded in a .dll in the install location.  The `Octopus Manager` invokes those database scripts automatically.
-- **Home Folder** The home folder stores configuration, logs, and other items unique to your instance.  The home folder is separate from the install location to make it easier to upgrade, downgrade, uninstall/reinstall without affecting your instance.  The default location of the home folder is `C:\Octopus`.  Except in rare cases, this folder is left unchanged by the upgrade process.
-- **Instance Information** The Octopus Deploy Manager allows you to configure 1 to N instances per Windows Server.  The `Octopus Manager` stores a list of all the instances in the `C:\ProgramData\Octopus\OctopusServer\Instances` folder.   Except in rare cases, this folder is left unchanged by the upgrade process.  
-- **Server Folders** Logs, artifacts, and packages are too big for Octopus Deploy to store in a SQL Server database.  The server folders are subfolders in `C:\Octopus\`.  Except in rare cases, these folders are left unchanged by an upgrade.  
-- **Tentacles** Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Tentacle upgrades do not occur until _after_ the Octopus Deploy server is upgraded.  Tentacle upgrades are optional; any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](docs/support/compatibility.md).  We recommend you upgrade them to get the latest bug fixes and security patches when convenient.  
-- **Calamari** The Tentacles facilitate communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  Calamari and Octopus Deploy are coupled together.  Calamari is upgraded automatically during the first deployment to the target.
+- **Install Location** - By default, the install location for Octopus on Windows is `C:\Program Files\Octopus Deploy\Octopus`.  The install location contains the binaries for Octopus Deploy and is updated by the MSI.
+- **SQL Server Database** - Since `Octopus Deploy 3.x`, the back-end database has been SQL Server.  Each update can contain 0 to N database scripts embedded in a .dll in the install location.  The `Octopus Manager` invokes those database scripts automatically.
+- **Home Folder** - The home folder stores configuration, logs, and other items unique to your instance.  The home folder is separate from the install location to make it easier to upgrade, downgrade, uninstall/reinstall without affecting your instance.  The default location of the home folder is `C:\Octopus`.  Except in rare cases, this folder is left unchanged by the upgrade process.
+- **Instance Information** - The Octopus Deploy Manager allows you to configure 1 to N instances per Windows Server.  The `Octopus Manager` stores a list of all the instances in the `C:\ProgramData\Octopus\OctopusServer\Instances` folder.   Except in rare cases, this folder is left unchanged by the upgrade process.  
+- **Server Folders** - Logs, artifacts, and packages are too big for Octopus Deploy to store in a SQL Server database.  The server folders are subfolders in `C:\Octopus\`.  Except in rare cases, these folders are left unchanged by an upgrade.  
+- **Tentacles** - Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Tentacle upgrades do not occur until _after_ the Octopus Deploy server is upgraded.  Tentacle upgrades are optional; any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](docs/support/compatibility.md).  We recommend you upgrade them to get the latest bug fixes and security patches when convenient.  
+- **Calamari** - The Tentacles facilitate communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  Calamari and Octopus Deploy are coupled together.  Calamari is upgraded automatically during the first deployment to a target.
 
 ## Octopus Deploy Server release schedule
 
 !include <octopus-releases>
-
-We highly recommend using the latest release for your self-hosted installation of Octopus. We ship a new release every two months, and each release comes with six months of support.  Please see the  [octopus.com/downloads](https://octopus.com/downloads) page to download the latest version of Octopus Deploy.
 
 ## How we version Octopus Deploy {#Upgrading-HowweversionOctopusDeploy}
 
