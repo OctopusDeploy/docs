@@ -803,4 +803,3 @@ docs/getting-started-guides/runbooks.md -> docs/runbooks/index.md
 docs/getting-started-guides/tentacles.md -> docs/infrastructure/deployment-targets/index.md
 docs/getting-started-guides/variables.md -> docs/projects/variables/index.md
 docs/getting-started-guides/workers.md -> docs/infrastructure/workers/index.md
-docs/getting-started-guides -> docs/getting-started/index.md
