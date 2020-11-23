@@ -89,11 +89,11 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).
 1. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
 
-```PowerShell
+```powershell PowerShell
 Write-Host "Hello, World!"
 ```
-```Bash
-Echo "Hello, World!"
+```bash Bash
+echo "Hello, World!"
 ```
 
 8. Click **SAVE**.
@@ -155,10 +155,10 @@ Steps in the deployment process can reference the variables.
 1. Select the **Hello World** step.
 1. Change the script in the script step based on your language of choice:
 
-```PowerShell
+```powershell PowerShell
 Write-Host $OctopusParameters["Helloworld.Greeting"]
 ```
-```Bash
+```bash Bash
 greeting = $(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 ```
