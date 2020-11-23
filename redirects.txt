@@ -707,7 +707,7 @@ docs/deploying-applications/deploy-java-applications/index.md -> docs/deployment
 docs/getting-started/octopus-concepts/target-roles.md -> docs/infrastructure/deployment-targets/index.md
 docs/getting-started/octopus-concepts/upgrading.md -> docs/administration/upgrading/index.md
 docs/deployment-process/lifecycles/index.md -> docs/releases/lifecycles/index.md
-docs/getting-started/octopus-concepts/lifecycle.md -> docs/releases/lifecycles.md
+docs/getting-started/octopus-concepts/lifecycle.md -> docs/releases/lifecycles/index.md
 docs/runbooks/runbook-examples/aws/destroy-stack.md -> docs/runbooks/runbook-examples/aws/delete-stack.md
 docs/deployment-process/channels/index.md -> docs/releases/channels/index.md
 docs/getting-started/getting-started-guides.md -> docs/getting-started/index.md
