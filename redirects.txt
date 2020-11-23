@@ -487,7 +487,7 @@ docs/packaging-applications/octopack/troubleshooting-octopack.md -> docs/packagi
 docs/packaging-applications/nuget-packages.md -> docs/packaging-applications/create-packages/index.md
 docs/packaging-applications/octo.exe.md -> docs/packaging-applications/create-packages/octopus-cli.md
 docs/packaging-applications/versioning.md -> docs/packaging-applications/create-packages/versioning.md
-docs/infrastructure/machine-policies.md-> docs/infrastructure/deployment-targets/machine-policies.md
+docs/infrastructure/machine-policies.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/infrastructure/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md
 docs/infrastructure/deployment-targets/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/infrastructure/accounts/azure/index.md -> docs/infrastructure/deployment-targets/azure/index.md
@@ -677,7 +677,7 @@ docs/octopus-concepts/deployment-process.md -> docs/deployment-process/index.md
 docs/octopus-concepts/deployment-targets.md -> docs/infrastructure/deployment-targets/index.md
 docs/octopus-concepts/environments.md -> docs/infrastructure/environments/index.md
 docs/octopus-concepts/health-checks.md -> docs/infrastructure/deployment-targets/machine-policies.md
-docs/octopus-concepts/lifecycle.md -> docs/releases/lifecycles.md
+docs/octopus-concepts/lifecycle.md -> docs/releases/lifecycles/index.md
 docs/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/octopus-concepts/octopus-cloud.md -> docs/octopus-cloud/index.md
 docs/octopus-concepts/octopus-server.md -> docs/installation/index.md
@@ -725,7 +725,7 @@ docs/getting-started/define-your-deployment-process.md -> docs/deployment-proces
 docs/getting-started/deployment-targets.md -> docs/infrastructure/deployment-targets/index.md
 docs/getting-started/environments.md -> docs/infrastructure/environments/index.md
 docs/getting-started/hello-world.md -> docs/getting-started/index.md
-docs/getting-started/lifecycle.md -> docs/releases/lifecycles.md
+docs/getting-started/lifecycle.md -> docs/releases/lifecycles/index.md
 docs/getting-started/package-your-software.md -> docs/packaging-applications/index.md
 docs/getting-started/setup-octopus-deploy.md -> docs/installation/index.md
 docs/getting-started/the-cicd-pipeline.md -> docs/getting-started-guides/the-cicd-pipeline.md
@@ -766,7 +766,7 @@ docs/octopus-rest-api/examples/change-machine-machinepolicy.md -> docs/octopus-r
 docs/octopus-rest-api/examples/delete-machines-by-role.md -> docs/octopus-rest-api/examples/deployment-targets/delete-machines-by-role.md
 docs/octopus-rest-api/examples/register-listening-tentacle.md -> docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md
 docs/octopus-rest-api/examples/register-polling-tentacle.md -> docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md
-docs/octopus-rest-api/examples/create-and-deploy-a-release-> docs/octopus-rest-api/examples/deployments/create-and-deploy-a-release.md
+docs/octopus-rest-api/examples/create-and-deploy-a-release -> docs/octopus-rest-api/examples/deployments/create-and-deploy-a-release.md
 docs/octopus-rest-api/examples/cancel-queued-deployments.md -> docs/octopus-rest-api/examples/deployments/cancel-queued-deployments.md
 docs/octopus-rest-api/examples/create-project.md -> docs/octopus-rest-api/examples/projects/create-project.md
 docs/octopus-rest-api/examples/delete-project-releases.md -> docs/octopus-rest-api/examples/releases/delete-project-releases.md
@@ -791,7 +791,7 @@ docs/getting-started-guides/deployment-process.md -> docs/deployment-process/ind
 docs/getting-started-guides/deployment-targets.md -> docs/infrastructure/deployment-targets/index.md
 docs/getting-started-guides/environments.md -> docs/infrastructure/environments/index.md
 docs/getting-started-guides/hello-world.md -> docs/getting-started/index.md
-docs/getting-started-guides/lifecycle.md -> docs/releases/lifecycles.md
+docs/getting-started-guides/lifecycle.md -> docs/releases/lifecycles/index.md
 docs/getting-started-guides/package-your-software.md -> docs/packaging-applications/index.md
 docs/getting-started-guides/setup-octopus-deploy.md -> docs/installation/index.md
 docs/getting-started-guides/the-cicd-pipeline.md -> docs/guides
