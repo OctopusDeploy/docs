@@ -24,7 +24,7 @@ The best way to learn something new is through hands-on interaction.  One of the
 Before configuring a hello world deployment, you need to set up Octopus Deploy.  You have a choice of three.
 
 1. Octopus Cloud -> we host everything for you.  Learn more about [getting started](https://octopus.com/start/cloud).
-2. Self-hosted on a Windows Server -> you host it on your infrastructure by [downloading our MSI](https://octopus.com/download) and installing it onto a Windows Server with a SQL Server backend.  Learn more about [our installation requirements](https://octopus.com/docs/installation/requirements)
+2. Self-hosted on a Windows Server -> you host it on your infrastructure by [downloading our MSI](https://octopus.com/download) and installing it onto a Windows Server with a SQL Server backend.  Learn more about [our installation requirements](https://octopus.com/docs/installation/requirements).
 3. Self-hosted as a Docker container -> you run Octopus Deploy in a docker container (currently EAP).  Learn more about [hosting Octopus in a docker container](https://octopus.com/blog/introducing-linux-docker-image).
 
 Don't forget; you will need a license to self-host Octopus Deploy.  If you are starting, we offer a [free license](https://octopus.com/start/server).
@@ -70,7 +70,7 @@ Projects are used to collect all the assets that make up your deployment process
 You now have your first project and are ready to define your deployment process.
 
 :::Success
-To learn more about how projects, variables and various settings, please refer to the [projects documentation](/docs/projects/index.md).
+To learn more about projects, variables and various settings, please refer to the [projects documentation](/docs/projects/index.md).
 :::
 
 ### Deployment process
@@ -87,7 +87,7 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 1. Scroll down and click **ADD** on the **Run a Script** tile.
 1. Accept the default name for the script and leave the **Enabled** check-box ticked.
 1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).
-1. Scroll down to the **Script**, select your script language of choice enters the following script in the **Inline Source Code** section:
+1. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
 
 ```PowerShell
 Write-Host "Hello, World!"
@@ -123,7 +123,7 @@ The next screen gives you the details of the release you are about to deploy:
 4. To deploy the release, click **Deploy**.
 5. The next screen displays a task summary. If you click the **TASK LOG**, you'll see the steps Octopus took to execute your hello world script.
 
-Because we didn't define any deployment targets for the **Test** environment, Octopus leased a dynamic worker (a machine that executes tasks on behalf of the Octopus Server) that was then used to execute the hello world script.  If you are on a self-hosted instance of Octopus Deploy, you won't see that message.
+Because we didn't define any deployment targets for the **Test** environment, Octopus leased a [dynamic worker](/docs/infrastructure/workers/dynamic-worker-pools.md#on-demand) (a machine that executes tasks on behalf of the Octopus Server) that was then used to execute the hello world script.  If you are on a self-hosted instance of Octopus Deploy, you won't see that message.
 
 ![The results of the Hello world deployment](images/deployed-release.png)
 
@@ -153,7 +153,7 @@ Steps in the deployment process can reference the variables.
 
 1. Click **Process** on the left menu.
 1. Select the **Hello World** step.
-1. Change the script in the script step based on your language of choice.
+1. Change the script in the script step based on your language of choice:
 
 ```PowerShell
 Write-Host $OctopusParameters["Helloworld.Greeting"]
@@ -290,7 +290,7 @@ Create a new release and deploy it to *Development*.  The release will deploy th
 ![Deploy a package results](images/deploy-package-results.png)
 
 :::success
-To learn more on how to package your software using your CI server of choice and deploy software to your specific deployment targets, please see our [End-to-End CI/CD pipeline tutorial](https://docs/guides).
+To learn more on how to package your software using your CI server of choice and deploy software to your specific deployment targets, please see our [End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides).
 :::
 
 ## Further Reading
@@ -304,6 +304,6 @@ This guide covered the basics of Octopus Deploy.  There are still many more conc
 - [Workers](/docs/infrastructure/workers/index.md)
 - [Security considerations for Octopus Deploy](/docs/security/index.md)
 - [Upgrading Octopus](/docs/administration/upgrading/index.md)
-- [Create your own CI/CD pipeline tutorial](https://docs/guides)
+- [Create your own CI/CD pipeline tutorial](https://octopus.com/docs/guides)
 - [Runbooks](/docs/runbooks/index.md)
 - [Octopus REST API](/docs/octopus-rest-api/index.md)

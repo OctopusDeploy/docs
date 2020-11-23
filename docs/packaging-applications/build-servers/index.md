@@ -22,8 +22,7 @@ A typical CI/CD pipeline with Octopus Deploy looks like this:
 1. When the team is satisfied with the quality of the release and they are ready for it to go to production, they use Octopus to promote the release from the **Test** environment to the **Production** environment.
 
 :::hint
-**Learn More**
-Generate an Octopus guide for [your CI/CD pipeline](https://octopus.com/docs/guides).
+To learn more on how to package your software using your CI server of choice and deploy software to your specific deployment targets, please see our [End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides).
 :::
 
 ## Octopus build server integrations {#build-server-integrations}
