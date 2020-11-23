@@ -728,7 +728,7 @@ docs/getting-started/hello-world.md -> docs/getting-started/index.md
 docs/getting-started/lifecycle.md -> docs/releases/lifecycles/index.md
 docs/getting-started/package-your-software.md -> docs/packaging-applications/index.md
 docs/getting-started/setup-octopus-deploy.md -> docs/installation/index.md
-docs/getting-started/the-cicd-pipeline.md -> docs/getting-started-guides/the-cicd-pipeline.md
+docs/getting-started/the-cicd-pipeline.md -> docs/guides
 docs/getting-started/the-octopus-web-portal.md -> docs/getting-started/index.md
 docs/getting-started/upgrading.md -> docs/administration/upgrading/index.md
 docs/getting-started/octopus-concepts/index.md -> docs/getting-started/index.md
