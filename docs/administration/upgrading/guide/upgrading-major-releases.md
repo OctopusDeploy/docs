@@ -33,8 +33,8 @@ The standard upgrade process is an in-place upgrade.  In-place upgrades update t
 The steps for this are:
 
 1. Download the latest version of Octopus Deploy.
-1. Backup master key
-1. Enable maintenance mode on.
+1. Backup master key.
+1. Enable maintenance mode.
 1. Backup the database.
 1. Do an in-place upgrade.
 1. Test the upgraded instance.

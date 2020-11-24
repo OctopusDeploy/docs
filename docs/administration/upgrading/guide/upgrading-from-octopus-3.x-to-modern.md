@@ -34,7 +34,7 @@ Creating a clone of an existing instance involves:
 1. Download the same version of Octopus Deploy as your main instance.
 1. Installing that version on a new server and configure it to point to the existing database.
 1. Copying all the files from the backed up folders from the source instance.
-1. Optional: Disabling target.
+1. Optional: Disable all deployment targets.
 1. Upgrade cloned instance.
 1. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 1. If migrating, then migrate over.  Otherwise, leave the test instance alone, backup the folders and database, and upgrade the main instance.

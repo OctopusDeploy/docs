@@ -10,19 +10,19 @@ Eventually, the server hosting Octopus Deploy or the .NET version installed will
 
 If you have a Data Center or a Server license, it is possible to upgrade the host OS or .NET without downtime and with minimal risk.  Those licenses support an unlimited number of high availability (HA) nodes.  If you do not have HA configured, this is an excellent time to do it.  There are numerous benefits, including horizontal scaling, a more robust CI/CD pipeline, and low friction maintenance.
 
-Please see our guide on [configuring high avaiability](/docs/administration/high-availability/configuring-octopus-for-high-availability.md).
+Please see our guide on [configuring high availability](/docs/administration/high-availability/configuring-octopus-for-high-availability.md).
 
 Once high availability is configured, the process to upgrade the host OS will be:
 
 1. Create a new VM with the desired OS or .NET installed.
 2. Install Octopus Deploy on that new VM and add it as a new node.
-3. In the Octopus UI, go to **{Configuration, Nodes}**, click the overflow menu (`...`) next to the new node you just created, and set the task cap to 0. 
+3. In the Octopus UI, go to **{{Configuration, Nodes}}**, click the overflow menu (`...`) next to the new node you just created, and set the task cap to 0. 
 
 The new node is now part of the HA cluster, but it isn't part of the load balancer, so it doesn't accept UI requests or processing tasks.  At this point, you can slowly bring this new node online.
 
 ### Test the Octopus UI on the new node
 
-The first step is to test the Octopus UI to make sure it is responding correctly.  To do that, you can follow this process.  It is meant to take a little bit of time to reduce risk.  If at any point something isn't working, contact support@octopus.com.
+The first step is to test the Octopus UI to make sure it is responding correctly.  To do that, you can follow this process.  It is meant to take a little bit of time to reduce risk.  If at any point something isn't working, contact [support@octopus.com](mailto:support@octopus.com).
 
 1. Navigate directly to the new VM and use Octopus Deploy as you'd regularly do for a few hours or days.
 2. Assuming everything is working as expected, add the new node into the load balancer.  If possible, configure the load balancer to only use the new node for 10 or 20% of all requests.
@@ -76,7 +76,7 @@ As you migrate your instance, here are few items to consider.
 2. What CI, or build servers, integrate with Octopus Deploy?  Do those plug-ins need to be updated?  You can find several of the plug-ins on the [downloads page](https://octopus.com/downloads).
 3. Do you have any internally developed tools or scripts that invoke the Octopus API?  We've done our best to maintain backward compatibility, but there might be some changes.  
 4. What components do you use the most?  What does a testing plan look like? 
-5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to advice@octopus.com and to get pointed in the right direction.
+5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to [advice@octopus.com](mailto:advice@octopus.com) and to get pointed in the right direction.
 
 ### Polling Tentacles
 

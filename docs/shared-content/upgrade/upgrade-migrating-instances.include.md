@@ -15,11 +15,11 @@ As you migrate your instance, here are few items to consider.
 2. What CI, or build servers, integrate with Octopus Deploy?  Do those plug-ins need to be updated?  You can find several of the plug-ins on the [downloads page](https://octopus.com/downloads).
 3. Do you have any internally developed tools or scripts that invoke the Octopus API?  We've done our best to maintain backward compatibility, but there might be some changes.  
 4. What components do you use the most?  What does a testing plan look like? 
-5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to advice@octopus.com and to get pointed in the right direction.
+5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to [advice@octopus.com](mailto:advice@octopus.com) and to get pointed in the right direction.
 
 ### Drift Concerns
 
-While it is possible to run two instances side by side, each minute that goes, the two instances will drift further apart.  Changes to the deployment process, new packages, new and releases deployments will be happening during this time.  
+While it is possible to run two instances side by side, each minute that passes, the two instances will drift further apart.  Changes to the deployment process, new packages, new and releases deployments will be happening during this time.  
 
 If you find yourself needing more time than a few days, a week tops, consider setting up a test instance.  Or using this newly cloned instance as a test instance.  Work out all the kinks on the test instance, then restart the cloning process on a fresh instance.
 

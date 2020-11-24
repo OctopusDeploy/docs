@@ -14,4 +14,4 @@ An alternative means of accessing the master key is to run the `Octopus.Server.e
 
 ### Backup the license key
 
-Like the master key, the license key is necessary to restore an existing Octopus Deploy instance.  You can access the license key by going to **{{Configuration, License}}**.  If you cannot access your license key, please contact support@octopus.com and they can help you recover it.
+Like the master key, the license key is necessary to restore an existing Octopus Deploy instance.  You can access the license key by going to **{{Configuration, License}}**.  If you cannot access your license key, please contact [support@octopus.com](mailto:support@octopus.com) and they can help you recover it.

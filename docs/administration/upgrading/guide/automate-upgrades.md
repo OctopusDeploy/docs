@@ -14,14 +14,14 @@ This guide was written for upgrading Octopus Deploy on Windows.
 
 In general, the automatic upgrade process should:
 
-1. Backup master key and license
-1. Check for a new version
-1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md)
-1. Stop the instance
-1. Backup the database
-1. Download and install the MSI
-1. Upgrade the database
-1. Start the instance back up
+1. Backup master key and license.
+1. Check for a new version.
+1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
+1. Stop the instance.
+1. Backup the database.
+1. Download and install the MSI.
+1. Upgrade the database.
+1. Start the instance back up.
 
 !include <upgrade-octopus-backup-master-key>
 
@@ -34,7 +34,7 @@ Two URLs provide version information for Octopus Deploy.
 
 Invoking the `/api` endpoint on your instance, for example [https://samples.octopus.app/api](https://samples.octopus.app/api), will return the version your instance is running.
 
-The pattern to download a specific version of Octopus Deploy is: https://download.octopusdeploy.com/octopus/Octopus.[versionnumber]-x64.msi.  For example https://download.octopusdeploy.com/octopus/Octopus.2020.4.1-x64.msi
+The URL to download a specific version of Octopus Deploy is: https://download.octopusdeploy.com/octopus/Octopus.[versionnumber]-x64.msi.  For example https://download.octopusdeploy.com/octopus/Octopus.2020.4.1-x64.msi
 
 You can write a script to check Octopus's current installed version and compare it against the latest version with this information.  The script can include business rules such as:
 
@@ -44,7 +44,7 @@ You can write a script to check Octopus's current installed version and compare 
 - Only download the next major release after it goes to .3. For example, currently, on 2019.13.7, wait until 2020.3.1 is released.
 - Download the latest release
 
-The script below enforces some of those business rules.
+The PowerShell script below enforces some of those business rules.
 
 ```PowerShell
 $allowMajorUpgrade = $true
@@ -182,7 +182,7 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus"
 
 ### Putting it all together
 
-The final script might look like this:
+The final PowerShell script might look like this:
 
 ```PowerShell
 $allowMajorUpgrade = $true

@@ -38,25 +38,15 @@ The steps for this are:
 1. Disable maintenance mode.
 
 !include <upgrade-octopus-backup-master-key>
-
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-test-version>
-
 !include <upgrade-export-import-test-projects>
-
 !include <upgrade-download-latest-version>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-inplace-upgrade>
-
 !include <upgrade-testing-upgraded-instance>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-octopus-backup-folders>
-
 !include <upgrade-main-instance-after-test-instance>
 
 ## Alternative Approach - Create a cloned instance
@@ -75,35 +65,23 @@ Creating a clone of an existing instance involves:
 1. Download the same version of Octopus Deploy as your main instance.
 1. Installing that version on a new server and configure it to point to the existing database.
 1. Copying all the files from the backed up folders from the source instance.
-1. Optional: Disabling target.
+1. Optional: Disable all deployment targets.
 1. Upgrade cloned instance.
 1. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 1. If migrating, then migrate over.  Otherwise, leave the test instance alone, backup the folders and database, and upgrade the main instance.
 
 !include <upgrade-octopus-backup-master-key>
-
 !include <upgrade-octopus-backup-database>
-
 !include <upgrade-restore-backup>
-
 !include <upgrade-download-same-version>
-
 !include <upgrade-install-cloned-version>
-
 !include <upgrade-copy-files-for-cloned-instance>
-
 !include <upgrade-disable-targets-cloned-instance>
-
 !include <upgrade-inplace-upgrade>
-
 !include <upgrade-testing-upgraded-instance>
-
 !include <upgrade-migrating-instances>
-
 !include <upgrade-octopus-backup-folders>
-
 !include <upgrade-main-instance-after-test-instance>
-
 !include <upgrade-high-availability>
 
 ## Rollback Failed Upgrade

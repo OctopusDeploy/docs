@@ -14,7 +14,7 @@ The process should look something like this:
 1. Backup the database.
 1. Select one node to upgrade, wait until finished.
 1. Upgrade all remaining nodes.
-1. Start all nodes (not started).
+1. Start all remaining stopped nodes.
 1. Test upgraded instance.
 1. Disable maintenance mode.
 

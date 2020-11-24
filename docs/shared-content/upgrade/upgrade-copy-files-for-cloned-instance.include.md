@@ -2,9 +2,9 @@
 
 After the instance has been created, copy all the contents from the following folders.
 
-- Artifacts -> default is `C:\Octopus\Artificats`
-- Packages -> default is `C:\Octopus\Packages`
-- Tasklogs -> default is `C:\Octopus\Tasklogs`
+- Artifacts -> the default is `C:\Octopus\Artifacts`
+- Packages -> the default is `C:\Octopus\Packages`
+- Tasklogs -> the default is `C:\Octopus\Tasklogs`
 
 Failure to copy over files will result in:
 - Empty deployment screens
