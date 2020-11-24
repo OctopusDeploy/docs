@@ -32,13 +32,13 @@ You should now be ready to deploy Docker containers to your Ubuntu machine using
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
 
 1. Go to **{{Library,External feeds,Add Feed}}**.
-1. For *Feed Type*, select **Docker Container Registry**.
-1. Set the *Name* to something meaningful like **DockerHub**.
-1. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io)**.
-1. Since the registry is accessible from both the Octopus Server and the Linux deployment target using the same URL, we can leave the *RegistryPath* field blank.
-1. Similarly since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
+2. For *Feed Type*, select **Docker Container Registry**.
+3. Set the *Name* to something meaningful like **DockerHub**.
+4. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io)**.
+5. Since the registry is accessible from both the Octopus Server and the Linux deployment target using the same URL, we can leave the *RegistryPath* field blank.
+6. Similarly since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
  *If you wanted to access any **private Docker images** you would need to provide your Docker Hub login details.*
-1. Click **Save and Test** to make sure the connection to the Docker Hub registry is working.
+7. Click **Save and Test** to make sure the connection to the Docker Hub registry is working.
 ![](images/add-dockerhub-feed.png "width=500")
 ![](images/test-dockerhub-feed.png "width=500")
 
