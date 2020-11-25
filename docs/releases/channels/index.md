@@ -139,3 +139,22 @@ Any releases created automatically will use the configured channel. Additionally
 For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus internal NuGet repository, and the channel selected for automatic release creation has a version rule range that doesn't include 3.1.0, then no release will be created.
 
 ![](images/3278461.png "width=500")
+
+## Discrete Channel Releases
+
+The scenarios channels are used to model can be split into two categories.  In the first, the channel controls the way releases are deployed (different lifecycles, deployment steps, etc), but the deployed releases should not be treated differently. An example of this would be a _Hotfix_ channel, used to select a lifecycle designed to releases to production quickly.  
+
+In the second mode of use, releases deployed via different channels are different, and should be treated as such. As an example of this, imagine a company that makes a deployment tool available as both a downloadable self-hosted product and a cloud-hosted software-as-a-service product.  In this example, the `self-hosted` and `cloud` channels not only select different lifecycles and deployment steps, but it is also desirable to view them as individual versions on the dashboard. 
+
+In {{ Project, Settings }} there is an option named _Discrete Channel Releases_, designed to model this scenario.
+
+![Discrete channel releases project setting](images/discrete-channel-release.png)
+
+Setting this to `Treat independently from other channels` will cause: 
+
+- Versions for each channel to be displayed on the dashboard 
+- Each channel to be treated independently when applying release [retention policies](/docs/administration/retention-policies/index.md) 
+
+The image below shows an example dashboard with discrete channel release enabled:
+
+![Discrete channel releases on dashboard](/images/discrete-channels-dashboard.png)
