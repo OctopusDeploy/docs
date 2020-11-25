@@ -303,7 +303,7 @@ https://octopus.com/docs/guides?application=PHP&buildServer=TeamCity&destination
 
 If you delete or rename a file in either the docs or blog repos, you need to add a redirect for that file otherwise publishing will fail.
 
-Redirects are added to [redirects.txt](docs/redirects.txt) and [redirects.txt](blog/redirects.txt) respectively.
+Redirects are added to [redirects.txt](https://github.com/OctopusDeploy/docs/blob/master/redirects.txt) and [redirects.txt](https://github.com/OctopusDeploy/blog/blob/master/redirects.txt) respectively.
 
 The redirects.txt file looks like this:
 ```
