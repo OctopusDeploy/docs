@@ -23,7 +23,7 @@ If not, you'll need to configure a host for our sample application. We recommend
 ![](images/my-docker-host.png "width=500")
 
 3. Install and configure Docker Engine [on your Ubuntu machine](https://docs.docker.com/engine/install/ubuntu).
-4. *Optionally*, configure a Docker Group and grant Octopus the ability to [command the Docker Daemon as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+4. *Optionally*, configure a Docker Group and grant Octopus the ability to [manage the Docker Daemon as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 You should now be ready to deploy Docker containers to your Ubuntu machine using Octopus Deploy.
 
@@ -172,14 +172,14 @@ Usually this will come down to problems with the Octopus Account you configured 
 
 `Cannot connect to the Docker daemon. Is the docker daemon running on this host?`
 
-Following the steps here to grant the Octopus Account access to the Docker daemon: [https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)
+For steps to grant the Octopus Account the ability to manage the Docker daemon, refer to the [Docker post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 :::
 
 To identify containers and networks that need to be stopped, all resources created through an Octopus deployment are configured with [labels](https://docs.docker.com/engine/reference/builder/#label) that contain the project Id, release Id, deployment Id and if applicable, tenant Id. When the clean step is then run, the available networks and containers are then filtered based on the parameters supplied in the step configuration. When a container is flagged to be removed first all linked containers will be disconnected from that network. For containers, all relevant containers are first stopped via the [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) command and then removed. This provides your process time to gracefully end by receiving the SIGTERM signal before being killed.
 
 ![](images/clean-slate-task-output.png "width=500")
 
-The Docker equivalent of the "Package Acquisition" phase involves retrieving the images from the registry using the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command on the target itself. This ensures that the target has the latest copy of that image however due to the nature of containers this will incur next to no bandwidth if it is already up to date. If a newer version of an image is retrieved than is available locally, then it is possibly that only a single "[layer](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/#/images-and-layers)" of the image needs to be retrieved and so again, the bandwidth usage is minimized. Note that if credentials are required for the registry, then a [docker login](https://docs.docker.com/engine/reference/commandline/login/) command is first issued. This will use either the hostname of the registry URI provided, or the *Registry Path* explicitly provided when setting up the feed. There is currently no "push to target" capability for images in Docker steps.
+The Docker equivalent of the "Package Acquisition" phase involves retrieving the images from the registry using the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command on the target itself. This ensures that the target has the latest copy of that image however due to the nature of containers this will incur next to no bandwidth if it is already up to date. If a newer version of an image is retrieved than is available locally, then it is possibly that only a single "[layer](https://docs.docker.com/storage/storagedriver/#images-and-layers)" of the image needs to be retrieved and so again, the bandwidth usage is minimized. Note that if credentials are required for the registry, then a [docker login](https://docs.docker.com/engine/reference/commandline/login/) command is first issued. This will use either the hostname of the registry URI provided, or the *Registry Path* explicitly provided when setting up the feed. There is currently no "push to target" capability for images in Docker steps.
 
 ![](images/acquire-package-steps.png "width=500")
 
