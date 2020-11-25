@@ -140,7 +140,7 @@ For example, if version 3.1.0 of a package Acme.Web is pushed to the Octopus int
 
 ![](images/3278461.png "width=500")
 
-## Discrete Channel Releases
+## Discrete Channel Releases {#discrete-channel-releases}
 
 The scenarios channels are used to model can be split into two categories.  In the first, the channel controls the way releases are deployed (different lifecycles, deployment steps, etc), but the deployed releases should not be treated differently. An example of this would be a _Hotfix_ channel, used to select a lifecycle designed to releases to production quickly.  
 
@@ -148,7 +148,7 @@ In the second mode of use, releases deployed via different channels are differen
 
 In {{ Project, Settings }} there is an option named _Discrete Channel Releases_, designed to model this scenario.
 
-![Discrete channel releases project setting](images/discrete-channel-release.png)
+![Discrete channel releases project setting](images/discrete-channel-release.png "width=500")
 
 Setting this to `Treat independently from other channels` will cause: 
 
@@ -157,4 +157,4 @@ Setting this to `Treat independently from other channels` will cause:
 
 The image below shows an example dashboard with discrete channel release enabled:
 
-![Discrete channel releases on dashboard](/images/discrete-channels-dashboard.png)
+![Discrete channel releases on dashboard](images/discrete-channels-dashboard.png "width=500")
