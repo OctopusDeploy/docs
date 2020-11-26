@@ -159,7 +159,7 @@ Steps in the deployment process can reference the variables.
 Write-Host $OctopusParameters["Helloworld.Greeting"]
 ```
 ```bash Bash
-greeting = $(get_octopusvariable "Helloworld.Greeting")
+greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
 ```
 
