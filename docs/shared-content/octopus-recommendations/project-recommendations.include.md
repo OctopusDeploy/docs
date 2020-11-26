@@ -20,6 +20,10 @@ However, think about how much faster you could respond to customer feedback if y
 
 Each component should have its own project.  Unique projects will give you the flexibility to deploy the pieces of your application only when a change has occurred.
 
+:::hint
+While creating projects per component is a good practice, it's not the rule. Octopus provides flexibility to allow you to model your projects to meet your requirements.
+:::
+
 ## Orchestrating multiple projects
 
 Octopus Deploy provides a way for a [project to call other projects](/docs/projects/coordinating-multiple-projects/index.md). That feature allows you to set up an orchestrator to deploy your projects in a specific order.
