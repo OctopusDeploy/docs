@@ -59,12 +59,17 @@ Add a logo to make it easily identifiable from the projects page.
 3. Click the file selector and select a file to upload.
 4. Click **open** to upload your logo image, and click **Save**.
 
+:::hint
+Adding an image to your project is a useful way to set them apart from other projects visually. In addition to supporting .jpg and .png files, we also support .gif files. This means you can have an animated icon to add a little flair to your Octopus Deploy instance!
+:::
+
 ## Project group {#project-group}
 
-Project groups are a way of organizing your projects.
+Project groups are a great way to organize your deployment projects. They have many uses; not only do they visually separate the projects, but you can also configure the dashboard to hide/show specific project groups and configure permissions to restrict access to them.
 
-Note, the *Default Project* group contains all of the projects that have not been added to another group.
-
+:::hint
+The *Default Project* group contains all of the projects that have not been added to another group.
+:::
 ## Add a project group
 
 1. From the **Projects** tab, click **ADD GROUP**.
