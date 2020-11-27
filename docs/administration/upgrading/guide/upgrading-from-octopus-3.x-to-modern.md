@@ -18,15 +18,15 @@ It is possible to do an in-place upgrade of 3.x to the latest version of Octopus
 
 There is some risk involved with doing an in-place upgrade.  This guide will walk through the steps needed to reduce the risk and keep downtime to a minimum.
 
-## Recommended Approach - Create a cloned instance
+## Recommended approach - create a cloned instance
 
-The recommended approach is to create a cloned instance, upgrade that, and test out the new functionality with any integrations.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance for testing future upgrades.  
+The recommended approach is to create a cloned instance, upgrade that instance, and test out the new functionality with any integrations.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance to test future upgrades.  
 
 ### Overview 
 
 Creating a clone of an existing instance involves:
 
-1. Backup master key and license.
+1. Backup the Master Key and license.
 1. Enable maintenance mode on the main instance.
 1. Backup the database of the main instance.
 1. Disable maintenance mode on the main instance.
@@ -52,7 +52,7 @@ Creating a clone of an existing instance involves:
 !include <upgrade-octopus-backup-folders>
 !include <upgrade-main-instance-after-test-instance>
 
-## Alternative Approach - Create a test instance
+## Alternative approach - create a test instance
 
 Creating a cloned instance is quite a bit of work.  You have to worry about drift and getting new compute resources allocated.  An alternative approach to the cloned instance is creating a test instance with only a handful of projects.  Test the upgrade with that test instance and then do the upgrade of your main instance.
 
@@ -60,7 +60,7 @@ Creating a cloned instance is quite a bit of work.  You have to worry about drif
 
 The steps for this are:
 
-1. Backup master key and license
+1. Backup the Master Key and license.
 1. Download the same version of Octopus Deploy as your main instance.
 1. Install Octopus Deploy on a new VM.
 1. Export a subset of projects from the main instance.
@@ -73,7 +73,7 @@ The steps for this are:
 1. Backup the database on the main instance.
 1. Backup all the folders on the main instance.
 1. Do an in-place upgrade of your main instance.
-1. Test upgraded main instance.
+1. Test the upgraded main instance.
 1. Disable maintenance mode.
 
 !include <upgrade-octopus-backup-master-key>
@@ -89,7 +89,7 @@ The steps for this are:
 !include <upgrade-main-instance-after-test-instance>
 !include <upgrade-high-availability>
 
-## Rollback Failed Upgrade
+## Rollback failed upgrade
 
 While unlikely, an upgrade may fail.  It could fail on a database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  Depending on what failed, you have a decision to make.  If the cloned instance upgrade failed, it might make sense to start all over again.  Or, it might make sense to roll back to a previous version.  In either case, if you decide to roll back, the process will be:
 

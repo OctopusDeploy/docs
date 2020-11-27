@@ -6,7 +6,7 @@ position: 2
 
 A minor release of Octopus Deploy is when the second number in the version is incremented.  For example, 2020.4.x to 2020.5.x.  A patch release is when the third number is incremented, from 2020.4.1 to 2020.4.2.
 
-## Standard Upgrade Process
+## Standard upgrade process
 
 The standard upgrade process is an in-place upgrade.  In-place upgrades update the binaries in the install directory and update the database.  The guide below includes additional steps to backup key components to make it easier to rollback in the unlikely event of a failure.
 
@@ -15,7 +15,7 @@ The standard upgrade process is an in-place upgrade.  In-place upgrades update t
 The steps for this are:
 
 1. Download the latest version of Octopus Deploy.
-1. Backup master key.
+1. Backup the Master Key.
 1. Enable maintenance mode.
 1. Backup the database.
 1. Do an in-place upgrade.
@@ -29,7 +29,7 @@ The steps for this are:
 !include <upgrade-testing-upgraded-instance>
 !include <upgrade-high-availability>
 
-## Rollback Failed Upgrade
+## Rollback failed upgrade
 
 While unlikely, an upgrade may fail.  It could fail on a database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  When that happens, it is time to rollback to a previous version.
 

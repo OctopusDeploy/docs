@@ -13,7 +13,7 @@ It is possible to do an in-place upgrade from Octopus Deploy 4.x/2018.x to the l
 
 The upgrade should work without error, but there are integration concerns to consider.  This guide will step through the steps to mitigate those concerns.
 
-## Recommended Approach - Create a test instance
+## Recommended approach - create a test instance
 
 An in-place upgrade should be the safest approach.  Upgrade scripts assume you are upgrading from older versions of Octopus Deploy.  While the upgrade will work, there might be a new feature or breaking changes you will want to test first.  The recommended approach is to create a test instance containing a subset of projects representing your main instance.  Upgrade that test instance, verify it, and then upgrade the main instance.  
 
@@ -21,7 +21,7 @@ An in-place upgrade should be the safest approach.  Upgrade scripts assume you a
 
 The steps for this are:
 
-1. Backup master key and license.
+1. Backup the Master Key and license.
 1. Download the same version of Octopus Deploy as your main instance.
 1. Install Octopus Deploy on a new VM.
 1. Export a subset of projects from the main instance.
@@ -49,7 +49,7 @@ The steps for this are:
 !include <upgrade-octopus-backup-folders>
 !include <upgrade-main-instance-after-test-instance>
 
-## Alternative Approach - Create a cloned instance
+## Alternative approach - create a cloned instance
 
 An alternative approach to an in-place upgrade is to create a cloned instance and upgrade that.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance for testing future upgrades.  
 
@@ -57,7 +57,7 @@ An alternative approach to an in-place upgrade is to create a cloned instance an
 
 Creating a clone of an existing instance involves:
 
-1. Backup master key and license.
+1. Backup the Master Key and license.
 1. Enable maintenance mode on the main instance.
 1. Backup the database of the main instance.
 1. Disable maintenance mode on the main instance.

@@ -1,6 +1,6 @@
 ### Find and download the previous version of Octopus Deploy
 
-Octopus Deploy stores the installation history in the database. Run this query on your Octopus Deploy database if unsure as to which version to download.
+Octopus Deploy stores the installation history in the database. Run this query on your Octopus Deploy database if unsure as to which version to download:
 
 ```SQL
 SELECT TOP 5 [Version]
@@ -8,7 +8,7 @@ SELECT TOP 5 [Version]
   ORDER BY Installed desc
 ```
 
-Once you know the version to install, go to the [previous downloads page](https://octopus.com/downloads/previous).  
+When you know the version to install, go to the [previous downloads page](https://octopus.com/downloads/previous).  
 
 ### Installing the previous version
 
