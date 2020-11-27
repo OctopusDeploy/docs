@@ -22,7 +22,7 @@ Setting up a test instance with a subset of projects over a full clone has sever
 - A clone does a full clone of everything, including deployment targets and triggers, increasing the risk of having the sandbox instance connect to production at first.
 - A clone might have hidden configuration options, such as server folders, that you have to change.
 
-The disadvantage of a subset of projects over a full clone is it is not an entire apple to apple upgrade.  If you have significant drift between projects, you might miss something.
+The disadvantage of a subset of projects over a full clone is that there could be significant drift between projects, and you might miss something.
 
 The process to create an instance with a subset of projects is:
 
