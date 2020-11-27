@@ -161,7 +161,7 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 
 [Chocolatey](https://chocolatey.org) is a third-party package management tool designed to work with Windows.  If you are coming from Linux, it is similar to apt or yum.  
 
-This script will install chocolatey and then install Octopus Deploy.  The example uses the `--version` argument to set a specific version.  Excluding that will cause the latest version to be installed.  The `-y` argument allows the install to proceed without user input.  For more information, please check out [Chocolatey's documentation.](https://chocolatey.org/docs/commandsinstall)
+This script will install Chocolatey and then install Octopus Deploy.  The example uses the `--version` argument to set a specific version.  Excluding that will cause the latest version to be installed.  The `-y` argument allows the install to proceed without user input.  For more information, please check out [Chocolatey's documentation.](https://chocolatey.org/docs/commandsinstall):
 
 ```PowerShell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
