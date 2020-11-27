@@ -14,7 +14,7 @@ This guide was written for upgrading Octopus Deploy on Windows.
 
 In general, the automatic upgrade process should:
 
-1. Backup master key and license.
+1. Backup the Master Key and license.
 1. Check for a new version.
 1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
 1. Stop the instance.
@@ -38,11 +38,11 @@ The URL to download a specific version of Octopus Deploy is: https://download.oc
 
 You can write a script to check Octopus's current installed version and compare it against the latest version with this information.  The script can include business rules such as:
 
-- Only download patch releases
-- Only download minor releases
-- Only download minor releases after it goes to .2.  For example, currently on 2020.3.4, wait until 2020.4.2 or higher
-- Only download the next major release after it goes to .3. For example, currently, on 2019.13.7, wait until 2020.3.1 is released
-- Download the latest release
+- Only download patch releases.
+- Only download minor releases.
+- Only download minor releases after it goes to .2.  For example, currently on 2020.3.4, wait until 2020.4.2 or higher.
+- Only download the next major release after it goes to .3. For example, currently, on 2019.13.7, wait until 2020.3.1 is released.
+- Download the latest release.
 
 The PowerShell script below enforces some of those business rules:
 
@@ -83,9 +83,9 @@ if ($null -ne $versionToDownload -and $versionToDownload -ne $apiInformation.Ver
 }
 ```
 
-### Enabling / Disabling Maintenance Mode
+### Enabling and disabling maintenance mode
 
-You can enable or disable maintenace mode via an API script.  
+You can enable or disable maintenance mode via an API script:
 
 ```PowerShell
 $OctopusAPIKey = "YOUR API KEY"
@@ -116,7 +116,7 @@ Write-Host "Maintenance's response: $maintenanceResponse"
 
 ### Stop the instance
 
-[Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/index.md) is the command line interface, or CLI, of the Octopus Manager.  The below script will stop the service.  Before it does that it will drain the node and wait for all the tasks to complete before stopping the service.
+[Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/index.md) is the command-line interface, or CLI, of the Octopus Manager.  The below script will drain the node and wait for all the tasks to complete and then stop the service:
 
 ```PowerShell
 Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus" 
@@ -126,7 +126,7 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus"
 ```
 ### Backup the SQL Server database
 
-The simplest backup possible is a full database backup.  Execute the below T-SQL command to save a backup to a NAS or file share.
+The simplest backup possible is a full database backup.  Execute the below T-SQL command to save a backup to a NAS or file share:
 
 ```
 BACKUP DATABASE [OctopusDeploy]
@@ -134,7 +134,7 @@ BACKUP DATABASE [OctopusDeploy]
              WITH FORMAT;
 ```
 
-The `BACKUP DATABASE` T-SQL command has dozens of various options.  Please refer to [Microsoft's Documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-ver15) or consult a DBA as to which options you should use.
+The `BACKUP DATABASE` T-SQL command has dozens of options.  Please refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-ver15) or consult a DBA to understand which options you should use.
 
 ### Installing the MSI
 
@@ -148,7 +148,7 @@ Please run `msiexec.exe` as an administrator.  It is performing an installation,
 
 Windows includes [msiexec.exe](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec) as part of the base installation.
 
-The `msiexec.exe` can be invoked via PowerShell by using the Start-Process command.  This example will send in the `/i` and `/quiet` arguments to install the MSI without user interaction.
+The `msiexec.exe` can be invoked via PowerShell by using the Start-Process command.  This example will send in the `/i` and `/quiet` arguments to install the MSI without user interaction:
 
 ```PowerShell
 $msi = "C:\Temp\OctopusDeploy.2020.4.2.msi"
@@ -171,7 +171,7 @@ choco install octopusdeploy -y --version 2020.4.11
 
 ### Upgrade the database and restarting the service
 
-Upgrading the database and restarting the service is all done via the `Octopus.Server.exe` command line.  
+Upgrading the database and restarting the service is all done via the `Octopus.Server.exe` command line:
 
 ```PowerShell
 Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus" 
@@ -180,7 +180,7 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus"
 & .\octopus.server.exe node --instance="OctopusServer" --drain=false 
 ```
 
-### Putting it all together
+### The complete PowerShell script
 
 The final PowerShell script might look like this:
 
@@ -263,22 +263,22 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 
 ## Upgrading High Availability Octopus Deploy instances
 
-It is possible to automate the upgrading of Octopus Deploy High Availability instances, but it takes a bit more work than a single script.  The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a free license to do this [here](https://octopus.com/start).
+It is possible to automate upgrading Octopus Deploy High Availability instances, but it requires more than a single script.  The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a free license to do this with an [Octopus Cloud instance](https://octopus.com/start).
 
 ![](images/upgrade-diagram.png)
 
 Each HA node will need a Tentacle installed on it.  You will need two roles for this to work.
 
-- HAServer -> All Tentacles will be assigned to this.
-- HAServer-Primary -> this is the server which does the majority of the work (checking for new versions, upgrading the database, etc)
+- HAServer: All Tentacles will be assigned to this.
+- HAServer-Primary: This is the server which does the majority of the work (checking for new versions, upgrading the database, etc).
 
 The process will look like:
 
-1. Check for a new version (HAServer-Primary)
-2. Put server into maintenance mode (HAServer-Primary)
-3. Stop all nodes (HAServer)
-4. Install the MSI (HAServer)
-5. Upgrade the database (HAServer-Primary)
-6. Restart all nodes (HAServer)
+1. Check for a new version (HAServer-Primary).
+2. Put the server into maintenance mode (HAServer-Primary).
+3. Stop all nodes (HAServer).
+4. Install the MSI (HAServer).
+5. Upgrade the database (HAServer-Primary).
+6. Restart all nodes (HAServer).
 
 This extra work is needed because the database can only be upgraded by one node.  Multiple nodes attempting to upgrade the database can (and will) result in deadlocks.
