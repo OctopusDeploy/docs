@@ -4,20 +4,20 @@ description: A guide on how to create a test instance with Octopus Deploy
 position: 8
 ---
 
-There is always a risk an in-place upgrade will fail.  The risk increases further away from the latest version.  We do our best to test as many different configurations as to put downward pressure on that risk. The truth of the matter is we can't cover every hyper-specific scenario.  Also, there might be a new feature, or a breaking change introduced.  Creating a test instance will help reduce the risk for you and your company.
+There is always a risk an in-place upgrade will fail.  The risk increases as more versions have been released between upgrades.  We do our best to test many different configurations to put downward pressure on that risk. However, we can't cover every hyper-specific scenario.  Also, there might be a new feature, or a breaking change introduced.  Creating a test instance will help you reduce the risk for you and your company.
 
 ## Overview
 
-There are two approaches to creating a test instance.
+There are two approaches to creating a test instance:
 
-1. Subset of projects representing the main instance
-1. Clone of the main instance
+1. Subset of projects representing the main instance.
+1. Clone of the main instance.
 
 ### Test instance with a subset of projects
 
 Setting up a test instance with a subset of projects over a full clone has several advantages.  
 
-- It is much easier to set up and configure than a clone.  It is also easy to automate the setting up and tear down a test instance on demand.
+- It is much easier to set up and configure than a clone.  It is also easy to automate the setting up and tearing down a test instance on demand.
 - There is tooling in place to export specific projects.
 - A clone does a full clone of everything, including deployment targets and triggers, increasing the risk of having the sandbox instance connect to production at first.
 - A clone might have hidden configuration options, such as server folders, that you have to change.
@@ -42,7 +42,7 @@ The process to create an instance with a subset of projects is:
 Setting up a test instance as a clone of the main instance has a few advantages over a subset of projects.
 
 - Upgrades are much closer to an apple to apple comparison.
-- Can do a full test of all integrations with Octopus Deploy.
+- You can do a full test of all integrations with Octopus Deploy.
 
 Configuring a clone typically takes much more time and compute resources.  There are backup locations to consider, targets to disable, and more.  
 
