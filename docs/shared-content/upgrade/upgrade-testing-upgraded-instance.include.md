@@ -1,6 +1,6 @@
 ### Testing the upgraded instance
 
-It is up to you on the level of testing you wish to perform on your upgraded instance.  At a bare minimum, you should:
+It is up to you to decide on the level of testing you wish to perform on your upgraded instance.  At a bare minimum, you should:
 
 - Do test deployments on projects representative of your instance.  For example, if you have IIS deployments, do some IIS deployments.  If you have Java deployments, do some Java deployments.
 - Check previous deployments, ensure all the logs and artifacts appear.
