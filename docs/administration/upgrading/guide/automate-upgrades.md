@@ -4,7 +4,7 @@ description: A how-to guide on how to automate Octopus Deploy upgrades
 position: 4
 ---
 
-Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade.  This guide provides the steps necessary to do so.
+Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade.  This guide provides the steps necessary to automate the upgrade process.
 
 ## Overview
 
