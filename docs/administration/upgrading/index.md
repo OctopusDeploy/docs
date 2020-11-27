@@ -5,7 +5,7 @@ position: 70
 hideInThisSection: true
 ---
 
-This guide is for customers managing their self-hosted installation of Octopus. If you are using Octopus Cloud, we take care of everything for you, and you will have early access to all the latest features.
+This guide is for customers managing their self-hosted installation of Octopus. If you are using Octopus Cloud, we take care of everything for you, which means you don't need to worry about upgrades and you have early access to all the latest features.
 
 ## About this guide
 
@@ -82,4 +82,3 @@ The best way to mitigate risk is to automate the upgrade and/or creating a test 
 
 - [Automating upgrades](/docs/administration/upgrading/guide/automate-upgrades.md)
 - [Create a test instance](/docs/administration/upgrading/guide/creating-test-instance.md)
-
