@@ -6,7 +6,7 @@ position: 7
 
 Eventually, the server hosting Octopus Deploy or the .NET version installed will reach the end of life.  From both a practical and security point of view, continuing to run Octopus Deploy on unsupported software is not recommended.  But upgrades take time, from configuring to testing.  And there is a risk of downtime.  
 
-## Recommended Approach - Leverage High Availability
+## Recommended approach - leverage high availability
 
 If you have a Data Center or a Server license, it is possible to upgrade the host OS or .NET without downtime and with minimal risk.  Those licenses support an unlimited number of high availability (HA) nodes.  If you do not have HA configured, this is an excellent time to do it.  There are numerous benefits, including horizontal scaling, a more robust CI/CD pipeline, and low friction maintenance.
 
@@ -42,9 +42,9 @@ Now that the new node is hosting UI requests without issue, it is time to move o
 
 Wait a few days or weeks.  If no oddities come up, go through the decommissioning process of the old nodes.  
 
-## Alternative Approach - Clone Instance
+## Alternative approach - clone instance
 
-Configuring High Availability can take time.  Or, you might be on a license which doesn't support HA.  The other option is to clone the instance and migrate over.
+Configuring High Availability can take time.  Or you might be on a license which doesn't support HA.  The other option is to clone the instance and migrate over.
 
 ### Process
 
@@ -57,7 +57,7 @@ Creating a clone of an existing instance involves:
 1. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 1. Migrate over to using a new instance. 
 
-If anything goes wrong, stop the cloned instance, and start back up the old instance.
+If anything goes wrong, stop the cloned instance, and start the old instance back up.
 
 !include <upgrade-download-same-version>
 !include <upgrade-install-cloned-version>
@@ -76,7 +76,7 @@ As you migrate your instance, here are few items to consider.
 2. What CI, or build servers, integrate with Octopus Deploy?  Do those plug-ins need to be updated?  You can find several of the plug-ins on the [downloads page](https://octopus.com/downloads).
 3. Do you have any internally developed tools or scripts that invoke the Octopus API?  We've done our best to maintain backward compatibility, but there might be some changes.  
 4. What components do you use the most?  What does a testing plan look like? 
-5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to [advice@octopus.com](mailto:advice@octopus.com) and to get pointed in the right direction.
+5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to [advice@octopus.com](mailto:advice@octopus.com), to get pointed in the right direction.
 
 ### Polling Tentacles
 
