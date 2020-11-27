@@ -41,7 +41,7 @@ You can write a script to check Octopus's current installed version and compare 
 - Only download patch releases
 - Only download minor releases
 - Only download minor releases after it goes to .2.  For example, currently on 2020.3.4, wait until 2020.4.2 or higher
-- Only download the next major release after it goes to .3. For example, currently, on 2019.13.7, wait until 2020.3.1 is released.
+- Only download the next major release after it goes to .3. For example, currently, on 2019.13.7, wait until 2020.3.1 is released
 - Download the latest release
 
 The PowerShell script below enforces some of those business rules.
