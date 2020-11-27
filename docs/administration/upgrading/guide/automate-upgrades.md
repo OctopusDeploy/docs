@@ -29,7 +29,7 @@ In general, the automatic upgrade process should:
 
 Two URLs provide version information for Octopus Deploy.
 
-- https://octopus.com/downloads/upgrade -> Returns the most recent version Octopus Deploy to download.
+- `https://octopus.com/downloads/upgrade`: Returns the most recent version Octopus Deploy to download.
 - https://octopus.com/download/upgrade/v3 -> Returns all the versions, past and present, available for download in JSON format.
 
 Invoking the `/api` endpoint on your instance, for example [https://samples.octopus.app/api](https://samples.octopus.app/api), will return the version your instance is running.
