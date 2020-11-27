@@ -41,7 +41,7 @@ The process to create an instance with a subset of projects is:
 
 Setting up a test instance as a clone of the main instance has a few advantages over a subset of projects.
 
-- Upgrades are much closer to an apple to apple comparison.
+- Upgrades are much closer to a one to one comparison.
 - You can do a full test of all integrations with Octopus Deploy.
 
 Configuring a clone typically takes much more time and compute resources.  There are backup locations to consider, targets to disable, and more.  
