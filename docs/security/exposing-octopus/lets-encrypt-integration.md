@@ -38,6 +38,25 @@ The **{{Configuration,Let's Encrypt}}** page will now show when the SSL certific
 
 At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#ForcingHTTPS) and [HSTS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS).
 
+## Let's Encrypt for Containers
+For on-prem deployments of Octopus Deploy, there is a Let's Encrypt option that allows you to utilize open-source SSL/TLS certifications. The implementation for Let's Encrypt was originally built only for on-prem Octopus Deploy deployments that are running on Windows servers and at this time, that's where the implementation will stay.
+
+As Octopus Deploy grows into the Linux and container space, there needs to be several options that customers and users can utilize to ensure they can still use SSL/TLS certifications for the Octopus Deploy platform.
+
+For Linux and Windows containers moving forward. Let's Encrypt will not be an option in the UI or the API. Instead, you can use many of the standard ways we see today in containers and Kubernetes to enable HTTPS if you are running inside of a container.
+
+### Nginx Proxy
+If you are running an Octopus Deploy container on Docker without an orchestration platform like Kubernetes, you can set up an Nginx reverse proxy with TLS termination. 
+
+There is a great piece of documentation on the Nginx website for setting up TLS/SSL termination, which you can find [here](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)
+
+### Let's Encrypt and Traefik
+If you'd still like to use Let's Encrypt with Docker and you aren't using an orchestration platform, you can combine Let's Encrypt with Traefik, a popular and cloud native HTTP reverse proxy and load balancer. You can find the documentation for setting up Let's Encrypt and Traefik [here](https://doc.traefik.io/traefik/v1.7/user-guide/docker-and-lets-encrypt/)
+
+### Kubernetes and Octopus Deploy
+If you're going the orchestration and containerization route with say, Kubernetes and Docker, there are a plethora of ingress controllers that can be used. There is an extensive list that you can find [here](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) that goes over many open-source, extremely popular platforms that include Traefik, HAProxy Ingress, Istio, and many others.
+
+
 ## Availability
 
 ### ACME v1 retirement
