@@ -38,6 +38,27 @@ The **{{Configuration,Let's Encrypt}}** page will now show when the SSL certific
 
 At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#ForcingHTTPS) and [HSTS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md#HSTS).
 
+## Let's Encrypt for Containers
+The integration for Let's Encrypt was designed for self-hosted Octopus Server installations running on a Windows server. There are currently no plans to support Let's Encrypt when running [Octopus in a container](docs/installation/octopus-in-container/index.md).
+
+In **Octopus 2020.5** and earlier, when attempting to configure the Let's Encrypt integration on an Octopus Server Linux container, it would fail with a message similar to `We received an error 'Unix LocalMachine X509Stores are read-only for all users`.
+
+From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt integration will no longer be available in the Octopus Portal or via the API. 
+
+Customers running Octopus in a container that wish to secure the Octopus Portal to be accessible over HTTPS can do so in a number of standard ways, which are discussed in more detail here.
+
+### NGINX proxy {#nginx-proxy}
+If you are running an Octopus in a Docker container without an orchestration platform like Kubernetes, you can set up an NGINX reverse proxy with TLS termination.
+
+For more information on configuring TLS/SSL termination in NGINX, refer to the [documentation](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
+
+### Let's Encrypt and Traefik {#lets-encrypt-traefik}
+Another popular and cloud-native HTTP reverse proxy and load balancer is [Traefik](https://traefik.io/traefik/). You can combine this with Let's Encrypt to support TLS/SSL termination with your Octopus container. To find out more, refer to  the [Traefik documentation](https://doc.traefik.io/traefik/v1.7/user-guide/.docker-and-lets-encrypt/).
+
+### Kubernetes and Octopus Deploy {#kubernetes-and-octopus}
+If you plan to use an orchestrator with your container say, Kubernetes and Docker, an ingress controller can be used to secure the Octopus Portal. You can find an extensive list in the  [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). It includes multiple open-source, popular platforms such as Traefik, HAProxy Ingress, Istio, and many others.
+
+
 ## Availability
 
 ### ACME v1 retirement
