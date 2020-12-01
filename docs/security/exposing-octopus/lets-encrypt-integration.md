@@ -43,7 +43,7 @@ The integration for Let's Encrypt was designed for self-hosted Octopus Server in
 
 From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt integration will no longer be available in the Octopus Portal or via the API. 
 
-For Linux and Windows containers moving forward. Let's Encrypt will not be an option in the UI or the API. Instead, you can use many of the standard ways we see today in containers and Kubernetes to enable HTTPS if you are running inside of a container.
+Customers running Octopus in a container that wish to secure the Octopus Portal to be accessible over HTTPS can do so in a number of standard ways, which are discussed in more detail below.
 
 ### Nginx Proxy
 If you are running an Octopus Deploy container on Docker without an orchestration platform like Kubernetes, you can set up an Nginx reverse proxy with TLS termination. 
