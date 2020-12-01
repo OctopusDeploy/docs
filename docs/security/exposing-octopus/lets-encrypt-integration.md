@@ -41,7 +41,7 @@ At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus
 ## Let's Encrypt for Containers
 For on-prem deployments of Octopus Deploy, there is a Let's Encrypt option that allows you to utilize open-source SSL/TLS certifications. The implementation for Let's Encrypt was originally built only for on-prem Octopus Deploy deployments that are running on Windows servers and at this time, that's where the implementation will stay.
 
-As Octopus Deploy grows into the Linux and container space, there needs to be several options that customers and users can utilize to ensure they can still use SSL/TLS certifications for the Octopus Deploy platform.
+From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt integration will no longer be available in the Octopus Portal or via the API. 
 
 For Linux and Windows containers moving forward. Let's Encrypt will not be an option in the UI or the API. Instead, you can use many of the standard ways we see today in containers and Kubernetes to enable HTTPS if you are running inside of a container.
 
