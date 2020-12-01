@@ -4,7 +4,7 @@ description: Information on how to upgrade from Octopus Deploy 3.x to the latest
 position: 6
 ---
 
-It is possible to do an in-place upgrade of 3.x to the latest version of Octopus Deploy.  With that said, the last version of 3.x, 3.17.14, was released on November 12th, 2017.  Fundamentally, Octopus is almost an entirely different product.  We did our best to maintain backward compatibility, but there is a risk a hyper-specific scenario was missed or a breaking change was introduced.  Here is an example of changes made to Octopus Deploy since 3.17.14 was released.
+You should be safe doing an in-place upgrade of 3.x to the latest version of Octopus Deploy.  With that said, the last version of 3.x, 3.17.14, was released on November 12th, 2017.  Fundamentally, Octopus is almost an entirely different product.  We did our best to maintain backward compatibility, but there is a risk a hyper-specific scenario was missed or a breaking change was introduced.  Here is an example of changes made to Octopus Deploy since 3.17.14 was released.
 
 - The majority of endpoints in the API can accept a `Space-Id`, for example `/api/Spaces-1/projects?skip=0&take=100` whereas before it was `/api/projects?skip=0&take=100`.  If a `Space-Id` isn't supplied, the default space is used.
 - Teams can be assigned to multiple roles and spaces.  Before, a team could be assigned to only one role.
@@ -20,7 +20,7 @@ There is some risk involved with doing an in-place upgrade.  This guide will wal
 
 ## Recommended approach - create a cloned instance
 
-The recommended approach is to create a cloned instance, upgrade that instance, and test out the new functionality with any integrations.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance to test future upgrades.  
+The recommended approach is to create a cloned instance, upgrade that instance, and test out the new functionality with any integrations.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance to test future upgrades.  This provides the means to test an upgrade without affecting your CI/CD pipeline.   
 
 ### Overview 
 
@@ -54,7 +54,7 @@ Creating a clone of an existing instance involves:
 
 ## Alternative approach - create a test instance
 
-Creating a cloned instance is quite a bit of work.  You have to worry about drift and getting new compute resources allocated.  An alternative approach to the cloned instance is creating a test instance with only a handful of projects.  Test the upgrade with that test instance and then do the upgrade of your main instance.
+Creating and migrating to a cloned instance can be quite a bit of work.  You have to worry about drift and getting new compute resources allocated.  An alternative approach to the cloned instance is creating a test instance with only a handful of projects.  Test the upgrade with that test instance and then do the upgrade of your main instance.
 
 ### Overview
 

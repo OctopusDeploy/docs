@@ -4,7 +4,7 @@ description: Information on how to upgrade from Octopus Deploy 4.x or 2018.x to 
 position: 5
 ---
 
-It is possible to do an in-place upgrade from Octopus Deploy 4.x/2018.x to the latest version.  That being said, `2018.12.1` was the last version of Octopus Deploy prior to spaces.  Spaces made the following changes:
+It is generally safe to do an in-place upgrade from Octopus Deploy 4.x/2018.x to the latest version.  Please keep in mind, 4.x/2018.x did not include the Spaces feature. Spaces made the following changes:
 
 - The majority of endpoints in the API can accept a `Space-Id`, for example `/api/Spaces-1/projects?skip=0&take=100` whereas before it was `/api/projects?skip=0&take=100`.  If a `Space-Id` isn't supplied, the default space is used.
 - Teams can be assigned to multiple roles and spaces.  Before, a team could be assigned to only one role.
@@ -95,7 +95,5 @@ While unlikely, an upgrade may fail.  It could fail on a database upgrade script
 1. If maintenance mode is enabled, disable it.
 
 !include <upgrade-restore-backup>
-
 !include <upgrade-rollback-folders>
-
 !include <upgrade-find-previous-version>
