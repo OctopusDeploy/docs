@@ -19,7 +19,7 @@ Setting up a test instance with a subset of projects over a full clone has sever
 
 - It is much easier to set up and configure than a clone.  It is also easy to automate the setting up and tearing down a test instance on demand.
 - There is tooling in place to export specific projects.
-- A clone does a full clone of everything, including deployment targets and triggers, increasing the risk of having the sandbox instance connect to production at first.
+- A clone does a full clone of everything, including deployment targets and triggers, increasing the risk of having the sandbox instance connect to production when the instance initially starts up.  You will need to disable all the targets to prevent this from happening.
 - A clone might have hidden configuration options, such as server folders, that you have to change.
 
 The disadvantage of a subset of projects over a full clone is that there could be significant drift between projects, and you might miss something.
