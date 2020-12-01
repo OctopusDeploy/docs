@@ -51,7 +51,7 @@ If you are running an Octopus in a Docker container without an orchestration pla
 For more information on configuring TLS/SSL termination in NGINX, refer to the [documentation](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
 
 ### Let's Encrypt and Traefik {#lets-encrypt-traefik}
-If you'd still like to use Let's Encrypt with Docker and you aren't using an orchestration platform, you can combine Let's Encrypt with Traefik, a popular and cloud native HTTP reverse proxy and load balancer. You can find the documentation for setting up Let's Encrypt and Traefik [here](https://doc.traefik.io/traefik/v1.7/user-guide/docker-and-lets-encrypt/)
+Another popular and cloud-native HTTP reverse proxy and load balancer is [Traefik](https://traefik.io/traefik/). You can combine this with Let's Encrypt to support TLS/SSL termination with your Octopus container. To find out more, refer to  the [Traefik documentation](https://doc.traefik.io/traefik/v1.7/user-guide/.docker-and-lets-encrypt/).
 
 ### Kubernetes and Octopus Deploy
 If you're going the orchestration and containerization route with say, Kubernetes and Docker, there are a plethora of ingress controllers that can be used. There is an extensive list that you can find [here](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) that goes over many open-source, extremely popular platforms that include Traefik, HAProxy Ingress, Istio, and many others.
