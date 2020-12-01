@@ -48,7 +48,7 @@ From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt 
 Customers running Octopus in a container that wish to secure the Octopus Portal to be accessible over HTTPS can do so in a number of standard ways, which are discussed in more detail here.
 
 ### NGINX proxy {#nginx-proxy}
-If you are running an Octopus in a Docker container without an orchestration platform like Kubernetes, you can set up an NGINX reverse proxy with TLS termination.
+If you are running Octopus in a Docker container without an orchestration platform like Kubernetes, you can set up an NGINX reverse proxy with TLS termination.
 
 For more information on configuring TLS/SSL termination in NGINX, refer to the [documentation](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
 
