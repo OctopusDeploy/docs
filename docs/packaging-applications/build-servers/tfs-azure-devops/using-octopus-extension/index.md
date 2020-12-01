@@ -198,7 +198,7 @@ Enabling the Include Changeset Comments and/or Include Work Items options will r
 ![](images/3278502.png "width=500")
 
 :::hint
-**Note:** These Release Notes options are considered legacy. We recommend clearing them and pushing [Build Information](#UsetheTeamFoundationBuildCustomTask-AddBuildInformationStep)  alongside your packages, which allows the customizable Release Notes Template to generate automatic release notes.
+**Note:** The Release Notes options are considered legacy. We recommend clearing them and pushing [Build Information](#UsetheTeamFoundationBuildCustomTask-AddBuildInformationStep) alongside your packages, which allows the customizable Release Notes Template to generate automatic release notes.
 :::
 
 ### Add a deploy Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
