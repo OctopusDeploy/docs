@@ -4,6 +4,10 @@ description: Octopus Deploy can use Windows credentials to identify users.
 position: 0
 ---
 
+:::hint
+Active Directory authentication only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
+:::
+
 Octopus Deploy can authenticate users using Windows credentials. Windows AD authentication can be chosen during installation of the Octopus Server, or later through the configuration.
 
 :::hint
