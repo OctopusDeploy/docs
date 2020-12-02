@@ -23,7 +23,7 @@ The guide below provides more information on how to [setup Octopus Deploy](#setu
 
 ### Infrastructure
 
-Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **dev**, **test**, and **Production**.  With Octopus Deploy, your deployment targets can be Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or even an offline package drop.  Organizing your infrastructure into environments lets you define your deployment processes (no matter how many steps, environments, or deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
+Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **Dev**, **Test**, and **Production**.  With Octopus Deploy, your deployment targets can be Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or even an offline package drop.  Organizing your infrastructure into environments lets you define your deployment processes (no matter how many steps, environments, or deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
 
 You can also use [Octopus Runbooks](#octopus-runbooks) to manage the same infrastructure your software is deployed to.  
 
