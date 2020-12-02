@@ -23,7 +23,7 @@ The guide below provides more information on how to [setup Octopus Deploy](#setu
 
 ### Infrastructure
 
-Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **dev**, **test**, and **production**.  With Octopus Deploy, your deployment targets can be Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or even an offline package drop.  Organizing your infrastructure into environments lets you define your deployment processes (no matter how many steps, environments, or deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
+Octopus Deploy organizes your deployment targets (the machines and services you deploy software to) into groups called environments. Typical environments are **dev**, **test**, and **Production**.  With Octopus Deploy, your deployment targets can be Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes Clusters, Cloud Regions, or even an offline package drop.  Organizing your infrastructure into environments lets you define your deployment processes (no matter how many steps, environments, or deployment targets are involved) and have Octopus deploy the right versions of your software, with the right configuration, to the right environments at the right time.
 
 You can also use [Octopus Runbooks](#octopus-runbooks) to manage the same infrastructure your software is deployed to.  
 
@@ -71,7 +71,7 @@ Once you setup Octopus Deploy, login to the Octopus Web Portal.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tPb6CLHyNLA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Octopus organizes the servers and services where you deploy your software into environments. Typical environments are **Dev**, **Test**, and ** production**, and they represent the stages of your deployment pipeline.
+Octopus organizes the servers and services where you deploy your software into environments. Typical environments are **Dev**, **Test**, and **Production**, and they represent the stages of your deployment pipeline.
 
 ![Typical environments in the Octopus Web Portal](images/environments.png)
 
@@ -225,7 +225,7 @@ The manual intervention step accomplishes approvals in Octopus Deploy.  A deploy
 1. Scroll down and click **ADD** on the **Manual Intervention Required** tile.
 1. Accept the default name for the script and leave the **Enabled** check-box ticked.
 1. Leave the **Container Image** set on the default.
-1. Enter "Please verify the production environment is ready before proceeding" in the **Instructions**.
+1. Enter "Please verify the Production environment is ready before proceeding" in the **Instructions**.
 1. Select "Octopus Administrators" and "Octopus Managers" as **Responsible Teams**
 1. Select "Run only for specific environments" and select *Production* in the **Environments** conditions.
 1. Click the **SAVE** button.
@@ -236,7 +236,7 @@ Right now, the step is configured to execute after the hello world script runs. 
 1. Reorder the steps, so the manual intervention is the first one on the list.
 1. Click on **DONE** and then click on **SAVE**.
 
-Please create a new release and deploy it through to ** production**.  You will see the approval step being skipped in *Development* and *Testing*.  When you deploy to ** production** the deployment will pause, and you will need to approve it before continuing.
+Please create a new release and deploy it through to **Production**.  You will see the approval step being skipped in *Development* and *Testing*.  When you deploy to **Production** the deployment will pause, and you will need to approve it before continuing.
 
 ![Manual intervention is required in production](images/manual-interventions.png)
 
