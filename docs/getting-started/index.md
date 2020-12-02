@@ -114,7 +114,7 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 1. Select the **Script** tile to filter the types of steps.
 1. Scroll down and click **ADD** on the **Run a Script** tile.
 1. Accept the default name for the script and leave the **Enabled** check-box ticked.
-1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).
+1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).  If you are using Octopus Cloud and want to use Bash scripts change the worker pool from **Default Worker Pool** to **Hosted Ubuntu**.
 1. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
 
 ```powershell PowerShell
@@ -125,7 +125,7 @@ echo "Hello, World!"
 ```
 
 :::hint
-If you using Octopus Cloud, Bash scripts require you to select the `Hosted Ubuntu` worker pool.  The `Default Worker Pool` is running Windows and doesn't have Bash installed.
+If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 
 8. Click **SAVE**.
@@ -196,7 +196,7 @@ echo $greeting
 ```
 
 :::hint
-If you using Octopus Cloud, Bash scripts require you to select the `Hosted Ubuntu` worker pool.  The `Default Worker Pool` is running Windows and doesn't have Bash installed.
+If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
 :::
 
 4. Click the **SAVE** button and create a new release.
