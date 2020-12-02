@@ -31,9 +31,7 @@ The steps for this are:
 
 ## Rollback failed upgrade
 
-While unlikely, an upgrade may fail.  It could fail on a database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  When that happens, it is time to rollback to a previous version.
-
-Minor and patch releases are generally the easiest of the scenarios to rollback.  The process will be:
+While unlikely, an upgrade may fail.  It could fail on a database upgrade script, SQL Server version is no longer supported, license check validation, or plain old bad luck.  When that happens, it is time to rollback to a previous version.  Minor and patch releases are generally the easiest of the scenarios to rollback.  The process will be:
 
 1. Restore the database backup.
 1. Download and install the previously installed version of Octopus Deploy.
