@@ -95,6 +95,14 @@ This will display output similar to the following:
 Adding 1 trusted Octopus Servers
 These changes require a restart of the Tentacle.
 ```
+You will need to restart each tentacle at this point: 
+```powershell Windows
+tentacle.exe service --restart
+```
+```bash Linux
+./Tentacle service --restart
+```
+
 
 4. Now that the Tentacles all trust the new certificate, we can update the Octopus Server certificate to the new one we created earlier. In the command prompt on the Octopus Server run:
 
@@ -117,7 +125,6 @@ The certificate CN=Octopus Portal was updated; old thumbprint = 1111111111111111
 Certificate imported successfully.
 These changes require a restart of the Octopus Server.
 ```
-
 5. Run a healthcheck on the associated Tentacles and confirm they are all healthy.
 
 6. Now we are trusting the new certificate, we can now stop the Tentacles trusting the old certificate. On each of the Tentacle machines run:
