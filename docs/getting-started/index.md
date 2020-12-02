@@ -19,7 +19,7 @@ As an Octopus user, you define the process for deploying your applications. You 
 
 You can install your own self-hosted instance of the **Octopus Server** or use the hosted version **Octopus Cloud**. Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
 
-The guide below provides more information on how to [setup Octopus Deploy](#setup-octopus-deploy)
+The guide below provides more information on how to [setup Octopus Deploy](#setup-octopus-deploy).
 
 ### Infrastructure
 
