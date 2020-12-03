@@ -5,7 +5,9 @@ description:  Migrating between self-hosted and Octopus Cloud.
 ---
 
 :::warning
-Migrations between self-hosted and Octopus Cloud are currently on hold. We are developing a new feature that will allow seamless migrations to Octopus Cloud - you can find further details on our [Roadmap](https://octopus.com/company/roadmap). Please note that our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
+Migrations between self-hosted and Octopus Cloud are currently **on hold**. We are developing a new feature that will allow seamless migrations to Octopus Cloud - you can find further details on our [Roadmap](https://octopus.com/company/roadmap). 
+
+Please note that our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
 :::
 
 ## Migrating to Octopus Cloud
