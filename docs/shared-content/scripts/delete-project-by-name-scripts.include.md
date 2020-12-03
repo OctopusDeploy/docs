@@ -5,6 +5,7 @@ $ErrorActionPreference = "Stop";
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
+$spaceName = "default"
 $projectName = "MyProject"
 
 # Get space
