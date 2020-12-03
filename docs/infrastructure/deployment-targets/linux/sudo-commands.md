@@ -63,7 +63,7 @@ Alternatively you can make this configuration more precise by targeting specific
 
 :::problem
 **Be Selective with Permissions**
-Ideally your Octopus Deploy ssh endpoint should be configured with a special user user solely for the purposes of running deployments. In this case you should consider configuring just that user's sudo capabilities to be limited to those commands needed to execute the deployment scripts.
+Ideally your Octopus Deploy ssh endpoint should be configured with a special user solely for the purposes of running deployments. In this case you should consider configuring just that user's sudo capabilities to be limited to those commands needed to execute the deployment scripts.
 :::
 
 :::warning
