@@ -1,1 +1,1 @@
-octopusdeploy/octopus-cli-run:0.20.0
+octopusdeploy/octopus-cli-run:0.21.0
