@@ -20,9 +20,23 @@ Octopus Deploy connects to a SQL Server database, and can be hosted:
 
 ### Upgrade Process
 
-The typical upgrade process is:
+When running on Windows, the typical upgrade process is:
 - Run the MSI to install the latest binaries.
 - After the MSI finishes, it will close, and the **Octopus Manager** is launched to update each instance.
+
+Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur.  The upgrade should take anywhere from a minute to 30 minutes to complete depending on the number of database changes, the database's size, and compute resources.  A good rule of thumb is: the greater the delta between versions, the longer the downtime.  An upgrade from 2019.2.1 to 2020.5.1 will generally take longer than an upgrade from 2020.4.1 to 2020.5.1.  
+
+:::hint
+[Automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) will help reduce the total upgrade time.  Automation also mitigates risk, as all steps, including backups, will be followed.  We've found companies who automate their upgrade process are much more likely to stay up to date.  The smaller the delta between versions, the faster the upgrade.
+:::
+
+### Upgrading a highly available Octopus Deploy instance
+
+You are required to install the latest MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
+
+:::warning
+A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrade the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automate your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) to reduce that outage window.
+:::
 
 ### Components
 
