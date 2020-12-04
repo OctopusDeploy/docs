@@ -35,7 +35,7 @@ Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur. 
 You are required to install the latest MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
 
 :::warning
-A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrading the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) to reduce that outage window.
+A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrade the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automate your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) to reduce that outage window.
 :::
 
 ### Components
