@@ -24,7 +24,7 @@ When running on Windows, the typical upgrade process is:
 - Run the MSI to install the latest binaries.
 - After the MSI finishes, it will close, and the **Octopus Manager** is launched to update each instance.
 
-Once the **Octopus Manager** starts, the upgrade process downtime _will_ occur.  The upgrade should take anywhere from a minute to 30 minutes to complete depending on the number of database changes, the database's size, and compute resources.  A good rule of thumb is: the greater the delta between versions, the longer the downtime.  An upgrade from 2019.2.1 to 2020.5.1 will generally take much more time than an upgrade from 2020.4.1 to 2020.5.1.  
+Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur.  The upgrade should take anywhere from a minute to 30 minutes to complete depending on the number of database changes, the database's size, and compute resources.  A good rule of thumb is: the greater the delta between versions, the longer the downtime.  An upgrade from 2019.2.1 to 2020.5.1 will generally take longer than an upgrade from 2020.4.1 to 2020.5.1.  
 
 :::hint
 [Automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) will help reduce the total time to upgrade.  Automation also mitigates risk, as all steps, including backups, will be followed.  We've found companies who automate their upgrade process are much more likely to stay up to date.  The smaller the delta between versions, the faster the upgrade.
