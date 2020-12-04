@@ -37,19 +37,25 @@ The guide below provides more information on how to [package your software](#pac
 
 ## Hello World
 
-The best way to learn something new is through hands-on interaction.  One of the first tasks when learning a new programming language is to create something that prints "hello world."  By the end of this guide, you will learn the fundamentals of how to:
+The best way to learn something new is through hands-on interaction.  One of the first tasks when learning a new programming language is to create something that prints "hello world."  This guide will walk you through your first "hello world" deployment.
+
+:::hint
+It will take 25-35 minutes to complete all the steps in this guide.  
+:::
+
+By the end of this guide, you will understand the fundamentals of how to:
 
 - Configure environments
 - Create projects
 - Define a deployment process
 - Create a release and deploy it
-- Use variables in the deployment process
+- Use variables in the deployment process with environment scoping
 - Configuring and installing deployment targets
 - Deploying a package to the deployment targets
 
 ### Setup Octopus Deploy {#setup-octopus-deploy}
 
-Before configuring a hello world deployment, you need to set up Octopus Deploy.  You have a choice of three.
+Before configuring a hello world deployment, you need to set up Octopus Deploy.  
 
 1. Octopus Cloud -> we host everything for you.  Learn more about [getting started](https://octopus.com/start/cloud).
 2. Self-hosted on a Windows Server -> you host it on your infrastructure by [downloading our MSI](https://octopus.com/download) and installing it onto a Windows Server with a SQL Server backend.  Learn more about [our installation requirements](https://octopus.com/docs/installation/requirements).

@@ -12,10 +12,12 @@ The process should look something like this:
 1. Enable maintenance mode.
 1. Stop all the nodes.
 1. Backup the database.
-1. Select one node to upgrade, wait until finished.
+1. Select one node to upgrade, wait until finished.  
 1. Upgrade all remaining nodes.
 1. Start all remaining stopped nodes.
 1. Test upgraded instance.
 1. Disable maintenance mode.
 
-Please see the documentation on [automating upgrades](/docs/administration/upgrading/guide/automate-upgrades.md) to make that process much easier.
+:::warning
+A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrading the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) to reduce that outage window.
+:::
