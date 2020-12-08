@@ -1,5 +1,5 @@
 ---
-title: Provision an Azure an Azure App Service
+title: Provision an Azure App Service
 description: Provision an Azure App Service using a runbook
 position: 20
 ---
