@@ -14,16 +14,15 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 
 ## Integrating with GitHub Actions
 
-When using Octopus Deploy with GitHub Actions, the workflow will be responsible for:
+Octopus Deploy has a custom GitHub Action, [install-octocli](https://github.com/marketplace/actions/install-octopus-cli).
 
-- Checking for changes in source control.
-- Compiling the code.
-- Running unit tests.
-- Creating packages for deployment.
+The GitHub Action `install-octocli` installs the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on any operating system, including:
+- Windows
+- MacOS
+- Linux
+- Self-Hosted Runners
 
-Octopus Deploy will be used to take those packages and to push them to development, test, and production environments.
-
-Octopus Deploy can be integrated with GitHub Actions using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md).  The Octopus CLI can be downloaded directly from our website or using popular package management software such as APT for Ubuntu, Chocolatey for Windows and Homebrew for MacOS.  All GitHub-hosted runners include the same package management software.
+Once the Octopus Deploy CLI is installed, you can perform any action that you would on the terminal using the CLI.
 
 ## GitHub Actions secrets
 
@@ -42,112 +41,97 @@ When you create your first GitHub Action for your repository, GitHub stores the 
 
 ### Example workflows
 
-Here's an example workflow that demonstrates using the Octopus CLI tooling, which packs the current state of your repository into a zip file, and then pushes that package to Octopus Deploy.  
+Here's a few example workflows for Linux, MacOS, and Windows to list deployments from an Octopus Deploy instance.
 
 :::warning
 GitHub Actions includes a number of [default environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables).  These examples use those plus encrypted secrets from above.
 :::
 
 ```yml Ubuntu Runner
-name: Package Website
-
-on:
-  push:
-    branches:
-      - master
+name: listdeployments
 
 env:
-    PACKAGE_PREFIX: 2020.1.1
-    OCTOPUS_PROJECT_NAME: MyApp.Web
-    OCTOPUS_SPACE_NAME: Default
-    OCTOPUS_ENVIRONMENT_NAME: Development
+  serverURL: your_server_name
+
+on:
+   push:
+     branches: [ main ]
+   pull_request:
+     branches: [ main ]
+
 jobs:
+
   build:
-
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       
-    - name: Set version
-      id: set-version
-      run: echo "::set-env name=PACKAGE_VERSION::$PACKAGE_PREFIX.$GITHUB_RUN_NUMBER"
-    
-    - name: Make package directories
-      run: mkdir -p ./packagesoutput/          
-    
-    - name: Install Octopus CLI
-      run: |
-        sudo apt update && sudo apt install --no-install-recommends gnupg curl ca-certificates apt-transport-https && \
-        curl -sSfL https://apt.octopus.com/public.key | sudo apt-key add - && \
-        sudo sh -c "echo deb https://apt.octopus.com/ stable main > /etc/apt/sources.list.d/octopus.com.list" && \
-        sudo apt update && sudo apt install octopuscli 
-      
-    - name: Build and Package Website
-      run: dotnet publish ./src/MyApp/MyApp.Web.csproj --output ./packagesoutput/MyApp.Web/ --configuration Release --runtime linux-x64
-
-    - name: Package and Push to Octopus
-      run: |
-        octo pack --id="MyApp.Web" --format="Zip" --version="$PACKAGE_VERSION" --basePath="./packagesoutput/MyApp.Web" --outFolder="./packages"
-
-        octo push --package="./packages/MyApp.Web.$PACKAGE_VERSION.zip" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}"
-
-    - name: Create and Deploy Release
-      run: octo create-release --project="$OCTOPUS_PROJECT_NAME" --packageVersion="$PACKAGE_VERSION" --releaseNumber="$PACKAGE_VERSION" --server="${{ secrets.OCTOPUS_SERVER }}" --apiKey="${{ secrets.OCTOPUS_APIKEY }}" --space="$OCTOPUS_SPACE_NAME" --deployTo="$OCTOPUS_ENVIRONMENT_NAME"
+      - name: install Octopus Deploy CLI
+        uses: OctopusDeploy/install-octocli@v1
+        with:
+          version: 7.4.2
+          
+      - name: list-octopusdeploy-deployments
+        run: octo list-deployments --server=${{ env.serverURL }} --apiKey=${{ secrets.apiKey }}
 ```
 
 ```yml Windows Runner
-name: Package Website
-
-on:
-  push:
-    branches:
-      - master
+name: listdeployments
 
 env:
-    PACKAGE_PREFIX: 2020.1.1
-    OCTOPUS_PROJECT_NAME: MyApp.Web
-    OCTOPUS_SPACE_NAME: Default
-    OCTOPUS_ENVIRONMENT_NAME: Development
+  serverURL: your_server_name
+
+on:
+   push:
+     branches: [ main ]
+   pull_request:
+     branches: [ main ]
+
 jobs:
+
   build:
-
+    name: Build
     runs-on: windows-latest
-
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       
-    - name: Set version
-      id: set-version
-      run: echo "::set-env name=PACKAGE_VERSION::${env:PACKAGE_PREFIX}.${env:GITHUB_RUN_NUMBER}"
-      shell: powershell
-    
-    - name: Make package directories
-      run: New-Item "$PSScriptRoot\packagesoutput\" -ItemType Directory -Force
-      shell: powershell
-    
-    - name: Install Octopus CLI
-      run: choco install octopustools -y
-      shell: powershell
+      - name: install Octopus Deploy CLI
+        uses: OctopusDeploy/install-octocli@v1
+        with:
+          version: 7.4.2
+          
+      - name: list-octopusdeploy-deployments
+        run: octo list-deployments --server=${{ env.serverURL }} --apiKey=${{ secrets.apiKey }}
+```
+
+```yml MacOS Runner
+name: listdeployments
+
+env:
+  serverURL: your_server_name
+
+on:
+   push:
+     branches: [ main ]
+   pull_request:
+     branches: [ main ]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
       
-    - name: Build and Package Website
-      run: dotnet publish ./src/MyApp/MyApp.Web.csproj --output "$PSScriptRoot\packagesoutput\MyApp.Web" --configuration Release
-      shell: powershell
-
-    - name: Package and Push to Octopus
-      env:
-        OCTOPUS_URL: ${{ secrets.OCTOPUS_SERVER }}
-        OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_APIKEY }}  
-      run: |
-        octo pack --id="MyApp.Web" --format="Zip" --version="${env:PACKAGE_VERSION}" --basePath="$PSScriptRoot\packagesoutput\MyApp.Web" --outFolder="packages"
-
-        octo push --package="packages\MyApp.Web.${env:PACKAGE_VERSION}.zip" --server="${env:OCTOPUS_URL}" --apiKey="${env:OCTOPUS_API_KEY}"
-
-    - name: Create and Deploy Release
-      env:
-        OCTOPUS_URL: ${{ secrets.OCTOPUS_SERVER }}
-        OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_APIKEY }} 
-      run: octo create-release --project="$OCTOPUS_PROJECT_NAME" --packageVersion="${env:PACKAGE_VERSION}" --releaseNumber="${env:PACKAGE_VERSION}" --server="${env:OCTOPUS_URL}" --apiKey="${env:OCTOPUS_API_KEY}" --space="${env:OCTOPUS_SPACE_NAME}" --deployTo="${env:OCTOPUS_ENVIRONMENT_NAME}"
+      - name: install Octopus Deploy CLI
+        uses: OctopusDeploy/install-octocli@v1
+        with:
+          version: 7.4.2
+          
+      - name: list-octopusdeploy-deployments
+        run: octo list-deployments --server=${{ env.serverURL }} --apiKey=${{ secrets.apiKey }}
 ```
 
 :::success
