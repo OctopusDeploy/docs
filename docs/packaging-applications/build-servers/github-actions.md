@@ -16,7 +16,7 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 
 Octopus Deploy has a custom GitHub Action, [install-octocli](https://github.com/marketplace/actions/install-octopus-cli).
 
-install-octocli installs the [Octopus Deploy CLI](https://octopus.com/docs/octopus-rest-api/octopus-cli) on any operating system, including:
+The GitHub Action `install-octocli` installs the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on any operating system, including:
 - Windows
 - MacOS
 - Linux
