@@ -41,7 +41,7 @@ When you create your first GitHub Action for your repository, GitHub stores the 
 
 ### Example workflows
 
-Here's a few example workflows for Linux, MacOS, and Windows to list deployments from a specific Octopus Deploy server.
+Here's a few example workflows for Linux, MacOS, and Windows to list deployments from an Octopus Deploy instance.
 
 :::warning
 GitHub Actions includes a number of [default environment variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables).  These examples use those plus encrypted secrets from above.
