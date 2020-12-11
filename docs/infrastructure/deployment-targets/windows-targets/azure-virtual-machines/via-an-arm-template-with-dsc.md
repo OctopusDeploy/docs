@@ -482,7 +482,7 @@ az group deployment create \
     --parameters "@arm-template.parameters.json"
 ```
 
-### Troubleshooting 
+## Troubleshooting 
 
 To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
 
