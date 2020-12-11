@@ -486,7 +486,7 @@ az group deployment create \
 
 To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
 
-In addition to this, if you're able to remote on the machine in question to find out the state of DSC, these two commands may offer diagnostic information:
+If you have remote access to the machine you are troubleshooting the installation for, these two commands may offer diagnostic information about the state of DSC:
 
 * The [`Test-DscConfiguration`](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine. 
 * The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/en-us/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.
