@@ -200,6 +200,8 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 !include <quickstart-archive-linux-arm64>
 
+!include <quickstart-archive-linux-arm32>
+
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
