@@ -55,67 +55,64 @@ users:
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/deployment-targets/tokens.md) account.
     - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/deployment-targets/azure/index.md) allow Azure Active Directory accounts to be used.
 
-    :::hint
-    The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
-    :::
+      The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
-    :::hint
-    Selecting the **Login with administrator credentials** option, available since Octopus 2020.6, may be required to authenticate with an AKS cluster with Azure Active Directory integration, as this is the only way to perform a non-interactive login. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
-    :::
+      :::hint
+      Available from **Octopus 2020.6**, the **Login with administrator credentials** option may be required to authenticate with an AKS cluster with Azure Active Directory integration, as performing a non-interactive login with `kubectl` is not currently available. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
+      :::
 
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) allow IAM accounts and roles to be used.
 
-    The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. You will certainly want to read the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).  A few frequently encountered snares are listed below:   
+      The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. We highly recommend reading the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).    
 
-    :::hint
-    If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
-    :::
+      :::hint
+      **Common issues:**
+      If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
 
-    :::hint
-    The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
+      The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
 
-    When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
-    :::
+      When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
+      :::
     - **Client Certificate**: When authenticating with certificates, both the certificate and private key must be provided.
 
-    In the example YAML above, the `client-certificate-data` field is a base 64 encoded certificate, and the `client-key-data` field is a base 64 encoded private key (both have been truncated for readability in this example).
+      In the example YAML above, the `client-certificate-data` field is a base 64 encoded certificate, and the `client-key-data` field is a base 64 encoded private key (both have been truncated for readability in this example).
 
-    The certificate and private key can be combined and saved in a single pfx file. The script below accepts the base 64 encoded certificate and private key and uses the [Windows OpenSSL binary from Shining Light Productions](http://g.octopushq.com/OpenSSLWindows) to save them in a single pfx file.
+      The certificate and private key can be combined and saved in a single pfx file. The script below accepts the base 64 encoded certificate and private key and uses the [Windows OpenSSL binary from Shining Light Productions](http://g.octopushq.com/OpenSSLWindows) to save them in a single pfx file.
 
-    ```Powershell
-    param (
-      [Parameter(Mandatory = $true)]
-      [string]$Certificate,
-      [Parameter(Mandatory = $true)]
-      [string]$PrivateKey
-    )
+      ```Powershell
+      param (
+        [Parameter(Mandatory = $true)]
+        [string]$Certificate,
+        [Parameter(Mandatory = $true)]
+        [string]$PrivateKey
+      )
 
-    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate)) | `
-    	Set-Content -Path certificate.crt
-    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($PrivateKey)) | `
-    	Set-Content -Path private.key
-    C:\OpenSSL-Win32\bin\openssl pkcs12 `
-      -passout pass: `
-      -export `
-      -out certificateandkey.pfx `
-      -in certificate.crt `
-      -inkey private.key
-    ```
-    ```bash
-    #!/bin/bash
-    echo $1 | base64 --decode > certificate.crt
-    echo $2 | base64 --decode > private.key
-    openssl pkcs12 \
-      -passout pass: \
-      -export \
-      -out certificateandkey.pfx \
-      -in certificate.crt \
-      -inkey private.key
-    ```
+      [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Certificate)) | `
+        Set-Content -Path certificate.crt
+      [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($PrivateKey)) | `
+        Set-Content -Path private.key
+      C:\OpenSSL-Win32\bin\openssl pkcs12 `
+        -passout pass: `
+        -export `
+        -out certificateandkey.pfx `
+        -in certificate.crt `
+        -inkey private.key
+      ```
+      ```bash
+      #!/bin/bash
+      echo $1 | base64 --decode > certificate.crt
+      echo $2 | base64 --decode > private.key
+      openssl pkcs12 \
+        -passout pass: \
+        -export \
+        -out certificateandkey.pfx \
+        -in certificate.crt \
+        -inkey private.key
+      ```
 
-    This file can then be uploaded to the [Octopus certificate management area](/docs/deployment-examples/certificates/index.md), after which, it will be made available to the Kubernetes target.
+      This file can then be uploaded to the [Octopus certificate management area](/docs/deployment-examples/certificates/index.md), after which, it will be made available to the Kubernetes target.
 
-    The Certificates Library can be access via **{{Library>Certificates}}**.
+      The Certificates Library can be accessed via **{{Library>Certificates}}**.
 
 7. Enter the Kubernetes cluster URL. Each Kubernetes target requires the cluster URL, which is defined in the `Kubernetes cluster URL` field. In the example YAML about, this is defined in the `server` field.
 8. Optionally, select the certificate authority if you've added one. Kubernetes clusters are often protected with self-signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.
