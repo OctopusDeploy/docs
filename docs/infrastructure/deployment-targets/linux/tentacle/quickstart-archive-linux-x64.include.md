@@ -1,4 +1,14 @@
-### Archive (Linux x64)
+### Archive
+
+::info
+Ensure you are using the correct architecture variable for your platform (x64, arm, arm64)
+:::
+
+:::warning
+Linux Arm and Arm64 support is currently experimental.
+Requires Octopus Server 2020.5.0+
+:::
+
 
 ```bash Listening deployment target
 serverUrl="https://my-octopus"   # The url of your Octous server
@@ -10,10 +20,14 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl -L https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-linux_x64.tar.gz
+arch="x64" 
+# arch="arm" # for Raspbian 32-bit
+# arch="arm64" # for 64-bit OS on ARM v7+ hardware
+
+curl -L https://octopus.com/downloads/latest/Linux_${arch}TarGz/OctopusTentacle --output tentacle-linux_${arch}.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
+tar xvzf tentacle-linux_${arch}.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -34,10 +48,14 @@ role="web server"   # The role to assign to the Tentacle
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl -L https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-linux_x64.tar.gz
+arch="x64" 
+# arch="arm" # for Raspbian 32-bit
+# arch="arm64" # for 64-bit OS on ARM v7+ hardware
+
+curl -L https://octopus.com/downloads/latest/Linux_${arch}TarGz/OctopusTentacle --output tentacle-linux_${arch}.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
+tar xvzf tentacle-linux_${arch}.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -56,10 +74,14 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl -L https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-linux_x64.tar.gz
+arch="x64" 
+# arch="arm" # for Raspbian 32-bit
+# arch="arm64" # for 64-bit OS on ARM v7+ hardware
+
+curl -L https://octopus.com/downloads/latest/Linux_${arch}TarGz/OctopusTentacle --output tentacle-linux_${arch}.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
+tar xvzf tentacle-linux_${arch}.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -79,10 +101,14 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
-curl -L https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-linux_x64.tar.gz
+arch="x64" 
+# arch="arm" # for Raspbian 32-bit
+# arch="arm64" # for 64-bit OS on ARM v7+ hardware
+
+curl -L https://octopus.com/downloads/latest/Linux_${arch}TarGz/OctopusTentacle --output tentacle-linux_${arch}.tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
+tar xvzf tentacle-linux_${arch}.tar.gz -C /opt/octopus
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
