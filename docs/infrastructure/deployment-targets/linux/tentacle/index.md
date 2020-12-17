@@ -196,11 +196,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 !include <quickstart-fedora>
 
-!include <quickstart-archive-linux-x64>
-
-!include <quickstart-archive-linux-arm64>
-
-!include <quickstart-archive-linux-arm32>
+!include <quickstart-archive>
 
 ## Learn more
 
