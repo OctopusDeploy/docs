@@ -61,7 +61,7 @@ Make a copy of the Master Key and save it in a **secure** location.
 :::warning
 **Warning**
 
-If you don't have a copy of your Master Key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **Master Key** and save it in a secure location. Hopefully you will never need it, but you'll glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
+If you don't have a copy of your Master Key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **Master Key** and save it in a secure location. Hopefully you will never need it, but you'll be glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
 :::
 
 ## Launch the Octopus Web Portal
