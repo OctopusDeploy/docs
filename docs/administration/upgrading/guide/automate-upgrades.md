@@ -167,9 +167,9 @@ sqlcmd -S 'sqlserver.octopus.app' -Q "BACKUP DATABASE [OctopusDeploy] TO DISK = 
 msiexec /i "${env:TEMP}\$msiFilename" /quiet | Out-Null
 
 # Upgrade database and restart service
-& .\Octopus.Server.exe database --instance="OctopusServer" --upgrade
-& .\Octopus.Server.exe service --instance="OctopusServer" --start
-& .\Octopus.Server.exe node --instance="OctopusServer" --drain=false
+& $installPath\Octopus.Server.exe database --instance="OctopusServer" --upgrade
+& $installPath\Octopus.Server.exe service --instance="OctopusServer" --start
+& $installPath\Octopus.Server.exe node --instance="OctopusServer" --drain=false
 
 Remove-Item "${env:TEMP}\$msiFilename"
 ```
