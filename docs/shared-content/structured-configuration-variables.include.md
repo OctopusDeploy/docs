@@ -59,6 +59,8 @@ The **Target File** field also supports [Variable Substitution Syntax](/docs/pro
 
 If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, if the extension is `xml`, the file will be parsed as XML, and finally if the extension is `properties` the file will be parsed as a Java Properties format.
 
+If the file extension is not recognised (for example, a file with a `config` file extension), Octopus will try to parse the files using each of the supported formats until a matching format is found.
+
 ### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
 
 Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`. In XML files, structures can be identified by setting Octopus variable names to XPath expressions. Finally, Java Properties files have their keys matched against Octopus variable names. An example for each supported file type can be found in the following table:
