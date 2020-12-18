@@ -59,7 +59,7 @@ The **Target File** field also supports [Variable Substitution Syntax](/docs/pro
 
 If the file doesn't parse as JSON, Octopus refers to its file extension. If it is `yaml` or `yml`, the file will be parsed as YAML, if the extension is `xml`, the file will be parsed as XML, and finally if the extension is `properties` the file will be parsed as a Java Properties format.
 
-If the file extension is not recognised (for example, a file with a `config` file extension), Octopus will try to parse the files using each of the supported formats until a matching format is found.
+If the file extension is not recognized (for example, a file with a `config` file extension), Octopus will try to parse the files using each of the supported formats until a matching format is found.
 
 ### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
 
