@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "octopus.creditsfilegenerator.tool": {
+      "version": "1.0.187",
+      "commands": [
+        "octopus-creditsfilegenerator"
+      ]
+    }
+  }
+}
