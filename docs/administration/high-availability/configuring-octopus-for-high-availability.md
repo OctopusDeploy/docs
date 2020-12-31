@@ -116,7 +116,7 @@ There are two options for configuring shared storage: setting the root shared st
 The first option was added in 2020.2.15. If using an earlier version then you will need to use the second option and set each folder path individually.
 :::
 
-Set the root shared storage directory when all of the shared directories will reside under the same root. Each shared diretory will reside in a sub-directory under the directory that you specify:
+Set the root shared storage directory when all of the shared directories will reside under the same root. Each shared directory will reside in a sub-directory under the directory that you specify:
 
 ```powershell
 Octopus.Server.exe path --clusterShared \\OctoShared\OctopusData
