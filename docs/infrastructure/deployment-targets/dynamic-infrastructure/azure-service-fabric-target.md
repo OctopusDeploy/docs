@@ -7,19 +7,20 @@ position: 30
 ## Azure Service Fabric
 Command: **_New-OctopusAzureServiceFabricTarget_**
 
-| Parameter                       | Value                                                       |
-| ------------------------------- | -------------------------------------------------           |
-| `-name`                         | Name for the Octopus deployment target                      |
-| `-azureConnectionEndpoint`      | Connection endpoint for the Service Fabric Cluster          |
-| `-azureSecurityMode`            | Security mode, use one of the aliases in the table below    |
-| `-azureCertificateThumbprint`   | Certificate thumbprint of the Azure Certificate             |
-| `-azureActiveDirectoryUsername` | Username for accessing the Service Fabric Cluster           |
-| `-azureActiveDirectoryPassword` | Password for accessing the Service Fabric Cluster           |
-| `-certificateStoreLocation`     | (Optional) Override the default certificate store location  |
-| `-certificateStoreName`         | (Optional) Override the default certificate store name      |
-| `-octopusCertificateIdOrName`   | Name or Id of the Certificate Resource in Octopus           |
-| `-octopusRoles`                 | Comma separated list of Roles to assign                     |
-| `-updateIfExisting`           | Will update an existing Service Fabric target with the same name, create if it doesn't exist |
+| Parameter                           | Value                                                       |
+| ----------------------------------- | -------------------------------------------------           |
+| `-name`                             | Name for the Octopus deployment target                      |
+| `-azureConnectionEndpoint`          | Connection endpoint for the Service Fabric Cluster          |
+| `-azureSecurityMode`                | Security mode, use one of the aliases in the table below    |
+| `-azureCertificateThumbprint`       | Certificate thumbprint of the Azure Certificate             |
+| `-azureActiveDirectoryUsername`     | Username for accessing the Service Fabric Cluster           |
+| `-azureActiveDirectoryPassword`     | Password for accessing the Service Fabric Cluster           |
+| `-certificateStoreLocation`         | (Optional) Override the default certificate store location  |
+| `-certificateStoreName`             | (Optional) Override the default certificate store name      |
+| `-octopusCertificateIdOrName`       | Name or Id of the Certificate Resource in Octopus           |
+| `-octopusRoles`                     | Comma separated list of Roles to assign                     |
+| `-updateIfExisting`                 | Will update an existing Service Fabric target with the same name, create if it doesn't exist |
+| `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0. |
 
 _Security Mode Options_
 

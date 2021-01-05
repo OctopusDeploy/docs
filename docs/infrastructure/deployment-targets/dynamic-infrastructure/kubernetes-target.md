@@ -20,6 +20,7 @@ Command: **_New-OctopusKubernetesTarget_**
 | `-namespace`                         | The default kubectl namespace.  |
 | `-updateIfExisting`                  | Will update an existing Kubernetes target with the same name, create if it doesn't exist.  |
 | `-skipTlsVerification`               | The server's certificate will not be checked for validity. This will make your HTTPS connections insecure.  |
+| `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0. |
 
 ### Examples
 
