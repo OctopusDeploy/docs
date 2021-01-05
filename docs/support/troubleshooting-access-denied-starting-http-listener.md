@@ -12,8 +12,7 @@ When the user that launches Octopus does not have these permissions, you will re
 An Access Denied error was received trying to start the HttpListener.
 ```
 
-
-# Linux
+## Linux
 
 On Linux (and other *nix variants), elevated privileges are required to listen on ports lower than 1024. To resolve this issue, you have several options:
 
@@ -23,7 +22,7 @@ On Linux (and other *nix variants), elevated privileges are required to listen o
     1. Use `authbind` to grant one-time access to allow acess to a specific user
 1. Finally, though not recommended, you can launch Octopus Server using `sudo`.
 
-# Windows
+## Windows
 
 On Windows, users who are not part of the local Administrators group cannot listen on any port, unless a [URL reservation](https://docs.microsoft.com/en-us/windows-server/networking/technologies/netsh/netsh-http#add-urlacl) is made.
 
