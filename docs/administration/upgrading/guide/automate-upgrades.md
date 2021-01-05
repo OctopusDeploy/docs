@@ -29,7 +29,7 @@ In general, the automatic upgrade process should:
 
 Invoking the `/api` endpoint on your instance, for example [https://samples.octopus.app/api](https://samples.octopus.app/api), will return the version your instance is running.
 
-`octopus.com` publishes a JSON feed of every verion of Octopus Server and its corresponding release date here: `https://octopus.com/download/upgrade/v3`
+We publish a JSON feed of every version of Octopus Server and its corresponding release date here: `https://octopus.com/download/upgrade/v3`
 
 Using these two endpoints, you can write a script that finds an appropriate version to which to upgrade.
 
@@ -41,7 +41,12 @@ $versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3" `
 $upgradeVersion = $versions[-1].Version
 ```
 
-This code selects the newest minor/patch version but will not select a new major version. Intentionally avoiding a major version upgrade in an automation script like this minimizes the potential for unexpected downtime and impact to your Octopus users. **When scripting your upgrade you should consider your organization's comfort level and tolerance for downtime and define your business rules carefully.**
+:::hint
+**Choose business rules to suit your needs**
+This code selects the newest minor/patch version but will not select a new major version. Intentionally avoiding a major version upgrade in an automation script like this minimizes the potential for unexpected downtime and impact to your Octopus users. 
+
+**When scripting your upgrade you should consider your organization's comfort level and tolerance for downtime and define your business rules carefully.**
+:::
 
 ### Downloading the installer
 
@@ -56,7 +61,7 @@ Invoke-WebRequest "https://download.octopusdeploy.com/octopus/$msiFilename" -Out
 
 ### Enabling and disabling maintenance mode
 
-The following snippet will enable maintenance mode if it's not already enabled:
+The following PowerShell script will enable maintenance mode if it's not already enabled:
 
 ```PowerShell
 $apiKey = "API-YOURKEY"
@@ -106,7 +111,7 @@ msiexec /i "${env:TEMP}\$msiFilename" /quiet | Out-Null
 Please run `msiexec.exe` as an administrator.  It is performing an installation, and you will be prompted by Windows to confirm.
 :::
 
-Optionally you can instead use [Chocolatey](https://chocolatey.org) to install Octopus. See the OctopusDeploy chocolatey package website for more details: https://chocolatey.org/packages/OctopusDeploy
+Alternatively, you can use [Chocolatey](https://chocolatey.org) to install Octopus. See the `OctopusDeploy` [chocolatey package](https://chocolatey.org/packages/OctopusDeploy) for further information.
 
 ### Upgrading the database and restarting the service
 
@@ -174,7 +179,7 @@ msiexec /i "${env:TEMP}\$msiFilename" /quiet | Out-Null
 Remove-Item "${env:TEMP}\$msiFilename"
 ```
 
-Depending on the upgrade, your Octopus Server may still be starting up when the script completes. It will still be in maintenance mode, giving you a chance to login to the UI and verify things are working as expected.
+Depending on the duration of the upgrade, your Octopus Server may still be starting up when the script completes. It will still be in maintenance mode, giving you a chance to log in to the Octopus web portal and verify things are working as expected.
 
 ## Upgrading High Availability Octopus Deploy instances
 
