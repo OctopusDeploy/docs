@@ -2,6 +2,7 @@
 title: Blue-green deployments
 description: Implementing blue-green deployments, i.e. having two production environments ("blue" and "green"), with Octopus.
 position: 30
+hideInThisSectionHeader: true
 ---
 
 Blue-green deployments are a pattern whereby we reduce downtime during production deployments by having two separate production environments ("blue" and "green").
