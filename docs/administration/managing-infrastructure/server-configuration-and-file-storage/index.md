@@ -172,11 +172,14 @@ Where `[<options>]` is any of:
 
 ```powershell
       --instance=VALUE       Name of the instance to use
+      --clusterShared=VALUE  Set the root path where shared files will be
+                               stored for Octopus clusters
       --nugetRepository=VALUE
                              Set the package path for the built-in NuGet
                                repository.
       --artifacts=VALUE      Set the path where artifacts are stored.
       --taskLogs=VALUE       Set the path where task logs are stored.
+      --telemetry=VALUE      Set the path where telemetry is stored
 
 Or one of the common options:
       --console              Don't attempt to run as a service, even if the
@@ -204,6 +207,9 @@ The Octopus Server stores files in the following folders by default:
 - `C:\Octopus\TaskLogs`
     - This is where all logs from deployments and other server tasks are stored.
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-TaskLogs) on how to move the Octopus Server task logs folder
+- `C:\Octopus\Telemetry`
+    - This is where all performance and other temporal telemetry files are stored.
+    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Telemetry) on how to move the Octopus Server telemetry folder
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}
 
