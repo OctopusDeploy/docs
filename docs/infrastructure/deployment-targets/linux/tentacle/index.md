@@ -43,7 +43,11 @@ Note that many of the steps described below must be run as a super user using `s
 ### Installing Tentacle
 ```bash Debian/Ubuntu repository
 apt-key adv --fetch-keys https://apt.octopus.com/public.key
+
 add-apt-repository "deb https://apt.octopus.com/ stretch main"
+# for Raspbian use 
+# sh -c "echo 'deb https://apt.octopus.com/ buster main' >> /etc/apt/sources.list"
+
 apt-get update
 apt-get install tentacle
 ```
@@ -54,12 +58,16 @@ yum install tentacle
 ```
 
 ```bash Archive
-wget https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle -O tentacle-linux_x64.tar.gz
+arch="x64" 
+# arch="arm" # for Raspbian 32-bit
+# arch="arm64" # for 64-bit OS on ARM v7+ hardware
+
+wget https://octopus.com/downloads/latest/Linux_$($arch)TarGz/OctopusTentacle -O tentacle-linux_$($arch).tar.gz
 #or
-curl -L https://octopus.com/downloads/latest/Linux_x64TarGz/OctopusTentacle --output tentacle-linux_x64.tar.gz
+curl -L https://octopus.com/downloads/latest/Linux_$($arch)TarGz/OctopusTentacle --output tentacle-linux_$($arch).tar.gz
 
 mkdir /opt/octopus
-tar xvzf tentacle-linux_x64.tar.gz -C /opt/octopus
+tar xvzf tentacle-linux_$($arch).tar.gz -C /opt/octopus
 ```
 
 ### Setting up a Tentacle instance
@@ -196,9 +204,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 !include <quickstart-fedora>
 
-!include <quickstart-archive-linux-x64>
-
-!include <quickstart-archive-linux-arm64>
+!include <quickstart-archive>
 
 ## Learn more
 
