@@ -118,7 +118,7 @@ Then start the services with the commands:
 
 ```
 systemctl start docker-mssql
-systemctl start docker-octopus
+systemctl start docker-octopusdeploy
 ```
 
 ### Environment Variables
