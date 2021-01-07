@@ -1,14 +1,14 @@
 ### Archive
 
-::info
-Ensure you are using the correct architecture variable for your platform (x64, arm, arm64)
+:::info
+Ensure you are using the correct architecture value for your platform (x64, arm, arm64). 
+Uncomment the appropriate `arch` variable in the script.
 :::
 
 :::warning
 Linux Arm and Arm64 support is currently experimental.
 Requires Octopus Server 2020.5.0+
 :::
-
 
 ```bash Listening deployment target
 serverUrl="https://my-octopus"   # The url of your Octous server
