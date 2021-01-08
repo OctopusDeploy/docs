@@ -177,7 +177,7 @@ helm upgrade --install octopus octopus/octopusdeploy --set octopus.acceptEula=Y 
 
 The source code for the Helm chart can be found on [GitHub](https://github.com/OctopusSamples/OctopusHelmChart). The [values.yaml](https://github.com/OctopusSamples/OctopusHelmChart/blob/master/values.yaml) contains comments describing the options available.
 
-For more information on how the helm chart works, especially with regards to high availability deployments, see the blog pos [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image).
+For more information on how the helm chart works, especially with regards to high availability deployments, see the blog post [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image).
 
 ### Service Definition with systemd 
 
@@ -313,3 +313,6 @@ The standard backup and restore procedures for the [data stored on the filesyste
 
  - [Docker blog posts](http://octopus.com/blog/tag/docker)
  - [Linux blog posts](https://octopus.com/blog/tag/linux)
+ - [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image)
+ - [Octopus Deploy on Docker Hub](https://hub.docker.com/r/octopusdeploy/octopusdeploy)
+ - [Octopus Tentacle on Docker Hub](https://hub.docker.com/r/octopusdeploy/tentacle/)
