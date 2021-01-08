@@ -12,7 +12,7 @@ Tentacles set up this way will run *inside a container* and script execution wil
 
 When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Due to some limitations in Windows Containers that have only [recently](https://github.com/moby/moby/issues/25982) been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to remove the duplicated targets.
 
-```PowerShell (Tentacle)
+```PowerShell Deployment Target
 docker run --interactive --detach `
  --name OctopusTentacle `
  --publish 10931:10933 `
@@ -21,9 +21,9 @@ docker run --interactive --detach `
  --env "TargetEnvironment=Development" `
  --env "TargetRole=container-server" `
  --env "ServerUrl=http://172.23.191.1:8065" `
- octopusdeploy/tentacle:3.19.2
+ octopusdeploy/tentacle:6.0.383
 ```
-```PowerShell (Worker)
+```PowerShell Worker
 docker run --interactive --detach `
  --name OctopusWorker `
  --publish 10931:10933 `
@@ -31,7 +31,7 @@ docker run --interactive --detach `
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetWorkerPool=Windows2019Workers" `
  --env "ServerUrl=http://172.23.191.1:8065" `
- octopusdeploy/tentacle:3.19.2
+ octopusdeploy/tentacle:6.0.383
 ```
 
 ## Configuration
