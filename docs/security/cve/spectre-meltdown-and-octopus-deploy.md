@@ -10,9 +10,9 @@ In January 2018 [Google announced](https://googleprojectzero.blogspot.com.au/201
 
 So far, there are three known variants of the issue:
 
-- Variant 1: bounds check bypass ([CVE-2017-5753](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5753)).
-- Variant 2: branch target injection ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)).
-- Variant 3: rogue data cache load ([CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754)).
+- Variant 1: bounds check bypass ([CVE-2017-5753](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5753)).
+- Variant 2: branch target injection ([CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715)).
+- Variant 3: rogue data cache load ([CVE-2017-5754](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5754)).
 
 ## Impact on Octopus Deploy
 

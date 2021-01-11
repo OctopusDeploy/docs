@@ -11,7 +11,7 @@ In addition to Octopus Deploy, the following items are required.  This guide pro
 - Redgate SQL Toolbelt:
     - [14-day free trial](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
 - CI Tool (pick one):
-    - [Jenkins](https://jenkins.io/download)
+    - [Jenkins](https://www.jenkins.io/download/)
     - [TeamCity](https://www.jetbrains.com/teamcity/download/)
     - [Azure DevOps Server](https://azure.microsoft.com/en-us/services/devops/server/)
     - [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014881)
@@ -125,7 +125,7 @@ Octopus Deploy and Redgate provide a number of plugins for several build servers
 
 - Jenkins:
     - [Octopus plugin](https://plugins.jenkins.io/octopusdeploy/).
-    - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci).
+    - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci/).
 - TeamCity:
     - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
     - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).

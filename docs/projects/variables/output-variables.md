@@ -133,7 +133,7 @@ You can set output variables using any of the scripting languages supported by O
 
 ### PowerShell {#Outputvariables-PowerShell}
 
-[PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/WindowsPowerShell)
+[PowerShell Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell/)
 
 From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
@@ -150,7 +150,7 @@ Set-OctopusVariable -name "TestResult" -value "Passed"
 
 ### C# {#Outputvariables-C#}
 
-[ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/ScriptCS)
+[ScriptCS Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/ScriptCS)
 
 From a C# script, you can use the `public static void SetVariable(string name, string value)` method to set the name and value of an output variable.
 
@@ -162,7 +162,7 @@ Octopus.SetVariable("TestResult", "Passed");
 
 ### Bash {#Outputvariables-Bash}
 
-[Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Shared/Integration/Scripting/Bash)
+[Bash Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/Bash)
 
 In a Bash script you can use the `set_octopusvariable` function to set the name and value of an output variable. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
@@ -174,7 +174,7 @@ set_octopusvariable "TestResult" "Passed"
 
 ### F# {#Outputvariables-F#}
 
-[FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/enhancement-fsharpscripts/source/Calamari/Integration/Scripting/FSharp)
+[FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp)
 
 From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
 

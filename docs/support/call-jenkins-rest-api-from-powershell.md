@@ -105,4 +105,4 @@ RelationLink      : {}
  ## Learn more
 
  - [Jira blog posts](https://octopus.com/blog/tag/jira)
- - [PowerShell blog posts](https://octopus.com/blog/powershell)
+ - [PowerShell blog posts](https://octopus.com/blog/tag/powershell)

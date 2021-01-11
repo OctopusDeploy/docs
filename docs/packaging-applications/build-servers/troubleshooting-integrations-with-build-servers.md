@@ -24,7 +24,7 @@ Each of the values marked on the fields above can be seen in the `octo` call mad
 
 ![](images/5672463.png "width=500")
 
-*This is a screenshot of a TeamCity log fragment edited for visual purposes. You can check the real log output in our [Shared TeamCity server](http://teamcity.octopus.com/viewLog.html?buildId=440630&buildTypeId=OctoFX_OctoFX&tab=buildLog&state=1021%2C1023#_state=1021,1023&focus=1024) by logging in as a guest. You might have to click on that link once to login, and then a second time to go to the highlighted line in the log*
+*This is a screenshot of a TeamCity log fragment edited for visual purposes.*
 
 The same holds true for this **Package Application** step in Azure DevOps and its log output:
 

@@ -43,7 +43,7 @@ namespace Octopus.Server.Extensibility.Extensions.Infrastructure.Configuration
 
 Any configuration values contributed by server extensions that have set the "ShowInPortalSummary" property to **True** will be shown in this list with their "Description" property. Any configuration values marked as "IsSensitive" will be blanked out on this screen with \*\*\*\*.
 
-Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.UsernamePassword/Configuration/UsernamePasswordConfigurationStore.cs) and [DirectoryServicesAuthenticationProvider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.DirectoryServices/Configuration/DirectoryServicesConfigurationStore.cs) for examples of how these ConfigurationValues are used.
+Checkout the [UsernamePasswordAuthenticationProvider](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider/blob/master/source/Octopus.Server.Extensibility.Authentication.UsernamePassword/Configuration/UsernamePasswordConfigurationStore.cs) and [DirectoryServicesAuthenticationProvider](https://github.com/OctopusDeploy/DirectoryServicesAuthenticationProvider/blob/master/source/Server/Configuration/DirectoryServicesConfigurationStore.cs) for examples of how these ConfigurationValues are used.
 
 ### ShowInPortalSummary {#ServerConfiguration-ShowInPortalSummary}
 

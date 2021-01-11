@@ -4,7 +4,7 @@ description: Jenkins can work together with Octopus Deploy to create releases, p
 position: 60
 ---
 
-[Jenkins](http://jenkins-ci.org/) is an extendable, open-source continuous integration server that makes build automation easy.
+[Jenkins](https://www.jenkins.io/) is an extendable, open-source continuous integration server that makes build automation easy.
 
 Using Jenkins and Octopus Deploy together, you can:
 
@@ -18,19 +18,19 @@ Octopus Deploy will take those packages and push them to development, test, and 
 
 ## Jenkins installation
 
-If you need guidance installing Jenkins for the first time, see the [Jenkins documentation](https://jenkins.io/doc/book/installing/), or the blog post, [installing Jenkins from Scratch](https://octopus.com/blog/installing-jenkins-from-scratch).
+If you need guidance installing Jenkins for the first time, see the [Jenkins documentation](https://www.jenkins.io/doc/book/installing/), or the blog post, [installing Jenkins from Scratch](https://octopus.com/blog/installing-jenkins-from-scratch).
 
 ## Install the Octopus Jenkins plugin {#install-the-octopus-jenkins-plugin}
 
 Plugins are central to expanding Jenkins' functionality, and a number of plugins are may be needed depending on the projects you are building. Before you start, you'll need to ensure the following plugins are installed and enabled.
 
 If you're building a .NET project:
-- [MSBuild Plugin](https://plugins.jenkins.io/msbuild): to compile your Visual Studio solution.
+- [MSBuild Plugin](https://plugins.jenkins.io/msbuild/): to compile your Visual Studio solution.
 
 If you're building a Java project:
-- [Maven Plugin](https://plugins.jenkins.io/maven-plugin): to compile your Java project.
+- [Maven Plugin](https://plugins.jenkins.io/maven-plugin/): to compile your Java project.
 
-Once any of the above plugins are installed, you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy).
+Once any of the above plugins are installed, you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
 
 ## Configure the Octopus Deploy plugin
 
@@ -45,7 +45,7 @@ Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key
 
 This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md).
 
- The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
+ The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
   - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](https://octopus.com/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
@@ -65,7 +65,7 @@ Here you can create the link to your Octopus Server. You can add more than one i
 
 ![](images/octopusdeploy-servers.png "width=500")
 
-After the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy) is configured, you can configure a Jenkins *Freestyle* or *Pipeline* Project.
+After the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is configured, you can configure a Jenkins *Freestyle* or *Pipeline* Project.
 
 ## Build job
 

@@ -16,7 +16,7 @@ If, for some reason, the machine fails to register after 20 minutes, you can acc
 
    ![Connecting to a VM via RDP](diagnosing-issues-connect-via-rdp.png "width=500")
 
-   For more information, see [How to Log on to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-log-on-windows-server/).
+   For more information, see [How to Log on to a Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon).
 
 2. In the remote desktop session, open Windows Explorer, and browse to `C:\WindowsAzure\Logs\Plugins\OctopusDeploy.Tentacle.OctopusDeployWindowsTentacle\` and into the versioned folder below that.
 
