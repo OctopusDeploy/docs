@@ -40,7 +40,7 @@ If ($health.AggregatedHealthState -eq "OK") {
 
 ## Connection troubleshooting
 
-Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
+Calamari uses the [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster) to connect to your Service Fabric cluster. The connection parameters are logged (Verbose) at the time of a deployment to help if you need to debug connection problems to your Service Fabric cluster.
 
 If you receive an error such as: _"Unable to load DLL 'FabricCommon.dll': The specified module could not be found."_ and you have already installed the Service Fabric SDK on your server, the Octopus service may need to be restarted _after_ this SDK has been installed. Please see the [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload) documentation for more information.
 

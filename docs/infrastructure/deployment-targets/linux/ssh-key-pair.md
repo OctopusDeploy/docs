@@ -76,7 +76,7 @@ Due to the number and configurable nature of the various Linux distributions ava
 
 - [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) has several useful Windows tools.
 - [ssh-keygen man page](https://linux.die.net/man/1/ssh-keygen).
-- [sshd\_config man page (Ubuntu)](http://manpages.ubuntu.com/manpages/zesty/en/man5/sshd_config.5.html).
+- [sshd\_config man page (Ubuntu)](http://manpages.ubuntu.com/manpages/hirsute/en/man5/sshd_config.5.html).
 - Great intro SSH keygen articles from [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2), [GitHub](https://help.github.com/articles/connecting-to-github-with-ssh/) or [Atlassian](https://confluence.atlassian.com/display/STASH/Creating+SSH+keys).
 
 ## Learn more

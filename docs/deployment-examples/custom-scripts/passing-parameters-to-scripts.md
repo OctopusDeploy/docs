@@ -99,7 +99,7 @@ echo "$environment storage path: $storagePath"
 
 ## Passing parameters to F# scripts {#Customscripts-PassingparameterstoF#scripts}
 
-You can pass parameters to FSharp scripts [as described in MSDN.](https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/fsharp-interactive-%5Bfsi.exe%5D-reference#differences-between-the-interactive-scripting-and-compiled-environments)
+You can pass parameters to FSharp scripts [as described by the F# documentation.](https://docs.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/#using-the-fsi-object-in-f-code)
 
 **Script Parameters in Octopus**
 

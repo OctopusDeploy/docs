@@ -4,7 +4,7 @@ description: Where to install Tentacles and how to configure Workers.
 position: 10
 ---
 
-Do not install Tentacles directly on your database servers, instead, use [Workers](https://octopus.com/workers) or install Tentacles on jump boxes for database deployments.
+Do not install Tentacles directly on your database servers, instead, use [Workers](/docs/infrastructure/workers/index.md) or install Tentacles on jump boxes for database deployments.
 
 High-availability groups or clusters have 1 to N nodes, and the nodes are kept in sync by replication.  You only need to deploy to the primary node, and replication will apply the changes to all the nodes.  Installing a Tentacle on each node will not work as Octopus Deploy will see multiple Tentacles and attempt to deploy to multiple nodes.
 
@@ -16,7 +16,7 @@ Don't use the Tentacles on your web or application servers.  A recommended secur
 
 ## Workers
 
-We recommend using [Workers](https://octopus.com/workers) to handle all of your database deployments.  Workers have several advantages:
+We recommend using [Workers](/docs/infrastructure/workers/index.md) to handle all of your database deployments.  Workers have several advantages:
 
 1. You can run multiple deployments on them at the same time.
 2. You can place multiple VMs into a worker pool.  If a VM goes down during a deployment, another VM would step in and take it's place.

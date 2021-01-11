@@ -10,8 +10,8 @@ We take every reasonable effort to make Octopus Deploy secure against well-known
 
 Using an XSS attack a malicious actor could potentially trick a user's web browser into executing unintended code. For more information about XSS refer to the following:
 
-- [Cross-Site Scripting according to OWASP](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS))
-- [Cross-Site Scripting Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)
+- [Cross-Site Scripting according to OWASP](https://owasp.org/www-community/attacks/xss/)
+- [Cross-Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 
 ## Does Octopus Deploy prevent XSS attacks?
 
@@ -35,7 +35,7 @@ Learn about [supported web browsers](/docs/installation/requirements.md#supporte
 
 The only perfect way to prevent every possible XSS attack would be if Octopus Deploy didn't use a web browser. We have taken great care to design Octopus Deploy to strike a balance between enabling our customers to do what Octopus Deploy was designed to do, and preventing harm via XSS.
 
-At the time of writing, Octopus Deploy actively follows these XSS prevention rules from the [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet):
+At the time of writing, Octopus Deploy actively follows these XSS prevention rules from the [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html):
 
 - RULE #0 - Never Insert Untrusted Data Except in Allowed Locations.
 - RULE #1 - HTML Escape Before Inserting Untrusted Data into HTML Element Content.

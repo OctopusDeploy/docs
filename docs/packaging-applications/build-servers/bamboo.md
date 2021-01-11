@@ -16,7 +16,7 @@ To verify that the command line tool can be run, execute it from a terminal. Whe
 
 ## Installing the add-on
 
-Follow the instructions at [Installing add-ons](https://confluence.atlassian.com/display/UPM/Installing+add-ons) to install the Octopus Deploy Bamboo add-on.
+Follow the instructions at [Installing add-ons](https://confluence.atlassian.com/upm/installing-marketplace-apps-273875715.html) to install the Octopus Deploy Bamboo add-on.
 
 ## A typical workflow for pushing packages and deploying releases
 

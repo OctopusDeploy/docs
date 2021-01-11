@@ -38,7 +38,7 @@ The Octopus CLI will generate a NuGet package containing the .cspkg and .cscfg f
 
 ![NuGet Package Explorer](nuget-package-explorer.png "width=500")
 
-Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopus.com/demo/HelloCloud.1.0.0.nupkg)
+Here is a sample Cloud Service NuGet package: [HelloCloud.1.0.0.nupkg](https://download.octopusdeploy.com/demo/HelloCloud.1.0.0.nupkg)
 
 ### Upload to a NuGet feed {#CloudServiceConcepts-UploadtoaNuGetfeed}
 
@@ -146,7 +146,11 @@ If a variable named `HelloMessage` is defined in your Octopus project variable
 
 #### Customizing the deployment process {#CloudServiceConcepts-Customizingthedeploymentprocess}
 
-The deployment is performed using a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your NuGet package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Calamari/blob/ce3b69e94b60c8c73619bc584eca52e11c68930a/source/Calamari.Azure/Scripts/DeployAzureCloudService.ps1)**, and use it as a basis for creating your own custom deployment script.
+The deployment is performed using the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari). For backwards compatibility, Octopus will look for a PowerShell script called `DeployToAzure.ps1`. If a file with this name exists within your package, Octopus will invoke it. Otherwise, Octopus will continue to use it's bundled [Sashimi.AzureCloudService](https://github.com/OctopusDeploy/Sashimi.AzureCloudService) library.
+
+:::hint
+If you choose to override the deployment script, remember that your `DeployToAzure.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [here](https://github.com/OctopusDeploy/Sashimi.AzureCloudService/blob/main/source/Calamari/DeployAzureCloudServicePackageBehaviour.cs).
+:::
 
 ### PowerShell {#CloudServicedeploymentstep-PowerShell}
 
