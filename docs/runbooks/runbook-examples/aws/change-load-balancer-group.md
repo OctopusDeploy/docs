@@ -51,10 +51,3 @@ Configure any other settings for the step and click **Save**, and in just a few 
 ## Samples
 
 We have a [Pattern - Blue-Green](https://g.octopushq.com/PatternBlueGreenSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this runbook example named `Change Production Group` in the `Random Quotes Java` project.
-
-## Learn more
-
-- [Blue/Green deployment patterns with Octopus](/docs/deployment-patterns/blue-green-deployments/index.md).
-- [Ask Octopus Episode: Blue/Green Deployments](https://www.youtube.com/watch?v=qFqoVwVzeo0)
-- [Blue/Green deployment knowledge base articles](https://g.octopushq.com/BlueGreenTaggedKBArticles).
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
