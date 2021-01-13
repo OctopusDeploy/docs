@@ -59,7 +59,7 @@ The Build Information step is currently available in the official Octopus [TeamC
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 :::
 
-Build information is independent from the packages that it relates to. You can pass build information to Octopus **before** the packages have been pushed to either the built-in repository or an external feed. You can also [push build information manually](/blog/manually-push-build-information-to-octopus) using calls to the API when you are not utilising a Build Server.
+Build information is independent of the packages that it relates to. You can pass build information to Octopus **before** the packages have been pushed to either the built-in repository or an external feed. You can also [push build information manually](https://octopus.com/blog/manually-push-build-information-to-octopus) using the Octopus REST API when you aren't utilizing a Build Server.
 
 :::warning 
 
