@@ -7,7 +7,7 @@ This script demonstrates how to programmatically add a library variable set to a
 
 ## Usage
 
-Provide values for the following::
+Provide values for the following:
 - Octopus URL
 - Octopus API Key
 - Name of the space to use

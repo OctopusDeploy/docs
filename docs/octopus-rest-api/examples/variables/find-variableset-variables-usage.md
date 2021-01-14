@@ -14,7 +14,7 @@ Please note the limitations with this example:
 
 ## Usage
 
-Provide values for the following::
+Provide values for the following:
 - Octopus URL
 - Octopus API Key
 - Name of the space to search

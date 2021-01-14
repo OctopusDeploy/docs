@@ -7,7 +7,7 @@ This script demonstrates how to programmatically find all projects using a speci
 
 ## Usage
 
-Provide values for the following::
+Provide values for the following:
 - Octopus URL
 - Octopus API Key
 - Name of the space to search
