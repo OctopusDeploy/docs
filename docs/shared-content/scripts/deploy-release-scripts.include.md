@@ -12,13 +12,13 @@ $releaseVersion = "0.0.1"
 $environmentName = "Development"
 
 # Get space id
-$spaces = Invoke-RestMethod -Uri "$octopusURL/api/spaces/all" -Headers $headers -ErrorVariable octoError
-$space = $spaces | Where-Object { $_.Name -eq $spaceName }
+$spaces = Invoke-RestMethod -Uri "$octopusURL/api/spaces?partialName=$([uri]::EscapeDataString($spaceName))&skip=0&take=100" -Headers $headers -ErrorVariable octoError
+$space = $spaces.Items | Where-Object { $_.Name -eq $spaceName }
 Write-Host "Using Space named $($space.Name) with id $($space.Id)"
 
 # Get project by name
-$projects = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $headers -ErrorVariable octoError
-$project = $projects | Where-Object { $_.Name -eq $projectName }
+$projects = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/projects?partialName=$([uri]::EscapeDataString($projectName))&skip=0&take=100" -Headers $headers -ErrorVariable octoError
+$project = $projects.Items | Where-Object { $_.Name -eq $projectName }
 Write-Host "Using Project named $($project.Name) with id $($project.Id)"
 
 # Get release by version
@@ -27,8 +27,8 @@ $release = $releases.Items | Where-Object { $_.Version -eq $releaseVersion }
 Write-Host "Using Release version $($release.Version) with id $($release.Id)"
 
 # Get environment by name
-$environments = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/environments/all" -Headers $headers -ErrorVariable octoError
-$environment = $environments | Where-Object { $_.Name -eq $environmentName }
+$environments = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/environments?partialName=$([uri]::EscapeDataString($environmentName))&skip=0&take=100" -Headers $headers -ErrorVariable octoError
+$environment = $environments.Items | Where-Object { $_.Name -eq $environmentName }
 Write-Host "Using Environment named $($environment.Name) with id $($environment.Id)"
 
 # Create deployment
