@@ -6,7 +6,7 @@ The following versions of SQL Server Database are supported and automatically te
 
 | Octopus Server    | Minimum SQL Server version          | Azure SQL
 | --------------    | ----------------------------------- |----------   |
-| 2020.1.x  ➜ latest  | SQL Server 2016+                    | Supported   |
+| 2020.2.x  ➜ latest  | SQL Server 2016+                    | Supported   |
 | 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
 :::hint
