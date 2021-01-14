@@ -76,6 +76,7 @@ In addition, when the "Include statistics" option is enabled, we'll send some sp
 | Aggregated type, result code and duration of database and api calls | 2020.2.14 |
 | Counts of specific kinds of events that occur internally, e.g. usage of deprecated code paths, errors | 2020.3.0 |
 | Structured Configuration Variable usage across projects including how many steps have Structured Configuration Variables enabled and what file extensions are being used | 2020.4.0 |
+| OS Architecture of Deployment Target Tentacles | 2021.1.0 |
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
