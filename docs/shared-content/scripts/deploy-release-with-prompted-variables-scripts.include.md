@@ -70,7 +70,7 @@ foreach($element in $deploymentPreview.Form.Elements)
     
     if ($promptedVariableFound -eq $false -and $isRequired -eq $true)
     {
-        Write-OctopusCritical "Unable to find a value for the required prompted variable $nameToSearchFor, exiting"
+        Write-Host "Unable to find a value for the required prompted variable $nameToSearchFor, exiting"
         Exit 1
     }
 }
