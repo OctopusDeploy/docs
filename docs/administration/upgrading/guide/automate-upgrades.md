@@ -37,7 +37,7 @@ Using these two endpoints, you can write a script that finds an appropriate vers
 $url = 'https://samples.octopus.app'
 $currentMajorVersion = (Invoke-RestMethod "$Url/api").Version.Split('.')
 $versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3" `
-    | Where-Object { $_.Version.BeginsWith($currentMajorVersion + '.') }
+    | Where-Object { $_.Version.StartsWith($currentMajorVersion + '.') }
 $upgradeVersion = $versions[-1].Version
 ```
 
@@ -138,7 +138,7 @@ $apiKey = "API-YOURKEY"
 $currentVersion = (Invoke-RestMethod "$Url/api").Version
 $currentMajorVersion = $currentVersion.Split('.')
 $versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3" `
-    | Where-Object { $_.Version.BeginsWith($currentMajorVersion + '.') }
+    | Where-Object { $_.Version.StartsWith($currentMajorVersion + '.') }
 $upgradeVersion = $versions[-1].Version
 
 if ($upgradeVersion -eq $currentVersion) {
