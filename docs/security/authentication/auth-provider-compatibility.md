@@ -25,7 +25,7 @@ The following table shows login support for each authentication provider in Octo
 
 ## External group and roles support {#external-groups-and-roles}
 
-Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as Members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server and Octopus Cloud:
+Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server and Octopus Cloud:
 
 |                                       | Octopus Server     | Octopus Cloud   |
 |---------------------------------------|:------------------:|:---------------:|
