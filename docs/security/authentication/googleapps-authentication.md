@@ -27,9 +27,10 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 7. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus Server) to the **Authorized Redirect URIs**.
 
 :::hint
-**Common issues:**
+**Tips:**
 - **Reply URLs are case-sensitive** - Be aware that the path in this URL after the domain name was **case sensitive** during our testing.
-- **Not using SSL?** - You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+- **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
 :::
 
 ## Configure Octopus Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}

@@ -46,14 +46,10 @@ After signing up to Okta you will receive your own url to access the Okta portal
    ![](okta/okta-create-openid-integration.png "width=500")
 
 :::hint
-**Reply URLs are case-sensitive**
-Please take care when adding this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters.
-:::
-
-:::hint
-**Not using SSL?**
-We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
-Octopus now integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
+**Tips::**
+- **Reply URLs are case-sensitive** - Please take care when adding this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters.
+- **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
 :::
 
 5. Under the **General Settings** for the app you have just created, ensure that **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are both checked, under the **Allowed grant types**. Click the **Save** button to continue.
