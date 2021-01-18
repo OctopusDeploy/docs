@@ -33,10 +33,11 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 | Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp; | :x: |
 | Azure Active Directory Authentication | :white_check_mark: **\*** | :x: |
 | GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: |
-| Okta Authentication                   | :x:&nbsp;&nbsp; | :x: |
+| Okta Authentication                   | :white_check_mark: **†**| :x: |
 | Octopus ID                            | :x:&nbsp;&nbsp; | :x: |
 | Guest Login                           | :x:&nbsp;&nbsp; | :x: |
 | GitHub                                | :x:&nbsp;&nbsp; | :x: |
 
-**\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for further information.
+**\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for more details.
 
+**†** For Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields. Please read the [Okta group integration](/docs/security/authentication/okta-authentication.md#Oktaauthentication-OpenIDConnectSettings-OktaGroups) section for more details.
