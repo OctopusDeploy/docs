@@ -36,7 +36,7 @@ Below are two different approaches to orchestrating multiple projects. Depending
 - A project should not be deployed while another project is being deployed.
 - A certain step should not execute at the same time as a step in another project.
 
-### Master project
+### Parent project
 
 This approach consists of creating a project that co-ordinates the deployment of other projects and any other related actions. For example it could define steps that:
 
@@ -54,6 +54,6 @@ This approach consists of each project taking on the role of checking that the o
 
 ## Deploy release step
 
-The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Master Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
+The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Parent Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
 
 ![Deploy Release Step Example Process](voltron-project-process.png "width=500")
