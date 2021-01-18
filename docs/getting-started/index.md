@@ -43,6 +43,9 @@ As you get started, you are going to learn a lot of new terms.  Below is a list 
 - **Self-Hosted** - Where you install the Octopus Server on your infrastructure.
 - **Octopus Cloud** - The hosted version of Octopus Server.  We host the Octopus Server for you; you install tentacles on your infrastructure and connect to Octopus Cloud.
 - **Task** - a unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
+- **Task Cap** - how many concurrent tasks the Octopus Server can process.
+- **Instance** - The database, file share, and 1 to N servers running the Octopus Server service.  
+- **Node** - An individual server running the Octopus Server in an Octopus Instance.
 - **Infrastructure** - Includes the environments, targets, workers, and accounts you will deploy to.
     - **Tentacle** - The service responsible for facilitating communication between the Octopus Server and your Linux or Windows-based servers.
     - **Listening Tentacle** - The Tentacle communication mode in which all traffic is inbound from the Octopus Server to the Tentacle.  The Tentacle is the TCP server, and Octopus Server is the TCP client.
