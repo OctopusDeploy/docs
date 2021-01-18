@@ -35,6 +35,42 @@ Before you can deploy software with Octopus Deploy, you need to bundle all the f
 
 The guide below provides more information on how to [package your software](#package-software).
 
+## Terms
+
+As you get started, you are going to learn a lot of new terms.  Below is a list of standard terms you will encounter.
+
+- **Octopus Server** - The service responsible for hosting the Octopus UI and orchestrating deployments.
+- **Self-Hosted** - Where you install the Octopus Server on your infrastructure.
+- **Octopus Cloud** - The hosted version of Octopus Server.  We host the Octopus Server for you; you install tentacles on your infrastructure and connect to Octopus Cloud.
+- **Task** - a unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
+- **Infrastructure** - Includes the environments, targets, workers, and accounts you will deploy to.
+    - **Tentacle** - The service responsible for facilitating communication between the Octopus Server and your Linux or Windows-based servers.
+    - **Listening Tentacle** - The Tentacle communication mode in which all traffic is inbound from the Octopus Server to the Tentacle.  The Tentacle is the TCP server, and Octopus Server is the TCP client.
+    - **Polling Tentacle** - The Tentacle communication mode in which all traffic is outbound from the Tentacle to the Octopus Server.  The Tentacle is the TCP client, and Octopus Server is the TCP Server.
+    - **Deployment Targets** - Represent the servers, machines, and cloud services where you will deploy your software and services.
+    - **Environments** - Environments are how you organize your deployment targets (whether on-premises servers or cloud services) into groups representing the different stages of your deployment pipeline, for instance, development, test, and production.
+    - **Workers** - Workers are machines that can execute tasks that don't need to be run on the Octopus Server or individual deployment targets.
+    - **Worker Pools** - A group of workers.  One pool might be in a particular network security zone. Another pool might have a specific set of tools installed.
+    - **Health Check** - A task Octopus periodically runs on deployment targets and workers to ensure that they are available.
+    - **Machine Policies** - Machine policies are groups of settings that can be applied to Tentacle and SSH endpoints used for health checks, updating calamari, and more.
+    - **Machine Proxies** - Allow you to specify a proxy server for Octopus to use when communicating with a Tentacle or SSH Target; you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
+    - **Accounts** - Help you to centralize account details used during your deployments, including things like username/password, tokens, Azure and AWS credentials, and SSH key pairs.  
+- **Projects** - For each project, you define a deployment process, configuration variables, and the environments the software will be deployed to.
+    - **Deployment Process** - is like a recipe for deploying your software. You define the recipe by adding steps and variables to a project. 
+    - **Deployment Steps** - The specific action (or set of actions) executed as part of the deployment process each time your software is deployed.
+    - **Release** - A snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. 
+    - **Variables** - A value stored in the Octopus Server for use in different phases of your deployments.  Variables can be scoped to environments, steps, and more.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
+    - **Manual Interventions** - The approval step in Octopus Deploy.  It can be scoped to specific teams and environments.
+    - **Runbooks** -  Used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.    
+- **Library**
+    - **Packages** - A package is an archive ([zip, tar, Nuget](https://octopus.com/docs/packaging-applications#supported-formats)) that contains your application assets.    
+    - **Feed** - Where packages are uploaded to.  Octopus Deploy has a built-in feed, as well as support for external feeds such as TeamCity, Azure DevOps, Docker, MyGet, Maven, Artifactory, GitHub, and more.
+    - **Lifecycles** - Give you control over the way releases of your software are promoted between your environments.
+    - **Script Modules** - Language-specific functions that can be used in deployment processes across multiple projects.
+    - **Step Templates** - Pre-configured steps created by you that can be reused in multiple projects.
+    - **Community Step Templates** - Step templates contributed by the Octopus Community.
+    - **Variable Sets** - Collections of variables that can be shared between multiple projects.
+
 ## Hello World
 
 The best way to learn something new is through hands-on interaction.  One of the first tasks when learning a new programming language is to create something that prints "hello world."  This guide will walk you through your first "hello world" deployment.
@@ -269,11 +305,17 @@ If you run into any issues, refer to the documentation for the type of deploymen
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions.md)
 
-As you configure your deployment targets, select the environment, they will belong to, and assign the target role(s).  Roles ensure you deploy the right software to the correct deployment targets. Typical target roles include:
+As you configure your deployment targets, select the environment, they will belong to, and assign the target role(s).  Roles ensure you deploy the right software to the correct deployment targets. Roles can be generic:
 
 - web-server
 - app-server
 - db-server 
+
+Roles can also be specific
+
+- hello-world-ui
+- hello-world-api
+- hello-world-service
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AU8TBEOI-0M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
