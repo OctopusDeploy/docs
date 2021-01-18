@@ -23,7 +23,7 @@ The following table shows login support for each authentication provider in Octo
 
 **Note:** Entries marked with **\*** are supported via [Octopus ID](octopusid-authentication.md).
 
-## External group and roles support {#external-groups-and-roles}
+## External groups and roles support {#external-groups-and-roles}
 
 Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server and Octopus Cloud:
 
