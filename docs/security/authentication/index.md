@@ -17,14 +17,14 @@ Octopus Deploy supports the most common authentication providers out-of-the-box,
 
 |                                       | Octopus Server     | Octopus Cloud   |
 |---------------------------------------|--------------------|-----------------|
-| Username and Password                 | :heavy_check_mark: | :heavy_check_mark: (via Octopus ID) |
-| Active Directory Authentication       | :heavy_check_mark: | :x: |
-| Azure Active Directory Authentication | :heavy_check_mark: | :heavy_check_mark: (via Octopus ID) |
-| GoogleApps Authentication             | :heavy_check_mark: | :heavy_check_mark: (via Octopus ID) |
-| Okta Authentication                   | :heavy_check_mark: | :x: |
-| Octopus ID                            | :x: | :heavy_check_mark: |
-| GitHub                                | :heavy_check_mark: | :heavy_check_mark: |
-| Guest Login                           | :x: | :heavy_check_mark: (via Octopus ID) |
+| Username and Password                 | :white_check_mark: | :white_check_mark: (via Octopus ID) |
+| Active Directory Authentication       | :ballot_box_with_check: | :x: |
+| Azure Active Directory Authentication | :ballot_box_with_check: | :ballot_box_with_check: (via Octopus ID) |
+| GoogleApps Authentication             | :ballot_box_with_check: | :ballot_box_with_check: (via Octopus ID) |
+| Okta Authentication                   | :ballot_box_with_check: | :x: |
+| Octopus ID                            | :x: | :ballot_box_with_check: |
+| GitHub                                | :ballot_box_with_check: | :ballot_box_with_check: |
+| Guest Login                           | :x: | :ballot_box_with_check: (via Octopus ID) |
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
