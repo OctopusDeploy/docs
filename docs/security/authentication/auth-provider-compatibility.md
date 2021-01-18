@@ -17,8 +17,8 @@ The following table highlights login support for each authentication provider in
 | Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: **\*** |
 | GoogleApps Authentication             | :white_check_mark: | :white_check_mark: **\*** |
 | Okta Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp; |
-| Octopus ID                            | :x: | :white_check_mark: |
-| Guest Login                           | :white_check_mark: | :white_check_mark: |
+| Octopus ID                            | :x: | :white_check_mark:&nbsp;&nbsp; |
+| Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp; |
 | GitHub                                | :x: | :white_check_mark: **\*** |
 
 **Note:** Entries marked with **\*** are supported via [Octopus ID](octopusid-authentication.md).
