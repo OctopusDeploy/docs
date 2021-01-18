@@ -1,9 +1,5 @@
 ### Archive
 
-:::info
-
-:::
-
 :::warning
 **Note:**
 - Linux Arm and Arm64 support is currently **experimental**.
