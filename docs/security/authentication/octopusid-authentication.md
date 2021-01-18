@@ -1,7 +1,7 @@
 ---
 title: Octopus ID authentication
 description: Octopus Deploy can use Octopus accounts to identify users.
-position: 7
+position: 30
 ---
 
 :::hint

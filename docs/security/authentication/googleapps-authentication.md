@@ -1,7 +1,7 @@
 ---
 title: GoogleApps authentication
 description: Octopus Deploy can use GoogleApps authentication to identify users.
-position: 2
+position: 15
 ---
 
 :::hint
