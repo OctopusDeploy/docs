@@ -1,14 +1,14 @@
 ---
 title: Azure Active Directory authentication
 description: Octopus Deploy can use Azure AD authentication to identify users.
-position: 1
+position: 10
 ---
 
 :::hint
-Azure Active Directory (AAD) authentication only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
+Azure Active Directory (AAD) authentication support differs between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). In Octopus Server, you can login with your AAD credentials, and have your AAD user and groups mapped into Octopus teams. For Octopus Cloud, you can only login with AAD using [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/authentication/authentication-provider-compatibility.md) section for further information. 
 :::
 
-To use Azure Active Directory (AAD) authentication with Octopus, you will need to do the following:
+To use Azure Active Directory (AAD) authentication with Octopus Server, you will need to do the following:
 
 1. Configure AAD to trust your Octopus Deploy instance by setting it up as an App in AAD.
 2. Optionally map AAD Users into Roles so you the users can be automatically connected to Octopus Teams.
@@ -189,11 +189,9 @@ If you followed the optional steps to modify the App registration's manifest to 
 
 Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/index.md), so that you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
-:::hint
 **How Octopus matches external identities to user accounts**
 
 When the security token is returned from the external identity provider, Octopus looks for a user account with a **matching Identifier**. If there is no match, Octopus looks for a user account with a **matching Email Address**. If a user account is found, the external identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
-:::
 
 :::success
 **Existing Octopus user accounts**

@@ -1,19 +1,17 @@
 ---
 title: Active Directory authentication
 description: Octopus Deploy can use Windows credentials to identify users.
-position: 0
+position: 5
 ---
 
 :::hint
-Active Directory authentication only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
+Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/index.md). See our [authentication provider compatibility](/docs/authentication/auth-provider-compatibility.md) section for further information.
 :::
 
 Octopus Deploy can authenticate users using Windows credentials. Windows AD authentication can be chosen during installation of the Octopus Server, or later through the configuration.
 
-:::hint
 **Domain user required during setup**
 When setting AD Authentication, either via the Octopus setup wizard or running the commands outlined below to switch to AD authentication mode, make sure you are signed in to Windows as a domain user. If you are signed in as a local user account on the machine (a non-domain user) you won't be able to query Active Directory, so setup will fail.
-:::
 
 ## Active Directory Sign-In options {#ActiveDirectoryauthentication-ActiveDirectorysigninoptions}
 If you are using Active Directory Authentication with Octopus, there are two ways to sign in.
@@ -116,7 +114,7 @@ setspn.exe -S HTTP/od octoserver1
 setspn.exe -S HTTP/od.mydomain.local octoserver1 
 ```
 
-:::note
+:::hint
 **HA Clusters**
 If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#ActiveDirectoryAuthentication-SupportedAuthentication)
 :::

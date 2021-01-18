@@ -13,18 +13,9 @@ Octopus Deploy supports the most common authentication providers out-of-the-box,
 - [Octopus ID](octopusid-authentication.md)
 - [Guest Login](/docs/security/authentication/guest-login.md)
 
-## Authentication provider support {#authentication-provider-support}
-
-|                                       | Octopus Server     | Octopus Cloud   |
-|---------------------------------------|:------------------:|:---------------:|
-| Username and Password                 | :white_check_mark: | :white_check_mark: *via Octopus ID |
-| Active Directory Authentication       | :white_check_mark: | :x: |
-| Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: *via Octopus ID |
-| GoogleApps Authentication             | :white_check_mark: | :white_check_mark: *via Octopus ID |
-| Okta Authentication                   | :white_check_mark: | :x: |
-| Octopus ID                            | :x: | :white_check_mark: |
-| GitHub                                | :white_check_mark: | :white_check_mark: |
-| Guest Login                           | :x: | :white_check_mark: (via Octopus ID) |
+:::hint
+Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). Please see our [authentication provider compatibility](/docs/authentication/auth-provider-compatibility.md) section for further information. 
+:::
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 

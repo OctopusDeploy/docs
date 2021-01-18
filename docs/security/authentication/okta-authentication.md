@@ -6,7 +6,7 @@ version: 3.16
 ---
 
 :::hint
-Okta authentication only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
+Okta authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/index.md). See our [authentication provider compatibility](/docs/authentication/auth-provider-compatibility.md) section for further information.
 :::
 
 Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service.
