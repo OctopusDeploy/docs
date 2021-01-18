@@ -1,14 +1,14 @@
 ---
 title: GoogleApps authentication
 description: Octopus Deploy can use GoogleApps authentication to identify users.
-position: 2
+position: 15
 ---
 
 :::hint
-GoogleApps authentication only works with Octopus Server and does not work with [Octopus Cloud](/docs/octopus-cloud/index.md).
+GoogleApps authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/index.md), authentication using GoogleApps is supported with [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
 :::
 
-To use GoogleApps authentication with Octopus, GoogleApps must be configured to trust Octopus (by setting it up as an app).  Below are the details for how to configure the app.
+To use GoogleApps authentication with Octopus Server, GoogleApps must be configured to trust Octopus - by setting it up as an app. This section covers the details on how to configure the app.
 
 ## Configure GoogleApps {#GoogleAppsauthentication-ConfiguringGoogleApps}
 
@@ -27,13 +27,10 @@ Once you have an account, log in to [https://console.developers.google.com](htt
 7. Add `https://octopus.example.com/api/users/authenticatedToken/GoogleApps` (replacing `https://octopus.example.com` with the url of your Octopus Server) to the **Authorized Redirect URIs**.
 
 :::hint
-**Reply URLs are case-sensitive**
-Be aware that the path in this URL after the domain name was **case sensitive** during our testing.
-:::
-
-:::hint
-**Not using SSL?**
-That's OK, you can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+**Tips:**
+- **Reply URLs are case-sensitive** - Be aware that the path in this URL after the domain name was **case sensitive** during our testing.
+- **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
+Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
 :::
 
 ## Configure Octopus Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
@@ -54,10 +51,8 @@ Alternatively these settings can be defined through the user interface by select
 
 Even if you are using an external identity provider, Octopus still requires a [user account](/docs/security/users-and-teams/index.md) so you can assign those people to Octopus teams and subsequently grant permissions to Octopus resources. Octopus will automatically create a [user account](/docs/security/users-and-teams/index.md) based on the profile information returned in the security token, which includes an **Identifier**, **Name**, and **Email Address**.
 
-:::hint
 **How Octopus matches external identities to user accounts**
 When the security token is returned from the external identity provider, Octopus looks for a user account with a **matching Identifier**. If there is no match, Octopus looks for a user account with a **matching Email Address**. If a user account is found, the External Identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
-:::
 
 :::success
 **Already have Octopus user accounts?**

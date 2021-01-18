@@ -1,7 +1,7 @@
 ---
 title: Automatic user creation
 description: User can be automatically created using some providers.
-position: 7
+position: 35
 ---
 
 The Active Directory and OpenID connect providers will, by default, automatically create a new user record for any user who can successfully authenticate but is not currently recognized (based on the checks and fallbacks described [here](index.md#AuthenticationProviders-Usernames,emailaddresses,UPNsandExternalIds)).
