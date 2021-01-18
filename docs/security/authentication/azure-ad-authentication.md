@@ -5,7 +5,7 @@ position: 10
 ---
 
 :::hint
-Azure Active Directory (AAD) authentication support differs between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). In Octopus Server, you can login with your AAD credentials, and have your AAD user and groups mapped into Octopus teams. For Octopus Cloud, you can only login with AAD using [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/authentication/authentication-provider-compatibility.md) section for further information. 
+Azure Active Directory (AAD) authentication support differs between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). In Octopus Server, you can login with your AAD credentials, and have your AAD user and groups mapped into Octopus teams. For Octopus Cloud, you can only login with AAD using [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/security/authentication/authentication-provider-compatibility.md) section for further information. 
 :::
 
 To use Azure Active Directory (AAD) authentication with Octopus Server, you will need to do the following:

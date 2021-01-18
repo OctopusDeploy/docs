@@ -5,7 +5,7 @@ position: 5
 ---
 
 :::hint
-Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/index.md). See our [authentication provider compatibility](/docs/authentication/auth-provider-compatibility.md) section for further information.
+Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/index.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information.
 :::
 
 Octopus Deploy can authenticate users using Windows credentials. Windows AD authentication can be chosen during installation of the Octopus Server, or later through the configuration.

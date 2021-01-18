@@ -14,7 +14,7 @@ Octopus Deploy supports the most common authentication providers out-of-the-box,
 - [Guest Login](/docs/security/authentication/guest-login.md)
 
 :::hint
-Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). Please see our [authentication provider compatibility](/docs/authentication/auth-provider-compatibility.md) section for further information. 
+Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
 :::
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
