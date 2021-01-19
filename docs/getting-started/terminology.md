@@ -4,21 +4,21 @@ description: A page containing the definitions of terms used in Octopus Deploy.
 position: 10
 ---
 
-As start using Octopus Deploy, you are going to learn a lot of new terms.  Below is a list of common terms used through the product and documentation.
+As you start using Octopus Deploy, you are going to learn a lot of new terms.  Below is a list of common terms used through the product and documentation.
 
 - **Octopus Server**: the service responsible for hosting the Octopus UI and orchestrating deployments.
 - **Self-Hosted**: when you install the Octopus Server on your infrastructure.
 - [**Octopus Cloud**](https://octopus.com/docs/octopus-cloud): the hosted version of Octopus Server; but you still install tentacles on your infrastructure that connect to Octopus Cloud.
 - **Task**: a unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
 - [**Task Cap**](https://octopus.com/docs/support/increase-the-octopus-server-task-cap): how many concurrent tasks the Octopus Server can process.  For self-hosted instances this [can be increased] from the default of 5.
-- **Instance**: the database, file share, and 1 to N nodes running the Octopus Server service.  Each self-hosted Octopus Deploy license allows for 3 active instances.
+- **Instance**: the database, file share, and 1 to N nodes running the Octopus Server service.  Each self-hosted Octopus Deploy license allows for three active instances.
 - [**Node**](https://octopus.com/docs/administration/high-availability/managing-high-availability-nodes): an individual server running the Octopus Server in an Octopus Instance.  
 - [**Infrastructure**](https://octopus.com/docs/infrastructure): what the Octopus Server will deploy to.
     - [**Tentacle**](https://octopus.com/docs/security/octopus-tentacle-communication#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship): the service responsible for facilitating communication between the Octopus Server and your [Linux](https://octopus.com/docs/infrastructure/deployment-targets/linux) or [Windows-based](https://octopus.com/docs/infrastructure/deployment-targets/windows-targets) servers.
     - [**Listening Tentacle**]((https://octopus.com/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication#listening-tentacles-recommended)): the Tentacle communication mode in which all traffic is inbound from the Octopus Server to the Tentacle.  The Tentacle is the TCP server, and Octopus Server is the TCP client.
     - [**Polling Tentacle**](https://octopus.com/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication#polling-tentacles): the Tentacle communication mode in which all traffic is outbound from the Tentacle to the Octopus Server.  The Tentacle is the TCP client, and Octopus Server is the TCP Server.
     - [**Deployment Targets**](https://octopus.com/docs/infrastructure/deployment-targets): represent the servers, machines, and cloud services where you will deploy your software and services.
-    - [**Environments**](https://octopus.com/docs/infrastructure/environments): how you organize your deployment targets (whether on-premises servers or cloud services) into groups representing the different stages of your deployment pipeline, for instance, development, test, and production.
+    - [**Environments**](https://octopus.com/docs/infrastructure/environments): how you organize your deployment targets (whether on-premises servers or cloud services) into groups representing the different stages of your deployment pipeline, for example, development, test, and production.
     - [**Workers**](https://octopus.com/docs/infrastructure/workers): machines that can execute tasks that don't need to be run on the Octopus Server or individual deployment targets.
     - [**Worker Pools**](https://octopus.com/docs/infrastructure/workers/worker-pools): a group of workers.  One pool might be in a particular network security zone. Another pool might have a specific set of tools installed.
     - [**Health Check**](https://octopus.com/docs/infrastructure/deployment-targets/machine-policies#health-check): a task Octopus periodically runs on deployment targets and workers to ensure that they are available.
@@ -30,7 +30,7 @@ As start using Octopus Deploy, you are going to learn a lot of new terms.  Below
     - [**Deployment Steps**](https://octopus.com/docs/deployment-process/steps): the specific action (or set of actions) executed as part of the deployment process each time your software is deployed.
     - [**Release**](https://octopus.com/docs/releases): a snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. 
     - [**Variables**](https://octopus.com/docs/projects/variables): a value stored in the Octopus Server for use in different phases of your deployments.  Variables can be scoped to environments, steps, and more.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
-    - [**Manual Interventions**](https://octopus.com/docs/deployment-process/steps/manual-intervention-and-approvals): the approval step in Octopus Deploy.  It can be scoped to specific teams and environments.
+    - [**Manual Interventions**](https://octopus.com/docs/deployment-process/steps/manual-intervention-and-approvals): the approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments.
     - [**Runbooks**](https://octopus.com/docs/runbooks): used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.    
 - **Library** - stores items used across multiple projects
     - [**Packages**](https://octopus.com/docs/packaging-applications): an archive ([zip, tar, Nuget](https://octopus.com/docs/packaging-applications#supported-formats)) that contains your application assets (binaries, .js files, .css files, .html files, etc.).    
