@@ -10,7 +10,7 @@ As you start using Octopus Deploy, you are going to learn a lot of new terms.  B
 - **Self-Hosted**: when you install the Octopus Server on your infrastructure.
 - [**Octopus Cloud**](/docs/octopus-cloud/index.md): the hosted version of Octopus Server; but you still install tentacles on your infrastructure that connect to Octopus Cloud.
 - **Task**: a unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
-- [**Task Cap**](/docs/support/increase-the-octopus-server-task-cap.md): how many concurrent tasks the Octopus Server can process.  For self-hosted instances this [can be increased] from the default of 5.
+- [**Task Cap**](/docs/support/increase-the-octopus-server-task-cap.md): how many concurrent tasks the Octopus Server can process.  For self-hosted instances this can be increased from the default of 5.
 - **Instance**: the database, file share, and 1 to N nodes running the Octopus Server service.  Each self-hosted Octopus Deploy license allows for three active instances.
 - [**Node**](/docs/administration/high-availability/managing-high-availability-nodes.md): an individual server running the Octopus Server in an Octopus Instance.  
 - [**Infrastructure**](/docs/infrastructure/index.md): what the Octopus Server will deploy to.
