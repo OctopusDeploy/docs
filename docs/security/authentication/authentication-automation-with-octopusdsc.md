@@ -1,7 +1,7 @@
 ---
 title: Authentication automation with OctopusDSC
 description: Authentication automation resources with OctopusDSC.
-position: 20
+position: 40
 ---
 
 OctopusDSC is an in-house open-source PowerShell module with DSC resource designed to reduce the overhead when automating the installation and configuration of your Octopus infrastructure.
