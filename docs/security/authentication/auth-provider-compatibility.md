@@ -17,7 +17,6 @@ The following table shows login support for each authentication provider in Octo
 | Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: **\*** |
 | GoogleApps Authentication             | :white_check_mark: | :white_check_mark: **\*** |
 | Okta Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp; |
-| Octopus ID                            | :x: | :white_check_mark:&nbsp;&nbsp; |
 | Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp; |
 | GitHub                                | :x: | :white_check_mark: **\*** |
 
@@ -34,7 +33,6 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 | Azure Active Directory Authentication | :white_check_mark: **\*** | :x: |
 | GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: |
 | Okta Authentication                   | :white_check_mark: **†**| :x: |
-| Octopus ID                            | :x:&nbsp;&nbsp; | :x: |
 | Guest Login                           | :x:&nbsp;&nbsp; | :x: |
 | GitHub                                | :x:&nbsp;&nbsp; | :x: |
 
