@@ -20,7 +20,7 @@ The following [regular expression](https://g.octopushq.com/OctopusVersionRegex/)
 ^(?:(?<prefix>v|V)?(?<major>\d+)(?:[.\-_](?<minor>\d+))?(?:[.\-_](?<patch>\d+))?(?:[.\-_](?<revision>\d+))?)?(?:[.\-_])?(?<prerelease>(?<prereleaseprefix>[^+.\-_\s]*?)([.\-_](?<prereleasecounter>[^+\s]*?)?)?)?(?:\+(?<buildmetadata>[^\s]*?))?$
 ```
 
-The version string can start with an option "v" or "V".
+The version string can start with an optional "v" or "V".
 
 The four optional leading integers define the version major, minor, patch and release. These integers are separated by a dot, dash or underscore.
 
