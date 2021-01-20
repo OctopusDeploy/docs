@@ -32,7 +32,9 @@ As you start using Octopus Deploy, you are going to learn a lot of new terms.  B
     - [**Variables**](/docs/projects/variables/index.md): a value stored in the Octopus Server for use in different phases of your deployments.  Variables can be scoped to environments, steps, and more.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
     - [**Manual Interventions**](/docs/deployment-process/steps/manual-intervention-and-approvals.md): the approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments.
     - [**Runbooks**](/docs/runbooks/index.md): used to automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.    
-- **Library** - stores items used across multiple projects
+## Library 
+
+The Octopus library is where you store artifacts and assets that can be used across multiple projects
     - [**Packages**](/docs/packaging-applications/index.md): an archive ([zip, tar, Nuget](/docs/packaging-applications/index.md#supported-formats)) that contains your application assets (binaries, .js files, .css files, .html files, etc.).    
     - [**Feed**](/docs/packaging-applications/package-repositories/index.md): the package repository.  Octopus Deploy has a built-in feed, as well as support for external feeds such as TeamCity, Azure DevOps, Docker, MyGet, Maven, Artifactory, GitHub, and more.
     - [**Lifecycles**](/docs/releases/lifecycles/index.md): give you control over the way releases of your software are promoted between your environments.
