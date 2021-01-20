@@ -13,7 +13,9 @@ As you start using Octopus Deploy, you are going to learn a lot of new terms.  B
 - [**Task Cap**](/docs/support/increase-the-octopus-server-task-cap.md): how many concurrent tasks the Octopus Server can process.  For self-hosted instances this can be increased from the default of 5.
 - **Instance**: the database, file share, and 1 to N nodes running the Octopus Server service.  Each self-hosted Octopus Deploy license allows for three active instances.
 - [**Node**](/docs/administration/high-availability/managing-high-availability-nodes.md): an individual server running the Octopus Server in an Octopus Instance.  
-- [**Infrastructure**](/docs/infrastructure/index.md): what the Octopus Server will deploy to.
+## Infrastructure
+
+Your [**Infrastructure**](/docs/infrastructure/index.md) is the servers, services, and accounts where the Octopus Server will deploy your software.
     - [**Tentacle**](/docs/security/octopus-tentacle-communication/index.md): the service responsible for facilitating communication between the Octopus Server and your [Linux](/docs/infrastructure/deployment-targets/linux/index.md) or [Windows-based](/docs/infrastructure/deployment-targets/windows-targets/index.md) servers.
     - [**Listening Tentacle**](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended): the Tentacle communication mode in which all traffic is inbound from the Octopus Server to the Tentacle.  The Tentacle is the TCP server, and Octopus Server is the TCP client.
     - [**Polling Tentacle**](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles): the Tentacle communication mode in which all traffic is outbound from the Tentacle to the Octopus Server.  The Tentacle is the TCP client, and Octopus Server is the TCP Server.
