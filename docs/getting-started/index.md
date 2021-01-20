@@ -37,7 +37,7 @@ The guide below provides more information on how to [package your software](#pac
 
 ## Terminology
 
-As start using Octopus Deploy, you are going to learn a lot of new terms.  So much so it can feel overwhelming.  You can view a list of common terms on the [terminology page](docs/getting-started/terminology.md).
+As you start using Octopus Deploy, you will learn a lot of new terms. You can view a list of common terms on the [terminology page](docs/getting-started/terminology.md).
 
 ## Hello World
 
