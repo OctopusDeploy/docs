@@ -25,7 +25,9 @@ As you start using Octopus Deploy, you are going to learn a lot of new terms.  B
     - [**Machine Policies**](/docs/infrastructure/deployment-targets/machine-policies.md): groups of settings that can be applied to Tentacle and SSH endpoints used for health checks, updating calamari, and more.
     - [**Machine Proxies**](/docs/infrastructure/deployment-targets/proxy-support.md): allow you to specify a proxy server for Octopus to use when communicating with a Tentacle or SSH Target; you can also specify a proxy server when a Tentacle and the Octopus Server make web requests to other servers.
     - [**Accounts**](/docs/infrastructure/deployment-targets/index.md#accounts): credential details used during your deployments, including things like username/password, tokens, Azure and AWS credentials, and SSH key pairs.  
-- [**Projects**](/docs/projects/index.md): where the deployment process, configuration variables, runbooks are defined and configured to deploy and manage your software.
+## Projects
+
+[**Projects**](/docs/projects/index.md) contain the deployment process, configuration variables, and runbooks to deploy and manage your software.
     - [**Deployment Process**](/docs/deployment-process/index.md): the recipe for deploying your software. You define the recipe by adding steps and variables to a project. 
     - [**Deployment Steps**](/docs/deployment-process/steps/index.md): the specific action (or set of actions) executed as part of the deployment process each time your software is deployed.
     - [**Release**](/docs/releases/index.md): a snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. 
