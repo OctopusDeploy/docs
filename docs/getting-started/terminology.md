@@ -6,7 +6,9 @@ position: 10
 
 As you start using Octopus Deploy, you are going to learn a lot of new terms.  Below is a list of common terms used through the product and documentation.
 
-- **Octopus Server**: the service responsible for hosting the Octopus UI and orchestrating deployments.
+## Octopus Server
+
+The **Octopus Server** is responsible for hosting the Octopus Web Portal, Rest API, and orchestrating deployments.
 - **Self-Hosted**: when you install the Octopus Server on your infrastructure.
 - [**Octopus Cloud**](/docs/octopus-cloud/index.md): the hosted version of Octopus Server; but you still install tentacles on your infrastructure that connect to Octopus Cloud.
 - **Task**: a unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
