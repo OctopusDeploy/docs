@@ -5,6 +5,7 @@ $ErrorActionPreference = "Stop";
 $octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
+$spaceName = "Default"
 $projectName = "MyProject"
 $variable = @{
     Name = "MyVariable"
@@ -37,7 +38,7 @@ if ($null -eq $variableToUpdate)
     $projectVariables.Variables += $variableToUpdate
 
     $projectVariables.Variables
-}        
+}
 
 # Update the value
 $variableToUpdate.Value = $variable.Value
