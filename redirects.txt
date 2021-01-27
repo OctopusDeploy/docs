@@ -477,7 +477,7 @@ docs/api-and-integration/octopus.server.exe-command-line/show-thumbprint.md -> d
 docs/api-and-integration/octopus.server.exe-command-line/ssl-certificate.md -> docs/octopus-rest-api/octopus.server.exe-command-line/ssl-certificate.md
 docs/api-and-integration/octopus.server.exe-command-line/version.md -> docs/octopus-rest-api/octopus.server.exe-command-line/version.md
 docs/api-and-integration/octopus.server.exe-command-line/watchdog.md -> docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md
-docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md -> docs/support/sensitive-properties-api-changes-in-release-3.3.md
+docs/api-and-integration/api/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/index.md
 docs/api-and-integration/api/how-to-create-an-api-key.md -> docs/octopus-rest-api/how-to-create-an-api-key.md
 docs/api-and-integration/api/index.md -> docs/octopus-rest-api/index.md
 docs/api-and-integration/index.md -> docs/octopus-rest-api/index.md
@@ -803,3 +803,4 @@ docs/getting-started-guides/runbooks.md -> docs/runbooks/index.md
 docs/getting-started-guides/tentacles.md -> docs/infrastructure/deployment-targets/index.md
 docs/getting-started-guides/variables.md -> docs/projects/variables/index.md
 docs/getting-started-guides/workers.md -> docs/infrastructure/workers/index.md
+docs/support/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/index.md
