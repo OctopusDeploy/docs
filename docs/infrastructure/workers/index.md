@@ -77,7 +77,7 @@ You can choose between:
 ### Register a Listening Tentacle as a Worker
 
 !include <install-tentacle-manager>
-!include <configure-listening>
+!include <configure-listening-target>
 1. Select which worker pool the deployment target will be assigned to and click **SAVE**.
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
