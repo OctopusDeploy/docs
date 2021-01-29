@@ -69,27 +69,31 @@ You can register workers from the Octopus Web portal if they are a Windows or Li
 
 You can choose between:
 
-- [Register a Windows Listening Tentacle as a Worker](#register-windows-listening-worker).
-- [Register a Linux Listening Tentacle as a Worker](#register-linux-listening-worker).
-- [Register an SSH deployment target as a Worker](#register-ssh-connection-worker).
-
-### Register a Windows Listening Tentacle as a Worker {#register-windows-listening-worker}
-
-!include <install-tentacle-manager>
-!include <configure-listening-worker>
+- [Registering a Windows Listening Tentacle as a Worker](#registering-windows-listening-worker).
+- [Registering a Linux Listening Tentacle as a Worker](#registering-linux-listening-worker).
+- [Registering an SSH deployment target as a Worker](#registering-ssh-connection-worker).
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
-### Register a Worker with an SSH Connection {#register-ssh-connection-worker}
+### Registering a Windows Listening Tentacle as a Worker {#registering-windows-listening-worker}
+
+!include <install-tentacle-manager>
+!include <configure-windows-listening-worker>
+
+### Registering a Linux Listening Tentacle as a Worker {#registering-linux-listening-worker}
+
+The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. See the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md) for further information.
+
+!include <configure-linux-listening-worker>
+
+### Registering a Worker with an SSH Connection {#registering-ssh-connection-worker}
 
 !include <configure-ssh-connection-worker>
 
-### Register a Windows Polling Tentacle as a Worker {#register-windows-polling-worker}
+### Registering a Windows Polling Tentacle as a Worker {#registering-windows-polling-worker}
 
 !include <install-tentacle-manager>
 !include <configure-polling-worker>
-
-After you have configured the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
 ### Registering Workers with the Tentacle executable {#registering-workers-with-the-tentacle-executable}
 
