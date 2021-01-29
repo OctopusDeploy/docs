@@ -74,7 +74,7 @@ See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availabi
 
 The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.
 
-The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/index.md#multiple-projects-run-simultaneously-on-workers) might be right with the extra ability to scale.
+The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/index.md#run-multiple-processes-on-workers-simultaneously) might be right with the extra ability to scale.
 
 
 ### Octopus High Availability

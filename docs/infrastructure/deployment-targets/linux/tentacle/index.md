@@ -173,7 +173,7 @@ To uninstall (delete) a Tentacle instance run the `service --stop --uninstall` a
 
 ```
 /opt/octopus/tentacle/Tentacle service --instance <instance name> --stop --uninstall
-/opt/octopus/tentacle/Tentacle delete-instance <instance name>
+/opt/octopus/tentacle/Tentacle delete-instance --instance <instance name>
 ```
 
 The `service --stop --uninstall` command on the Tentacle will run the following commands to manage the systemd **Unit file**:

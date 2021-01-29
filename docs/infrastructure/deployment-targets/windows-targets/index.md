@@ -26,7 +26,7 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 ## Configure a Listening Tentacle (recommended)
 
 !include <install-tentacle-manager>
-!include <configure-listening>
+!include <configure-listening-target>
 1. Select which [environments](/docs/infrastructure/environments/index.md) the deployment target will be assigned to.
 1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles) for the deployment target and click **Save**.
 
@@ -47,7 +47,7 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 Listening Tentacles are recommended, but there might be situations where you need to configure a Polling Tentacle. You can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) page.
 
 !include <install-tentacle-manager>
-!include <configure-polling>
+!include <configure-polling-target>
 
 Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).
 
