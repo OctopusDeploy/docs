@@ -82,7 +82,7 @@ After you have saved the new worker, you can navigate to the worker pool you ass
 
 ### Registering a Linux Listening Tentacle as a Worker {#registering-linux-listening-worker}
 
-The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. See the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md) for further information.
+The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md) for more details.
 
 !include <configure-linux-listening-worker>
 
@@ -93,7 +93,17 @@ The Tentacle agent will need to be installed on the target server to communicate
 ### Registering a Windows Polling Tentacle as a Worker {#registering-windows-polling-worker}
 
 !include <install-tentacle-manager>
-!include <configure-polling-worker>
+!include <configure-windows-polling-worker>
+
+The new Polling Tentacle will automatically show up in the Workers list.
+
+### Registering a Linux Polling Tentacle as a Worker {#registering-linux-polling-worker}
+
+The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md) for more details.
+
+!include <configure-linux-polling-worker>
+
+The new Polling Tentacle will automatically show up in the Workers list.
 
 ### Registering Workers with the Tentacle executable {#registering-workers-with-the-tentacle-executable}
 
