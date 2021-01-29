@@ -43,7 +43,7 @@ Octopus workers also provides a smooth path to move off the built-in worker, and
 
 ## Built-in Worker {#built-in-worker}
 
-The Octopus Server has an built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** for the **Run steps on the Octopus Server** option.
+The Octopus Server has a built-in worker that can deploy packages, execute scripts, and perform tasks that don't need to be performed on a deployment target. The built-in worker is configured by default, however, the built-in worker can be disabled by navigating to **Configuration** and selecting **Disable** for the **Run steps on the Octopus Server** option.
 
 The **built-in worker** is executed on the same machine as the Octopus Server.  When the built-in worker is needed to execute a step, the Octopus Server spawns a new process and runs the step using Calamari.  The spawned process is either under the server's security context (default) or under a [context configured for the built-in worker](/docs/infrastructure/workers/built-in-worker.md#Running-tasks-on-the-Octopus-Server-as-a-different-user).
 
@@ -65,38 +65,35 @@ Once the Tentacle or SSH machine has been configured, workers can be added using
 
 ### Registering Workers in the Octopus Web Portal
 
-1. Navigate to **{{Infrastructure,Workers}}** and click **ADD WORKER**.
-1. Select **WINDOWS** or **SSH CONNECTION** and click the card for the type of worker you want to configure.
+You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/index.md).
 
 You can choose between:
 
-- [Register a Worker as a Listening Mode](#register-a-worker-as-a-listening-tentacle).
-- [Register a Worker as a Polling Mode](#register-a-worker-as-a-polling-tentacle).
-- [Register a Worker with an SSH Connection](#register-a-worker-with-an-ssh-connection).
+- [Register a Windows Listening Tentacle as a Worker](#register-windows-listening-worker).
+- [Register a Linux Listening Tentacle as a Worker](#register-linux-listening-worker).
+- [Register an SSH deployment target as a Worker](#register-ssh-connection-worker).
 
-### Register a Listening Tentacle as a Worker
+### Register a Windows Listening Tentacle as a Worker {#register-windows-listening-worker}
 
 !include <install-tentacle-manager>
-!include <configure-listening-target>
-1. Select which worker pool the deployment target will be assigned to and click **SAVE**.
+!include <configure-listening-worker>
 
 After you have saved the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
 
-### Register a Polling Tentacle as a Worker
+### Register a Worker with an SSH Connection {#register-ssh-connection-worker}
 
-It is not currently possible to configure a worker as a Polling Tentacle with the Tentacle Manager, please [Registering Workers with the Tentacle Executable](#registering-workers-with-the-tentacle-executable).
+!include <configure-ssh-connection-worker>
 
-### Register a Worker with an SSH Connection
+### Register a Windows Polling Tentacle as a Worker {#register-windows-polling-worker}
 
-To register a worker with an SSH Connection, see the instructions for configuring [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md).
+!include <install-tentacle-manager>
+!include <configure-polling-worker>
 
-### Registering Workers with the Tentacle executable
+After you have configured the new worker, you can navigate to the worker pool you assigned the worker to, to view its status.
+
+### Registering Workers with the Tentacle executable {#registering-workers-with-the-tentacle-executable}
 
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
-
-:::hint
-For information on creating an API key, see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
-:::
 
 ```
 .\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --workerpool "Default Worker Pool"
@@ -109,6 +106,10 @@ The Tentacle executable can also be used to deregister workers, for example:
 .\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
 ```
 
+:::hint
+For information on creating an API key, see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+:::
+
 ## Recommendations for External Workers
 
 We highly recommend setting up external workers on a different machine to the Octopus Server.
@@ -119,15 +120,9 @@ It can be advantageous to have workers on the same local network as the server t
 
 Default pools attached to cloud targets allow co-location of workers and targets, this can help make workers specific to your targets as well as making the Octopus Server more secure by using external workers.
 
-## Multiple projects run simultaneously on Workers
+## Run Multiple processes on Workers simultaneously {#run-multiple-processes-on-workers-simultaneously}
 
-Many workers may be running in parallel and a single worker can run multiple actions in parallel.  
-
-The [task cap](/docs/support/increase-the-octopus-server-task-cap.md) determines how many tasks (deployments or system tasks) can run simultaneously.  The [Octopus System Variable](/docs/projects/variables/system-variables.md) `Octopus.Action.MaxParallelism` controls how much parallelism is allowed in executing a deployment action.  It applies the same to deployment targets as it does to workers.   For example, if `Octopus.Action.MaxParallelism` is at its default value of 10, any one deployment action will being deploying to at most 10 deployment targets simultaneously, or have no more than 10 concurrent worker invocations running. Parallel steps in a deployment can each reach their own `MaxParallelism`.  Coupled with multiple deployment tasks running, up to the task cap, you can see the number of concurrent worker invocations can grow quickly.
-
-External workers and the built-in worker have the same behavior in this regard and in that Workers can run many actions simultaneously and can run actions from different projects simultaneously.  Note that this means the execution of an action doesn't have exclusive access to a worker, which could allow one project to access the working folder of another project.
-
-Note that if external workers are added to the default pool, then the workload is shared across those workers: a single external worker will be asked to perform exactly the same load as the built-in worker would have been doing, two workers might get half each, etc.
+!include <workers-multiple-simultaneous-processes>
 
 ### Workers in HA setups
 
