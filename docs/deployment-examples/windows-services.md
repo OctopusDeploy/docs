@@ -33,12 +33,6 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 | **State**           | The state of the service after the deployment has completed |
 | **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
 
-## Windows Service deployment in action {#WindowsServices-WindowsServicedeploymentinaction}
-
-This three minute video (with captions) demonstrates how to deploy a C# Windows Service project with Octopus Deploy.
-
-<iframe src="//fast.wistia.net/embed/iframe/33yi0jfjpc" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="640" height="360" style="margin: 30px"></iframe>
-
 ## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowdoesOctopusactuallydeploymyWindowsService?}
 
 Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployment-examples/package-deployments/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployment-examples/package-deployments/package-deployment-feature-ordering.md).

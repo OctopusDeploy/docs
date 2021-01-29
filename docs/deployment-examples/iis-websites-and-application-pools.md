@@ -103,12 +103,6 @@ Octopus performs the following steps:
 You can see exactly how Octopus integrates with IIS in the [open-source Calamari library](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.IISWebSite_BeforePostDeploy.ps1).
 :::
 
-## IIS Configuration in action {#IISWebsitesandApplicationPools-IISconfigurationinaction}
-
-This five minute video demonstrates how Octopus can be used to deploy an ASP.NET MVC web application to remote IIS servers.
-
-<iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
-
 ## How to Take Your Website Offline During Deployment
 
 A IIS Website can be taken offline by placing a `app_offline.htm` file into the root directory of the website. The contents of that file will be shown to anyone accessing the site. This is useful if you do not want to users to access the site while the deployment is being performed. It recycles the App Pool, releasing any file locks the site may have.

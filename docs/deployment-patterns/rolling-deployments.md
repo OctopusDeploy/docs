@@ -94,12 +94,6 @@ In a follow-up step, you can add it back to the web farm if the service status i
 
 Octopus will evaluate the value of the [Output variable](/docs/projects/variables/output-variables.md) indicated by `#{Octopus.Machine.Name}` individually as the value will be specific to each machine in the rolling deployment.
 
-## Rolling deployments with child steps in action {#Rollingdeployments-Rollingdeploymentswithchildstepsinaction}
-
-This five minute video (with captions) will guide you through setting up a rolling deployment with child steps.rolling-deployments
-
-<iframe src="//fast.wistia.net/embed/iframe/7wfdk4vtge" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360" style="margin: 30px"></iframe>
-
 ## Rolling deployments with guided failures
 
 [Guided failures](/docs/releases/guided-failures.md) work perfectly with rolling deployments. If your deployment fails to one of the targets in your rolling deployment you can decide how to proceed. Imagine a scenario where you have three web servers in a load-balanced pool: `Web01`, `Web02` and `Web03`:
