@@ -7,7 +7,7 @@
 1. Configure the folder to store applications and press **Enter**.
 1. Enter the default listening port **10933** to use and press **Enter**.
 1. Enter the **Thumbprint** from the Octopus Web Portal and press **Enter**.
-1. Review the expected commands to run that are displayed, and press **Enter** to install the Tentacle.
+1. Review the configuration commands to be run that are displayed, and press **Enter** to install the Tentacle.
 1. Back in the **Octopus Web Portal**, enter the hostname or IP address of the machine the Tentacle is installed on, i.e., `example.com` or `10.0.1.23`, and click **NEXT**.
 1. Add a display name for the Worker (the server where you just installed the Listening Tentacle).
 1. Select which [worker pools](/docs/infrastructure/workers/worker-pools.md) the Worker will be assigned to and click **SAVE**.
