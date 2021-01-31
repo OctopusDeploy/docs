@@ -804,3 +804,4 @@ docs/getting-started-guides/tentacles.md -> docs/infrastructure/deployment-targe
 docs/getting-started-guides/variables.md -> docs/projects/variables/index.md
 docs/getting-started-guides/workers.md -> docs/infrastructure/workers/index.md
 docs/support/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-rest-api/index.md
+docs/credits.template.md -> docs/credits.md
