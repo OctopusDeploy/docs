@@ -139,7 +139,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 You have created your first deployment process. Next, we'll create a release and deploy it.
 
 :::success
-Learn more about [define deployment process](/docs/deployment-process/index.md).
+Learn more about [defining a deployment process](/docs/deployment-process/index.md).
 :::
 
 ### Releases and deployments
