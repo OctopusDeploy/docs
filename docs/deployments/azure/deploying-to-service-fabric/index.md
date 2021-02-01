@@ -7,7 +7,7 @@ hideInThisSectionHeader: true
 
 Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Service Fabric clusters.
 
-## What kind of applications can i deploy to Service Fabric?
+## What kind of applications can I deploy to Service Fabric?
 
 The short answer is: anything and everything! As long as you can script the deployment, Octopus can automate your deployments into a Service Fabric cluster.
 
