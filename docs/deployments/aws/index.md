@@ -16,5 +16,5 @@ All AWS steps execute on a worker.  By default, that will be the built-in worker
 
 ## Learn more
 
-- [AWS blog posts](https://octopus.com/blog/tag/aws).
-- [AWS runbook examples](/docs/runbooks/runbook-examples/aws/index.md).
+- [AWS blog posts](https://octopus.com/blog/tag/aws)
+- [AWS runbook examples](/docs/runbooks/runbook-examples/aws/index.md)
