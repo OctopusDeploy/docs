@@ -3,6 +3,7 @@ title: Certificates
 description: Manage and deploy X.509 certificates with Octopus Deploy
 description: Manage X.509 certificates with Octopus Deploy
 position: 40
+hideInThisSectionHeader: true
 ---
 
 X.509 certificates are a key component of many deployment processes. Octopus Deploy provides the ability to securely store and manage your certificates, and easily use them in your Octopus Projects.  
@@ -57,3 +58,7 @@ Certificates managed by Octopus can be configured as the [value of variables](/d
 ![](images/certificate-variables-scoped.png "width=500")
 
 Note that certificates can not be selected directly when configuring a deployment step. Selecting a certificate in deployment steps presents a drop-down list of the certificate variables that have been defined in the project.
+
+## Learn more
+
+- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate.md).

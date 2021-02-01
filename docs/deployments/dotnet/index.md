@@ -1,5 +1,5 @@
 ---
-title: .NET
+title: .NET deployments
 description: Octopus Deploy can help you perform repeatable, reliable deployments of your .NET applications.
 position: 10
 hideInThisSectionHeader: true
