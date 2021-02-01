@@ -116,4 +116,4 @@ These are known issues to be aware of with other compression libraries:
  - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
  - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - [Package repositories](/docs/packaging-applications/index.md).
- - [Package deployments](/docs/deployment-examples/package-deployments/index.md).
+ - [Package deployments](/docs/deployments/package-deployments/index.md).

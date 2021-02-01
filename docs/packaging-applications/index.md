@@ -54,7 +54,7 @@ It is important that your packages have the correct **file extension** because O
 | Tar          | .tar                   | Compatible with the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |
 | Tar + Gzip   | .tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
-| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployment-examples/docker-containers/index.md) and Octopus Deploy. |
+| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployments/docker-containers/index.md) and Octopus Deploy. |
 
 ## Learn more
 

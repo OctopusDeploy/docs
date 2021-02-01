@@ -349,7 +349,7 @@ This guide covered the basics of Octopus Deploy.  There are still many more conc
 
 - [Build server integration](/docs/packaging-applications/build-servers/index.md)
 - [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
-- [Deployment examples](/docs/deployment-examples/index.md)
+- [Deployment examples](/docs/deployments/index.md)
 - [Multi-tenancy](docs/deployments/patterns/multi-tenant-deployments/index.md)
 - [Workers](/docs/infrastructure/workers/index.md)
 - [Security considerations for Octopus Deploy](/docs/security/index.md)

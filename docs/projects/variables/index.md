@@ -165,4 +165,4 @@ If the answer to either of those questions is yes, it might be worth considering
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
-- [Using variables in your scripts](/docs/deployment-examples/custom-scripts/index.md) 
+- [Using variables in your scripts](/docs/deployments/custom-scripts/index.md) 

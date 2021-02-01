@@ -101,7 +101,7 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 
 Windows 2016 and 2019 dynamic worker images come with many versions of `kubectl` available.
 
-A specific version can be used by [specifying a custom kubectl location](/docs/deployment-examples/kubernetes-deployments/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
+A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes-deployments/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
 - `1.11.1`
 - `1.11.3`

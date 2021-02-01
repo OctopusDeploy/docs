@@ -12,7 +12,7 @@ In this example, you will be backing up a Microsoft SQL Server database using a 
 - SQL Authentication.
 - Integrated Authentication. 
 
-In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployment-examples/database-deployments/sql-server/permissions.md).
+In this example, we'll use SQL Authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information on this [here](/docs/deployments/database-deployments/sql-server/permissions.md).
 
 ## Create the Runbook
 

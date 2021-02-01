@@ -46,7 +46,7 @@ Remember these connections are usually initiated by your deployment targets or w
 
 Sometimes tasks appear to be unresponsive or "hanging". In most cases, this ends up being anti-virus or anti-malware software interfering with the task, and the first step in diagnosing the problem is to eliminate this source of interference, [see below](#anti-virus-software). 
 
-If you can completely rule out anti-virus software as a source of interference, then the problem may lie in your [custom scripts](/docs/deployment-examples/custom-scripts/index.md). The next step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug likely originates from your script.
+If you can completely rule out anti-virus software as a source of interference, then the problem may lie in your [custom scripts](/docs/deployments/custom-scripts/index.md). The next step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug likely originates from your script.
 
 If you are still unable to determine the cause of your hanging tasks, please contact support for further assistance.
 

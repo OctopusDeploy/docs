@@ -20,7 +20,7 @@ or
 ```
 
 :::info
-If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages-package-files) to learn more.
+If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages-package-files) to learn more.
 :::
 
 Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.

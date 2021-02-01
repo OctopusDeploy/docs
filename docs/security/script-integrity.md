@@ -8,8 +8,8 @@ Octopus supports a wide variety of scripting languages and runtimes. Octopus exe
 
 - Built-in steps provided by Octopus.
 - [Step templates contributed by the community and curated by Octopus](/docs/deployment-process/steps/community-step-templates.md).
-- Your own [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
-- Your own [custom script modules](/docs/deployment-examples/custom-scripts/script-modules.md).
+- Your own [custom scripts](/docs/deployments/custom-scripts/index.md).
+- Your own [custom script modules](/docs/deployments/custom-scripts/script-modules.md).
 - Your own [custom step templates](/docs/deployment-process/steps/custom-step-templates.md).
 
 Octopus lets you tailor these scripts to your needs at runtime using features like [dynamically substituting variables into your script files](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md).
