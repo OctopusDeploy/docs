@@ -23,7 +23,7 @@ You can configure the following features:
 - [Custom installation directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)
 - [IIS web site and application pool](/docs/deployment-process/configuration-features/iis-website-and-application-pool.md)
 - [Windows Service](/docs/deployment-process/configuration-features/windows-services.md)
-- [Custom deployment scripts](/docs/deployment-examples/custom-scripts/index.md)
+- [Custom deployment scripts](/docs/deployments/custom-scripts/index.md)
 - [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
 - [Configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
 - [.NET Configuration transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)

@@ -60,7 +60,7 @@ If a particular operation seems slow during deployment, test that single operati
 
 If the applications running on your deployment targets are busy, this will slow down your deployment. Similarly, when you run a deployment it will be taking resources from your running applications. Octopus does not perform any kind of throttling on the deployment target - it will attempt to run your deployment process on your targets as fast as possible.
 
-One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
+One of the best ways to reduce load on your deployment targets is to temporarily remove them from the active pool of servers. For example, with web applications you can do this by removing the server from your load balancer, perhaps using a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md).
 
 If you don't want to take this kind of approach, you can safely deploy your application to an active server, but you should take some time to understand the impact this has on your running applications and the speed of your deployments.
 
@@ -74,7 +74,7 @@ There is typically a happy balance you can strike for each of your projects. The
 
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
 - If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/projects/coordinating-multiple-projects/index.md).
-- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deployment-examples/custom-scripts/index.md) as a pre- or post- activity.
+- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deployments/custom-scripts/index.md) as a pre- or post- activity.
 
 ### Consider the size of your packages {#package-size}
 
@@ -82,7 +82,7 @@ Size really does matter when it comes to your packages:
 
 - Larger packages require more network bandwidth to transfer to your deployment targets.
 - Larger packages take more resources to unpack on your deployment targets.
-- When using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
+- When using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 - Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) can be configured to scan every file extracted from your package.
 
 Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
@@ -97,10 +97,10 @@ Octopus provides two primary methods for transferring your packages to your depl
 Each option provides different performance benefits, depending on your specific scenario:
 
 - If network bandwidth is the limiting factor, consider:
-  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md); or
+  - pushing the package from the Octopus Server to your targets using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md); or
   - using custom package feed in the same network as your deployment targets and download the packages directly on the agent.
 - If network bandwidth is not a limiting factor consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployment-examples/package-deployments/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+- If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
 
 ### Consider retention policies for your package feeds {#package-retention}
 
@@ -128,7 +128,7 @@ Imagine you have step in your deployment process which runs across all deploymen
 
 Alternatively if you constrain your process to a single deployment target at a time, the Octopus Server and your deployment targets will be bored, and your deployments will take longer.
 
-Consider using a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
+Consider using a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md) to deploy to a subset of these deployment targets at any one time. Rolling deployments allow you to define a "window" which is the maximum number of deployment targets which will run the step at any one time.
 
 ::: info
 This default behavior makes a lot of sense for smaller installations, but it is an unsafe default for larger installations. We are looking to [change this default behavior in a future version of Octopus](https://github.com/OctopusDeploy/Issues/issues/3305).

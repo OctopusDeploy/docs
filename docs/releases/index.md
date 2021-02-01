@@ -1,7 +1,7 @@
 ---
 title: Releases
 description: Releases allow you to capture everything required to deploy a project in a repeatable and reliable manner.
-position: 57
+position: 50
 ---
 
 !include <releases>

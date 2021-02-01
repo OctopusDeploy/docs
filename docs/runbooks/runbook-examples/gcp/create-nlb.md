@@ -8,7 +8,7 @@ Google Cloud (GCP) has a [Network Load Balancing solution](https://cloud.google.
 
 The other benefit of a network load balancer in GCP is that it supports any and all ports.
 
-In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployment-examples/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a test and production environment using ports to differentiate traffic:
+In this example, we'll walk through how to create a runbook with a number of [PowerShell Script steps](/docs/deployments/custom-scripts/run-a-script-step.md) to create a network load balancer in GCP for both a test and production environment using ports to differentiate traffic:
 
 - Port `8080` is used for traffic destined for the test environment.
 - Port `80` is used for traffic destined for the production environment.
@@ -38,7 +38,7 @@ The next sections explains how to configure a service account to be authorized t
 
 #### Create project variables {#gcp-project-variables}
 
-We'll use project [variables](/docs/projects/variables/index.md) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployment-examples/custom-scripts/script-modules.md).
+We'll use project [variables](/docs/projects/variables/index.md) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules.md).
 
 Create two [sensitive variables](/docs/projects/variables/sensitive-variables.md), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
 
@@ -47,7 +47,7 @@ Create two [sensitive variables](/docs/projects/variables/sensitive-variables.md
 
 #### Create authorization function in script module
 
-The instructions at [Creating a script module](/docs/deployment-examples/custom-scripts/script-modules.md#ScriptModules-CreatingaScriptmodule) detail the procedure for creating a script module in Octopus.
+The instructions at [Creating a script module](/docs/deployments/custom-scripts/script-modules.md#ScriptModules-CreatingaScriptmodule) detail the procedure for creating a script module in Octopus.
 
 In the **Body** of the script module, include the following PowerShell code:
 
@@ -86,7 +86,7 @@ function Set-GCPAuth() {
 
 This script defines a function named `Set-GCPAuth` which uses the `auth activate-service-account` command that is used in the runbook steps to authorize with Google Cloud.
 
-Add the script module into your runbook process following [these instructions](/docs/deployment-examples/custom-scripts/script-modules.md#ScriptModules-UsingaScriptModuleonaDeployment):
+Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules.md#ScriptModules-UsingaScriptModuleonaDeployment):
 
 ![Google Cloud Project variables](images/gcp-runbook-include-script-module.png
  "width=500")

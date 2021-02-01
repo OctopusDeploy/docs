@@ -29,7 +29,7 @@ You can now use this step in conjunction with other runbook steps to install you
 
 ## Common packages
 
-There are plenty of different types of software you can install with Chocolatey. The next few sections outline some of the common ones you can install with a runbook using the [Run a script](/docs/deployment-examples/custom-scripts/run-a-script-step.md) step.
+There are plenty of different types of software you can install with Chocolatey. The next few sections outline some of the common ones you can install with a runbook using the [Run a script](/docs/deployments/custom-scripts/run-a-script-step.md) step.
 
 ### Test for installed chocolatey package
 

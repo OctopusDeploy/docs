@@ -2,7 +2,7 @@
 title: Deployment process
 description: Deploying applications starts with defining a project's deployment process.
 hideInThisSection: false
-position: 50
+position: 55
 ---
 
 Now that you have access to an Octopus Server, your [infrastructure is configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you're ready to start deploying your software.

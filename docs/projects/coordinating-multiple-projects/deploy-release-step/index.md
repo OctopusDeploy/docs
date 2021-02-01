@@ -85,7 +85,7 @@ For example, if you have two projects, `Project A` and `Project B` which are ref
 
 ## Multi-tenant deployments
 
-When a [tenanted](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) project is being deployed by _Deploy a Release_ step, then the parent project should also be created as tenanted.
+When a [tenanted](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) project is being deployed by _Deploy a Release_ step, then the parent project should also be created as tenanted.
 
 When triggering a tenanted deployment of the parent project, the tenant will be used to trigger the child deployment.
 
@@ -100,7 +100,7 @@ A project can contain multiple _Deploy a Release_ steps which deploy a combinati
 
 ## Rolling deployments
 
-_Deploy a Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
+_Deploy a Release_ steps may be added as child steps, to be used in a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md).
 
 When executing a rolling deployment containing a _Deploy a Release_ step, child deployments will be created per deployment target, as each target is rolled over.  i.e. if the rolling step specifies a target role which matches 10 deployment targets, then 10 child deployments will be created. 
 
