@@ -54,7 +54,7 @@ The Octopus library is where you store build artifacts and other assets that can
 
 ## Deployments
 
-[**Deployments**](/docs/deployment-examples/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
+[**Deployments**](/docs/deployments/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
 
 - **Raw Log**: The unfiltered and raw look at the deployment log.  During the deployment Octopus will capture the output of each step and save it for review.
 - **Task Log**: The raw log formatted so it is easier to read on a web page.
@@ -97,7 +97,7 @@ The Octopus library is where you store build artifacts and other assets that can
 
 ### Deployments
 
-[**Deployments**](/docs/deployment-examples/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
+[**Deployments**](/docs/deployments/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
 
 - [**Deployment Notes**](/docs/releases/deployment-notes.md): The summarization of all the releases rolled up and included since the previous deployment to the deployment environment.  
 - [**Artifacts**](/docs/deployment-process/artifacts.md): Files collected from remote machines during the deployment which can be downloaded from the Octopus Web Portal for review.
@@ -135,10 +135,10 @@ Your [**Infrastructure**](/docs/infrastructure/index.md) is made up of the serve
 
 The Octopus library is where you store build artifacts and other assets that can be used across multiple projects.
 
-- [**Script Modules**](/docs/deployment-examples/custom-scripts/script-modules.md): Script modules let you use language-specific functions that can be used in deployment processes across multiple projects.
+- [**Script Modules**](/docs/deployments/custom-scripts/script-modules.md): Script modules let you use language-specific functions that can be used in deployment processes across multiple projects.
 
 ### Deployments
 
-[**Deployments**](/docs/deployment-examples/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
+[**Deployments**](/docs/deployments/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
 
 - [**Guided Failure Mode**](/docs/releases/guided-failures.md): An option to prompt a user to intervene when a deployment encounters an error so the deployment can continue.
