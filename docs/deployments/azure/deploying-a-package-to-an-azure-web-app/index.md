@@ -56,7 +56,7 @@ Please note these features actually run on the Octopus Server prior to executing
 :::
 
 :::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure//running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure//deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
 #Swap the staging slot into production

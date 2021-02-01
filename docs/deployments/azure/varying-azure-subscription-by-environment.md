@@ -17,7 +17,7 @@ You may want to use a different Azure subscription depending on which environmen
 
    ![variable](images/varying-variable.png "width=500")
 
-3. If you are deploying an **Azure Web App**, you will need to create an [Azure Web App Target](/docs/deployments/azure//deploying-a-package-to-an-azure-web-app/index.md) for each environment.
+3. If you are deploying an **Azure Web App**, you will need to create an [Azure Web App Target](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) for each environment.
 
    If you are deploying an **Azure Cloud Service**, you will need to create an [Azure Cloud Service Target](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) for each environment.
 

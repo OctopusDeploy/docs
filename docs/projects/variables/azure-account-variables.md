@@ -6,7 +6,7 @@ position: 70
 
 [Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**.
 
-The [Azure PowerShell](/docs/deployments/azure//running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+The [Azure PowerShell](/docs/deployments/azure/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
 
 ![AWS Account variable](images/azure-account-variable.png "width=500")
 

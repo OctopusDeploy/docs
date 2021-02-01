@@ -17,7 +17,7 @@ VIP swap is a great way for you to implement [Blue-green deployments](/docs/dep
     * Delete the "staging" slot to free up resources/costs.
     * Keep the previous version in "staging" in case you want to roll back - which is as easy as performing another VIP swap.
 
-In order to complete this guide you should have a Cloud Service project set up in Octopus Deploy that is deploying to the staging or production slot.  Please see [Getting started with Azure Cloud Services](/docs/deployments/azure//cloud-services/getting-started-with-azure-cloud-services.md) for more information.
+In order to complete this guide you should have a Cloud Service project set up in Octopus Deploy that is deploying to the staging or production slot.  Please see [Getting started with Azure Cloud Services](/docs/deployments/azure/cloud-services/getting-started-with-azure-cloud-services.md) for more information.
 
 ## Environment configuration {#VIPSwap-Environmentconfiguration}
 

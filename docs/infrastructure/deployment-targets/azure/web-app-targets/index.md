@@ -49,4 +49,4 @@ If your Azure Web App target does not successfully complete a health check, you 
 
 ## Deploying to Web App targets
 
-To learn about deploying to Azure Web App targets, see our [documentation about this topic](/docs/deployments/azure//deploying-a-package-to-an-azure-web-app/index.md)
+To learn about deploying to Azure Web App targets, see our [documentation about this topic](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md)

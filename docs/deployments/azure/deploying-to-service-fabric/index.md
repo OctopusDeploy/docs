@@ -20,7 +20,7 @@ All Service Fabric Steps are executed on the Octopus Server, however, you will n
 
 ### Service Fabric applications
 
-Octopus Deploy provides first-class support for [deploying Service Fabric application packages into Service Fabric clusters](/docs/deployments/azure//deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md).
+Octopus Deploy provides first-class support for [deploying Service Fabric application packages into Service Fabric clusters](/docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md).
 
 ### Service Fabric PowerShell scripts
 
@@ -30,17 +30,17 @@ Octopus Deploy provides a convenient step for [executing PowerShell scripts usin
 
 Both Service Fabric Applications and PowerShell Scripts require connection to a cluster.
 
-Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deployments/azure//deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md).
+Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md).
 
-Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deployments/azure//deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md).
+Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md).
 
 ### Versioning
 
-To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deployments/azure//service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
 
 ### Application packaging
 
-To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/deployments/azure//service-fabric/packaging.md).
+To learn more about the requirements for your Service Fabric application packages, see our guide to [Packaging a Service Fabric application](/docs/deployments/azure/service-fabric/packaging.md).
 
 ## Learn more
 

@@ -81,7 +81,7 @@ The Cloud Service target may be configured to either:
 
 If 'Always deploy' is select, the package will always be deployed to the selected Slot.
 
-If 'Swap staging to production if possible' is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). See [VIP Swap](/docs/deployments/azure//cloud-services/vip-swap.md) for more information on how to configure a VIP swap.
+If 'Swap staging to production if possible' is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot). See [VIP Swap](/docs/deployments/azure/cloud-services/vip-swap.md) for more information on how to configure a VIP swap.
 
 #### Instance count {#CloudServiceConcepts-Instancecount}
 

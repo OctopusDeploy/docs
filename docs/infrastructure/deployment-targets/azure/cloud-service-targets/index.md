@@ -41,7 +41,7 @@ See [Creating Resources by script](/docs/infrastructure/deployment-targets/dynam
 
 ## Deploying to Cloud Service targets
 
-See our [documentation about this topic](/docs/deployments/azure//deploying-a-package-to-an-azure-cloud-service/index.md)
+See our [documentation about this topic](/docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md)
 
 ## Troubleshooting
 
