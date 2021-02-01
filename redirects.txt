@@ -836,3 +836,4 @@ docs/deployment-examples/asp.net-core-web-application-deployments/index.md -> do
 docs/deployment-examples/windows-services.md -> docs/deployments/windows/windows-services.md
 docs/deployment-examples/iis-websites-and-application-pools.md -> docs/deployments/windows/iis-websites-and-application-pools.md
 docs/deployment-examples/virtual-hard-drive-deployments.md -> docs/deployments/windows/virtual-hard-drive-deployments.md
+docs/deployment-examples/html-and-javascript-application-deployments.md -> docs/deployments/html-and-javascript-application-deployments.md
