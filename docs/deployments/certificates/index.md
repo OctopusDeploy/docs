@@ -61,4 +61,4 @@ Note that certificates can not be selected directly when configuring a deploymen
 
 ## Learn more
 
-- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate,md).
+- [Lets Encrypt runbook examples](/docs/runbooks/runbook-examples/routine/lets-encrypt-renew-certificate.md).
