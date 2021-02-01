@@ -77,4 +77,4 @@ If you are experiencing SSL/TLS connection errors when connecting to AWS from yo
 
 ## AWS deployments
 
-Learn more about [AWS deployments](/docs/deployment-examples/aws-deployments/index.md).
+Learn more about [AWS deployments](/docs/deployments/aws/index.md).

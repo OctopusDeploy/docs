@@ -8,7 +8,7 @@ The NGINX feature is one of the [configuration features](/docs/deployment-proces
 
 ![NGINX Web Server screenshot](images/nginx-web-server.png "width=500")
 
-The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployment-examples/nginx-on-linux-deployments/index.md) for more details.
+The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployments/nginx/index.md) for more details.
 
 ## Reverse proxy
 

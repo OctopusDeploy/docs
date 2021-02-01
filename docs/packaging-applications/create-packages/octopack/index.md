@@ -25,7 +25,7 @@ Set the `RunOctoPack` MSBuild property to true, and OctoPack will create a NuGet
 msbuild MySolution.sln /t:Build /p:RunOctoPack=true
 ```
 
-After the build completes, you will find a NuGet package in the output directory. This package is ready to be deployed with Octopus. See [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
+After the build completes, you will find a NuGet package in the output directory. This package is ready to be deployed with Octopus. See [Package Deployments](/docs/deployments/packages/index.md).
 
 ## Add a NuSpec file {#UsingOctoPack-AddingaNuSpec}
 
@@ -237,4 +237,4 @@ In addition to the common arguments above, OctoPack has a number of other parame
 
  - Use [OctoPack to include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
- - [Package deployments](/docs/deployment-examples/package-deployments/index.md)
+ - [Package deployments](/docs/deployments/packages/index.md)

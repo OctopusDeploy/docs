@@ -57,7 +57,7 @@ Learn more about health checks and [machine policies](/docs/infrastructure/deplo
 
 ## Running scripts on SSH endpoints
 
-You can use [raw scripting](/docs/deployment-examples/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
+You can use [raw scripting](/docs/deployments/custom-scripts/raw-scripting.md) to run scripts on SSH endpoints without any additional Octopus dependencies. You can set [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to configure health checks that only test for SSH connectivity for the target to be considered healthy.
 
 ## Learn more
 

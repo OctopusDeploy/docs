@@ -73,7 +73,7 @@ dotnet publish ./OctoWeb.csproj --output ./dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0"
 ```
 
-Please refer to [Microsoft's publish and packing](/docs/deployment-examples/asp.net-core-web-application-deployments/index.md#DeployoingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
+Please refer to [Microsoft's publish and packing](/docs/deployments/dotnet/netcore-webapp.md#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite) documentation for more information.
 
 ## Packaging a .NET Core library
 
@@ -116,4 +116,4 @@ These are known issues to be aware of with other compression libraries:
  - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
  - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
  - [Package repositories](/docs/packaging-applications/index.md).
- - [Package deployments](/docs/deployment-examples/package-deployments/index.md).
+ - [Package deployments](/docs/deployments/packages/index.md).

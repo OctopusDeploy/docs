@@ -1,7 +1,7 @@
 ---
 title: Deployments
 description: Deployment examples, patterns and practices, and their practical implementation using Octopus.
-position: 50
+position: 55
 hideInThisSectionHeader: true
 ---
 
@@ -13,4 +13,4 @@ When you deploy a release, you execute the deployment process with all the inclu
 
 ## Learn more
 
-This section provides a number of common deployment patterns and practices.
+This section provides deployment examples for different types of applications and technologies using Octopus. It also includes a number of common deployment patterns and practices.

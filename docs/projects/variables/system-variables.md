@@ -4,7 +4,7 @@ description: System variables are variables provided by Octopus that can be used
 position: 20
 ---
 
-This page lists built-in [variables](/docs/projects/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+This page lists built-in [variables](/docs/projects/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts/index.md).
 
 ## Release {#Systemvariables-Release}
 

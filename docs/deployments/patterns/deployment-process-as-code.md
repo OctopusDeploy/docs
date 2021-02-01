@@ -34,7 +34,7 @@ You can follow this process to move your custom scripts without interrupting dep
 
 Now your scripts are colocated with your application source code, all without changing your build pipeline.
 
-Learn about [custom scripts](/docs/deployment-examples/custom-scripts/index.md) and [executing custom scripts in packages](/docs/deployment-examples/custom-scripts/scripts-in-packages/index.md).
+Learn about [custom scripts](/docs/deployments/custom-scripts/index.md) and [executing custom scripts in packages](/docs/deployments/custom-scripts/scripts-in-packages/index.md).
 
 ### Consistency and repeatability using scripts as code
 

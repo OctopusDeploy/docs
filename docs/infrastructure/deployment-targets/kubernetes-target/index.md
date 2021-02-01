@@ -3,7 +3,7 @@ title: Kubernetes cluster
 description: How to configure a Kubernetes cluster as a deployment target in Octopus
 position: 40
 ---
-Kubernetes targets are used by the [Kubernetes steps](/docs/deployment-examples/kubernetes-deployments/index.md) to define the context in which deployments and scripts are run.
+Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernetes/index.md) to define the context in which deployments and scripts are run.
 
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
@@ -110,7 +110,7 @@ users:
         -inkey private.key
       ```
 
-      This file can then be uploaded to the [Octopus certificate management area](/docs/deployment-examples/certificates/index.md), after which, it will be made available to the Kubernetes target.
+      This file can then be uploaded to the [Octopus certificate management area](/docs/deployments/certificates/index.md), after which, it will be made available to the Kubernetes target.
 
       The Certificates Library can be accessed via **{{Library>Certificates}}**.
 
@@ -324,5 +324,5 @@ exit 0
 
 ## Learn more
 
-- [Kubernetes Deployment](/docs/deployment-examples/kubernetes-deployments/index.md)
+- [Kubernetes Deployment](/docs/deployments/kubernetes/index.md)
 - [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)

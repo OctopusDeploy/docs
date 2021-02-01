@@ -12,7 +12,7 @@ In this example, you will restore a Microsoft SQL Server database using a step t
 - SQL authentication.
 - Integrated authentication. 
 
-In this example, we'll use SQL authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information about this in the [permissions documentation](/docs/deployment-examples/database-deployments/sql-server/permissions.md).
+In this example, we'll use SQL authentication and provide both a SQL username and password. It's important to check that you have the correct permissions to perform the backup. You can find more information about this in the [permissions documentation](/docs/deployments/databases/sql-server/permissions.md).
 
 ## Create the Runbook
 

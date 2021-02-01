@@ -16,10 +16,10 @@ Typical routines could be:
 
 Out-of-the-box, Octopus provides built-in steps to help manage your infrastructure in Azure:
 - [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups/index.md).
-- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployment-examples/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployment-examples/azure-deployments/running-azure-powershell/index.md).
+- [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/index.md).
 
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
 - [Azure blog posts](https://octopus.com/blog/tag/azure).
-- [Azure deployment examples](/docs/deployment-examples/azure-deployments/index.md).
+- [Azure deployment examples](/docs/deployments/azure/index.md).
