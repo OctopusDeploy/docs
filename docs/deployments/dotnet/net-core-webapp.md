@@ -1,12 +1,12 @@
 ---
-title: ASP.NET Core web applications
+title: ASP.NET Core webapp
 description: This guide covers everything you need to perform your first ASP.NET Core webapp deployment.
-position: 10
+position: 0
 ---
 
-ASP.NET Core is the future of ASP.NET, and it contains many changes to how applications are built, and how they are run.
+ASP.NET Core is fast becoming the de-facto web framework in .NET. Compared to earlier versions of ASP.NET, it contains many changes to how applications are built, and how they are run.
 
-If you are new to ASP.NET Core you can start with the [Tutorial: Get Started ASP.Net Core tutorial](https://docs.asp.net/en/latest/getting-started.html).
+If you are new to ASP.NET Core you can start with the [Tutorial: Get Started ASP.Net Core tutorial](https://docs.microsoft.com/en-us/aspnet/core/getting-started/?view=aspnetcore-5.0).
 
 ## Publishing and packing the website {#DeployingASP.NETCoreWebApplications-PublishingandPackingtheWebsite}
 
