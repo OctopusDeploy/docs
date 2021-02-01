@@ -1,5 +1,5 @@
 ---
-title: NGINX web server deployments
+title: NGINX deployments
 description: This guide covers everything you need to configure NGINX on Linux for your web applications
 position: 90
 hideInThisSectionHeader: true
