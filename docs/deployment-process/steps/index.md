@@ -46,7 +46,7 @@ With your deployment configured you're ready to create a [release](/docs/release
 
 ## Example: A simple deployment process
 
-In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployments/package-deployments/index.md) and execute [custom scripts](/docs/deployments/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/deployment-targets/index.md#target-roles) **web-server**.
+In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployments/packages/index.md) and execute [custom scripts](/docs/deployments/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/deployment-targets/index.md#target-roles) **web-server**.
 
 ![A simple deployment process](images/simple-process.png "width=500")
 

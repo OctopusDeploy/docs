@@ -71,7 +71,7 @@ Firstly, you might want to constrain the service principal to a single resource 
 
 Next, if you want to get even more granular you can constrain the service principal to a single resource, e.g. a Web App. _In this case, you have to assign the **Contributor** role on the Web App and explicitly assign the **Reader** role on the subscription itself_.
 
-The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure-deployments/ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
+The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure//ase/index.md#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
 ### Create an Service Principal with PowerShell {#create-service-principal-account-with-powershell}
 
@@ -205,7 +205,7 @@ Now that you have the following values, you can add your account to Octopus:
 1. Add your Azure Subscription ID. This is found in the Azure portal under **Subscriptions**.
 1. Add the **Application ID**, the **Tenant ID**, and the **Application Password/Keyword**.
 
-Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployments/azure-deployments/index.md) for more details.
+Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to whitelist the IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployments/azure//index.md) for more details.
 
 :::hint
 A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
@@ -213,7 +213,7 @@ A newly created Service Principal may take several minutes before the credential
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
 
-Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployments/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployments/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md).
+Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployments/azure//deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployments/azure//deploying-a-package-to-an-azure-web-app/index.md).
 
 :::warning
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
@@ -241,13 +241,13 @@ The certificate will be named **Octopus Deploy -``{Your Account Name}**.
 
 ### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
 
-Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployments/azure-deployments/index.md) for more details.
+Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to whitelist the appropriate IP Addresses for the Azure Data Center you are targeting. See [deploying to Azure via a Firewall](/docs/deployments/azure//index.md) for more details.
 
 You can now configure Octopus to deploy to Azure via the Azure Service Management (ASM) API.
 
 ## Azure account variables {#azure-account-variables}
 
-You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployments/azure-deployments/index.md).
+You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployments/azure//index.md).
 
 ## Automate Azure Service Principal creation and Octopus Deploy account registration {#azure-octopus-account-automate-creation}
 

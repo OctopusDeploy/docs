@@ -17,7 +17,7 @@ You can add any of the following script files in any of the scripting languages 
 
 Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case sensitive on certain operating systems.
 
-Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/package-deployments/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md).
+Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables.md) and [collecting artifacts](/docs/deployment-process/artifacts.md).
 
 ## Including the scripts in the package
 
@@ -39,7 +39,7 @@ At each stage during the deployment, Octopus will look for a scripts matching th
 4. Octopus does some work, then executes `Deploy.<ext>` in the current working directory.
 5. Octopus does some work, then executes `PostDeploy.<ext>` in the current working directory.
 
-For more details see [how packages are deployed](/docs/deployments/package-deployments/index.md) and [what order are conventions run in](/docs/deployments/package-deployments/package-deployment-feature-ordering.md).
+For more details see [how packages are deployed](/docs/deployments/packages/index.md) and [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md).
 
 ### Cross-platform support {#cross-platform-support}
 

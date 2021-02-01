@@ -63,7 +63,7 @@ If a package with the same version exists, and you want to force the Octopus Ser
 
 ## Using npm.exe, Grunt or Gulp {#Usingnpm.exe,gruntorgulp}
 
-You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployments/node-deployments/node-on-linux.md).
+You can upload packages using npm.exe or using our grunt or gulp tasks. Take a look at our [guide for packaging and deploying Node.js applications using Octopus Deploy](/docs/deployments/node-js/node-on-linux.md).
 
 ## Using Curl {#Usingcurl}
 

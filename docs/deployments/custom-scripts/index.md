@@ -31,7 +31,7 @@ In the context of Octopus, your custom scripts get the following extra benefits:
  - Your scripts can set output variables making these values available to other steps in your process. Learn about [output variables](/docs/projects/variables/output-variables.md).
  - Your scripts can collect files and store them in Octopus. Learn about [publishing artifacts](/docs/deployment-process/artifacts.md).
  - Your scripts can be pre-authenticated and bootstrapped into a cloud provider. Learn about [AWS CLI scripts](aws-cli-scripts.md) and [Azure CLI scripts](azure-powershell-scripts.md).
- - Your scripts can be pre-authenticated and bootstrapped into an external service or server cluster. Learn about [Kubernetes deployments](/docs/deployments/kubernetes-deployments/index.md) and [Service Fabric deployments](/docs/deployments/azure-deployments/service-fabric/index.md).
+ - Your scripts can be pre-authenticated and bootstrapped into an external service or server cluster. Learn about [Kubernetes deployments](/docs/deployments/kubernetes/index.md) and [Service Fabric deployments](/docs/deployments/azure//service-fabric/index.md).
  - You can define reusable functions for your scripts to use. Learn about [script modules](docs/deployment-examples/custom-scripts/script-modules.md).
 
 ## How to use custom scripts
@@ -39,7 +39,7 @@ In the context of Octopus, your custom scripts get the following extra benefits:
 Octopus supports the following ways to use custom scripts:
 
  - You can define a step in a process to run a script. Learn about the [run a script step](run-a-script-step.md).
- - You can run custom scripts when Octopus deploys a package. Learn about the [deploy a package step](/docs/deployments/package-deployments/index.md) and [the different stages where your script can run](/docs/deployments/package-deployments/package-deployment-feature-ordering.md).
+ - You can run custom scripts when Octopus deploys a package. Learn about the [deploy a package step](/docs/deployments/packages/index.md) and [the different stages where your script can run](/docs/deployments/packages/package-deployment-feature-ordering.md).
  - You can build reusable step templates containing your own scripts which can be used across multiple projects. Learn about [step templates](/docs/deployment-process/steps/custom-step-templates.md).
  - You can run ad hoc scripts for administrative tasks. Learn about the [script console](/docs/administration/managing-infrastructure/script-console.md).
  - You can run custom scripts as part of a health check. Learn about [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
@@ -48,7 +48,7 @@ Octopus supports the following ways to use custom scripts:
 
 Octopus can execute scripts from a variety of locations, all with different benefits:
 
-  1. You can author and store your scripts directly in Octopus. Learn about the [run a script step](run-a-script-step.md) and [deploy a package step](/docs/deployments/package-deployments/index.md).
+  1. You can author and store your scripts directly in Octopus. Learn about the [run a script step](run-a-script-step.md) and [deploy a package step](/docs/deployments/packages/index.md).
   2. You can author your scripts and publish them as step templates for other projects to use. Learn about [step templates](/docs/deployment-process/steps/custom-step-templates.md).
   3. You can develop your scripts and store them in a source control repository, like git, and Octopus can execute these scripts from within a package. Learn about [deployment process as code](/docs/deployments/patterns/deployment-process-as-code.md) and [running scripts in packages](scripts-in-packages/index.md).
   4. You can develop your scripts and store them in GitHub, then publish them as a release, which can be consumed by Octopus. Learn about [using the GitHub feed](/docs/packaging-applications/package-repositories/github-feeds.md).
