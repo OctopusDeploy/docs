@@ -4,15 +4,15 @@ description: How to use tenant tags to make working with tenanted deployments in
 position: 4
 ---
 
-Previous step: [Working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
+Previous step: [Working with tenant-specific variables](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md)
 
-This page describes how to use [tenant tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) to make working with tenanted deployments in Octopus much easier.
+This page describes how to use [tenant tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md) to make working with tenanted deployments in Octopus much easier.
 
 ## Classifying and working with groups of tenants
 
 Working with a small number of tenants is quite easy; they all fit on one page, and you can tailor deployments for your projects and environments based on individual tenants. Working with a lot of tenants (we hope all of our customers are this successful!) is much harder if you tailor everything based on individual tenants. This is where it makes sense to work with tenants in aggregate, just like [environments](/docs/infrastructure/environments/index.md) and [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles) let you work with machines in aggregate instead of individually.
 
-Consider setting up the new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
+Consider setting up the new infrastructure as a shared host for multiple tenants: Instead of specifying each tenant by their name, you could tag each tenant as belonging to a shared pool, and add that single tag to each deployment target in the pool. You can [jump ahead in our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) if this is of interest to you.
 
 ![](images/multi-tenant-deployment-target-all.png "width=500")
 
@@ -24,10 +24,10 @@ Consider setting up the new infrastructure as a shared host for multiple tenants
 
 ## Introducing tenant tags
 
-In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. You can read more about [tenant tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) in our reference documentation, or jump to other sections in this guide to learn about tailoring your projects and environments for your tenants:
+In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. You can read more about [tenant tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md) in our reference documentation, or jump to other sections in this guide to learn about tailoring your projects and environments for your tenants:
 
-- [Designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
-- [Designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+- [Designing a multi-tenant upgrade process](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md)
+- [Designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
 
 ## Example Scenario: Treating VIP tenants with extra care and attention
 
@@ -96,7 +96,7 @@ if ($tenantName) {
 
 :::success
 **Tenant filter design/preview**
-Clicking the Design/Preview link will open a dialog to help you design your tenant filter. You can [learn more about designing complex tenant filters in our reference documentation](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
+Clicking the Design/Preview link will open a dialog to help you design your tenant filter. You can [learn more about designing complex tenant filters in our reference documentation](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md).
 :::
 
 The resulting deployment process will include the step that emails tenants tagged with the **VIP** tag.
@@ -111,7 +111,7 @@ To see the benefit of tagging, you could go and create some more tenants and tag
 
 ## Next steps
 
-Learn about [designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md) and [designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) which all use tags as a fundamental building block.
+Learn about [designing a multi-tenant upgrade process](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md) and [designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md) which all use tags as a fundamental building block.
 
 ## Learn more
 

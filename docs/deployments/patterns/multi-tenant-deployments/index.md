@@ -50,7 +50,7 @@ The multi-tenant features in Octopus Deploy will simplify your deployments in al
 - You want to provide each tester with an isolated test deployment so they can work on test data, and choose when to upgrade.
 - You want to provide isolated, time-limited, deployments for work on feature branches.
 - You want to manage deployments to individual targets across environments, like managing a fleet of embedded devices, or a fleet of laptops/workstations.
-- You deploy your application to multiple geographic regions - this way you can avoid creating multiple environments instead modeling each region as a tenant in the same environment - [example](/docs/deployment-patterns/multi-region-deployment-pattern.md).
+- You deploy your application to multiple geographic regions - this way you can avoid creating multiple environments instead modeling each region as a tenant in the same environment - [example](/docs/deployments/patterns/multi-region-deployment-pattern.md).
 - You deploy unique instances of your application for each end-customer - keep reading!
 
 ### You want to deploy a multi-tenant application {#Multi-tenantdeployments-Youwanttodeployamulti-tenantapplication}
@@ -100,6 +100,6 @@ For example, if deployment consists of many copies of the exact same website, ju
 
 We have worked hard to design multi-tenant deployments in Octopus Deploy to work with a wide variety of scenarios. That being said there may be some limitations and problems which may hamper your adoption. In order to decide if you should adopt multi-tenant deployments for your scenario we recommend:
 
-1. Read through the [multi-tenant deployment guide](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md).
+1. Read through the [multi-tenant deployment guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md).
 2. Investigate if there are any current [limitations or problems](https://github.com/OctopusDeploy/Issues/issues?q=is%3Aopen+is%3Aissue+label%3Afeature%2Ftenants) which will impact your specific scenario.
 3. Get in touch with our [support team](https://octopus.com/support) who can help you understand if multi-tenant deployments are right for you, and how to best model your deployments using Octopus Deploy.

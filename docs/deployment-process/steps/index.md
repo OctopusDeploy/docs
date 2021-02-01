@@ -26,7 +26,7 @@ If you're looking for example deployments, see the [Deploying Applications examp
 
 6. If you are deploying to deployment targets or running the step on the server on behalf of deployment targets, you can deploy to all targets in parallel (default) or configure a rolling deployment. To configure a rolling deployment click *configure a rolling deployment* and specify the window size for the deployment. The window size controls how many deployment targets will be deployed to in parallel.
 
-Learn more about [rolling deployments](/docs/deployment-patterns/rolling-deployments.md).
+Learn more about [rolling deployments](/docs/deployments/patterns/rolling-deployments.md).
 
 7. The next section of the step is where you specify the actions for the step to take, if you are running a script or deploying a package this is where you provide the details. This section will vary depending on the type of step you're configuring. For example deployments, see the [Deploying Applications examples](/docs/deployment-examples/index.md). If you're deploying packages you'll likely need to set your [configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md).
 8. After providing the actions the steps takes, you can set the conditions for the step. You can set the following conditions:
@@ -52,6 +52,6 @@ In the example shown below there are three steps that will be executed from top 
 
 ## Example: A rolling deployment process
 
-Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md).
+Let's consider a more complex example like the one shown below. In this example we have configured Octopus to deploy a web application across one or more servers in a web farm behind a load balancer. This process has a single step and three actions which form a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md).
 
 ![A Rolling Deployment](images/rolling-process.png "width=500")
