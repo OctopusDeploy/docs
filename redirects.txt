@@ -31,7 +31,7 @@ docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/infrastructure/lifecycles/index.md -> docs/releases/lifecycles/index.md
 docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/deployments/patterns/multi-tenant-deployments/index.md
-docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
+docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployments/windows/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
 docs/administration/providing-database-performance-metrics.md -> docs/support/providing-database-performance-metrics.md
@@ -160,7 +160,7 @@ docs/deployment-examples/deploying-packages/stage-package-uploads.md -> docs/dep
 docs/deployment-examples/deploying-packages/transfer-package.md -> docs/deployment-examples/package-deployments/transfer-package.md
 docs/deployment-examples/deploying-packages/troubleshoot-missing-packages.md -> docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md
 docs/deployment-examples/deploying-html-and-javascript-applications.md -> docs/deployment-examples/html-and-javascript-application-deployments.md
-docs/deployment-examples/deploying-virtual-hard-drives.md -> docs/deployment-examples/virtual-hard-drive-deployments.md
+docs/deployment-examples/deploying-virtual-hard-drives.md -> docs/deployments/windows/virtual-hard-drive-deployments.md
 docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-service-principal-account.md -> docs/infrastructure/deployment-targets/azure/index.md
 docs/infrastructure/azure/creating-an-azure-account/creating-an-azure-management-certificate-account.md -> docs/infrastructure/deployment-targets/azure/index.md
 docs/infrastructure/azure/creating-an-azure-account/index.md -> docs/infrastructure/deployment-targets/azure/index.md
@@ -833,3 +833,6 @@ docs/deployment-patterns/canary-deployments.md -> docs/deployments/patterns/cana
 docs/deployment-patterns/branching.md -> docs/deployments/patterns/branching.md
 docs/deployment-patterns/deployment-process-as-code.md -> docs/deployments/patterns/deployment-process-as-code.md
 docs/deployment-examples/asp.net-core-web-application-deployments/index.md -> docs/deployments/dotnet/netcore-webapp.md
+docs/deployment-examples/windows-services.md -> docs/deployments/windows/windows-services.md
+docs/deployment-examples/iis-websites-and-application-pools.md -> docs/deployments/windows/iis-websites-and-application-pools.md
+docs/deployment-examples/virtual-hard-drive-deployments.md -> docs/deployments/windows/virtual-hard-drive-deployments.md

@@ -44,7 +44,7 @@ Certificates can be imported to Windows Certificate Stores as part of a deployme
 
 ## Use certificates for HTTPS bindings when deploying IIS websites   
 
-When configuring HTTPS bindings for [IIS Websites](/docs/deployment-examples/iis-websites-and-application-pools.md), a certificate can be configured either by:
+When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis-websites-and-application-pools.md), a certificate can be configured either by:
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
 - selecting a certificate-typed variable (this will automatically install the certificate).
 

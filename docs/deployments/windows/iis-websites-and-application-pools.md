@@ -1,7 +1,7 @@
 ---
 title: IIS Websites and application pools
 description: Octopus has built-in support for configuring IIS web sites, applications and virtual directories.
-position: 80
+position: 20
 ---
 
 Configuring IIS is an essential part of deploying any ASP.NET web application. Octopus has built-in support for configuring IIS Web Sites, Applications, and Virtual Directories.
@@ -11,9 +11,9 @@ Configuring IIS is an essential part of deploying any ASP.NET web application. 
 1. Give the step a name.
 1. Select the package feed and enter the package ID of the package to be deployed.
 1. Choose the IIS deployment type:
-  - [Web Site](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
-  - [Virtual Directory](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory)
-  - [Web Application](/docs/deployment-examples/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
+  - [Web Site](/docs/deployments/windows/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
+  - [Virtual Directory](/docs/deployments/windows/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISVirtualDirectoryvirtual-directory)
+  - [Web Application](/docs/deployments/windows/iis-websites-and-application-pools.md#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
 
   Understanding the difference between Sites, Applications, and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications, and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
 
@@ -50,7 +50,7 @@ You need to fill out the following fields for an IIS Virtual Directory deploymen
 | **Physical path**        | The physical path on disk this Virtual Directory will point to. | `/Path1/Path2/MyDirectory`, `#{MyCustomInstallationDirectory}`. | You can specify an absolute path, or a relative path inside the package installation directory. |
 
 :::success
-The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
+The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools.md) for more details.
 :::
 
 :::warning
@@ -69,7 +69,7 @@ The IIS Web Application step requires a parent Web Site to exist in IIS before i
 You need to fill out the following fields for an IIS Web Application deployment:
 
 :::success
-The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployment-examples/iis-websites-and-application-pools.md) for more details.
+The Virtual Path and Physical Path do not need to match which is one of the true benefits of IIS. You can create a virtual mapping from a URL to a completely unrelated physical path on disk. See [below](/docs/deployments/windows/iis-websites-and-application-pools.md) for more details.
 :::
 
 | Field                     | Meaning                                  | Examples                                 | Notes                                    |
