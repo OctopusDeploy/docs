@@ -4,7 +4,7 @@ description: Use variable templates as part of a multi-tenant deployment design.
 position: 3
 ---
 
-Previous step: [Deploying a simple multi-tenant project](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
+Previous step: [Deploying a simple multi-tenant project](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md)
 
 This page describes how to use [variable templates](/docs/projects/variables/variable-templates.md) as part of a multi-tenant deployment design. We start by building on the existing scenario, providing background information, and then providing end-to-end implementation of that scenario.
 
@@ -174,7 +174,7 @@ Now that we've configured the variables in this way, let's take a look at the re
 
 ## Next steps
 
-Learn about [working with groups of tenants using tags](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md) as the foundation for [designing a multi-tenant upgrade process](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md) and [designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+Learn about [working with groups of tenants using tags](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md) as the foundation for [designing a multi-tenant upgrade process](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md) and [designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 
 ## Learn more
 

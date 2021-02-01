@@ -4,12 +4,12 @@ description: How to design a multi-tenant upgrade process.
 position: 6
 ---
 
-Previous step: [Designing a multi-tenant hosting model](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
+Previous step: [Designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md)
 
 This page describes how to design a multi-tenant upgrade process using some of the features built into Octopus Deploy.
 
 :::success
-You should understand [Lifecycles](/docs/releases/lifecycles/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) before continuing with this guide.
+You should understand [Lifecycles](/docs/releases/lifecycles/index.md) and [Tenant Tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md) before continuing with this guide.
 :::
 
 ## Upgrading tenanted applications
@@ -54,7 +54,7 @@ You can also use the Project Overview to deploy to individual tenants by selecti
 
 You can deploy to all of the tenants in an environment using the Octopus UI, the Octopus CLI, or any build-server extensions. Octopus will create a deployment for each tenant, ready for that release to be deployed to the project/environment. Octopus will automatically exclude the tenants who are not ready for that release yet - perhaps they haven't met their lifecycle requirements.
 
-As a general rule, we don't recommend deploying to all tenants when there are hundreds of tenants. This may cause an unnecessary overload on your Octopus instance. Instead, we recommend deploying using [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
+As a general rule, we don't recommend deploying to all tenants when there are hundreds of tenants. This may cause an unnecessary overload on your Octopus instance. Instead, we recommend deploying using [Tenant Tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md).
 
 ### Using the Octopus CLI
 
@@ -97,7 +97,7 @@ You can optionally configure some external tenants as opting into early or stabl
 
 ### Step 4: Deploy
 
-Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy **version 1.0.1** to all of the tenants tagged with `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
+Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy **version 1.0.1** to all of the tenants tagged with `Upgrade ring/Tester` who are connected to the the **MT Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios as discussed we discussed [earlier](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
 
 ![](images/multi-tenant-deploy-test.png "width=500")
 
@@ -107,7 +107,7 @@ You can also use the Project Overview to deploy to groups of tenants by grouping
 
 ## Using channels and tenant tags to restrict test releases to the test team
 
-You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/releases/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
+You may decide to use channels as a safety measure, to restrict test releases to a limited set of test tenants. By using a combination of [Channels](/docs/releases/channels/index.md) and [Tenant Tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md) you can make sure test releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the lifecycle
 
@@ -137,7 +137,7 @@ When you deploy this release, you will be able to choose from the limited set of
 
 ## Using Channels and tenant tags to implement an early access program
 
-Quite often, you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/releases/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
+Quite often, you want to involve certain customers in testing early releases of major upgrades. By using a combination of [Channels](/docs/releases/channels/index.md) and [Tenant Tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md) you can implement an opt-in early access program using tenants, making sure the beta releases are only deployed to the correct tenants and environments.
 
 ### Step 1: Create the lifecycle
 
@@ -173,7 +173,7 @@ Now when you are deploying **2.0.0-beta.1**, you will be able to select tenants 
 
 ## Pinning Tenants to a release
 
-Quite often, you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/releases/channels/index.md) and [Tenant Tags](/docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md).
+Quite often, you will want to disable/prevent deployments to a tenant during a period of time where the customer wants guarantees of stability. You can prevent deployments to tenants using a combination of [Channels](/docs/releases/channels/index.md) and [Tenant Tags](/docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md).
 
 ### Step 1: Create the upgrade ring/pinned tag
 
@@ -199,7 +199,7 @@ Find a tenant you want to pin and apply the **Upgrade ring/Pinned** tag, removin
 
 ## Next steps
 
-Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).
+Now you can continue and investigate how you can [use the Octopus security model with tenants](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).
 
 ## Learn more
 

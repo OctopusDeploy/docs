@@ -83,7 +83,7 @@ The currently-running machine could be substituted in this expression:
 
 This will evaluate to `True` on Web01 and `False` on Web02.
 
-Machine-level variable expressions are also supported in [rolling deployments](/docs/deployment-patterns/rolling-deployments.md) using child steps.
+Machine-level variable expressions are also supported in [rolling deployments](/docs/deployments/patterns/rolling-deployments.md) using child steps.
 
 ## Start trigger
 

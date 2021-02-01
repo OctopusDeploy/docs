@@ -101,4 +101,4 @@ octo clean-environment --environment Production --status Offline --server http:/
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
 - [Environments](/docs/infrastructure/environments/index.md)
-- [Automatically clean up environments](/docs/deployment-patterns/elastic-and-transient-environments/cleaning-up-environments.md)
+- [Automatically clean up environments](/docs/deployments/patterns/elastic-and-transient-environments/cleaning-up-environments.md)

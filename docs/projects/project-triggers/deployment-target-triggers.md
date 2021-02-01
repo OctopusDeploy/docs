@@ -8,13 +8,13 @@ Deployment target triggers (also known as auto-deploy) let you to define an unat
 
 Deployment target triggers can help you:
 
-- [Elastically scale a farm of servers](/docs/deployment-patterns/elastic-and-transient-environments/index.md).
-- [Automatically keep your deployment targets up to date](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments.
-- [Deploy to transient deployment targets](/docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md) (targets that are disconnected from time to time).
-- [Implement immutable infrastructure environments](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments").
+- [Elastically scale a farm of servers](/docs/deployments/patterns/elastic-and-transient-environments/index.md).
+- [Automatically keep your deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments.
+- [Deploy to transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets.md) (targets that are disconnected from time to time).
+- [Implement immutable infrastructure environments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments").
 - Remove deployment targets that have gone offline. For instance, disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer.
 
-On the surface Deployments Target Triggers appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployment-patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
+On the surface Deployments Target Triggers appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployments/patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
 
 ## Defining deployment target triggers
 
@@ -98,7 +98,7 @@ The [Chain Deployment](https://library.octopus.com/step-template/actiontemplate-
 
 ### Specifying a specific release to be deployed
 
-If you need to specify a specific release, either because the release hasn't been deployed yet, or Octopus is calculating the wrong release for a particular situation, you can configure an [Auto Deploy Override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md) to override the default automatic deployment behavior.  This is useful for scenarios like [Immutable Infrastructure](/docs/deployment-patterns/elastic-and-transient-environments/immutable-infrastructure.md), [Deploying to transient targets](/docs/deployment-patterns/elastic-and-transient-environments/deploying-to-transient-targets.md), and force deployment target triggers to use a specific release for a specific environment/tenant.
+If you need to specify a specific release, either because the release hasn't been deployed yet, or Octopus is calculating the wrong release for a particular situation, you can configure an [Auto Deploy Override](/docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md) to override the default automatic deployment behavior.  This is useful for scenarios like [Immutable Infrastructure](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure.md), [Deploying to transient targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets.md), and force deployment target triggers to use a specific release for a specific environment/tenant.
 
 ## Deployment target trigger subscription notifications
 

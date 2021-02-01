@@ -143,7 +143,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 You have created your first deployment process. Next, we'll create a release and deploy it.
 
 :::success
-Learn more about [define deployment process](/docs/deployment-process/index.md).
+Learn more about [defining a deployment process](/docs/deployment-process/index.md).
 :::
 
 ### Releases and deployments
@@ -360,7 +360,7 @@ This guide covered the basics of Octopus Deploy.  There are still many more conc
 - [Build server integration](/docs/packaging-applications/build-servers/index.md)
 - [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
 - [Deployment examples](/docs/deployment-examples/index.md)
-- [Multi-tenancy](docs/deployment-patterns/multi-tenant-deployments/index.md)
+- [Multi-tenancy](docs/deployments/patterns/multi-tenant-deployments/index.md)
 - [Workers](/docs/infrastructure/workers/index.md)
 - [Security considerations for Octopus Deploy](/docs/security/index.md)
 - [Upgrading Octopus](/docs/administration/upgrading/index.md)

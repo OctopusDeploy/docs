@@ -22,7 +22,7 @@ This example uses the OctoFX project that does a deployment to two roles: **Rate
 4. Create and deploy a release to an environment where deployment targets in the **TradingWebServer** role are unavailable. They will be automatically removed from the deployment.
 
 :::success
-To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
+To ensure that a machine which has been skipped is kept up to date, consider [keeping deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
 :::
 
 ## Including and Excluding Targets During a Deployment {#Deployingtotransienttargets-Includingandexcludingtargetsduringadeployment}
@@ -49,7 +49,7 @@ In this case, the machine **SWeb01** has been found and included in the rest of 
 
 ![](images/newtarget.png "width=500")
 
-Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployment-patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
+Now that deployment targets can be automatically removed from a deployment, it may be useful to [keep them up to date when they become available.](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md).
 
 ## Learn more
 

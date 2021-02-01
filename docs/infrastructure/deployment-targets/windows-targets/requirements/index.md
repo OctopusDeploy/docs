@@ -17,6 +17,10 @@ The installation requirements for the latest version of Tentacle are:
 -  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
 -  Windows Server 2019 
 
+:::warning
+Octopus does not actively test against Windows 2008, and certain operating system specific issues may not be fixed as [Microsoft no longer supports Windows 2008](https://docs.microsoft.com/en-us/lifecycle/).
+:::
+
 ## .NET Framework.
 
 - Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5.2+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).

@@ -4,10 +4,10 @@ description: Variable templates can be defined in Octopus to indicate which vari
 position: 100
 ---
 
-Working with [multi-tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/projects/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
+Working with [multi-tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/projects/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
 
 :::hint
-For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
+For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
 :::
 
 ## Adding a variable template

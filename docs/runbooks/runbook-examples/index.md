@@ -17,7 +17,7 @@ It could be:
   - Failing over to a disaster recovery site.
   - Restart a server.
 
-- **Infrastructure provisioning** tasks that are used with an [elastic or transient](/docs/deployment-patterns/elastic-and-transient-environments/index.md) environment. For example:
+- **Infrastructure provisioning** tasks that are used with an [elastic or transient](/docs/deployments/patterns/elastic-and-transient-environments/index.md) environment. For example:
   - Deploying an AWS CloudFormation template.
   - Deploying an Azure ARM template.
 
