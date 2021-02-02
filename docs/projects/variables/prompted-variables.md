@@ -42,7 +42,7 @@ octo deploy-release ... --variable "Missile launch code:LAUNCH123" --variable "V
 ```
 
 :::hint
-Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment. They can also be combined with [Azure Account variables](https://octopus.com/docs/projects/variables/azure-account-variables), [AWS Account variables](https://octopus.com/docs/projects/variables/aws-account-variables), [Certificate variables](https://octopus.com/docs/projects/variables/certificate-variables), and [Worker Pool variables](https://octopus.com/docs/projects/variables/worker-pool-variables), passing in the ID, e.g. `WorkerPools-1`.
+Prompted variables can be combined with [sensitive variables](/docs/projects/variables/sensitive-variables.md). They will appear with a password box when creating the deployment. They can also be combined with [Azure Account variables](/docs/projects/variables/azure-account-variables.md), [AWS Account variables](/docs/projects/variables/aws-account-variables.md), [Certificate variables](/docs/projects/variables/certificate-variables.md), and [Worker Pool variables](/docs/projects/variables/worker-pool-variables.md), passing in the ID, e.g. `WorkerPools-1`.
 :::
 
 ## Restricting a prompted variable for runbooks

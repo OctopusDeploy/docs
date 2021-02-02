@@ -58,7 +58,7 @@ By the end of this guide, you will understand the fundamentals of how to:
 Before configuring a hello world deployment, you need to set up Octopus Deploy.  
 
 1. Octopus Cloud -> we host everything for you.  Learn more about [getting started](https://octopus.com/start/cloud).
-2. Self-hosted on a Windows Server -> you host it on your infrastructure by [downloading our MSI](https://octopus.com/download) and installing it onto a Windows Server with a SQL Server backend.  Learn more about [our installation requirements](https://octopus.com/docs/installation/requirements).
+2. Self-hosted on a Windows Server -> you host it on your infrastructure by [downloading our MSI](https://octopus.com/download) and installing it onto a Windows Server with a SQL Server backend.  Learn more about [our installation requirements](/docs/installation/requirements.md).
 3. Self-hosted as a Docker container -> you run Octopus Deploy in a docker container (currently EAP).  Learn more about [hosting Octopus in a docker container](https://octopus.com/blog/introducing-linux-docker-image).
 
 Don't forget; you will need a license to self-host Octopus Deploy.  If you are starting, we offer a [free license](https://octopus.com/start/server).

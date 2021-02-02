@@ -75,7 +75,7 @@ Certain steps do not let you to pick a Worker pool.  That list includes **Deploy
 
 ### Worker pool per environment after Octopus Deploy 2020.1
 
-A common security practice is to leverage Active Directory service accounts.  But each environment has its own service account.  The account that deploys to **Development** is prevented from deploying to **Test**.  The account that deploys to **Production** is prevented from deploying to **Development**.  This is accomplished with integrated security and running the Octopus Tentacle [as a specific user account](https://octopus.com/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account).  This approach needs a Worker pool per environment:
+A common security practice is to leverage Active Directory service accounts.  But each environment has its own service account.  The account that deploys to **Development** is prevented from deploying to **Test**.  The account that deploys to **Production** is prevented from deploying to **Development**.  This is accomplished with integrated security and running the Octopus Tentacle [as a specific user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).  This approach needs a Worker pool per environment:
 
 ![](images/worker-pool-per-environment.png "width=500")
 

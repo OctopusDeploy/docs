@@ -241,7 +241,7 @@ The filters can be invoked in the following way:
 #{Octopus.Environment.Name | ToLower}
 ```
 
-For more information, see [Variable Filters](https://octopus.com/docs/projects/variables/variable-filters).
+For more information, see [Variable Filters](/docs/projects/variables/variable-filters.md).
 
 ## Learn more
 
