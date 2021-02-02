@@ -4,7 +4,7 @@ If you haven't already, create an [Azure Account](/docs/infrastructure/deploym
 
 ## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
-1. Add a new `Deploy an Azure Web App` step to your [project's deployment process](/docs/deployment-process/steps/index.md).
+1. Add a new `Deploy an Azure Web App` step to your [project's deployment process](/docs/projects/steps/index.md).
 
 ![](5865899.png "width=170")
 

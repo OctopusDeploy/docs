@@ -1,7 +1,7 @@
 ---
 title: Variables
 description: Defining variables in Octopus allows you to promote your applications through environments and update their configuration files.
-position: 20
+position: 80
 hideInThisSectionHeader: true
 ---
 
@@ -132,7 +132,7 @@ You want to deploy the same package on each server but the deployment path will 
 
 ![](images/deploy-path-variable.png "width=500")
 
-Then, on your deployment step, you can set the **[Custom Install Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md)** to `#{DeployPath}`.
+Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory.md)** to `#{DeployPath}`.
 
 ![](images/custom-install-path.png "width=500")
 

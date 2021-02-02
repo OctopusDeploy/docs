@@ -78,11 +78,11 @@ Although previous versions of Mono should work in most deployment scenarios, any
 
 #### .NET Configuration transformations only available in Mono >= 4.2.3  
 
-The [.NET configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
+The [.NET configuration transforms](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) feature will only work on Mono **4.2.3** and above.
 
 This was due to a [bug with XML Transformations](https://bugzilla.xamarin.com/show_bug.cgi?id=19426).
 
-Note that [substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) can still be used without issue on earlier Mono versions.
+Note that [substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) can still be used without issue on earlier Mono versions.
 
 #### Package repository SSL certificates
 

@@ -63,7 +63,7 @@ Each `Windows Server Core 2019` worker is provisioned with a baseline of tools i
 - Powershell Core (latest)
 - Python (3.7.4)
 
-Windows 2019 workers are capable of running [execution worker containers](/docs/deployment-process/execution-containers-for-workers/index.md).
+Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md).
 
 ### Windows Server Core 2016
 
@@ -84,7 +84,7 @@ Each `Windows Server Core 2016` worker is provisioned with a baseline of tools i
 - Powershell Core (latest)
 - Python (3.7.4)
 
-Please note that [execution worker containers](/docs/deployment-process/execution-containers-for-workers/index.md) are not supported on Windows 2016 workers.
+Please note that [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md) are not supported on Windows 2016 workers.
 
 ### Ubuntu 18.04
 

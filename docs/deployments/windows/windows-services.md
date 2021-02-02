@@ -8,7 +8,7 @@ Octopus Deploy includes first class support for Windows Service deployments. Oct
 
 When deploying, `sc.exe` is used to create a Windows Service using the configured settings. If the service already exists, it will be stopped, re-configured, and re-started.
 
-To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
+To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
 
 
 ## Configuring the step {#WindowsServices-ConfiguringtheStep}
@@ -38,7 +38,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/index.md) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md).
 
 :::success
-Avoid using the [Custom Installation Directory](/docs/deployment-process/configuration-features/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
+Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory.md) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
 :::
 
 As an approximation including the Windows Service manager integration:
@@ -51,7 +51,7 @@ As an approximation including the Windows Service manager integration:
 6. Execute each of your [custom scripts](/docs/deployments/custom-scripts/index.md) and the [deployment features](/docs/deployments/index.md) you've configured will be executed to perform the deployment [following this order by convention](/docs/deployments/packages/package-deployment-feature-ordering.md)..
 7. As part of this process Windows Service will be created, or reconfigured if it already exists, including updating the **binPath** to point to this folder and your executable entry point.
 8. The service will be started based on the selected `State` option using the rules in the table below.
-9. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](/docs/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
+9. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::success
 You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our open-source [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:

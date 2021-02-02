@@ -4,7 +4,7 @@ description: Variable substitutions are a flexible way to adjust configuration b
 position: 10
 ---
 
-Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/projects/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
 ## Binding variables
 
@@ -241,7 +241,7 @@ The filters can be invoked in the following way:
 #{Octopus.Environment.Name | ToLower}
 ```
 
-For more information, see [Variable Filters](https://octopus.com/docs/projects/variables/variable-filters).
+For more information, see [Variable Filters](/docs/projects/variables/variable-filters.md).
 
 ## Learn more
 

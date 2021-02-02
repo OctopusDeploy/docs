@@ -1,7 +1,7 @@
 ---
 title: Community step templates
 description: How to take advantage of step templates contributed by the Octopus community.
-position: 1
+position: 50
 ---
 
 Community step templates are publicly available step templates that have been contributed by the Octopus Community, they're third party code that is licensed under [the Apache 2.0 license](https://github.com/OctopusDeploy/Library/blob/master/LICENSE.txt).

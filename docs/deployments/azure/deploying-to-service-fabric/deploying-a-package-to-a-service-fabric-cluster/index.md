@@ -28,7 +28,7 @@ You will need to create a [Service Fabric Deployment Target](/docs/infrastructur
 
 ## Step 4: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section. 
 
 ## Step 5: Configure your Service Fabric application step
 
@@ -59,10 +59,10 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to a Service Fabric application:
 
 - [Custom Scripts](/docs/deployments/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
-- [Structured Configuration Variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
-- [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
+- [Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
+- [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
 :::hint
 Please note these features run on the Octopus Server prior to deploying the Service Fabric application to your cluster. They don't execute in the cluster nodes you are eventually targeting.
@@ -75,10 +75,10 @@ Deployment to a Service Fabric cluster proceeds as follows (more details provide
 1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
 1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
-1. [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) (if configured).
-1. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
-1. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
-1. [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md) (if configured) are replaced.
+1. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) (if configured).
+1. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+1. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+1. [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) (if configured) are replaced.
 1. Any configured or package `Deploy` scripts are executed.
 1. Generic variable substitution is carried out across all `*.config` and `*.xml` files in the extracted package.
 1. Execute the Service Fabric application deployment script (see [Customizing the deployment process](#customizing-the-deployment-process) section below).
