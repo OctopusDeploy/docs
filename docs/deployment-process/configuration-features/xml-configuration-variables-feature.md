@@ -4,7 +4,7 @@ description: The .NET XML Configuration Variables feature updates your .NET XML
 position: 60
 ---
 
-The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The .NET XML configuration variables feature is one of the [.NET configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index.md).
 
 This feature can be enabled for package deploy steps.
 

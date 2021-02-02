@@ -77,7 +77,7 @@ Notifications come in many forms.  With Octopus Deploy you have many options:
 - [Slack](https://library.octopus.com/step-templates/99e6f203-3061-4018-9e34-4a3a9c3c3179/actiontemplate-slack-send-simple-notification)
 - [Microsoft Teams](https://library.octopus.com/step-templates/110a8b1e-4da4-498a-9209-ef8929c31168/actiontemplate-microsoft-teams-post-a-message)
 - [Email](/docs/projects/built-in-step-templates/email-notifications.md)
-- [Custom Step Template](https://octopus.com/docs/deployment-process/steps/custom-step-templates)
+- [Custom Step Template](/docs/projects/custom-step-templates.md)
 
 Regardless of your notification preference, we recommend creating a variable set to store notification values.  The variable set gives you the ability to create a standard set of messages any project can use
 

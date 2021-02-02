@@ -4,7 +4,7 @@ description: Standalone scripts allow you to run scripts contained in a package
 position: 10
 ---
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/index.md#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/deployment-process/steps/index.md).
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/index.md#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps/index.md).
 
 You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/index.md), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables.md), and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
 

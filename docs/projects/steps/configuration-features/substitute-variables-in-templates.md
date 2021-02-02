@@ -3,7 +3,7 @@ title: Substitute variables in templates
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/index.md) into any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/index.md) into any file.
 
 :::hint
 You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md).
@@ -36,14 +36,14 @@ The following example shows you how to use the Substitute Variables in Templates
 
 3. Define the deployment process, by clicking **Process** from the project overview page, then select, **ADD STEP**.
 4. Select the **Deploy a Package** step.
-5. From the [Step](/docs/deployment-process/steps/index.md) Template page, click the **Configure Features** link.
+5. From the [Step](/docs/projects/steps/index.md) Template page, click the **Configure Features** link.
 6. Check the **Substitute Variables in Templates** check-box and click **Ok**.
 
 ![Substitute Variables in Templates feature](images/substitute-variables.png "width=500")
 
 When you return to your deployment process, you will see the **Substitute Variables in Templates** option has been added to the **Features** section of the deployment process.
 
-7. Add the [step](/docs/deployment-process/steps/index.md) details:
+7. Add the [step](/docs/projects/steps/index.md) details:
   - Enter a name for the step.
   - Select the targets where the step should run.
   - Select the [package feed](/docs/packaging-applications/package-repositories/index.md) where the [package](/docs/packaging-applications/index.md) will be available.

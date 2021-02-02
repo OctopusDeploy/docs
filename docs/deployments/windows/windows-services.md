@@ -8,7 +8,7 @@ Octopus Deploy includes first class support for Windows Service deployments. Oct
 
 When deploying, `sc.exe` is used to create a Windows Service using the configured settings. If the service already exists, it will be stopped, re-configured, and re-started.
 
-To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
+To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
 
 
 ## Configuring the step {#WindowsServices-ConfiguringtheStep}

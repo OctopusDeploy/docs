@@ -28,7 +28,7 @@ You will need to create a [Service Fabric Deployment Target](/docs/infrastructur
 
 ## Step 4: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section. 
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section. 
 
 ## Step 5: Configure your Service Fabric application step
 

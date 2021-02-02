@@ -4,7 +4,7 @@ description: Adding conditions to steps to define your project's deployment proc
 position: 20
 ---
 
-For each [step](/docs/deployment-process/steps/index.md) that you define in your [deployment processes](/docs/deployment-process/index.md), you can set conditions for greater control over the step's execution. You can set conditions to:
+For each [step](/docs/projects/steps/index.md) that you define in your [deployment processes](/docs/projects/deployment-process/index.md), you can set conditions for greater control over the step's execution. You can set conditions to:
 
 - Run the step on specific environments or skip specific environments.
 - Specify which channels the step should run on.
