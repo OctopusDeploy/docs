@@ -1,7 +1,7 @@
 ---
 title: Project triggers
 description: Project Triggers allow you to define unattended behavior for your project such as automatically deploying a release to an environment.
-position: 30
+position: 90
 ---
 
 Project triggers allow you to define an unattended behavior for your [Projects](/docs/projects/index.md).

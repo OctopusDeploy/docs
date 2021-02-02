@@ -1,7 +1,7 @@
 ---
 title: Variables
 description: Defining variables in Octopus allows you to promote your applications through environments and update their configuration files.
-position: 20
+position: 80
 hideInThisSectionHeader: true
 ---
 
