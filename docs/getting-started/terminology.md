@@ -39,10 +39,10 @@ Your [**Infrastructure**](/docs/infrastructure/index.md) is made up of the serve
 
 [**Projects**](/docs/projects/index.md) contain the deployment process, configuration variables, and runbooks to deploy and manage your software.
 
-- [**Deployment Process**](/docs/deployment-process/index.md): The recipe for deploying your software. You define the recipe by adding steps and variables to a project. 
-- [**Deployment Steps**](/docs/deployment-process/steps/index.md): The specific action (or set of actions) executed as part of the deployment process each time your software is deployed.
+- [**Deployment Process**](/docs/projects/deployment-process/index.md): The recipe for deploying your software. You define the recipe by adding steps and variables to a project. 
+- [**Deployment Steps**](/docs/projects/steps/index.md): The specific action (or set of actions) executed as part of the deployment process each time your software is deployed.
 - [**Release**](/docs/releases/index.md): A snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. 
-- [**Manual Interventions**](/docs/deployment-process/steps/manual-intervention-and-approvals.md): The approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments so they can be skipped on deployments to dev or testing but required for deployments to production. 
+- [**Manual Interventions**](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md): The approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments so they can be skipped on deployments to dev or testing but required for deployments to production. 
 - [**Variables**](/docs/projects/variables/index.md): A value stored in the Octopus Server for use in different phases of your deployments.  Variables can be scoped to environments, steps, and more.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
 
 ### Library 
@@ -92,15 +92,15 @@ The Octopus library is where you store build artifacts and other assets that can
 
 - [**Lifecycles**](/docs/releases/lifecycles/index.md): Give you control over the way releases of your software are promoted between your environments.
 - [**Variable Sets**](/docs/projects/variables/library-variable-sets.md): Collections of variables that can be shared between multiple projects.
-- [**Step Templates**](/docs/deployment-process/steps/custom-step-templates.md): Pre-configured steps created by you to be reused in multiple projects.
-- [**Community Step Templates**](/docs/deployment-process/steps/community-step-templates.md): Step templates contributed by the Octopus Community.
+- [**Step Templates**](/docs/projects/custom-step-templates.md): Pre-configured steps created by you to be reused in multiple projects.
+- [**Community Step Templates**](/docs/projects/community-step-templates.md): Step templates contributed by the Octopus Community.
 
 ### Deployments
 
 [**Deployments**](/docs/deployments/index.md) are the execution of the deployment process with all the associated details as they existed when the release was created.
 
 - [**Deployment Notes**](/docs/releases/deployment-notes.md): The summarization of all the releases rolled up and included since the previous deployment to the deployment environment.  
-- [**Artifacts**](/docs/deployment-process/artifacts.md): Files collected from remote machines during the deployment which can be downloaded from the Octopus Web Portal for review.
+- [**Artifacts**](/docs/projects/deployment-process/artifacts.md): Files collected from remote machines during the deployment which can be downloaded from the Octopus Web Portal for review.
 
 ## General Adoption Phase Topics
 
