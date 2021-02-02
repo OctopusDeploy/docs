@@ -80,7 +80,7 @@ The Octopus Server will attempt to connect to the Tentacle.  The listening tenta
 
 The process to register Polling Tentacles as workers takes place in the **Tentacle Manager** on the server hosting the Tentacle.  Select the polling Tentacle to get started with the wizard.
 
-On the credentials screen enter a username and password or the [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) of a user who has permissions to add worker pools.  This account will only be used for registration.  
+On the credentials screen enter a username and password or the [API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) of a user who has permissions to add worker pools.  This account will only be used for registration.  
 
 :::highlight
 The registration process will connect to the RESTful API of the Octopus Server.  It will connect over port 80 or 443 using the http/https protocol.  After registration the default port the Tentacle will connect to is port 10943.
@@ -152,7 +152,7 @@ The full path for this example is:
     $(Build.Repository.Localpath)\RandomQuotes-SQLChangeAutomation.1.0.$(Build.BuildNumber).nupkg
 ```
 
-The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](https://octopus.com/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension#add-a-connection-to-octopus-deploy).
+The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md#add-a-connection-to-octopus-deploy).
 
 The last step is to create a release in Octopus Deploy and deploy it to dev using the plugin.  Select the project from the drop-down list, and enter the same build number as the package.  Expand the **Deployment** section and select an environment to deploy to.  Clicking _Show Deployment Progress_ will stop the build and force it to wait for Octopus to complete.
 

@@ -19,11 +19,11 @@ Next, you need to ensure Chocolatey is installed.
 
 ### Install chocolatey
 
-Before you can use Chocolatey, it must be installed. To do this, you can use an existing step template from our [community library](/docs/deployment-process/steps/community-step-templates.md) called [Chocolatey - Ensure Installed](https://library.octopus.com/step-templates/c364b0a5-a0b7-48f8-a1a4-35e9f54a82d3/actiontemplate-chocolatey-ensure-installed). To add this step to a runbook:
+Before you can use Chocolatey, it must be installed. To do this, you can use an existing step template from our [community library](/docs/projects/community-step-templates.md) called [Chocolatey - Ensure Installed](https://library.octopus.com/step-templates/c364b0a5-a0b7-48f8-a1a4-35e9f54a82d3/actiontemplate-chocolatey-ensure-installed). To add this step to a runbook:
 
 1. Add the community step template called **Chocolatey - Ensure Installed**, and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. *Optionally*, configure any [conditions](/docs/deployment-process/conditions/index.md) for the step, and click **Save**.
+1. *Optionally*, configure any [conditions](/docs/projects/steps/conditions/index.md) for the step, and click **Save**.
 
 You can now use this step in conjunction with other runbook steps to install your software with Chocolatey.
 

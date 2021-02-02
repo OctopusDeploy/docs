@@ -56,7 +56,7 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 ### Deployment step {#CloudServiceConcepts-DeploymentStep}
 
-Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](/docs/deployment-process/steps/index.md) section.
+Add a new "Deploy an Azure Cloud Service" step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
 
 ![Cloud Service step template](5865904.png "width=170")
 
@@ -103,8 +103,8 @@ Deployment to an Azure Cloud Service target proceeds as follows (more details pr
 4. Any configured or packaged `PreDeploy` scripts are executed.
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
 6. Substitute variables in templates (if configured).
-7. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
-8. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+7. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+8. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 9. Any configured or package `Deploy` scripts are executed.
 10. Re-package the Cloud Service Package.
 11. Upload the Cloud Service Package to Azure Storage.

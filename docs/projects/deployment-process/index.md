@@ -2,7 +2,7 @@
 title: Deployment process
 description: Deploying applications starts with defining a project's deployment process.
 hideInThisSection: false
-position: 55
+position: 10
 ---
 
 Now that you have access to an Octopus Server, your [infrastructure is configured](docs/infrastructure/index.md), and your [applications packaged](docs/packaging-applications/index.md), you're ready to start deploying your software.
@@ -40,13 +40,13 @@ Steps contain the actions your deployment process will execute each time your so
 
 Deployment processes can have one or many steps, steps can run in sequence or parallel, in addition to a variety of deployment steps, you can include manual intervention steps to get sign off before deployment, email notification steps to keep everybody informed about your process, or even skip steps under different circumstances.
 
-Learn more about [steps](/docs/deployment-process/steps/index.md).
+Learn more about [steps](/docs/projects/steps/index.md).
 
 ## Configuration features
 
 When you deploy your software, it needs to be configured for the specific environments it will be deployed to. Configuration files let you define custom installation directories, database connections, and other settings that make it possible to deploy your software.
 
-Learn more about [configuration features](/docs/deployment-process/configuration-features/index.md).
+Learn more about [configuration features](/docs/projects/steps/configuration-features/index.md).
 
 ## Variables
 
@@ -58,7 +58,7 @@ Learn more about [variables](/docs/projects/variables/index.md).
 
 You can specify run conditions on the steps that you define to give you greater control over the deployment process.
 
-Learn more about [conditions](/docs/deployment-process/conditions/index.md).
+Learn more about [conditions](/docs/projects/steps/conditions/index.md).
 
 ## Deploying releases
 

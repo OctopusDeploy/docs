@@ -17,7 +17,7 @@ This guide assumes some familiarity with common Octopus concepts like configurin
 
 ## Sample application {#DeployingHTMLandJavaScriptApplications-SampleApplication}
 
-Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
+Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
 
 **MyApp.html**
 
@@ -81,7 +81,7 @@ Now we need to create the project and configure it ready to deploy our JavaScrip
 
 ![](images/5866209.png "width=500")
 
-5. Enable the [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
+5. Enable the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
 
 ![](images/5866210.png "width=500")
 

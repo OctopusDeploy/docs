@@ -39,7 +39,7 @@ You can select the runbook to run in:
 - Environments from the [Project Lifecycle](/docs/releases/lifecycles/index.md).
 
 :::hint
-In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](docs/deployment-process/conditions/index.md#environments) in each step of the runbook process.
+In Octopus 2020.2 and earlier, if you need to restrict the environment that a runbook can be executed in, you can achieve this by adding an [Environment run condition](/docs/projects/steps/conditions/index.md#environments) in each step of the runbook process.
 :::
 
 ## Retention policy

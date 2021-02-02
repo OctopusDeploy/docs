@@ -1,14 +1,14 @@
 ---
 title: Email notification step
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
-position: 15
+position: 10
 ---
 
 Deployments can have a strong impact on the people whose work depends on the system being deployed. Great communication is an important part of a great deployment strategy, and email steps are a key way that Octopus can help you keep everyone in the loop. You may want to:
 
 - Notify stakeholders when a new version of an app has been deployed to production.
 - Let testers know when a new version is available in UAT.
-- Use email in conjunction with [manual interventions approvals](/docs/deployment-process/steps/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment.
+- Use email in conjunction with [manual interventions approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VromFu8RYxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -181,13 +181,13 @@ Common options:
 
 ## Basic Examples {#Creatingreleases-Basicexamples}
 
-This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](https://octopus.com/docs/releases/release-versioning) project setting: 
+This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning.md) project setting: 
 
 ```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This creates a release with a specified release number, overriding the [Release Versioning](https://octopus.com/docs/releases/release-versioning) project setting:
+This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning.md) project setting:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456

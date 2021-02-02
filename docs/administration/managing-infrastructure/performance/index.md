@@ -11,7 +11,7 @@ Octopus is a complex system, where we control some parts of the deployment whils
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](/docs/deployment-process/performance.md).
+Want to tune your deployments for optimum performance? Read our [detailed guide on optimizing your deployments](docs/projects/deployment-process/performance.md).
 :::
 
 ## Minimum requirements
@@ -100,7 +100,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/index.md) feature.
 1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
     - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to **{{Configuration>Nodes}}**. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
-    - Learn about [tuning your deployment processes for performance](/docs/deployment-process/performance.md).
+    - Learn about [tuning your deployment processes for performance](docs/projects/deployment-process/performance.md).
 1. Consider how you transfer your packages: {#package-transfer}
     - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md).
     - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
@@ -110,7 +110,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - When using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
 1. Consider the size of your Task Logs: {#tip-task-logs}
     - Larger task logs put the entire Octopus pipeline under more pressure.
-    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
+    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
 1. Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/index.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
     - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
@@ -136,7 +136,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
     - Make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
 1. If you are experiencing overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
    - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
-   - Look for potential [performance problems in your deployment processes](/docs/deployment-process/performance.md), especially:
+   - Look for potential [performance problems in your deployment processes](docs/projects/deployment-process/performance.md), especially:
        - Consider how you [transfer your packages](#package-transfer).
        - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
 1. `System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.`: This error indicates two possible scenarios:

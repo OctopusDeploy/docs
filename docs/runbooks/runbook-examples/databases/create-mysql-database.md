@@ -4,7 +4,7 @@ description: With Octopus Deploy you can create a MySQL database with a Runbook.
 position: 40
 ---
 
-The ability to create a database in MySQL requires that the user account have elevated permissions to the server.  Not only that, the machine that the user is using needs to be specified to their account (unless using %).  This can make permissions somewhat unruly to manage.  Using a runbook, you can create the database without altering permissions by executing it on the server itself or an approved [worker](https://octopus.com/docs/infrastructure/workers).
+The ability to create a database in MySQL requires that the user account have elevated permissions to the server.  Not only that, the machine that the user is using needs to be specified to their account (unless using %).  This can make permissions somewhat unruly to manage.  Using a runbook, you can create the database without altering permissions by executing it on the server itself or an approved [worker](/docs/infrastructure/workers/index.md).
 
 In the following example, we'll use the [MySQL - Create Database If Not Exists](https://library.octopus.com/step-templates/4a222ac3-ff4b-4328-8778-1c44eebdedde/actiontemplate-mysql-create-database-if-not-exists) community step template.
 

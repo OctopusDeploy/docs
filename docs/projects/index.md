@@ -21,7 +21,7 @@ Before you can define your deployment processes or runbooks, you must create a p
 1. Click **SHOW LIFECYCLE** if you'd like to see a visual representation of the selected lifecycle.
 1. Click **SAVE** and you will be taken to the newly created project's overview page.
 
-Now that you've created a project, you can define your [deployment process](/docs/deployment-process/index.md) or [runbooks](/docs/runbooks/index.md).
+Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/index.md) or [runbooks](/docs/runbooks/index.md).
 
 ## Project settings
 

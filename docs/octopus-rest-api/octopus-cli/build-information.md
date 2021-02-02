@@ -85,7 +85,7 @@ Common options:
 
 !include <samples-instance>
 
-This example uploads [build information](https://octopus.com/docs/packaging-applications/build-servers#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
+This example uploads [build information](/docs/packaging-applications/build-servers/index.md#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
 
 
 ```json

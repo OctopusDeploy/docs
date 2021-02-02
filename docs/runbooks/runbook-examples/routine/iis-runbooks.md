@@ -107,7 +107,7 @@ To create a runbook to start your IIS application pool:
 We recommend using [variables](/docs/projects/variables/index.md) where appropriate, rather than entering values directly in the step parameters.
 :::
 
-Optionally, configure any [conditions](/docs/deployment-process/conditions/index.md) for the step, click **Save**, and you have a runbook step to start an IIS Application Pool.
+Optionally, configure any [conditions](/docs/projects/steps/conditions/index.md) for the step, click **Save**, and you have a runbook step to start an IIS Application Pool.
 
 ![Runbook IIS maintenance Start App-Pool](images/iis-maintenance-start-app-pool.png "width=500")
 
@@ -175,7 +175,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 ## Optional Approvals
 
-You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/deployment-process/steps/manual-intervention-and-approvals.md) step for business approvals. 
+You can also include additional steps to your runbook to include another layer of protection, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step for business approvals. 
 
 ## Harden IIS
 
