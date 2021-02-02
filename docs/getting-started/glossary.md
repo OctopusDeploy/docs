@@ -1,5 +1,5 @@
 ---
-title: Terminology
+title: Glossary
 description: A page containing the definitions of terms used in Octopus Deploy.
 position: 10
 ---
@@ -14,7 +14,7 @@ We do our best to make Octopus Deploy as user friendly as possible.  However, it
 
 As you proceed through each phase you will need to learn new terms and concepts.  This page breaks down those terms and concepts into each phase we think it is useful to learn.
 
-## POC Phase Concepts
+## POC Phase Terms
 
 When first setting up a POC or Hello World project you will become familiar with the following terms and concepts.  
 
@@ -41,11 +41,9 @@ When first setting up a POC or Hello World project you will become familiar with
     - **Task Log**: The raw log formatted so it is easier to read on a web page.
     - **Task History**: The audit history of the deployment.  Includes who and when a deployment was triggered, who and when a manual intervention was approved, and more.
 
-## Pilot Phase Concepts
+## Pilot Phase Terms
 
 As you move on from the POC phase to the Pilot phase you should familarize yourself with these terms and concepts.
-
-### Octopus Server
 
 - **Octopus Server**
     - **Task**: A unit of work performed by the Octopus Server.  A task can be a deployment, a machine health check, a runbook run, and more.  All tasks are dropped onto the task queue and picked up in a FIFO order (unless the task is scheduled to run at a specific time).
@@ -66,7 +64,7 @@ As you move on from the POC phase to the Pilot phase you should familarize yours
     - [**Deployment Notes**](/docs/releases/deployment-notes.md): The summarization of all the releases rolled up and included since the previous deployment to the deployment environment.  
     - [**Artifacts**](/docs/projects/deployment-process/artifacts.md): Files collected from remote machines during the deployment which can be downloaded from the Octopus Web Portal for review.
 
-## General Adoption Phase Concepts
+## General Adoption Phase Terms
 
 After the pilot phase is successful it is time to start bringing other projects on board.  As you do that you should familiarize yourself with these terms and concepts.
 
