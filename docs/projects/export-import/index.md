@@ -28,25 +28,32 @@ There are scenarios where it is desirable to create releases and deploy them to 
 
 There a few things to consider when planning to export a project between spaces:
 
-- Deployment targets
-- Packages
-- Shared resources
+- [Deployment targets](#deployment-targets)
+- [Packages](#packages)
+- [Shared resources](#shared-resources)
+
+If you are moving from a self-hosted instance to an Octopus Cloud instance, there are some [specific considerations](#octopus-cloud).
 
 ## Deployment targets #{deployment-targets}
 
+** TODO: confirm if deployment targets are implemented **
+
 [Deployment targets](/docs/infrastructure/deployment-targets/index.md) which belong to environments in the project's [lifecycles](docs/releases/lifecycles/index.md) will be included in the export. 
 
-Many deployment target types can be expected to "just work" after importing, for example Azure Web Apps or Kubernetes Cluster targets. Tentacle targets however, will not.  
+Many deployment target types can be expected to "just work" after importing, for example Azure Web Apps or Kubernetes Cluster targets. Tentacle targets however, will not.  The reasons and options are different depending on the tentacle type:
+
+**Listening tentacles**
+
 
 ** TODO: explain polling/listening tentacle specifc considerations **
 
-## Packages
+## Packages #{packages}
 
 Packages from the built-in feed are _not_ included in the export (this is to avoid extremely large export bundles).
 
 ** TODO: explain how to sync packages**
 
-## Shared resources
+## Shared resources #{shared-resources}
 
 The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; this is if there is an existing resource with the same name as one the source, then it will be used.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
 
@@ -102,3 +109,5 @@ Care should be taken with step templates when exporting/importing projects at di
 :::
 
 Projects reference specific versions of a step template. When importing, if a step template with the same name and version already exists on the destination the existing step template version will be used. If the step template already exists, but the imported version is greater than the latest on the destination then the version included in the import will be imported into the destination, effectively incrementing the step template.  Existing projects on the destination will initially not be impacted, as they will be referencing a specific version which will remain unchanged, but care should be taken on future updates of the step template version in these projects. 
+
+## Moving to Octopus Cloud #{octopus-cloud}
