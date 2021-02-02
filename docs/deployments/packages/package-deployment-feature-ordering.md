@@ -16,8 +16,8 @@ The order of evaluation once the package is extracted is:
 2. **PreDeploy.\* Scripts** - runs matching [scripts included in the package](/docs/deployments/custom-scripts/scripts-in-packages/index.md) or defined using the [Custom PowerShell Scripts](/docs/deployments/custom-scripts/scripts-in-packages/index.md##scripts-in-package-steps) feature.
 3. **AfterPreDeploy.\* Feature Scripts** - runs matching scripts associated with any enabled features. These bootstrap scripts are created by Octopus and cannot be customized by the user.
 4. **Delete temporary package files**
-5. **Substitute Octopus Variables in templates**- if the variable substitution feature is enabled, [perform substitution in listed files](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md).
-6. **.NET XML Configuration Transforms**- if the feature is enabled, find and apply [matching XML transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md).
+5. **Substitute Octopus Variables in templates**- if the variable substitution feature is enabled, [perform substitution in listed files](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md).
+6. **.NET XML Configuration Transforms**- if the feature is enabled, find and apply [matching XML transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md).
 7. **.NET XML Configuration Variables** - if the feature is enabled, find and replace matching *appSettings, applicationSettings, and connectionStrings* values.
 8. **Custom Installation Folder copy**- if the custom installation folder feature is enabled, copy files to the folder.
 9. **BeforeDeploy.\* Feature Scripts**- runs matching scripts associated with any enabled features. These bootstrap scripts are created by Octopus and cannot be customized by the user.

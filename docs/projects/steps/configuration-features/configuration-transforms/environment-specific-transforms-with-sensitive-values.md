@@ -6,7 +6,7 @@ position: 30
 
 It is possible to combine the configuration features that you use in your deployments. One scenario where this is useful is if you need to provide environment specific configuration that includes sensitive values.
 
-This can be achieved using both the [Substitute Variables in Templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) feature and the [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md) features.
+This can be achieved using both the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) feature and the [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md) features.
 
 ## One transform and variable replacement
 

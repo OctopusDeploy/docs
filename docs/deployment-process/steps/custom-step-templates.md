@@ -4,7 +4,7 @@ description: How to create reusable steps
 position: 2
 ---
 
-Sometimes there isn't a built-in step template or a [community step template](/docs/deployment-process/steps/community-step-templates.md) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
+Sometimes there isn't a built-in step template or a [community step template](/docs/projects/community-step-templates.md) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
 
 Custom step templates can be based on a built-in or installed community step templates. These custom step templates can be reused in projects and managed in the step template library.
 

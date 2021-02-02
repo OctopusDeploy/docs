@@ -4,7 +4,7 @@ description: The Custom Installation Directory feature deploys your package to a
 position: 10
 ---
 
-The custom installation directory feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
+The custom installation directory feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md).
 
 You can specify a custom installation directory for [package](/docs/deployments/packages/index.md) and [IIS](/docs/deployments/windows/iis-websites-and-application-pools.md) steps. The custom installation directory feature deploys your package to a specified location on the target server. This feature helps when you are using an application that requires your files be in specific locations, such as many Content Management Systems (CMS).
 
@@ -50,7 +50,7 @@ The **Exclude from purge** list must be a newline-separated list of file or dire
 >
 > **\\*.config
 
-7. Add any [conditions](/docs/deployment-process/conditions/index.md) you need to specify for the step, and then click **SAVE**.
+7. Add any [conditions](/docs/projects/steps/conditions/index.md) you need to specify for the step, and then click **SAVE**.
 
 This will save and display the step you've just created. From here you can use the project overview menu to continue defining your [deployment process](/docs/deployment-process/index.md), or click **CREATE RELEASE** to create a [release](/docs/releases/index.md) and deploy your application.
 

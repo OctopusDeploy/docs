@@ -247,7 +247,7 @@ Please create a new release and deploy it through to **Production**.  You will s
 ![Manual intervention is required in production](images/manual-interventions.png)
 
 :::success
-To learn more about the manual intervention and approval step please refer to the [documentation](/docs/deployment-process/steps/manual-intervention-and-approvals.md)
+To learn more about the manual intervention and approval step please refer to the [documentation](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md)
 :::
 
 ### Deployment Targets {#setup-deployment-targets}

@@ -8,7 +8,7 @@ Deployments can have a strong impact on the people whose work depends on the sys
 
 - Notify stakeholders when a new version of an app has been deployed to production.
 - Let testers know when a new version is available in UAT.
-- Use email in conjunction with [manual interventions approvals](/docs/deployment-process/steps/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment.
+- Use email in conjunction with [manual interventions approvals](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) to make sure everyone is ready for a new deployment.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VromFu8RYxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

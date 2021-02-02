@@ -3,10 +3,10 @@ title: Substitute variables in templates
 description: Package steps have a feature that allows you to replace variables in any file.
 position: 80
 ---
-The Substitute Variables in Files feature is one of the [configuration features](/docs/deployment-process/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/index.md) into any file.
+The Substitute Variables in Files feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/deployment-process/steps/index.md) in your [deployment process](/docs/deployment-process/index.md). This feature is available in package steps, and it allows you to inject [Octopus Variables](/docs/projects/variables/index.md) into any file.
 
 :::hint
-You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md).
+You can perform very complex transformations in any kind of file using this feature. We also have features tailored to [.NET XML configuration files](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) and [Structured configuration files](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md).
 :::
 
 ## How to substitute variables in a file
@@ -58,14 +58,14 @@ config\app.config
 
 The default option for Output file encoding (Detect from template) will use the Byte Order Mark (BOM) of the file to determine the encoding.
 
-10. Add any [conditions](/docs/deployment-process/conditions/index.md) you need to specify for the step, and then click **SAVE**.
+10. Add any [conditions](/docs/projects/steps/conditions/index.md) you need to specify for the step, and then click **SAVE**.
 
 When the application is deployed to your **test** and **production** environments, each environment will include the login URL you defined for the specific environment.
 
 From here you can use the project overview menu to continue defining your process, or click **CREATE RELEASE** to create a [release](/docs/releases/index.md) and deploy your application.
 
 :::warning
-If you include a configuration file that you are also doing a [transformation](/docs/deployment-process/configuration-features/configuration-transforms/index.md) and [variable](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md) process.
+If you include a configuration file that you are also doing a [transformation](/docs/projects/steps/configuration-features/configuration-transforms/index.md) and [variable](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) swap on, the variable change will run under the 'substitute variables in templates' before the transformation as defined in the [package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering.md) process.
 :::
 
 :::warning

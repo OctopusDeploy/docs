@@ -46,7 +46,7 @@ Learn more about [steps](/docs/deployment-process/steps/index.md).
 
 When you deploy your software, it needs to be configured for the specific environments it will be deployed to. Configuration files let you define custom installation directories, database connections, and other settings that make it possible to deploy your software.
 
-Learn more about [configuration features](/docs/deployment-process/configuration-features/index.md).
+Learn more about [configuration features](/docs/projects/steps/configuration-features/index.md).
 
 ## Variables
 
@@ -58,7 +58,7 @@ Learn more about [variables](/docs/projects/variables/index.md).
 
 You can specify run conditions on the steps that you define to give you greater control over the deployment process.
 
-Learn more about [conditions](/docs/deployment-process/conditions/index.md).
+Learn more about [conditions](/docs/projects/steps/conditions/index.md).
 
 ## Deploying releases
 

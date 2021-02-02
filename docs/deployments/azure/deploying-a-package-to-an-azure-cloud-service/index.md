@@ -44,10 +44,10 @@ Any of the settings above can be switched to use a variable binding expression. 
 The following features are available when deploying a package to an Azure Cloud Service:
 
 - [Custom Scripts](/docs/deployments/custom-scripts/index.md)
-- [Configuration Variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration Transforms](/docs/deployment-process/configuration-features/configuration-transforms/index.md)
-- [Structured configuration variables](/docs/deployment-process/configuration-features/structured-configuration-variables-feature.md)
-- [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md)
+- [Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
+- [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
 :::hint
 Please note these features actually run on the Octopus Server prior to deploying the Cloud Service package to Azure. They don't execute in the Azure Cloud Service instances you are eventually targeting.
@@ -80,9 +80,9 @@ Deployment to an Azure Cloud Service proceeds as follows (more details provided 
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location.
 4. Any configured or packaged `PreDeploy` scripts are executed.
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
-6. [Substitute variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) (if configured).
-7. [.NET XML configuration transformations](/docs/deployment-process/configuration-features/configuration-transforms/index.md) (if configured) are performed.
-8. [.NET XML configuration variables](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
+6. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) (if configured).
+7. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+8. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 9. Any configured or package `Deploy` scripts are executed.
 10. Re-package the Cloud Service Package.
 11. Upload the Cloud Service Package to Azure Storage.

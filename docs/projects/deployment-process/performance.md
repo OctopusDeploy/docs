@@ -83,7 +83,7 @@ Size really does matter when it comes to your packages:
 - Larger packages require more network bandwidth to transfer to your deployment targets.
 - Larger packages take more resources to unpack on your deployment targets.
 - When using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
-- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in templates](/docs/deployment-process/configuration-features/substitute-variables-in-templates.md) can be configured to scan every file extracted from your package.
+- Larger packages usually result in larger file systems on your deployment targets, making any steps which scan files much slower. For example, [substituting variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) can be configured to scan every file extracted from your package.
 
 Consider whether one large package is better in your scenario, or perhaps you could split your application into multiple smaller packages, one for each deployable component.
 
@@ -112,7 +112,7 @@ If you are using another feed, you should configure its retention policies yours
 
 ### Consider the size of your task logs {#task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](/docs/deployment-process/artifacts.md).
+Larger task logs put the entire Octopus pipeline under more pressure. A good rule of thumb is to keep your log files under 20MB. We recommend printing messages required to understand progress and the reason for any deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
 
 ### Consider how many targets acquire packages in parallel {#parallel-acquisition}
 

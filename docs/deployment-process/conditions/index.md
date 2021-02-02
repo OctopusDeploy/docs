@@ -117,7 +117,7 @@ Watch out not to run steps that depend on each other in parallel. If **Step2** d
 
 ### Other ways to improve deployment time
 
-We have written a comprehensive guide on [deployment performance](/docs/deployment-process/performance.md) which covers many other aspects which affect your deployment time in addition to running steps in parallel.
+We have written a comprehensive guide on [deployment performance](docs/projects/deployment-process/performance.md) which covers many other aspects which affect your deployment time in addition to running steps in parallel.
 
 ## Package requirement
 

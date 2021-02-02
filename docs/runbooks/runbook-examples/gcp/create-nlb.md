@@ -24,7 +24,7 @@ In order to execute this runbook successfully, there are a couple of pre-requisi
 
 In order to access Google Cloud, you usually have to use tools such as the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud), which this runbook uses.
 
-This example assumes you have either the gcloud CLI installed on the machine where you run the runbook, or that you are using [execution containers for workers](/docs/deployment-process/execution-containers-for-workers/index.md) with an image that includes the gcloud CLI.
+This example assumes you have either the gcloud CLI installed on the machine where you run the runbook, or that you are using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md) with an image that includes the gcloud CLI.
 
 ### Google Cloud authorization {#gcloud-authorization}
 
