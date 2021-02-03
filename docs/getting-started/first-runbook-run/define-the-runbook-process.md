@@ -7,9 +7,9 @@ hideInThisSection: true
 
 The runbook process is the steps the Octopus Server orchestrates to perform various tasks on your infrastructure.  For our simple hello world script, we will only have one step.
 
-![The Hello world deployment process](images/deployment-process.png)
+![The Hello world deployment process](images/runbook-process.png)
 
-1. From the *Hello world* project you created in the previous page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
+1. From the *Hello Runbook* runbook you created in the previous page, click **DEFINE YOUR RUNBOOK PROCESS**.
 1. Click **ADD STEP**.
 1. Select the **Script** tile to filter the types of steps.
 1. Scroll down and click **ADD** on the **Run a Script** tile.
@@ -30,10 +30,8 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 8. Click **SAVE**.
 
-You have created your first deployment process. Next, we'll create a release and deploy it.
-
 :::success
 Learn more about [defining a deployment process](/docs/projects/deployment-process/index.md).
 :::
 
-With the deployment process defined, it is time to test it out.  The next step will walk you through [creating and deploying a release](/docs/getting-started/first-runbook-run/create-and-deploy-a-release.md).
+You have created your first runbook process. Next, we'll [run the runbook](/docs/getting-started/first-deployment/running-a-runbook.md).

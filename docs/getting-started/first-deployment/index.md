@@ -5,11 +5,9 @@ position: 10
 hideInThisSection: true
 ---
 
-If you are new to Octopus Deploy and would like to learn by doing this tutorial is for you.  By the end of this tutorial you will have completed your first deployment of a sample application to one or more of your servers.
+This tutorial will help you complete your first deployment of a provided sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.  The only prerequisite is a running Octopus Deploy instance, either in Octopus Cloud, or self-hosted.  The tutorial assumes you have a brand new instance running and will walk through the rest of the setup, including configuring deployment targets.
 
-If you haven't already signed up for a free-self hosted license or free cloud instance you can do so on our [sign-up page](https://octopus.com/free).  If you do elect to run the self-hosted version of Octopus Deploy, please follow our [installation guide](docs/installation/index.md#install-octopus).  
-
-This tutorial is expected to take between **25-35 minutes** to complete and will cover:
+This tutorial is expected to take between **25-35 minutes** to complete, with each step taking between **2-5** minutes to complete.  
 
 1. [Configure environments](docs/getting-started/first-deployment/configure-environments.md)
 2. [Create projects](docs/getting-started/first-deployment/create-projects.md)
@@ -20,7 +18,9 @@ This tutorial is expected to take between **25-35 minutes** to complete and will
 7. [Adding deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
 8. [Deploying a package to the deployment targets](/docs/getting-started/first-deployment/deploy-a-package.md)
 
-By the end of step 4, you will have run a "hello world" script.  Once you have completed all 8 steps you will have configured and deployed our sample [hello world package.](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.
+Before starting the tutorial, if you haven't set up an Octopus Deploy instance please do so by picking from one of the following options:
+
+!include <octopus-deploy-setup-options>
 
 :::success
 This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away please see:
@@ -29,4 +29,4 @@ This tutorial will deploy a sample package to your servers.  If you prefer to sk
 - [Deployment Examples](/docs/deployments/index.md)
 :::
 
-When you are ready to get started click [here](docs/getting-started/first-deployment/configure-environments.md) to learn how to configure environments.
+When you have an instance running, go to the [configure environments page](docs/getting-started/first-deployment/configure-environments.md) to get started.

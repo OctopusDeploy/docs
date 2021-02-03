@@ -30,3 +30,4 @@ Because we didn't define any deployment targets for the **Test** environment, Oc
 To learn more about release creation options, scheduling releases, and version rules please refer to the [release documentation](/docs/releases/index.md)
 :::
 
+You have finished your first deployment!  Next we will cover how [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md) in your deployment process.

@@ -5,28 +5,25 @@ position: 20
 hideInThisSection: true
 ---
 
-If you are new to Octopus Deploy and would like to learn by doing this tutorial is for you.  By the end of this tutorial you will have completed your first deployment of a sample application to one or more of your servers.
+This tutorial will help you complete your first runbook run of a provided sample script on one or more of your servers.  The only prerequisite is a running Octopus Deploy instance, either in Octopus Cloud, or self-hosted.  The tutorial will walk through configuring deployment targets.
 
-If you haven't already signed up for a free-self hosted license or free cloud instance you can do so on our [sign-up page](https://octopus.com/free).  If you do elect to run the self-hosted version of Octopus Deploy, please follow our [installation guide](docs/installation/index.md#install-octopus).  
+This tutorial is expected to take between **15-25 minutes** to complete.  
 
-This tutorial is expected to take between **25-35 minutes** to complete and will cover:
+1. [Configure environments](docs/getting-started/first-runbook-run/configure-runbook-environments.md)
+1. [Create projects](docs/getting-started/first-runbook-run/create-runbook-projects.md)
+1. [Create a runbook](docs/getting-started/first-runbook-run/create-a-runbook.md)
+1. [Define a runbook process](docs/getting-started/first-runbook-run/define-the-runbook-process.md)
+1. [Running a runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md)
+1. [Defining and using runbook variables](/docs/getting-started/first-runbook-run/runbook-specific-variables.md)
+1. [Adding deployment targets](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets.md)
+1. [Publishing a runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook.md)
 
-1. [Configure environments](docs/getting-started/first-deployment/configure-environments.md)
-2. [Create projects](docs/getting-started/first-deployment/create-projects.md)
-3. [Define a deployment process](docs/getting-started/first-deployment/define-the-deployment-process.md)
-4. [Create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md)
-5. [Defining and using variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
-6. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md)
-7. [Adding deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
-8. [Deploying a package to the deployment targets](/docs/getting-started/first-deployment/deploy-a-package.md)
+Before starting the tutorial, if you haven't set up an Octopus Deploy instance please do so by selecting one of following options:
 
-By the end of step 4, you will have run a "hello world" script.  Once you have completed all 8 steps you will have configured and deployed our sample [hello world package.](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.
+!include <octopus-deploy-setup-options>
 
 :::success
-This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away please see:
-
-- [Customizable End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides)
-- [Deployment Examples](/docs/deployments/index.md)
+This tutorial will run a sample script, first on the default worker, or your server, then it will move onto running that script on your servers.  If you prefer to skip that and start configuring Octopus Deploy runbooks to meet your requirements, please see our [runbook documentation](/docs/runbooks/index.md) and [runbook examples](/docs/runbooks/runbook-examples/index.md).
 :::
 
-When you are ready to get started click [here](docs/getting-started/first-deployment/configure-environments.md) to learn how to configure environments.
+When you have an instance running, go to the [configure runbook environments page](docs/getting-started/first-runbook-run/configure-runbook-environments.md) to get started.
