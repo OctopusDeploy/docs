@@ -40,6 +40,7 @@ This versioning scheme allows for traditional labels like `1.0` or `V1.2.3.4`. A
 | 1.0-myfeature   | 1  | 0 | 0 | 0 | myfeature | |
 | 1.0myfeature   | 1  | 0 | 0 | 0 | myfeature | The separator between the last integer version component and the prerelease label is optional. |
 | myfeature   | 0  | 0 | 0 | 0 | myfeature | Integer version components are optional. |
+| latest | 0 | 0 | 0 | 0 | latest | The latest tag is considered to be a zero version with `latest` as the prerelease. |
 
 ## Version rules
 
@@ -53,4 +54,8 @@ Docker image tags can be matched by a channel version rule. The NuGet version ra
 |---|---|---|
 | v1.0 | [1.0,2.0] | The leading "v" is ignored in the range. |
 | v1.0-.myfeature | [1.0--myfeature,2.0] | The leading dot in the prerelease field is represented as a dash in the range. |
-| myfeature | (,1.0) | The version `myfeature` is considered to be equilivent to `0.0.0.0-myfeature`. |
+| myfeature | (,1.0) | The version `myfeature` is considered to be equivalent to `0.0.0.0-myfeature`. |
+
+Pre-release tag regular expressions can be used to limit the tags that are made available when creating a new release. A common use case is to exclude the `latest` tag, which can be achieved with a regular expression like `^(?!latest\b).+$|^$`.
+
+![](channel-rule.png "width=500")
