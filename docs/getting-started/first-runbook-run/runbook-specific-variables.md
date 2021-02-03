@@ -52,4 +52,4 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 To learn more about variables, variable types, and sharing variables between projects, please refer to the [variable documentation](/docs/projects/variables/index.md)
 :::
 
-The runbook has specific variables, now it is time to change it from running on a worker or Octopus Server to [running on a deployment target](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets).
+The runbook has specific variables, now it is time to change it from running on a worker or Octopus Server to [running on a deployment target](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets.md).

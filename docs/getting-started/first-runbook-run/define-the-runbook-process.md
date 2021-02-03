@@ -34,4 +34,4 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 Learn more about [defining a deployment process](/docs/projects/deployment-process/index.md).
 :::
 
-You have created your first runbook process. Next, we'll [run the runbook](/docs/getting-started/first-deployment/running-a-runbook.md).
+You have created your first runbook process. Next, we'll [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md).

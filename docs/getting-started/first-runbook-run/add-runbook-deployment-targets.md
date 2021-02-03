@@ -27,4 +27,4 @@ Now that we have the deployment targets added, let's update the runbook process 
 Not all steps can and should be run on a deployment target.  The rule of thumb is to run a runbook step on a deployment target if that step needs to modify something specific on that target, such as restarting a service, or installing a web server.  If you need to manage PaaS targets, K8s clusters, or database servers, the recommendation is to run the runbook script on a worker.
 :::
 
-We've reached the point where the runbook is ready to [be published](/docs/getting-started/first-deployment/publishing-a-runbook.md) so it can used by triggers and users have a good known version to run.
+We've reached the point where the runbook is ready to [be published](/docs/getting-started/first-runbook-run/publishing-a-runbook.md) so it can used by triggers and users have a good known version to run.

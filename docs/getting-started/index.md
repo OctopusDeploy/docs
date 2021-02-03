@@ -39,6 +39,10 @@ Runbooks are used to automate routine maintenance and emergency operations tasks
 
 Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
+## Glossary
+
+As you start using Octopus Deploy, you will learn a lot of new terms. You can view a list of common terms on the [glossary page](docs/getting-started/glossary.md).
+
 ## Setup Octopus Deploy {#setup-octopus-deploy}
 
 You have several options to setup your Octopus Deploy instance.
