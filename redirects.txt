@@ -963,3 +963,4 @@ docs/deployment-process/steps/custom-step-templates.md -> docs/projects/custom-s
 docs/deployment-process/steps/updating-step-templates.md -> docs/projects/updating-step-templates.md
 docs/deployment-process/steps/email-notifications.md -> docs/projects/built-in-step-templates/email-notifications.md
 docs/deployment-process/steps/manual-intervention-and-approvals.md -> docs/projects/built-in-step-templates/manual-intervention-and-approvals.md
+docs/getting-started/terminology.md -> docs/getting-started/glossary.md
