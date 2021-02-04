@@ -26,9 +26,7 @@ Because we didn't define any deployment targets for the **Test** environment, Oc
 
 ![The results of the Hello world deployment](images/deployed-release.png)
 
-You have finished your first deployment!  The next step will [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md) in the deployment process.
-
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/define-the-deployment-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-and-use-variables">Next</a></span>
+You have finished your first deployment!  But there is still a bit of work to do.  The next step will [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md) in the deployment process.
 
 **Further Reading**
 
@@ -37,3 +35,5 @@ For further reading on creating releases in Octopus Deploy please see:
 - [Releases Documentation](/docs/releases/index.md)
 - [Deployment Documentation](/docs/deployments/index.md)
 - [Patterns and Practices](/docs/deployments/patterns/index.md)
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/define-the-deployment-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-and-use-variables">Next</a></span>

@@ -48,8 +48,6 @@ Please create a new release and deploy it to *Development*.  The release will de
 
 You have now completed the deployment tutorial!  This tutorial has focused on running sample scripts and deploying sample packages to your servers.  It is now time to add your applications to Octopus Deploy.  
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>
-
 **Further Reading**
 
 For further reading on deploying packages in Octopus Deploy along with integrating with your CI/CD pipeline please see:
@@ -58,3 +56,5 @@ For further reading on deploying packages in Octopus Deploy along with integrati
 - [Deployment Documentation](/docs/deployments/index.md)
 - [Patterns and Practices](/docs/deployments/patterns/index.md)
 - [Customizable End to End CI/CD Tutorials](https://octopus.com/docs/guides)
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>
