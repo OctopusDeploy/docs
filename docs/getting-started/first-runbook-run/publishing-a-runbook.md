@@ -31,4 +31,4 @@ This tutorial is designed to cover the basics of how to configure runbooks and h
 - [Runbook Documentation](/docs/runbooks/index.md)
 - [Runbook Publishing](/docs/runbooks/runbook-publishing/index.md)
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
-- [Scheduled Runbook Triggers](/docs/runbooks/scheduled-runbook-triggers/index.md)
+- [Scheduled Runbook Triggers](/docs/runbooks/scheduled-runbook-trigger/index.md)

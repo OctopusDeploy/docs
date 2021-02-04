@@ -28,6 +28,6 @@ The next step will cover [how to configure and use variables in runbooks](/docs/
 
 For further reading on running a Runbook please see:
 
-- [Runbook vs Deployments](/docs/runbooks/runbook-vs-deployments/index.md)
+- [Runbook vs Deployments](/docs/runbooks/runbooks-vs-deployments/index.md)
 - [Runbook Documentation](/docs/runbooks/index.md)
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
