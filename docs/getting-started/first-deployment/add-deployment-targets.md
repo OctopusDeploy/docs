@@ -11,7 +11,7 @@ The next step will [deploy a sample package](/docs/getting-started/first-deploym
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/deploy-a-package">Next</a></span>
 
-## Further Reading
+### Further Reading
 
 For further reading on deployment targets in Octopus Deploy please see:
 

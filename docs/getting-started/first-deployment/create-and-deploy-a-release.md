@@ -30,7 +30,7 @@ You have finished your first deployment!  The next step will [define and use var
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/define-the-deployment-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-and-use-variables">Next</a></span>
 
-## Further Reading
+### Further Reading
 
 For further reading on creating releases in Octopus Deploy please see:
 

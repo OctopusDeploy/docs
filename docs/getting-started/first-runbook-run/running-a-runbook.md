@@ -24,7 +24,7 @@ The next step will cover [how to configure and use variables in runbooks](/docs/
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/runbook-specific-variables">Next</a></span>
 
-## Further Reading
+### Further Reading
 
 For further reading on running a Runbook please see:
 

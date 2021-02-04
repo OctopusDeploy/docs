@@ -24,7 +24,7 @@ You have now completed the tutorial for running your first runbook!  For further
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Previous</a></span>
 
-## Further Reading
+### Further Reading
 
 This tutorial is designed to cover the basics of how to configure runbooks and how they work.  For further reading please see:
 

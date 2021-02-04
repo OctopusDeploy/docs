@@ -50,7 +50,7 @@ You have now completed the deployment tutorial!  This tutorial has focused on ru
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>
 
-## Further Reading
+### Further Reading
 
 For further reading on deploying packages in Octopus Deploy along with integrating with your CI/CD pipeline please see:
 

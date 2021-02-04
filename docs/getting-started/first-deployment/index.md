@@ -26,7 +26,7 @@ When you have an instance running, go to the [configure environments page](docs/
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-deployment/configure-environments">Get Started</a></span>
 
-## Further Reading
+### Further Reading
 
 This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away, please see:
 

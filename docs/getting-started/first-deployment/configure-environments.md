@@ -11,7 +11,7 @@ The next step will [create projects](docs/getting-started/first-deployment/creat
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-deployment/create-projects">Next</a></span>
 
-## Further Reading
+### Further Reading
 
 For further reading on environments in Octopus Deploy please see:
 

@@ -18,7 +18,7 @@ The next step will [define a simple runbook process](/docs/getting-started/first
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Next</a></span>
 
-## Further Reading
+### Further Reading
 
 For further reading on Runbooks please see:
 
