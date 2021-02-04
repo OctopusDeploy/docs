@@ -34,7 +34,7 @@ The next step will [add deployment targets](/docs/getting-started/first-deployme
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/define-and-use-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>
 
-### Further Reading
+**Further Reading**
 
 For further reading on approvals in Octopus Deploy please see:
 

@@ -15,7 +15,7 @@ The next step will [create a project to house the runbook](docs/getting-started/
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Next</a></span>
 
-### Further Reading
+**Further Reading**
 
 For further reading on deployment targets in Octopus Deploy please see:
 

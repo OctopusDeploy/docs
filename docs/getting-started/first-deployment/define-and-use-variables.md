@@ -53,7 +53,7 @@ The next step will [add an approval process using manual interventions](/docs/ge
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>
 
-### Further Reading
+**Further Reading**
 
 For further reading on variables in Octopus Deploy please see:
 

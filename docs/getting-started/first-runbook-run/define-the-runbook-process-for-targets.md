@@ -46,7 +46,7 @@ The next step will [publish the runbook](/docs/getting-started/first-runbook-run
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/publishing-a-runbook">Next</a></span>
 
-### Further Reading
+**Further Reading**
 
 For further reading on runbook processes and what is possible please see:
 

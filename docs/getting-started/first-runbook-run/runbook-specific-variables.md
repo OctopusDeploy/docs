@@ -56,7 +56,7 @@ The next step will [add deployment targets to run runbooks on](/docs/getting-sta
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/running-a-runbook">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Next</a></span>
 
-### Further Reading
+**Further Reading**
 
 For further reading on Runbook variables please see:
 
