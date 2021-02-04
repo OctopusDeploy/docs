@@ -1,6 +1,6 @@
 ---
-title: Defining the runbook process
-description: Step by step guide on how to define a runbook process in Octopus Deploy.
+title: Defining the runbook process for workers
+description: Step by step guide on how to define a runbook process to run on Workers in Octopus Deploy.
 position: 40
 hideInThisSection: true
 ---

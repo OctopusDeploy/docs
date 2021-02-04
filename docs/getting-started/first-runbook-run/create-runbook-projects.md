@@ -7,4 +7,4 @@ hideInThisSection: true
 
 !include <create-projects>
 
-Now that the project has been created, the next step is to [create a runbook](/docs/getting-started/first-runbook-run/create-a-runbook.md) in the newly created project.
+We can now [create a runbook](/docs/getting-started/first-runbook-run/create-a-runbook.md) in the newly created project.

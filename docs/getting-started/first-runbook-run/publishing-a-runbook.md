@@ -1,7 +1,7 @@
 ---
 title: Publishing a runbook
 description: Step by step guide on how publish a Octopus Deploy runbook to use with triggers.
-position: 70
+position: 90
 hideInThisSection: true
 ---
 
