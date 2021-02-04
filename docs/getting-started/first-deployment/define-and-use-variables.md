@@ -1,6 +1,6 @@
 ---
 title: Define and use variables
-description: Step by step guide on how to define and use variables in a Octopus Deploy deployment.
+description: Step by step guide on how to define and use variables in an Octopus Deploy deployment.
 position: 50
 hideInThisSection: true
 ---

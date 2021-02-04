@@ -5,9 +5,9 @@ position: 20
 hideInThisSection: true
 ---
 
-This tutorial will help you complete your first runbook run of a provided sample script on one or more of your servers.  The only prerequisite is a running Octopus Deploy instance, either in Octopus Cloud, or self-hosted.  The tutorial will walk through configuring deployment targets.
+This tutorial will help you complete your first runbook run using a sample script on one or more of your servers.  The only prerequisite is a running Octopus Deploy instance, either in Octopus Cloud or self-hosted.  The tutorial will walk through configuring deployment targets.
 
-This tutorial is expected to take between **15-25 minutes** to complete.  
+This tutorial will take between **15-25 minutes** to complete, with each step taking between **2-3** minutes to complete.  
 
 1. [Configure environments](docs/getting-started/first-runbook-run/configure-runbook-environments.md)
 1. [Create projects](docs/getting-started/first-runbook-run/create-runbook-projects.md)
@@ -19,7 +19,7 @@ This tutorial is expected to take between **15-25 minutes** to complete.
 1. [Update runbook process to run on deployment targets](docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets.md)
 1. [Publishing a runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook.md)
 
-Before starting the tutorial, if you haven't set up an Octopus Deploy instance please do so by selecting one of following options:
+Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by selecting one of the following options:
 
 !include <octopus-deploy-setup-options>
 
@@ -29,7 +29,7 @@ When you have an instance running, go to the [configure runbook environments pag
 
 ## Further Reading
 
-This tutorial will run a sample script, first on the default worker, or your server, then it will move onto running that script on your servers.  If you prefer to skip that and start configuring Octopus Deploy runbooks to meet your requirements, please see:
+This tutorial will run a sample script, first on the default worker or your server; then, it will move onto running that script on your servers.  If you prefer to skip that and start configuring Octopus Deploy runbooks to meet your requirements, please see:
 
 - [Runbook Documentation](/docs/runbooks/index.md) 
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)

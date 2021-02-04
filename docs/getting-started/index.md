@@ -1,6 +1,6 @@
 ---
 title: Getting started
-description: This section provides a conceptual overview of Octopus Deploy and provides step-by-step instructions to help you master the fundamentals of Octopus Deploy whether you are using the self-hosted Octopus Server or Octopus Cloud.
+description: This section provides a conceptual overview of Octopus Deploy and provides step-by-step instructions to help you master Octopus Deploy's fundamentals, whether you are using the self-hosted Octopus Server or Octopus Cloud.
 position: 0
 hideInThisSection: true
 ---
@@ -13,13 +13,15 @@ Octopus Deploy is a deployment tool.  It takes the packages and artifacts genera
 
 ### Octopus Server
 
-You can install your own self-hosted instance of the **Octopus Server** or use the hosted version **Octopus Cloud**. Small teams can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
-
-The guide below provides more information on how to [setup Octopus Deploy](#setup-octopus-deploy).
+You can install a self-hosted instance of the **Octopus Server** or use the hosted version **Octopus Cloud**. You can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
 
 ### Consistent deployments and releases
 
 As an Octopus user, you define the process for deploying your applications. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want developers to deploy to dev environments but not testing or production, and members of QA to deploy to test environments but not to production. Taking this approach means that even if different team members trigger deployments, the deployment process remains consistent. After releases have been created, they can be deployed as many times as you need.
+
+Learn more about [Deployments in Octopus Deploy](/docs/deployments/index.md)
+
+We have created a [step by step guide to completing your first deployment](/docs/getting-started/first-deployment/index.md) using a sample application.  
 
 ### Infrastructure
 
@@ -39,31 +41,19 @@ Runbooks are used to automate routine maintenance and emergency operations tasks
 
 Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
+We have created a [step by step guide on how to complete your first runbook run](/docs/getting-started/first-runbook-run/index.md).
+
 ## Glossary
 
 As you start using Octopus Deploy, you will learn a lot of new terms. You can view a list of common terms on the [glossary page](docs/getting-started/glossary.md).
 
-## Setup Octopus Deploy {#setup-octopus-deploy}
+## Next steps
 
-You have several options to setup your Octopus Deploy instance.
+You can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).  After setting up your instance, you can use our guides to help you deploy your software, run your first runbook, or integrate Octopus Deploy into your CI/CD pipeline.
 
-!include <octopus-deploy-setup-options>
-
-Once you setup Octopus Deploy, login to the Octopus Web Portal.  
-
-!include <octopus-web-portal>
-
-### First Deployment
-
-We have created a step by step guide walking you through what is needed to complete [your first deployment](docs/getting-started/first-deployment/index.md) using a provided sample application.  It will cover all the basics you will need to know in setting up a POC or a Pilot.  
-
-### First Runbook Run
-
-In addition to the deployment guide, we have a step by step guide on how to do [your first runbook run](docs/getting-started/first-runbook-run/index.md) for a sample script.  It will cover how to configure runbooks and how they are different than a deployment.  
-
-### Integrating Octopus Deploy into your CI/CD pipeline
-
-The step by step guides include sample applications and scripts.  It doesn't require you to configure a build server.  Once you are complete with those guides please see our [customizable end to end CI/CD tutorials](https://octopus.com/docs/guides) to see how you can integrate your build server and application with Octopus Deploy.
+- [Hello World Deployment using sample scripts and packages](/docs/getting-started/first-deployment/index.md)
+- [Hello World Runbook run using sample scripts](/docs/getting-started/first-runbook-run/index.md)
+- [Customizable end to end CI/CD tutorials](https://octopus.com/docs/guides)
 
 ## Further Reading
 

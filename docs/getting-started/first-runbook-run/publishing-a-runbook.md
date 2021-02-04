@@ -1,23 +1,23 @@
 ---
 title: Publishing a runbook
-description: Step by step guide on how publish a Octopus Deploy runbook to use with triggers.
+description: Step by step guide on how to publish an Octopus Deploy Runbook to use with triggers.
 position: 90
 hideInThisSection: true
 ---
 
-Publishing a runbook will snapshot the runbook process and the associated assets (packages, scripts, variables) as they existed at that moment in time.  After a runbook has been published any edits made will be done in "draft mode."  For those changes to be used in a trigger the runbook must be published again.
+Publishing a runbook will snapshot the runbook process and the associated assets (packages, scripts, variables) as they existed at that moment in time.  After publishing a runbook, any future edits made will be considered a "draft."  For a trigger to pick up those new changes, a new publish event will need to occur.
 
 1. From the *Hello world* project you created earlier, click **Runbooks** in the left menu.
 1. Click *Hello Runbook* in the list of runbooks.
 1. Click **Publish...** in the runbook menu.
 1. Provide some notes and click **PUBLISH**.
 
-If anyone makes changes to the runbook process or its associated assets after it has been published you have the option to run the published runbook or the current draft.
+If anyone changes the runbook process or its associated assets after it has been published, you can either run the most recent published Runbook, or run the current draft.
 
 ![Running a runbook after it was published and changes were detected](images/run-runbook-post-publish-changes.png)
 
 :::hint
-The specific version of any packages used in a runbook process are included in the snapshot when it is published.  Updating a package requires you to republish the runbook.  As such, it is not recommended to use runbooks to "stage" or "pre-deploy" an application code base.
+The specific version of any packages used in a runbook process is included in the snapshot when it is published.  Updating a package requires you to republish the Runbook.  As such, it is not recommended to use runbooks to "stage" or "pre-deploy" an application package.
 :::
 
 You have now completed the tutorial for running your first runbook!  For further reading, please see our [runbook documentation](/docs/runbooks/index.md) and [runbook examples](/docs/runbooks/runbook-examples/index.md).

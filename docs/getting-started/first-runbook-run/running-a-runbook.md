@@ -5,11 +5,11 @@ position: 50
 hideInThisSection: true
 ---
 
-Unlike a deployment with a pre-defined lifecycle, a runbook can be run on any environment in any order.  That is because Runbooks are designed to automate routine maintenance tasks.  A maintenance tasks might need to run on **Test** and **Production** but not on **Development** environments.
+Unlike a deployment with a pre-defined lifecycle, Runbooks can run on any environment in any order.  Runbooks are designed to automate routine maintenance tasks.  Maintenance tasks might need to run on **Test** and **Production** but not on **Development** environments.
 
-1. From the *Hello Runbook* runbook you created in the previous page, click **RUN...**.
+1. From the *Hello Runbook* runbook you created on the previous page, click **RUN...**.
 
-This screen provides the details of the runbook you are about to run.
+This screen provides the details of the Runbook you are about to run.
 
 ![run runbook basic options](images/run-runbook-basic-options.png)
 

@@ -9,13 +9,13 @@ The runbook process is the steps the Octopus Server orchestrates to perform vari
 
 ![The Hello world deployment process](images/runbook-process.png)
 
-1. From the *Hello Runbook* runbook you created in the previous page, click **DEFINE YOUR RUNBOOK PROCESS**.
+1. From the *Hello Runbook* runbook you created on the previous page, click **DEFINE YOUR RUNBOOK PROCESS**.
 1. Click **ADD STEP**.
 1. Select the **Script** tile to filter the types of steps.
 1. Scroll down and click **ADD** on the **Run a Script** tile.
 1. Accept the default name for the script and leave the **Enabled** check-box ticked.
-1. In the **Execution Location** page, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).  If you are using Octopus Cloud and want to use Bash scripts change the worker pool from **Default Worker Pool** to **Hosted Ubuntu**.
-1. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
+1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).  If you are using Octopus Cloud and want to use Bash scripts change the worker pool from **Default Worker Pool** to **Hosted Ubuntu**.
+1. Scroll down to the **Script**, select your script language of choice, and enter the following script in the **Inline Source Code** section:
 
 ```powershell PowerShell
 Write-Host "Hello, World!"
@@ -29,10 +29,6 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 :::
 
 8. Click **SAVE**.
-
-:::success
-Learn more about [defining a deployment process](/docs/projects/deployment-process/index.md).
-:::
 
 The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md).
 

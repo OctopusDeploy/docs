@@ -5,7 +5,7 @@ position: 80
 hideInThisSection: true
 ---
 
-Octopus Deploy's primary purpose is to push software packages, .zip, .jar, .war, .tar, .nupkg, etc., to your deployment targets.  Octopus Deploy requires all your assests, binaries, configuration files, CSS files, and more to run your application, to be packaged up.  Typically this is done by your build server.
+Octopus Deploy's primary purpose is to push software packages, .zip, .jar, .war, .tar, .nupkg, etc., to your deployment targets.  Octopus Deploy requires all your assets, binaries, configuration files, CSS files, and more to run your application to be packaged up.  Typically this is done by your build server.
 
 Packages must have the following attributes:
 
@@ -42,7 +42,7 @@ Add a step to the hello world deployment process to push that package to the des
 
 ![Deploy a package step with role and package selected](images/deploy-a-package-with-roles.png)
 
-Create a new release and deploy it to *Development*.  The release will deploy the *hello world* package to *dev-server-01*.
+Please create a new release and deploy it to *Development*.  The release will deploy the *hello world* package to *dev-server-01*.
 
 ![Deploy a package results](images/deploy-package-results.png)
 

@@ -8,7 +8,7 @@ hideInThisSection: true
 !include <creating-environments>
 
 :::hint
-Try to reuse the same environments as your deployments whenever possible.  You will often runbooks runbooks on the same deployment targets as your deployment process.  Creating runbook only environments can saturate your dashboards and lifecycles.  If you do need to have a environment specific to runbooks, we recommend limiting it to `Maintenance`.
+Try to reuse the same environments as your deployments whenever possible.  You will often runbooks runbooks on the same deployment targets as your deployment process.  Creating runbook only environments can saturate your dashboards and lifecycles.  If you need to have an environment for runbooks, we recommend limiting it to one or two environments at most with a name similar to `Maintenance`.
 :::
 
 The next step will [create a project to house the runbook](docs/getting-started/first-runbook-run/create-runbook-projects.md).

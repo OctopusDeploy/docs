@@ -11,13 +11,13 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 
 ![The Hello world deployment process](images/deployment-process.png)
 
-1. From the *Hello world* project you created in the previous page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
+1. From the *Hello world* project you created on the previous page, click **DEFINE YOUR DEPLOYMENT PROCESS**.
 1. Click **ADD STEP**.
 1. Select the **Script** tile to filter the types of steps.
 1. Scroll down and click **ADD** on the **Run a Script** tile.
 1. Accept the default name for the script and leave the **Enabled** check-box ticked.
 1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).  If you are using Octopus Cloud and want to use Bash scripts change the worker pool from **Default Worker Pool** to **Hosted Ubuntu**.
-1. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
+1. Scroll down to the **Script**, select your script language of choice, and enter the following script in the **Inline Source Code** section:
 
 ```powershell PowerShell
 Write-Host "Hello, World!"

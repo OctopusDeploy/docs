@@ -1,11 +1,11 @@
 ---
 title: Runbook specific variables
-description: Step by step guide on how to define and use variables in a Octopus Deploy runbook.
+description: Step by step guide on how to define and use variables in an Octopus Deploy runbook.
 position: 60
 hideInThisSection: true
 ---
 
-Octopus allows you to define variables and scope them for use in different environments when running a runbook.  Variables allow you to have a consistent runbook process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.  In addition to environments, you can scope variables to specific runbooks.  
+Octopus allows you to define variables and scope them for use in different environments when running a Runbook.  Variables allow you to have a consistent Runbook process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.  In addition to environments, you can scope variables to specific Runbooks.  
 
 1. From the *Hello world* project you created earlier, click **Variables** in the left menu.
 1. Enter **Helloworld.Greeting** into the variable name column on the first row of the table.
@@ -20,7 +20,7 @@ Octopus allows you to define variables and scope them for use in different envir
 ![The hello world variables](images/variables.png)
 
 :::hint
-During a runbook run or deployment, Octopus will select the most specifically scoped variable that applies.  In the screenshot above, when running *Hello Runbook* in **Production** Octopus will select `Hello, Production Runbook`.  When running a different runbook or doing a deployment to **Production** Octopus will select `Hello, Production`.
+During a runbook run or deployment, Octopus will select the most specifically scoped variable that applies.  In the screenshot above, when running *Hello Runbook* in **Production**, Octopus will select `Hello, Production Runbook`.  When running a different runbook or doing a deployment to **Production**, Octopus will select `Hello, Production`.
 :::
 
 Steps in the runbook process can reference the variables.
@@ -44,7 +44,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 :::
 
 6. Click the **SAVE** button.
-7. Click the **RUN...** button, select and environment, and run the runbook.
+7. Click the **RUN...** button, select and environment, and run the Runbook.
 
 ![The results of the hello world runbook run with variables](images/runbook-run-with-variables.png)
 

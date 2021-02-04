@@ -26,7 +26,7 @@ Right now, the step is configured to execute after the hello world script runs. 
 1. Reorder the steps, so the manual intervention is the first one on the list.
 1. Click on **DONE** and then click on **SAVE**.
 
-Please create a new release and deploy it through to **Production**.  You will see the approval step being skipped in *Development* and *Testing*.  When you deploy to **Production** the deployment will pause, and you will need to approve it before continuing.
+Please create a new release and deploy it through to **Production**.  You will see the approval step being skipped in *Development* and *Testing*.  When you deploy to **Production**, the deployment will pause, and you will need to approve it before continuing.
 
 ![Manual intervention is required in production](images/manual-interventions.png)
 
