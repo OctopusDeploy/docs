@@ -9,8 +9,6 @@ hideInThisSection: true
 
 The next step will [create a runbook](/docs/getting-started/first-runbook-run/create-a-runbook.md) in the newly created project.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/configure-runbook-environments">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/create-a-runbook">Next</a></span>
-
 **Further Reading**
 
 For further reading on Runbooks and projects please see:
@@ -18,3 +16,5 @@ For further reading on Runbooks and projects please see:
 - [Projects](/docs/projects/index.md)
 - [Runbook Documentation](/docs/runbooks/index.md)
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/configure-runbook-environments">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/create-a-runbook">Next</a></span>

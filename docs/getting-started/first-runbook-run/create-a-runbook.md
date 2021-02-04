@@ -16,11 +16,11 @@ A single Octopus Deploy Project can have multiple Runbooks.  Each Runbook has a 
 
 The next step will [define a simple runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process.md) to run on either the Octopus Server or a worker (if you are using Octopus Cloud).
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Next</a></span>
-
 **Further Reading**
 
 For further reading on Runbooks please see:
 
 - [Runbook Documentation](/docs/runbooks/index.md)
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Next</a></span>

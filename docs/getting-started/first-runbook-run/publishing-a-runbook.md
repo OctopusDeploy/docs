@@ -20,10 +20,6 @@ If anyone changes the runbook process or its associated assets after it has been
 The specific version of any packages used in a runbook process is included in the snapshot when it is published.  Updating a package requires you to republish the Runbook.  As such, it is not recommended to use runbooks to "stage" or "pre-deploy" an application package.
 :::
 
-You have now completed the tutorial for running your first runbook!  For further reading, please see our [runbook documentation](/docs/runbooks/index.md) and [runbook examples](/docs/runbooks/runbook-examples/index.md).
-
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Previous</a></span>
-
 **Further Reading**
 
 This tutorial is designed to cover the basics of how to configure runbooks and how they work.  For further reading please see:
@@ -32,3 +28,7 @@ This tutorial is designed to cover the basics of how to configure runbooks and h
 - [Runbook Publishing](/docs/runbooks/runbook-publishing/index.md)
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
 - [Scheduled Runbook Triggers](/docs/runbooks/scheduled-runbook-trigger/index.md)
+
+You have now completed the tutorial for running your first runbook!  For further reading, please see our [runbook documentation](/docs/runbooks/index.md) and [runbook examples](/docs/runbooks/runbook-examples/index.md).
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Previous</a></span>

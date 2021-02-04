@@ -44,11 +44,11 @@ Not all steps can and should be run on a deployment target.  A rule of thumb is 
 
 The next step will [publish the runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook.md) so it can used by triggers and users have a known version to run.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/publishing-a-runbook">Next</a></span>
-
 **Further Reading**
 
 For further reading on runbook processes and what is possible please see:
 
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
 - [Runbook Documentation](/docs/runbooks/index.md)
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/publishing-a-runbook">Next</a></span>
