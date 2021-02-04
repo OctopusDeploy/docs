@@ -34,7 +34,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 The next step will [create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md).
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/create-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Next</a></span>
 
 ## Further Reading
 

@@ -8,7 +8,3 @@ Octopus organizes the servers and services where you deploy your software into e
 1. Give your new environment a meaningful name, for instance, *Test*, and click **SAVE**.
 
 You now have your first environment.
-
-:::Success
-To learn more about how Octopus Deploy organizes machines into environments please see the [environments documentation](docs/infrastructure/environments/index.md).
-:::

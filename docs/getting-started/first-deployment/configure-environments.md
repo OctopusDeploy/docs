@@ -9,7 +9,7 @@ hideInThisSection: true
 
 The next step will [create projects](docs/getting-started/first-deployment/create-projects.md).
 
-<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>
+<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/create-projects">Next</a></span>
 
 ## Further Reading
 

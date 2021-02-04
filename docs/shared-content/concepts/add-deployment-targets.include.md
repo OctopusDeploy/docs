@@ -29,7 +29,3 @@ As you configure your deployment targets, select the environment, they will belo
 1. Click on the **SAVE** button.
 
 ![Deployment target with roles](/docs/shared-content/concepts/images/target-with-roles.png)
-
-:::success
-To learn more about managing and configuring your infrastructure, refer to the [infrastructure documentation](/docs/infrastructure/index.md).
-:::
