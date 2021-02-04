@@ -49,8 +49,14 @@ As you promote through the environments, you will see the greeting change.
 
 ![The results of the hello world deployment with variables](images/deployment-with-variables.png)
 
-:::success
-To learn more about variables, variable types, and sharing variables between projects, please refer to the [variable documentation](/docs/projects/variables/index.md)
-:::
+The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md). 
 
-So far, the process has ran in each environment with impunity.  The next step will [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md).  
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>
+
+## Further Reading
+
+For further reading on variables in Octopus Deploy please see:
+
+- [Variable Documentation](/docs/projects/variables/index.md)
+- [Deployment Documentation](/docs/deployments/index.md)
+- [Patterns and Practices](/docs/deployments/patterns/index.md)

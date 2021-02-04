@@ -7,4 +7,14 @@ hideInThisSection: true
 
 !include <creating-environments>
 
-Now that you have configured your first set of environments, you can move on to [creating projects](docs/getting-started/first-deployment/create-projects.md).
+The next step will [create projects](docs/getting-started/first-deployment/create-projects.md).
+
+<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>
+
+## Further Reading
+
+For further reading on environments in Octopus Deploy please see:
+
+- [Environments](/docs/infrastructure/environments/index.md)
+- [Deployment Documentation](/docs/deployments/index.md)
+- [Patterns and Practices](/docs/deployments/patterns/index.md)

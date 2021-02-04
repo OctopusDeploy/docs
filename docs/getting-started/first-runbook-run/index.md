@@ -23,8 +23,13 @@ Before starting the tutorial, if you haven't set up an Octopus Deploy instance p
 
 !include <octopus-deploy-setup-options>
 
-:::success
-This tutorial will run a sample script, first on the default worker, or your server, then it will move onto running that script on your servers.  If you prefer to skip that and start configuring Octopus Deploy runbooks to meet your requirements, please see our [runbook documentation](/docs/runbooks/index.md) and [runbook examples](/docs/runbooks/runbook-examples/index.md).
-:::
-
 When you have an instance running, go to the [configure runbook environments page](docs/getting-started/first-runbook-run/configure-runbook-environments.md) to get started.
+
+<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/configure-runbook-environments">Get Started</a></span>
+
+## Further Reading
+
+This tutorial will run a sample script, first on the default worker, or your server, then it will move onto running that script on your servers.  If you prefer to skip that and start configuring Octopus Deploy runbooks to meet your requirements, please see:
+
+- [Runbook Documentation](/docs/runbooks/index.md) 
+- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)

@@ -5,7 +5,7 @@ position: 30
 hideInThisSection: true
 ---
 
-A single Octopus Deploy Project can have multiple runbooks.  Each runbook has a unique runbook process, retention policy, and allowable environments to run in.  For example, a project might have a runbook to spin up additional infrastructure, or restart the server, or perform a daily backup.  
+A single Octopus Deploy Project can have multiple Runbooks.  Each runbook has a unique runbook process, retention policy, and allowable environments to run in.  For example, a project might have a runbook to spin up additional infrastructure, or restart the server, or perform a daily backup.  
 
 ![example runbook](images/runbook-overview.png)
 
@@ -14,5 +14,13 @@ A single Octopus Deploy Project can have multiple runbooks.  Each runbook has a 
 1. Click **ADD RUNBOOK**.
 1. Give the runbook a name, for example *Hello Runbook* and click **SAVE**.
 
-With the runbook created, let's [define a simple runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process.md).
+The next step will [define a simple runbook process](/docs/getting-started/first-runbook-run/define-the-runbook-process.md) to run on either the Octopus Server or a worker (if you are using Octopus Cloud).
 
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Next</a></span>
+
+## Further Reading
+
+For further reading on Runbooks please see:
+
+- [Runbook Documentation](/docs/runbooks/index.md)
+- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)

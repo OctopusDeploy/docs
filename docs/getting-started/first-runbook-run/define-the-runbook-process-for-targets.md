@@ -1,5 +1,5 @@
 ---
-title: Defining the runbook process
+title: Defining the runbook process for targets
 description: Step by step guide on how to define a runbook process in Octopus Deploy.
 position: 80
 hideInThisSection: true
@@ -42,7 +42,13 @@ echo $machineName
 Not all steps can and should be run on a deployment target.  A rule of thumb is a runbook should target a deployment target if it needs to modify something specific on that target, such as restarting a service, or installing a web server.  If you need to manage PaaS targets, K8s clusters, or database servers, the recommendation is to run the runbook script on a worker.
 :::
 
-And with that, all the modifications to this runbook are completed.  The [runbook is ready to be published](/docs/getting-started/first-runbook-run/publishing-a-runbook.md) so it can used by triggers and users have a good known version to run.
+The next step will [publish the runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook.md) so it can used by triggers and users have a known version to run.
 
-<span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a class="btn" href="/docs/getting-stated/first-runbook-run/add-runbook-deployment-targets">Previous</a></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/publishing-a-runbook">Next</a>&nbsp;</span><br />
-&nbsp;<br />
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/runbook-specific-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Next</a></span>
+
+## Further Reading
+
+For further reading on runbook processes and what is possible please see:
+
+- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+- [Runbook Documentation](/docs/runbooks/index.md)

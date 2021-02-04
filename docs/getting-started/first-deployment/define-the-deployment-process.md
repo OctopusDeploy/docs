@@ -32,8 +32,14 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 8. Click **SAVE**.
 
-:::success
-Learn more about [defining a deployment process](/docs/projects/deployment-process/index.md).
-:::
+The next step will [create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md).
 
-You have created your first deployment process. Next, we'll [create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md).
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>
+
+## Further Reading
+
+For further reading on defining a deployment process in Octopus Deploy please see:
+
+- [Deployment Process Documentation](/docs/projects/deployment-process/index.md)
+- [Deployment Documentation](/docs/deployments/index.md)
+- [Patterns and Practices](/docs/deployments/patterns/index.md)

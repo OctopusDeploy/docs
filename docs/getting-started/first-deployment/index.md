@@ -22,11 +22,13 @@ Before starting the tutorial, if you haven't set up an Octopus Deploy instance p
 
 !include <octopus-deploy-setup-options>
 
-:::success
+When you have an instance running, go to the [configure environments page](docs/getting-started/first-deployment/configure-environments.md) to get started.
+
+<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/configure-environments">Get Started</a></span>
+
+## Further Reading
+
 This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away please see:
 
 - [Customizable End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides)
 - [Deployment Examples](/docs/deployments/index.md)
-:::
-
-When you have an instance running, go to the [configure environments page](docs/getting-started/first-deployment/configure-environments.md) to get started.

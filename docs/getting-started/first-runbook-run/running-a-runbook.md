@@ -20,4 +20,14 @@ This screen provides the details of the runbook you are about to run.
 
 Because we didn't define any deployment targets for the target environment, Octopus ran the script directly on the Octopus Server.  If you are on Octopus Cloud, Octopus Deploy leased a [dynamic worker](/docs/infrastructure/workers/dynamic-worker-pools.md#on-demand) (a machine that executes tasks on behalf of the Octopus Server) that was then used to execute the hello world script.
 
-You have run your first runbook. Next, we'll cover [runbook specific variables](/docs/getting-started/first-runbook-run/runbook-specific-variables.md).
+The next step will cover [how to configure and use variables in runbooks](/docs/getting-started/first-runbook-run/runbook-specific-variables.md).
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/runbook-specific-variables">Next</a></span>
+
+## Further Reading
+
+For further reading on running a Runbook please see:
+
+- [Runbook vs Deployments](/docs/runbooks/runbook-vs-deployments/index.md)
+- [Runbook Documentation](/docs/runbooks/index.md)
+- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)

@@ -1,6 +1,6 @@
 ---
-title: Create and Deploy a Release
-description: Step by step guide on how to create and deploy a release in Octopus Deploy
+title: Deploy a sample package
+description: Step by step guide on how to deploy a sample package Octopus Deploy
 position: 80
 hideInThisSection: true
 ---
@@ -46,11 +46,15 @@ Create a new release and deploy it to *Development*.  The release will deploy th
 
 ![Deploy a package results](images/deploy-package-results.png)
 
-:::success
-To learn more on how to package your software using your CI server of choice and deploy software to your specific deployment targets, please see our [End-to-End CI/CD pipeline tutorial]().
-:::
+You have now completed the deployment tutorial!  This tutorial has focused on running sample scripts and deploying sample packages to your servers.  It is now time to add your applications to Octopus Deploy.  
 
-You have now completed the first deployment tutorial!  This tutorial has focused on running sample scripts and deploying sample packages to your servers.  It is now time to add your applications to Octopus Deploy.  We have several resources avaiable to you.
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>
 
+## Further Reading
+
+For further reading on deploying packages in Octopus Deploy along with integrating with your CI/CD pipeline please see:
+
+- [Deployment Process Documentation](/docs/projects/deployment-process/index.md)
+- [Deployment Documentation](/docs/deployments/index.md)
+- [Patterns and Practices](/docs/deployments/patterns/index.md)
 - [Customizable End to End CI/CD Tutorials](https://octopus.com/docs/guides)
-- [Deployment Examples](/docs/deployments/index.md)

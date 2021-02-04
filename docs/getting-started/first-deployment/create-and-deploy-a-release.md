@@ -26,8 +26,14 @@ Because we didn't define any deployment targets for the **Test** environment, Oc
 
 ![The results of the Hello world deployment](images/deployed-release.png)
 
-:::success
-To learn more about release creation options, scheduling releases, and version rules please refer to the [release documentation](/docs/releases/index.md)
-:::
+You have finished your first deployment!  The next step will [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md) in the deployment process.
 
-You have finished your first deployment!  Next we will cover how [define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md) in your deployment process.
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/define-the-deployment-process">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-and-use-variables">Next</a></span>
+
+## Further Reading
+
+For further reading on creating releases in Octopus Deploy please see:
+
+- [Releases Documentation](/docs/releases/index.md)
+- [Deployment Documentation](/docs/deployments/index.md)
+- [Patterns and Practices](/docs/deployments/patterns/index.md)

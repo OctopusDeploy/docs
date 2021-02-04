@@ -34,4 +34,13 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 Learn more about [defining a deployment process](/docs/projects/deployment-process/index.md).
 :::
 
-You have created your first runbook process. Next, we'll [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md).
+The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md).
+
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/create-a-runbook">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/running-a-runbook">Next</a></span>
+
+## Further Reading
+
+For further reading on runbook processes and what is possible please see:
+
+- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+- [Runbook Documentation](/docs/runbooks/index.md)
