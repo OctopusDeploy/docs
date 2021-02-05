@@ -19,7 +19,7 @@ You can install a self-hosted instance of the **Octopus Server** or use the host
 
 As an Octopus user, you define the process for deploying your applications. You specify the environments the applications are deployed to and who on your team can deploy to which environments. For instance, you might want developers to deploy to dev environments but not testing or production, and members of QA to deploy to test environments but not to production. Taking this approach means that even if different team members trigger deployments, the deployment process remains consistent. After releases have been created, they can be deployed as many times as you need.
 
-Learn more about [Deployments in Octopus Deploy](/docs/deployments/index.md)
+Learn more about [Deployments in Octopus Deploy](/docs/deployments/index.md).
 
 We have created a [step by step guide to completing your first deployment](/docs/getting-started/first-deployment/index.md) using a sample application.  
 
