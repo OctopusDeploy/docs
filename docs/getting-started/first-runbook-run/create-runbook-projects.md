@@ -1,5 +1,5 @@
 ---
-title: Create Projects
+title: Create a Project
 description: Step by step guide on how to create projects in Octopus Deploy.
 position: 20
 hideInThisSection: true
