@@ -13,7 +13,7 @@ This tutorial will take between **25-35 minutes** to complete, with each step ta
 2. [Create projects](docs/getting-started/first-deployment/create-projects.md)
 3. [Define a deployment process](docs/getting-started/first-deployment/define-the-deployment-process.md)
 4. [Create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md)
-5. [Defining and using variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
+5. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
 6. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md)
 7. [Adding deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
 8. [Deploying a package to the deployment targets](/docs/getting-started/first-deployment/deploy-a-package.md)
