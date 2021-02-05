@@ -8,10 +8,12 @@ When planning your Octopus installation, you need to decide how to host your pac
 
 The Octopus Server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) and supports the following external repositories:
 
- - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
- - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
  - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
+ - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
+ - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
+ - Helm feeds.
+ - AWS ECR feeds.
  
 Octopus can consume packages from multiple feeds at once if necessary.
 
@@ -23,7 +25,7 @@ Your package repository will typically be:
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
 - A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/) server (version 7 and above).
 - A [MyGet](http://www.myget.org/) server.
-- An [Azure DevOps or TFS Package Management](/docs/packaging-applications/package-repositories/tfs-azure-devops.md).
+- An [Azure DevOps or TFS Package Management](/docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md).
 
 ## Choosing the right repository {#Packagerepositories-Choosingtherightrepository}
 

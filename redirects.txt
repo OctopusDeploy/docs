@@ -172,9 +172,9 @@ docs/api-and-integration/tfs-vsts/using-octopus-extension/extension-compatibilit
 docs/api-and-integration/tfs-vsts/using-octopus-extension/install-octo-capability.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md
 docs/api-and-integration/tfs-vsts/using-octopus-extension/manually-install-the-build-task.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/manually-install-the-build-task.md
 docs/packaging-applications/package-repositories/registries/index.md -> docs/packaging-applications/package-repositories/docker-registries/index.md
-docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md
-docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md
-docs/packaging-applications/package-repositories/registries/docker-hub.md -> docs/packaging-applications/package-repositories/docker-registries/docker-hub.md
+docs/packaging-applications/package-repositories/registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/guides/amazon-ec2-container-services.md
+docs/packaging-applications/package-repositories/registries/azure-container-services.md -> docs/packaging-applications/package-repositories/guides/azure-container-services.md
+docs/packaging-applications/package-repositories/registries/docker-hub.md -> docs/packaging-applications/package-repositories/guides/docker-hub.md
 docs/deployment-examples/azure-deployments/cloud-services/cloud-service-concepts.md -> docs/deployments/azure/cloud-services/index.md
 docs/api-and-integration/octo.exe-command-line/cleaning-environments.md -> docs/octopus-rest-api/octopus-cli/clean-environment.md
 docs/api-and-integration/octo.exe-command-line/creating-channels.md -> docs/octopus-rest-api/octopus-cli/create-channel.md
@@ -963,4 +963,9 @@ docs/deployment-process/steps/custom-step-templates.md -> docs/projects/custom-s
 docs/deployment-process/steps/updating-step-templates.md -> docs/projects/updating-step-templates.md
 docs/deployment-process/steps/email-notifications.md -> docs/projects/built-in-step-templates/email-notifications.md
 docs/deployment-process/steps/manual-intervention-and-approvals.md -> docs/projects/built-in-step-templates/manual-intervention-and-approvals.md
+docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md -> docs/packaging-applications/package-repositories/guides/amazon-ec2-container-services.md
+docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md -> docs/packaging-applications/package-repositories/guides/azure-container-services.md
+docs/packaging-applications/package-repositories/docker-registries/docker-hub.md -> docs/packaging-applications/package-repositories/guides/docker-hub.md
+docs/packaging-applications/package-repositories/docker-registries/google-container-registry.md -> docs/packaging-applications/package-repositories/guides/google-container-registry.md
+docs/packaging-applications/package-repositories/tfs-azure-devops.md -> docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md
 docs/getting-started/terminology.md -> docs/getting-started/glossary.md

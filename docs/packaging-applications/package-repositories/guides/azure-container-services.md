@@ -1,14 +1,12 @@
 ---
 title: Azure Container Registry
 description: How to add an Azure Container Registry as an Octopus Deploy feed
-position: 1
+position: 40
 ---
-
-## Azure Container Registry 
 
 Microsoft Azure provides a docker image registry known as [Azure Container Registry](https://azure.microsoft.com/en-au/services/container-registry/).
 
-### Configuring an Azure Container Registry as an Octopus Feed 
+## Configuring an Azure Container Registry as an Octopus Feed 
 
 Select **Azure Container Registry** from the Azure marketplace and select **create** to create a new registry.
 

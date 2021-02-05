@@ -1,7 +1,7 @@
 ---
 title: Azure DevOps and TFS package management
 description: Configuring GitHub repositories as Octopus Feeds
-position: 60
+position: 10
 ---
 
 With Azure DevOps and TFS package management, Octopus can consume either v2 or v3 NuGet feeds.
