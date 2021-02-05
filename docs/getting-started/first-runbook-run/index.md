@@ -10,7 +10,7 @@ This tutorial will help you complete your first runbook run using a sample scrip
 This tutorial will take between **15-25 minutes** to complete, with each step taking between **2-3** minutes to complete.  
 
 1. [Configure environments](docs/getting-started/first-runbook-run/configure-runbook-environments.md)
-1. [Create projects](docs/getting-started/first-runbook-run/create-runbook-projects.md)
+1. [Create a project](docs/getting-started/first-runbook-run/create-runbook-projects.md)
 1. [Create a runbook](docs/getting-started/first-runbook-run/create-a-runbook.md)
 1. [Define a runbook process to run on workers](docs/getting-started/first-runbook-run/define-the-runbook-process.md)
 1. [Running a runbook](/docs/getting-started/first-runbook-run/running-a-runbook.md)
