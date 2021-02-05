@@ -15,7 +15,7 @@ This tutorial will take between **25-35 minutes** to complete, with each step ta
 4. [Create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md)
 5. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
 6. [Approvals with manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions.md)
-7. [Adding deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
+7. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md)
 8. [Deploying a package to the deployment targets](/docs/getting-started/first-deployment/deploy-a-package.md)
 
 Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by picking from one of the following options:
