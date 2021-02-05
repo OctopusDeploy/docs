@@ -19,14 +19,14 @@ With the repository configured, ensure that you also have an [AWS IAM](https://a
 
 Further links for getting your AWS registry set up are available in their [online docs](http://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)
 
-### Adding AWS ECR feed to Octopus
+## Adding AWS ECR feed to Octopus
  Create a new Octopus Feed ( {{Library, External Feeds}} ) and select the `AWS Elastic Container Registry` Feed type. With this selected will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
 
 ![AWS EC2 container service registry feed](images/aws-ecr-feed.png "width=500")
 
 Save and test your registry to ensure that the connection is authorized successfully.
 
-### Older versions of Octopus Deploy
+## Older versions of Octopus Deploy
 
 The first class AWS ECR feed type is provided in to handle the ephemeral authorization credentials provided by AWS that [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). If you are using an earlier version of Octopus Deploy, you will need to use a standard Docker Feed type.
 
