@@ -8,10 +8,12 @@ When planning your Octopus installation, you need to decide how to host your pac
 
 The Octopus Server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) and supports the following external repositories:
 
- - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
- - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
  - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries/index.md).
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
+ - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
+ - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
+ - Helm feeds.
+ - AWS ECR feeds.
  
 Octopus can consume packages from multiple feeds at once if necessary.
 

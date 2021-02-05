@@ -1,14 +1,12 @@
 ---
 title: AWS Elastic Container Registry (ECR)  
 description: How to add an AWS Elastic Container Registry as an Octopus feed 
-position: 2
+position: 30
 ---
-
-## AWS Elastic Container Registry (ECR)  
 
 AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . Support for EC2 Container registries is provided as a special feed type itself.
 
-### Setting up an AWS elastic container registry
+## Setting up an AWS elastic container registry
 From the AWS Services dashboard go to `Elastic Container Registry`.
 
  ![AWS Services](images/aws-services.png "width=500")
