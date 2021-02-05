@@ -19,8 +19,8 @@ As you proceed through each phase you will need to learn new terms and concepts.
 When first setting up a POC or Hello World project you will become familiar with the following terms and concepts.  
 
 - **Octopus Server**: responsible for hosting the Octopus Web Portal, the Rest API, and orchestrating deployments.
-    - **Self-Hosted**: The version of Octopus Server that is installed on your infrastructure.
-    - [**Octopus Cloud**](/docs/octopus-cloud/index.md): The hosted version of Octopus Server that connects to Tentacles installed on the infrastructure where Octopus Cloud will install your software.
+    - **Self-Hosted**: When the Octopus Server application is installed on your infrastructure.  You manage all the upgrades and other maintenance, along with when an upgrade occurs as well as to what version.  
+    - [**Octopus Cloud**](/docs/octopus-cloud/index.md): When the Octopus Server application is hosted by Octopus Deploy (the company).  We manage all the upgrades and maintenace, and we determine when to upgrade and the version to upgrade to.
 - [**Infrastructure**](/docs/infrastructure/index.md): made up of the servers, services, and accounts where the Octopus Server will deploy your software.
     - [**Tentacle**](/docs/security/octopus-tentacle-communication/index.md): The service responsible for facilitating communication between the Octopus Server and your [Linux](/docs/infrastructure/deployment-targets/linux/index.md) or [Windows-based](/docs/infrastructure/deployment-targets/windows-targets/index.md) servers.
     - [**Listening Tentacle**](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended): The Tentacle communication mode in which all traffic is inbound from the Octopus Server to the Tentacle.  The Tentacle is the TCP server, and Octopus Server is the TCP client.
