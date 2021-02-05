@@ -30,7 +30,7 @@ Please create a new release and deploy it through to **Production**.  You will s
 
 ![Manual intervention is required in production](images/manual-interventions.png)
 
-The next step will [add deployment targets](/docs/getting-started/first-deployment/deploy-a-package.md).
+The next step will [add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md).
 
 **Further Reading**
 
