@@ -6,5 +6,3 @@ Projects are used to collect all the assets that make up your deployment process
 
 1. Navigate to the **Projects** tab, and click **ADD PROJECT**.
 1. Give the project a name, for instance, *Hello, world*, and click **Save**.
-
-You now have your first project and are ready to define your deployment process.
