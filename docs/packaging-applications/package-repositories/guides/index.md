@@ -1,7 +1,7 @@
 ---
 title: Guides
 description: Instructions on how to set-up third-party external package feeds for Octopus to consume for use in deployments and runbooks.
-position: 10
+position: 60
 hideInThisSectionHeader: true
 ---
 
