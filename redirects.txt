@@ -967,4 +967,4 @@ docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-co
 docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md -> docs/packaging-applications/package-repositories/guides/azure-container-services.md
 docs/packaging-applications/package-repositories/docker-registries/docker-hub.md -> docs/packaging-applications/package-repositories/guides/docker-hub.md
 docs/packaging-applications/package-repositories/docker-registries/google-container-registry.md -> docs/packaging-applications/package-repositories/guides/google-container-registry.md
-docs/packaging-applications/package-repositories/docker-registries/tfs-azure-devops.md -> docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md
+docs/packaging-applications/package-repositories/tfs-azure-devops.md -> docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md
