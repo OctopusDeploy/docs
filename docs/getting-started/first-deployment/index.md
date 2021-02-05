@@ -10,7 +10,7 @@ This tutorial will help you complete your first deployment in Octopus Deploy.  I
 This tutorial will take between **25-35 minutes** to complete, with each step taking between **2-5** minutes to complete.  
 
 1. [Configure environments](docs/getting-started/first-deployment/configure-environments.md)
-2. [Create projects](docs/getting-started/first-deployment/create-projects.md)
+2. [Create a project](docs/getting-started/first-deployment/create-projects.md)
 3. [Define the deployment process](docs/getting-started/first-deployment/define-the-deployment-process.md)
 4. [Create a release and deploy it](/docs/getting-started/first-deployment/create-and-deploy-a-release.md)
 5. [Define and use variables](/docs/getting-started/first-deployment/define-and-use-variables.md)
