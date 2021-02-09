@@ -1,7 +1,7 @@
 ---
 title: Project Groups
 description: This section includes examples of how to use the REST API to create and manage project groups in Octopus.
-position: 77
+position: 100
 hideInThisSectionHeader: true
 ---
 
