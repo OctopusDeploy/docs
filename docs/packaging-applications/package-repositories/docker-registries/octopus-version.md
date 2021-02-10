@@ -17,16 +17,16 @@ Prior to 2020.6, Octopus only recognized Docker image tags that complied with th
 The following [regular expression](https://g.octopushq.com/OctopusVersionRegex/) defines how docker tags are parsed into version components:
 
 ```
-^(?:(?<prefix>v|V)?(?<major>\d+)(?:[.\-_](?<minor>\d+))?(?:[.\-_](?<patch>\d+))?(?:[.\-_](?<revision>\d+))?)?(?:[.\-_])?(?<prerelease>(?<prereleaseprefix>[^+.\-_\s]*?)([.\-_](?<prereleasecounter>[^+\s]*?)?)?)?(?:\+(?<buildmetadata>[^\s]*?))?$
+^(?:(?<prefix>v|V)?(?<major>\d+)(?:\.(?<minor>\d+))?(?:\.(?<patch>\d+))?(?:\.(?<revision>\d+))?)?(?:[.\-_])?(?<prerelease>(?<prereleaseprefix>[^+.\-_\s]*?)([.\-_](?<prereleasecounter>[^+\s]*?)?)?)?(?:\+(?<buildmetadata>[^\s]*?))?$
 ```
 
 The version string can start with an optional "v" or "V".
 
-The four optional leading integers define the version major, minor, patch and release. These integers are separated by a dot, dash or underscore.
+The four optional leading integers define the version major, minor, patch and release. These integers are separated by a dot.
 
-The prerelease label captures all characters, exluding the plus symbol, after an optional dot, dash or underscore separator.
+The prerelease label captures all characters, excluding the plus symbol, after an optional dot, dash or underscore separator.
 
-The metadata field captures any charaters after a plus symbol. Note however that [Docker tags can not include the plus character](https://g.octopushq.com/DockerTags), and so can not define a metadata component. The metadata field has been defined for future use.
+The metadata field captures any characters after a plus symbol. Note however that [Docker tags can not include the plus character](https://g.octopushq.com/DockerTags), and so can not define a metadata component. The metadata field has been defined for future use.
 
 This versioning scheme allows for traditional labels like `1.0` or `V1.2.3.4`. A string with no integer components, like `myversion`, is captured in the prerelease label, and assumed to have a major, minor, patch and revision of `0.0.0.0`.
 
