@@ -14,6 +14,8 @@ Write the variables to the deployment log
 
 1. Open the **{{Project,Variables}}** page.
 2. Add the following two variables and set them to **True**:
+**OctopusPrintEvaluatedVariables**
+**OctopusPrintVariables**
 
    ![](images/variables.png "width=500")
 3. **Create a new release** of your project for the variables to take effect.
