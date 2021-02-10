@@ -14,19 +14,60 @@ $spaces = Invoke-RestMethod -Uri "$octopusURL/api/spaces?partialName=$([uri]::Es
 $space = $spaces.Items | Where-Object { $_.Name -eq $spaceName }
 
 foreach ($environment in $environments) {
-    $body = @{
-        Name = $environment
-    } | ConvertTo-Json
-
+    
     # Check to see if environment exists
     $environments = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/environments?partialName=$([uri]::EscapeDataString($environment))&skip=0&take=100" -Headers $header
     $existingEnvironment = $environments.Items | Where-Object { $_.Name -eq $environment }
+
     if($null -ne $existingEnvironment) {
         Write-Host "Environment $environment' already exists. Nothing to create :)"
     }
     else {
+
+        $body = @{
+            Name = $environment
+        } | ConvertTo-Json
+
         Write-Host "Creating environment '$environment'"
         $response = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/environments" -Headers $header -Method Post -Body $body 
+        Write-Host "EnvironmentId: $($response.Id)"
+    }
+}
+```
+```powershell PowerShell (Octopus.Client)
+$ErrorActionPreference = "Stop";
+
+# You can get this dll from your Octopus Server/Tentacle installation directory or from
+# https://www.nuget.org/packages/Octopus.Client/
+Add-Type -Path 'path\to\Octopus.Client.dll'
+
+$octopusURL = "https://youroctopus.octopus.app"
+$octopusAPIKey = "API-YOURAPIKEY"
+
+$spaceName = "Default"
+$environments = @("Development", "Test", "Staging", "Production")
+
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
+$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
+
+# Get space
+$space = $repository.Spaces.FindByName($spaceName)
+$repositoryForSpace = $client.ForSpace($space)
+
+foreach ($environmentName in $environments) {
+    
+    $environment = $repositoryForSpace.Environments.FindByName($environmentName)
+    if($null -ne $environment) {
+        Write-Host "Environment '$environmentName' already exists. Nothing to create :)"
+    }
+    else {
+        Write-Host "Creating environment '$environmentName'"
+        $environment = New-Object Octopus.Client.Model.EnvironmentResource -Property @{
+            Name = $environmentName
+        }
+        
+        $repositoryForSpace.Environments.Create($environment)
         Write-Host "EnvironmentId: $($response.Id)"
     }
 }
