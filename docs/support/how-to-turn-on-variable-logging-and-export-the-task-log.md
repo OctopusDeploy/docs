@@ -13,9 +13,9 @@ Since so many variables are used in the deployment process (with their values ch
 Write the variables to the deployment log
 
 1. Open the **{{Project,Variables}}** page.
-2. Add the following two variables and set them to **True**:
-**OctopusPrintEvaluatedVariables**
-**OctopusPrintVariables**
+2. Add the following two variables and set their value to **True**:
+   - `OctopusPrintVariables`
+   - `OctopusPrintEvaluatedVariables`
 
    ![](images/variables.png "width=500")
 3. **Create a new release** of your project for the variables to take effect.
