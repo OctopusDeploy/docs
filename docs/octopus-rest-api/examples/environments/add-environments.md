@@ -1,5 +1,5 @@
 ---
-title: Add Environments
+title: Adding Environments
 description: An example script to create environments in a Space.
 ---
 
@@ -14,7 +14,7 @@ Provide values for:
 - Octopus URL
 - Octopus API Key
 - Space Name
-- Environments
+- A list of environment names to create
 
 ## Script
 
