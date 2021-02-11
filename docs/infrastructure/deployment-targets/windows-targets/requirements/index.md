@@ -21,9 +21,15 @@ The installation requirements for the latest version of Tentacle are:
 Octopus does not actively test against Windows 2008, and certain operating system specific issues may not be fixed as [Microsoft no longer supports Windows 2008](https://docs.microsoft.com/en-us/lifecycle/).
 :::
 
-## .NET Framework.
+## .NET Framework
 
-- Tentacle 3.1+ (TLS 1.0 or 1.2): .NET Framework 4.5.2+ ([download](http://www.microsoft.com/en-au/download/details.aspx?id=42643)).
+The table below outlines the **minimum** required version of .NET Framework for Tentacle **3.1** and higher.
+
+| Tentacle      | .NET Framework version |
+| ------------- | ---------------------- | 
+| 3.1 -> 4.0.7  | 4.5.1+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net451-web-installer)) |
+| 5.0 -> latest | 4.5.2+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net452-web-installer)) |
+
 
 ## Windows PowerShell
 
