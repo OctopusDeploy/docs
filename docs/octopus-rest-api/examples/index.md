@@ -33,7 +33,7 @@ Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) 
 
 ### Python examples
 
-The Python examples are written using Python 3 and use the [Requests](https://requests.readthedocs.io/en/master/) library.
+The Python examples are written using Python 3 and use the [Requests](https://requests.readthedocs.io/en/master/) library. Some examples also use the [urllib](https://docs.python.org/3/library/urllib.html) module.
 
 ### Go examples
 
