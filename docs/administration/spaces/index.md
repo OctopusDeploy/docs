@@ -24,7 +24,7 @@ By default, every instance of Octopus Server comes with a default space. However
 
 Spaces are managed by navigating to **{{Configuration,Spaces}}**.
 
-An Octopus administrator, or a team member with sufficient permission, can create, remove or modify spaces from this screen. It is also possible to [nominate a default space](#change-the-default-space), or [disable the default space entirely](#disable-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing.
+An Octopus administrator, or a team member with sufficient permission, can create, remove or modify spaces from this screen. It is also possible to [change or disable the default space entirely](#change-the-default-space). Each space has a logo, which is also shown in the [space switcher](#switching-between-spaces) to make it easy to identify which space is currently focused upon by the UI. There is also a search filter to quickly find the spaces that you are interested in managing.
 
 ![Spaces configuration page](images/spaces-configuration.png "width=500")
 
@@ -80,19 +80,20 @@ If you don't want to think about spaces, just leave everything in the Default sp
 
 ### Change or disable the default space {#change-the-default-space}
 
-You can change the default space:
+To change the default space, follow these steps:
 
 :::warning
 The following carries some minor downtime for any automation that relies on the default space being available.
 :::
 
-1. Navigate to **{{Configuration,Spaces}}** and [disable the default space](#disable-the-default-space).
-2. Return to **{{Configuration,Spaces}}** and select the space that you wish to nominate as the default space.
-3. Click the overflow button and select **Enable the default space**.
+!include <disable-default-space>
+1. Return to **{{Configuration,Spaces}}** and select the space that you wish to nominate as the default space.
+1. Click the overflow button and select **Enable the default space**.
+
+**Remove the default space**
 
 For organizations that are new to Octopus, especially those that make heavy use of spaces, a default space is not required, and you can remove the default space entirely. However, this comes with some considerations that should be weighed carefully against the needs of your organization.
 
-{#delete-the-default-space}
 In addition to providing a home for existing resources, the default space allows any existing API calls that do not explicitly set a `Space Identifier` in the route to be routed to the default space. For example, in the case where the default space ID is `Spaces-1` then the route `/api/projects/my-project` is equivalent to `/api/Spaces-1/projects/my-project`.
 
 :::warning
@@ -106,12 +107,9 @@ This means that by disabling the default space - **you are opting into a non-bac
  - Integrations with Octopus Server are updated to their latest versions (like Azure DevOps, TFS, and Team City plugins)
  - Community library templates that use the API are updated (you can [refer to this PR](https://github.com/OctopusDeploy/Library/pull/750) as a guide).
 
-To disable the default space:
+To disable the default space, follow these steps:
 
-1. Navigate to **{{Configuration,Spaces}}** and select the default space.
-2. Expand the **Task Queue Status** section and select the **Stop task queue** check-box, and click **SAVE**.
-3. Click the overflow button and select **Disable the default space**.
-4. Enter the name of the space and click **YES I'M SURE**.
+!include <disable-default-space>
 
 ## Switching between spaces {#switching-between-spaces}
 
