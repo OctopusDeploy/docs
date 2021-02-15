@@ -970,3 +970,4 @@ docs/packaging-applications/package-repositories/docker-registries/google-contai
 docs/packaging-applications/package-repositories/tfs-azure-devops.md -> docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md
 docs/getting-started/terminology.md -> docs/getting-started/glossary.md
 docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
+docs/deployments/azure/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployments/azure/cloud-services/index.md
