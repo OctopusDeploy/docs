@@ -92,6 +92,7 @@ The following carries some minor downtime for any automation that relies on the 
 
 For organizations that are new to Octopus, especially those that make heavy use of spaces, a default space is not required, and you can remove the default space entirely. However, this comes with some considerations that should be weighed carefully against the needs of your organization.
 
+{#delete-the-default-space}
 In addition to providing a home for existing resources, the default space allows any existing API calls that do not explicitly set a `Space Identifier` in the route to be routed to the default space. For example, in the case where the default space ID is `Spaces-1` then the route `/api/projects/my-project` is equivalent to `/api/Spaces-1/projects/my-project`.
 
 :::warning
