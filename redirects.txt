@@ -843,7 +843,6 @@ docs/deployment-examples/aws-deployments/removecloudformation/index.md -> docs/d
 docs/deployment-examples/aws-deployments/cloudformation/index.md -> docs/deployments/aws/cloudformation/index.md
 docs/deployment-examples/aws-deployments/permissions/index.md -> docs/deployments/aws/permissions/index.md
 docs/deployment-examples/aws-deployments/s3/index.md -> docs/deployments/aws/s3/index.md
-docs/deployment-examples/azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployment-examples/azure-deployments/azure-environments.md -> docs/deployments/azure/azure-environments.md
 docs/deployment-examples/azure-deployments/index.md -> docs/deployments/azure/index.md
 docs/deployment-examples/azure-deployments/varying-azure-subscription-by-environment.md -> docs/deployments/azure/varying-azure-subscription-by-environment.md
@@ -970,3 +969,4 @@ docs/packaging-applications/package-repositories/docker-registries/docker-hub.md
 docs/packaging-applications/package-repositories/docker-registries/google-container-registry.md -> docs/packaging-applications/package-repositories/guides/google-container-registry.md
 docs/packaging-applications/package-repositories/tfs-azure-devops.md -> docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md
 docs/getting-started/terminology.md -> docs/getting-started/glossary.md
+docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
