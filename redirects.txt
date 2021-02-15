@@ -853,7 +853,7 @@ docs/deployment-examples/azure-deployments/ase/index.md -> docs/deployments/azur
 docs/deployment-examples/azure-deployments/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployments/azure/cloud-services/getting-started-with-azure-cloud-services.md
 docs/deployment-examples/azure-deployments/cloud-services/index.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployment-examples/azure-deployments/cloud-services/vip-swap.md -> docs/deployments/azure/cloud-services/vip-swap.md
-docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md
+docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployment-examples/azure-deployments/service-fabric/index.md -> docs/deployments/azure/service-fabric/index.md
 docs/deployment-examples/azure-deployments/service-fabric/packaging.md -> docs/deployments/azure/service-fabric/packaging.md
 docs/deployment-examples/azure-deployments/service-fabric/version-automation-with-service-fabric-application-packages/index.md -> docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/index.md
