@@ -4,12 +4,16 @@ description: Projects can be exported, and imported into another space
 position: 40
 ---
 
-The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces. 
+The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces.  The target space may be in a different Octopus Server instance. 
+
+Export/Import features are found in the overflow menu on the {{Projects}} page. 
+
+![Import Export Menu](import-export-menu.png)
 
 ## Scenarios
-The intended scenarios are:
-- Moving projects between spaces. This includes moving from a self-hosted instance to an Octopus Cloud instance (or vice-versa). 
-- Using a project as a template to create projects in other spaces.
+The current implement of the Export/Import feature was designed for moving a project between spaces, specifically:
+- Moving from a self-hosted instance to an Octopus Cloud instance (or vice-versa)
+- Splitting a space containing many projects into multiple spaces
 
 Scenarios this feature was _not_ designed for include:
 - Backup/restore.  See our [recommended approach](/docs/administration/data/backup-and-restore.md) to disaster-recovery for your Octopus instance.    
@@ -22,7 +26,8 @@ There are scenarios where it is desirable to create releases and deploy them to 
 - multi-tenancy (deploying Octopus to customer infrastructure)
 - maintaining strict control over the changes made to the production Octopus instance 
 
-** TODO: call out this may be addressed in a future release **
+The export/import feature does not currently support these promotion scenarios. It will not import a project if it already exists in the target space.  
+The ability to import an existing project will likely be added in a future release. 
 
 ## Considerations
 
@@ -30,32 +35,44 @@ There a few things to consider when planning to export a project between spaces:
 
 - [Deployment targets](#deployment-targets)
 - [Packages](#packages)
+- [Users](#users)
+- [Audit logs](#audit-logs)
 - [Shared resources](#shared-resources)
 
 If you are moving from a self-hosted instance to an Octopus Cloud instance, there are some [specific considerations](#octopus-cloud).
 
 ## Deployment targets #{deployment-targets}
 
-** TODO: confirm if deployment targets are implemented **
+[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are not included in the export. They will need to be recreated in the target space.  For Tentacle deployment targets (both Windows and Linux), there are specific considerations:
 
-[Deployment targets](/docs/infrastructure/deployment-targets/index.md) which belong to environments in the project's [lifecycles](docs/releases/lifecycles/index.md) will be included in the export. 
+**Listening tentacles** must be configured to trust the certificate of the Octopus Server. If you are importing your project into a different Octopus instance, for the new instance to be able to communicate with existing listening Tentacles, the following must be true:
 
-Many deployment target types can be expected to "just work" after importing, for example Azure Web Apps or Kubernetes Cluster targets. Tentacle targets however, will not.  The reasons and options are different depending on the tentacle type:
+- The Tentacles are accessible by the new Octopus instance (i.e. networking and firewalls must be correctly configured)
+- The Tentacles are configured to trust the certificate of the new instance. This can be done using the [Tentacle CLI](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/configure).  
 
-**Listening tentacles**
+An alternative is to create a new Tentacle on the same machine.  This gives the option to switch to a polling tentacle (which may be preferable when migrating a project to Octopus Cloud), and allows having both the original and cloned project deployable for a period of time.
 
-
-** TODO: explain polling/listening tentacle specifc considerations **
+**Polling tentacles** can be configured to poll multiple Octopus servers using the [register-with](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/register-with) command.  
 
 ## Packages #{packages}
 
 Packages from the built-in feed are _not_ included in the export (this is to avoid extremely large export bundles).
 
-** TODO: explain how to sync packages**
+Packages can be copied between spaces via the Octopus API.  [This PowerShell script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/SyncPackages.ps1) does this (please consider the [package storage limits when moving packages to Octopus Cloud](#octopus-cloud)) 
+
+## Users #{users}
+
+Users are not exported, as they are not directly associated with projects.  
+
+Any teams which are referenced by projects (for example via manual intervention steps or email steps) will be created if they do not exist in the target space. These teams will be empty. 
+
+## Audit logs #{audit-logs}
+
+[Audit events](/docs/security/users-and-teams/auditing.md) are not exported.
 
 ## Shared resources #{shared-resources}
 
-The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; this is if there is an existing resource with the same name as one the source, then it will be used.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
+The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; i.e. if there is an existing resource with the same name as one the source then it will be used, otherwise it will be created.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
 
 ### Environments
 
@@ -111,3 +128,8 @@ Care should be taken with step templates when exporting/importing projects at di
 Projects reference specific versions of a step template. When importing, if a step template with the same name and version already exists on the destination the existing step template version will be used. If the step template already exists, but the imported version is greater than the latest on the destination then the version included in the import will be imported into the destination, effectively incrementing the step template.  Existing projects on the destination will initially not be impacted, as they will be referencing a specific version which will remain unchanged, but care should be taken on future updates of the step template version in these projects. 
 
 ## Moving to Octopus Cloud #{octopus-cloud}
+
+When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](https://octopus.com/pricing/overview) which should be considered.  Specifically:
+- Octopus Cloud instances are limited to storing 20GB of packages 
+- Release [retention policies](/docs/administration/retention-policies/index.md) can be configured to a maximum of 30 days 
+
