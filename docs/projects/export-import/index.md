@@ -100,7 +100,6 @@ When importing, if a library variable set with the same name already exists, the
 
 Any accounts which can be referenced via the project will be included in the export.  This includes:
 
-- Accounts used by [deployment targets](#deployment-targets) included in the export
 - Accounts which are the value of the project's variables 
 - Accounts which are the value of variables in library variable sets connected to the project
 - Accounts referenced directly from deployment process steps
@@ -111,7 +110,6 @@ When importing, if an account with the same name already exists on the destinati
 
 Any certificates which can be referenced via the project will be included in the export.  This includes:
 
-- Certificates used by [deployment targets](#deployment-targets) included in the export
 - Certificates which are the value of the project's variables 
 - Certificates which are the value of variables in library variable sets connected to the project
 
