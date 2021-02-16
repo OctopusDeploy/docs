@@ -9,7 +9,7 @@ When executing PowerShell against Azure, Octopus Deploy will automatically impor
 This applies to:
 
 - 'Run an Azure PowerShell Script' steps.
-- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md) or [Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) steps.
+- Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deployments/azure/cloud-services/index.md) or [Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) steps.
 
 **Choosing the right Azure account type**
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:

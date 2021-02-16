@@ -213,7 +213,7 @@ A newly created Service Principal may take several minutes before the credential
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
 
-Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used to when Octopus deploys [Cloud Services](/docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md).
+Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/index.md) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md).
 
 :::warning
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
