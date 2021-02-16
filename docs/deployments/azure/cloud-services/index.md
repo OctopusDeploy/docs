@@ -157,4 +157,3 @@ Both methods allow you to modify your deployment process and variables per-regio
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-
