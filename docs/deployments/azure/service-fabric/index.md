@@ -19,13 +19,14 @@ Octopus provides a built in Deployment Target for Azure Service Fabric clusters.
 Octopus comes with two built-in step templates facilitating deployment and management of Azure Service Fabric apps.
 
 - Deploy a Service Fabric App
+
 For a step by step guide on using Octopus'es built-in Azure Service Fabric Deployment step see: [Deploying a package to a Azure Service Fabric cluster](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md)
 
 - [Run a Service Fabric SDK PowerShell Script](/docs/deployments/custom-scripts/service-fabric-powershell-scripts.md)
 
 ## Security modes
 
-Both step template types require an authorized connection to a cluster.
+Both step template types above require an authorized connection to a cluster.
 
 Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md).
 
