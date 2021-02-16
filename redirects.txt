@@ -971,3 +971,7 @@ docs/packaging-applications/package-repositories/tfs-azure-devops.md -> docs/pac
 docs/getting-started/terminology.md -> docs/getting-started/glossary.md
 docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployments/azure/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployments/azure/cloud-services/index.md
+docs/deployments/azure/deploying-to-service-fabric/index.md -> docs/deployments/azure/service-fabric/index.md
+docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md
+docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
+docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
