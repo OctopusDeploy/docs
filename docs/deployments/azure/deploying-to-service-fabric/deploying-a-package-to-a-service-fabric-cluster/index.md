@@ -34,7 +34,7 @@ Add a new Service Fabric application deployment step to your project. For infor
 
 Select the Role you assigned your Service Fabric target and select your Service Fabric package from your package feed.
 
-Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/deploying-to-service-fabric/index.md)
+Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/service-fabric/index.md)
 
 Various options are available to deploy your Service Fabric application.
 

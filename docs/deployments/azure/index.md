@@ -12,7 +12,7 @@ Out-of-the-box, Octopus provides built-in steps to deploy to the following Azure
 - [Azure Web applications](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) and [web jobs](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-web-jobs.md) (also works for [Azure Functions](https://octopus.com/blog/azure-functions)).
 - [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups/index.md).
 - [Azure Cloud Services](/docs/deployments/azure/cloud-services/index.md).
-- [Service Fabric](/docs/deployments/azure/deploying-to-service-fabric/index.md).
+- [Service Fabric](/docs/deployments/azure/service-fabric/index.md).
 - [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts.md). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell/index.md).
 - The one you are looking for is not here? Leave us a feature request in [UserVoice](https://octopusdeploy.uservoice.com/).
 
