@@ -10,7 +10,7 @@ This script synchronizes packages from the [built-in feed](/docs/packaging-appli
 Provide values for:
 
 - `VersionSelection` - the version selection of packages to sync. Choose from:
-    - **FileVersions** - sync versions specified in the file specified from the `-Path` parameter.
+    - **FileVersions** - sync versions specified in the file specified by the `Path` parameter.
     - **LatestVersion** - sync the latest version of packages in the built-in feed.
     - **AllVersions** - sync all versions of packages in the built-in feed.
 - `Path` - the path to a file containing details of the packages and versions to sync. The file input format is:
