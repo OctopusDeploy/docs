@@ -14,6 +14,7 @@ Provide values for:
     - **LatestVersion** - sync the latest version of packages in the built-in feed.
     - **AllVersions** - sync all versions of packages in the built-in feed.
 - `Path` - the path to a file containing details of the packages and versions to sync. The file input format is:
+
     ```json
     [
         {
