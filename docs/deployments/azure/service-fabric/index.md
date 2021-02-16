@@ -6,15 +6,15 @@ position: 2
 
 This section contains resources for using Octopus to deploy your Azure Service Fabric applications. We assume you already have a Service Fabric cluster set up in Azure. If you don't yet, check out [Microsoft's documentation for getting started with Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
 
-### Service Fabric Deployment Targets in Octopus
+## Service Fabric Deployment Targets in Octopus
 
 Octopus provides a built in Deployment Target for Azure Service Fabric clusters. Check out [this page](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) for help setting up and configuring your target.
 
-### Packaging
+## Packaging
 
 [Learn how to create an Octopus Deploy NuGet/Zip package for a Service Fabric application package](/docs/deployments/azure/service-fabric/packaging.md).
 
-### Step Templates
+## Step Templates
 
 Octopus comes with two built-in step templates facilitating deployment and management of Azure Service Fabric apps.
 
@@ -23,7 +23,7 @@ For a step by step guide on using Octopus'es built-in Azure Service Fabric Deplo
 
 - [Run a Service Fabric SDK PowerShell Script](/docs/deployments/custom-scripts/service-fabric-powershell-scripts.md)
 
-### Security modes
+## Security modes
 
 Both step template types require an authorized connection to a cluster.
 
@@ -31,7 +31,7 @@ Octopus provides an option for connecting to Service Fabric clusters securely wi
 
 Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md).
 
-### Versioning
+## Versioning
 Individual applications in a Service Fabric cluster have their own version numbers while the entire clustered app has a separate version number independent of its constituent parts.
 Octopus does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
 
