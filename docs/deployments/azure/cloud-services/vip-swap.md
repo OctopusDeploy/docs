@@ -4,8 +4,9 @@ description: The guide demonstrates how to perform a VIP swap when deploying to 
 position: 1
 ---
 
-The guide demonstrates how to perform a VIP swap when deploying to Azure Cloud Services.
+!include <azure-cloud-services-deprecated>
 
+The guide demonstrates how to perform a VIP swap when deploying to Azure Cloud Services.
 
 ## Using VIP swaps for blue/green deployments
 

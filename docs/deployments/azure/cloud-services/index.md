@@ -1,13 +1,12 @@
 ---
 title: Azure Cloud Services
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure Cloud Services.
+hideInThisSectionHeader: true
 ---
 
-Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/). This page will walk you through, step by step, setting up a deployment using Octopus'es built in 'Deploy an Azure Cloud Service' step.
+!include <azure-cloud-services-deprecated>
 
-:::warning
-Azure has [announced](https://blogs.msdn.microsoft.com/appserviceteam/2018/03/12/deprecating-service-management-apis-support-for-azure-app-services/) that from June 30th 2018 they are retiring support for Service Management API (which indicates Cloud Services). Azure has stated that _"Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development"_ ([source](https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm)).
-:::
+Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.microsoft.com/en-us/services/cloud-services/). This page will walk you through, step by step, setting up a deployment using the Octopus built-in **Deploy an Azure Cloud Service** step.
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
 
@@ -63,7 +62,6 @@ The following features are available when deploying a package to an Azure Cloud 
 Please note these features actually run on the Octopus Server prior to deploying the Cloud Service package to Azure. They don't execute in the Azure Cloud Service instances you are eventually targeting.
 :::
 
-:::hint
 For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ```powershell
@@ -79,7 +77,6 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
   Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
 }
 ```
-:::
 
 ## Deployment process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
 
