@@ -1,5 +1,5 @@
 ---
-title: Synchronise packages
+title: Synchronize packages
 description: An example script that syncs packages from the built-in feed between two spaces in Octopus using the REST API.
 ---
 
@@ -32,10 +32,10 @@ Provide values for:
     }
     ]
     ```
-- `SourceUrl` - Octopus URL used as the source for package synchronisation.
+- `SourceUrl` - Octopus URL used as the source for package synchronization.
 - `SourceApiKey` - Octopus API Key used with the source Octopus server.
 - `SourceSpace` - Name of the space to use from the source Octopus server.
-- `DestinationUrl` - Octopus URL used as the destination for package synchronisation.
+- `DestinationUrl` - Octopus URL used as the destination for package synchronization.
 - `DestinationApiKey` - Octopus API Key used with the destination Octopus server.
 - `DestinationSpace` - Name of the space to use for the destination Octopus server.
 - `CutOffDate` - *Optional* cut-off date for a package's published date to be included in the synchronization.
