@@ -6,9 +6,9 @@ hideInThisSection: true
 ---
 ## Build information {#build-information}
 
-It is often useful to have information flow from your build server to be associated with packages, releases, and deployments in Octopus.
+When deploying a release, it is useful to know which build produced the artifact, what commits it contained, and which work items it is associated with.  The Build information feature allows you to upload information from your build server, manually or with the use of a plugin, to Octopus Deploy.
 
-The build information is associated with a package and includes:
+Build information is associated with a package and includes:
 
 - Build URL: A link to the build which produced the package.
 - Commits: Details of the source commits related to the build.
@@ -19,9 +19,19 @@ The build information is associated with a package and includes:
 Build information is passed to Octopus as a file using a custom format. The recommended way to supply the build information is to add the _Build Information_ step from the Octopus Deploy plugin to your build server.
 
 ## Build server support
-The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) plugins.
+The Build Information step is currently available in the official Octopus Deploy plugins
+- [TeamCity](/docs/packaging-applications/build-servers/teamcity.md) 
+- [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
+- [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) 
+- [TFS/AzureDevOps](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
+
+In addition to the official plugins, there are some community supported integrations available for
+- [GitHub Actions](https://github.com/marketplace/actions/octopus-deploy-build-information)
+- [BitBucket Pipelines](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README.md)
+- [CircleCI](https://circleci.com/developer/orbs/orb/octopus-samples/octo-exp)
+- [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
 
 Build information is independent of the packages that it relates to. You can pass build information to Octopus **before** the packages have been pushed to either the built-in repository or an external feed. You can also [push build information manually](https://octopus.com/blog/manually-push-build-information-to-octopus) using the Octopus REST API when you aren't utilizing a Build Server.
 
@@ -29,14 +39,21 @@ Build information is independent of the packages that it relates to. You can pas
 
 Commit messages and deep links may not be shown if an unsupported `VcsType` is passed to Octopus as part of the build information call. Currently we support values of `Git` and `TFVC` (TFS / Azure DevOps). `SVN` (Subversion) is **not supported**.
 
-Work items will not function unless you have one of the Issue Tracker integrations configured.
+Work items will not show unless you have one of the [Issue Tracker](https://octopus.com/docs/releases/issue-tracking) integrations configured.
 :::
 
 ## Build information step {#build-information-step}
 
-The TeamCity version of the _Build Information_ step is shown below.
+All of the availalbe plugins contain a Build Information step/task, the TeamCity version of the _Build Information_ step is shown below. 
 
 ![TeamCity Build Information Step](images/build-information-step.png "width=500")
+
+The Build Information step requires
+- Octopus URL: Url to your Octopus server
+- API Key: API key to use for uploading
+- (Optional) Space name: Name of the space to upload the information to
+- Package ID: List of package IDs to associate the Build Information to
+- Package version: The version of the packages
 
 :::hint
 
