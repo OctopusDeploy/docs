@@ -1,7 +1,7 @@
 ---
 title: Build information
 description: Integrate your commits and work items with Octopus Deploy.
-position: 25
+position: 5
 hideInThisSection: true
 ---
 ## Build information {#build-information}
@@ -18,12 +18,10 @@ The build information is associated with a package and includes:
 
 Build information is passed to Octopus as a file using a custom format. The recommended way to supply the build information is to add the _Build Information_ step from the Octopus Deploy plugin to your build server.
 
-:::hint
-**Build server support**
+## Build server support
 The Build Information step is currently available in the official Octopus [TeamCity](/docs/packaging-applications/build-servers/teamcity.md), [Bamboo](/docs/packaging-applications/build-servers/bamboo.md), and [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) plugins.
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
-:::
 
 Build information is independent of the packages that it relates to. You can pass build information to Octopus **before** the packages have been pushed to either the built-in repository or an external feed. You can also [push build information manually](https://octopus.com/blog/manually-push-build-information-to-octopus) using the Octopus REST API when you aren't utilizing a Build Server.
 
