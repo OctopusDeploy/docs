@@ -60,11 +60,10 @@ Run Runbook:
                              should expire, specified as any valid
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
-  -v, --variable=VALUE       [Optional] Values for any prompted variables in
-                             the format Label:Value. For JSON values,
-                             embedded quotation marks should be escaped with
-                             a backslash. Specify this argument multiple
-                             times to add multiple variables.
+  -v, --variable=VALUE       [Optional] Specifies the value for a prompted
+                             variable in the format Label:Value. For JSON
+                             values, embedded quotation marks should be
+                             escaped with a backslash.
       --waitForRun           [Optional] Whether to wait synchronously for
                              deployment to finish.
       --progress             [Optional] Show progress of the runbook run
@@ -86,7 +85,7 @@ Run Runbook:
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -112,7 +111,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be

@@ -15,22 +15,22 @@ Where [<options>] is any of:
 
 Deletion:
 
-      --project=VALUE        Name of the project
+      --project=VALUE        Name of the project.
       --minVersion=VALUE     Minimum (inclusive) version number for the range
-                             of versions to delete
+                             of versions to delete.
       --maxVersion=VALUE     Maximum (inclusive) version number for the range
-                             of versions to delete
+                             of versions to delete.
       --channel=VALUE        [Optional] if specified, only releases
                              associated with the channel will be deleted;
                              specify this argument multiple times to target
                              multiple channels.
       --whatIf               [Optional, Flag] if specified, releases won't
                              actually be deleted, but will be listed as if
-                             simulating the command
+                             simulating the command.
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -56,7 +56,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be

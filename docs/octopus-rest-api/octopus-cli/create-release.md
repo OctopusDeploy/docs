@@ -17,11 +17,13 @@ Where [<options>] is any of:
 
 Release creation:
 
-      --project=VALUE        Name or ID of the project
+      --project=VALUE        Name or ID of the project.
       --defaultPackageVersion, --packageVersion=VALUE
                              Default version number of all packages to use
                              for this release. Override per-package using --
                              package.
+      --ref, --gitRef=VALUE  [Optional, Experimental] Git reference to use
+                             when creating the release.
       --version, --releaseNumber=VALUE
                              [Optional] Release number to use for the new
                              release.
@@ -57,7 +59,7 @@ Release creation:
 
 Deployment:
 
-      --progress             [Optional] Show progress of the deployment
+      --progress             [Optional] Show progress of the deployment.
       --forcePackageDownload [Optional] Whether to force downloading of
                              already installed packages (flag, default false).
       --waitForDeployment    [Optional] Whether to wait synchronously for
@@ -74,10 +76,10 @@ Deployment:
       --deploymentCheckSleepCycle=VALUE
                              [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
-                             checks (default 00:00:10)
+                             checks (default 00:00:10).
       --guidedFailure=VALUE  [Optional] Whether to use guided failure mode.
                              (True or False. If not specified, will use
-                             default setting from environment)
+                             default setting from environment).
       --specificMachines=VALUE
                              [Optional] A comma-separated list of machine
                              names to target in the deployed environment. If
@@ -92,16 +94,15 @@ Deployment:
                              packages with already-installed versions,
                              override this setting to force re-deployment
                              (flag, default false).
-      --skip=VALUE           [Optional] Skip a step by name
+      --skip=VALUE           [Optional] Skip a step by name.
       --noRawLog             [Optional] Don't print the raw log of failed
-                             tasks
+                             tasks.
       --rawLogFile=VALUE     [Optional] Redirect the raw log of failed tasks
-                             to a file
-  -v, --variable=VALUE       [Optional] Values for any prompted variables in
-                             the format Label:Value. For JSON values,
-                             embedded quotation marks should be escaped with
-                             a backslash. Specify this argument multiple
-                             times to add multiple variables.
+                             to a file.
+  -v, --variable=VALUE       [Optional] Specifies the value for a prompted
+                             variable in the format Label:Value. For JSON
+                             values, embedded quotation marks should be
+                             escaped with a backslash.
       --deployAt=VALUE       [Optional] Time at which deployment should start
                              (scheduled deployment), specified as any valid
                              DateTimeOffset format, and assuming the time
@@ -127,7 +128,7 @@ Deployment:
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -153,7 +154,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be

@@ -26,16 +26,16 @@ Where [<options>] is any of:
 
 Export:
 
-      --type=VALUE           The type to export
-      --filePath=VALUE       The full path and name of the export file
-      --project=VALUE        [Optional] Name of the project
-      --name=VALUE           [Optional] Name of the item to export
+      --type=VALUE           The type to export.
+      --filePath=VALUE       The full path and name of the export file.
+      --project=VALUE        [Optional] Name of the project.
+      --name=VALUE           [Optional] Name of the item to export.
       --releaseVersion=VALUE [Optional] The version number, or range of
-                             version numbers to export
+                             version numbers to export.
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -59,7 +59,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
