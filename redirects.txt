@@ -871,7 +871,7 @@ docs/deployment-examples/certificates/add-certificate.md -> docs/deployments/cer
 docs/deployment-examples/certificates/archiving-and-deleting-certificates.md -> docs/deployments/certificates/archiving-and-deleting-certificates.md
 docs/deployment-examples/certificates/certificate-chains.md -> docs/deployments/certificates/certificate-chains.md
 docs/deployment-examples/certificates/export-certificate.md -> docs/deployments/certificates/export-certificate.md
-docs/deployment-examples/certificates/file-formats.md -> docs/deployments/certificates/file-formats.md
+docs/deployment-examples/certificates/file-formats.md -> docs/deployments/certificates/index.md
 docs/deployment-examples/certificates/import-certificate-step.md -> docs/deployments/certificates/import-certificate-step.md
 docs/deployment-examples/certificates/index.md -> docs/deployments/certificates/index.md
 docs/deployment-examples/certificates/java-keystore-export.md -> docs/deployments/certificates/java-keystore-export.md
