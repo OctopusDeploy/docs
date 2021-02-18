@@ -212,6 +212,11 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
 
+### More Examples
+
+If you're struggling with a specific syntax or OctoStache construction, you can find many more great examples in the unit tests defined for the library on GitHub:
+[OctoStache Tests UsageFixture](https://github.com/OctopusDeploy/Octostache/blob/master/source/Octostache.Tests/UsageFixture.cs)
+
 ### Filters {#VariableSubstitutionSyntax-Filters}
 
 The following filters are available:

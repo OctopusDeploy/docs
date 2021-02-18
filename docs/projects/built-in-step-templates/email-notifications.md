@@ -135,3 +135,21 @@ The outcome of each step can be included using a template like the one below:
 
 See [System variables](/docs/projects/variables/system-variables.md)
 :::
+
+### Referencing Package Metadata
+
+This example displays package Id and Version numbers for any steps that reference packages.
+
+```xml
+#{each action in Octopus.Action}
+  #{if Octopus.Action[#{action.StepName}].Package.PackageId}
+    <b>PackageId: #{Octopus.Action[#{action.StepName}].Package.PackageId}</b>
+    <br>
+    <b>Package Version: #{Octopus.Action[#{action.StepName}].Package.PackageVersion}</b>
+  #{/if}
+#{/each}
+```
+
+:::hint
+Iterating over `Octopus.Action` like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step name that could potentially change.
+:::
