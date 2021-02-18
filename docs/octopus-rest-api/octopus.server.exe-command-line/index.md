@@ -23,7 +23,6 @@ hideInThisSection: true
 - **[license](/docs/octopus-rest-api/octopus.server.exe-command-line/license.md)**:  Import a license key.
 - **[list-instances](/docs/octopus-rest-api/octopus.server.exe-command-line/list-instances.md)**:  Lists all installed Octopus instances.
 - **[lost-master-key](/docs/octopus-rest-api/octopus.server.exe-command-line/lost-master-key.md)**:  Get your Octopus Server working again after losing your Master Key.
-- **[metrics](/docs/octopus-rest-api/octopus.server.exe-command-line/metrics.md)**:  Configure metrics logging.
 - **[new-certificate](/docs/octopus-rest-api/octopus.server.exe-command-line/new-certificate.md)**:  Creates a new certificate that Octopus Server can use to authenticate itself with its Tentacles.
 - **[node](/docs/octopus-rest-api/octopus.server.exe-command-line/node.md)**:  Configure settings related to this Octopus Server node.
 - **[path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md)**:  Set the file paths that Octopus will use for storage.
