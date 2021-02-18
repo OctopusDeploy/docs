@@ -971,3 +971,4 @@ docs/packaging-applications/package-repositories/tfs-azure-devops.md -> docs/pac
 docs/getting-started/terminology.md -> docs/getting-started/glossary.md
 docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployments/azure/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployments/azure/cloud-services/index.md
+docs/deployments/certificates/file-formats.md -> docs/deployments/certificates/index.md
