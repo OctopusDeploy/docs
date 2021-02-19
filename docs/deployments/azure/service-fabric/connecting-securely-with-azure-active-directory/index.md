@@ -1,7 +1,7 @@
 ---
 title: Connecting securely with Azure Active Directory
 description: Octopus Deploy can help you connect securely to Service Fabric clusters using Azure Active Directory authentication.
-position: 2
+position: 50
 ---
 
 As part of Service Fabric step templates, Octopus allows you to securely connect to a secure cluster by using Azure Active Directory (AAD).

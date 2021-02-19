@@ -4,7 +4,7 @@ description: Learn how Octopus Deploy fits into a Continuous Deployment pipeline
 position: 2
 ---
 
-This section contains resources for using Octopus to deploy your Azure Service Fabric applications. We assume you already have a Service Fabric cluster set up in Azure. If you don't yet, check out [Microsoft's documentation for getting started with Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
+This section contains resources for using Octopus to deploy your Azure Service Fabric applications. We assume you already have a Service Fabric cluster set up in Azure. If you don't yet, check out Microsoft's documentation on[getting started with Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
 
 ## Service Fabric Deployment Targets in Octopus
 
@@ -12,29 +12,28 @@ Octopus provides a built in Deployment Target for Azure Service Fabric clusters.
 
 ## Packaging
 
-[Learn how to create an Octopus Deploy NuGet/Zip package for a Service Fabric application package](/docs/deployments/azure/service-fabric/packaging.md).
+Learn how to [package a Service Fabric application](/docs/deployments/azure/service-fabric/packaging.md) for use with Octopus Deploy.
 
 ## Step Templates
 
 Octopus comes with two built-in step templates facilitating deployment and management of Azure Service Fabric apps.
 
-- Deploy a Service Fabric App
-
-For a step by step guide on using Octopus'es built-in Azure Service Fabric Deployment step see: [Deploying a package to a Azure Service Fabric cluster](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md)
-
+- [Deploy a Service Fabric App](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md#step-4-create-the-service-fabric-application-deployment-step)
 - [Run a Service Fabric SDK PowerShell Script](/docs/deployments/custom-scripts/service-fabric-powershell-scripts.md)
 
 ## Security modes
 
 Both step template types above require an authorized connection to a cluster.
 
-Octopus provides an option for connecting to Service Fabric clusters securely with [Client Certificates](/docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md).
+Octopus provides two options for connecting to Service Fabric clusters securely:
 
-Octopus also provides an option for connecting to Service Fabric clusters securely with [Azure Active Directory](/docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md).
+1. Using [Client Certificates](/docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md).
+1. Using [Azure Active Directory](/docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md).
 
 ## Versioning
+
 Individual applications in a Service Fabric cluster have their own version numbers while the entire clustered app has a separate version number independent of its constituent parts.
-Octopus does not enforce a particular process for managing application/service versions. [Learn more about using Octopus Deploy to automate updates to the application/service versions](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+Octopus does not enforce a particular process for managing application/service versions. Learn more about using Octopus Deploy to [automate updates to the application/service versions](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
 
 ### Overwrite vs rolling upgrades
 
