@@ -21,7 +21,7 @@ Octopus integrates with Azure DevOps work items. The integration includes the ab
 
 ![Octopus release with Azure DevOps work items](images/octo-azure-devops-release-details.png "width=500")
 
-4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.mdbuild-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes.md).  
+4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.md#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes.md).  
 
 ![Octopus deployment with generated release notes](images/octo-azure-devops-release-notes.png "width=500")
 
@@ -48,7 +48,7 @@ To integrate with Azure DevOps work items, Octopus needs to understand which wor
 To supply the build information:
 
 1. Install one of our official [build server plugins](#availability) with support for our build information step.
-2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md-step).
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md#build-information-step).
 
 :::warning
 If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.

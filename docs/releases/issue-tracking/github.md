@@ -45,7 +45,7 @@ To supply the commit messages:
 
 1. Install one of our official [build server plugins](#availability) with support for our build information step.
 
-2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md-step).
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md#build-information-step).
 
 
 ## Connect Octopus to GitHub {#connect-octopus-to-github}
