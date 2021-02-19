@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting integrations between build servers and Octopus
+title: Troubleshooting build server integrations
 description: General guide to troubleshoot integrations between build servers such as TeamCity or Azure DevOps with Octopus Deploy
 position: 80
 ---

@@ -45,7 +45,7 @@ A list of packages IDs that a project has deployed is kept and then used to dete
 
 ### Build information {#build-information-whats-deleted}
 
-[Build information](/docs/packaging-applications/build-servers/index.md#build-information) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
+[Build information](/docs/packaging-applications/build-servers/build-information/index.md) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
 - If the package is used by a release, it will be kept.
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
 - If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories/index.md). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
