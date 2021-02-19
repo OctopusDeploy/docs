@@ -138,7 +138,7 @@ See [System variables](/docs/projects/variables/system-variables.md)
 
 ### Referencing package metadata
 
-This example displays package Id and Version numbers for any steps that reference packages.
+This example displays package ID and version numbers for any steps that reference packages.
 
 ```xml
 #{each action in Octopus.Action}
