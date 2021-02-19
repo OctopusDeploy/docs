@@ -136,7 +136,7 @@ The outcome of each step can be included using a template like the one below:
 See [System variables](/docs/projects/variables/system-variables.md)
 :::
 
-### Referencing Package Metadata
+### Referencing package metadata
 
 This example displays package Id and Version numbers for any steps that reference packages.
 
