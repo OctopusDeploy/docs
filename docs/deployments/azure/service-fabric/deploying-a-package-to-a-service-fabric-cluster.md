@@ -1,7 +1,7 @@
 ---
 title: Deploying a package to an Azure Service Fabric cluster
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Service Fabric clusters.
-position: 0
+position: 20
 ---
 
 Octopus Deploy supports deployment of [Azure Service Fabric applications](https://azure.microsoft.com/en-au/services/service-fabric/).
@@ -34,7 +34,7 @@ Add a new Service Fabric application deployment step to your project. For infor
 
 Select the Role you assigned your Service Fabric target and select your Service Fabric package from your package feed.
 
-Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/deploying-to-service-fabric/index.md)
+Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/service-fabric/index.md)
 
 Various options are available to deploy your Service Fabric application.
 
@@ -115,7 +115,7 @@ To learn more about how you can automate Service Fabric versioning with Octopus,
 
 ## Troubleshooting
 
-Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md#Customizing the Deployment Process) that comes with Visual Studio for Service Fabric for most scenarios.
+Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md#customizing-the-deployment-process) that comes with Visual Studio for Service Fabric for most scenarios.
 
 :::hint
 Octopus will not modify the service fabric script due to the complexity associated with the script and the number of combinations it supports. We are considering options to improve this experience in the future, and this will most likely require customers to include/bundle their own version of the PS script.

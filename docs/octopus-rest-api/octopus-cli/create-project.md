@@ -15,7 +15,7 @@ Where [<options>] is any of:
 
 Project creation:
 
-      --name=VALUE           The name of the project
+      --name=VALUE           The name of the project.
       --projectGroup=VALUE   The name of the project group to add this
                              project to. If the group doesn't exist, it will
                              be created.
@@ -26,7 +26,7 @@ Project creation:
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -52,7 +52,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
