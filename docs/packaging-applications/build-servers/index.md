@@ -38,3 +38,4 @@ The following tools are available to integrate your continuous integration/build
  - [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md)
  - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md)
 
+Octopus supports uploading [Build information](/docs/packaging-applications/build-servers/build-information/index.md) from your build server, manually or with the use of one of the plugins, to Octopus Deploy.
