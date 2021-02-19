@@ -6,7 +6,7 @@ position: 285
 
 This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.
 
-Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/index.md#build-information)) to your Octopus Server.
+Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/build-information/index.md)) to your Octopus Server.
 
 ```text
 Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.

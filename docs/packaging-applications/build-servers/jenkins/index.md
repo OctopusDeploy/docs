@@ -123,7 +123,7 @@ Note that the package paths defined here should be full paths, not including any
 
 ## Push build information {#Jenkins-Pushbuildinformation}
 
-Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/index.md#build-information).
+Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/build-information/index.md).
 
 The build information is associated with a package and includes:
 

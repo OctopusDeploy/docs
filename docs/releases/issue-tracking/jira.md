@@ -51,7 +51,7 @@ To supply the commit messages:
 
 1. Install one of our official [build server plugins](#availability) with support for our build information step.
 
-2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md-step).
 
 
 ## Connect Octopus to Jira {#connect-octopus-to-jira}
@@ -80,7 +80,7 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
     Note: This needs to be a username and password as Jira Server does not support API tokens.
 
-    - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information/) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+    - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md/) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -115,7 +115,7 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     The password should be an API Token, rather than an actual password. You can create an API token from an Atlassian account in the 'Security' area.
 
-    - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+    - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 

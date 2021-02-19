@@ -48,7 +48,7 @@ To integrate with Azure DevOps work items, Octopus needs to understand which wor
 To supply the build information:
 
 1. Install one of our official [build server plugins](#availability) with support for our build information step.
-2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md-step).
 
 :::warning
 If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.
@@ -70,7 +70,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
 2. Configure the Release Note Options _(optional)_.
 
-    - **Release Note Prefix**: If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+    - **Release Note Prefix**: If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
@@ -78,4 +78,4 @@ When configured, this integration will retrieve Azure DevOps work item details a
 
 ## Learn more
 
- - [Build information](/docs/packaging-applications/build-servers/index.md#build-information).
+ - [Build information](/docs/packaging-applications/build-servers/build-information/index.md).

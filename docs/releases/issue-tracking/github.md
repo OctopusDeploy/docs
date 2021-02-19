@@ -45,7 +45,7 @@ To supply the commit messages:
 
 1. Install one of our official [build server plugins](#availability) with support for our build information step.
 
-2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/index.md#build-information-step).
+2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/index.md-step).
 
 
 ## Connect Octopus to GitHub {#connect-octopus-to-github}
@@ -71,7 +71,7 @@ To supply the commit messages:
 
     The password should be a personal access token, rather than an actual password. You can create a token in your GitHub account settings in the 'Developer settings' area.
 
-    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/index.md#build-information) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
+    - **Release Note Prefix**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
 
@@ -85,4 +85,4 @@ The Octopus extension looks for these same keywords, and ignores issue reference
 
 ## Learn more
 
- - [Build information](/docs/packaging-applications/build-servers/index.md#build-information).
+ - [Build information](/docs/packaging-applications/build-servers/build-information/index.md).

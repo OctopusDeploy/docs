@@ -85,7 +85,7 @@ Common options:
 
 !include <samples-instance>
 
-This example uploads [build information](/docs/packaging-applications/build-servers/index.md#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
+This example uploads [build information](/docs/packaging-applications/build-servers/build-information/index.md) contained in buildInfo.json to Octopus Deploy for the specified package and version.
 
 
 ```json
@@ -114,4 +114,4 @@ octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" 
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Build information](/docs/packaging-applications/build-servers/index.md#build-information)
+- [Build information](/docs/packaging-applications/build-servers/build-information/index.md)

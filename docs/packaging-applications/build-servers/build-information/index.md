@@ -4,7 +4,6 @@ description: Integrate your commits and work items with Octopus Deploy.
 position: 5
 hideInThisSection: true
 ---
-## Build information {#build-information}
 
 When deploying a release, it is useful to know which build produced the artifact, what commits it contained, and which work items it is associated with.  The Build information feature allows you to upload information from your build server, manually or with the use of a plugin, to Octopus Deploy.
 
