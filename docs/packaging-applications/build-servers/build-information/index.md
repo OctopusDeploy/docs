@@ -17,8 +17,10 @@ Build information is associated with a package and includes:
 
 Build information is passed to Octopus as a file using a custom format. The recommended way to supply the build information is to add the _Build Information_ step from the Octopus Deploy plugin to your build server.
 
-## Build server support
-The Build Information step is currently available in the official Octopus Deploy plugins
+## Build server support {#build-server-support}
+
+The Build Information step is currently available in the official Octopus Deploy plugins:
+
 - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md) 
 - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
 - [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) 
@@ -61,7 +63,7 @@ The Verbose logging option can be used to include more detail in the build logs.
 
 :::
 
-## Viewing build information
+## Viewing build information {#viewing-build-information}
 
 As of `2019.10.0`, the build information for a package can be viewed by navigating to **{{Library,Build Information}}**
 
@@ -75,12 +77,12 @@ For packages pushed to the Octopus built-in repository, the build information ca
 
 ![Build information on package version page](images/build-information-package-version-2.png "width=500")
 
-## Using build information in release notes #{release-notes}
+## Using build information in release notes #{build-info-in-release-notes}
 
 The build information associated with packages is available for use in [release notes](/docs/releases/release-notes.md) (and [release notes templates](/docs/releases/release-notes.md#Release-Notes-Templates)) as Octopus variables.
 
 See the [system variable documentation](/docs/projects/variables/system-variables.md#release-package-build-information) for the available variables.
 
-## Using build information in deployments
+## Using build information in deployments {#build-info-in-deployments}
 
 Package build information associated with a release will be also [captured in deployments](/docs/releases/deployment-notes.md) of the release.

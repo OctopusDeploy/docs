@@ -13,9 +13,9 @@ Octopus integrates with Jira issues. The integration includes the ability to:
 ![Octopus Jira integration - how it works diagram](images/octo-jira-how-it-works.png "width=500")
 
 1.  When you commit code, add a commit message containing one or more [Jira issue references](https://confluence.atlassian.com/adminjiracloud/integrating-with-development-tools-776636216.html).
-2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
+2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Jira issue-tracker extension in Octopus parses the commit messages and recognizes the issue references.
-4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/index.md#release-notes), and will be visible on [deployments](/docs/releases/deployment-notes.md).
+4. When creating the release which contains the package version, the issues are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/index.md#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-notes.md).
 5. As the release is deployed to each environment, Octopus notifies Jira to update the issue.
 
 ![Octopus release with Jira issues](images/octo-jira-release-details.png "width=500")
