@@ -16,24 +16,24 @@ Where [<options>] is any of:
 Create:
 
       --project=VALUE        The name of the project in which to create the
-                             channel
-      --channel=VALUE        The name of the channel to create
-      --description=VALUE    [Optional] A description of the channel
+                             channel.
+      --channel=VALUE        The name of the channel to create.
+      --description=VALUE    [Optional] A description of the channel.
       --lifecycle=VALUE      [Optional] if specified, the name of the
                              lifecycle to use for promoting releases through
                              this channel, otherwise this channel will
-                             inherit the project lifecycle
+                             inherit the project lifecycle.
       --make-default-channel [Optional, Flag] if specified, set the new
                              channel to be the default channel replacing any
-                             existing default channel
+                             existing default channel.
       --update-existing      [Optional, Flag] if specified, updates the
                              matching channel if it already exists, otherwise
                              this command will fail if a matching channel
-                             already exists
+                             already exists.
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -59,7 +59,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
