@@ -863,10 +863,10 @@ docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-a
 docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index_configurestep_[2018.5,).partial.md -> docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index_configurestep_[2018.5,).partial.md
 docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/index.md -> docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md
 docs/deployment-examples/azure-deployments/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md -> docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md
-docs/deployment-examples/azure-deployments/deploying-to-service-fabric/index.md -> docs/deployments/azure/deploying-to-service-fabric/index.md
-docs/deployment-examples/azure-deployments/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md
-docs/deployment-examples/azure-deployments/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md
-docs/deployment-examples/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md
+docs/deployment-examples/azure-deployments/deploying-to-service-fabric/index.md -> docs/deployments/azure/service-fabric/index.md
+docs/deployment-examples/azure-deployments/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md
+docs/deployment-examples/azure-deployments/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
+docs/deployment-examples/azure-deployments/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
 docs/deployment-examples/certificates/add-certificate.md -> docs/deployments/certificates/add-certificate.md
 docs/deployment-examples/certificates/archiving-and-deleting-certificates.md -> docs/deployments/certificates/archiving-and-deleting-certificates.md
 docs/deployment-examples/certificates/certificate-chains.md -> docs/deployments/certificates/certificate-chains.md
@@ -972,3 +972,7 @@ docs/getting-started/terminology.md -> docs/getting-started/glossary.md
 docs/deployments/azure/deploying-a-package-to-an-azure-cloud-service/index.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployments/azure/cloud-services/getting-started-with-azure-cloud-services.md -> docs/deployments/azure/cloud-services/index.md
 docs/deployments/certificates/file-formats.md -> docs/deployments/certificates/index.md
+docs/deployments/azure/deploying-to-service-fabric/index.md -> docs/deployments/azure/service-fabric/index.md
+docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md
+docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
+docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
