@@ -214,7 +214,7 @@ Within the context of an iteration template, some special variables are availabl
 
 ### Further examples
 
-If you're struggling with a specific syntax or OctoStache construction, you can find many more great examples in the unit tests defined for the library on GitHub:
+If you're struggling with a specific syntax or OctoStache construct, you can find more examples in the unit tests defined for the library on GitHub:
 [OctoStache Tests UsageFixture](https://github.com/OctopusDeploy/Octostache/blob/master/source/Octostache.Tests/UsageFixture.cs)
 
 ### Filters {#VariableSubstitutionSyntax-Filters}
