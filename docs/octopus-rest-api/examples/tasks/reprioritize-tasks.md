@@ -25,6 +25,13 @@ Provide values for:
 
 - Octopus URL (required)
 - Octopus API Key (required)
+
+The script looks for tasks one of two ways:
+
+1) Task Id List - comma separated list of task ids to move to the top of the queue
+2) Matching based on critera, see below
+
+Matching based on criteria
 - Space List - comma separated list of spaces to look for (optional)
 - Environment List - comma separated list of environments to look for (optional)
     - Options: 
@@ -49,7 +56,7 @@ Provide values for:
         - `RunbookRun` - looks for runbook runs only
         - `Both` - looks for both deployments and runbooks runs
 
-At least one filter for environments OR projects OR tenants must be supplied.
+You must supply at least one task id OR at least one filter for environments OR projects OR tenants must be supplied.
 
 ## Script
 
