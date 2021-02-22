@@ -7,7 +7,7 @@ This script can be used to move critical deployments from the bottom of the queu
 
 How it works:
 1) Look at all the pending tasks in the queue.  All in-process items are left as is.
-2) If there are any deployments or runbook runs, it will check to see if they match specified criteria
+2) If there are any deployments or runbook runs, it will check to see if they match specified criteria.
 3) If any matching runbook runs or deployment tasks are found, it will loop through the queue and cancel all the items before them.
 4) If the script cancels any runbook runs or deployments, it will resubmit them using the same values.
 
