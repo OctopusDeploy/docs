@@ -1024,6 +1024,7 @@ docs/octopus-rest-api/tentacle.exe-command-line/list-instances.md -> docs/instal
 docs/octopus-rest-api/tentacle.exe-command-line/new-certificate.md -> docs/installation/tentacle.exe-command-line/new-certificate.md
 docs/octopus-rest-api/tentacle.exe-command-line/polling-proxy.md -> docs/installation/tentacle.exe-command-line/polling-proxy.md
 docs/octopus-rest-api/tentacle.exe-command-line/poll-server.md -> docs/installation/tentacle.exe-command-line/poll-server.md
+docs/octopus-rest-api/tentacle.exe-command-line/proxy.md -> docs/installation/tentacle.exe-command-line/proxy.md
 docs/octopus-rest-api/tentacle.exe-command-line/register-with.md -> docs/installation/tentacle.exe-command-line/register-with.md
 docs/octopus-rest-api/tentacle.exe-command-line/register-worker.md -> docs/installation/tentacle.exe-command-line/register-worker.md
 docs/octopus-rest-api/tentacle.exe-command-line/server-comms.md -> docs/installation/tentacle.exe-command-line/server-comms.md
