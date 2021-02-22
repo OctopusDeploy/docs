@@ -22,7 +22,7 @@ To install and configure Tentacles in listening mode, see the [Windows Targets (
 
 ## Polling Tentacles
 
-In **polling** mode, Tentacle will *poll* the Octopus Server periodically, connecting over a TCP port (**10943** by default) to check if there are any tasks for it to perform. The port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md) using the `--commsListenPort` option. Polling mode is the opposite of **Listening mode**.
+In **polling** mode, Tentacle will *poll* the Octopus Server periodically, connecting over a TCP port (**10943** by default) to check if there are any tasks for it to perform. The port Octopus Server uses can be [changed from the command line](/docs/installation/octopus.server.exe-command-line/configure.md) using the `--commsListenPort` option. Polling mode is the opposite of **Listening mode**.
 
 In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 

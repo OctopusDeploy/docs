@@ -171,7 +171,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 |  Name       |    |
 | ------------- | ------- |
-|**/import**|Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup|
+|**/import**|Imports from this folder if [Octopus Migrator](/docs/administration/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup|
 |**/repository**|Package path for the built-in package repository|
 |**/artifacts**|Path where artifacts are stored|
 |**/taskLogs**|Path where task logs are stored|

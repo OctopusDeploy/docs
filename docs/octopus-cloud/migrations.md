@@ -39,12 +39,12 @@ Start by [installing](/docs/installation/index.md) a new Octopus Server.
 
 Restore the database backup provided by Octopus support, ensuring that the user account under which the Octopus service is running has access to the database.
 
-Using the [database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md) command, set the connection string and the Master Key.
+Using the [database](/docs/installation/octopus.server.exe-command-line/database.md) command, set the connection string and the Master Key.
 `Octopus.Server.exe database --connectionString=<connection string to restored database> --masterKey=<Master Key provided by Octopus Support>`
 
 From the provided zip file, copy the *task logs*, *artifacts*, and *packages* to the corresponding folders under the Octopus home folder, by default this is `C:\Octopus`.
 
-Update the paths for the *task logs*, *artifacts*, and *packages* folders using the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command.
+Update the paths for the *task logs*, *artifacts*, and *packages* folders using the [path](/docs/installation/octopus.server.exe-command-line/path.md) command.
 
 `Octopus.Server.exe path --nugetRepositry=<path to packages folder> --artifacts=<path to artifacts folder> --tasklogs=<path to task logs folder>`
 

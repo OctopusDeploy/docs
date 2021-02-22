@@ -181,7 +181,7 @@ SQL_SERVER_ACCEPT_EULA=N
 ```
 
 ### Import
-Since the Tentacle will perform a `register-with` command when it starts, we need to ensure that our fresh new Octopus Server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/octopus-rest-api/octopus.migrator.exe-command-line/import.md) is invoked if a `metadata.json` file is present.
+Since the Tentacle will perform a `register-with` command when it starts, we need to ensure that our fresh new Octopus Server has an environment available to add the targets to. This is accomplished above by providing some files in the `./Import` directory. This folder contains files that are generated as part of an [Octopus.Migrator.exe export](docs/administration/octopus.migrator.exe-command-line/index.md) invocation performed against an existing installation. Currently the import process requires the export password to be `blank`. When the Octopus Server starts in the container, this directory is inspected and [Octopus.Migrator.exe import](docs/administration/octopus.migrator.exe-command-line/import.md) is invoked if a `metadata.json` file is present.
 
 ## Learn more
 

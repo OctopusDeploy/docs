@@ -22,7 +22,7 @@ The original complete backup can always be retained if it is required for audit 
 
 ## Limit historical data
 
-By default we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
+By default we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator via the [command-line](/docs/administration/octopus.migrator.exe-command-line/index.md) to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
 ## RAM
 
@@ -38,7 +38,7 @@ This RAM is only required for the migration, and can be deallocated once it is c
 ## No logs
 
 To minimize the initial migration time, you can skip migrating the server-task log files.  
-This option is available as a check-box in the Octopus Manager, or can be supplied as a `--nologs` option if running via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md).
+This option is available as a check-box in the Octopus Manager, or can be supplied as a `--nologs` option if running via the [command-line](/docs/administration/octopus.migrator.exe-command-line/index.md).
 
 :::hint
 The logs can always be imported later using the `--onlylogs` option if required

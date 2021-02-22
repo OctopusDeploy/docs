@@ -78,7 +78,7 @@ if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{
 
 ### Stop the instance
 
-[Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/index.md) is the command-line interface, or CLI, of the Octopus Manager.  The below script will drain the node and wait for all the tasks to complete and then stop the service:
+[Octopus.Server.exe](/docs/installation/octopus.server.exe-command-line/index.md) is the command-line interface, or CLI, of the Octopus Manager.  The below script will drain the node and wait for all the tasks to complete and then stop the service:
 
 ```PowerShell
 Set-Location "${env:ProgramFiles}\Octopus Deploy\Octopus" 
