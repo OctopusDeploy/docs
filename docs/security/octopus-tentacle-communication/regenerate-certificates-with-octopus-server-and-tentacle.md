@@ -95,7 +95,7 @@ This will display output similar to the following:
 Adding 1 trusted Octopus Servers
 These changes require a restart of the Tentacle.
 ```
-You will need to restart each tentacle at this point: 
+You will need to restart each Tentacle at this point: 
 ```powershell Windows
 tentacle.exe service --restart
 ```

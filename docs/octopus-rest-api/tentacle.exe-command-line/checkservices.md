@@ -3,7 +3,7 @@ title: Check services
 description: Checks the Tentacle instances are running
 ---
 
-The checkservices command checks the Octopus tentacle instances to see if they are running, and start them if they're not. The watchdog command sets up a scheduled task that calls checkservices.
+The checkservices command checks the Octopus Tentacle instances to see if they are running, and start them if they're not. The watchdog command sets up a scheduled task that calls checkservices.
 
 **checkservices options**
 
