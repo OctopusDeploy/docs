@@ -11,11 +11,11 @@ We designed Octopus Cloud and self-hosted Octopus to provide the same functional
 
 ![Octopus Dashboard](/docs/shared-content/concepts/images/dashboard.png "width=500")
 
-You can sign up for Octopus Cloud at [octopus.com/free](https://octopus.com/free).
+You can sign up for Octopus Cloud at [octopus.com/free](https://Octopus.com/free).
 
 ## Create an Octopus account
 
-An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [octopus.com/register](https://octopus.com/register).
+An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [octopus.com/register](https://Octopus.com/register).
 
 !include <octopus-account>
 
@@ -25,7 +25,7 @@ Now that you've created an Octopus account, you can create a new instance of Oct
 
 !include <octopus-cloud-instance>
 
-When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
+When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://Octopus.com/signin).
 
 !include <octopus-cloud-regions>
 
@@ -39,7 +39,7 @@ If you are having difficulty uploading packages to your Octopus built-in package
 
 To change your password for the Octopus instance and Octopus account:
 
-1. Go to [Octopus.com/signin](https://octopus.com/signin).
+1. Go to [octopus.com/signin](https://Octopus.com/signin).
 1. Click the drop-down menu next to your username in the top right corner.
 1. Click profile.
 1. Click the **Change Password** link.
@@ -56,9 +56,9 @@ If you forget your username or password for your Octopus account or Octopus inst
 
 ## Invite users to your Octopus Cloud instance {#OctopusCloud-Invitingusers}
 
-You can add new users to your Octopus Cloud instance from within your Octopus.com account. This feature is being rolled out gradually. If you have access to the invites feature, you will see invites in your instance panel. If you do not have access to this feature and would like access, please [contact support](https://octopus.com/support).
+You can add new users to your Octopus Cloud instance from within your Octopus.com account. This feature is being rolled out gradually. If you have access to the invites feature, you will see invites in your instance panel. If you do not have access to this feature and would like access, please [contact support](https://Octopus.com/support).
 
-1. Log into your account at [Octopus.com/signin](https://octopus.com/signin).
+1. Log into your account at [Octopus.com/signin](https://Octopus.com/signin).
 1. Select **Manage** on your instance panel.
 1. Click **Invite a user**, enter their name and email address.
 1. Click **Submit**.
@@ -94,4 +94,4 @@ We keep your instance of Octopus Cloud up to date and running the latest version
 
 ## Learn more
 
-- [Octopus Cloud blog posts](https://octopus.com/blog/tag/octopus%20Cloud)
+- [Octopus Cloud blog posts](https://Octopus.com/blog/tag/octopus%20Cloud)

@@ -19,7 +19,7 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 
 ## Install Octopus
 
-1. [Download](https://octopus.com/downloads/server) the Octopus installer.
+1. [Download](https://Octopus.com/downloads/server) the Octopus installer.
 1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
 1. Accept the default **Destination Folder** or choose a different location and click **Next**.
 1. Click **Install**, and give the app permission to **make changes to your device**.

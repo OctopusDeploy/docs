@@ -1,4 +1,4 @@
-1. On the Linux Tentacle Server, run `/opt/octopus/tentacle/configure-tentacle.sh` in a terminal window to configure the tentacle.
+1. On the Linux Tentacle Server, run `/opt/octopus/tentacle/configure-tentacle.sh` in a terminal window to configure the Tentacle.
 1. Give the Tentacle instance a name (default `Tentacle`) and press **Enter**.
 1. Choose **2) Polling** for the **kind of Tentacle** to configure, and press **Enter**.
 1. Configure the folder to store log files and press **Enter**.

@@ -25,5 +25,5 @@ Or one of the common options:
 This example checks to see if the `default` instance is running and start it if it's not:
 
 ```text
-tentacle checkservices --instances="default"
+Tentacle checkservices --instances="default"
 ```
