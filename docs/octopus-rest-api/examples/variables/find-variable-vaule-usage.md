@@ -3,7 +3,7 @@ title: Find variable value usage
 description: An example script that finds all variables with a specific value in project variables and library variable sets.
 ---
 
-This script demonstrates how to programmatically find usages of a variable value in all projects and variables sets. You could use this to help replace values in connection string if a server name or IP has changed.
+This script demonstrates how to programmatically find usages of a variable value in all projects and library variable sets. You could use this to help replace values in a connection string if a server name or IP has changed.
 
 :::hint
 **Limitations:** 
