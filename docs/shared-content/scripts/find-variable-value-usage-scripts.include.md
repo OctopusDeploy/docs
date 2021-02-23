@@ -47,7 +47,7 @@ foreach ($variableSet in $variableSets)
             }
             $variableTracking += $result
         }
-        }
+    }
 
 }
 
