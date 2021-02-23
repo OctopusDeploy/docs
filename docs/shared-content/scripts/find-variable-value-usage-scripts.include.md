@@ -74,7 +74,7 @@ foreach ($project in $projects)
                 AdditionalContext = $match.Name
             }
             
-            # Add and de-dupe later
+            # Add to tracking list
             $variableTracking += $result
         }
     }
