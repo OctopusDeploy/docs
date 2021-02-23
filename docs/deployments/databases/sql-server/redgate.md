@@ -195,7 +195,7 @@ The deployment process will be:
 
 In Octopus Deploy, that process will look like the following screenshot.  This example uses **Slack** as the notification technology.  Octopus Deploy supports a number of different mechanisms to notify users, including email, Slack, Microsoft Teams, and Twilio to name a few.
 
-![Deployment process overview in Octopus Deploy](images/redgate-octopus-deploy-deployment-process-overview.png)
+![Deployment process overview in Octopus Deploy](images/redgate-octopus-deploy-deployment-process-overview.png “width=500”)
 
 Before adding steps to the process, a number of variables need to be created.  We recommend namespacing the variables using [ProjectName].[Component].[Sub-component].
 
@@ -221,7 +221,7 @@ The choice of two teams in this example was intentional.  The DBAs are the ones 
 
 The final step for this guide is **Redgate - Deploy Database Release**.  It takes the delta script created in the first step and runs it on the specified server.  The number of options on this step are limited compared to the create release step.  
 
-![Deploy from database release step](images/octopus-redgate-deploy-database-release.png)
+![Deploy from database release step](images/octopus-redgate-deploy-database-release.png “width=500”)
 
 ## Working example
 

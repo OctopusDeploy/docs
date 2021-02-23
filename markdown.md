@@ -71,11 +71,11 @@ Add images to an `images/` directory in the same directory as the file that refe
 
 Images are added to documents with the following syntax:
 
-	![](images/image-name.png)
+	![](images/image-name.png “width=500”)
 
 Images should include alt text for accessibility:
 
-	![A brief description of the image](images/image-name.png)
+	![A brief description of the image](images/image-name.png “width=500”)
 
 Control the size of the image in pixels with the text `width=500`:
 

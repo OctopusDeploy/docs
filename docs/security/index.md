@@ -18,7 +18,7 @@ Octopus Deploy has the responsibility of providing a secure and stable platform 
 
 You have the responsibility for how that platform is implemented and exposed to your infrastructure and users.
 
-![A diagram depicting the shared responsibility model for Octopus Deploy](shared-responsibility.png)
+![A diagram depicting the shared responsibility model for Octopus Deploy](shared-responsibility.png “width=500”)
 
 ### Octopus Cloud
 

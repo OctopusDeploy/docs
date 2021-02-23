@@ -28,7 +28,7 @@ Right now, the step is configured to execute after the hello world script runs. 
 
 Please create a new release and deploy it through to **Production**.  You will see the approval step being skipped in *Development* and *Testing*.  When you deploy to **Production**, the deployment will pause, and you will need to approve it before continuing.
 
-![Manual intervention is required in production](images/manual-interventions.png)
+![Manual intervention is required in production](images/manual-interventions.png “width=500”)
 
 The next step will [add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets.md).
 
