@@ -16,6 +16,6 @@ After you've used octopus.com to [invite some other users](/docs/octopus-cloud/i
 
 ### Learn more
 
-- [Invite users via octopus.com](/docs/octopus-cloud/index.md#OctopusCloud-Invitingusers)
+- [Invite users via Octopus.com](/docs/octopus-cloud/index.md#OctopusCloud-Invitingusers)
 - [Octopus Cloud specific permissions](/docs/octopus-cloud/permissions.md)
 - [Octopus Cloud documentation](/docs/octopus-cloud/index.md)
