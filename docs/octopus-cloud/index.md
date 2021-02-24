@@ -11,11 +11,11 @@ We designed Octopus Cloud and self-hosted Octopus to provide the same functional
 
 ![Octopus Dashboard](/docs/shared-content/concepts/images/dashboard.png "width=500")
 
-You can sign up for Octopus Cloud at [octopus.com/free](https://Octopus.com/free).
+You can sign up for Octopus Cloud at [Octopus.com/free](https://Octopus.com/free).
 
 ## Create an Octopus account
 
-An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [octopus.com/register](https://Octopus.com/register).
+An Octopus account lets you manage your instances of Octopus Cloud. You can register for you Octopus account at [Octopus.com/register](https://Octopus.com/register).
 
 !include <octopus-account>
 
@@ -39,7 +39,7 @@ If you are having difficulty uploading packages to your Octopus built-in package
 
 To change your password for the Octopus instance and Octopus account:
 
-1. Go to [octopus.com/signin](https://Octopus.com/signin).
+1. Go to [Octopus.com/signin](https://Octopus.com/signin).
 1. Click the drop-down menu next to your username in the top right corner.
 1. Click profile.
 1. Click the **Change Password** link.
@@ -50,7 +50,7 @@ To change your password for the Octopus instance and Octopus account:
 
 If you forget your username or password for your Octopus account or Octopus instance, you can reset them via Octopus.com
 
-1. Visit [octopus.com/signin](https://Octopus.com/signin).
+1. Visit [Osctopus.com/signin](https://Octopus.com/signin).
 1. Click **Forgot your password?**
 1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
 
