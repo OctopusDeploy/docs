@@ -6,7 +6,7 @@ description: An example script the will find provide a list of targets being unu
 This script will loop through all the targets in all spaces on an instance and will return:
 
 - How many cloud region targets which are not counted against your license
-- How many duplicate listening tentacles you have
+- How many duplicate listening Tentacles you have
 - How many targets that are disabled
 - How many targets are being reported as offline
 - How many targets have never been used in a deployment

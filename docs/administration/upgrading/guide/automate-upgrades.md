@@ -185,7 +185,7 @@ Depending on the duration of the upgrade, your Octopus Server may still be start
 
 It is possible to automate upgrading Octopus Deploy High Availability instances, but it requires more than a single script.  The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a free license to do this with an [Octopus Cloud instance](https://octopus.com/start).
 
-![](images/upgrade-diagram.png)
+![](images/upgrade-diagram.png “width=500”)
 
 Each HA node will need a Tentacle installed on it.  You will need two roles for this to work.
 

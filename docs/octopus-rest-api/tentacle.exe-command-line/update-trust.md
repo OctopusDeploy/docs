@@ -27,17 +27,17 @@ Or one of the common options:
 This example replaces the trusted thumbprint value `3FAFA8E1EE6A1133701190306E2CBAFA39C30C8D` with the new value `5FAEA8E1EE6A4535701190536E2CBAFA39C30C8F` for any matching instances:
 
 ```
-tentacle update-trust --oldThumbprint="3FAFA8E1EE6A1133701190306E2CBAFA39C30C8D" --newThumbprint="5FAEA8E1EE6A4535701190536E2CBAFA39C30C8F"
+Tentacle update-trust --oldThumbprint="3FAFA8E1EE6A1133701190306E2CBAFA39C30C8D" --newThumbprint="5FAEA8E1EE6A4535701190536E2CBAFA39C30C8F"
 ```
 
 ## Automated Update Of Trust
 
-This example will query the Octopus Server endpoint and pull the certificate.  If the endpoint's certificate thumbprint is different than the tentacle it will find the matching tentacles installed and update them.
+This example will query the Octopus Server endpoint and pull the certificate.  If the endpoint's certificate thumbprint is different than the Tentacle it will find the matching Tentacles installed and update them.
 
 Recommend setting up a scheduled task to run every 20-30 minutes to check the certificate thumbprint of the server when you are in the process of updating your certificate. 
 
 ```PowerShell
-$octopusURL = "https://samples.octopus.app:10943" #Replace 10943 with 443 for polling tentacles over websockets
+$octopusURL = "https://samples.octopus.app:10943" #Replace 10943 with 443 for polling Tentacles over websockets
 $tentacleExe = "C:\Program Files\Octopus Deploy\Tentacle\Tentacle.exe"
 $logLocation = "C:\OctopusScripts"
 $logFile = "$logLocation\UpdatePollingCert_Log.Txt"
@@ -112,7 +112,7 @@ $certThumbprint = ([String]::Join(':',$thumbParts2.toarray([string]))) -replace 
 
 Write-ToLog "The certificate for $OctopusUrl is $certThumbprint"
 $instanceList = (& $tentacleExe list-instances --format="JSON") | Out-String | ConvertFrom-Json
-Write-ToLog "Found $($instanceList.length) tentacle instances"
+Write-ToLog "Found $($instanceList.length) Tentacle instances"
 
 foreach ($instance in $instanceList)
 {
@@ -127,7 +127,7 @@ foreach ($instance in $instanceList)
 
         if ([string]::IsNullOrWhiteSpace($server.Address))
         {
-            Write-ToLog "The current server is not a polling tentacle, moving onto next one."
+            Write-ToLog "The current server is not a polling Tentacle, moving onto next one."
             continue
         }
 
@@ -146,14 +146,14 @@ foreach ($instance in $instanceList)
         }
         elseif ($currentThumbprint -ne $certThumbprint)
         {       
-            Write-ToLog "The thumbprint has changed from $currentThumbprint to $certThumbprint, updating the tentacle $($instance.InstanceName)"
+            Write-ToLog "The thumbprint has changed from $currentThumbprint to $certThumbprint, updating the Tentacle $($instance.InstanceName)"
             & $tentacleExe service --instance="$($instance.InstanceName)" --stop
             & $tentacleExe update-trust --oldThumbprint $currentThumbprint --newThumbprint $certThumbprint --instance="$($instance.InstanceName)"
             & $tentacleExe service --instance="$($instance.InstanceName)" --start
         }
         else 
         {
-            Write-ToLog "The thumbprint for the tentacle $($instance.InstanceName) is still $certThumbprint"        
+            Write-ToLog "The thumbprint for the Tentacle $($instance.InstanceName) is still $certThumbprint"        
         }
     }  
 }

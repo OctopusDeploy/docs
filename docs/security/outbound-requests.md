@@ -40,7 +40,7 @@ When the "Check for updates" option is enabled, Octopus will make a HTTPS reques
 
 :::hint
 **Microsoft Azure**
-The octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
+The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
 In addition, when the "Include statistics" option is enabled, we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:

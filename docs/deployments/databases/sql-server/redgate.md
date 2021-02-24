@@ -32,7 +32,7 @@ The following preparation needs to be completed prior to creating and configurin
 
 ### Configure a worker pool
 
-This documentation assumes a Windows VM already has the Tentacle installed on it.  This guide will start with the worker pool creation and how to register that tentacle as a worker.  
+This documentation assumes a Windows VM already has the Tentacle installed on it.  This guide will start with the worker pool creation and how to register that Tentacle as a worker.  
 
 1. To configure a worker pool in the Octopus Web portal, go to {{Infrastructure,Worker Pools}}, and click **Add Worker Pool**.
 2. When the modal window appears, enter a name, and if you see the **Static** and **Dynamic** options, select **Static** as the worker pool type:
@@ -56,7 +56,7 @@ The server needs to access the PowerShell gallery to download the Redgate toolin
 
 Use the Octopus Web Portal to register a Listening Tentacle.  You will need to download the Tentacle onto the server and select Listening as the communication mode.
 
-Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in {{Configuration,Thumbprint}}.  This is the thumbprint of the server's certificate.  The server and the tentacle will exchange the certificates to ensure a two-way trust is established.
+Follow the wizard.  The thumbprint for the server for this form can be found on the add worker screen or in {{Configuration,Thumbprint}}.  This is the thumbprint of the server's certificate.  The server and the Tentacle will exchange the certificates to ensure a two-way trust is established.
 
 :::highlight
 The thumbprint in this screenshot is from a sample instance of Octopus Deploy.  Your thumbprint will be different.
@@ -74,7 +74,7 @@ By default, the Listening Tentacle will listen on port `10933`.  If you configur
 
 ![The screen to create a Listening Tentacle](images/redgate-octopus-create-listening-worker.png "width=500")
 
-The Octopus Server will attempt to connect to the Tentacle.  The listening tentacle will only accept a connection if it the server's thumbprint matches.  After the communication is successful, provide a display name for the worker.  Depending on the screen this wizard was started from, the worker pool may or may not be pre-populated.  Click **Save** to save the worker to the database.
+The Octopus Server will attempt to connect to the Tentacle.  The listening Tentacle will only accept a connection if it the server's thumbprint matches.  After the communication is successful, provide a display name for the worker.  Depending on the screen this wizard was started from, the worker pool may or may not be pre-populated.  Click **Save** to save the worker to the database.
 
 #### Polling Tentacles
 
@@ -195,7 +195,7 @@ The deployment process will be:
 
 In Octopus Deploy, that process will look like the following screenshot.  This example uses **Slack** as the notification technology.  Octopus Deploy supports a number of different mechanisms to notify users, including email, Slack, Microsoft Teams, and Twilio to name a few.
 
-![Deployment process overview in Octopus Deploy](images/redgate-octopus-deploy-deployment-process-overview.png)
+![Deployment process overview in Octopus Deploy](images/redgate-octopus-deploy-deployment-process-overview.png “width=500”)
 
 Before adding steps to the process, a number of variables need to be created.  We recommend namespacing the variables using [ProjectName].[Component].[Sub-component].
 
@@ -221,7 +221,7 @@ The choice of two teams in this example was intentional.  The DBAs are the ones 
 
 The final step for this guide is **Redgate - Deploy Database Release**.  It takes the delta script created in the first step and runs it on the specified server.  The number of options on this step are limited compared to the create release step.  
 
-![Deploy from database release step](images/octopus-redgate-deploy-database-release.png)
+![Deploy from database release step](images/octopus-redgate-deploy-database-release.png “width=500”)
 
 ## Working example
 

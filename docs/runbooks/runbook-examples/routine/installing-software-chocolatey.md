@@ -165,7 +165,7 @@ The features which will be installed are:
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to install Windows features.
 
-## Automating tentacle installation with chocolatey packages
+## Automating Tentacle installation with chocolatey packages
 
 The Tentacle agent can be automatically installed from the command-line. This is very useful if you're deploying to a large number of servers or you're provisioning servers automatically.
 
