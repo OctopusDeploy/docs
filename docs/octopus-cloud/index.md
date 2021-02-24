@@ -50,7 +50,7 @@ To change your password for the Octopus instance and Octopus account:
 
 If you forget your username or password for your Octopus account or Octopus instance, you can reset them via Octopus.com
 
-1. Visit [Osctopus.com/signin](https://Octopus.com/signin).
+1. Visit [Octopus.com/signin](https://Octopus.com/signin).
 1. Click **Forgot your password?**
 1. Reset your credentials and log into your Octopus account. You can now launch your Octopus instance from the accounts dashboard.
 
