@@ -12,7 +12,7 @@ Octopus ID authentication allows you to log in to your Octopus Cloud instance us
 
 ## Inviting users and configuring teams with Octopus ID
 
-After you've used octopus.com to [invite some other users](/docs/octopus-cloud/index.md#OctopusCloud-Invitingusers) to your instance, you can configure the users with [Teams](/docs/security/users-and-teams/index.md) and [User Roles](/docs/security/users-and-teams/user-roles.md) as you normally would using the product.
+After you've used Octopus.com to [invite some other users](/docs/octopus-cloud/index.md#OctopusCloud-Invitingusers) to your instance, you can configure the users with [Teams](/docs/security/users-and-teams/index.md) and [User Roles](/docs/security/users-and-teams/user-roles.md) as you normally would using the product.
 
 ### Learn more
 
