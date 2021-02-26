@@ -166,18 +166,18 @@ Write-Host "Of that combined number, $($categorizedMachines.OldMachines.Count) h
 Write-Host "Offline Targets"
 Foreach ($target in $categorizedMachines.OfflineMachines)
 {
-    Write-Host " -  $($target.Name) in $($space.Id)"
+    Write-Host " -  $($target.Name)"
 }
 
 Write-Host "No Deployment Ever Targets"
 Foreach ($target in $categorizedMachines.UnusedMachines)
 {
-    Write-Host " -  $($target.Name) in $($space.Id)"
+    Write-Host " -  $($target.Name)"
 }
 
 Write-Host " No deployments in the last $daysSinceLastDeployment Targets"
 Foreach ($target in $categorizedMachines.OldMachines)
 {
-    Write-Host " -  $($target.Name) in $($space.Id)"
+    Write-Host " -  $($target.Name)"
 }
 ```
