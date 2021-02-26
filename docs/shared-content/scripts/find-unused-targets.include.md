@@ -65,7 +65,7 @@ function Invoke-OctopusApi
             }
             else
             {                
-                Write-Verbose -Message "Error calling $url $($_.Exception.Message) StatusCode: $($_.Exception.Response.StatusCode )"
+                Write-Error -Message "Error calling $url $($_.Exception.Message) StatusCode: $($_.Exception.Response.StatusCode )"
             }            
         }
         else
