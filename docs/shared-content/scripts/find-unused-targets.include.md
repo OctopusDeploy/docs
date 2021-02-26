@@ -77,24 +77,13 @@ function Invoke-OctopusApi
     Throw $_.Exception
 }
 
-$spaceList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "spaces?skip=0&take=1000" -spaceId $null -method "GET"
+function Update-CategorizedMachines
+{
+    param (
+        $categorizedMachines,
+        $space
+    )
 
-$currentUtcTime = $(Get-Date).ToUniversalTime()
-
-$categorizedMachines = @{
-    NotCountedMachines = @()
-    DisabledMachines = @()
-    ActiveMachines = 0
-    OfflineMachines = @()
-    UnusedMachines = @()
-    OldMachines = @()
-    TotalMachines = 0
-    ListeningTentacles = @()
-    DuplicateTentacles = @()
-}
-
-foreach ($space in $spaceList.Items)
-{    
     $machineList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "machines?skip=0&take=10000" -spaceId $space.Id -method "GET"    
 
     foreach ($machine in $machineList.Items)
@@ -151,6 +140,38 @@ foreach ($space in $spaceList.Items)
             $categorizedMachines.OldMachines += $machine                        
         }                 
     }
+}
+
+$currentUtcTime = $(Get-Date).ToUniversalTime()
+
+$categorizedMachines = @{
+    NotCountedMachines = @()
+    DisabledMachines = @()
+    ActiveMachines = 0
+    OfflineMachines = @()
+    UnusedMachines = @()
+    OldMachines = @()
+    TotalMachines = 0
+    ListeningTentacles = @()
+    DuplicateTentacles = @()
+}
+
+# Need to check the Octopus Server version for spaces feature
+Write-Host "Checking Octopus Server version..."
+$apiInfo = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint $null -method "GET"
+$version = $apiInfo.Version
+$versionParts = $apiInfo.Version.Split(".")
+
+if ($versionParts[0] -ge 2019) {
+    Write-Host "Octopus Server version $version supports spaces, checking all spaces."
+    $spaceList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "spaces?skip=0&take=1000" -spaceId $null -method "GET"
+    foreach ($space in $spaceList.Items)
+    {    
+        Update-CategorizedMachines -categorizedMachines $categorizedMachines -space $space
+    }
+} else {
+    Write-Host "Octopus Server version $version doesn't use spaces."
+    Update-CategorizedMachines -categorizedMachines $categorizedMachines
 }
 
 Write-Host "This instance has a total of $($categorizedMachines.TotalMachines) targets across all spaces."
