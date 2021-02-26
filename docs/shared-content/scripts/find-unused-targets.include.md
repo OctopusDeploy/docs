@@ -26,7 +26,7 @@ function Invoke-OctopusApi
         $octopusUrlToUse = $OctopusUrl.Substring(0, $OctopusUrl.Length - 1)
     }
 
-    if ([string]::IsNullOrWhiteSpace($SpaceId))
+    if ([string]::IsNullOrWhiteSpace($spaceId))
     {
         $url = "$octopusUrlToUse/api/$EndPoint"
     }
