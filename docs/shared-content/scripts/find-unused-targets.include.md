@@ -26,7 +26,7 @@ function Invoke-OctopusApi
         $octopusUrlToUse = $OctopusUrl.Substring(0, $OctopusUrl.Length - 1)
     }
 
-    if ([string]::IsNullOrWhiteSpace($SpaceId))
+    if ([string]::IsNullOrWhiteSpace($spaceId))
     {
         $url = "$octopusUrlToUse/api/$EndPoint"
     }
@@ -65,7 +65,7 @@ function Invoke-OctopusApi
             }
             else
             {                
-                Write-Verbose -Message "Error calling $url $($_.Exception.Message) StatusCode: $($_.Exception.Response.StatusCode )"
+                Write-Error -Message "Error calling $url $($_.Exception.Message) StatusCode: $($_.Exception.Response.StatusCode )"
             }            
         }
         else
@@ -77,24 +77,13 @@ function Invoke-OctopusApi
     Throw $_.Exception
 }
 
-$spaceList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "spaces?skip=0&take=1000" -spaceId $null -method "GET"
+function Update-CategorizedMachines
+{
+    param (
+        $categorizedMachines,
+        $space
+    )
 
-$currentUtcTime = $(Get-Date).ToUniversalTime()
-
-$categorizedMachines = @{
-    NotCountedMachines = @()
-    DisabledMachines = @()
-    ActiveMachines = 0
-    OfflineMachines = @()
-    UnusedMachines = @()
-    OldMachines = @()
-    TotalMachines = 0
-    ListeningTentacles = @()
-    DuplicateTentacles = @()
-}
-
-foreach ($space in $spaceList.Items)
-{    
     $machineList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "machines?skip=0&take=10000" -spaceId $space.Id -method "GET"    
 
     foreach ($machine in $machineList.Items)
@@ -153,6 +142,38 @@ foreach ($space in $spaceList.Items)
     }
 }
 
+$currentUtcTime = $(Get-Date).ToUniversalTime()
+
+$categorizedMachines = @{
+    NotCountedMachines = @()
+    DisabledMachines = @()
+    ActiveMachines = 0
+    OfflineMachines = @()
+    UnusedMachines = @()
+    OldMachines = @()
+    TotalMachines = 0
+    ListeningTentacles = @()
+    DuplicateTentacles = @()
+}
+
+# Need to check the Octopus Server version for spaces feature
+Write-Host "Checking Octopus Server version..."
+$apiInfo = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint $null -method "GET"
+$version = $apiInfo.Version
+$versionParts = $apiInfo.Version.Split(".")
+
+if ($versionParts[0] -ge 2019) {
+    Write-Host "Octopus Server version $version supports spaces, checking all spaces."
+    $spaceList = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "spaces?skip=0&take=1000" -spaceId $null -method "GET"
+    foreach ($space in $spaceList.Items)
+    {    
+        Update-CategorizedMachines -categorizedMachines $categorizedMachines -space $space
+    }
+} else {
+    Write-Host "Octopus Server version $version doesn't use spaces."
+    Update-CategorizedMachines -categorizedMachines $categorizedMachines
+}
+
 Write-Host "This instance has a total of $($categorizedMachines.TotalMachines) targets across all spaces."
 Write-Host "There are $($categorizedMachines.NotCountedMachines.Count) cloud regions which are not counted."
 Write-Host "There are $($categorizedMachines.DisabledMachines.Count) disabled machines that are not counted."
@@ -166,18 +187,18 @@ Write-Host "Of that combined number, $($categorizedMachines.OldMachines.Count) h
 Write-Host "Offline Targets"
 Foreach ($target in $categorizedMachines.OfflineMachines)
 {
-    Write-Host " -  $($target.Name) in $($space.Id)"
+    Write-Host " -  $($target.Name)"
 }
 
 Write-Host "No Deployment Ever Targets"
 Foreach ($target in $categorizedMachines.UnusedMachines)
 {
-    Write-Host " -  $($target.Name) in $($space.Id)"
+    Write-Host " -  $($target.Name)"
 }
 
 Write-Host " No deployments in the last $daysSinceLastDeployment Targets"
 Foreach ($target in $categorizedMachines.OldMachines)
 {
-    Write-Host " -  $($target.Name) in $($space.Id)"
+    Write-Host " -  $($target.Name)"
 }
 ```
