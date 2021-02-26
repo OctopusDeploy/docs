@@ -82,7 +82,7 @@ An MSBuild task will accomplish the same thing
 
 5. Add `/p:OutDir=$(build.stagingdirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
 
-![MSBuild arguments](images/azure-devops-build-visual-studio-arguments.png “width=500”)
+![MSBuild arguments](images/azure-devops-build-visual-studio-arguments.png "width=500")
 
 6. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
 
@@ -112,7 +112,7 @@ For Azure DevOps, the build number can be formatted on the Options tab under Bui
 
 Queue the build to push the artifact to the Octopus Server:
 
-![](images/azure-devops-build-successful.png “width=500”)
+![](images/azure-devops-build-successful.png "width=500")
 
 ## Create the Octopus Deploy project
 
@@ -170,7 +170,7 @@ With variables defined, we can add steps to our deployment process.
 
 The deployment process should look like this:
 
-![](images/octopus-project-steps.png “width=500”)
+![](images/octopus-project-steps.png "width=500")
 
 ### Create and deploy a release
 
@@ -181,6 +181,6 @@ The deployment process should look like this:
 
 The results will look like:
 
-![](images/octopus-project-deploy-complete.png “width=500”)
+![](images/octopus-project-deploy-complete.png "width=500")
 
 The first part of this process gathers the changes and creates two [artifacts](/docs/projects/deployment-process/artifacts.md), an XML file that reports which objects will be changed and the script it will use to apply those changes.  The deployment (deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.
