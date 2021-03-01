@@ -15,7 +15,8 @@ This feature was added in Octopus Deploy **2021.1**
 ![Import Export Menu](import-export-menu.png)
 
 ## Scenarios
-The current implement of the Export/Import feature was designed for moving a project between spaces, specifically:
+
+The current implementation of the Export/Import feature was designed for moving a project between spaces, specifically:
 - Moving from a self-hosted instance to an Octopus Cloud instance (or vice-versa)
 - Splitting a space containing many projects into multiple spaces
 
@@ -25,6 +26,7 @@ Scenarios this feature was _not_ designed for include:
 - Promoting changes between environments on different Octopus instances. See below. 
 
 ### Promoting changes between Octopus instances
+
 There are scenarios where it is desirable to create releases and deploy them to test environments on a development Octopus instance before promoting the changes to another instance.  This can be due to reasons including:
 - security requirements (e.g. air-gapped environments) 
 - multi-tenancy (deploying Octopus to customer infrastructure)
@@ -48,7 +50,8 @@ The root of the export/import is a project (or multiple projects).  The simple r
 - [Step templates](#step-templates) used in the deployment process or runbooks
 - Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/index.md)
 
-It is worth explicitly mentioned some things that are **not included**:
+It is worth explicitly mentioning some things that are **not included**:
+
 - [Packages](#packages)
 - [Deployment targets](#deployment-targets)
 - [Audit logs](#audit-logs)
