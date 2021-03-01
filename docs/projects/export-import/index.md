@@ -8,6 +8,10 @@ The `Export/Import Projects` feature can export one or more projects into a zip 
 
 Export/Import features are found in the overflow menu on the {{Projects}} page. 
 
+:::hint
+This feature was added in Octopus Deploy **2021.1**
+:::
+
 ![Import Export Menu](import-export-menu.png)
 
 ## Scenarios
