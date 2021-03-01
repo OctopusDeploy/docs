@@ -4,7 +4,7 @@ description: Projects can be exported, and imported into another space
 position: 40
 ---
 
-The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces.  The target space may be in a different Octopus Server instance. Projects can be exported and imported between self-hosted and Octopus Cloud instances (see below for some [specific considerations when moving a project to Octopus Cloud](#octopus-cloud)). 
+The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces.  The target space may be in a different Octopus Server instance, and projects can be exported and imported between self-hosted and Octopus Cloud instances (see below for some [specific considerations when moving a project to Octopus Cloud](#octopus-cloud)). 
 
 Export/Import features are found in the overflow menu on the {{Projects}} page. 
 
@@ -35,14 +35,14 @@ The root of the export/import is a project (or multiple projects).  The simple r
 
 - The project (name, logo, settings)   
 - The deployment process and runbooks 
-- The project's variables
-- The project's channels, and all lifecycles referenced 
+- Project variables 
+- Channels, and all lifecycles referenced 
 - Environments (see [below](#environments) for details)
 - [Tenants](#tenants) connected to the project
 - [Accounts](#accounts) and [certificates](#certificates) used by the project
-- Library variable sets included in the project 
+- [Library variable sets](#library-variable-sets) included in the project 
 - [Step templates](#step-templates) used in the deployment process or runbooks
-- Other projects referenced by Deploy Release steps
+- Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/index.md)
 
 It is worth explicitly mentioned some things that are **not included**:
 - [Packages](#packages)
@@ -101,11 +101,11 @@ If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Wor
 
 ### Tenants
 
-All [tenants](/docs/deployment-patterns/multi-tenant-deployments/index.md) connected to the project will be included in the export.
+All [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) connected to the project will be included in the export.
 
 On import, for any tenants which already exist on the destination the project/environment connections in the export will be merged into the existing tenant. 
 
-### Library Variable Sets 
+### Library Variable Sets #{library-variable-sets} 
 
 [Library variable sets](/docs/projects/variables/library-variable-sets.md) connected to the project will be exported, including all variables. 
 
@@ -113,7 +113,7 @@ When importing, if a library variable set with the same name already exists, the
 
 ### Step templates
 
-[Step templates](/docs/deployment-process/steps/custom-step-templates.md) used in the project's deployment or runbook processes will be included in the export.
+[Step templates](/docs/projects/custom-step-templates.md) used in the project's deployment or runbook processes will be included in the export.
 
 :::hint
 Care should be taken with step templates when exporting/importing projects at different times
