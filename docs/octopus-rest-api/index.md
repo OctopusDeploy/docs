@@ -32,4 +32,4 @@ If you are using spaces, you need to include the `SpaceID` in your API calls. If
 
 ## Documentation and Samples {#Octopus.Client-Documentationandsamples}
 
-[Documentation](https://g.octopushq.com/ApiDocs) and samples for the Octopus Deploy REST API are available both our [API examples](/docs/octopus-rest-api/examples/index.md) and on the [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api).
+[Documentation](https://g.octopushq.com/ApiDocs) and samples for the Octopus Deploy REST API are available both in our [API examples](/docs/octopus-rest-api/examples/index.md) and on the [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api).

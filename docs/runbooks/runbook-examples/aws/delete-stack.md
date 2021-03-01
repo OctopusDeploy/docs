@@ -17,7 +17,7 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Choose the **Delete an AWS CloudFormation stack** step:
 
-![Delete Stack](images/deploy-cloudformation-step.png)
+![Delete Stack](images/deploy-cloudformation-step.png "width=500")
 
 5. Fill in the parameters for the step:
 

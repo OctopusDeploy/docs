@@ -13,7 +13,7 @@ There are two approaches to creating a test instance:
 1. Subset of projects representing the main instance.
 1. Clone of the main instance.
 
-### Test instance with a subset of projects
+## Test instance with a subset of projects
 
 Setting up a test instance with a subset of projects over a full clone has several advantages.  
 
@@ -37,7 +37,7 @@ The process to create an instance with a subset of projects is:
 !include <upgrade-export-import-test-projects>
 !include <upgrade-testing-upgraded-instance>
 
-### Test instance is a clone
+## Test instance is a clone
 
 Setting up a test instance as a clone of the main instance has a few advantages over a subset of projects.
 

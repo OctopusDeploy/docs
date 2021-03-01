@@ -1,14 +1,14 @@
 ---
-title: Docker registries as feeds
+title: Docker Container Registry
 description: A Docker Registry is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
-position: 40
+position: 20
 hideInThisSectionHeader: true
 ---
 
 A [Docker Registry](https://docs.docker.com/registry/) is treated in Octopus Deploy as a feed that supplies images that are run as containers on a Docker Engine host.
 
 :::success
-See an example deployment using Docker Registries in our guide: [Docker run with networking](docs/deployment-examples/docker-containers/docker-run-with-networking.md).
+See an example deployment using Docker Registries in our guide: [Docker run with networking](docs/deployments/docker/docker-run-with-networking.md).
 :::
 
 ## Using Docker registries in Octopus Deploy {#DockerRegistriesasFeeds-UsingDockerRegistriesinOctopusDeploy}
@@ -63,9 +63,9 @@ This image supports custom storage locations, certificates for HTTPS and authent
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
-- [Docker Hub](/docs/packaging-applications/package-repositories/docker-registries/docker-hub.md)
-- [Azure Container Services](/docs/packaging-applications/package-repositories/docker-registries/azure-container-services.md)
-- [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/docker-registries/amazon-ec2-container-services.md)
+- [Docker Hub](/docs/packaging-applications/package-repositories/guides/docker-hub.md)
+- [Azure Container Services](/docs/packaging-applications/package-repositories/guides/azure-container-services.md)
+- [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/amazon-ec2-container-services.md)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 

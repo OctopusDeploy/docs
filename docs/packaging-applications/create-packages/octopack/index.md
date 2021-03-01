@@ -25,7 +25,7 @@ Set the `RunOctoPack` MSBuild property to true, and OctoPack will create a NuGet
 msbuild MySolution.sln /t:Build /p:RunOctoPack=true
 ```
 
-After the build completes, you will find a NuGet package in the output directory. This package is ready to be deployed with Octopus. See [Package Deployments](/docs/deployment-examples/package-deployments/index.md).
+After the build completes, you will find a NuGet package in the output directory. This package is ready to be deployed with Octopus. See [Package Deployments](/docs/deployments/packages/index.md).
 
 ## Add a NuSpec file {#UsingOctoPack-AddingaNuSpec}
 
@@ -125,11 +125,11 @@ The example below shows a web app called **OctoFX.TradingWebsite**. All the file
 
 ### .NET configuration transformation
 
-OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/deployment-process/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your .NET configuration transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
+OctoPack won't run web.config transformation files, because these will be run as [part of the deployment instead](/docs/projects/steps/configuration-features/configuration-transforms/index.md). Make sure you set **Build Action: Content** for your .NET configuration transform files (like `web.Release.config`) to ensure these files are packaged and used as part of your deployment.
 
 ### .NET XML configuration transforms
 
-You can use [.NET XML configuration transforms](/docs/deployment-process/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/deployment-process/configuration-features/index.md).
+You can use [.NET XML configuration transforms](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) on any XML files including the `app.config` file for Windows Service, Console, Windows Forms, or WPF applications. Make sure the transform files are copied to the build output directory as part of your build, and they will be packaged by OctoPack so you can use them as part of your [deployment](/docs/projects/steps/configuration-features/index.md).
 
 ## Include additional files using copy to output directory {#UsingOctoPack-IncludingadditionalfilesusingCopytoOutputDirectory}
 
@@ -237,4 +237,4 @@ In addition to the common arguments above, OctoPack has a number of other parame
 
  - Use [OctoPack to include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
- - [Package deployments](/docs/deployment-examples/package-deployments/index.md)
+ - [Package deployments](/docs/deployments/packages/index.md)

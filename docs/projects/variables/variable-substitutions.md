@@ -4,7 +4,7 @@ description: Variable substitutions are a flexible way to adjust configuration b
 position: 10
 ---
 
-Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
+Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/projects/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
 ## Binding variables
 
@@ -212,6 +212,11 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
 
+### Further examples
+
+If you're struggling with a specific syntax or OctoStache construct, you can find more examples in the unit tests defined for the library on GitHub:
+[OctoStache Tests UsageFixture](https://github.com/OctopusDeploy/Octostache/blob/master/source/Octostache.Tests/UsageFixture.cs).
+
 ### Filters {#VariableSubstitutionSyntax-Filters}
 
 The following filters are available:
@@ -241,7 +246,7 @@ The filters can be invoked in the following way:
 #{Octopus.Environment.Name | ToLower}
 ```
 
-For more information, see [Variable Filters](https://octopus.com/docs/projects/variables/variable-filters).
+For more information, see [Variable Filters](/docs/projects/variables/variable-filters.md).
 
 ## Learn more
 

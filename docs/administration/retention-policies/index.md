@@ -31,7 +31,7 @@ Octopus will never remove the latest release or the release previous to the late
 
 ### Tentacle files {#targets-whats-deleted}
 
-The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/deployment-process/configuration-features/custom-installation-directory.md) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
+The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory.md) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
 :::hint
 We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) also.
@@ -41,11 +41,11 @@ We talk about Tentacles here, but the same process and logic applies to [SSH Tar
 
 The built-in repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
 
-A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployment-examples/package-deployments/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
+A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployments/packages/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
 
 ### Build information {#build-information-whats-deleted}
 
-[Build information](/docs/packaging-applications/build-servers/index.md#build-information) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
+[Build information](/docs/packaging-applications/build-servers/build-information/index.md) stored in Octopus is associated with **packages**. Octopus will decide how long to keep the build information based on the package they are linked to:
 - If the package is used by a release, it will be kept.
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
 - If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories/index.md). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.

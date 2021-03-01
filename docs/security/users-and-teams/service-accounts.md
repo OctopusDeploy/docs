@@ -14,9 +14,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 
 :::hint
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
-:::
 
-:::success
 Service accounts authenticate with the Octopus API using their [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 

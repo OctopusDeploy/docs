@@ -4,7 +4,7 @@ description: System variables are variables provided by Octopus that can be used
 position: 20
 ---
 
-This page lists built-in [variables](/docs/projects/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+This page lists built-in [variables](/docs/projects/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts/index.md).
 
 ## Release {#Systemvariables-Release}
 
@@ -28,7 +28,7 @@ Release-level variables are drawn from the project and release being created.
 
 The `Octopus.Release.Package` variable:
 
-* will only be populated if [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed from the build server.  
+* will only be populated if [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed from the build server.  
 * is only available to be used by the project [release notes](/docs/releases/release-notes.md), it is not accessible from the project deployment steps.
 
 :::
@@ -209,8 +209,8 @@ Deployment-level variables are drawn from the project and release being deployed
 | Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Deployment.Changes` <br/>A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). | This will be JSON (see below) |
-|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
-|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/index.md#build-information) across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/index.md#build-information) has been pushed | This will be JSON (see below) |
+|`Octopus.Deployment.WorkItems` <br/>The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking/index.md) is enabled. | This will be JSON (see below) |
+|`Octopus.Deployment.PackageBuildInformation` <br/>The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/index.md) across all [changes in the deployment](/docs/releases/deployment-notes.md). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed | This will be JSON (see below) |
 
 The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
 
@@ -286,7 +286,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
 |`Octopus.Action.Manual.Instructions` <br/>The instructions provided for a manual step | *Don't break anything* |
 |`Octopus.Action.Manual.ResponsibleTeamIds` <br/>The teams responsible for completing a manual step *(List)* | *teams-123,teams-124*|
-|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
+|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |`Octopus.Action.Name` <br/>The name of the action | *Website*|
 |`Octopus.Action.Number` <br/>The sequence number of the action in the deployment process *(Number)* | *5*|
 |`Octopus.Action.Package.CustomInstallationDirectory` <br/>If set, a specific directory to which the package will be copied after extraction | *C:\InetPub\WWWRoot\OctoFx*|
@@ -462,7 +462,7 @@ The following variables can be defined as variables in your project to modify th
 | Name and description | Example |
 | -------------------- | ------- |
 |`Octopus.Acquire.MaxParallelism` <br/>Maximum number of NuGet packages that should be downloaded at once when acquiring packages. | 3|
-|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployment-patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
+|`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md). *(Number - Default: 10)* | *5*|
 |`OctopusPrintVariables` <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments. | True|
 |`OctopusPrintEvaluatedVariables` <br/>Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments. | True|
 |`OctopusTreatWarningsAsErrors` <br/>Set to "True" to have warnings from .NET XML configuration transforms or PowerShell scripts treated as if they were errors, failing the deployment. | True|

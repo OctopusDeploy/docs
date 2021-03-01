@@ -48,7 +48,7 @@ This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-
  The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
-  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](https://octopus.com/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
+  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md) this works great on Linux and Windows.
   - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
 
 Then we can let the plugin know where it is installed.
@@ -123,7 +123,7 @@ Note that the package paths defined here should be full paths, not including any
 
 ## Push build information {#Jenkins-Pushbuildinformation}
 
-Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/index.md#build-information).
+Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/build-information/index.md).
 
 The build information is associated with a package and includes:
 

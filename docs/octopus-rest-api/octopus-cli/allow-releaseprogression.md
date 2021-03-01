@@ -13,15 +13,15 @@ Usage: octo allow-releaseprogression [<options>]
 
 Where [<options>] is any of:
 
-Allowing release progression.:
+Allowing release progression:
 
-      --project=VALUE        Name or ID of the project
+      --project=VALUE        Name or ID of the project.
       --version, --releaseNumber=VALUE
-                             Release version/number
+                             Release version/number.
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -47,7 +47,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
@@ -77,7 +77,7 @@ Common options:
 
 !include <samples-instance>
 
-This example removes the [prevent progression](https://octopus.com/docs/releases/prevent-release-progression) flag from a release, allowing it to proceed to the next environment.
+This example removes the [prevent progression](/docs/releases/prevent-release-progression.md) flag from a release, allowing it to proceed to the next environment.
 ```text
 octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08.03.82" --space="Target - Hybrid" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```

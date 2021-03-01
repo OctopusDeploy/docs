@@ -17,11 +17,13 @@ Where [<options>] is any of:
 
 Release creation:
 
-      --project=VALUE        Name or ID of the project
+      --project=VALUE        Name or ID of the project.
       --defaultPackageVersion, --packageVersion=VALUE
                              Default version number of all packages to use
                              for this release. Override per-package using --
                              package.
+      --ref, --gitRef=VALUE  [Optional, Experimental] Git reference to use
+                             when creating the release.
       --version, --releaseNumber=VALUE
                              [Optional] Release number to use for the new
                              release.
@@ -57,7 +59,7 @@ Release creation:
 
 Deployment:
 
-      --progress             [Optional] Show progress of the deployment
+      --progress             [Optional] Show progress of the deployment.
       --forcePackageDownload [Optional] Whether to force downloading of
                              already installed packages (flag, default false).
       --waitForDeployment    [Optional] Whether to wait synchronously for
@@ -74,10 +76,10 @@ Deployment:
       --deploymentCheckSleepCycle=VALUE
                              [Optional] Specifies how much time (timespan
                              format) should elapse between deployment status
-                             checks (default 00:00:10)
+                             checks (default 00:00:10).
       --guidedFailure=VALUE  [Optional] Whether to use guided failure mode.
                              (True or False. If not specified, will use
-                             default setting from environment)
+                             default setting from environment).
       --specificMachines=VALUE
                              [Optional] A comma-separated list of machine
                              names to target in the deployed environment. If
@@ -92,16 +94,15 @@ Deployment:
                              packages with already-installed versions,
                              override this setting to force re-deployment
                              (flag, default false).
-      --skip=VALUE           [Optional] Skip a step by name
+      --skip=VALUE           [Optional] Skip a step by name.
       --noRawLog             [Optional] Don't print the raw log of failed
-                             tasks
+                             tasks.
       --rawLogFile=VALUE     [Optional] Redirect the raw log of failed tasks
-                             to a file
-  -v, --variable=VALUE       [Optional] Values for any prompted variables in
-                             the format Label:Value. For JSON values,
-                             embedded quotation marks should be escaped with
-                             a backslash. Specify this argument multiple
-                             times to add multiple variables.
+                             to a file.
+  -v, --variable=VALUE       [Optional] Specifies the value for a prompted
+                             variable in the format Label:Value. For JSON
+                             values, embedded quotation marks should be
+                             escaped with a backslash.
       --deployAt=VALUE       [Optional] Time at which deployment should start
                              (scheduled deployment), specified as any valid
                              DateTimeOffset format, and assuming the time
@@ -127,7 +128,7 @@ Deployment:
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -153,7 +154,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
@@ -181,13 +182,13 @@ Common options:
 
 ## Basic Examples {#Creatingreleases-Basicexamples}
 
-This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](https://octopus.com/docs/releases/release-versioning) project setting: 
+This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning.md) project setting: 
 
 ```bash
 octo create-release --project HelloWorld --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
-This creates a release with a specified release number, overriding the [Release Versioning](https://octopus.com/docs/releases/release-versioning) project setting:
+This creates a release with a specified release number, overriding the [Release Versioning](/docs/releases/release-versioning.md) project setting:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
@@ -225,7 +226,7 @@ octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 -
 
 The example above uses `1.0.1` for `StepA`, and the latest version available at the moment for `StepB`.
 
-For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages
+For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages
 )), the format `StepName:PackageName:Version` can also be used:  
 
 ```bash

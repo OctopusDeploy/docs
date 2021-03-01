@@ -63,7 +63,7 @@ Each `Windows Server Core 2019` worker is provisioned with a baseline of tools i
 - Powershell Core (latest)
 - Python (3.7.4)
 
-Windows 2019 workers are capable of running [execution worker containers](/docs/deployment-process/execution-containers-for-workers/index.md).
+Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md).
 
 ### Windows Server Core 2016
 
@@ -84,7 +84,7 @@ Each `Windows Server Core 2016` worker is provisioned with a baseline of tools i
 - Powershell Core (latest)
 - Python (3.7.4)
 
-Please note that [execution worker containers](/docs/deployment-process/execution-containers-for-workers/index.md) are not supported on Windows 2016 workers.
+Please note that [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md) are not supported on Windows 2016 workers.
 
 ### Ubuntu 18.04
 
@@ -101,7 +101,7 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 
 Windows 2016 and 2019 dynamic worker images come with many versions of `kubectl` available.
 
-A specific version can be used by [specifying a custom kubectl location](/docs/deployment-examples/kubernetes-deployments/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
+A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
 - `1.11.1`
 - `1.11.3`

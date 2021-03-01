@@ -20,7 +20,7 @@ Build information pushing:
                              --package-id 'MyCompany.MyApp' --package-id
                              'MyCompany.MyApp2'.
       --version=VALUE        The version of the package; defaults to a
-                             timestamp-based version
+                             timestamp-based version.
       --file=VALUE           Octopus Build Information Json file.
       --overwrite-mode=VALUE Determines behavior if the package already
                              exists in the repository. Valid values are
@@ -29,7 +29,7 @@ Build information pushing:
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json
@@ -55,7 +55,7 @@ Common options:
                              in the OCTOPUS_CLI_PASSWORD environment variable.
       --configFile=VALUE     [Optional] Text file of default values, with one
                              'key = value' per line.
-      --debug                [Optional] Enable debug logging
+      --debug                [Optional] Enable debug logging.
       --ignoreSslErrors      [Optional] Set this flag if your Octopus Server
                              uses HTTPS but the certificate is not trusted on
                              this machine. Any certificate errors will be
@@ -85,7 +85,7 @@ Common options:
 
 !include <samples-instance>
 
-This example uploads [build information](https://octopus.com/docs/packaging-applications/build-servers#build-information) contained in buildInfo.json to Octopus Deploy for the specified package and version.
+This example uploads [build information](/docs/packaging-applications/build-servers/build-information/index.md) contained in buildInfo.json to Octopus Deploy for the specified package and version.
 
 
 ```json
@@ -114,4 +114,4 @@ octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" 
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Build information](/docs/packaging-applications/build-servers/index.md#build-information)
+- [Build information](/docs/packaging-applications/build-servers/build-information/index.md)

@@ -19,7 +19,7 @@ Where [<options>] is any of:
 
 Common options:
 
-      --help                 [Optional] Print help for a command
+      --help                 [Optional] Print help for a command.
       --helpOutputFormat=VALUE
                              [Optional] Output format for help, valid options
                              are Default or Json

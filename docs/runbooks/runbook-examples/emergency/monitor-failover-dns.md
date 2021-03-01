@@ -4,7 +4,7 @@ description: With Octopus Deploy you can monitor your application and failover D
 position: 20
 ---
 
-Runbooks can be executed on a recurring schedule called a [trigger](https://octopus.com/docs/runbooks/scheduled-runbook-trigger).  Using this feature, you can have a runbook execute periodically to ensure that your application is up and running, then automatically failover if it is not.
+Runbooks can be executed on a recurring schedule called a [trigger](/docs/runbooks/scheduled-runbook-trigger/index.md).  Using this feature, you can have a runbook execute periodically to ensure that your application is up and running, then automatically failover if it is not.
 
 The following example tests the URL of an application, if the expected `200` code is not returned, the runbook will automatically start the DR web and SQL Server in Azure, then update the DNS to point to the DR site.
 
@@ -47,7 +47,7 @@ az network dns record-set a add-record --resource-group $resourceGroup --zone-na
 az network dns record-set a remove-record --resource-group $resourceGroup --zone-name $zoneName --record-set-name www --ipv4-address $ipAddressDR
 ```
 
-![](octopus-runbook-app-monitoring.png)
+![](octopus-runbook-app-monitoring.png "width=500")
 
 ## Create the trigger
 
@@ -61,7 +61,7 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
 5. Scheduled Timezone:
    - Select timezone: Select the timezone to use when evaluating when to run.
 
-![](octopus-runbook-trigger.png)
+![](octopus-runbook-trigger.png "width=500")
 
 
 ## Samples

@@ -16,7 +16,7 @@ Windows-specific features such as IIS and Windows Services are not supported whe
 
 ## Scripts
 
-You can execute scripts using almost any intalled scripting runtime. Learn about what you can do with [custom scripts](/docs/deployment-examples/custom-scripts/index.md).
+You can execute scripts using almost any intalled scripting runtime. Learn about what you can do with [custom scripts](/docs/deployments/custom-scripts/index.md).
 
 :::hint
 **Environment Variable Differences**
@@ -37,7 +37,7 @@ You can also set an [output variable](/docs/projects/variables/output-variables.
 
 ### Example: Collecting an artifact
 
-Your script can tell Octopus to collect a file and store it as a [deployment artifact](/docs/deployment-process/artifacts.md):
+Your script can tell Octopus to collect a file and store it as a [deployment artifact](docs/projects/deployment-process/artifacts.md):
 
 > ```
 > new_octopusartifact "./subdir/anotherdir/myfile"
@@ -68,4 +68,4 @@ Calamari is the tool Octopus uses to execute deployments on a remote computer. B
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
-- [Node.js sample](/docs/deployment-examples/node-deployments/node-on-linux.md)
+- [Node.js sample](/docs/deployments/node-js/node-on-linux.md)

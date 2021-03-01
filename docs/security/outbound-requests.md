@@ -25,7 +25,7 @@ The Octopus Server makes the following outbound requests:
 2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories/index.md) that you configure.
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
-5. Checking for updated [community contribute step templates](/docs/deployment-process/steps/community-step-templates.md)  (if enabled).
+5. Checking for updated [community contribute step templates](/docs/projects/community-step-templates.md)  (if enabled).
 
 NOTE: Our community contributed step template integration queries `library.octopus.com` for updates.
 
@@ -40,7 +40,7 @@ When the "Check for updates" option is enabled, Octopus will make a HTTPS reques
 
 :::hint
 **Microsoft Azure**
-The octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
+The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
 
 In addition, when the "Include statistics" option is enabled, we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:

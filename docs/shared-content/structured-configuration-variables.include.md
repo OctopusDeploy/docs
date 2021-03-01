@@ -6,7 +6,7 @@ With the **Structured Configuration Variables** feature you can define [variabl
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
-1. To enable Structured Configuration Variables on a [step](/docs/deployment-process/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
+1. To enable Structured Configuration Variables on a [step](/docs/projects/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
 2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your structured configuration files, relative to the working directory. For instance:
 
 ```
@@ -20,7 +20,7 @@ or
 ```
 
 :::info
-If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployment-examples/custom-scripts/run-a-script-step.md#referencing-packages-package-files) to learn more.
+If you are using a **Run a script** step, packages are extracted to a sub-directory with the name of the package reference. Please refer to [package files](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages-package-files) to learn more.
 :::
 
 Octopus will find the target files, match structures described by the names of Octopus variables, and replace their contents with the values of the variables.
