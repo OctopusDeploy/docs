@@ -12,7 +12,15 @@ Export/Import features are found in the overflow menu on the {{Projects}} page.
 This feature was added in Octopus Deploy **2021.1**
 :::
 
-![Import Export Menu](import-export-menu.png)
+![Import Export Menu](import-export-menu.png "width=500")
+
+When exporting a password is used to protect the zip file. The password should be treated sensitively, as the export file includes any sensitive variable values.
+
+![Export projects](export-project-page.png "width=500")
+
+The export runs as a task. Once the task is complete, the export zip file is attached as an artifact and available for download.
+
+![Export zip artifact](export-task-artifact.png "width=500")
 
 ## Scenarios
 
