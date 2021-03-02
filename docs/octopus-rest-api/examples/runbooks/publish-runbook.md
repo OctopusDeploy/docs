@@ -1,9 +1,9 @@
 ---
-title: Publish a runbook
-description: An example script to publish a runbook.
+title: Publish a runbook snapshot
+description: An example script to publish an existing runbook snapshot
 ---
 
-This script demonstrates how to programmatically publish a runbook.
+This script demonstrates how to programmatically publish an *existing* runbook snapshot. To learn how to create a new snapshot and publish it see [this example](/docs/octopus-rest-api/examples/runbooks/create-and-publish-runbook.md).
 
 ## Usage
 
@@ -14,7 +14,7 @@ Provide values for the following:
 - Name of the space to work with
 - Name of the project with the runbook
 - Name of the runbook
-- Name for the new snapshot
+- Name of the snapshot to publish
 
 ## Script
 
