@@ -1,6 +1,6 @@
 ---
 title: Find target usage
-description: An example script that will loop through all the steps in the deployment process and runbooks and determine if it is being used
+description: An example script that will loop through all the steps in the deployment process and runbooks and determine if a target is being used
 ---
 
 This script will accept a target name and loop through all the projects in the space and determines:
