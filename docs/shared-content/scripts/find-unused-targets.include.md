@@ -4,6 +4,7 @@
 $octopusUrl = "https://local.octopusdemos.app" ## Octopus URL to look at
 $octopusApiKey = "YOUR API KEY" ## API key of user who has permissions to view all spaces, cancel tasks, and resubmit runbooks runs and deployments
 $daysSinceLastDeployment = 90 ## The number of days since the last deployment to be considered unused.  Any target without a deployment in the last [90] days is considered inactive.
+$includeMachineLists = $false;  ## If true, all machines in each category will get listed out to the console.  If false, just a summary of information will be included.
 
 $unsupportedCommunicationStyles = @("None")
 $tentacleCommunicationStyles = @("TentaclePassive")
@@ -184,21 +185,23 @@ Write-Host "Of that combined number, $($categorizedMachines.OfflineMachines.Coun
 Write-Host "Of that combined number, $($categorizedMachines.UnusedMachines.Count) have never had a deployment."
 Write-Host "Of that combined number, $($categorizedMachines.OldMachines.Count) haven't done a deployment in over $daysSinceLastDeployment days."
 
-Write-Host "Offline Targets"
-Foreach ($target in $categorizedMachines.OfflineMachines)
-{
-    Write-Host " -  $($target.Name)"
-}
+if ($includeMachineLists -eq $true){
+    Write-Host "Offline Targets"
+    Foreach ($target in $categorizedMachines.OfflineMachines)
+    {
+        Write-Host " -  $($target.Name)"
+    }
 
-Write-Host "No Deployment Ever Targets"
-Foreach ($target in $categorizedMachines.UnusedMachines)
-{
-    Write-Host " -  $($target.Name)"
-}
+    Write-Host "No Deployment Ever Targets"
+    Foreach ($target in $categorizedMachines.UnusedMachines)
+    {
+        Write-Host " -  $($target.Name)"
+    }
 
-Write-Host " No deployments in the last $daysSinceLastDeployment Targets"
-Foreach ($target in $categorizedMachines.OldMachines)
-{
-    Write-Host " -  $($target.Name)"
+    Write-Host " No deployments in the last $daysSinceLastDeployment days"
+    Foreach ($target in $categorizedMachines.OldMachines)
+    {
+        Write-Host " -  $($target.Name)"
+    }
 }
 ```
