@@ -13,6 +13,7 @@ Usage: tentacle delete-instance [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
 
 Or one of the common options:
 

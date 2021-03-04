@@ -13,6 +13,7 @@ Usage: tentacle show-thumbprint [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
   -e, --export-file=VALUE    Exports the Tentacle thumbprint to a file
       --thumbprint-only      DEPRECATED: Only print out the thumbprint, with
                                no additional text. This switch has been

@@ -13,6 +13,7 @@ Usage: tentacle configure [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --home, --homedir=VALUE
                              Home directory
       --app, --appdir=VALUE  Default directory to deploy applications to

@@ -13,6 +13,7 @@ Usage: tentacle import-certificate [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
   -r, --from-registry        Import the Octopus Tentacle 1.x certificate from
                                the Windows registry
   -f, --from-file=VALUE      Import a certificate from the specified file

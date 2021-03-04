@@ -13,6 +13,7 @@ Usage: tentacle update-trust [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --oldThumbprint=VALUE  The thumbprint of the old Octopus Server to be
                                replaced
       --newThumbprint=VALUE  The thumbprint of the new Octopus Server
