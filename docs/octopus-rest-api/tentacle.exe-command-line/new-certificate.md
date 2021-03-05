@@ -13,6 +13,7 @@ Usage: tentacle new-certificate [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
   -b, --if-blank             Generates a new certificate only if there is none
   -e, --export-file=VALUE    DEPRECATED: Exports a new certificate to the
                                specified file as unprotected base64 text, but

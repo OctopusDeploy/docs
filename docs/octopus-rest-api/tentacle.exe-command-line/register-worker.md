@@ -13,6 +13,7 @@ Usage: tentacle register-worker [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --server=VALUE         The Octopus Server - e.g., 'http://octopus'
       --apiKey=VALUE         Your API key; you can get this from the Octopus
                                web portal

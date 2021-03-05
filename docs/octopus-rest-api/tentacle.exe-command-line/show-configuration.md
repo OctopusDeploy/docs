@@ -13,6 +13,7 @@ Usage: tentacle show-configuration [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --file=VALUE           Exports the server configuration to a file. If
                                not specified output goes to the console
       --space=VALUE          The space from which the server data

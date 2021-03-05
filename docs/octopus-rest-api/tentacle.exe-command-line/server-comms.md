@@ -13,6 +13,7 @@ Usage: tentacle server-comms [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --thumbprint=VALUE     The thumbprint of the Octopus Server to
                                configure communication with; if only one
                                Octopus Server is configured, this may be omitted
