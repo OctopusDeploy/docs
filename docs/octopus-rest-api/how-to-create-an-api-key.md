@@ -23,3 +23,30 @@ You can create API keys by performing the following steps:
 **Write Your Key Down**
 After you generate an API key, it cannot be retrieved from the Octopus Web Portal again, we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::
+
+## Setting an expiry date
+
+You can optionally set an expiry date on new API keys. By default, keys have no expiry date and are valid until they're revoked.
+
+When creating an API key in the Octopus Web Portal, you can choose from a preset list of offsets from the current date, or select a custom date. Keys will expire at the end of the selected day. When using the Octopus REST API to create a key, you can set the expiry date to your preferred  date and time, including time zone offset.
+
+There are two restrictions on the expiry date:
+
+- It cannot be in the past.
+- It cannot be after the expiry date of the key being used to create it (when using the REST API).
+
+## Configure API keys for expiry notifications
+
+[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) can be used to configure notifications when API keys are close to expiry or have expired.
+
+There is an "API key expiry events" event-group and three events:
+
+- API key expiry 20-day warning.
+- API key expiry 10-day warning.
+- API key expired.
+
+:::info
+The background task which raises the api-key-expiry events runs:
+- 10 minutes after the Octopus Server service starts
+- Every 4 hours
+:::

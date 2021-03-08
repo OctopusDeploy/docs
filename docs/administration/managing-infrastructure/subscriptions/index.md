@@ -127,9 +127,13 @@ The following is a list of all options for subscriptions including Event Groups,
 |Machine is no longer available for deployment|
 |Certificate expiry events|
 |Document events|
+|API key expiry events|
 
 |EVENTS|
 |---|
+|API key expired|
+|API key expiry 10-day warning|
+|API key expiry 20-day warning|
 |Auto-deploy trigger blocked|
 |Auto-deploy trigger succeeded|
 |Certificate expired|
