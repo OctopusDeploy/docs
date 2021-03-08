@@ -89,6 +89,8 @@ The *Format* filter allows for converting of input based on an additionally pro
 | `4.3`                 | `#{MyVar | Format C}`            | $4.30      |
 | `2030/05/22 09:05:00` | `#{MyVar | Format yyyy}`         | 2030       |
 |                       | `#{ | NowDate | Format Date MMM}` | Nov        |
+| `#{Octopus.Deployment.Created}`| `#{MyVar | Format "MM/dd/yyyy"}` | `01/01/2020`  |
+| `#{Octopus.Deployment.Created}`| `#{MyVar | Format "hh:mm:ss tt zz"}` | `11:09:38 AM +01`  |
 
 ### Replace
 
