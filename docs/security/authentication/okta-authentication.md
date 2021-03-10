@@ -171,7 +171,7 @@ You can see the OpenID Connect metadata by going to the Issuer address in your b
 Perhaps the contents of the security token sent back by Okta aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Okta user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Okta to Octopus via your browser. To inspect the contents of your security token:
 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
-2. In Chrome Dev Tools this is called "Preserve Log".
+2. In Chrome Dev Tools this is called "Preserve Log". In Firefox this is called "Persist Logs".
 
    ![](/docs/security/authentication/images/5866122.png "width=500")
 
@@ -186,3 +186,18 @@ Don't worry if jwt.io complains about the token signature, it doesn't support RS
 
 5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
 6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+
+### Inspect the request to Okta for scope {#Oktaauthentication-Inspecttherequesttookta}
+
+If your request to Okta does not contain all of the appropriate scopes inside of it, this may result in unexpected behavior when logging into Octopus with Okta. For example, if your request does not have the groups scope, you will not get the appropriate permissions when logging in. To find out if you need to add a scope to your request, you can do the following:
+
+1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
+2. In Chrome Dev Tools this is called "Preserve Log". In Firefox this is called "Persist Logs".
+3. Attempt to sign into Octopus using Okta and find the HTTP GET that is sent to Okta. Inside of this request you will see request scopes.
+
+   ![](/docs/security/authentication/images/okta-request-scope.png "width=500")
+   
+4. Within the URL request, look at the scope section. In my example above, you will see the scope includes **openid, profile, email, and groups**. These are the default scopes Octopus expects. If the scope section of your URL does not contain all four of these, you will need to remediate this by remoting into the Octopus Server, and running the following command in a admin-elevated command prompt or PowerShell window: `octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"`
+
+
+
