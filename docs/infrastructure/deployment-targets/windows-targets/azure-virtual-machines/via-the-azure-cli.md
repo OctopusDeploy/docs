@@ -4,9 +4,7 @@ description: How to install the Tentacle VM Extension using the Azure Command Li
 position: 5
 ---
 
-:::warning
-The VM extension is deprecated and will be unsupported from 2021.
-:::
+!include <azure-vm-extension-deprecated>
 
 The VM Extension can be installed onto a virtual machine via the [Azure command line](https://docs.microsoft.com/en-us/azure/xplat-cli-install). The instructions are slightly different depending on whether you are using the the [Resource](#AzureResourceManagerMode) model or the [Classic](#AzureServiceManagementMode) model.
 
