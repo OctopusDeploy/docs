@@ -197,7 +197,6 @@ If your request to Okta does not contain all of the appropriate scopes inside of
 
    ![](/docs/security/authentication/images/okta-request-scope.png "width=500")
    
-4. Within the URL request, look at the scope section. In my example above, you will see the scope includes **openid, profile, email, and groups**. These are the default scopes Octopus expects. If the scope section of your URL does not contain all four of these, you will need to remediate this by remoting into the Octopus Server, and running the following command in a admin-elevated command prompt or PowerShell window: `octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"`
-
+4. Within the URL request, look at the scope section. In the example above, you will see the scope includes **openid, profile, email, and groups**. These are the default scopes Octopus expects. If the scope section of your URL doesn't contain these four scopes, you will need to remediate this by remoting into the Octopus Server and running the following in a command prompt or PowerShell as an Administrator: `octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"`
 
 
