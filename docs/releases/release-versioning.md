@@ -5,7 +5,7 @@ position: 125
 ---
 You can define how the next release number will be generated when creating a release.
 
-Navigate to the **Project** tab, select the project and click **{{Settings,Release Versioning}}**:
+Navigate to the **Project** tab, select the project and click **{{Deployments, Settings,Release Versioning}}**:
 
 ![Release Versioning](images/release-versioning.png "width=500")
 
