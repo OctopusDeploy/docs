@@ -4,9 +4,7 @@ description: How to diagnose and resolve installation issues with the Tentacle V
 position: 8
 ---
 
-:::warning
-The VM extension is deprecated and will be unsupported from 2021.
-:::
+!include <azure-vm-extension-deprecated>
 
 ## Diagnosing Issues {#AzureVirtualMachines-Diagnosingissues}
 

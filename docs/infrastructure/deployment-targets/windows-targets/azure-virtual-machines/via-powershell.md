@@ -4,9 +4,7 @@ description: How to install the Tentacle VM Extension using the PowerShell
 position: 4
 ---
 
-:::warning
-The VM extension is deprecated and will be unsupported from 2021.
-:::
+!include <azure-vm-extension-deprecated>
 
 The Azure VM Extension can be added to your virtual machine using the Azure PowerShell cmdlets.
 

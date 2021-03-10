@@ -4,9 +4,7 @@ description: Detailed file format information for the configuration files requir
 position: 7
 ---
 
-:::warning
-The VM extension is deprecated and will be unsupported from 2021.
-:::
+!include <azure-vm-extension-deprecated>
 
 These files are required to install the extension [via the Azure CLI](via-the-azure-cli.md) or [via PowerShell](via-powershell.md).
 
