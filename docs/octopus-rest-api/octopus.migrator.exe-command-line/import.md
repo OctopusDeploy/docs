@@ -15,6 +15,7 @@ Usage: octopus.migrator import [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --directory=VALUE      Directory for imported files
       --password=VALUE       Password for any sensitive values
       --dry-run              Do not commit changes, just print what would
