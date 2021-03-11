@@ -14,6 +14,7 @@ Usage: octopus.server run [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --customextension=VALUE
                              File path of a custom extension to load
       --skipDatabaseCompatibilityCheck

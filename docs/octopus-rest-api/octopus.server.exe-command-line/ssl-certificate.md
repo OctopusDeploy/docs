@@ -14,6 +14,7 @@ Usage: octopus.server ssl-certificate [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --ip-address=VALUE     The ip address to which the SSL certificate
                                should be bound. Defaults to 0.0.0.0.
       --port=VALUE           The port on which the SSL certificate should be

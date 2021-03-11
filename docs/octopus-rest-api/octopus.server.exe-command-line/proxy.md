@@ -14,6 +14,7 @@ Usage: octopus.server proxy [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --proxyEnable=VALUE    Whether to use a proxy
       --proxyUsername=VALUE  Username to use when authenticating with the
                                proxy

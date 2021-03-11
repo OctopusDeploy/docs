@@ -14,6 +14,7 @@ Usage: octopus.server license [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --licenseBase64=VALUE  Base64 encoded version of the license key XML
       --licenseFile=VALUE    Path to the file containing the license key XML
                                in plain text

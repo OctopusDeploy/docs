@@ -14,6 +14,7 @@ Usage: octopus.server database [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --create               Creates a new empty database, and upgrades the
                                database to the expected schema
       --connectionString=VALUE

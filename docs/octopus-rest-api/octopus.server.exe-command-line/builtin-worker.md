@@ -14,6 +14,7 @@ Usage: octopus.server builtin-worker [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --auto-configure       Automatically configure accounts on the local
                                machine with the correct privileges, and set up
                                the built-in worker to use the down-level

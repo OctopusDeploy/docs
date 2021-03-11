@@ -18,6 +18,7 @@ Usage: octopus.server lost-master-key [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --iReallyWantToResetAllMySensitiveData
                              Confirm you really want to generate a new Master
                                Key and reset all your sensitive data.
