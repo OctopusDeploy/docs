@@ -777,6 +777,7 @@ docs/octopus-rest-api/examples/list-users-with-role.md -> docs/octopus-rest-api/
 docs/octopus-rest-api/examples/users/index.md -> docs/octopus-rest-api/examples/users-and-teams/index.md
 docs/octopus-rest-api/examples/users/list-users-with-role.md -> docs/octopus-rest-api/examples/users-and-teams/list-users-with-role.md
 docs/octopus-rest-api/examples/feeds/get-feeds.md -> docs/octopus-rest-api/examples/feeds/retrieve-feeds.md
+docs/octopus-rest-api/examples/variables/find-variable-vaule-usage.md -> docs/octopus-rest-api/examples/variables/find-variable-value-usage.md
 docs/getting-started-guides/octopus-concepts/configuration-features.md -> docs/projects/steps/configuration-features/index.md
 docs/getting-started-guides/octopus-concepts/octopus-cli.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/getting-started-guides/octopus-concepts/rest-api.md -> docs/octopus-rest-api/index.md
