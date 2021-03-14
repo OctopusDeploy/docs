@@ -13,6 +13,7 @@ Usage: octopus.migrator partial-export [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --directory=VALUE      The target directory for the exported data file-
                                s. This directory will be created if it does not
                                already exist. Use the --clean argument to purge
