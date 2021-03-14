@@ -14,6 +14,7 @@ Usage: octopus.server path [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --skipDatabaseCompatibilityCheck
                              Skips the database compatibility check
       --skipDatabaseSchemaUpgradeCheck
@@ -30,6 +31,7 @@ Where [<options>] is any of:
                              Set the package path for the built-in package
                                repository
       --artifacts=VALUE      Set the path where artifacts are stored
+      --imports=VALUE        Set the path where imported zip files are stored
       --taskLogs=VALUE       Set the path where task logs are stored
       --telemetry=VALUE      Set the path where telemetry is stored
 

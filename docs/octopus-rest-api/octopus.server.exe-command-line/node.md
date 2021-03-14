@@ -14,6 +14,7 @@ Usage: octopus.server node [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --taskCap=VALUE        Set the number of tasks the node can execute at
                                a time
       --drain=VALUE          Set to true to prevent the node from executing

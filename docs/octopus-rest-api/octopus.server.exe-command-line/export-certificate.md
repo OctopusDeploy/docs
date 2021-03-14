@@ -14,6 +14,7 @@ Usage: octopus.server export-certificate [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --export-pfx=VALUE     The filename to which to export the certificate
       --pfx-password=VALUE   The password to use for the exported pfx file
 

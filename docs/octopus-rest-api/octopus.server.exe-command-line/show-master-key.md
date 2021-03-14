@@ -14,6 +14,7 @@ Usage: octopus.server show-master-key [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --format=VALUE         The format of the output (text,json). Defaults
                                to text.
 

@@ -14,6 +14,7 @@ Usage: octopus.server admin [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --wait=VALUE           Milliseconds to wait
       --username, --user=VALUE
                              The username of the administrator to

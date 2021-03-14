@@ -14,6 +14,7 @@ Usage: octopus.server new-certificate [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --replace              Replaces the existing certificate that Octopus
                                Server uses to authenticate itself with its
                                Tentacles

@@ -14,6 +14,7 @@ Usage: octopus.server show-thumbprint [<options>]
 Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
   -e, --export-file=VALUE    Exports the Tentacle thumbprint to a file
       --format=VALUE         The format of the output (text,json). Defaults
                                to text.
