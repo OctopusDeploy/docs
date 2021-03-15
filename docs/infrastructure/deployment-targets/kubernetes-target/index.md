@@ -128,6 +128,7 @@ MIIEyDCCArCgAwIBAgIRAOBNYnhYDBamTvQn...
 ```
 
 Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
+
 9. Enter the Kubernetes Namespace.
 When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
 
