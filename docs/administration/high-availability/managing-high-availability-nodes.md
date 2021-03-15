@@ -9,38 +9,12 @@ Managing the nodes in your Octopus Server High Availability cluster can be done 
 
 Information regarding each of your nodes is displayed here.  You can see:
 
-- **Rank**: follower or leader.
+- **Name**: the name of the node.
+- **Status**: the status of the node (e.g. Running, Drained, Offline).
 - **Last seen**: the last time the node checked in.
-- **Tasks**: the number of task currently running on the node.
 - **Task cap**: the maximum number of tasks that may run on the node.
+- **Tasks**: the number of task currently running on the node.
 - **Drain**: on or off depending on if the node can execute new tasks.
-
-## Rank {#ManagingHighAvailabilityNodes-Rank}
-
-The nodes in your Octopus Server High Availability cluster can be either a leader or a follower.  Only one node can be the cluster leader and the rest of the nodes will be followers.  Some maintenance and scheduled tasks will only run on the cluster leader, such as:
-
-- Applying retention policy.
-- Cleaning the package cache.
-- Initiating Tentacle health checks (though the actual health check may be run by any node).
-- Re-indexing the built-in NuGet package repository.
-
-If your leader node goes offline or into drain mode, one of your followers will become the new leader.
-
-**Example**
-
-```text
-Node A joins the High Availability cluster and becomes *leader*
-
-Node B joins the High Availability cluster and becomes *follower*
-
-Node C joins the High Availability cluster and becomes *follower*
-
-Node B is placed in [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md) so cannot become *leader*
-
-Node A goes offline
-
-Node C elects itself *leader*
-```
 
 ## Last seen {#ManagingHighAvailabilityNodes-Lastseen}
 
