@@ -55,7 +55,7 @@ foreach($element in $deploymentPreview.Form.Elements)
     foreach ($promptedValue in $promptedValueList)
     {
         $splitValue = $promptedValue -Split "::"
-        Write-Host "Comparing $nameToSearchFor with provided prompted variable $($promptedValue[0])"
+        Write-Host "Comparing $nameToSearchFor with provided prompted variable $($promptedValue[$nameToSearchFor])"
         if ($splitValue.Length -gt 1)
         {
             if ($nameToSearchFor -eq $splitValue[0])
