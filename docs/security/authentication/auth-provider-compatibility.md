@@ -29,7 +29,7 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
 |---------------------------------------|:------------------:|:---------------:|:-----------------------:|
 | Username and Password                 | :x:&nbsp;&nbsp; | :x: | :x: |
-| Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp; | :x: | :x: |
+| Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
 | Azure Active Directory Authentication | :white_check_mark: **\*** | :x: | :white_check_mark: **\*** |
 | GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: | :x: |
 | Okta Authentication                   | :white_check_mark: **†**| :x: | :white_check_mark: **†**|
