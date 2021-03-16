@@ -11,7 +11,7 @@ Octopus ships with a number of authentication providers. The support for these p
 The following table shows login support for each authentication provider in Octopus Server and Octopus Cloud:
 
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
-|---------------------------------------|:------------------:|:---------------:|:------------------------:
+|---------------------------------------|:------------------:|:---------------:|:-----------------------:|
 | Username and Password                 | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
 | Active Directory Authentication       | :white_check_mark: | :x:&nbsp;&nbsp; | :x:&nbsp;&nbsp; |
 | Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
@@ -27,12 +27,12 @@ The following table shows login support for each authentication provider in Octo
 Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server and Octopus Cloud:
 
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
-|---------------------------------------|:------------------:|:---------------:|
+|---------------------------------------|:------------------:|:---------------:|:-----------------------:|
 | Username and Password                 | :x:&nbsp;&nbsp; | :x: | :x: |
 | Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp; | :x: | :x: |
-| Azure Active Directory Authentication | :white_check_mark: **\*** | :x: | :x: |
+| Azure Active Directory Authentication | :white_check_mark: **\*** | :x: | :white_check_mark: **\*** |
 | GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: | :x: |
-| Okta Authentication                   | :white_check_mark: **†**| :x: | :x: |
+| Okta Authentication                   | :white_check_mark: **†**| :x: | :white_check_mark: **†**|
 | Guest Login                           | :x:&nbsp;&nbsp; | :x: | :x: |
 | GitHub                                | :x:&nbsp;&nbsp; | :x: | :x: |
 
