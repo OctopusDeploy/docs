@@ -86,9 +86,9 @@ On each package, the commits associated with that package are available as a col
 
 ```
 #{each package in Octopus.Release.Package}
-    #{each commit in package.Commits}
-        - [#{commit.CommitId}](#{commit.LinkUrl}) - #{commit.Comment}
-    #{/each}
+#{each commit in package.Commits}
+- [#{commit.CommitId}](#{commit.LinkUrl}) - #{commit.Comment}
+#{/each}
 #{/each}
 ```
 
@@ -110,7 +110,7 @@ If the Octopus instance has one or more of the [Issue Tracker integrations](/doc
 
 ```
 #{each issue in package.WorkItems}
-    - [#{issue.Id}](#{issue.LinkUrl})
+- [#{issue.Id}](#{issue.LinkUrl})
 #{/each}
 ```
 
