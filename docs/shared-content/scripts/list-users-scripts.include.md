@@ -105,7 +105,7 @@ foreach($userRecord in $usersList) {
                 $usersRoles+= $roleName
             }
         }
-        $user | Add-Member -MemberType NoteProperty -Name "ScopedUserRoles" -Value ($usersRoles | Join-String -Separator "|")
+        $user | Add-Member -MemberType NoteProperty -Name "ScopedUserRoles" -Value ($usersRoles -Join "|")
     }
 
     if($userRecord.Identities.Count -gt 0) {
