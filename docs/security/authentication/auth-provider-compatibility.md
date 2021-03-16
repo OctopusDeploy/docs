@@ -13,7 +13,7 @@ The following table shows login support for each authentication provider in Octo
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
 |---------------------------------------|:------------------:|:---------------:|:-----------------------:|
 | Username and Password                 | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
-| Active Directory Authentication       | :white_check_mark: | :x:&nbsp;&nbsp; | :x:&nbsp;&nbsp; |
+| Active Directory Authentication       | :white_check_mark: | :x:&nbsp;&nbsp; | :x: |
 | Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
 | GoogleApps Authentication             | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
 | Okta Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp; | :white_check_mark: |
