@@ -34,7 +34,7 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 | GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
 | Okta Authentication                   | :white_check_mark: **†**| :x: | :white_check_mark: **†**|
 | Guest Login                           | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
-| GitHub                                | :x:&nbsp;&nbsp; | :x: | :x: |
+| GitHub                                | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
 
 **\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for more details.
 
