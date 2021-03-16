@@ -17,7 +17,7 @@ The following table shows login support for each authentication provider in Octo
 | Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
 | GoogleApps Authentication             | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
 | Okta Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp; | :white_check_mark: |
-| Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp; | :white_check_mark:&nbsp;&nbsp; |
+| Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp; | :white_check_mark: |
 | GitHub                                | :x: | :white_check_mark: **\*** | :x: |
 
 **Note:** Entries marked with **\*** are supported via [Octopus ID](octopusid-authentication.md).
