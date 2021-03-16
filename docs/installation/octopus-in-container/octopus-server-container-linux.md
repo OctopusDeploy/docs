@@ -4,8 +4,8 @@ description: An Octopus Server instance can be run directly from within a contai
 position: 1
 ---
 
-:::warning
-**Octopus Server Linux Containers are part of our Early Access Program (EAP) and may contain bugs or be unstable.**
+:::hint
+**Octopus Server Linux Containers launched as part of 2020.6 and are now our recommended way to use containers with Octopus Deploy. You will need to upgrade to 2020.6 before using the Octopus Linux Container.**
 :::
 
 This page describes how to run Octopus Deploy within a Linux Container. If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
@@ -33,6 +33,10 @@ To set the connection string we provide an _environment variable_ `DB_CONNECTION
 In this example, we are running the image `!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
 ## Configuration
+
+:::warning
+Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility.md) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
+:::
 
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
 
@@ -67,7 +71,7 @@ The source code for the Helm chart can be found on [GitHub](https://github.com/O
 
 For more information on how the helm chart works, especially with regards to high availability deployments, see the blog post [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image).
 
-### Service Definition with systemd 
+### Service Definition with systemd
 
 You can use systemd to boot the Octopus Docker container each time the OS starts. To do this, create a file called `/etc/systemd/system/docker-octopusdeploy.service` with the following contents:
 
