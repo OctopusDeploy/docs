@@ -34,6 +34,10 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 ## Configuration
 
+:::warning
+**Please check that your existing authentication provider is supported by our Linux Container [Authentication provider list](/docs/security/authentication/auth-provider-compatibility.md)**
+:::
+
 When running an Octopus Server Image, the following values can be provided to configure the running Octopus Server instance.
 
 ### Master Key

@@ -5,7 +5,7 @@ position: 1
 ---
 
 :::warning
-Octopus Windows container is in Early Access Preview and there are no plans to stabilize the container and we recommend using an Octopus Deploy Linux container, please refer to the [Octopus Server Container Linux](/docs/installation/octopus-in-container/octopus-server-container-linux.md) documentation
+**Octopus Windows container is in Early Access Preview and there are no plans to stabilize the container and we recommend using an Octopus Deploy Linux container, please refer to the [Octopus Server Container Linux](/docs/installation/octopus-in-container/octopus-server-container-linux.md) documentation. There may be bugs and it may be unstable**
 :::
 
 Running the Octopus Server inside a container provides a simple way to set up an Octopus Deploy instance. Upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
