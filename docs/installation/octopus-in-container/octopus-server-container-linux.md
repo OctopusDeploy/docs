@@ -4,7 +4,7 @@ description: An Octopus Server instance can be run directly from within a contai
 position: 1
 ---
 
-:::warning
+:::hint
 **Octopus Server Linux Containers launched as part of 2020.6 and are now our recommended way to use containers with Octopus Deploy. You will need to upgrade to 2020.6 before using the Octopus Linux Container**
 :::
 
