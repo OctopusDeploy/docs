@@ -31,7 +31,7 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 | Username and Password                 | :x:&nbsp;&nbsp; | :x: | :x: |
 | Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
 | Azure Active Directory Authentication | :white_check_mark: **\*** | :x: | :white_check_mark: **\*** |
-| GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: | :x: |
+| GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
 | Okta Authentication                   | :white_check_mark: **†**| :x: | :white_check_mark: **†**|
 | Guest Login                           | :x:&nbsp;&nbsp; | :x: | :x: |
 | GitHub                                | :x:&nbsp;&nbsp; | :x: | :x: |
