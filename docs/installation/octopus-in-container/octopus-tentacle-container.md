@@ -15,8 +15,8 @@ When an Octopus Tentacle container starts up, it will attempt to invoke the [`re
 ```PowerShell Deployment Target
 docker run --interactive --detach `
  --name OctopusTentacle `
- --publish 10931:10933 `
- --env "ListeningPort=10931"
+ --publish 10933:10933 `
+ --env "ListeningPort=10933"
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetEnvironment=Development" `
  --env "TargetRole=container-server" `
@@ -26,8 +26,8 @@ docker run --interactive --detach `
 ```PowerShell Worker
 docker run --interactive --detach `
  --name OctopusWorker `
- --publish 10931:10933 `
- --env "ListeningPort=10931"
+ --publish 10933:10933 `
+ --env "ListeningPort=10933"
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetWorkerPool=Windows2019Workers" `
  --env "ServerUrl=http://172.23.191.1:8065" `
