@@ -20,15 +20,11 @@ Although there are a few different configuration options, the following is a sim
 $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --env ACCEPT_EULA="Y" --env DB_CONNECTION_STRING="..." !docker-image <octopusdeploy/octopusdeploy>
 ```
 
-We run in detached mode with `--detach` to allow the container to run in the background.
-
-The `--interactive` argument ensures that `STDIN` is kept open which is required since internally this is what the running `Octopus.Server.exe` process is waiting on to close.
-
-Setting `--name OctopusServer` gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
-
-Using `--publish 1322:8080` maps the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
-
-To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
+- We run in detached mode with `--detach` to allow the container to run in the background.
+- The `--interactive` argument ensures that `STDIN` is kept open which is required since internally this is what the running `Octopus.Server.exe` process is waiting on to close.
+- Setting `--name OctopusServer` gives us an easy to remember name for this container. This is optional, but we recommend you provide a name that is meaningful to you, as that will make it easier to perform actions on the container later if necessary.
+- Using `--publish 1322:8080` maps the _container port_ `8080` to `1322` on the host so that the Octopus instance is accessible outside this sever.
+- To set the connection string we provide an _environment variable_ `DB_CONNECTION_STRING` (this can be to a local database or an external database).
 
 In this example, we are running the image `!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
