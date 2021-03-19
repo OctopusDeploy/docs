@@ -1,5 +1,5 @@
 ---
-title: Add Azure Active directory login to users
+title: Add Azure Active Directory login to users
 description: An example script to add Azure Active Directory login details to Octopus user accounts.
 ---
 
