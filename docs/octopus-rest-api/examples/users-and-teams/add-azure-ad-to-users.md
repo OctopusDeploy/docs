@@ -15,9 +15,9 @@ Provide values for:
 
 - Octopus URL
 - Octopus API Key
-- List of users, supplied by at least one of:
-    - The path to a CSV file containg users
-    - Octopus Username, Email Address and (Optionally) Display Name
+- A list of users, supplied from either:
+    - The path to a CSV file containing user records
+    - The Octopus Username, Email address and (optionally) Display Name
 - (Optional) whether or not to update the Octopus user account's email address too
 - (Optional) whether or not to continue to the next user if an error occurs
 - (Optional) whether or not to force an update of the Azure AD identity if one already exists
