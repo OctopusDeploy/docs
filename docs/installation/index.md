@@ -30,13 +30,13 @@ Before you install Octopus Deploy, review the software and hardware [requirement
 
 Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md) or using a [Managed Service Account](/docs/installation/managed-service-account.md).
 
-8. On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
-9. Enter a name for the database, and click **Next** and **OK** to **create the database**.
+9. On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database.md#creating-the-database).
+10. Enter a name for the database, and click **Next** and **OK** to **create the database**.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database.
 
-10. Accept the default port and directory or enter your own and click **Next**.
-11. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/security/authentication/active-directory/index.md), enter the active directory user details.
+11. Accept the default port and directory or enter your own and click **Next**.
+12. If you’re using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/security/authentication/active-directory/index.md), enter the active directory user details.
 
   You can configure additional [Authentication Providers](/docs/security/authentication/index.md) for the Octopus Server after the server has been installed.
 
