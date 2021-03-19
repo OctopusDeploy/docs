@@ -20,7 +20,7 @@ docker run --interactive --detach `
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetEnvironment=Development" `
  --env "TargetRole=container-server" `
- --env "ServerUrl=http://172.23.191.1:8065" `
+ --env "ServerUrl=http://10.0.0.1:8080" `
  octopusdeploy/tentacle:6.0.383
 ```
 ```PowerShell Worker
@@ -30,7 +30,7 @@ docker run --interactive --detach `
  --env "ListeningPort=10933"
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetWorkerPool=Windows2019Workers" `
- --env "ServerUrl=http://172.23.191.1:8065" `
+ --env "ServerUrl=http://10.0.0.1:8080" `
  octopusdeploy/tentacle:6.0.383
 ```
 
