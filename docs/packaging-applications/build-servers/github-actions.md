@@ -14,15 +14,15 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 
 ## Integrating with GitHub Actions
 
-Octopus Deploy has a custom GitHub Action, [install-octocli](https://github.com/marketplace/actions/install-octopus-cli).
+Octopus Deploy has a custom GitHub Action, [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli).
 
-The GitHub Action `install-octocli` installs the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on any operating system, including:
+The GitHub Action `install-octopus-cli-action` installs the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on any operating system, including:
 - Windows
 - MacOS
 - Linux
 - Self-Hosted Runners
 
-Once the Octopus Deploy CLI is installed, you can perform any action that you would on the terminal using the CLI.
+Once the Octopus CLI is installed, you can perform any action that you would on the terminal using the CLI.
 
 ## GitHub Actions secrets
 
@@ -67,10 +67,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: install Octopus Deploy CLI
-        uses: OctopusDeploy/install-octocli@v1
+      - name: Install Octopus CLI
+        uses: OctopusDeploy/install-octopus-cli-action@v1.1.1
         with:
-          version: 7.4.2
+          version: latest
           
       - name: list-octopusdeploy-deployments
         run: octo list-deployments --server=${{ env.serverURL }} --apiKey=${{ secrets.apiKey }}
@@ -96,10 +96,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: install Octopus Deploy CLI
-        uses: OctopusDeploy/install-octocli@v1
+      - name: Install Octopus CLI
+        uses: OctopusDeploy/install-octopus-cli-action@v1.1.1
         with:
-          version: 7.4.2
+          version: latest
           
       - name: list-octopusdeploy-deployments
         run: octo list-deployments --server=${{ env.serverURL }} --apiKey=${{ secrets.apiKey }}
@@ -125,10 +125,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: install Octopus Deploy CLI
-        uses: OctopusDeploy/install-octocli@v1
+      - name: Install Octopus CLI
+        uses: OctopusDeploy/install-octopus-cli-action@v1.1.1
         with:
-          version: 7.4.2
+          version: latest
           
       - name: list-octopusdeploy-deployments
         run: octo list-deployments --server=${{ env.serverURL }} --apiKey=${{ secrets.apiKey }}
