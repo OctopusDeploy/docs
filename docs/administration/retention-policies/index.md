@@ -50,6 +50,10 @@ A list of packages IDs that a project has deployed is kept and then used to dete
 - If the package is present in the built-in repository, and a package retention policy has been configured, then the record will be kept according to that value. If no package retention policy has been configured, then the build information record will be kept indefinitely.
 - If the package is not present in the built-in repository, it's assumed that the package belongs to an [external package repository](/docs/packaging-applications/package-repositories/index.md). The build information record will be kept for a fixed value of 100 days from when it was published to Octopus.
 
+## What is not deleted {#what-is-not-deleted}
+
+Some items in Octopus are not affected by Retention policies, and are never deleted. One example of this is [Audit logs](/docs/security/users-and-teams/auditing.md). Octopus actively [prevents modifying or deleting audit logs](/docs/security/users-and-teams/auditing.md#modifying-and-deleting-audit-logs-is-prevented).
+
 ## When the retention policies are applied {#when-retention-policies-applied}
 
 Both the Octopus Server and built-in repository retention policies are run under a scheduled task from the Octopus Server every 4 hours. This task does not apply retention policies to Tentacles.
