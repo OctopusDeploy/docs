@@ -68,7 +68,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install Octopus CLI
-        uses: OctopusDeploy/install-octopus-cli-action@v1.1.1
+        uses: !include <image-version-install-octopus-cli-action>
         with:
           version: latest
           
@@ -97,7 +97,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install Octopus CLI
-        uses: OctopusDeploy/install-octopus-cli-action@v1.1.1
+        uses: !include <image-version-install-octopus-cli-action>
         with:
           version: latest
           
@@ -126,7 +126,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install Octopus CLI
-        uses: OctopusDeploy/install-octopus-cli-action@v1.1.1
+        uses: !include <image-version-install-octopus-cli-action>
         with:
           version: latest
           
