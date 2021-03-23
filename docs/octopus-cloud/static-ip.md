@@ -8,7 +8,12 @@ The Octopus Cloud is a multi-tenant service with several static IP addresses sha
 
 Each Azure region uses a range of static IP addresses. The static IP address for an Octopus Cloud Server will be one from the range and may change to another static IP address within the range under certain situations.
 
-With a static IP address, you can lock down the ingress and egress communications between a Tentacle in your infrastructure and your Octopus Cloud Server. The built-in worker for your Octopus Cloud instance does not use an IP address from the range of static IP addresses.
+With a static IP address, you can lock down the ingress and egress communications between a Tentacle in your infrastructure and your Octopus Cloud Server. 
+
+:::hint
+**Note:**
+The built-in worker for your Octopus Cloud Server does not use an IP address from the range of static IP addresses.
+:::
 
 The range of IP Addresses that your Octopus Cloud Server will use can be found within the technical section of the instance details page. 
 
