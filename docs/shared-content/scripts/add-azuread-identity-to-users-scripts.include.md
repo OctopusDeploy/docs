@@ -9,6 +9,7 @@ function AddAzureADLogins(
     [String]$AzureEmailAddress,
     [String]$AzureDisplayName = $null,
     [Boolean]$UpdateOctopusEmailAddress = $False,
+    [Boolean]$UpdateOctopusDisplayName = $False,
     [Boolean]$ContinueOnError = $False,
     [Boolean]$Force = $False,
     [Boolean]$WhatIf = $True,
@@ -22,10 +23,10 @@ function AddAzureADLogins(
     Write-Host "AzureEmailAddress: $AzureEmailAddress"
     Write-Host "AzureDisplayName: $AzureDisplayName"
     Write-Host "UpdateOctopusEmailAddress: $UpdateOctopusEmailAddress"
+    Write-Host "UpdateOctopusDisplayName: $UpdateOctopusDisplayName"
     Write-Host "ContinueOnError: $ContinueOnError"
     Write-Host "Force: $Force"
     Write-Host "WhatIf: $WhatIf"
-    Write-Host "DebugLogging: $DebugLogging"
     Write-Host "DebugLogging: $DebugLogging"
     Write-Host $("=" * 60)
     Write-Host
@@ -109,9 +110,12 @@ function AddAzureADLogins(
                 if($null -ne $azureAdIdentity) {
                     Write-Debug "Found existing AzureAD login for user $($user.OctopusUsername)"
                     if($Force -eq $True) {
-                        Write-Debug "Force set to true. Replacing existing AzureAD Claims for Display Name and Email"
+                        Write-Debug "Force set to true. Replacing existing AzureAD Claims for Display Name and Email for user $($user.OctopusUsername)"
                         $azureAdIdentity.Claims.email.Value = $User.AzureEmailAddress
                         $azureAdIdentity.Claims.dn.Value = $User.AzureDisplayName
+                    }
+                    else {
+                        Write-Debug "Force set to false. Skipping replacing existing AzureAD Claims for Display Name and Email for user $($user.OctopusUsername)"
                     }
                 }
                 else {
@@ -138,11 +142,17 @@ function AddAzureADLogins(
                     $existingOctopusUser.EmailAddress = $User.AzureEmailAddress
                 }
 
+                 # Update user's display name if set AND the value isnt empty.
+                 if($UpdateOctopusDisplayName -eq $True -and -not([string]::IsNullOrWhiteSpace($User.AzureDisplayName) -eq $true)) {
+                    Write-Debug "Setting Octopus display name to: $($User.AzureDisplayName)"
+                    $existingOctopusUser.DisplayName = $User.AzureDisplayName
+                }
+
                 $userJsonPayload = $($existingOctopusUser | ConvertTo-Json -Depth 10)
 
                 if($WhatIf -eq $True) {
-                    Write-Host "What If set to true, skipping update for user $($User.OctopusUsername)"
-                    Write-Debug "Would have done a POST to $OctopusUrl/api/users/$($existingOctopusUser.Id) with the body:"
+                    Write-Host "What If set to true, skipping update for user $($User.OctopusUsername). For details of the payload, set DebugLogging to True"
+                    Write-Debug "Would have done a POST to $OctopusUrl/api/users/$($existingOctopusUser.Id) with body:"
                     Write-Debug $userJsonPayload
                 } 
                 else {
