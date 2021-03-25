@@ -30,3 +30,15 @@ This example starts the default Tentacle in debug and console mode:
 ```text
 tentacle agent --console
 ```
+
+## Docker container example
+
+This example shows hows to run the Tentacle Agent for an instance named `Tentacle` when using either the official [Tentacle container](/docs/installation/octopus-in-container/octopus-tentacle-container.md) or a custom Docker container.
+
+```text
+tentacle agent --instance Tentacle --noninteractive
+```
+
+:::warning
+When launching a Tentacle in a container using `docker run` **without** an interactive terminal attached (e.g. with the `-it` parameter), the `--noninteractive` parameter is required, otherwise the Tentacle host would exit immediately after starting.
+:::
