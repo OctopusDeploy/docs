@@ -4,7 +4,7 @@ description: Details of the versioning scheme used by Docker feeds
 position: 4
 ---
 
-Docker image tags are used to define version information. However, aside from the convention that the `latest` tag indicates the latest image available, Docker tags do not inherently define any relationship between "versions".
+Docker image tags are used to define version information. However, aside from the convention that the `latest` tag indicates the default image available, Docker tags do not inherently define any relationship between "versions".
 
 It is common practice to assign meaningful versions to Docker tags, and when a Docker image is used in the context of an Octopus deployment, these versions are used to select the latest available image, and restrict images using version ranges.
 
