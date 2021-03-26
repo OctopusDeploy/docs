@@ -157,9 +157,19 @@ When you configured the first Octopus Server node, as well as each of the subseq
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
-If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy.
+#### Load balancer session persistence
+
+When running Octopus in a highly available configuration, each node will keep a local cache of data, including user permissions. In order to avoid local caching issues, for example when user permissions are changed, we recommend configuring your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
+
+#### Software load balancers
+
+If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy. 
 
 ![](images/create-server-farm.png "width=500")
+
+For more information on setting up a reverse proxy with Octopus Deploy we have the following guides:
+- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy.md)
+- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy.md)
 
 ## Migrating a single server to a high availability setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
 
