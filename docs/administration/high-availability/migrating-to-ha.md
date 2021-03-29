@@ -1,0 +1,15 @@
+---
+title: Migrating to Highly-Available Octopus
+description: How to migrate from a stand alone Octopus server to High availability
+position: 50
+---
+
+## Migrating a single server to a high availability setup
+
+You may already have an existing Octopus Server, that you wish to make highly available. The process for doing this is the same as the process above, except your existing server will be the "first node" in the cluster.
+
+1. Provision the shared storage folder.
+2. Move the SQL Server Database, if necessary.
+3. Use the `Octopus.Server.exe path` commands above to tell Octopus to use the shared storage folder.
+4. Move the existing task logs, packages and artifacts from the existing Octopus Server node into the shared storage folders.
+5. Add the additional nodes and load balancer as required.
