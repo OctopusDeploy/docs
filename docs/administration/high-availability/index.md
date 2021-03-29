@@ -26,11 +26,11 @@ This section will walk you through the different options and considerations for 
 Learn more:
 
 -[Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
--[Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-zure.md)
+-[Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-azure.md)
 -[Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
 
 ## Control and Manage nodes
 
 One great benefit of Octopus: HA is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
 
-Learn more: [Managing High Availability nodes](/docs/administration/high-availability/managing-high-availability-nodes.md)
+Learn more: [Managing High Availability nodes](/docs/administration/high-availability/maintain/managing-high-availability-nodes.md)
