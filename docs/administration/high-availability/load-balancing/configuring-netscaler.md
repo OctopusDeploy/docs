@@ -1,7 +1,7 @@
 ---
 title: Configuring Netscaler
 description: Script to configure a Netscaler load balancer for use with an Octopus High Availability instance.
-position: 50
+position: 10
 ---
 
 ```bash

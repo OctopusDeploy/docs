@@ -1,19 +1,9 @@
 ---
-title: Configuring Octopus High Availability for AWS
-description: Information on configuring Octopus High Availability for Microsoft Azure.
-position: 20
+title: Configuring Octopus for High Availability on AWS
+description: This section includes Configuring Octopus for High Availability on AWS
+position: 40
+hideInThisSectionHeader: true
 ---
 
-This section will walk through the different options and considerations for setting up Highly-available Octopus in Microsoft AWS.
-
-This document assumes you've read
-
-## Setting up Octopus: High availability
-
-### Database
-
-### Shared storage
-
-### Octopus server nodes
-
-### Load Balancing in AWS
+In this section, we have the following pages:
+- [Configuring Octopus for High-Availability on Azure](/docs/administration/high-availability/plan-aws/configuring-octopus-for-high-availability-on-aws.md)
