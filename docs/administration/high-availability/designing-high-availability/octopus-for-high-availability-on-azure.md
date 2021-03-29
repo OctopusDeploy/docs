@@ -1,10 +1,10 @@
 ---
-title: Configuring Octopus High Availability - Azure
+title: Considerations for Highly Availaible Octopus on Azure
 description: Information on configuring Octopus High Availability for Microsoft Azure.
 position: 10
 ---
 
-This section will walk through the different options and considerations for setting up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/). This document will deal with the high-level concepts of Octopus High-Availability for an on-Premises install of Octopus Deploy.
+This section will walk through the different options and considerations for setting up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/). This document will deal with the high-level concepts of Octopus High-Availability Microsoft Azure.
 
 :::warning
 If you are setting Octopus up on AWS or on-Premises please see the following guides:

@@ -6,4 +6,5 @@ hideInThisSectionHeader: true
 ---
 
 In this section, we have the following pages:
-- [Configuring NetScaler](/docs/administration/high-availability/configure/configuring-ha.md).
+
+- [Configuring NetScaler](/docs/administration/high-availability/load-balancing/configuring-netscaler.md).

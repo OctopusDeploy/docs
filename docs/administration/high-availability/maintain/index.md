@@ -1,7 +1,7 @@
 ---
 title: Maintain
 description: This section includes how to maintain Octopus in High Availability
-position: 60
+position: 40
 hideInThisSectionHeader: true
 ---
 
