@@ -17,23 +17,23 @@ Information regarding each of your nodes is displayed here.  You can see:
 - **Tasks**: the number of task currently running on the node.
 - **Drain**: on or off depending on if the node can execute new tasks.
 
-## Last seen {#ManagingHighAvailabilityNodes-Lastseen}
+## Last seen
 
 Octopus Server nodes will check-in at regular intervals.  If an Octopus Server node goes offline a warning will be displayed and the time that it went offline can be determined by looking at the **last seen** field.
 
 ![](images/nodes-last-seen.png "width=500")
 
-## Tasks {#ManagingHighAvailabilityNodes-Tasks}
+## Tasks
 
 Each Octopus Server node will execute tasks as they are queued. The **tasks** field displays the number of tasks currently running on that node. Following the active tasks link will display more information about all of the tasks for that node.
 
-## Task cap {#ManagingHighAvailabilityNodes-Taskcap}
+## Task cap
 
 Each Octopus Server node can execute a maximum number of tasks in parallel.  This is to prevent death by multi-tasking. The **task cap** allows you to configure the maximum number of tasks for each node.  If more tasks are created than the total available task cap, the tasks will queue for up to a day until an Octopus Server node is available to execute the task.
 
 You may consider setting a low cap for your Octopus Servers on poorer hardware or have a dedicated UI node with a low task cap to improve UI performance.
 
-## Drain {#ManagingHighAvailabilityNodes-Drain}
+## Drain
 
 The drain toggle can be used to prevent an Octopus Server node from executing any new tasks. While draining:
 
@@ -42,7 +42,7 @@ The drain toggle can be used to prevent an Octopus Server node from executing an
 - A follower will not become leader.
 - The Octopus Server ping url will not return 200 OK.
 
-## Load balancing {#ManagingHighAvailabilityNodes-Loadbalancing}
+## Load balancing
 
 To distribute HTTP load among Octopus Server nodes with a single point of access it is recommend to use an HTTP load balancer. We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster.
 
@@ -60,7 +60,7 @@ Making a standard `HTTP GET` request to this URL on your Octopus Server nodes wi
 The Octopus Server node configuration is also returned as JSON in the HTTP response body.
 :::
 
-## Example procedure: Installing Windows updates {#ManagingHighAvailabilityNodes-Exampleprocedure:installingWindowsUpdates}
+## Example procedure: Installing Windows updates
 
 One of the great benefits of High Availability is the ability to perform maintenance on one node, while allowing other nodes to continue to perform deployments or server users.
 

@@ -1,11 +1,12 @@
 ---
-title: Configuring Octopus High Availability
+title: Configuring Octopus High Availability - On-Premises
 description: Information on configuring Octopus High Availability including database and shared storage set up.
+position: 20
 ---
 
-This section will walk through the different options and considerations for setting up Octopus: HA.
+This section will walk through the different options and considerations for setting up Octopus: HA. This document will deal with the high-level concepts of Octopus High-Availability
 
-## Setting up Octopus: High availability {#ConfiguringOctopusforHighAvailability-SettingupOctopus:HighAvailability}
+## Setting up Octopus: High availability
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 
@@ -18,7 +19,7 @@ While a single server Octopus installation is easy, Octopus: High Availability i
 - You should be familiar with load balancing for applications
   :::
 
-### Database {#ConfiguringOctopusforHighAvailability-Database}
+### Database
 
 Each Octopus Server node stores project, environment and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available.
 
@@ -37,7 +38,7 @@ See also: [SQL Server Database](/docs/installation/sql-server-database.md), whic
 
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database, and using that account as the service account when configuring Octopus.
 
-### Shared storage {#ConfiguringOctopusforHighAvailability-SharedStorage}
+### Shared storage
 
 Octopus stores a number of files that are not suitable to store in the database. These include:
 
@@ -71,7 +72,7 @@ If your Octopus Server is running in Amazon AWS you can use [AWS FSx](https://aw
 
 See also: [Blog: Configuring Octopus Server HA with AWS FSx](https://www.octopus.com/blog/aws-fsx-ha).
 
-### Octopus server nodes {#ConfiguringOctopusforHighAvailability-OctopusServernodes}
+### Octopus server nodes
 
 With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to four nodes.
 
@@ -80,7 +81,7 @@ With the shared storage and database provisioned, you can now set up each of the
 While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers.
 :::
 
-#### Configure the first node {#ConfiguringOctopusforHighAvailability-Configuringthefirstnode}
+#### Configure the first node
 
 On the first Octopus Server node, [download the Octopus Server MSI](https://octopus.com/downloads), and walk through the setup wizard. Use the Getting Started wizard to configure the first Octopus node:
 
@@ -157,19 +158,9 @@ When you configured the first Octopus Server node, as well as each of the subseq
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
-#### Load balancer session persistence
-
-When running Octopus in a highly available configuration, each node will keep a local cache of data including user permissions. To avoid local caching issues, for example, when user permissions are changed, we recommend configuring your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
-
-#### Software load balancers
-
-If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy. 
+If you don't have a hardware load balancer available, an easy option is the [Application Request Routing module for IIS](http://www.iis.net/downloads/microsoft/application-request-routing). You can also use Apache or NGINX as a reverse load-balancing proxy.
 
 ![](images/create-server-farm.png "width=500")
-
-For more information on setting up a reverse proxy with Octopus Deploy we have the following guides:
-- [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy.md)
-- [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy.md)
 
 ## Migrating a single server to a high availability setup {#ConfiguringOctopusforHighAvailability-MigratingaSingleServertoaHighAvailabilitysetup}
 
