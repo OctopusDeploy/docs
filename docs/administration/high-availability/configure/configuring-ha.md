@@ -1,5 +1,5 @@
 ---
-title: Configuring HA
+title: Configuring High-Availability for Octopus Deploy
 description: Step-by-step guided setup for Octopus High-availability
 position: 10
 ---
