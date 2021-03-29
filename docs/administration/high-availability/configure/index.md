@@ -1,12 +1,14 @@
 ---
 title: Configuring HA
 description: Step-by-step guided setup for Octopus High-availability
-position: 50
+position: 10
 ---
 
 ### Octopus server nodes
 
 With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to eight nodes.
+
+This document assumes that you've planned and implemented your Infrastructure for Octopus and it's ready to be configured for High Availability.
 
 :::hint
 **Not a Windows cluster**
@@ -45,7 +47,7 @@ Finally, you need to tell Octopus to store artifacts, task logs and packages in 
 
 There are two options for configuring shared storage: setting the root shared storage directory, or setting each directory individually.
 
-:::warning 
+:::warning
 The first option was added in 2020.2.15. If using an earlier version then you will need to use the second option and set each folder path individually.
 :::
 

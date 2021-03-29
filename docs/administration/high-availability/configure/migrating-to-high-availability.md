@@ -1,7 +1,7 @@
 ---
 title: Migrating to Highly-Available Octopus
 description: How to migrate from a stand alone Octopus server to High availability
-position: 50
+position: 20
 ---
 
 ## Migrating a single server to a high availability setup

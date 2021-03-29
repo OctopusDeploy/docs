@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting node limits exceeded error
-description: Information on troubleshooting Octopus High Availability node limits exceeded error message.
-position: 40
+title: Troubleshooting High Availability
+description: Information on troubleshooting Octopus High Availability.
+position: 10
 ---
 
 ## Node license limits exceeded
