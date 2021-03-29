@@ -4,7 +4,14 @@ description: Information on configuring Octopus High Availability including data
 position: 20
 ---
 
-This section will walk through the different options and considerations for setting up Octopus: HA. This document will deal with the high-level concepts of Octopus High-Availability for an on-Premises install of Octopus Deploy
+This section will walk through the different options and considerations for setting up Octopus High Availability. This document will deal with the high-level concepts of Octopus High-Availability for an on-Premises install of Octopus Deploy.
+
+:::warning
+If you are setting Octopus up in a private cloud please see the following guides:
+
+- [Azure](/docs/administration/high-availability/configuring-octopus-for-high-availability-in-azure.md)
+- [AWS](/docs/administration/high-availability/configuring-octopus-for-high-availability-in-aws.md)
+:::
 
 ## Setting up Octopus: High availability
 
