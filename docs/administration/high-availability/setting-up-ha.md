@@ -6,7 +6,7 @@ position: 50
 
 ### Octopus server nodes
 
-With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to four nodes.
+With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to eight nodes.
 
 :::hint
 **Not a Windows cluster**
