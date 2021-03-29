@@ -9,7 +9,7 @@ This section will walk through the different options and considerations for sett
 :::warning
 If you are setting Octopus up on AWS or on-Premises please see the following guides:
 
-- [AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-in-aws.md)
+- [AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
 - [On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
 :::
 

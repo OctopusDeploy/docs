@@ -70,7 +70,7 @@ After the pilot phase is successful it is time to start bringing other projects 
 
 - **Octopus Server**
     - **Instance**: The database, file share, and 1 to N nodes running the Octopus Server service.  Each self-hosted Octopus Deploy license allows for three active instances.
-    - [**Node**](/docs/administration/high-availability/managing-high-availability-nodes.md): An individual server running the Octopus Server in an Octopus Instance.
+    - [**Node**](/docs/administration/high-availability/maintain/managing-high-availability-nodes.md): An individual server running the Octopus Server in an Octopus Instance.
     - [**High Availability**](/docs/administration/high-availability/index.md): High availability is where you run multiple Octopus Servers to distribute load and tasks between them for a single Octopus Deploy instance.
 - **Infrastructure**
     - [**Built-in Worker**](/docs/security/built-in-worker.md): The underlying worker built in to the Octopus Server to allow you to run part of your deployment process without the need to install an external worker.  Please note, this only applies to self-hosted Octopus.  The built-in worker is disabled in Octopus Cloud.
