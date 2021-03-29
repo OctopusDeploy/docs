@@ -847,7 +847,7 @@ docs/deployment-examples/aws-deployments/s3/index.md -> docs/deployments/aws/s3/
 docs/deployment-examples/azure-deployments/azure-environments.md -> docs/deployments/azure/azure-environments.md
 docs/deployment-examples/azure-deployments/index.md -> docs/deployments/azure/index.md
 docs/deployment-examples/azure-deployments/varying-azure-subscription-by-environment.md -> docs/deployments/azure/varying-azure-subscription-by-environment.md
-docs/deployment-examples/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md
+docs/deployment-examples/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
 docs/deployment-examples/azure-deployments/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md
 docs/deployment-examples/azure-deployments/running-azure-powershell/index.md -> docs/deployments/azure/running-azure-powershell/index.md
 docs/deployment-examples/azure-deployments/ase/index.md -> docs/deployments/azure/ase/index.md
@@ -977,3 +977,4 @@ docs/deployments/azure/deploying-to-service-fabric/index.md -> docs/deployments/
 docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azure-active-directory/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/index.md
 docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
 docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
+docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
