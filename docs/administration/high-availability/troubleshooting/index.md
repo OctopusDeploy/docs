@@ -6,4 +6,4 @@ hideInThisSectionHeader: true
 ---
 
 In this section, we have the following pages:
-- [Troubleshooting](/docs/administration/high-availability/troubleshooting/troubleshooting.md).
+- [Troubleshooting](/docs/administration/high-availability/troubleshooting/troubleshooting.md)
