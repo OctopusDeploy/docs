@@ -4,7 +4,7 @@ description: Step-by-step guided setup for Octopus High-availability
 position: 10
 ---
 
-### Octopus server nodes
+## Octopus server nodes
 
 With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to eight nodes.
 
@@ -15,7 +15,7 @@ This document assumes that you've planned and implemented your Infrastructure fo
 While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers.
 :::
 
-#### Configure the first node
+### Configure the first node
 
 On the first Octopus Server node, [download the Octopus Server MSI](https://octopus.com/downloads), and walk through the setup wizard. Use the Getting Started wizard to configure the first Octopus node:
 
@@ -70,7 +70,7 @@ Octopus.Server.exe path --telemetry \\Octoshared\OctopusData\Telemetry
 
 No matter which option you choose, the configuration is stored in the database, so you only have to perform this once - other nodes will read it from the database.
 
-#### Configure the second and additional nodes
+### Configure the second and additional nodes
 
 Once the first node has been created and started, you can add the additional nodes. Again, install the Octopus Server MSI, but instead of using the Getting Started wizard, use the link to add this server as a node for the cluster:
 

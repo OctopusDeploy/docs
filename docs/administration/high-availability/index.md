@@ -23,10 +23,14 @@ An Octopus: HA configuration requires four main components:
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 
-Learn more: [Configuring Octopus for High Availability](/docs/administration/high-availability/configuring-octopus-for-high-availability-on-premises.md)
+Learn more:
+
+-[Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
+-[Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-zure.md)
+-[Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
 
 ## Control and Manage nodes
 
 One great benefit of Octopus: HA is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
 
-Learn more: [Managing High Availability nodes](/docs/administration/high-availability/managing-high-availability-nodes.md).
+Learn more: [Managing High Availability nodes](/docs/administration/high-availability/managing-high-availability-nodes.md)

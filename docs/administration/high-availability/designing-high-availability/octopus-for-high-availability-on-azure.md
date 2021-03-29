@@ -145,4 +145,4 @@ Any of the below Load Balancers support Octopus in a Highly-Available configurat
 
 We  recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations but for this to work in Azure you would need a domain controller setup locally in Azure for this to work. Please check [Authentication Providers](/docs/security/authentication/auth-provider-compatibility.md) for a full list of supported Authentication Providers.
 
-If you are hosting in Azure with domain controllers, it would be a similar setup for [On-Premises](/docs/administration/high-availability/configuring-octopus-for-high-availability-on-premises.md)
+If you are hosting in Azure with domain controllers, it would be a similar setup for [On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
