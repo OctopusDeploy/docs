@@ -15,6 +15,10 @@ If you are setting Octopus up on AWS or on-Premises please see the following gui
 
 ## Setting up Octopus: High availability
 
+:::warning
+If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on Azure then the [On-Premises](/docs/administration/high-availability/configuring-octopus-for-high-availability-on-premises.md) doc might be a better approach for you.
+:::
+
 This section will walk you through the different options and considerations for setting up Octopus: HA. For this document's sake, the guide assumes that all of the servers are in Azure, as this is the most common configuration.
 
 :::hint
