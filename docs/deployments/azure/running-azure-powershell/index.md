@@ -4,7 +4,7 @@ description: Octopus supports executing PowerShell against Azure and will automa
 hideInThisSectionHeader: true
 ---
 
-When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) and [Azure PowerShell CLI](https://docs.microsoft.com/cli/azure/), and finally will also authenticate with Azure using the configured [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
+When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) and [Azure CLI](https://docs.microsoft.com/cli/azure/), and finally will also authenticate with Azure using the configured [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
 
 This applies to:
 
@@ -29,7 +29,7 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 
 ### Staying up to date
 
-Octopus Deploy ships with a version of the Azure PowerShell Modules and Azure PowerShell CLI so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and PowerShell commands frequently. You can use the built-in cmdlets or/and CLI if they cover everything you need, or you can configure Octopus Deploy to use your own [custom version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and/or [custom version of the Azure PowerShell CLI](configuring-the-version-of-the-azure-powershell-cli.md).
+Octopus Deploy ships with a version of the Azure PowerShell Modules and Azure CLI so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and commands frequently. You can use the built-in cmdlets or/and CLI if they cover everything you need, or you can configure Octopus Deploy to use your own [custom version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and/or [custom version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
 
 ## Learn more
 
