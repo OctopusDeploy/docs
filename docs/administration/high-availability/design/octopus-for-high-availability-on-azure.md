@@ -1,7 +1,7 @@
 ---
 title: Designing Octopus HA on Azure
 description: Information on configuring Octopus High Availability for Microsoft Azure.
-position: 10
+position: 20
 ---
 
 This section will walk through the different options and considerations for setting up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/). This document will deal with the high-level concepts of Octopus High-Availability Microsoft Azure.

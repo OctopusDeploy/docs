@@ -1,7 +1,7 @@
 ---
 title: Designing Octopus HA on-Premises
 description: Information on configuring Octopus High Availability including database and shared storage set up.
-position: 20
+position: 10
 ---
 
 This section will walk through the different options and considerations for setting up Octopus High Availability. This document will deal with the high-level concepts of Octopus High-Availability for an on-Premises install of Octopus Deploy.
