@@ -9,8 +9,8 @@ This section will walk through the different options and considerations for sett
 :::warning
 If you are setting Octopus up in a private cloud please see the following guides:
 
-- [Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-azure.md)
-- [AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
+- [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
+- [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 :::
 
 ## Setting up Octopus: High availability
