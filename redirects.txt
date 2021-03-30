@@ -988,5 +988,5 @@ docs/administration/high-availability/designing-high-availability/octopus-for-hi
 docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md -> docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md
 docs/administration/high-availability/migrating-to-ha.md -> docs/administration/high-availability/migrate/migrating-to-high-availability.md
 docs/administration/high-availability/migrating-to-ha/migrating-to-high-availability.md -> docs/administration/high-availability/migrate/migrating-to-high-availability.md
-docs/administration/high-availability/troubleshooting -> docs/administration/high-availability/troubleshooting.md
-docs/administration/high-availability/troubleshooting/troubleshooting -> docs/administration/high-availability/troubleshoot/troubleshooting.md
+docs/administration/high-availability/troubleshooting -> docs/administration/high-availability/troubleshoot/troubleshooting.md
+docs/administration/high-availability/troubleshooting/troubleshooting.md -> docs/administration/high-availability/troubleshoot/troubleshooting.md
