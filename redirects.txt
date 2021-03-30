@@ -1,5 +1,5 @@
 from-file-path -> to-file-path   #DO NOT DELETE THIS LINE
-docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/maintain/managing-high-availability-nodes.md
+docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md

@@ -23,7 +23,7 @@ An Octopus: HA configuration requires four main components:
 
 ## Designing Highly-Available Octopus
 
-This section will walk you through the different options and considerations for setting up Octopus HA. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
+This section will walk you through the different options and considerations for setting up Octopus HA and how you can incorporate each of the components and making them Highly-Available. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
 
 - [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
@@ -35,11 +35,11 @@ When you have selected and provisioned the technologies and approach for Octopus
 
 - [Configuring High Availability](/docs/administration/high-availability/configure/configuring-ha.md)
 
-## Control and Manage nodes
+## Maintain nodes
 
 One great benefit of Highly Available Octopus is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
 
-- [Managing High Availability nodes](/docs/administration/high-availability/maintain/managing-high-availability-nodes.md)
+- [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md)
 
 ## Migrating to High Availability
 
