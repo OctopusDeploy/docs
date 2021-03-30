@@ -27,7 +27,7 @@ This section will walk you through the different options and considerations for 
 
 - [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing/octopus-for-high-availability-on-aws.md)
+- [Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 
 ## Configuring Octopus High Availability
 
