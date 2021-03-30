@@ -159,7 +159,11 @@ Octopus can work with any load balancer technology, including hardware and softw
 
 #### Load balancer session persistence
 
-When running Octopus in a highly available configuration, each node will keep a local cache of data including user permissions. To avoid local caching issues, for example, when user permissions are changed, we recommend configuring your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
+We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster, as the Octopus Web Portal is stateless. 
+
+However, each node in the cluster keeps a local cache of data including user permissions. There is a known issue that occurs when a users permissions change. The local cache is only invalidated on the node where the change was made. This will be resolved in a future version of Octopus. 
+
+To work around this issue in the meantime you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
 
 #### Software load balancers
 
