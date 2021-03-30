@@ -1,5 +1,5 @@
 ---
-title: Considerations for Highly Availaible On-Premises
+title: Designing Octopus HA on-Premises
 description: Information on configuring Octopus High Availability including database and shared storage set up.
 position: 20
 ---

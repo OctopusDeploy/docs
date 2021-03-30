@@ -1,5 +1,5 @@
 ---
-title: Configuring Octopus High Availability for AWS
+title: Designing Octopus HA on AWS
 description: Information on configuring Octopus High Availability for Microsoft Azure.
 position: 20
 ---

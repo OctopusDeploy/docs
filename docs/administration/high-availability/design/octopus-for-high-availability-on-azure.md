@@ -1,5 +1,5 @@
 ---
-title: Considerations for Highly Availaible Octopus on Azure
+title: Designing Octopus HA on Azure
 description: Information on configuring Octopus High Availability for Microsoft Azure.
 position: 10
 ---
