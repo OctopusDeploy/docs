@@ -6,4 +6,4 @@ hideInThisSectionHeader: true
 ---
 
 In this section, we have the following pages:
-- [Migrating to High Availability](/docs/administration/high-availability/migrating-to-ha/migrating-to-high-availability.md)
+- [Migrating to High Availability](/docs/administration/high-availability/migrate/migrating-to-high-availability.md)

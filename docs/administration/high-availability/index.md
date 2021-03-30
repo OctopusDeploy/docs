@@ -25,9 +25,9 @@ An Octopus: HA configuration requires four main components:
 
 This section will walk you through the different options and considerations for setting up Octopus HA. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
 
-- [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
-- [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-azure.md)
-- [Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
+- [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
+- [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
+- [Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing/octopus-for-high-availability-on-aws.md)
 
 ## Configuring Octopus High Availability
 
@@ -51,4 +51,4 @@ Most Organizations start with a stand-alone Octopus installation as part of a Pr
 
 If you're running into issues with your Highly available Octopus Deploy install then please use our Troubleshooting pages.
 
-- [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting/troubleshooting.md)
+- [Troubleshooting High Availability](/docs/administration/high-availability/troubleshoot/troubleshooting.md)

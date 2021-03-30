@@ -9,14 +9,14 @@ This section will walk through the different options and considerations for sett
 :::warning
 If you are setting Octopus up on AWS or on-Premises please see the following guides:
 
-- [AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
-- [On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
+- [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
+- [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 :::
 
 ## Setting up Octopus: High availability
 
 :::warning
-If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on Azure then the [On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md) doc might be a better approach for you.
+If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on Azure then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) doc might be a better approach for you.
 :::
 
 This section will walk you through the different options and considerations for setting up Octopus: HA. For this document's sake, the guide assumes that all of the servers are in Azure, as this is the most common configuration.
@@ -145,4 +145,4 @@ Any of the below Load Balancers support Octopus in a Highly-Available configurat
 
 We  recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations but for this to work in Azure you would need a domain controller setup locally in Azure for this to work. Please check [Authentication Providers](/docs/security/authentication/auth-provider-compatibility.md) for a full list of supported Authentication Providers.
 
-If you are hosting in Azure with domain controllers, it would be a similar setup for [On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
+If you are hosting in Azure with domain controllers, it would be a similar setup for [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
