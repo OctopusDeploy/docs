@@ -1,5 +1,5 @@
 ---
-title: Designing Infrastructure for Octopus High Availability
+title: Design
 description: This section includes Configuring Octopus for High Availability
 position: 20
 hideInThisSectionHeader: true

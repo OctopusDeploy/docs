@@ -8,6 +8,8 @@ Octopus: High Availability (HA) enables you to run multiple Octopus Servers, dis
 
 ![](images/3278420.png "width=500")
 
+## Octopus High-Availability Components
+
 An Octopus: HA configuration requires four main components:
 
 - **A load balancer**
@@ -19,18 +21,34 @@ An Octopus: HA configuration requires four main components:
 - **Shared storage**
   Some larger files - like [NuGet packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
-## Setting up Octopus: High Availability
+## Designing Highly-Available Octopus
 
-This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
+This section will walk you through the different options and considerations for setting up Octopus HA. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
 
-Learn more:
+- [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
+- [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-azure.md)
+- [Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
 
--[Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md)
--[Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-azure.md)
--[Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md)
+## Configuring Octopus High Availability
+
+When you have selected and provisioned the technologies and approach for Octopus High Availability you can use the guide to configure Octopus High Availability.
+
+- [Configuring High Availability](/docs/administration/high-availability/configure/configuring-ha.md)
 
 ## Control and Manage nodes
 
-One great benefit of Octopus: HA is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
+One great benefit of Highly Available Octopus is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
 
-Learn more: [Managing High Availability nodes](/docs/administration/high-availability/maintain/managing-high-availability-nodes.md)
+- [Managing High Availability nodes](/docs/administration/high-availability/maintain/managing-high-availability-nodes.md)
+
+## Migrating to High Availability
+
+Most Organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and make it highly-available. 
+
+- [Migrating to High-Availability](/docs/administration/high-availability/migrate/migrating-to-high-availability.md)
+
+## Troubleshooting
+
+If you're running into issues with your Highly available Octopus Deploy install then please use our Troubleshooting pages.
+
+- [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting/troubleshooting.md)

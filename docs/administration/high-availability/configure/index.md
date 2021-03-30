@@ -1,5 +1,5 @@
 ---
-title: Configuring High-Availability
+title: Configure
 description: This section includes how to configure Octopus in High-Availability
 position: 30
 hideInThisSectionHeader: true
