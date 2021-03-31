@@ -1,7 +1,7 @@
 ---
 title: Design
-description: This section includes Configuring Octopus for High Availability
-position: 20
+description: This section includes Designing Octopus for High Availability
+position: 10
 hideInThisSectionHeader: true
 ---
 

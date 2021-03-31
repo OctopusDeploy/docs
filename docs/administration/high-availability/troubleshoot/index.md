@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot
 description: This section includes how to troubleshoot Highly Available Octopus
-position: 70
+position: 60
 hideInThisSectionHeader: true
 ---
 

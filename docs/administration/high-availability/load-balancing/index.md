@@ -1,7 +1,7 @@
 ---
 title: Load Balancers
 description: This section includes how to configure Load Balancers for Octopus
-position: 70
+position: 50
 hideInThisSectionHeader: true
 ---
 
