@@ -25,9 +25,8 @@ The next sections talks about all the services that you can use in AWS to suppor
 
 ### Compute
 
-The servers will be used for our Octopus nodes, and it’s where you will install the Octopus software.
+To install Octopus nodes you will need at least to machines running Windows Server 2016 +. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, We generally find sticking with the General purpose size is the best option. Choosing the rights specs for the instance depends on how many nodes you plan to use.
 
-There’s only one choice when building virtual machines in AWS, and that’s EC2 Instances. There are a number of different instance types to choose from. When selecting the size of the instance, We generally find sticking with the General purpose size is the best option. Choosing the rights specs for the instance depends on how many nodes you plan to use. The more nodes you include, the fewer resources you will need in each instance, but I’d always recommend starting small and scaling as you need to.
 
 ### Database
 
