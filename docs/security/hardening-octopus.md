@@ -65,7 +65,7 @@ Learn about [external workers](/docs/infrastructure/workers/index.md).
 Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
 
 - Learn about [Octopus Server to Tentacle communication](/docs/security/octopus-tentacle-communication/index.md).
-- Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/linux/index.md).
+- Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
 
 The decisions you need to make are:
 

@@ -201,8 +201,8 @@ docs/infrastructure/dynamic-infrastructure/kubernetes-target.md -> docs/infrastr
 docs/infrastructure/dynamic-infrastructure/remove-target.md -> docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md
 docs/infrastructure/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/infrastructure/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/linux/index.md
-docs/infrastructure/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
-docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
+docs/infrastructure/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
+docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
 docs/infrastructure/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
 docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
@@ -232,8 +232,8 @@ docs/infrastructure/worker-pools.md -> docs/infrastructure/workers/worker-pools.
 docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
 docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
 docs/deployment-examples/custom-scripts/long-paths.md -> docs/installation/troubleshooting.md
-docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
-docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/requirements.md
+docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
+docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/deployment-targets/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/infrastructure/deployment-targets/health-checks.md -> docs/infrastructure/deployment-targets/machine-policies.md
 docs/deployment-examples/nginx-on-nix-deployments/index.md -> docs/deployments/nginx/index.md
@@ -241,13 +241,13 @@ docs/deployment-examples/nginx-on-nix-deployments/create-&-push-asp.net-core-pro
 docs/deployment-examples/nginx-on-nix-deployments/configure-target-machine.md -> docs/deployments/nginx/configure-target-machine.md
 docs/deployment-examples/nginx-on-nix-deployments/configure-octopus-deploy-project.md -> docs/deployments/nginx/configure-octopus-deploy-project.md
 docs/infrastructure/deployment-targets/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
-docs/infrastructure/deployment-targets/ssh-targets/requirements.md -> docs/infrastructure/deployment-targets/linux/requirements.md
+docs/infrastructure/deployment-targets/ssh-targets/requirements.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/deployment-targets/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
-docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/requirements.md
+docs/infrastructure/deployment-targets/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/deployment-targets/ssh-targets/ssh-deployments.md -> docs/infrastructure/deployment-targets/linux/ssh-deployments.md
-docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md -> docs/infrastructure/deployment-targets/linux/requirements.md
+docs/infrastructure/deployment-targets/linux/ssh-targets/requirements.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
-docs/infrastructure/deployment-targets/linux/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/requirements.md
+docs/infrastructure/deployment-targets/linux/ssh-targets/calamari-on-ssh-targets.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/ssh-deployments.md -> docs/infrastructure/deployment-targets/linux/ssh-deployments.md
 docs/infrastructure/deployment-targets/linux/ssh-targets/index.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/administration/upgrading/upgrading-from-octopus-1.6.md -> docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5.md
@@ -978,3 +978,4 @@ docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azur
 docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
 docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
 docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
+docs/infrastructure/deployment-targets/linux/requirements.md -> docs/infrastructure/deployment-targets/linux/index.md
