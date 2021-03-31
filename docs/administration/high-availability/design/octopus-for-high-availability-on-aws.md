@@ -27,7 +27,7 @@ The next sections talks about all the services that you can use in AWS to suppor
 
 The servers will be used for our Octopus nodes, and it’s where you will install the Octopus software.
 
-There’s only one choice when building virtual machines in AWS, and that’s EC2 Instances. There are a number of different instance types to choose from. When selecting the size of the instance, I generally find sticking with the General purpose size(s) 3 is the best option. Choosing the rights specs for the instance depends on how many nodes you plan to use. The more nodes you include, the fewer resources you will need in each instance, but I’d always recommend starting small and scaling as you need to.
+There’s only one choice when building virtual machines in AWS, and that’s EC2 Instances. There are a number of different instance types to choose from. When selecting the size of the instance, We generally find sticking with the General purpose size is the best option. Choosing the rights specs for the instance depends on how many nodes you plan to use. The more nodes you include, the fewer resources you will need in each instance, but I’d always recommend starting small and scaling as you need to.
 
 ### Database
 
@@ -53,12 +53,10 @@ If you choose to go with AWS FSx then taking a look at there starter guide 2 is 
 
 ### Load Balancing in AWS
 
-To access the Octopus web portal on each need node, you will need a load balancer to direct HTTP/HTTPS traffic to each Octopus node.
+To distibute traffic to the Octopus web portal on multiple nodes then you will need to use a HTTP loadbalancer.AWS provides a solution to distribute HTTP/HTTPS traffic to EC2 instances, Elastic Load Balancing is a highly available, secure, and elastic load balancer. There are three implementations of ELB;
 
-AWS provides a solution to distribute HTTP/HTTPS traffic to EC2 instances, Elastic Load Balancing is a highly available, secure, and elastic load balancer. There are three implementations of ELB;
+* Application load balancer
+* Network Load Balancer
+* Classic load balancer.
 
-Application load balancer
-Network Load Balancer
-Classic load balancer.
-
-To distribute traffic to the EC2 instances hosting Octopus, the implementation to choose would be the application load balancer, which is ideal for load balancing HTTP/HTTPS traffic.
+If you are not using [polling tentacles](https://octopus.com/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication#polling-tentacles) then we recommomd using the application load balancer however polling tentecales don't work so well and instead it's best to use the NetWork Load Balancer. To setup the network load balancer for Octopus HA and poolling tentacles take a look at this [knowleodge base article](https://help.octopus.com/t/how-can-i-configure-my-polling-tentacles-to-hit-my-octopus-deploy-high-availability-instance-to-sitting-behind-an-aws-load-balancer/24890). 
