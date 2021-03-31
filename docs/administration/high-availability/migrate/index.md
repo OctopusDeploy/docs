@@ -1,5 +1,5 @@
 ---
-title: Migrating to Highly-Available Octopus
+title: Migrate
 description: How to migrate from a stand alone Octopus server to High availability
 position: 30
 ---
