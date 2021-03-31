@@ -9,7 +9,7 @@ The examples in this guide can be used with an AWS AMI instance of Ubuntu 14.04 
 
 ## Configure your Linux deployment target {#configuring-target-machine}
 
-Your Linux deployment target needs to be configured to accept projects being deployed over [SSH](/docs/infrastructure/deployment-targets/linux/index.md).
+Your Linux deployment target needs to be configured to accept projects being deployed over [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
  
 ### Install Mono {#ConfiguringTargetMachine-InstallMono}
 
@@ -251,7 +251,7 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.
 5. Continue to fill out the rest of the details, selecting the account you created above.
 
-More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) or [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md).
+More information about working with Linux deployment targets see [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md) or [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md).
 
 ### Create deployment project {#ConfigureOctopusDeployProject-CreateDeploymentProject}
 

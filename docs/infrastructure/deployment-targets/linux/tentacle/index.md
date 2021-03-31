@@ -1,15 +1,19 @@
 ---
 title: Linux Tentacle
 description: Configuring Linux Tentacle deployment targets in Octopus.
-position: 20
+position: 0
 hideInThisSectionHeader: true
 ---
 
+If you want to deploy software to Linux servers without using [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md), you need to install Tentacle, a lightweight agent service, on your Linux servers so they can communicate with the Octopus Server.
+
 ## Requirements
 
-- Octopus Server 2019.8.3 or newer
+Before you can configure a Linux Tentacle, the Linux server must meet the [requirements](/docs/infrastructure/deployment-targets/linux/index.md#requirements) and the following additional requirements:
 
-Linux Tentacle is a .NET Core application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). On most Linux distributions it will "just work", but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
+- Octopus Server **2019.8.3** or newer
+
+Linux Tentacle is a .NET Core application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). On most Linux distributions it will *just work*, but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
 
 ## Known limitations
 
@@ -38,6 +42,7 @@ The latest release of Linux Tentacle is available for download from:
 - [RPM](https://octopus.com/downloads/latest/Linux_x64Rpm/OctopusTentacle)
 
 ## Installing and configuring Linux Tentacle
+
 Note that many of the steps described below must be run as a super user using `sudo`.
 
 ### Installing Tentacle
