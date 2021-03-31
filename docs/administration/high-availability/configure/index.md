@@ -5,4 +5,6 @@ position: 30
 hideInThisSectionHeader: true
 ---
 
+This section contains step-by-step instructions on how to set up Octopus: HA.
+
 In this section, we have the following pages:

@@ -5,6 +5,6 @@ position: 70
 hideInThisSectionHeader: true
 ---
 
-In this section, we have the following pages:
+This section contains information on how to set up Load Balancers for Octopus High Availability.
 
-- [Configuring NetScaler](/docs/administration/high-availability/load-balancing/configuring-netscaler.md).
+In this section, we have the following pages:

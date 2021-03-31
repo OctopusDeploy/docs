@@ -5,4 +5,6 @@ position: 40
 hideInThisSectionHeader: true
 ---
 
+This section contains information on how to maintain Octopus: HA
+
 In this section, we have the following pages:

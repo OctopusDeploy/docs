@@ -5,4 +5,6 @@ position: 70
 hideInThisSectionHeader: true
 ---
 
+This section contains information on how to Troubleshoot Octopus High Availability.
+
 In this section, we have the following pages:

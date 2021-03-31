@@ -16,17 +16,17 @@ If you are setting Octopus up on AWS or on-Premises please see the following gui
 ## Setting up Octopus: High availability
 
 :::warning
-If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on Azure then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) doc might be a better approach for you.
+If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on Azure then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) doc might be a better approach for you as you may have your Domain Controllers, SQL and Load balancers in the cloud.
 :::
 
-This section will walk you through the different options and considerations for setting up Octopus: HA. For this document's sake, the guide assumes that all of the servers are in Azure, as this is the most common configuration.
+This section will walk you through the different options and considerations for setting up Octopus: HA. For this document's sake, the guide assumes that all of the servers are in Azure.
 
 :::hint
 **Some assembly required**
 A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
 
-- You should be familiar with SQL Server failover clustering or have DBAs available to create and manage the database
-- You should be familiar with SANs or other approaches to sharing storage between servers
+- You should be familiar with SQL Server failover clustering or Azure SQL or have DBAs available to create and manage the database
+- You should be familiar with SANs and Azure Files or other approaches to sharing storage between servers
 - You should be familiar with load balancing for applications
 :::
 
@@ -81,7 +81,7 @@ If your Octopus Server is running in Microsoft Azure, you can use [Azure File St
 
 #### Azure Files
 
-If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/en-us/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
+If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/en-us/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
 
 Once you have created your File Share, I find the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) and then adding this to `C:\Octopus\` for the Artifacts, Packages, and TaskLogs which need to be available to all nodes.
 
@@ -133,16 +133,17 @@ Making a standard `HTTP GET` request to this URL on your Octopus Server nodes wi
 The Octopus Server node configuration is also returned as JSON in the HTTP response body.
 :::
 
-Any of the below Load Balancers support Octopus in a Highly-Available configuration.
+Any of the below Load Balancers support Octopus in a Highly-Available configuration and you can see an Overview in the [Azure Docs](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview)
 
 - [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)
 - [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview)
 - [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+- [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview)
 - [Kemp LoadMaster](https://kemptechnologies.com/uk/solutions/microsoft-load-balancing/loadmaster-azure/)
 - [F5 Big-IP Virtual Edition](https://www.f5.com/partners/technology-alliances/microsoft-azure)
 
 ### Authentication Provider(s)
 
-We  recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations but for this to work in Azure you would need a domain controller setup locally in Azure for this to work. Please check [Authentication Providers](/docs/security/authentication/auth-provider-compatibility.md) for a full list of supported Authentication Providers.
+We recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations but for this to work in Azure you would need a domain controller setup locally in Azure. Please check [Authentication Providers](/docs/security/authentication/auth-provider-compatibility.md) for a full list of supported Authentication Providers.
 
 If you are hosting in Azure with domain controllers, it would be a similar setup for [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
