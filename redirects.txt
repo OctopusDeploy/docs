@@ -993,4 +993,4 @@ docs/administration/high-availability/troubleshooting/troubleshooting.md -> docs
 docs/administration/high-availability/maintain/managing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
 docs/administration/high-availability/configure/configuring-ha.md -> docs/administration/high-availability/configure/index.md
 docs/administration/high-availability/migrate -> docs/administration/high-availability/migrate/index.md
-docs/administration/high-availability/troubleshoot/troubleshooting -> docs/administration/high-availability/troubleshoot/troubleshoot/index.md
+docs/administration/high-availability/troubleshoot/troubleshooting.md -> docs/administration/high-availability/troubleshoot/index.md
