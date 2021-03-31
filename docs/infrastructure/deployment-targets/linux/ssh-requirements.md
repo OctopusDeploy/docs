@@ -1,17 +1,12 @@
 ---
 title: SSH target requirements
 description: Requirements for using SSH deployment targets with Octopus.
-position: 10
+position: 15
 ---
 
-Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md), they must meet the following requirements:
+Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md), they must meet the [requirements](/docs/infrastructure/deployment-targets/linux/index.md#requirements) for a Linux server and the following additional requirements:
 
-- It is accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
-- The `$HOME` environment variable must be available.
-- `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
-- `tar` is available. This is used to unpack Calamari.
-- `base64` is available. This is used for encoding and decoding variables.
-- `grep` is available.
+- It must be accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 
 ## Bash startup files
 
