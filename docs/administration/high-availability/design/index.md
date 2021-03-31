@@ -6,4 +6,3 @@ hideInThisSectionHeader: true
 ---
 
 In this section, we have the following pages:
-
