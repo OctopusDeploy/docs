@@ -48,11 +48,11 @@ ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.
 
 ## Self-contained Calamari {#self-contained-calamari}
 
-When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).
+When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#self-contained-net-core-dependencies)).
 
 Self-contained Calamari is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
 
-### Self-Contained .NET Core dependencies
+### Self-Contained .NET Core dependencies {#self-contained-net-core-dependencies}
 
 [.NET Core has some dependencies](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) which must be installed on the target server.
 
