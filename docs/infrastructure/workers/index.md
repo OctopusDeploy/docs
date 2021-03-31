@@ -54,7 +54,7 @@ Learn about the security implications and how to configure the [built-in worker]
 ## External Workers {#external-workers}
 
 An **External Worker** is either:
-- A [Windows](/docs/infrastructure/deployment-targets/windows-targets/index.md) or [Linux](/docs/infrastructure/deployment-targets/windows-targets/tentacle/index.md) Tentacle.
+- A [Windows](/docs/infrastructure/deployment-targets/windows-targets/index.md) or [Linux](/docs/infrastructure/deployment-targets/linux/tentacle/index.md) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target.md) that has been registered with the Octopus Server as a worker.  
 
 The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/windows-targets/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md), except that instead of being added to an environment, a worker is added to a worker pool.
