@@ -34,7 +34,7 @@ Octopus will never remove the latest release or the release previous to the late
 The Tentacle settings delete **packages**, and **files and folders** extracted from packages on the Tentacle machine that is being deployed to. Note that if you use the [Custom Installation Directory ](/docs/projects/steps/configuration-features/custom-installation-directory.md) feature, we will never delete from that directory during retention policies as it's assumed this directory has a working release in it. This can be purged during deployment in the project step settings.
 
 :::hint
-We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/index.md) also.
+We talk about Tentacles here, but the same process and logic applies to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md) also.
 :::
 
 ### Built-in repository {#built-in-repo-whats-deleted}

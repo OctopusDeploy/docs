@@ -1,17 +1,12 @@
 ---
 title: SSH target requirements
 description: Requirements for using SSH deployment targets with Octopus.
-position: 10
+position: 15
 ---
 
-Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md), they must meet the following requirements:
+Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md), they must meet the [requirements](/docs/infrastructure/deployment-targets/linux/index.md#requirements) for a Linux server and the following additional requirements:
 
-- It is accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
-- The `$HOME` environment variable must be available.
-- `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
-- `tar` is available. This is used to unpack Calamari.
-- `base64` is available. This is used for encoding and decoding variables.
-- `grep` is available.
+- It must be accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 
 ## Bash startup files
 
@@ -53,11 +48,11 @@ ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.
 
 ## Self-contained Calamari {#self-contained-calamari}
 
-When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#dependencies)).
+When using the self-contained option, neither .NET Core nor Mono need to be installed on the target server (there are still some [pre-requisite dependencies](#self-contained-net-core-dependencies)).
 
 Self-contained Calamari is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
 
-### Self-Contained .NET Core dependencies
+### Self-Contained .NET Core dependencies {#self-contained-net-core-dependencies}
 
 [.NET Core has some dependencies](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) which must be installed on the target server.
 
@@ -109,5 +104,5 @@ export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:${PATH}
 
 ## Learn more
 
-- Configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/index.md)
+- Configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md)
 - [Linux blog posts](https://octopus.com/blog/tag/linux)
