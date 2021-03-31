@@ -51,7 +51,7 @@ Most Organizations start with a stand-alone Octopus installation as part of a Pr
 
 When setting up your Load Balancer, we have some guides available for you to use.
 
-- [Troubleshooting High Availability](/docs/administration/high-availability/load-balancing//index.md)
+- [Load Balancers](/docs/administration/high-availability/load-balancing/index.md)
 
 ## Troubleshooting
 
