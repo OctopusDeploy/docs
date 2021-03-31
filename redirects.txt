@@ -978,3 +978,4 @@ docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azur
 docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
 docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
 docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
+docs/infrastructure/deployment-targets/linux/requirements.md -> docs/infrastructure/deployment-targets/linux/index.md
