@@ -26,15 +26,15 @@ An Octopus: HA configuration requires four main components:
 
 This section will walk you through the different options and considerations for setting up Octopus and how you can incorporate each of the components and making them Highly-Available. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
 
-- [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-- [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [Configuring Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
+- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
+- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
+- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 
 ## Configuring Octopus High Availability
 
 When you have selected and provisioned the technologies and approach for Octopus High Availability you can use the guide to configure Octopus High Availability.
 
-- [Configuring High Availability](/docs/administration/high-availability/configure/configuring-ha.md)
+- [Configuring High Availability](/docs/administration/high-availability/configure/index.md)
 
 ## Maintain nodes
 
@@ -58,4 +58,4 @@ When setting up your Load Balancer, we have some guides available for you to use
 
 If you're running into issues with your Highly available Octopus Deploy install then please use our Troubleshooting pages.
 
-- [Troubleshooting High Availability](/docs/administration/high-availability/troubleshoot/troubleshooting.md)
+- [Troubleshooting High Availability](/docs/administration/high-availability/troubleshoot/index.md)
