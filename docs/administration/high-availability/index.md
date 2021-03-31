@@ -46,7 +46,7 @@ One great benefit of Highly Available Octopus is the ability to update and resta
 
 Most Organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and make it highly-available.
 
-- [Migrating to High-Availability](/docs/administration/high-availability/migrate/migrating-to-high-availability.md)
+- [Migrating to High-Availability](/docs/administration/high-availability/migrate/index.md)
 
 ## Load Balancing
 
