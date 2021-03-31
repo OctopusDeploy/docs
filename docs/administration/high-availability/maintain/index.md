@@ -6,6 +6,3 @@ hideInThisSectionHeader: true
 ---
 
 In this section, we have the following pages:
-
-- [Configuring High Availability](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md).
-- [Migrating to High Availability](/docs/administration/high-availability/maintain/registering-polling-tentacles.md).

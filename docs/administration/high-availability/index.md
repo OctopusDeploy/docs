@@ -23,7 +23,7 @@ An Octopus: HA configuration requires four main components:
 
 ## Designing Highly-Available Octopus
 
-This section will walk you through the different options and considerations for setting up Octopus HA and how you can incorporate each of the components and making them Highly-Available. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
+This section will walk you through the different options and considerations for setting up Octopus and how you can incorporate each of the components and making them Highly-Available. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
 
 - [Configuring Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Configuring Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
@@ -43,9 +43,15 @@ One great benefit of Highly Available Octopus is the ability to update and resta
 
 ## Migrating to High Availability
 
-Most Organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and make it highly-available. 
+Most Organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and make it highly-available.
 
 - [Migrating to High-Availability](/docs/administration/high-availability/migrate/migrating-to-high-availability.md)
+
+## Load Balancing
+
+When setting up your Load Balancer, we have some guides available for you to use.
+
+- [Troubleshooting High Availability](/docs/administration/high-availability/load-balancing//index.md)
 
 ## Troubleshooting
 

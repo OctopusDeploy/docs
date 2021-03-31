@@ -6,5 +6,3 @@ hideInThisSectionHeader: true
 ---
 
 In this section, we have the following pages:
-
-- [Configuring High Availability](/docs/administration/high-availability/configure/configuring-ha.md)
