@@ -1,7 +1,7 @@
 ---
 title: Configure Octopus High-Availability without Active Directory
 description: This section includes how to configure Octopus in High-Availability without Domain Services
-position: 20
+position: 40
 ---
 
 ## Octopus server nodes

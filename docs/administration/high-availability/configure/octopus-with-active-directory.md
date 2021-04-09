@@ -1,7 +1,7 @@
 ---
 title: Configure Octopus High-Availability with Active Directory
 description: This section includes how to configure Octopus in High-Availability with Active Directory
-position: 10
+position: 30
 ---
 
 ## Octopus server nodes
