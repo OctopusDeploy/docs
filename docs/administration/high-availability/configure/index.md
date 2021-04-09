@@ -1,8 +1,8 @@
 ---
 title: Configure
 description: This section includes Configuring Octopus for High-Availability
-position: 10
-hideInThisSection: true
+position: 20
+hideInThisSectionHeader: true
 ---
 
 In this section, we cover configuring Octopus for High Availability in a range of hosting providers.

@@ -1,7 +1,7 @@
 ---
 title: Configure Octopus High-Availability with Active Directory
 description: This section includes how to configure Octopus in High-Availability with Active Directory
-position: 20
+position: 10
 ---
 
 ## Octopus server nodes
@@ -13,6 +13,14 @@ This document assumes that you've planned and implemented your Infrastructure fo
 :::hint
 **Not a Windows cluster**
 While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers and they can be on-Premises, in Azure or AWS.
+:::
+
+:::hint
+This document covers the configuration of Octopus **with Active Directory** and assumes the following:
+
+- Service accounts will be used for authentication to Storage or SQL
+- Windows Authentication will be used for SQL Authentication
+- You are configuring Octopus on-Premises or have a Domain Controller in the Cloud
 :::
 
 ### Configure the first node
