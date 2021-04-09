@@ -1,8 +1,7 @@
 ---
-title: Configure HA Octopus without Domain Services
-description: This section includes how to configure Octopus in High-Availability without Domain Services
+title: Configure Octopus High-Availability with Active Directory
+description: This section includes how to configure Octopus in High-Availability with Active Directory
 position: 20
-hideInThisSectionHeader: true
 ---
 
 ## Octopus server nodes
@@ -28,19 +27,19 @@ The Octopus home directory is local to each specific node, and *should not be s
 
 Since each node will use shared storage, ensure you use a custom service account that has permission to access the shared database:
 
-![](images/service-account.png "width=500")
+![](images/wizard-service-accunt-ad.png "width=500")
 
 Configure the shared SQL database:
 
-![](images/wizard-database.png "width=500")
+![](images/wizard-sql-service-account.png "width=500")
 
 Follow the rest of the setup guide, and install the first node.
 
-![](images/wizard-installation.png "width=500")
+![](images/wizard-install.png "width=500")
 
 Once the Octopus Server has been configured, from Octopus Manager, copy the Master Key - you will need this to set up the additional nodes.
 
-![](images/master-key.png "width=500")
+![](images/wizard-master-key.png "width=500")
 
 Finally, you need to tell Octopus to store artifacts, task logs and packages in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you'll need to use the command line:
 
@@ -75,14 +74,14 @@ No matter which option you choose, the configuration is stored in the database, 
 
 Once the first node has been created and started, you can add the additional nodes. Again, install the Octopus Server MSI, but instead of using the Getting Started wizard, use the link to add this server as a node for the cluster:
 
-![](images/add-to-ha-cluster.png "width=500")
+![](images/wizard-high-availability.png "width=500")
 
 Connect to the same shared SQL database:
 
-![](images/wizard-same-database.png "width=500")
+![](images/wizard-sql-service-account.png "width=500")
 
 On the Cluster details page, enter the Master Key from the original node:
 
-![](images/wizard-cluster-details.png "width=500")
+![](images/wizard-second-node.png "width=500")
 
 Complete the setup wizard. You'll now have a second node in the cluster!

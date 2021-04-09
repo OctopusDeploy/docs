@@ -1,19 +1,15 @@
 ---
-title: Configure HA Octopus with Domain Services
-description: This section includes how to configure Octopus in High-Availability
+title: Configure Octopus High-Availability without Active Directory
+description: This section includes how to configure Octopus in High-Availability without Domain Services
 position: 20
+hideInThisSectionHeader: true
 ---
 
 ## Octopus server nodes
 
-With the shared storage and database provisioned, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to eight nodes.
+With the servers provisioned, and the shared storage and database now available, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to eight nodes.
 
-This document assumes that you've planned and implemented your Infrastructure for Octopus and it's ready to be configured for High Availability.
-
-:::hint
-**Not a Windows cluster**
-While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers and they can be on-Premises, in Azure or AWS.
-:::
+This document assumes that you've planned and implemented your Infrastructure for Octopus and it's ready to be configured for High Availability without Active Directory
 
 ### Configure the first node
 
