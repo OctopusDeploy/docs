@@ -4,22 +4,22 @@ description: Information on configuring Octopus High Availability for Microsoft 
 position: 30
 ---
 
-This section will walk through all the components Octopus requires for a HA installtion and the reccomoned services in AWS that can be used to host the components.
+This section will walk through the different options and considerations for setting up Octopus High Availability in [AWS](hhttps://aws.amazon.com/). This document will deal with the high-level concepts of Octopus High-Availability in AWS.
 
-An Octopus: HA configuration requires four main components:
+:::warning
+If you are setting Octopus up on AWS or on-Premises please see the following guides:
 
-- **A load balancer**
-  This will direct user traffic bound for the Octopus web interface between the different Octopus Server nodes.
-- **Octopus Server nodes**
-  These run the Octopus Server windows service. They serve user traffic and orchestrate deployments.
-- **A database**
-  Most data used by the Octopus Server nodes is stored in this database.
-- **Shared storage**
-  Some larger files - like [NuGet packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
+- [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
+- [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
+:::
 
   
 
 ## Setting up AWS for Octopus: High Availability 
+
+:::warning
+If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on AWS then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) doc might be a better approach for you as you may have your Domain Controllers, SQL and Load balancers in the cloud.
+:::
 
 The next sections talks about all the services that you can use in AWS to support Octopus HA.
 
