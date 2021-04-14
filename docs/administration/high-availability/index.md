@@ -22,7 +22,7 @@ An Octopus: HA configuration requires four main components:
 
 ## Designing Highly-Available Octopus
 
-There are several ways to configure High Availability for Octopus and this differs based on where you host Octopus. We have created guides that will help you design the best solution for your installation. This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components making them Highly-Available, whether it's using on-premises servers or cloud infrastructure such as AWS or Azure:
+There are several ways to configure High Availability for Octopus and this differs based on where you host Octopus. We have created guides that will help you design the best solution for your installation. This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components making them Highly-Available, whether it's using on-premises servers or cloud infrastructure such as AWS or Azure.
 
 - [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
@@ -30,7 +30,7 @@ There are several ways to configure High Availability for Octopus and this diffe
 
 ## Configuring Octopus High Availability
 
-When you have selected the approach for Octopus High Availability and provisioned any infrastructure, the next step is to configure Octopus for High Availability. This section includes guides on configuring Octopus for High Availability with and without Active Directory:
+When you have selected the approach for Octopus High Availability and provisioned any infrastructure, the next step is to configure Octopus for High Availability. This section includes guides on configuring Octopus for High Availability with and without Active Directory.
 
 - [Configuring High Availability](/docs/administration/high-availability/configure/index.md)
 
@@ -42,7 +42,9 @@ Most organizations start with a stand-alone Octopus installation as part of a Pr
 
 ## Maintain nodes
 
-One great benefit of Highly Available Octopus is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments.
+One great benefit of a Highly-Available Octopus instance is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments. 
+
+This section contains useful information on how to maintain the nodes in your Octopus High Availability cluster, along with specific things to know when running a Highly-Available Octopus instance
 
 - [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md)
 
