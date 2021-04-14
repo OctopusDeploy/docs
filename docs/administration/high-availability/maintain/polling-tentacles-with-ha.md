@@ -1,5 +1,5 @@
 ---
-title: Polling tentacles with Octopus HA
+title: Polling tentacles with HA
 description: With a Highly-Available (HA) Octopus instance, Polling tentacles must poll all of the Octopus Server nodes in your configuration.
 position: 50
 ---
