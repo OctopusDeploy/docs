@@ -997,3 +997,4 @@ docs/administration/high-availability/migrate/migrating-to-high-availability.md 
 docs/infrastructure/deployment-targets/linux/requirements.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/administration/high-availability/configure/configuring-ha-octopus-no-service-accounts.md -> docs/administration/high-availability/configure/octopus-without-active-directory.md
 docs/administration/high-availability/configure/configuring-ha-octopus-with-service-accounts.md -> docs/administration/high-availability/configure/octopus-with-active-directory.md
+docs/administration/high-availability/maintain/registering-polling-tentacles.md -> docs/administration/high-availability/maintain/polling-tentacles-with-ha.md
