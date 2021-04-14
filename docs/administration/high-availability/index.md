@@ -9,8 +9,6 @@ Octopus: High Availability (HA) enables you to run multiple Octopus Servers, dis
 
 ![High availability diagram](images/high-availability.svg)
 
-## Octopus High-Availability Components
-
 An Octopus: HA configuration requires four main components:
 
 - **A load balancer**
@@ -20,11 +18,11 @@ An Octopus: HA configuration requires four main components:
 - **A database**
   Most data used by the Octopus Server nodes is stored in this database.
 - **Shared storage**
-  Some larger files - like [NuGet packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
+  Some larger files - like [packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
 ## Designing Highly-Available Octopus
 
-This section will walk you through the different options and considerations for setting up Octopus and how you can incorporate each of the components and making them Highly-Available. There are several ways to configure High Availability for Octopus and these change based on where you are hosting them. We have created design guides that will help you select the best solution for you and Octopus Deploy.
+There are several ways to configure High Availability for Octopus and this differs based on where you host Octopus. We have created guides that will help you design the best solution for your installation. This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components making them Highly-Available, whether it's using on-premises servers or cloud infrastructure such as AWS or Azure:
 
 - [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
@@ -32,9 +30,15 @@ This section will walk you through the different options and considerations for 
 
 ## Configuring Octopus High Availability
 
-When you have selected and provisioned the technologies and approach for Octopus High Availability you can use the guide to configure Octopus High Availability.
+When you have selected the approach for Octopus High Availability and provisioned any infrastructure, the next step is to configure Octopus for High Availability. This section includes guides on configuring Octopus for High Availability with and without Active Directory:
 
 - [Configuring High Availability](/docs/administration/high-availability/configure/index.md)
+
+## Migrating to High Availability
+
+Most organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and make it highly-available.
+
+- [Migrating to High-Availability](/docs/administration/high-availability/migrate/index.md)
 
 ## Maintain nodes
 
@@ -42,20 +46,14 @@ One great benefit of Highly Available Octopus is the ability to update and resta
 
 - [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md)
 
-## Migrating to High Availability
+## Load balancing
 
-Most Organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and make it highly-available.
+There are plenty of options when it comes to choosing a load balancer to direct user traffic between each of the Octopus Server nodes. This section contains information on how to set up third-party load balancers for use with an Octopus Highly-Available setup:
 
-- [Migrating to High-Availability](/docs/administration/high-availability/migrate/index.md)
-
-## Load Balancing
-
-When setting up your Load Balancer, we have some guides available for you to use.
-
-- [Load Balancers](/docs/administration/high-availability/load-balancing/index.md)
+- [Load balancing](/docs/administration/high-availability/load-balancing/index.md)
 
 ## Troubleshooting
 
-If you're running into issues with your Highly available Octopus Deploy install then please use our Troubleshooting pages.
+If you're running into issues with your Highly Available Octopus Deploy install then please use our Troubleshooting pages.
 
 - [Troubleshooting High Availability](/docs/administration/high-availability/troubleshoot/index.md)

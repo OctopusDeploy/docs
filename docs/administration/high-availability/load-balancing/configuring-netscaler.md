@@ -4,6 +4,8 @@ description: Script to configure a Netscaler load balancer for use with an Octop
 position: 10
 ---
 
+The following script shows how to configure a Netscaler load balancer for use with an Octopus High Availability instance.
+
 ```bash
 #Servers
 add server octopus-node1_SVR 192.168.0.1

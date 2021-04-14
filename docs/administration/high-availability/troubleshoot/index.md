@@ -4,6 +4,8 @@ description: This section includes how to troubleshoot Highly Available Octopus
 position: 60
 ---
 
+If you're running into issues with your Highly Available Octopus Deploy install it's possible you are running into one of the problems listed here. If this page doesn't help, please [email our support team](mailto:support@octopus.com).
+
 ## Node license limits exceeded
 
 If you see the following licensing error, it means you have exceeded the number of active nodes:

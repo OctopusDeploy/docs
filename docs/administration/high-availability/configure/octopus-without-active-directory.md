@@ -46,7 +46,7 @@ Once the Octopus Server has been configured, from Octopus Manager, copy the Mast
 
 Finally, you need to tell Octopus to store artifacts, task logs and packages in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you'll need to use the command line:
 
-**Configure shared storage**
+#### Configure shared storage
 
 There are two options for configuring shared storage: setting the root shared storage directory, or setting each directory individually.
 
