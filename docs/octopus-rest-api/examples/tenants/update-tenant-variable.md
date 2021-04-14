@@ -15,6 +15,7 @@ Provide values for:
 - Name of the tenant
 - Name of the Project template
 - The new variable value
+- Choose whether the new variable value is bound to an Octopus variable value e.g. `#{MyVariable}`
 
 ## Script
 

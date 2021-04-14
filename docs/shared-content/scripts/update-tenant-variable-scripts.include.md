@@ -10,6 +10,7 @@ $spaceName = "Default" # Name of the Space
 $tenantName = "TenantName" # The tenant name
 $variableTemplateName = "ProjectTemplateName" # Choose the template Name
 $newValue = "NewValue" # Choose a new variable value, assumes same per environment
+$NewValueIsBoundToOctopusVariable=$False # Choose $True if the $newValue is an Octopus variable e.g. #{SomeValue}
 
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
@@ -33,36 +34,49 @@ foreach ($projectKey in $projects)
     Write-Host "Working on Project: $projectName ($projectKey)"
 
     # Get Project template ID
-    $variableTemplateId = ($project.Templates | Where-Object Name -eq $variableTemplateName | Select-Object -First 1).Id
+    $variableTemplate = ($project.Templates | Where-Object Name -eq $variableTemplateName | Select-Object -First 1)
     
-    if($null -ne $variableTemplateId) {
+    
+    if($null -ne $variableTemplate) {
+
+        $variableTemplateId = $variableTemplate.Id
+        $variableTemplateIsSensitiveControlType = $variableTemplate.DisplaySettings.{Octopus.ControlType} -eq "Sensitive"
 
         Write-Host "Found templateId for Template: $variableTemplateName = $variableTemplateId"
         $projectConnectedEnvironments = $project.Variables | Get-Member | Where-Object {$_.MemberType -eq "NoteProperty"} | Select-Object -ExpandProperty "Name"
 
         # Loop through each of the connected environments variables
         foreach($envKey in $projectConnectedEnvironments) {
-            
-            # Find variable which matches the current connected environment
-            $currentValue = $project.Variables.$envKey.$variableTemplateId
-            
-            # If null / only default value exists, add new value in 
-            if($null -eq $currentValue ) {
-                Write-Host "No value found for $variableTemplateName, adding in new value = $newValue for Environment '$envKey' "
+            # Check for Environment project template entry, and add if not present
+            if($null -eq $project.Variables.$envKey.$variableTemplateId) {
                 $project.Variables.$envKey | Add-Member -MemberType NoteProperty -Name $variableTemplateId -Value $newValue
+            }
+
+            # Check sensitive control types differently
+            if($variableTemplateIsSensitiveControlType -eq $True) {
+                # If $newValue denotes an octopus variable e.g. #{SomeVar}, treat it as if it were text
+                if($NewValueIsBoundToOctopusVariable -eq $True) {      
+                    Write-Host "Adding in new text value (treating as octopus variable) in Environment '$envKey' for $variableTemplateName"             
+                    $project.Variables.$envKey.$variableTemplateId = $newValue
+                }    
+                else {
+                    $newSensitiveValue = [PsCustomObject]@{
+                        HasValue = $True
+                        NewValue = $newValue
+                    }
+                    Write-Host "Adding in new sensitive value = '********' in Environment '$envKey' for $variableTemplateName"
+                    $project.Variables.$envKey.$variableTemplateId = $newSensitiveValue
+                }
             } 
             else {
-                # Get Current value
-                Write-Host "Found $variableTemplateName in Environment '$envKey' with Value = $currentValue"
-                # Set the new value for this connected environment
+                Write-Host "Adding in new value = $newValue in Environment '$envKey' for $variableTemplateName"
                 $project.Variables.$envKey.$variableTemplateId = $newValue
-            }        
+            }       
         }
     }
     else {
         Write-Host "Couldnt find project template: $variableTemplateName for project $projectName"
     }
-
 }
 # Update the variables with the new value
 Invoke-RestMethod -Method Put -Uri "$octopusURL/api/$($space.Id)/tenants/$($tenant.Id)/variables" -Headers $header -Body ($variables | ConvertTo-Json -Depth 10)
@@ -80,6 +94,7 @@ $spaceName = "Default" # Name of the Space
 $tenantName = "TenantName" # The tenant name
 $variableTemplateName = "ProjectTemplateName" # Choose the template Name
 $newValue = "NewValue" # Choose a new variable value, assumes same per environment
+$NewValueIsBoundToOctopusVariable=$False # Choose $True if the $newValue is an Octopus variable e.g. #{SomeValue}
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
@@ -106,29 +121,38 @@ try
         Write-Host "Working on Project: $projectName ($projectKey)"
         
         # Get Project template ID
-        $variableTemplateId = ($project.Templates | Where-Object Name -eq $variableTemplateName | Select-Object -First 1).Id
+        $variableTemplate = ($project.Templates | Where-Object Name -eq $variableTemplateName | Select-Object -First 1)
+        $variableTemplateId = $variableTemplate.Id
+        $variableTemplateIsSensitiveControlType = $variableTemplate.DisplaySettings.{Octopus.ControlType} -eq "Sensitive"
+
         if($null -ne $variableTemplateId) {
 
             Write-Host "Found templateId for Template: $variableTemplateName = $variableTemplateId"
 
             # Loop through each of the connected environments variables
             foreach($envKey in $project.Variables.Keys) {
-            
-                # Find variable which matches the current connected environment
-                $templateEnvVariableObject = ($project.Variables[$envKey].GetEnumerator() | Where-Object Key -eq $variableTemplateId | Select-Object -ExpandProperty Value -First 1)
-            
-                # If null / only default value exists, add new value in 
-                if($null -eq $templateEnvVariableObject ) {
-                    Write-Host "No value found for $variableTemplateName, adding in new Value=$newValue for Environment '$envKey' "
-                    $project.Variables[$envKey][$variableTemplateId] = New-Object Octopus.Client.Model.PropertyValueResource $newValue
+                                        
+                # Set null value in case not set
+                $project.Variables[$envKey][$variableTemplateId] = $null
+
+                # Check sensitive control types differently
+                if($variableTemplateIsSensitiveControlType -eq $True) {
+                    
+                    # If $newValue denotes an octopus variable e.g. #{SomeVar}, treat it as if it were text
+                    if($NewValueIsBoundToOctopusVariable -eq $True) {      
+                        Write-Host "Adding in new text value (treating as octopus variable) in Environment '$envKey' for $variableTemplateName"             
+                        $project.Variables[$envKey][$variableTemplateId] = New-Object Octopus.Client.Model.PropertyValueResource $newValue
+                    }    
+                    else {
+                        Write-Host "Adding in new sensitive value = '********' in Environment '$envKey' for $variableTemplateName"
+                        $sensitiveValue = New-Object Octopus.Client.Model.SensitiveValue 
+                        $sensitiveValue.HasValue = $True
+                        $sensitiveValue.NewValue = $newValue
+                        $project.Variables[$envKey][$variableTemplateId] = $sensitiveValue
+                    }
                 } 
                 else {
-
-                    # Get Current value
-                    $currentValue = $templateEnvVariableObject.Value
-                    Write-Host "Found $variableTemplateName in Environment '$envKey' with Value = $currentValue"
-        
-                    # Set the new value for this connected environment
+                    Write-Host "Adding in new value = $newValue in Environment '$envKey' for $variableTemplateName"
                     $project.Variables[$envKey][$variableTemplateId] = New-Object Octopus.Client.Model.PropertyValueResource $newValue
                 }
             }
@@ -143,7 +167,7 @@ try
 }
 catch
 {
-    Write-Host $_.Exception.Message for
+    Write-Host $_.Exception.Message
 }
 ```
 ```csharp C#
@@ -159,6 +183,7 @@ var spaceName = "Default";
 var tenantName = "TenantName";
 var projectVariableTemplateName = "TemplateName";
 var variableNewValue = "NewValue";
+var valueBoundToOctoVariable = true;
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -190,25 +215,33 @@ try
         if (variableTemplateResource != null)
         {
             var variableTemplateId = variableTemplateResource.Id;
+            var variableTemplateIsSensitiveControlType = (variableTemplateResource.DisplaySettings.FirstOrDefault(ds => ds.Key == "Octopus.ControlType")).Value == "Sensitive";
             Console.WriteLine("Found templateid for template: {0} of {1}", projectVariableTemplateName, variableTemplateId);
 
             // Loop through each of the connected environments
             foreach (var envKey in project.Variables.Keys)
             {
-                // Find variable which matches the current connected environment.
-                var templateEnvironmentVariable = project.Variables[envKey].Where(x => x.Key == variableTemplateId).Select(x => x.Value).FirstOrDefault();
-                if (templateEnvironmentVariable == null)
+                // Set null value in case not set
+                project.Variables[envKey][variableTemplateId] = null;
+
+                if (variableTemplateIsSensitiveControlType == true)
                 {
-                    Console.WriteLine("No value found for {0}, adding in new Value={1} for Environment '{2}' ", projectVariableTemplateName, variableNewValue, envKey);
-                    project.Variables[envKey][variableTemplateId] = new PropertyValueResource(variableNewValue);
+                    if (valueBoundToOctoVariable == true)
+                    {
+                        Console.WriteLine("Adding in new text value (treating as octopus variable) in Environment '{0}' for {1}", envKey, projectVariableTemplateName);
+                        project.Variables[envKey][variableTemplateId] = new PropertyValueResource(variableNewValue);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Adding in new sensitive value = '********' in Environment '{0}' for {1}", envKey, projectVariableTemplateName);
+                        var sensitiveValue = new SensitiveValue { HasValue = true, NewValue = variableNewValue };
+                        project.Variables[envKey][variableTemplateId] = new PropertyValueResource(sensitiveValue);
+                    }
                 }
                 else
                 {
-                    // Get current value
-                    var currentValue = templateEnvironmentVariable.Value;
-                    Console.WriteLine("Found {0} in Environment '{1}' with value {2}", projectVariableTemplateName, envKey, currentValue);
-
-                    // Set the new value for this connected environment
+                    //Write-Host "Adding in new value = $newValue in Environment '$envKey' for $variableTemplateName"
+                    Console.WriteLine("Adding in new value = '{0}' in Environment '{1}' for {2}", variableNewValue, envKey, projectVariableTemplateName);
                     project.Variables[envKey][variableTemplateId] = new PropertyValueResource(variableNewValue);
                 }
             }

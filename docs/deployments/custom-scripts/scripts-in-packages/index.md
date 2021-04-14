@@ -4,7 +4,7 @@ description: Octopus will run scripts included in your package when the script m
 position: 20
 ---
 
-When deploying a package, you can hook into the deployment process at different stages to perform custom actions. You do this by adding specially named scripts at root of your package.
+When deploying a package, you can hook into the deployment process at different stages to perform custom actions. You do this by adding specially named scripts at the root of your package.
 
 ## Supported scripts
 
@@ -18,6 +18,16 @@ You can add any of the following script files in any of the scripting languages 
 Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case sensitive on certain operating systems.
 
 Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables.md) and [collecting artifacts](docs/projects/deployment-process/artifacts.md).
+
+## Supported steps
+
+Not all of the package steps support script hooks. As a general rule, any of the Octopus [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates.md) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/index.md) dialog support script hooks:
+
+![Custom Deployment scripts features screenshot](custom-deployment-scripts-feature.png "width=500")
+
+:::hint
+The **Custom Deployment Scripts** feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps).
+:::
 
 ## Including the scripts in the package
 
@@ -61,9 +71,9 @@ You can prevent Octopus from automatically running scripts in packages by adding
 
 ## Defining your scripts inline {#scripts-in-package-steps}
 
-Rather than embed scripts in packages, you can also define scripts within the package step definition using the Octopus user interface. This is a feature that can be enabled on package steps by clicking **CONFIGURE FEATURES** and selecting **custom deploy scripts**.
+Rather than embed scripts in packages, you can also define scripts within the step definition using the Octopus user interface. This is a feature that can be enabled on certain steps by clicking **CONFIGURE FEATURES** and selecting **Custom Deployment Scripts**.
 
-When enabled, you will see **Configuration Scripts** under the features section of the process definition.
+When enabled, you will see **Custom Deployment Scripts** under the features section of the process definition.
 
 ## Troubleshooting
 
