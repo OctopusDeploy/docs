@@ -4,18 +4,17 @@ description: Information on configuring Octopus High Availability including data
 position: 10
 ---
 
-This section will walk through the different options and considerations for setting up Octopus High Availability. This document will deal with the high-level concepts of Octopus High-Availability for an on-Premises install of Octopus Deploy.
+This section will walk through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
-:::warning
-If you are setting Octopus up in a private cloud please see the following guides:
-
+:::hint
+If you are setting Octopus up in a private cloud such as Azure or AWS please see the following guides:
 - [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
 - [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 :::
 
 ## Setting up Octopus: High availability
 
-This section will walk you through the different options and considerations for setting up Octopus: HA. For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
+For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus: HA can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 
 :::hint
 **Some assembly required**
@@ -37,9 +36,11 @@ Octopus: HA works with:
 - [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
 - [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
 
+:::warning
 Octopus: HA has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md#highavailability)
+:::
 
-See also: [SQL Server Database](/docs/installation/sql-server-database.md), which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
+See also the [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
 
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database, and using that account as the service account when configuring Octopus.
 
@@ -47,7 +48,7 @@ Since each of the Octopus Server nodes will need access to the database, we reco
 
 Octopus stores a number of files that are not suitable to store in the database. These include:
 
-- NuGet packages used by the [built-in NuGet repository inside Octopus](/docs/packaging-applications/package-repositories/index.md). These packages can often be very large.
+- Packages used by the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md). These packages can often be very large in size.
 - [Artifacts](docs/projects/deployment-process/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs, which are text files that store all of the log output from deployments and other tasks.
 
