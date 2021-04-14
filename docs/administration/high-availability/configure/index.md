@@ -1,10 +1,8 @@
 ---
-title: Configure
-description: This section includes Configuring Octopus for High-Availability
+title: Configuring HA
+description: Information on configuring Octopus High Availability including different options and considerations.
 position: 20
 hideInThisSectionHeader: true
 ---
 
-In this section, we cover configuring Octopus for High Availability in a range of hosting providers.
-
-In this section, we have the following pages:
+When you have selected the [approach for Octopus High Availability](/docs/administration/high-availability/design/index.md) and provisioned any infrastructure, the next step is to configure Octopus for High Availability. This section includes guides on configuring Octopus for High Availability with and without Active Directory:

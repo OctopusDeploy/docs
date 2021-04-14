@@ -1,10 +1,10 @@
 ---
-title: Maintain
-description: This section includes how to maintain Octopus in High Availability
+title: Maintaining HA
+description: Maintaining the nodes in your Octopus High Availability cluster is an important task that can be done in the Octopus Web Portal.
 position: 40
 hideInThisSectionHeader: true
 ---
 
-This section contains information on how to maintain Octopus: HA
+One great benefit of a Highly-Available Octopus instance is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments. 
 
-In this section, we have the following pages:
+This section contains useful information on how to maintain the nodes in your Octopus High Availability cluster, along with specific things to know when running a Highly-Available Octopus instance:

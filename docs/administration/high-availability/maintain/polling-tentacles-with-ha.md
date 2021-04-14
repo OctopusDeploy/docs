@@ -1,10 +1,8 @@
 ---
-title: Registering HA Polling Tentacles
-description: Step-by-step guided setup for Octopus High-availability
+title: Polling tentacles with HA
+description: With a Highly-Available (HA) Octopus instance, Polling tentacles must poll all of the Octopus Server nodes in your configuration.
 position: 50
 ---
-
-## Configuring high availability Polling Tentacles
 
 Listening Tentacles require no special configuration for High Availability.  Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus Servers, via the command line or via editing the Tentacle.config file directly:
 
