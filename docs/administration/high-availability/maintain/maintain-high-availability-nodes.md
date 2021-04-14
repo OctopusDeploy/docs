@@ -38,8 +38,6 @@ You may consider setting a low cap for your Octopus Servers on poorer hardware o
 The drain toggle can be used to prevent an Octopus Server node from executing any new tasks. While draining:
 
 - An Octopus Server node will finish running any tasks is it currently executing and then idle.
-- A leader will relinquish its leadership rank.
-- A follower will not become leader.
 - The Octopus Server ping url will not return 200 OK.
 
 ## Load balancing
