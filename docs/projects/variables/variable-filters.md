@@ -208,7 +208,7 @@ There are a few things to note here:
 
 ### Repetition over json {#VariableSubstitutionSyntax-RepetitionoverJSON}
 
-Give the variables:
+Given the variables:
 
 | Name      | Value                                    |
 | --------- | ---------------------------------------- |
