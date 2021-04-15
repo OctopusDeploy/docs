@@ -108,6 +108,10 @@ MASTER_KEY=
 
 # The API Key to set for the administrator. If this is set and no password is provided then a service account user will be created. 
 # If this is set and a password is also set then a standard user will be created.
+#
+# NOTE: There is a known issue when providing both the ADMIN_PASSWORD and ADMIN_API_KEY that prevents the Administrator from logging in.
+# This will be resolved in a future version of Octopus. See: https://github.com/OctopusDeploy/Issues/issues/6629 for further details.
+#
 ADMIN_API_KEY=
 
 # Docker-In-Docker is used to support worker container images. It can be disabled by setting DISABLE_DIND to Y.
