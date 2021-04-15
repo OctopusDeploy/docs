@@ -7,7 +7,7 @@ position: 20
 This section will walk through the different options and considerations for the components required when setting up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/). 
 
 :::hint
-If you are setting Octopus up on AWS or on-Premises please see the following guides:
+If you are setting Octopus up on AWS or on-premises please see the following guides:
 - [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 - [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 :::
@@ -47,7 +47,7 @@ Each Octopus Server node stores project, environment and deployment-related data
 
 From the Octopus perspective, how the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
 
-Octopus HA works with:
+Octopus High Availability works with:
 
 - [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
 - [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
@@ -81,7 +81,7 @@ If your Octopus Server is running in Microsoft Azure, you can use [Azure File St
 
 If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/en-us/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
 
-Once you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) and then adding this to `C:\Octopus\` for the Artifacts, Packages, and TaskLogs which need to be available to all nodes.
+Once you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, and TaskLogs which need to be available to all nodes.
 
 Run the below before installing Octopus, substituting the placeholders with your own values.
 

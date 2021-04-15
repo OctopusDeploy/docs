@@ -1,6 +1,6 @@
 ---
-title: Configure Octopus High-Availability without Active Directory
-description: This section includes how to configure Octopus in High-Availability without Domain Services
+title: Configure Octopus High Availability without Active Directory
+description: A step-by-step guide showing you how to configure Octopus in High-Availability without using Active Directory.
 position: 40
 ---
 
@@ -15,7 +15,7 @@ This document covers the configuration of Octopus **without Active Directory** a
 
 :::hint
 **Not a Windows cluster**
-While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers and they can be on-Premises, in Azure or AWS.
+While multiple Octopus Server nodes form a logical "cluster" of servers, Octopus nodes do not require Windows Server Failover Clustering. They should be standalone servers and they can be on-premises, in Azure or AWS.
 :::
 
 ## Configure the first node

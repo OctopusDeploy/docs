@@ -1,6 +1,6 @@
 ---
-title: Designing Octopus HA on-Premises
-description: Information on configuring Octopus High Availability including database and shared storage set up.
+title: Designing Octopus HA On-Premises
+description: Information on configuring Octopus High Availability including database and shared storage set up for on-premises servers.
 position: 10
 ---
 

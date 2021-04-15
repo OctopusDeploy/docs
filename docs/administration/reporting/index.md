@@ -19,7 +19,7 @@ The data allows you to report on questions like:
 - How many deployments were successful? How many failed?
 - How long do deployments take on average?
 
-If you're using Octopus Cloud, you will only be able to work with the API for your Reporting needs, and if you're using Octopus Server on-Premises or in the Cloud you will be able to use all approaches mentioned in the Reporting section.
+If you're using Octopus Cloud, you will only be able to work with the API for your Reporting needs, and if you're using Octopus Server on-premises or in the Cloud you will be able to use all approaches mentioned in the Reporting section.
 
 ## Learn more
 
