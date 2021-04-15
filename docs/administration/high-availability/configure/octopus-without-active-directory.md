@@ -4,7 +4,7 @@ description: This section includes how to configure Octopus in High-Availability
 position: 40
 ---
 
-With the servers provisioned, and the shared storage and database now available, you can now set up each of the Octopus Server nodes. An Octopus: HA configuration requires at least two nodes, and has been tested with up to eight nodes.
+With the servers provisioned, and the shared storage and database now available, you can now set up each of the Octopus Server nodes. An Octopus High Availability configuration requires at least two nodes, and has been tested with up to eight nodes.
 
 This document covers the configuration of Octopus **without Active Directory** and assumes the following:
 

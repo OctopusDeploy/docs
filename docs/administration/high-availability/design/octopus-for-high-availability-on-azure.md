@@ -54,7 +54,7 @@ Octopus HA works with:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 :::warning
-Octopus HA has not been tested with Log Shipping or Database Mirroring and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md)
+Octopus High Availability has not been tested with Log Shipping or Database Mirroring and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md)
 :::
 
 See also the [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports and explains the requirements for how the database must be configured.
@@ -131,7 +131,7 @@ Making a standard `HTTP GET` request to this URL on your Octopus Server nodes wi
 The Octopus Server node configuration is also returned as JSON in the HTTP response body.
 :::
 
-Azure has a wide range of [load balancers](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a Highly-Available configuration:
+Azure has a wide range of [load balancers](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
 
 - [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)
 - [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview)

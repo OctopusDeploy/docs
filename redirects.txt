@@ -980,7 +980,7 @@ docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-serv
 docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
 docs/administration/high-availability/configuring-octopus-for-high-availability.md -> docs/administration/high-availability/configure/index.md
 docs/administration/high-availability/managing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
-docs/administration/high-availability/troubleshooting-node-limits-exceeded-error.md -> docs/administration/high-availability/troubleshoot/index.md
+docs/administration/high-availability/troubleshooting-node-limits-exceeded-error.md -> docs/administration/high-availability/troubleshooting/index.md
 docs/administration/high-availability/configuring-netscaler.md -> docs/administration/high-availability/load-balancing/configuring-netscaler.md
 docs/administration/high-availability/designing-high-availability.md -> docs/administration/high-availability/design/index.md
 docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md -> docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md
@@ -988,11 +988,11 @@ docs/administration/high-availability/designing-high-availability/octopus-for-hi
 docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md -> docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md
 docs/administration/high-availability/migrating-to-ha.md -> docs/administration/high-availability/migrate/index.md
 docs/administration/high-availability/migrating-to-ha/migrating-to-high-availability.md -> docs/administration/high-availability/migrate/index.md
-docs/administration/high-availability/troubleshooting -> docs/administration/high-availability/troubleshoot/index.md
-docs/administration/high-availability/troubleshooting/troubleshooting.md -> docs/administration/high-availability/troubleshoot/index.md
+docs/administration/high-availability/troubleshooting -> docs/administration/high-availability/troubleshooting/index.md
+docs/administration/high-availability/troubleshooting/troubleshooting.md -> docs/administration/high-availability/troubleshooting/index.md
 docs/administration/high-availability/maintain/managing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
 docs/administration/high-availability/configure/configuring-ha.md -> docs/administration/high-availability/configure/index.md
-docs/administration/high-availability/troubleshoot/troubleshooting.md -> docs/administration/high-availability/troubleshoot/index.md
+docs/administration/high-availability/troubleshoot/troubleshooting.md -> docs/administration/high-availability/troubleshooting/index.md
 docs/administration/high-availability/migrate/migrating-to-high-availability.md -> docs/administration/high-availability/migrate/index.md
 docs/infrastructure/deployment-targets/linux/requirements.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/administration/high-availability/configure/configuring-ha-octopus-no-service-accounts.md -> docs/administration/high-availability/configure/octopus-without-active-directory.md
