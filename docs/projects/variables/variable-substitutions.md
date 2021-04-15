@@ -221,10 +221,10 @@ Sometimes, you might want to compare one variable value with another contained i
 
 Given the variables:
 
-| Name        | Value                                    | Scope |
-| ----------- | ---------------------------------------- | ----- |
-| `WidgetIdSelector` | `Widget-2` |       |
-| `MyWidgets` | `{"One":{"WidgetId":"Widget-1","Name":"Widget-One"},"Two":{"WidgetId":"Widget-2","Name":"Widget-Two"}}` |       |
+| Name        | Value                                    |
+| ----------- | ---------------------------------------- |
+| `WidgetIdSelector` | `Widget-2` |
+| `MyWidgets` | `{"One":{"WidgetId":"Widget-1","Name":"Widget-One"},"Two":{"WidgetId":"Widget-2","Name":"Widget-Two"}}` |
 
 Using complex syntax, you can iterate over the values in the `MyWidgets` variable and find the entry with the value specified in the second variable `WidgetIdSelector`.
 
