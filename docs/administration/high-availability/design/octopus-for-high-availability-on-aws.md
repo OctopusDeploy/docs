@@ -36,14 +36,15 @@ From the Octopus perspective, how the database is made highly available is reall
 
 ### Shared storage
 
-You will need shared storage that all Octopus nodes can access as Octopus stores a number of files 1 that are not suitable for the database.
+You will need shared storage that all Octopus nodes can access as Octopus stores a number of files that are not suitable for the database.
 
 To build a highly available Octopus server install, you’re going to need some durable Windows file storage, and in the past, AWS didn’t offer any cloud services that accommodated this. Your first option would be to spin up some more EC2 instances and build your own DFS(Distributed File System).
 
-AWS recently introduced `Amazon FSx`, It’s a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and Microsoft Active Directory (AD) integration and is an ideal choice for connecting to your EC2 instances hosting Octopus to house all your Octopus packages and log files.
+AWS recently introduced `Amazon FSx`, It’s a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and Microsoft Active Directory (AD) integration and is an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
 
-If you choose to go with Amazon FSx then taking a look at [the starter guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) is a good place to start and will help you connect your Octopus Server nodes to the FSx storage.
-
+If you choose to go with Amazon FSx there are some resources that will help you get started:
+- AWS have a [starter guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) which explains how to configure Amazon FSx and connect it up to an EC2 machine.
+- We have an [AWS FSx High Availability blog post](https://octopus.com/blog/aws-fsx-ha) which is a step-by-step guide to connecting up Amazon FSx to your Octopus High Availability Server nodes on Windows.
 
 ### Load Balancing in AWS
 
