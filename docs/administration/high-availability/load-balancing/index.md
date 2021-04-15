@@ -1,6 +1,6 @@
 ---
 title: Load balancing
-description: Instructions on how to set-up third-party load balancers for Octopus High Availability to direct user traffic between each of the Octopus Server nodes.
+description: Instructions on how to set-up third-party load balancers for Octopus High Availability (HA) to direct user traffic between each of the Octopus Server nodes.
 position: 50
 hideInThisSectionHeader: true
 ---

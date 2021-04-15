@@ -1,6 +1,6 @@
 ---
-title: Migrating to Octopus HA
-description: How to migrate from a stand alone Octopus server to a High Availability setup.
+title: Migration
+description: How to migrate from a stand alone Octopus server to a High Availability (HA) setup.
 position: 30
 ---
 

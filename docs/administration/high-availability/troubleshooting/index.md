@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Solutions to common problems with Octopus High Availability.
+description: Solutions to common problems with Octopus High Availability (HA).
 position: 60
 ---
 

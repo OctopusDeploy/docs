@@ -1,6 +1,6 @@
 ---
-title: Configuring Octopus HA
-description: Information on configuring Octopus High Availability including different options and considerations.
+title: Configuration
+description: Information on configuring Octopus High Availability (HA) including different options and considerations.
 position: 20
 hideInThisSectionHeader: true
 ---

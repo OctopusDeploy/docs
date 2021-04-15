@@ -1,6 +1,6 @@
 ---
-title: Maintaining Octopus HA
-description: Maintaining the nodes in your Octopus High Availability cluster is an important task that can be done in the Octopus Web Portal.
+title: Maintenance
+description: Maintaining the nodes in your Octopus High Availability (HA) cluster is an important task that can be done in the Octopus Web Portal.
 position: 40
 hideInThisSectionHeader: true
 ---

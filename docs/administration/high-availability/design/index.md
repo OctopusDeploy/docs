@@ -1,5 +1,5 @@
 ---
-title: Designing Octopus HA
+title: Design
 description: Information on designing Octopus High Availability including different options and considerations whether it's using on-premises servers or cloud infrastructure.
 position: 10
 hideInThisSectionHeader: true
