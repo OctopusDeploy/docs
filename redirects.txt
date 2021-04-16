@@ -279,7 +279,7 @@ docs/administration/data-migration.md -> docs/administration/data/data-migration
 docs/administration/maintenance-mode.md -> docs/administration/managing-infrastructure/maintenance-mode.md
 docs/administration/lost-master-key.md -> docs/administration/managing-infrastructure/lost-master-key.md
 docs/administration/performance.md -> docs/administration/managing-infrastructure/performance/index.md
-docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md
+docs/administration/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously.md
 docs/administration/enable-web-request-logging.md -> docs/administration/managing-infrastructure/performance/enable-web-request-logging.md
 docs/administration/managing-multiple-instances.md -> docs/administration/managing-infrastructure/managing-multiple-instances.md
 docs/administration/script-console.md -> docs/administration/managing-infrastructure/script-console.md
@@ -979,3 +979,4 @@ docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-clie
 docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
 docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
 docs/infrastructure/deployment-targets/linux/requirements.md -> docs/infrastructure/deployment-targets/linux/index.md
+docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously.md
