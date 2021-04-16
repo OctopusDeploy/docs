@@ -21,13 +21,28 @@ Octopus will detect these scripts and invoke them at the appropriate time during
 
 ## Supported steps
 
-Not all of the package steps support script hooks. As a general rule, any of the Octopus [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates.md) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/index.md) dialog support script hooks:
+The following steps have been designed to support running scripts; either at the root of a package, [inline](#scripts-in-package-steps) or both:
 
-![Custom Deployment scripts features screenshot](custom-deployment-scripts-feature.png "width=500")
+- Deploy to IIS
+- Deploy a Windows Service
+- Deploy a Package
+- Deploy an Azure Web App
+- Deploy an Azure Resource Manager template
+- Deploy a Service Fabric App
+- Deploy to NGINX
+- Deploy Java Archive
+- Deploy a VHD image
+- Deploy to Tomcat via Manager
+- Deploy to Wildfly or EAP
+- Upgrade a Helm Chart
+
+However, not all package steps support script hooks. As a general rule, any of the [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates.md) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/index.md) dialog support script hooks:
 
 :::hint
-The **Custom Deployment Scripts** feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps).
+**Note:** The `Custom Deployment Scripts` feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps) instead of executing scripts at the root of a package.
 :::
+
+![Custom Deployment scripts features screenshot](custom-deployment-scripts-feature.png "width=500")
 
 ## Including the scripts in the package
 

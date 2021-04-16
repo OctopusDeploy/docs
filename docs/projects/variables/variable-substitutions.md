@@ -122,6 +122,7 @@ Note that when evaluating values, **all Octopus variables are strings** even if
 :::
 
 ### Complex syntax
+
 Additional conditional statements are supported, including `==` and `!=`.
 
 Using complex syntax you can have expressions like `#{if Octopus.Environment.Name == "Production"}...#{/if}` and `#{if Octopus.Environment.Name != "Production"}...#{/if}`, or:
@@ -134,7 +135,44 @@ Using complex syntax you can have expressions like `#{if Octopus.Environment.Nam
 #{/if}
 ```
 
+Sometimes, you might want to compare one variable value with another. 
+
+Given the variables:
+
+| Name        | Value                                    | Scope |
+| ----------- | ---------------------------------------- | ----- |
+| `Base.MaxLogLevel` | `ERROR` |  |
+| `Environment.LogLevel` | `DEBUG` | `Dev` |
+| `Environment.LogLevel` | `INFO` | `Test` |
+| `Environment.LogLevel` | `ERROR` | `Staging` |
+| `Environment.LogLevel` | `ERROR` | `Production` |
+
+Using conditional syntax, you can compare the value in the `Base.MaxLogLevel` variable with the `Environment.LogLevel` variable value.
+
+Using the template:
+
+```text
+#{if Environment.LogLevel == Base.MaxLogLevel}We are at the MAX!#{else}We have room to grow!#{/if}
+```
+
+The resulting text in both _Dev and Test_ will be:
+
+```text
+We have room to grow!
+```
+
+And in both _Staging and Production_ it will be:
+
+```text
+We are at the MAX!
+```
+
+:::hint
+Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{Environment.LogLevel}`. This is because within a conditional expression Octostache is already able to evaluate the operand as a variable value.
+:::
+
 ### Run conditions
+
 Conditions can be used to control whether a given step in a deployment process actually runs.  In this scenario the conditional statement should return true/false, depending on your requirements.
 
 Some examples are:
@@ -177,9 +215,43 @@ Listening on:
  - Endpoint B at http://b.example.com is Replica
 ```
 
+#### Complex syntax with sets of values {#VariableSubstitutionSyntax-complexsyntaxwithsetsofvalues}
+
+Sometimes, you might want to compare one variable value with another contained in a set of values. 
+
+Given the variables:
+
+| Name        | Value                                    |
+| ----------- | ---------------------------------------- |
+| `WidgetIdSelector` | `Widget-2` |
+| `MyWidgets` | `{"One":{"WidgetId":"Widget-1","Name":"Widget-One"},"Two":{"WidgetId":"Widget-2","Name":"Widget-Two"}}` |
+
+Using complex syntax, you can iterate over the values in the `MyWidgets` variable and find the entry with the value specified in the second variable `WidgetIdSelector`.
+
+Using the template:
+
+```text
+#{each w in MyWidgets}
+'#{w.Value.WidgetId}': #{if w.Value.WidgetId == WidgetIdSelector}This is my Widget!#{else}No widget matched :(#{/if}
+#{/each}
+```
+
+The resulting text will be:
+
+```text
+'Widget-1': No widget matched :(
+'Widget-2': This is my Widget!
+```
+
+:::hint
+**Tips:**
+- Note both operands **don't** include the Octostache syntax denoting them as a variable e.g. `#{WidgetIdSelector}`. This is because within a conditional expression Octostache is already able to evaluate the operands as variable values.
+- The template references `.Value` which is a property available when using [JSON repetition](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-RepetitionoverJSON).
+:::
+
 #### Iterating over comma-separated values {#VariableSubstitutionSyntax-Iteratingovercomma-separatedvalues}
 
-Give the variable:
+Given the variable:
 
 | Name        | Value                                    | Scope |
 | ----------- | ---------------------------------------- | ----- |
