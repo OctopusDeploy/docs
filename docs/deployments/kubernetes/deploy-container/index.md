@@ -291,7 +291,7 @@ The `Persistent Volume Claim Name` field would be set to `mysql-pv-claim`.
 
 #### Raw YAML
 
-Kubernetes supports a huge range of volume resources, and only a small number are exposed directly the step user interface. Other volume resources can be defined as raw YAML.
+Kubernetes supports a huge range of volume resources, and only a small number are exposed directly by the step user interface. Other volume resources can be defined as raw YAML.
 
 The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](http://g.octopushq.com/KubernetesAwsEbsVolume) type:
 
