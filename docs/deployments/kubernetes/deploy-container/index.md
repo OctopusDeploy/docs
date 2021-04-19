@@ -908,7 +908,7 @@ The name of the ingress resource is not affected by the deployment strategy.
 
 #### Ingress class name
 
-[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined the the `Ingress Class Name` field.
+[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined in the `Ingress Class Name` field.
 
 See the [Kubernetes documentation](https://g.octopushq.com/K8SIngressClassDocs) for more information.
 
