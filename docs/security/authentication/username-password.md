@@ -39,6 +39,6 @@ When a new Octopus user created, they are automatically added to the **Everyone*
 
 ![Managing users](images/username-password-managing-users.png "width=500")
 
-With any standard Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams/index.md) to give them permissions to view projects or environments, or any additional permissions they may need:
+With any Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams/index.md) to give them permissions to view projects or environments, or any additional permissions they may need:
 
 ![User permissions](images/username-password-user-permissions.png "width=500")
