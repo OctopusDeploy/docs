@@ -362,7 +362,7 @@ The image pull policy and the tag of the image affect when the kubelet attempts 
 
 To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
 
-For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initialization directly into the image.
+For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefore can't include such initialization directly into the image.
 
 Selecting the `Init container` check-box configures the Container resource as an Init Container resource.
 
