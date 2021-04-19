@@ -27,7 +27,7 @@ The Username and Password provider will now be activated and available for Octop
 
 ## Configuring username and password login {#usernamepassword-configure}
 
-Octopus Server can be configured to enable or disable username/password authentication via the command line, as follows:
+Octopus Server can be configured to enable or disable username and password authentication via the command line, as follows:
 
 ```powershell
 Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordIsEnabled=true
