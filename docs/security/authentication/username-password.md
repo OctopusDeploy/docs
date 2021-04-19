@@ -35,7 +35,7 @@ Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordI
 
 ## Managing user permissions {#usernamepassword-userpermissions}
 
-When a new Octopus user created, they are automatically added to the **Everyone** team. To manage Octopus users, they can be found navigating to **{{Configuration,Users}}**. 
+When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, they can be found navigating to **{{Configuration,Users}}**. 
 
 ![Managing users](images/username-password-managing-users.png "width=500")
 
