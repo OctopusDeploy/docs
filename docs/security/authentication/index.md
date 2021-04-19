@@ -20,7 +20,7 @@ Support for authentication providers differ between Octopus Server and [Octopus 
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
-You can use the Octopus Web Portal to configure authentication providers by navigating to  **{{Configuration,Settings}}**.
+You can use the Octopus Web Portal to configure authentication providers by navigating to **{{Configuration,Settings}}**.
 
 Alternatively, you can configure authentication providers using the `Octopus.Server.exe configure` command-line interface.
 
