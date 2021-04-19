@@ -4,6 +4,10 @@ description: Octopus Deploy provides a Username and Password authentication prov
 position: 2
 ---
 
+:::hint
+Username / Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/index.md), authentication using this provider is supported through [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
+:::
+
 Octopus provides a Username / Password authentication provider allowing you to create user accounts in Octopus manually without any requirement for an external authentication provider.
 
 The Username / Password provider is available out-of-the-box as one of [a number of custom Server extensions](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md) provided as part of the Octopus Deploy installation. It is an open-source project and the source code is available on [GitHub](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider).
@@ -21,6 +25,14 @@ You can enable Username / Password authentication from the Octopus Web Portal by
 
 The Username and Password provider will now be activated and available for Octopus users.
 
+## Configuring username and password login {#usernamepassword-configure}
+
+Octopus Server can be configured to enable or disable username/password authentication via the command line, as follows:
+
+```powershell
+Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordIsEnabled=true
+```
+
 ## Managing user permissions {#usernamepassword-userpermissions}
 
 When a new Octopus user created, they are automatically added to the **Everyone** team. To manage Octopus users, they can be found navigating to **{{Configuration,Users}}**. 
@@ -30,12 +42,3 @@ When a new Octopus user created, they are automatically added to the **Everyone*
 With any standard Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams/index.md) to give them permissions to view projects or environments, or any additional permissions they may need:
 
 ![User permissions](images/username-password-user-permissions.png "width=500")
-
-
-## Configuring username and password login {#usernamepassword-configure}
-
-Octopus Server can be configured to enable or disable username/password authentication via the command line, as follows:
-
-```powershell
-Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordIsEnabled=true
-```
