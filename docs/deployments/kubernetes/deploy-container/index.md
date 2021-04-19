@@ -175,7 +175,7 @@ Kubernetes provides a wide range of Volume resource types. The common, cloud agn
 
 All Volume resources must have a unique name defined in the `Name` field.
 
-#### ConifgMap
+#### ConfigMap
 
 The [ConfigMap Volume resource](http://g.octopushq.com/KubernetesConfigMapVolume) exposes the data saved in a [ConfigMap resource](http://g.octopushq.com/KubernetesConfigMap) as files in a container.
 
@@ -399,7 +399,7 @@ The `Memory Limit` field defines the maximum amount of memory that can be consum
 Environment variables can be set three ways.
 
 1. Plain name/value pairs. These are defined by clicking the `Add Environment Variable` button. The `Name` is the environment variable name, and the `Value` is the environment variable value.
-2. Expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConifgMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
+2. Expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConfigMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
 3. Expose a Secret resource value as an environment variable. These are defined by clicking the `Add Secret Environment Variable` button. The `Name` is the environment variable name. The `Secret Name` is the name of the Secret resource. The `Key` is the Secret resource key whose value is to be set as the environment variable value.
 
 #### Volume mounts
