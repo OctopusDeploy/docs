@@ -14,7 +14,7 @@ One of the reasons behind open-sourcing these projects is to allow users to cust
 
 ## Customizing the code {#CustomisinganOctopusDeployserverextension-Customisingthecode}
 
-The simplest option for customizing the code is to fork the project in GitHub.  This will allow you to keep up to date with any changes we might make and you'll be able to submit PRs.
+The simplest option for customizing the code is to fork the project in GitHub. This will allow you to keep up to date with any changes we might make and you'll be able to submit PRs.
 
 ## Building the code {#CustomisinganOctopusDeployserverextension-Buildingthecode}
 
