@@ -69,3 +69,23 @@ Here are the notes for the packages
 #{/each}
 #{/each}
 ```
+
+### Release notes accumulation 
+
+Inherent in building software is the idea that over time the product is the accumulation of the features, issues, and bugs that have been built, released, and deployed.  When software is deployed to a particular environment it is an aggregate of functionality that has been added since the last deployment.  
+
+Consider this example:
+
+![release notes accumulation](images/release-notes-accumulation.png)
+
+When deploying `1.0.3` to **Development** the only difference is `Enh 6` because the most recent release was `1.0.2`.  However, `1.0.2` was not deployed to **Staging**, when `1.0.3` is deployed to **Staging** is is the accumulation of both `1.0.2` and `1.0.3`.  
+
+Under the covers, Octopus tracks this by channels.  When it is time to deploy `1.0.3` to **Production** the logic will do the following:
+
+- Calculate the last release to **Production** was `1.0.0`.
+- Determine releases `1.0.1` and `1.0.2` have numbers between the releases `1.0.0` and `1.0.3`.
+- Aggregate all the work items and packages for releases `1.0.1`, `1.0.2`, and `1.0.3`.
+
+:::hint
+The code goes strictly off of version numbers, not when the release was deployed.  If you were to deploy `1.0.1` to **Production**, then rollback to `1.0.0` it will include `1.0.1` in the next deployment to **Production**
+:::
