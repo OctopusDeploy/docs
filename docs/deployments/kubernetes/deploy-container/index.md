@@ -922,7 +922,7 @@ The `Add Path` button adds a new mapping between a request path and the Service 
 
 #### Ingress annotations
 
-Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
+Ingress resources only provide configuration. An Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
 There are many Ingress Controller resources available. [NGINX](https://g.octopushq.com/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
 
