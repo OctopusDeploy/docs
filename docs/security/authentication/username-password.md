@@ -8,7 +8,7 @@ position: 2
 Username and Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/index.md), authentication using this provider is supported through [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
 :::
 
-Octopus provides a Username and Password authentication provider allowing you to create user accounts in Octopus manually without any requirement for an external authentication provider.
+Octopus provides a Username and Password authentication provider allowing you to create user accounts in Octopus manually without requirement for an external authentication provider.
 
 The Username and Password provider is available out-of-the-box as one of [a number of custom Server extensions](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md) provided as part of the Octopus Deploy installation. It is an open-source project and the source code is available on [GitHub](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider).
 
@@ -35,7 +35,7 @@ Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordI
 
 ## Managing user permissions {#usernamepassword-userpermissions}
 
-When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, they can be found navigating to **{{Configuration,Users}}**. 
+When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, this can be done by navigating to **{{Configuration,Users}}**. 
 
 ![Managing users](images/username-password-managing-users.png "width=500")
 
