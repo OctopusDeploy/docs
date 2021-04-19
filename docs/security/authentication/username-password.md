@@ -1,7 +1,7 @@
 ---
 title: Username and Password
-description: Octopus Deploy supports a guest login if enabled.
-position: 20
+description: Octopus Deploy provides a Username and Password authentication provider to allow log in with standard Octopus user accounts.
+position: 2
 ---
 
 Octopus provides a Username / Password authentication provider allowing you to create user accounts in Octopus manually without any requirement for an external authentication provider.
