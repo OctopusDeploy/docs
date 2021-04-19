@@ -6,6 +6,7 @@ position: 50
 
 Octopus Deploy supports the most common authentication providers out-of-the-box, including special support for a Guest Login.
 
+- [Username and Password](/docs/security/authentication/username-password.md)
 - [Active Directory Authentication](/docs/security/authentication/active-directory/index.md)
 - [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication.md)
 - [GoogleApps Authentication](/docs/security/authentication/googleapps-authentication.md)
@@ -19,19 +20,18 @@ Support for authentication providers differ between Octopus Server and [Octopus 
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
 
-You can use the web user interface to configure authentication providers at {{Configuration>Settings}}.
+You can use the Octopus Web Portal to configure authentication providers by navigating to **{{Configuration,Settings}}**.
 
 Alternatively, you can configure authentication providers using the `Octopus.Server.exe configure` command-line interface.
 
 ## Sign in for the first time
 
-If you are using the UsernamePassword provider, you will need to invite your team to use Octopus. 
+If you're using the [Username and Password provider](/docs/security/authentication/username-password.md), you will need to invite your team to use Octopus and create and manage their user accounts manually.
 
 When a user signs in to Octopus for the first time using an external authentication provider, Octopus will automatically create a new user account for them as a convenience. If you prefer to control which users can access Octopus, you can disable auto user creation and manually invite users instead.
 
-Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
-
-Learn about [auto user creation](/docs/security/authentication/auto-user-creation.md).
+- Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
+- Learn about [auto user creation](/docs/security/authentication/auto-user-creation.md).
 
 ## Manage teams
 

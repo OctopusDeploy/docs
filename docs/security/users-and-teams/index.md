@@ -8,9 +8,9 @@ Octopus Deploy provides the most value when it is used by your whole team. Devel
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f_JPU7sAE8M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-You can manage users from the **Users** tab under **Configuration** in the Octopus Web Portal.
-
-You can manage teams from the **Teams** tab under **Configuration** in the Octopus Web Portal.
+You can manage users and teams in the Octopus Web Portal:
+- For users, navigate to **{{Configuration,Users}}**.
+- For teams, navigate to **{{Configuration,Teams}}**.
 
 ![](images/teams.png "width=500")
 
