@@ -1,5 +1,5 @@
 from-file-path -> to-file-path   #DO NOT DELETE THIS LINE
-docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/managing-high-availability-nodes.md
+docs/administration/high-availability/removing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
 docs/administration/upgrading/migrating-from-redgate-deployment-manager-to-octopus-deploy.md -> docs/administration/upgrading/index.md
 docs/administration/how-to-move-the-octopus-server-to-another-server-or-vm.md -> docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md
 docs/administration/retention-policies/retention-policies-and-channels.md -> docs/administration/retention-policies/index.md
@@ -978,5 +978,24 @@ docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-azur
 docs/deployments/azure/deploying-to-service-fabric/connecting-securely-with-client-certificates/index.md -> docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/index.md
 docs/deployments/azure/deploying-to-service-fabric/deploying-a-package-to-a-service-fabric-cluster/index.md -> docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster.md
 docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-cli.md -> docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md
+docs/administration/high-availability/configuring-octopus-for-high-availability.md -> docs/administration/high-availability/configure/index.md
+docs/administration/high-availability/managing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
+docs/administration/high-availability/troubleshooting-node-limits-exceeded-error.md -> docs/administration/high-availability/troubleshooting/index.md
+docs/administration/high-availability/configuring-netscaler.md -> docs/administration/high-availability/load-balancing/configuring-netscaler.md
+docs/administration/high-availability/designing-high-availability.md -> docs/administration/high-availability/design/index.md
+docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-aws.md -> docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md
+docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-azure.md -> docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md
+docs/administration/high-availability/designing-high-availability/octopus-for-high-availability-on-premises.md -> docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md
+docs/administration/high-availability/migrating-to-ha.md -> docs/administration/high-availability/migrate/index.md
+docs/administration/high-availability/migrating-to-ha/migrating-to-high-availability.md -> docs/administration/high-availability/migrate/index.md
+docs/administration/high-availability/troubleshooting/troubleshooting.md -> docs/administration/high-availability/troubleshooting/index.md
+docs/administration/high-availability/maintain/managing-high-availability-nodes.md -> docs/administration/high-availability/maintain/maintain-high-availability-nodes.md
+docs/administration/high-availability/configure/configuring-ha.md -> docs/administration/high-availability/configure/index.md
+docs/administration/high-availability/troubleshoot/troubleshooting.md -> docs/administration/high-availability/troubleshooting/index.md
+docs/administration/high-availability/migrate/migrating-to-high-availability.md -> docs/administration/high-availability/migrate/index.md
 docs/infrastructure/deployment-targets/linux/requirements.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/administration/managing-infrastructure/run-multiple-processes-on-a-tentacle-simultaneously.md -> docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously.md
+docs/administration/high-availability/configure/configuring-ha-octopus-no-service-accounts.md -> docs/administration/high-availability/configure/octopus-without-active-directory.md
+docs/administration/high-availability/configure/configuring-ha-octopus-with-service-accounts.md -> docs/administration/high-availability/configure/octopus-with-active-directory.md
+docs/administration/high-availability/maintain/registering-polling-tentacles.md -> docs/administration/high-availability/maintain/polling-tentacles-with-ha.md
+docs/administration/high-availability/troubleshoot/index.md -> docs/administration/high-availability/troubleshooting/index.md

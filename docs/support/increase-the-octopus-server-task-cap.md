@@ -22,4 +22,4 @@ Under **Configuration** -> **Nodes** Select your Octopus Node.
 Increasing the task cap will increase the maximum number of tasks the Octopus Server can run simultaneously. This should be increased with caution, as Octopus will require more system resources to handle the increased limit.
 
 For information specific to High Availability nodes and task caps please see the following documentation page.
-[Managing High Availability nodes](docs/administration/high-availability/managing-high-availability-nodes.md#task-cap-managinghighavailabilitynodes-taskcap)
+[Maintaining High Availability nodes](docs/administration/high-availability/maintain/maintain-high-availability-nodes.md)
