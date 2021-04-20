@@ -175,7 +175,7 @@ Kubernetes provides a wide range of Volume resource types. The common, cloud agn
 
 All Volume resources must have a unique name defined in the `Name` field.
 
-#### ConifgMap
+#### ConfigMap
 
 The [ConfigMap Volume resource](http://g.octopushq.com/KubernetesConfigMapVolume) exposes the data saved in a [ConfigMap resource](http://g.octopushq.com/KubernetesConfigMap) as files in a container.
 
@@ -291,7 +291,7 @@ The `Persistent Volume Claim Name` field would be set to `mysql-pv-claim`.
 
 #### Raw YAML
 
-Kubernetes supports a huge range of volume resources, and only a small number are exposed directly the step user interface. Other volume resources can be defined as raw YAML.
+Kubernetes supports a huge range of volume resources, and only a small number are exposed directly by the step user interface. Other volume resources can be defined as raw YAML.
 
 The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](http://g.octopushq.com/KubernetesAwsEbsVolume) type:
 
@@ -362,7 +362,7 @@ The image pull policy and the tag of the image affect when the kubelet attempts 
 
 To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
 
-For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefor can't include such initialization directly into the image.
+For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefore can't include such initialization directly into the image.
 
 Selecting the `Init container` check-box configures the Container resource as an Init Container resource.
 
@@ -399,7 +399,7 @@ The `Memory Limit` field defines the maximum amount of memory that can be consum
 Environment variables can be set three ways.
 
 1. Plain name/value pairs. These are defined by clicking the `Add Environment Variable` button. The `Name` is the environment variable name, and the `Value` is the environment variable value.
-2. Expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConifgMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
+2. Expose a ConfigMap resource value as an environment variable. These are defined by clicking the `Add ConfigMap Environment Variable` button. The `Name` is the environment variable name. The `ConfigMap Name` is the name of the ConfigMap resource. The `Key` is the ConfigMap resource key whose value is to be set as the environment variable value.
 3. Expose a Secret resource value as an environment variable. These are defined by clicking the `Add Secret Environment Variable` button. The `Name` is the environment variable name. The `Secret Name` is the name of the Secret resource. The `Key` is the Secret resource key whose value is to be set as the environment variable value.
 
 #### Volume mounts
@@ -908,7 +908,7 @@ The name of the ingress resource is not affected by the deployment strategy.
 
 #### Ingress class name
 
-[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined the the `Ingress Class Name` field.
+[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined in the `Ingress Class Name` field.
 
 See the [Kubernetes documentation](https://g.octopushq.com/K8SIngressClassDocs) for more information.
 
@@ -922,7 +922,7 @@ The `Add Path` button adds a new mapping between a request path and the Service 
 
 #### Ingress annotations
 
-Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
+Ingress resources only provide configuration. An Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
 There are many Ingress Controller resources available. [NGINX](https://g.octopushq.com/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
 
