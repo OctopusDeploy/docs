@@ -30,7 +30,7 @@ The Octopus home directory is local to each specific node and **should not be s
 
 ![](images/home.png "width=500")
 
-Since each node will use shared storage, ensure you use a service account that has permission to access the shared database:
+Since we're not using custom Service Accounts, please select the Local System Account for the Octopus service as this is a highly privileged account that's able to run Octopus:
 
 ![](images/wizard-local-system.png "width=500")
 
