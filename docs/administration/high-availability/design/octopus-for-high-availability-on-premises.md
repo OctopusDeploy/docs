@@ -4,7 +4,7 @@ description: Information on configuring Octopus High Availability including data
 position: 10
 ---
 
-This section will walk through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
+This section walks through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
 :::hint
 If you are setting Octopus up in a private cloud such as Azure or AWS please see the following guides:
@@ -18,11 +18,11 @@ For the sake of simplicity, the guide assumes that all of the servers are on-pre
 
 :::hint
 **Some assembly required**
-While a single server Octopus installation is easy, Octopus: High Availability is designed for mission critical enterprise scenarios, and depends heavily on infrastructure and Windows components. At a minimum:
+While a single server Octopus installation is easy, Octopus High Availability is designed for mission critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
 
-- You should be familiar with SQL Server failover clustering, or have DBAs available to create and manage the database
-- You should be familiar with SANs or other approaches to sharing storage between servers
-- You should be familiar with load balancing for applications
+- You should be familiar with SQL Server failover clustering, or have DBAs available to create and manage the database.
+- You should be familiar with SANs or other approaches to sharing storage between servers.
+- You should be familiar with load balancing for applications.
   :::
 
 ### Database
@@ -40,9 +40,9 @@ Octopus High Availability works with:
 Octopus High Availability has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md#highavailability)
 :::
 
-See also the [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports, and explains the requirements for how the database must be configured.
+See also the [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports and explains the requirements for how the database must be configured.
 
-Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database, and using that account as the service account when configuring Octopus.
+Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database and using that account as the service account when configuring Octopus.
 
 ### Shared storage
 
@@ -54,19 +54,19 @@ Octopus stores a number of files that are not suitable to store in the database.
 
 As with the database, from the Octopus perspective, you'll simply tell the Octopus Servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
 
-Whichever way you provide the shared storage, a few considerations to keep in mind:
+Whichever way you provide the shared storage, there are a few considerations to keep in mind:
 
-- To Octopus, it needs to appear as a mapped network drive (e.g., `D:\`) or a UNC path to a file share (e.g., `\\server\path`)
-- The service account that Octopus runs as needs **full control** over the directory
-- Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under
+- To Octopus, it needs to appear as a mapped network drive (e.g., `D:\`) or a UNC path to a file share (e.g., `\\server\path`).
+- The service account that Octopus runs as needs **full control** over the directory.
+- Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
-A better alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)), or a SAN.
+A better alternative is [Microsoft DFS](https://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)) or a SAN.
 
 ### Load balancer
 
-When you configured the first Octopus Server node, as well as each of the subsequent nodes, you would have configured the HTTP endpoint that the Octopus web interface is available on. The final step is to configure a load balancer, so that user traffic is directed between each of the Octopus Server nodes.
+When you configured the first Octopus Server node, as well as each of the subsequent nodes, you configured the HTTP endpoint that the Octopus web interface is available on. The final step is to configure a load balancer so that user traffic is directed between each of the Octopus Server nodes.
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
@@ -76,7 +76,7 @@ We typically recommend using a round-robin (or similar) approach for sharing tra
 
 However, each node in the cluster keeps a local cache of data including user permissions. There is a known issue that occurs when a users permissions change. The local cache is only invalidated on the node where the change was made. This will be resolved in a future version of Octopus. 
 
-To work around this issue in the meantime you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
+To work around this issue in the meantime, you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
 
 #### Software load balancers
 

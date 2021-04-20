@@ -4,7 +4,7 @@ description: Solutions to common problems with Octopus High Availability (HA).
 position: 60
 ---
 
-If you're running into issues with Octopus High Availability (HA) it's possible you are running into one of the problems listed here. If this page doesn't help, please [email our support team](mailto:support@octopus.com).
+If you're running into issues with Octopus High Availability it's possible you are running into one of the problems listed here. If this page doesn't help, please [email our support team](mailto:support@octopus.com).
 
 ## Node license limits exceeded
 

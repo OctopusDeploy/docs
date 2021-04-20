@@ -4,11 +4,11 @@ description: With Octopus High Availability, Polling Tentacles must poll all of 
 position: 50
 ---
 
-Listening Tentacles require no special configuration for Octopus High Availability. Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Server nodes in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus Servers, via the command line or via editing the Tentacle.config file directly:
+Listening Tentacles require no special configuration for Octopus High Availability. Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Server nodes in your configuration. You could poll a load balancer but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers in a timely manner.  You could also configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus Servers, via the command-line or via editing the Tentacle.config file directly:
 
 **Tentacle.config**
 
-Configuring the Tentacle via the command line is the preferred option with the command executed once per server; an example command using the default instance can be seen below:
+Configuring the Tentacle via the command-line is the preferred option with the command executed once per server; an example command using the default instance can be seen below:
 
 ```
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6

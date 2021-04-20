@@ -30,7 +30,7 @@ There are several ways to configure High Availability for Octopus and this diffe
 
 ## Configuring Octopus High Availability
 
-When you have selected the approach for Octopus High Availability and provisioned any infrastructure, the next step is to configure it. This section includes guides on configuring Octopus for High Availability; with and without Active Directory:
+When you have selected the approach you will use for Octopus High Availability and provisioned your infrastructure, the next step is to configure it. This section includes guides on configuring Octopus for High Availability with and without Active Directory:
 
 - [Configuring High Availability: with Active Directory](/docs/administration/high-availability/configure/octopus-with-active-directory.md)
 - [Configuring High Availability: without Active Directory](/docs/administration/high-availability/configure/octopus-without-active-directory.md)
@@ -45,7 +45,7 @@ Learn more in our [Migrating to High Availability](/docs/administration/high-ava
 
 One great benefit of Octopus High Availability is the ability to update and restart one or more nodes, while still allowing the rest of the Octopus Deploy cluster to keep serving requests and performing deployments. 
 
-This section contains useful information on how to maintain the nodes in your Octopus High Availability cluster, along with specific things to know when running a highly-available Octopus instance:
+This section contains useful information on how to maintain the nodes in your Octopus High Availability cluster, along with specific things to know when running an Octopus High Availability instance:
 
 - [Maintaining High Availability nodes](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md)
 - [Polling Tentacles with Octopus High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
