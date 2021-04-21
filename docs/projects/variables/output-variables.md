@@ -190,6 +190,18 @@ Octopus.setVariable "TestResult" "Passed"
 set_octopusvariable("TestResult", "Passed")
 ```
 
+## Best practice
+
+If you have multiple steps which depend on an output variable created by a previous step in your deployment process, it can be cumbersome to need to use the full variable name everywhere, e.g. `Octopus.Action[StepA].Output.TestResult`. 
+
+A useful pattern is to create a project variable which evaluates to the output variable, e.g.
+
+| Variable name                                     | Value    |
+| ---------------------------------------- | -------- |
+| `TestResult` | `#{Octopus.Action[StepA].Output.TestResult}` |
+
+This allows using `TestResult` as the variable name in dependent steps, rather than the full output variable name.  In the case of the step name changing (e.g. `StepA` -> `StepX`), this also reduces the amount of places the step name in the output variable expression needs to be changed. 
+
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
