@@ -43,6 +43,15 @@ If you plan on using Octopus Deploy at scale, [disable the built-in worker](/doc
 - For redudancy, have at least two workers per pool.
 - Whenever possible leverage [execution container for workers](/docs/projects/steps/execution-containers-for-workers.md) to limit the amount of software to install and maintain on the workers.
 
+## Compute Resources Required
+
+Workers don't need a lot of compute resources.  You can easily start with:
+
+- 1 CPU / 2 GB of RAM for Linux workers (both server and container)
+- 2 CPU / 2 GB of RAM for Windows workers
+
+Naturally, the more compute resources you add the faster the worker will run.  If you notice a worker struggling to keep up, add a CPU or more RAM.  
+
 ## The difference between workers and high availability nodes
 
 With the introduction of workers there was some confusion as to the difference between a worker and a [high availability node](/docs/administration/high-availability/index.md).  They are not the same thing.  Here are the key differences.
