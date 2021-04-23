@@ -18,7 +18,7 @@ Similarly, it allows you to confirm that the tentacle service on a deployment ta
 
 ## Configure a Health check step
 
-Health check steps are added to deployment and runbook processes and in the same way as other steps:
+Health check steps are added to deployment and runbook processes in the same way as other steps:
 
 1. Add a new `Health Check` step to your [project's deployment process](/docs/projects/steps/index.md).
 
