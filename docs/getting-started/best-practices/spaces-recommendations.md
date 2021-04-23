@@ -52,4 +52,4 @@ There are some considerations when sharing workers.
 - The tentacle agent could be running on an EC2 instance with a specific IAM role attached.  Just like above, to limit access to that IAM role, you should use a polling tentacle and register it to one specific space.
 - When workers download packages they require a mutex.  This means no other task can be running on that worker.  99% of the time this isn't noticed.  However, if a worker is running a 10-hour integration test you run the risk of getting stuck behind that test waiting the mutex to be created.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/installation-guidelines">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/installation-guidelines">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/environments-and-deployment-targets">Next</a></span>
