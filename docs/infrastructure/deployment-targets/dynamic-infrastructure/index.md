@@ -39,13 +39,10 @@ Only a subset of account types and deployment targets support being created dyna
 
 ### Accounts
 
-[AWS Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/aws-accounts.md)
-
-[Azure Service Principal Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-accounts.md)
-
-[Token Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/token-accounts.md)
-
-[Username/Password Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/username-password-accounts.md)
+- [AWS Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/aws-accounts.md)
+- [Azure Service Principal Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-accounts.md)
+- [Token Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/token-accounts.md)
+- [Username/Password Account](/docs/infrastructure/deployment-targets/dynamic-infrastructure/username-password-accounts.md)
 
 ### Targets
 
@@ -53,15 +50,11 @@ Only a subset of account types and deployment targets support being created dyna
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrasturcture](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
 :::
 
-[Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
-
-[Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
-
-[Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
-
-[Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
-
-[Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md)
+- [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
+- [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
+- [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
+- [Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
+- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md)
 
 ### Restrictions
 

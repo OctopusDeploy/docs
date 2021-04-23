@@ -20,6 +20,14 @@ You can access the machine policies by navigating to **{{Infrastructure,Machine 
 
 !include <health-checks>
 
+### Health check step
+
+It's also possible to run a health check as part of a deployment or runbook using the built-in [health check step](/docs/projects/built-in-step-templates/health-check.md). 
+
+This step allows a deployment target that was created in the currently executing deployment to be confirmed as healthy and then added to the running deployment for subsequent steps.
+
+Similarly, it allows you to confirm that the tentacle service on a deployment target is running prior to attempting to perform an action against it.
+
 ## Initial health check
 
 After installing and configuring a new Tentacle, you need to run a health check and can upgrade the version of Calamari.
