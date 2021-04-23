@@ -10,7 +10,7 @@ Transient deployment targets are targets that are intermittently available for a
 - Laptops that are taken home at night.
 - Client servers that go down for maintenance.
 
-A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a health check during a deployment, and based on those results opt to add or remove machines from the deployment.
+A typical Octopus deployment requires that all deployment targets are available when the deployment starts and will remain available while the deployment is in progress.  Elastic Environments provides mechanisms for deploying to targets that may become unavailable while a deployment is in progress. You can also run a [health check](/docs/projects/built-in-step-templates/health-check.md) during a deployment, and based on those results opt to add or remove machines from the deployment.
 
 ## Deploying to Targets That Become Unavailable During a Deployment {#Deployingtotransienttargets-Deployingtotargetsthatbecomeunavailableduringadeployment}
 
