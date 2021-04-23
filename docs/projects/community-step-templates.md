@@ -67,9 +67,12 @@ After the step template has been installed, it will be available alongside the b
 
 Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, you will be taken to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated from the library as needed.
 
-## Raising and fixing issues with community step temaples
+## Raising issues with a community step template
 
-If you find an issue with a community step template. In that case, you can raise an issue on our GitHub library repository [here](https://github.com/OctopusDeploy/Library/issues), and it will be triaged by our customer solutions team, who will resolve the issue.
+Issues can occur with community step templates, just as they can with built-in steps. That might be due to a deprecated technology or library used in a step, an untested scenario, or something as simple as a typo in a script.
 
-If you're feeling adventurous and want to fix the issue yourself for the wider community, you can submit a pull request [here](https://github.com/OctopusDeploy/Library/pulls), and for help on how to do this, you can find guidelines [here](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md).
+If you run into any problems with a community step template, don't worry - [we are always here to help!](https://octopus.com/support)
 
+Our community step templates live in our [Library repository](https://github.com/OctopusDeploy/Library) on GitHub. If you're familiar with GitHub, you can raise an [issue](https://github.com/OctopusDeploy/Library/issues), and a member of our Customer Solutions team will triage the issue and work with you to get the issue resolved. 
+
+In addition, as the code is open-source, you can also submit a [pull request](https://github.com/OctopusDeploy/Library/pulls) to fix an issue. We have [contributing guidelines](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md) that we recommend reading before submitting a change.
