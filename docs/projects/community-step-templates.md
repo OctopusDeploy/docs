@@ -66,3 +66,10 @@ After the step template has been installed, it will be available alongside the b
 ## Adding an updated version of a community step template
 
 Sometimes updates are available for step templates.  In this case, you will notice the step template has an option to update the step.  If you select update, you will be taken to the community step details with the option to update the latest version of the step template.  Community step templates can also be updated from the library as needed.
+
+## Raising and fixing issues with community step temaples
+
+If you find an issue with a community step template. In that case, you can raise an issue on our GitHub library repository [here](https://github.com/OctopusDeploy/Library/issues), and it will be triaged by our customer solutions team, who will resolve the issue.
+
+If you're feeling adventurous and want to fix the issue yourself for the wider community, you can submit a pull request [here](https://github.com/OctopusDeploy/Library/pulls), and for help on how to do this, you can find guidelines [here](https://github.com/OctopusDeploy/Library/blob/master/.github/CONTRIBUTING.md).
+
