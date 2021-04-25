@@ -38,6 +38,6 @@ Health check steps are added to deployment and runbook processes in the same way
 
 ## Health check for workers
 
-Whislt the built-in Health check step works for deployment targets, it was not designed for [Workers](/docs/infrastructure/workers/index.md).
+Whilst the built-in Health check step works for deployment targets, it was not designed for [Workers](/docs/infrastructure/workers/index.md).
 
 To check the health of a worker in a deployment or runbook, there is a [Worker - Health check](https://library.octopus.com/step-templates/c6c23c7b-876d-4758-a908-511f066156d7/actiontemplate-worker-health-check) community step template.
