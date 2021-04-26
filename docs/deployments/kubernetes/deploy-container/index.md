@@ -102,7 +102,9 @@ This field is used when creating Kubernetes `Job` resources only.
 
 Kubernetes exposes two native deployment strategies: [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) and [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
 
+:::hint
 Deployment strategies are not applicable to Kubernetes `Job` resources.
+:::
 
 ### Recreate deployment strategy
 The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
