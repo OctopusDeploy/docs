@@ -70,7 +70,9 @@ The labels are optional, as Octopus will automatically add the tags required to 
 
 ### Completions
 
+:::hint
 This field is used when creating Kubernetes `Job` resources only.
+:::
 
 `completions` is an optional value to specify how many pods to be initiated, one after the other.
 
