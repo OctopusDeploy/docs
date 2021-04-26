@@ -100,7 +100,9 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### TTL Seconds After Finished
 
+:::hint
 This field is used when creating Kubernetes `Job` resources only.
+:::
 
 `ttlSecondsAfterFinished` is an option value to specify when the job should be cleaned up after it is executed. This is handled by the `TTL Controller`. When the TTL controller cleans up a resource, it will delete it cascadingly, that is to say it will delete its dependent objects together with it.
 
