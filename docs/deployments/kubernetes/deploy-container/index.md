@@ -84,7 +84,9 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Backoff limit
 
+:::hint
 This field is used when creating Kubernetes `Job` resources only.
+:::
 
 `backoffLimit` is an optional value that can be used to limit the number of pods creating continuously in case the job fails.
 
