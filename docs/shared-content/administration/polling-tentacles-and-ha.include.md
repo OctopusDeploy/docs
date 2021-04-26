@@ -1,0 +1,1 @@
+Listening Tentacles require no special configuration for Octopus High Availability. Polling Tentacles, however, poll a server at regular intervals to check if there are any tasks waiting for the Tentacle to perform. In a High Availability scenario Polling Tentacles must poll all of the Octopus Server nodes in your configuration.

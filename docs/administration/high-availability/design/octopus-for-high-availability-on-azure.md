@@ -120,7 +120,7 @@ To distribute HTTP load among Octopus Server nodes with a single point of access
 
 Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`.
 
-![Load Balancer](images/load-balance-ping.png "width=500")
+![Load balancer](images/load-balance-ping.png "width=500")
 
 Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
 
@@ -141,59 +141,28 @@ Azure has a wide range of [load balancers](https://docs.microsoft.com/en-us/azur
 - [Kemp LoadMaster](https://kemptechnologies.com/uk/solutions/microsoft-load-balancing/loadmaster-azure/)
 - [F5 Big-IP Virtual Edition](https://www.f5.com/partners/technology-alliances/microsoft-azure)
 
-### Polling Tentacles
-
-Listening Tentacles require no special configuration for high availability. Polling Tentacles, however, poll a server at regular intervals to check if there any tasks the Tentacle needs to perform.
-
-In a high availability scenario in Azure, Polling Tentacles must poll all of the Octopus Servers in your configuration. You could poll a load balancer, but there is a risk, depending on your load balancer configuration, that the Tentacle will not poll all servers promptly.  
-
-You need to configure the Tentacle to poll each server by registering it with one of your Octopus Servers and then adding each Octopus Server to the Tentacle.config file. There are two options to add Octopus Servers, via the command-line or by editing the Tentacle.config file directly:
-
-**Tentacle.config**
-
-Configuring the Tentacle via the command-line is the preferred option with the command executed once per server. An example command using the default instance can be seen below:
-
-```powershell
-C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6
-```
-
-For more information on this command, please refer to the [Tentacle Poll Server options document](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server.md).
-
-You can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method is not recommended as the Octopus service for each server will need to be restarted to accept incoming connections via this method:
-
-```xml
-<set key="Tentacle.Communication.TrustedOctopusServers">
-[
-  {"Thumbprint":"77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6","CommunicationStyle":2,"Address":"https://octo1.domain.com:10943","Squid":null,"SubscriptionId":"poll://g3662re9njtelsyfhm7t/"},
-  {"Thumbprint":"77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6","CommunicationStyle":2,"Address":"https://octo2.domain.com:10943","Squid":null,"SubscriptionId":"poll://g3662re9njtelsyfhm7t/"},
-  {"Thumbprint":"77751F90F9EEDCEE0C0CD84F7A3CC726AD123FA6","CommunicationStyle":2,"Address":"https://octo3.domain.com:10943","Squid":null,"SubscriptionId":"poll://g3662re9njtelsyfhm7t/"}
-]
-</set>
-```
-
-### Polling Tentacles - Network Address Translation
-
-In a highly-available Octopus installation there are two ways you can allow Polling Tentacles to connect to your Octopus Server, and the first of these is using [NAT](https://en.wikipedia.org/wiki/Network_address_translation). To get this working you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default.
-
-For each node in your HA cluster, you are going to need to:
-
-- Use Network Address Translation (NAT) rules on your load balancer and point them to each node in your HA Cluster
-    - Open port **10943** and point it to Node1 in your HA Cluster
-    - Open port **10944** on Node2 on your Load Balancer and point it to Node2 in your HA Cluster
-    - Open port **10945** on Node3 on your Load Balancer and point it to Node 3 in your HA Cluster
-    - Continue until you have a way to register a Tentacle on each of your servers in your HA Cluster
-
-### Polling Tentacles - Public Ports
-
-Another way to do register your Polling Tentacles, is to take the Load Balancer out of the equation and open up Port 10943 on each of your Octopus Servers.
-
-For each node in your HA cluster, You are going to need to:
-
-- Open up port **10943** on each node in your Octopus High-Availability Cluster
-- Use all addresses when registering the Polling Tentacle i.e **Octo1.domain.com:10943** and **cto2.domain.com:10943**
-
 ### Authentication providers
 
 We recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations. For this to work in Azure you need a domain controller setup locally in Azure.  Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility.md) for a full list of supported authentication providers.
 
 If you're hosting in Azure with Domain Controllers, it would be a similar setup as described in our [on-premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide.
+
+## Polling Tentacles with HA
+
+!include <polling-tentacles-and-ha>
+
+### Connecting Polling Tentacles
+
+!include <polling-tentacles-and-ha-connecting>
+
+#### Using a unique port
+
+!include <polling-tentacles-connection-same-port>
+
+#### Using a unique address
+
+!include <polling-tentacles-connection-different-ports>
+
+### Registering Polling Tentacles
+
+!include <polling-tentacles-and-ha-registering>
