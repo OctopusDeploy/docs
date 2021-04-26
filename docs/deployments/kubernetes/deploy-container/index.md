@@ -76,7 +76,9 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Parallelism
 
+:::hint
 This field is used when creating Kubernetes `Job` resources only.
+:::
 
 `parallelism` is an optional value to specify how many pods should run in parallel when the job is started.
 
