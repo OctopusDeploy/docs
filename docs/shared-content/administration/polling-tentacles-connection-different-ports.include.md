@@ -14,7 +14,7 @@ Next on the load balancer, create Network Address Translation (NAT) rules and po
 - Open port `10943` and route traffic to **Node1** in your HA Cluster
 - Open port `10944` and route traffic to **Node2** in your HA Cluster
 - Open port `10945` and route traffic to **Node3** in your HA Cluster
-- Continue until you have a way to register a Tentacle on each of your servers in your HA Cluster
+- Continue for any additional nodes in your HA cluster.
 
 If you configured your nodes to use a different listening port, replace `10943`-`10945` with your port range. 
 
