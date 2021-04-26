@@ -92,7 +92,9 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Active deadline seconds
 
+:::hint
 This field is used when creating Kubernetes `Job` resources only.
+:::
 
 `activeDeadlineSeconds` is an optional value that determines how many seconds should the job runs. The job will be terminated if it runs longer than the given time provided in this field.
 
