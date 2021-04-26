@@ -87,3 +87,23 @@ If you don't have a hardware load balancer available, an easy option is the [App
 For more information on setting up a reverse proxy with Octopus Deploy we have the following guides:
 - [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy.md)
 - [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy.md)
+
+## Polling Tentacles with HA
+
+!include <polling-tentacles-and-ha>
+
+### Connecting Polling Tentacles
+
+!include <polling-tentacles-and-ha-connecting>
+
+#### Using a unique port
+
+!include <polling-tentacles-connection-same-port>
+
+#### Using a unique address
+
+!include <polling-tentacles-connection-different-ports>
+
+### Registering Polling Tentacles
+
+!include <polling-tentacles-and-ha-registering>

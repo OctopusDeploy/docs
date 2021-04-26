@@ -4,10 +4,11 @@ description: Information on configuring Octopus High Availability hosted in Micr
 position: 20
 ---
 
-This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/). 
+This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
 
 :::hint
 If you are setting Octopus up on AWS or on-premises please see the following guides:
+
 - [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 - [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 :::
@@ -119,7 +120,7 @@ To distribute HTTP load among Octopus Server nodes with a single point of access
 
 Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`.
 
-![](images/load-balance-ping.png "width=500")
+![Load balancer](images/load-balance-ping.png "width=500")
 
 Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
 
@@ -145,3 +146,23 @@ Azure has a wide range of [load balancers](https://docs.microsoft.com/en-us/azur
 We recommend [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) for most installations. For this to work in Azure you need a domain controller setup locally in Azure.  Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility.md) for a full list of supported authentication providers.
 
 If you're hosting in Azure with Domain Controllers, it would be a similar setup as described in our [on-premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide.
+
+## Polling Tentacles with HA
+
+!include <polling-tentacles-and-ha>
+
+### Connecting Polling Tentacles
+
+!include <polling-tentacles-and-ha-connecting>
+
+#### Using a unique port
+
+!include <polling-tentacles-connection-same-port>
+
+#### Using a unique address
+
+!include <polling-tentacles-connection-different-ports>
+
+### Registering Polling Tentacles
+
+!include <polling-tentacles-and-ha-registering>
