@@ -171,18 +171,26 @@ You can edit Tentacle.config directly to add each Octopus Server (this is interp
 </set>
 ```
 
-### Polling Tentacles Azure Networking
+### Polling Tentacles - Network Address Translation
 
-To allow Tentacle to connect to your Octopus Server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default).
+In a highly-available Octopus installation there are two ways you can allow Polling Tentacles to connect to your Octopus Server, and the first of these is using [NAT](https://en.wikipedia.org/wiki/Network_address_translation). To get this working you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default.
 
-For each node in your HA cluster, you are going to need to: 
+For each node in your HA cluster, you are going to need to:
 
-- Open your Firewall for each node on **10943** and allow each Polling tentacle to register
 - Use Network Address Translation (NAT) rules on your load balancer and point them to each node in your HA Cluster
     - Open port **10943** and point it to Node1 in your HA Cluster
     - Open port **10944** on Node2 on your Load Balancer and point it to Node2 in your HA Cluster
     - Open port **10945** on Node3 on your Load Balancer and point it to Node 3 in your HA Cluster
     - Continue until you have a way to register a Tentacle on each of your servers in your HA Cluster
+
+### Polling Tentacles - Public Ports
+
+Another way to do register your Polling Tentacles, is to take the Load Balancer out of the equation and open up Port 10943 on each of your Octopus Servers.
+
+For each node in your HA cluster, You are going to need to:
+
+- Open up port **10943** on each node in your Octopus High-Availability Cluster
+- Use all addresses when registering the Polling Tentacle i.e **Octo1.domain.com:10943** and **cto2.domain.com:10943**
 
 ### Authentication providers
 
