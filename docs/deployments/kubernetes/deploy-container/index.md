@@ -68,9 +68,51 @@ Labels are custom key/value pairs that are assigned to Kubernetes resources. The
 
 The labels are optional, as Octopus will automatically add the tags required to manage the Kubernetes resources created as part of this step.
 
+### Completions
+
+This field is used when creating Kubernetes `Job` resources only.
+
+`completions` is an optional value to specify how many pods to be initiated, one after the other.
+
+### Parallelism
+
+:::hint
+This field is used when creating Kubernetes `Job` resources only.
+:::
+
+`parallelism` is an optional value to specify how many pods should run in parallel when the job is started.
+
+### Backoff limit
+
+:::hint
+This field is used when creating Kubernetes `Job` resources only.
+:::
+
+`backoffLimit` is an optional value that can be used to limit the number of pods creating continuously in case the job fails.
+
+### Active deadline seconds
+
+:::hint
+This field is used when creating Kubernetes `Job` resources only.
+:::
+
+`activeDeadlineSeconds` is an optional value that determines how many seconds should the job runs. The job will be terminated if it runs longer than the given time provided in this field.
+
+### TTL Seconds After Finished
+
+:::hint
+This field is used when creating Kubernetes `Job` resources only.
+:::
+
+`ttlSecondsAfterFinished` is an option value to specify when the job should be cleaned up after it is executed. This is handled by the `TTL Controller`. When the TTL controller cleans up a resource, it will delete it cascadingly, that is to say it will delete its dependent objects together with it.
+
 ### Deployment strategy
 
 Kubernetes exposes two native deployment strategies: [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) and [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
+
+:::hint
+Deployment strategies are not applicable to Kubernetes `Job` resources.
+:::
 
 ### Recreate deployment strategy
 The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
