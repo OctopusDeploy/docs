@@ -35,7 +35,7 @@ Some reference points to consider:
 - One customer has ~10,000 deployment targets, 120 projects, ~6000 tenants and has done over 500,000 deployments in 3.5 years.  Their instance configurations handle 160 concurrent deployments.
 - Another customer has ~1400 deployment targets, 787 projects, 0 tenants, and has done over 645,000 deployments in 5.5 years.  Their instance configuration handles 100 concurrent deployments.
 
-## Recommendation - Initial Configuration
+## Recommendation - Small-Medium Scale Configuration
 
 Configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
 
@@ -61,11 +61,6 @@ When using the Octopus Linux container, set the request for CPU to 400m with a l
 :::hint
 Due to how Octopus stores folder references for BLOB files, it is not possible to run Windows Servers and Linux Containers in the same HA cluster.  If you plan on scaling beyond 1 or 2 nodes in your HA cluster, we recommend running Octopus on Windows Servers at this time.
 :::
-
-The Octopus Deploy Linux Container has a few limitations you should be aware of.
-- You cannot use Active Directory authentication with it.
-- You cannot run any tasks on the server; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that worker run on Windows Server.
-- You must configure volume mounts for the Octopus directory, otherwise each time you upgrade you'll loose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
 
 ### Database
 
@@ -118,11 +113,15 @@ The kind of file storage will depend on where you are hosting Octopus Deploy.
 
 ### Monitoring
 
-You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  Any monitoring tool that allows you to make http calls to test health will work.  Internally we use the tool [Better Uptime](https://betteruptime.com) to track if Octopus Deploy status and alert us when it is down.  
+You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  Any monitoring tool that allows you to make http calls to test health will work.  Internally we use the tool [Better Uptime](https://betteruptime.com) to track Octopus Deploy status and alert us when it is down.  
 
-## Recommendation - Enterprise Configuration
+## Recommendation - Large-Scale Configuration
 
-The above recommendation is designed for people working in small to medium-sized companies or people working in large enterprise-level companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for an enterprise-grade Octopus Deploy configuration.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  If you follow the recommendations from above, it will be easy to scale up to this as all the necessary infrastructure, load balancer, file storage, and SQL Server will be in place.
+The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for an large Octopus Deploy configuration designed to handle thousands of deployments a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  
+
+:::hint
+If you follow the recommendations the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server, will be in place.
+:::
 
 - 4 Windows servers with 4 Cores / 8 GB of RAM, with each server having the task cap set to 20 (can increase to 30 without increasing compute).
 - 2 Windows servers with 2 Cores / 4 GB of RAM, with each server having the task cap set to 0.  These are UI-only nodes.
@@ -130,12 +129,18 @@ The above recommendation is designed for people working in small to medium-sized
 - 200 GB of file storage configured.
 - Load balancer to manage traffic to UI-only nodes.
 
-This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  Keeping the task cap at 20 will allow Octopus to evenly split the load across all the nodes.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
+This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to more evenly split the load across all the nodes.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
 
 :::hint
 You will notice the Octopus Linux container is not mentioned in this section.  That omission is intentional.  
 
 Customers have been running Octopus Deploy on Windows Server with High Availability configured since 2015.  While we are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure; we don't have the same amount of data as we do with Windows Server.  
+
+The Octopus Deploy Linux Container has a few limitations you should be aware of.
+- You cannot use Active Directory authentication with it.
+- You cannot run any tasks on the server; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that worker run on Windows Server.
+- You must configure volume mounts for the Octopus directory, otherwise each time the container restarts you'll loose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
+- Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
 
 We are currently working with our existing customers on what best practices look like for the Octopus Linux container. 
 
