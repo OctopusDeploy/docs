@@ -9,7 +9,7 @@ At this point, you have the choice of choosing from the built-in **Installed Ste
 If you're looking for example deployments, see the [Deploying Applications examples](/docs/deployments/index.md).
 
 4. Give the step a short memorable name.
-5. The **Execution Plan** tells the step where to run. Depending on the type of step you are configuring the options will vary:
+5. The **Execution Location** tells the step where to run. Depending on the type of step you are configuring the options will vary:
 
   - [Worker Pool](/docs/infrastructure/workers/worker-pools.md)
   - Worker Pool on behalf of roles

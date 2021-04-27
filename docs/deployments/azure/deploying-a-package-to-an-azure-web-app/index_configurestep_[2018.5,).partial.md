@@ -10,7 +10,7 @@ If instead you want to **dynamically** create you account during your deployment
 
 ![](5865899.png "width=170")
 
-2. On the **Execution Plan** section, select the Roles that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
+2. On the **Execution Location** section, select the Roles that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
 - Manually before running your deployment. [See documentation](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md).
 
