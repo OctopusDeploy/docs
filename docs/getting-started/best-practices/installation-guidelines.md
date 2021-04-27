@@ -9,7 +9,7 @@ This page will provide guidelines and recommendations for installing Octopus Dep
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
 
-The compute resources required are directly correlated to the expected number of concurrent deployments and runbook runs, and users.  A team of 10 people doing five deployments a day will not need the same amount of resources as a division of 500 users doing 1000 deployments a day.  
+The compute resources required are correlated to the expected number of concurrent deployments and runbook runs, and users.  A team of 10 people doing five deployments a day will not need the same amount of resources as a division of 500 users doing 1000 deployments a day.  
 
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
@@ -25,8 +25,7 @@ Here are some items to consider when installing Octopus Deploy:
 - The ideal number of concurrent tasks is 10-15 for every 2 cores / 4 GB of RAM.
 - It is much more performant when the Octopus Deploy service and SQL Server are separated.
 - The less latency between SQL Server and Octopus Deploy, the better.
-- It is trivial to add additional high availability nodes once the initial configuration is done.
-- Configuring high availability mode provides additional benefits, including moving items stored on an internal hard drive to shared storage, making Octopus much more resilient.
+- Configuring high availability mode provides multiple benefits, the most important being the removal of a single point of failure.  Plus, it is trivial to add additional high availability nodes once the initial configuration is done.
 
 ## Calculating Concurrent Deployments
 
@@ -62,6 +61,11 @@ When using the Octopus Linux container, set the request for CPU to 400m with a l
 :::hint
 Due to how Octopus stores folder references for BLOB files, it is not possible to run Windows Servers and Linux Containers in the same HA cluster.  If you plan on scaling beyond 1 or 2 nodes in your HA cluster, we recommend running Octopus on Windows Servers at this time.
 :::
+
+The Octopus Deploy Linux Container has a few limitations you should be aware of.
+- You cannot use Active Directory authentication with it.
+- You cannot run any tasks on the server; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that worker run on Windows Server.
+- You must configure volume mounts for the Octopus directory, otherwise each time you upgrade you'll loose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
 
 ### Database
 
@@ -132,11 +136,6 @@ This configuration will provide 80 concurrent deployments, with the capacity to 
 You will notice the Octopus Linux container is not mentioned in this section.  That omission is intentional.  
 
 Customers have been running Octopus Deploy on Windows Server with High Availability configured since 2015.  While we are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure; we don't have the same amount of data as we do with Windows Server.  
-
-We know of two pieces of functionality the Octopus Linux container does not support.
-
-- Active Directory Authentication
-- Running PowerShell scripts targeted at PowerShell 5.1 or earlier
 
 We are currently working with our existing customers on what best practices look like for the Octopus Linux container. 
 

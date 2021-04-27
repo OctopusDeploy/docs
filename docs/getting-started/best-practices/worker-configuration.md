@@ -66,4 +66,4 @@ Think of the high availability node as the manager and the worker as well, the w
 
 There isn't much difference between a deployment target or a worker as both are tentacle agents.  It is a matter of how they are registered.  Deployment targets are registered to environments while workers are registered to worker pools.  In fact a listening tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/environments-and-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>
