@@ -1,7 +1,7 @@
 ---
 title: Permissions
 position: 30
-description:  Octopus Cloud.
+description: Octopus Cloud includes permissions that relate to hosting Octopus itself, and not for the configuration of your instance, as that's managed by Octopus for you.
 ---
 
 Your Octopus Cloud instance includes permissions that relate to hosting Octopus itself, and not for the configuration/usability of your instance (e.g. server configuration logs), so we've introduced a new built-in team called **Octopus Managers**, think of it as a **cloud-instance** admin.

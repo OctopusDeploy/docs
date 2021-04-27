@@ -27,7 +27,7 @@ A [project's variables](/docs/projects/variables/index.md) are shared between th
 
 ## Environments
 
-In Octopus 2020.2 and earlier, runbooks could be executed against any environment for which the user had an appropriately scoped `RunbookRun` permission.
+In Octopus 2020.2 and earlier, runbooks could be executed against any environment for which the user had an appropriately scoped `RunbookRunCreate` permission.
 
 From **Octopus 2020.3**, it’s also possible to choose which environments a runbook can be run in by selecting this from the *Run settings* in **{{Runbook,Settings}}**:
 

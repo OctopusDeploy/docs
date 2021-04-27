@@ -26,7 +26,7 @@ Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runb
 
 The concept of a published snapshot is designed to help avoid confusion when selecting a version of the runbook you're supposed to run if you're not the author. You can think of it as the "Production" ready version of the runbook, which has been approved for general use.
 
-Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRun` permission, but without the `RunbookEdit` permission).  Triggers and consumers will always execute the published snapshot.
+Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRunCreate` permission, but without the `RunbookEdit` permission).  Triggers and consumers will always execute the published snapshot.
 
 The published snapshot contains the process, variables, and packages. This allows editing and testing the runbook without impacting the published version.   
 
