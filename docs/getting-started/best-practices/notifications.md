@@ -7,7 +7,7 @@ hideInThisSection: true
 
 Octopus Deploy provides multiple mechanisms for notifying you of specific actions within Octopus Deploy.  These include:
 
-- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
+- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
 - [Email notification step](/docs/projects/built-in-step-templates/email-notifications.md) to send out an email during a deployment or runbook run.
 - [Slack notification step template](https://library.octopus.com/step-templates/99e6f203-3061-4018-9e34-4a3a9c3c3179/actiontemplate-slack-send-simple-notification) to send out Slack messages during a deployment or runbook run.
 - [Microsoft Teams notification step template](https://library.octopus.com/step-templates/110a8b1e-4da4-498a-9209-ef8929c31168/actiontemplate-microsoft-teams-post-a-message) to send out messages to Microsoft Teams during a deployment or runbook run.

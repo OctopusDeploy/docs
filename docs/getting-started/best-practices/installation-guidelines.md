@@ -16,9 +16,9 @@ Octopus Deploy installation requirements are:
 - Windows Server 2012 R2 or later when hosting on Windows Server
 - Linux is supported when using the [Octopus Deploy Docker Container](https://octopus.com/blog/introducing-linux-docker-image)
 
-[High avalability](/docs/administration/high-availablity/index.md) functionality is included with both Server and Data Center licenses sold.  
+[High avalability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses sold.  
 
-![](/docs/administration/high-availablity/images/high-availability.svg)
+![](/docs/administration/high-availability/images/high-availability.svg)
 
 How high availability works in Octopus Deploy is all tasks (deployments, runbook runs, etc.) are dropped into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
 

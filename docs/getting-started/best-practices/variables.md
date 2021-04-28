@@ -23,7 +23,7 @@ During a deployment, Octopus will gather all the variables for the project, Tena
 Multi-tenancy is an advanced topic, with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.
 :::
 
-Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms.md) during deployment time.
+Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md) during deployment time.
 
 In addition to having the above levels of variables, there are also two categories of variables.
 
@@ -60,7 +60,7 @@ Our recommendation is to use a combination of Octopus Deploy and configuration f
 - Environment specific configuration file (appSettings.Development.json)
 - Tenant specific configuration file (appSettings.MyTenantName.json)
 
-Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms.md).
+Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md).
 
 When someone proposes storing all the configuration variables in Octopus Deploy, we will ask the following questions:
 - Which variables does Octopus require for a deployment or runbook run?
