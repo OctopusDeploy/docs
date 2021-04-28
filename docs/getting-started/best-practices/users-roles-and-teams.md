@@ -75,4 +75,4 @@ Here are some of the more common scenarios we get asked about along with the ass
     - Add `Project Viewer` role to the Project Owners team, no scoping on environment or projects.
     - Add `Environment Viewer` role to the Project Owners team, no scoping on environment or projects.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/">Next</a></span>
+<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/deployment-and-runbook-processes">Next</a></span>

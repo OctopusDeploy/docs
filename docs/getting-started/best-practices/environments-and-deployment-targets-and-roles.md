@@ -28,9 +28,13 @@ The deployment process from above targets the `hello-world-api` role.  When a de
 ![octopus selecting deployment targets](images/selecting-target-roles.png)
 
 :::hint
-Assigning multiple roles to a deployment step results in an OR statment.  For example, adding `octo-petshop-api` to the deployment process and deploying to **development** will result in the filtering logic to be:
-- All servers in the **development** AND
-- Who have the roles `hello-world-api` OR `octo-petshop-api`
+Assigning multiple roles to a deployment step results in an OR statment.  For example, adding `octo-petshop-api` to the deployment process and deploying to **development** will result in the filtering logic to be: 
+
+All servers in the **development** AND the servers who have the roles `hello-world-api` OR `octo-petshop-api`.  
+
+For the software developers you can rewrite that sentence as:
+
+`If (server.Environment == "development" && (server.Role == "hello-world-api" || server.Role == "octo-petshop-api"))`
 
 Using the example from above, Octopus would select all three servers.
 :::
@@ -71,7 +75,7 @@ Our recommendations for environments are:
 
 There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Going back to the `web-server` example, if you needed to limit it to be web servers for a specific application.  To do that you'd need to create an environment.
 
-Generic roles also impact your future flexibility.  For example, if you target `web-server` for a 100 projects that means all targets on all environments have to host those same 100 projects.  If you were to decide in six months to split up those servers you'd have to update over 100 projects.
+Generic roles also impact your future flexibility.  For example, if your target role is `web-server` for a 100 projects that means all targets on all environments have to host those same 100 projects.  If you were to decide in six months to split up those servers you'd have to update over 100 projects.
 
 Our recommendations for target roles are:
 - Avoid generic roles, for example `web-server`, whenever possible.

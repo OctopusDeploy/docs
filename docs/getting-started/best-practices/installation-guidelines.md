@@ -9,7 +9,7 @@ This page will provide guidelines and recommendations for installing Octopus Dep
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
 
-The compute resources required are correlated to the expected number of concurrent deployments and runbook runs, and users.  A team of 10 people doing five deployments a day will not need the same amount of resources as a division of 500 users doing 1000 deployments a day.  
+The compute resources required are correlated to the expected number of concurrent tasks (deployments, runbook runs, etc.), and users.  A team of 10 people doing five deployments a day will not need the same amount of resources as a division of 500 users doing 600 deployments a day.  
 
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
@@ -20,43 +20,49 @@ Octopus Deploy installation requirements are:
 
 ![](/docs/administration/high-availablity/images/high-availability.svg)
 
+How high availability works in Octopus Deploy is all tasks (deployments, runbook runs, etc.) are dropped into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
+
 Here are some items to consider when installing Octopus Deploy:
 - Cloud providers (GCP, AWS, Azure) will charge roughly the same for 2 VMs with 2 cores / 4 GB of RAM or 1 VM with 4 cores / 8 GB of RAM.  The difference in cost is typically less than $10 USD per month.
 - The ideal number of concurrent tasks is 10-15 for every 2 cores / 4 GB of RAM.
 - It is much more performant when the Octopus Deploy service and SQL Server are separated.
 - The less latency between SQL Server and Octopus Deploy, the better.
-- Configuring high availability mode provides multiple benefits, the most important being the removal of a single point of failure.  Plus, it is trivial to add additional high availability nodes once the initial configuration is done.
+- Configuring high availability mode provides multiple benefits, the most important being the removal of a single point of failure.  
+- It is trivial to add additional high availability nodes once the initial configuration is done.
 
-## Calculating Concurrent Deployments
+## Calculating Concurrent Tasks
 
-When starting, you won't be doing more than ten concurrent deployments or runbook runs.  There might be one or two times when you go over that limit, but those deployments will queue for a few minutes before being processed.  When you see more and more deployments or runbook runs being queued, then time to add capacity.  The recommendation below will enable you to add capacity quickly.
+When starting, you won't be doing more than ten concurrent tasks.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  When you see more and more tasks being queued, then time to add capacity.  
 
 Some reference points to consider:
-- One customer has ~10,000 deployment targets, 120 projects, ~6000 tenants and has done over 500,000 deployments in 3.5 years.  Their instance configurations handle 160 concurrent deployments.
-- Another customer has ~1400 deployment targets, 787 projects, 0 tenants, and has done over 645,000 deployments in 5.5 years.  Their instance configuration handles 100 concurrent deployments.
+- One customer has ~10,000 deployment targets, 120 projects, and has done over 500,000 deployments in 3.5 years.  On average they do about 400-500 deployments a day.  Their instance configurations handle 160 concurrent tasks.
+- Another customer has ~1400 deployment targets, 787 projects, and has done over 645,000 deployments in 5.5 years.  On average they do about 600 deployments a day.  Their instance configuration handles 100 concurrent tasks.
 
 ## Recommendation - Small-Medium Scale Configuration
 
-Configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
+Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
 
-- 1 to 2 servers or 1 to 2 containers
-- SQL Server to host Octopus Deploy database
+- 1 to 2 Windows servers each with 2 cores / 4 GB of RAM with the task cap set to 10 for each server.
+- OR 1 to 2 containers with CPU set to 400m with a limit of 4000m and memory set to 400Mi with the limit set to 4Gi.
+- SQL Server to host Octopus Deploy database with 2 Cores / 8 GB of RAM or 50-100 DTUs
 - Load balancer for web traffic
 - 40 GB of File storage (DFS, NAS, SAN, Azure File Storage, AWS FSx, etc.)
 
-Configuring HA from the start will ensure your Octopus Deploy instance is more resilient, even with a single node.  If the server hosting Octopus Deploy were ever to crash or stop responding, recovery time is measured in minutes, not hours.  Adding more than one additional node to your HA cluster will result in zero downtime in the event of crashes or regular restarts to update Windows.
+This will give you the capacity to process 10-20 concurrent tasks.  If you need to scale up quickly, double the compute resources, for example 4 CPUs / 8 GB of RAM, to get to 20-40 concurrent tasks.  We don't recommend going beyond 4 CPUs / 8 GB of RAM, and instead recommend scaling horizontally.  
 
-This configuration will also allow you to scale horizontally quickly; you can add more nodes as you add more users and do more deployments.  
+Even with a single node, taking the time to configure a load balancer and the separate file storage will ensure your Octopus Deploy instance is more resilient.  If the server hosting Octopus Deploy were ever to crash or stop responding, recovery time is measured in minutes, not hours.  Adding more than one additional node to your HA cluster will result in zero downtime in the event of crashes or regular restarts to update Windows.  
 
 ### Octopus Deploy Windows Server
-
-When hosting Octopus Deploy on a Windows Server, the recommended specs are 2 CPUs and 4 GB of RAM.  Those specs will enable you to run 10-15 concurrent deployments.  Doubling that to 4 CPUs / 8 GB of RAM will enable you to run 20-30 concurrent deployments.  While possible to increase the compute resources, we don't recommend going beyond them and instead recommend scaling horizontally via HA.
 
 Octopus Deploy is a Windows service that will run as `Local System` by default.  If possible, run that service using a specific Active Directory or Azure Active Directory account.  Use integrated security instead for the database instead of providing a username and password.  
 
 ### Octopus Deploy Container
 
-When using the Octopus Linux container, set the request for CPU to 400m with a limit of 4000m; for memory, set the request to 400Mi with the limit to 4Gi.
+The Octopus Deploy Linux Container has a few limitations you should be aware of.
+- You cannot use Active Directory authentication with it.
+- You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that worker run on Windows Server.
+- You must configure volume mounts for the Octopus directory, otherwise each time the container restarts you'll loose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
+- Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
 
 :::hint
 Due to how Octopus stores folder references for BLOB files, it is not possible to run Windows Servers and Linux Containers in the same HA cluster.  If you plan on scaling beyond 1 or 2 nodes in your HA cluster, we recommend running Octopus on Windows Servers at this time.
@@ -78,9 +84,15 @@ Keep an eye on your database resources as you increase the number of concurrent 
 
 For high performance, the SQL Server and the servers hosting Octopus Deploy must be in the same data center or region to keep latency between the two to a minimum.
 
+:::hint
+Standard SQL Server maintenance should also be performed periodically to maintain performance.  This includes rebuilding indexes, regenerating stats, and regular backups.  
+:::
+
 ### Configure task cap
 
-By default, the number of concurrent deployments or runbook runs for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap.md).
+By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap.md).  We don't recommend going beyond 20, even if the node has the necessary compute resources.  
+
+As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  If the task cap is set to 20 but the typical number of pending tasks is 10, you will find one node is doing the majority of the work.  Setting the task cap to a lower number, and with more nodes will spread the work evenly, which should result in higher performance.
 
 :::hint
 Setting the task cap to 0 will mean that node picks up no tasks.  It will only host web requests for the Octopus Deploy UI.
@@ -100,7 +112,7 @@ The recommendations for load balancers are:
 Octopus Deploy will return the name of the node in the `Octopus-Node` response header.
 :::
 
-If you plan on having external [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  
+If you plan on having external [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
 
 ### File Storage
 
@@ -135,12 +147,6 @@ This configuration will provide 80 concurrent deployments, with the capacity to 
 You will notice the Octopus Linux container is not mentioned in this section.  That omission is intentional.  
 
 Customers have been running Octopus Deploy on Windows Server with High Availability configured since 2015.  While we are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure; we don't have the same amount of data as we do with Windows Server.  
-
-The Octopus Deploy Linux Container has a few limitations you should be aware of.
-- You cannot use Active Directory authentication with it.
-- You cannot run any tasks on the server; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that worker run on Windows Server.
-- You must configure volume mounts for the Octopus directory, otherwise each time the container restarts you'll loose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
-- Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
 
 We are currently working with our existing customers on what best practices look like for the Octopus Linux container. 
 
