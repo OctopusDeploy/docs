@@ -1,5 +1,5 @@
 ---
-title: Variables
+title: Variable Recommendations
 description: Guidelines and recommendations for configuring variables in Octopus Deploy.
 position: 60
 hideInThisSection: true
@@ -30,7 +30,7 @@ In addition to having the above levels of variables, there are also two categori
 1. Variables used in configuration file replacement (connection strings, version number, etc.)
 2. Variables specific to the deployment or runbook run (output variables, messages, accounts, etc.)
 
-## Recommendation For Variable Naming
+## Variable Naming
 
 It is entirely possible for a name collision to occur, where a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](//docs/projects/variables/index.md#Scopingvariables-Scopespecificity).
 
@@ -43,7 +43,7 @@ However, the recommendation is to avoid name collisions in the first place by fo
 
 These naming conventions only apply to variables specific to the deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  However, following the above naming convention for variables specific to deployments or runbook runs makes it easier to distinguish between them.
 
-## Recommendations For Configuration File Replacement Variables
+## Configuration File Replacement Variables
 
 One of Octopus Deploy's most used features is the variable scoping.  And with good reason, having the same process, with only needing a specific value such as a connection string or domain name changed, ensures consistency during the deployment process.  
 
@@ -81,7 +81,7 @@ Examples of configuration variables that should be stored in the main configurat
 - CSS Settings
 - Log Levels
 
-## Recommendations for Library Variable Sets
+## Library Variable Sets
 
 [Library variable sets](/docs/projects/variables/library-variable-sets.md) are a great way to share variables between projects.  We recommend the following when creating library variable sets.
 

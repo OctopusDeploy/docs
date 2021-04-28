@@ -37,7 +37,7 @@ The built-in worker and dynamic workers were created to help get you started.  U
 - Dynamic workers and built-in workers are limited to the software installed on the host servers.  
 - The IP address assigned to dynamic workers will change at least once an hour and at most once every 72 hours.  
 
-## Recommendation
+## Workers for Octopus at Scale
 
 If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker.md#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers.
 

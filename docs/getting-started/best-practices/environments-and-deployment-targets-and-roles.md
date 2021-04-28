@@ -39,7 +39,7 @@ For the software developers you can rewrite that sentence as:
 Using the example from above, Octopus would select all three servers.
 :::
 
-## Background Information
+## Size of Group
 
 Environments are designed as a macro grouping of deployment targets meant for use across multiple projects, library sets, and more.  Below is a list of items where environments are used:
 
@@ -62,7 +62,7 @@ Target roles are designed as a micro groping of deployment targets meant to depl
 A deployment target can be assigned to 1 to N environments and 1 to N roles.  
 :::
 
-## Recommendations
+## Environments
 
 Adding an environment is a non-trivial task, as it involves adding/updating additional deployment targets, variable scoping, lifecycles accounts, certificates, and more.  There is a direct correlation between a high number of environments and poor maintainability, usability, and performance.  
 
@@ -72,6 +72,8 @@ Our recommendations for environments are:
 - If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each data center is a tenant.
 - It's okay to have team-specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each team is a tenant.
 - Avoid project specific environments.  Project specific environments is a good indicator to consider [spaces](/docs/administration/spaces/index.md).  
+
+## Roles
 
 There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Going back to the `web-server` example, if you needed to limit it to be web servers for a specific application.  To do that, you'd need to create an environment.
 

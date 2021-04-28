@@ -7,7 +7,7 @@ hideInThisSection: true
 
 [Projects](/docs/projects/index.md) let you create and manage your deployment processes, releases, and runbooks from the Octopus REST API and Octopus Web Portal. For each project, you can define a deployment process, runbooks to manage your infrastructure, variables, the environments where the software will be deployed, and your software releases.  Project groups allow you to group like projects together.  
 
-## Recommended Structure
+## Project Structure
 
 We recommend thinking of projects and project groups this way:
 

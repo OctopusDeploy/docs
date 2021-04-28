@@ -38,7 +38,7 @@ Some reference points to consider:
 - One customer has ~10,000 deployment targets, 120 projects and has done over 500,000 deployments in 3.5 years.  On average, they do about 400-500 deployments a day.  Their instance configurations handle 160 concurrent tasks.
 - Another customer has ~1400 deployment targets, 787 projects and has done over 645,000 deployments in 5.5 years.  On average, they do about 600 deployments a day.  Their instance configuration handles 100 concurrent tasks.
 
-## Recommendation - Small-Medium Scale Configuration
+## Small-Medium Scale Configuration
 
 Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
 
@@ -127,7 +127,7 @@ The kind of file storage will depend on where you are hosting Octopus Deploy.
 
 You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  Any monitoring tool that allows you to make http calls to test health will work.  Internally we use the tool [Better Uptime](https://betteruptime.com) to track Octopus Deploy status and alert us when it is down.  
 
-## Recommendation - Large-Scale Configuration
+## Large-Scale Configuration
 
 The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for a large Octopus Deploy configuration designed to handle thousands of deployments a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  
 
