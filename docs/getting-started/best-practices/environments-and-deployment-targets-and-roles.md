@@ -5,16 +5,16 @@ position: 30
 hideInThisSection: true
 ---
 
-[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, etc.  [Environments](/docs/infrastructure/environments/index.md) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in a environment.
+[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  [Environments](/docs/infrastructure/environments/index.md) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
 
 ## Deployment Target Environment and Role Relationship
-Environments are how you group deployment targets together in a stage in your deployment pipeline.  Target roles, or tags, are how you identify the which deployment targets you wish to deploy to in that specific stage.
+Environments are how you group deployment targets in a stage in your deployment pipeline.  Target roles, or tags, are how you identify which deployment targets you wish to deploy to in that specific stage.
 
 When you register a deployment target, you must provide at least one environment and one target role.
 
 ![environment and roles for targets](images/registering-deployment-target.png)
 
-In the deployment process you assign steps to run on specific roles.
+In the deployment process, you assign steps to run on specific roles.
 
 ![deployment process role assignment](images/target-roles-in-deployment-process.png)
 
@@ -23,12 +23,12 @@ For example, imagine you have three deployment targets in the **development** en
 - dev-server-02: `hello-world-api` and `IIS-Server-2019` roles
 - dev-server-03: `octo-petshop-api` and `IIS-Server-2019` roles
 
-The deployment process from above targets the `hello-world-api` role.  When a deployment to **development** is triggered, Octopus will only select the two servers that are assigned to **development** AND have the `hello-world-api` role.
+The deployment process from above targets the `hello-world-api` role.  When a deployment to **development** is triggered, Octopus will only select the two servers assigned to **development** AND have the `hello-world-api` role.
 
 ![octopus selecting deployment targets](images/selecting-target-roles.png)
 
 :::hint
-Assigning multiple roles to a deployment step results in an OR statment.  For example, adding `octo-petshop-api` to the deployment process and deploying to **development** will result in the filtering logic to be: 
+Assigning multiple roles to a deployment step results in an OR statement.  For example, adding `octo-petshop-api` to the deployment process and deploying to **development** will result in the filtering logic to be: 
 
 All servers in the **development** AND the servers who have the roles `hello-world-api` OR `octo-petshop-api`.  
 
@@ -41,7 +41,7 @@ Using the example from above, Octopus would select all three servers.
 
 ## Background Information
 
-Environments are designed as a macro grouping of deployment targets meant to be used across multiple projects, library sets, and more.  Below is a list of items where environments are used:
+Environments are designed as a macro grouping of deployment targets meant for use across multiple projects, library sets, and more.  Below is a list of items where environments are used:
 
 - Lifecycles
 - Project Variable scoping
@@ -68,18 +68,18 @@ Adding an environment is a non-trivial task, as it involves adding/updating addi
 
 Our recommendations for environments are:
 - Keep the number of environments per space to be between 2 and 20.  
-- Name environments to match your company's nomenclature so you can re-use them across projects.  Common names include **development**, **test**, **QA**, **acceptance**, **uat**, and **production**.
-- If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each data center is a tenant.
-- It's okay to have team specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each team is a tenant.
+- Name environments to match your company's terminology so you can re-use them across projects.  Common names include **development**, **test**, **QA**, **acceptance**, **uat**, and **production**.
+- If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each data center is a tenant.
+- It's okay to have team-specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each team is a tenant.
 - Avoid project specific environments.  Project specific environments is a good indicator to consider [spaces](/docs/administration/spaces/index.md).  
 
-There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Going back to the `web-server` example, if you needed to limit it to be web servers for a specific application.  To do that you'd need to create an environment.
+There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Going back to the `web-server` example, if you needed to limit it to be web servers for a specific application.  To do that, you'd need to create an environment.
 
-Generic roles also impact your future flexibility.  For example, if your target role is `web-server` for a 100 projects that means all targets on all environments have to host those same 100 projects.  If you were to decide in six months to split up those servers you'd have to update over 100 projects.
+Generic roles also impact your future flexibility.  For example, if your target role is `web-server` for 100 projects, all targets on all environments have to host those same 100 projects.  If you were to decide in six months to split up those servers, you'd have to update over 100 projects.
 
 Our recommendations for target roles are:
-- Avoid generic roles, for example `web-server`, whenever possible.
-- Use specific target roles, for example `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
-- Use architecture and platform specific target roles, for example `IIS-Server-Windows-2019`.  Use those target roles for common maintenance tasks, such as installing the latest version of Node.js or installing a patch.
+- Avoid generic roles, for example, `web-server`, whenever possible.
+- Use specific target roles, for example, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
+- Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks, such as installing the latest version of Node.js or installing a patch.
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>

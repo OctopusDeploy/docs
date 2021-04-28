@@ -9,7 +9,7 @@ This page will provide guidelines and recommendations for installing Octopus Dep
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
 
-The compute resources required are correlated to the expected number of concurrent tasks (deployments, runbook runs, etc.), and users.  A team of 10 people doing five deployments a day will not need the same amount of resources as a division of 500 users doing 600 deployments a day.  
+The compute resources required are correlated to the expected number of concurrent tasks (deployments, runbook runs, etc.) and users.  A team of 10 people doing five deployments a day will not need the same resources as a division of 500 users doing 600 deployments a day.  
 
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
@@ -27,28 +27,28 @@ Here are some items to consider when installing Octopus Deploy:
 - The ideal number of concurrent tasks is 10-15 for every 2 cores / 4 GB of RAM.
 - It is much more performant when the Octopus Deploy service and SQL Server are separated.
 - The less latency between SQL Server and Octopus Deploy, the better.
-- Configuring high availability mode provides multiple benefits, the most important being the removal of a single point of failure.  
-- It is trivial to add additional high availability nodes once the initial configuration is done.
+- Configuring high availability mode provides multiple benefits, the most important being removing a single point of failure.  
+- It is trivial to add additional high availability nodes after the initial configuration.
 
 ## Calculating Concurrent Tasks
 
-When starting, you won't be doing more than ten concurrent tasks.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  When you see more and more tasks being queued, then time to add capacity.  
+When starting, you most likely won't be doing more than ten concurrent tasks.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  When you see more and more tasks being queued, then time to add capacity.  
 
 Some reference points to consider:
-- One customer has ~10,000 deployment targets, 120 projects, and has done over 500,000 deployments in 3.5 years.  On average they do about 400-500 deployments a day.  Their instance configurations handle 160 concurrent tasks.
-- Another customer has ~1400 deployment targets, 787 projects, and has done over 645,000 deployments in 5.5 years.  On average they do about 600 deployments a day.  Their instance configuration handles 100 concurrent tasks.
+- One customer has ~10,000 deployment targets, 120 projects and has done over 500,000 deployments in 3.5 years.  On average, they do about 400-500 deployments a day.  Their instance configurations handle 160 concurrent tasks.
+- Another customer has ~1400 deployment targets, 787 projects and has done over 645,000 deployments in 5.5 years.  On average, they do about 600 deployments a day.  Their instance configuration handles 100 concurrent tasks.
 
 ## Recommendation - Small-Medium Scale Configuration
 
 Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
 
-- 1 to 2 Windows servers each with 2 cores / 4 GB of RAM with the task cap set to 10 for each server.
-- OR 1 to 2 containers with CPU set to 400m with a limit of 4000m and memory set to 400Mi with the limit set to 4Gi.
+- 1 to 2 Windows servers, each with 2 cores / 4 GB of RAM with the task cap set to 10 for each server.
+- OR 1 to 2 containers, each CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.
 - SQL Server to host Octopus Deploy database with 2 Cores / 8 GB of RAM or 50-100 DTUs
 - Load balancer for web traffic
 - 40 GB of File storage (DFS, NAS, SAN, Azure File Storage, AWS FSx, etc.)
 
-This will give you the capacity to process 10-20 concurrent tasks.  If you need to scale up quickly, double the compute resources, for example 4 CPUs / 8 GB of RAM, to get to 20-40 concurrent tasks.  We don't recommend going beyond 4 CPUs / 8 GB of RAM, and instead recommend scaling horizontally.  
+This will give you the capacity to process 10-20 concurrent tasks.  If you need to scale up quickly, double the compute resources, for example, 4 CPUs / 8 GB of RAM, to get to 20-40 concurrent tasks.  We don't recommend going beyond 4 CPUs / 8 GB of RAM and instead recommend scaling horizontally.  
 
 Even with a single node, taking the time to configure a load balancer and the separate file storage will ensure your Octopus Deploy instance is more resilient.  If the server hosting Octopus Deploy were ever to crash or stop responding, recovery time is measured in minutes, not hours.  Adding more than one additional node to your HA cluster will result in zero downtime in the event of crashes or regular restarts to update Windows.  
 
@@ -60,12 +60,12 @@ Octopus Deploy is a Windows service that will run as `Local System` by default. 
 
 The Octopus Deploy Linux Container has a few limitations you should be aware of.
 - You cannot use Active Directory authentication with it.
-- You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that worker run on Windows Server.
-- You must configure volume mounts for the Octopus directory, otherwise each time the container restarts you'll loose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
+- You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that the worker run on Windows Server.
+- You must configure volume mounts for the Octopus directory. Otherwise, each time the container restarts, you'll lose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
 - Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
 
 :::hint
-Due to how Octopus stores folder references for BLOB files, it is not possible to run Windows Servers and Linux Containers in the same HA cluster.  If you plan on scaling beyond 1 or 2 nodes in your HA cluster, we recommend running Octopus on Windows Servers at this time.
+Due to how Octopus stores folder references for BLOB files, it is not possible to run Windows Servers and Linux Containers in the same HA cluster.  If you plan on scaling beyond 1 or 2 nodes in your HA cluster, we recommend running Octopus on Windows servers at this time.
 :::
 
 ### Database
@@ -85,14 +85,14 @@ Keep an eye on your database resources as you increase the number of concurrent 
 For high performance, the SQL Server and the servers hosting Octopus Deploy must be in the same data center or region to keep latency between the two to a minimum.
 
 :::hint
-Standard SQL Server maintenance should also be performed periodically to maintain performance.  This includes rebuilding indexes, regenerating stats, and regular backups.  
+Routine SQL Server maintenance should be performed periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.  
 :::
 
 ### Configure task cap
 
 By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap.md).  We don't recommend going beyond 20, even if the node has the necessary compute resources.  
 
-As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  If the task cap is set to 20 but the typical number of pending tasks is 10, you will find one node is doing the majority of the work.  Setting the task cap to a lower number, and with more nodes will spread the work evenly, which should result in higher performance.
+As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  If the task cap is set to 20, but the typical number of pending tasks is 10, you will find one node is doing the majority of the work.  Setting the task cap to a lower number and with more nodes will spread the work evenly, resulting in higher performance.
 
 :::hint
 Setting the task cap to 0 will mean that node picks up no tasks.  It will only host web requests for the Octopus Deploy UI.
@@ -129,10 +129,10 @@ You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  
 
 ## Recommendation - Large-Scale Configuration
 
-The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for an large Octopus Deploy configuration designed to handle thousands of deployments a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  
+The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for a large Octopus Deploy configuration designed to handle thousands of deployments a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  
 
 :::hint
-If you follow the recommendations the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server, will be in place.
+If you follow the recommendations of the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server will be in place.
 :::
 
 - 4 Windows servers with 4 Cores / 8 GB of RAM, with each server having the task cap set to 20 (can increase to 30 without increasing compute).
@@ -141,7 +141,7 @@ If you follow the recommendations the small-medium scale configuration section, 
 - 200 GB of file storage configured.
 - Load balancer to manage traffic to UI-only nodes.
 
-This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to more evenly split the load across all the nodes.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
+This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
 
 :::hint
 You will notice the Octopus Linux container is not mentioned in this section.  That omission is intentional.  
