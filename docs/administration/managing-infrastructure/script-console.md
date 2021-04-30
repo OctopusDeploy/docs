@@ -20,19 +20,55 @@ Any machines registered with Octopus as [workers](/docs/infrastructure/workers/i
 
 The Script Console can be found under the Tasks area:
 
-![](images/3277924.png "width=500")
+![](images/tasks-script-console-button.png "width=500")
 
-Inside the Script Console, you can choose whether to run your script on an individual machine, or an entire group of machines.
+Inside the Script Console, you can choose whether to run your script on:
+- One or more individual [deployment targets](/docs/infrastructure/deployment-targets/index.md).
+- One or more individual [workers](/docs/infrastructure/workers/index.md).
+- All workers in a set of [worker pools](/docs/infrastructure/workers/worker-pools.md).
+- All deployment targets in a set of environments, roles and tenants or an entire group of machines.
+- The Octopus Server. **Note:** This option is only available for Octopus Server, and not for [Octopus Cloud](/docs/octopus-cloud/index.md).
 
-![](images/5865617.png "width=500")
+:::hint
+The options shown inside the Script Console may differ from the ones described here depending on the permissions assigned to your user account, or if you are using [Octopus Cloud](/docs/octopus-cloud/index.md).
+:::
+
+![](images/inside-script-console.png "width=500")
 
 When you run the script, you'll be taken to the task output page which shows the progress and any output from the script:
 
-![](images/3277922.png "width=500")
+![](images/script-console-task-log.png "width=500")
 
 The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the ... overflow menu to change or run the script again.
 
-![](images/3277921.png "width=500")
+![](images/script-console-modify-rerun.png "width=500")
+
+## Targeting the Octopus Server
+
+You can target the Octopus Server using the Script Console providing you are on a self-hosted instance (and not [Octopus Cloud](/docs/octopus-cloud/index.md)) and the [built-in worker](/docs/infrastructure/workers/built-in-worker.md) is enabled.
+
+However, please consider the security implications of allowing ad-hoc scripts to be executed on your Octopus Server.
+
+Learn more about [hardening Octopus](/docs/security/hardening-octopus.md).
+
+If you want to run ad-hoc tasks on [Octopus Cloud](/docs/octopus-cloud/index.md), you should make use of [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) or install a Tentacle agent on your own Virtual Machines and register that Tentacle as a worker or deployment target.
+
+## Script Console permissions
+
+To access the Script Console, you'll need to have either:
+- The `AdministerSystem` permission or 
+- The `TaskCreate` permission assigned to the [Space](/docs/administration/spaces/index.md) you're working in.
+
+The permissions needed to execute a task will depend on the options chosen inside the Script Console.
+
+For example, to execute a script from the Script Console against one or more deployment targets in an environment, you'd need the following permissions:
+
+- `MachineEdit` for the deployment target(s) in that environment.
+- `TaskCreate` to create a task in that environment.
+
+Similar permissions would also need to be granted if you were selecting specific Tenants.
+
+To learn how to configure access to the Script Console for a subset of users, take a look at this [knowledge base article](https://help.octopus.com/t/permissions-required-for-script-console-access-only/24790/).
 
 ## Collect artifacts {#ScriptConsole-Collectingartifacts}
 
@@ -43,14 +79,3 @@ Sometimes you might like to collect files from each of the machines as part of y
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/security/users-and-teams/auditing.md) tab in the Configuration area.
 
 ![](images/3277919.png "width=500")
-
-## Targeting the Octopus Server
-
-You cannot target the Octopus Server with the Script Console. If you want to run ad-hoc tasks on your Octopus Server, you should install a Tentacle agent on your Octopus Server and register that Tentacle as a worker or deployment target.
-
-However, please consider the security implications of allowing ad-hoc scripts to be executed on your Octopus Server. Here are some general tips:
-
-- The Tentacle agent should run as a user account with the lowest privileges required for your scenario, preventing someone from compromising your Octopus Server.
-- Register the Tentacle in a special environment, then configure a team in Octopus with permission to execute ad-hoc scripts in this environment.
-
-Learn more about [hardening Octopus](/docs/security/hardening-octopus.md).
