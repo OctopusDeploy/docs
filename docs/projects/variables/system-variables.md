@@ -308,6 +308,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Template.Version` <br/>If the action is based on a step template, the version of the template in use *(Number)* | *123*|
 |`Octopus.Action.Status.Error` <br/>If the action failed because of an error, a description of the error | *The server could not be contacted*|
 |`Octopus.Action.Status.ErrorDetail` <br/>If the action failed because of an error, a full description of the error | *System.Net.SocketException: The server ...*|
+|`Octopus.Action.SubstituteInFiles.EnableNoMatchWarning` <br/>Controls whether a warning is displayed in the Task log when no files are found matching one or more of the glob patterns in Substitute Variables in Files | *False*|
 
 
 ## Azure {#Systemvariables-Azure}
