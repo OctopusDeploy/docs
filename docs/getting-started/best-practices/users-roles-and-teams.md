@@ -5,7 +5,7 @@ position: 80
 hideInThisSection: true
 ---
 
-A [users](/docs/security/users-and-teams/index.md) is an entity that performs an action in Octopus Deploy.  [User roles](/docs/security/users-and-teams/user-roles.md) control what actions a user can perform.  Users and roles are assigned to [teams](/docs/security/users-and-teams/index.md#Managingusersandteams-Creatingteams).  The team the core piece of the RBAC configuration in Octopus Deploy.  You control what specific users have permissions to perform specific actions on specific projects in specific environments by role assignment and scoping.
+A [user](/docs/security/users-and-teams/index.md) is an entity that performs an action in Octopus Deploy.  [User roles](/docs/security/users-and-teams/user-roles.md) control what actions a user can perform.  Users and roles are assigned to [teams](/docs/security/users-and-teams/index.md#Managingusersandteams-Creatingteams).  Teams are the core piece of the RBAC configuration in Octopus Deploy.  You control what specific users have permissions to perform specific actions on specific projects in specific environments by role assignment and scoping.
 
 A user can be directly or indirectly associated with a team.  You can explicitly assign a user to a team.  Or you can assign teams from [external auth providers](/docs/security/authentication/index.md) to Octopus Deploy teams.
 

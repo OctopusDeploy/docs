@@ -52,4 +52,10 @@ There are some considerations when sharing workers.
 - The tentacle agent could be running on an EC2 instance with a specific IAM role attached.  Just like above, to limit access to that IAM role, you should use a polling tentacle and register it to one specific space.
 - When workers download packages, they require a mutex; no other task can be running on that worker.  99% of the time, this isn't noticed.  However, if a worker runs a 10-hour integration test, you run the risk of getting stuck behind that test waiting for the mutex to be created.
 
+## Moving Projects Between Spaces
+
+Don't worry if you don't get your space configuration right the first time.  It is a high bar to expect perfection the first time.
+
+Starting with **Octopus Server 2021.1** we offer the ability to [export and import projects between spaces](/docs/projects/export-import.md).  You can configure your instance with every project using the default space.  You can decide later how you want to split up your instance.
+
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/installation-guidelines">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Next</a></span>

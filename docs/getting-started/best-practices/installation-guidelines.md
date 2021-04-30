@@ -35,8 +35,8 @@ Here are some items to consider when installing Octopus Deploy:
 When starting, you most likely won't be doing more than ten concurrent tasks.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  When you see more and more tasks being queued, then time to add capacity.  
 
 Some reference points to consider:
-- One customer has ~10,000 deployment targets, 120 projects and has done over 500,000 deployments in 3.5 years.  On average, they do about 400-500 deployments a day.  Their instance configurations handle 160 concurrent tasks.
-- Another customer has ~1400 deployment targets, 787 projects and has done over 645,000 deployments in 5.5 years.  On average, they do about 600 deployments a day.  Their instance configuration handles 100 concurrent tasks.
+- One customer has ~10,000 deployment targets, 120 projects, and do about 400-500 deployments a day.  Their instance is configured to handle 160 concurrent tasks.
+- Another customer has ~1400 deployment targets, 787 projects, and do about 600 deployments a day.  Their instance is configured to handle 100 concurrent tasks.
 
 ## Small-Medium Scale Configuration
 
@@ -47,6 +47,8 @@ Our recommendation is to configure Octopus Deploy to run in [high availability m
 - SQL Server to host Octopus Deploy database with 2 Cores / 8 GB of RAM or 50-100 DTUs
 - Load balancer for web traffic
 - 40 GB of File storage (DFS, NAS, SAN, Azure File Storage, AWS FSx, etc.)
+
+![small instance diagram](images/small-instance-diagram.png)
 
 This will give you the capacity to process 10-20 concurrent tasks.  If you need to scale up quickly, double the compute resources, for example, 4 CPUs / 8 GB of RAM, to get to 20-40 concurrent tasks.  We don't recommend going beyond 4 CPUs / 8 GB of RAM and instead recommend scaling horizontally.  
 
@@ -61,7 +63,6 @@ Octopus Deploy is a Windows service that will run as `Local System` by default. 
 The Octopus Deploy Linux Container has a few limitations you should be aware of.
 - You cannot use Active Directory authentication with it.
 - You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that the worker run on Windows Server.
-- You must configure volume mounts for the Octopus directory. Otherwise, each time the container restarts, you'll lose all your packages, task logs, project images (essentially any BLOB data).  See our [sample docker compose](/docs/installation/octopus-in-container/docker-compose-linux.md) for the list of volumes. 
 - Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
 
 :::hint
@@ -129,28 +130,74 @@ You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  
 
 ## Large-Scale Configuration
 
-The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for a large Octopus Deploy configuration designed to handle thousands of deployments a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  
-
-:::hint
-If you follow the recommendations of the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server will be in place.
-:::
+The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps in a POC or a Pilot.  The recommendation below is for a large Octopus Deploy configuration designed to handle thousands of deployments a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  If you follow the recommendations of the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server will be in place.
 
 - 4 Windows servers with 4 Cores / 8 GB of RAM, with each server having the task cap set to 20 (can increase to 30 without increasing compute).
-- 2 Windows servers with 2 Cores / 4 GB of RAM, with each server having the task cap set to 0.  These are UI-only nodes.
+- 2 Windows servers with 4 Cores / 8 GB of RAM, with each server having the task cap set to 0.  These are UI-only nodes.
 - SQL Server 2016 Standard or higher (or Azure SQL) running on at least 4 Cores / 16 GB of RAM with either Failover Cluster Instance or Availability Groups configured.
 - 200 GB of file storage configured.
 - Load balancer to manage traffic to UI-only nodes.
+
+![large scale instance](images/large-instance-diagram.png)
+
+:::hint
+The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments.  As you add users and projects Octopus UI could end up processing large amounts of data to show to your users.  Experiment with more increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns please email support@octopus.com.
+:::
 
 This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
 
 :::hint
 You will notice the Octopus Linux container is not mentioned in this section.  That omission is intentional.  
 
-Customers have been running Octopus Deploy on Windows Server with High Availability configured since 2015.  While we are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure; we don't have the same amount of data as we do with Windows Server.  
+We are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Linux container in Octopus Cloud we made some intentional design decisions and created some custom workflows.  This includes not offerring Active Directory authentication, disabling the built-in worker and using [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), and a custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
-We are currently working with our existing customers on what best practices look like for the Octopus Linux container. 
+We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux container with High Availability configured. 
 
 At this time, for predictable performance, uptime, and configuration, we recommend hosting Octopus Deploy on Windows Server with High Availability configured.  If you'd like to use the Octopus Linux container, please reach out to the customer solutions team at advice@octopus.com.
 :::
+
+## Adding High Availability Nodes
+
+Once high availability is configured the steps to add a new Windows server node are:
+
+1. Create Windows server and mount the file shares.
+2. Install Octopus Deploy and point it to existing database.
+3. Configure task cap.
+4. (Optional) add new node into load balancer (if the node is hosting the Octopus UI).
+
+To add a new Linux Container node the steps are:
+
+1. Spin up a new container with the arguments pointing to an existing database and mount the volumes.
+2. Configure the task cap.
+3. (Optional) add new node into load balancer (if the node is hosting the Octopus UI).
+
+Assuming the node is configured to process tasks, it should start picking up tasks to process within a few minutes.
+
+## Removing High Availability Nodes
+
+Occasionally, you'll want to delete a node.  Perhaps you added two, three, or four nodes in anticipation of a large project involving hundreds of deployments and now it is time to scale back down.
+
+To do that you'll want to follow these steps:
+
+1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
+2. Wait until any executing tasks on that node are complete.
+3. Remove the node from any load balancers.
+4. Delete server or container.
+5. Remove the node from the [nodes UI](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md) by clicking on `...` next to the node name and selecting **Delete**.
+
+:::hint
+Any task associated with the node will fail if you don't wait for the node to finish draining and wrapping up any active tasks.
+:::
+
+## Auto Scaling High Availability Nodes
+
+It is possible to use auto-scaling technology to add/remove high availability nodes.  Adding a node is a lot easier than removing a node, assuming all the file shares are mounted and the node can see the database, the node will come online and start picking up work.
+
+Removing the node will require a bit more planning.  When the node is deleted by the auto scaling technology any tasks in process will fail.  If you are in AWS or Azure you can use a Lambda or Azure Function to:
+
+1. Call the Octopus API to drain the node and cancel any tasks.  You'll want to cancel the tasks as you'll have a short timeframe to wait.
+2. Use the Octopus API to find any active tasks running on that node and cancel them.
+3. Use the Octopus API to remove the node.
+4. Resubmit any cancelled deployments and runbook runs so a different node can pick them up.
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>

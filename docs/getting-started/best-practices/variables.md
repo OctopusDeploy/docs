@@ -36,12 +36,12 @@ It is entirely possible for a name collision to occur, where a project and a lib
 
 However, the recommendation is to avoid name collisions in the first place by following these naming standards.
 
-1. Project: Project.[Componenet].[Name] - for example, Project.Database.UserName.
-2. Tenant: [ProjectName].[Component].[Name] - for example, OctoPetShopWebUI.URL.Port.
-3. Step Template: [TemplateName].[Component].[Name] - for example, SlackNotification.Message.Body.
-4. Library Set: [LibrarySetName].[Component].[Name] - for example, Notification.Slack.Message.
+1. Project: `Project.[Component].[Name]` - for example, **Project.Database.UserName.**
+2. Tenant: `[ProjectName].[Component].[Name]` - for example, **OctoPetShopWebUI.URL.Port**.
+3. Step Template: `[TemplateName].[Component].[Name]` - for example, **SlackNotification.Message.Body**.
+4. Library Set: `[LibrarySetName].[Component].[Name]` - for example, **Notification.Slack.Message**.
 
-These naming conventions only apply to variables specific to the deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  However, following the above naming convention for variables specific to deployments or runbook runs makes it easier to distinguish between them.
+These naming conventions only apply to variables used for a deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  The above naming convention makes it easier to distinguish between the two.
 
 ## Configuration File Replacement Variables
 

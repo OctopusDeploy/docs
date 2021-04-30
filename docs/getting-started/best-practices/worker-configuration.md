@@ -27,19 +27,20 @@ Some important items to note about workers:
 The Octopus Server includes a [built-in worker](/docs/infrastructure/workers/built-in-worker.md).  When you configure a deployment or runbook to run tasks on the server, it is handing off that work to the built-in worker.   
 
 :::hint
-Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 3 dynamic workers, Windows Server 2016, Windows Server 2019, and Ubuntu 18.04.  Each worker type is a different worker pool.
+Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 3 [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), Windows Server 2016, Windows Server 2019, and Ubuntu 18.04.  Each worker type is a different worker pool.
 :::
 
-The built-in worker and dynamic workers were created to help get you started.  Using them at scale will quickly expose their flaws.
+The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) were created to help get you started.  Using them at scale will quickly expose their flaws.
 
 - The built-in worker will run under the same account as the Octopus Deploy service.  By default, that is `Local System`.  You can change it to run under a different account, but it can only run under one account.
 - The built-in worker may or may not be in the same data center as your deployment targets.  You could experience some significant latency.
 - Dynamic workers and built-in workers are limited to the software installed on the host servers.  
-- The IP address assigned to dynamic workers will change at least once an hour and at most once every 72 hours.  
+- The IP address assigned to dynamic workers will change at least once an hour and at most once every 72 hours. 
+- Dynamic workers are assigned to an entire instance, not just a space.  We have seen cases where a deployment blocks on one space blocks a deployment on another space because they both used the same dynamic worker.
 
 ## Workers for Octopus at Scale
 
-If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker.md#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers.
+If you plan on using Octopus Deploy at scale, [disable the built-in worker](/docs/infrastructure/workers/built-in-worker.md#switching-off-the-built-in-worker) for self-hosted or stop using the dynamic workers and host your own workers and worker pools.
 
 - Establish an easy-to-understand naming convention for workers.  For example, `p-db-omaha-worker-01` for a worker located in Omaha to do database deployments on Production.  
 - Configure workers to run in the same data centers as your deployment targets.  For example, if you are hosting Octopus Deploy in an on-premise data center, but you are deploying to the US-central region in Azure, then create workers to run in that region in Azure.  
@@ -70,5 +71,9 @@ Think of the high availability node as the manager and the worker as the worker 
 ## The difference between workers and deployment targets
 
 There isn't much difference between a deployment target or a worker as both are tentacle agents.  It is a matter of how they are registered.  Deployment targets are registered to environments while workers are registered to worker pools.  In fact, a listening tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
+
+:::hint
+All Octopus Cloud, Self-Hosted Server, Self-hosted Data Center, and Self-Hosted Standard licenses offer unlimited workers.
+:::
 
 <span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>
