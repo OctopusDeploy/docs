@@ -142,6 +142,10 @@ Default pools attached to cloud targets allow co-location of workers and targets
 
 !include <workers-multiple-simultaneous-processes>
 
+## Run an individual process on a Worker exclusively
+
+!include <workers-individual-process-exclusively>
+
 ### Workers in HA setups
 
 In an HA Octopus setup, each node has a task cap and can invoke a built-in worker locally, so for a 4-node HA cluster, there are 4 built-in workers.  Therefore if you move to external workers, it's likely you'll need to provision workers to at least match your server nodes, otherwise, you'll be asking each worker to do the sum of what the HA nodes were previously doing.
