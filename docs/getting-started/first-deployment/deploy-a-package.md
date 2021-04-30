@@ -57,4 +57,4 @@ For further reading on deploying packages in Octopus Deploy along with integrati
 - [Patterns and Practices](/docs/deployments/patterns/index.md)
 - [Customizable End to End CI/CD Tutorials](https://octopus.com/docs/guides)
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/add-deployment-targets">Previous</a></span>

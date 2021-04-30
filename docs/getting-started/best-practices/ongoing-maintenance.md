@@ -27,4 +27,4 @@ Customers on either platform will need to make some configuration changes to kee
 - Configure runbook retention policies.  Each runbook has its own retention policy.  The default is 100 runbook runs per environment.  Please see our section on [runbook retention policies](/docs/runbooks/runbooks-vs-deployments/index.md#retention-policy) for more details.
 - Leverage machine policies to verify target health.  Machine policies are used to verify the health of your deployment targets.  You can configure a custom interval to check the health, and if any machine reports unhealthy, you can trigger a notification.  By default, they run a health check every hour.  Perhaps that is too often or not often enough.  Please see our section on [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md#health-check) to modify them to meet your needs.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/notifications">Previous</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/notifications">Previous</a></span>

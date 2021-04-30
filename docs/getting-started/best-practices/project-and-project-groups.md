@@ -35,4 +35,4 @@ Coordinating all those component projects can become quite tedious; this is why 
 - Handle approvals from the key individuals in your company.  The release orchestration project will send the approval information to the component project.
 - Provide the ability to review changes before them being deployed.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>

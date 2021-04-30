@@ -84,4 +84,4 @@ Our recommendations for target roles are:
 - Use specific target roles, for example, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
 - Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks, such as installing the latest version of Node.js or installing a patch.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>

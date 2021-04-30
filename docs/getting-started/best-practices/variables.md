@@ -89,4 +89,4 @@ Examples of configuration variables that should be stored in the main configurat
 - Group common variables into a library variable set.  Examples include all the common variables for Notifications, Azure, AWS, Naming, and so on.
 - Have application-specific library variable sets to share items such as service URLs, database connection strings, etc.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>

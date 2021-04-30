@@ -76,4 +76,4 @@ There isn't much difference between a deployment target or a worker as both are 
 All Octopus Cloud, Self-Hosted Server, Self-hosted Data Center, and Self-Hosted Standard licenses offer unlimited workers.
 :::
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>

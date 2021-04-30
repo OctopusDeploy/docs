@@ -31,4 +31,4 @@ This tutorial is designed to cover the basics of how to configure runbooks and h
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
 - [Scheduled Runbook Triggers](/docs/runbooks/scheduled-runbook-trigger/index.md)
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Previous</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/define-the-runbook-process-for-targets">Previous</a></span>

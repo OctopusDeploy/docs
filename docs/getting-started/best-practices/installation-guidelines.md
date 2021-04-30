@@ -141,7 +141,7 @@ The above recommendation is designed for people working in small to medium-sized
 ![large scale instance](images/large-instance-diagram.png)
 
 :::hint
-The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments.  As you add users and projects Octopus UI could end up processing large amounts of data to show to your users.  Experiment with more increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns please email support@octopus.com.
+The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments.  As you add users and projects, Octopus UI could end up processing large amounts of data to show to your users.  Experiment with more increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns, please email support@octopus.com.
 :::
 
 This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
@@ -158,26 +158,26 @@ At this time, for predictable performance, uptime, and configuration, we recomme
 
 ## Adding High Availability Nodes
 
-Once high availability is configured the steps to add a new Windows server node are:
+Once high availability is configured, the steps to add a new Windows server node are:
 
-1. Create Windows server and mount the file shares.
-2. Install Octopus Deploy and point it to existing database.
+1. Create a Windows server and mount the file shares.
+2. Install Octopus Deploy and point it to an existing database.
 3. Configure task cap.
-4. (Optional) add new node into load balancer (if the node is hosting the Octopus UI).
+4. (Optional) add the new node into the load balancer (if the node is hosting the Octopus UI).
 
-To add a new Linux Container node the steps are:
+To add a new Linux Container node, the steps are:
 
 1. Spin up a new container with the arguments pointing to an existing database and mount the volumes.
 2. Configure the task cap.
-3. (Optional) add new node into load balancer (if the node is hosting the Octopus UI).
+3. (Optional) add the new node into the load balancer (if the node is hosting the Octopus UI).
 
 Assuming the node is configured to process tasks, it should start picking up tasks to process within a few minutes.
 
 ## Removing High Availability Nodes
 
-Occasionally, you'll want to delete a node.  Perhaps you added two, three, or four nodes in anticipation of a large project involving hundreds of deployments and now it is time to scale back down.
+Occasionally, you'll want to delete a node.  Perhaps you added two, three, or four nodes in anticipation of a large project involving hundreds of deployments, and now it is time to scale back down.
 
-To do that you'll want to follow these steps:
+To do that, you'll want to follow these steps:
 
 1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
 2. Wait until any executing tasks on that node are complete.
@@ -191,13 +191,13 @@ Any task associated with the node will fail if you don't wait for the node to fi
 
 ## Auto Scaling High Availability Nodes
 
-It is possible to use auto-scaling technology to add/remove high availability nodes.  Adding a node is a lot easier than removing a node, assuming all the file shares are mounted and the node can see the database, the node will come online and start picking up work.
+It is possible to use auto-scaling technology to add/remove high availability nodes.  Adding a node is a lot easier than removing a node; assuming all the file shares are mounted and the node can see the database, the node will come online and pick up work.
 
-Removing the node will require a bit more planning.  When the node is deleted by the auto scaling technology any tasks in process will fail.  If you are in AWS or Azure you can use a Lambda or Azure Function to:
+Removing the node will require a bit more planning.  When the node is deleted by the auto-scaling technology, any tasks in process will fail.  If you are in AWS or Azure, you can use a Lambda or Azure Function to:
 
 1. Call the Octopus API to drain the node and cancel any tasks.  You'll want to cancel the tasks as you'll have a short timeframe to wait.
 2. Use the Octopus API to find any active tasks running on that node and cancel them.
 3. Use the Octopus API to remove the node.
-4. Resubmit any cancelled deployments and runbook runs so a different node can pick them up.
+4. Resubmit any canceled deployments, and runbook runs so a different node can pick them up.
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>

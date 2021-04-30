@@ -56,6 +56,6 @@ There are some considerations when sharing workers.
 
 Don't worry if you don't get your space configuration right the first time.  It is a high bar to expect perfection the first time.
 
-Starting with **Octopus Server 2021.1** we offer the ability to [export and import projects between spaces](/docs/projects/export-import.md).  You can configure your instance with every project using the default space.  You can decide later how you want to split up your instance.
+Starting with **Octopus Server 2021.1** we offer the ability to [export and import projects between spaces](/docs/projects/export-import/index.md).  You can configure your instance with every project using the default space.  You can decide later how you want to split up your instance.
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/best-practices/installation-guidelines">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/installation-guidelines">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Next</a></span>
