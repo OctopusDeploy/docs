@@ -38,12 +38,35 @@ Some reference points to consider:
 - One customer has ~10,000 deployment targets, 120 projects, and do about 400-500 deployments a day.  Their instance is configured to handle 160 concurrent tasks.
 - Another customer has ~1400 deployment targets, 787 projects, and do about 600 deployments a day.  Their instance is configured to handle 100 concurrent tasks.
 
+## Windows Server recommended over Octopus Linux Container
+
+We currently only recommend creating a **production-level** instance of Octopus Deploy using Windows Server, especially if you are new to Octopus Deploy.
+
+The recommendation for Windows Server over the Octopus Linux Container stems from the following limitations.
+- You cannot use Active Directory authentication with it.  We rely on NTLM or Kerberos for Active Directory authentication.  We are looking at other authentication options to get Active Directory authentication added.
+- You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that the worker run on Windows Server.
+- Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
+- You cannot mix and match node types, it has to either be all Windows Server nodes or all Octopus Linux Container nodes.
+
+We are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Linux container in Octopus Cloud we made some intentional design decisions and created some custom workflows due to the above limitations.  This includes not offerring Active Directory authentication and requiring Octopus ID instead, disabling the built-in worker and using [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), and a custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
+
+We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux container with High Availability configured.  At this time, for predictable performance, uptime, and configuration, we recommend hosting Octopus Deploy on Windows Server with High Availability configured.  
+
+If you are fine with those limitations and would like to proceed, great.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at advice@octopus.com.
+
+:::hint
+Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10-15 tasks.  Anything more and we have to either increase the container resources or database resources.
+
+- Containers hosted on AKS clusters with the CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.  
+- Azure SQL database with 50 DTUs.
+- Azure File Storage hosting all the BLOB data.
+:::
+
 ## Small-Medium Scale Configuration
 
 Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
 
 - 1 to 2 Windows servers, each with 2 cores / 4 GB of RAM with the task cap set to 10 for each server.
-- OR 1 to 2 containers, each CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.
 - SQL Server to host Octopus Deploy database with 2 Cores / 8 GB of RAM or 50-100 DTUs
 - Load balancer for web traffic
 - 40 GB of File storage (DFS, NAS, SAN, Azure File Storage, AWS FSx, etc.)
@@ -57,17 +80,6 @@ Even with a single node, taking the time to configure a load balancer and the se
 ### Octopus Deploy Windows Server
 
 Octopus Deploy is a Windows service that will run as `Local System` by default.  If possible, run that service using a specific Active Directory or Azure Active Directory account.  Use integrated security instead for the database instead of providing a username and password.  
-
-### Octopus Deploy Container
-
-The Octopus Deploy Linux Container has a few limitations you should be aware of.
-- You cannot use Active Directory authentication with it.
-- You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that the worker run on Windows Server.
-- Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
-
-:::hint
-Due to how Octopus stores folder references for BLOB files, it is not possible to run Windows Servers and Linux Containers in the same HA cluster.  If you plan on scaling beyond 1 or 2 nodes in your HA cluster, we recommend running Octopus on Windows servers at this time.
-:::
 
 ### Database
 
@@ -105,12 +117,14 @@ The Octopus Deploy UI is a stateless React single page application that leverage
 
 The recommendations for load balancers are:
 
-- Avoid sticky sessions; use round-robin or "least busy" mode.
+- Start with round-robin or "least busy" mode.  
 - SSL offloading for all traffic over port 443 is fine (unless you plan on using polling tentacles over web sockets).
 - Use `/api/octopusservernodes/ping` to test service health.
 
 :::hint
 Octopus Deploy will return the name of the node in the `Octopus-Node` response header.
+
+We have noticed certain user actions, such as creating a new space or updating permissions, won't update the cache on all nodes and you'll get odd permissions errors.  Typically the cache is updated after a few minutes and those errors go away.  If that happens to you look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
 :::
 
 If you plan on having external [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
@@ -145,16 +159,6 @@ The configuration above is a baseline.  We recommend monitoring your resources a
 :::
 
 This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
-
-:::hint
-You will notice the Octopus Linux container is not mentioned in this section.  That omission is intentional.  
-
-We are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Linux container in Octopus Cloud we made some intentional design decisions and created some custom workflows.  This includes not offerring Active Directory authentication, disabling the built-in worker and using [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), and a custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
-
-We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux container with High Availability configured. 
-
-At this time, for predictable performance, uptime, and configuration, we recommend hosting Octopus Deploy on Windows Server with High Availability configured.  If you'd like to use the Octopus Linux container, please reach out to the customer solutions team at advice@octopus.com.
-:::
 
 ## Adding High Availability Nodes
 

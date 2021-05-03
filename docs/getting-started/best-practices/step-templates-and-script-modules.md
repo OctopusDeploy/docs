@@ -5,7 +5,7 @@ position: 70
 hideInThisSection: true
 ---
 
-[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules.md) allow you to extend the functionality of Octopus Deploy to meet your deployment needs.  At first blush, they appear very similar, but they are designed to meet different goals.
+[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules.md) allow you to extend the functionality of Octopus Deploy to meet your deployment needs.  WHile they appear very similar, they are designed to meet different goals.
 
 - Step Templates are re-usable steps you can inject into your deployment or runbook process to perform a specific task.  Examples include stopping IIS, deploying database migration scripts using a third-party tool such as Flyway, notifying VictorOps of a completed deployment, and more.
 - Script Modules are re-usable functions you can inject into scripts run by your deployment or runbook process.  Examples include a function to call the Octopus API, functions to write output to a centralized log, or a function to find an item in a list by name.
