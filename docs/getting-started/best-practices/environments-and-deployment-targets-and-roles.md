@@ -39,7 +39,7 @@ For the software developers you can rewrite that sentence as:
 Using the example from above, Octopus would select all three servers.
 :::
 
-## Size of Group
+## Environment and Role Usage Differences
 
 Environments are designed as a macro grouping of deployment targets meant for use across multiple projects, library sets, and more.  Below is a list of items where environments are used:
 
@@ -69,19 +69,20 @@ Adding an environment is a non-trivial task, as it involves adding/updating addi
 Our recommendations for environments are:
 - Keep the number of environments per space to be between 2 and 20.  
 - Name environments to match your company's terminology so you can re-use them across projects.  Common names include **development**, **test**, **QA**, **acceptance**, **uat**, and **production**.
+- Don't include project names in your environments.  An environment name of **QA - OctoPetShop** indicates you need to either have more specific roles on your targets or you need to leverage spaces to isolate that application.
 - If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each data center is a tenant.
 - It's okay to have team-specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each team is a tenant.
 - Avoid project specific environments.  Project specific environments is a good indicator to consider [spaces](/docs/administration/spaces/index.md).  
 
 ## Roles
 
-There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Going back to the `web-server` example, if you needed to limit it to be web servers for a specific application.  To do that, you'd need to create an environment.
+There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Using the generic role `web-server` will pick all the servers in a specific environment.  To limit the servers with a generic role you'd need to create an environment.
 
-Generic roles also impact your future flexibility.  For example, if your target role is `web-server` for 100 projects, all targets on all environments have to host those same 100 projects.  If you were to decide in six months to split up those servers, you'd have to update over 100 projects.
+Generic roles also impact your future flexibility.  For example, using `web-server` for 100 projects would require all targets on all environments to host those same 100 projects.  If you were to decide in six months to split up those servers, you'd have to update over 100 projects.
 
 Our recommendations for target roles are:
-- Avoid generic roles, for example, `web-server`, whenever possible.
-- Use specific target roles, for example, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
-- Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks, such as installing the latest version of Node.js or installing a patch.
+- Avoid generic roles, such as `web-server`, whenever possible.
+- Use specific target roles, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
+- Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks; updating to the latest version of Node.js or installing a patch.
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>

@@ -16,7 +16,7 @@ Octopus Deploy installation requirements are:
 - Windows Server 2012 R2 or later when hosting on Windows Server
 - Linux is supported when using the [Octopus Deploy Docker Container](https://octopus.com/blog/introducing-linux-docker-image)
 
-[High avalability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses sold.  
+[High avalability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
 
 ![](/docs/administration/high-availability/images/high-availability.svg)
 

@@ -19,9 +19,9 @@ This screenshot represents the Octo Pet Shop application (project group) with al
 
 At first, it makes sense to include all the necessary steps to deploy all the components in an application into one project.  A single process works fine when you change all the components for a release.  If you a release once a quarter, chances are high you are changing every component.
 
-However, as you use Octopus Deploy, you will find yourself deploying more frequently with smaller changesets.  In the example of Octo Pet Shop, instead of all the components changing for a release, only the Database and Web API have changed.  Redeploying the Web UI and the Scheduling Service introduces an outage and risk.  
+However, as you use Octopus Deploy, you will find yourself deploying more frequently with smaller changesets.  In the example of Octo Pet Shop, a release might only change the Database and Web API vs all the components.  Redeploying the Web UI and the Scheduling Service introduces an outage and risk.  
 
-Each project should include:
+Each component project should include:
 - All the necessary steps (including approvals) to deploy that component.
 - Any runbooks to specifically manage that component.  The Database project would have steps to back up and restore the database, while the Web UI project would have runbooks to restart the application.
 - Variables specific to that component.  The scheduling service could have cron expression variables, while the Web UI would contain the public addresses.

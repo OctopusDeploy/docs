@@ -5,7 +5,7 @@ position: 100
 hideInThisSection: true
 ---
 
-Octopus Deploy provides multiple mechanisms for notifying you of specific actions within Octopus Deploy.  These include:
+Octopus Deploy provides multiple mechanisms for notifying you and your users specific actions within Octopus Deploy.  These include:
 
 - [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
 - [Email notification step](/docs/projects/built-in-step-templates/email-notifications.md) to send out an email during a deployment or runbook run.
@@ -15,12 +15,14 @@ Octopus Deploy provides multiple mechanisms for notifying you of specific action
 
 ## Subscriptions
 
-Subscriptions allow you to receive an email or send a message to a webhook for specific events in Octopus Deploy.  Every action in Octopus Deploy is added to the audit log.  If you are not careful with your subscription, you could end up with a lot of "noise" cluttering your inbox.  
-
-As stated earlier, every action performed in Octopus Deploy is added to an audit log.  When an entry is added to the audit log, it is assigned a category and a document type.  
+Subscriptions allow you to receive an email or send a message to a webhook for specific events in Octopus Deploy.  Every action in Octopus Deploy is added to the audit log.  When an entry is added to the audit log, it is assigned a category and a document type.  
 
 - Document types are the "what was changed."  For example, accounts, deployments, projects, releases, and so on.
 - Categories are what caused it to change.  For example, deployment started, deployment failed, API key expired, and so on.
+
+:::hint
+If you are not careful with your subscription, you could end up with a lot of "noise" cluttering your inbox.  We recommend dialing in your subscription and running tests to limit that noise.
+:::
 
 Each filter you add is an "AND," while each option you add to the filter is an "OR."
 
@@ -41,7 +43,7 @@ When creating subscriptions, these are our recommendations:
 
 ## Notifications during runbook runs or deployments
 
-You can configure notifications in your deployment or runbook process.  Unlike subscriptions, these notifications have access to all the variables, including the current state, because they are triggered as part of a deployment or runbook run.
+You can configure notifications in your deployment or runbook process.  Unlike subscriptions, these notifications have access to all the variables, including the current deployment or runbook state, because they are triggered as part of a deployment or runbook run.
 
 Regardless of the notification technology (email, Slack, MS Teams, etc.), the recommendations are all the same.
 

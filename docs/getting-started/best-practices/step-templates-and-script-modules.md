@@ -5,7 +5,7 @@ position: 70
 hideInThisSection: true
 ---
 
-[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules.md) allow you to extend the functionality of Octopus Deploy to meet your deployment needs.  WHile they appear very similar, they are designed to meet different goals.
+[Step Templates](/docs/projects/custom-step-templates.md) and [Script Modules](/docs/deployments/custom-scripts/script-modules.md) allow you to extend the functionality of Octopus Deploy.  While they appear similar, they are designed to meet different goals.
 
 - Step Templates are re-usable steps you can inject into your deployment or runbook process to perform a specific task.  Examples include stopping IIS, deploying database migration scripts using a third-party tool such as Flyway, notifying VictorOps of a completed deployment, and more.
 - Script Modules are re-usable functions you can inject into scripts run by your deployment or runbook process.  Examples include a function to call the Octopus API, functions to write output to a centralized log, or a function to find an item in a list by name.
@@ -18,13 +18,13 @@ Step templates can use script module functions, but script module functions cann
 
 Our recommendation is to create a step template when you want to create a re-usable unit of work.  For example, you want everyone to follow the same standards for deploying to NGINX.  A step template allows you to inherit from the deploy to NGINX built-in step and add your custom rules on top of it.
 
-Our recommendation is to create a script module when you need to share utility functions with your scripts in your project.  Script modules are injected into every script in your deployment process.  
+Our recommendation is to create a script module when you need to share utility functions with your scripts in your project.  Script modules are injected into every script in every step of your deployment or runbook process.  
 
 ## Structure
 
-Our recommendation is to write script modules and step templates to be self-contained with no dependencies.  While they have full access to all projects, tenants, referenced library set variables, and system variables, you don't know which project the step template or script module will be used in.  Use parameters instead of directly referencing any project, library variable set, or system variables.  
+Our recommendation is to write script modules and step templates to be self-contained with no dependencies.  While they have full access to all projects, tenants, referenced library set variables, and system variables, you don't know which project the step template or script module will be used.  Use parameters instead of directly referencing any project, library variable set, or system variables.  
 
-If you are writing custom scripts, passing in parameters will allow you to copy those scripts to your IDE of choice, such as VIM or VS Code, and debug your scripts with few modifications.  
+If you are writing custom scripts, passing in parameters will allow you to copy those scripts to your IDE of choice, such as VS Code, and debug your scripts with few modifications.  
 
 ## Logging
 
