@@ -46,7 +46,7 @@ Our recommendation is to use Windows Server over the Octopus Linux Docker image 
 - You are familiar with Docker concepts, specifically around debugging containers, volume mounting and networking.
 - You are familiar with one of these underlying hosting technologies; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 
-:::
+hint:::
 Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc), you cannot run both Windows and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
 :::
 
