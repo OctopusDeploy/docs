@@ -14,7 +14,7 @@ The compute resources required are correlated to the expected number of concurre
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
 - Windows Server 2012 R2 or later when hosting on Windows Server
-- Linux is supported when using the [Octopus Deploy Docker Container](https://octopus.com/blog/introducing-linux-docker-image)
+- Linux is supported when using the [Octopus Deploy Docker Docker image](https://octopus.com/blog/introducing-linux-docker-image)
 
 [High avalability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
 
@@ -38,29 +38,29 @@ Some reference points to consider:
 - One customer has ~10,000 deployment targets, 120 projects, and do about 400-500 deployments a day.  Their instance is configured to handle 160 concurrent tasks.
 - Another customer has ~1400 deployment targets, 787 projects, and do about 600 deployments a day.  Their instance is configured to handle 100 concurrent tasks.
 
-## Windows Server recommended over Octopus Linux Container
+## Windows Server recommended over Octopus Linux Docker image
 
-We currently only recommend creating a **production-level** instance of Octopus Deploy using Windows Server, especially if you are new to Octopus Deploy.
+Our recommendation is to use Windows Server over the Octopus Linux Docker image unless the following conditions are met:
+- You have no plans to use Active Directory authentication and will use Okta, Azure AD, Google Auth, or the built-in username and password.  The current version of the Octopus Linux Docker image doesn't support Active Directory.
+- You are okay running at least one [worker](/docs/infrastructure/workers/index.md) to handle tasks typically done by the Octopus Server.  The Octopus Linux Docker image doesn't include PowerShell Core or Python.
+- You are familiar with Docker concepts, specifically around debugging containers, volume mounting and networking.
+- You are familiar with one of these underlying hosting technologies; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 
-The recommendation for Windows Server over the Octopus Linux Container stems from the following limitations.
-- You cannot use Active Directory authentication with it.  We rely on NTLM or Kerberos for Active Directory authentication.  We are looking at other authentication options to get Active Directory authentication added.
-- You cannot run any tasks on the container; you must have at least one [worker](/docs/infrastructure/workers/index.md) configured.  If you have a lot of PowerShell scripts, we'd recommend that the worker run on Windows Server.
-- Getting access to the Octopus Server Logs involves jumping through a few hoops, making it difficult to diagnose and debug.
-- You cannot mix and match node types, it has to either be all Windows Server nodes or all Octopus Linux Container nodes.
+:::
+Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc), you cannot run both Windows and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
+:::
 
-We are confident in the Octopus Linux container's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Linux container in Octopus Cloud we made some intentional design decisions and created some custom workflows due to the above limitations.  This includes not offerring Active Directory authentication and requiring Octopus ID instead, disabling the built-in worker and using [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), and a custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
-
-We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux container with High Availability configured.  At this time, for predictable performance, uptime, and configuration, we recommend hosting Octopus Deploy on Windows Server with High Availability configured.  
-
-If you are fine with those limitations and would like to proceed, great.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at advice@octopus.com.
+We are confident in the Octopus Linux Docker image's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux Docker image in AKS clusters in Azure.  But to use the Octopus Linux Docker image in Octopus Cloud we made some intentional design decisions and created some custom workflows due to the above limitations.  This includes not offerring Active Directory authentication and requiring Octopus ID instead, disabling the built-in worker and using [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), and a custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
 :::hint
-Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10-15 tasks.  Anything more and we have to either increase the container resources or database resources.
+Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10-15 tasks.  Anything more and we have to either increase the Docker image resources or database resources.
 
-- Containers hosted on AKS clusters with the CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.  
+- Docker images hosted on AKS clusters with the CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.  
 - Azure SQL database with 50 DTUs.
 - Azure File Storage hosting all the BLOB data.
 :::
+
+We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux container with High Availability configured.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at advice@octopus.com.
 
 ## Small-Medium Scale Configuration
 
@@ -155,7 +155,7 @@ The above recommendation is designed for people working in small to medium-sized
 ![large scale instance](images/large-instance-diagram.png)
 
 :::hint
-The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments.  As you add users and projects, Octopus UI could end up processing large amounts of data to show to your users.  Experiment with more increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns, please email support@octopus.com.
+The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments.  The more data, the more Octopus UI and database have to process.  Experiment with more increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns, please email support@octopus.com.
 :::
 
 This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.
@@ -169,9 +169,9 @@ Once high availability is configured, the steps to add a new Windows server node
 3. Configure task cap.
 4. (Optional) add the new node into the load balancer (if the node is hosting the Octopus UI).
 
-To add a new Linux Container node, the steps are:
+To add a new Linux Docker image node, the steps are:
 
-1. Spin up a new container with the arguments pointing to an existing database and mount the volumes.
+1. Spin up a new Docker image with the arguments pointing to an existing database and mount the volumes.
 2. Configure the task cap.
 3. (Optional) add the new node into the load balancer (if the node is hosting the Octopus UI).
 
@@ -186,7 +186,7 @@ To do that, you'll want to follow these steps:
 1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
 2. Wait until any executing tasks on that node are complete.
 3. Remove the node from any load balancers.
-4. Delete server or container.
+4. Delete server or Docker image.
 5. Remove the node from the [nodes UI](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md) by clicking on `...` next to the node name and selecting **Delete**.
 
 :::hint
