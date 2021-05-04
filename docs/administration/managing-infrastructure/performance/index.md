@@ -122,10 +122,9 @@ Follow these tips to tune and maintain the performance of your Octopus:
 The best place to start troubleshooting your Octopus Server is to inspect the [Octopus Server logs](/docs/support/log-files.md). Octopus writes details for common causes of performance problems.
 
 ### Long running requests
+When HTTP requests take a long time to be fulfilled you'll see a message similar to: `Request took 5123ms: GET {correlation-id}`: The timer is started when the request is first received, ending when the response is sent.
 
-If HTTP requests take a long time to be fulfilled you'll see a message similar to: `Request took 5123ms: GET {correlation-id}`: The timer is started when the request is first received, ending when the response is sent.
-
-When you see messages similar to this in your log:
+Actions to take when you see messages similar to this in your log:
 - Look for trends as to which requests are taking a really long time.
 - Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
 
@@ -137,7 +136,7 @@ You can use the **CONFIGURE** button on the dashboard to limit the projects and/
 ### Slow database
 If a particular database operation takes a long time you'll see a message similar to: `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
 
-When you see messages similar to this in your log:
+Actions to take when you see messages similar to this in your log:
 - If you are seeing these operations take a long time it indicates your SQL Server is struggling under load, or your network connection from Octopus to SQL Server is saturated.
 - Check the maintenance plan for your SQL Server. See [tips above](#sql-maintenance).
 - Test an extremely simple query like `SELECT * FROM OctopusServerNode`. If this query is slow it indicates a problem with your SQL Server.
