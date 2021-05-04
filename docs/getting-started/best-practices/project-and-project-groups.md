@@ -37,12 +37,12 @@ Coordinating all those component projects can become quite tedious; this is why 
 
 ## Cumulative Changes
 
-Octopus Deploy expects any application component it deploys via to contain the entire application component.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., that is needed to run that web application.  It shouldn't just be a delta change.  Octopus Deploy expects that is for a variety of reasons.
+Octopus Deploy expects any application component it deploys to contain everything that component needs.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., that is needed to run that web application.  It shouldn't just be a delta change of a few HTML fils or binaries.  Octopus Deploy expects that is for a variety of reasons.
 
 - All releases will need to be deployed to all environments.  
 - Deploying only delta changes requires you to always deploy all versions in a specific order.  
 - If a new deployment target (webserver) is created, you will have to deploy all versions to that new target rather than the latest.
 - You'll need a mechanism to create roll-up releases; otherwise, the list of versions to deploy when a new target is added will grow and become unwieldy.
-- It'll be impossible to roll back to a previous version of the code.
+- It'll near be impossible to roll back to a previous version of the code.
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>
