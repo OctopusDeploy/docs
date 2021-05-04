@@ -163,7 +163,15 @@ The configuration above is a baseline.  We recommend monitoring your resources a
 
 This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.  If you need to process more than 120 concurrent tasks then add more database resources and task-only nodes.
 
-## Adding High Availability Nodes
+## Managing Nodes
+
+High availability allows you to add multiple nodes to your Octopus Deploy instance.  That in turn opens up additional questions about how to manage those nodes.
+
+:::hint
+Each node should update the nodes table in the database once a minute.  This tells the other nodes it is still alive and can continue to process tasks.
+:::
+
+### Adding High Availability Nodes
 
 Once high availability is configured, the steps to add a new Windows server node are:
 
@@ -180,7 +188,7 @@ To add a new Linux Docker image node, the steps are:
 
 Assuming the node is configured to process tasks, it should start picking up tasks to process within a few minutes.
 
-## Removing High Availability Nodes
+### Removing High Availability Nodes
 
 Occasionally, you'll want to delete a node.  Perhaps you added two, three, or four nodes in anticipation of a large project involving hundreds of deployments, and now it is time to scale back down.
 
@@ -196,7 +204,7 @@ To do that, you'll want to follow these steps:
 Any task associated with the node will fail if you don't wait for the node to finish draining and wrapping up any active tasks.
 :::
 
-## Auto Scaling High Availability Nodes
+### Auto Scaling High Availability Nodes
 
 It is possible to use auto-scaling technology to add/remove high availability nodes.  Adding a node is a lot easier than removing a node; assuming all the file shares are mounted and the node can see the database, the node will come online and pick up work.
 
@@ -206,5 +214,14 @@ Removing the node will require a bit more planning.  When the node is deleted by
 2. Use the Octopus API to find any active tasks running on that node and cancel them.
 3. Use the Octopus API to remove the node.
 4. Resubmit any canceled deployments, and runbook runs so a different node can pick them up.
+
+### Restarting The Server Host
+
+If you are hosting Octopus Deploy on a Windows server you will need to install regular Windows patches.  To do that, follow these steps:
+
+1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
+2. Wait until any executing tasks on that node are complete.
+3. Restart the server and wait for it to come back online.
+4. Remove the drain mode from the node.
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
