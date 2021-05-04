@@ -40,31 +40,38 @@ Some reference points to consider:
 
 ## Windows Server recommended over Octopus Linux Docker image
 
-Our recommendation is to use Windows Server over the Octopus Linux Docker image unless the following conditions are met:
+Our recommendation is to use Windows Server over the Octopus Linux Docker image unless you are okay with all these conditions:
 - You have no plans to use Active Directory authentication and will use Okta, Azure AD, Google Auth, or the built-in username and password.  The current version of the Octopus Linux Docker image doesn't support Active Directory.
 - You are okay running at least one [worker](/docs/infrastructure/workers/index.md) to handle tasks typically done by the Octopus Server.  The Octopus Linux Docker image doesn't include PowerShell Core or Python.
 - You are familiar with Docker concepts, specifically around debugging containers, volume mounting and networking.
-- You are familiar with one of these underlying hosting technologies; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
+- You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
+- You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.  
 
 :::hint
 Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc), you cannot run both Windows and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
 :::
 
-We are confident in the Octopus Linux Docker image's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux Docker image in AKS clusters in Azure.  But to use the Octopus Linux Docker image in Octopus Cloud we made some intentional design decisions and created some custom workflows due to the above limitations.  This includes not offerring Active Directory authentication and requiring Octopus ID instead, disabling the built-in worker and using [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md), and a custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
+We are confident in the Octopus Linux Docker image's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux containers in AKS clusters in Azure.  But to use the Octopus Linux Docker image in Octopus Cloud we made some design decisions and create custom workflows due to the above limitations.  We do not offer Active Directory authentication and requiring Octopus ID instead.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md).  Finally, we have a process which injects custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
 :::hint
-Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10-15 tasks.  Anything more and we have to either increase the Docker image resources or database resources.
+Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10 concurrent tasks.  Anything more and we have to either increase the Docker image resources or database resources.
 
 - Docker images hosted on AKS clusters with the CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.  
 - Azure SQL database with 50 DTUs.
 - Azure File Storage hosting all the BLOB data.
 :::
 
-We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux container with High Availability configured.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at advice@octopus.com.
+We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux Docker image.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at advice@octopus.com.
 
 ## Small-Medium Scale Configuration
 
-Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  A high availability configuration will involve setting up:
+Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  
+
+:::hint
+For the remainder of this document, the assumption is you will be using Windows Servers.  
+:::
+
+A high availability configuration will involve setting up:
 
 - 1 to 2 Windows servers, each with 2 cores / 4 GB of RAM with the task cap set to 10 for each server.
 - SQL Server to host Octopus Deploy database with 2 Cores / 8 GB of RAM or 50-100 DTUs
@@ -83,27 +90,23 @@ Octopus Deploy is a Windows service that will run as `Local System` by default. 
 
 ### Database
 
-For the database, re-use an existing Production-Level SQL Server 2016+ Server, Azure SQL Database, or AWS RDS SQL Server monitored by your DBAs if possible.      
+For the database, we will typically see customers who already have a very powerful production SQL Server 2016+ Server, Azure SQL Database, or AWS RDS SQL Server monitored by DBAs already running.  If that server has plenty of capacity, then we recommend re-using that.
 
-If you need to stand up a new server, the recommendations are
+But, if you need to stand up a new server, that is more than okay, the recommendations are
 - 10-20 concurrent deployments (small teams, companies, or customers doing POCs/pilots): SQL Server Express with 2 Cores / 8 GB of RAM or Azure SQL with 50-100 DTUs
 - 20+ concurrent deployments (medium to enterprise customers): SQL Server Standard or Enterprise with at least 4 cores / 16 GB of RAM or Azure SQL with 200+ DTUs.
 
 If you are going to run SQL Server Standard or Enterprise, configure either a [failover cluster instance](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15) or an [availability group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) to ensure database resiliency.
 
 :::hint
-Keep an eye on your database resources as you increase the number of concurrent deployments, runbook runs, and users.    
+Keep an eye on your database resources as you increase the number of concurrent deployments, runbook runs, and users.  Routine SQL Server maintenance should be performed periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.
 :::
 
-For high performance, the SQL Server and the servers hosting Octopus Deploy must be in the same data center or region to keep latency between the two to a minimum.
-
-:::hint
-Routine SQL Server maintenance should be performed periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.  
-:::
+To ensure high performance, the SQL Server and the servers hosting Octopus Deploy must be in the same data center or region to keep latency to a minimum.
 
 ### Configure task cap
 
-By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap.md).  We don't recommend going beyond 20, even if the node has the necessary compute resources.  
+By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap.md).  We don't recommend going beyond 20-30, even if the node has the necessary compute resources.  
 
 As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  If the task cap is set to 20, but the typical number of pending tasks is 10, you will find one node is doing the majority of the work.  Setting the task cap to a lower number and with more nodes will spread the work evenly, resulting in higher performance.
 
