@@ -1,7 +1,7 @@
 ---
 title: Docker Hub
 description: How to add Docker Hub as an Octopus Deploy feed for use in Docker steps.
-position: 20
+position: 50
 ---
 
 The default Docker Registry, which is maintained by the Docker organization, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
