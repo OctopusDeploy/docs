@@ -119,55 +119,90 @@ Follow these tips to tune and maintain the performance of your Octopus:
 
 ## Troubleshooting
 
-The best place to start troubleshooting your Octopus Server is to inspect the [Octopus Server logs](/docs/support/log-files.md). Octopus writes details for common causes of performance problems:
+The best place to start troubleshooting your Octopus Server is to inspect the [Octopus Server logs](/docs/support/log-files.md). Octopus writes details for common causes of performance problems.
 
-1. `Request took 5123ms: GET {correlation-id}`: If HTTP requests are taking a long time to be fulfilled, you'll see a message like this. The timer is started when the request is first received, ending when the response is sent.
-    - Look for trends as to which requests are taking a really long time.
-    - Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
-1. The dashboard or project overview are taking a really long time to load: this is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments.
-1. `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`: If a particular database operation takes a long time you'll see a message like this. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
-    - If you are seeing these operations take a long time it indicates your SQL Server is struggling under load, or your network connection from Octopus to SQL Server is saturated.
-    - Check the maintenance plan for your SQL Server. See [tips above](#sql-maintenance).
-    - Test an extremely simple query like `SELECT * FROM OctopusServerNode`. If this query is slow it indicates a problem with your SQL Server.
-    - Test a more complex query like `SELECT * FROM Release ORDER BY Assembled DESC`. If this query is slow it indicates a problem with your SQL Server, or the sheer number of Releases you are retaining.
-    - Check the network throughput between the Octopus Server and SQL Server by trying a larger query like `SELECT * FROM Events`.
-1. Task Logs are taking a long time to load, or your deployments are taking a long time: The size of your task logs might be to blame.
-    - See [tips above](#tip-task-logs).
-    - Make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
-1. If you are experiencing overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
-   - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
-   - Look for potential [performance problems in your deployment processes](docs/projects/deployment-process/performance.md), especially:
-       - Consider how you [transfer your packages](#package-transfer).
-       - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
-1. `System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.`: This error indicates two possible scenarios:
-    - Your SQL Queries are taking a long time, exhausting the SQL Connection Pool. Investigate what might be making your SQL Queries take longer than they should and fix that if possible - see earlier troubleshooting points.
-    - If your SQL Query performance is fine, and your SQL Server is running well below its capacity, perhaps your Octopus Server is under high load. This is perfectly normal in many situations at scale. If your SQL Server can handle more load from Octopus, you can increase the SQL Connection Pool size of your Octopus Server node(s). This will increase the amount of active connections Octopus is allowed to open against your SQL Server at any point in time, effectively allowing your Octopus Server to handle more concurrent requests. Try increasing the `Max Pool Size` in your `SQL Connection String`in the `Octopus.Server.config` file to something like `200` (the default is `100`) and see how everything performs. Learn about [Connection Strings and Max Pool Size](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.connectionstring).
-    - Octopus is leaking SQL Connections. This should be very rare, but has happened in the past and we fix every instance we find. We recommend upgrading to the latest version of Octopus and [get help from us](#support) if the problem persists.
+### Long running requests
+
+If HTTP requests take a long time to be fulfilled you'll see a message similar to: `Request took 5123ms: GET {correlation-id}`: The timer is started when the request is first received, ending when the response is sent.
+
+When you see messages similar to this in your log:
+- Look for trends as to which requests are taking a really long time.
+- Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
+
+### Slow loading dashboard or project overview pages
+This is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments.  
+
+You can use the **CONFIGURE** button on the dashboard to limit the projects and/or environments shown to you.  Filtering out the unneeded projects and environments on your dashboard can significantly reduce the amount of data needing to be returned, which will improve speed.
+
+### Slow database
+If a particular database operation takes a long time you'll see a message similar to: `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
+
+When you see messages similar to this in your log:
+- If you are seeing these operations take a long time it indicates your SQL Server is struggling under load, or your network connection from Octopus to SQL Server is saturated.
+- Check the maintenance plan for your SQL Server. See [tips above](#sql-maintenance).
+- Test an extremely simple query like `SELECT * FROM OctopusServerNode`. If this query is slow it indicates a problem with your SQL Server.
+- Test a more complex query like `SELECT * FROM Release ORDER BY Assembled DESC`. If this query is slow it indicates a problem with your SQL Server, or the sheer number of Releases you are retaining.
+- Check the network throughput between the Octopus Server and SQL Server by trying a larger query like `SELECT * FROM Events`.
+
+### Deployment screen is slow to load
+When the Task Logs are taking a long time to load, or your deployments are taking a long time the size of your task logs might be to blame.  First refer to the [tips above](#tip-task-logs).  After that, make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
+
+### High resource usage during deployments
+When you experience overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
+- Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
+- Look for potential [performance problems in your deployment processes](docs/projects/deployment-process/performance.md), especially:
+    - Consider how you [transfer your packages](#package-transfer).
+    - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
+
+### Connection pool timeout
+Seeing the error message `System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.` in your log indicates two possible scenarios:
+
+- Your SQL Queries are taking a long time, exhausting the SQL Connection Pool. Investigate what might be making your SQL Queries take longer than they should and fix that if possible - see earlier troubleshooting points.
+- If your SQL Query performance is fine, and your SQL Server is running well below its capacity, perhaps your Octopus Server is under high load. This is perfectly normal in many situations at scale. If your SQL Server can handle more load from Octopus, you can increase the SQL Connection Pool size of your Octopus Server node(s). This will increase the amount of active connections Octopus is allowed to open against your SQL Server at any point in time, effectively allowing your Octopus Server to handle more concurrent requests. Try increasing the `Max Pool Size` in your `SQL Connection String`in the `Octopus.Server.config` file to something like `200` (the default is `100`) and see how everything performs. Learn about [Connection Strings and Max Pool Size](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.connectionstring).
+- Octopus is leaking SQL Connections. This should be very rare, but has happened in the past and we fix every instance we find. We recommend upgrading to the latest version of Octopus and [get help from us](#support) if the problem persists.
 
 :::hint
 Analyzing Octopus Server log files for performance problems is much easier in a tool like [Seq](https://getseq.net). We've built a [helpful tool](https://github.com/OctopusDeploy/SeqFlatFileImport) for importing Octopus Server and Task Logs directly into Seq for analysis.
 :::
 
-### Getting help from us {#support}
+## Getting help from us {#support}
 
-If none of these troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details (feel free to ignore points if they don't apply):
+If none of the above troubleshooting steps work, please get in contact with our [support team](https://octopus.com/support) and send along the following details to help us debug:
 
-1. Are you running Octopus as an HA cluster, or single node?
-1. Is the SQL Database Server on the same machine as Octopus or a different machine?
-1. Are you hosting any other applications on the same machine as Octopus or its SQL database?
-1. What kind of server specs are you running for Octopus and SQL Server?
-1. Approximately how many users do you have using Octopus?
-1. Approximately how many projects and machines do you have?
-1. Approximately how many deployments do you perform at the same time?
-1. Do you notice any correlation between deployments of certain projects and the performance problem?
-1. Do you notice any correlation between other Octopus Server tasks (like package retention policy processing) and the performance problem?
-1. Does the Octopus Server ever become unresponsive and how frequently does it become unresponsive?
-1. Does the Octopus Server recover after the performance degrades, or does it need to be manually restarted in order to recover?
+1. An overview of the problem and when it occurs (page load, during a deployment, only when doing lots of deployments, etc.)
+1. Frequency of the problem happenening (on every deploymenet, on initial startup, etc.)
+1. Observerved correlations (during a deployment the dashboard is slow to load, during active directory sync unable for users to login, etc.)
+1. A high level overview of your Octopus Deploy instance:
+    - Version of Octopus Deploy installed
+    - How many nodes your Octopus Deploy instance has
+    - The server specs for each node (CPU/Memory)       
+1. Database details
+    - What version of SQL Server
+    - Where the SQL Server is hosted what are the DTUs or hardware specs (CPU/Memory)    
+    - Overall database size
+    - Number of rows per table (see query below)
+    - Last time indexes were rebuilt and stats were regenerated
+1. Utilization during of resources (CPU/Disk/Memory %) used during peak times vs. non-peak
 
-In addition to answering those questions, please collect and attach the following diagnostics to your support request (probably the most important part):
+This query will return all the rows in all the tables in the Octopus Deploy database.
 
-1. Attach a screen recording showing the performance problem.
-1. Attach any charts showing the Octopus Server performance (CPU/RAM) for normal deployment workloads both before/after the performance problem started.
+```SQL
+SELECT
+QUOTENAME(SCHEMA_NAME(obj.schema_id)) + '.' + QUOTENAME(obj.name) AS [TableName],
+SUM(dmv.row_count) AS [RowCount]
+FROM sys.objects AS obj
+  INNER JOIN sys.dm_db_partition_stats AS dmv
+  ON obj.object_id = dmv.object_id
+WHERE obj.type = 'U'
+  AND obj.is_ms_shipped = 0x0
+  AND dmv.index_id in (0, 1)
+GROUP BY obj.schema_id, obj.name
+ORDER BY Obj.name
+```
+
+In addition to providing the above information, gathering logs and traces will help us troubleshoot your performance problem.
+
+1. Attach a screen recording showing the performance problem or charts showing the Octopus Server performance.  If problem happens at certain times, please attach charts and screen recordings before and during those events.
 1. [Record and attach the performance problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser.md) (if applicable).
 1. Attach the [Octopus Server logs](/docs/support/log-files.md).
 1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task.md) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
