@@ -1,7 +1,7 @@
 ---
 title: Google Cloud Container Registry (GCR) 
 description: How to add a Google Cloud Container Registry (GCR) as an Octopus feed
-position: 50
+position: 60
 ---
 
 Google Cloud provides a [container registry](https://cloud.google.com/container-registry). Google Container Registry can be configured in Octopus as a Docker Container Registry Feed.  
