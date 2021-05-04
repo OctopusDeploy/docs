@@ -9,11 +9,11 @@ hideInThisSectionHeader: true
 
 !include <workers>
 
-## Where steps run
+## Where steps run {#where-steps-run}
 
 The following step types and configurations run on a worker:
 
-- Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server`, `Octopus Server on behalf of roles`, `Worker Pool` or `Worker Pool on behalf of roles`.
+- Any step that runs a script (usually user supplied) or has a package that has an execution location of `Octopus Server`, `Octopus Server on behalf of roles`, `Worker Pool` or `Worker Pool on behalf of roles`.
 - Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, an SSH Target, or an Offline Drop.
 - All AWS, Terraform, and Azure steps.
 
@@ -30,16 +30,19 @@ There are two kinds of workers you can use in Octopus:
 1. [The built-in worker](#built-in-worker) (default)
 1. [External workers](#external-workers)
 
-## Ignoring Workers
+:::hint
+Workers are assigned at the start of a deployment or runbook, not at the time the individual step executes.
+:::
+
+## Ignoring Workers {#ignoring-workers}
 
 Octopus works out-of-the-box without setting up workers.  You can run all deployment processes, run script steps on the built-in worker, deploy to Azure and run AWS and Terraform steps, without further setup.  The built-in worker is available in a default Octopus set up, and Octopus workers are designed so that, if you aren't using external workers, none of your deployment processes need to be worker aware.
 
 The choices of built-in worker, built-in worker running in a separate account, and external workers enable to you harden your Octopus Server and scale your deployments.
 
-## Migrating to Workers
+## Migrating to Workers {#migrating-to-workers}
 
 Octopus workers also provides a smooth path to move off the built-in worker, and thus off running scripts on the Octopus Server, and onto external workers, without updating any deployment processes.  Learn about how to [use the default worker pool to move steps off the Octopus Server](/docs/infrastructure/workers/worker-pools.md#Using-the-default-pool-to-stop-running-scripts-on-the-server).
-
 
 ## Built-in Worker {#built-in-worker}
 
@@ -63,11 +66,11 @@ Using external workers allows delegating work to a machine other than the Octopu
 
 Workers have machine policies, are health checked, and run Calamari, just like deployment targets.
 
-## Registering an External Worker
+## Registering an External Worker {#registering-an-external-worker}
 
 Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client/index.md) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
-### Registering Workers in the Octopus Web Portal
+### Registering Workers in the Octopus Web Portal {#registering-workers-in-the-octopus-web-portal}
 
 You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
 
@@ -128,7 +131,7 @@ The Tentacle executable can also be used to deregister workers, for example:
 For information on creating an API key, see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 :::
 
-## Recommendations for External Workers
+## Recommendations for External Workers {#recommendations-for-external-workers}
 
 We highly recommend setting up external workers on a different machine to the Octopus Server.
 
@@ -142,9 +145,15 @@ Default pools attached to cloud targets allow co-location of workers and targets
 
 !include <workers-multiple-simultaneous-processes>
 
-### Workers in HA setups
+### Run a process on a Worker exclusively {#run-proces-on-worker-exclusively}
 
-In an HA Octopus setup, each node has a task cap and can invoke a built-in worker locally, so for a 4-node HA cluster, there are 4 built-in workers.  Therefore if you move to external workers, it's likely you'll need to provision workers to at least match your server nodes, otherwise, you'll be asking each worker to do the sum of what the HA nodes were previously doing.
+!include <workers-individual-process-exclusively>
+
+!include <powershell-named-mutex>
+
+### Workers in HA setups 
+
+With Octopus High Availability, each node has a task cap and can invoke the built-in worker locally, so for a 4-node HA cluster, there are 4 built-in workers.  Therefore if you move to external workers, it's likely you'll need to provision workers to at least match your server nodes, otherwise, you'll be asking each worker to do the sum of what the HA nodes were previously doing.
 
 ## Learn more
 
