@@ -13,7 +13,7 @@ hideInThisSectionHeader: true
 
 The following step types and configurations run on a worker:
 
-- Any step that runs a script (usually user supplied) or has a package that has an execution plan of `Octopus Server`, `Octopus Server on behalf of roles`, `Worker Pool` or `Worker Pool on behalf of roles`.
+- Any step that runs a script (usually user supplied) or has a package that has an execution location of `Octopus Server`, `Octopus Server on behalf of roles`, `Worker Pool` or `Worker Pool on behalf of roles`.
 - Any steps that run on a Cloud Region, an Azure Target, or any target that isn’t a Tentacle, an SSH Target, or an Offline Drop.
 - All AWS, Terraform, and Azure steps.
 
