@@ -41,13 +41,13 @@ Or one of the common options:
 
 ## Basic examples
 
-This example restarts the Octopus Server Windows service for the instance `MyNewInstance`:
+This example restarts the Octopus Server service for the instance `MyNewInstance`:
 
 ```text
 octopus.server service --restart --instance="MyNewInstance"
 ```
 
-This example starts the Octopus Server Windows service for the default instance:
+This example starts the Octopus Server service for the default instance:
 
 ```text
 octopus.server service --start

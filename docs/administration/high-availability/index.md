@@ -14,7 +14,7 @@ An Octopus High Availability configuration requires four main components:
 - **A load balancer**
   This will direct user traffic bound for the Octopus web interface between the different Octopus Server nodes.
 - **Octopus Server nodes**
-  These run the Octopus Server windows service. They serve user traffic and orchestrate deployments.
+  These run the Octopus Server service. They serve user traffic and orchestrate deployments.
 - **A database**
   Most data used by the Octopus Server nodes is stored in this database.
 - **Shared storage**
