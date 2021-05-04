@@ -66,7 +66,7 @@ From there, give the permission a **Name**, and choose the **Add Repositories** 
 
 ![Artifactory add permission](images/artifactory-local-nuget-add-permission.png "width=500")
 
-From the repository selection screen, choose the newly created repository so that it's in the **Included Repository** column and click **Ok**:
+From the repository selection screen, choose the newly created repository so that it's in the **Included Repository** column and click **OK**:
 
 ![Artifactory add permission repository](images/artifactory-local-nuget-add-permission-repo.png "width=500")
 
@@ -74,7 +74,7 @@ Next, switch to the **Groups** tab, and add a new group from **Selected Groups**
 
 ![Artifactory add permission group](images/artifactory-local-nuget-add-permission-add-group.png "width=500")
 
-From the groups selection screen, choose the newly created group, or an existing group so that it's in the **Included Group** column and click **Ok**.
+From the groups selection screen, choose the newly created group, or an existing group so that it's in the **Included Group** column and click **OK**.
 
 ![Artifactory permissions include group](images/artifactory-local-nuget-add-permission-include-group.png "width=500")
 
