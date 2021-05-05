@@ -4,9 +4,9 @@ description: Octopus is all about reliable and repeatable deployments, but that 
 position: 60
 ---
 
-Over the years we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. In fact, Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/index.md) cluster.
+Over the years, we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/index.md) cluster.
 
-Octopus is a complex system, where we control some parts of the deployment whilst offering you the freedom to inject your own custom steps into the process. We work hard to make our parts work quickly and efficiently, leaving as many resources available for running your parts of the deployment. We can't control the performance of your custom parts, but there are many things you can do as an Octopus administrator to ensure your installation operates efficiently.
+Octopus is a complex system where we control some parts of the deployment while offering you the freedom to inject your own custom steps into the process. We work hard to make our parts work quickly and efficiently, leaving as many resources available for running your parts of the deployment. We can't control the performance of your custom parts, but there are many things you can do as an Octopus administrator to ensure your installation operates efficiently.
 
 This page is intended to help Octopus System Administrators tune and maintain their Octopus installations and troubleshoot problems as they occur.
 
@@ -66,7 +66,7 @@ We offer four options for scaling your Octopus Server:
 
 ### Task cap
 
-An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to automatically throttle Octopus Server, but in practice this kind of approach proved to be unreliable.
+An ideal situation would be an Octopus Server that's performing as many parallel deployments as it can, while staying just under these limits. We tried several techniques to throttle Octopus Server automatically. In practice, this kind of approach proved to be unreliable.
 
 Instead, we decided to put this control into your hands, allowing you to control how many tasks each Octopus Server node will execute concurrently. This way, you can measure server metrics for **your own deployments**, and then increase/decrease the task cap appropriately. Administrators can change the task cap in **{{Configuration>Nodes}}**.
 
@@ -113,7 +113,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
     - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
 1. Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
     - Listening Tentacles and SSH place the Octopus Server under less load.
-    - We try to make Polling Tentacles as efficient as possible, but by their very nature, they can place the Octopus Server under high load just handling the incoming connections.
+    - We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
 1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
 1. Disable automatic indexing of the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) if not required.
 
@@ -122,6 +122,7 @@ Follow these tips to tune and maintain the performance of your Octopus:
 The best place to start troubleshooting your Octopus Server is to inspect the [Octopus Server logs](/docs/support/log-files.md). Octopus writes details for common causes of performance problems.
 
 ### Long running requests
+
 When HTTP requests take a long time to be fulfilled you'll see a message similar to: `Request took 5123ms: GET {correlation-id}`: The timer is started when the request is first received, ending when the response is sent.
 
 Actions to take when you see messages similar to this in your log:
@@ -129,11 +130,13 @@ Actions to take when you see messages similar to this in your log:
 - Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
 
 ### Slow loading dashboard or project overview pages
-This is usually caused by long retention policies. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments.  
+
+Long retention policies usually cause this. Consider tightening up your retention policies to keep less releases. It can also be caused by the sheer number of projects you are using to model your deployments.  
 
 You can use the **CONFIGURE** button on the dashboard to limit the projects and/or environments shown to you.  Filtering out the unneeded projects and environments on your dashboard can significantly reduce the amount of data needing to be returned, which will improve speed.
 
 ### Slow database
+
 If a particular database operation takes a long time you'll see a message similar to: `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
 
 Actions to take when you see messages similar to this in your log:
@@ -144,9 +147,11 @@ Actions to take when you see messages similar to this in your log:
 - Check the network throughput between the Octopus Server and SQL Server by trying a larger query like `SELECT * FROM Events`.
 
 ### Deployment screen is slow to load
+
 When the Task Logs are taking a long time to load, or your deployments are taking a long time the size of your task logs might be to blame.  First refer to the [tips above](#tip-task-logs).  After that, make sure the disks used by your Octopus Server have sufficient throughput/IOPS available for processing the demand required by your scenario. Task logs are written and read directly from disk.
 
 ### High resource usage during deployments
+
 When you experience overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
 - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
 - Look for potential [performance problems in your deployment processes](docs/projects/deployment-process/performance.md), especially:
@@ -154,6 +159,7 @@ When you experience overly high CPU or memory usage during deployments which may
     - Consider reducing the amount of parallelism in your deployments by reducing the number of steps you run in parallel, or the number of machines you deploy to in parallel.
 
 ### Connection pool timeout
+
 Seeing the error message `System.InvalidOperationException: Timeout expired. The timeout period elapsed prior to obtaining a connection from the pool. This may have occurred because all pooled connections were in use and max pool size was reached.` in your log indicates two possible scenarios:
 
 - Your SQL Queries are taking a long time, exhausting the SQL Connection Pool. Investigate what might be making your SQL Queries take longer than they should and fix that if possible - see earlier troubleshooting points.
@@ -170,7 +176,7 @@ If none of the above troubleshooting steps work, please get in contact with our 
 
 1. An overview of the problem and when it occurs (page load, during a deployment, only when doing lots of deployments, etc.)
 1. Frequency of the problem happenening (on every deploymenet, on initial startup, etc.)
-1. Observerved correlations (during a deployment the dashboard is slow to load, during active directory sync unable for users to login, etc.)
+1. Observed correlations (during a deployment the dashboard is slow to load, during active directory sync unable for users to login, etc.)
 1. A high level overview of your Octopus Deploy instance:
     - Version of Octopus Deploy installed
     - How many nodes your Octopus Deploy instance has
