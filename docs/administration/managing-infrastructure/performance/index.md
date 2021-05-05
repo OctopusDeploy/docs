@@ -252,3 +252,4 @@ In addition to providing the above information, gathering logs and traces will h
 1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task.md) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
 1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/administration/managing-infrastructure/performance/record-a-performance-trace.md).
 1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/administration/managing-infrastructure/performance/record-a-memory-trace.md).
+1. We might ask for a sanitized database backup to do our own testing against.  Please [follow these instructions](/docs/administration/managing-infrastructure/create-sanitized-database-backup.md).
