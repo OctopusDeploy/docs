@@ -82,6 +82,10 @@ Finally, choose the permissions to grant the group on the included repositories:
 
 ![Artifactory repository permissions](images/artifactory-local-nuget-add-permission-repo-permissions.png "width=500")
 
+:::hint
+Octopus needs `Read` permissions as a minimum on the Local repository in order to search and download packages.
+:::
+
 When you've entered all of the settings, review your permissions are configured how you want, and click **Create**.
 
 :::hint
