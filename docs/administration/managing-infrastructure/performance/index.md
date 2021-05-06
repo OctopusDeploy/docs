@@ -24,7 +24,7 @@ Want to tune your deployments for optimum performance? Read our [detailed guide 
 
 ### Infrastructure
 
-It is possible to host Octopus Deploy and SQL Server on the same Windows Server.  We only recommend you do that for Proof of Concepts or demos.  Never for any Octopus Deploy instance used to deploy to production.  
+It is possible to host Octopus Deploy and SQL Server on the same Windows Server.  We only recommend you do that for Proof of Concepts or demos.  Never for any Octopus Deploy instance used to deploy to Production.  
 
 Keep Octopus Deploy and SQL Server on separate servers.  This will keep them from competing for the same CPU, memory, disk and network resources.
 
