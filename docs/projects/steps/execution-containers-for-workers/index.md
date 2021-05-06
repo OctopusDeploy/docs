@@ -52,6 +52,8 @@ The easiest way to get started is to use the [worker-tools](#worker-tools-images
 When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
 Calamari is a .NET Core self-contained executable, and the Docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
 
+To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
+
 :::warning
 Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can not currently be used as execution containers.
 :::
@@ -61,7 +63,7 @@ Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can
 For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
 
 :::hint
-We recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker
+We recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker.
 :::
 
 The canonical source for what is contained in the `octopusdeploy/worker-tools` images is the `Dockerfile`'s in the [GitHub repo](https://github.com/OctopusDeploy/WorkerTools). For example: 
