@@ -37,7 +37,7 @@ GO
 
 3. Disable deployment targets, project triggers, workers, and more.
 
-Run the following script to disable as much as possible on that database.  In the next step, you'll create an Octopus Deploy instance.  This script will prevent anything from running in the background that could potentially deploy or change anything in production.
+Run the following T-SQL script to disable as much as possible on that database.  In the next step, you'll create an Octopus Deploy instance.  This script will prevent anything from running in the background that could potentially deploy or change anything in production.
 
 ```sql
 Use [OctopusDeploy_Sanitized]
