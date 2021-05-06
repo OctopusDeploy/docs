@@ -122,7 +122,7 @@ Transfering packages from your Octopus Deploy server is a key piece of functiona
 
 ### Network bandwidth
 
-The larger the package the more network bandwidth is required to transfer to your deployment targets.  
+The larger the package the more network bandwidth is required to transfer data to your deployment targets.  
 
 Consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md).  Larger packages will require more CPU and disk IOPS to calculate the delta - monitor resource consumption to ensure delta compression doesn't negatively impact the rest of your Octopus Server.
 
