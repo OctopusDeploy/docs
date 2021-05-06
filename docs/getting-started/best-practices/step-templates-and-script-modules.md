@@ -40,4 +40,6 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Error: Messages are highlighted in red in the task log and task summary.  This is for what it says on the tin, error messages.
 - Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about.  
 
+Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) which pauses the deployment and allows people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts.md).
+
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/users-roles-and-teams">Next</a></span>

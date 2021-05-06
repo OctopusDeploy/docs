@@ -93,8 +93,9 @@ Octopus Deploy is a Windows service that will run as `Local System` by default. 
 For the database, we will typically see customers who already have a very powerful production SQL Server 2016+ Server, Azure SQL Database, or AWS RDS SQL Server monitored by DBAs already running.  If that server has plenty of capacity, then we recommend re-using that.
 
 But, if you need to stand up a new server, that is more than okay, the recommendations are
-- 10-20 concurrent deployments (small teams, companies, or customers doing POCs/pilots): SQL Server Express with 2 Cores / 8 GB of RAM or Azure SQL with 50-100 DTUs
-- 20+ concurrent deployments (medium to enterprise customers): SQL Server Standard or Enterprise with at least 4 cores / 16 GB of RAM or Azure SQL with 200+ DTUs.
+- Small teams/companies or customers doing a POC with 5-10 concurrent tasks: SQL Server Express or Standard with 2 Cores / 4 GB of RAM
+- Small-Medium companies or customers doing a pilot with 5-20 concurrent deployments: SQL Server Standard or Enterprise with 2 Cores / 8 GB of RAM or Azure SQL with 50-100 DTUs
+- Medium to Large companies doing 20+ concurrent deployments: SQL Server Standard or Enterprise with at least 4 cores / 16 GB of RAM or Azure SQL with 200+ DTUs.
 
 If you are going to run SQL Server Standard or Enterprise, configure either a [failover cluster instance](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15) or an [availability group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) to ensure database resiliency.
 

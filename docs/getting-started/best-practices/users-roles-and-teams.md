@@ -19,7 +19,22 @@ Our recommendation is each user has their own account in Octopus Deploy.  Every 
 
 ## Service Accounts
 
-Our recommendation is only to use service accounts when external tools, such as build servers, JIRA, ServiceNow, etc., need to communicate with Octopus Deploy.  We also recommend creating a unique service account per integration.  For example, if you had two build servers, such as GitHub Actions and TeamCity, then at the very least, you should have two service accounts.  You should also have individual service accounts per space per integration.  Going back to the GitHub Actions example, if you had GitHub Actions pushing to three spaces, then you should have a service account per space.  
+Our recommendation is only to use service accounts when external tools, such as build servers, JIRA, ServiceNow, etc., need to communicate with Octopus Deploy.  This is preferred over user accounts for a few reasons:
+
+- If the person leaves and the account is deleted in Octopus then all that integration fails.
+- That person will show up in the audit log as the one who create the release, uploaded the package, or did the deployment.  This is very confusing and hard to trace as it was the build server or other integration that did the work.
+
+We also recommend creating a unique service account per integration.  For example, if you had two build servers, such as GitHub Actions and TeamCity, then at the very least, you should have two service accounts.  You should also have individual service accounts per space per integration.  Going back to the GitHub Actions example, if you had GitHub Actions pushing to three spaces, then you should three service accounts.  Limit the permissions of each service account, if the API key is ever compromised then that user is isolated to a single space for a set of projects.
+
+## API Keys
+
+[API Keys](/docs/octopus-rest-api/how-to-create-an-api-key.md) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
+
+**Octopus Deploy 2020.6** introduced the concept of expiring API keys.  Our recommendation is to set up a periodic rotation of API keys following your companies policy on key expiration.  
+
+If you company doesn't have a policy then our recommendation is:
+- 90 days for service accounts.  In other words, rotate the service account keys once a quarter.
+- 10-30 days for users.  User account API keys should be used temporarily, when writing an API script or testing an integration.  
 
 ## User Roles
 

@@ -38,6 +38,7 @@ The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-w
 - Dynamic workers and built-in workers are limited to the software installed on the host servers.  This includes specific software.  Upgrading to a newer version results in a "big bang" change in your CI/CD pipeline which increases risk.
 - The IP address assigned to dynamic workers will change at least once an hour and at most once every 72 hours. 
 - Dynamic workers are assigned to an entire instance, not just a space.  We have seen cases where a deployment blocks on one space blocks a deployment on another space because they both used the same dynamic worker.
+- There is only one dynamic worker per pool.  Workers have some blocking tasks (install Calamari and downloading a package).  If a process needs to acquire a mutex for that blocking task it has to wait until other tasks are done.
 
 ## Workers for Octopus at Scale
 
@@ -52,12 +53,12 @@ If you plan on using Octopus Deploy at scale, [disable the built-in worker](/doc
 
 ## Compute Resources Required
 
-Workers don't need a lot of compute resources.  You can easily start with:
+Workers don't need a lot of compute resources.  Our recommendations are:
 
 - 1 CPU / 2 GB of RAM for Linux workers (both server and container)
 - 2 CPU / 2 GB of RAM for Windows workers
 
-Naturally, the more compute resources you add, the faster the worker will run.  If you notice a worker struggling to keep up, add a CPU or more RAM.  
+Naturally, the more compute resources you add, the faster the worker will run.  Monitor the resources of each worker and increase when needed.  Or add more workers to spread out the load.
 
 ## The difference between workers and high availability nodes
 
@@ -71,10 +72,12 @@ Think of the high availability node as the manager and the worker as the worker 
 
 ## The difference between workers and deployment targets
 
-There isn't much difference between a deployment target or a worker as both are tentacle agents.  It is a matter of how they are registered.  Deployment targets are registered to environments while workers are registered to worker pools.  In fact, a listening tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
+Behind the scenes, there isn't much difference between a deployment target or a worker as both are tentacle agents.  It is a matter of how they are registered.  Deployment targets are registered to environments while workers are registered to worker pools.  It is how the server hosting the tentacle will be used.  Deployment targets are for deploying to (web server, application server, etc.) while workers are used as a means to deploy to a deployment target.  
+
+A listening tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
 
 :::hint
-All Octopus Cloud, self-hosted Server, self-hosted Data Center, and self-hosted Standard licenses offer unlimited workers.
+All Octopus Cloud and self-hosted Server, Data Center, and Standard licenses offer unlimited workers.
 :::
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>

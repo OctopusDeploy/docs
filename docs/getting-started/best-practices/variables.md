@@ -32,14 +32,14 @@ In addition to having the above levels of variables, there are also two categori
 
 ## Variable Naming
 
-It is entirely possible for a name collision to occur, where a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](//docs/projects/variables/index.md#Scopingvariables-Scopespecificity).
+It is possible for a name collision to occur.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](//docs/projects/variables/index.md#Scopingvariables-Scopespecificity).  But sometimes the variables 
 
 However, the recommendation is to avoid name collisions in the first place by following these naming standards.
 
 1. Project: `Project.[Component].[Name]` - for example, **Project.Database.UserName.**
 2. Tenant: `[ProjectName].[Component].[Name]` - for example, **OctoPetShopWebUI.URL.Port**.
-3. Step Template: `[TemplateName].[Component].[Name]` - for example, **SlackNotification.Message.Body**.
-4. Library Set: `[LibrarySetName].[Component].[Name]` - for example, **Notification.Slack.Message**.
+3. Step Template: `[TemplateShortName].[Component].[Name]` - for example, **SlackNotification.Message.Body**.
+4. Library Set: `Library.[LibrarySetName].[Component].[Name]` - for example, **Library.Notification.Slack.Message**.
 
 These naming conventions only apply to variables used for a deployment or runbook run.  Variables used for configuration file replacement have a specific naming convention to follow.  The above naming convention makes it easier to distinguish between the two.
 

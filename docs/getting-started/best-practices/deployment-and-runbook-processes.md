@@ -55,11 +55,13 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Error: Messages are highlighted in red in the task log and task summary.  This message type is for what it says on the tin, error messages.
 - Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about. 
 
+Putting information for required for approvals in a log file can make it difficult to find.  Consider artifacts as an alternative.
+
 ## Step naming and descriptions
 
 We recommend having clear, concise names for your steps.  The step name is what appears in the task summary and task log.  
 
-By default, Octopus Deploy will only run a step if the previous step is successful.  You can override that behavior, so it always runs, only runs on failure, or runs on a variable condition.  If you override that default behavior, then the name should include that in the step name.  
+By default, Octopus Deploy will only run a step if the previous step is successful.  You can override that behavior, so it always runs, only runs on failure, or runs on a variable condition.  If you override that default behavior, then the name should include that in the step name. 
 
 Starting in **Octopus Deploy 2020.5**, you can add a description field to each step.  We highly recommend using that to help other users of your deployment process understand what each step is doing.
 
