@@ -80,7 +80,7 @@ This command will clean out all sensitive variables and PII data and generate a 
 **DO NOT** run this on the database of your production instance.  Restoring any data lost after this command has finished executing is only possible using a full database backup along with the associated Master Key.
 :::
 
-```
+```powershell
 Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 
 .\Octopus.Server.exe lost-master-key --instance "Octopus" --iReallyWantToResetAllMySensitiveData --upgradeDatabase --scrubPii --iHaveBackedUpMyDatabase
