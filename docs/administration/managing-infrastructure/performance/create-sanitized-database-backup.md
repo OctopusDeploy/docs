@@ -74,7 +74,11 @@ When you run the above commands, you will get a warning about being unable to de
 
 5. Sanitize the database.
 
-This command will clean out all sensitive variables and PII data and generate a new master key on the database.  **DO NOT** run this on your production instance.  You will have a bad day after this command finishes.
+This command will clean out all sensitive variables and PII data and generate a new master key on the database.  
+
+:::warning
+**DO NOT** run this on the database of your production instance.  Restoring any data lost after this command has finished executing is only possible using a full database backup along with the associated Master Key.
+:::
 
 ```
 Set-Location "C:\Program Files\Octopus Deploy\Octopus"
