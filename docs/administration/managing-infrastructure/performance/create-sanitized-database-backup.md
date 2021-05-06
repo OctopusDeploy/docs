@@ -61,7 +61,7 @@ The installed version of Octopus Deploy should be the same version of Octopus De
 Remember to run these scripts as **Administrator**.
 :::
 
-```
+```powershell
 Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 
 .\Octopus.Server.exe create-instance --instance "Octopus" --config "C:\Octopus\OctopusServer.config" --serverNodeName "Sanitized"
