@@ -9,7 +9,7 @@ The size of your Octopus Deploy instance will be dependent on the number of user
 - Process subscriptions
 - Script console run
 - Sync built-in package repository
-- Sync community action templates
+- Sync community library step-templates
 - Tentacle upgrade
 - Upgrade calamari
 - Active Directory sync
