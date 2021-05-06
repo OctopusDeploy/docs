@@ -108,7 +108,7 @@ Consider using [Workers](/docs/infrastructure/workers/index.md) and worker pools
 
 ### Spaces
 
-Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/index.md) feature.  A space is a "hard wall," each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
+Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/index.md) feature.  A space is considered a "hard wall". Each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
 
 ## Tentacles
 
