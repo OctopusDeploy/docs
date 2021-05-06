@@ -16,7 +16,31 @@ Want to tune your deployments for optimum performance? Read our [detailed guide 
 
 ## Minimum requirements
 
-There is no "one size fits all" approach to sizing your Octopus Server. If you are just starting out with Octopus Server you should begin with the [minimum requirements](/docs/installation/index.md) then monitor the performance of your server. Once your server is up and running you should consider [maintenance](#maintenance) and [scaling](#scaling) as you see fit.
+!include <minimum-requirements>
+
+## Database
+
+[SQL Server](/docs/installation/sql-server-database.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. 
+
+### Infrastructure
+
+It is possible to host Octopus Deploy and SQL Server on the same Windows Server.  We only recommend you do that for Proof of Concepts or demos.  Never for any Octopus Deploy instance used to deploy to Production.  
+
+Keep Octopus Deploy and SQL Server on separate servers.  This will keep them from competing for the same CPU, memory, disk and network resources.
+
+We've worked with customers who have large Production SQL Server instances with a lot of computing power (64 Cores and 512 GB of RAM).  If you count yourself amongst those users, and one of those servers is not at capacity, then hosting Octopus Deploy on a shared server should be fine.  If you don't count yourself amongst those users, then avoid hosting Octopus Deploy on a shared server.
+
+### SQL Server maintenance {#sql-maintenance}
+
+You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.  At the very least you should:
+
+- Rebuild all indexes **online** with fragmentation > 50% once a day during off-hours (typically 2-3 AM).
+- Rebuild all indexes **offline** with fragmentation > 50% once a week during off-hours (typically a Sunday morning).
+- Regenerate statistics once a month.
+
+:::hint
+Modern versions of Octopus Deploy automatically rebuilt fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
+:::
 
 ## Maintenance {#maintenance}
 
@@ -40,10 +64,6 @@ A tighter retention policy means your Octopus Server will run faster across the 
 **We need to keep everything for auditing purposes**
 You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
-
-### SQL Server maintenance {#sql-maintenance}
-
-[SQL Server](/docs/installation/sql-server-database.md) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
 ## Scaling Octopus Server {#scaling}
 
@@ -72,50 +92,69 @@ Instead, we decided to put this control into your hands, allowing you to control
 
 See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
 
-The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.
+The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.  Increasing that to 10 should be fine without requiring more CPU or RAM.  Anything more and we recommend [High Availability](/docs/administration/high-availability/index.md).
 
 The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/index.md#run-multiple-processes-on-workers-simultaneously) might be right with the extra ability to scale.
 
-
 ### Octopus High Availability
 
-You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability/index.md) cluster. In addition to linearly increasing the performance of your cluster, you can perform certain kinds of maintenance on your Octopus Servers without incurring downtime.
+You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability/index.md) cluster. Each node in the cluster will have its own task cap.  Two servers in a cluster each with a task cap of 5 means you can process 10 concurrent tasks.  
 
-## Tips
+In addition to linearly increasing the performance of your cluster, you can perform certain kinds of maintenance on your Octopus Servers without incurring downtime.
 
-Follow these tips to tune and maintain the performance of your Octopus:
+### Workers
 
-1. Configure your Octopus Server and SQL Server on separate servers.
-1. Avoid hosting your Octopus Server and its SQL Database on shared servers to prevent Octopus or the other applications from becoming "noisy neighbors".
-1. Provide sufficient resources to your Octopus Server and SQL Server. Measure resource utilization during typical and/or heavy load, and decide whether you need to provision more resources.
-    - We don't provide a one-size-fits-all set of specifications - your resource requirements will vary heavily depending on your specific scenario. The best way to determine what "sufficient resources" means, is to measure then adjust until you are satisfied.
-1. Configure short [retention policies](/docs/administration/retention-policies/index.md). Less history == faster Octopus.
-1. Maintain your SQL Server.
-    - [See above](#sql-maintenance).
-    - Upgrade to the latest version of Octopus Server.
-    - Quite often negative performance symptoms are caused by outdated statistics or other common SQL Server maintenance problems.
-1. If you have saturated your current servers you may want to consider scaling up, by increasing the resources available to the Octopus and SQL Servers, or scaling out:
-    - Consider [Octopus High Availability](/docs/administration/high-availability/index.md) if you are reaching saturation on your current infrastructure, or want to improve the up-time of your Octopus Server, especially across [Operating System patches](/docs/administration/managing-infrastructure/applying-operating-system-upgrades.md). Octopus High Availability is designed to scale linearly as you add nodes to your cluster.
-    - Consider using [Workers](/docs/infrastructure/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
-    - Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/index.md) feature.
-1. Try not to do too much work in parallel, especially without thorough testing. Performing lots of deployment tasks in parallel can be a false economy more often than not:
-    - You can configure how many tasks from the task queue will run at the same time on any given Octopus Server node by going to **{{Configuration>Nodes}}**. The default task cap is `5` (safe-by-default). You can increase this cap to push your Octopus to work harder.
-    - Learn about [tuning your deployment processes for performance](docs/projects/deployment-process/performance.md).
-1. Consider how you transfer your packages: {#package-transfer}
-    - If network bandwidth is the limiting factor, consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md).
-    - If network bandwidth is not a limiting factor, consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-    - If Octopus Server CPU and disk IOPS is a limiting factor, avoid using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md). Instead, consider downloading the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
-1. Consider the size of your packages:
-    - Larger packages require more network bandwidth to transfer to your deployment targets.
-    - When using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md), larger packages require more CPU and disk IOPS on the Octopus Server to calculate deltas - this is a tradeoff you can determine through testing.
-1. Consider the size of your Task Logs: {#tip-task-logs}
-    - Larger task logs put the entire Octopus pipeline under more pressure.
-    - We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
-1. Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible:
-    - Listening Tentacles and SSH place the Octopus Server under less load.
-    - We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
-1. Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
-1. Disable automatic indexing of the [built-in package repository](/docs/packaging-applications/package-repositories/index.md) if not required.
+Consider using [Workers](/docs/infrastructure/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+
+### Spaces
+
+Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/index.md) feature.  A space is considered a "hard wall". Each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
+
+## Tentacles
+
+Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
+
+Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
+
+## Packages {#package-transfer}
+
+Transferring packages from your Octopus Server is a key piece of functionality when executing deployments and runbooks.  This can also have an impact on your Octopus Server's performance.
+
+### Network bandwidth
+
+The larger the package the more network bandwidth is required to transfer data to your deployment targets.  
+
+Consider using [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md).  Larger packages will require more CPU and disk IOPS to calculate the delta - monitor resource consumption to ensure delta compression doesn't negatively impact the rest of your Octopus Server.
+
+:::hint
+Delta compression doesn't always result in smaller package transfers.  The algorithm will transfer the entire package if over a certain percentage changes.
+:::
+
+If your packages have a lot of static data, consider creating a package containing only that static data and deploying it only when it changes.  
+
+### Custom Package Feed
+
+Consider using a custom package feed close to your deployment targets, and download the packages directly on the agent. This alleviates a lot of resource contention on the Octopus Server.
+
+### Retention Policy
+
+The built-in package feed has its own [retention policy](/docs/administration/retention-policies/index.md#set-builtinfeed-retentionpolicy).  Ensure that is enabled to keep the amount of packages to store and index down.
+
+:::hint
+The package retention policy only deletes packages not referenced by a release or runbook.  Setting the retetion policy to 1 day means the package will be deleted 1 day after the release is deleted.
+:::
+
+## File Storage 
+
+Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on the file system.
+
+### Task Logs {#tip-task-logs}
+
+Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
+
+### Image Size
+
+While it is fun to have gifs and fancy images for your projects consider the size of each image.  Keep them under 100x100 pixels.  This will reduce the amount of data you have to download from the Octopus Server. 
 
 ## Troubleshooting
 
@@ -211,5 +250,6 @@ In addition to providing the above information, gathering logs and traces will h
 1. [Record and attach the performance problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser.md) (if applicable).
 1. Attach the [Octopus Server logs](/docs/support/log-files.md).
 1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task.md) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
-1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/support/record-a-performance-trace.md).
-1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/support/record-a-memory-trace.md).
+1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/administration/managing-infrastructure/performance/record-a-performance-trace.md).
+1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/administration/managing-infrastructure/performance/record-a-memory-trace.md).
+1. We might ask for a sanitized database backup to do our own testing against.  Please [follow these instructions](/docs/administration/managing-infrastructure/performance/create-sanitized-database-backup.md).

@@ -53,11 +53,7 @@ The Octopus Server includes the Octopus Web Portal user interface and we try to 
 
 ## Hardware requirements
 
-There is no *one size fits all* approach for Octopus Server. The best approach is to start with a working Octopus Server, start deploying your applications, monitor your server statistics, and scale from there.
-
-- Absolute minimum to make it run: 512MB RAM, 1GHz CPU, 2GB free disk space.
-- Recommended starting point for smaller deployments (less than 30 deployment targets for example): 2GB RAM, dual-core CPU, 10GB free disk space.
-- Recommended starting point for larger deployments: 4GB RAM, dual-core, 20GB free disk space.
+!include <minimum-requirements>
 
 ## Learn more
 
