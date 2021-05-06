@@ -88,7 +88,7 @@ Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 
 6. Create a new database backup.
 
-Create a new backup for OctopusDeploy_Sanitized.  That backup is the backup you will upload to us.
+Create a new backup for the `OctopusDeploy_Sanitized` database.  This is the backup you will upload to Octopus.
 
 ```sql
 BACKUP DATABASE [OctopusDeploy_Sanitized]
