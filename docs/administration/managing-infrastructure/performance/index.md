@@ -118,7 +118,7 @@ Reduce the frequency and complexity of automated health checks using [machine po
 
 ## Packages {#package-transfer}
 
-Transfering packages from your Octopus Deploy server is a key piece of functionality in Octopus Deploy.  Transferring packages can also have a impact on your Octopus Server's performance.
+Transferring packages from your Octopus Server is a key piece of functionality when executing deployments and runbooks.  This can also have an impact on your Octopus Server's performance.
 
 ### Network bandwidth
 
