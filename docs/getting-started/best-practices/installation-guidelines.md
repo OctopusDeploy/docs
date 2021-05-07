@@ -9,7 +9,22 @@ This page will provide guidelines and recommendations for installing Octopus Dep
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
 
-The compute resources required are correlated to the expected number of concurrent tasks (deployments, runbook runs, etc.) and users.  A team of 10 people doing five deployments a day will not need the same resources as a division of 500 users doing 600 deployments a day.  
+The size of your Octopus Deploy instance will be dependent on concurrent tasks (deployments, runbook runs, etc.) and users.  A team of 10 people doing five deployments a day will not need the same resources as a division of 500 users doing 600 deployments a day.  
+
+This document will refer to tasks, a task can be:
+- Deployments
+- Runbook run
+- Retention Policies
+- Health Checks
+- Let's Encrypt
+- Process triggers
+- Process subscriptions
+- Script console run
+- Sync built-in package repository
+- Sync community library step-templates
+- Tentacle upgrade
+- Upgrade calamari
+- Active Directory sync
 
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
@@ -20,7 +35,7 @@ Octopus Deploy installation requirements are:
 
 ![](/docs/administration/high-availability/images/high-availability.svg)
 
-How high availability works in Octopus Deploy is all tasks (deployments, runbook runs, etc.) are dropped into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
+How high availability works in Octopus Deploy is all tasks are dropped into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
 
 Here are some items to consider when installing Octopus Deploy:
 - Cloud providers (GCP, AWS, Azure) will charge roughly the same for 2 VMs with 2 cores / 4 GB of RAM or 1 VM with 4 cores / 8 GB of RAM.  The difference in cost is typically less than $10 USD per month.
@@ -94,13 +109,13 @@ For the database, we will typically see customers who already have a very powerf
 
 But, if you need to stand up a new server, that is more than okay, the recommendations are
 - Small teams/companies or customers doing a POC with 5-10 concurrent tasks: SQL Server Express or Standard with 2 Cores / 4 GB of RAM
-- Small-Medium companies or customers doing a pilot with 5-20 concurrent deployments: SQL Server Standard or Enterprise with 2 Cores / 8 GB of RAM or Azure SQL with 50-100 DTUs
-- Medium to Large companies doing 20+ concurrent deployments: SQL Server Standard or Enterprise with at least 4 cores / 16 GB of RAM or Azure SQL with 200+ DTUs.
+- Small-Medium companies or customers doing a pilot with 5-20 concurrent tasks: SQL Server Standard or Enterprise with 2 Cores / 8 GB of RAM or Azure SQL with 50-100 DTUs
+- Medium to Large companies doing 20+ concurrent tasks: SQL Server Standard or Enterprise with at least 4 cores / 16 GB of RAM or Azure SQL with 200+ DTUs.
 
 If you are going to run SQL Server Standard or Enterprise, configure either a [failover cluster instance](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15) or an [availability group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) to ensure database resiliency.
 
 :::hint
-Keep an eye on your database resources as you increase the number of concurrent deployments, runbook runs, and users.  Routine SQL Server maintenance should be performed periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.
+Keep an eye on your database resources as you increase the number of concurrent tasks and users.  Routine SQL Server maintenance should be performed periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.
 :::
 
 To ensure high performance, the SQL Server and the servers hosting Octopus Deploy must be in the same data center or region to keep latency to a minimum.
@@ -148,7 +163,11 @@ You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  
 
 ## Large-Scale Configuration
 
-The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps during an initial pilot of 4-7 teams.  The recommendation below is for a large Octopus Deploy configuration designed to handle close to a 1000 deployment a day.  We don't recommend starting with this unless you plan to onboard dozens of teams quickly.  If you follow the recommendations of the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server will be in place.
+The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps during an initial pilot of 4-7 teams.  The recommendation below is for a large Octopus Deploy configuration designed to handle close to a 1000 deployment a day.  If you follow the recommendations of the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server will be in place.
+
+:::hint
+We don't recommend starting with this unless you plan to onboard dozens of teams quickly or you have a lengthy approval process.  
+:::
 
 - 4 Windows servers with 4 Cores / 8 GB of RAM, with each server having the task cap set to 20 (can increase to 30 without increasing compute).
 - 2 Windows servers with 4 Cores / 8 GB of RAM, with each server having the task cap set to 0.  These are UI-only nodes.
