@@ -39,7 +39,7 @@ We've also found several anti-patterns with the Spaces feature you should avoid.
 
 ## Prevent Sharing of Deployment Targets
 
-To prevent sharing of deployment targets and workers across spaces the easiest solution is to use [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).  A polling tentacle can only be registered to a single space.
+To prevent sharing of deployment targets and workers across spaces, the easiest solution is to use [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).  A polling tentacle can only be registered to a single space.
 
 For other deployment targets, such as Azure Web Apps, or K8s clusters, you would have to re-key the credentials in each space.  As such, store those credentials in a secure location and limit access to them.
 

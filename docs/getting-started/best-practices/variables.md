@@ -32,7 +32,7 @@ In addition to having the above levels of variables, there are also two categori
 
 ## Variable Naming
 
-It is possible for a name collision to occur.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](//docs/projects/variables/index.md#Scopingvariables-Scopespecificity).  But sometimes the variables 
+It is possible for a name collision to occur.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/index.md#Scopingvariables-Scopespecificity).  But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
 However, the recommendation is to avoid name collisions in the first place by following these naming standards.
 
@@ -47,7 +47,7 @@ These naming conventions only apply to variables used for a deployment or runboo
 
 One of Octopus Deploy's most used features is the variable scoping.  And with good reason, having the same process, with only needing a specific value such as a connection string or domain name changed, ensures consistency during the deployment process.  
 
-That ability to scope variables to environments and replace them in configuration files can result in a some anti-patterns which include:
+That ability to scope variables to environments and replace them in configuration files can result in some anti-patterns, which include:
 
 - Dozens or hundreds of variables being replaced in a configuration file during deployment.
 - Needing a process to automatically add variables in Octopus Deploy based on a custom structure in source control.
@@ -88,6 +88,6 @@ Examples of configuration variables that should be stored in the main configurat
 
 - Don't have a single "global" library variable set.  This becomes a "junk drawer" of values and quickly becomes unmanageable.  And not every project will need all those variables.
 - Group common variables into a library variable set.  Examples include Notifications, Azure, AWS, Naming, and so on.
-- Have application-specific library variable sets to share items such as service URLs, database connection strings, etc. across the multiple projects that make up an application.
+- Have application-specific library variable sets to share items such as service URLs, database connection strings, etc., across the multiple projects that make up an application.
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>

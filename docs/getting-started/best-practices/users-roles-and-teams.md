@@ -21,10 +21,10 @@ Our recommendation is each user has their own account in Octopus Deploy.  Every 
 
 Our recommendation is only to use service accounts when external tools, such as build servers, JIRA, ServiceNow, etc., need to communicate with Octopus Deploy.  This is preferred over user accounts for a few reasons:
 
-- If the person leaves and the account is deleted in Octopus then all that integration fails.
-- That person will show up in the audit log as the one who create the release, uploaded the package, or did the deployment.  This is very confusing and hard to trace as it was the build server or other integration that did the work.
+- If the person leaves and the account is deleted in Octopus, then all that integration fails.
+- That person will show up in the audit log as the one who created the release, uploaded the package, or did the deployment.  This is very confusing and hard to trace as it was the build server or other integration that did the work.
 
-We also recommend creating a unique service account per integration.  For example, if you had two build servers, such as GitHub Actions and TeamCity, then at the very least, you should have two service accounts.  You should also have individual service accounts per space per integration.  Going back to the GitHub Actions example, if you had GitHub Actions pushing to three spaces, then you should three service accounts.  Limit the permissions of each service account, if the API key is ever compromised then that user is isolated to a single space for a set of projects.
+We also recommend creating a unique service account per integration.  For example, if you had two build servers, such as GitHub Actions and TeamCity, then at the very least, you should have two service accounts.  You should also have individual service accounts per space per integration.  Going back to the GitHub Actions example, if you had GitHub Actions pushing to three spaces, then you should have three service accounts.  Limit the permissions of each service account. If the API key is ever compromised then that user is isolated to a single space for a set of projects.
 
 ## API Keys
 
@@ -32,9 +32,9 @@ We also recommend creating a unique service account per integration.  For exampl
 
 **Octopus Deploy 2020.6** introduced the concept of expiring API keys.  Our recommendation is to set up a periodic rotation of API keys following your companies policy on key expiration.  
 
-If you company doesn't have a policy then our recommendation is:
+If your company doesn't already have a policy, then our recommendation is:
 - 90 days for service accounts.  In other words, rotate the service account keys once a quarter.
-- 10-30 days for users.  User account API keys should be used temporarily, when writing an API script or testing an integration.  
+- 10-30 days for users.  User account API keys should be used temporarily when writing an API script or testing an integration.  
 
 ## User Roles
 
@@ -66,7 +66,7 @@ Octopus Deploy includes four built-in teams:
 - Octopus Managers
 - Space Managers
 
-By default, no one has any permissions outside of members of Octopus Administrators, Octopus Managers, and Space Managers.  Every user is automatically a member of the everyone team.  Only assign roles to everyone team if you are sure you want every user to have that permission.
+By default, no one has any permissions outside of members of Octopus Administrators, Octopus Managers, and Space Managers.  Every user is automatically a member of the everyone team.  Only assign roles to the `Everyone` team if you are sure you want every user to have that permission.
 
 Teams can either by a system team, meaning it can be used across all spaces, or a space team, meaning a specific space can only access it.  We recommend creating space-specific teams whenever possible.  That will allow you to manage the membership and permissions on a smaller scale.  
 
@@ -80,10 +80,10 @@ Here are some of the more common scenarios we get asked about, along with the as
     - Add `Environment Viewer` role to the Developers team, no scoping on environments or projects.
     - Add `Deployment Creator` role to the Developers team, scope to **development** and **test** environments.
 - QA has permissions to deploy to **test** and **staging**, cannot modify anything in the project.
-    - Add `Deployment Creator` role to the QA team, scope to **test** and **staging**.
+    - Add `Deployment Creator` role to the QA team, scope to **test**, and **staging**.
     - Add `Project Viewer` role to the QA team, no scoping on environment or projects.
 - Operations has permissions to deploy to **staging** and **production**, cannot modify the deployment process.  They can add accounts, workers, and deployment targets.
-    - Add `Deployment Creator` role to the Operations team, scope to **test** and **staging**.
+    - Add `Deployment Creator` role to the Operations team, scope to **test**, and **staging**.
     - Add `Project Viewer` role to the Operations team, no scoping on environment or projects.
     - Add `Environment Manager` role to the Operations team, no scoping on environment or projects.
 - Project Owners can only approve deployments; they cannot modify or deploy them.

@@ -22,7 +22,7 @@ The top of the task log allows you to change the information shown.
 - Clicking on the **RAW** button will show you all the messages without any formatting.
 - Clicking on the **Download** button will download the entire log.
 
-The task log represents the deployment or runbook run details but is typically useful when debugging.  The majority of the time, you'll spend in the Task Summary.  The Task Summary will provide an overview of the deployment or runbook run.
+The task log represents the deployment or runbook run details but is typically useful when debugging. The majority of the time will be spent in the Task Summary as it provides an overview of the deployment or runbook run.
 
 ![task summary after a deployment](images/task-summary.png)
 
@@ -55,7 +55,7 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Error: Messages are highlighted in red in the task log and task summary.  This message type is for what it says on the tin, error messages.
 - Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about. 
 
-Putting information for required for approvals in a log file can make it difficult to find.  Consider artifacts as an alternative.
+Putting information required for approvals in a log file can make it difficult to find.  Consider artifacts as an alternative.
 
 ## Step naming and descriptions
 
@@ -80,12 +80,12 @@ With the [Run Octopus Deploy Runbook step template](https://library.octopus.com/
 
 ## Consistent Processes for all environments
 
-The deployment and runbook processes should be the same for all environments, except for a step or two enabled or disabled.  In other words, if you are deploying to a Kubernetes cluster in **production**, you should deploy to a Kubernetes cluster in your testing environments.  Don't deploy to VMs in your testing environments and then to something else in your **production** environments.  Having different destination architectures means there is no guarantee of knowing if the process will work until you **production**.
+The deployment and runbook processes should be the same for all environments, except for a step or two enabled or disabled.  In other words, if you are deploying to a Kubernetes cluster in **production**, you should deploy to a Kubernetes cluster in your testing environments.  Don't deploy to VMs in your testing environments and then to something else in your **production** environments.  Having different destination architectures means there is no guarantee of knowing if the process will work until you deploy to **production**.
 
 ## Use Output Variables to control flow
 
 When defining your runbook or deployment process, you can configure a run condition based on a variable.  Generally, that feature is used to skip over a specific step when a particular condition occurs.  For example, skip over a testing step if only .css or image files were deployed.
 
-Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variables](/docs/projects/variables/output-variables.md).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it.  
+Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables.md).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it.  
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/users-roles-and-teams">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/notifications">Next</a></span>

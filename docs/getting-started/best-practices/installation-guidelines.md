@@ -11,7 +11,7 @@ This page will provide guidelines and recommendations for installing Octopus Dep
 
 The size of your Octopus Deploy instance will be dependent on concurrent tasks (deployments, runbook runs, etc.) and users.  A team of 10 people doing five deployments a day will not need the same resources as a division of 500 users doing 600 deployments a day.  
 
-This document will refer to tasks, a task can be:
+This document will refer to tasks; a task can be:
 - Deployments
 - Runbook run
 - Retention Policies
@@ -31,11 +31,11 @@ Octopus Deploy installation requirements are:
 - Windows Server 2012 R2 or later when hosting on Windows Server
 - Linux is supported when using the [Octopus Deploy Docker Docker image](https://octopus.com/blog/introducing-linux-docker-image)
 
-[High avalability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
+[High availability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
 
 ![](/docs/administration/high-availability/images/high-availability.svg)
 
-How high availability works in Octopus Deploy is all tasks are dropped into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
+High availability works in Octopus Deploy by dropping tasks into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
 
 Here are some items to consider when installing Octopus Deploy:
 - Cloud providers (GCP, AWS, Azure) will charge roughly the same for 2 VMs with 2 cores / 4 GB of RAM or 1 VM with 4 cores / 8 GB of RAM.  The difference in cost is typically less than $10 USD per month.
@@ -47,36 +47,36 @@ Here are some items to consider when installing Octopus Deploy:
 
 ## Calculating Concurrent Tasks
 
-Except in extreme cases, you will be processing between 5-10 concurrent tasks for quite some time.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  When you see more and more tasks being queued, then time to add capacity.  
+Except in extreme cases, you will be processing between 5-10 concurrent tasks for quite some time.  There might be one or two times when you go over that limit, but those tasks will queue for a few minutes before being processed.  When you see more and more tasks being queued, then it's time to add capacity.  
 
 Some reference points to consider:
-- One customer has ~10,000 deployment targets, 120 projects, and do about 400-500 deployments a day.  Their instance is configured to handle 160 concurrent tasks with a burst on Sundays to 320 tasks.
-- Another customer has ~1400 deployment targets, 800 projects, and do about 600-700 deployments a day.  Their instance is configured to handle 100 concurrent tasks.
+- One customer has ~10,000 deployment targets, 120 projects and performs 400-500 deployments a day.  Their instance is configured to handle 160 concurrent tasks with a burst on Sundays to 320 tasks.
+- Another customer has ~1400 deployment targets, 800 projects and performs 600-700 deployments a day.  Their instance is configured to handle 100 concurrent tasks.
 
 ## Windows Server recommended over Octopus Linux Docker image
 
 Our recommendation is to use Windows Server over the Octopus Linux Docker image unless you are okay with **all** these conditions:
 - You have no plans to use Active Directory authentication and will use Okta, Azure AD, Google Auth, or the built-in username and password.  The current version of the Octopus Linux Docker image doesn't support Active Directory.
 - You are okay running at least one [worker](/docs/infrastructure/workers/index.md) to handle tasks typically done by the Octopus Server.  The Octopus Linux Docker image doesn't include PowerShell Core or Python.
-- You are familiar with Docker concepts, specifically around debugging containers, volume mounting and networking.
+- You are familiar with Docker concepts, specifically around debugging containers, volume mounting, and networking.
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.  
 
 :::hint
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc), you cannot run both Windows and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
+Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
 :::
 
-We are confident in the Octopus Linux Docker image's reliability and performance, after all, Octopus Cloud runs on the Octopus Linux containers in AKS clusters in Azure.  But to use the Octopus Linux Docker image in Octopus Cloud we made some design decisions and create custom workflows due to the above limitations.  We do not offer Active Directory authentication and requiring Octopus ID instead.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md).  Finally, we have a process which injects custom logging file to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
+We are confident in the Octopus Linux Docker image's reliability and performance. After all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Linux Docker image in Octopus Cloud, we made some design decisions and create custom workflows due to the above limitations.  We do not offer Active Directory authentication and requiring Octopus ID instead.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md).  Finally, we have a process that injects a custom logging configuration to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
 :::hint
-Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10 concurrent tasks.  Anything more and we have to either increase the Docker image resources or database resources.
+Below is the default configuration for Octopus Cloud.  We've found this provides the resources necessary for 10 concurrent tasks.  Anything more, and we have to either increase the container or database resources.
 
 - Docker images hosted on AKS clusters with the CPU set to 400m and a limit of 4000m, memory set to 400Mi with the limit set of 4Gi.  
 - Azure SQL database with 50 DTUs.
 - Azure File Storage hosting all the BLOB data.
 :::
 
-We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux Docker image.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at advice@octopus.com.
+We are currently working with our existing customers on what best practices look like to self-host the Octopus Linux Docker image.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at [advice@octopus.com](mailto:advice@octopus.com).
 
 ## Small-Medium Scale Configuration
 
@@ -107,7 +107,7 @@ Octopus Deploy is a Windows service that will run as `Local System` by default. 
 
 For the database, we will typically see customers who already have a very powerful production SQL Server 2016+ Server, Azure SQL Database, or AWS RDS SQL Server monitored by DBAs already running.  If that server has plenty of capacity, then we recommend re-using that.
 
-But, if you need to stand up a new server, that is more than okay, the recommendations are
+But, if you need to stand up a new server, that is more than okay. Our recommendations are
 - Small teams/companies or customers doing a POC with 5-10 concurrent tasks: SQL Server Express or Standard with 2 Cores / 4 GB of RAM
 - Small-Medium companies or customers doing a pilot with 5-20 concurrent tasks: SQL Server Standard or Enterprise with 2 Cores / 8 GB of RAM or Azure SQL with 50-100 DTUs
 - Medium to Large companies doing 20+ concurrent tasks: SQL Server Standard or Enterprise with at least 4 cores / 16 GB of RAM or Azure SQL with 200+ DTUs.
@@ -115,7 +115,7 @@ But, if you need to stand up a new server, that is more than okay, the recommend
 If you are going to run SQL Server Standard or Enterprise, configure either a [failover cluster instance](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-ver15) or an [availability group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) to ensure database resiliency.
 
 :::hint
-Keep an eye on your database resources as you increase the number of concurrent tasks and users.  Routine SQL Server maintenance should be performed periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.
+Keep an eye on your database resources as you increase the number of concurrent tasks and users.  You should perform routine SQL Server maintenance periodically to maintain performance, including rebuilding indexes, regenerating stats, and regular backups.
 :::
 
 To ensure high performance, the SQL Server and the servers hosting Octopus Deploy must be in the same data center or region to keep latency to a minimum.
@@ -124,7 +124,7 @@ To ensure high performance, the SQL Server and the servers hosting Octopus Deplo
 
 By default, the number of concurrent tasks for each Octopus Deploy node is 5.  Increase that to 10 using this [guide](/docs/support/increase-the-octopus-server-task-cap.md).  We don't recommend going beyond 20-30, even if the node has the necessary compute resources.  
 
-As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  If the task cap is set to 20, but the typical number of pending tasks is 10, you will find one node is doing the majority of the work.  Setting the task cap to a lower number and with more nodes will spread the work evenly, resulting in higher performance.
+As stated earlier, each node will pick up tasks until it reaches its task cap or it runs out of pending tasks to pick up.  If the task cap is set to 20, but the typical number of pending tasks is 10, you will find one node is doing most of the work.  Setting the task cap to a lower number and with more nodes will spread the work evenly, resulting in higher performance.
 
 :::hint
 Setting the task cap to 0 will mean that node picks up no tasks.  It will only host web requests for the Octopus Deploy UI.
@@ -143,7 +143,7 @@ The recommendations for load balancers are:
 :::hint
 Octopus Deploy will return the name of the node in the `Octopus-Node` response header.
 
-We have noticed certain user actions, such as creating a new space or updating permissions, won't update the cache on all nodes and you'll get odd permissions errors.  Typically the cache is updated after a few minutes and those errors go away.  If that happens to you look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
+We have noticed specific user actions, such as creating a new space or updating permissions, won't update the cache on all nodes, and you'll get odd permissions errors.  Typically the cache is updated after a few minutes, and those errors go away.  If that happens to you, look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
 :::
 
 If you plan on having external [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
@@ -159,11 +159,11 @@ The kind of file storage will depend on where you are hosting Octopus Deploy.
 
 ### Monitoring
 
-You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  Any monitoring tool that allows you to make http calls to test health will work.  Internally we use the tool [Better Uptime](https://betteruptime.com) to track Octopus Deploy status and alert us when it is down.  
+You can use the same `/api/octopusservernodes/ping` to monitor service uptime.  Any monitoring tool that allows you to make HTTP calls to test health will work.  Internally we use the tool [Better Uptime](https://betteruptime.com) to track Octopus Deploy status and alert us when it is down.  
 
 ## Large-Scale Configuration
 
-The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps during an initial pilot of 4-7 teams.  The recommendation below is for a large Octopus Deploy configuration designed to handle close to a 1000 deployment a day.  If you follow the recommendations of the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server will be in place.
+The above recommendation is designed for people working in small to medium-sized companies or people working in large companies getting started with Octopus, perhaps during an initial pilot of 4-7 teams.  The recommendation below is for a large Octopus Deploy configuration designed to handle close to 1000 deployments a day.  If you follow the advice in the small-medium scale configuration section, it will be easy to scale up to this as all the necessary infrastructure; load balancer, file storage, and SQL Server, will be in place.
 
 :::hint
 We don't recommend starting with this unless you plan to onboard dozens of teams quickly or you have a lengthy approval process.  
@@ -181,14 +181,14 @@ We don't recommend starting with this unless you plan to onboard dozens of teams
 The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments and runbook runs.  The more data, the more Octopus UI and database have to process.  Experiment with increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns, please [contact support](https://octopus.com/support).
 :::
 
-This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will allow users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.  If you need to process more than 120 concurrent tasks then add more database resources and task-only nodes.
+This configuration will provide 80 concurrent deployments, with the capacity to quickly increase to 120.  We recommend keeping the task cap at 20 to allow Octopus to split the load across all the nodes more evenly.  The two UI-only nodes will enable users to interact with Octopus Deploy without consuming compute resources needed to orchestrate deployments.  If you need to process more than 120 concurrent tasks, then add more database resources and task-only nodes.
 
 ## Managing Nodes
 
-High availability allows you to add multiple nodes to your Octopus Deploy instance.  That in turn opens up additional questions about how to manage those nodes.
+High availability allows you to add multiple nodes to your Octopus Deploy instance.  That, in turn, opens up additional questions about how to manage those nodes.
 
 :::hint
-Each node should update the nodes table in the database once a minute.  This tells the other nodes it is still alive and can continue to process tasks.
+Each node should update the `OctopusServerNodes` table in the database once a minute.  This tells the other nodes it is still alive and can continue to process tasks.
 :::
 
 ### Adding High Availability Nodes
@@ -226,18 +226,18 @@ Any task associated with the node will fail if you don't wait for the node to fi
 
 ### Auto Scaling High Availability Nodes
 
-It is possible to use auto-scaling technology to add/remove high availability nodes.  Adding a node is a lot easier than removing a node; assuming all the file shares are mounted and the node can see the database, the node will come online and pick up work.
+It is possible to use auto-scaling technology to add/remove high availability nodes.  Adding a node is a lot easier than removing a node; assuming all the file shares are mounted, and the node can see the database, the node will come online and pick up work.
 
 Removing the node will require a bit more planning.  When the node is deleted by the auto-scaling technology, any tasks in process will fail.  If you are in AWS or Azure, you can use a Lambda or Azure Function to:
 
 1. Call the Octopus API to drain the node and cancel any tasks.  You'll want to cancel the tasks as you'll have a short timeframe to wait.
 2. Use the Octopus API to find any active tasks running on that node and cancel them.
 3. Use the Octopus API to remove the node.
-4. Resubmit any canceled deployments, and runbook runs so a different node can pick them up.
+4. Resubmit any canceled deployments and runbook runs so a different node can pick them up.
 
 ### Restarting The Server Host
 
-If you are hosting Octopus Deploy on a Windows server you will need to install regular Windows patches.  To do that, follow these steps:
+If you are hosting Octopus Deploy on a Windows server, you will need to install regular Windows patches.  To do that, follow these steps:
 
 1. Configure the node to [drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md#drain).  This will finish all tasks and prevent any new ones from being picked up.
 2. Wait until any executing tasks on that node are complete.

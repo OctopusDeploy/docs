@@ -5,13 +5,13 @@ position: 100
 hideInThisSection: true
 ---
 
-Octopus Deploy provides multiple mechanisms for notifying you and your users specific actions within Octopus Deploy.  These include:
+Octopus Deploy provides multiple mechanisms for notifying you and your users of specific actions within Octopus Deploy.  These include:
 
 - [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
 - [Email notification step](/docs/projects/built-in-step-templates/email-notifications.md) to send out an email during a deployment or runbook run.
 - [Slack notification step template](https://library.octopus.com/step-templates/99e6f203-3061-4018-9e34-4a3a9c3c3179/actiontemplate-slack-send-simple-notification) to send out Slack messages during a deployment or runbook run.
 - [Microsoft Teams notification step template](https://library.octopus.com/step-templates/110a8b1e-4da4-498a-9209-ef8929c31168/actiontemplate-microsoft-teams-post-a-message) to send out messages to Microsoft Teams during a deployment or runbook run.
-- [Twilio - send SMS step template](https://library.octopus.com/step-templates/3c3904a9-d08c-4f18-b86c-0304800bb541/actiontemplate-twilio-send-sms-(powershell)) to send out a SMS message during a deployment or runbook run.
+- [Twilio - send SMS step template](https://library.octopus.com/step-templates/3c3904a9-d08c-4f18-b86c-0304800bb541/actiontemplate-twilio-send-sms-(powershell)) to send out an SMS message during a deployment or runbook run.
 
 ## Subscriptions
 
@@ -38,7 +38,7 @@ When creating subscriptions, these are our recommendations:
 - If you want to create a filter to monitor for changes to the runbook process, deployment process, variables, or library variables, the event category will be `Document Modified.`
 - Don't mix and match disparate event categories.  For example, don't have a subscription, look for `API Key Expired` and `Build Information Created` events.  That is very hard to maintain and is confusing.
 - The majority of events don't include information about projects or environments.  Combining project or environment filters to event categories such as `Login Banned` will result in the subscription not firing.
-- Octopus Deploy sends a specific [JSON payload](/docs/administration/managing-infrastructure/subscriptions/index.md#Subscriptions-WebhookNotifications) to via webhook to your service.  Generally, this won't be enough information; you will need to use the payload sent to make API calls to gather more details.
+- Octopus Deploy sends a specific [JSON payload](/docs/administration/managing-infrastructure/subscriptions/index.md#Subscriptions-WebhookNotifications) via webhook to your service.  Generally, this won't be enough information; you will need to use the payload sent to make API calls to gather more details.
 - You cannot customize the email messages sent out.  If you are looking for a custom email message sent during a deployment or runbook run, we recommend using the email notification step.
 
 ## Notifications during runbook runs or deployments
