@@ -5,6 +5,9 @@ description:  Outputs the Tentacle configuration
 
 Use the show configuration command to output the Tentacle configuration. The configuration is output as JSON. If you pass credentials to the relevant Octopus Server, it will return server side configuration (roles, environments, machine policy and display name) as well.
 
+For Tentacles, the server-side configuration includes roles, environments, machine policy, and display name.
+For Workers, the server-side configuration includes the associated worker pools, machine policy, and display name.
+
 **Show configuration options**
 
 ```text
@@ -35,13 +38,13 @@ Or one of the common options:
 
 ## Basic examples
 
-This example displays the configuration of the Tentacle on the machine in JSON format:
+This example displays the configuration of the Tentacle (or Worker) on the machine in JSON format:
 
 ```text
 tentacle show-configuration
 ```
 
-This example displays the configuration of the Tentacle on the machine, as well as the configuration from the Octopus Server in JSON format:
+This example displays the configuration of the Tentacle (or Worker) on the machine, as well as the configuration from the Octopus Server in JSON format:
 
 ```text
 tentacle show-configuration --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
