@@ -40,4 +40,4 @@ For further reading on approvals in Octopus Deploy please see:
 - [Deployment Documentation](/docs/deployments/index.md)
 - [Patterns and Practices](/docs/deployments/patterns/index.md)
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/define-and-use-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/define-and-use-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/add-deployment-targets">Next</a></span>

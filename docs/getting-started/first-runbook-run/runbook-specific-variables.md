@@ -58,4 +58,4 @@ For further reading on Runbook variables please see:
 - [Runbook Documentation](/docs/runbooks/index.md)
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/running-a-runbook">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/running-a-runbook">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Next</a></span>

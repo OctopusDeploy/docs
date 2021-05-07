@@ -17,4 +17,4 @@ For further reading on projects in Octopus Deploy please see:
 - [Deployment Documentation](/docs/deployments/index.md)
 - [Patterns and Practices](/docs/deployments/patterns/index.md)
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-deployment/configure-environments">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-the-deployment-process">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/configure-environments">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/define-the-deployment-process">Next</a></span>

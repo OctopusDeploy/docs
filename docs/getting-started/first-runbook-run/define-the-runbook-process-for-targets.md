@@ -55,4 +55,4 @@ For further reading on runbook processes and what is possible please see:
 - [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
 - [Runbook Documentation](/docs/runbooks/index.md)
 
-<span><a class="btn btn-outline-dark" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/publishing-a-runbook">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/add-runbook-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/publishing-a-runbook">Next</a></span>
