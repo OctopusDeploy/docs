@@ -17,7 +17,7 @@ This page describes how to create a tenant in Octopus.
 And that's it, you've created your first tenant! You may have noticed you cannot do much with that tenant on it's own.
 
 The next steps are:
-- Enable [tenanted deployments](/docs/tenants/enabling-tenanted-deployments.md) in a project.
+- Enable [tenanted deployments](/docs/tenants/enable-tenanted-deployments.md) in a project.
 - Connect [a tenant to a project](/docs/tenants/connecting-projects.md).
 
 ## Add your logo {#add-logo}
