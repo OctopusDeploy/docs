@@ -4,21 +4,31 @@ description: How to create a tenant in Octopus Deploy.
 position: 10
 ---
 
-This page describes how to create a tenant in Octopus.
+This page describes how to create a tenant in Octopus for use in a multi-tenanted deployment.
 
-1. Go to **Tenants** and click the **Add tenant** button:
+## Create a tenant using the Web Portal {#create-tenant-web-portal}
+
+1. In the Octopus Web Portal, navigate to **Tenants** and click the **ADD TENANT** button:
 
    ![](images/add-new-tenant.png "width=500")
 
-2. Enter the name you want to use for the tenant and click the **Save** button:
+2. Enter the name you want to use for the tenant and click the **SAVE** button:
 
     ![](images/creating-new-tenant.png "width=500")
 
-And that's it, you've created your first tenant! You may have noticed you cannot do much with that tenant on it's own.
+And that's it, you've created your first tenant! 
 
-The next steps are:
+You may have noticed you cannot do much with that tenant on it's own.
+
+To be able to deploy to this tenant, you need to:
 - Enable [tenanted deployments](/docs/tenants/enable-tenanted-deployments.md) in a project.
-- Connect [a tenant to a project](/docs/tenants/connecting-projects.md).
+- Connect [the tenant to a project](/docs/tenants/connecting-projects.md).
+
+## Create a tenant using the REST API
+
+Since Octopus is built API-first, that means anything you can do in the Web Portal can be done using the [Octopus REST API](/docs/octopus-rest-api/index.md). This includes creating a tenant. 
+
+We have a wide range of [API examples](/docs/octopus-rest-api/examples/index.md). To learn how to create a tenant using the REST API, see our [Create a Tenant](/docs/octopus-rest-api/examples/tenants/create-tenant.md) example.
 
 ## Add your logo {#add-logo}
 

@@ -2,12 +2,10 @@
 title: Tenants
 description: Tenants allow you to deploy multiple instances of your project to an environment.
 position: 60
-hideInThisSectionHeader: true
+hideInThisSection: true
 ---
 
 This section describes the multi-tenancy feature of Octopus Deploy.
-
-## Multi-tenancy in Octopus {#tenants-multi-tenancyinoctopus}
 
 Tenants in Octopus Deploy allow you to easily manage separate instances of your application in an environment. Without tenants, you can only deploy a single instance of your application to an environment.
 
@@ -25,7 +23,7 @@ Tenants enable:
 8. Managing large groups of tenants using tenant tags.
 9. Building simple multi-tenant deployment processes that can scale as you add more tenants.
 
-### Types of tenants {#types-of-tenants}
+## Types of tenants {#types-of-tenants}
 
 We designed tenants to be generic so that they can satisfy multiple use cases.
 
@@ -37,7 +35,7 @@ Tenants can also represent:
 - Feature branches
 - Geographical regions or datacenters
 
-### When to use tenants {#when-to-use-tenants}
+## When to use tenants {#when-to-use-tenants}
 
 :::success
 You don't need tenants to implement a multi-tenant SaaS application. You can architect your application so that one instance can serve multiple customers. We built multi-tenancy for situations where you want to deploy your application more than once in an environment.
@@ -70,3 +68,12 @@ You can enable tenanted deployments for a project by navigating to the project's
 ## Tenant tags {#tenant-tags}
 
 //TODO: Summary
+
+## Troubleshooting multi-tenant deployments
+
+If you're running into any issues with tenants, then this section has some useful answers to some of the questions we are often asked relating to multi-tenant deployments in Octopus Deploy:
+
+- [Multi-tenant deployments FAQ](/docs/tenants/tenant-deployment-faq.md)
+- [Troubleshooting multi-tenant deployments](/docs/tenants/troubleshooting-multi-tenant-deployments.md)
+
+If you still need assistance, don't worry - [we are always here to help!](https://octopus.com/support)

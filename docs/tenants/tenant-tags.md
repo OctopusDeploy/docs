@@ -1,5 +1,5 @@
 ---
-title: Tenant Tags
+title: Tenant tags
 description: Tenant Tags help you to classify your tenants with custom tags so you can tailor your tenanted deployments accordingly.
 position: 50
 ---
