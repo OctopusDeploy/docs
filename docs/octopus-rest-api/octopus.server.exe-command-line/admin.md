@@ -46,3 +46,10 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
+## Basic example
+
+This example will add or update the administrator account with the username of `OctoAdmin`:
+
+```text
+octopus.server admin --username="OctoAdmin" --password="My$uper$cr3tP@ssword!" --email="admin@octopus.com"
+```
