@@ -44,7 +44,7 @@ Windows Server can be installed on a bare-metal machine or on a VM hosted by any
     - GCP
     - Oracle
 - Type-2 Hypervisors
-    - [VMWare Workstration](https://www.vmware.com/products/workstation-pro.html)
+    - [VMWare Workstation](https://www.vmware.com/products/workstation-pro.html)
     - [VMWare Fusion](https://www.vmware.com/products/fusion.html)
     - [VirtualBox](https://www.virtualbox.org/)
     - [Hyper-V on Windows 10](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/)
