@@ -28,6 +28,36 @@ Octopus Server will run on client/desktop versions of Windows, such as Windows 7
 
 !include <sql>
 
+### Hypervisors
+
+Windows Server can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor or virtual private server (cloud) technology.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.  
+
+:::hint
+Octopus Deploy works the exact same on both bare-metal machines or VMs.  All it sees is it is running on Windows Server.  Of our customers who self-host Octopus Deploy, the vast majority of them use VMs.
+:::
+
+The list of hypervisors and virtual private servers include (but not limited to):
+
+- Type-1 Hypervisors
+    - [VMWare ESXi](https://www.vmware.com/products/esxi-and-esx.html)
+    - [KVM](http://www.linux-kvm.org/page/Main_Page)
+    - [XEN](https://xenproject.org/)
+    - [Hyper-V on Windows Server](https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
+    - [RHEV](https://www.redhat.com/en/technologies/virtualization/enterprise-virtualization)
+- Virtual Private Server (cloud)
+    - AWS
+    - Azure
+    - GCP
+    - Oracle
+- Type-2 Hypervisors
+    - [VMWare Workstation](https://www.vmware.com/products/workstation-pro.html)
+    - [VMWare Fusion](https://www.vmware.com/products/fusion.html)
+    - [VirtualBox](https://www.virtualbox.org/)
+    - [Hyper-V on Windows 10](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/)
+    - [Parallels](https://www.parallels.com/)
+
+Most, if not all, of those tools include documentation or pre-built images for Windows Server 2012 R2, 2016 and 2019.  Please refer to their documentation on how to install and configure a Windows Server VM.  
+
 ## .NET Framework
 
 We try to keep the .NET Framework requirements for Octopus Server as stable as possible:
