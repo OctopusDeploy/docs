@@ -46,9 +46,9 @@ Or one of the common options:
 ```
 
 ## Basic example
-This example will add/udate the administrator account with the username of OctoAdmin
+
+This example will add or update the administrator account with the username of `OctoAdmin`:
 
 ```text
 octopus.server admin --username="OctoAdmin" --password="My$uper$cr3tP@ssword!" --email="admin@octopus.com"
 ```
-
