@@ -1,6 +1,6 @@
 ---
 title: Support
-description: Information explaining how to perform requested by Octopus support.
+description: Information explaining how to perform requested tasks by Octopus support.
 position: 100
 ---
 
