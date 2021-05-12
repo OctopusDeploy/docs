@@ -1,7 +1,7 @@
 ---
 title: Tenant variables
 description: Octopus includes additional variable support for Tenants. Project level variables (templates) can be changed per tenant, and Library variable set can be re-used across multiple Tenants.
-position: 50
+position: 10
 ---
 
 ## Project templates {#project-templates}

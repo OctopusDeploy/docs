@@ -1002,3 +1002,7 @@ docs/support/record-a-memory-trace.md -> docs/administration/managing-infrastruc
 docs/administration/providing-database-performance-metrics.md -> docs/administration/managing-infrastructure/performance/providing-database-performance-metrics.md
 docs/support/record-a-performance-trace.md -> docs/administration/managing-infrastructure/performance/record-a-performance-trace.md
 docs/support/providing-database-performance-metrics.md -> docs/administration/managing-infrastructure/performance/providing-database-performance-metrics.md
+docs/tenants/create-a-tenant.md -> docs/tenants/index.md
+docs/tenants/enable-tenanted-deployments.md -> docs/tenants/index.md
+docs/tenants/connecting-projects.md -> docs/tenants/index.md
+docs/tenants/connecting-targets.md -> docs/tenants/index.md

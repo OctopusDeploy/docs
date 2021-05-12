@@ -48,15 +48,39 @@ Here are some signs that you should consider using tenants:
 
 Check out our [multi-tenancy guides](/docs/tenants/guides/index.md) that go into more detail on how to use multi-tenancy in Octopus for some common scenarios.
 
-## Creating tenants {#creating-tenants}
+## Add a tenant {#add-tenants}
+
+1. Select **Tenants** from the main navigation, and click **ADD TENANT**.
+
+   ![](images/add-new-tenant.png "width=500")
+
+2. Enter the name you want to use for the tenant and click the **SAVE** button:
+
+    ![](images/creating-new-tenant.png "width=500")
+
+Now that you've created a tenant, you can [enable tenanted deployments](#enable-tenanted-deployments) and then [connect the tenant to a project](#connect-tenant-to-project).
+
+:::hint
+It's also possible to create a tenant using the [Octopus REST API](/docs/octopus-rest-api/index.md). To learn more, see our [Create a Tenant](/docs/octopus-rest-api/examples/tenants/create-tenant.md) example.
+:::
+
+## Tenant logo {#tenant-logo}
+
+Try adding a logo for your tenant - this will make it much easier to distinguish your tenants. You can do this within the Octopus Tenant section by clicking on the tenant's logo placeholder or going to the Settings tab on the tenant.
+
+Your tenants will likely be other businesses, and you could use their logo to help quickly identify the correct tenant.
+
+You could consider using logos based on:
+
+- Customer logos
+- Data center region(s) or flags
+- Individual tester(s) photo/avatar
+
+## Enable tenanted deployments {#enable-tenanted-deployments}
 
 //TODO: Summary
 
-## Enabling tenanted deployments {#enabling-tenanted-deployments}
-
-//TODO: Summary
-
-## Connecting a tenant to a project {#connecting-tenants-to-project}
+## Connect a tenant to a project {#connect-tenant-to-project}
 
 //TODO: Summary
 You can enable tenanted deployments for a project by navigating to the project's settings
