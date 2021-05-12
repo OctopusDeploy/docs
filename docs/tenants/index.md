@@ -78,20 +78,56 @@ You could consider using logos based on:
 
 ## Enable tenanted deployments {#enable-tenanted-deployments}
 
-//TODO: Summary
+Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
+
+You can change the setting for tenanted deployments for a project by navigating to the project's settings and changing the selected option under **Multi-tenant Deployments**:
+
+![](images/multi-tenant-project-settings.png "width=500")
+
+It's also possible to enable tenanted deployments when [connecting a tenant to a project](#connect-tenant-to-project) from the tenant screen:
+
+![](images/multi-tenant-project.png "width=500")
 
 ## Connect a tenant to a project {#connect-tenant-to-project}
 
-//TODO: Summary
-You can enable tenanted deployments for a project by navigating to the project's settings
+By connecting tenants to projects, you can control which projects will be deployed into which environments for each tenant.
+
+1. Navigate to your tenant.
+2. Click on the **CONNECT PROJECT** button.
+
+   ![](images/multi-tenant-connect-project.png "width=500")
+
+3. Select the project you want to connect to the tenant. If a warning is shown, click the **ENABLE TENANTED DEPLOYMENTS** button, which will enable the multi-tenant deployment features for the project. This will configure the project to allow deployments *with* or *without* a tenant.
+
+   ![](images/multi-tenant-project.png "width=500")
+
+4. Now select the environments to allow tenanted deployments to, and click the **ADD CONNECTION** button.
+
+   ![](images/multi-tenant-connect-environments.png "width=500")
+
+You can connect each tenant to any number of projects and for each project, any combination of environments that can be targeted by each project. This gives you the most flexibility when designing your multi-tenant deployments.
+
+- You can offer specific projects to some tenants and not to others.
+- You can also provide most of your tenants with a single environment while offering specific customers extra environments. For example, you could give particular customers with a test/staging/acceptance environment where they can test new releases before upgrading their production environment.
+
+:::info
+Not seeing the environment you want? Make sure at least one lifecycle used by your project includes that environment.
+:::
 
 ## Tenant variables {#tenant-variables}
 
-//TODO: Summary
+You often want to define variable values that are different for each tenant, like database connection settings or a tenant-specific URL. If you were using an untenanted project, you would have previously defined these values in the project itself. But with a tenanted project, you can set these values directly on the tenant for any connected projects.
+
+:::hint
+**Tenant-provided variables are not snapshotted**
+When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+:::
+
+Learn more about [tenant variables](/docs/tenants/tenant-variables.md) in our reference documentation.
 
 ## Tenant tags {#tenant-tags}
 
-//TODO: Summary
+Tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Learn more about [tenant tags](/docs/tenants/tenant-tags.md) in our reference documentation.
 
 ## Troubleshooting multi-tenant deployments
 
