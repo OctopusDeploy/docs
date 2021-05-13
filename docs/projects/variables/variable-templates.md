@@ -4,19 +4,20 @@ description: Variable templates can be defined in Octopus to indicate which vari
 position: 100
 ---
 
-Working with [tenants](/docs/tenants/index.md) in Octopus allows you to deploy releases to multiple customers. As you work with multi-tenant releases there are two different types of [variables](/docs/projects/variables/index.md) supported:
-- [Common variables](#adding-a-variable-template) are variable values that are common across all tenants but need a unique value per tenant. For example, website names, titles, headers, images, logo, URLs, contact information. These values don't change across projects and environments for a tenant.
-- [Project variables](#project-variable-templates) are variable values that differ between projects and environments for a tenant. For example, server names or database connection settings. 
-
-The Variable template feature lets you specify which variables are required to successfully deploy a project to a tenant, and to provide those variables per tenant. 
+Variable templates let you specify which [variables](/docs/projects/variables/index.md) are required to successfully deploy a project to a [tenant](/docs/tenants/index.md), and to provide those variables per tenant. 
 
 Each variable template can define the data type, name, label, help text, and default value.
+
+There are two types of variable templates:
+
+- [Library variable set templates](#adding-a-variable-template) are variable values that are common across all tenants but need a unique value per tenant. For example, website names, titles, headers, images, logo, URLs, contact information. These values don't change across projects and environments for a tenant.
+- [Project templates](#project-templates) are variable values that differ between projects and environments for a tenant. For example, server names or database connection settings. 
 
 :::hint
 For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
 :::
 
-## Library set variable template {#adding-a-variable-template}
+## Library variable set templates {#adding-a-variable-template}
 
 To specify common variables that can be used across multiple tenants, you need to add a Variable template to either an existing or new Library variable set:
 
@@ -38,9 +39,9 @@ To specify common variables that can be used across multiple tenants, you need t
 In order to provide a variable value for a tenant defined by a variable template, include the Library variable set in the tenant's connected project.
 :::
 
-## Project variable templates {#project-variable-templates}
+## Project templates {#project-templates}
 
-Project template variables allow you to specify a variable which a tenant can change. A perfect example would be a connection string or a database server. With project templates, you define them at the project level.
+Project templates allow you to specify variables that can have different values per tenant/environment combination. A perfect example would be a connection string or a database server. With project templates, you define them at the project level.
 
 To add a project template:
 
