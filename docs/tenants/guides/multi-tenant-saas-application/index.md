@@ -1,7 +1,7 @@
 ---
 title: Multi-Tenant sass applications
 description: Guides showing you how to use tenants to deploy a multi-tenant application.
-position: 30
+position: 10
 hideInThisSectionHeader: true
 ---
 
