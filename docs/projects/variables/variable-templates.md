@@ -35,8 +35,17 @@ To specify common variables that can be used across multiple tenants, you need t
 | **Control type** | You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. | Single-line text box, Multi-line text box, Drop down, Checkbox, Sensitive/password box, Azure Account |
 | **Options** | (Only applies when Data type: Drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use `|` to separate values and display text. | `Value1|Display text 1` <br>`Value2|Display text 2`  |
 
+![](images/variable-templates-libraryset.png "width=500")
+
+To set common variable values for a tenant:
+
+1. Navigate to the **{{Variables,Project Variables}}** tab in the tenant screen:
+1. Expand each connected environment and provide values for each project template:
+
+    ![](images/variable-templates-common-value.png "width=500")
+
 :::hint
-In order to provide a variable value for a tenant defined by a variable template, include the Library variable set in the tenant's connected project.
+If you can't see any variables in the Common Variables tab, ensure you have included the Library variable set in the connected project.
 :::
 
 ## Project templates {#project-templates}
@@ -49,14 +58,14 @@ To add a project template:
 1. Click **ADD TEMPLATE**.
 1. Add the details to your template and click **ADD**:
 
-    ![](images/project-template-variable.png "width=500")
+    ![](images/variable-templates-project-template.png "width=500")
 
 Then to set the variable values for a tenant:
 
 1. Navigate to the **{{Variables,Project Variables}}** tab in the tenant screen:
-1. Expand each conected environment and provide values for each project template:
+1. Expand each connected environment and provide values for each project template:
 
-    ![](images/specify-project-template-tenant-value.png "width=500")
+    ![](images/variable-templates-project-value.png "width=500")
     
 ## Which variable templates apply to a tenant {#which-variable-templates-apply-tenants}
 
