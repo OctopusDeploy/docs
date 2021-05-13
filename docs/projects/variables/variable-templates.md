@@ -39,7 +39,7 @@ To specify common variables that can be used across multiple tenants, you need t
 
 To set common variable values for a tenant:
 
-1. Navigate to the **{{Variables,Project Variables}}** tab in the tenant screen:
+1. Navigate to the **{{Variables,Common Variables}}** tab in the tenant screen:
 1. Expand each connected environment and provide values for each project template:
 
     ![](images/variable-templates-common-value.png "width=500")
