@@ -9,4 +9,6 @@ The Terraform steps in Octopus expose a **Terraform plugin cache directory** fie
 
 The downside to referencing a copied directory is that all newly downloaded plugins will not be retained.
 
-To retain complete control over how Terraform accesses a plugin cache directory, leave the **Terraform plugin cache directory** field blank, and define the environment variables to be passed to Terraform directly on the step. This allows the `TF_PLUGIN_CACHE_DIR` environment variable (or any others) to be set to any value. However, when configuring these values manually, it is the responsibility of the end user to account for the [concurrency limitations](https://github.com/hashicorp/terraform/issues/25849) in Terraform.
+To retain complete control over how Terraform accesses a plugin cache directory, leave the **Terraform plugin cache directory** field blank, and define the environment variables to be passed to Terraform directly on the step. This allows the `TF_PLUGIN_CACHE_DIR` environment variable (or any others) to be set to any value. However, when configuring these values manually, it is the responsibility of the end user to account for the [concurrency limitations](https://github.com/hashicorp/terraform/issues/25849) in Terraform. 
+
+You can find additional information on the settings used by Octopus to manage concurrency [here](/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously.md).
