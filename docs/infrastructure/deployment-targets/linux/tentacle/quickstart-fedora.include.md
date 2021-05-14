@@ -1,4 +1,4 @@
-### Fedora
+### CentOS/Fedora/RedHat
 
 ```bash Listening deployment target
 serverUrl="https://my-octopus"   # The url of your Octous server

@@ -29,7 +29,7 @@ ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.
 
 ## Downloads
 
-So far there is a .deb package for use with `apt-get` on Debian distributions, an .rpm package for use with `yum` on Fedora distributions, and a .tar.gz archive for manual installations. The packages are available from:
+For Debian distributions, there is a .deb package for use with `apt-get`. On CentOS/Fedora/Redhat distributions, there is an .rpm package for use with `yum`. We also provide a .tar.gz archive for manual installations. The packages are available from:
 
 - apt.octopus.com
 - rpm.octopus.com
@@ -43,7 +43,10 @@ The latest release of Linux Tentacle is available for download from:
 
 ## Installing and configuring Linux Tentacle
 
-Note that many of the steps described below must be run as a super user using `sudo`.
+:::hint
+Note: Many of the steps described below require elevated permissions, or must be run as a super user using `sudo` to execute successfully.
+:::
+
 
 ### Installing Tentacle
 ```bash Debian/Ubuntu repository
@@ -57,7 +60,7 @@ apt-get update
 apt-get install tentacle
 ```
 
-```bash CentOS/Fedora repository
+```bash Redhat/CentOS/Fedora repository
 wget https://rpm.octopus.com/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 ```
@@ -204,6 +207,17 @@ cd /home/Octopus/Applications
 
 ## Automation scripts
 The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
+
+:::hint
+**Note:**
+- Many of the steps described below require elevated permissions, or must be run as a super user using `sudo` to execute successfully.
+- By default, when registering Linux Targets or Workers, the scripts below assume Octopus will communicate with the target or worker using the server hostname (from the `$HOSTNAME` variable). To provide a different address, consider looking up the hostname/IP address. For example:
+
+    ```bash
+    publicIp=$(curl -s https://ifconfig.info)
+    ```
+    You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command by providing the value to the `--publicHostName` parameter.
+:::
 
 !include <quickstart-debian>
 
