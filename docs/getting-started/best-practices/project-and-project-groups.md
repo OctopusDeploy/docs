@@ -35,6 +35,13 @@ Coordinating all those component projects can become quite tedious; this is why 
 - Handle approvals from the key individuals in your company.  The release orchestration project will send the approval information to the component project.
 - Provide the ability to review changes before they are deployed.
 
+## Anti-patterns to avoid
+
+A project should deploy one component of an application (WebUI, WebAPI, Service, Database) and do it well.  Some common anti-patterns we've seen you should avoid are:
+
+- A project deploying all the components for an application.  A deployment process with more than 20 steps indicates that project is doing too much.
+- A project per application, per environment, such as `OctoPetShop_Dev`, `OctoPetShop_Test`, and so on.  This is impossible to maintain and track versions.
+
 ## Cumulative Changes
 
 Octopus Deploy expects any application component it deploys to contain everything that component needs.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., that is needed to run that web application.  It shouldn't just be a delta change of a few HTML files or binaries.  Octopus Deploy expects that is for a variety of reasons.

@@ -69,10 +69,12 @@ Adding an environment is a non-trivial task, as it involves adding/updating addi
 Our recommendations for environments are:
 - Keep the number of environments per space to be between 2 and 20.  
 - Name environments to match your company's terminology so you can re-use them across projects.  Common names include **development**, **test**, **QA**, **acceptance**, **uat**, and **production**.
-- Don't include project names in your environments.  An environment name of **QA - OctoPetShop** indicates you need to either have more specific roles on your targets or you need to leverage spaces to isolate that application.
 - If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center.  For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers, consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each data center is a tenant.
 - It's okay to have team-specific environments, similar to data center environments.  Although if you have more than five or six teams, consider [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) where each team is a tenant.
-- Avoid project-specific environments.  Project-specific environments are a good indicator to consider [spaces](/docs/administration/spaces/index.md).  
+
+Anti-patterns to avoid are:
+- Project names in your environments.  An environment name of **QA - OctoPetShop** indicates you need to either have more specific roles on your targets or you need to leverage spaces to isolate that application.  Project-specific environments are a good indicator to consider [spaces](/docs/administration/spaces/index.md).  
+- Branch names in your environment names.  Consider using temporary [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) for your branch names or storing your branch name in a pre-release tag in the release version.
 
 ## Roles
 
@@ -85,4 +87,4 @@ Our recommendations for target roles are:
 - Use specific target roles, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
 - Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks; updating to the latest version of Node.js, or installing a patch.
 
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>
