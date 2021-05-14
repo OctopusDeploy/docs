@@ -44,7 +44,7 @@ The latest release of Linux Tentacle is available for download from:
 ## Installing and configuring Linux Tentacle
 
 :::hint
-Note: Many of the steps described below require elevated permissions, or must be run as a super user using `sudo` to execute successfully.
+Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 :::
 
 
@@ -210,7 +210,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 :::hint
 **Note:**
-- Many of the steps described below require elevated permissions, or must be run as a super user using `sudo` to execute successfully.
+- Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 - By default, when registering Linux Targets or Workers, the scripts below assume Octopus will communicate with the target or worker using the server hostname (from the `$HOSTNAME` variable). To provide a different address, consider looking up the hostname/IP address. For example:
 
     ```bash
