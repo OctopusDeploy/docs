@@ -29,7 +29,7 @@ ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.
 
 ## Downloads
 
-So far there is a .deb package for use with `apt-get` on Debian distributions, an .rpm package for use with `yum` on Fedora distributions, and a .tar.gz archive for manual installations. The packages are available from:
+So far there is a .deb package for use with `apt-get` on Debian distributions, an .rpm package for use with `yum` on CentOS/Fedora/Redhat distributions, and a .tar.gz archive for manual installations. The packages are available from:
 
 - apt.octopus.com
 - rpm.octopus.com
@@ -57,7 +57,7 @@ apt-get update
 apt-get install tentacle
 ```
 
-```bash CentOS/Fedora repository
+```bash Redhat/CentOS/Fedora repository
 wget https://rpm.octopus.com/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
 yum install tentacle
 ```
@@ -204,6 +204,16 @@ cd /home/Octopus/Applications
 
 ## Automation scripts
 The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
+
+:::hint
+When registering Linux Targets and Workers, Octopus assumes that they are addressable using your local DNS. If you are dealing with public IP's or Hostnames you may want to add bash variable for the public IP similar to **publicIp=$(curl -s https://ifconfig.info)**. Using **[register-with](/octopus-rest-api/tentacle.exe-command-line/register-with)**, you can specify the IP or the public hostname by using **--publicHostName=VALUE**. 
+:::
+
+:::warning
+Every organization is different and the examples provided here make use of [sudo](https://www.linux.com/tutorials/linux-101-introduction-sudo/). They are intended to demonstrate functionality. Ensure you are complying with your company's security policies when you configure any user accounts and that your specific implementation matches your needs.
+
+Some of the below will need Sudo access unless running from a secure shell.
+:::
 
 !include <quickstart-debian>
 
