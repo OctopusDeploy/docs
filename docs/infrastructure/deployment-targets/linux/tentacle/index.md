@@ -206,7 +206,7 @@ cd /home/Octopus/Applications
 The following bash scripts install, configure and register Linux Tentacle for use in automated environments:
 
 :::hint
-When registering Linux Targets and Workers, Octopus assumes that they are addressable using your local DNS. If you are dealing with public IP's or Hostnames you may want to add bash variable for the public IP similar to **publicIp=$(curl -s https://ifconfig.info)**. Using **[register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with)**, you can specify the IP or the public hostname by using **--publicHostName=VALUE**. 
+When registering Linux Targets and Workers, Octopus assumes that they are addressable using your local DNS. If you are dealing with public IP's or Hostnames you may want to add bash variable for the public IP similar to **publicIp=$(curl -s https://ifconfig.info)**. Using **[register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md)**, you can specify the IP or the public hostname by using **--publicHostName=VALUE**. 
 :::
 
 :::warning
