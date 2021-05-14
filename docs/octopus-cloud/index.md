@@ -79,7 +79,8 @@ In order to keep your instance of Octopus Cloud updated and running the latest v
 
 1. Log in to you Octopus account.
 1. Select your cloud instance.
-1. Click the **Change outage window** link.
+1. Click Configuration.
+1. Scroll down to Outage Window.
 1. Select the time in UTC, providing a window of at least two hours and click **Save outage window**.
 
 ## Log in to your Octopus Cloud instance

@@ -50,7 +50,7 @@ Please note, we do not support file substitutions within the package if the enti
 
 ### Individual files from the package
 
-If you have chosen to upload individual files from the package, you will be presented with an additional `Files Section` where you can add one or more file selections where each selection can be for a single file or for multiple files depending on your the use case.
+If you have chosen to upload individual files from the package, you will be presented with an additional `Files Section` where you can add one or more file selections where each selection can be for a single file or for multiple files depending on your use case.
 
 #### Adding and removing file selections
 
