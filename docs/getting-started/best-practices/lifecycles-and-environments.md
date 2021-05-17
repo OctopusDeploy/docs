@@ -5,9 +5,9 @@ position: 35
 hideInThisSection: true
 ---
 
-[Lifecycles](/docs/releases/lifecycles.md) give you control over the way releases of your software are promoted between your environments.  Lifecycles control the order of promotion, you can configure them to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies/index.md) (how long releases are saved) at a per environment level.
+[Lifecycles](/docs/releases/lifecycles/index.md) give you control over the way releases of your software are promoted between your environments.  Lifecycles control the order of promotion, you can configure them to require deployments to **development**, **test**, and **staging** prior to deployments to **production**.  They are also used to set [retention policies](/docs/administration/retention-policies/index.md) (how long releases are saved) at a per environment level.
 
-Lifecycles are shared across an entire space.  A project references lifecycles via [channels](/docs/releases/channels.md) and can reference 1 to N lifecycles.
+Lifecycles are shared across an entire space.  A project references lifecycles via [channels](/docs/releases/channels/index.md) and can reference 1 to N lifecycles.
 
 Lifecycles contain 1 to N phases, which represent a stage in your deployment lifecycle.  A phase can have 0 to N environments, for example you could have a test phase that contains both **development** and **test** environments. Or, you could have a development phase for your **development** environment and a test phase for your **test** environment.  
 
