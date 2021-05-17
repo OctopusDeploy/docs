@@ -102,4 +102,15 @@ Our recommendations for variable edit permissions are:
 
 ![composite variables](images/composite-variables.png)
 
+## Further Reading
+
+For further reading on variables in Octopus Deploy please see:
+
+- [Variables](/docs/projects/variables/index.md)
+- [Scoping Variables](/docs/projects/variables/index.md#scoping-variables)
+- [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
+- [.NET XML Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [Library Variable Sets](/docs/projects/variables/library-variable-sets.md)
+
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>

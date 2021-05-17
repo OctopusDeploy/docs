@@ -76,4 +76,12 @@ We recommend having at least one required phase before a **production** environm
 While possible to configure, you cannot have an optional phase with automatic deployments.  Octopus will ignore the automatic setting, and you will be forced to deploy manually.
 :::
 
+## Further Reading
+
+For further reading on lifecycles and environments in Octopus Deploy please see:
+
+- [Lifecycles](/docs/releases/lifecycles.md)
+- [Environments](/docs/infrastructure/environments/index.md)
+- [Channels](/docs/releases/channels.md)
+
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/worker-configuration">Next</a></span>

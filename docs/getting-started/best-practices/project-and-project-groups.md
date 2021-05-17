@@ -52,4 +52,11 @@ Octopus Deploy expects any application component it deploys to contain everythin
 - You'll need a mechanism to create roll-up releases; otherwise, the list of versions to deploy when a new target is added will grow and become unwieldy.
 - It'll be near impossible to roll back to a previous version of the code.
 
+## Further Reading
+
+For further reading on projects and project groups in Octopus Deploy please see:
+
+- [Projects](/docs/projects/index.md)
+- [Release Orchestration](https://octopus.com/blog/release-management-with-octopus)
+
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>

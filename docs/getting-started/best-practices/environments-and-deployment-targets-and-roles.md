@@ -96,4 +96,12 @@ Add an environment for a business need, a new data center is brought online, you
 Add a new role to group servers and filter servers within each environment.
 :::
 
+## Further Reading
+
+For further reading on environments, deployment targets, and roles in Octopus Deploy please see:
+
+- [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
+- [Environments](/docs/infrastructure/environments/index.md)
+- [Target Roles](/docs/infrastructure/deployment-targets/index.md#create-target-roles)
+
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>

@@ -261,4 +261,13 @@ If you go down that route you would need a process to:
 
 Using the Octopus Deploy API, all of that is possible, however it will require dilligence and maintenance on your part.  Unless there is a specific business requirement, such as security team requirements or regulatory requirements, we don't recommend taking that on.
 
+## Further Reading
+
+For further reading on installation requirements and guidelines for Octopus Deploy please see:
+
+- [Installation](/docs/installation/index.md)
+- [Requirements](/docs/installation/requirements.md)
+- [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md)
+- [Octopus Server Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md)
+
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>
