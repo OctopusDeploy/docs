@@ -37,7 +37,7 @@ Octopus Cloud instances are subject to storage limits. Specifically:
 
 !include <octopus-cloud-storage-limits>
 
-Please see our [Cloud pricing FAQ](https://octopus.com/pricing/faq#cloud-storage-limits) for futrher details.
+Please see our [Cloud pricing FAQ](https://octopus.com/pricing/faq#cloud-storage-limits) for further details.
 
 ## Uploading packages to Octopus Cloud servers {#uploading-packages-to-octopus-cloud-servers}
 
