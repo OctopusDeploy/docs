@@ -77,7 +77,7 @@ By default, all invitees will be added to the **Everyone** team within the Octop
 
 In order to keep your instance of Octopus Cloud updated and running the latest version, we will occasionally need to take it offline to update the software. You can let us know the best time for this to do this by setting the outage window.
 
-1. Log in to you Octopus account.
+1. Log in to your Octopus account.
 1. Select your cloud instance.
 1. Click Configuration.
 1. Scroll down to Outage Window.

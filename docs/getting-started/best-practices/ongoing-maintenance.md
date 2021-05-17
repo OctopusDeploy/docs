@@ -22,7 +22,8 @@ Customers electing to use Octopus Cloud don't have the same maintenance responsi
 
 We impose limits on your instance to keep your file consumption and database size as small as possible.
 - All lifecycle retention policies have a default of 30 days instead of forever.
-- The internal feed package retention policy is set to 30 days as well.
+- The internal feed package retention policy is also defaulted to 30 days.
+- Paid customers have this limit removed and can configure any retention policy period
 
 ## Octopus Cloud and Self-Hosted Octopus Deploy
 

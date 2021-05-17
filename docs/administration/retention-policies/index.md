@@ -139,7 +139,7 @@ In Octopus Server, you can keep all, or select a number of releases to keep.
 Alternatively, you can specify a number of days worth of releases and files to keep.
 
 :::hint
-Octopus Cloud instances are subject to [storage limits](https://octopus.com/pricing/faq#cloud-storage-limits). For releases, that limit is set to keep the last 30 days worth.
+Octopus Cloud instances are subject to [storage limits](https://octopus.com/pricing/faq#cloud-storage-limits). Paid instances have no retention limit, free instances are limited to keep no more than the last 30 days worth.
 :::
 
 ## Set Built-in feed retention policy {#set-builtinfeed-retentionpolicy}
@@ -151,7 +151,7 @@ You can find the built-in repository retention policy settings under **{{Library
 In Octopus Server, this can be set to keep packages forever, or for a set number of days.
 
 :::hint
-Octopus Cloud instances are subject to [storage limits](https://octopus.com/pricing/faq#cloud-storage-limits). For packages, that limit is set to keep the last 30 days worth.
+Octopus Cloud instances are subject to [storage limits](https://octopus.com/pricing/faq#cloud-storage-limits). Paid instances have no retention limit, free instances are limited to keep no more than the last 30 days worth.
 :::
 
 ![](images/3278059.png "width=500")
