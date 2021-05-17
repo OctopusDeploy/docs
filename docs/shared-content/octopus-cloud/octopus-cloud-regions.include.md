@@ -1,5 +1,3 @@
-## Where is Octopus Cloud hosted {#octopus-cloud-hosting-locations}
-
 Octopus Cloud is hosted in the following Azure regions:
 
 - `West US 2` 
