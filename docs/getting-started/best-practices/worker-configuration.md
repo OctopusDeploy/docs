@@ -1,5 +1,5 @@
 ---
-title: Worker Configuration
+title: Offload Work to Workers
 description: Guidelines and recommendations for configuring workers in Octopus Deploy.
 position: 40
 hideInThisSection: true

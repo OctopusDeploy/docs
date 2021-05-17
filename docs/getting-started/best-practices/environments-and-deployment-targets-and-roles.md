@@ -75,10 +75,13 @@ Our recommendations for environments are:
 Anti-patterns to avoid are:
 - Project names in your environments.  An environment name of **QA - OctoPetShop** indicates you need to either have more specific roles on your targets or you need to leverage spaces to isolate that application.  Project-specific environments are a good indicator to consider [spaces](/docs/administration/spaces/index.md).  
 - Branch names in your environment names.  Consider using temporary [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) for your branch names or storing your branch name in a pre-release tag in the release version.
+- A single deployment environment, **production**.  You should have at least one test environment to test and verify your release.
 
 ## Roles
 
-There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  Using the generic role `web-server` will pick all the servers in a specific environment.  To limit the servers with a generic role, you'd need to create an environment.
+There is also a direct correlation between generic roles, such as `web-server` and the number of environments.  As stated earlier, adding an environment is a non-trivial task, and leads to maintenance and performance overhead.  The goal is to keep the number of environments low.
+
+Using the generic role `web-server` will pick all the servers in a specific environment.  For example, you have 25 servers in **production** with the role `web-server`.  When you deploy to **production**, Octopus will pick all 25 servers, but you only want to deploy to 4 of them.  There is no automatic way to limit the servers picked without either creating a specific role `hello-world-api` or creating a new environment.
 
 Generic roles also impact your future flexibility.  For example, using `web-server` for 100 projects would require all targets on all environments to host those same 100 projects.  If you were to decide in six months to split up those servers, you'd have to update over 100 projects.
 
@@ -87,4 +90,10 @@ Our recommendations for target roles are:
 - Use specific target roles, `hello-world-api`, to uniquely identify a project and component to deploy.  Use those specific target roles in your deployment process.
 - Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks; updating to the latest version of Node.js, or installing a patch.
 
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/spaces-recommendations">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>
+:::hint
+Add an environment for a business need, a new data center is brought online, you are adding your disaster recovery location into Octopus, or adding the ability for customers to test changes prior to **production**.  
+
+Add a new role to group servers and filter servers within each environment.
+:::
+
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/lifecycles-and-environments">Next</a></span>

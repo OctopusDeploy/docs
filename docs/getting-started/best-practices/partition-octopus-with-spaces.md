@@ -1,11 +1,11 @@
 ---
-title: Spaces Recommendations
+title: Partition Octopus with Spaces
 description: Guidelines and recommendations for configuring spaces in Octopus Deploy.
 position: 20
 hideInThisSection: true
 ---
 
-**Octopus Deploy 2019.1** introduced Spaces as a way to isolate team/divisions/projects from one another.  Before configuring spaces, there are a few important items to note.
+**Octopus Deploy 2019.1** introduced [Spaces](/docs/administration/spaces/index.md) as a way to isolate team/divisions/projects from one another.  Before configuring spaces, there are a few important items to note.
 
 - Spaces are "hard walls," each space has its environments, lifecycles, projects, packages, step templates, and targets.
 - At the time of this writing, the only thing shared between spaces is users and teams.

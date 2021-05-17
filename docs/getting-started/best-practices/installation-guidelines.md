@@ -261,4 +261,4 @@ If you go down that route you would need a process to:
 
 Using the Octopus Deploy API, all of that is possible, however it will require dilligence and maintenance on your part.  Unless there is a specific business requirement, such as security team requirements or regulatory requirements, we don't recommend taking that on.
 
-<span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
+<span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>

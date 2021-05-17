@@ -1,5 +1,5 @@
 ---
-title: Projects and Project Groups
+title: Projects and Project Groups Structure
 description: Guidelines and recommendations for configuring projects and project groups in Octopus Deploy.
 position: 50
 hideInThisSection: true
