@@ -98,6 +98,6 @@ For further reading on users, roles, and teams in Octopus Deploy please see:
 - [User roles](/docs/security/users-and-teams/user-roles.md)
 - [Teams](/docs/security/users-and-teams/index.md#Managingusersandteams-Creatingteams)
 - [External Groups and Roles](/docs/security/users-and-teams/external-groups-and-roles.md)
-- [Default Permissions for Built-in User Roles](/docs/security/users-and-teams/default-permissions)
+- [Default Permissions for Built-in User Roles](/docs/security/users-and-teams/default-permissions.md)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/deployment-and-runbook-processes">Next</a></span>
