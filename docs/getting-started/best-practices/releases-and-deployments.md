@@ -80,7 +80,7 @@ When the retention policies delete a release, it removes that release from the p
 
 ## Free Up Deployment Target Disk Space
 
-As you deploy more and more, the available disk space on your deployment targets will be reduced.  That reduction will continue until you either run out of disk space or retention policies are configured.  When you configure the retention policy in the lifecycle, you are presented with two options:
+As you deploy more frequently, the available disk space on your deployment targets will be reduced.  That reduction will continue until you either run out of disk space or retention policies are configured.  When you configure the retention policy in the lifecycle, you are presented with two options:
 
 - How long should we keep releases? That means how long the release is retained on the Octopus Server.
 - How long should we keep extracted packages and files on disk on Tentacles?  That means how long the release is retained on your deployment targets.
