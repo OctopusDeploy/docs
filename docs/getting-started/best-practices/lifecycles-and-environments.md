@@ -11,7 +11,7 @@ Lifecycles are shared across an entire space.  A project references lifecycles v
 
 Lifecycles contain 1 to N phases, which represent a stage in your deployment lifecycle.  A phase can have 0 to N environments; for example, you could have a test phase that contains both **development** and **test** environments. Or, you could have a development phase for your **development** environment and a test phase for your **test** environment.  
 
-## Manual Set Your Phases
+## Manually set your Phases
 
 A lifecycle with no phases will result in Octopus calculating the phases automatically for you containing all environments.  The order of the phases is dependent on the order of the environments on the environment page.    
 
