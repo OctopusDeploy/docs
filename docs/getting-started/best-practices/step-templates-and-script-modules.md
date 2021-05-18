@@ -42,7 +42,7 @@ We also recommend leveraging the different logging levels as Octopus treats each
 
 Octopus provides [manual interventions](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) which pause the deployment and allow people to review the progress made so far.  Putting information needed for approvals in logs can make it difficult for the approvers to find.  If there is information needed for approvals, such as test results or database delta scripts, the recommendation is to create an [artifact](/docs/projects/deployment-process/artifacts.md).
 
-## Further Reading
+## Further reading
 
 For further reading on step templates and script modules in Octopus Deploy please see:
 
