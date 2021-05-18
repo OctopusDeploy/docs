@@ -7,7 +7,7 @@ hideInThisSection: true
 
 [Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (packages, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
 
-## Release Creation
+## Release creation
 
 When you create a release, you must enter or choose the following items:
 
