@@ -246,7 +246,7 @@ If you are hosting Octopus Deploy on a Windows server, you will need to install 
 
 ## Create a Single Production Instance
 
-One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to control permissions.  We recommend this to avoid the maintenance overhead involved with having an instance per environment.  
+One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions.  We recommend this to avoid the maintenance overhead involved with having an instance per environment.  
 
 Of the users who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments.  
 
