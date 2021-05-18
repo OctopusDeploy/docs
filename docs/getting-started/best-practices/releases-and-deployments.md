@@ -57,7 +57,7 @@ During testing, you might find a show-stopping bug.  Or, the UI isn't acceptable
 
 When a release is rejected, our recommendation is to leverage the [prevent release progression](/docs/releases/prevent-release-progression.md) functionality to block that release from being deployed to additional stages, or environments, in your pipeline.  
 
-## Release and Deployment Retention
+## Release and Deployment retention
 
 As stated earlier, creating a release snapshots the variables, deployment process, etc.  Each deployment also has a snapshot of the variables and deployment process created.  As you can imagine, all of these snapshots start to consume more and more space in the database.  
 
