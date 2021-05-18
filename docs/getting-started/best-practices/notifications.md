@@ -52,7 +52,7 @@ Regardless of the notification technology (email, Slack, MS Teams, etc.), the re
 - Always send notifications at the end of each deployment informing interested parties of the deployment status.  Use Octopus Deploy's built-in [extendend variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) to differentiate between successful and failed deployments. Example variable value: `#{Octopus.Project.Name} #{Octopus.Release.Number} to #{Octopus.Environment.Name} has #{if Octopus.Deployment.Error}failed#{else}completed successfully#{/if}`
 - Include a deep link in your message back to the deployment or runbook run. Example variable value `https://samples.octopus.app/app#/#{Octopus.Space.Id}/tasks/#{Octopus.Task.Id}`
 
-## Further Reading
+## Further reading
 
 For further reading on subscriptions and other notifications in Octopus Deploy please see:
 
