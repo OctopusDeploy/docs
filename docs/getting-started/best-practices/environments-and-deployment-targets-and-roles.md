@@ -91,7 +91,7 @@ Our recommendations for target roles are:
 - Use architecture and platform-specific target roles, for example, `IIS-Server-Windows-2019`.  Use those target roles for everyday maintenance tasks; updating to the latest version of Node.js, or installing a patch.
 
 :::hint
-Add an environment for a business need, a new data center is brought online, you are adding your disaster recovery location into Octopus, or adding the ability for customers to test changes prior to **production**.  
+Add an environment for a business need; a new data center is brought online, you are adding your disaster recovery location into Octopus, or adding the ability for customers to test changes prior to **production**.  
 
 Add a new role to group servers and filter servers within each environment.
 :::
