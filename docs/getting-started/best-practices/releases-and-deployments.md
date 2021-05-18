@@ -45,7 +45,7 @@ However, you cannot change the following in the release snapshot:
 
 Our recommendation is never to modify a release.  Especially if the release has been deployed to an **acceptance**, **uat**, or **production** environment.  A release represents a snapshot in time, and it should be the same when deploying to the different stages, or environments, in your pipeline.  Changing it after the fact can lead to unpredictable results.  
 
-## Deploying a Release
+## Deploying a release
 
 A release is deployed to different stages, or environments, in your pipeline.  Depending on your lifecycle configuration, a release can be deployed 0 to N times before being deployed to **production**.    
 
