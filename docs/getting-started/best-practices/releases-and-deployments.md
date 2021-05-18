@@ -49,7 +49,7 @@ Our recommendation is never to modify a release.  Especially if the release has 
 
 A release is deployed to different stages, or environments, in your pipeline.  Depending on your lifecycle configuration, a release can be deployed 0 to N times before being deployed to **production**.    
 
-Our recommendation is a release must be deployed to at least **ONE** environment before deploying to **production**, even during an emergency or a production outage.  Deploying to **production** shouldn't be a significant production.  There should be no surprises during a release to **production**.  The release will have tested at least once, if not multiple times, in different stages in your pipeline.  
+Our recommendation is a release must be deployed to at least **ONE** environment before deploying to **production**, even during an emergency or a production outage.  Deploying to **production** should go from an "all hands on deck" event to a non-event.  The release will have been tested at least once, if not multiple times, in different stages in your pipeline by the time you deploy to **production**.  By that point most, if not all, surprises should have been found and fixed.
 
 ## Blocking a release
 
