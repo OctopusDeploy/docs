@@ -102,7 +102,7 @@ Our recommendations for variable edit permissions are:
 
 ![composite variables](images/composite-variables.png)
 
-## Further Reading
+## Further reading
 
 For further reading on variables in Octopus Deploy please see:
 
