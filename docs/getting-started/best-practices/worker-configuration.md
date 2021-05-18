@@ -80,7 +80,7 @@ A listening tentacle can be registered as both a worker and a deployment target.
 All Octopus Cloud and self-hosted Server, Data Center, and Standard licenses offer unlimited workers.
 :::
 
-## Further Reading
+## Further reading
 
 For further reading on workers in Octopus Deploy please see:
 
