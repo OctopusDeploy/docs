@@ -51,7 +51,7 @@ A release is deployed to different stages, or environments, in your pipeline.  D
 
 Our recommendation is a release must be deployed to at least **ONE** environment before deploying to **production**, even during an emergency or a production outage.  Deploying to **production** shouldn't be a significant production.  There should be no surprises during a release to **production**.  The release will have tested at least once, if not multiple times, in different stages in your pipeline.  
 
-## Blocking a Release
+## Blocking a release
 
 During testing, you might find a show-stopping bug.  Or, the UI isn't acceptable to the business owner.  There are several reasons for a release rejection to occur.  
 
