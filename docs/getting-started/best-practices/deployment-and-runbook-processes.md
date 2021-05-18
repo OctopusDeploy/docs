@@ -88,7 +88,7 @@ When defining your runbook or deployment process, you can configure a run condit
 
 Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables.md).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it. 
 
-## Further Reading
+## Further reading
 
 For further reading on deployment and runbook processes in Octopus Deploy please see:
 
