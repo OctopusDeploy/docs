@@ -1,5 +1,5 @@
 ---
-title: Projects and Project Groups
+title: Projects and Project Groups Structure
 description: Guidelines and recommendations for configuring projects and project groups in Octopus Deploy.
 position: 50
 hideInThisSection: true
@@ -35,6 +35,13 @@ Coordinating all those component projects can become quite tedious; this is why 
 - Handle approvals from the key individuals in your company.  The release orchestration project will send the approval information to the component project.
 - Provide the ability to review changes before they are deployed.
 
+## Anti-patterns to avoid
+
+A project should deploy one component of an application (WebUI, WebAPI, Service, Database) and do it well.  Some common anti-patterns we've seen you should avoid are:
+
+- A project deploying all the components for an application.  A deployment process with more than 20 steps indicates that project is doing too much.
+- A project per application, per environment, such as `OctoPetShop_Dev`, `OctoPetShop_Test`, and so on.  This is impossible to maintain and track versions.
+
 ## Cumulative Changes
 
 Octopus Deploy expects any application component it deploys to contain everything that component needs.  If you are deploying a web application, the deployment should include all the JavaScript, CSS, binaries, HTML files, etc., that is needed to run that web application.  It shouldn't just be a delta change of a few HTML files or binaries.  Octopus Deploy expects that is for a variety of reasons.
@@ -44,5 +51,12 @@ Octopus Deploy expects any application component it deploys to contain everythin
 - If a new deployment target (webserver) is created, you will have to deploy all versions to that new target rather than the latest.
 - You'll need a mechanism to create roll-up releases; otherwise, the list of versions to deploy when a new target is added will grow and become unwieldy.
 - It'll be near impossible to roll back to a previous version of the code.
+
+## Further reading
+
+For further reading on projects and project groups in Octopus Deploy please see:
+
+- [Projects](/docs/projects/index.md)
+- [Release Orchestration](https://octopus.com/blog/release-management-with-octopus)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/worker-configuration">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/variables">Next</a></span>
