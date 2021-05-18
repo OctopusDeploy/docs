@@ -95,7 +95,7 @@ Both retention policies follow the same rules.  No release appearing on a dashbo
 
 Retention policies are not applied to any package with a custom install directory configured.  You are responsible for cleaning up the custom install directory.
 
-## Further Reading
+## Further reading
 
 For further reading on releases and deployments in Octopus Deploy please see:
 
