@@ -78,7 +78,7 @@ Some notes about retention policies:
 When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing.md).  
 :::
 
-## Free Up Deployment Target Disk Space
+## Free up deployment target disk space
 
 As you deploy more frequently, the available disk space on your deployment targets will be reduced.  That reduction will continue until you either run out of disk space or retention policies are configured.  When you configure the retention policy in the lifecycle, you are presented with two options:
 
