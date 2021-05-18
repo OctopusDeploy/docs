@@ -16,7 +16,7 @@ When you create a release, you must enter or choose the following items:
 - The channel (only appears when a project has more than one channel).
 - Release notes (optional)
 
-Our recommendation is to let the CI, or Build Server, create the release are it finishes uploading the package you wish to deploy.  The build server knows when it has finished uploading the package, along with other important information, such as the current branch, was the build triggered by a pull request, and more.  
+Our recommendation is to let the CI, or Build Server, create the release after it finishes uploading the package you wish to deploy.  The build server knows when it has finished uploading the package, along with other important information, such as the current branch, was the build triggered by a pull request, and more.  
 
 :::hint
 Octopus Deploy provides [automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) functionality.  That monitors a specific package in the built-in package repository.  When a new version is pushed, it automatically creates a release.  
