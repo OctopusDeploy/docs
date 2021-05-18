@@ -261,7 +261,7 @@ If you chose this instance configuration, you would need a process to:
 
 Using the Octopus Deploy API, all of that is possible; however, it will require diligence and maintenance on your part.  Unless there is a specific business requirement, such as security team requirements or regulatory requirements, we don't recommend taking that on.
 
-## Further Reading
+## Further reading
 
 For further reading on installation requirements and guidelines for Octopus Deploy please see:
 
