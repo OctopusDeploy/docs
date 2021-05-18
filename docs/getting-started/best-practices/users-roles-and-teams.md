@@ -90,7 +90,7 @@ Here are some of the more common scenarios we get asked about, along with the as
     - Add `Project Viewer` role to the Project Owners team, no scoping on environment or projects.
     - Add `Environment Viewer` role to the Project Owners team, no scoping on environment or projects.
 
-## Further Reading
+## Further reading
 
 For further reading on users, roles, and teams in Octopus Deploy please see:
 
