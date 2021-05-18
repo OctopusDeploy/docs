@@ -29,7 +29,7 @@ This document will refer to tasks; a task can be:
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
 - Windows Server 2012 R2 or later when hosting on Windows Server
-- Linux is supported when using the [Octopus Deploy Docker Docker image](https://octopus.com/blog/introducing-linux-docker-image)
+- Linux is supported when using the [Octopus Deploy Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image)
 
 [High availability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
 
