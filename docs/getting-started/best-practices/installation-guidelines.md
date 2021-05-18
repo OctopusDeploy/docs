@@ -244,7 +244,7 @@ If you are hosting Octopus Deploy on a Windows server, you will need to install 
 3. Restart the server and wait for it to come back online.
 4. Remove the drain mode from the node.
 
-## Create a Single Production Instance
+## Create a single Production instance
 
 One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions.  We recommend this to avoid the maintenance overhead involved with having an instance per environment.  
 
