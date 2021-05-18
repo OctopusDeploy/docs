@@ -96,7 +96,7 @@ Add an environment for a business need; a new data center is brought online, you
 Add a new role to group servers and filter servers within each environment.
 :::
 
-## Further Reading
+## Further reading
 
 For further reading on environments, deployment targets, and roles in Octopus Deploy please see:
 
