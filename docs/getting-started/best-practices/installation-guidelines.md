@@ -248,7 +248,7 @@ If you are hosting Octopus Deploy on a Windows server, you will need to install 
 
 One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions.  We recommend this to avoid the maintenance overhead involved with having an instance per environment.  
 
-Of the users who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments.  
+Of the customers who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments.  
 
 If you go down that route you would need a process to:
 - Clone all the library variables and project variables, and notify you when a new scoped variable is added.
