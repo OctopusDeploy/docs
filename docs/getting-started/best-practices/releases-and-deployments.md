@@ -105,4 +105,4 @@ For further reading on releases and deployments in Octopus Deploy please see:
 - [Lifecycles](/docs/releases/lifecycles/index.md)
 - [Retention Policies](/docs/administration/retention-policies/index.md)
 
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/deployments-and-runbook-processes">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/notifications">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/deployment-and-runbook-processes">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/notifications">Next</a></span>
