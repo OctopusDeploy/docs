@@ -27,7 +27,7 @@ That has the following limitations:
 - You are required to pre-select a channel when configuring Automatic Release Creation.  Creating a release automatically for another channel is possible but will require the build server or other tool to be configured.
 :::
 
-## Updating a Release
+## Updating a release
 
 When a release is created, the release snapshot is also created.  The release snapshot includes the deployment process, variables (including Library Variable Sets), and package versions.  
 
