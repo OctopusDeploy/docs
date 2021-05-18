@@ -37,7 +37,7 @@ Two lifecycles allow you to have your standard workflow, where everything goes t
 We **_never_** recommend having a lifecycle with only **production**.  Any deployment to **production** must deploy to at least one other environment to verify the fix.  Skipping straight to **production**, especially during an emergency, will make a bad situation worse.
 
 :::hint
-A lifecycle with a single-phase is an anti-pattern.  Typically we see this when users are strictly adhering to [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy.  If you create a new build, that build should be deployed through all environments to ensure it will work in **production**.  
+A lifecycle with a single phase is an anti-pattern.  Typically we see this when users are strictly adhering to the [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy.  If you create a new build, that build should be deployed through all environments to ensure it will work in **production**.  
 :::
 
 ## Production Approval
