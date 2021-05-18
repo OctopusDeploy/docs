@@ -259,7 +259,7 @@ If you go down that route you would need a process to:
 - Clone all the project channels.
 - And more.
 
-Using the Octopus Deploy API, all of that is possible, however it will require dilligence and maintenance on your part.  Unless there is a specific business requirement, such as security team requirements or regulatory requirements, we don't recommend taking that on.
+Using the Octopus Deploy API, all of that is possible; however, it will require diligence and maintenance on your part.  Unless there is a specific business requirement, such as security team requirements or regulatory requirements, we don't recommend taking that on.
 
 ## Further Reading
 
