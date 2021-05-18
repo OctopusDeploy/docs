@@ -58,7 +58,7 @@ Don't worry if you don't get your space configuration right the first time.  It 
 
 Starting with **Octopus Server 2021.1** we offer the ability to [export and import projects between spaces](/docs/projects/export-import/index.md).  You can configure your instance with every project using the default space.  You can decide later how you want to split up your instance.
 
-## Further Reading
+## Further reading
 
 For further reading on spaces in Octopus Deploy please see:
 
