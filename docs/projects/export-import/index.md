@@ -158,7 +158,7 @@ When importing, if a certificate with the same name already exists on the destin
 ## Moving to Octopus Cloud #{octopus-cloud}
 
 When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](https://octopus.com/pricing/overview) which should be considered.  Specifically:
-- Octopus Cloud instances are limited to storing 20GB of packages 
+- Octopus Cloud file storage quota per instance: 1TB (paid); 20GB (free) 
 - Release [retention policies](/docs/administration/retention-policies/index.md) can be configured to a maximum of 30 days 
 - There are some caveats around [worker pools](#workers)
 
