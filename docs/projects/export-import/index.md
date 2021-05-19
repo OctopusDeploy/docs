@@ -1,6 +1,6 @@
 ---
 title: Exporting and Importing Projects 
-description: Projects can be exported, and imported into another space 
+description: Projects can be exported, and imported into another space. (Project Bento) 
 position: 40
 ---
 
