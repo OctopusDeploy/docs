@@ -47,7 +47,7 @@ The ability to import an existing project will likely be added in a future relea
 
 The root of the export/import is a project (or multiple projects).  The simple rule-of-thumb is everything the project references is included. Specifically:
 
-- The project (name, logo, settings)   
+- The project (name, settings)   
 - The deployment process and runbooks 
 - Project variables 
 - Channels, and all lifecycles referenced 
@@ -64,6 +64,7 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Deployment targets](#deployment-targets)
 - [Audit logs](#audit-logs)
 - [Workers](#workers)
+- Project logos
 
 ### Shared resources #{shared-resources}
 
