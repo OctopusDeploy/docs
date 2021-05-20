@@ -54,6 +54,7 @@ AWS recently introduced `Amazon FSx`, It’s a native Windows file system built 
 
 If you choose to go with Amazon FSx there are some resources that will help you get started:
 - AWS have a [starter guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) which explains how to configure Amazon FSx and connect it up to an EC2 machine.
+- AWS have a [hands-on lab](https://aws.amazon.com/blogs/storage/how-to-replicate-amazon-fsx-file-server-data-across-aws-regions/) on using DataSync to support multi-region FSx data across AWS regions. This could be useful when considering disaster recovery options for Octopus High Availability.
 - We have an [AWS FSx High Availability blog post](https://octopus.com/blog/aws-fsx-ha) which is a step-by-step guide to connecting Amazon FSx to your Octopus High Availability Server nodes on Windows.
 
 ### Load Balancing in AWS
