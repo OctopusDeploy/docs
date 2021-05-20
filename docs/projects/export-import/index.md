@@ -64,7 +64,7 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Deployment targets](#deployment-targets)
 - [Audit logs](#audit-logs)
 - [Workers](#workers)
-- Project logos
+- [Project logos](#project-logos) 
 
 ### Shared resources #{shared-resources}
 
@@ -155,6 +155,11 @@ Any certificates which can be referenced via the project will be included in the
 - Certificates which are the value of variables in library variable sets connected to the project
 
 When importing, if a certificate with the same name already exists on the destination, the existing certificate will be used. 
+
+### Project logos
+
+The project logo will be available when exporting between spaces on the same instance.  If exporting between instances, the logo will have to be re-uploaded.
+
 
 ## Moving to Octopus Cloud #{octopus-cloud}
 
