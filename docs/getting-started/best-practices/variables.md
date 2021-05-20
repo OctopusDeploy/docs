@@ -32,9 +32,9 @@ In addition to having the above levels of variables, there are also two categori
 
 ## Variable Naming
 
-It is possible for a name collision to occur.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/index.md#Scopingvariables-Scopespecificity).  But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
+Without established naming conventions, variable name collisions are possible.  A common example is when a project and a library variable set have the same variable name scoped to the same environment.  When a name collision occurs, Octopus Deploy will do its best to pick the ["right one" using an algorithm](/docs/projects/variables/index.md#Scopingvariables-Scopespecificity).  But sometimes the variables are scoped equally. If this occurs, Octopus will choose project-defined variables ahead of library-defined ones.
 
-However, the recommendation is to avoid name collisions in the first place by following these naming standards.
+The recommendation is to avoid name collisions in the first place by following these naming standards.
 
 1. Project: `Project.[Component].[Name]` - for example, **Project.Database.UserName.**
 2. Tenant: `[ProjectName].[Component].[Name]` - for example, **OctoPetShopWebUI.URL.Port**.
@@ -89,5 +89,28 @@ Examples of configuration variables that should be stored in the main configurat
 - Don't have a single "global" library variable set.  This becomes a "junk drawer" of values and quickly becomes unmanageable.  And not every project will need all those variables.
 - Group common variables into a library variable set.  Examples include Notifications, Azure, AWS, Naming, and so on.
 - Have application-specific library variable sets to share items such as service URLs, database connection strings, etc., across the multiple projects that make up an application.
+
+## Permissions
+
+A common scenario we've talked to customers about is restricting variable edit access to specific environments.  For example, a developer can edit any variables scoped to **development** and **test** environments, but not **staging** or **production** environments.  On paper this makes sense, in practice this causes messy handovers and claims of "it worked on my machine."  The developers working on the application know all the various settings and variables required for their application to work.
+
+Our recommendations for variable edit permissions are:
+- Variable edit permissions should be all or nothing, either a person can edit variables, or they cannot.  Don't scope permissions to environments.  Anyone responsible for the application should have permission to update variables (developers, lead devs, DB developers, etc.) along with operations (DBAs, web admins, sys admins) who can create and update service accounts and passwords.  
+- Library variable sets can be shared across multiple projects.  Limit who can edit library variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces/index.md).
+- Leverage [sensitive variables](/docs/projects/variables/sensitive-variables.md) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.  
+- Use composite variables to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
+
+![composite variables](images/composite-variables.png)
+
+## Further reading
+
+For further reading on variables in Octopus Deploy please see:
+
+- [Variables](/docs/projects/variables/index.md)
+- [Scoping Variables](/docs/projects/variables/index.md#scoping-variables)
+- [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
+- [.NET XML Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [Library Variable Sets](/docs/projects/variables/library-variable-sets.md)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>

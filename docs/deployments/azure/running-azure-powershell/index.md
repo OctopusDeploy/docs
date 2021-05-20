@@ -4,18 +4,26 @@ description: Octopus supports executing PowerShell against Azure and will automa
 hideInThisSectionHeader: true
 ---
 
-When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) and [Azure CLI](https://docs.microsoft.com/cli/azure/), and finally will also authenticate with Azure using the configured [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
+:::warning
+Using the Azure tools bundled with Octopus Deploy is not recommended. You can continue to use both the bundled cmdlets and CLI. However, it is recommended to configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
+
+The Azure Resource Manager Powershell modules (AzureRM) that are included have been replaced by Azure Powershell Modules (Az). See [Introducing the Azure Az PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az) for further information about migrating from AzureRM to Az.
+:::
+
+When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure Resource Manager (AzureRM) PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/overview) and the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) if they are present on the worker. The Azure PowerShell modules require the [Azure CLI](https://docs.microsoft.com/cli/azure/) version 2.0 or above to be installed on the worker. Finally, it will authenticate with Azure using the configured [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
 
 This applies to:
 
-- 'Run an Azure PowerShell Script' steps.
+- 'Run an Azure Script' steps.
 - Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deployments/azure/cloud-services/index.md) or [Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) steps.
 
 **Choosing the right Azure account type**
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
 - To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-management-certificate).
-- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-service-principal). (The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`).
+- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-service-principal).
+  - The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`.
+  - The Az PowerShell cmdlets are prefixed with `Az`, like `Get-AzWebApp`.
 
 Learn more about [configuring the right Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
 
@@ -29,7 +37,9 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 
 ### Staying up to date
 
-Octopus Deploy ships with a version of the Azure PowerShell Modules and Azure CLI so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and commands frequently. You can use the built-in cmdlets or/and CLI if they cover everything you need, or you can configure Octopus Deploy to use your own [custom version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and/or [custom version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
+Octopus Deploy ships with a version of the Azure RM PowerShell Modules and Azure CLI, so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and commands frequently. In addition the AzureRM Powershell modules only work on Windows workers. 
+
+You can use the bundled cmdlets or/and CLI if they cover everything you need; however, this is **not recommended**. Instead, consider configuring Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and/or [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
 
 ## Learn more
 

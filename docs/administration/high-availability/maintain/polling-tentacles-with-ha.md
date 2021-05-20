@@ -10,11 +10,11 @@ position: 50
 
 !include <polling-tentacles-and-ha-connecting>
 
-### Using a unique port
+### Using a unique address
 
 !include <polling-tentacles-connection-same-port>
 
-### Using a unique address
+### Using a unique port
 
 !include <polling-tentacles-connection-different-ports>
 

@@ -1,5 +1,5 @@
 ---
-title: Worker Configuration
+title: Offload Work to Workers
 description: Guidelines and recommendations for configuring workers in Octopus Deploy.
 position: 40
 hideInThisSection: true
@@ -79,5 +79,15 @@ A listening tentacle can be registered as both a worker and a deployment target.
 :::hint
 All Octopus Cloud and self-hosted Server, Data Center, and Standard licenses offer unlimited workers.
 :::
+
+## Further reading
+
+For further reading on workers in Octopus Deploy please see:
+
+- [Workers](/docs/infrastructure/workers/index.md)
+- [Built-in Worker](/docs/infrastructure/workers/built-in-worker.md)
+- [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables.md)
+- [Execution Container for Workers](/docs/projects/steps/execution-containers-for-workers/index.md)
+- [Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools.md)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/environments-and-deployment-targets-and-roles">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/project-and-project-groups">Next</a></span>
