@@ -13,7 +13,8 @@ Usage: octopus.server create-instance [<options>]
 
 Where [<options>] is any of:
 
-      --instance=VALUE       Name of the instance to create
+      --instance=VALUE       Name of the instance to create. If not supplied,
+                               creates an instance called OctopusServer.
       --config=VALUE         Path to configuration file to create
       --home=VALUE           [Optional] Path to the home directory - defaults
                                to the same directory as the config file
