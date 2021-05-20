@@ -228,22 +228,4 @@ DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.c
 
 For an in depth look, check out the [sample walk-through](docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.
 
-## Rootless Instance Creation
-Creating a named instance with the `--instance` parameter as shown in the examples above will register the instance details in a central registry to allow it to be easily managed via its unique name. Access to this central registry on the target machine is under `C:\ProgramData\Octopus` on Windows and  `/etc/octopus` on other Platforms. For some high-security low-trust environments, access to these locations may not be possible so Octopus supports creating Tentacle instances that isolate all their configuration in a single directory.
-
-Omitting the `--instance` and `--configuraton` parameters from the `create-insance` command will create the `Tentacle.config` configuration file in the current working directory of the executing process. As such, it will not require any elevated permissions to create, however relevant OS permissions may still be required depending on the ports used. To manage this instance, all ensuing commands are required to be run either with the executable being invoked from the context of initial configuration directory, or with the `--config` parameter pointing to the configuration file that was created in that directory.
-
-For example, running
-```
- mkdir ~/mytentacle && cd ~/mytentacle
-tentacle create-instance
-```
-will create a Tentacle configuration file in ~/mytentacle without needing access to the shared registry (typically stored on Linux at /etc/octopus).
-Subsequent commands to this instance can be performed by running the command directly from that location
-```
-cd ~/mytentacle
-tentacle configure --trust F9EFD9D31A04767AD73869F89408F587E12CB23C
-```
-
-### Service Limitations
-Due to the non-uniquely-named nature of these instances, only one such instance type can registered as a service at any given time. An optional mechanism for running this instance is to use the [agent](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/agent) command which will run start and run the Tentacle process inline. The [delete-instance](https://octopus.com/docs/octopus-rest-api/tentacle.exe-command-line/delete-instance) command will also have no effect, its purpose being largely to remove the instance details from the registry and preserving the configuration on disk.
+!include <rootless-tentacle-instance-creation>
