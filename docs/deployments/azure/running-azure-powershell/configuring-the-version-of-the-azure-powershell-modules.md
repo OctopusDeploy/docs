@@ -5,17 +5,23 @@ description: A version of Azure PowerShell is bundled with Octopus Deploy and it
 
 A version of Azure PowerShell is bundled with Octopus Deploy.  To determine the versions of the various Azure modules, add the PowerShell below to an Azure PowerShell Script Step:
 
-**Azure Module Versions**
+**AzureRM Module Versions**
 
 ```powershell
 Get-Module -ListAvailable -Name Azure*
+```
+
+**Az Module Versions**
+
+```powershell
+Get-Module -ListAvailable -Name Az*
 ```
 
 If you wish to use a different version, you can install the Azure PowerShell modules on your Octopus Server, and configure Octopus to use the installed version.  The procedure to configure this differs depending on which version of Octopus Deploy you are using:
 
 ## Octopus 2020.1 or newer {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2020.1(ornewer)}
 
-The PowerShell Azure step has an option called  "Azure Tools". Toggle the setting to **Use Azure Tools pre-installed on the worker**.
+The PowerShell Azure step has an option called "Azure Tools". Toggle the setting to **Use Azure Tools pre-installed on the worker**.
 
 ## Octopus 2018.5.5 to 2019.13.7 {#ConfiguringtheversionoftheAzurePowerShellmodules-Octopus2018.5.5-to-2019.13.7}
 
