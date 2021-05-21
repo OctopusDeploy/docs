@@ -24,4 +24,4 @@ The filters allow you to choose which space(s), project(s), and user(s) to gener
 
 The filters support comma-separated entries.  Setting the User Filter to `Test,Bob*` will find all users with the display name of Test or that start with Bob.
 
-!include <project-permissions-report.include.md>
+!include <project-permissions-report>

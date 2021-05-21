@@ -8,7 +8,7 @@ hideInThisSectionHeader: true
 You can use the Octopus Deploy REST API to generate a number of reports.  
 
 All the reports in this section will include:
-- 1 to N number of filters to return the data you need.
-- Output results to a CSV file.
+- 1 to N number of filters to filter out unwanted data.
+- Output results to a file (typically .CSV) to store or share with others.
 
 Provided sample reports are:
