@@ -17,7 +17,7 @@ az --version
 
 If you wish to use a different version, you can install the Azure CLI on your worker, and configure Octopus to use the installed version.
 
-To be compatible with Octopus's automated Azure CLI login behaviour, the Azure CLI version you install must be 2.0 or above.
+To be compatible with Octopus's automated Azure CLI login behavior, the Azure CLI version you install must be 2.0 or above.
 
 The procedure to configure this differs depending on which version of Octopus Deploy you are using:
 
