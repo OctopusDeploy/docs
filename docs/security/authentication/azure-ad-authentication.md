@@ -196,7 +196,13 @@ When the security token is returned from the external identity provider, Octopus
 :::success
 **Existing Octopus user accounts**
 
-If you already have Octopus user accounts and you want to enable external authentication, make sure the email address matches in both Octopus and the external identity provider. This will make it possible for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus.
+If you already have Octopus user accounts and you want to enable external authentication, make sure the email address matches in both Octopus and the external identity provider. This will make it possible for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus. 
+:::
+
+:::hint
+**Octopus Username is an email address**
+
+If you have an Octopus Username which is an email address, that email address must also match the email configured for the external identity provider. 
 :::
 
 ### Getting permissions
