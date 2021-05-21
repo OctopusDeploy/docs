@@ -55,11 +55,11 @@ Support for pushing information (metadata) to Octopus about the build has been a
 - In versions **{{5.1.3,5.3.0**}}, the build runner was called **Octopus Deploy: Metadata**
 - In version **5.4.0** onwards, the build runner was renamed to **Octopus Deploy: Build Information**
 
-![Octopus Build information](images/build-information-step.png "width=500")
+![Octopus Build information](images/teamcity-build-information-step.png "width=500")
 
 :::hint
 A **Branch specification** is required on the TeamCity VCS configuration to populate the `Branch` field for Build Information in Octopus Deploy.  For example, `+:*`
-![](images/teamcity-branch-specification.png)
+![](images/teamcity-branch-specification.png "width=500")
 
 The part of the branch name matched by the asterisk (`*`) wildcard becomes the short branch name to be displayed in the TeamCity user-level interface. This is also known as the **logical branch name** and it's this value that is passed to Octopus Deploy by the TeamCity Plugin.
 
