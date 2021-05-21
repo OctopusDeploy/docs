@@ -68,7 +68,7 @@ It is worth explicitly mentioning some things that are **not included**:
 
 ### Shared resources #{shared-resources}
 
-The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; i.e. if there is an existing resource with the same name as one the source then it will be used, otherwise it will be created.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
+The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; i.e. if there is an existing resource with the same name as one in the source then it will be used, otherwise it will be created.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
 
 ### Environments
 
