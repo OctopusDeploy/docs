@@ -7,7 +7,7 @@ description: A version of Azure PowerShell is bundled with Octopus Deploy and it
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
 :::
 
-We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md).
+We recommend you configure Octopus Deploy to use your own version of the Azure PowerShell cmdlets.
 
 To determine the versions of the various Azure modules that are present on your worker, add the PowerShell below to an Azure Script Step:
 
