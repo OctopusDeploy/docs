@@ -200,7 +200,7 @@ If you already have Octopus user accounts and you want to enable external authen
 - Make sure the Octopus **Email Address** matches the value configured in the external identity provider. 
 - If the Octopus **Username** is an email address, make sure that value matches the one configured in the external identity provider.
 
-This will maximise the chance for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus.
+This will maximize the chance for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
 ### Getting permissions
