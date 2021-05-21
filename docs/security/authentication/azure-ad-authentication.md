@@ -193,16 +193,14 @@ Even if you are using an external identity provider, Octopus still requires a [u
 
 When the security token is returned from the external identity provider, Octopus looks for a user account with a **matching Identifier**. If there is no match, Octopus looks for a user account with a **matching Email Address**. If a user account is found, the external identifier will be added to the user account for next time. If a user account is not found, Octopus will create one using the profile information in the security token.
 
-:::success
+:::hint
 **Existing Octopus user accounts**
 
-If you already have Octopus user accounts and you want to enable external authentication, make sure the email address matches in both Octopus and the external identity provider. This will make it possible for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus. 
-:::
+If you already have Octopus user accounts and you want to enable external authentication:
+- Make sure the Octopus **Email Address** matches the value configured in the external identity provider. 
+- If the Octopus **Username** is an email address, make sure that value matches the one configured in the external identity provider.
 
-:::hint
-**Octopus Username is an email address**
-
-If you have an Octopus Username which is an email address, that email address must also match the email configured for the external identity provider. 
+This will maximise the chance for your existing users to sign in using an external identity provider and still belong to the same teams in Octopus.
 :::
 
 ### Getting permissions
