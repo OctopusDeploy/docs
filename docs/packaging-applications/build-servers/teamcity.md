@@ -52,7 +52,7 @@ In version **3.3.1** of the TeamCity Plugin we added a new build runner that can
 
 Support for pushing information (metadata) to Octopus about the build has been available in the TeamCity plugin since version **5.1.3**.
 
-- In versions **{{5.1.3,5.3.0**}}, the build runner was called **Octopus Deploy: Metadata**
+- In versions **{{5.1.3,5.3.0}}**, the build runner was called **Octopus Deploy: Metadata**
 - In version **5.4.0** onwards, the build runner was renamed to **Octopus Deploy: Build Information**
 
 ![Octopus Build information](images/teamcity-build-information-step.png "width=500")
