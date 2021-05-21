@@ -10,6 +10,10 @@ The Octopus TeamCity plugin comes with these custom build runners:
 
 1. **Octopus Deploy: Pack** Create a NuGet or Zip formatted package.
 2. **Octopus Deploy: Build Information** add information about the build, including work items and commit messages, that is then stored in Octopus Deploy.
+:::hint
+A `Branch specification` is required on the VCS configuration to populate the `Branch` field for Build Information in Octopus Deploy.  For example, `+:*`
+![](images/teamcity-branch-specification.png)
+:::
 3. **Octopus Deploy: Push Packages** Push packages to the Octopus Deploy [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository), optionally using the TeamCity zip feature to create packages on-the-fly.
 4. **Octopus Deploy: Create Release**
     Creates a new release in Octopus Deploy, and optionally deploys it to an environment.
