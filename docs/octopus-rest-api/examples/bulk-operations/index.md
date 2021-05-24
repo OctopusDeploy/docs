@@ -1,7 +1,7 @@
 ---
 title: Bulk Operations
 description: This section includes examples of how to use the REST API to perform a variety of bulk operations using the Octopus Deploy API.
-position: 300
+position: 400
 hideInThisSectionHeader: true
 ---
 

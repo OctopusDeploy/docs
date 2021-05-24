@@ -1,6 +1,7 @@
 ---
 title: Accounts
 description: This section includes examples of how to use the REST API to create and manage accounts in Octopus.
+position: 10
 hideInThisSectionHeader: true
 ---
 

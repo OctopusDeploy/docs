@@ -1,6 +1,7 @@
 ---
 title: Deployment targets
 description: This section includes examples of how to use the REST API to create and manage deployment targets in Octopus.
+position: 50
 hideInThisSectionHeader: true
 ---
 
