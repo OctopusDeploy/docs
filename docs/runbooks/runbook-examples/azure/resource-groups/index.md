@@ -10,25 +10,43 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 
 Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section. The instructions there apply equally to a runbook process too.
 
-:::hint
-Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-service-principal)
-:::
+## Create Azure resources runbook
 
-![](arm-step.png "width=170")
+To create a runbook to deploy resources to Azure using the *Deploy an Azure Resource Manager template* step:
 
-## Creating the Resource Group step {#DeployusinganAzureResourceGroupTemplate-CreatingtheResourceGroupStep}
+1. Navigate to your Project, then **{{Operations, Runbooks, Add Runbook}}**.
+1. Give the runbook a name and click **SAVE**.
 
-![](create-azure-resource-group-step.png "width=500")
+    :::hint
+    Before creating the step, you must have created an [Azure Service Principal Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-service-principal).
+    :::
 
-Select the **Account** and **Resource Group** to be used.
+1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
+1. Add the step by clicking **{{Azure,Deploy an Azure Resource Manager template}}**, or search for the step.
 
-:::hint
-Only Azure *Service Principal* accounts will be available for selection. Management Certificate accounts can not be used with Azure Resource Manager.
-:::
+    ![Locate ARM step](locate-arm-step.png "width=500")
 
-The **Deployment Mode** may be either [Incremental or Complete](https://azure.microsoft.com/en-in/documentation/articles/resource-group-template-deploy/#incremental-and-complete-deployments).
+1. Give the step a name.
+1. Choose the **Execution Location** on which to run this step.
+1. In the **Azure** section, choose the [Account](/docs/infrastructure/deployment-targets/azure/index.md) to use.
 
-The **Template Source** can be either JSON entered directly into the step, or a file contained in a package.
+    ![Azure Account variable](azure-account.png "width=500")
+
+    :::hint
+    [Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**. 
+
+    The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
+    :::
+
+1. Select the **Resource Group** to place the created resources in. This can be selected from the drop-down of available resources or bound to a variable. The resource group must exist when the step is executed.
+
+1. Set the **Deployment Mode**. It can be either [Incremental or Complete](https://azure.microsoft.com/en-in/documentation/articles/resource-group-template-deploy/#incremental-and-complete-deployments).
+1. Choose the **Template Source**. It can be either [JSON entered directly](#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON) into the step, or a file [contained in a package](#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage).
+1. Enter any values for parameters if they are present.
+
+Configure any other settings for the step such as Environment run conditions and click **SAVE**.
+
+![Azure ARM step](azure-arm-process-step.png "width=500")
 
 ### Template entered as JSON  {#DeployusinganAzureResourceGroupTemplate-TemplateEnteredasJSON}
 
@@ -44,7 +62,7 @@ Octopus will perform [variable-substitution](/docs/projects/variables/variable-s
 Although you can use variables directly in the template, it is more idiomatic to use parameters, and plug the variables into those (as seen above). This will allow you to use or test your template outside of Octopus Deploy.
 :::
 
-![](azure-resource-group-json-template.png "width=500")
+![](arm-json-template.png "width=500")
 
 ### Sensitive data {#DeployusinganAzureResourceGroupTemplate-SensitiveData}
 
@@ -54,13 +72,13 @@ Parameters marked as [secure strings](https://azure.microsoft.com/en-us/documen
 
 The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables.md) if the value is stored in Octopus or via [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-keyvault-parameter/).
 
-![](azure-resource-group-sensitive-data.png "width=500")
+![](arm-sensitive-data.png "width=500")
 
 ### Template contained in a package {#DeployusinganAzureResourceGroupTemplate-TemplateContainedinaPackage}
 
 By selecting *File inside a Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
-![](azure-resource-group-package-source-template.png "width=500")
+![](arm-package-source-template.png "width=500")
 
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
 

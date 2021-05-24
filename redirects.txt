@@ -1003,6 +1003,7 @@ docs/administration/providing-database-performance-metrics.md -> docs/administra
 docs/support/record-a-performance-trace.md -> docs/administration/managing-infrastructure/performance/record-a-performance-trace.md
 docs/support/providing-database-performance-metrics.md -> docs/administration/managing-infrastructure/performance/providing-database-performance-metrics.md
 docs/getting-started/best-practices/spaces-recommendations.md -> docs/getting-started/best-practices/partition-octopus-with-spaces.md
+docs/octopus-rest-api/examples/tenants/bulk-add-projects-to-tenants.md -> docs/octopus-rest-api/examples/bulk-operations/bulk-add-projects-to-tenants.md
 docs/tenants/create-a-tenant.md -> docs/tenants/index.md
 docs/tenants/enable-tenanted-deployments.md -> docs/tenants/index.md
 docs/tenants/connecting-projects.md -> docs/tenants/index.md
