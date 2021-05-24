@@ -1,7 +1,6 @@
 ---
 title: Projects
 description: This section includes examples of how to use the REST API to create and manage projects in Octopus.
-position: 110
 hideInThisSectionHeader: true
 ---
 
