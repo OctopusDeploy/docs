@@ -1,7 +1,6 @@
 ---
 title: Events
 description: This section includes examples of how to use the REST API to find events from Octopus.
-position: 70
 hideInThisSectionHeader: true
 ---
 

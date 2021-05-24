@@ -1,7 +1,6 @@
 ---
 title: Channels
 description: This section includes examples of how to use the REST API to create and manage channels in Octopus.
-position: 25
 hideInThisSectionHeader: true
 ---
 

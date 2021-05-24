@@ -1,4 +1,4 @@
-```PowerShell
+```PowerShell PowerShell (REST API)
 $octopusUrl = "YOUR OCTOPUS URL"
 $octopusApiKey = "YOUR API KEY" # User associated with API key must be system manager or higher to view all users
 $reportPath = "./Report.csv"
