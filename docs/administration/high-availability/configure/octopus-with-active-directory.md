@@ -96,8 +96,7 @@ Complete the setup wizard. You now have a second node in the cluster!
 
 ### Automate configuration of second and addtional nodes
 
-After installing the Octopus Server MSI, instead of using the wizard to configure the additional nodes, you can use the Octopus [Server command line](https://octopus.com/docs/octopus-rest-api/octopus.server.exe-command-line). Here is an example of what this might look like: 
-
+After installing the Octopus Server MSI, you can use the [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/index.md) command line executable to automate the configuration of any additional Octopus Server nodes. Here is an example of what the script might look like:
 
 ```bash
 "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" create-instance --instance "Default" --config "C:\Octopus\OctopusServer.config"
