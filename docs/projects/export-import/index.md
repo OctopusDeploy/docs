@@ -160,7 +160,6 @@ When importing, if a certificate with the same name already exists on the destin
 
 The project logo will be available when exporting between spaces on the same instance.  If exporting between instances, the logo will have to be re-uploaded.
 
-
 ## Moving to Octopus Cloud #{octopus-cloud}
 
 When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](https://octopus.com/pricing/overview) which should be considered.  Specifically:
@@ -168,3 +167,9 @@ When moving a project from a self-hosted Octopus Server instance to an Octopus C
 - Release [retention policies](/docs/administration/retention-policies/index.md) can be configured to a maximum of 30 days 
 - There are some caveats around [worker pools](#workers)
 
+## Using the API #{using-the-api}
+
+You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) to export or import Octopus projects.
+
+To find out more take a look at our examples:
+- [Export projects](/docs/octopus-rest-api/examples/projects/export-projects.md)
