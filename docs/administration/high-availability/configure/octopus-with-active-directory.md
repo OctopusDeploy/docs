@@ -101,7 +101,7 @@ After installing the Octopus Server MSI, instead of using the wizard to configur
 
 ```bash
 "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" create-instance --instance "Default" --config "C:\Octopus\OctopusServer.config"
-"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "MASTER_KEY" --connectionString "Data Source=octopus-server-ha-db;Initial Catalog=OctopusDeploy-OctopusServer;Integrated Security=False;User ID=admin;Password=MY_PASSWORD"
+"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "MASTER_KEY" --connectionString "Data Source=octopus-server-ha-db;Initial Catalog=OctopusDeploy-OctopusServer;Integrated Security=True;"
 "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" configure --instance "Default" --webForceSSL "False" --webListenPrefixes "http://localhost:80/" --commsListenPort "10943"
 "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --stop
 "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --user "WORK\scvOctopus" --password "DOMAIN_PASSWORD"  --install --reconfigure --start
