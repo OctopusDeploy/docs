@@ -93,3 +93,15 @@ On the Cluster details page, enter the Master Key from the original node:
 ![](images/wizard-second-node.png "width=500")
 
 Complete the setup wizard. You now have a second node in the cluster!
+
+### Automate configuration of second and addtional nodes
+
+After installing the Octopus Server MSI, you can use the [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/index.md) command line executable to automate the configuration of any additional Octopus Server nodes. Here is an example of what the script might look like:
+
+```bash
+"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" create-instance --instance "Default" --config "C:\Octopus\OctopusServer.config"
+"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" database --instance "Default" --masterKey "MASTER_KEY" --connectionString "Data Source=octopus-server-ha-db;Initial Catalog=OctopusDeploy-OctopusServer;Integrated Security=True;"
+"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" configure --instance "Default" --webForceSSL "False" --webListenPrefixes "http://localhost:80/" --commsListenPort "10943"
+"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --stop
+"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --user "WORK\scvOctopus" --password "DOMAIN_PASSWORD"  --install --reconfigure --start
+```

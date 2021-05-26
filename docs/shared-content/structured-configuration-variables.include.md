@@ -72,6 +72,32 @@ Octopus uses variable names to identify the structures that should be replaced w
 | XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | /app/port | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
 | Java Properties | app_port: 80 | app_port | 4444 | app_port: 4444 |
 
+#### Variable casing
+
+Octopus matches variable names to the structure in target files in a **case insensitive way**. 
+
+For example, given the following JSON input file:
+
+```json
+{
+  "app": {
+    "port": "80"
+  }
+}
+```
+
+If you had a variable named `APP:PORT` with value `8080`, the value would be replaced despite the name of the variable being in upper case. The output file would become:
+
+```json
+{
+  "app": {
+    "port": "8080"
+  }
+}
+```
+
+For more information, refer to our [variable casing](/docs/projects/variables/index.md#variable-casing) documentation.
+
 ## JSON and YAML
 
 ### Simple variables {#StructuredConfigurationVariablesFeature-Simplevariables}
