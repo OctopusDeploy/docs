@@ -169,7 +169,12 @@ When moving a project from a self-hosted Octopus Server instance to an Octopus C
 
 ## Using the API #{using-the-api}
 
+:::hint
+Automating the export and import of projects using the REST API as part of a backup/restore process is **not recommended**. See our [supported scenarios](#scenarios).
+:::
+
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) to export or import Octopus projects.
 
 To find out more take a look at our examples:
 - [Export projects](/docs/octopus-rest-api/examples/projects/export-projects.md)
+- [Import projects](/docs/octopus-rest-api/examples/projects/import-projects.md)
