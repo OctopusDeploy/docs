@@ -86,6 +86,14 @@ The deployment and runbook processes should be the same for all environments, ex
 
 When defining your runbook or deployment process, you can configure a run condition based on a variable.  Generally, that feature is used to skip over a specific step when a particular condition occurs.  For example, skip over a testing step if only .css or image files were deployed.
 
-Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables.md).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it.  
+Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-ExtendedSyntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables.md).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it. 
 
-<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/users-roles-and-teams">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/notifications">Next</a></span>
+## Further reading
+
+For further reading on deployment and runbook processes in Octopus Deploy please see:
+
+- [Deployment Patterns](/docs/deployments/patterns/index.md)
+- [Runbooks vs Deployments](/docs/runbooks/runbooks-vs-deployments/index.md)
+- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+
+<span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/users-roles-and-teams">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/releases-and-deployments">Next</a></span>

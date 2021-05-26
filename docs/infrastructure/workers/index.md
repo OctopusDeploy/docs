@@ -145,7 +145,7 @@ Default pools attached to cloud targets allow co-location of workers and targets
 
 !include <workers-multiple-simultaneous-processes>
 
-### Run a process on a Worker exclusively {#run-proces-on-worker-exclusively}
+### Run a process on a Worker exclusively {#run-process-on-worker-exclusively}
 
 !include <workers-individual-process-exclusively>
 

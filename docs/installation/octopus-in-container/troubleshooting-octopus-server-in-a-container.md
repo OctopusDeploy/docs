@@ -4,6 +4,11 @@ description: Troubleshooting steps for running Octopus Deploy in a Container
 position: 10
 ---
 
+:::warning
+The Octopus Deploy Server Windows containers are deprecated, and no longer maintained.
+For hosting Octopus Server in a container, we recommend using the [Octopus Server Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md).
+:::
+
 ## Ensure you've accepted the EULA
 
 When you create an Octopus Server container, you must agree with the [Octopus Deploy EULA](https://octopus.com/company/legal).
@@ -28,7 +33,7 @@ or
 ```
 image operating system "linux" cannot be used on this platform.
 ```
-then you likely are using an Windows image with Linux Containers or a Linux image with Windows Containers.
+then you likely are using a Windows image with Linux Containers or a Linux image with Windows Containers.
 
 When running Containers on a Windows host machine, there is the options to run both Windows Containers and Linux Containers. Docker must be set to the correct container mode for the image you are using. Please refer to [switching between Windows and Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) documentation to learn how to switch between them.
 

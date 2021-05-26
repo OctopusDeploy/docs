@@ -7,7 +7,7 @@ hideInThisSection: true
 
 This page will provide guidelines and recommendations for installing Octopus Deploy on your infrastructure.  If you are using Octopus Cloud, please click the button below to move onto the next section in the guide.
 
-<span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
+<span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>
 
 The size of your Octopus Deploy instance will be dependent on concurrent tasks (deployments, runbook runs, etc.) and users.  A team of 10 people doing five deployments a day will not need the same resources as a division of 500 users doing 600 deployments a day.  
 
@@ -29,7 +29,7 @@ This document will refer to tasks; a task can be:
 Octopus Deploy installation requirements are:
 - SQL Server 2016 or higher (AWS RDS SQL Server and Azure SQL are supported)
 - Windows Server 2012 R2 or later when hosting on Windows Server
-- Linux is supported when using the [Octopus Deploy Docker Docker image](https://octopus.com/blog/introducing-linux-docker-image)
+- Linux is supported when using the [Octopus Deploy Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image)
 
 [High availability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
 
@@ -244,4 +244,30 @@ If you are hosting Octopus Deploy on a Windows server, you will need to install 
 3. Restart the server and wait for it to come back online.
 4. Remove the drain mode from the node.
 
-<span><a class="btn btn-success" href="/docs/getting-started/best-practices/spaces-recommendations">Next</a></span>
+## Create a single Production instance
+
+One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions.  We recommend this to avoid the maintenance overhead involved with having an instance per environment.  
+
+Of the customers who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments.  
+
+If you chose this instance configuration, you would need a process to:
+- Clone all the library variables and project variables, and notify you when a new scoped variable is added.
+- Sync the deployment and runbook processes, but skip over steps assigned to **development** and **test**.
+- Update any user step templates to the latest version.
+- Ensure the same lifecycle names exist on both instances but not have the same phases.
+- Copy releases but not deployments.
+- Clone all the project channels.
+- And more.
+
+Using the Octopus Deploy API, all of that is possible; however, it will require diligence and maintenance on your part.  Unless there is a specific business requirement, such as security team requirements or regulatory requirements, we don't recommend taking that on.
+
+## Further reading
+
+For further reading on installation requirements and guidelines for Octopus Deploy please see:
+
+- [Installation](/docs/installation/index.md)
+- [Requirements](/docs/installation/requirements.md)
+- [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md)
+- [Octopus Server Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md)
+
+<span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>

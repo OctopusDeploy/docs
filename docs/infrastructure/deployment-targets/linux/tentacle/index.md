@@ -225,6 +225,8 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 !include <quickstart-archive>
 
+!include <rootless-tentacle-instance-creation>
+
 ## Learn more
 
 - [Linux blog posts](https://octopus.com/blog/tag/linux)

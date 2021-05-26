@@ -54,7 +54,7 @@ This example takes packages specified in the `packages.json` file, finding all v
 -SourceSpace "Default" `
 -DestinationUrl https://destination.octopus.app `
 -DestinationApiKey "API-DESTKEY" `
--DestionationSpace "Default" `
+-DestinationSpace "Default" `
 -CutOffDate (Get-Date "2021-02-11")
 ```
 

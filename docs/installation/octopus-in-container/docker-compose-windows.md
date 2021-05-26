@@ -4,7 +4,10 @@ description: A fully self-contained SQL Server, Octopus Server and Octopus Tenta
 position: 3
 ---
 
-If you want to run an Octopus Deploy Linux container with Docker Compose, please refer to the [Docker Compose Linux](/docs/installation/octopus-in-container/docker-compose-linux.md) documentation.
+:::warning
+The Octopus Deploy Server Windows containers are deprecated, and no longer maintained.
+For hosting Octopus Server in a container, we recommend using the [Octopus Server Linux Container](/docs/installation/octopus-in-container/docker-compose-linux.md).
+:::
 
 For evaluation purposes you may want to run a stand-alone SQL Server instance to run alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 

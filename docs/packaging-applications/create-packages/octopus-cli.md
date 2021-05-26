@@ -21,7 +21,7 @@ For more installation details, options, and update instructions, see [The Octopu
 For a full list of the `pack` command options see [Octopus CLI - Pack](/docs/octopus-rest-api/octopus-cli/pack.md) or run the following command:
 
 ```powershell
-C:\> dotnet octo help pack
+dotnet octo help pack
 ```
 
 ## Usage

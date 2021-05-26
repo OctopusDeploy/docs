@@ -5,10 +5,10 @@ position: 1
 ---
 
 :::hint
-Octopus Server Linux Containers launched as part of **2020.6** and it's our recommended way to use containers with Octopus Deploy. You will need to upgrade to **2020.6** before using the Octopus Linux Container.
+Octopus Server Linux Containers launched as part of **2020.6**. You will need to upgrade to **2020.6** before using the Octopus Linux Container.
 :::
 
-This page describes how to run Octopus Deploy within a Linux Container. If you want to run an Octopus Deploy Windows container, please refer to the [Octopus Server Container Windows](/docs/installation/octopus-in-container/octopus-server-container-windows.md) documentation.
+This page describes how to run Octopus Deploy within a Linux Container.
 
 **Note:** When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 

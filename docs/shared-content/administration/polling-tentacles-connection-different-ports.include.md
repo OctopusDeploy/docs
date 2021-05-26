@@ -18,4 +18,4 @@ Next on the load balancer, create Network Address Translation (NAT) rules and po
 
 If you configured your nodes to use a different listening port, replace `10943`-`10945` with your port range. 
 
-The important thing to remember is that each node should be using the same address and a **different port**. 
+The important thing to remember is that each node should be using the **same address** and a **different port**. 

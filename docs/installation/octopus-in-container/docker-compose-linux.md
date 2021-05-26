@@ -7,8 +7,6 @@ position: 3
 There is a [known issue](https://github.com/OctopusDeploy/Issues/issues/6629) when providing both the `ADMIN_PASSWORD` and `ADMIN_API_KEY` for the Octopus Server Linux Container that prevents the Administrator from logging in. This will be resolved in a future version of Octopus.
 :::
 
-If you want to run an Octopus Deploy Windows container or a Tentacle Windows Container, please refer to the [Docker Compose Windows](/docs/installation/octopus-in-container/docker-compose-windows.md) documentation.
-
 For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
 The following example is a simple `docker-compose.yml` file combining a SQL Server instance with a dependent Octopus Server:

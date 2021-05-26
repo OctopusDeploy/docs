@@ -1,6 +1,6 @@
 ---
 title: Exporting and Importing Projects 
-description: Projects can be exported, and imported into another space 
+description: Projects can be exported, and imported into another space. (Project Bento) 
 position: 40
 ---
 
@@ -47,7 +47,7 @@ The ability to import an existing project will likely be added in a future relea
 
 The root of the export/import is a project (or multiple projects).  The simple rule-of-thumb is everything the project references is included. Specifically:
 
-- The project (name, logo, settings)   
+- The project (name, settings)   
 - The deployment process and runbooks 
 - Project variables 
 - Channels, and all lifecycles referenced 
@@ -64,10 +64,11 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Deployment targets](#deployment-targets)
 - [Audit logs](#audit-logs)
 - [Workers](#workers)
+- [Project logos](#project-logos) 
 
 ### Shared resources #{shared-resources}
 
-The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; i.e. if there is an existing resource with the same name as one the source then it will be used, otherwise it will be created.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
+The Octopus Deploy data-model is a web, not a graph.  Some resources are shared between projects (environments, tenants, accounts, step templates, etc), and these shared resources are exported with the project.  In general, these shared resources are matched by name when importing; i.e. if there is an existing resource with the same name as one in the source then it will be used, otherwise it will be created.  Sometimes the import will need to merge some information on import.  Some specific examples are mentioned below.
 
 ### Environments
 
@@ -155,9 +156,25 @@ Any certificates which can be referenced via the project will be included in the
 
 When importing, if a certificate with the same name already exists on the destination, the existing certificate will be used. 
 
+### Project logos
+
+The project logo will be available when exporting between spaces on the same instance.  If exporting between instances, the logo will have to be re-uploaded.
+
 ## Moving to Octopus Cloud #{octopus-cloud}
 
 When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits) which should be considered.  Specifically:
 
 !include <octopus-cloud-storage-limits>
 - There are some caveats around [worker pools](#workers).
+
+## Using the API #{using-the-api}
+
+:::hint
+Automating the export and import of projects using the REST API as part of a backup/restore process is **not recommended**. See our [supported scenarios](#scenarios).
+:::
+
+You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) to export or import Octopus projects.
+
+To find out more take a look at our examples:
+- [Export projects](/docs/octopus-rest-api/examples/projects/export-projects.md)
+- [Import projects](/docs/octopus-rest-api/examples/projects/import-projects.md)
