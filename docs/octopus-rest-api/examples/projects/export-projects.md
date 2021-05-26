@@ -3,11 +3,15 @@ title: Export projects
 description: An example script that will export projects that can be imported into a different space on the same, or different Octopus instance.
 ---
 
-:::hint
-This script uses an API endpoint introduced in **Octopus 2021.1** for the [Export/Import Projects feature](/docs/projects/export-import/index.md). Using this script in earlier versions of Octopus will not work.
-:::
+This script will export projects from an Octopus space that can be imported into a different space on the same instance or a separate Octopus instance. 
 
-This script will export projects from an Octopus space that can be imported into a different space on the same instance or a separate Octopus instance.
+:::hint
+**Note:**
+Please note there are some items to consider before using this script:
+
+- This script uses an API endpoint introduced in **Octopus 2021.1** for the [Export/Import Projects feature](/docs/projects/export-import/index.md). Using this script in earlier versions of Octopus will not work.
+- Automating the export of projects as part of a backup/restore process is **not recommended**. See our [supported scenarios](/docs/projects/export-import/index.md#scenarios) when using the API from this feature.
+:::
 
 ## Usage
 

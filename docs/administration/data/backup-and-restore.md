@@ -9,14 +9,12 @@ A successful disaster recovery plan for Octopus Deploy requires the ability to r
 1. The Octopus [SQL Server Database](/docs/administration/data/octopus-database/index.md).
 2. The Octopus [data stored on the file system](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md).
 
+**Runbooks**
+[Octopus runbooks](/docs/runbooks/index.md) can help you automate your disaster recovery process.
+
 :::problem
 **Without your Master Key, backups are useless**
 Sensitive information is encrypted using AES128 with the Master Key as the encryption key. Without this Master Key you will lose your sensitive variables, passwords and other encrypted data. Make sure you've taken a copy of the key! [Learn more about backing up the Master Key](/docs/security/data-encryption.md).
-:::
-
-:::hint
-**Runbooks**
-[Octopus runbooks](/docs/runbooks/index.md) can help you automate your disaster recovery process.
 :::
 
 ## Octopus SQL Database
