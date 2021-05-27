@@ -40,7 +40,7 @@ Learn more about [configuring the right Azure Account](/docs/infrastructure/depl
 
 ## Dynamic Worker Pools
 
-Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). These are provided by Octopus and custom versions of the Azure tools cannot be installed on them. In order to use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). These are provided by Octopus and custom versions of the Azure tools cannot be easily installed on them. In order to use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). You may need to create a new worker pool using one the images that support execution containers.
 - Configure your step to run in an execution container, selecting a docker image that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use. For more information about selecting an image to use, see the [Which Docker images can I use?](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) section.
