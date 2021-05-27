@@ -162,10 +162,10 @@ The project logo will be available when exporting between spaces on the same ins
 
 ## Moving to Octopus Cloud #{octopus-cloud}
 
-When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](https://octopus.com/pricing/overview) which should be considered.  Specifically:
-- Octopus Cloud instances are limited to storing 20GB of packages 
-- Release [retention policies](/docs/administration/retention-policies/index.md) can be configured to a maximum of 30 days 
-- There are some caveats around [worker pools](#workers)
+When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits) which should be considered.  Specifically:
+
+!include <octopus-cloud-storage-limits>
+- There are some caveats around [worker pools](#workers).
 
 ## Using the API #{using-the-api}
 

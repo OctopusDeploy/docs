@@ -20,9 +20,11 @@ Customers electing to self-host Octopus Deploy take on the responsibility for ma
 
 Customers electing to use Octopus Cloud don't have the same maintenance responsibilities of the Octopus Server as customers who elect to self-host.  We handle all the upgrades and database maintenance for you.
 
-We impose limits on your instance to keep your file consumption and database size as small as possible.
+We impose [storage limits](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits) on your instance to keep your file consumption and database size as small as possible.
 - All lifecycle retention policies have a default of 30 days instead of forever.
-- The internal feed package retention policy is set to 30 days as well.
+- The internal feed package retention policy is also defaulted to 30 days.
+
+Paid cloud instances can change these limits, whereas free cloud instances cannot. 
 
 ## Octopus Cloud and Self-Hosted Octopus Deploy
 
