@@ -13,6 +13,8 @@ We recommend that you provision your own tools on your worker - this way you can
 :::warning
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
 
+From version 2021.2 of Octopus, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
+
 We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
 :::
 
@@ -35,6 +37,13 @@ Azure supports two authentication methods, each of which provides access to a di
   - The Az PowerShell cmdlets are prefixed with `Az`, like `Get-AzWebApp`.
 
 Learn more about [configuring the right Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
+
+## Dynamic Worker Pools
+
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). These are provided by Octopus and custom versions of the Azure tools cannot be installed on them. In order to use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). You may need to create a new worker pool using one the images that support execution containers.
+- Configure your step to run in an execution container, selecting a docker image that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use. For more information about selecting an image to use, see the [Which Docker images can I use?](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) section.
 
 ## Run an Azure PowerShell script step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 
