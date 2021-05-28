@@ -16,7 +16,7 @@ When an Octopus Tentacle container starts up, it will attempt to invoke the [`re
 docker run --interactive --detach `
  --name OctopusTentacle `
  --publish 10933:10933 `
- --env "ListeningPort=10933"
+ --env "ListeningPort=10933" `
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetEnvironment=Development" `
  --env "TargetRole=container-server" `
@@ -27,7 +27,7 @@ docker run --interactive --detach `
 docker run --interactive --detach `
  --name OctopusWorker `
  --publish 10933:10933 `
- --env "ListeningPort=10933"
+ --env "ListeningPort=10933" `
  --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
  --env "TargetWorkerPool=Windows2019Workers" `
  --env "ServerUrl=http://10.0.0.1:8080" `
