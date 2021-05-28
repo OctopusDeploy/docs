@@ -5,57 +5,10 @@ description:  Migrating between self-hosted and Octopus Cloud.
 ---
 
 :::warning
-We no longer offer manual migrations from a self-hosted Octopus Server to Octopus Cloud. A new feature called **Export/Import Projects** was added in Octopus **2021.1** that will allow seamless migrations to Octopus Cloud - you can find further details in our [Exporting and Importing Projects](/docs/projects/export-import/index.md) page.
+We no longer offer manual migrations from a self-hosted Octopus Server to Octopus Cloud, and vice-versa. A new feature called **Export/Import Projects** was added in Octopus **2021.1** that will allow seamless migrations to Octopus Cloud - you can find further details in our [Exporting and Importing Projects](/docs/projects/export-import/index.md) page.
 
 Please note that our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
 :::
-
-## Migrating to Octopus Cloud
-
-If you have an existing self-hosted Octopus Server, and you want to switch to Octopus Cloud, you may want to migrate all of your existing projects, variables, history, and configuration from your self-hosted instance to your new Octopus Cloud instance. The only way to achieve this is through a full migration, with an entire database backup and restore. This ensures we don't miss any key dependencies.
-
-### How it works
-
-To get started migrating from self-hosted to cloud, [email our support team](mailto:support@octopus.com) and book a time for the migration to occur. 
-
-### Prepare for the migration
-
-- Email [support@octopus.com](mailto:support@octopus.com) to book in a mutually convenient time. We'll reply with the specific steps that are involved.
-- Upgrade to the [latest version of Octopus](https://octopus.com/downloads). This will help eliminate any compatibility problems that could occur.
-- Schedule two days of possible downtime for your deployments, so we can migrate your instance to the cloud.
-- Due to the length of time required to complete the migration, we will only be able to schedule one migration per week. We will let you know the timeframe when you contact support.
-
-## Migrating from Octopus Cloud
-
-If Octopus Cloud is not the right fit for you, and you would like to switch back to hosting Octopus Server on your own infrastructure, we can provide a copy of the data from your instance.
-
-### How it works
-
-To get started migrating from self-hosted to cloud, [email our support team](mailto:support@octopus.com) and book a time for the migration to occur. 
-
-### Importing the migrated data 
-
-Start by [installing](/docs/installation/index.md) a new Octopus Server. 
-
-Restore the database backup provided by Octopus support, ensuring that the user account under which the Octopus service is running has access to the database.
-
-Using the [database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md) command, set the connection string and the Master Key.
-`Octopus.Server.exe database --connectionString=<connection string to restored database> --masterKey=<Master Key provided by Octopus Support>`
-
-From the provided zip file, copy the *task logs*, *artifacts*, and *packages* to the corresponding folders under the Octopus home folder, by default this is `C:\Octopus`.
-
-Update the paths for the *task logs*, *artifacts*, and *packages* folders using the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) command.
-
-`Octopus.Server.exe path --nugetRepositry=<path to packages folder> --artifacts=<path to artifacts folder> --tasklogs=<path to task logs folder>`
-
-Restart the Octopus service.
-
-After you have completed these steps, login to your local instance and check that everything looks correct. In particular:
-
-- **Task logs**. Ensure that the log is showing correctly for a recent deployment.
-- **Packages have been indexed correctly**. Check your package library contains the packages you expect.
-- **Tentacles are healthy**: 
-    The server address has changed so you may need to update the configuration on Polling Tentacles using **Tentacle.exe** or the Tentacle Manager. For Listening Tentacles, you may need to update the Tentacle address on the deployment target page.
 
 ## Questions?
 
