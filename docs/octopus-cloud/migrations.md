@@ -5,7 +5,7 @@ description:  Migrating between self-hosted and Octopus Cloud.
 ---
 
 :::warning
-The recommended way to migrate to Octopus Cloud, is with the **Export/Inport Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
+The recommended way to migrate to Octopus Cloud, is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
 
 We no longer offer manual migrations from a self-hosted Octopus Server to Octopus Cloud, and vice-versa. 
 
