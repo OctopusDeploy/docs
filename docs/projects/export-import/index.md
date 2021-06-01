@@ -65,6 +65,7 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Audit logs](#audit-logs)
 - [Workers](#workers)
 - [Project logos](#project-logos) 
+- [Triggers](#triggers)
 
 ### Shared resources #{shared-resources}
 
@@ -159,6 +160,10 @@ When importing, if a certificate with the same name already exists on the destin
 ### Project logos
 
 The project logo will be available when exporting between spaces on the same instance.  If exporting between instances, the logo will have to be re-uploaded.
+
+### Triggers
+
+Triggers are also not currently included, and will need to be reconfigured in the destination instance.  
 
 ## Moving to Octopus Cloud #{octopus-cloud}
 
