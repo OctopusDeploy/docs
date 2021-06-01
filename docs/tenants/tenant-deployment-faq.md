@@ -1,10 +1,10 @@
 ---
 title: Multi-tenant deployments FAQ
-description: Questions we are asked most often related to multi-tenant deployments.
-position: 1
+description: Questions we are often asked relating to multi-tenant deployments.
+position: 40
 ---
 
-This page contains some of the questions we are asked most often related to multi-tenant deployments in Octopus Deploy.
+This page contains some of the questions we are often asked relating to multi-tenant deployments in Octopus Deploy.
 
 ## Is there anything special about multi-tenant projects or environments? {#Multi-tenantdeploymentsFAQ-Isthereanythingspecialaboutmulti-tenantprojectsorenvironments?}
 
@@ -69,7 +69,7 @@ You can achieve these behaviors using a custom script/application which leverage
 
 Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
 
-![](images/5865711.png "width=500")
+![](images/multi-tenant-project-settings.png "width=500")
 
 ## What is an "Untenanted Deployment"? Don't I Have to Choose a Tenant When Deploying my Project? {#Multi-tenantdeploymentsFAQ-Whatisanun-tenanteddeploymentDontIhavetochooseatenantwhendeployingmyproject?}
 

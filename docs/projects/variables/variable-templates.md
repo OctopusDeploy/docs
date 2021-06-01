@@ -4,13 +4,22 @@ description: Variable templates can be defined in Octopus to indicate which vari
 position: 100
 ---
 
-Working with [multi-tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) in Octopus, allows you to deploy releases to multiple customers. As you work with multi-tenant releases there will be [variables](/docs/projects/variables/index.md) that are common across all tenants but need a unique value per tenant, for instance, website names, titles, headers, images, logo, URLs, contact information, and technical details such as server names and database connection settings. The Variable Template feature lets you specify which variables are required to successfully deploy a project to a tenant, and then to provide those variables per tenant.
+Variable templates let you specify which [variables](/docs/projects/variables/index.md) are required to successfully deploy a project to a [tenant](/docs/tenants/index.md), and to provide those variables per tenant. 
+
+Each variable template can define the data type, name, label, help text, and default value.
+
+There are two types of variable templates:
+
+- [Library variable set templates](#adding-a-variable-template) are variable values that are common across all tenants but need a unique value per tenant. For example, website names, titles, headers, images, logo, URLs, contact information. These values don't change across projects and environments for a tenant.
+- [Project templates](#project-templates) are variable values that differ between projects and environments for a tenant. For example, server names or database connection settings. 
 
 :::hint
 For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
 :::
 
-## Adding a variable template
+## Library variable set templates {#adding-a-variable-template}
+
+To specify common variables that can be used across multiple tenants, you need to add a Variable template to either an existing or new Library variable set:
 
 1. Navigate to **{{Library,Variable Sets}}** and click **ADD VARIABLE SET**.
 2. Give the variable set a name, description, and click **SAVE**.
@@ -26,15 +35,46 @@ For a working example see our multi-tenant deployments guide: [Working with tena
 | **Control type** | You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. | Single-line text box, Multi-line text box, Drop down, Checkbox, Sensitive/password box, Azure Account |
 | **Options** | (Only applies when Data type: Drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use `|` to separate values and display text. | `Value1|Display text 1` <br>`Value2|Display text 2`  |
 
-:::success
-**Which variable templates apply to each tenant?**
-Good question! When you connect a tenant to a project, variable templates defined by the project itself, or by included library variable sets, will be required by the tenant.
+![](images/variable-templates-libraryset.png "width=500")
+
+To set common variable values for a tenant:
+
+1. Navigate to the **{{Variables,Common Variables}}** tab in the tenant screen:
+1. Expand each connected environment and provide values for each project template:
+
+    ![](images/variable-templates-common-value.png "width=500")
+
+:::hint
+If you can't see any variables in the Common Variables tab, ensure you have included the Library variable set in the connected project.
+:::
+
+## Project templates {#project-templates}
+
+Project templates allow you to specify variables that can have different values per tenant/environment combination. A perfect example would be a connection string or a database server. With project templates, you define them at the project level.
+
+To add a project template:
+
+1. Navigate to the **{{Variables,Project Templates}}** tab in your tenant connected project.
+1. Click **ADD TEMPLATE**.
+1. Add the details to your template and click **ADD**:
+
+    ![](images/variable-templates-project-template.png "width=500")
+
+Then to set the variable values for a tenant:
+
+1. Navigate to the **{{Variables,Project Variables}}** tab in the tenant screen:
+1. Expand each connected environment and provide values for each project template:
+
+    ![](images/variable-templates-project-value.png "width=500")
+    
+## Which variable templates apply to a tenant {#which-variable-templates-apply-tenants}
+
+When you connect a tenant to a project, variable templates defined by the project itself, or by included library variable sets, will be required by the tenant.
 
 1. Library variable templates will be collected once - they are considered to be constant for the tenant. Think of these like "custom fields" for your tenants.
 2. Project variable templates will be collected once for each project/environment combination the tenant is connected to. Think of these like database connection settings for the specific tenant/project/environment combination.
 
 By carefully designing your variable templates you can implement complex multi-tenant deployment scenarios.
-:::
 
 ## Learn more
 
