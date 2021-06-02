@@ -5,8 +5,7 @@ position: 30
 hideInThisSectionHeader: true
 ---
 
-
-Scoping the team to their specific tenant will ensure they can only deploy to their dedicated infrastructure.
+The Octo Pet Shop application has two development teams (Avengers and Radical) that are concurrently developing features for the application.  Scoping the team to their specific tenant will ensure they can only deploy to their dedicated infrastructure.
 
 ## Scoping team to tenant
 
