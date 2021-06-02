@@ -1,6 +1,6 @@
 ---
-title: Multi-Tenant regions
-description: Guides showing you how to use tenants to deploy an application to regions using different release rings.
+title: Infrastructure tenant tags
+description: Add tenant tags to your infrastructure as part of a multi-tenant region setup in Octopus Deploy.
 position: 50
 hideInThisSectionHeader: true
 ---

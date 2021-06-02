@@ -6,9 +6,10 @@ hideInThisSectionHeader: true
 ---
 
 
-With the Teams mutli-tenant pattern, it is likely that each team will need the ability to deploy to their development environment.  Scoping the team to their specific tenant will ensure they can only deploy to their dedicated infrastructure.
+With the Teams multi-tenant pattern, it is likely that each team will need the ability to deploy to their development environment.  Scoping the team to their specific tenant will ensure they can only deploy to their dedicated infrastructure.
 
 ## Scoping team to tenant
+
 Once you've created your team, click on the **USER ROLES** tab.
 
 ![](images/octopus-teams-avenger.png)

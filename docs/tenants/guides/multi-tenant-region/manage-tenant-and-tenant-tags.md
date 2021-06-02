@@ -1,6 +1,6 @@
 ---
-title: Multi-Tenant regions
-description: Guides showing you how to use tenants to deploy an application to regions using different release rings.
+title: Manage Tenants and Tag sets
+description: Manage tenants and tag sets as part of a multi-tenant region setup in Octopus Deploy.
 position: 30
 hideInThisSectionHeader: true
 ---

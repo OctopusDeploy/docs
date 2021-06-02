@@ -1,7 +1,8 @@
 ---
 title: Creating new tenants
-description: This part of the guides shows you how to create tenants
+description: Create tenants as part of a multi-tenant team setup in Octopus Deploy.
 position: 10
 hideInThisSectionHeader: true
 ---
 
+!include <tenants-create-tenant>
