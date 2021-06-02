@@ -5,14 +5,15 @@ position: 10
 hideInThisSectionHeader: true
 ---
 
-As previously stated, Car Rental utilizes Azure to host the application for the different stores in their chain.  In addition, each store plays a different role in the development lifecycle by participating in different upgrade rings.  To designate which tenant is in which region and upgrade ring, we define `Tenant Tag Sets`.
+As previously stated, Car Rental utilizes Azure to host the application for the different stores in their chain.  In addition, each store plays a different role in the development lifecycle by participating in different upgrade rings.  To designate which tenant is in which region and upgrade ring, we define **Tenant Tag Sets**.
 
-## Ceating Tenant Tag Sets
-`Tenant Tag Sets` are stored in the `Library` of Octopus Deploy.  To create Tenant Tag Sets, click on Library `Library` -> `Tenant Tag Sets` -> **ADD TAG SET**
+## Creating Tenant Tag Sets
 
-![](images/tenant-tageset-create.png)
+Tenant Tag Sets are stored in the Library of Octopus Deploy.  To create Tenant Tag Sets, navigate to **{{Library,Tenant Tag Sets}}**`and click **ADD TAG SET**.
 
-Give the `Tag Set` a name, an optional description, and create some Tags.  For the Car Rental application, we're creating an Azure Region Tag Set with the different Azure Regions as the Tags.
+![](images/tenant-tagset-create.png)
+
+Give the **Tag Set** a name, an optional description, and create some Tags.  For the Car Rental application, we're creating an Azure Region Tag Set with the different Azure Regions as the Tags.
 
 ![](images/tenant-tag-create.png)
 
