@@ -21,7 +21,7 @@ Before going down the automation path, it is critical to back up the master key 
 
 ## Upgrading Single Node Octopus Deploy instances
 
-A single node Octopus Deploy instance is not configured for high availability.  The instance is running on a single Windows Server, and as such, you can run this script to:
+A single node Octopus Deploy instance is an instance not configured for high availability.  The instance is running on a single Windows Server, and as such, you can run this script to:
 
 1. Check for a new version (exit if the current version is the newest version).
 1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
