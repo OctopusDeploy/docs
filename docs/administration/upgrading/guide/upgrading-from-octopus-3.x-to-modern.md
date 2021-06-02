@@ -20,7 +20,7 @@ There is some risk involved with doing an in-place upgrade.  This guide will wal
 
 ## Prep Work
 
-Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move on to the standard upgrade process.
+Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the next steps.
 
 1. Backup the Master Key.
 1. Backup the License Key.
