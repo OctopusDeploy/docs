@@ -6,7 +6,7 @@ hideInThisSectionHeader: true
 ---
 
 
-With the Teams multi-tenant pattern, it is likely that each team will need the ability to deploy to their development environment.  Scoping the team to their specific tenant will ensure they can only deploy to their dedicated infrastructure.
+Scoping the team to their specific tenant will ensure they can only deploy to their dedicated infrastructure.
 
 ## Scoping team to tenant
 
