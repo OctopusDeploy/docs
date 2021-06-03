@@ -4,7 +4,7 @@ description: A how-to guide on how to automate Octopus Deploy upgrades
 position: 4
 ---
 
-Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade.  This guide provides the steps necessary to automate the upgrade process.  Automating the upgrade process will reduce the outage window to be around 5-10 minutes.  
+Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade and can reduce the outage window to be around 5-10 minutes.   This guide provides the steps necessary to automate the upgrade process. 
 
 ## Overview
 
@@ -21,7 +21,7 @@ Before going down the automation path, it is critical to back up the master key 
 
 ## Upgrading Single Node Octopus Deploy instances
 
-A single node Octopus Deploy instance is an instance not configured for high availability.  The instance is running on a single Windows Server, and as such, you can run this script to:
+A single node Octopus Deploy instance is an instance not configured for [high availability](/docs/administration/high-availability/index.md).  The instance is running on a single Windows Server, and as such, you can run this script to:
 
 1. Check for a new version (exit if the current version is the newest version).
 1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
@@ -31,7 +31,11 @@ A single node Octopus Deploy instance is an instance not configured for high ava
 1. Upgrade the database.
 1. Start the instance back up.
 
-Depending on the duration of the upgrade, your Octopus Server may still be starting up when the script completes. It will still be in maintenance mode, giving you a chance to log in to the Octopus web portal and verify things are working as expected.
+Depending on the duration of the upgrade, your Octopus Server may still be starting up when the script completes. It will still be in maintenance mode, giving you a chance to log in to the Octopus Web Portal and verify things are working as expected.
+
+:::hint
+Replace the variable values at the start of the script with ones applicable to your installation.
+:::
 
 ```PowerShell
 $url = 'https://samples.octopus.app'
@@ -123,10 +127,10 @@ The recommendation is to use an Octopus Deploy runbook on another instance to up
 
 Each node will need a Tentacle installed on it.  You will need two roles for this to work.
 
-- HAServer: All Tentacles will be assigned to this.
-- HAServer-Primary: This is the server which does the majority of the work (checking for new versions, upgrading the database, etc).
+- `HAServer`: All Tentacles will be assigned to this.
+- `HAServer-Primary`: This is the server which does the majority of the work (checking for new versions, upgrading the database, etc).
 
-The same sample script from above will be used, but pieces will be broken up into steps.
+The same sample script from above will be used, but it will be broken up into steps.
 
 ![](images/automated-upgrade-runbook-process.png)
 
@@ -143,10 +147,10 @@ As this is a runbook, you'll want to create variables to share across the variou
 
 ### Process
 
-The upgrade process itself very similar to upgrading a single node instance.  The key difference is the script is broken up into multiple steps.
+The upgrade process itself is very similar to upgrading a single node instance.  The key difference is the script is broken up into multiple steps.
 
 :::hint
-Aside from step 1, all steps should set run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
+Aside from step 1, all steps should set a run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
 
 ![](images/automate-upgrade-variable-run-condition.png)
 :::
@@ -161,7 +165,7 @@ $downloadFolder = $OctopusParameters["Upgrade.Download.Folder"]
 $upgradeMsiList = Get-ChildItem -Path "$downloadFolder\*" -Include *.msi
 if ($upgradeMsiList.Count -gt 0)
 {
-	Set-OctopusVariable -Name "UpgradeFound" -Value $true
+    Set-OctopusVariable -Name "UpgradeFound" -Value $true
     Write-Host "MSIs already exist in the download directory, exiting so they can be installed"
     exit
 }
@@ -173,7 +177,7 @@ $versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3" `
 $upgradeVersion = $versions[-1].Version
 
 if ($upgradeVersion -eq $currentVersion) {
-	Set-OctopusVariable -Name "UpgradeFound" -Value $false
+    Set-OctopusVariable -Name "UpgradeFound" -Value $false
     Write-Host "No new versions found. Quitting..."
     exit
 }
@@ -184,7 +188,7 @@ $outfile = "$downloadFolder\$msiFilename"
 
 if (Test-Path $outfile)
 {
-	Set-OctopusVariable -Name "UpgradeFound" -Value $true
+    Set-OctopusVariable -Name "UpgradeFound" -Value $true
     Write-Host "The latest version has already been download and is waiting to be installed"
     exit
 }
@@ -206,11 +210,11 @@ $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 # Check to see if this is a re-run, if all the nodes are stopped then this will fail
 try
 {
-	$octopusApi = Invoke-RestMethod -uri "$url/api"
+    $octopusApi = Invoke-RestMethod -uri "$url/api"
 }
 catch
 {
-	Write-Host "Error calling api endpoint for $url, exiting"
+    Write-Host "Error calling api endpoint for $url, exiting"
     exit
 }
 
@@ -244,6 +248,7 @@ foreach ($instance in $instanceList)
 ```
 
 #### 4. Backup Database (HAServer-Primary)
+
 ```PowerShell
 $BackupFolderLocation = $OctopusParameters["Upgrade.Database.Backup.Folder"]
 $OctopusDatabaseName = $OctopusParameters["Upgrade.Database.Name"]
@@ -274,7 +279,6 @@ $command.ExecuteNonQuery()
 Write-Host "Successfully backed up the database $octopusDatabaseName"
 Write-Host "Closing the connection"
 $sqlConnection.Close()
-
 ```
 
 #### 5. Install the MSI (HAServer).
@@ -296,6 +300,7 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 ```
 
 #### 6. Upgrade the database (HAServer-Primary).
+
 ```PowerShell
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 $serverExe = "$installPath\Octopus.Server.exe"
@@ -304,8 +309,9 @@ $serverExe = "$installPath\Octopus.Server.exe"
 ```
 
 #### 7. Restart all nodes (HAServer).
+
 ```PowerShell
-# A server could have multiple instances, as we shut them down all earlier, start them all back up
+# A server could have multiple instances, as we shut them all down earlier, start them all back up
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 $serverExe = "$installPath\Octopus.Server.exe"
 
@@ -323,4 +329,4 @@ foreach ($instance in $instanceList)
 
 ### Triggers and notifications
 
-Now that the upgrae process is in a runbook, you can create a trigger to check once a day or week.  In addition, you can set up notifications to notify you when a new version is found and you need to disable maintenance mode.  How you use the runbook is up to you.
+Now that the upgrade process is in a runbook, you can create a trigger to check once a day or week.  In addition, you can set up notifications to notify you when a new version is found and when you need to disable maintenance mode.  How you use the runbook is up to you.
