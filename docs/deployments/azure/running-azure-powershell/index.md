@@ -4,20 +4,31 @@ description: Octopus supports executing PowerShell against Azure and will automa
 hideInThisSectionHeader: true
 ---
 
-:::warning
-Using the Azure tools bundled with Octopus Deploy is not recommended. You can continue to use both the bundled cmdlets and CLI. However, it is recommended to configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
+Octopus Deploy can help you run scripts on targets within Microsoft Azure.
 
-The Azure Resource Manager Powershell modules (AzureRM) that are included have been replaced by Azure Powershell Modules (Az). See [Introducing the Azure Az PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az) for further information about migrating from AzureRM to Az.
+These scripts typically rely on tools being available on the target worker.
+
+We recommend that you provision your own tools on your worker - this way you can control what version of the tools are provisioned, and ensure their compatibility with the scripts you are trying to execute.
+
+:::warning
+Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
+
+From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
+
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
 :::
 
-When executing PowerShell against Azure, Octopus Deploy will automatically import the [Azure Resource Manager (AzureRM) PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/overview) and the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview) if they are present on the worker. The Azure PowerShell modules require the [Azure CLI](https://docs.microsoft.com/cli/azure/) version 2.0 or above to be installed on the worker. Finally, it will authenticate with Azure using the configured [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
+When executing PowerShell against Azure, Octopus Deploy will automatically use your configured Azure account details to authenticate you into the [AzureRM PowerShell modules](https://docs.microsoft.com/powershell/azure/azurerm/overview), the [Azure PowerShell modules](https://docs.microsoft.com/powershell/azure/overview), and [Azure CLI tools](https://docs.microsoft.com/cli/azure/), if they exist on the worker executing the script.
 
 This applies to:
 
 - 'Run an Azure Script' steps.
 - Scripts packaged or configured with [Deploying a package to an Azure Cloud Service](/docs/deployments/azure/cloud-services/index.md) or [Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) steps.
 
+This functionality requires the Azure CLI version 2.0 or above to be installed on the worker.
+
 **Choosing the right Azure account type**
+
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
 - To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-management-certificate).
@@ -27,6 +38,13 @@ Azure supports two authentication methods, each of which provides access to a di
 
 Learn more about [configuring the right Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
 
+## Dynamic Worker Pools
+
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them. To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). You may need to create a new worker pool using one of the images that support execution containers.
+- Configure your step to run in an execution container, selecting a docker image that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use. For more information about selecting an image to use, see the [Which Docker images can I use?](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) section.
+
 ## Run an Azure PowerShell script step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 
 Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
@@ -34,12 +52,6 @@ Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for exec
 ![](5865912.png "width=170")
 
 ![](azure-new-powershell-script-step.png "width=500")
-
-### Staying up to date
-
-Octopus Deploy ships with a version of the Azure RM PowerShell Modules and Azure CLI, so you can deploy applications as soon as you install Octopus Deploy. Microsoft Azure is changing very quickly, introducing more application services and commands frequently. In addition the AzureRM Powershell modules only work on Windows workers. 
-
-You can use the bundled cmdlets or/and CLI if they cover everything you need; however, this is **not recommended**. Instead, consider configuring Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and/or [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
 
 ## Learn more
 

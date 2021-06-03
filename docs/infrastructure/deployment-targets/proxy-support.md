@@ -95,7 +95,7 @@ If you are executing a PowerShell script with a version of PowerShell Core earli
 
 For convenience, the `$OctopusProxy` variable is available for your scripts to use, and the variable is assigned a configured instance of `System.Net.WebProxy`. 
 
-The following snippet demonstates how to construct a configured instance of `HttpClient` using the `$OctopusProxy` variable.
+The following snippet demonstrates how to construct a configured instance of `HttpClient` using the `$OctopusProxy` variable.
 
 ```
 $handler = [System.Net.Http.SocketsHttpHandler]::new()

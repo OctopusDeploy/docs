@@ -39,6 +39,12 @@ The Python examples are written using Python 3 and use the [Requests](https://re
 
 The Go examples are written using the [go-octopusdeploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
 
+## Bulk operations
+
+Sometimes you want to perform an action on a resource in Octopus multiple times. For example, connecting a tenant to all of your projects. Having to run a script that performs an operation once, repeatedly, can become tedious. 
+
+To help with this, we've included examples of [bulk operations](/docs/octopus-rest-api/examples/bulk-operations/index.md) using the Octopus REST API.
+
 ## Explore examples
 
 Explore the REST API examples further in this section:

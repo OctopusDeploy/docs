@@ -140,6 +140,14 @@ Then, on your deployment step, you can set the **[Custom Install Directory](/doc
 
 When applying permissions on variables via scopes, the only options that are checked against permissions are Environments, Targets and Tenants.
 
+## Variable casing
+
+It's important to understand how Octopus treats variables with regard to case sensitivity:
+- Variable names are **case insensitive**. 
+- Variable contents are by default **case insensitive**. You can alter this behavior by using either the `ToLower` or `ToUpper` [variable filters](/docs/projects/variables/variable-filters.md).
+
+If you are using the [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) feature, variable names are matched in a **case insensitive** way.
+
 ## Variable Recommendations
 
 ### Group variables into Variable Sets

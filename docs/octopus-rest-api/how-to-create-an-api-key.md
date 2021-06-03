@@ -26,6 +26,10 @@ After you generate an API key, it cannot be retrieved from the Octopus Web Porta
 
 ## Setting an expiry date
 
+:::hint
+The ability to set an expiry date on new API keys was added in Octopus Deploy **2020.6**.
+:::
+
 You can optionally set an expiry date on new API keys. By default, keys have no expiry date and are valid until they're revoked.
 
 When creating an API key in the Octopus Web Portal, you can choose from a preset list of offsets from the current date, or select a custom date. Keys will expire at the end of the selected day. When using the Octopus REST API to create a key, you can set the expiry date to your preferred  date and time, including time zone offset.

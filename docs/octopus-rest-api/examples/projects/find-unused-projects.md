@@ -1,6 +1,6 @@
 ---
 title: Find unused projects
-description: An example script the will find any project who hasn't had a release created in the previous days
+description: An example script that will find any project that hasn't had a release created in the previous days
 ---
 
 This script will search for projects who haven't had a release created in the previous set number of days.
