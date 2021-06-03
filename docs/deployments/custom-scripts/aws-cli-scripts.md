@@ -90,3 +90,10 @@ The first option is to add the script source code to the step directly. This is 
 The second option is to run a script from a package. This is done by selecting the `Script file inside a package` option, selecting the package, and entering the name of the file within the package to run as a PowerShell script.
 
 ![AWS script package](images/step-aws-package.png "width=500")
+
+## Dynamic Worker Pools
+
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them. To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). You may need to create a new worker pool using one of the images that support execution containers.
+- Configure your step to run in an execution container, selecting a docker image that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use. For more information about selecting an image to use, see the [Which Docker images can I use?](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) section.
