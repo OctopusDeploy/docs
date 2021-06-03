@@ -24,6 +24,15 @@ In general, the process looks like this:
 
 Learn more about [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md).
 
+## Prep Work
+
+Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the standard upgrade process.
+
+1. Backup the Master Key.
+1. Backup the License Key.
+
+!include <upgrade-octopus-backup-master-key>
+
 ## Standard upgrade process
 
 The standard upgrade process is an in-place upgrade.  In-place upgrades update the binaries in the install directory and update the database.  The guide below includes additional steps to backup key components to make it easier to rollback in the unlikely event of a failure.
@@ -33,7 +42,6 @@ The standard upgrade process is an in-place upgrade.  In-place upgrades update t
 The steps for this are:
 
 1. Download the latest version of Octopus Deploy.
-1. Backup the Master Key.
 1. Enable maintenance mode.
 1. Backup the database.
 1. Do an in-place upgrade.
@@ -41,7 +49,6 @@ The steps for this are:
 1. Disable maintenance mode.
 
 !include <upgrade-download-latest-version>
-!include <upgrade-octopus-backup-master-key>
 !include <upgrade-octopus-backup-database>
 !include <upgrade-inplace-upgrade>
 !include <upgrade-testing-upgraded-instance>
