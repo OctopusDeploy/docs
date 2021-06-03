@@ -13,7 +13,7 @@ Tenant Tag Sets are stored in the Library of Octopus Deploy.  To create Tenant T
 
 ![](images/tenant-tagset-create.png)
 
-Give the **Tag Set** a name, an optional description, and create some Tags.  For the Car Rental application, we nee to create an Azure Region Tag Set with the different Azure Regions as the Tags.
+Give the **Tag Set** a name, an optional description, and create some Tags.  For the Car Rental application, we need to create an Azure Region Tag Set with the different Azure Regions as the Tags.
 
 ![](images/tenant-tag-create.png)
 

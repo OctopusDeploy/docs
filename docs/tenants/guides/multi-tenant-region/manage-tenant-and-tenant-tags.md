@@ -11,7 +11,7 @@ To manage the Tag Sets associated with a Tenant, navigate to Tenants, then selec
 
 ![](images/tenant-manage-tags.png)
 
-The De Moines location for Car Rental company deploys to the Azure region of Central US and participates in all Release Rings.  This tenant will be assigned the `Central US` Azure Region tag as well as `Alpha`, `Beta`, and `Stable` Release Rings tags.
+The De Moines location for Car Rental company deploys to the `Central US` Azure region and participates in all Release Rings.  This tenant will be assigned the `Central US` Azure Region tag as well as `Alpha`, `Beta`, and `Stable` Release Rings tags.
 
 ![](images/demoines-tags.png)
 

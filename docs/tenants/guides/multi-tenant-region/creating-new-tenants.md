@@ -9,7 +9,7 @@ The first step in this guide is to create the three tenants needed for this scen
 
 - LA International Airport
 - De Moines
-- Norfolk, Virginia
+- Norfolk
 
 To create your tenants follow these steps:
 
