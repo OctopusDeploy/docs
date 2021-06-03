@@ -18,3 +18,5 @@ The De Moines location for Car Rental company deploys to the Azure region of Cen
 Norfolk will be assigned the Azure Region of `East US` with `Beta` and `Stable` Release Rings.  LAX will be assigned the `West US` Azure Region tag with only the `Stable` Release Ring.
 
 ![](images/car-rental-tenants.png)
+
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/creating-tenant-tags">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure">Next</a></span>

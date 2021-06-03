@@ -30,3 +30,5 @@ Promoting the same release to Test for the same Release Ring, it chooses all ten
 ![](images/beta-release-ring-test-deployment.png)
 
 It is worth noting that because we assigned the infrastructure to their respective tenants, Octopus Deploy already knows what targets to deploy to.  Deploying to Staging and Production would yield the same results as Test as `De Moines` and `Norfolk` are the only two locations who are participating in the `Beta` tag.
+
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-region/region-specific-workers">Next</a></span>

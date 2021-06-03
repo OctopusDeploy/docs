@@ -27,3 +27,5 @@ Because the tenants for the Car Rental application have been assigned their appr
 ![](images/demoines-worker.png)
 
 ![](images/central-us-workers.png)
+
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring">Previous</a></span>
