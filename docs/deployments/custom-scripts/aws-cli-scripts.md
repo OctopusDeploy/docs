@@ -4,7 +4,19 @@ description: AWS CLI PowerShell Scripts.
 position: 90
 ---
 
-Octopus allows you to write custom PowerShell scripts that have access to the [AWS CLI](https://aws.amazon.com/cli/) and the [AWS PowerShell modules](https://aws.amazon.com/powershell/) via the `Run an AWS CLI Script` step. In addition, the script is run in an environment that handles authentication by creating the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` environment variables based on the AWS account that was selected for the step.
+Octopus can help you to run scripts on targets within AWS.
+
+These scripts typically rely on tools being available on the target worker.
+
+We recommend that you provision your own tools on your worker - this way you can control what version of the tools are provisioned, and ensure their compatibility with the scripts you are trying to execute.
+
+:::warning
+Using the AWS tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the [AWS PowerShell modules](https://aws.amazon.com/powershell/) and [AWS CLI](https://aws.amazon.com/cli/). These were originally provided as convenience mechanisms for users wanting to run scripts against AWS targets. The versions bundled are now out of date, and we will not be updating them further.
+
+From **Octopus 2021.2**, a warning will also appear in the deployment logs if the AWS tools bundled with Octopus Deploy are used in a step.
+:::
+
+When executing scripts against AWS, Octopus Deploy will configure an environment that authenticates you using the AWS account that was configured for the step.
 
 The proceeding instructions can be followed to configure the `Run an AWS CLI Script` step.
 
@@ -46,7 +58,7 @@ The default AWS region in which to execute AWS CLI commands is defined in the `R
 
 ## Script section
 
-PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws.exe` on the path, as well as having the AWS PowerShell modules imported. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the AWS service role for the EC2 instance running the script (i.e. the Octopus Server) was used.
+PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws.exe` on the path, as well as having the AWS PowerShell modules if they are present on the worker. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured to authenticate you with AWS. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the AWS service role for the EC2 instance running the script (i.e. the Octopus Server) was used.
 
 This means you can run scripts using a mix of the AWS CLI and PowerShell commands:
 
@@ -80,3 +92,10 @@ The first option is to add the script source code to the step directly. This is 
 The second option is to run a script from a package. This is done by selecting the `Script file inside a package` option, selecting the package, and entering the name of the file within the package to run as a PowerShell script.
 
 ![AWS script package](images/step-aws-package.png "width=500")
+
+## Dynamic Worker Pools
+
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them. To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). You may need to create a new worker pool using one of the images that support execution containers.
+- Configure your step to run in an execution container, selecting a docker image that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use. For more information about selecting an image to use, see the [Which Docker images can I use?](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) section.
