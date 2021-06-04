@@ -25,6 +25,7 @@ A single node Octopus Deploy instance is an instance not configured for [high av
 
 1. Check for a new version (exit if the current version is the newest version).
 1. Enable [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).
+1. Backup all the files if it is a major version change.
 1. Stop the instance.
 1. Backup the database.
 1. Download and install the MSI.
@@ -42,6 +43,7 @@ $url = 'https://samples.octopus.app'
 $apiKey = "API-YOURKEY"
 $octopusDeployDatabaseName = "OctopusDeploy"
 $sqlbackupFolderLocation = "\\ServerStorage\Share\Databasebackup"
+$fileBackupLocation = "\\ServerStorage\Share\FileBackup"
 $downloadDirectory = "${env:Temp}"
 
 # This is the default install location, but yours could be different
@@ -50,9 +52,7 @@ $serverExe = "$installPath\Octopus.Server.Exe"
 
 # Get the latest minor/patch version
 $currentVersion = (Invoke-RestMethod "$Url/api").Version
-$currentMajorVersion = $currentVersion.Split('.')
-$versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3" `
-    | Where-Object { $_.Version.StartsWith($currentMajorVersion + '.') }
+$versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3"
 $upgradeVersion = $versions[-1].Version
 
 if ($upgradeVersion -eq $currentVersion) {
@@ -72,6 +72,34 @@ if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{
         -Uri "$url/api/maintenanceconfiguration" `
         -Headers @{'X-Octopus-ApiKey' = $apiKey} `
         -Body (@{ Id = "maintenance"; IsInMaintenanceMode = $true } | ConvertTo-Json)
+}
+
+$versionSplit = $currentVersion -Split "\."
+$upgradeSplit = $upgradeVersion -Split "\."
+
+if ($versionSplit[0] -ne $upgradeSplit[0])
+{
+    Write-Host "Major version upgrade has been detected, backing up all the folders"
+
+    $serverFolders = Invoke-RestMethod -Uri "$url/api/configuration/server-folders/values" -Headers @{'X-Octopus-ApiKey' = $apiKey}
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $filebackUpFolder\TaskLogs /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\TaskLogs"
+    }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $filebackUpFolder\Artifacts /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\Artifacts"
+    }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $filebackUpFolder\Packages /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\Packages"
+    }
 }
 
 # Finish any remaining tasks and stop the service
@@ -130,7 +158,7 @@ Each node will need a Tentacle installed on it.  You will need two roles for thi
 - `HAServer`: All Tentacles will be assigned to this.
 - `HAServer-Primary`: This is the server which does the majority of the work (checking for new versions, upgrading the database, etc).
 
-The same sample script from above will be used, but it will be broken up into steps.
+The same sample script from above will be used, but it will be broken up into steps.  For example:
 
 ![](images/automated-upgrade-runbook-process.png)
 
@@ -141,9 +169,11 @@ As this is a runbook, you'll want to create variables to share across the variou
 - `Upgrade.Octopus.Url` - the URL of your instance, for example `https://samples.octopus.app`.
 - `Upgrade.Octopus.ApiKey` - the API key of a service account with permissions to turn on and off maintenance mode.  Please be sure to make this a sensitive variable!
 - `Upgrade.Download.Folder` - The network location of the shared folder to download the MSI to, for example `\\YOURNAS\ShareName`
-- `Upgrade.Database.Backup.Folder` -  The network location of the shared folder to backup the database to, for example `\\YOURNAS\DatabaseBackupShare\`
+- `Upgrade.Database.Backup.Folder` -  The network location of the shared folder to backup the database to, for example `\\YOURNAS\DatabaseBackupShare`
 - `Upgrade.Database.Name` - The name of your Octopus Deploy database.  This is used for the backup script.
+- `Upgrade.File.Backup.Folder` - The folder name to store the file backups in.  For example `\\YOURNAS\FilebackupShare`
 - `Upgrade.Octopus.HasNewVersion` - Output variable set in the first step.  All other steps will use this variable as a run condition.  Example value: `#{unless Octopus.Deployment.Error}#{Octopus.Action[Check for new Octopus Version to Download].Output.UpgradeFound}#{/unless}`
+- `Upgrade.Download.Msi` - Output variable storing the MSI name that is being downloaded.  Example value: `#{Octopus.Action[Check for new Octopus Version to Download].Output.MSIToDownload}`
 
 ### Process
 
@@ -155,7 +185,7 @@ Aside from step 1, all steps should set a run condition to look at the variable 
 ![](images/automate-upgrade-variable-run-condition.png)
 :::
 
-#### 1. Check for a new version (HAServer-Primary).
+**1. Check for a new version (HAServer-Primary).**
 
 ```PowerShell
 # Get the latest minor/patch version
@@ -184,6 +214,7 @@ if ($upgradeVersion -eq $currentVersion) {
 
 # Download the installer
 $msiFilename = "Octopus.$upgradeVersion-x64.msi"
+Set-OctopusVariable -Name "MSIToDownload" -value $msiFileName
 $outfile = "$downloadFolder\$msiFilename"
 
 if (Test-Path $outfile)
@@ -198,7 +229,7 @@ Start-BitsTransfer -source "https://download.octopusdeploy.com/octopus/$msiFilen
 Set-OctopusVariable -Name "UpgradeFound" -Value $true
 ```
 
-#### 2. Put the server into maintenance mode (HAServer-Primary).
+**2. Put the server into maintenance mode (HAServer-Primary).**
 
 ```PowerShell
 $url = $OctopusParameters["Upgrade.Octopus.Url"]
@@ -228,7 +259,45 @@ if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{
 }
 ```
 
-#### 3. Stop all nodes (HAServer).
+**3. Backup files if major version change**
+```PowerShell
+$url = $OctopusParameters["Upgrade.Octopus.Url"]
+$apiKey = $OctopusParameters["Upgrade.Octopus.ApiKey"]
+$fileBackupFolder = $OctopusParameters["Upgrade.File.Backup.Folder"]
+$msiToDownload = $OctopusParameters["Upgrade.Download.Msi"]
+
+$currentVersion = (Invoke-RestMethod "$Url/api").Version
+$versionSplit = $currentVersion -Split "\."
+
+$upgradeSplit = $msiToDownload -Split "\."
+
+if ($versionSplit[0] -ne $upgradeSplit[1])
+{
+    Write-Host "Major version upgrade has been detected, backing up all the folders"
+
+    $serverFolders = Invoke-RestMethod -Uri "$url/api/configuration/server-folders/values" -Headers @{'X-Octopus-ApiKey' = $apiKey}
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $filebackUpFolder\TaskLogs /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\TaskLogs"
+    }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $filebackUpFolder\Artifacts /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\Artifacts"
+    }
+
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $filebackUpFolder\Packages /mir" -Wait -Passthru).ExitCode
+    if ($msiExitCode -ge 8) 
+    {
+        Throw "Unable to copy files to $filebackUpFolder\Packages"
+    }
+}
+```
+
+**4. Stop all nodes (HAServer).**
 
 ```PowerShell
 # Upgrading the MSI on a single server updates all instances, shut them all down first
@@ -247,8 +316,7 @@ foreach ($instance in $instanceList)
 }
 ```
 
-#### 4. Backup Database (HAServer-Primary)
-
+**5. Backup Database (HAServer-Primary)**
 ```PowerShell
 $BackupFolderLocation = $OctopusParameters["Upgrade.Database.Backup.Folder"]
 $OctopusDatabaseName = $OctopusParameters["Upgrade.Database.Name"]
@@ -281,10 +349,10 @@ Write-Host "Closing the connection"
 $sqlConnection.Close()
 ```
 
-#### 5. Install the MSI (HAServer).
+**6. Install the MSI (HAServer).**
 
 ```PowerShell
-$OctopusParameters["Upgrade.Download.Folder"]
+$downloadFolder = $OctopusParameters["Upgrade.Download.Folder"]
 $upgradeMsiList = Get-ChildItem -Path "$downloadFolder\*" -Include *.msi
 if ($upgradeMsiList.Count -le 0)
 {
@@ -299,8 +367,7 @@ $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msiToIn
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 ```
 
-#### 6. Upgrade the database (HAServer-Primary).
-
+**7. Upgrade the database (HAServer-Primary).**
 ```PowerShell
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 $serverExe = "$installPath\Octopus.Server.exe"
@@ -308,8 +375,7 @@ $serverExe = "$installPath\Octopus.Server.exe"
 & $serverExe database --instance="OctopusServer" --upgrade
 ```
 
-#### 7. Restart all nodes (HAServer).
-
+**8. Restart all nodes (HAServer).**
 ```PowerShell
 # A server could have multiple instances, as we shut them all down earlier, start them all back up
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
