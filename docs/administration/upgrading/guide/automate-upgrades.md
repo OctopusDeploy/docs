@@ -259,7 +259,7 @@ if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{
 }
 ```
 
-**3. Backup files if major version change**
+**3. Backup files if major version change (HAServer-Primary).**
 ```PowerShell
 $url = $OctopusParameters["Upgrade.Octopus.Url"]
 $apiKey = $OctopusParameters["Upgrade.Octopus.ApiKey"]
