@@ -1008,3 +1008,4 @@ docs/tenants/create-a-tenant.md -> docs/tenants/index.md
 docs/tenants/enable-tenanted-deployments.md -> docs/tenants/index.md
 docs/tenants/connecting-projects.md -> docs/tenants/index.md
 docs/tenants/connecting-targets.md -> docs/tenants/index.md
+docs/tenants/guides/multi-tenant-region/assigning-infrastructure-tenant-tags.md -> docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure.md

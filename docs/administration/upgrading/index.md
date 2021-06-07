@@ -20,7 +20,7 @@ Octopus Deploy connects to a SQL Server database, and can be hosted:
 
 ### Upgrade Process
 
-When running on Windows, the typical upgrade process is:
+When running on Windows, the typical (manual) upgrade process is:
 - Run the MSI to install the latest binaries.
 - After the MSI finishes, it will close, and the **Octopus Manager** is launched to update each instance.
 

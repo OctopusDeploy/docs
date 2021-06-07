@@ -46,7 +46,7 @@ Work items will not show unless you have one of the [Issue Tracker](https://octo
 
 ## Build information step {#build-information-step}
 
-All of the availalbe plugins contain a Build Information step/task, the TeamCity version of the _Build Information_ step is shown below. 
+All of the available plugins contain a Build Information step/task, the TeamCity version of the _Build Information_ step is shown below. 
 
 ![TeamCity Build Information Step](images/build-information-step.png "width=500")
 
