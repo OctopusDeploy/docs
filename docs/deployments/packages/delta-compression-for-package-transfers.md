@@ -62,12 +62,8 @@ The most common mistake causing delta compression to yield minimal size reductio
 
 To turn this feature off, create a project [variable](/docs/projects/variables/index.md) named **Octopus.Acquire.DeltaCompressionEnabled** with a value of **False**.
 
-:::hint
 **Delta calculations can be CPU intensive**
 You should consider disabling delta compression if package transfer bandwidth is not a limiting factor (all the machines are in the same network segment), or if the CPU on the Octopus Server is pegged at 100% during your deployments.
-:::
 
-:::hint
 **Are you really benefiting from delta compression?**
 The deployment logs will tell you the % saving delta compression is achieving. If you are constantly transferring 50% or more of the original package, perhaps delta compression is actually becoming a bottleneck and should be disabled.
-:::
