@@ -18,7 +18,7 @@ Provide values for:
 This script has guardrails in place to ensure you don't make too many changes.  
 
 - A what if variable.  Set that to `$true` and it will skip the submission step.  It will print out all the deployments and runbook runs it would've done.
-- This script will not resubmit ever canceled runbook run or deployment.  For a runbook run or deployment to be considered it must:
+- This script will not resubmit every canceled runbook run or deployment.  For a runbook run or deployment to be considered it must:
     - Have been canceled within the time frame provided.
     - Have been running on the node or nodes that were provided.
     - Have been canceled because of a node shutdown.
