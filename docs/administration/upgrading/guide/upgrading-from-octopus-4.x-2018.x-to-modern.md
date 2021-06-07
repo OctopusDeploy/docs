@@ -13,6 +13,15 @@ It is generally safe to do an in-place upgrade from Octopus Deploy 4.x/2018.x to
 
 The upgrade should work without error, but there are integration concerns to consider.  This guide will step through the steps to mitigate those concerns.
 
+## Prep Work
+
+Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the next steps.
+
+1. Backup the Master Key.
+1. Backup the License Key.
+
+!include <upgrade-octopus-backup-master-key>
+
 ## Recommended approach - create a test instance
 
 An in-place upgrade should be the safest approach.  Upgrade scripts assume you are upgrading from older versions of Octopus Deploy.  While the upgrade will work, there might be a new feature or breaking changes you will want to test first.  The recommended approach is to create a test instance containing a subset of projects representing your main instance.  Upgrade that test instance, verify it, and then upgrade the main instance.  
@@ -21,7 +30,6 @@ An in-place upgrade should be the safest approach.  Upgrade scripts assume you a
 
 The steps for this are:
 
-1. Backup the Master Key and license.
 1. Download the same version of Octopus Deploy as your main instance.
 1. Install Octopus Deploy on a new VM.
 1. Export a subset of projects from the main instance.
@@ -37,7 +45,6 @@ The steps for this are:
 1. Test upgraded main instance.
 1. Disable maintenance mode.
 
-!include <upgrade-octopus-backup-master-key>
 !include <upgrade-download-same-version>
 !include <upgrade-install-test-version>
 !include <upgrade-export-import-test-projects>
@@ -57,7 +64,6 @@ An alternative approach to an in-place upgrade is to create a cloned instance an
 
 Creating a clone of an existing instance involves:
 
-1. Backup the Master Key and license.
 1. Enable maintenance mode on the main instance.
 1. Backup the database of the main instance.
 1. Disable maintenance mode on the main instance.
@@ -70,7 +76,6 @@ Creating a clone of an existing instance involves:
 1. Test cloned instance.  Verify all API scripts, CI integrations, and deployments work.
 1. If migrating, then migrate over.  Otherwise, leave the test instance alone, backup the folders and database, and upgrade the main instance.
 
-!include <upgrade-octopus-backup-master-key>
 !include <upgrade-octopus-backup-database>
 !include <upgrade-restore-backup>
 !include <upgrade-download-same-version>
