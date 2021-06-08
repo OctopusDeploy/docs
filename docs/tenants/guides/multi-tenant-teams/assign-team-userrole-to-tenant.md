@@ -21,6 +21,6 @@ Select the tenant and click **APPLY**
 
 ![](images/octopus-teams-role-tenant.png)
 
-This configures the team with `Project Contributor` permissions to any project with the Tenant `OctoPetShop-Team-Avengers`
+This configures the team with `Release Creator` and `Project Deployer` permissions to any project with the Tenant `OctoPetShop-Team-Avengers`
 
 ![](images/octopus-teams-userroles.png)
