@@ -169,6 +169,22 @@ The following illustrates Octopus attempting to send an _in_progress_, and then 
 
 ![Deployment task log with warnings](images/deploy-task-log.png "width=500")
 
+## Troubleshooting {#jira-Troubleshooting}
+
+### Make sure you've mapped your Jira environments to your Octopus environments {#Jira-troubleshooting-map-your-environments}
+
+If your deployments aren't getting updated on the Jira side, this likely means you will need to double check that your Octopus environments are correctly mapped to your Jira environments.
+
+Navigate to **{{Infrastructure,Environments}}**, and next to each environment you will see an overflow menu (3 dots), click that and click edit. Finally, you now need to map your Jira environment to your Octopus environment.
+
+### Check your case on Issue/Work Item IDs {#Jira-troubleshooting-check-case-on-IDs}
+
+The commits that eventually get pushed to Octopus as build information need to have the exact same case as the issue/work item inside of Jira. If the work item in Jira is OBJ-123, and your commit has obj-123, you will need to remediate the case in your commits.
+
+### Check the entire package ID {#Jira-troubleshooting-check-the-entire-package-ID}
+
+If you find your build information isn't showing up in your releases, please make sure your package id as shown in the release is the exact same as it is in your build information tab in Library->Build Information. Some external feeds will have items before the package name. For example, if we use the docker image octopusdeploy/worker-tools, when pushing build information for this we need to push it with the entire string as the package ID, not just worker-tools. 
+
  ## Learn more
 
  - [Jira blog posts](https://octopus.com/blog/tag/jira)
