@@ -22,7 +22,7 @@ Both of these methods use the [variable templates](/docs/projects/variables/vari
 
 ### Which variable templates apply to each tenant? {#which-templates-apply}
 
-!include <which-variable-templates-apply-to-tenants>
+!include <tenants-which-variable-templates-apply>
 
 ## Project variables {#project-variables}
 
