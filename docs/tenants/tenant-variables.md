@@ -26,7 +26,7 @@ Both of these methods use the [variable templates](/docs/projects/variables/vari
 
 ## Project variables {#project-variables}
 
-Project variables allow you to specify a variable which a tenant can change. A perfect example would be a connection string or a database server. With project variables you define them at the project level using [project templates](/docs/projects/variables/variable-templates.md#project-templates):
+Project variables allow you to specify a variable which a tenant can change. A perfect example would be a connection string or a database server. With project variables you define them at the project level using [project templates](/docs/projects/variables/variable-templates.md#project-templates).
 
 ![](images/project-template-screen.png "width=500")
 
@@ -38,16 +38,16 @@ On the tenant variable screen, you can set those variables.
 
 ![](images/project-template-tenant-value.png "width=500")
 
-The great thing about project template variables is that they are treated like any other variable, and can be used in steps like regular project variables:
+The great thing about project template variables is that they are treated like any other variable, and can be used in steps like regular project variables.
 
 ![](images/project-template-variable-value-in-step.png "width=500")
 
 
 ## Common variables {#common-variables}
 
-Common variables are similar to project variables. The main difference between the two is that common variables can be used across multiple projects, and they aren't scoped to environments. Common variables are defined [Library variable set templates](/docs/projects/variables/variable-templates.md#adding-a-variable-template)
+Common variables are similar to project variables. The main difference between the two is that common variables can be used across multiple projects, and they aren't scoped to environments. Common variables are defined using [Library variable set templates](/docs/projects/variables/variable-templates.md#adding-a-variable-template)
 
-For example, if we wanted to define an abbreviation for the tenant to use in a deployment or runbook, we can configure a variable template for the library set
+For example, if we wanted to define an abbreviation for the tenant to use in a deployment or runbook, we can configure a variable template for the library set.
 
 ![](images/common-variable-template.png "width=500")
 
@@ -55,7 +55,7 @@ For example, if we wanted to define an abbreviation for the tenant to use in a d
 To include common variables for a tenant, you must add the library variable set in the tenant connected project.
 :::
 
-Just like project variables, common variable values are supplied at the tenant level
+Just like project variables, common variable values are supplied at the tenant level.
 
 ![](images/common-variable-tenant-value.png "width=500")
 
