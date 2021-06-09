@@ -23,7 +23,7 @@ The Terraform steps include a number of unique warning messages that may be disp
 
 ### Terraform-Configuration-UntestedTerraformCLIVersion
 
-The Terraform steps in Octopus Deploy are tested against a range of versions of the Terraform CLI from 0.11.15 to 1.0.0. As new versions of Terraform are released testing will be expanded to include these versions to ensure that they are compatible with the Terraform steps in Octopus. In the meantime if the Terraform CLI version used in a step is newer than the tested range a warning will be displayed in the output indicating this. The Terraform step may continue to run successfully even if this warning is present, it is recommended to check the results of your step to ensure that it performs the correct Terraform actions.
+The Terraform steps in Octopus Deploy are tested against a range of versions of the Terraform CLI from 0.11.15 to 1.0.0. As new versions of Terraform are released testing will be expanded to include these versions to ensure that they are compatible with the Terraform steps in Octopus. In the meantime if the Terraform CLI version used in a step is newer than the tested range a warning will be displayed in the output indicating this. The Terraform step may continue to run successfully even if this warning is present, it is recommended to check the results of your step to ensure that it performs the expected Terraform actions.
 
 ## Learn more
 
