@@ -19,7 +19,7 @@ If the Terraform tool is updated above version `0.11`, you are using an Octopus 
 
 ## Warning messages
 
-The Terraform steps include a number of unique warning messages that may be displayed in the output if there was a warning. Below is a list of these warnings along with any troubleshooting steps that can be taken to rectify them.
+The Terraform steps some unique warning messages that may be displayed in the output if there was a warning. Below is a list of these warnings along with any troubleshooting steps that can be taken to rectify them.
 
 ### Terraform-Configuration-UntestedTerraformCLIVersion
 
