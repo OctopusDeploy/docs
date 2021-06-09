@@ -169,6 +169,30 @@ The following illustrates Octopus attempting to send an _in_progress_, and then 
 
 ![Deployment task log with warnings](images/deploy-task-log.png "width=500")
 
+## Troubleshooting {#troubleshooting}
+
+If you're running into issues with the Jira Integration, it's possible it could be one of the common problems we get asked about here. If it's still not working quite right, [we are here to help!](https://octopus.com/support)
+
+### Map Jira environments to Octopus environments {#troubleshooting-map-your-environments}
+
+If your deployments aren't being displayed in Jira, this likely means you will need to double check that your Octopus environments are correctly mapped to your Jira environments.
+
+Navigate to **{{Infrastructure,Environments}}**, and next to each environment click on the overflow menu (`...`) and click **Edit**. From here, you can map each Octopus environment to your corresponding Jira environment.
+
+### Ensure casing on Issue/Work Item IDs match {#troubleshooting-check-case-on-ids}
+
+The commits that are pushed to Octopus as build information need to have the exact same case as the issue/work item found in Jira. For example, if the work item in Jira is `OBJ-123`, but your commit message includes the work item as `obj-123` (notice the lower-case value) you will need to remediate the case in your commits. This will allow the deployment status update to appear in Jira successfully.
+
+### Push build information before creating a release {#troubleshooting-push-build-info-first}
+
+If you push build information to Octopus after a release is created, the build information won't be included in the release. This is because the information is included in the release snapshot. To ensure your release contains any build information, push the build information *before* you create a release.
+
+If you have [Automatic release creation](/docs/projects/project-triggers/automatic-release-creation.md) enabled for a specific package step, you will need to push build information *before* you push the configured package to the built-in repository.
+
+### Check the entire package ID {#troubleshooting-check-the-entire-package-id}
+
+If you find your work items or other build information aren't showing up in your releases, make sure your package ID as shown in the release is the exact same as it is found in the **{{Library,Build Information}}** section. Some package ID values, particularly those found in external feeds must include the repository. For example, if you were pushing build information for the docker image `octopusdeploy/worker-tools`, the value for the package ID needs to include the repository name of `octopusdeploy/` as well as the name of the docker image, not just `worker-tools`. 
+
  ## Learn more
 
  - [Jira blog posts](https://octopus.com/blog/tag/jira)
