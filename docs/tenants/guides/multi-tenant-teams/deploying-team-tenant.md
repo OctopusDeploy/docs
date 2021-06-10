@@ -16,3 +16,5 @@ Developers for Team Avengers have the ability to create a release, but only depl
 Depending on how you scope your team for Environment, because the `OctoPetShop-Team-Avengers` tenant is only scoped for Development, attempting to deploy to test will result in a missing resource and the **DEPLOY** button disabled.
 
 ![](images/team-avengers-deploy-to-test.png)
+
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-teams/assign-team-userrole-to-tenant">Previous</a></span>
