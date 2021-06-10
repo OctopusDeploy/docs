@@ -7,7 +7,13 @@ hideInThisSectionHeader: true
 
 The first step in this guide is to create the tenants needed for this scenario:
 
-- TODO
+- Capital Animal Hospital
+- Companion Care Vets
+- Midland Veterinary
+- Pet Clinic Shared
+- Pet Health Center
+- Valley Veterinary Clinic
+
 
 To create your tenants follow these steps:
 
