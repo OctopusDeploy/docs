@@ -33,13 +33,13 @@ Go to **{{Library,Tenant tag sets}}** to create, modify and reorder tag sets an
 
 ### Design your tag sets carefully {#design-tagsets-carefully}
 
-We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#TenantTags-Tag-basedfilters).
+We suggest taking some time to design your tag sets based on how you will apply them to your projects and environments. Our recommendation is to make sure each of your **tag sets are orthogonal**, like different axes on a chart. This kind of design is important because of [how tags are combined in tag filters](#tag-based-filters).
 
-Example tag set design (based on the sample provided in our guide):
+Let's look at an Example tag set design :
 
 - **Importance (VIP, Standard, Trial):** concerned with classifying tenants so they can be found easily.
-- **Hosting (Shared-Farm-1, Dedicated):** concerned with how the tenant software is hosted - read more about this in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
-- **Upgrade ring (Early adopter, Stable, Pinned):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+- **Hosting Region (West US, East US 2):** concerned with how the tenant software is hosted - read more about this in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+- **Release ring (Alpha, Beta, Stable):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring.md).
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
 
