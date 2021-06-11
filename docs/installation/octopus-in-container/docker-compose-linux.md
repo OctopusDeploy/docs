@@ -1,7 +1,7 @@
 ---
 title: Octopus Linux Container with Docker Compose
 description: A fully self-contained SQL Server and Octopus Server
-position: 3
+position: 15
 ---
 :::warning
 There is a [known issue](https://github.com/OctopusDeploy/Issues/issues/6629) when providing both the `ADMIN_PASSWORD` and `ADMIN_API_KEY` for the Octopus Server Linux Container that prevents the Administrator from logging in. This will be resolved in a future version of Octopus.
