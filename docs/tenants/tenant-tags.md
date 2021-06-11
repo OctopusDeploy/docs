@@ -6,10 +6,6 @@ position: 20
 
 In Octopus, tenant tags help you to classify your tenants using custom tags that meet your needs, and tailor tenanted deployments for your projects and environments. Tenant tags also make it easier to work with tenants as groups instead of individuals. Using tags you can apply meaningful metadata to tenants, to describe them using your own terminology, improve search and filtering, and tailor the deployment process to their needs.
 
-:::success
-Have you read [our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) on multi-tenant deployments yet? There is a section dedicated to [working with groups of tenants using tags](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md).
-:::
-
 ## What can you do with tenant tags? {#what-can-you-do}
 
 Octopus allows you to group similar tags together into tag sets. This enables you to more easily understand which tags fit together, what effect they should have on tenanted deployments, and design powerful tag-based queries using combinations of tags:
@@ -64,14 +60,14 @@ Once you have defined some tag sets and tags you can start leveraging those tags
 When filtering tenants, Octopus will combine tags within the same tag set using the **`OR`** operator, and combine tag sets using the **`AND`** operator.
 :::
 
-Let's take a look at an example (click the image to zoom):
+Let's take a look at an example:
 
 ![](images/tag-based-filters.png "width=500")
 
 In this example Octopus will execute a query like the one shown below:
 
 ```sql
-TenantsNamed("Alvin Warren") UNION TenantsTagged(VIP AND (Early Adopter OR Stable))
+TenantsNamed("Capital Animal Hospital") UNION TenantsTagged(VIP AND (Alpha OR Beta))
 ```
 
 When paired with a well-structured tag design, this logic will enable you to tailor your tenanted deployments in interesting and effective ways.
@@ -87,13 +83,13 @@ When paired with a well-structured tag design, this logic will enable you to tai
 
 If you want to use tenant tags to automate Octopus Deploy you should use the **Canonical Name** for the Tag which looks like this: `Tag Set Name/Tag Name`
 
-Consider an example deploying a release to the tenants tagged with the **Early adopter** tag in the **Upgrade ring** tag set.
+Consider an example deploying a release to the tenants tagged with the **Alpha** tag in the **Release Ring** tag set.
 
-![](images/upgrade-ring.png "width=500")
+![](images/release-ring.png "width=500")
 
 ```powershell
-# Deploys My Project 1.0.1 to all tenants tagged as early adopters
-./octo deploy-release --server=http://octopus.company.com --apiKey=API-1234567890123456 --project="My Project" --version="1.0.1" --tenantTag="Upgrade ring/Early adopter"
+# Deploys My Project 1.0.1 to all tenants tagged as in the Alpha ring
+./octo deploy-release --server=http://octopus.company.com --apiKey=API-1234567890123456 --project="My Project" --version="1.0.1" --tenantTag="Release ring/Alpha"
 ```
 
 Some places you can use tags are:
