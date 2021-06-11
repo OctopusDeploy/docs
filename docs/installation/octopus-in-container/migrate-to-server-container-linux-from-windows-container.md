@@ -4,7 +4,7 @@ description: A guide on how to migrate to the Octopus Server Linux Container fro
 position: 3
 ---
 
-The Octopus Server Windows Container has been deprecated starting with Octopus Server 2020.6.  We made this decision because the uptake was low, and Microsoft has stopped supporting the OS Versions we were publishing (Windows [1809](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1809-and-windows-server-2019), [1903](https://docs.microsoft.com/en-us/lifecycle/announcements/windows-10-1903-end-of-servicing), and [1909](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1909)).  Going forward, we will only the Octopus Server Linux Container.  
+The Octopus Server Windows Container has been deprecated starting with Octopus Server 2020.6.  We made this decision because the uptake was low, and Microsoft has stopped supporting the OS Versions we were publishing (Windows [1809](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1809-and-windows-server-2019), [1903](https://docs.microsoft.com/en-us/lifecycle/announcements/windows-10-1903-end-of-servicing), and [1909](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1909)).  Going forward, we will only publish the Octopus Server Linux Container.  
 
 :::hint
 We will continue to publish Windows Docker images for Tentacle. Once we've updated the images for Tentacle to Windows 2019 and Windows 20H2, we will deprecate the existing Windows 1809/1903/1909 containers.
