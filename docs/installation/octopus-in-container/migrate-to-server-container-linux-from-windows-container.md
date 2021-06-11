@@ -54,7 +54,7 @@ For example:
 ./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
 ```
 
-Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.  Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.  You will need to update your Docker compose or Docker run command to point your existing folders to the new volume mounts.  
+Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.  Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volumes.  You will need to update your Docker compose or Docker run command to point your existing folders to the new volume mounts.  
 
 |  Name       |    |
 | ------------- | ------- |
