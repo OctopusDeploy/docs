@@ -8,7 +8,7 @@ hideInThisSectionHeader: true
 The first step in this guide is to create the three tenants needed for this scenario:
 
 - LA International Airport
-- De Moines
+- Des Moines
 - Norfolk
 
 To create your tenants follow these steps:

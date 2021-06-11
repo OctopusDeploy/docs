@@ -7,6 +7,11 @@ hideInThisSectionHeader: true
 
 Scoping the Teams to their respecitive tenants give Teams Avengers and Radical the autonomy of deploying Octo Pet Shop without interfering with each other.
 
+## Scoped team dashboard
+With Team Avengers scoped to their respective tenant, the dashboard for the developer will only show thier tenant and environment they have access to.  Since the tenant of `OctoPetShop-Team-Avengers` is scoped specifically to Development, Development is all the team sees
+
+![](images/team-avengers-dashboard.png)
+
 ## Scoped team creating a release
 
 Developers for Team Avengers have the ability to create a release, but only deploy to their own tenant.  When deploying to Development, the OctoPetShop-Team-Avengers tenant is automatically selected.
