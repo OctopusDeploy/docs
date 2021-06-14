@@ -25,12 +25,11 @@ The Build Information step is currently available in the official Octopus Deploy
 - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
 - [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) 
 - [TFS/AzureDevOps](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
-- [GitHub Actions](https://github.com/marketplace/actions/octopus-deploy-build-information)
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 
 In addition to the official plugins, there are some community supported integrations available for
-
+- [GitHub Actions](https://github.com/marketplace/actions/octopus-deploy-build-information)
 - [BitBucket Pipelines](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README.md)
 - [CircleCI](https://circleci.com/developer/orbs/orb/octopus-samples/octo-exp)
 - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)
