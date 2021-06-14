@@ -1,7 +1,7 @@
 ---
 title: Octopus Tentacle Container
 description: An Octopus Tentacle instance can be run directly from within a container.
-position: 2
+position: 10
 ---
 
 Running an Octopus Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. The currently available Octopus Tentacle Docker container can be run in either [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.

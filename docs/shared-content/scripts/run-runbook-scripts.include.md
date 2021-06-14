@@ -11,6 +11,10 @@ $runbookName = "MyRunbook"
 $environmentNames = @("Development", "Staging")
 $environmentIds = @()
 
+# Optional Tenant
+$tenantName = ""
+$tenantId = $null
+
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
@@ -27,6 +31,14 @@ foreach ($environment in $environments)
     $environmentIds += $environment.Id
 }
 
+# Optionally get tenant
+if (![string]::IsNullOrEmpty($tenantName)) {
+    $tenant = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/tenants/all" -Headers $header) | Where-Object {$_.Name -eq $tenantName} | Select-Object -First 1
+    $tenantId = $tenant.Id
+}
+
+$runbook = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/runbooks/all" -Headers $header) | Where-Object {$_.Name -eq $runbookName -and $_.ProjectId -eq $project.Id}
+
 # Run runbook per selected environment
 foreach ($environmentId in $environmentIds)
 {
@@ -35,6 +47,7 @@ foreach ($environmentId in $environmentIds)
         RunbookId = $runbook.Id
         RunbookSnapshotId = $runbook.PublishedRunbookSnapshotId
         EnvironmentId = $environmentId
+        TenantId = $tenantId
     }
 
     # Run runbook
@@ -52,6 +65,10 @@ $spaceName = "default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
 $environmentNames = @("Test", "Production")
+
+# Optional Tenant
+$tenantName = ""
+$tenantId = $null
 
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
 $repository = New-Object Octopus.Client.OctopusRepository $endpoint
@@ -72,6 +89,12 @@ try
     # Get environments
     $environments = $repositoryForSpace.Environments.GetAll() | Where-Object {$environmentNames -contains $_.Name}
 
+    # Optionally get tenant
+    if (![string]::IsNullOrEmpty($tenantName)) {
+        $tenant = $repositoryForSpace.Tenants.FindByName($tenantName)
+        $tenantId = $tenant.Id
+    }
+
     # Loop through environments
     foreach ($environment in $environments)
     {
@@ -81,6 +104,7 @@ try
         $runbookRun.ProjectId = $project.Id
         $runbookRun.RunbookSnapshotId = $runbook.PublishedRunbookSnapshotId
         $runbookRun.RunbookId = $runbook.Id
+        $runbookRun.TenantId = $tenantId
 
         # Execute runbook
         $repositoryForSpace.RunbookRuns.Create($runbookRun)
@@ -106,6 +130,10 @@ string projectName = "MyProject";
 string runbookName = "MyRunbook";
 string[] environmentNames = { "Development", "Production" };
 
+// Optional tenantName
+string tenantName = "";
+string tenantId = null;
+
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
 var repository = new OctopusRepository(endpoint);
@@ -123,6 +151,13 @@ try
     // Get runbook
     var runbook = repositoryForSpace.Runbooks.FindMany(n => n.Name == runbookName && n.ProjectId == project.Id)[0];
 
+    // Optional - tenant
+    if (!string.IsNullOrWhiteSpace(tenantName))
+    {
+        var tenant = repositoryForSpace.Tenants.FindByName(tenantName);
+        tenantId = tenant.Id;
+    }
+
     // Get environments
     foreach (var environmentName in environmentNames)
     {
@@ -135,7 +170,7 @@ try
         runbookRun.RunbookId = runbook.Id;
         runbookRun.ProjectId = project.Id;
         runbookRun.RunbookSnapshotId = runbook.PublishedRunbookSnapshotId;
-
+        runbookRun.TenantId = tenantId;
         // Execute runbook
         repositoryForSpace.RunbookRuns.Create(runbookRun);
     }
@@ -170,9 +205,17 @@ runbook_name = 'Your Runbook'
 environment_names = ['Development', 'Test']
 environments = []
 
+# Optional tenant Name
+tenant_name = ''
+tenantId = None
+
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
 project = get_by_name('{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']), project_name)
 runbook = get_by_name('{0}/{1}/runbooks/all'.format(octopus_server_uri, space['Id']), runbook_name)
+
+if tenant_name: 
+    tenant = get_by_name('{0}/{1}/tenants/all'.format(octopus_server_uri, space['Id']), tenant_name)
+    tenantId = tenant['Id']
 
 environments = get_octopus_resource(
     '{0}/{1}/environments/all'.format(octopus_server_uri, space['Id']))
@@ -185,7 +228,8 @@ for environmentId in environments:
     runbook_run = {
         'RunbookId': runbook['Id'],
         'RunbookSnapshotId': runbook['PublishedRunbookSnapshotId'],
-        'EnvironmentId': environmentId
+        'EnvironmentId': environmentId,
+        'TenantId': tenantId
     }
     response = requests.post(uri, headers=headers, json=runbook_run)
     response.raise_for_status()

@@ -1,12 +1,13 @@
 ---
 title: Troubleshooting Octopus Server in a Container
 description: Troubleshooting steps for running Octopus Deploy in a Container
-position: 10
+position: 50
 ---
 
 :::warning
 The Octopus Deploy Server Windows containers are deprecated, and no longer maintained.
 For hosting Octopus Server in a container, we recommend using the [Octopus Server Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md).
+Please refer to this [guide](/docs/installation/octopus-in-container/migrate-to-server-container-linux-from-windows-container.md) on how to migrate your existing Octopus Server Windows Container over to Octopus Server Linux Container.
 :::
 
 ## Ensure you've accepted the EULA
