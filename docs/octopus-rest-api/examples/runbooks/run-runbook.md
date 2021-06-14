@@ -15,6 +15,7 @@ Provide values for the following:
 - Name of the project
 - Name of the runbook
 - Array of environment names
+- *Optional* tenant name
 
 ## Script
 
