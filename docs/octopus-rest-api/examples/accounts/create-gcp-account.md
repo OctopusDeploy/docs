@@ -7,7 +7,9 @@ This script provides an example of how to programmatically create a Google Cloud
 
 :::hint
 **Note:**
-Google Cloud Accounts were added in **Octopus 2021.2**. Using this script in earlier versions of Octopus won't work.
+Please note there are some items to consider before using these scripts:
+- Google Cloud Accounts were added in **Octopus 2021.2**. Using these script examples in earlier versions of Octopus won't work.
+- Script examples that use the [Octopus Clients library](https://github.com/OctopusDeploy/OctopusClients) make use of a new `GoogleCloudAccountResource` type that was added in version **11.3.3355** of the library.
 :::
 
 ## Usage
