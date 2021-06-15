@@ -7,7 +7,7 @@ This script provides an example of how to programmatically create a Google Cloud
 
 :::hint
 **Note:**
-This script uses an API endpoint introduced in **Octopus 2021.2**. Using this script in earlier versions of Octopus won't work.
+Google Cloud Accounts were added in **Octopus 2021.2**. Using this script in earlier versions of Octopus won't work.
 :::
 
 ## Usage
