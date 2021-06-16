@@ -1006,4 +1006,4 @@ docs/getting-started/best-practices/spaces-recommendations.md -> docs/getting-st
 docs/octopus-rest-api/examples/tenants/bulk-add-projects-to-tenants.md -> docs/octopus-rest-api/examples/bulk-operations/bulk-add-projects-to-tenants.md
 docs/infrastructure/deployment-targets/aws/index.md -> docs/infrastructure/accounts/aws/index.md
 docs/infrastructure/deployment-targets/tokens.md -> docs/infrastructure/accounts/tokens.md
-docs/infrastructure/deployment-targets/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
+docs/infrastructure/deployment-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
