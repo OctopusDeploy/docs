@@ -489,7 +489,7 @@ docs/infrastructure/machine-policies.md -> docs/infrastructure/deployment-target
 docs/infrastructure/deployment-targets/windows-targets/proxy-support.md -> docs/infrastructure/deployment-targets/proxy-support.md
 docs/infrastructure/deployment-targets/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/infrastructure/accounts/azure/index.md -> docs/infrastructure/deployment-targets/azure/index.md
-docs/infrastructure/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
+docs/infrastructure/accounts/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/packaging-applications/create-packages/nuget-packages.md -> docs/packaging-applications/create-packages/index.md
 docs/packaging-applications/build-servers/metadata/index.md -> docs/packaging-applications/build-servers/index.md
 docs/packaging-applications/build-servers/metadata/jira.md -> docs/releases/issue-tracking/jira.md
