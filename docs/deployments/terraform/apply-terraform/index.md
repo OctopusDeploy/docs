@@ -76,11 +76,11 @@ Using Azure credentials managed by Octopus is optional. These credentials can be
 
 ### Create an Azure account
 
-The instructions at [Creating an Azure Account](/docs/infrastructure/deployment-targets/azure/index.md) detail the procedure for creating an account in Octopus.
+The instructions at [Creating an Azure Account](/docs/infrastructure/accounts/azure/index.md) detail the procedure for creating an account in Octopus.
 
 #### Create a Azure account project variable
 
-[Azure accounts](/docs/infrastructure/deployment-targets/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**.
+[Azure accounts](/docs/infrastructure/accounts/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**.
 
 The [Azure PowerShell](/docs/deployments/azure/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
 

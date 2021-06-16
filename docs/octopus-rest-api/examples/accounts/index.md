@@ -9,7 +9,7 @@ hideInThisSectionHeader: true
 
 Out-of-the-box, Octopus provides different types of accounts to help manage your infrastructure:
 
-- [Azure account](/docs/infrastructure/deployment-targets/azure/index.md).
+- [Azure account](/docs/infrastructure/accounts/azure/index.md).
 - [AWS account](/docs/infrastructure/accounts/aws/index.md).
 - [Google Cloud account](/docs/infrastructure/accounts/google-cloud/index.md).
 - [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md).

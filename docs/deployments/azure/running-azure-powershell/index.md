@@ -31,12 +31,12 @@ This functionality requires the Azure CLI version 2.0 or above to be installed o
 
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
-- To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-management-certificate).
-- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/deployment-targets/azure/index.md#azure-service-principal).
+- To use the Azure Service Management (ASM) API, use an [Azure Management Certificate Account](/docs/infrastructure/accounts/azure/index.md#azure-management-certificate).
+- To use the Azure Resource Management (ARM) API, use an [Azure Service Principal Account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal).
   - The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`.
   - The Az PowerShell cmdlets are prefixed with `Az`, like `Get-AzWebApp`.
 
-Learn more about [configuring the right Azure Account](/docs/infrastructure/deployment-targets/azure/index.md).
+Learn more about [configuring the right Azure Account](/docs/infrastructure/accounts/azure/index.md).
 
 ## Dynamic Worker Pools
 
