@@ -1007,3 +1007,6 @@ docs/octopus-rest-api/examples/tenants/bulk-add-projects-to-tenants.md -> docs/o
 docs/infrastructure/deployment-targets/aws/index.md -> docs/infrastructure/accounts/aws/index.md
 docs/infrastructure/deployment-targets/tokens.md -> docs/infrastructure/accounts/tokens.md
 docs/infrastructure/deployment-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
+docs/infrastructure/deployment-targets/aws -> docs/infrastructure/accounts/aws
+docs/infrastructure/deployment-targets/tokens -> docs/infrastructure/accounts/tokens
+docs/infrastructure/deployment-targets/username-and-password -> docs/infrastructure/accounts/username-and-password
