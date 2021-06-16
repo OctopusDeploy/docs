@@ -4,6 +4,10 @@ description:  Configure your infrastructure so Octopus can deploy infrastructure
 position: 30
 ---
 
+:::hint
+Google Cloud Accounts were added in Octopus **2021.2**.
+:::
+
 To deploy infrastructure to Google Cloud Platform, you can define a Google Cloud account in Octopus.
 
 Octopus manages the GCP credentials used by the Google Cloud steps.

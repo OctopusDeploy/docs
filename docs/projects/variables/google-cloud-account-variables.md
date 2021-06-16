@@ -4,6 +4,10 @@ description: Create a Google Cloud account variable to use it in Google Cloud de
 position: 65
 ---
 
+:::hint
+Google Cloud Accounts were added in Octopus **2021.2**.
+:::
+
 [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md) are included in a project through a project [variable](/docs/projects/variables/index.md) of the type **Google Cloud Account**. Before you create a **Google Cloud account Variable**, you need to [create a Google Cloud account](/docs/infrastructure/accounts/google-cloud/index.md) in Octopus:
 
 ![Google Cloud account variable](images/google-cloud-account-variable.png "width=500")
