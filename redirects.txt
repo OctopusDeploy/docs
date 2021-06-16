@@ -142,7 +142,7 @@ docs/administration/worker-pools.md -> docs/infrastructure/workers/worker-pools.
 docs/key-concepts/machine-roles -> docs/infrastructure/deployment-targets/index.md
 docs/deployment-process/configuration-features/advanced-configuration-transforms-examples.md -> docs/projects/steps/configuration-features/configuration-transforms/index.md
 docs/deployment-process/configuration-features/configuration-variables.md -> docs/projects/steps/configuration-features/xml-configuration-variables-feature.md
-docs/infrastructure/aws/creating-an-aws-account/index.md -> docs/infrastructure/deployment-targets/aws/index.md
+docs/infrastructure/aws/creating-an-aws-account/index.md -> docs/infrastructure/accounts/aws/index.md
 docs/deployment-process/releases/scheduled-deployments.md -> docs/releases/index.md
 docs/deployment-process/releases/deploy-to-a-specific-subset-of-targets.md -> docs/releases/index.md
 docs/deployment-process/releases/automatic-release-creation.md -> docs/projects/project-triggers/automatic-release-creation.md
@@ -186,7 +186,7 @@ docs/api-and-integration/octo.exe-command-line/promoting-releases.md -> docs/oct
 docs/api-and-integration/octo.exe-command-line/pushing-packages.md -> docs/octopus-rest-api/octopus-cli/push.md
 docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/index.md -> docs/octopus-rest-api/octopus-cli/create-autodeployoverride.md
 docs/api-and-integration/octo.exe-command-line/creating-auto-deploy-overrides/deleting-auto-deploy-overrides.md -> docs/octopus-rest-api/octopus-cli/delete-autodeployoverride.md
-docs/infrastructure/aws/index.md -> docs/infrastructure/deployment-targets/aws/index.md
+docs/infrastructure/aws/index.md -> docs/infrastructure/accounts/aws/index.md
 docs/infrastructure/azure/index.md -> docs/infrastructure/deployment-targets/azure/index.md
 docs/infrastructure/azure/cloud-service-targets/index.md -> docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md
 docs/infrastructure/azure/service-fabric-cluster-targets/index.md -> docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md
@@ -204,7 +204,7 @@ docs/infrastructure/ssh-targets/mono-calamari.md -> docs/infrastructure/deployme
 docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
 docs/infrastructure/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
-docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
+docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/infrastructure/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
 docs/infrastructure/windows-targets/azure-virtual-machines/configuration-structure.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/configuration-structure.md
 docs/infrastructure/windows-targets/azure-virtual-machines/diagnosing-issues.md -> docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/diagnosing-issues.md
@@ -229,7 +229,7 @@ docs/infrastructure/cloud-regions.md -> docs/infrastructure/deployment-targets/c
 docs/infrastructure/offline-package-drop.md -> docs/infrastructure/deployment-targets/offline-package-drop.md
 docs/infrastructure/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
 docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
-docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md -> docs/infrastructure/deployment-targets/username-and-password.md
+docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/deployment-examples/custom-scripts/long-paths.md -> docs/installation/troubleshooting.md
 docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/deployment-targets/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
