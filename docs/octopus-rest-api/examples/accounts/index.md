@@ -9,9 +9,9 @@ hideInThisSectionHeader: true
 
 Out-of-the-box, Octopus provides different types of accounts to help manage your infrastructure:
 - [Azure account](/docs/infrastructure/deployment-targets/azure/index.md).
-- [AWS account](/docs/infrastructure/deployment-targets/aws/index.md).
+- [AWS account](/docs/infrastructure/accounts/aws/index.md).
 - [SSH key pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md).
-- [Username/Password](/docs/infrastructure/deployment-targets/username-and-password.md).
-- [Tokens](/docs/infrastructure/deployment-targets/tokens.md). 
+- [Username/Password](/docs/infrastructure/accounts/username-and-password.md).
+- [Tokens](/docs/infrastructure/accounts/tokens.md). 
 
 You can use the REST API to create and manage accounts in Octopus. Typical tasks can include:

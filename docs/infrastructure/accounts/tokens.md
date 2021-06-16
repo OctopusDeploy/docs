@@ -1,7 +1,7 @@
 ---
 title: Token account
 description: Add token accounts to Octopus.
-position: 80
+position: 10
 ---
 Tokens can be added to Octopus as accounts. This is useful, for instance, if you are deploying to [Kubernetes Targets](/docs/infrastructure/deployment-targets/kubernetes-target/index.md).
 
