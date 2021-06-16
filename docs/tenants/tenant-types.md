@@ -15,6 +15,20 @@ SaaS is perhaps the most common implementation of mutli-tenancy with Octopus Dep
 
 ![](images/saas-tenants.png)
 
+Tenants using the SaaS model typically fall into three distinct infrastructure categories:
+- Code based
+- Database based
+- Isolated
+
+#### Code based
+Code based tenancy is where all tenants share the same infrastructure and it's up the the code to determine what a tenant sees and has access to.  Code based multi-tenancy can be the easiest option to deploy and maintain, but there are tradeoffs. There is a risk for cross tenant contamination. A missed "where" clause makes for a terrible day. You also cannot deploy different versions of the application to different tenants.
+
+#### Database based
+Database based tenanancy is similar to `Code based`, however, each tenant has their own database.  Deploying the application is easy, but deploying the database changes can be harder than the first approach. Database changes need to be deployed to all databases prior an application update. Having a large number of databases will create a bottleneck in the deployment.
+
+#### Isolated
+Isolated is where each tenant has their own, dedicated infrastructure.  This removes the risk of cross tenant data contamination, but it complicates deployments. The deployment process itself may not change, but the application now has to be deployed per tenant. Each deployment has to configure the application instance for that tenant. The complication to the deployment process offers flexibility and scalability to the application and its deployments. Tenants can now be upgraded independently and be hosted on hardware that fits their needs.
+
 ### Region
 Another pattern for multi-tenancy is to treat geographic regions of the same organization as tenants.  Using this model, something like an e-commerce application can test out new or beta features in a specific region before releasing them out to the rest of the organization.  Scheduling deployments during a maintenance window is another way this pattern can be used as each region may have different hours when they are least busy.
 
