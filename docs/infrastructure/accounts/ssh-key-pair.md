@@ -1,7 +1,7 @@
 ---
 title: SSH key pair account
 description: SSH key pair accounts allow you to securely authenticate with SSH targets.
-position: 20
+position: 40
 ---
 
 An SSH key pair account is one of the more secure authentication methods available for connections to [SSH Targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md).

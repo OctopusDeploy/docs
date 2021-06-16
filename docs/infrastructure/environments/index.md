@@ -1,7 +1,7 @@
 ---
 title: Environments
 description: Environments are how you group your deployment targets so you can promote your software through different phases, for instance, into Development, then Test, and finally into Production.
-position: 10
+position: 20
 ---
 
 !include <environments>

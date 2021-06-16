@@ -17,7 +17,6 @@ docs/installation/installing-octopus/permissions-required-for-the-octopus-window
 docs/installation/permissions-required-for-the-octopus-windows-service.md -> docs/installation/permissions-for-the-octopus-windows-service.md
 docs/installation/installing-octopus/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/infrastructure/environments/accounts/index.md -> docs/infrastructure/index.md
-docs/infrastructure/environments/accounts/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
 docs/infrastructure/environments/accounts/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/infrastructure/azure-cloud-service-target.md -> docs/infrastructure/deployment-targets/azure/index.md
 docs/infrastructure/environments/accounts/azure-account.md -> docs/infrastructure/deployment-targets/azure/index.md
@@ -202,7 +201,7 @@ docs/infrastructure/ssh-targets/index.md -> docs/infrastructure/deployment-targe
 docs/infrastructure/ssh-targets/configuring-ssh-connection.md -> docs/infrastructure/deployment-targets/linux/index.md
 docs/infrastructure/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
 docs/infrastructure/ssh-targets/self-contained-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
-docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
+docs/infrastructure/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/infrastructure/ssh-targets/sudo-commands.md -> docs/infrastructure/deployment-targets/linux/sudo-commands.md
 docs/infrastructure/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/infrastructure/target-roles/index.md -> docs/infrastructure/deployment-targets/index.md
@@ -228,7 +227,7 @@ docs/infrastructure/windows-targets/troubleshooting-tentacles.md -> docs/infrast
 docs/infrastructure/cloud-regions.md -> docs/infrastructure/deployment-targets/cloud-regions.md
 docs/infrastructure/offline-package-drop.md -> docs/infrastructure/deployment-targets/offline-package-drop.md
 docs/infrastructure/worker-pools.md -> docs/infrastructure/workers/worker-pools.md
-docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/deployment-targets/linux/ssh-key-pair.md
+docs/infrastructure/deployment-targets/ssh-targets/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md
 docs/infrastructure/deployment-targets/ssh-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
 docs/deployment-examples/custom-scripts/long-paths.md -> docs/installation/troubleshooting.md
 docs/infrastructure/deployment-targets/ssh-targets/mono-calamari.md -> docs/infrastructure/deployment-targets/linux/ssh-requirements.md
@@ -1003,3 +1002,4 @@ docs/octopus-rest-api/examples/tenants/bulk-add-projects-to-tenants.md -> docs/o
 docs/infrastructure/deployment-targets/aws/index.md -> docs/infrastructure/accounts/aws/index.md
 docs/infrastructure/deployment-targets/tokens.md -> docs/infrastructure/accounts/tokens.md
 docs/infrastructure/deployment-targets/username-and-password.md -> docs/infrastructure/accounts/username-and-password.md
+docs/infrastructure/deployment-targets/linux/ssh-key-pair.md -> docs/infrastructure/accounts/ssh-key-pair.md

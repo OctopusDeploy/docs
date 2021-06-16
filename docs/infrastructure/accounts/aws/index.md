@@ -1,7 +1,7 @@
 ---
 title: AWS accounts
 description:  Configure your infrastructure so Octopus can deploy infrastructure to AWS and run scripts against the AWS CLI.
-position: 30
+position: 20
 ---
 
 To deploy infrastructure to AWS, you can define an AWS account in Octopus.

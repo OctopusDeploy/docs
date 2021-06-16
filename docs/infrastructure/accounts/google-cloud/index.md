@@ -1,7 +1,7 @@
 ---
 title: Google cloud accounts
 description:  Configure your infrastructure so Octopus can deploy infrastructure to GCP and run scripts against the gcloud CLI.
-position: 40
+position: 30
 ---
 
 To deploy infrastructure to Google Cloud Platform, you can define a Google cloud account in Octopus.
