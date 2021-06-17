@@ -22,9 +22,9 @@ Select the Google Cloud account you want to access from the project to assign it
 
 The Google Cloud account variable also exposes the following properties that you can reference in a PowerShell script:
 
-| Name and description | Example |
-| -------------------- | ------------------------|
-| **`JsonKey`** <br/> The JSON Key for the Google Cloud account| |
+| Name and description |
+| -------------------- | 
+| **`JsonKey`** <br/> The JSON Key for the Google Cloud account|
 
 ### Accessing the properties in a script
 
@@ -49,3 +49,5 @@ For instructions to set up a Google Cloud account in Octopus, see [Google Cloud 
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
+- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script/index.md) step
+- How to create [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md)
