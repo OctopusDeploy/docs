@@ -33,7 +33,7 @@ Octopus Deploy installation requirements are:
 
 [High availability](/docs/administration/high-availability/index.md) functionality is included with both Server and Data Center licenses.  
 
-![](/docs/administration/high-availability/images/high-availability.svg)
+![](/docs/administration/high-availability/images/high-availability.svg "width=500")
 
 High availability works in Octopus Deploy by dropping tasks into a queue.  Periodically, each high availability node will check the queue for work.  The node will pick up any pending tasks until it reaches its task cap or it runs out of pending tasks to pick up.  
 
@@ -93,7 +93,7 @@ A high availability configuration will involve setting up:
 - Load balancer for web traffic
 - 40 GB of File storage (DFS, NAS, SAN, Azure File Storage, AWS FSx, etc.)
 
-![small instance diagram](images/small-instance-diagram.png)
+![small instance diagram](images/small-instance-diagram.png "width=500")
 
 This will give you the capacity to process 10-30 concurrent tasks.  If you need to scale up quickly, double the compute resources, for example, 4 CPUs / 8 GB of RAM, to get to 20-60 concurrent tasks.  We don't recommend going beyond 4 CPUs / 8 GB of RAM and instead recommend scaling horizontally.  
 
@@ -137,7 +137,7 @@ The Octopus Deploy UI is a stateless React single page application that leverage
 The recommendations for load balancers are:
 
 - Start with round-robin or "least busy" mode.  
-- SSL offloading for all traffic over port 443 is fine (unless you plan on using polling tentacles over web sockets).
+- SSL offloading for all traffic over port 443 is fine (unless you plan on using polling Tentacles over web sockets).
 - Use `/api/octopusservernodes/ping` to test service health.
 
 :::hint
@@ -146,7 +146,7 @@ Octopus Deploy will return the name of the node in the `Octopus-Node` response h
 We have noticed specific user actions, such as creating a new space or updating permissions, won't update the cache on all nodes, and you'll get odd permissions errors.  Typically the cache is updated after a few minutes, and those errors go away.  If that happens to you, look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
 :::
 
-If you plan on having external [polling tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
+If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
 
 ### File Storage
 
@@ -175,7 +175,7 @@ We don't recommend starting with this unless you plan to onboard dozens of teams
 - 200 GB of file storage.
 - Load balancer to manage traffic to UI-only nodes.
 
-![large scale instance](images/large-instance-diagram.png)
+![large scale instance](images/large-instance-diagram.png "width=500")
 
 :::hint
 The configuration above is a baseline.  We recommend monitoring your resources as you add projects, users and do more deployments and runbook runs.  The more data, the more Octopus UI and database have to process.  Experiment with increasing compute resources for the SQL Server and the UI nodes.  If you run into any performance concerns, please [contact support](https://octopus.com/support).

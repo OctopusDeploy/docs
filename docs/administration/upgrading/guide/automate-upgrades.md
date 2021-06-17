@@ -160,7 +160,7 @@ Each node will need a Tentacle installed on it.  You will need two roles for thi
 
 The same sample script from above will be used, but it will be broken up into steps.  For example:
 
-![](images/automated-upgrade-runbook-process.png)
+![](images/automated-upgrade-runbook-process.png "width=500")
 
 ### Variables
 
@@ -182,7 +182,7 @@ The upgrade process itself is very similar to upgrading a single node instance. 
 :::hint
 Aside from step 1, all steps should set a run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
 
-![](images/automate-upgrade-variable-run-condition.png)
+![](images/automate-upgrade-variable-run-condition.png "width=500")
 :::
 
 **1. Check for a new version (HAServer-Primary).**

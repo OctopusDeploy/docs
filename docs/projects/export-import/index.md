@@ -83,7 +83,7 @@ Any environments which can be reached via the project will be included in the ex
 
 [Deployment targets](/docs/infrastructure/deployment-targets/index.md) are not included in the export. They will need to be recreated in the target space.  For Tentacle deployment targets (both Windows and Linux), there are specific considerations:
 
-**Listening tentacles** must be configured to trust the certificate of the Octopus Server. If you are importing your project into a different Octopus instance, for the new instance to be able to communicate with existing listening Tentacles, the following must be true:
+**Listening Tentacles** must be configured to trust the certificate of the Octopus Server. If you are importing your project into a different Octopus instance, for the new instance to be able to communicate with existing listening Tentacles, the following must be true:
 
 - The Tentacles are accessible by the new Octopus instance (i.e. networking and firewalls must be correctly configured)
 - The Tentacles are configured to trust the certificate of the new instance. This can be done using the [Tentacle CLI](/docs/octopus-rest-api/tentacle.exe-command-line/configure.md).  
