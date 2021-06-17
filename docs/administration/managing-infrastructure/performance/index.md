@@ -150,7 +150,7 @@ Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on t
 
 ### Task Logs {#tip-task-logs}
 
-Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
+Larger task logs put the entire Octopus pipeline under more pressure.  The task log has to be transferred from the Tentacle to the server, it has to be saved to the file system, and is read when you are on the deployment or runbook screen.  We recommend printing messages required to understand progress and deployment failures. The rest of the information should be streamed to a file, then published as a deployment [artifact](docs/projects/deployment-process/artifacts.md).
 
 ### Image Size
 

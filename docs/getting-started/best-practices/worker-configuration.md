@@ -7,7 +7,7 @@ hideInThisSection: true
 
 [Workers](/docs/infrastructure/workers/index.md) were introduced in **Octopus Server 2018.7** as a way to offload work done by the Octopus Server.  Worker pools are groups of workers.  You configure your deployment or runbook to run on worker pools.
 
-Workers serve as "jump boxes" between the server and targets.  They are used when the tentacle agent cannot be installed directly on the target, such as databases, Azure Web Apps, or K8s clusters.  Workers are needed because the scripts to update the database schema or the kubectl scripts to change the K8s cluster have to run somewhere.
+Workers serve as "jump boxes" between the server and targets.  They are used when the Tentacle agent cannot be installed directly on the target, such as databases, Azure Web Apps, or K8s clusters.  Workers are needed because the scripts to update the database schema or the kubectl scripts to change the K8s cluster have to run somewhere.
 
 ![Workers diagram](/docs/shared-content/concepts/images/workers-diagram-img.png "width=1000")
 
@@ -21,7 +21,7 @@ Some important items to note about workers:
 - Unlike deployment targets, workers are designed to run multiple tasks concurrently.  
 - **Octopus Server 2020.1** added the [Worker Pool Variable Type](/docs/projects/variables/worker-pool-variables.md) making it possible to scope worker pools to environments.
 - **Octopus Server 2020.2** added the [execution container for workers](/docs/projects/steps/execution-containers-for-workers/index.md) feature, making it easier to manage software dependencies.
-- We provide a [tentacle docker image](https://hub.docker.com/repository/docker/octopusdeploy/tentacle) that can be configured to run as a worker.
+- We provide a [Tentacle docker image](https://hub.docker.com/repository/docker/octopusdeploy/tentacle) that can be configured to run as a worker.
 
 ## Provided Workers
 
@@ -47,7 +47,7 @@ If you plan on using Octopus Deploy at scale, [disable the built-in worker](/doc
 - Establish an easy-to-understand naming convention for workers.  For example, `p-db-omaha-worker-01` for a worker located in Omaha to do database deployments on Production.  
 - Configure workers to run in the same data centers as your deployment targets.  For example, if you are hosting Octopus Deploy in an on-premise data center, but you are deploying to the US-central region in Azure, then create workers to run in that region in Azure.  
 - Name the worker pool to match the purpose, location, and environment.  For example, `Azure Central US Production Worker Pool`.
-- When possible, configure the underlying tentacle Windows service as a specific Active Directory account to better control the permissions.  Consider not only what it should have access to (this worker can run SQL Scripts on a Dev SQL Server) and what it shouldn't have access to (this worker cannot run SQL Scripts on any Test or Production SQL Server).
+- When possible, configure the underlying Tentacle Windows service as a specific Active Directory account to better control the permissions.  Consider not only what it should have access to (this worker can run SQL Scripts on a Dev SQL Server) and what it shouldn't have access to (this worker cannot run SQL Scripts on any Test or Production SQL Server).
 - For redundancy, have at least two workers per pool.
 - Whenever possible, leverage [execution container for workers](/docs/projects/steps/execution-containers-for-workers/index.md) to limit the amount of software to install and maintain on the workers.
 
@@ -72,9 +72,9 @@ Think of the high availability node as the manager and the worker as the worker 
 
 ## The difference between workers and deployment targets
 
-Behind the scenes, there isn't much difference between a deployment target or a worker, as both are tentacle agents.  It is a matter of how they are registered.  Deployment targets are registered to environments while workers are registered to worker pools.  It is how the server hosting the tentacle will be used.  Deployment targets are for deploying to (web server, application server, etc.) while workers are used as a means to deploy to a deployment target.  
+Behind the scenes, there isn't much difference between a deployment target or a worker, as both are Tentacle agents.  It is a matter of how they are registered.  Deployment targets are registered to environments while workers are registered to worker pools.  It is how the server hosting the Tentacle will be used.  Deployment targets are for deploying to (web server, application server, etc.) while workers are used as a means to deploy to a deployment target.  
 
-A listening tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
+A listening Tentacle can be registered as both a worker and a deployment target.  We don't recommend it, but it is possible.
 
 :::hint
 All Octopus Cloud and self-hosted Server, Data Center, and Standard licenses offer unlimited workers.

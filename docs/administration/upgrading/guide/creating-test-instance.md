@@ -30,11 +30,15 @@ The process to create an instance with a subset of projects is:
 1. Install Octopus Deploy on a new VM.
 1. Export a subset of projects from the main instance.
 1. Import that subset of projects to the test instance.
-1. Test and verify the test instance.  
+1. Download the latest version of Octopus Deploy.
+1. Upgrade the test instance to the latest version of Octopus Deploy.
+1. Test and verify the test instance.
 
 !include <upgrade-download-same-version>
 !include <upgrade-install-test-version>
 !include <upgrade-export-import-test-projects>
+!include <upgrade-download-latest-version>
+!include <upgrade-install-latest-version>
 !include <upgrade-testing-upgraded-instance>
 
 ## Test instance is a clone
@@ -56,6 +60,9 @@ Creating a clone of an existing instance involves:
 1. Installing that version on a new server and configuring it to point to the cloned database.
 1. Copying all the files from the backed up folders from the source instance.
 1. *Optionally*, disabling targets on the cloned instance.
+1. Download the latest version of Octopus Deploy.
+1. Upgrade the test instance to the latest version of Octopus Deploy.
+1. Test and verify the test instance.
 
 !include <upgrade-octopus-backup-database>
 !include <upgrade-restore-backup>
@@ -63,4 +70,6 @@ Creating a clone of an existing instance involves:
 !include <upgrade-install-cloned-version>
 !include <upgrade-copy-files-for-cloned-instance>
 !include <upgrade-disable-targets-cloned-instance>
+!include <upgrade-download-latest-version>
+!include <upgrade-install-latest-version>
 !include <upgrade-testing-upgraded-instance>
