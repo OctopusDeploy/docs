@@ -108,6 +108,6 @@ Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the feed 
 
 Replace the URL and port from the example above. In addition, replace `local-nuget-repo` with the name of your Local NuGet repository.
 
-![Artifactory Local NuGet feed](images/artifactory-local-nuget-feed.png)
+![Artifactory Local NuGet feed](images/artifactory-local-nuget-feed.png "width=500")
 
 Save and test your feed to ensure that the connection is authenticated successfully.

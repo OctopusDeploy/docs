@@ -52,7 +52,7 @@ We recommend two approaches to **production** approvals.
 The **prod approval** environment has all the manual intervention steps required for approval.  After the release is "deployed" to the **prod approval** environment, it can then be scheduled for a **production** deployment.  No manual intervention steps will be required in **production** as all approvals happened earlier.
 
 Having a **prod approval** environment for all projects can be a bit tedious.  We recommend creating a release orchestration project with a custom lifecycle.  Only that release orchestration project will go through the **prod approval** environment.
-![project and project groups](images/projects-and-project-groups.png)
+![project and project groups](images/projects-and-project-groups.png "width=500")
 
 Please refer to this [blog post](https://octopus.com/blog/release-management-with-octopus) for more information about release orchestration projects.
 
