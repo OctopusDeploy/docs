@@ -19,7 +19,10 @@ Software as a Service (SaaS) is perhaps the most common implementation of multi-
 
 ![](images/saas-tenants.png)
 
+Learn more about how to to configure multi-tenancy for a SaaS application in Octopus with our [multi-tenant SaaS guide](/docs/tenants/guides/multi-tenant-saas-application/index.md).
+
 Tenants using the SaaS model typically fall into three distinct categories:
+
 - Code based
 - Database based
 - Isolated
@@ -42,8 +45,12 @@ Another pattern for multi-tenancy is to treat geographic regions of the same org
 
 ![](images/region-tenants.png)
 
+Learn more about how to to configure multi-tenancy for regions in Octopus with our [multi-tenant regions guide](/docs/tenants/guides/multi-tenant-region/index.md).
+
 ## Teams {#teams}
 
 Concurrent application development is another multi-tenant use-case.  Using tenants for teams allows an Octopus Administrator to re-use the same deployment process as well as Environments giving each team the autonomy to deploy.  Deployment targets can be assigned tenant tags or even be dedicated to specific tenants so that each team can deploy without affecting the other.
 
 ![](images/team-tenants.png)
+
+Learn more about how to to configure multi-tenancy for teams in Octopus with our [multi-tenant teams guide](/docs/tenants/guides/multi-tenant-teams/index.md).

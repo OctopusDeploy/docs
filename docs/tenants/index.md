@@ -31,9 +31,9 @@ Tenants usually represent the customers of your application, especially when it 
 
 Tenants can also represent:
 
-- Developers, testers, or other team members
-- Feature branches
 - Geographical regions or datacenters
+- Developers, testers, or Teams
+- Feature branches
 
 Learn more about [tenant types](/docs/tenants/tenant-types.md).
 
