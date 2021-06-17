@@ -76,7 +76,7 @@ Inherent in building software is the idea that over time the product is the accu
 
 Consider this example:
 
-![release notes accumulation](images/release-notes-accumulation.png)
+![release notes accumulation](images/release-notes-accumulation.png "width=500")
 
 When deploying `1.0.3` to **Development** the only difference is `Enh 6` because the most recent release was `1.0.2`.  However, `1.0.2` was not deployed to **Staging**, when `1.0.3` is deployed to **Staging** is is the accumulation of both `1.0.2` and `1.0.3`.  
 

@@ -100,7 +100,7 @@ Our recommendations for variable edit permissions are:
 - Leverage [sensitive variables](/docs/projects/variables/sensitive-variables.md) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.  
 - Use composite variables to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
 
-![composite variables](images/composite-variables.png)
+![composite variables](images/composite-variables.png "width=500")
 
 ## Further reading
 

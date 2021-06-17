@@ -14,7 +14,7 @@ This can be achieved using the _Health Check_ step.
 
 This step allows a deployment target that was created in the currently executing deployment to be confirmed as healthy and then added to the running deployment for subsequent steps.
 
-Similarly, it allows you to confirm that the tentacle service on a deployment target is running prior to attempting to perform an action against it.
+Similarly, it allows you to confirm that the Tentacle service on a deployment target is running prior to attempting to perform an action against it.
 
 ## Configure a Health check step
 
