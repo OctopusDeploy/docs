@@ -23,6 +23,8 @@ While neither Octopus nor Terraform will generate errors if a remote backend is 
 
 !include <azure-account>
 
+!include <google-cloud-account>
+
 ## Template section
 
 The Terraform template can come from two sources: directly entered source code or from files in a package.
