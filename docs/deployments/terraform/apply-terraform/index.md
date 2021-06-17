@@ -16,11 +16,11 @@ regarding backends in the [Terraform documentation](https://www.terraform.io/doc
 
 !include <azure-account>
 
-### Template section
+## Template section
 
 The Terraform template can come from two sources: directly entered source code or from files in a package.
 
-#### Source code
+### Source code
 
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
@@ -40,7 +40,7 @@ Strings (including numbers and `true`/`false`) are supplied without quotes. For 
 
 Lists and maps are supplied as raw HCL or JSON structures, depending on the format of the template. For example, if the template is written in HCL, a list variable would be provided as `["item1", {item2="embedded map"}]` and a map variable would be provided as `{item1="hi", item2="there"}`. If the template is written is JSON, a list variable would be provided as `["item1", {"item2": "embedded map" }]` and a map variable would be provided as `{"item1": "hi", "item2": "there"}`.
 
-#### Package
+### Package
 
 The second option is to use the files contained in a package. This is done by selecting the `File inside a package` option, and specifying the package.
 
@@ -54,7 +54,7 @@ Given that Terraform templates and variable files are plain text, you may find i
 
 ![Package](images/step-aws-package.png "width=500")
 
-#### Variable replacements
+### Variable replacements
 
 Variable replacement is performed before the template is applied or destroyed when defined in either an inline script or a package.
 
@@ -80,7 +80,7 @@ When applying an inline template, the variable fields can also include replaceme
 
 See the [variable substitution](/docs/projects/variables/variable-substitutions.md) documentation for more information.
 
-#### Additional variable files
+### Additional variable files
 
 The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
 
