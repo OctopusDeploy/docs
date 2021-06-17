@@ -88,9 +88,9 @@ Any environments which can be reached via the project will be included in the ex
 - The Tentacles are accessible by the new Octopus instance (i.e. networking and firewalls must be correctly configured)
 - The Tentacles are configured to trust the certificate of the new instance. This can be done using the [Tentacle CLI](/docs/octopus-rest-api/tentacle.exe-command-line/configure.md).  
 
-An alternative is to create a new Tentacle on the same machine.  This gives the option to switch to a polling tentacle (which may be preferable when migrating a project to Octopus Cloud), and allows having both the original and cloned project deployable for a period of time.
+An alternative is to create a new Tentacle on the same machine.  This gives the option to switch to a polling Tentacle (which may be preferable when migrating a project to Octopus Cloud), and allows having both the original and cloned project deployable for a period of time.
 
-**Polling tentacles** can be configured to poll multiple Octopus servers using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command.  
+**Polling Tentacles** can be configured to poll multiple Octopus servers using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command.  
 
 ### Packages #{packages}
 
