@@ -1,4 +1,4 @@
-## AWS account support
+## AWS Account Support
 
 If you wish to use AWS credentials managed by Octopus when deploying Terraform templates, the AWS account will need to be added to Octopus, and a variable referencing the account configured in the project.
 
