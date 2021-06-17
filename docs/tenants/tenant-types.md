@@ -42,7 +42,7 @@ Another pattern for multi-tenancy is to treat geographic regions of the same org
 
 ![](images/region-tenants.png)
 
-#### Teams {#teams}
+## Teams {#teams}
 
 Concurrent application development is another multi-tenant use-case.  Using tenants for teams allows an Octopus Administrator to re-use the same deployment process as well as Environments giving each team the autonomy to deploy.  Deployment targets can be assigned tenant tags or even be dedicated to specific tenants so that each team can deploy without affecting the other.
 
