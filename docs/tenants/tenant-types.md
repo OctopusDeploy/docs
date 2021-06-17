@@ -30,7 +30,7 @@ Code-based tenancy is where all tenants share the same infrastructure and it's u
 
 ### Database multi-tenancy {#saas-database}
 
-Database based tenanancy is similar to `Code based`, however, each tenant has their own database.  Deploying the application is easy, but deploying the database changes can be harder than the first approach. Database changes need to be deployed to all databases prior an application update. Having a large number of databases will create a bottleneck in the deployment.
+Database based tenancy is similar to Code based, however, each tenant has their own database.  Deploying the application is easy, but deploying the database changes can be harder than the first approach. Database changes need to be deployed to all databases prior an application update. Having a large number of databases will create a bottleneck in the deployment.
 
 ### Isolated multi-tenancy {#saas-isolated}
 
