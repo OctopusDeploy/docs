@@ -12,94 +12,9 @@ These instructions can be followed to configure the `Apply a Terraform template`
 Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/deployments/terraform/remote-state/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/remote-state/index.md) and more general information
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 
-## AWS account support
+!include <aws-account>
 
-If you wish to use AWS credentials managed by Octopus when deploying Terraform templates, the AWS account will need to be added to Octopus, and a variable referencing the account configured in the project.
-
-:::hint
-Using AWS credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable.
-:::
-
-### Create an AWS account
-
-The instructions at [Creating an AWS Account](/docs/infrastructure/accounts/aws/index.md##create-an-aws-account) detail the procedure for creating an account in Octopus.
-
-#### Create a AWS account project variable
-
-AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`.
-
-![AWS Account Variable](images/aws-account-variable.png "width=500")
-
-The `Add Variable` window is then displayed and lists all the AWS accounts.
-
-Select the account that was created in the previous step to assign it to the variable.
-
-![AWS Account Variable Selection](images/aws-account-variable-selection.png "width=500")
-
-#### Selecting the account
-
-Under the `Managed Account` section, select `AWS Account`. This will display two additional sections where the AWS account can be selected, and the default AWS region optionally defined.
-
-#### AWS section
-
-Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance.
-
-![AWS Account](images/step-aws-account.png "width=500")
-
-The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
-
-![AWS Role](images/step-aws-role.png "width=500")
-
-:::hint
-If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
-:::
-
-:::hint
-Credentials defined in the Terraform template take precedence over any credentials defined in the step.
-:::
-
-#### Region section
-
-You can optionally define the default region to use when interacting with AWS in the `Region` section.
-
-:::hint
-Regions defined in the Terraform template take precedence over the default value defined in the step.
-:::
-
-## Azure Account Support
-
-If you wish to use Azure credentials managed by Octopus when deploying Terraform templates, the Azure account will need to be added to Octopus, and a variable referencing the account configured in the project.
-
-:::hint
-Using Azure credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable.
-:::
-
-### Create an Azure account
-
-The instructions at [Creating an Azure Account](/docs/infrastructure/accounts/azure/index.md) detail the procedure for creating an account in Octopus.
-
-#### Create a Azure account project variable
-
-[Azure accounts](/docs/infrastructure/accounts/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**.
-
-The [Azure PowerShell](/docs/deployments/azure/running-azure-powershell/index.md) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using an variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
-
-![Azure Account variable](images/azure-account-variable.png "width=500")
-
-The **Add Variable** window is then displayed and lists all the Azure accounts.
-
-Select the account that was created in the previous step to assign it to the variable.
-
-![Azure account variable selection](images/azure-account-variable-selection.png "width=500")
-
-#### Selecting the account
-
-Under the `Managed Account` section, select `Azure Account`.
-
-:::hint
-Credentials defined in the Terraform template take precedence over any credentials defined in the step.
-:::
-
+!include <azure-account>
 
 ### Template section
 
