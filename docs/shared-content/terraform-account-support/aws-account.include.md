@@ -10,7 +10,7 @@ Using AWS credentials managed by Octopus is optional. These credentials can be s
 
 The instructions at [Creating an AWS Account](/docs/infrastructure/accounts/aws/index.md#create-an-aws-account) detail the procedure for creating an account in Octopus.
 
-#### Create a AWS account project variable
+#### Create an AWS account project variable
 
 AWS accounts are included in a project through a project variable of the type `Amazon Web Services Account`.
 
