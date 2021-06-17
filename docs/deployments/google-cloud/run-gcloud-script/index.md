@@ -1,5 +1,5 @@
 ---
-title: Running Gcloud scripts
+title: Running gcloud scripts
 description: Octopus supports executing PowerShell/Bash scripts against Google cloud targets.
 position: 10
 hideInThisSectionHeader: true
@@ -18,7 +18,7 @@ This functionality requires the gcloud CLI to be installed on the worker.
 ## Run a gcloud script step {#RunningGcloudScript}
 
 :::hint
-**Run gcloud in a Script** step were added in Octopus **2021.2**.
+The **Run gcloud in a Script** step was added in Octopus **2021.2**.
 :::
 
 Octopus Deploy provides a *Run gcloud in a Script* step type, for executing script in the context of a Google cloud platform instance. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
