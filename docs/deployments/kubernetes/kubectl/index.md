@@ -4,8 +4,6 @@ description: The kubectl utility is required by Octopus Deploy Kubernetes integr
 position: 100
 ---
 
-## kubectl
-
 The [kubectl command-line tool](https://kubernetes.io/docs/reference/kubectl/overview/) is required by Octopus Deploy's Kubernetes features.
 
 kubectl is not bundled with Octopus, and must be pre-installed on the [worker](/docs/infrastructure/workers/index.md) or Octopus Server which will execute steps and health checks against a [Kubernetes target](/docs/infrastructure/deployment-targets/kubernetes-target/index.md). Alternatively, [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md) may be used. 
