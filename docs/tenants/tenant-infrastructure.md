@@ -1,7 +1,7 @@
 ---
 title: Tenant infrastructure
 description: Tenant infrastructure can be modelled in both a dedicated or shared way in Octopus using environments, deployment targets, and tenant tags.
-position: 30
+position: 40
 ---
 
 The hosting model for your infrastructure with tenants will vary depending on your application, customers, and sales model. Here we'll cover two of the most common implementations:

@@ -1,7 +1,7 @@
 ---
 title: Multi-tenant deployment guides
 description: Guides showing you how to use the multi-tenancy feature in Octopus for common scenarios.
-position: 40
+position: 50
 hideInThisSectionHeader: true
 ---
 

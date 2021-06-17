@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting multi-tenant deployments
 description: Diagnose and solve issues with multi-tenant deployments.
-position: 60
+position: 70
 ---
 
 This page will help you diagnose and solve issues with multi-tenant deployments.

@@ -35,6 +35,8 @@ Tenants can also represent:
 - Feature branches
 - Geographical regions or datacenters
 
+Learn more about [tenant types](/docs/tenants/tenant-types.md).
+
 ## When to use tenants {#when-to-use-tenants}
 
 :::success
