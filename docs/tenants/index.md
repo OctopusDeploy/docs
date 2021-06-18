@@ -19,7 +19,7 @@ Alternatively, you could model it with a single project deployed to multiple env
 
 In either case, this can quickly become overwhelming. It doesn't scale well as there is a lot of duplication.
 
-To solve this, Octopus provides first-class support for modelling tenants.
+To solve this, Octopus provides first-class support for modeling tenants.
 
 ![](images/multiple-tenants.png "width=500")
 
