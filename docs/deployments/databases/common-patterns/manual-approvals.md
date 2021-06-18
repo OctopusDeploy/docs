@@ -101,4 +101,4 @@ As experience is gained and trust is built, the number of notifications should g
 
 ## Example
 
-View a working example on our [samples instance]https://samples.octopus.app/app#/Spaces-106/projects/dbup-sql-server-cloud-region/deployments).
+View a working example on our [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/dbup-sql-server-cloud-region/deployments).

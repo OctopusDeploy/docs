@@ -51,9 +51,9 @@ users:
 4. Select at least one [environment](/docs/infrastructure/environments/index.md) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](http://g.octopushq.com/KubernetesAuthentication):
-    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/deployment-targets/username-and-password.md) account.
-    - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/deployment-targets/tokens.md) account.
-    - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/deployment-targets/azure/index.md) allow Azure Active Directory accounts to be used.
+    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password.md) account.
+    - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens.md) account.
+    - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/index.md) allow Azure Active Directory accounts to be used.
 
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
@@ -61,7 +61,7 @@ users:
       Available from **Octopus 2020.6**, the **Login with administrator credentials** option may be required to authenticate with an AKS cluster with Azure Active Directory integration, as performing a non-interactive login with `kubectl` is not currently available. See this <a href="https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks/suggestions/35146387-support-non-interactive-login-for-aad-integrated-c">Azure UserVoice</a> suggestion for more details on this limitation.
       :::
 
-    - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/deployment-targets/aws/index.md) allow IAM accounts and roles to be used.
+    - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws/index.md) allow IAM accounts and roles to be used.
 
       The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. We highly recommend reading the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).    
 

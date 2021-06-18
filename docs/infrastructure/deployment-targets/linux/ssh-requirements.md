@@ -6,7 +6,7 @@ position: 15
 
 Before you can configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md), they must meet the [requirements](/docs/infrastructure/deployment-targets/linux/index.md#requirements) for a Linux server and the following additional requirements:
 
-- It must be accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
+- It must be accessible through SSH and SFTP (See [creating an SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md#Creating-a-SSH-Key-Pair)).
 
 ## Bash startup files
 
