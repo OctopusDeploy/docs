@@ -1,15 +1,30 @@
 ---
 title: Tenants
-description: Tenants allow you to deploy multiple instances of your project to an environment.
+description: Tenants allow you to easily create customer specific deployment pipelines without duplicating project configuration.
 position: 60
 hideInThisSection: true
 ---
 
-This section describes the multi-tenancy feature of Octopus Deploy.
+Most people who use Octopus use it to deploy projects to one or more environment.
 
-Tenants in Octopus Deploy allow you to easily manage separate instances of your application in an environment. Without tenants, you can only deploy a single instance of your application to an environment.
+> What happens when you are providing Software as a Service (SaaS) applications and you need to deploy multiple instances of the application for each of your customers? 
 
-![](images/multi-tenant-deployment.png "width=500")
+You could model it with multiple projects:
+
+![](images/multiple-projects.png "width=500")
+
+Alternatively, you could model it with a single project deployed to multiple environments:
+
+![](images/multiple-environments.png "width=500")
+
+In either case, this can quickly become overwhelming. It doesn't scale well as there is a lot of duplication.
+
+To solve this, Octopus provides first-class support for modelling tenants.
+
+![](images/multiple-tenants.png "width=500")
+
+Tenants in Octopus allow you to easily create customer specific deployment pipelines without duplicating project configuration. You can
+manage separate instances of your application in multiple environments in a single Octopus project.
 
 Tenants enable:
 
