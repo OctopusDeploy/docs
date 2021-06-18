@@ -1,7 +1,7 @@
 ---
 title: Deployment targets
 description: How to configure deployment targets in Octopus
-position: 20
+position: 10
 hideInThisSection: True
 ---
 
@@ -21,19 +21,10 @@ Deployment targets are added in different ways, depending on the type of target
 - [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md)
 - [Azure Service Fabric cluster](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md)
-- [AWS](/docs/infrastructure/deployment-targets/aws/index.md)
+- [AWS](/docs/infrastructure/accounts/aws/index.md)
 - [Kubernetes target](/docs/infrastructure/deployment-targets/kubernetes-target/index.md)
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions.md)
-
-## Accounts
-
-In addition to the deployment targets above, you may also need to configure accounts to use in conjunction with your infrastructure during your deployments.
-
-You can configure the following accounts:
-
-- [Username and Passwords accounts](/docs/infrastructure/deployment-targets/username-and-password.md)
-- [Tokens](/docs/infrastructure/deployment-targets/tokens.md)
 
 ## Target roles {#target-roles}
 

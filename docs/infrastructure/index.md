@@ -38,3 +38,4 @@ Learn more about [environments](/docs/infrastructure/environments/index.md).
  - [Environments](/docs/infrastructure/environments/index.md)
  - [Deployment targets](/docs/infrastructure/deployment-targets/index.md)
  - [Workers](/docs/infrastructure/workers/index.md)
+ - [Accounts](/docs/infrastructure/accounts/index.md)

@@ -13,9 +13,9 @@ Before you configure an SSH deployment target, review the SSH target [requiremen
 
 ## Create an SSH account
 
-The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/deployment-targets/username-and-password.md) that has access to the remote host.
+The SSH connection you configure will use an account with either an [SSH Key Pair](/docs/infrastructure/accounts/ssh-key-pair.md) or a [Username and Password](/docs/infrastructure/accounts/username-and-password.md) that has access to the remote host.
 
-See [accounts](/docs/infrastructure/deployment-targets/linux/ssh-key-pair.md) for instructions to configure the account.
+See [accounts](/docs/infrastructure/accounts/ssh-key-pair.md) for instructions to configure the account.
 
 ## Add an SSH connection
 

@@ -1,6 +1,6 @@
 ## Step 2: Create an Azure account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Account](/docs/infrastructure/deployment-targets/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Account](/docs/infrastructure/accounts/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 

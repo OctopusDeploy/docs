@@ -134,7 +134,7 @@ There is a limit to the number of concurrent upgrades possible when choosing `Al
 The number of concurrent upgrades will be double the Octopus Server's logical processor count which is a minimum of 2 and will not exceed 32.
 
 ### Tentacle update account {#MachinePolicies-TentacleUpdateAccount}
-You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/deployment-targets/username-and-password.md) for a user with administrative rights to install software on your machines and select it from the drop down.
+You can select a username/password account to perform automatic Tentacle updates.  When no account is selected, the account that the Tentacle service is running as will attempt to perform Tentacle updates. If this account is not an Administrator it will not have enough permission to perform Tentacle updates. In that scenario you will need to create a [username/password account](/docs/infrastructure/accounts/username-and-password.md) for a user with administrative rights to install software on your machines and select it from the drop down.
 
 **Note:** This option can not be used when Tentacle is running as Local System.
 
