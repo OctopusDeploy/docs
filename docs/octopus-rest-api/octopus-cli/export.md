@@ -5,7 +5,7 @@ position: 130
 ---
 
 :::warning
-Deprecated. Please see https://g.octopushq.com/DataMigration for alternative options.
+Deprecated. If you are on 2021.1 or later, information on our new import/export tool can be found here: https://octopus.com/docs/projects/export-import. If you are on a version previous to that, please see https://g.octopushq.com/DataMigration for alternative options.
 :::
 
 This command allows you to export items from one Octopus Server and import them into another Octopus Server.
