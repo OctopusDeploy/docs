@@ -1,5 +1,5 @@
 ---
 title: Tenant lifecycles
-description: DESC
-position: 50
+description: You can control release promotion using safe tenant-aware lifecycles.
+position: 60
 ---

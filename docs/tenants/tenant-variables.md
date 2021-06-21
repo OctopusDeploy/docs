@@ -1,7 +1,7 @@
 ---
 title: Tenant variables
 description: Tenant variables in Octopus allow you to specify which variables are required to deploy a project to a tenant successfully; Project variables are values that differ between projects and environments. Common variables are common across multiple tenants that require a unique value per tenant.
-position: 20
+position: 30
 ---
 
 You often want to define variable values that are different for each tenant. For example:
