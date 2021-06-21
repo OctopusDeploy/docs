@@ -109,7 +109,7 @@ No, you can create an unlimited number of tenants without any impact on licensin
 
 ## Can I provide third-party self-service sign in, so my tenants can manage their own deployments? {#Multi-tenantdeploymentsFAQ-CanIprovide3rd-partyself-servicesignin,somytenantscanmanagetheirowndeployments?}
 
-Yes, take a look at our [guide on enabling self-service sign in for your tenants](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md).
+Yes, take a look at our [guide on enabling self-service sign in for your tenants](/docs/tenants/tenant-roles-and-security.md).
 
 ## How are deployment targets selected for each deployment? {#Multi-tenantdeploymentsFAQ-Howaredeploymenttargetsselectedforeachdeployment?}
 
