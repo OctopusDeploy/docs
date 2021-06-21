@@ -32,7 +32,7 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/rele
 
 Add a new tag called **2.x Beta** to a new or existing Tenant tag set.
 
-![](images/multi-tenancy-beta-tenant-tags.png "width=500")
+![](images/multi-tenant-beta-tenant-tags.png "width=500")
 
 ### Step 3: Select the tenants participating in the beta program {#eap-step-3-choose-tenants}
 
@@ -44,7 +44,7 @@ Add the **2.x Beta** tag to one or more tenants who are included in the beta pro
 
 Create a channel called **2.x Beta** and restrict its use to Tenants tagged with **2.x Beta**
 
-![](images/multi-tenancy-beta-channel.png "width=500")
+![](images/multi-tenant-beta-channel.png "width=500")
 
 ### Step 5: Create a beta release {#eap-step-5-create-release}
 
@@ -76,7 +76,7 @@ Learn more about [defining a limited Lifecycle for your test Channel](/docs/rele
 
 Add a new tag called **Tester** to a new or existing Tenant tag set.
 
-![](images/multi-tenancy-tester-tenant-tags.png "width=500")
+![](images/multi-tenant-tester-tenant-tags.png "width=500")
 
 ### Step 3: Select the tenants participating in the test program {#test-step-3-choose-tenants}
 
@@ -88,7 +88,7 @@ Add the **Tester** tag to one or more tenants who are included in the test progr
 
 Create a channel called **1.x Test** and restrict its use to Tenants tagged with **Tester**
 
-![](images/multi-tenancy-test-channel.png "width=500")
+![](images/multi-tenant-test-channel.png "width=500")
 
 ### Step 5: Create a test release {#test-step-5-create-release}
 

@@ -17,12 +17,12 @@ With tenant tags you can:
 - Classify your tenants using custom tags that match your situation.
 - Find tenants more quickly by searching and filtering with tags.
 - Group the project overview by tag set.
-- Deploy to multiple tenants at the same time - read more in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+- Deploy to multiple tenants at the same time - read more [below](#deploying-to-multiple-tenants-tags).
 - Customize the deployment process for tenants.
 - Scope project variables to tags.
-- Design a multi-tenant hosting model - read more in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
-- Design a multi-tenant upgrade process - read more in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
-- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/index.md) - read more in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md).
+- Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
+- Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/index.md#guides).
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/index.md) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles.md) section.
 
 ## Managing Tenant Tags {#managing-tenant-tags}
 
@@ -97,6 +97,41 @@ Some places you can use tags are:
 - When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md) - [read more in our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
 - When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/index.md).
+
+## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}
+
+You can create tenant tag sets specifically to help with deployments and rolling out upgrades. Quite often, you want to deploy targeted releases to your testers, and once testing is finished, you want to flight/prove that upgrade with a smaller group of tenants before rolling it out to the rest of your tenants. This is also useful when breaking down large amounts of tenants into smaller deployments. Here we outline the steps needed to design that kind of process using tenant tags.
+
+### Step 1: Create a tag set called Upgrade ring {#deploy-step-1-create-tagset}
+
+Firstly we create a tag set called **Upgrade ring** with tags allowing each tenant to choose how early in the development/test cycle they want to receive upgrades.
+
+1. Create a new tenant tag set called **Upgrade ring** and add tags for **Tester**, **Early adopter**, and **Stable**.
+1. Make sure to choose colors that highlight different tenants.
+
+![](images/multi-tenant-upgrade-ring.png "width=500")
+
+### Step 2: Configure a test tenant {#deploy-step-2-configure-test-tenant}
+
+Either create a new tenant, or configure an existing tenant. This tenant will receive upgrades before any of the other configured tenants.
+
+1. Tag your test tenant(s) with **Tester**.
+
+### Step 3: Configure some early adopter tenants and stable tenants {#deploy-step-3-configure-other-tenants}
+
+*Optionally*, configure some external tenants as opting into early or stable releases to see the effect.
+
+1. Find or create some tenants and tag them as either **Stable** or **Early adopter**.
+
+### Step 4: Deploy {#deploy-step-4-deployment}
+
+Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy version **1.0.1** to all of the tenants tagged with **Tester** who are connected to the the **Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios.
+
+![](images/multi-tenant-deploy-test.png "width=500")
+
+You can also use the Project Overview to deploy to groups of tenants by grouping the dashboard, selecting a release, and clicking the **Deploy to all** button.
+
+![](images/multi-tenant-deploy-all.png "width=500")
 
 ## Learn more {#learn-more}
 
