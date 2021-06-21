@@ -811,7 +811,7 @@ docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md -> docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-upgrade-process.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md -> docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/multi-tenant-roles-and-security.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-faq.md -> docs/tenants/tenant-deployment-faq.md
-docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md -> docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md
+docs/deployment-patterns/multi-tenant-deployments/tenant-tags.md -> docs/tenants/tenant-tags.md
 docs/deployment-patterns/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md -> docs/tenants/troubleshooting-multi-tenant-deployments.md
 docs/deployment-patterns/multi-region-deployment-pattern.md -> docs/deployments/patterns/multi-region-deployment-pattern.md
 docs/deployment-patterns/blue-green-deployments/index.md -> docs/deployments/patterns/blue-green-deployments/index.md
