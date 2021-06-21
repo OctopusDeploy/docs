@@ -142,7 +142,7 @@ Yes, simply connect the tenant to a project and any number of environments that 
 
 ## Can I configure a standard set of variables that are required by each tenant like an alias or contact details? {#Multi-tenantdeploymentsFAQ-CanIconfigureastandardsetofvariablesthatarerequiredbyeachtenantlikeanaliasorcontactdetails?}
 
-Yes, we recommend creating some variable templates in a library variable set, and connecting that library variable set to all of the projects where you require those variables. Now Octopus will prompt you for those standard variables, once for each tenant. We cover this in more detail in the [working with tenant-specific variables](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md) section of our guide.
+Yes, we recommend creating some variable templates in a library variable set, and connecting that library variable set to all of the projects where you require those variables. Now Octopus will prompt you for those standard variables, once for each tenant. We cover this in more detail in the [tenant variables](/docs/tenants/tenant-variables.md) section.
 
 ## Can I use tenants and channels together? {#Multi-tenantdeploymentsFAQ-CanIusetenantsandchannelstogether?}
 
