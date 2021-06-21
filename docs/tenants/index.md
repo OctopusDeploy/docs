@@ -7,7 +7,7 @@ hideInThisSection: true
 
 Most people who use Octopus use it to deploy projects to one or more environment.
 
-> What happens when you are providing Software as a Service (SaaS) applications and you need to deploy multiple instances of the application for each of your customers? 
+What happens when you are providing Software as a Service (SaaS) applications and you need to deploy multiple instances of the application for each of your customers? 
 
 You could model it with multiple projects:
 
