@@ -5,6 +5,7 @@ position: 10
 ---
 
 This guide demonstrates using the tenant feature to support multiple teams developing the same application.  The Octo Pet Shop application supports multiple development teams.  Each team has dedicated infrastructure so the application can be individually tested before submitting to QA for verification, deployed to staging, and finally production.  In this scenario, we have a total of three teams, each configured as a tenant:
+
 - Team Avengers
 - Team Radical
 - QA

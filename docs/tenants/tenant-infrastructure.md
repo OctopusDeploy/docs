@@ -24,7 +24,7 @@ Learn more about the differences between [tenanted and untenanted deployments](/
 
 By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, navigate to **{{Infrastructure, Deployment Targets}}**
 
-![](images/octopus-deployment-targets.png)
+![](images/octopus-deployment-targets.png "width=500")
 
 Click on the deployment target you wish to configure for tenanted deployments. In the **{{Restrictions, Tenanted Deployments}}** section, you can choose the kinds of deployments the target can be involved in
 
@@ -32,13 +32,13 @@ Click on the deployment target you wish to configure for tenanted deployments. I
 - **Include only in tenanted deployments** - the deployment target will only be included in deployments to the associated tenants. It will be excluded from untenanted deployments.
 - **Include in both tenanted and untenanted deployments** - The deployment target will be included in untenanted deployments, and deployments to the associated tenants.
 
-![](images/target-restrictions-tenant-deployments.png)
+![](images/target-restrictions-tenant-deployments.png "width=500")
 
 ### Choose tenants for target {#choose-tenants-for-target}
 
 To choose the tenants to associate with a deployment target navigate to the **{{Restrictions, Associated Tenant}}** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags.md).
 
-![](images/target-restrictions-associated-tenants.png)
+![](images/target-restrictions-associated-tenants.png "width=500")
 
 :::hint
 We generally recommend keeping tenanted and untenanted deployment targets separate, particularly in Production. You could use the same deployment targets for other environments but it's better to avoid this situation.

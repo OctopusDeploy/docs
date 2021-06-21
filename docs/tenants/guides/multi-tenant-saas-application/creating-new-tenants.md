@@ -14,7 +14,6 @@ The first step in this guide is to create the tenants needed for this scenario:
 - Pet Health Center
 - Valley Veterinary Clinic
 
-
 To create your tenants follow these steps:
 
 !include <tenants-create-tenant>
