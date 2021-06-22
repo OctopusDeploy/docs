@@ -38,7 +38,7 @@ We suggest taking some time to design your tag sets based on how you will apply 
 Let's look at an Example tag set design :
 
 - **Importance (VIP, Standard, Trial):** concerned with classifying tenants so they can be found easily.
-- **Hosting Region (West US, East US 2):** concerned with how the tenant software is hosted - read more about this in our [guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+- **Hosting Region (West US, East US 2):** concerned with how the tenant software is hosted - read more about this in our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 - **Release ring (Alpha, Beta, Stable):** concerned with when the tenant's applications are upgraded in relationship to other tenants - read more about this in our [guide](/docs/tenants/guides/multi-tenant-region/deploying-to-release-ring.md).
 
 This kind of tag set design will make it easier for each different class of Octopus user to understand which tags apply to their area, and the impact it will have on your tenanted deployments.
@@ -95,7 +95,7 @@ Consider an example deploying a release to the tenants tagged with the **Alpha*
 Some places you can use tags are:
 
 - When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md) - [read more in our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
-- Scoping a deployment target to one or more tenants when registering a new Tentacle - [read more in our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+- Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 - When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/index.md).
 
 ## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}

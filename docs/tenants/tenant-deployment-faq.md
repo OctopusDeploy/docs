@@ -118,19 +118,19 @@ Octopus uses this rule to determine which deployment targets should be included 
 - Tenanted deployments will include tenanted deployment targets matching the deployment's tenant
 - Untenanted deployments will include untenanted deployment targets (just like good old Octopus)
 
-For more information refer to [designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 
 ## Can I configure deployment targets that are dedicated/limited to a single tenant? {#Multi-tenantdeploymentsFAQ-CanIconfiguredeploymenttargetsthatarededicated/limitedtoasingletenant?}
 
 Yes. Set the tenant filter on each of the deployment targets to a specific tenant. Octopus will ensure these deployment targets are only used in deployments for that specific tenant.
 
-For more information refer to [designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 
 ## Can I configure accounts that are dedicated/limited to a single tenant? {#Multi-tenantdeploymentsFAQ-CanIconfigureaccountsthatarededicated/limitedtoasingletenant?}
 
 Yes. The same logic is applied to accounts as deployment targets.
 
-For more information refer to [designing a multi-tenant hosting model](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md).
+For more information refer to our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 
 ## Can I deploy a mixture of projects to my tenants? {#Multi-tenantdeploymentsFAQ-CanIdeployamixtureofprojectstomytenants?}
 
