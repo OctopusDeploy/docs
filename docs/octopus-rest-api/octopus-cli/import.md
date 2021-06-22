@@ -5,7 +5,9 @@ position: 150
 ---
 
 :::warning
-Deprecated. If you are on 2021.1 or later, information on our new import/export tool can be found here: https://octopus.com/docs/projects/export-import. If you are on a version previous to that, please see https://g.octopushq.com/DataMigration for alternative options.
+This command is **Deprecated**. The recommended way to import data to an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
+
+If you are running an earlier version of Octopus, please see our [data migration](docs/administration/data/data-migration.md) section for alternative options.
 :::
 
 This command allows you to import items from one Octopus Server into another Octopus Server.
