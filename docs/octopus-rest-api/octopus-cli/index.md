@@ -26,8 +26,8 @@ hideInThisSection: true
 - **[delete-releases](/docs/octopus-rest-api/octopus-cli/delete-releases.md)**:  Deletes a range of releases.
 - **[deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release.md)**:  Deploys a release.
 - **[dump-deployments](/docs/octopus-rest-api/octopus-cli/dump-deployments.md)**:  Writes deployments to an XML file that can be imported in Excel.
-- **[export](/docs/octopus-rest-api/octopus-cli/export.md)**:  Exports an object to a JSON file. Deprecated. Please see [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
-- **[import](/docs/octopus-rest-api/octopus-cli/import.md)**:  Imports an Octopus object from an export file. Deprecated. Please see [https://g.octopushq.com/DataMigration](https://g.octopushq.com/DataMigration) for alternative options.
+- **[export](/docs/octopus-rest-api/octopus-cli/export.md)**:  Exports an object to a JSON file. Deprecated. Please see our [data migration](docs/administration/data/data-migration.md) section for alternative options.
+- **[import](/docs/octopus-rest-api/octopus-cli/import.md)**:  Imports an Octopus object from an export file. Deprecated. Please see our [data migration](docs/administration/data/data-migration.md) section for alternative options.
 - **[install-autocomplete](/docs/octopus-rest-api/octopus-cli/install-autocomplete.md)**:  Install a shell auto-complete script into your shell profile, if they aren't already there. Supports pwsh, zsh, bash & powershell.
 - **[list-deployments](/docs/octopus-rest-api/octopus-cli/list-deployments.md)**:  Lists a number of deployments by project, environment or by tenant.
 - **[list-environments](/docs/octopus-rest-api/octopus-cli/list-environments.md)**:  Lists environments.
