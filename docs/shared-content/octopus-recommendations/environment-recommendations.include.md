@@ -52,7 +52,7 @@ One scenario we've seen is customers deploy to an on-premises data center for de
 
 ![Multi-tenancy Environments](docs/shared-content/octopus-recommendations/images/multi-tenancy-environments.png "width=500")
 
-Creating seven environments like this doesn't scale. A better solution is using the [multi-tenancy](/docs/deployments/patterns/multi-tenant-deployments/index.md) feature in Octopus. With multi-tenancy, each data center is modeled as a tenant. To add a new tenant, follow our instructions on how to [create a tenant](docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md).
+Creating seven environments like this doesn't scale. A better solution is using the [multi-tenancy](/docs/deployments/patterns/multi-tenant-deployments/index.md) feature in Octopus. With multi-tenancy, each data center is modeled as a tenant. To add a new tenant, follow our instructions on how to [create a tenant](docs/tenants/tenant-creation/index.md).
 
 ![Data Center tenants](docs/shared-content/octopus-recommendations/images/data-center-tenants.png "width=500")
 

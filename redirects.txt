@@ -802,9 +802,9 @@ docs/deployment-patterns/index.md -> docs/deployments/patterns/index.md
 docs/deployment-patterns/rolling-deployments/index.md -> docs/deployments/patterns/rolling-deployments.md
 docs/deployment-patterns/multi-tenant-deployments/index.md -> docs/deployments/patterns/multi-tenant-deployments/index.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md
-docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md -> docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md
+docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md -> docs/tenants/tenant-creation/index.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md -> docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md
-docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md -> docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md
+docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md -> docs/tenants/index.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md -> docs/tenants/tenant-variables.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-groups-of-tenants-using-tags.md -> docs/tenants/tenant-tags.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md -> docs/tenants/tenant-infrastructure.md

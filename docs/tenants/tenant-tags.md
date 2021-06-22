@@ -94,7 +94,7 @@ Consider an example deploying a release to the tenants tagged with the **Alpha*
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md) - [read more in our guide](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md).
+- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 - When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/index.md).
 
