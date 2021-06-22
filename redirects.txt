@@ -1017,5 +1017,6 @@ docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/designing-a-multi-tenant-hosting-model.md -> docs/tenants/tenant-infrastructure.md
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/deploying-a-simple-multi-tenant-project.md -> docs/tenants/index.md
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md -> docs/tenants/tenant-creation/index.md
+docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md -> docs/tenants/tenant-creation/index.md
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/tenants/guides/index.md
 docs/deployments/patterns/multi-tenant-deployments/index.md -> docs/tenants/index.md
