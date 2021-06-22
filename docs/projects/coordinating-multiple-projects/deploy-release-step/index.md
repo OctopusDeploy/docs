@@ -85,7 +85,7 @@ For example, if you have two projects, `Project A` and `Project B` which are ref
 
 ## Multi-tenant deployments
 
-When a [tenanted](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md) project is being deployed by _Deploy a Release_ step, then the parent project should also be created as tenanted.
+When a [tenanted](/docs/tenants/index.md) project is being deployed by _Deploy a Release_ step, then the parent project should also be created as tenanted.
 
 When triggering a tenanted deployment of the parent project, the tenant will be used to trigger the child deployment.
 
