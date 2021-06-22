@@ -1,5 +1,5 @@
 ---
-title: Tenant infrastructure
+title: Tenant Infrastructure
 description: Tenant infrastructure can be modelled in both a dedicated or shared way in Octopus using environments, deployment targets, and tenant tags.
 position: 50
 ---
