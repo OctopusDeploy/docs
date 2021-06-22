@@ -3,7 +3,7 @@ title: Create a tenant
 description: An example script that creates a tenant.
 ---
 
-This script demonstrates how to programmatically create a new [tenant](/docs/deployments/patterns/multi-tenant-deployments/index.md) in Octopus.
+This script demonstrates how to programmatically create a new [tenant](/docs/tenants/index.md) in Octopus.
 
 ## Usage
 

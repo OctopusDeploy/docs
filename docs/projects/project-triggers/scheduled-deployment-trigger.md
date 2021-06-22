@@ -27,7 +27,7 @@ Scheduled deployment triggers provide a way to configure your projects to create
 
 If you are using [channels](/docs/releases/channels/index.md) you may also select the channel to use when deploying the release. The latest successful deployment for the specified channel and source environment will be deployed to the same channel and destination environment. If no channel is specified, the latest successful release from any channel and source environment will be selected for deployment.
 
-If you are using [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
+If you are using [tenants](/docs/tenants/index.md) you can select the tenants that will receive a deployment. For each tenant, the latest successful release in the source environment will be deployed to the destination environment. When a tenant is not connected to the source environment, the latest successful release that has been deployed to the source environment and meets the lifecycle requirements for promotion to the destination environment will be deployed.
 
 5. Save the trigger.
 

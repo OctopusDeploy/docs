@@ -14,7 +14,7 @@ There are two types of variable templates:
 - [Project templates](#project-templates) are variable values that differ between projects and environments for a tenant. For example, server names or database connection settings. 
 
 :::hint
-For a working example see our multi-tenant deployments guide: [Working with tenant-specific variables](/docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/working-with-tenant-specific-variables.md).
+View a working example on our [samples instance](https://samples.octopus.app/app#/Spaces-682/projects/vetclinic/variables).
 :::
 
 ## Library variable set templates {#adding-a-variable-template}

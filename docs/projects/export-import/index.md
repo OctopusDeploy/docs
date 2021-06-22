@@ -118,7 +118,7 @@ If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Wor
 
 ### Tenants
 
-All [tenants](/docs/deployments/patterns/multi-tenant-deployments/index.md) connected to the project will be included in the export.
+All [tenants](/docs/tenants/index.md) connected to the project will be included in the export.
 
 On import, for any tenants which already exist on the destination the project/environment connections in the export will be merged into the existing tenant. 
 
