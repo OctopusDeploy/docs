@@ -29,7 +29,7 @@ docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> doc
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployments/packages/dynamically-selecting-packages.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/infrastructure/lifecycles/index.md -> docs/releases/lifecycles/index.md
-docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/deployments/patterns/multi-tenant-deployments/index.md
+docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/tenants/patterns/multi-tenant-deployments/index.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployments/windows/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md
@@ -59,7 +59,7 @@ docs/deployment-process/steps/automatic-release-creation.md -> docs/projects/pro
 docs/installation/sql-server-database-requirements.md -> docs/installation/sql-server-database.md
 docs/administration/security/hardening-octopus-server.md -> docs/security/hardening-octopus.md
 docs/packaging-applications/creating-packages/versioning-in-octopus-deploy.md -> docs/packaging-applications/create-packages/versioning.md
-docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/deployments/patterns/multi-tenant-deployments/index.md
+docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployments-prior-to-octopus-3.4.md -> docs/tenants/index.md
 docs/administration/report-on-deployments-using-excel.md -> docs/administration/reporting/report-on-deployments-using-excel.md
 docs/infrastructure/environments/elastic-and-transient-environments/index.md -> docs/deployments/patterns/elastic-and-transient-environments/index.md
 docs/infrastructure/environments/elastic-and-transient-environments/cleaning-up-environments.md -> docs/deployments/patterns/elastic-and-transient-environments/cleaning-up-environments.md
@@ -800,7 +800,7 @@ docs/support/sensitive-properties-api-changes-in-release-3.3.md -> docs/octopus-
 docs/credits.template.md -> docs/credits.md
 docs/deployment-patterns/index.md -> docs/deployments/patterns/index.md
 docs/deployment-patterns/rolling-deployments/index.md -> docs/deployments/patterns/rolling-deployments.md
-docs/deployment-patterns/multi-tenant-deployments/index.md -> docs/deployments/patterns/multi-tenant-deployments/index.md
+docs/deployment-patterns/multi-tenant-deployments/index.md -> docs/tenants/index.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/tenants/index.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-tenant.md -> docs/tenants/tenant-creation/index.md
 docs/deployment-patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md -> docs/tenants/tenant-creation/index.md
