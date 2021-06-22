@@ -29,7 +29,7 @@ docs/deployment-process/project-triggers/automatic-deployment-triggers.md -> doc
 docs/deployment-process/steps/deploying-packages/dynamically-selecting-packages.md -> docs/deployments/packages/dynamically-selecting-packages.md
 docs/deployment-process/projects/reporting.md -> docs/administration/reporting/index.md
 docs/infrastructure/lifecycles/index.md -> docs/releases/lifecycles/index.md
-docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/tenants/patterns/multi-tenant-deployments/index.md
+docs/deployment-patterns/multi-tenant-deployment-pattern.md -> docs/tenants/index.md
 docs/deployment-process/deploying-virtual-hard-drives.md -> docs/deployments/windows/virtual-hard-drive-deployments.md
 docs/api-and-integration/octopus-rest-api.md -> docs/octopus-rest-api/index.md
 docs/administration/get-a-database-backup-and-encrypt-the-master-key.md -> docs/support/get-a-database-backup-and-encrypt-the-master-key.md

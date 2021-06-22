@@ -13,7 +13,7 @@ No, not really. Any Octopus project or environment can work with tenants. To sta
 1. Configure the project to allow tenanted deployments in **{{Project,Settings,Multi-tenant deployments}}** - multi-tenant deployments are disabled for your existing projects by default.
 2. Connect some tenants to the the project, including the environments where you want to deploy instances of your projects for each tenant.
 
-For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/index.md) and [deploying a multi-tenant project](/docs/tenants/tenanted-deployments.md).
+For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/index.md) and [deploying a multi-tenant project](/docs/tenants/tenant-creation/tenanted-deployments.md).
 
 ## Can I deploy to multiple tenants in a single deployment? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsinasingledeployment?}
 
