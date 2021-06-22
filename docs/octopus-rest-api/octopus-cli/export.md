@@ -5,7 +5,9 @@ position: 130
 ---
 
 :::warning
-Deprecated. Please see https://g.octopushq.com/DataMigration for alternative options.
+This command is **Deprecated**. The recommended way to export data from an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
+
+If you are running an earlier version of Octopus, please see our [data migration](docs/administration/data/data-migration.md) section for alternative options.
 :::
 
 This command allows you to export items from one Octopus Server and import them into another Octopus Server.
