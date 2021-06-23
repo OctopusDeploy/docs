@@ -8,7 +8,7 @@ Variable substitutions are a flexible way to adjust configuration based on your 
 
 ## Binding variables
 
-You can using Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
+You can use Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
 
 | Name               | Value                       | Scope |
 | ------------------ | --------------------------- | ----------- |
