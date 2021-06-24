@@ -4,7 +4,7 @@ description: A guide showing you how to use tenants to deploy a multi-tenant Saa
 position: 10
 ---
 
-This guide will introduce you to Software as a Service (SaaS) multi-tenant deployments in Octopus. We will deploy a Java application to five fictitious customers who each have their own hosted copy of the application and database.
+This guide will introduce you to Software as a Service (SaaS) multi-tenant deployments in Octopus. We will deploy a Java application to five fictitious customers who each have their own hosted copy of the application and database. In this guide I'm deploying Vet Clinic 
 
 * Deploy the application to their own datacentre and to self hosted tenants
 * Each tenant will have there own SSL certificate, deployed through Octopus
