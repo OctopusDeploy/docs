@@ -6,9 +6,9 @@ position: 10
 
 Variable substitutions are a flexible way to adjust configuration based on your [variables](/docs/projects/variables/index.md) and the context of your [deployment](/docs/projects/deployment-process/index.md). You can often tame the number and complexity of your variables by breaking them down into simple variables and combining them together using expressions.
 
-## Binding variables
+## Binding variables {#binding-variables}
 
-You can using Octopus's special binding syntax to reference a variable from within the value of another variable. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
+You can use Octopus's special binding syntax to reference a variable from within the value of another variable. This is sometimes referred to as using **Composite variables**, because you compose a variable value with other Octopus variables. In the following example, the `ConnectionString` variable references the variables `{Server}` and `{Database}`.
 
 | Name               | Value                       | Scope |
 | ------------------ | --------------------------- | ----------- |

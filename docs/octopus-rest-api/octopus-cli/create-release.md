@@ -205,6 +205,7 @@ For each step that has a package, the version is determined in the following ord
  If there are duplicate names/ids resulting from the `--package` and `--packagesFolder` parameters, the last one specified is used.
 
 ### Option --packageVersion
+
 This creates a release *(1.0.3)* with a specified NuGet package version *(1.0.1)*:
 
 ```bash
@@ -212,6 +213,7 @@ octo create-release --project HelloWorld --version 1.0.3 --packageVersion 1.0.1 
 ```
 
 ### Option --package
+
 This creates a release for a project with multiple packages, each with a different version. You can specify a step name and version pair with this option, allowing you to use different versions of the same package for different steps:
 
 ```bash
@@ -251,7 +253,13 @@ To create a release **and** deploy it to an environment named Production:
 octo create-release --project HelloWorld --deployto Production --server http://octopus/ --apiKey API-ABCDEF123456 --progress
 ```
 
+:::hint
+**A note on lifecycle phases with automated deployment:**
+If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/lifecycles/index.md) of the project you are deploying to is set to *Deploy automatically* when a release is created, it's possible multiple deployments to the same environment will be triggered.
+:::
+
 ## Release Notes Supported Syntax
+
 We use [showdownjs](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
 Showdownjs supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
 

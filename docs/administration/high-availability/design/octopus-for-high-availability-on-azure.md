@@ -155,11 +155,11 @@ If you're hosting in Azure with Domain Controllers, it would be a similar setup 
 
 !include <polling-tentacles-and-ha-connecting>
 
-#### Using a unique port
+#### Using a unique address
 
 !include <polling-tentacles-connection-same-port>
 
-#### Using a unique address
+#### Using a unique port
 
 !include <polling-tentacles-connection-different-ports>
 
