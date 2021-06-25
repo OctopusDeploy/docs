@@ -5,7 +5,9 @@ position: 50
 hideInThisSectionHeader: true
 ---
 
+One of the most convenient aspects of Platform as a Service (PaaS) is the ability to spin up and tear down resources quickly.  This ability can be used for a number of different reasons: feature branching, testing, cost savings, etc... 
 
+You can use runbooks in Octopus to spin up resources in Azure.
 
 To provision an Azure App Service, there are a couple of things that need to be in place:
 - Resource group
