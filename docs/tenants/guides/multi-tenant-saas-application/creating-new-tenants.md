@@ -12,14 +12,13 @@ The first step in this guide is to create the tenants needed for this scenario:
 - Companion Care Vets
 - Midland Veterinary
 
-
-Each customer is modelled as a tenant and will have two environments, staging and production. We also create a tenant called Internal for internal developing and testing before new releases get pushed to staging.
+Each customer is modeled as a tenant and will have two environments, staging and production. We also create a tenant called Internal for internal developing and testing before new releases get pushed to staging.
 
 To create your tenants follow these steps:
 
 !include <tenants-create-tenant>
 
-Once the tenant is create you need to assosiate the tenant with a project and environment. You can choose to assoisate the project with many projects and environments, for the first tenant, Internal we only need to be able to deploy Vet Clinic to development and test environments but the customer tenants need staging an production but not development and test.
+Once the tenant is created you need to associate the tenant with a project and environment. You can choose to connect the project with many projects and environments. For the Internal tenant, we only need to be able to deploy VetClinic to the development and test environments. The Customer tenants need staging and production but not development and test.
 
 ![](/images/enable-tenanted-deployments.png "width=500")
 
