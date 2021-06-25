@@ -5,7 +5,7 @@ position: 40
 hideInThisSectionHeader: true
 ---
 
-VetClinic has four customers; an internal customer used for development and testing, and three customers
+Vet Clinic has four customers; an internal customer used for development and testing, and three external customers
 
 - VetClinic Internal
 - Capital Animal Hospital
@@ -18,7 +18,7 @@ To create your tenants follow these steps:
 
 !include <tenants-create-tenant>
 
-Once the tenant is created, you need to associate the tenant with a project and environment. You can choose to connect the tenant with many projects and environments. For the internal tenant, we only need to be able to deploy VetClinic to the development and test environments. The customer tenants need staging and production but not development and test.
+Once the tenant is created, you need to associate the tenant with a project and environment. You can choose to connect the tenant with many projects and environments. For the internal tenant, we only need to be able to deploy Vet Clinic to the development and test environments. The customer tenants need staging and production but not development and test.
 
 ![](images/associate-tenant-with-project.png "width=500")
 
