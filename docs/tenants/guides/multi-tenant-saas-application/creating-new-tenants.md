@@ -5,28 +5,31 @@ position: 40
 hideInThisSectionHeader: true
 ---
 
-The first step in this guide is to create the tenants needed for this scenario:
+VetClinic has four customers; an internal customer used for development and testing, and three customers
 
-- Internal 
+- VetClinic Internal
 - Capital Animal Hospital
 - Companion Care Vets
 - Midland Veterinary
 
-Each customer is modeled as a tenant and will have two environments, staging and production. We also create a tenant called Internal for internal developing and testing before new releases get pushed to staging.
+Each customer is modeled as a tenant and has two environments they deploy to. The internal tenant is used to deploy new releases to development and test before they are promoted to the other tenants, who deploy to staging and production.
 
 To create your tenants follow these steps:
 
 !include <tenants-create-tenant>
 
-Once the tenant is created you need to associate the tenant with a project and environment. You can choose to connect the project with many projects and environments. For the Internal tenant, we only need to be able to deploy VetClinic to the development and test environments. The Customer tenants need staging and production but not development and test.
+Once the tenant is created, you need to associate the tenant with a project and environment. You can choose to connect the tenant with many projects and environments. For the internal tenant, we only need to be able to deploy VetClinic to the development and test environments. The customer tenants need staging and production but not development and test.
 
-![](/images/enable-tenanted-deployments.png "width=500")
+![](images/associate-tenant-with-project.png "width=500")
 
-Repeat this process for each of the tenants, and then move on to the next section in the guide.
+Each customer is deployed into exactly one Azure region. To ensure that the application is deployed to the correct location, we must associate each tenant with the correct tag.
 
-We set the Azure Region tag to this tenant, this is where the tenant will be hosted in Azure.
+In the tenant overview, Click on **MANAGE TAGS** to edit which tags are associated to a Tenant and select one of the Azure regions for your tenant
 
-![](/images/manage-tenant-tag-set.png "width=500")
+![](images/manage-tenant-tag-set.png "width=500")
 
+Repeat this process for each of the tenants. 
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-azure-infrastrucure">Next</a></span>
+The next section covers the [tenant infrastructure](/docs/tenants/guides/multi-tenant-saas-application/creating-new-azure-infrastructure.md) needed for this scenario.
+
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-azure-infrastructure">Next</a></span>

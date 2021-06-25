@@ -1,6 +1,6 @@
 ---
-title: Creating infrastrcure an Azure for each tenant
-description: Create infrastructure for each tenant
+title: Creating Azure tenant infrastructure
+description: Create tenant infrastructure in Azure as part of a multi-tenant SaaS setup in Octopus Deploy.
 position: 50
 hideInThisSectionHeader: true
 ---
@@ -34,5 +34,4 @@ A quick way to create the App Service Plan is go use the Azure Portal UI to begi
 5. Create an Azure Resource Group using the following code:
 
 
-
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tags">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tags">Next</a></span>
