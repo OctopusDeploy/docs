@@ -23,6 +23,6 @@ Give the **Tag Set** a name, an optional description, and create some Tags.  For
 
 ![](images/creating-new-tenant-tag-region.png "width=500")
 
-In the next step, we'll [create the tenants](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenant.md) needed for this scenario.
+In the next step, we'll [create the tenants](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants.md) needed for this scenario.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-project">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants">Next</a></span>
