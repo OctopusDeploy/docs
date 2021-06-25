@@ -37,6 +37,7 @@ SSH_PORT=$(get_octopusvariable "SSH_PORT")
 sudo cat > /etc/ssh/sshd_config <<EOL
 Port $SSH_PORT
 Protocol 2
+HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
 HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key

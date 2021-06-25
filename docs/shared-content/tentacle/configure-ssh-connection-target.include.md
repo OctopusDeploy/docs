@@ -18,7 +18,7 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
 
 ```bash
-ssh-keygen -E md5 -lf /etc/ssh/ssh_host_rsa_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
+ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | cut -d' ' -f2 | awk '{ print $1}' | cut -d':' -f2-
 ```
 
 10. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari.md) will be installed.
