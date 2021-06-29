@@ -63,7 +63,7 @@ Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can
 #### Tool paths
 Because Calamari is being executed directly in the container, execution containers on workers are run in non-interactive mode. Since the execution container is not running interactively,  it does not process your .bashrc file. If the tool you have installed relies on .bashrc to modify the path (e.g. `nvm`) to include a non-standard folder, you will need to manually define the additional directories in the $PATH variable in your dockerfile using the `ENV PATH` directive.
 
-For example, if you install node via nvm, you will need remediate your image’s $PATH with the location node gets installed to with the following directive in your dockerfile: `ENV PATH="/root/.nvm/versions/node/v#{NODE_VERSION}/bin:$PATH"`
+For example, if you install node via nvm, you will need remediate your image’s $PATH with the location node gets installed to with the following directive in your dockerfile: `ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin:$PATH"`
 
 #### CMD and ENTRYPOINT directives
 Execution containers require that no CMD or ENTRYPOINT directives be defined in your dockerfile. 
