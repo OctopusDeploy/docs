@@ -30,6 +30,10 @@ Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur. 
 [Automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) will help reduce the total upgrade time.  Automation also mitigates risk, as all steps, including backups, will be followed.  We've found companies who automate their upgrade process are much more likely to stay up to date.  The smaller the delta between versions, the faster the upgrade.
 :::
 
+:::warning
+If you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog.md), you will need to cancel it before you start your upgrade and recreate it after the upgrade is finished. Documentation on this process can be found [Here](/docs/administration/managing-infrastructure/service-watchdog.md#ServiceWatchdog-CancelingtheWatchdog)
+:::
+
 ### Upgrading a highly available Octopus Deploy instance
 
 You are required to install the latest MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
