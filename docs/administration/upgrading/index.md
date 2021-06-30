@@ -16,7 +16,9 @@ This guide provides various upgrade scenarios with the goal of mitigating risk.
 Octopus Deploy connects to a SQL Server database, and can be hosted:
 
 - As a Windows Service, installed via an MSI.
-- In a [Windows](docs/installation/octopus-in-container/octopus-server-container-windows.md) or [Linux](docs/installation/octopus-in-container/octopus-server-container-linux.md) container.
+- In a container, either:
+    - A [Linux](docs/installation/octopus-in-container/octopus-server-container-linux.md) container (recommended)
+    - A [Windows](docs/installation/octopus-in-container/octopus-server-container-windows.md) container *(deprecated)*
 
 ### Upgrade Process
 
@@ -29,6 +31,11 @@ Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur. 
 :::hint
 [Automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) will help reduce the total upgrade time.  Automation also mitigates risk, as all steps, including backups, will be followed.  We've found companies who automate their upgrade process are much more likely to stay up to date.  The smaller the delta between versions, the faster the upgrade.
 :::
+
+**Upgrades and the Service Watchdog**
+
+If you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog.md), you will need to cancel it before you start your upgrade and recreate it after the upgrade is finished. Documentation on canceling the watchdog can be found [here](/docs/administration/managing-infrastructure/service-watchdog.md#ServiceWatchdog-CancelingtheWatchdog).
+
 
 ### Upgrading a highly available Octopus Deploy instance
 
