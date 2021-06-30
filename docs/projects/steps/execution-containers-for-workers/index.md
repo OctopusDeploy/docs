@@ -43,22 +43,17 @@ When you choose to run one or more of your deployment steps in a container, your
 
 For your first deployment this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
 
-## Which Docker images can I use? {#which-image} {#what-docker-image-should-i-use} <!--second anchor to avoid broken links to old header-->
+## Which Docker images can I use? {#which-image}
 
 :::hint
 The easiest way to get started is to use the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
 :::
 
-When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
-Calamari is a .NET Core self-contained executable, and the Docker image will **need to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). [Microsoft provides base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).     
+When a step is configured to use an execution container, you can choose from:
+- One of the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
+- A [custom docker image](#custom-docker-images) you build. 
 
-To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
-
-:::warning
-Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can not currently be used as execution containers.
-:::
-
-## The octopusdeploy/worker-tools Docker images {#worker-tools-images} 
+### The octopusdeploy/worker-tools Docker images {#worker-tools-images} 
 
 For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
 
@@ -83,3 +78,31 @@ Some of the tools included are:
 - Helm
 - Terraform
 - Python
+
+
+### Custom docker images {#custom-docker-images}
+
+When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
+Calamari is a .NET Core self-contained executable, and any custom Docker image **needs to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). Microsoft provides [base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/). 
+
+To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
+
+:::warning
+Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can not currently be used as execution containers.
+:::
+
+#### Tool paths
+
+Because Calamari is executed directly inside the specified container, execution containers on workers are run in **non-interactive** mode. Since the execution container is not running interactively,  it does not process your `.bashrc` file. If the tool you have installed relies on `.bashrc` to modify the path (e.g. `nvm`) to include a non-standard folder, you will need to manually define the additional directories in the `$PATH` variable in your Dockerfile using the `ENV PATH` directive.
+
+For example, if you install node.js via nvm, you will need to remediate the `$PATH` variable in your image with the location node.js gets installed to with the following directive in your Dockerfile: 
+
+```bash
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin:$PATH"`
+```
+
+#### CMD and ENTRYPOINT directives
+
+Docker images used with the execution containers feature require that no `CMD` or `ENTRYPOINT ` directives be defined in your Dockerfile. 
+
+Including one of these directives will result in the step failing.
