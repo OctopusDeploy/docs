@@ -247,6 +247,8 @@ See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/d
 
 ## Troubleshooting
 
+If you're running into issues with your Kubernetes targets, it's possible you'll be able to resolve the issue using some of these troubleshooting tips. If this section doesn't help, please [get in touch](https://octopus.com/support).
+
 ### Debugging
 
 Setting the Octopus variable `Octopus.Action.Kubernetes.OutputKubeConfig` to `True` for any deployment or runbook using a Kubernetes target will cause the generated kube config file to be printed into the logs (with passwords masked). This can be used to verify the configuration file used to connect to the Kubernetes cluster.
@@ -325,9 +327,9 @@ exit 0
 
 ```
 
-### API Calls Failing
+### API calls failing
 
-If you are finding that certain API calls are failing, for example `https://SERVER_URL.com/api/users/Users-1/apikeys?take=2147483647 `, it is likely that your WAF is blocking the traffic. To confirm this you can temporarily switch to detection rather than prevention and run the call again. If your API call goes through successfully in detection mode, you will need to review and remediate the rules to allow the traffic through.
+If you are finding that certain API calls are failing, for example `https://your.octopus.app/api/users/Users-1/apikeys?take=2147483647`, it's possible that your WAF is blocking the traffic. To confirm this you should investigate your WAF logs to determine why the API call is being blocked and make the necessary adjustments to your WAF rules.
 
 ## Learn more
 
