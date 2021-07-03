@@ -10,8 +10,8 @@ This script provides an example of how to programmatically download an existing 
 Provide values for the following:
 
 - Octopus URL
-- Space Name
 - API Key
+- Space Name
 - Project Name
 - Runbook Name
 - Environment Name
