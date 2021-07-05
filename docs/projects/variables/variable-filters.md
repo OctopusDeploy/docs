@@ -16,13 +16,13 @@ Given the variable:
 
 And the template:
 
-```powershell
+```html
 <h3>#{ProjectName | HtmlEscape}</h3>
 ```
 
 The result will be:
 
-```powershell
+```html
 <h3>You &amp; I</h3>
 ```
 
@@ -36,58 +36,20 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 Octopus provides the following filters:
 
-:::hint
-**Note:** Entries marked with **\*** are supported from the version of Octopus listed.
-:::
 
-| Name                                                                                                             | Purpose                                                                 | Example input                  | Example output                   |
-| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------ | -------------------------------- |
-| `ToLower`                                                                                                        | Forces values to lowercase                                              | `Automated Deployment`         | `automated deployment`           |
-| `ToUpper`                                                                                                        | Forces values to uppercase                                              | `Automated Deployment`         | `AUTOMATED DEPLOYMENT`           |
-| `ToBase64`                                                                                                       | Converts values to Base64 (using UTF encoding)                          | `Bar`                          | `QmF6`                           |
-| `FromBase64`                                                                                                     | Converts values from Base64 (using UTF encoding)                        | `QmF6`                         | `Bar`                            |
-| `HtmlEscape`                                                                                                     | Escapes entities for use in HTML content                                | `1 < 2`                        | `1 \&lt; 2`                      |
-| `XmlEscape`                                                                                                      | Escapes entities for use in XML content                                 | `1 < 2`                        | `1 \&lt; 2`                      |
-| `JsonEscape`                                                                                                     | Escapes data for use in JSON strings                                    | `He said "Hello!"`             | `He said \\"Hello!\\"`           |
-| `YamlSingleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML single quoted strings                      | `The bee's knees`              | `The bee''s knees`               |
-| `YamlDoubleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML double quoted strings                      | `"Hello"\Goodbye`              | `\"Hello\"\\Goodbye`             |
-| `PropertiesKeyEscape`   <br/>***2020.4.0**                                                                       | Escapes data for use in .properties keys                                | `Hey: x=y`                     | `Hey\:\ x\=y`                    |
-| `PropertiesValueEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in .properties values                              | `a\b=c`                        | `a\\b=c`                         |
-| `MarkdownToHTML`                                                                                                 | Converts Markdown to HTML                                               | `This \_rocks\_`               | `\<p>This \<em>rocks\</em>\</p>` |
-| [`NowDate`](#nowdate-and-nowdateutc)                                                                             | Outputs the current date                                                |                                | `2016-11-03T08:53:11.0946448`    |
-| [`NowDateUtc`](#nowdate-and-nowdateutc)                                                                          | Outputs the current date in UTC                                         |                                | `2016-11-02T23:01:46.9441479Z`   |
-| [`Format`](#format)                                                                                              | Applies a format                                                        | `4.3`                          | `$4.30`                          |
-| [`Replace`](#replace)                                                                                            | Replaces a pattern                                                      | `1;2;3`                        | `1, 2, 3`                        |
-| [`Trim`](#trim)                                                                                                  | Removes whitespace from the start/end                                   | `···Bar···`                    | `Bar`                            |
-| [`Truncate`](#truncate)                                                                                          | Limits the length of values                                             | `Octopus Deploy`               | `Octopus...`                     |
-| [`Substring`](#substring)                                                                                        | Extracts a range of characters by position                              | `Octopus Deploy`               | `Deploy`                         |
-| [`Match`](#match) <br/>***2021.2.0**                                                                             | Determines whether a string contains a given regular expression pattern | `"Octo.*Deploy"`               | `true`                           |
-| [`StartsWith`](#startswith-endswith-and-contains) <br/>***2021.2.0**                                             | Determines whether the beginning of a string matches a given string     | `Octo`                         | `true`                           |
-| [`EndsWith`](#startswith-endswith-and-contains) <br/>***2021.2.0**                                               | Determines whether the end of a string matches a given string           | `Deploy`                       | `true`                           |
-| [`Contains`](#startswith-endswith-and-contains) <br/>***2021.2.0**                                               | Determines whether a string contains a given string                     | `Octopus Dep`                  | `true`                           |
-| [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string                                                     | `A b:c+d/e`                    | `A%20b:c+d/e`                    |
-| [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string                                                | `A b:c+d/e`                    | `A%20b%3Ac%2Bd%2Fe`              |
-| [`UriPart`](#uripart)                                                                                            | Extracts a specified part of a URI string                               | `https://octopus.com/docs`     | `/docs`                          |
-| `VersionMajor` <br/>***2020.5.0**                                                                                | Extracts the major version field from a version string                  | `1.2.3.4-mybranch.1.2+build10` | `1`                              |
-| `VersionMinor` <br/>***2020.5.0**                                                                                | Extracts the minor version field from a version string                  | `1.2.3.4-mybranch.1.2+build10` | `2`                              |
-| `VersionPatch` <br/>***2020.5.0**                                                                                | Extracts the patch version field from a version string                  | `1.2.3.4-mybranch.1.2+build10` | `3`                              |
-| `VersionRevision` <br/>***2020.5.0**                                                                             | Extracts the revision version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `4`                              |
-| `VersionPreRelease` <br/>***2020.5.0**                                                                           | Extracts the prerelease field from a version string                     | `1.2.3.4-mybranch.1.2+build10` | `mybranch.1.2`                   |
-| `VersionPreReleasePrefix` <br/>***2020.5.0**                                                                     | Extracts the prefix from the prerelease field from a version string     | `1.2.3.4-mybranch.1.2+build10` | `mybranch`                       |
-| `VersionPreReleaseCounter` <br/>***2020.5.0**                                                                    | Extracts the counter from the prerelease field from a version string    | `1.2.3.4-mybranch.1.2+build10` | `1.2`                            |
-| `VersionMetadata` <br/>***2020.5.0**                                                                             | Extracts the metadata field from a version string                       | `1.2.3.4-mybranch.1.2+build10` | `build10`                        |
+## Core Filters #{VariableSubstitutionSyntax-CoreFilters}
 
-### NowDate and NowDateUtc
+These core filters perform common string operations.
 
-The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
-
-| MyFormat Variable | Filter Expression                | Output                         |
-| ----------------- | -------------------------------- | ------------------------------ |
-|                   | `#{ | NowDate }`                 | `2016-11-03T08:53:11.0946448`  |
-|                   | `#{ | NowDateUtc}`               | `2016-11-02T23:01:46.9441479Z` |
-|                   | `#{ | NowDate "HH dd-MMM-yyyy"}` | `09 03-Nov-2016`               |
-|                   | `#{ | NowDateUtc zz}`            | `+00`                          |
-| dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`      | `03-Nov-2016`                  |
+| Name                      | Purpose                                    | Example input          | Example output         |
+|---------------------------|--------------------------------------------|------------------------|------------------------|
+| [`Format`](#format)       | Applies a format                           | `4.3`                  | `$4.30`                |
+| [`Replace`](#replace)     | Replaces a pattern                         | `1;2;3`                | `1, 2, 3`              |
+| `ToLower`                 | Forces values to lowercase                 | `Automated Deployment` | `automated deployment` |
+| `ToUpper`                 | Forces values to uppercase                 | `Automated Deployment` | `AUTOMATED DEPLOYMENT` |
+| [`Trim`](#trim)           | Removes whitespace from the start/end      | `···Bar···`            | `Bar`                  |
+| [`Truncate`](#truncate)   | Limits the length of values                | `Octopus Deploy`       | `Octopus...`           |
+| [`Substring`](#substring) | Extracts a range of characters by position | `Octopus Deploy`       | `Deploy`               |
 
 ### Format
 
@@ -115,6 +77,17 @@ The *Replace* filter performs a regular expression replace function on the varia
 | `abc`       | `#{MyVar | Replace #{match} #{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
 | `abc`       | `#{MyVar | Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
 
+### Substring
+
+The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
+
+| MyVar Value      | Filter Expression          | Output    |
+| ---------------- | -------------------------- | --------- |
+| `Octopus Deploy` | `#{MyVar | Substring 8 6}` | `Deploy`  |
+| `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus` |
+| `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`     |
+
+
 ### Trim
 
 The *Trim* filter removes any whitespace from the ends of the input. Both ends are trimmed unless an optional argument of `start` or `end` is provided.
@@ -134,15 +107,20 @@ The *Truncate* filter limits the length of the input. If the input is longer tha
 | `Octopus Deploy` | `#{MyVar | Truncate 7}` | `Octopus...` |
 | `abc`            | `#{MyVar | Truncate 7}` | `abc`        |
 
-### Substring
+## Comparison Filters #{VariableSubstitutionSyntax-ComparisonFilters}
 
-The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
+These filters return `true` or `false` depending on the result of a comparison. They are typically useful for specifying the condition in an `#{if}` block.
 
-| MyVar Value      | Filter Expression          | Output    |
-| ---------------- | -------------------------- | --------- |
-| `Octopus Deploy` | `#{MyVar | Substring 8 6}` | `Deploy`  |
-| `Octopus Deploy` | `#{MyVar | Substring 7}`   | `Octopus` |
-| `Octopus Deploy` | `#{MyVar | Substring 2 3}` | `top`     |
+:::hint
+**Note:** Entries marked with **\*** are supported from the version of Octopus listed.
+:::
+
+| Name                                                                 | Purpose                                                                 | Example input    | Example output |
+|----------------------------------------------------------------------|-------------------------------------------------------------------------|------------------|----------------|
+| [`Contains`](#startswith-endswith-and-contains) <br/>***2021.2.0**   | Determines whether a string contains a given string                     | `Octopus Dep`    | `true`         |
+| [`EndsWith`](#startswith-endswith-and-contains) <br/>***2021.2.0**   | Determines whether the end of a string matches a given string           | `Deploy`         | `true`         |
+| [`Match`](#match) <br/>***2021.2.0**                                 | Determines whether a string contains a given regular expression pattern | `"Octo.*Deploy"` | `true`         |
+| [`StartsWith`](#startswith-endswith-and-contains) <br/>***2021.2.0** | Determines whether the beginning of a string matches a given string     | `Octo`           | `true`         |
 
 ### Match
 
@@ -173,6 +151,77 @@ The *StartsWith*, *EndsWith* and *Contains* filters compare the input to a given
 | `abc`       | `#{MyVar | Contains AbC}`    | `false`                   |
 | `a b(c`     | `#{MyVar | Contains " b("}`  | `true`                    |
 | `a"b"c`     | `#{MyVar | Contains #{str}}` | `true` (when `str`=`"b"`) |
+
+## Conversion Filters #{VariableSubstitutionSyntax-ConversionFilters}
+
+These filters provide a mechanism to convert a value from one form to another.
+
+| Name             | Purpose                                          | Example input    | Example output                   |
+|------------------|--------------------------------------------------|------------------|----------------------------------|
+| `FromBase64`     | Converts values from Base64 (using UTF encoding) | `QmF6`           | `Bar`                            |
+| `ToBase64`       | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
+| `MarkdownToHTML` | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
+
+## Date Filters #{VariableSubstitutionSyntax-DateFilters}
+
+These filters are used to work with dates.
+
+| Name                                    | Purpose                         | Example input | Example output                 |
+|-----------------------------------------|---------------------------------|---------------|--------------------------------|
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date        |               | `2016-11-03T08:53:11.0946448`  |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC |               | `2016-11-02T23:01:46.9441479Z` |
+
+### NowDate and NowDateUtc
+
+The *NowDate* and *NowDateUtc* filters take no variable input but can take an additional optional right-hand-side argument the define the string format (Defaults to ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip)).
+
+| MyFormat Variable | Filter Expression                | Output                         |
+| ----------------- | -------------------------------- | ------------------------------ |
+|                   | `#{ | NowDate }`                 | `2016-11-03T08:53:11.0946448`  |
+|                   | `#{ | NowDateUtc}`               | `2016-11-02T23:01:46.9441479Z` |
+|                   | `#{ | NowDate "HH dd-MMM-yyyy"}` | `09 03-Nov-2016`               |
+|                   | `#{ | NowDateUtc zz}`            | `+00`                          |
+| dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`      | `03-Nov-2016`                  |
+
+## Escaping Filters #{VariableSubstitutionSyntax-EscapingFilters}
+
+These filters apply format-specific escaping rules.
+
+:::hint
+**Note:** Entries marked with **\*** are supported from the version of Octopus listed.
+:::
+
+| Name                                                                                                             | Purpose                                            | Example input      | Example output         |
+|------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|--------------------|------------------------|
+| `HtmlEscape`                                                                                                     | Escapes entities for use in HTML content           | `1 < 2`            | `1 \&lt; 2`            |
+| `JsonEscape`                                                                                                     | Escapes data for use in JSON strings               | `He said "Hello!"` | `He said \\"Hello!\\"` |
+| `PropertiesKeyEscape`   <br/>***2020.4.0**                                                                       | Escapes data for use in .properties keys           | `Hey: x=y`         | `Hey\:\ x\=y`          |
+| `PropertiesValueEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in .properties values         | `a\b=c`            | `a\\b=c`               |
+| [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string                                | `A b:c+d/e`        | `A%20b:c+d/e`          |
+| [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string                           | `A b:c+d/e`        | `A%20b%3Ac%2Bd%2Fe`    |
+| `XmlEscape`                                                                                                      | Escapes entities for use in XML content            | `1 < 2`            | `1 \&lt; 2`            |
+| `YamlDoubleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
+| `YamlSingleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
+
+## Extraction Filters #{VariableSubstitutionSyntax-ExtractionFilters}
+
+These filters extract a part of value.
+
+:::hint
+**Note:** Entries marked with **\*** are supported from the version of Octopus listed.
+:::
+
+| Name                                          | Purpose                                                              | Example input                  | Example output |
+|-----------------------------------------------|----------------------------------------------------------------------|--------------------------------|----------------|
+| [`UriPart`](#uripart)                         | Extracts a specified part of a URI string                            | `https://octopus.com/docs`     | `/docs`        |
+| `VersionMajor` <br/>***2020.5.0**             | Extracts the major version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `1`            |
+| `VersionMinor` <br/>***2020.5.0**             | Extracts the minor version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `2`            |
+| `VersionPatch` <br/>***2020.5.0**             | Extracts the patch version field from a version string               | `1.2.3.4-mybranch.1.2+build10` | `3`            |
+| `VersionRevision` <br/>***2020.5.0**          | Extracts the revision version field from a version string            | `1.2.3.4-mybranch.1.2+build10` | `4`            |
+| `VersionPreRelease` <br/>***2020.5.0**        | Extracts the prerelease field from a version string                  | `1.2.3.4-mybranch.1.2+build10` | `mybranch.1.2` |
+| `VersionPreReleasePrefix` <br/>***2020.5.0**  | Extracts the prefix from the prerelease field from a version string  | `1.2.3.4-mybranch.1.2+build10` | `mybranch`     |
+| `VersionPreReleaseCounter` <br/>***2020.5.0** | Extracts the counter from the prerelease field from a version string | `1.2.3.4-mybranch.1.2+build10` | `1.2`          |
+| `VersionMetadata` <br/>***2020.5.0**          | Extracts the metadata field from a version string                    | `1.2.3.4-mybranch.1.2+build10` | `build10`      |
 
 ### UriPart
 
@@ -222,7 +271,7 @@ Given the variable:
 
 And the template:
 
-```powershell
+```html
 <h1>#{Custom.MyJson[Name]}</h1>
 #{Custom.MyJson.Name} - #{Custom.MyJson.Description}
 From: #{Custom.MyJson.Sizes[0].price | Format C}
@@ -256,7 +305,7 @@ Given the variables:
 
 And the template:
 
-```powershell
+```yaml
 Numbers:
 #{each number in MyNumbers}
  - #{number}
@@ -270,7 +319,7 @@ Objects:
 
 The resulting text will be:
 
-```powershell
+```yaml
 Numbers:
  - 5
  - 2
