@@ -34,10 +34,16 @@ The filters provided by Octopus are for use with trusted input; don't rely on th
 
 ## Provided filters {#VariableSubstitutionSyntax-Providedfilters}
 
-Octopus provides the following filters:
+Octopus provides a number of different types of filters for variable values:
 
+- [Core filters](#VariableSubstitutionSyntax-CoreFilters)
+- [Comparison filters](#VariableSubstitutionSyntax-ComparisonFilters)
+- [Conversion filters](#VariableSubstitutionSyntax-ConversionFilters)
+- [Date filters](#VariableSubstitutionSyntax-DateFilters)
+- [Escaping filters](#VariableSubstitutionSyntax-EscapingFilters)
+- [Extraction filters](#VariableSubstitutionSyntax-ExtractionFilters)
 
-## Core Filters #{VariableSubstitutionSyntax-CoreFilters}
+## Core filters {#VariableSubstitutionSyntax-CoreFilters}
 
 These core filters perform common string operations.
 
@@ -107,7 +113,7 @@ The *Truncate* filter limits the length of the input. If the input is longer tha
 | `Octopus Deploy` | `#{MyVar | Truncate 7}` | `Octopus...` |
 | `abc`            | `#{MyVar | Truncate 7}` | `abc`        |
 
-## Comparison Filters #{VariableSubstitutionSyntax-ComparisonFilters}
+## Comparison filters {#VariableSubstitutionSyntax-ComparisonFilters}
 
 These filters return `true` or `false` depending on the result of a comparison. They are typically useful for specifying the condition in an `#{if}` block.
 
@@ -152,7 +158,7 @@ The *StartsWith*, *EndsWith* and *Contains* filters compare the input to a given
 | `a b(c`     | `#{MyVar | Contains " b("}`  | `true`                    |
 | `a"b"c`     | `#{MyVar | Contains #{str}}` | `true` (when `str`=`"b"`) |
 
-## Conversion Filters #{VariableSubstitutionSyntax-ConversionFilters}
+## Conversion filters {#VariableSubstitutionSyntax-ConversionFilters}
 
 These filters provide a mechanism to convert a value from one form to another.
 
@@ -162,7 +168,7 @@ These filters provide a mechanism to convert a value from one form to another.
 | `ToBase64`       | Converts values to Base64 (using UTF encoding)   | `Bar`            | `QmF6`                           |
 | `MarkdownToHTML` | Converts Markdown to HTML                        | `This \_rocks\_` | `\<p>This \<em>rocks\</em>\</p>` |
 
-## Date Filters #{VariableSubstitutionSyntax-DateFilters}
+## Date filters {#VariableSubstitutionSyntax-DateFilters}
 
 These filters are used to work with dates.
 
@@ -183,7 +189,7 @@ The *NowDate* and *NowDateUtc* filters take no variable input but can take an a
 |                   | `#{ | NowDateUtc zz}`            | `+00`                          |
 | dd-MM-yyyy        | `#{ | NowDate #{MyFormat}}`      | `03-Nov-2016`                  |
 
-## Escaping Filters #{VariableSubstitutionSyntax-EscapingFilters}
+## Escaping filters {#VariableSubstitutionSyntax-EscapingFilters}
 
 These filters apply format-specific escaping rules.
 
@@ -203,7 +209,7 @@ These filters apply format-specific escaping rules.
 | `YamlDoubleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
 | `YamlSingleQuoteEscape` <br/>***2020.4.0**                                                                       | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
 
-## Extraction Filters #{VariableSubstitutionSyntax-ExtractionFilters}
+## Extraction filters {#VariableSubstitutionSyntax-ExtractionFilters}
 
 These filters extract a part of value.
 
