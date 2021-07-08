@@ -1,16 +1,18 @@
 ---
-title: Backups and rollbacks
+title: Database backups and rollbacks
 description: Recommendations on backing up and rolling back a database during a failed deployment.
 position: 25
 ---
 
-A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  For code deployments, the answer is easy, deploy the previous version.  For database deployments, the answer is much more complicated.
+A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  For stateless components of your application, such as Web UIs, Web APIs, and services, rollbacks are accomplished by various means.  The most straightforward approach is to deploy the previous version of those components.  You can also leverage more advanced patterns such as [Blue/Green, Red/Black](/docs/deployments/patterns/blue-green-deployments/index.md), or [Canary deployments](/docs/deployments/patterns/canary-deployments.md).  
+
+For stateful components, such as a relational database, rollbacks are much more complex.  This page focuses on database rollbacks.
 
 :::hint
-TL;DR; We recommend rolling forward.  The risk is much lower, and it is often quicker to fix.
+TL;DR; For stateful components, we recommend rolling forward and/or making any changes backward compatible with previous versions of your code.  The risk is much lower, and it is often quicker to fix.  
 :::
 
-## Rollback pitfalls
+## Database rollback pitfalls
 
 Your application's users are why rollbacks are high risk.  Typically, applications aren't designed with a *read-only* or *maintenance mode* that is turned on during deployments.  It is common to have users attempting to use the application during a deployment or verification.  *Off-Hours* deployments are done as a way to reduce the chance that will happen. 
 
@@ -30,9 +32,36 @@ Rolling back changed data will require extensive analysis and testing.  As such,
 Prior to upgrading the Octopus Server we recommend putting your server into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).  When in maintenance mode, only Octopus Administrators can kick off deployments.  This allows Octopus Administrators to test the upgrade without users changing data.  If anything goes wrong, a rollback can happen as the data changed was only test data.
 :::
 
+## Making database changes backwards compatible
+
+Making database changes backward compatible is often the first step towards advanced deployment patterns such as blue/green, red/black, or canary.  In a nutshell, you will have two versions of code pointing to the same database.   
+
+Many books exist on this subject; trying to distill it all down to a single section would be impossible. Some of the more common strategies for relational databases include:
+
+1. Following the [expand/contract or parallel](https://www.martinfowler.com/bliki/ParallelChange.html) pattern when making changes.
+2. All new columns are added as nullable.
+3. Stored procedures are versioned or have parameters added with default values.
+4. Relying on column names instead of column order in any code when performing queries.
+5. Writing the code with the assumption any new columns will be null.
+
+For example, moving a column from TableA to TableB would involve:
+
+1. Add a new column to TableB as nullable.
+2. Update the code to first pull from TableB; if not exists, then pull from TableA.
+3. Update the code to save to both TableA and TableB.
+4. Deploy the database changes and updated code.
+5. Finish migrating all data from TableA to TableB.
+6. Update the code to only save to TableB.
+7. Add the suffix _ToRemove[Date] to the column in TableA.
+8. Deploy the updated code and database.
+9. Delete the column from TableA.
+10. Deploy the updated database.
+
+As you can see, making database changes backward compatible involves a disciplined and systematic approach.  The advantage to this is you can deploy your database changes independently of your code changes.  Because the database works with two (or more) versions of the code, rolling back any code is a trivial task.  Some of our customers who have adopted this approach deploy their database changes several days before the code.
+
 ## Database backup use cases
 
-As stated earlier, most, if not all, rollback decisions occur _after_ the changes have been deployed.  Database tooling wraps changes in transactions that are rolled back automatically on failure. This meaning all changes are deployed or none of the changes are deployed.  
+As stated earlier, most, if not all, rollback decisions occur _after_ the database changes have been deployed.  Database tooling wraps changes in transactions that are rolled back automatically on failure. This meaning all changes are deployed or none of the changes are deployed.  
 
 Although database backups have a limited lifespan for rollbacks, they can still be useful in other use cases:
 
