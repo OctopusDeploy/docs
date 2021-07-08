@@ -32,7 +32,7 @@ Rolling back changed data will require extensive analysis and testing.  As such,
 Prior to upgrading the Octopus Server we recommend putting your server into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md).  When in maintenance mode, only Octopus Administrators can kick off deployments.  This allows Octopus Administrators to test the upgrade without users changing data.  If anything goes wrong, a rollback can happen as the data changed was only test data.
 :::
 
-## Making Database Changes Backwards Compatible
+## Making database changes backwards compatible
 
 Making database changes backward compatible is often the first step towards advanced deployment patterns such as blue/green, red/black, or canary.  In a nutshell, you will have two versions of code pointing to the same database.   
 
