@@ -20,7 +20,7 @@ The filters allow you to choose which space(s), project(s), and user(s) to gener
 
 - `all` will return the results for all spaces/projects/users.
 - Wildcard or `*` will return all spaces/projects/users matching the wildcard search.
-- Specific name will only show the exact matchin spaces/projects/users.
+- Specific name will only show the exact matching spaces/projects/users.
 
 The filters support comma-separated entries.  Setting the User Filter to `Test,Bob*` will find all users with the display name of `Test` or that start with `Bob`.
 
