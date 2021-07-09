@@ -47,3 +47,23 @@ This example creates a new database for the `MyNewInstance` instance.  This exam
 ```text
 octopus.server database --create --instance="MyNewInstance"
 ```
+
+## Create database with supplied master key
+
+This example creates a new database for the `MyInstance` instance using a supplied master key.
+
+1. First, create a master key using the `openssl` command:
+
+    ```bash
+    openssl rand 16 | base64
+    ```
+
+    The output should be a base64 encoded string, similar to this:
+
+    ```bash
+    DVNbYEHJ9hmmH7YsVfLJQw==
+    ```
+2. Use the database command with the `--masterKey` parameter, replacing `<MASTER_KEY>` with your generated value:
+
+    ```text
+    octopus.server database --create --instance="MyInstance" --connectionString "<DB_CONN_STRING>" --masterKey "<master_key>"
