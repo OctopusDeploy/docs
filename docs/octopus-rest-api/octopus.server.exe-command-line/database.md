@@ -66,4 +66,4 @@ This example creates a new database for the `MyInstance` instance using a suppli
 2. Use the database command with the `--masterKey` parameter, replacing `<MASTER_KEY>` with your generated value:
 
     ```text
-    octopus.server database --create --instance="MyInstance" --connectionString "<DB_CONN_STRING>" --masterKey "<master_key>"
+    octopus.server database --create --instance="MyInstance" --connectionString "<DB_CONN_STRING>" --masterKey "<MASTER_KEY>"
