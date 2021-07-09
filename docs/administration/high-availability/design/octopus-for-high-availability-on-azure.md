@@ -94,9 +94,6 @@ cmdkey /add:octostorage.file.core.windows.net /user:Azure\octostorage /pass:XXXX
 # Add Octopus folder to add symbolic links
 
 New-Item -ItemType directory -Path C:\Octopus
-New-Item -ItemType directory -Path C:\Octopus\Artifacts
-New-Item -ItemType directory -Path C:\Octopus\Packages
-New-Item -ItemType directory -Path C:\Octopus\TaskLogs
 
 # Add the Symbolic Links. Do this before installing Octopus.
 
