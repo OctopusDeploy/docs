@@ -245,7 +245,11 @@ Kubernetes targets can be created dynamically at deploy time with the PowerShell
 
 See [Create Kubernetes Target Command](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md) for more information.
 
-## Debugging
+## Troubleshooting
+
+If you're running into issues with your Kubernetes targets, it's possible you'll be able to resolve the issue using some of these troubleshooting tips. If this section doesn't help, please [get in touch](https://octopus.com/support).
+
+### Debugging
 
 Setting the Octopus variable `Octopus.Action.Kubernetes.OutputKubeConfig` to `True` for any deployment or runbook using a Kubernetes target will cause the generated kube config file to be printed into the logs (with passwords masked). This can be used to verify the configuration file used to connect to the Kubernetes cluster.
 
@@ -322,6 +326,10 @@ kubectl version --short --kubeconfig myconfig.yml
 exit 0
 
 ```
+
+### API calls failing
+
+If you are finding that certain API calls are failing, for example `https://your.octopus.app/api/users/Users-1/apikeys?take=2147483647`, it's possible that your WAF is blocking the traffic. To confirm this you should investigate your WAF logs to determine why the API call is being blocked and make the necessary adjustments to your WAF rules.
 
 ## Learn more
 

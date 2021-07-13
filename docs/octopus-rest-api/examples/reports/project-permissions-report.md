@@ -5,6 +5,26 @@ description: An example script that will provide a report of which users have ac
 
 The Octopus Web Portal provides the ability to see the permissions from a user's point of view.  This script demonstrates how to generate a report of permissions from a project's point of view.
 
+![Sample environment permissions report](images/project-permissions-example.png)
+
+**Please note:** The report is generated as a CSV file, formatting was added to the screenshot to make it easier to read.
+
+A user could be assigned to multiple teams with multiple role scopings.  This script will determine the "most permissive" role scoping and display that.  For example:
+
+- User A is assigned to Team B that has permissions to deploy to **Production**.
+- User A is assigned to Team C that has permissions to deploy to any environment.
+
+The report should show the user has permissions to deploy to any environment.  
+
+The report will also combine environment and tenant scoping.  For example:
+
+- User A is assigned to Team B that has permissions to deploy to **Production**.
+- User A is assigned to Team C that has permissions to deploy to **Staging**.
+
+The report should show the user has permissions to deploy to **Staging;Production**.  
+
+Finally, if a user is scoped to an environment or tenant that is _not_ associated with the project then that scoping is excluded from the report.  
+
 ## Usage
 
 Provide values for the following:
@@ -20,7 +40,7 @@ The filters allow you to choose which space(s), project(s), and user(s) to gener
 
 - `all` will return the results for all spaces/projects/users.
 - Wildcard or `*` will return all spaces/projects/users matching the wildcard search.
-- Specific name will only show the exact matchin spaces/projects/users.
+- Specific name will only show the exact matching spaces/projects/users.
 
 The filters support comma-separated entries.  Setting the User Filter to `Test,Bob*` will find all users with the display name of `Test` or that start with `Bob`.
 

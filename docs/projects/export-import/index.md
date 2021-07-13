@@ -165,7 +165,7 @@ The project logo will be available when exporting between spaces on the same ins
 
 Triggers are also not currently included, and will need to be reconfigured in the destination instance.  
 
-## Moving to Octopus Cloud #{octopus-cloud}
+## Moving to Octopus Cloud {#octopus-cloud}
 
 When moving a project from a self-hosted Octopus Server instance to an Octopus Cloud instance, [limits apply](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits) which should be considered.  Specifically:
 

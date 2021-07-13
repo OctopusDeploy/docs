@@ -21,7 +21,9 @@ Provide values for the following:
 - Cancel in seconds
 - Prompted variables 
 
-Prompted variables use the format `Name::Value` with a new line separating them
+### Prompted variable format
+
+In the PowerShell script the prompted variables should be provided in the format `Name::Value` with a new line separating them:
 
 ```
 PromptedVariableName::My Super Awesome Value

@@ -118,4 +118,4 @@ Be careful when changing names! Octopus commonly uses names as a convenient iden
 
 ## Learn more
 
-- [Blog: Creating an Octopus Deploy step template](https://www.octopus.com/blog/creating-an-octopus-deploy-step-template)
+- [Blog: Creating an Octopus Deploy step template](https://octopus.com/blog/creating-an-octopus-deploy-step-template)
