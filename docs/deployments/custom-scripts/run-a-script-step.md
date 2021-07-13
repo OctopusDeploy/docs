@@ -107,14 +107,14 @@ Having added one or more package references, it's reasonable to assume you wish 
 #### Package variables
 Package-references contribute variables which can be used just as any other variable. These variables are (assuming a package-reference named `Acme`):
 
-| Variable                                      | Description                                            | Example value |
-| ----------------------                        | ------------------                                     | ------------- |
-| Octopus.Action.Package[Acme].PackageId        | The package ID                                         | Acme.Web
-| Octopus.Action.Package[Acme].FeedId           | The feed ID                                            | feeds-nuget-org
-| Octopus.Action.Package[Acme].PackageVersion   | The version of the package included in the release     | 1.4.0
-| Octopus.Action.Package[Acme].ExtractedPath    | The absolute path to the extracted directory (if the package is configured to be extracted)       | C:\Octopus\Work\20180821060923-7117-31\Acme
-| Octopus.Action.Package[Acme].PackageFilePath    | The absolute path to the package file (if the package has been configured to not be extracted)  | C:\Octopus\Work\20180821060923-7117-31\Acme.zip
-| Octopus.Action.Package[Acme].PackageFileName    | The name of the package file (if the package has been configured to not be extracted)           | Acme.zip
+| Variable name and description | Example |
+| ----------------------------- | ------- |
+| `Octopus.Action.Package[Acme].PackageId` <br/>The package ID | *Acme* |
+| `Octopus.Action.Package[Acme].FeedId` <br/>The feed ID | *feeds-123* |
+| `Octopus.Action.Package[Acme].PackageVersion` <br/>The version of the package included in the release | *1.4.0* |
+| `Octopus.Action.Package[Acme].ExtractedPath` <br/>The absolute path to the extracted directory (if the package is configured to be extracted) |  *C:\Octopus\Work\20210821060923-7117-31\Acme* |
+| `Octopus.Action.Package[Acme].PackageFilePath` <br/>The absolute path to the package file (if the package has been configured to not be extracted) | *C:\Octopus\Work\20210821060923-7117-31\Acme.zip* |
+| `Octopus.Action.Package[Acme].PackageFileName` <br/>The name of the package file (if the package has been configured to not be extracted) | *Acme.zip* |
 
 #### Package files {#referencing-packages-package-files}
 
