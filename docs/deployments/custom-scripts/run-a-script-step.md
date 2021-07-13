@@ -116,6 +116,14 @@ Package-references contribute variables which can be used just as any other vari
 | `Octopus.Action.Package[Acme].PackageFilePath` <br/>The absolute path to the package file (if the package has been configured to not be extracted) | *C:\Octopus\Work\20210821060923-7117-31\Acme.zip* |
 | `Octopus.Action.Package[Acme].PackageFileName` <br/>The name of the package file (if the package has been configured to not be extracted) | *Acme.zip* |
 
+The following PowerShell script example shows how to find the extracted path for a referenced package named `Acme`:
+
+```powershell
+$ExtractedPath = $OctopusParameters["Octopus.Action.Package[Acme].ExtractedPath"]
+Write-Host "PWD: $PWD"
+Write-Host "ExtractedPath: $ExtractedPath"
+```
+
 #### Package files {#referencing-packages-package-files}
 
 If the package reference was configured to be extracted, then the package will be extracted to a sub-directory in the working-directory of the script. This directory will be named the same as the package-reference.  For example, a package reference named `Acme` would be extracted to directory similar to `C:\Octopus\Work\20180821060923-7117-31\Acme` (this is obviously a Windows directory; a script executing on a Linux target may have a path such as `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme`).
