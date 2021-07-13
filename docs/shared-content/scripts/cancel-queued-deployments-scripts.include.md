@@ -10,48 +10,23 @@ $spaceName = "default"
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
-# Get tasks
-$tasks = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/tasks" -Headers $header).Items | Where-Object {$_.State -eq "Queued" -and $_.HasBeenPickedUpByProcessor -eq $false -and $_.Name -eq "Deploy"}
+$canContinue = $true
 
-# Loop through tasks
-foreach ($task in $tasks)
+while ($canContinue -eq $true)
 {
-    # Cancel task
-    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tasks/$($task.Id)/cancel" -Headers $header
-}
-```
-```powershell PowerShell (Octopus.Client)
-# Load octopus.client assembly
-Add-Type -Path "path\to\Octopus.Client.dll"
-
-# Octopus variables
-$octopusURL = "https://youroctourl"
-$octopusAPIKey = "API-YOURAPIKEY"
-$spaceName = "default"
-
-$endpoint = New-Object Octopus.Client.OctopusServerEndpoint $octopusURL, $octopusAPIKey
-$repository = New-Object Octopus.Client.OctopusRepository $endpoint
-$client = New-Object Octopus.Client.OctopusClient $endpoint
-
-try
-{
-    # Get space
-    $space = $repository.Spaces.FindByName($spaceName)
-    $repositoryForSpace = $client.ForSpace($space)
-
     # Get tasks
-    $queuedDeployments = $repositoryForSpace.Tasks.FindAll() | Where-Object {$_.State -eq "Queued" -and $_.HasBeenPickedUpByProcessor -eq $false -and $_.Name -eq "Deploy"}
+    $tasks = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/tasks?States=Queued&Name=Deploy" -Headers $header
 
-    # Loop through results
-    foreach ($task in $queuedDeployments)
+    # Loop through tasks
+    foreach ($task in $tasks.Items)
     {
-        $repositoryForSpace.Tasks.Cancel($task)
+        # Cancel task
+        Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tasks/$($task.Id)/cancel" -Headers $header
     }
+
+    $canContinue = $task.NumberOfPages -gt 1
 }
-catch
-{
-    Write-Host $_.Exception.Message
-}
+
 ```
 ```csharp C#
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
@@ -76,14 +51,21 @@ try
     var space = repository.Spaces.FindByName(spaceName);
     var repositoryForSpace = client.ForSpace(space);
 
-    // Get queued deployemnts
-    var queuedDeployments = repositoryForSpace.Tasks.FindAll().Where(d => d.State == TaskState.Queued && !d.HasBeenPickedUpByProcessor && d.Name == "Deploy");
-
-    // Loop through results
-    foreach (var task in queuedDeployments)
+    var canContinue = true;
+    
+    while (canContinue == true)
     {
-        // Cancel deployment
-        repositoryForSpace.Tasks.Cancel(task);
+        // Get queued deployemnts
+        var queuedDeployments = client.List<TaskResource>(repositoryForSpace.Link("Tasks"), new { states = "Queued", name = "Deploy", take = "50", skip = "0"});
+
+        // Loop through results
+        foreach (var task in queuedDeployments.Items)
+        {
+            // Cancel deployment
+            repositoryForSpace.Tasks.Cancel(task);
+        }
+        
+        canContinue = queuedDeployments.Items.Count > 0;
     }
 }
 catch (Exception ex)
@@ -116,11 +98,17 @@ def get_by_name(uri, name):
 space_name = 'Default'
 
 space = get_by_name('{0}/spaces/all'.format(octopus_server_uri), space_name)
-tasks = get_octopus_resource('{0}/{1}/tasks'.format(octopus_server_uri, space['Id']))
-queued = [task for task in tasks['Items'] if task['State'] == 'Queued' and task['Name'] == 'Deploy' and not task['HasBeenPickedUpByProcessor']]
 
-for task in queued:
-    uri = '{0}/{1}/tasks/{2}/cancel'.format(octopus_server_uri, space['Id'], task['Id'])
-    response = requests.post(uri, headers=headers)
-    response.raise_for_status()
+results = 1
+
+while results > 0
+    tasks = get_octopus_resource('{0}/{1}/tasks?States=Queued&Name=Deploy'.format(octopus_server_uri, space['Id']))
+    queued = [task for task in tasks['Items'] if not task['HasBeenPickedUpByProcessor']]
+
+    results = len(queued)
+
+    for task in queued:
+        uri = '{0}/{1}/tasks/{2}/cancel'.format(octopus_server_uri, space['Id'], task['Id'])
+        response = requests.post(uri, headers=headers)
+        response.raise_for_status()
 ```
