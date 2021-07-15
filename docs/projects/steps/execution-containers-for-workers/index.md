@@ -107,7 +107,15 @@ docker run --entrypoint='' octopusdeploy/worker-tools:2.0.1-ubuntu.18.04 /bin/ca
 
 The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
 
-The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions. Microsoft also provides [base images that include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).
+The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions. 
+
+:::hint
+If a third party container is missing a library, it is usually the **libicu** library. The error **Couldn't find a valid ICU package installed on the system** indicates the ICU library is missing.
+:::
+
+If your chosen Docker image does not have these prerequisites, the easiest solution is to create a custom Docker image based on the image you wish to use, install the required libraries, push the image to a repository like DockerHub, and select your custom image as the container image. 
+
+Microsoft also provides [base images that include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).
 
 #### Custom docker image example
 
