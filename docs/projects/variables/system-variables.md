@@ -305,7 +305,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Package.SkipIfAlreadyInstalled` <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |`Octopus.Action.Script.ScriptBody` <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |`Octopus.Action.Script.Syntax` <br/>The syntax of the script being run in a script step | *PowerShell*|
-|`Octopus.Action.SkipRemainingConventions` <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* | *True*|
+|`Octopus.Action.SkipRemainingConventions` <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables.md). e.g. <br> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'` | *True*|
 |`Octopus.Action.TargetRoles` <br/>Machine roles targeted by the action *(List)* | *web-server,frontend*|
 |`Octopus.Action.Template.Id` <br/>If the action is based on a step template, the ID of the template | *actiontemplates-123*|
 |`Octopus.Action.Template.Version` <br/>If the action is based on a step template, the version of the template in use *(Number)* | *123*|
