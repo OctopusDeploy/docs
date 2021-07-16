@@ -4,7 +4,7 @@ description: How to capture a HAR file to help the Octopus team diagnose problem
 position: 17
 ---
 
-When something goes wrong in Octopus we may ask you to provide an HAR file to help us diagnose the problem. This file captures a web browser's interaction with a site and may provide insight into where and why a specific request is failing.
+When something goes wrong in Octopus we may ask you to provide a HAR file to help us diagnose the problem. This file captures a web browser's interaction with a site and may provide insight into where and why a specific request is failing.
 
 :::warning
 HAR files may contain sensitive data as they include any pages you downloaded while recording and associated cookies. Depending on what has been recorded, this may allow someone with your HAR file to impersonate accounts or any other personal information submitted during recording.
