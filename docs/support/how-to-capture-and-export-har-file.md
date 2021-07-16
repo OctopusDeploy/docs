@@ -1,6 +1,6 @@
 ---
 title: Capture and export an HAR file
-description: How to capture an HAR file to help the Octopus team diagnose problems when something unexpected happens.
+description: How to capture a HAR file to help the Octopus team diagnose problems when something unexpected happens.
 position: 17
 ---
 
