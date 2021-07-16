@@ -46,4 +46,4 @@ The following instructions are provided for each browser, starting from the Octo
 4. Click **Export HAR** (down arrow in upper right), saving the file to your computer.
 
 
-Once you have an HAR file, just upload it to the link that we'll have provided you.
+Once you have exported the HAR file, we'll provide you with a secure link to send it to us.
