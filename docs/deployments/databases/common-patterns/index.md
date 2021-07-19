@@ -29,7 +29,7 @@ Learn more about [ad-hoc data change scripts](/docs/deployments/databases/common
 
 Most database deployment tooling wraps everything in a transaction.  The entire changeset goes or nothing goes.  However, we have encountered companies who also want to take a backup of the database prior to any changes being applied.  If something goes wrong, then the process should automatically roll everything back.  In our experience, that is very dangerous and rife with a lot of *what-if* scenarios.
 
-We recommend rolling forward.  Learn more about [automatic backups and rollbacks](/docs/deployments/databases/common-patterns/backups-rollbacks.md).
+We recommend rolling forward or making your database changes backward compatible.  Learn more about [automatic backups and rollbacks](/docs/deployments/databases/common-patterns/backups-rollbacks.md).
 
 ## Learn more
 

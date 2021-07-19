@@ -15,7 +15,7 @@ A runbook process can run steps, which include scripts, on the Octopus Server, a
 1. Scroll down and click **ADD** on the **Run a Script** tile.
 1. Change **Name** of the script to be "Run a script on deployment targets" for the script 
 1. Leave the **Enabled** check-box ticked.
-1. In the **Execution Location** section change the option to be **Run on a deployment target**.
+1. In the **Execution Location** section change the option to be **Run on each deployment target**.
 1. In the **On Target In Roles** section change the role to be `Hello-World`.
 
 ![Changing the script step to run on a deployment target](images/run-script-on-deployment-target.png "width=500")
@@ -33,7 +33,7 @@ Write-Host $OctopusParameters["Octopus.Machine.Name"]
 ```bash Bash
 greeting=$(get_octopusvariable "Helloworld.Greeting")
 echo $greeting
-machineName = $(get_octopusvariable "Octopus.Machine.Name")
+machineName=$(get_octopusvariable "Octopus.Machine.Name")
 echo $machineName
 ```
 

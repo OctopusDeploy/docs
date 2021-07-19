@@ -27,7 +27,6 @@ Release-level variables are drawn from the project and release being created.
 | -------------------- | -------|
 |`Octopus.Release.Package` <br/>Packages, including changes, associated with the release. See below. | This is a collection.|
 
-
 :::hint 
 
 The `Octopus.Release.Package` variable:
@@ -306,7 +305,7 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Package.SkipIfAlreadyInstalled` <br/>If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)* | *False*|
 |`Octopus.Action.Script.ScriptBody` <br/>The script being run in a script step | *Write-Host 'Hello!'*|
 |`Octopus.Action.Script.Syntax` <br/>The syntax of the script being run in a script step | *PowerShell*|
-|`Octopus.Action.SkipRemainingConventions` <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)* | *True*|
+|`Octopus.Action.SkipRemainingConventions` <br/>If set by the user, completes processing of the action without runnning further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables.md). e.g. <br> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'` | *True*|
 |`Octopus.Action.TargetRoles` <br/>Machine roles targeted by the action *(List)* | *web-server,frontend*|
 |`Octopus.Action.Template.Id` <br/>If the action is based on a step template, the ID of the template | *actiontemplates-123*|
 |`Octopus.Action.Template.Version` <br/>If the action is based on a step template, the version of the template in use *(Number)* | *123*|
@@ -314,6 +313,18 @@ Action-level variables are available during execution of an action. Indexer noti
 |`Octopus.Action.Status.ErrorDetail` <br/>If the action failed because of an error, a full description of the error | *System.Net.SocketException: The server ...*|
 |`Octopus.Action.SubstituteInFiles.EnableNoMatchWarning` <br/>Controls whether a warning is displayed in the Task log when no files are found matching one or more of the glob patterns in Substitute Variables in Files | *False*|
 
+### Reference package variables {#reference-package-variables}
+
+When [referencing packages](/docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages) in custom scripts, they can contribute variables that can be used just like any other variable. The variables are available **per package**. Assuming a referenced package named `Acme`:
+
+| Name and description | Example |
+| -------------------- | ------- |
+| `Octopus.Action.Package[Acme].PackageId` <br/>The package ID | *Acme* |
+| `Octopus.Action.Package[Acme].FeedId` <br/>The feed ID | *feeds-123* |
+| `Octopus.Action.Package[Acme].PackageVersion` <br/>The version of the package included in the release | *1.4.0* |
+| `Octopus.Action.Package[Acme].ExtractedPath` <br/>The absolute path to the extracted directory (if the package is configured to be extracted) |  *C:\Octopus\Work\20210821060923-7117-31\Acme* |
+| `Octopus.Action.Package[Acme].PackageFilePath` <br/>The absolute path to the package file (if the package has been configured to not be extracted) | *C:\Octopus\Work\20210821060923-7117-31\Acme.zip* |
+| `Octopus.Action.Package[Acme].PackageFileName` <br/>The name of the package file (if the package has been configured to not be extracted) | *Acme.zip* |
 
 ## Azure {#Systemvariables-Azure}
 

@@ -115,6 +115,15 @@ let storagePath = fsi.CommandLineArgs.[2]
 printfn "$s storage path: $s" environment storagePath
 ```
 
+## Passing parameters to Python3 scripts {#Customscripts-Passingparameterstopythonscripts}
+
+You can pass parameters to python scripts [as described by the python documentation.](https://docs.python.org/3/tutorial/interpreter.html#argument-passing)
+
+**Script Parameters in Octopus**
+
+```python
+'#{Octopus.Environment.Name}' '#{MyApplication.Storage.Path}'
+```
 **Usage in Python3 script**
 
 ```python
@@ -122,3 +131,6 @@ environment=sys.argv[1]
 storagePath=sys.argv[2]
 print("Parameters {} {}".format(environment, storagePath))
 ```
+:::hint
+**Note:** If your python scripts make use of [argparse](https://docs.python.org/3/library/argparse.html), it's possible you might encounter an error at execution time, as Calamari bootstraps the execution of the python script as part of the deployment or runbook run.
+:::

@@ -79,17 +79,76 @@ Some of the tools included are:
 - Terraform
 - Python
 
-
 ### Custom docker images {#custom-docker-images}
 
-When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container.
-Calamari is a .NET Core self-contained executable, and any custom Docker image **needs to include the dependencies required to execute a .NET self-contained executable**.  These dependencies can be found in the [.NET docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies). Microsoft provides [base images which include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/). 
+It can be beneficial to build your own custom Docker image when using execution containers, particularly when you wish the image size to be as small as possible.
 
-To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
+#### Supported Linux distributions
+
+It's important to understand there are some limits to which Linux Docker images can be used as a container image. The Docker image must be based on a Linux distribution using the GNU C library, or **glibc**. This includes operating systems like Ubuntu, Debian, and Fedora.
 
 :::warning
-Images based on Alpine Linux (or any distro using `musl` instead of `glibc`) can not currently be used as execution containers.
+Linux distributions built on **muscl**, most notably Alpine, do not support Calamari, and cannot be used as a container image. This is due to Calamari currently only being compiled against **glibc** and not **musl**.
 :::
+
+You can usually find the base operating system of a Linux Docker image by running the following command:
+
+```bash
+docker run --entrypoint='' [image name] /bin/cat /etc/os-release.
+``` 
+
+For example for the `octopusdeploy/worker-tools:2.0.1-ubuntu.18.04` image, you'd run:
+
+```bash
+docker run --entrypoint='' octopusdeploy/worker-tools:2.0.1-ubuntu.18.04 /bin/cat /etc/os-release.
+```
+
+#### Required OS dependencies
+
+The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari.md) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
+
+The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions. 
+
+:::hint
+If a third party container is missing a library, it is usually the **libicu** library. The error **Couldn't find a valid ICU package installed on the system** indicates the ICU library is missing.
+:::
+
+If your chosen Docker image does not have these prerequisites, the easiest solution is to create a custom Docker image based on the image you wish to use, install the required libraries, push the image to a repository like DockerHub, and select your custom image as the container image. 
+
+Microsoft also provides [base images that include these dependencies](https://hub.docker.com/_/microsoft-dotnet-core-runtime-deps/).
+
+#### Custom docker image example
+
+The following example is a basic Docker file that (when built) can run Calamari and PowerShell scripts:
+
+```docker
+FROM ubuntu:20.04
+
+ARG POWERSHELL_VERSION=7.1.3\*
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        unzip \
+        apt-transport-https \
+        software-properties-common && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Powershell core
+# https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-2004
+RUN curl -LO -k "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb" && \
+    dpkg -i packages-microsoft-prod.deb && \
+    apt-get update && \
+    add-apt-repository universe && \
+    apt-get install -y --no-install-recommends \
+        powershell=${POWERSHELL_VERSION} && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -f packages-microsoft-prod.deb
+```
+
+To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
 
 #### Tool paths
 
