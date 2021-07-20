@@ -1,7 +1,7 @@
 ---
 title: Creating new tenant tags
 description: Create tenant tags as part of a multi-tenant SaaS setup in Octopus Deploy.
-position: 40
+position: 30
 hideInThisSectionHeader: true
 ---
 
@@ -23,4 +23,4 @@ Give the **Tag Set** a name, an optional description, and create some Tags.  For
 
 In the next step, we'll [create the tenants](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants.md) needed for this scenario.
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-project">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants">Next</a></span>
