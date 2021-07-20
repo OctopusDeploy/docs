@@ -11,7 +11,7 @@ In addition, customers can choose to take advantage of custom features, includin
 
 There are some resources assumed already setup in Octopus including 
 
-* Four environments: Developemt, Test, Staging and Production.
+* Four environments: Development, Test, Staging and Production.
 * The guides deploys to Azure Web Apps and these have already been pre configured in Azure. To create some Azure resources you can follow [this](https://octopus.com/docs/runbooks/runbook-examples/azure/provision-app-service
 ) runbook guide to set up Azure Web App Services for each of the environments. 
 

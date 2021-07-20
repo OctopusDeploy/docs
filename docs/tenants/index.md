@@ -40,9 +40,9 @@ Tenants enable:
 
 ## Types of tenants {#types-of-tenants}
 
-We designed tenants to be generic so that they can satisfy multiple use cases.
+Tenants usually represent the customers of your application, especially when it comes to SaaS products. 
 
-Tenants usually represent the customers of your application, especially when it comes to SaaS products.
+However, we designed tenants to be generic so that they can satisfy multiple use cases.
 
 Tenants can also represent:
 
