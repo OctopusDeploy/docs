@@ -1,6 +1,6 @@
 ---
-title: Creating project deployment process
-description: Create the project deployment process used as part of a multi-tenant SaaS setup in Octopus Deploy.
+title: Creating and deploying a release
+description: Create and deploy a release as part of a multi-tenant SaaS setup in Octopus Deploy.
 position: 80
 hideInThisSectionHeader: true
 ---
