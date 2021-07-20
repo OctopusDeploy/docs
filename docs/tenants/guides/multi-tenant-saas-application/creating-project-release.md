@@ -21,8 +21,8 @@ Once the deployment to development and test have completed, we now have the opti
 
 Once we have deployed to staging, we can deploy to the last environment in our lifecycle, production. 
 
-![](images/deploying-release-production.png "width=500")
-
 One of our tenants, `Capital Animal Hospital` has the `Branding` tenant tag [we created earlier in the guide](/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set.md) associated with them. As a result, the **Apply Custom Branding** step was applicable to them and we can see from the logs that it ran that step when we deployed to production for `Capital Animal Hospital`.
+
+![](images/deploying-release-production.png "width=500")
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-deployment-process">Previous</a></span>
