@@ -15,7 +15,8 @@ Creating a release for a tenanted application is the same process as any other a
 
 ## Deploying a release to a Tenant Tag
 
-One of the differences for deploying a tenanted application is scheduling the deployment.  For an untenanted application, clicking the **DEPLOY** button is all you have to do.  For a tenanted application, there are a few more options to choose from:
+One of the differences when deploying a tenanted application is how you select which tenant to deploy to.  For an untenanted application, clicking the **DEPLOY** button is all you have to do.  For a tenanted application, there are a few more options to choose from:
+
 - Selecting which tenants to deploy to
 - Deploying to tenants based on Tenant Tag Sets
 
