@@ -5,21 +5,16 @@ position: 40
 hideInThisSectionHeader: true
 ---
 
-Customers who use Vet Clinic can choose from a pre-defined list of Azure regions to host their web application. To designate which tenant (customer) is in which region we define [Tenant Tag Sets](/docs/tenants/tenant-tags.md). For this scenario, we need a single tenant tag set for the Azure region.
+Customers who use Vet Clinic can choose to apply custom branding to the application. To designate which tenant (customer) has custom branding applied we define [Tenant Tag Sets](/docs/tenants/tenant-tags.md). For this scenario, we need a single tenant tag set for the custom branding.
 
 To create Tenant Tags Sets navigate to **{{Library, Tenant Tag Sets, ADD TAG SET}}**.
 
 ![](images/add-new-tenant-tag.png "width=500")
 
-Give the **Tag Set** a name, an optional description, and create some Tags.  For the Vet Clinic application, we need to create an Azure Region Tag Set with the following Azure Regions as the Tags:
+Give the **Tag Set** a name, an optional description, and create some Tags.  For the Vet Clinic application, we need to create an Custom Features Tag Set with the tag **Branding**
 
-* West US 
-* West US 2
-* Central US 
-* East US
-* East US 2
 
-![](images/creating-new-tenant-tag-region.png "width=500")
+![](images/creating-new-tenant-tag.png "width=500")
 
 In the next step, we'll [create the tenants](/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants.md) needed for this scenario.
 
