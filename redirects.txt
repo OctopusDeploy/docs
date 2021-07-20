@@ -1007,6 +1007,7 @@ docs/tenants/enable-tenanted-deployments.md -> docs/tenants/tenant-creation/tena
 docs/tenants/connecting-projects.md -> docs/tenants/tenant-creation/connecting-projects.md
 docs/tenants/connecting-targets.md -> docs/tenants/index.md
 docs/tenants/guides/multi-tenant-region/assigning-infrastructure-tenant-tags.md -> docs/tenants/guides/multi-tenant-region/assigning-tenants-to-infrastructure.md
+docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastrucure.md -> docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure.md
 docs/deployments/patterns/multi-tenant-deployments/troubleshooting-multi-tenant-deployments.md -> docs/tenants/troubleshooting-multi-tenant-deployments.md
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployments-faq.md -> docs/tenants/tenant-deployment-faq.md
 docs/deployments/patterns/multi-tenant-deployments/tenant-tags.md -> docs/tenants/tenant-tags.md

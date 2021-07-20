@@ -14,15 +14,8 @@ There are some resources assumed already setup in Octopus inlcuding
 ) runbook guide to set up Azure Web App Services for each of the environments. 
 
 
-<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-project">Get Started</a></span>
+<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-lifecycle">Get Started</a></span>
 
 ## Guide contents
 
 The following sections make up the guide:
-
-* Creating a new lifecycle
-* Creating a new project
-* Create Project template variables
-* Creating new Tenants
-* Creating new tenant tags 
-* Creating new Octopus infrastructure

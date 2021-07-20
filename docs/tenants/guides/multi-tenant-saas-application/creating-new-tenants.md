@@ -1,11 +1,11 @@
 ---
 title: Creating new tenants
 description: Create tenants as part of a multi-tenant SaaS setup in Octopus Deploy.
-position: 50
+position: 40
 hideInThisSectionHeader: true
 ---
 
-Vet Clinic has four customers; an internal customer used for development and testing, and three external customers
+Vet Clinic has four customers; one internal customer used for development and testing, and three external customers
 
 - VetClinic Internal
 - Capital Animal Hospital
@@ -30,6 +30,6 @@ In the tenant overview, Click on **MANAGE TAGS** to edit which tags are associat
 
 Repeat this process for each of the tenants. 
 
-The next section covers the [Creating Template Variables](/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables.md) needed for this scenario.
+The next step will define the [project template variables](/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables.md) needed for the application.
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables.md">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables">Next</a></span>
