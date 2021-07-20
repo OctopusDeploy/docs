@@ -17,6 +17,15 @@ Next, add a variable name, label, help text, control type and an optional Defaul
 
 ![](images/add-new-project-variable-template.png "width=500")
 
+Next, you we need to fill the project variable templates in for our tenants. To do this go back into our tenants and click variables.
+
+![](images/adding-tenant-variables.png "width=500")
+
+Next, fill in each variable template with the database name for each environment and do this for the rest of your tenants.
+
+![](images/adding-tenant-variables-database-names.png "width=500")
+
+
 The next step will define the [infrastructure](/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure.md) required to deploy our application.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-tenants">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure">Next</a></span>
