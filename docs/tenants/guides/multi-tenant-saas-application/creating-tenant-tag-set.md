@@ -11,8 +11,7 @@ To create Tenant Tags Sets navigate to **{{Library, Tenant Tag Sets, ADD TAG SET
 
 ![](images/add-new-tenant-tag.png "width=500")
 
-Give the **Tag Set** a name, an optional description, and create some Tags.  For the Vet Clinic application, we need to create an Custom Features Tag Set with the tag **Branding**
-
+Give the **Tag Set** a name, an optional description, and create some Tags.  For the Vet Clinic application, we need to create a Custom Features Tag Set with a tag called **Branding**
 
 ![](images/creating-new-tenant-tag.png "width=500")
 

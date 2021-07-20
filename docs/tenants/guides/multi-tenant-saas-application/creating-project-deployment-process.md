@@ -5,24 +5,24 @@ position: 70
 hideInThisSectionHeader: true
 ---
 
-In this part of the guide, we will create our deployment process to deploy our package to our deployment targets. At this point, you can all the steps you need to deploy your application. In this case, we have the following steps;
+In this part of the guide, we'll create our deployment process to deploy our package to our deployment targets. At this point, you have all the steps you need to deploy your application. In this scenario, we have the following steps;
 
-* Send slack message to noifty team of deployment
+* Send slack message to notify team of deployment
 * Create MySQL database
 * Migrate Database Changes
 * Deploy App to Azure App Service 
 * Apply custom branding 
-* Send Slack message for succesfull deployment
-* Send Slack message for failed deployment
-
+* Send Slack message on succesful deployment
+* Send Slack message on failed deployment
 
 ![](images/creating-new-deployment-process.png "width=500")
 
-The step, ***Apply custom branding***, only needs to run for tenants that have the branding tag applied. To configure this, go into your step, open Tenants under conditions, and choose branding tag from the custom feature tenant tag.
+The step named **Apply custom branding**, only needs to run for tenants that have a tenant tag of branding associated with them. 
+
+To configure this, go into your step, under **Conditions**, expand the **Tenants** option and select the `Branding` tag from the `Custom Feature` Tag set.
 
 ![](images/apply-custom-branding-step.png "width=500")
 
-This will ensure this step only runs for tenants that have the branding tag applied.
-
+This will ensure this step only runs for tenants that have the `Branding` tag applied.
 
 <span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure">Previous</a></span>
