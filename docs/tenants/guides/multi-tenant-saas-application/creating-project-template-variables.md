@@ -5,7 +5,7 @@ position: 50
 hideInThisSectionHeader: true
 ---
 
-Each customer has there own database and a unique name for every environment. To make this manageable we can create [project template variables](/docs/tenants/tenant-variables.md#project-variables) for the database name.
+Each customer has their own database for every environment with a unique name. To make this manageable we can create [project template variables](/docs/tenants/tenant-variables.md#project-variables) for the database name.
 
 Project templates define variables that are required to be provided by each tenant. You can specify the variable type, just like regular variables. You can also provide a default value which the tenant can overwrite.
 

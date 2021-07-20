@@ -5,7 +5,7 @@ position: 70
 hideInThisSectionHeader: true
 ---
 
-In this part of the guide, we'll create our deployment process to deploy our package to our deployment targets. At this point, you have all the steps you need to deploy your application. In this scenario, we have the following steps:
+In this part of the guide, we'll create our deployment process to deploy our package to our deployment targets.  In this scenario, we have the following steps:
 
 * Send slack message to notify team of deployment
 * Create MySQL database
