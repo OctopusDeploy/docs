@@ -25,4 +25,4 @@ To configure this, go into your step, under **Conditions**, expand the **Tenants
 
 This will ensure this step only runs for tenants that have the `Branding` tag applied.
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-octopus-infrastructure">Previous</a></span>
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-release">Next</a></span>
