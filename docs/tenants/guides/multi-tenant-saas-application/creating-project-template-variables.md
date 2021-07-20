@@ -13,7 +13,7 @@ To create a Project Template navigate to the **{{Variables, Project Templates}}*
 
 ![](images/creating-new-project-variable-templates.png "width=500")
 
-Next, add a variable name, label, help text, control type and an optional Default value.
+Next, add a **Variable Name**, **Label**, any **Help text**, and **Control Type**. Lastly, choose an *optional* Default value.
 
 ![](images/add-new-project-variable-template.png "width=500")
 
