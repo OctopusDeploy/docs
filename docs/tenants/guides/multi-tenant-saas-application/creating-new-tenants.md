@@ -1,7 +1,7 @@
 ---
 title: Creating new tenants
 description: Create tenants as part of a multi-tenant SaaS setup in Octopus Deploy.
-position: 40
+position: 50
 hideInThisSectionHeader: true
 ---
 
@@ -22,14 +22,14 @@ Once the tenant is created, you need to associate the tenant with a project and 
 
 ![](images/associate-tenant-with-project.png "width=500")
 
-Each customer is deployed into exactly one Azure region. To ensure that the application is deployed to the correct location, we must associate each tenant with the correct tag.
+Each customer has the option of applying custom branding. To ensure the deployment process only runs this step for specific tenants, we must associate each tenant with the correct tag.
 
-In the tenant overview, Click on **MANAGE TAGS** to edit which tags are associated to a Tenant and select one of the Azure regions for your tenant
+In the tenant overview, Click on **MANAGE TAGS** to edit which tags are associated to a Tenant and select the branding tag for each tenant.
 
 ![](images/manage-tenant-tag-set.png "width=500")
 
 Repeat this process for each of the tenants. 
 
-The next section covers the [tenant infrastructure](/docs/tenants/guides/multi-tenant-saas-application/creating-new-azure-infrastructure.md) needed for this scenario.
+The next section covers the [Creating Template Variables](/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables.md) needed for this scenario.
 
-<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-new-azure-infrastructure">Next</a></span>
+<span><a class="btn btn-secondary" href="/docs/tenants/guides/multi-tenant-saas-application/creating-tenant-tag-set">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/tenants/guides/multi-tenant-saas-application/creating-project-template-variables.md">Next</a></span>

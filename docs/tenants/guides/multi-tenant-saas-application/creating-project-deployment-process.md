@@ -1,9 +1,10 @@
 ---
 title: Creating infrastrcure an Azure for each tenant
 description: Create infrastructure for each tenant
-position: 70
+position: 80
 hideInThisSectionHeader: true
 ---
+
 
 
 
