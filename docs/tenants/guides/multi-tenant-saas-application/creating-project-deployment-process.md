@@ -5,7 +5,7 @@ position: 70
 hideInThisSectionHeader: true
 ---
 
-In this part of the guide, we'll create our deployment process to deploy our package to our deployment targets. At this point, you have all the steps you need to deploy your application. In this scenario, we have the following steps;
+In this part of the guide, we'll create our deployment process to deploy our package to our deployment targets. At this point, you have all the steps you need to deploy your application. In this scenario, we have the following steps:
 
 * Send slack message to notify team of deployment
 * Create MySQL database
@@ -17,7 +17,7 @@ In this part of the guide, we'll create our deployment process to deploy our pac
 
 ![](images/creating-new-deployment-process.png "width=500")
 
-The step named **Apply custom branding**, only needs to run for tenants that have a tenant tag of branding associated with them. 
+The step named **Apply Custom Branding** only needs to run for tenants that have a tenant tag of `Branding` associated with them. 
 
 To configure this, go into your step, under **Conditions**, expand the **Tenants** option and select the `Branding` tag from the `Custom Feature` Tag set.
 
