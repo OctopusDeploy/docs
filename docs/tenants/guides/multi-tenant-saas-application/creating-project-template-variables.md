@@ -9,7 +9,7 @@ Each customer has there own database and a unique name for every environment. To
 
 You can specify the variable type for the project template, just like regular variables. You can also provide a default value which the tenant can overwrite.
 
-To create a Project Template navigate to **{{Projects, Variables, Project Templates, ADD TEMPLATE }}**.
+To create a Project Template navigate to the **{{Variables, Project Templates}}** tab in your tenant connected project and click **ADD TEMPLATE**.
 
 ![](images/creating-new-project-variable-templates.png "width=500")
 
