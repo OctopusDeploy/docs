@@ -24,7 +24,6 @@ For this release, we want to deploy to tenants who participate in the `Beta` Rel
 ![](images/beta-release-ring.png "width=500")
 
 Deploying to the Development environment, we can see that because of the `Beta` Release Ring tag set, it automatically chose `Des Moines` has the tenant to deploy to.
-Deploying to the Development environment, we can see that because of the `Beta` Release Ring tag set, it automatically chose `De Moines` as the tenant to deploy to.
 
 ![](images/beta-release-ring-development-deployment.png "width=500")
 
