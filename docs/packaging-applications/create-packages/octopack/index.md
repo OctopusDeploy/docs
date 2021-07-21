@@ -29,7 +29,20 @@ After the build completes, you will find a NuGet package in the output directory
 
 ## Add a NuSpec file {#UsingOctoPack-AddingaNuSpec}
 
-A `.nuspec` file describes the contents of your NuGet package. If you don't provide one, OctoPack will create one by guessing some of the settings from your project. You can provide your own simple `.nuspec` file to your project. The file name must match the name of your C# project, for example, `Sample.Web.nuspec` if your ASP.NET project is named `Sample.Web`. The `.nuspec` file needs to be in the same directory as your `.csproj` file.
+A `.nuspec` file describes the contents of your NuGet package. You can provide your own simple `.nuspec` file to your project. 
+
+When MSBuild is invoked OctoPack tries to establish the name of your NuSpec file using these rules:
+
+1. OctoPack will look for a variable called `OctoPackNuSpecFileName` to use as the NuSpec file. 
+1. If that isn't defined, OctoPack tries to find one based on your project name:
+    - OctoPack will look for a variable called `OctoPackProjectName` to use as the NuSpec file.
+    - If that isn't defined, OctoPack uses the project name. For example `Sample.Web.nuspec` if your project is named `Sample.Web`.
+
+Note: The `.nuspec` file needs to be in the same directory as your `.csproj` file.
+
+:::hint
+If you don't provide a NuSpec file, OctoPack will create one by guessing some of the settings from your project.
+:::
 
 Here is an example `.nuspec` file:
 
