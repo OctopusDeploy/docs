@@ -64,6 +64,19 @@ Here is an example `.nuspec` file:
 </package>
 ```
 
+If you have an existing `.nuspec` file but you want the generated Octopus package name to be different from the `.nuspec` filename, you can use [NuGet replacement tokens](#nuget-replacement-tokens). For example, the `id` property in the `.nuspec` could be set as follows:
+
+```xml
+<id>$packageId</id>
+```
+Then you would pass the package id you wanted as part of the `OctoPackNuGetProperties` MSBuild parameter :
+
+```text
+/p:OctoPackNuGetProperties=packageid=YOUR-PACKAGE-ID
+```
+
+Remembering to replace `YOUR-PACKAGE-ID` with the id for your package.
+
 ### Include additional files with your NuSpec file
 
 If you need to include additional files, or you want to explicitly control which files are included in the package, you can do so by adding a `<files>` element to your custom `.nuspec` file.
