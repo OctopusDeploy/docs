@@ -28,7 +28,7 @@ TFS 2017 Update 1 is technically supported with version 2.0.199 of the extension
 
 Any version older than TFS 2015 Update 2 is not supported by any extension version.
 
-You may have success manually installing the task by following [these instructions](manually-install-the-build-task.md). Alternatively, [D'Arcy Lussier has put together a complete walk-through](http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx) that's very easy to follow.
+You may have success manually installing the task by following [these instructions](manually-install-the-build-task.md).
 
 ### Build information compatibility {#build-information-compatibility}
 
