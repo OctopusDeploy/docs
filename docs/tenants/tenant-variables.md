@@ -59,9 +59,18 @@ Just like project variables, common variable values are supplied at the tenant l
 
 ![](images/common-variable-tenant-value.png "width=500")
   
-:::warning
-When editing Common Variables for a Tenant, a user requires variable editing permission for the Tenant as well as all projects linked to the Tenant. This can be achieved by scoping the User Role to all projects individually or to the correct Project Groups or to a combination of Individual projects and Project Groups.
-:::
+### Common variable permissions
+
+When editing common variables for a tenant, a user requires variable editing permission (`VariableEdit`) for the tenant as well as **all projects** linked to the tenant. 
+
+This can be achieved by scoping a User Role to:
+- All projects individually 
+- The correct Project Groups 
+- A combination of individual projects and Project Groups
+
+If you don't have the necessary permissions, you might receive an error like this:
+
+![](images/common-variable-permissions-error.png "width=500")
 
 ## Snapshots {#tenant-variables-and-snapshots}
 
