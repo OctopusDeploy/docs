@@ -58,6 +58,10 @@ To include common variables for a tenant, you must add the library variable set 
 Just like project variables, common variable values are supplied at the tenant level.
 
 ![](images/common-variable-tenant-value.png "width=500")
+  
+:::warning
+When editing Common Variables for a Tenant, a user requires variable editing permission for the Tenant as well as all projects linked to the Tenant. This can be achieved by scoping the User Role to all projects individually or to the correct Project Groups or to a combination of Individual projects and Project Groups.
+:::
 
 ## Snapshots {#tenant-variables-and-snapshots}
 
