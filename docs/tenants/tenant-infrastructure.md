@@ -36,7 +36,7 @@ Click on the deployment target you wish to configure for tenanted deployments. I
 
 ### Choose tenants for target {#choose-tenants-for-target}
 
-To choose the tenants to associate with a deployment target navigate to the **{{Restrictions, Associated Tenant}}** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags.md).
+To choose the tenants to associate with a deployment target navigate to the **{{Restrictions, Associated Tenants}}** section of the deployment target. You can select the tenants to allow to deploy to individually, or you can choose from any of the configured [tenant tags](/docs/tenants/tenant-tags.md).
 
 ![](images/target-restrictions-associated-tenants.png "width=500")
 
