@@ -85,7 +85,7 @@ It can be beneficial to build your own custom Docker image when using execution 
 
 #### Supported Windows base images
 
-For Windows images, we recommend using no older than the `ltsc2019` image as a base image. Octopus does not support images which are older than `ltsc2019`, and while steps can still be run on containers based on these images, you may run into unexpected issues.
+For Windows images, we recommend using a base image no older than the `ltsc2019` image. Octopus does not support images that are older than `ltsc2019`, and while containers based on these images can still run steps, you may run into unexpected issues.
 
 :::hint
 If your containers are based on an earlier image of Windows, we strongly recommend upgrading your workers to Windows 2019 and rebasing your Docker containers to use a 2019 base image.
