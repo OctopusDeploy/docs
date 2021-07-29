@@ -163,39 +163,89 @@ foreach(var environmentName in environments)
     }
 }
 ```
+```python Python3
+import json
+import requests
+
+# Define Octopus server variables
+octopus_server_uri = 'https://your.octopus.app/api'
+octopus_api_key = 'API-YOURAPIKEY'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+
+# Define working variables
+space_name = "My New Space"
+space_description = "Description of My New Space"
+managers_teams = [] # Either this or manager_team_members must be populated otherwise you'll receive a 400
+manager_team_members = [] # Either this or managers_teams must be populated otherwise you'll receive a 400
+environments = ['Development', 'Test', 'Production']
+
+# Define space JSON
+space = {
+    'Name' : space_name,
+    'Description' : space_description,
+    'SpaceManagersTeams' : managers_teams,
+    'SpaceManagersTeamMembers' : manager_team_members,
+    'IsDefault' : False,
+    'TaskQueueStopped' : False
+}
+
+# Create the space
+uri = '{0}/spaces'.format(octopus_server_uri)
+response = requests.post(uri, headers=headers, json=space)
+response.raise_for_status()
+
+# Get the response object
+octopus_space = json.loads(response.content.decode('utf-8'))
+
+# Loop through environments
+for environment in environments:
+    environmentJson = {
+        'Name': environment
+    }
+
+    # Format the uri
+    uri = '{0}/{1}/environments'.format(octopus_server_uri, octopus_space['Id'])
+
+    # Create the environment
+    response = requests.post(uri, headers=headers, json=environmentJson)
+    response.raise_for_status()
+```
 ```go Go
 package main
 
 import (
 	"fmt"
 	"log"
-	"os"
 
-	"github.com/OctopusDeploy/go-octopusdeploy/client"
-	"github.com/OctopusDeploy/go-octopusdeploy/model"
-	"golang.org/x/crypto/ssh/terminal"
+	"net/url"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
 )
 
 func main() {
-	octopusURL := os.Args[1]
-	space := os.Args[2]
+	spaceId := "" // Update if authentication is in a different space
+	newSpaceName := "MyNewSpace"
 
-	fmt.Println("Enter Password Securely: ")
-	apiKey, err := terminal.ReadPassword(0)
-
+	apiURL, err := url.Parse("https://youroctourl")
 	if err != nil {
 		log.Println(err)
 	}
 
-	APIKey := string(apiKey)
+	APIKey := "API-YOURAPIKEY"
+	spaceManagersTeamMembers := []string{}                // This or spaceManagerTeams must contain a value
+	spaceManagerTeams := []string{"teams-administrators"} // This or spaceManagersTeamMembers must contain a value, "teams-administrators" is the Octopus Administrators team
+	environments := []string{"Development", "Test", "Production"}
 
-	octopusAuth(octopusURL, APIKey, space)
-	CreateSpace(octopusURL, APIKey, space)
+	octopusAuth(apiURL, APIKey, spaceId) // Though blank, spaceId is required to be passed, blank = Default
+	space := CreateSpace(apiURL, APIKey, spaceId, newSpaceName, spaceManagersTeamMembers[:], spaceManagerTeams[:])
 
+	for i := 0; i < len(environments); i++ {
+		CreateEnvironment(apiURL, APIKey, space, environments[i])
+	}
 }
 
-func octopusAuth(octopusURL, APIKey, space string) *client.Client {
-	client, err := client.NewClient(nil, octopusURL, APIKey, space)
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
 	if err != nil {
 		log.Println(err)
 	}
@@ -203,12 +253,45 @@ func octopusAuth(octopusURL, APIKey, space string) *client.Client {
 	return client
 }
 
-func CreateSpace(octopusURL, APIKey, space string) *model.Space {
-	client := octopusAuth(octopusURL, APIKey, space)
-	Space := model.NewSpace(space)
+func CreateSpace(octopusURL *url.URL, APIKey, spaceId string, spaceName string, spaceManagersTeamMembers []string, spaceManagersTeams []string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, spaceId)
+	Space := octopusdeploy.NewSpace(spaceName)
 
-	client.Spaces.Add(Space)
+	// Loop through team members array
+	for i := 0; i < len(spaceManagersTeamMembers); i++ {
+		Space.SpaceManagersTeamMembers = append(Space.SpaceManagersTeamMembers, spaceManagersTeamMembers[i])
+	}
+
+	// Loop through teams array
+	for i := 0; i < len(spaceManagersTeams); i++ {
+		Space.SpaceManagersTeams = append(Space.SpaceManagersTeams, spaceManagersTeams[i])
+	}
+
+	fmt.Println("Creating space: " + spaceName)
+
+	Space, err := client.Spaces.Add(Space)
+
+	if err != nil {
+		log.Println(err)
+	}
 
 	return Space
+}
+
+func CreateEnvironment(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, environmentName string) {
+	// Create client object
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	// Create new Environment object
+	environment := octopusdeploy.NewEnvironment(environmentName)
+
+	fmt.Println("Creating environment: " + environmentName)
+
+	// Add to space
+	environment, err := client.Environments.Add(environment)
+
+	if err != nil {
+		log.Println(err)
+	}
 }
 ```

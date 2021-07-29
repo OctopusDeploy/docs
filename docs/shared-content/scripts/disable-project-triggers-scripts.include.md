@@ -139,3 +139,89 @@ for trigger in project_triggers['Items']:
     response = requests.put(uri, headers=headers, json=trigger)
     response.raise_for_status()
 ```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	projectName := "MyProject"
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get project
+	project := GetProject(client, projectName)
+
+	// Get project triggers
+	projectTriggers, err := client.ProjectTriggers.GetByProjectID(project.ID)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Loop through the project triggers
+	for i := 0; i < len(projectTriggers); i++ {
+		projectTriggers[i].IsDisabled = true
+		var projectTrigger = *projectTriggers[i]
+		client.ProjectTriggers.Update(projectTrigger)
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func GetProject(client *octopusdeploy.Client, projectName string) *octopusdeploy.Project {
+	// Get project
+	project, err := client.Projects.GetByName(projectName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	if project != nil {
+		fmt.Println("Retrieved project " + project.Name)
+	} else {
+		fmt.Println("Project " + projectName + " not found!")
+	}
+
+	return project
+}
+```

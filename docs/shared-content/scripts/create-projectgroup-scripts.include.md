@@ -1,37 +1,249 @@
+```powershell PowerShell (REST API)
+$ErrorActionPreference = "Stop";
+
+function Get-OctopusItems
+{
+	# Define parameters
+    param(
+    	$OctopusUri,
+        $ApiKey,
+        $SkipCount = 0
+    )
+    
+    # Define working variables
+    $items = @()
+    $skipQueryString = ""
+    $headers = @{"X-Octopus-ApiKey"="$ApiKey"}
+
+    # Check to see if there there is already a querystring
+    if ($octopusUri.Contains("?"))
+    {
+        $skipQueryString = "&skip="
+    }
+    else
+    {
+        $skipQueryString = "?skip="
+    }
+
+    $skipQueryString += $SkipCount
+    
+    # Get intial set
+    $resultSet = Invoke-RestMethod -Uri "$($OctopusUri)$skipQueryString" -Method GET -Headers $headers
+
+    # Check to see if it returned an item collection
+    if ($resultSet.Items)
+    {
+        # Store call results
+        $items += $resultSet.Items
+    
+        # Check to see if resultset is bigger than page amount
+        if (($resultSet.Items.Count -gt 0) -and ($resultSet.Items.Count -eq $resultSet.ItemsPerPage))
+        {
+            # Increment skip count
+            $SkipCount += $resultSet.ItemsPerPage
+
+            # Recurse
+            $items += Get-OctopusItems -OctopusUri $OctopusUri -ApiKey $ApiKey -SkipCount $SkipCount
+        }
+    }
+    else
+    {
+        return $resultSet
+    }
+    
+
+    # Return results
+    return $items
+}
+
+
+# Define working variables
+$octopusURL = "https://YourURL"
+$octopusAPIKey = "API-YourAPIKey"
+$header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
+$spaceName = "Default"
+$projectGroupName = "MyProjectGroup"
+$projectGroupDescription = "MyDescription"
+
+# Get spaces
+$spaces = Get-OctopusItems -OctopusUri "$octopusURL/api/spaces" -ApiKey $octopusAPIKey
+$space = $spaces | Where-Object { $_.Name -eq $spaceName }
+
+# Create project group payload
+$projectGroupJson = @{
+    Id = $null
+    Name = $projectGroupName
+    EnvironmentIds = @()
+    Links = $null
+    RetentionPolicyId = $null
+    Description = $projectGroupDescription
+}
+
+# Create project group
+Invoke-RestMethod -Method Post -Uri "$octopusURL/api/projectgroups" -Body ($projectGroupJson | ConvertTo-Json -Depth 10) -Headers $header
+```
+```powershell PowerShell (Octopus.Client)
+# Load assembly
+Add-Type -Path 'path:\to\Octopus.Client.dll'
+$octopusURL = "https://YourURL"
+$octopusAPIKey = "API-YourAPIKey"
+$spaceName = "Default"
+$projectGroupName = "MyProjectGroup"
+$projectGroupDescription = "MyDescription"
+
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
+$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
+
+# Get space
+$space = $repository.Spaces.FindByName($spaceName)
+$repositoryForSpace = $client.ForSpace($space)
+
+# Create project group object
+$projectGroup = New-Object Octopus.Client.Model.ProjectGroupResource
+$projectGroup.Description = $projectGroupDescription
+$projectGroup.Name = $projectGroupName
+$projectGroup.EnvironmentIds = $null
+$projectGroup.RetentionPolicyId = $null
+
+$repositoryForSpace.ProjectGroups.Create($projectGroup)
+```
+```csharp C#
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
+#r "path\to\Octopus.Client.dll"
+
+using Octopus.Client;
+using Octopus.Client.Model;
+
+var octopusURL = "https://your.octopus.app";
+var octopusAPIKey = "API-YOUR-KEY";
+var spaceName = "Default";
+var projectGroupName = "MyProjectGroup";
+var projectGroupDescription = "My Description";
+
+// Create repository object
+var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
+var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
+
+// Get space
+var space = repository.Spaces.FindByName(spaceName);
+var spaceRepository = client.ForSpace(space);
+
+// Create project group object
+var projectGroup = new Octopus.Client.Model.ProjectGroupResource();
+projectGroup.Description = projectGroupDescription;
+projectGroup.Name = projectGroupName;
+projectGroup.EnvironmentIds = null;
+projectGroup.RetentionPolicyId = null;
+
+// Create the project group
+spaceRepository.ProjectGroups.Create(projectGroup);
+```
+```python Python3
+import json
+import requests
+from requests.api import get, head
+
+def get_octopus_resource(uri, headers, skip_count = 0):
+    items = []
+    skip_querystring = ""
+
+    if '?' in uri:
+        skip_querystring = '&skip='
+    else:
+        skip_querystring = '?skip='
+
+    response = requests.get((uri + skip_querystring + str(skip_count)), headers=headers)
+    response.raise_for_status()
+
+    # Get results of API call
+    results = json.loads(response.content.decode('utf-8'))
+
+    # Store results
+    if 'Items' in results.keys():
+        items += results['Items']
+
+        # Check to see if there are more results
+        if (len(results['Items']) > 0) and (len(results['Items']) == results['ItemsPerPage']):
+            skip_count += results['ItemsPerPage']
+            items += get_octopus_resource(uri, headers, skip_count)
+
+    else:
+        return results
+
+    
+    # return results
+    return items
+
+# Define Octopus server variables
+octopus_server_uri = 'https://your.octopus.app'
+octopus_api_key = 'API-YOUR-KEY'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+space_name = "Default"
+project_group_name = "MyProjectGroup"
+project_group_description = "My description"
+
+# Get space
+uri = '{0}/api/spaces'.format(octopus_server_uri)
+spaces = get_octopus_resource(uri, headers)
+space = next((x for x in spaces if x['Name'] == space_name), None)
+
+# Create json
+project_group_json = {
+    'Id': None,
+    'Name': project_group_name,
+    'EnvironmentIds': None,
+    'Links': None,
+    'RetentionPolicyId': None,
+    'Description': project_group_description
+}
+
+# Create project group
+uri = '{0}/api/{1}/projectgroups'.format(octopus_server_uri, space['Id'])
+response = requests.post(uri, headers=headers, json=project_group_json)
+response.raise_for_status()
+```
 ```go Go
 package main
 
 import (
 	"fmt"
 	"log"
-	"os"
+	"net/url"
 
-	"github.com/OctopusDeploy/go-octopusdeploy/client"
-	"github.com/OctopusDeploy/go-octopusdeploy/model"
-	"golang.org/x/crypto/ssh/terminal"
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
 )
 
 func main() {
-	octopusURL := os.Args[1]
-	space := os.Args[2]
-	name := os.Args[3]
 
-	fmt.Println("Enter Password Securely: ")
-	apiKey, err := terminal.ReadPassword(0)
-
+	apiURL, err := url.Parse("https://YourURL")
 	if err != nil {
 		log.Println(err)
 	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	projectGroupName := "MyProjectGroup"
+	projectGroupDescription := "My description"
 
-	APIKey := string(apiKey)
+	// Get space
+	space := GetSpace(apiURL, APIKey, spaceName)
 
-	octopusAuth(octopusURL, APIKey, space)
-	CreateProjectGroup(octopusURL, APIKey, space, name)
+	// Create client
+	client := octopusAuth(apiURL, APIKey, space.ID)
 
+	// Create project group object
+	projectGroup := octopusdeploy.NewProjectGroup(projectGroupName)
+	projectGroup.Description = projectGroupDescription
+	projectGroup.EnvironmentIDs = nil
+	projectGroup.RetentionPolicyID = octopusdeploy.NewDisplayInfo().Label
+
+	// Create project group
+	client.ProjectGroups.Add(projectGroup)
 }
 
-func octopusAuth(octopusURL, APIKey, space string) *client.Client {
-	client, err := client.NewClient(nil, octopusURL, APIKey, space)
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
 	if err != nil {
 		log.Println(err)
 	}
@@ -39,12 +251,18 @@ func octopusAuth(octopusURL, APIKey, space string) *client.Client {
 	return client
 }
 
-func CreateProjectGroup(octopusURL, APIKey, space, name string) *model.ProjectGroup {
-	client := octopusAuth(octopusURL, APIKey, space)
-	ProjectGroup := model.NewProjectGroup(name)
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
 
-	client.ProjectGroups.Add(ProjectGroup)
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
 
-	return ProjectGroup
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
 }
 ```

@@ -138,3 +138,114 @@ f.write(response.content)
 f.close()
 print('Downloaded package to \'{0}\''.format(package_output_file_path))
 ```
+```go Go
+package main
+
+import (
+	"fmt"
+	"io"
+	"log"
+	"net/http"
+	"net/url"
+	"os"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	downloadPath := "c:\\temp"
+	packageName := "MyPackage"
+	packageVersion := "1.0.0"
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get packages
+	packages, err := client.Packages.GetAll()
+	if err != nil {
+		log.Println(err)
+	}
+
+	for i := 0; i < len(packages); i++ {
+		if (packages[i].PackageID == packageName) && (packages[i].Version == packageVersion) {
+			DownloadPackage(apiURL, APIKey, packages[i], downloadPath)
+
+			break
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func DownloadPackage(octopusURL *url.URL, APIKey string, octoPackage *octopusdeploy.Package, downloadPath string) {
+	// Create http client
+	httpClient := &http.Client{}
+
+	// Build url
+	downloadUrl := octopusURL.String() + octoPackage.Links["Raw"]
+
+	// Get the download path
+	filePath := downloadPath + "\\" + octoPackage.PackageID + "." + octoPackage.Version + octoPackage.FileExtension
+
+	// Get the data
+	request, _ := http.NewRequest("GET", downloadUrl, nil)
+	request.Header.Set("X-Octopus-ApiKey", APIKey)
+	response, err := httpClient.Do(request)
+	//response, err := http.Get(downloadUrl)
+	if err != nil {
+		log.Println(err)
+	}
+	defer response.Body.Close()
+
+	// Create folder if necessary
+	if _, err := os.Stat(downloadPath); os.IsNotExist(err) {
+		err := os.Mkdir(downloadPath, os.ModeDir)
+		if err != nil {
+			log.Println(err)
+		}
+	}
+
+	// Create file
+	out, err := os.Create(filePath)
+	if err != nil {
+		log.Println(err)
+	}
+	defer out.Close()
+
+	// Write to file
+	_, err = io.Copy(out, response.Body)
+
+}
+```

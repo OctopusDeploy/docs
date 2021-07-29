@@ -129,3 +129,71 @@ uri = '{0}/{1}/machines/{2}'.format(octopus_server_uri, space['Id'], target['Id'
 response = requests.put(uri, headers=headers, json=target)
 response.raise_for_status()
 ```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	machineName := "MyMachine"
+	enabled := true
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get machine
+	machines, err := client.Machines.GetByName(machineName)
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Loop through returned machines
+	for i := 0; i < len(machines); i++ {
+		if machines[i].Name == machineName {
+			machines[i].IsDisabled = !enabled
+			client.Machines.Update(machines[i])
+			break
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+```

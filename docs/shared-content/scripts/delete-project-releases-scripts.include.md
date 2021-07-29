@@ -105,3 +105,215 @@ catch (Exception ex)
     return;
 }
 ```
+```python Python3
+import json
+import requests
+from requests.api import get, head
+
+def get_octopus_resource(uri, headers, skip_count = 0):
+    items = []
+    skip_querystring = ""
+
+    if '?' in uri:
+        skip_querystring = '&skip='
+    else:
+        skip_querystring = '?skip='
+
+    response = requests.get((uri + skip_querystring + str(skip_count)), headers=headers)
+    response.raise_for_status()
+
+    # Get results of API call
+    results = json.loads(response.content.decode('utf-8'))
+
+    # Store results
+    if 'Items' in results.keys():
+        items += results['Items']
+
+        # Check to see if there are more results
+        if (len(results['Items']) > 0) and (len(results['Items']) == results['ItemsPerPage']):
+            skip_count += results['ItemsPerPage']
+            items += get_octopus_resource(uri, headers, skip_count)
+
+    else:
+        return results
+
+    
+    # return results
+    return items
+
+octopus_server_uri = 'https://YourURL'
+octopus_api_key = 'API-YourAPIKey'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+space_name = "Default"
+project_name = "MyProject"
+
+# Get space
+uri = '{0}/api/spaces'.format(octopus_server_uri)
+spaces = get_octopus_resource(uri, headers)
+space = next((x for x in spaces if x['Name'] == space_name), None)
+
+# Get project
+uri = '{0}/api/{1}/projects'.format(octopus_server_uri, space['Id'])
+projects = get_octopus_resource(uri, headers)
+project = next((x for x in projects if x['Name'] == project_name), None)
+
+# Get project releases
+uri = '{0}/api/{1}/projects/{2}/releases'.format(octopus_server_uri, space['Id'], project['Id'])
+releases = get_octopus_resource(uri, headers)
+
+# Delete releases
+for release in releases:
+    uri = '{0}/api/{1}/releases/{2}'.format(octopus_server_uri, space['Id'], release['Id'])
+    response = requests.delete(uri, headers=headers)
+    response.raise_for_status()        
+```
+```go Go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"net/url"
+	"strconv"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	projectName := "MyProject"
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get project
+	project := GetProject(client, projectName)
+
+	// Get project releases
+	projectReleases := GetProjectReleases(apiURL, APIKey, space, project)
+
+	// Loop through releases
+	for i := 0; i < len(projectReleases); i++ {
+		projectRelease := projectReleases[i].(map[string]interface{})
+
+		// Delete release
+		fmt.Println("Deleting " + projectRelease["Id"].(string))
+		client.Releases.DeleteByID(projectRelease["Id"].(string))
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func GetProject(client *octopusdeploy.Client, projectName string) *octopusdeploy.Project {
+	// Get project
+	project, err := client.Projects.GetByName(projectName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	if project != nil {
+		fmt.Println("Retrieved project " + project.Name)
+	} else {
+		fmt.Println("Project " + projectName + " not found!")
+	}
+
+	return project
+}
+
+func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, project *octopusdeploy.Project) []interface{} {
+	// Define api endpoint
+	projectReleasesEndoint := octopusURL.String() + "/api/" + space.ID + "/projects/" + project.ID + "/releases"
+
+	// Create http client
+	httpClient := &http.Client{}
+	skipAmount := 0
+
+	// Make request
+	request, _ := http.NewRequest("GET", projectReleasesEndoint, nil)
+	request.Header.Set("X-Octopus-ApiKey", APIKey)
+	response, err := httpClient.Do(request)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Get response
+	responseData, err := ioutil.ReadAll(response.Body)
+	var releasesJson interface{}
+	err = json.Unmarshal(responseData, &releasesJson)
+
+	// Map the returned data
+	returnedReleases := releasesJson.(map[string]interface{})
+	// Returns the list of items, translate it to a map
+	returnedItems := returnedReleases["Items"].([]interface{})
+
+	//make(map[string][]octopusdeploy.PropertyValue)
+
+	for true {
+		// check to see if there's more to get
+		fltItemsPerPage := returnedReleases["ItemsPerPage"].(float64)
+		itemsPerPage := int(fltItemsPerPage)
+
+		if len(returnedReleases["Items"].([]interface{})) == itemsPerPage {
+			// Increment skip accoumt
+			skipAmount += len(returnedReleases["Items"].([]interface{}))
+
+			// Make request
+			queryString := request.URL.Query()
+			queryString.Set("skip", strconv.Itoa(skipAmount))
+			request.URL.RawQuery = queryString.Encode()
+			response, err := httpClient.Do(request)
+
+			if err != nil {
+				log.Println(err)
+			}
+
+			responseData, err := ioutil.ReadAll(response.Body)
+			var releasesJson interface{}
+			err = json.Unmarshal(responseData, &releasesJson)
+
+			returnedReleases = releasesJson.(map[string]interface{})
+			returnedItems = append(returnedItems, returnedReleases["Items"].([]interface{})...)
+		} else {
+			break
+		}
+	}
+
+	return returnedItems
+}
+```
