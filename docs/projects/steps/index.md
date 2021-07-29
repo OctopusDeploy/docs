@@ -9,6 +9,19 @@ Octopus includes [built-in step templates](/docs/projects/built-in-step-template
 
 !include <add-step-to-process>
 
+## Reordering steps
+
+To reorder steps in a deployment or runbook process:
+
+1. Click into a step in the process.
+1. Click on the overflow menu (...) next to the **Filter by name** text box.
+1. Select the **Reorder Steps** option. 
+
+    ![Reorder steps menu](images/overflow-reorder.png "width=537")
+1. This will open a drag and drop pane to sort your steps in the desired order.
+
+    ![Reorder steps pane](images/overflow-reorder-pane.png "width=537")
+
 ## Example: A simple deployment process
 
 In the example shown below there are three steps that will be executed from top to bottom. The first is a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) which executes on the Octopus Server pausing the deployment until someone intervenes and allow the deployment to continue. This step will only execute when targeting the Production [environment](/docs/infrastructure/environments/index.md). The remaining steps both [deploy a package](/docs/deployments/packages/index.md) and execute [custom scripts](/docs/deployments/custom-scripts/index.md) on all of the [deployment targets](/docs/infrastructure/index.md) with the [role](/docs/infrastructure/deployment-targets/index.md#target-roles) **web-server**.
