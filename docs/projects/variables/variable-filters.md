@@ -71,7 +71,7 @@ The *Format* filter allows for converting of input based on an additionally pro
 
 ### Replace
 
-The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions.
+The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET Framework format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions. For using Replace on special characters, you should escape the first parameter which will be the regex but the second parameter can be left as a string - see last example below. 
 
 | MyVar Value | Filter Expression                        | Output                                     |
 | ----------- | ---------------------------------------- | ------------------------------------------ |
@@ -82,6 +82,8 @@ The *Replace* filter performs a regular expression replace function on the varia
 | `abc`       | `#{MyVar | Replace "(.)b(.)" "$2X$1" }`  | `cXa`                                      |
 | `abc`       | `#{MyVar | Replace #{match} #{replace}}` | `a_c` (when `match`=`b` and `replace`=`_`) |
 | `abc`       | `#{MyVar | Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
+| `a\b`       | `#{MyVar | Replace "\\" "\\"}`           | `a\\b`                                     |
+
 
 ### Substring
 
