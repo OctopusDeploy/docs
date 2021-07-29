@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "octopus.creditsfilegenerator.tool": {
-      "version": "1.0.187",
+      "version": "1.0.425",
       "commands": [
         "octopus-creditsfilegenerator"
       ]
