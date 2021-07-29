@@ -11,9 +11,16 @@ Octopus includes [built-in step templates](/docs/projects/built-in-step-template
 
 ## Reordering steps
 
-To re-order the steps click into a step, then click the overflow menu next to the step search box which has “Reorder Steps” in it like this:
+To reorder steps in a deployment or runbook process:
 
-![Reorder steps menu](images/overflow-reorder.png "width=537")
+1. Click into a step in the process.
+1. Click on the overflow menu (...) next to the **Filter by name** text box.
+1. Select the **Reorder Steps** option. 
+
+    ![Reorder steps menu](images/overflow-reorder.png "width=537")
+1. This will open a drag and drop pane to sort your steps in the desired order.
+
+    ![Reorder steps pane](images/overflow-reorder-pane.png "width=537")
 
 ## Example: A simple deployment process
 
