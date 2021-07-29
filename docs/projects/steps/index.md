@@ -17,10 +17,10 @@ To reorder steps in a deployment or runbook process:
 1. Click on the overflow menu (...) next to the **Filter by name** text box.
 1. Select the **Reorder Steps** option. 
 
-    ![Reorder steps menu](images/overflow-reorder.png "width=537")
+    ![Reorder steps menu](images/overflow-reorder.png "width=532")
 1. This will open a drag and drop pane to sort your steps in the desired order.
 
-    ![Reorder steps pane](images/overflow-reorder-pane.png "width=537")
+    ![Reorder steps pane](images/overflow-reorder-pane.png "width=611")
 
 ## Example: A simple deployment process
 
