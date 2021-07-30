@@ -284,6 +284,34 @@ Within the context of an iteration template, some special variables are availabl
 | `Octopus.Template.Each.First` | `"True" if the element is the first in the collection`, otherwise "False" |
 | `Octopus.Template.Each.Last`  | "True" if the element is the last in the collection, otherwise "False" |
 
+Given the variable created as an index (comma separated):
+
+| Name        | Value                                    |
+| ----------- | ---------------------------------------- |
+| `Endpoints` | `SV1,SV2,SV3` |
+
+And the template:
+
+```powershell
+#{each endpoint in Endpoints}
+
+#{if Octopus.Template.Each.First}
+  write-host 'This is the first item in the Index : ' #{endpoint} 
+#{/if}
+
+#{if Octopus.Template.Each.Last}
+  write-host 'This is the last item in the Index : ' #{endpoint} 
+#{/if}
+```
+
+The resulting text will be:
+
+```powershell
+This is the first item in the Index :  SV1 
+
+This is the last item in the Index :  SV3 
+```
+
 ### Further examples
 
 If you're struggling with a specific syntax or OctoStache construct, you can find more examples in the unit tests defined for the library on GitHub:
