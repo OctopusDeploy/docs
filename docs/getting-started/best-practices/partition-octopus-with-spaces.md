@@ -45,7 +45,7 @@ For other deployment targets, such as Azure Web Apps, or K8s clusters, you would
 
 ## Sharing Workers
 
-Sharing workers configurated as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.
+Sharing workers configured as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.
 
 There are some considerations when sharing workers.
 - The Tentacle agent on the worker can be running as a specific Active Directory account.  If you need to limit that account access, you should use a polling Tentacle and register it to one specific space.
