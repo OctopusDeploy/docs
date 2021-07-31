@@ -395,7 +395,7 @@ function Get-EnvironmentsScopedToProject
             $lifecycleId = $project.LifecycleId
         }
 
-        $lifecyclePreview = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "lifecycles/$($project.LifeCycleId)/preview" -spaceId $spaceId -method "GET"
+        $lifecyclePreview = Invoke-OctopusApi -octopusUrl $octopusUrl -apiKey $octopusApiKey -endPoint "lifecycles/$lifecycleId/preview" -spaceId $spaceId -method "GET"
 
         foreach ($phase in $lifecyclePreview.Phases)
         {
@@ -1474,5 +1474,637 @@ using (System.IO.StreamWriter csvFile = new System.IO.StreamWriter(reportPath))
 foreach (var permission in permissionsReport)
 {
     WritePermissionList(permissionToCheck, permission.Permissions, permission, reportPath);
+}
+```
+```python Python3
+import json
+import requests
+from requests.api import get, head
+import re
+import os
+
+def get_octopus_resource(uri, headers, skip_count = 0):
+    items = []
+    skip_querystring = ""
+
+    if '?' in uri:
+        skip_querystring = '&skip='
+    else:
+        skip_querystring = '?skip='
+
+    response = requests.get((uri + skip_querystring + str(skip_count)), headers=headers)
+    response.raise_for_status()
+
+    # Get results of API call
+    results = json.loads(response.content.decode('utf-8'))
+
+    # Store results
+    if hasattr(results, 'keys') and 'Items' in results.keys():
+        items += results['Items']
+
+        # Check to see if there are more results
+        if (len(results['Items']) > 0) and (len(results['Items']) == results['ItemsPerPage']):
+            skip_count += results['ItemsPerPage']
+            items += get_octopus_resource(uri, headers, skip_count)
+
+    else:
+        return results
+
+    
+    # return results
+    return items
+
+def new_octopus_filtered_list(item_list, filters):
+    filtered_list = []
+
+    # Split string
+    filter_list = filters.split(',')
+
+    for item in item_list:
+        for filter in filter_list:
+            print ('Checking to see if {0} matches {1}'.format(filter, item['Name']))
+            if filter == 'all':
+                print ('The filter is all -> adding {0} to filtered list'.format(item['Name']))
+                filtered_list.append(item)
+            elif re.match(filter, item['Name'], re.IGNORECASE) != None:
+                print ('The filter {0} matches {1}, adding {1} to filtered list'.format(filter, item['Name']))
+                filtered_list.append(item)
+            else:
+                print ('The item {0} does not match filter {1}'.format(item['Name'], filter))
+
+    return filtered_list
+
+def get_environments_scoped_to_project (octopus_server_uri, headers, project, space):
+    scoped_environment_list = []
+
+    # Get project channels
+    uri = '{0}/api/{1}/projects/{2}/channels'.format(octopus_server_uri, space['Id'], project['Id'])
+    channels = get_octopus_resource(uri, headers)
+
+    # Loop through channels
+    for channel in channels:
+        lifecycleId = channel['LifecycleId']
+
+        if None == lifecycleId:
+            # Channel inherits lifecycle from project
+            lifecycleId = project['LifecycleId']
+
+        # Get lifecycle preview - using the preview returns implied phases if the lifecycle doesn't have any phases defined
+        uri = '{0}/api/{1}/lifecycles/{2}/preview'.format(octopus_server_uri, space['Id'], lifecycleId)
+        lifecycle_preview = get_octopus_resource(uri, headers)
+
+        # Loop through phases
+        for phase in lifecycle_preview['Phases']:
+            for environmentId in phase['AutomaticDeploymentTargets']:
+                if environmentId not in scoped_environment_list:
+                    print ('Adding {0} to {1} environment list'.format(environmentId, project['Name']))
+                    scoped_environment_list.append(environmentId)
+            
+            for environmentId in phase['OptionalDeploymentTargets']:
+                if environmentId not in scoped_environment_list:
+                    print ('Adding {0} to {1} environment list'.format(environmentId, project['Name']))
+                    scoped_environment_list.append(environmentId)
+
+    return scoped_environment_list
+
+def get_user_permission (space, project, user_role, project_permission_list, permission_to_check, environment_list, tenant_list, user, scoped_role, include_scope, project_environment_list):
+    if permission_to_check not in user_role['GrantedSpacePermissions']:
+        return project_permission_list
+
+    new_permission = {
+        'DisplayName': user['DisplayName'],
+        'UserId': user['Id'],
+        'Environments': [],
+        'Tenants': [],
+        'IncludeScope': include_scope
+    }
+
+    if include_scope == True:
+        for environmentId in scoped_role['EnvironmentIds']:
+            if environmentId not in project_environment_list:
+                print ('The role is scoped to environment {0}, but the environment is not assigned to {1}, excluding from report'.format(environmentId, project['Name']))
+                continue
+
+            environment = next((x for x in environment_list if x['Id'] == environmentId), None)
+
+            if environment != None:
+                new_permission['Environments'] += [{
+                    'Id': environment['Id'],
+                    'Name': environment['Name']
+                }]
+                
+
+                print('hi')
+
+        for tenantId in scoped_role['TenantIds']:
+            tenant = next((x for x in tenant_list if x['Id'] == tenantId), None)
+            new_permission['Tenants'] += [{
+                'Id': tenant['Id'],
+                'Name': tenant['Name']
+            }]
+
+    existing_permission = next((x for x in project_permission_list if x['UserId'] == new_permission['UserId']), None)
+
+    if existing_permission == None:
+        print ('{0} is not assigned to this project adding this permission'.format(user['DisplayName']))
+        project_permission_list.append(new_permission)
+        return project_permission_list
+
+    if len(existing_permission['Environments']) == 0 and len(existing_permission['Tenants']) == 0:
+        print ('{0} has no scoping for environments or tenants for this project, they have the highest level, no need to impove it.'.format(user['DisplayName']))
+        return project_permission_list
+
+    if len(existing_permission['Environments']) > 0 and len(new_permission['Environments']) == 0:
+        print('{0} has scoping to environments, but the new permission does not have any environment scoping, removing the scoping'.format(user['DisplayName']))
+        existing_permission['Environments'] = []
+    elif len(existing_permission['Environments']) > 0 and len(new_permission['Environments']) > 0:
+        for item in new_permission['Environments']:
+            existing_item = next((x for x in existing_permission['Environments'] if x['Id'] == item['Id']), None)
+
+            if existing_item == None:
+                print ('{0} is not yet scoped to the environment {1}, adding it'.format(user['DisplayName'], item['Name']))
+                existing_permission['Environments'] += item
+    
+    if len(existing_permission['Tenants']) > 0 and len(new_permission['Tenants']) == 0:
+        print ('{0} has scoping to tenants, but the new permission does not have any tenant scoping, removing the scoping')
+        existing_permission['Tenants'] = []
+    elif len(existing_permission['Tenants']) > 0 and len(new_permission['Tenants']) > 0:
+        for item in new_permission['Tenants']:
+            existing_item = next((x for x in existing_permission['Tenants'] if x['Id'] == item['Id']), None)
+
+            if existing_item == None:
+                print ('{0} is not yet scoped to the tenant {1}, adding it.'.format(user['DisplayNane'], item['Name']))
+                existing_permission['Tenants'] += item
+
+    return project_permission_list
+
+def write_permission_list (permission_name, permission_list, permission, report_path):
+    for permission_scope in permission_list:
+        row = {
+            'Space': permission['SpaceName'],
+            'Project': permission['Name'],
+            'PermissionName': permission_name,
+            'User': permission_scope['DisplayName'],
+            'EnvironmentScope': '',
+            'TenantScope':''
+        }
+
+        if permission_scope['IncludeScope'] == False:
+            row['EnvironmentScope'] = "N/A"
+            row['TenantScope'] = "N/A"
+        else:
+            if len(permission_scope['Environments']) == 0:
+                row['EnvironmentScope'] = "All"
+            else:
+                scopedList = ""
+                for scopedEnvironment in permission_scope['Environments']:
+                    scopedList += scopedEnvironment['Name'] + ';'
+
+                row['EnvironmentScope'] = scopedList
+
+            if len(permission_scope['Tenants']) == 0:
+                row['TenantScope'] = "All"
+            else:
+                scopedList = ""
+                for scopedTenant in permission_scope['Tenants']:
+                    scopedList += scopedTenant['Name'] + ';'
+                row['TenantScope'] = scopedList
+
+        report = open(report_path, 'a')
+        report.write('\n'.join(["{0},{1},{2},{3},{4},{5}".format(row['Space'], row['Project'], row['PermissionName'], row['User'], row['EnvironmentScope'], row['TenantScope'])]) + '\n')
+        report.close()
+
+
+
+octopus_server_uri = 'https://YourURL'
+octopus_api_key = 'API-YourAPIKey'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+space_filter = "all"
+environment_filter = "Development"
+permission_to_check = "DeploymentCreate"
+report_path = "path:\\to\\report.file"
+
+# Get spaces
+uri = '{0}/api/spaces'.format(octopus_server_uri)
+spaces = get_octopus_resource(uri, headers)
+spaces = new_octopus_filtered_list(spaces, space_filter)
+
+# Get user role list
+uri = '{0}/api/userroles'.format(octopus_server_uri)
+user_roles_list = get_octopus_resource(uri, headers)
+
+# Get user list
+uri = '{0}/api/users'.format(octopus_server_uri)
+user_list = get_octopus_resource(uri, headers)
+
+permissions_report = []
+
+for space in spaces:
+    # Get project list
+    uri = '{0}/api/{1}/projects'.format(octopus_server_uri, space['Id'])
+    projects = get_octopus_resource(uri, headers)
+
+    # Get environments
+    uri = '{0}/api/{1}/environments'.format(octopus_server_uri, space['Id'])
+    environments = get_octopus_resource(uri, headers)
+    environments = new_octopus_filtered_list(environments, environment_filter)
+
+    # Get tenants
+    uri = '{0}/api/{1}/tenants'.format(octopus_server_uri, space['Id'])
+    tenants = get_octopus_resource(uri, headers)
+
+    # Loop through projects
+    for project in projects:
+        # Create permission hash table
+        project_permission = {
+            'Name': project['Name'],
+            'SpaceName': space['Name'],
+            'Permissions': []
+        }
+
+        # Get environments scoped to project
+        project_environment_list = get_environments_scoped_to_project(octopus_server_uri, headers, project, space)
+
+        # Loop through users
+        for user in user_list:
+            # Get user team list
+            uri = '{0}/api/users/{1}/teams?spaces={2}&includeSystem=True'.format(octopus_server_uri, user['Id'], space['Id'])
+            user_team_list = get_octopus_resource(uri, headers)
+
+            for user_team in user_team_list:
+                # Get the scoped roles
+                uri = '{0}/api/teams/{1}/scopeduserroles'.format(octopus_server_uri, user_team['Id'])
+                scoped_roles_list = get_octopus_resource(uri, headers)
+
+                for scoped_role in scoped_roles_list:
+                    if scoped_role['SpaceId'] != space['Id']:
+                        print ('The scoped role is not for the current space, moving on to next role')
+                        continue
+
+                    if len(scoped_role['ProjectIds']) > 0 and project['Id'] not in scoped_role['ProjectIds'] and len(scoped_role['ProjectGroupIds']) == 0:
+                        print ('The scoped role is associated with projects, but not {0}, moving on to next role'.format(project['Name']))
+                        continue
+
+                    if len(scoped_role['ProjectGroupIds']) > 0 and project['ProjectGroupId'] not in scoped_role['ProjectGroupIds'] and len(scoped_role['ProjectIds']) == 0:
+                        print ('The scoped role is associated with project groups, but not one for {0}, moving on to next role'.format(project['Name']))
+                    
+                    user_role = next((x for x in user_roles_list if x['Id'] == scoped_role['UserRoleId']), None)
+
+                    project_permission['Permissions'] = get_user_permission(space, project, user_role, project_permission['Permissions'], permission_to_check, environments, tenants, user, scoped_role, True, project_environment_list)
+        
+        permissions_report.append(project_permission)
+
+if os.path.exists(report_path):
+    os.remove(report_path)
+
+# Write header
+report = open(report_path, 'w')
+report.write('\n'.join(["Space Name,Project Name,Permission Name,Display Name,Environment Scoping,Tenant Scoping"]) + '\n')
+report.close()
+
+# Loop through the report
+for permission in permissions_report:
+    write_permission_list(permission_to_check, permission['Permissions'], permission, report_path)
+```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+	"regexp"
+	"strings"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+type ProjectPermission struct {
+	Name        string
+	SpaceName   string
+	Permissions []Permission
+}
+
+type Permission struct {
+	DisplayName  string
+	UserId       string
+	Environments []PermissionEnvironment
+	Tenants      []PermissionTenant
+	IncludeScope bool
+}
+
+type PermissionEnvironment struct {
+	Id   string
+	Name string
+}
+
+type PermissionTenant struct {
+	Id   string
+	Name string
+}
+
+func main() {
+
+	apiURL, err := url.Parse("https://shawnsesna.octopusdemos.app")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-LSXOSYSOZ92B752AIIFVTFFZHA"
+	spaceFilter := "all"
+	//environmentFilter := "Development"
+	//permissionToCheck := "DeploymentCreate"
+	//reportPath := "c:\\temp\\gReport.csv"
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, "")
+
+	// Get spaces
+	spaces, err := client.Spaces.GetAll()
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Filter spaces
+	spaces = FilterSpaces(spaces, spaceFilter)
+
+	// Get all user roles
+	/*userRoles, err := client.UserRoles.GetAll()
+	if err != nil {
+		log.Println(err)
+	}*/
+
+	// Get all users
+	users, err := client.Users.GetAll()
+	if err != nil {
+		log.Println(err)
+	}
+
+	//permissionsReport := []ProjectPermission {}
+
+	// Loop through spaces
+	for s := 0; s < len(spaces); s++ {
+		spaceClient := octopusAuth(apiURL, APIKey, spaces[s].ID)
+
+		// Get projects for space
+		projects, err := spaceClient.Projects.GetAll()
+		if err != nil {
+			log.Println(err)
+		}
+
+		// Get environments for space
+		/*environments, err := spaceClient.Environments.GetAll()
+		if err != nil {
+			log.Println(err)
+		}*/
+
+		// Get tenants for space
+		/*tenants, err := spaceClient.Tenants.GetAll()
+		if err != nil {
+			log.Println(err)
+		}*/
+
+		// Loop through projects
+		for p := 0; p < len(projects); p++ {
+			// Create new permission object
+			projectPermission := ProjectPermission{
+				Name:      projects[p].Name,
+				SpaceName: spaces[s].Name,
+			}
+
+			// Get environment scoped to project
+			projectEnvironmentList := GetEnvironmentsScopedToProject(client, projects[p], spaces[s])
+
+			// Loop through users
+			for u := 0; u < len(users); u++ {
+				// Get user team list
+				userTeams, err := client.Users.GetTeams(users[u])
+				if err != nil {
+					log.Println(err)
+				}
+
+				for t := 0; t < len(*userTeams); t++ {
+					userTeam := *userTeams
+					scopedRolesList, err := client.Teams.GetScopedUserRolesByID(userTeam[t].ID)
+
+					if err != nil {
+						log.Println(err)
+					}
+					
+					// Loop through scoped roles
+					for r := 0; r < len(scopedRolesList.Items); r++ {
+						if scopedRolesList.Items[r].SpaceID != spaces[s].ID {
+							fmt.Println("The scoped role is not for the current space, moving on to next role.")
+							continue
+						}
+
+						if len(scopedRolesList.Items[r].ProjectIDs) > 0 && !contains(scopedRolesList.Items[r].ProjectIDs, projects[p].ID) && len(scopedRolesList.Items[r].ProjectGroupIDs) == 0 {
+							fmt.Println("The scoped role is associated with projects, but not " + projects[p].Name)
+							continue
+						}
+
+						if len(scopedRolesList.Items[r].ProjectGroupIDs) > 0 && !contains(scopedRolesList.Items[r].ProjectGroupIDs, projects[p].ProjectGroupID) && len(scopedRolesList.Items[r].ProjectIDs) == 0 {
+							fmt.Println("The scoped role is associated with project groups but not " + projects[p].Name)
+						}
+					}
+				}
+
+				projectEnvironmentList = projectEnvironmentList
+				projectPermission = projectPermission
+
+				break
+			}
+		}
+	}
+}
+
+func GetEnvironmentsScopedToProject(client *octopusdeploy.Client, project *octopusdeploy.Project, space *octopusdeploy.Space) []string {
+	scopedEnvironmentList := []string{}
+
+	// Get channels for project
+	channels := GetChannels(client, project)
+
+	// Loop through channels
+	for i := 0; i < len(channels); i++ {
+		lifecycleId := channels[i].LifecycleID
+
+		// Check for nil
+		if lifecycleId == "" {
+			// Channel inherits lifecycle from project
+			lifecycleId = project.LifecycleID
+		}
+
+		// Get the lifecycle
+		lifecycle, err := client.Lifecycles.GetByID(lifecycleId)
+		if err != nil {
+			log.Println(err)
+		}
+
+		// Check phases
+		if (lifecycle.Phases == nil) || (len(lifecycle.Phases) == 0) {
+			// There are no defined phases, create them manually from the environment list
+			environments, err := client.Environments.GetAll()
+			if err != nil {
+				log.Println(err)
+			}
+
+			// Loop through environments and add phases
+			for e := 0; e < len(environments); e++ {
+				phase := octopusdeploy.Phase{}
+				phase.OptionalDeploymentTargets = append(phase.OptionalDeploymentTargets, environments[e].ID)
+				lifecycle.Phases = append(lifecycle.Phases, phase)
+			}
+		}
+
+		// Loop through phases
+		for p := 0; p < len(lifecycle.Phases); p++ {
+			for e := 0; e < len(lifecycle.Phases[p].AutomaticDeploymentTargets); e++ {
+				if !contains(scopedEnvironmentList, lifecycle.Phases[p].AutomaticDeploymentTargets[e]) {
+					fmt.Println("Adding " + lifecycle.Phases[p].AutomaticDeploymentTargets[e] + " to " + project.Name + " environment list")
+					scopedEnvironmentList = append(scopedEnvironmentList, lifecycle.Phases[p].AutomaticDeploymentTargets[e])
+				}
+			}
+
+			for e := 0; e < len(lifecycle.Phases[p].OptionalDeploymentTargets); e++ {
+				if !contains(scopedEnvironmentList, lifecycle.Phases[p].OptionalDeploymentTargets[e]) {
+					fmt.Println("Adding " + lifecycle.Phases[p].OptionalDeploymentTargets[e] + " to " + project.Name + " environment list")
+					scopedEnvironmentList = append(scopedEnvironmentList, lifecycle.Phases[p].OptionalDeploymentTargets[e])
+				}
+			}
+		}
+	}
+
+	return scopedEnvironmentList
+}
+
+func GetChannels(client *octopusdeploy.Client, project *octopusdeploy.Project) []*octopusdeploy.Channel {
+	channelQuery := octopusdeploy.ChannelsQuery{
+		Skip: 0,
+	}
+
+	results := []*octopusdeploy.Channel{}
+
+	for true {
+		// Call for results
+		channels, err := client.Channels.Get(channelQuery)
+
+		if err != nil {
+			log.Println(err)
+		}
+
+		// Check returned number of items
+		if len(channels.Items) == 0 {
+			break
+		}
+
+		// append items to results
+		results = append(results, channels.Items...)
+
+		// Update query
+		channelQuery.Skip += len(channels.Items)
+	}
+
+	return results
+}
+
+func FilterSpaces(spaces []*octopusdeploy.Space, filter string) []*octopusdeploy.Space {
+	filteredList := []*octopusdeploy.Space{}
+
+	// Split filter
+	filters := strings.Split(filter, ",")
+
+	for i := 0; i < len(spaces); i++ {
+		for j := 0; j < len(filters); j++ {
+			fmt.Println("Checking to see if " + filters[j] + " matches " + spaces[i].Name)
+			match, err := regexp.MatchString(filter, spaces[i].Name)
+			if err != nil {
+				log.Println(err)
+			}
+
+			if filters[j] == "all" {
+				fmt.Println("The filter is all -> adding " + spaces[i].Name + " to filtered list")
+				filteredList = append(filteredList, spaces[i])
+			} else if match {
+				fmt.Println("The filter " + filters[j] + " matches " + spaces[i].Name + " adding " + spaces[i].Name + " to filtered list")
+				filteredList = append(filteredList, spaces[i])
+			} else {
+				fmt.Println("The item " + spaces[i].Name + " does not match filter " + filters[j])
+			}
+		}
+	}
+
+	return filteredList
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func GetProject(client *octopusdeploy.Client, projectName string) *octopusdeploy.Project {
+	// Get project
+	project, err := client.Projects.GetByName(projectName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	if project != nil {
+		fmt.Println("Retrieved project " + project.Name)
+	} else {
+		fmt.Println("Project " + projectName + " not found!")
+	}
+
+	return project
+}
+
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
+
+func GetUserPermission (space *octopusdeploy.Space, project *octopusdeploy.Project, userRole *octopusdeploy.UserRole, permissions []Permission, permissionToCheck string, environmentList []string, tenantList []string, user *octopusdeploy.User, scopedRole *octopusdeploy.ScopedUserRole, includeScope bool, projectEnvironmentList []string) []Permission {
+	if !contains(userRole.GrantedSpacePermissions, permissionToCheck) {
+		return permissions
+	}
+
+	newPermission := Permission{
+		DisplayName: user.DisplayName,
+		UserId: user.ID,
+		IncludeScope: includeScope,
+	}
+
+	if includeScope {
+		for i := 0; i < len(scopedRole.EnvironmentIDs); i++ {
+			if !contains(projectEnvironmentList, scopedRole.EnvironmentIDs[i]) {
+				fmt.Println("The role is scoped to environment " + )
+			}
+		}
+	}
+
+	return permissions
 }
 ```
