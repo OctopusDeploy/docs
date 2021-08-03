@@ -1770,9 +1770,11 @@ for permission in permissions_report:
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
 	"net/url"
+	"os"
 	"regexp"
 	"strings"
 
@@ -1805,15 +1807,15 @@ type PermissionTenant struct {
 
 func main() {
 
-	apiURL, err := url.Parse("https://shawnsesna.octopusdemos.app")
+	apiURL, err := url.Parse("https://YourURL")
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-LSXOSYSOZ92B752AIIFVTFFZHA"
+	APIKey := "API-YourAPIKey"
 	spaceFilter := "all"
-	//environmentFilter := "Development"
-	//permissionToCheck := "DeploymentCreate"
-	//reportPath := "c:\\temp\\gReport.csv"
+	environmentFilter := "Development"
+	permissionToCheck := "DeploymentCreate"
+	reportPath := "path:\\to\\Report.csv"
 
 	// Create client object
 	client := octopusAuth(apiURL, APIKey, "")
@@ -1828,10 +1830,10 @@ func main() {
 	spaces = FilterSpaces(spaces, spaceFilter)
 
 	// Get all user roles
-	/*userRoles, err := client.UserRoles.GetAll()
+	userRoles, err := client.UserRoles.GetAll()
 	if err != nil {
 		log.Println(err)
-	}*/
+	}
 
 	// Get all users
 	users, err := client.Users.GetAll()
@@ -1839,7 +1841,7 @@ func main() {
 		log.Println(err)
 	}
 
-	//permissionsReport := []ProjectPermission {}
+	permissionsReport := []ProjectPermission{}
 
 	// Loop through spaces
 	for s := 0; s < len(spaces); s++ {
@@ -1852,16 +1854,18 @@ func main() {
 		}
 
 		// Get environments for space
-		/*environments, err := spaceClient.Environments.GetAll()
+		environments, err := spaceClient.Environments.GetAll()
 		if err != nil {
 			log.Println(err)
-		}*/
+		}
+
+		environments = FilterEnvironments(environments, environmentFilter)
 
 		// Get tenants for space
-		/*tenants, err := spaceClient.Tenants.GetAll()
+		tenants, err := spaceClient.Tenants.GetAll()
 		if err != nil {
 			log.Println(err)
-		}*/
+		}
 
 		// Loop through projects
 		for p := 0; p < len(projects); p++ {
@@ -1872,12 +1876,12 @@ func main() {
 			}
 
 			// Get environment scoped to project
-			projectEnvironmentList := GetEnvironmentsScopedToProject(client, projects[p], spaces[s])
+			projectEnvironmentList := GetEnvironmentsScopedToProject(spaceClient, projects[p], spaces[s])
 
 			// Loop through users
 			for u := 0; u < len(users); u++ {
 				// Get user team list
-				userTeams, err := client.Users.GetTeams(users[u])
+				userTeams, err := spaceClient.Users.GetTeams(users[u])
 				if err != nil {
 					log.Println(err)
 				}
@@ -1889,7 +1893,7 @@ func main() {
 					if err != nil {
 						log.Println(err)
 					}
-					
+
 					// Loop through scoped roles
 					for r := 0; r < len(scopedRolesList.Items); r++ {
 						if scopedRolesList.Items[r].SpaceID != spaces[s].ID {
@@ -1905,15 +1909,37 @@ func main() {
 						if len(scopedRolesList.Items[r].ProjectGroupIDs) > 0 && !contains(scopedRolesList.Items[r].ProjectGroupIDs, projects[p].ProjectGroupID) && len(scopedRolesList.Items[r].ProjectIDs) == 0 {
 							fmt.Println("The scoped role is associated with project groups but not " + projects[p].Name)
 						}
+
+						userRole := GetUserRole(userRoles, scopedRolesList.Items[r].UserRoleID)
+
+						projectPermission.Permissions = GetUserPermission(spaces[s], projects[p], userRole, projectPermission.Permissions, permissionToCheck, environments, tenants, users[u], scopedRolesList.Items[r], true, projectEnvironmentList)
+
 					}
 				}
-
-				projectEnvironmentList = projectEnvironmentList
-				projectPermission = projectPermission
-
-				break
 			}
+
+			// Add to report
+			permissionsReport = append(permissionsReport, projectPermission)
 		}
+	}
+
+	if FileExists(reportPath) {
+		os.Remove(reportPath)
+	}
+
+	// Write report header
+	file, err := os.OpenFile(reportPath, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err != nil {
+		log.Println(err)
+	}
+
+	dataWriter := bufio.NewWriter(file)
+	dataWriter.WriteString("Space Name,Project Name,Permission Name,Display Name,Environment Scoping,Tenant Scoping" + "\n")
+	dataWriter.Flush()
+	file.Close()
+
+	for i := 0; i < len(permissionsReport); i++ {
+		WritePermissionList(permissionToCheck, permissionsReport[i].Permissions, permissionsReport[i], reportPath)
 	}
 }
 
@@ -1976,6 +2002,16 @@ func GetEnvironmentsScopedToProject(client *octopusdeploy.Client, project *octop
 	return scopedEnvironmentList
 }
 
+func GetUserRole(userRoles []*octopusdeploy.UserRole, userRoleId string) *octopusdeploy.UserRole {
+	for i := 0; i < len(userRoles); i++ {
+		if userRoles[i].ID == userRoleId {
+			return userRoles[i]
+		}
+	}
+
+	return nil
+}
+
 func GetChannels(client *octopusdeploy.Client, project *octopusdeploy.Project) []*octopusdeploy.Channel {
 	channelQuery := octopusdeploy.ChannelsQuery{
 		Skip: 0,
@@ -2035,6 +2071,35 @@ func FilterSpaces(spaces []*octopusdeploy.Space, filter string) []*octopusdeploy
 	return filteredList
 }
 
+func FilterEnvironments(environments []*octopusdeploy.Environment, filter string) []*octopusdeploy.Environment {
+	filteredList := []*octopusdeploy.Environment{}
+
+	// Split filter
+	filters := strings.Split(filter, ",")
+
+	for i := 0; i < len(environments); i++ {
+		for j := 0; j < len(filters); j++ {
+			fmt.Println("Checking to see if " + filters[j] + " matches " + environments[i].Name)
+			match, err := regexp.MatchString(filter, environments[i].Name)
+			if err != nil {
+				log.Println(err)
+			}
+
+			if filters[j] == "all" {
+				fmt.Println("The filter is all -> adding " + environments[i].Name + " to filtered list")
+				filteredList = append(filteredList, environments[i])
+			} else if match {
+				fmt.Println("The filter " + filters[j] + " matches " + environments[i].Name + " adding " + environments[i].Name + " to filtered list")
+				filteredList = append(filteredList, environments[i])
+			} else {
+				fmt.Println("The item " + environments[i].Name + " does not match filter " + filters[j])
+			}
+		}
+	}
+
+	return filteredList
+}
+
 func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
 	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
 	if err != nil {
@@ -2086,25 +2151,166 @@ func contains(s []string, str string) bool {
 	return false
 }
 
-func GetUserPermission (space *octopusdeploy.Space, project *octopusdeploy.Project, userRole *octopusdeploy.UserRole, permissions []Permission, permissionToCheck string, environmentList []string, tenantList []string, user *octopusdeploy.User, scopedRole *octopusdeploy.ScopedUserRole, includeScope bool, projectEnvironmentList []string) []Permission {
+func GetUserPermission(space *octopusdeploy.Space, project *octopusdeploy.Project, userRole *octopusdeploy.UserRole, permissions []Permission, permissionToCheck string, environmentList []*octopusdeploy.Environment, tenantList []*octopusdeploy.Tenant, user *octopusdeploy.User, scopedRole *octopusdeploy.ScopedUserRole, includeScope bool, projectEnvironmentList []string) []Permission {
 	if !contains(userRole.GrantedSpacePermissions, permissionToCheck) {
 		return permissions
 	}
 
 	newPermission := Permission{
-		DisplayName: user.DisplayName,
-		UserId: user.ID,
+		DisplayName:  user.DisplayName,
+		UserId:       user.ID,
 		IncludeScope: includeScope,
 	}
 
 	if includeScope {
 		for i := 0; i < len(scopedRole.EnvironmentIDs); i++ {
 			if !contains(projectEnvironmentList, scopedRole.EnvironmentIDs[i]) {
-				fmt.Println("The role is scoped to environment " + )
+				fmt.Println("The role is scoped to environment " + scopedRole.EnvironmentIDs[i] + ", but the environment is not assigned to " + project.Name)
+				continue
+			}
+
+			for j := 0; j < len(environmentList); j++ {
+				if environmentList[j].ID == scopedRole.EnvironmentIDs[i] {
+					newPermissionEnvironment := PermissionEnvironment{}
+					newPermissionEnvironment.Id = environmentList[j].ID
+					newPermissionEnvironment.Name = environmentList[j].Name
+					newPermission.Environments = append(newPermission.Environments, newPermissionEnvironment)
+					break
+				}
+			}
+		}
+
+		for i := 0; i < len(scopedRole.TenantIDs); i++ {
+			for j := 0; j < len(tenantList); j++ {
+				if tenantList[j].ID == scopedRole.TenantIDs[i] {
+					newPermissionTenant := PermissionTenant{}
+					newPermissionTenant.Id = tenantList[j].ID
+					newPermissionTenant.Name = tenantList[j].Name
+					newPermission.Tenants = append(newPermission.Tenants, newPermissionTenant)
+					break
+				}
+			}
+		}
+	}
+
+	existingPermission := Permission{}
+	permissionFound := false
+
+	for i := 0; i < len(permissions); i++ {
+		if permissions[i].UserId == newPermission.UserId {
+			existingPermission = permissions[i]
+			permissionFound = true
+			break
+		}
+	}
+
+	if !permissionFound {
+		fmt.Println(user.DisplayName + " is not assigned to this project, adding this permission")
+		permissions = append(permissions, newPermission)
+		return permissions
+	}
+
+	if len(existingPermission.Environments) == 0 && len(existingPermission.Tenants) == 0 {
+		fmt.Println(user.DisplayName + "has no scoping for environments or tenants for this project, they have the highest level, no need to improve it")
+		return permissions
+	}
+
+	if len(existingPermission.Environments) > 0 && len(newPermission.Environments) == 0 {
+		fmt.Println(user.DisplayName + " has scoping to environments, but the new permission does not have any environment scoping, removing the scoping")
+		existingPermission.Environments = nil
+	} else if len(existingPermission.Environments) > 0 && len(newPermission.Environments) > 0 {
+		for i := 0; i < len(newPermission.Environments); i++ {
+			itemFound := false
+			for j := 0; j < len(existingPermission.Environments); j++ {
+				if existingPermission.Environments[j].Id == newPermission.Environments[i].Id {
+					itemFound = true
+					break
+				}
+			}
+
+			if !itemFound {
+				fmt.Println(user.DisplayName + " is not yet scoped to the environment " + newPermission.Environments[i].Name + " adding it")
+				existingPermission.Environments = append(existingPermission.Environments, newPermission.Environments[i])
+			}
+		}
+	}
+
+	if len(existingPermission.Tenants) > 0 && len(newPermission.Tenants) == 0 {
+		fmt.Println(user.DisplayName + " has scoping to tenants, but the new permission does not have any tenant scoping, removing the scoping")
+		existingPermission.Tenants = nil
+	} else if len(existingPermission.Tenants) > 0 && len(newPermission.Tenants) > 0 {
+		for i := 0; i < len(newPermission.Tenants); i++ {
+			itemFound := false
+			for j := 0; j < len(existingPermission.Tenants); j++ {
+				if existingPermission.Tenants[j].Id == newPermission.Tenants[i].Id {
+					itemFound = true
+					break
+				}
+
+				if !itemFound {
+					fmt.Println(user.DisplayName + " is not yet scoped to the tenant " + newPermission.Tenants[i].Name + " adding it")
+					existingPermission.Tenants = append(existingPermission.Tenants, newPermission.Tenants[i])
+				}
 			}
 		}
 	}
 
 	return permissions
+}
+
+func WritePermissionList(permissionName string, permissions []Permission, projectPermission ProjectPermission, reportPath string) {
+	for i := 0; i < len(permissions); i++ {
+		row := make(map[string]string)
+		row["Space"] = projectPermission.SpaceName
+		row["Project"] = projectPermission.Name
+		row["PermissionName"] = permissionName
+		row["User"] = permissions[i].DisplayName
+
+		if !permissions[i].IncludeScope {
+			row["EnvironmentScope"] = "N/A"
+			row["TenantScope"] = "N/A"
+		} else {
+			if len(permissions[i].Environments) == 0 {
+				row["EnvironmentScope"] = "All"
+			} else {
+				scopedList := ""
+				for e := 0; e < len(permissions[i].Environments); e++ {
+					scopedList += permissions[i].Environments[e].Name + ";"
+				}
+
+				row["EnvironmentScope"] = scopedList
+			}
+			if len(permissions[i].Tenants) == 0 {
+				row["TenantScope"] = "All"
+			} else {
+				scopedList := ""
+				for t := 0; t < len(permissions[i].Tenants); t++ {
+					scopedList += permissions[i].Tenants[t].Name + ";"
+				}
+
+				row["TenantScope"] = scopedList
+			}
+
+			// Write report row
+			file, err := os.OpenFile(reportPath, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+			if err != nil {
+				log.Println(err)
+			}
+
+			dataWriter := bufio.NewWriter(file)
+			//dataWriter.WriteString("Space Name,Project Name,Permission Name,Display Name,Environment Scoping,Tenant Scoping" + "\n")
+			dataWriter.WriteString(row["Space"] + "," + row["Project"] + "," + row["PermissionName"] + "," + row["User"] + "," + row["EnvironmentScope"] + "," + row["TenantScope"] + "\n")
+			dataWriter.Flush()
+			file.Close()
+		}
+	}
+}
+
+func FileExists(filename string) bool {
+	info, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
 }
 ```
