@@ -147,3 +147,101 @@ for project in projects:
     if library_variable_set_id in project_variable_sets:
         print('Project \'{0}\' is using library variable set \'{1}\''.format(project['Name'], libraryset_name))
 ```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	librarySetName := "LibrarySetName"
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get library set
+	librarySet := GetLirarySet(client, librarySetName)
+
+	// Get events
+	projects, err := client.Projects.GetAll()
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	fmt.Println("The following projects use library set " + librarySetName)
+
+	// Loop through projects
+	for i := 0; i < len(projects); i++ {
+		if contains(projects[i].IncludedLibraryVariableSets, librarySet.ID) {
+			fmt.Println(projects[i].Name)
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
+
+func GetLirarySet(client *octopusdeploy.Client, librarySetName string) *octopusdeploy.LibraryVariableSet {
+	// Get the library set
+	librarySets, err := client.LibraryVariableSets.GetByPartialName(librarySetName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for i := 0; i < len(librarySets); i++ {
+		if librarySets[i].Name == librarySetName {
+			return librarySets[i]
+		}
+	}
+
+	return nil
+}
+```
