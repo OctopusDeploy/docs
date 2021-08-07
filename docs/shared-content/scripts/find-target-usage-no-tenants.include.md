@@ -1179,3 +1179,445 @@ else:
     for result in target_results:
         print('\t{0}'.format(result))
 ```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+	"strings"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	targetName := "MyTarget"
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get target
+	target := GetMachineByName(client, targetName)
+
+	if err != nil {
+		log.Println(err)
+	}
+	// Get events
+	projects, err := client.Projects.GetAll()
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Get all environments
+	environments, err := client.Environments.GetAll()
+	if err != nil {
+		log.Println(err)
+	}
+
+	allEnvironments := []string{}
+	for i := 0; i < len(environments); i++ {
+		allEnvironments = append(allEnvironments, environments[i].ID)
+	}
+
+	targetResults := []string{}
+
+	// Loop through projects
+	for _, project := range projects {
+		// Get environments scoped to project
+		projectEnvironmentList := GetEnvironmentsScopedToProject(client, project, space)
+
+		targetHasMatchingEnvironment := false
+
+		for _, environment := range projectEnvironmentList {
+			if contains(target.EnvironmentIDs, environment) {
+				targetHasMatchingEnvironment = true
+				break
+			}
+		}
+
+		fmt.Printf("The project %[1]s can deploy to the same environments as the target %[2]s: %[3]v \n", project.Name, target.Name, targetHasMatchingEnvironment)
+
+		if !targetHasMatchingEnvironment {
+			continue
+		}
+
+		if !project.IsVersionControlled {
+			// Get deployment process
+			deploymentProcess, err := client.DeploymentProcesses.GetByID(project.DeploymentProcessID)
+
+			if err != nil {
+				log.Println(err)
+			}
+
+			if project.Name == "WingtipToys" {
+				fmt.Println("hi")
+			}
+
+			targetIsScopedToDeploymentProcess := GetTargetIsScopedToDeploymentProcess(deploymentProcess, target, projectEnvironmentList)
+
+			if targetIsScopedToDeploymentProcess {
+				targetResults = append(targetResults, (project.Name + " - DepolymentProcess"))
+			}
+
+			// Get all runbooks
+			runbookList := GetRunbooks(client, project)
+
+			// Loop through runbooks
+			for _, runbook := range runbookList {
+				runbookProcess, err := client.RunbookProcesses.GetByID(runbook.RunbookProcessID)
+
+				if err != nil {
+					log.Println(err)
+				}
+
+				environmentListToFilterOn := allEnvironments
+
+				if runbook.EnvironmentScope != "" {
+					if runbook.EnvironmentScope == "FromProjectLifecycles" {
+						environmentListToFilterOn = projectEnvironmentList
+					} else if runbook.EnvironmentScope == "Specified" {
+						environmentListToFilterOn = runbook.Environments
+					}
+				}
+
+				runbookHasMatchingEnvironments := false
+				for _, environmentId := range environmentListToFilterOn {
+					if contains(target.EnvironmentIDs, environmentId) {
+						runbookHasMatchingEnvironments = true
+						break
+					}
+				}
+
+				if !runbookHasMatchingEnvironments {
+					continue
+				}
+
+				targetIsScopedToRunbookProcess := GetTargetIsScopedToRunbookProcess(runbookProcess, target, projectEnvironmentList)
+
+				if targetIsScopedToRunbookProcess {
+					targetResults = append(targetResults, (project.Name + " - " + runbook.Name + " Runbook"))
+				}
+			}
+
+		} else {
+			fmt.Printf("Project %[1]s is under version control, skipping \n", project.Name)
+		}
+
+	}
+
+	if len(targetResults) == 0 {
+		fmt.Printf("The target %[1]s is not associated with any projects or runbooks \n", target.Name)
+	} else {
+		fmt.Printf("The target %[1]s is associated with the following projects and runbooks: \n", target.Name)
+		for _, result := range targetResults {
+			fmt.Println("\t" + result)
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
+
+func GetEnvironmentsScopedToProject(client *octopusdeploy.Client, project *octopusdeploy.Project, space *octopusdeploy.Space) []string {
+	scopedEnvironmentList := []string{}
+
+	// Get channels for project
+	channels := GetChannels(client, project)
+
+	// Loop through channels
+	for i := 0; i < len(channels); i++ {
+		lifecycleId := channels[i].LifecycleID
+
+		// Check for nil
+		if lifecycleId == "" {
+			// Channel inherits lifecycle from project
+			lifecycleId = project.LifecycleID
+		}
+
+		// Get the lifecycle
+		lifecycle, err := client.Lifecycles.GetByID(lifecycleId)
+		if err != nil {
+			log.Println(err)
+		}
+
+		// Check phases
+		if (lifecycle.Phases == nil) || (len(lifecycle.Phases) == 0) {
+			// There are no defined phases, create them manually from the environment list
+			environments, err := client.Environments.GetAll()
+			if err != nil {
+				log.Println(err)
+			}
+
+			// Loop through environments and add phases
+			for e := 0; e < len(environments); e++ {
+				phase := octopusdeploy.Phase{}
+				phase.OptionalDeploymentTargets = append(phase.OptionalDeploymentTargets, environments[e].ID)
+				lifecycle.Phases = append(lifecycle.Phases, phase)
+			}
+		}
+
+		// Loop through phases
+		for p := 0; p < len(lifecycle.Phases); p++ {
+			for e := 0; e < len(lifecycle.Phases[p].AutomaticDeploymentTargets); e++ {
+				if !contains(scopedEnvironmentList, lifecycle.Phases[p].AutomaticDeploymentTargets[e]) {
+					fmt.Println("Adding " + lifecycle.Phases[p].AutomaticDeploymentTargets[e] + " to " + project.Name + " environment list")
+					scopedEnvironmentList = append(scopedEnvironmentList, lifecycle.Phases[p].AutomaticDeploymentTargets[e])
+				}
+			}
+
+			for e := 0; e < len(lifecycle.Phases[p].OptionalDeploymentTargets); e++ {
+				if !contains(scopedEnvironmentList, lifecycle.Phases[p].OptionalDeploymentTargets[e]) {
+					fmt.Println("Adding " + lifecycle.Phases[p].OptionalDeploymentTargets[e] + " to " + project.Name + " environment list")
+					scopedEnvironmentList = append(scopedEnvironmentList, lifecycle.Phases[p].OptionalDeploymentTargets[e])
+				}
+			}
+		}
+	}
+
+	return scopedEnvironmentList
+}
+
+func GetChannels(client *octopusdeploy.Client, project *octopusdeploy.Project) []*octopusdeploy.Channel {
+	channelQuery := octopusdeploy.ChannelsQuery{
+		Skip: 0,
+	}
+
+	results := []*octopusdeploy.Channel{}
+
+	for true {
+		// Call for results
+		channels, err := client.Channels.Get(channelQuery)
+
+		if err != nil {
+			log.Println(err)
+		}
+
+		// Check returned number of items
+		if len(channels.Items) == 0 {
+			break
+		}
+
+		// append items to results
+		results = append(results, channels.Items...)
+
+		// Update query
+		channelQuery.Skip += len(channels.Items)
+	}
+
+	return results
+}
+
+func GetMachineByName(client *octopusdeploy.Client, targetName string) *octopusdeploy.DeploymentTarget {
+	// Get targets
+	targets, err := client.Machines.GetByName(targetName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, target := range targets {
+		if target.Name == targetName {
+			return target
+		}
+	}
+
+	return nil
+}
+
+func GetTargetIsScopedToDeploymentProcess(process *octopusdeploy.DeploymentProcess, target *octopusdeploy.DeploymentTarget, projectEnvironmentList []string) bool {
+
+	roleFound := false
+
+	for _, step := range process.Steps {
+
+		if _, found := step.Properties["Octopus.Action.TargetRoles"]; found {
+			roles := strings.Split(step.Properties["Octopus.Action.TargetRoles"].Value, ",")
+
+			for _, role := range roles {
+				if contains(target.Roles, role) {
+					fmt.Printf("Role %[1]s on the step %[2]s matches a role in the target %[3]s \n", role, step.Name, target.Name)
+					roleFound = true
+					break
+				}
+			}
+
+			if !roleFound {
+				continue
+			}
+
+			fmt.Printf("Matching role was found, now checking the scoping of the step \n")
+
+			for _, action := range step.Actions {
+				hasEnvironmentScoping := len(action.Environments) > 0
+				if hasEnvironmentScoping {
+					for _, environmentId := range action.Environments {
+						if contains(target.EnvironmentIDs, environmentId) {
+							fmt.Printf("The environments the step was assigned to and teh target roles match the target, target is associated with process \n")
+							return true
+						}
+					}
+
+					continue
+				}
+
+				hasExcludedEnvironmentScoping := false
+				allEnvironmentsExcluded := false
+
+				if action.ExcludedEnvironments != nil {
+					hasExcludedEnvironmentScoping = len(action.Environments) > 0
+					if hasExcludedEnvironmentScoping {
+						environmentsTargetCanStillDeployTo := []string{}
+						for _, environmentId := range target.EnvironmentIDs {
+							if !contains(action.ExcludedEnvironments, environmentId) && contains(projectEnvironmentList, environmentId) {
+								environmentsTargetCanStillDeployTo = append(environmentsTargetCanStillDeployTo, environmentId)
+							}
+						}
+
+						allEnvironmentsExcluded = len(environmentsTargetCanStillDeployTo) == 0
+					}
+				}
+
+				if !hasEnvironmentScoping && !hasExcludedEnvironmentScoping {
+					fmt.Printf("Target role matches the step and no step scoping was configured, target is associated with process \n")
+					return true
+				}
+
+				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					return true
+				}
+			}
+		}
+	}
+	return false
+}
+
+func GetTargetIsScopedToRunbookProcess(process *octopusdeploy.RunbookProcess, target *octopusdeploy.DeploymentTarget, projectEnvironmentList []string) bool {
+
+	roleFound := false
+
+	for _, step := range process.Steps {
+
+		if _, found := step.Properties["Octopus.Action.TargetRoles"]; found {
+			roles := strings.Split(step.Properties["Octopus.Action.TargetRoles"].Value, ",")
+
+			for _, role := range roles {
+				if contains(target.Roles, role) {
+					fmt.Printf("Role %[1]s on the step %[2]s matches a role in the target %[3]s \n", role, step.Name, target.Name)
+					roleFound = true
+					break
+				}
+			}
+
+			if !roleFound {
+				continue
+			}
+
+			fmt.Printf("Matching role was found, now checking the scoping of the step \n")
+
+			for _, action := range step.Actions {
+				hasEnvironmentScoping := len(action.Environments) > 0
+				if hasEnvironmentScoping {
+					for _, environmentId := range action.Environments {
+						if contains(target.EnvironmentIDs, environmentId) {
+							fmt.Printf("The environments the step was assigned to and teh target roles match the target, target is associated with process \n")
+							return true
+						}
+					}
+
+					continue
+				}
+
+				hasExcludedEnvironmentScoping := false
+				allEnvironmentsExcluded := false
+
+				if action.ExcludedEnvironments != nil {
+					hasExcludedEnvironmentScoping = len(action.Environments) > 0
+					if hasExcludedEnvironmentScoping {
+						environmentsTargetCanStillDeployTo := []string{}
+						for _, environmentId := range target.EnvironmentIDs {
+							if !contains(action.ExcludedEnvironments, environmentId) && contains(projectEnvironmentList, environmentId) {
+								environmentsTargetCanStillDeployTo = append(environmentsTargetCanStillDeployTo, environmentId)
+							}
+						}
+
+						allEnvironmentsExcluded = len(environmentsTargetCanStillDeployTo) == 0
+					}
+				}
+
+				if !hasEnvironmentScoping && !hasExcludedEnvironmentScoping {
+					fmt.Printf("Target role matches the step and no step scoping was configured, target is associated with process \n")
+					return true
+				}
+
+				if hasExcludedEnvironmentScoping && !allEnvironmentsExcluded {
+					fmt.Printf("The step role matches, the target, and exclusion environments were found, but not all environments associated with the target were exucluded.  The target is associated with the process. \n")
+					return true
+				}
+			}
+		}
+	}
+	return false
+}
+
+func GetRunbooks(client *octopusdeploy.Client, project *octopusdeploy.Project) []*octopusdeploy.Runbook {
+	// Get runbook
+	runbooks, err := client.Runbooks.GetAll()
+	projectRunbooks := []*octopusdeploy.Runbook{}
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for i := 0; i < len(runbooks); i++ {
+		if runbooks[i].ProjectID == project.ID {
+			projectRunbooks = append(projectRunbooks, runbooks[i])
+		}
+	}
+
+	return projectRunbooks
+}
+```
