@@ -151,3 +151,183 @@ catch (Exception ex)
     return;
 }
 ```
+```python Python3
+import json
+import requests
+from requests.api import get, head
+
+def get_octopus_resource(uri, headers, skip_count = 0):
+    items = []
+    skip_querystring = ""
+
+    if '?' in uri:
+        skip_querystring = '&skip='
+    else:
+        skip_querystring = '?skip='
+
+    response = requests.get((uri + skip_querystring + str(skip_count)), headers=headers)
+    response.raise_for_status()
+
+    # Get results of API call
+    results = json.loads(response.content.decode('utf-8'))
+
+    # Store results
+    if hasattr(results, 'keys') and 'Items' in results.keys():
+        items += results['Items']
+
+        # Check to see if there are more results
+        if (len(results['Items']) > 0) and (len(results['Items']) == results['ItemsPerPage']):
+            skip_count += results['ItemsPerPage']
+            items += get_octopus_resource(uri, headers, skip_count)
+
+    else:
+        return results
+
+    
+    # return results
+    return items
+
+octopus_server_uri = 'https://YourURL'
+octopus_api_key = 'API-YourAPIKey'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+space_name = "Default"
+role_name = "Project deployer"
+
+# Get space
+uri = '{0}/api/spaces'.format(octopus_server_uri)
+spaces = get_octopus_resource(uri, headers)
+space = next((x for x in spaces if x['Name'] == space_name), None)
+
+# Get userrole
+uri = '{0}/api/userroles'.format(octopus_server_uri)
+user_roles = get_octopus_resource(uri, headers)
+user_role = next((x for x in user_roles if x['Name'] == role_name), None)
+
+# Get teams
+uri = '{0}/api/{1}/teams'.format(octopus_server_uri, space['Id'])
+teams = get_octopus_resource(uri, headers)
+
+teams_with_role = []
+
+# Loop through teams
+for team in teams:
+    # Get the scoped user roles
+    uri = '{0}/api/{1}/teams/{2}/scopeduserroles'.format(octopus_server_uri, space['Id'], team['Id'])
+    scoped_user_roles = get_octopus_resource(uri, headers)
+
+    for role in scoped_user_roles:
+        if role['UserRoleId'] == user_role['Id']:
+            teams_with_role.append(team)
+
+print("The following teams are using role {0}".format(user_role['Name']))
+for team in teams_with_role:
+    print (team['Name'])
+```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	userRoleName := "Project deployer"
+
+	// Get reference to space
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get teams
+	teams, err := client.Teams.GetAll()
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Get user roles
+	userRole := GetUserRole(client, userRoleName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	teamsUsingRole := []*octopusdeploy.Team{}
+
+	// Loop through teams
+	for _, team := range teams {
+		// Get scoped user roles for team
+		scopedUserRoles, err := client.Teams.GetScopedUserRolesByID(team.ID)
+
+		if err != nil {
+			log.Println(err)
+		}
+
+		for _, scopedUserRole := range scopedUserRoles.Items {
+			if scopedUserRole.UserRoleID == userRole.ID {
+				teamsUsingRole = append(teamsUsingRole, team)
+				break
+			}
+		}
+	}
+
+	fmt.Println("The following teams are using the role " + userRole.Name)
+	for _, team := range teamsUsingRole {
+		fmt.Println(team.Name)
+	}
+
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+
+func GetUserRole(client *octopusdeploy.Client, userRoleName string) *octopusdeploy.UserRole {
+	// Get all roles
+	userRoles, err := client.UserRoles.GetAll()
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, userRole := range userRoles {
+		if userRole.Name == userRoleName {
+			return userRole
+		}
+	}
+
+	return nil
+}
+```

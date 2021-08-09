@@ -452,8 +452,6 @@ func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy
 	// Returns the list of items, translate it to a map
 	returnedItems := returnedReleases["Items"].([]interface{})
 
-	//make(map[string][]octopusdeploy.PropertyValue)
-
 	for true {
 		// check to see if there's more to get
 		fltItemsPerPage := returnedReleases["ItemsPerPage"].(float64)
