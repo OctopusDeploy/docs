@@ -5,7 +5,7 @@ description: An example script that will provde a list of all the deployments an
 
 The Octopus Web Portal allows you to see what deployments have gone out to a specific deployment target, but it doesn't provide you with a list of deployment targets for each deployment.  This script demonstrates how to generate a report of the deployment targets for a specific release version for a project.
 
-![Sample environment permissions report](images/project-release-deployment-target-report.png)
+![Sample project release deployment target report](images/project-release-deployment-target-report.png)
 
 **Please note:** The report is generated as a CSV file, formatting was added to the screenshot to make it easier to read.
 
