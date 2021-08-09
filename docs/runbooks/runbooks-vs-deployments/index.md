@@ -60,7 +60,7 @@ In Octopus 2020.2 and earlier, the runbook retention policy could not be set. In
 
 ## Snapshots vs Releases
 
-Runbooks work similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/index.md#snapshots) versus a [release](/docs/releases/index.md) for a deployment. Runbooks can have two different types of snapshots:
+Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/index.md#snapshots) versus a [release](/docs/releases/index.md) for a deployment. Runbooks can have two different types of snapshots:
 - Draft
 - Published
 
