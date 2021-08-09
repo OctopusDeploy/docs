@@ -34,7 +34,7 @@ netsh http add urlacl url=<URL> user=<USER>
 
 For example:
 ```
-netsh http add urlacl url=http://localhost:80 user=DOMAIN\user
+netsh http add urlacl url=http://localhost:80/ user=DOMAIN\user
 ```
 
 Running `netsh` requires administrative rights.
