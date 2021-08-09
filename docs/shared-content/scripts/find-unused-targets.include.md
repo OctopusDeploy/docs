@@ -216,7 +216,6 @@ $includeMachineLists = $false;  ## If true, all machines in each category will g
 $unsupportedCommunicationStyles = @("None")
 $tentacleCommunicationStyles = @("TentaclePassive")
 
-
 function Update-CategorizedMachines
 {
     param (

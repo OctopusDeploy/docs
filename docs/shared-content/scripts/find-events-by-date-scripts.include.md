@@ -1,4 +1,10 @@
 ```powershell PowerShell (REST API)
+$ErrorActionPreference = "Stop";
+
+# Define working variables
+$octopusURL = "https://YourURL"
+$octopusAPIKey = "API-YourAPIKey"
+$eventDate = "8/1/2021"
 function Get-OctopusItems
 {
 	# Define parameters
@@ -54,20 +60,12 @@ function Get-OctopusItems
     return $items
 }
 
-$ErrorActionPreference = "Stop";
-
-# Define working variables
-$octopusURL = "https://YourURL"
-$octopusAPIKey = "API-YourAPIKey"
-$header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$eventDate = "8/1/2021"
-
 # Get space
-$spaces = Get-OctopusItems -OctopusUri "$octopusURL/api/spaces" -ApiKey $ApiKey
+$spaces = Get-OctopusItems -OctopusUri "$octopusURL/api/spaces" -ApiKey $octopusAPIKey
 $space = $spaces | Where-Object {$_.Name -eq $spaceName}
 
 # Get events
-$events = Get-OctopusItems -OctopusUri "$octopusURL/api/$($space.Id)/events?from=$eventDate" -ApiKey $ApiKey
+$events = Get-OctopusItems -OctopusUri "$octopusURL/api/$($space.Id)/events?from=$eventDate" -ApiKey $octopusAPIKey
 
 # Display events
 foreach ($event in $events)

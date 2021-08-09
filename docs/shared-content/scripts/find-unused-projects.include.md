@@ -216,7 +216,6 @@ foreach ($project in $oldProjects)
 }
 ```
 ```csharp C#
-
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "path\to\Octopus.Client.dll"
 
@@ -286,8 +285,6 @@ import requests
 from requests.api import get, head
 import datetime
 from dateutil.parser import parse
-
-
 
 def get_octopus_resource(uri, headers, skip_count = 0):
     items = []
