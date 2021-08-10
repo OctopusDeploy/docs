@@ -1,6 +1,6 @@
 ---
 title: Project Release Deployment Targets Report
-description: An example script that will provde a list of all the deployments and deployment targets deployed to.
+description: An example script that will provide a list of all the deployments and deployment targets deployed to.
 ---
 
 The Octopus Web Portal allows you to see what deployments have gone out to a specific deployment target, but it doesn't provide you with a list of deployment targets for each deployment.  This script demonstrates how to generate a report of the deployment targets for a specific release version for a project.
