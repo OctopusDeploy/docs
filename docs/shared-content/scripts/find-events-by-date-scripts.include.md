@@ -78,8 +78,8 @@ foreach ($event in $events)
 Add-Type -Path "path:\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://shawnsesna.octopusdemos.app"
-$octopusAPIKey = "API-AOOQJ1R5MYWM5VTBJNFITSTPWM"
+$octopusURL = "https://your.octopus.app"
+$octopusAPIKey = "API-YOURKEY"
 $spaceName = "default"
 $eventDate = "8/1/2021"
 
