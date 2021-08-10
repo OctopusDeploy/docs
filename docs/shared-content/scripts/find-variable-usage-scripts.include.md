@@ -155,6 +155,420 @@ if($variableTracking.Count -gt 0) {
     }
 }
 ```
+```powershell (Octopus.Client)
+# Load assembly
+Add-Type -Path 'path:\to\Octopus.Client.dll'
+$octopusURL = "https://YourURL"
+$octopusAPIKey = "API-YourAPIKey"
+$spaceName = "Default"
+$variableToFind = "MyProject.Variable"
+$searchDeploymentProcesses = $true
+$searchRunbookProcesses = $true
+$csvExportPath = "path:\to\CSVFile.csv"
+
+$variableTracking = @()
+
+
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
+$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
+
+# Get space
+$space = $repository.Spaces.FindByName($spaceName)
+$repositoryForSpace = $client.ForSpace($space)
+
+Write-Host "Looking for usages of variable named $variableToFind in space $($space.Name)"
+
+# Get all projects
+$projects = $repositoryForSpace.Projects.GetAll()
+
+# Loop through projects
+foreach ($project in $projects)
+{
+    Write-Host "Checking $($project.Name)"
+    
+    # Get varaible set
+    $projectVariableSet = $repositoryForSpace.VariableSets.Get($project.VariableSetId)
+    
+    # Find any name matches
+    $matchingNamedVariable = $projectVariableSet.Variables | Where-Object {$_.Name -like "*$variableToFind*"}
+
+    if ($null -ne $matchingNamedVariable)
+    {
+        foreach ($match in $matchingNamedVariable)
+        {
+            # Create new hashtable
+            $result = [pscustomobject]@{
+                Project = $project.Name
+                MatchType = "Named Project Variable"
+                Context = $match.Name
+                Property = $null
+                AdditionalContext = $match.Value
+                Link = $project.Links["Variables"]
+            }
+
+            $variableTracking += $result
+        }
+    }
+
+    # Find any value matches
+    $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$variableToFind*"}
+
+    if ($null -ne $matchingValueVariables)
+    {
+        foreach ($match in $matchingValueVariables)
+        {
+            $result = [pscustomobject]@{
+                Project = $project.Name
+                MatchType = "Referenced Project Variable"
+                Context = $match.Name
+                Property = $null
+                AdditionalContext = $match.Value
+                Link = $project.Links["Variables"]
+            }
+
+            $variableTracking += $result
+        }
+    }
+
+    if ($searchDeploymentProcesses -eq $true)
+    {
+        if ($project.IsVersionControlled -ne $true)
+        {
+            # Get deployment process
+            $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
+
+            # Loop through steps
+            foreach ($step in $deploymentProcess.Steps)
+            {               
+                foreach ($action in $step.Actions)
+                {
+                    foreach ($property in $action.Properties.Keys)
+                    {
+                        if ($action.Properties[$property].Value -like "*$variableToFind*")
+                        {
+                            $result = [pscustomobject]@{
+                                Project = $project.Name
+                                MatchType = "Step"
+                                Context = $step.Name
+                                Property = $property
+                                AdditionalContext = $null
+                                Link = "$octopusURL$($project.Links.Web)/deployments/process/steps?actionid=$($action.Id)"
+                            }
+
+                            $variableTracking += $result
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            Write-Host "$($project.Name) is version controlled, skipping searching the deployment process."
+        }
+    }
+
+    if ($searchRunbookProcesses -eq $true)
+    {
+        # Get project runbooks
+        $runbooks = $repositoryForSpace.Projects.GetAllRunbooks($project)
+
+        # Loop through runbooks
+        foreach ($runbook in $runbooks)
+        {
+            # Get Runbook process
+            $runbookProcess = $repositoryForSpace.RunbookProcesses.Get($runbook.RunbookProcessId)
+
+            foreach ($step in $runbookProcess.Steps)
+            {
+                foreach ($action in $step.Actions)
+                {
+                    foreach ($proprety in $action.Properties.Keys)
+                    {
+                        if ($action.Properties[$property].Value -like "*$variableToFind*")
+                        {
+                            $result = [pscustomobject]@{
+                                Project = $project.Name
+                                MatchType = "Runbook Step"
+                                Context = $runbook.Name
+                                Property = $property
+                                AdditionalContext = $step.Name
+                                Link = "$octopusURL$($project.Links.Web)/operations/runbooks/$($runbook.Id)/process/$($runbook.RunbookProcessId)/steps?actionId=$($action.Id)"
+                            }
+
+                            $variableTracking += $result                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# De-duplicate
+$variableTracking = $variableTracking | Sort-Object -Property * -Unique
+
+if ($variableTracking.Count -gt 0)
+{
+    Write-Host ""
+    Write-Host "Found $($variableTracking.Count) results:"
+    $variableTracking
+
+    if(![string]::IsNullOrWhiteSpace($csvExportPath)) 
+    {
+        Write-Host "Exporting results to CSV file: $csvExportPath"
+        $variableTracking | Export-Csv -Path $csvExportPath -NoTypeInformation
+    }
+}
+```
+```csharp C#
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
+#r "path\to\Octopus.Client.dll"
+
+using Octopus.Client;
+using Octopus.Client.Model;
+using System.Linq;
+
+class VariableResult
+{
+    // Define private variables
+    
+    public string Project
+    {
+        get;
+        set;
+    }
+
+    public string MatchType
+    {
+        get; set;
+    }
+
+    public string Context
+    {
+        get;set;
+    }
+
+    public string Property
+    {
+        get;set;
+    }
+
+    public string AdditionalContext
+    {
+        get;set;
+    }
+
+    public string Link
+    {
+        get;
+        set;
+    }
+}
+
+var octopusURL = "https://YourURL";
+var octopusAPIKey = "API-YourAPIKey";
+var spaceName = "Default";
+string variableToFind = "MyProject.Variable";
+bool searchDeploymentProcess = true;
+bool searchRunbookProcess = true;
+string csvExportPath = "path:\\to\\variable.csv";
+
+System.Collections.Generic.List<VariableResult> variableTracking = new System.Collections.Generic.List<VariableResult>();
+
+// Create repository object
+var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
+var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
+
+// Get space repository
+var space = repository.Spaces.FindByName(spaceName);
+var repositoryForSpace = client.ForSpace(space);
+
+Console.WriteLine(string.Format("Looking for usages of variable named {0} in space {1}", variableToFind, space.Name));
+
+// Get all projects
+var projects = repositoryForSpace.Projects.GetAll();
+
+// Loop through projects
+foreach (var project in projects)
+{
+    Console.WriteLine(string.Format("Checking {0}", project.Name));
+
+    // Get the project variable set
+    var projectVariableSet = repositoryForSpace.VariableSets.Get(project.VariableSetId);
+
+    var matchingNameVariable = projectVariableSet.Variables.Where(v => v.Name.ToLower().Contains(variableToFind.ToLower()));
+
+    // Match on name
+    if (matchingNameVariable != null)
+    {
+        // Loop through results
+        foreach (var match in matchingNameVariable)
+        {
+            VariableResult result = new VariableResult();
+            result.Project = project.Name;
+            result.MatchType = "Named Project Variable";
+            result.Context = match.Name;
+            result.Property = null;
+            result.AdditionalContext = match.Value;
+            result.Link = project.Links["Variables"];
+
+            if (!variableTracking.Contains(result))
+            {
+                variableTracking.Add(result);
+            }
+        }
+    }
+
+    // Match on value
+    var matchingValueVariable = projectVariableSet.Variables.Where(v => v.Value != null && v.Value.ToLower().Contains(variableToFind.ToLower()));
+
+    if (matchingValueVariable != null)
+    {
+        // Loop through results
+        foreach (var match in matchingValueVariable)
+        {
+            VariableResult result = new VariableResult();
+            result.Project = project.Name;
+            result.MatchType = "Referenced Project Variable";
+            result.Context = match.Name;
+            result.Property = null;
+            result.AdditionalContext = match.Value;
+            result.Link = project.Links["Variables"];
+
+            if (!variableTracking.Contains(result))
+            {
+                variableTracking.Add(result);
+            }
+        }
+    }
+
+    if (searchDeploymentProcess)
+    {
+        if(!project.IsVersionControlled)
+        {
+            // Get deployment process
+            var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
+
+            // Loop through steps
+            foreach (var step in deploymentProcess.Steps)
+            {
+                // Loop through actions
+                foreach (var action in step.Actions)
+                {
+                    // Loop through properties
+                    foreach (var property in action.Properties.Keys)
+                    {
+                        if (action.Properties[property].Value != null && action.Properties[property].Value.ToLower().Contains(variableToFind.ToLower()))
+                        {
+                            VariableResult result = new VariableResult();
+                            result.Project = project.Name;
+                            result.MatchType = "Step";
+                            result.Context = step.Name;
+                            result.Property = property;
+                            result.AdditionalContext = null;
+                            result.Link = string.Format("{0}{1}/deployments/process/steps?actionid={2}", octopusURL, project.Links["Web"], action.Id);
+
+                            if (!variableTracking.Contains(result))
+                            {
+                                variableTracking.Add(result);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine(string.Format("{0} is version controlled, skipping searching the deployment process.", project.Name));
+        }
+    }
+
+    if (searchRunbookProcess)
+    {
+        // Get project runbooks
+        var runbooks = repositoryForSpace.Projects.GetAllRunbooks(project);
+
+        // Loop through runbooks
+        foreach (var runbook in runbooks)
+        {
+            // Get runbook process
+            var runbookProcess = repositoryForSpace.RunbookProcesses.Get(runbook.RunbookProcessId);
+
+            // Loop through steps
+            foreach (var step in runbookProcess.Steps)
+            {
+                foreach (var action in step.Actions)
+                {
+                    foreach (var property in action.Properties.Keys)
+                    {
+                        if (action.Properties[property].Value != null && action.Properties[property].Value.ToLower().Contains(variableToFind.ToLower()))
+                        {
+                            VariableResult result = new VariableResult();
+                            result.Project = project.Name;
+                            result.MatchType = "Runbook Step";
+                            result.Context = runbook.Name;
+                            result.Property = property;
+                            result.AdditionalContext = step.Name;
+                            result.Link = string.Format("{0}{1}/operations/runbooks/{2}/process/{3}/steps?actionId={4}", octopusURL, project.Links["Web"], runbook.Id, runbookProcess.Id, action.Id);
+
+                            if (!variableTracking.Contains(result))
+                            {
+                                variableTracking.Add(result);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Console.WriteLine(string.Format("Found {0} results", variableTracking.Count.ToString()));
+
+if (variableTracking.Count > 0)
+{
+    if (!string.IsNullOrWhiteSpace(csvExportPath))
+    {
+
+    }
+    
+    foreach (var result in variableTracking)
+    {
+        System.Collections.Generic.List<string> row = new System.Collections.Generic.List<string>();
+        bool isFirstRow = false;
+        if (variableTracking.IndexOf(result) == 0)
+        {
+            isFirstRow = true;
+        }
+
+        foreach (var property in result.GetType().GetProperties())
+        {
+            Console.WriteLine(string.Format("{0}: {1}", property.Name, property.GetValue(result)));
+            if (isFirstRow)
+            {
+                row.Add(property.Name);
+            }
+            else
+            {
+                row.Add((property.GetValue(result) == null ? string.Empty : property.GetValue(result).ToString()));
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(csvExportPath))
+        {
+            using (System.IO.StreamWriter csvFile = new System.IO.StreamWriter(csvExportPath, true))
+            {
+                // Write header
+                csvFile.WriteLine(string.Join(",", row.ToArray()));
+            }
+        }
+
+    }
+}
+
+```
 ```python Python3
 import json
 import requests
@@ -294,4 +708,252 @@ if results_count > 0:
             writer.writeheader()
             for tracked_variable in variable_tracker:
                 writer.writerow(tracked_variable)
+```
+```go Go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net/url"
+	"os"
+	"reflect"
+	"strconv"
+	"strings"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+type VariableResult struct {
+	Project           string
+	MatchType         string
+	Context           string
+	Property          string
+	AdditionalContext string
+	Link              string
+}
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	spaceName := "Default"
+	variableToFind := "MyProject.Variable"
+	searchDeploymentProcess := true
+	searchRunbookProcess := true
+	csvExportPath := "path:\\to\\variable.csv"
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, "")
+
+	// Get all spaces
+	space, err := client.Spaces.GetByName(spaceName)
+
+	client = octopusAuth(apiURL, APIKey, space.ID)
+
+	variableTracking := []VariableResult{}
+
+	// Get projects
+	projects, err := client.Projects.GetAll()
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Loop through projects
+	for _, project := range projects {
+		fmt.Printf("Checking %[1]s \n", project.Name)
+
+		// Get variables
+		projectVariables, err := client.Variables.GetAll(project.ID)
+
+		if err != nil {
+			log.Println(err)
+		}
+
+		for _, variable := range projectVariables.Variables {
+			nameMatch := strings.Contains(variable.Name, variableToFind)
+			if err != nil {
+				log.Println(err)
+
+			}
+
+			if nameMatch {
+				result := VariableResult{}
+				result.Project = project.Name
+				result.MatchType = "Named Project Variable"
+				result.Context = variable.Name
+				result.Property = ""
+				result.AdditionalContext = variable.Value
+				result.Link = project.Links["Variables"]
+
+				if !arrayContains(variableTracking, result) {
+					variableTracking = append(variableTracking, result)
+				}
+
+			}
+
+			valueMatch := strings.Contains(variable.Value, variableToFind)
+			if err != nil {
+				log.Println(err)
+			}
+
+			if valueMatch {
+				result := VariableResult{}
+				result.Project = project.Name
+				result.MatchType = "Referenced Project Variable"
+				result.Context = variable.Name
+				result.Property = ""
+				result.AdditionalContext = variable.Value
+				result.Link = project.Links["Variables"]
+
+				if !arrayContains(variableTracking, result) {
+					variableTracking = append(variableTracking, result)
+				}
+
+			}
+		}
+
+		if searchDeploymentProcess {
+			if !project.IsVersionControlled {
+				// Get deployment process
+				deploymentProcess, err := client.DeploymentProcesses.GetByID(project.DeploymentProcessID)
+				if err != nil {
+					log.Println(err)
+				}
+
+				for _, step := range deploymentProcess.Steps {
+					for _, action := range step.Actions {
+						for property := range action.Properties {
+							if strings.Contains(action.Properties[property].Value, variableToFind) {
+								result := VariableResult{}
+								result.Project = project.Name
+								result.MatchType = "Step"
+								result.Context = step.Name
+								result.Property = property
+								result.AdditionalContext = ""
+								result.Link = apiURL.String() + project.Links["Web"] + "/deployments/process/stesp?actionId=" + action.ID
+
+								if !arrayContains(variableTracking, result) {
+									variableTracking = append(variableTracking, result)
+								}
+							}
+						}
+					}
+				}
+			} else {
+				fmt.Printf("%[1]s is version controlled, skipping searching deployment process", project.Name)
+			}
+		}
+
+		if searchRunbookProcess {
+			// Get project runbooks
+			runbooks := GetRunbooks(client, project)
+
+			// Loop through runbooks
+			for _, runbook := range runbooks {
+				// Get runbook process
+				runbookProcess, err := client.RunbookProcesses.GetByID(runbook.RunbookProcessID)
+				if err != nil {
+					log.Println(err)
+				}
+
+				for _, step := range runbookProcess.Steps {
+					for _, action := range step.Actions {
+						for property := range action.Properties {
+							if strings.Contains(action.Properties[property].Value, variableToFind) {
+								result := VariableResult{}
+								result.Project = project.ID
+								result.MatchType = "Runbook Step"
+								result.Context = runbook.Name
+								result.Property = property
+								result.AdditionalContext = step.Name
+								result.Link = apiURL.String() + project.Links["Web"] + "/operations/runbooks/" + runbook.ID + "/process/" + runbook.RunbookProcessID + "/steps?actionId=" + action.ID
+
+								if !arrayContains(variableTracking, result) {
+									variableTracking = append(variableTracking, result)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if len(variableTracking) > 0 {
+		fmt.Printf("Found %[1]s results \n", strconv.Itoa(len(variableTracking)))
+
+		for i := 0; i < len(variableTracking); i++ {
+			row := []string{}
+			isFirstRow := false
+			if i == 0 {
+				isFirstRow = true
+			}
+
+			e := reflect.ValueOf(&variableTracking[i]).Elem()
+			for j := 0; j < e.NumField(); j++ {
+				if isFirstRow {
+					row = append(row, e.Type().Field(j).Name)
+				} else {
+					row = append(row, e.Field(j).Interface().(string))
+				}
+
+			}
+
+			if csvExportPath != "" {
+				file, err := os.OpenFile(csvExportPath, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+				if err != nil {
+					log.Println(err)
+				}
+
+				dataWriter := bufio.NewWriter(file)
+				dataWriter.WriteString(strings.Join(row, ",") + "\n")
+				dataWriter.Flush()
+				file.Close()
+			}
+
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func arrayContains(array []VariableResult, result VariableResult) bool {
+	for _, v := range array {
+		if v == result {
+			return true
+		}
+	}
+
+	return false
+}
+
+func GetRunbooks(client *octopusdeploy.Client, project *octopusdeploy.Project) []*octopusdeploy.Runbook {
+	// Get runbook
+	runbooks, err := client.Runbooks.GetAll()
+	projectRunbooks := []*octopusdeploy.Runbook{}
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for i := 0; i < len(runbooks); i++ {
+		if runbooks[i].ProjectID == project.ID {
+			projectRunbooks = append(projectRunbooks, runbooks[i])
+		}
+	}
+
+	return projectRunbooks
+}
 ```
