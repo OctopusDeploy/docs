@@ -98,8 +98,6 @@ $octopusURL = "https://YourURL"
 $octopusAPIKey = "API-YourAPIKey"
 $spaceName = "Default"
 $variableValueToFind = "MyValue"
-$searchDeploymentProcesses = $true
-$searchRunbookProcesses = $true
 $csvExportPath = "c:\temp\variable.csv"
 
 $variableTracking = @()
@@ -316,12 +314,7 @@ foreach (var project in projects)
 Console.WriteLine(string.Format("Found {0} results", variableTracking.Count.ToString()));
 
 if (variableTracking.Count > 0)
-{
-    if (!string.IsNullOrWhiteSpace(csvExportPath))
-    {
-
-    }
-    
+{   
     foreach (var result in variableTracking)
     {
         System.Collections.Generic.List<string> row = new System.Collections.Generic.List<string>();
