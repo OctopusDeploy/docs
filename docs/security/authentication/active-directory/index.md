@@ -26,7 +26,7 @@ By default, Active Directory Authentication will use NTLM as the Authentication 
 The easiest way to sign in when using Active Directory is to use Integrated Authentication. 
 This allows a one-click option to *Sign in with a domain account* as pictured below.
 
-![Login Screen](images/ad-integrated.png "width=500")
+![Login Screen](images/activedirectory-integrated.png "width=500")
 
 This will instruct the Octopus Server to issue a browser challenge. NTLM Authentication doesn't require much configuration except for allowing NTLM to be used in your network. This is on by default.
 
@@ -185,7 +185,7 @@ That is all the is needed for kerberos to be used as the logon method when using
 ## Forms-based authentication with Active Directory {#ActiveDirectoryauthentication-Forms-basedauthenticationwithActiveDirectory}
 Octopus alllows users to sign in by entering their Active Directory credentials to login. This is useful if users sometimes need to authenticate with a different account than the one they are signed in to Windows as, or if network configuration prevents integrated authentication from working correctly.
 
-![Login Screen](images/ad-forms.png "width=500")
+![Login Screen](images/activedirectory-forms.png "width=500")
 
 :::hint
 **How it works**
@@ -214,7 +214,7 @@ Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
 
 This will result in integrated sign in being the only option:
 
-![Integrated Sign In Only](images/ad-integrated-only.png "width=500")
+![Integrated Sign In Only](images/activedirectory-integrated-only.png "width=500")
 
 ## Switching between username/password and Active Directory Authentication {#ActiveDirectoryauthentication-SwitchingbetweenusernamepasswordandActiveDirectoryauthentication}
 
