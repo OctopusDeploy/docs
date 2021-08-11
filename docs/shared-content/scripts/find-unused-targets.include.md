@@ -700,8 +700,8 @@ def update_categorized_machines(categorized_machines, space, octopus_server_uri,
 
 
 
-octopus_server_uri = 'https://shawnsesna.octopusdemos.app'
-octopus_api_key = 'API-LSXOSYSOZ92B752AIIFVTFFZHA'
+octopus_server_uri = 'https://your.octopus.app'
+octopus_api_key = 'API-YOURKEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
 categorized_machines = {
     'NotCountedMachines': [],

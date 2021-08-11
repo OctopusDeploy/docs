@@ -223,8 +223,8 @@ foreach ($project in $oldProjects)
 using Octopus.Client;
 using Octopus.Client.Model;
 
-var octopusURL = "https://shawnsesna.octopusdemos.app";
-var octopusAPIKey = "API-LSXOSYSOZ92B752AIIFVTFFZHA";
+var octopusURL = "https://your.octopus.app";
+var octopusAPIKey = "API-YOURKEY";
 DateTime currentUtcTime = DateTime.Now.ToUniversalTime();
 System.Collections.Generic.List<string> oldProjects = new System.Collections.Generic.List<string>();
 int daysSinceLastRelease = 90;

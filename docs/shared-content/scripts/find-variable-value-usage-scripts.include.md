@@ -226,8 +226,8 @@ class VariableResult
     }
 }
 
-var octopusURL = "https://shawnsesna.octopusdemos.app";
-var octopusAPIKey = "API-LSXOSYSOZ92B752AIIFVTFFZHA";
+var octopusURL = "https://your.octopus.app";
+var octopusAPIKey = "API-YOURKEY";
 var spaceName = "Default";
 string variableValueToFind = "MyValue";
 string csvExportPath = "path:\\to\\variable.csv";
