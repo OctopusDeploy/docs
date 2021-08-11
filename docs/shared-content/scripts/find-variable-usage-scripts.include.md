@@ -889,6 +889,7 @@ func main() {
 
 		for i := 0; i < len(variableTracking); i++ {
 			row := []string{}
+            header := []string{}
 			isFirstRow := false
 			if i == 0 {
 				isFirstRow = true
@@ -897,11 +898,9 @@ func main() {
 			e := reflect.ValueOf(&variableTracking[i]).Elem()
 			for j := 0; j < e.NumField(); j++ {
 				if isFirstRow {
-					row = append(row, e.Type().Field(j).Name)
-				} else {
-					row = append(row, e.Field(j).Interface().(string))
+					header = append(header, e.Type().Field(j).Name)
 				}
-
+				row = append(row, e.Field(j).Interface().(string))
 			}
 
 			if csvExportPath != "" {
@@ -911,6 +910,9 @@ func main() {
 				}
 
 				dataWriter := bufio.NewWriter(file)
+				if isFirstRow {
+					dataWriter.WriteString(strings.Join(header, ",") + "\n")
+				}
 				dataWriter.WriteString(strings.Join(row, ",") + "\n")
 				dataWriter.Flush()
 				file.Close()
