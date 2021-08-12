@@ -138,7 +138,7 @@ See [System variables](/docs/projects/variables/system-variables.md)
 
 ### Referencing package metadata
 
-This example displays package ID and version numbers for any steps that reference packages.
+This example displays package ID and version numbers for any steps that reference a package.
 
 ```xml
 #{each action in Octopus.Action}
@@ -152,4 +152,24 @@ This example displays package ID and version numbers for any steps that referenc
 
 :::hint
 Iterating over `Octopus.Action` like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step name that could potentially change.
+:::
+
+#### Referencing additional package metadata
+
+Using [custom scripts](/docs/deployments/custom-scripts/index.md) you can include additional [reference packages](docs/deployments/custom-scripts/run-a-script-step.md#referencing-packages). This example displays package ID and version numbers for any steps that include additional reference packages.
+
+```xml
+#{each action in Octopus.Action}
+  #{each package in action.Package}
+    #{if Octopus.Action[#{action.StepName}].Package[#{package}].PackageId}
+      <b>PackageId: #{Octopus.Action[#{action.StepName}].Package[#{package}].PackageId}</b>
+      <br>
+      <b>Package Version: #{Octopus.Action[#{action.StepName}].Package[#{package}].PackageVersion}</b>
+    #{/if}
+  #{/each}
+#{/each}
+``
+
+:::hint
+Iterating over both `Octopus.Action` and `Octopus.Package like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step or package reference name that could potentially change over time.
 :::
