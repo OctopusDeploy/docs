@@ -60,7 +60,8 @@ The following features are available when deploying a package to an Azure Cloud 
 
 Please note these features actually run on the Octopus Server prior to deploying the Cloud Service package to Azure. They don't execute in the Azure Cloud Service instances you are eventually targeting.
 
-:::hint
+#### Using custom scripts
+
 [Custom scripts](/docs/deployments/custom-scripts/index.md) typically rely on specific tools being available when they execute.
 
 It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
@@ -69,14 +70,12 @@ The easiest way to achieve this is to use an [execution container](/docs/project
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
-If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself.
+If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself. 
 
-See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information.
-
-You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+You can write very straightforward scripts like the example below:
 
 ```powershell
-#Swap the staging slot into production
+# Swap the staging slot into production
 $ServiceName = $OctopusParameters["Octopus.Action.Azure.CloudServiceName"]
 $Deployment = Get-AzureDeployment -Slot "Staging" -ServiceName $ServiceName
 if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
@@ -88,8 +87,7 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
   Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
 }
 ```
-
-:::
+See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information.
 
 :::warning
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
@@ -98,8 +96,6 @@ From **Octopus 2021.2**, a warning will also appear in the deployment logs if th
 
 We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md).
 :::
-
-For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ## Deployment process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
 
