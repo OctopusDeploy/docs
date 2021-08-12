@@ -1,6 +1,6 @@
 ---
 title: AWS CLI and PowerShell scripts
-description: AWS CLI and PowerShell Scripts.
+description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
 position: 90
 ---
 
