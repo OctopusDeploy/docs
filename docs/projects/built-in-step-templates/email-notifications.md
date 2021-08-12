@@ -168,7 +168,7 @@ Using [custom scripts](/docs/deployments/custom-scripts/index.md) you can includ
     #{/if}
   #{/each}
 #{/each}
-``
+```
 
 :::hint
 Iterating over both `Octopus.Action` and `Octopus.Package like this above is a useful way to retrieve data from all steps in your process without having to refer to a hard coded step or package reference name that could potentially change over time.
