@@ -26,7 +26,7 @@ If you haven't already, create an [Azure Management Certificate Account](/docs
 
 ## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
-Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section. 
+Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
 
 ![](5865904.png "width=170")
 
@@ -34,18 +34,18 @@ Add a new Azure Cloud Service Deployment Step to your project. For information 
 
 Once an Account is selected, the list of Cloud Services and Storage Accounts available to the Azure subscription associated with the chosen Account will be populated for you to choose from.
 
-| Setting         | Default | Description                              |
-| --------------- | ------- | ---------------------------------------- |
-| Account         |         | The [Azure Account](/docs/infrastructure/accounts/azure/index.md) you want to  target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to select an account by its name or ID. |
-| Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to define the name of the cloud service. |
-| Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed. |
-| Slot            |         | You can choose to deploy to either the Staging or Production slot. |
-| Swap            |         | Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.<br/>If **Always deploy** is selected, the package will always be deployed to the selected Slot.<br/>If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot).<br/>See [VIP Swap](/docs/deployments/azure/cloud-services/vip-swap.md) for more information on how to configure a VIP swap.|
-| Instance Count  |         | If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file. |
+| Setting         | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account         |         | The [Azure Account](/docs/infrastructure/accounts/azure/index.md) you want to target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to select an account by its name or ID.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to define the name of the cloud service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Slot            |         | You can choose to deploy to either the Staging or Production slot.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Swap            |         | Azure allows staging and production deployments to be swapped, by switching virtual IP addresses. When deploying to production, Octopus can detect whether the current staging deployment can be swapped, and if so, it can do a swap rather than a new deployment.<br/>If **Always deploy** is selected, the package will always be deployed to the selected Slot.<br/>If **Swap staging to production if possible** is selected and the selected Slot is Production, then a swap will occur between Production and Staging (if there is a deployment in the Staging slot).<br/>See [VIP Swap](/docs/deployments/azure/cloud-services/vip-swap.md) for more information on how to configure a VIP swap. |
+| Instance Count  |         | If you have scaled your Windows Azure service using the management portal (for example, changing the role count from 1 to 4), during a deployment Octopus can be configured to keep the existing instance counts rather than using the instance counts defined in your cloud service configuration file.                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 :::success
 **Use variable binding expressions**
-Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different cloud services, like **MyCloudService\_Production** and **MyCloudService\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
+Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different cloud services, like **MyCloudService_Production** and **MyCloudService_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
 ### Deployment features available to Azure Cloud Service steps {#DeployingapackagetoanAzureCloudService-DeploymentfeaturesavailabletoAzureCloudServicesteps}
@@ -58,11 +58,22 @@ The following features are available when deploying a package to an Azure Cloud 
 - [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
-:::hint
 Please note these features actually run on the Octopus Server prior to deploying the Cloud Service package to Azure. They don't execute in the Azure Cloud Service instances you are eventually targeting.
-:::
 
-For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
+:::hint
+[Custom scripts](/docs/deployments/custom-scripts/index.md) typically rely on specific tools being available when they execute.
+
+It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
+
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers.md) for your script step.
+
+If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
+
+If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself.
+
+See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information.
+
+You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
 #Swap the staging slot into production
@@ -77,6 +88,18 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
   Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
 }
 ```
+
+:::
+
+:::warning
+Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
+
+From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
+
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](configuring-the-version-of-the-azure-cli.md).
+:::
+
+For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below:
 
 ## Deployment process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
 
