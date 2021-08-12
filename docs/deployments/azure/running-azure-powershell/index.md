@@ -1,14 +1,18 @@
 ---
 title: Running Azure PowerShell
-description: Octopus supports executing PowerShell against Azure and will automatically import the Azure PowerShell modules.
+description: Octopus supports executing PowerShell against Azure and will automatically import the Azure PowerShell modules if they are available.
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy can help you run scripts on targets within Microsoft Azure.
+Octopus can help you to run scripts on targets within Microsoft Azure.
 
-These scripts typically rely on tools being available on the target worker.
+These scripts typically rely on tools being available when they execute.
 
-We recommend that you provision your own tools on your worker - this way you can control what version of the tools are provisioned, and ensure their compatibility with the scripts you are trying to execute.
+It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
+
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers.md) for your script step.
+
+If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
 :::warning
 Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
@@ -38,12 +42,14 @@ Azure supports two authentication methods, each of which provides access to a di
 
 Learn more about [configuring the right Azure Account](/docs/infrastructure/accounts/azure/index.md).
 
-## Dynamic Worker Pools
+## Running Scripts in Octopus Cloud
 
-Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them. To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools.md). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them.
 
-- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). You may need to create a new worker pool using one of the images that support execution containers.
-- Configure your step to run in an execution container, selecting a docker image that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use. For more information about selecting an image to use, see the [Which Docker images can I use?](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) section.
+To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md).
+- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
 
 ## Run an Azure PowerShell script step {#RunningAzurePowerShell-RunanAzurePowerShellScriptStep}
 
