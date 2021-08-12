@@ -47,7 +47,7 @@ Only a subset of account types and deployment targets support being created dyna
 ### Targets
 
 :::warning
-Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrasturcture](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
+Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
 :::
 
 - [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
