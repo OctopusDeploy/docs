@@ -41,7 +41,7 @@ When you start getting warnings in your deployments and/or see deprecation warni
 
 ## Available Dynamic Worker Images 
 
-Worker images are rebuilt on a regular basis, so they are up to date with the latest security patches.
+Worker images are rebuilt on a regular basis, so that the operating system is up to date with the latest security patches.
 
 ### Windows Server Core 2019
 
