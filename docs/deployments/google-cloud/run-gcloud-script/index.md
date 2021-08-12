@@ -1,19 +1,23 @@
 ---
-title: Running gcloud scripts
-description: Octopus supports executing PowerShell/Bash scripts against Google cloud targets.
+title: Google Cloud CLI scripts
+description: Google Cloud CLI Scripts allow you to manage your Google Cloud resources as part of your deployment process.
 position: 10
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy can help you run scripts on targets within Google cloud platforms.
+Octopus Deploy can help you run scripts on targets within Google Cloud Platform.
 
-These scripts typically rely on tools being available on the target worker.
+These scripts typically rely on tools being available when they execute.
 
-We recommend that you provision your own tools on your worker - this way you can control what version of the tools are provisioned, and ensure their compatibility with the scripts you are trying to execute.
+It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
+
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/index.md) for your script step.
+
+If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
 When executing a script against GCP, Octopus Deploy will automatically use your provided Google cloud account details to authenticate you to the target instance, or you can choose to use the service account associated with the target instance.
 
-This functionality requires the gcloud CLI to be installed on the worker.
+This functionality requires the Google Cloud (gcloud) CLI to be installed on the worker.
 
 ## Run a gcloud script step {#RunningGcloudScript}
 
@@ -21,7 +25,7 @@ This functionality requires the gcloud CLI to be installed on the worker.
 The **Run gcloud in a Script** step was added in Octopus **2021.2**.
 :::
 
-Octopus Deploy provides a *Run gcloud in a Script* step type, for executing script in the context of a Google cloud platform instance. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
+Octopus Deploy provides a _Run gcloud in a Script_ step type, for executing script in the context of a Google cloud platform instance. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
 
 ![](google-cloud-script-step.png "width=170")
 

@@ -25,20 +25,20 @@ See the [packaging application docs](/docs/packaging-applications/index.md)
 
 !partial <configurestep>
 
-4. On the **Deployment** section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
+4. On the **Deployment** section you can configure any of the below settings which are related to _how_ your files are going to be pushed to Azure.
 
-| Setting                     | Default     | Description                              |
-| --------------------------- | ----------- | ---------------------------------------- |
-| **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan. |
-| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root. |
-| **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package |
-| **Preserve App\_Data**      | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory |
-| **Enable AppOffline**       | *False*     | When *True* instructs Web Deploy to place *app\_offline.htm* in root deployment directory to safely bring down the app domain.</br>Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details. |
-| **File comparison method**  | *Timestamp* | Can be *timestamp* or *checksum* and instructs web deploy to use the selected algorithm to determine which files to update.</br>*Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [here](https://octopus.com/blog/reliably-deploying-large-azure-web-apps).* |
+| Setting                     | Default     | Description                                                                                                                                                                                                                                                                                                                           |
+| --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan.                                                                                                                                                                                                                                |
+| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\wwwroot\foo'. Leave blank to deploy to root.                                                                                                                                                                                             |
+| **Remove additional files** | _False_     | When _True_ instructs Web Deploy to delete files from the destination that aren't in the source package                                                                                                                                                                                                                               |
+| **Preserve App_Data**       | _False_     | When _True_ instructs Web Deploy to skip Delete operations in the **App_Data** directory                                                                                                                                                                                                                                              |
+| **Enable AppOffline**       | _False_     | When _True_ instructs Web Deploy to place _app_offline.htm_ in root deployment directory to safely bring down the app domain.</br>Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details.                                                     |
+| **File comparison method**  | _Timestamp_ | Can be _timestamp_ or _checksum_ and instructs web deploy to use the selected algorithm to determine which files to update.</br>_Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [here](https://octopus.com/blog/reliably-deploying-large-azure-web-apps)._ |
 
 :::success
 **Use variable binding expressions**
-Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different web apps, like **MyApp\_Production** and **MyApp\_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
+Any of the settings above can be switched to use a variable binding expression. A common example is when you use a naming convention for your different web apps, like **MyApp_Production** and **MyApp_Test** - you can use environment-scoped variables to automatically configure this step depending on the environment you are targeting.
 :::
 
 ### Deployment features available to Azure web app steps {#DeployingapackagetoanAzureWebApp-DeploymentfeaturesavailabletoAzureWebAppsteps}
@@ -51,18 +51,36 @@ The following features are available when deploying a package to an Azure Web Ap
 - [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
-:::hint
 Please note these features actually run on the Octopus Server prior to executing web deploy to synchronize the resultant files to the Azure Web App slot. They don't execute in the Azure Web App host you are eventually targeting.
+
+#### Using custom scripts
+
+[Custom scripts](/docs/deployments/custom-scripts/index.md) typically rely on specific tools being available when they execute.
+
+It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
+
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/index.md) for your step.
+
+If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
+
+:::warning
+Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
+
+From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
+
+We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules.md) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli.md).
 :::
 
-:::hint
-For your convenience the PowerShell session for your [custom scripts](/docs/deployments/custom-scripts/index.md) will have the Azure PowerShell module loaded, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticate with Azure yourself. See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information. You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
+If the Azure PowerShell module is available, it will be loaded for your convenience, and the subscription from the account associated with the target will be selected. This means you don't have to worry about loading the Azure PowerShell module nor authenticating with Azure yourself.
+
+See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information.
+
+You can write very straightforward scripts like the example below which is from our [guide on using deployment slots with Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/using-deployment-slots-with-azure-web-apps.md):
 
 ```powershell
-#Swap the staging slot into production
+# Swap the staging slot into production
 Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```
-:::
 
 ### What happens when the step is executed? {#DeployingapackagetoanAzureWebApp-ExecutingTheStep}
 
@@ -79,7 +97,6 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 9. Any configured or packaged `PostDeploy` scripts are executed.
 
 ## Simple and advanced deployment scenarios {#DeployingapackagetoanAzureWebApp-Simpleandadvanceddeploymentscenarios}
-
 
 ### Deploying to multiple geographic regions {#DeployingapackagetoanAzureWebApp-Deployingtomultiplegeographicregions}
 
@@ -98,4 +115,3 @@ to the Azure portal with a value of `false`. If you have multiple slots, this se
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-

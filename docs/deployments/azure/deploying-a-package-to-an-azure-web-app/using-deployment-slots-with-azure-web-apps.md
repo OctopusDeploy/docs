@@ -91,14 +91,14 @@ Use the PowerShell:
 **Azure Service Management**
 
 ```powershell
-#Swap the staging slot into production
+# Swap the staging slot into production
 Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```
 
 **Azure Resource Management**
 
 ```powershell
-#Swap the staging slot into production
+# Swap the staging slot into production
 Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -SourceSlotName Staging -DestinationSlotName Production
 ```
 
