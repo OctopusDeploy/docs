@@ -137,3 +137,602 @@ if (![string]::IsNullOrWhiteSpace($csvExportPath)) {
 
 $users | Format-Table
 ```
+```powershell PowerShell (Octopus.Client)
+$ErrorActionPreference = "Stop";
+
+# Load assembly
+Add-Type -Path 'path:\to\Octopus.Client.dll'
+# Define working variables
+$octopusURL = "https://YourURL"
+$octopusAPIKey = "API-YourAPIKey"
+
+# Optional: include user role details?
+$includeUserRoles = $true
+
+# Optional: include non-active users in output
+$includeNonActiveUsers = $False
+
+# Optional: include AD details
+$includeActiveDirectoryDetails = $False
+
+# Optional: include AAD details
+$includeAzureActiveDirectoryDetails = $True
+
+# Optional: set a path to export to csv
+$csvExportPath = "path:\to\users.csv"
+
+$endpoint = New-Object Octopus.Client.OctopusServerEndpoint($octopusURL, $octopusAPIKey)
+$repository = New-Object Octopus.Client.OctopusRepository($endpoint)
+$client = New-Object Octopus.Client.OctopusClient($endpoint)
+
+# Get users
+$users = $repository.Users.GetAll()
+$usersList = @()
+
+# Check to see if we're filtering out inactive
+if ($includeNonActiveUsers -eq $true)
+{
+    # Filter out inactive users
+    Write-Host "Filtering users who arent active from results"
+    $users = $users | Where-Object {$_.IsActive -eq $True}
+}
+
+
+# Loop through users
+foreach ($user in $users)
+{
+    # Populate user details
+    $userDetails = [ordered]@{
+        Id = $user.Id
+        Username = $user.Username
+        DisplayName = $user.DisplayName
+        IsActive = $user.IsActive
+        IsService = $user.IsService
+        EmailAddress = $user.EmailAddress
+    }
+
+
+    # Check to see if we're including user roles
+    if ($includeUserRoles -eq $true)
+    {
+        $userDetails.Add("ScopedUserRoles", "")
+        # Get users teams
+        $userTeamNames = $repository.UserTeams.Get($user)
+
+        # Loop through the users teams
+        foreach ($teamName in $userTeamNames)
+        {
+            # Get the team
+            $team = $repository.Teams.Get($team.Id)
+            
+            foreach ($role in $repository.Teams.GetScopedUserRoles($team))
+            {
+                $userDetails["ScopedUserRoles"] += "$(($repository.UserRoles.Get($role.UserRoleId).Name)) ($(($repository.Spaces.Get($role.SpaceId)).Name))|"
+            }
+        }
+    }
+
+    if ($includeActiveDirectoryDetails -eq $true)
+    {
+        # Get the identity provider object
+        $activeDirectoryIdentity = $user.Identities | Where-Object {$_.IdentityProviderName -eq "Active Directory"}
+        if ($null -ne $activeDirectoryIdentity) 
+        {
+            $userDetails.Add("AD_Upn", (($activeDirectoryIdentity.Claims | ForEach-Object {"$($_.upn.Value)"}) -Join "|"))
+            $userDetails.Add("AD_Sam", (($activeDirectoryIdentity.Claims | ForEach-Object {"$($_.sam.Value)"}) -Join "|"))
+            $userDetails.Add("AD_Email", (($activeDirectoryIdentity.Claims | ForEach-Object {"$($_.email.Value)"}) -Join "|"))
+        }
+    }
+    
+    if ($includeAzureActiveDirectoryDetails -eq $true)
+    {
+        $azureAdIdentity = $user.Identities | Where-Object {$_.IdentityProviderName -eq "Azure AD"}
+        if ($null -ne $azureAdIdentity)
+        {
+            $userDetails.Add("AAD_Dn", (($azureAdIdentity.Claims | ForEach-Object {"$($_.dn.Value)"}) -Join "|"))
+            $userDetails.Add("AAD_Email", (($azureAdIdentity.Claims | ForEach-Object {"$($_.email.Value)"}) -Join "|"))
+        }
+    }
+
+    
+    $usersList += $userDetails    
+}
+
+# Write header
+$header = $usersList.Keys | Select-Object -Unique
+Set-Content -Path $csvExportPath -Value ($header -join ",")
+
+foreach ($user in $usersList)
+{
+    Add-Content -Path $csvExportPath -Value ($user.Values -join ",")
+}
+
+$usersList | Format-Table
+```
+```csharp C#
+
+#r "path\to\Octopus.Client.dll"
+
+using Octopus.Client;
+using Octopus.Client.Model;
+using System.Linq;
+
+class UserDetails
+{
+    // Define private variables
+
+    public string Id
+    {
+        get;
+        set;
+    }
+
+    public string Username
+    {
+        get; set;
+    }
+
+    public string DisplayName
+    {
+        get; set;
+    }
+
+    public bool IsActive
+    {
+        get; set;
+    }
+
+    public bool IsService
+    {
+        get; set;
+    }
+
+    public string EmailAddress
+    {
+        get;
+        set;
+    }
+
+    public string ScopedUserRoles
+    {
+        get;set;
+    }
+
+    public string AD_Upn
+    {
+        get;
+        set;
+    }
+
+    public string AD_Sam
+    {
+        get;
+        set;
+    }
+
+    public string AD_Email
+    {
+        get;
+        set;
+    }
+
+    public string AAD_Dn
+    {
+        get;
+        set;
+    }
+
+    public string AAD_Email
+    {
+        get;
+        set;
+    }
+}
+
+// If using .net Core, be sure to add the NuGet package of System.Security.Permissions
+
+var octopusURL = "https://YourURL";
+var octopusAPIKey = "API-YourAPIKey";
+string csvExportPath = "path:\\to\\users.csv";
+bool includeUserRoles = true;
+bool includeActiveDirectoryDetails = false;
+bool includeAzureActiveDirectoryDetails = true;
+bool includeInactiveUsers = false;
+
+System.Collections.Generic.List<UserDetails> usersList = new System.Collections.Generic.List<UserDetails>();
+
+// Create repository object
+var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
+var repository = new OctopusRepository(endpoint);
+var client = new OctopusClient(endpoint);
+
+// Get all users
+var users = repository.Users.FindAll();
+
+// Loop through users
+if (!includeInactiveUsers)
+    users = users.Where(u => u.IsActive == true).ToList();
+foreach (var user in users)
+{
+    // Get basic details
+    UserDetails userDetails = new UserDetails();
+    userDetails.Id = user.Id;
+    userDetails.Username = user.Username;
+    userDetails.DisplayName = user.DisplayName;
+    userDetails.IsActive = user.IsActive;
+    userDetails.IsService = user.IsService;
+    userDetails.EmailAddress = user.EmailAddress;
+
+    // Check to see if userroles are included
+    if (includeUserRoles)
+    {
+        var userTeamNames = repository.UserTeams.Get(user);
+
+        foreach (var teamName in userTeamNames)
+        {
+            var team = repository.Teams.Get(teamName.Id);
+            
+            foreach (var role in repository.Teams.GetScopedUserRoles(team))
+            {
+                userDetails.ScopedUserRoles += string.Format("{0} ({1})|", (repository.UserRoles.Get(role.UserRoleId)).Name, (repository.Spaces.Get(role.SpaceId)));
+            }
+        }
+    }
+
+    if(includeActiveDirectoryDetails)
+    {
+        var activeDirectoryDetails = user.Identities.FirstOrDefault(i => i.IdentityProviderName == "Active Directory");
+        if (null != activeDirectoryDetails)
+        {
+            userDetails.AD_Upn = activeDirectoryDetails.Claims["upn"].Value;
+            userDetails.AD_Sam = activeDirectoryDetails.Claims["sam"].Value;
+            userDetails.AD_Email = activeDirectoryDetails.Claims["email"].Value;
+        }
+    }
+
+    if (includeAzureActiveDirectoryDetails)
+    {
+        var azureActiveDirectoryDetails = user.Identities.FirstOrDefault(i => i.IdentityProviderName == "Azure AD");
+        if (null != azureActiveDirectoryDetails)
+        {
+            userDetails.AAD_Dn = azureActiveDirectoryDetails.Claims["dn"].Value;
+            userDetails.AAD_Email = azureActiveDirectoryDetails.Claims["email"].Value;
+        }
+    }
+
+    usersList.Add(userDetails);
+}
+
+Console.WriteLine(string.Format("Found {0} results", usersList.Count.ToString()));
+
+if (usersList.Count > 0)
+{
+    foreach (var result in usersList)
+    {
+        System.Collections.Generic.List<string> row = new System.Collections.Generic.List<string>();
+        System.Collections.Generic.List<string> header = new System.Collections.Generic.List<string>();
+        bool isFirstRow = false;
+        if (usersList.IndexOf(result) == 0)
+        {
+            isFirstRow = true;
+        }
+
+        foreach (var property in result.GetType().GetProperties())
+        {
+            Console.WriteLine(string.Format("{0}: {1}", property.Name, property.GetValue(result)));
+            if (isFirstRow)
+            {
+                header.Add(property.Name);
+            }
+            else
+            {
+                row.Add((property.GetValue(result) == null ? string.Empty : property.GetValue(result).ToString()));
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(csvExportPath))
+        {
+            using (System.IO.StreamWriter csvFile = new System.IO.StreamWriter(csvExportPath, true))
+            {
+                if (isFirstRow)
+                {
+                    // Write header
+                    csvFile.WriteLine(string.Join(",", header.ToArray()));
+                }
+                csvFile.WriteLine(string.Join(",", row.ToArray()));
+            }
+        }
+    }
+}
+
+```
+```python Python3
+import json
+import requests
+from requests.api import get, head
+import csv
+
+def get_octopus_resource(uri, headers, skip_count = 0):
+    items = []
+    skip_querystring = ""
+
+    if '?' in uri:
+        skip_querystring = '&skip='
+    else:
+        skip_querystring = '?skip='
+
+    response = requests.get((uri + skip_querystring + str(skip_count)), headers=headers)
+    response.raise_for_status()
+
+    # Get results of API call
+    results = json.loads(response.content.decode('utf-8'))
+
+    # Store results
+    if hasattr(results, 'keys') and 'Items' in results.keys():
+        items += results['Items']
+
+        # Check to see if there are more results
+        if (len(results['Items']) > 0) and (len(results['Items']) == results['ItemsPerPage']):
+            skip_count += results['ItemsPerPage']
+            items += get_octopus_resource(uri, headers, skip_count)
+
+    else:
+        return results
+
+    
+    # return results
+    return items
+
+octopus_server_uri = 'https://YourURL'
+octopus_api_key = 'API-YourAPIKey'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+include_user_roles = True
+include_non_active_users = False
+include_active_directory_details = False
+include_azure_active_directory = True
+csv_export_path = "path:\\to\\users.csv"
+
+# Get users
+uri = '{0}/api/users'.format(octopus_server_uri)
+users = get_octopus_resource(uri, headers)
+users_list = []
+
+# Loop through users
+for user in users:
+    if include_non_active_users != True and user['IsActive'] == False:
+        continue
+
+    user_details = {
+        'Id': user['Id'],
+        'Username': user['Username'],
+        'DisplayName': user['DisplayName'],
+        'IsActive': user['IsActive'],
+        'IsService': user['IsService'],
+        'EmailAddress': user['EmailAddress']
+    }
+
+    if include_user_roles:
+        # Get users teams
+        uri = '{0}/api/users/{1}/teams'.format(octopus_server_uri, user['Id'])
+        user_team_names = get_octopus_resource(uri, headers)
+
+        # Loop through teams
+        for team_name in user_team_names:
+            uri = '{0}/api/teams/{1}'.format(octopus_server_uri, team_name['Id'])
+            team = get_octopus_resource(uri, headers)
+
+            # Get scoped user roles
+            uri = '{0}/api/teams/{1}/ScopedUserRoles'.format(octopus_server_uri, team['Id'])
+            scoped_user_roles = get_octopus_resource(uri, headers)
+
+            user_details['ScopedUserRoles'] = ''
+            
+            # Loop through roles
+            for role in scoped_user_roles:
+                if role['SpaceId'] == None:
+                    role['SpaceId'] = 'Spaces-1'
+                uri = '{0}/api/spaces/{1}'.format(octopus_server_uri, role['SpaceId'])
+                space = get_octopus_resource(uri, headers)
+                uri = '{0}/api/userroles/{1}'.format(octopus_server_uri, role['UserRoleId'])
+                user_role = get_octopus_resource(uri, headers)
+                user_details['ScopedUserRoles'] += '{0} ({1})|'.format(user_role['Name'], space['Name'])
+
+    if include_active_directory_details:
+        active_directory_identity = next((x for x in user['Identities'] if x['IdentityProviderName'] == 'Active Directory'), None)
+        if active_directory_identity != None:
+            user_details['AD_Upn'] = active_directory_identity['Claims']['upn']['Value']
+            user_details['AD_Sam'] = active_directory_identity['Claims']['sam']['Value']
+            user_details['AD_Email'] = active_directory_identity['Claims']['sam']['Value']
+
+    if include_azure_active_directory:
+        azure_ad_identity = next((x for x in user['Identities'] if x['IdentityProviderName'] == 'Azure AD'), None)
+        if azure_ad_identity != None:
+            user_details['AAD_Dn'] = azure_ad_identity['Claims']['dn']['Value']
+            user_details['AAD_Email'] = azure_ad_identity['Claims']['email']['Value']
+
+    print(user_details)
+    users_list.append(user_details)
+
+    if csv_export_path:
+        with open(csv_export_path, mode='w') as csv_file:
+            fieldnames = ['Id', 'Username', 'DisplayName', 'IsActive', 'IsService', 'EmailAddress', 'ScopedUserRoles', 'AD_Upn', 'AD_Sam', 'AD_Email', 'AAD_Dn', 'AAD_Email']
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            writer.writeheader()
+            for user in users_list:
+                writer.writerow(user)
+```
+```go Go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net/url"
+	"os"
+	"reflect"
+	"strconv"
+	"strings"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+type UserDetails struct {
+	Id              string
+	Username        string
+	DisplayName     string
+	IsActive        string
+	IsService       string
+	EmailAddress    string
+	ScopedUserRoles string
+	AD_Upn          string
+	AD_Sam          string
+	AD_Email        string
+	AAD_Dn          string
+	AAD_Email       string
+}
+
+func main() {
+
+	apiURL, err := url.Parse("https://YourUrl")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+	csvExportPath := "path:\\to\\users.csv"
+	includeUserRoles := true
+	includeActiveDirectoryDetails := false
+	includeAzureActiveDirectoryDetails := true
+	includeInactiveUsers := false
+
+	usersList := []UserDetails{}
+
+	// Create client object
+	client := octopusAuth(apiURL, APIKey, "")
+
+	// Get all users
+	users, err := client.Users.GetAll()
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Loop through users
+	for _, user := range users {
+		if !includeInactiveUsers && !user.IsActive {
+			continue
+		}
+
+		// record user information
+		userDetails := UserDetails{}
+		userDetails.Id = user.ID
+		userDetails.Username = user.Username
+		userDetails.DisplayName = user.DisplayName
+		userDetails.IsActive = strconv.FormatBool(user.IsActive)
+		userDetails.IsService = strconv.FormatBool(user.IsService)
+		userDetails.EmailAddress = user.EmailAddress
+
+		if includeUserRoles {
+			userTeamNames, err := client.Users.GetTeams(user)
+			if err != nil {
+				log.Println(err)
+			}
+
+			for _, userTeamName := range *userTeamNames {
+				team, err := client.Teams.GetByID(userTeamName.ID)
+				if err != nil {
+					log.Println(err)
+				}
+
+				roles, err := client.Teams.GetScopedUserRoles(*team, octopusdeploy.SkipTakeQuery{Skip: 0, Take: 1000})
+
+				for _, role := range roles.Items {
+					if role.SpaceID == "" {
+						role.SpaceID = "Spaces-1"
+					}
+					space := GetSpace(apiURL, APIKey, role.SpaceID)
+					userRole, err := client.UserRoles.GetByID(role.UserRoleID)
+					if err != nil {
+						log.Println(err)
+					}
+					userDetails.ScopedUserRoles += userRole.Name + " (" + space.Name + ")|"
+				}
+			}
+		}
+
+		for _, provider := range user.Identities {
+			if provider.IdentityProviderName == "Active Directory" && includeActiveDirectoryDetails {
+				userDetails.AD_Upn += provider.Claims["upn"].Value
+				userDetails.AD_Sam += provider.Claims["sam"].Value
+				userDetails.AD_Email += provider.Claims["email"].Value
+			}
+			if provider.IdentityProviderName == "Azure AD" && includeAzureActiveDirectoryDetails {
+				userDetails.AAD_Dn += provider.Claims["dn"].Value
+				userDetails.AAD_Email += provider.Claims["email"].Value
+			}
+		}
+
+		usersList = append(usersList, userDetails)
+	}
+
+	if len(usersList) > 0 {
+		fmt.Printf("Found %[1]s results \n", strconv.Itoa(len(usersList)))
+
+		for i := 0; i < len(usersList); i++ {
+			row := []string{}
+			header := []string{}
+			isFirstRow := false
+			if i == 0 {
+				isFirstRow = true
+			}
+
+			e := reflect.ValueOf(&usersList[i]).Elem()
+			for j := 0; j < e.NumField(); j++ {
+				if isFirstRow {
+					header = append(header, e.Type().Field(j).Name)
+				}
+				row = append(row, e.Field(j).Interface().(string))
+			}
+
+			if csvExportPath != "" {
+				file, err := os.OpenFile(csvExportPath, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+				if err != nil {
+					log.Println(err)
+				}
+
+				dataWriter := bufio.NewWriter(file)
+				if isFirstRow {
+					dataWriter.WriteString(strings.Join(header, ",") + "\n")
+				}
+				dataWriter.WriteString(strings.Join(row, ",") + "\n")
+				dataWriter.Flush()
+				file.Close()
+			}
+
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceId string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByID(spaceId)
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		fmt.Println("Retrieved space " + space.Name)
+	}
+
+	return space
+}
+```
