@@ -36,13 +36,11 @@ There is a "Certificate expiry events" event-group, and three events:
 - Certificate expired.
 
 :::info
-Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates.md) certificates.
-:::
-
-:::info
 The background task which raises the certificate-expiry events runs:
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours
+
+Certificate-expiry events are _not_ raised for [archived](archiving-and-deleting-certificates.md) certificates.
 :::
 
 ## Import certificates into the Windows certificate store  
