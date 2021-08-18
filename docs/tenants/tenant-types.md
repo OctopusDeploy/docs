@@ -27,7 +27,7 @@ Tenants using the SaaS model typically fall into three distinct categories:
 
 ### Code-based multi-tenancy {#saas-code-based}
 
-Code-based tenancy is where all tenants share the same infrastructure and it's up the the code to determine what a tenant sees and has access to.  Code based multi-tenancy can be the easiest option to deploy and maintain, but there are tradeoffs. There is a risk for cross tenant contamination. A missed "where" clause makes for a terrible day. You also cannot deploy different versions of the application to different tenants.
+Code-based tenancy is where all tenants share the same infrastructure and it's up to the code to determine what a tenant sees and has access to.  Code based multi-tenancy can be the easiest option to deploy and maintain, but there are tradeoffs. There is a risk for cross tenant contamination. A missed "where" clause makes for a terrible day. You also cannot deploy different versions of the application to different tenants.
 
 ### Database multi-tenancy {#saas-database}
 
