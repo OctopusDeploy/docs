@@ -194,6 +194,18 @@ This creates a release with a specified release number, overriding the [Release 
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456
 ```
 
+## Version controlled projects {#Creatingreleases-version-controlled}
+
+For projects that use the Config as Code feature (they are version controlled), you can create a release pointing at a git reference, e.g. a branch name or tag. This example creates a release using the branch name of `main`:
+
+```bash
+octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
+```
+
+:::hint
+The `--gitRef` parameter is ignored for non-version controlled projects.
+:::
+
 ## Specifying the Package Version {#Creatingreleases-Specifyingthepackageversion}
 
 For each step that has a package, the version is determined in the following order:
