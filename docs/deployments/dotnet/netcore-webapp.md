@@ -33,7 +33,8 @@ When you have your generated nupkg or zip file it needs to be [pushed to a repos
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 
 :::warning
-OctoPack is not compatible with ASP.NET Core applications. Please see [the OctoPack documentation](/docs/packaging-applications/create-packages/octopack/index.md#UsingOctoPack-UsingNETCore) for more details.
+**OctoPack and .NET Core**
+OctoPack is not compatible with .NET Core applications. If you want to package .NET Core applications see [create packages with the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md).
 :::
 
 ## Deployment {#DeployingASP.NETCoreWebApplications-Deployment}
