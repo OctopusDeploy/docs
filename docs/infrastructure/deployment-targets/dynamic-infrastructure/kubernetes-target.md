@@ -16,6 +16,7 @@ Command: **_New-OctopusKubernetesTarget_**
 | `-octopusAccountIdOrName`                | The name of the Octopus account used for authentication with the cluster. This or the `-octopusClientCertificateIdOrName` option must be defined. |
 | `-octopusClientCertificateIdOrName`      | The name of the Octopus certificate used for authentication with the cluster. This or the `-octopusAccountIdOrName` option must be defined. |
 | `-clusterResourceGroup`                  | When using an Azure account, this defines the name of the resource group that holds the AKS cluster.  |
+| `-clusterAdminLogin`                     | Set to `$True` when building an AKS target to use the admin login. |
 | `-clusterName`                           | When using a AWS or Azure account, this defines the name of the EKS or AKS cluster.  |
 | `-namespace`                             | The default kubectl namespace.  |
 | `-updateIfExisting`                      | Will update an existing Kubernetes target with the same name, create if it doesn't exist.  |
