@@ -3,7 +3,7 @@ title: Promote a release not in the destination
 description: An example script that will promote a release if it is not in the destination.
 ---
 
-This script demonstrates how to programmatically find the latest deployment in each environment and compare releases.  If they don't match then promote the release tot he next environment.
+This script demonstrates how to programmatically find the latest deployment in each environment and compare releases.  If they don't match then promote the release to the next environment.
 
 ## Usage
 

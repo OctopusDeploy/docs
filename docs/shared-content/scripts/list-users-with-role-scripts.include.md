@@ -452,3 +452,4 @@ func GetUserRole(roles []*octopusdeploy.ScopedUserRole, role *octopusdeploy.User
 
 	return nil
 }
+```

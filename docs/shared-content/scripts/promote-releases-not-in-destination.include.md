@@ -220,7 +220,7 @@ foreach ($name in $projectNameList)
 
     Write-Host "I have all the Ids I need, I am going to find the most recent successful deployment to $($destinationEnvironment.Name)"
 
-    # Get the task list for the desitnation environment
+    # Get the task list for the destination environment
     $destinationTaskList = $repositoryForSpace.Deployments.FindBy(@($project.Id), @($destinationEnvironment.Id), 0, $null).Items | Where-Object {$repositoryForSpace.Tasks.Get($_.TaskId).State -eq [Octopus.Client.Model.TaskState]::Success}
     
     if ($destinationTaskList.Count -eq 0)
@@ -261,7 +261,6 @@ foreach ($name in $projectNameList)
 }
 ```
 ```csharp C#
-
 #r "path\to\Octopus.Client.dll"
 
 using Octopus.Client;
