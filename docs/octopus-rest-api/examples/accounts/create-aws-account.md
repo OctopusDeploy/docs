@@ -11,7 +11,7 @@ Provide values for:
 
 - Octopus URL
 - Octopus API Key
-- Octopus Space ID
+- Octopus Space Name
 - AWS account key
 - AWS secret key
 
