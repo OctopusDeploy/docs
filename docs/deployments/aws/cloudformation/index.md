@@ -329,6 +329,8 @@ You can confirm the roles assigned to the instance by performing a GET request o
 
 You should then be able to perform a GET request on the URL [http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME](http://169.254.169.254/latest/meta-data/iam/security-credentials/ROLENAME) (replacing `ROLENAME` with the name of the role). This should return security keys in a JSON response.
 
+This error may also be due to the EC2 instance forcing the use of IMDSv2. Versions of Octopus before 2021.3 do not support IMDSv2. See [this issue](https://github.com/OctopusDeploy/Issues/issues/6923) for more details.
+
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) for more information on assigning roles to EC2 instances.
 
 ### AWS-LOGIN-ERROR-0004
