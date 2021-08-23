@@ -48,6 +48,9 @@ foreach ($environmentId in $environmentIds)
         RunbookSnapshotId = $runbook.PublishedRunbookSnapshotId
         EnvironmentId = $environmentId
         TenantId = $tenantId
+        SkipActions = @()
+        SpecificMachineIds = @()
+        ExcludedMachineIds = @()
     }
 
     # Run runbook
@@ -229,7 +232,10 @@ for environmentId in environments:
         'RunbookId': runbook['Id'],
         'RunbookSnapshotId': runbook['PublishedRunbookSnapshotId'],
         'EnvironmentId': environmentId,
-        'TenantId': tenantId
+        'TenantId': tenantId,
+        'SkipActions': None,
+        'SpecificMachineIds': None,
+        'ExcludedMachineIds': None
     }
     response = requests.post(uri, headers=headers, json=runbook_run)
     response.raise_for_status()
