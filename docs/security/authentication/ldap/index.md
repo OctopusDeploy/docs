@@ -4,7 +4,7 @@ description: Octopus Deploy can use LDAP authentication to identify users.
 position: 20
 ---
 
-Octopus provides an LDAP authentication provider allowing you to utilise an existing LDAP Server to authenticate with Octopus.
+Octopus provides an LDAP authentication provider allowing you to utilize an existing LDAP Server to authenticate with Octopus.
 
 From **Octopus 2021.2**, the LDAP Authentication provider is available out-of-the-box as one of [a number of custom Server extensions](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md) provided as part of the Octopus Deploy installation. It is an open-source project and the source code is available on [GitHub](https://github.com/OctopusDeploy/LdapAuthenticationProvider).
 
