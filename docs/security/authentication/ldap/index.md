@@ -1,14 +1,14 @@
 ---
 title: LDAP Authentication
-description: Octopus Deploy supports a guest login if enabled.
+description: Octopus Deploy can use LDAP authentication to identify users.
 position: 20
 ---
 
-This document will walk you through how to configure the LDAP authentication provider in Octopus Deploy.  This example will enable Octopus Deploy to authenticate to the domain `devopswalker.local`.  
+Octopus provides an LDAP authentication provider allowing you to utilise an existing LDAP Server to authenticate with Octopus.
 
-:::hint
-**Note:** The LDAP Authentication Provider was added in **Octopus 2021.2**. 
-:::
+From **Octopus 2021.2**, the LDAP Authentication provider is available out-of-the-box as one of [a number of custom Server extensions](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md) provided as part of the Octopus Deploy installation. It is an open-source project and the source code is available on [GitHub](https://github.com/OctopusDeploy/LdapAuthenticationProvider).
+
+This guide will walk you through how to configure the LDAP authentication provider in Octopus Deploy.  This example will enable Octopus Deploy to authenticate to the domain `devopswalker.local`.  
 
 ## LDAP background
 
