@@ -78,7 +78,7 @@ After configuring the LDAP authentication provider, you will want to test it.  T
 - External User Lookup
 - External Group Lookup
 
-For the external user lookup, go to {{Configuration,Users}} and select a user account.  Once that screen is loaded, expand the LDAP section under logins and click the `ADD LOGIN` button.  If everything is working correctly, then you will see a modal window similar to this.
+For the external user lookup, navigate to **{{Configuration, Users}}** and select a user account.  Once that screen is loaded, expand the LDAP section under logins and click the `ADD LOGIN` button.  If everything is working correctly, then you will see a modal window similar to this.
 
 ![successful user lookup](images/successful-user-lookup.png)
 
@@ -90,7 +90,7 @@ The error `Unable to connect to the LDAP server.  Please see your administrator 
 
 ![data error code](images/ldap-error-data.png)
 
-The external group lookup is the same as the external user lookup.  Except, go to {{Configuration,Teams}} and select a team.  Then click the button `ADD LDAP GROUP` and perform a search.  If everything is configured correctly, then you will see this message:
+The external group lookup is the same as the external user lookup.  Except, go to **{{Configuration, Teams}}** and select a team.  Then click the button `ADD LDAP GROUP` and perform a search.  If everything is configured correctly, then you will see this message:
 
 ![external group lookup successful](images/external-group-success.png)
 
@@ -98,7 +98,7 @@ If the lookup fails, then perform the same troubleshooting you did for the user 
 
 ## Signing in
 
-After the above tests are successful, it is time to try the next test, logging into Octopus using the LDAP authentication provider.  We recommend creating a test account.  For this example, the test account `Professor Octopus`, was created and added it to the `Developers` group.  Using the default configuration, signing in as `professor.octopus@devopswalker.local`, will get this error:
+After the above tests are successful, it is time to try the next test, logging into Octopus using the LDAP authentication provider.  We recommend creating a test account.  For this example, the test account `Professor Octopus`, was created and added to the `Developers` group.  Using the default configuration, signing in as `professor.octopus@devopswalker.local`, will get this error:
 
 ![UPN Error](images/failed-sign-in.png)
 
@@ -120,10 +120,10 @@ If you encounter errors configuring the LDAP authentication provider you can do 
 
 ### Take Octopus out of the equation
 
-The first recommendation is to use a LDAP lookup tool, such as ldp.exe for Windows, to connect to your directory server over LDAP.  Run that tool from the same server hosting Octopus Deploy.  If that tool cannot connect, then chances are there is a firewall or some other configuration issue you'll need to fix.
+The first recommendation is to use a LDAP lookup tool, such as [ldp.exe](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771022(v=ws.11)) for Windows (or [ldapsearch](https://wiki.debian.org/LDAP/LDAPUtils) for Linux), to connect to your directory server over LDAP.  Run that tool from the same server hosting Octopus Deploy.  If that tool cannot connect, then chances are there is a firewall or some other configuration issue you'll need to fix.
 
 ### Review the logs
 
-You can find all the LDAP failures in the Octopus logs on the Octopus Server.  Lookup the error codes and data codes via Google to see what the specific error is.
+You can find all the LDAP failures in the Octopus logs on the Octopus Server.  Lookup the error codes and data codes to see what the specific error is.
 
 ![data error code](images/ldap-error-data.png)
