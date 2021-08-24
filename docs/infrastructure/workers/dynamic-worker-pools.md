@@ -63,7 +63,7 @@ Each `Windows Server Core 2019` worker is provisioned with a baseline of tools i
 - Powershell Core (latest)
 - Python (3.7.4)
 
-Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md).
+Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md). We recommend execution containers as the preferred option for steps requiring external executables. This allows you to control which version of the tool will be used.
 
 ### Windows Server Core 2016
 
