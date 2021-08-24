@@ -1,7 +1,7 @@
 ---
 title: Guest login
 description: Octopus Deploy supports a guest login if enabled.
-position: 20
+position: 32
 ---
 
 Sometimes you may wish to allow users to access your Octopus Server, without requiring them to create an account. Octopus provides the ability to configure a special guest login for your Octopus Server.
