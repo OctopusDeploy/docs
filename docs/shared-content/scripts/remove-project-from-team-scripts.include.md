@@ -119,3 +119,191 @@ catch (Exception ex)
     return;
 }
 ```
+```python Python3
+import json
+import requests
+from requests.api import get, head
+import csv
+
+def get_octopus_resource(uri, headers, skip_count = 0):
+    items = []
+    skip_querystring = ""
+
+    if '?' in uri:
+        skip_querystring = '&skip='
+    else:
+        skip_querystring = '?skip='
+
+    response = requests.get((uri + skip_querystring + str(skip_count)), headers=headers)
+    response.raise_for_status()
+
+    # Get results of API call
+    results = json.loads(response.content.decode('utf-8'))
+
+    # Store results
+    if hasattr(results, 'keys') and 'Items' in results.keys():
+        items += results['Items']
+
+        # Check to see if there are more results
+        if (len(results['Items']) > 0) and (len(results['Items']) == results['ItemsPerPage']):
+            skip_count += results['ItemsPerPage']
+            items += get_octopus_resource(uri, headers, skip_count)
+
+    else:
+        return results
+
+    
+    # return results
+    return items
+
+octopus_server_uri = 'https://YourURL'
+octopus_api_key = 'API-YourAPIKey'
+headers = {'X-Octopus-ApiKey': octopus_api_key}
+space_name = 'Default'
+project_name = "MyProject"
+team_name = "MyTeam"
+
+# Get space
+uri = '{0}/api/spaces'.format(octopus_server_uri)
+spaces = get_octopus_resource(uri, headers)
+space = next((x for x in spaces if x['Name'] == space_name), None)
+
+# Get project
+uri = '{0}/api/{1}/projects'.format(octopus_server_uri, space['Id'])
+projects = get_octopus_resource(uri, headers)
+project = next((p for p in projects if p['Name'] == project_name), None)
+
+# Get team
+uri = '{0}/api/{1}/teams'.format(octopus_server_uri, space['Id'])
+teams = get_octopus_resource(uri, headers)
+team = next((t for t in teams if t['Name'] == team_name), None)
+
+# Get scoped user roles
+uri = '{0}/api/{1}/teams/{2}/scopeduserroles'.format(octopus_server_uri, space['Id'], team['Id'])
+scoped_user_roles = get_octopus_resource(uri, headers)
+
+for scoped_user_role in scoped_user_roles:
+    if project['Id'] in scoped_user_role['ProjectIds']:
+        scoped_user_role['ProjectIds'].remove(project['Id'])
+
+        # Update the scoped user role
+        print('Removing team {0} from project {1}'.format(team['Name'], project['Name']))
+        uri = '{0}/api/{1}/scopeduserroles/{2}'.format(octopus_server_uri, space['Id'], scoped_user_role['Id'])
+        response = requests.put(uri, headers=headers, json=scoped_user_role)
+        response.raise_for_status()
+```
+```go Go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/url"
+
+	"github.com/OctopusDeploy/go-octopusdeploy/octopusdeploy"
+)
+
+func main() {
+
+    apiURL, err := url.Parse("https://YourURL")
+	if err != nil {
+		log.Println(err)
+	}
+	APIKey := "API-YourAPIKey"
+
+	spaceName := "Default"
+	projectName := "MyProject"
+	teamName := "MyTeam"
+
+	// Get the space object
+	space := GetSpace(apiURL, APIKey, spaceName)
+
+	// Creat client for space
+	client := octopusAuth(apiURL, APIKey, space.ID)
+
+	// Get team
+	team := GetTeam(client, teamName, space)
+
+	// Get project
+	project, err := client.Projects.GetByName(projectName)
+	if err != nil {
+		log.Println(err)
+	}
+
+	// Get the scoped user roles for the team
+	scopedUserRoles, err := client.Teams.GetScopedUserRoles(*team, octopusdeploy.SkipTakeQuery{Skip: 0, Take: 1000})
+	if err != nil {
+		log.Println(err)
+	}
+
+
+	// Loop through scoped user roles
+	for _, scopedUserRole := range scopedUserRoles.Items {
+		if arrayContains(scopedUserRole.ProjectIDs, project.ID) {
+			// Rebuild slice without that Id
+			fmt.Printf("Removing %[1]s from %[2]s \n", team.Name, project.Name)
+			scopedUserRole.ProjectIDs = RemoveFromArray(scopedUserRole.ProjectIDs, project.ID)
+			client.ScopedUserRoles.Update(scopedUserRole)
+		}
+	}
+}
+
+func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Client {
+	client, err := octopusdeploy.NewClient(nil, octopusURL, APIKey, space)
+	if err != nil {
+		log.Println(err)
+	}
+
+	return client
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	// Get specific space object
+	space, err := client.Spaces.GetByName(spaceName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	return space
+}
+
+func GetTeam(client *octopusdeploy.Client, teamName string, space *octopusdeploy.Space) *octopusdeploy.Team {
+	// Get list of teams
+	teams, err := client.Teams.GetByPartialName(teamName)
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, team := range teams {
+		if team.SpaceID == space.ID && team.Name == teamName {
+			return team
+		}
+	}
+
+	return nil
+}
+
+func arrayContains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
+
+func RemoveFromArray(items []string, item string) []string {
+	newItems := []string{}
+	for _, entry := range items {
+		if entry != item {
+			newItems = append(newItems, entry)
+		}
+	}
+
+	return newItems
+}
+```
