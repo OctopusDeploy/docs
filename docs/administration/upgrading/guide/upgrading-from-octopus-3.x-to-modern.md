@@ -40,7 +40,7 @@ Creating a clone of an existing instance involves:
 1. Disable maintenance mode on the main instance.
 1. Restore the backup of the main instance's database as a new database on the desired SQL Server.  
 1. Download the same version of Octopus Deploy as your main instance.
-1. Installing that version on a new server and configure it to point to the existing database.
+1. Installing that version on a new server and configure it to point to the **cloned/restored** database.
 1. Copying all the files from the backed up folders from the source instance.
 1. Optional: Disable all deployment targets.
 1. Upgrade cloned instance.
