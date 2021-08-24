@@ -12,7 +12,7 @@ Most of the authentication providers listed here are available in modern version
 
 ## Login support {#login-support}
 
-The following table shows login support for each authentication provider in Octopus Server, Octopus Cloud and the Octopus Linux Container:
+The following table shows login support for each authentication provider in Octopus Server, Octopus Cloud, and the Octopus Linux Container:
 
 
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
@@ -30,7 +30,7 @@ The following table shows login support for each authentication provider in Octo
 
 ## External groups and roles support {#external-groups-and-roles}
 
-Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server, Octopus Cloud and the Octopus Linux Container:
+Octopus allows [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) to be added as members of Teams in Octopus. The following table shows which authentication providers support this in Octopus Server, Octopus Cloud, and the Octopus Linux Container:
 
 |                                         | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
 |-----------------------------------------|:------------------:|:---------------:|:-----------------------:|
