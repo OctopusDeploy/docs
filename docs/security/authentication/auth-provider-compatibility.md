@@ -13,12 +13,13 @@ The following table shows login support for each authentication provider in Octo
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
 |---------------------------------------|:------------------:|:---------------:|:-----------------------:|
 | Username and Password                 | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
-| Active Directory Authentication       | :white_check_mark: | :x:&nbsp;&nbsp; | :x: |
+| Active Directory Authentication       | :white_check_mark: | :x:&nbsp;&nbsp;&nbsp; | :x: |
 | Azure Active Directory Authentication | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
 | GoogleApps Authentication             | :white_check_mark: | :white_check_mark: **\*** | :white_check_mark: |
-| Okta Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp; | :white_check_mark: |
-| Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp; | :white_check_mark: |
+| LDAP Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp;&nbsp; | :white_check_mark: |
+| Okta Authentication                   | :white_check_mark: | :x:&nbsp;&nbsp;&nbsp; | :white_check_mark: |
 | GitHub                                | :x: | :white_check_mark: **\*** | :x: |
+| Guest Login                           | :white_check_mark: | :white_check_mark:&nbsp;&nbsp;&nbsp; | :white_check_mark: |
 
 **Note:** Entries marked with **\*** are supported via [Octopus ID](octopusid-authentication.md).
 
@@ -28,13 +29,14 @@ Octopus allows [external groups and roles](/docs/security/users-and-teams/extern
 
 |                                       | Octopus Server     | Octopus Cloud   | Octopus Linux Container |
 |---------------------------------------|:------------------:|:---------------:|:-----------------------:|
-| Username and Password                 | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
-| Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
+| Username and Password                 | :x:&nbsp;&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp;&nbsp; |
+| Active Directory Authentication       | :white_check_mark:&nbsp;&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp;&nbsp; |
 | Azure Active Directory Authentication | :white_check_mark: **\*** | :x: | :white_check_mark: **\*** |
-| GoogleApps Authentication             | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
+| GoogleApps Authentication             | :x:&nbsp;&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp;&nbsp; |
+| LDAP Authentication                   | :white_check_mark:&nbsp;&nbsp;&nbsp; | :x: | :white_check_mark: |
 | Okta Authentication                   | :white_check_mark: **†**| :x: | :white_check_mark: **†**|
-| Guest Login                           | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
-| GitHub                                | :x:&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp; |
+| GitHub                                | :x:&nbsp;&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp;&nbsp; |
+| Guest Login                           | :x:&nbsp;&nbsp;&nbsp; | :x: | :x:&nbsp;&nbsp;&nbsp; |
 
 **\*** For Azure Active Directory (AAD) users and groups, these must also be mapped in the Azure App Registration. Please read the [Mapping AAD users into Octopus teams](/docs/security/authentication/azure-ad-authentication.md#mapping-aad-users-into-octopus-teams-optional) section for more details.
 
