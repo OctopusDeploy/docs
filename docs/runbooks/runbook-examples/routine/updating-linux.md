@@ -42,7 +42,7 @@ To create a runbook to perform updates on your Linux machines:
     sudo yum check-update 2>&1
 
     # Check for error
-    if [[ $? -ne 0 ]]
+    if [[ $? -ne 0 && $? -ne 100 ]]
     then
         fail_step "yum check update failed!"
     fi
