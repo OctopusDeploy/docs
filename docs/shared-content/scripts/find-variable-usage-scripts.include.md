@@ -745,8 +745,8 @@ func main() {
 	// Create client object
 	client := octopusAuth(apiURL, APIKey, "")
 
-	// Get all spaces
-	space, err := client.Spaces.GetByName(spaceName)
+	// Get space
+    space := GetSpace(apiURL, APIKey, spaceName)
 
 	client = octopusAuth(apiURL, APIKey, space.ID)
 
@@ -952,5 +952,28 @@ func GetRunbooks(client *octopusdeploy.Client, project *octopusdeploy.Project) [
 	}
 
 	return projectRunbooks
+}
+
+func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
+	client := octopusAuth(octopusURL, APIKey, "")
+
+	spaceQuery := octopusdeploy.SpacesQuery{
+		Name: spaceName,
+	}
+
+	// Get specific space object
+	spaces, err := client.Spaces.Get(spaceQuery)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, space := range spaces.Items {
+		if space.Name == spaceName {
+			return space
+		}
+	}
+
+	return nil
 }
 ```
