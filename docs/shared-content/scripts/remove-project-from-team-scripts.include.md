@@ -225,17 +225,13 @@ func main() {
 	team := GetTeam(client, teamName, space)
 
 	// Get project
-	project, err := client.Projects.GetByName(projectName)
-	if err != nil {
-		log.Println(err)
-	}
+	project := GetProject(apiURL, APIKey, space, projectName)
 
 	// Get the scoped user roles for the team
 	scopedUserRoles, err := client.Teams.GetScopedUserRoles(*team, octopusdeploy.SkipTakeQuery{Skip: 0, Take: 1000})
 	if err != nil {
 		log.Println(err)
 	}
-
 
 	// Loop through scoped user roles
 	for _, scopedUserRole := range scopedUserRoles.Items {
@@ -315,5 +311,29 @@ func RemoveFromArray(items []string, item string) []string {
 	}
 
 	return newItems
+}
+
+func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, projectName string) *octopusdeploy.Project {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	projectsQuery := octopusdeploy.ProjectsQuery {
+		Name: projectName
+	}
+
+	// Get specific project object
+	projects, err := client.Projects.Get(projectsQuery)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, project := range projects.Items {
+		if project.Name == projectName {
+			return project
+		}
+	}
+
+	return nil
 }
 ```

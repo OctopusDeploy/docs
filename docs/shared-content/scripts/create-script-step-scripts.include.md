@@ -274,7 +274,7 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get project
-	project := GetProject(client, projectName)
+	project := GetProject(apiURL, APIKey, space, projectName)
 
 	// Get deployment process
 	deploymentProcess := GetDeploymentProcess(client, project)
@@ -349,21 +349,28 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 
-func GetProject(client *octopusdeploy.Client, projectName string) *octopusdeploy.Project {
-	// Get project
-	project, err := client.Projects.GetByName(projectName)
+func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, projectName string) *octopusdeploy.Project {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	projectsQuery := octopusdeploy.ProjectsQuery {
+		Name: projectName
+	}
+
+	// Get specific project object
+	projects, err := client.Projects.Get(projectsQuery)
 
 	if err != nil {
 		log.Println(err)
 	}
 
-	if project != nil {
-		fmt.Println("Retrieved project " + project.Name)
-	} else {
-		fmt.Println("Project " + projectName + " not found!")
+	for _, project := range projects.Items {
+		if project.Name == projectName {
+			return project
+		}
 	}
 
-	return project
+	return nil
 }
 
 func GetDeploymentProcess(client *octopusdeploy.Client, project *octopusdeploy.Project) *octopusdeploy.DeploymentProcess {

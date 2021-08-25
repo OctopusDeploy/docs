@@ -297,7 +297,7 @@ func main() {
 
 	for i := 0; i < len(projectNames); i++ {
 		// Get the project
-		project := GetProject(client, projectNames[i])
+		project := GetProject(apiURL, APIKey, space, projectNames[i])
 
 		if project != nil {
 			exportProjectIds = append(exportProjectIds, project.ID)
@@ -347,21 +347,28 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 
-func GetProject(client *octopusdeploy.Client, projectName string) *octopusdeploy.Project {
-	// Get project
-	project, err := client.Projects.GetByName(projectName)
+func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, projectName string) *octopusdeploy.Project {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	projectsQuery := octopusdeploy.ProjectsQuery {
+		Name: projectName
+	}
+
+	// Get specific project object
+	projects, err := client.Projects.Get(projectsQuery)
 
 	if err != nil {
 		log.Println(err)
 	}
 
-	if project != nil {
-		fmt.Println("Retrieved project " + project.Name)
-	} else {
-		fmt.Println("Project " + projectName + " not found!")
+	for _, project := range projects.Items {
+		if project.Name == projectName {
+			return project
+		}
 	}
 
-	return project
+	return nil
 }
 
 func ExportProjects(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, exportProjects ExportProject, waitForFinish bool, exportTaskCancelInSeconds int) {

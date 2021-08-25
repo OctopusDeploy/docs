@@ -253,14 +253,14 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 		Name: projectName
 	}
 
+	// Get specific project object
 	projects, err := client.Projects.Get(projectsQuery)
+
 	if err != nil {
 		log.Println(err)
-	} else {
-		fmt.Println("Retrieved project " + project.Name)
 	}
 
-	for _, project := range projects {
+	for _, project := range projects.Items {
 		if project.Name == projectName {
 			return project
 		}
