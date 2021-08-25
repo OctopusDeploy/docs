@@ -175,7 +175,7 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get library set
-	librarySet := GetLirarySet(client, librarySetName)
+	librarySet := GetLibrarySet(apiURL, APIKey, space, librarySetName, 0)
 
 	// Get events
 	projects, err := client.Projects.GetAll()
@@ -236,17 +236,32 @@ func contains(s []string, str string) bool {
 	return false
 }
 
-func GetLirarySet(client *octopusdeploy.Client, librarySetName string) *octopusdeploy.LibraryVariableSet {
-	// Get the library set
-	librarySets, err := client.LibraryVariableSets.GetByPartialName(librarySetName)
+func GetLibrarySet(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, librarySetName string, skip int) *octopusdeploy.LibraryVariableSet {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
 
+	librarySetsQuery := octopusdeploy.LibraryVariablesQuery {
+		Name: librarySetName,
+	}
+
+	librarySets, err := client.LibraryVariableSets.Get(librarySetsQuery)
 	if err != nil {
 		log.Println(err)
 	}
+	
+	if len(librarySets.Items) == librarySets.ItemsPerPage {
+		// call again
+		librarySet := GetLibrarySet(octopusURL, APIKey, space, librarySetName, (skip + len(librarySets.Items)))
 
-	for i := 0; i < len(librarySets); i++ {
-		if librarySets[i].Name == librarySetName {
-			return librarySets[i]
+		if librarySet != nil {
+			return librarySet
+		}
+	} else {
+		// Loop through returned items
+		for _, librarySet := range librarySets.Items {
+			if librarySet.Name == LifecycleName {
+				return librarySet
+			}
 		}
 	}
 
