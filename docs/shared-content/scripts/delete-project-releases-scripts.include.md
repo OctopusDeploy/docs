@@ -199,7 +199,7 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get project
-	project := GetProject(client, projectName)
+	project := GetProject(apiURL, APIKey, space, projectName)
 
 	// Get project releases
 	projectReleases := GetProjectReleases(apiURL, APIKey, space, project)
@@ -226,33 +226,48 @@ func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Clien
 func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
 	client := octopusAuth(octopusURL, APIKey, "")
 
+	spaceQuery := octopusdeploy.SpacesQuery{
+		Name: spaceName,
+	}
+
 	// Get specific space object
-	space, err := client.Spaces.GetByName(spaceName)
+	spaces, err := client.Spaces.Get(spaceQuery)
 
 	if err != nil {
 		log.Println(err)
-	} else {
-		fmt.Println("Retrieved space " + space.Name)
 	}
 
-	return space
+	for _, space := range spaces.Items {
+		if space.Name == spaceName {
+			return space
+		}
+	}
+
+	return nil
 }
 
-func GetProject(client *octopusdeploy.Client, projectName string) *octopusdeploy.Project {
-	// Get project
-	project, err := client.Projects.GetByName(projectName)
+func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, projectName string) *octopusdeploy.Project {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	projectsQuery := octopusdeploy.ProjectsQuery {
+		Name: projectName,
+	}
+
+	// Get specific project object
+	projects, err := client.Projects.Get(projectsQuery)
 
 	if err != nil {
 		log.Println(err)
 	}
 
-	if project != nil {
-		fmt.Println("Retrieved project " + project.Name)
-	} else {
-		fmt.Println("Project " + projectName + " not found!")
+	for _, project := range projects.Items {
+		if project.Name == projectName {
+			return project
+		}
 	}
 
-	return project
+	return nil
 }
 
 func GetProjectReleases(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, project *octopusdeploy.Project) []interface{} {

@@ -300,22 +300,23 @@ func GetEnvironment(octopusURL *url.URL, APIKey string, space *octopusdeploy.Spa
 	return nil
 }
 
-func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, ProjectName string) *octopusdeploy.Project {
+func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, projectName string) *octopusdeploy.Project {
+	// Create client
 	client := octopusAuth(octopusURL, APIKey, space.ID)
 
 	projectsQuery := octopusdeploy.ProjectsQuery {
-		Name: ProjectName
+		Name: projectName,
 	}
 
+	// Get specific project object
 	projects, err := client.Projects.Get(projectsQuery)
+
 	if err != nil {
 		log.Println(err)
-	} else {
-		fmt.Println("Retrieved project " + project.Name)
 	}
 
-	for _, project := range projects {
-		if project.Name == ProjectName {
+	for _, project := range projects.Items {
+		if project.Name == projectName {
 			return project
 		}
 	}

@@ -183,11 +183,7 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get project
-	project, err := client.Projects.GetByName(projectName)
-
-	if err != nil {
-		log.Println(err)
-	}
+	project := GetProject(apiURL, APIKey, space, projectName)
 
 	// Get runbook
 	runbook := GetRunbook(client, project, runbookName)
@@ -212,14 +208,24 @@ func octopusAuth(octopusURL *url.URL, APIKey, space string) *octopusdeploy.Clien
 func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdeploy.Space {
 	client := octopusAuth(octopusURL, APIKey, "")
 
+	spaceQuery := octopusdeploy.SpacesQuery{
+		Name: spaceName,
+	}
+
 	// Get specific space object
-	space, err := client.Spaces.GetByName(spaceName)
+	spaces, err := client.Spaces.Get(spaceQuery)
 
 	if err != nil {
 		log.Println(err)
 	}
 
-	return space
+	for _, space := range spaces.Items {
+		if space.Name == spaceName {
+			return space
+		}
+	}
+
+	return nil
 }
 
 func GetRunbook(client *octopusdeploy.Client, project *octopusdeploy.Project, runbookName string) *octopusdeploy.Runbook {
@@ -273,5 +279,29 @@ func GetRunbookSnapshot(octopusURL *url.URL, APIKey string, space *octopusdeploy
 	}
 
 	return ""
+}
+
+func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, projectName string) *octopusdeploy.Project {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	projectsQuery := octopusdeploy.ProjectsQuery {
+		Name: projectName,
+	}
+
+	// Get specific project object
+	projects, err := client.Projects.Get(projectsQuery)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, project := range projects.Items {
+		if project.Name == projectName {
+			return project
+		}
+	}
+
+	return nil
 }
 ```
