@@ -158,10 +158,7 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get machine
-	machines, err := client.Machines.GetByName(machineName)
-	if err != nil {
-		log.Println(err)
-	}
+	machine := GetTarget(apiURL, APIKey, space, machineName)
 
 	// Loop through returned machines
 	for i := 0; i < len(machines); i++ {
@@ -204,4 +201,29 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 
 	return nil
 }
+
+func GetTarget(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, targetName string) *octopusdeploy.DeploymentTarget {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	machinesQuery := octopusdeploy.MachinesQuery{
+		Name: targetName,
+	}
+
+	// Get specific machine object
+	machines, err := client.Machines.Get(machinesQuery)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	for _, machine := range machines.Items {
+		if machine.Name == targetName {
+			return machine
+		}
+	}
+
+	return nil
+}
+
 ```

@@ -1208,7 +1208,7 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get target
-	target := GetMachineByName(client, targetName)
+    machine := GetTarget(apiURL, APIKey, space, targetName)
 
 	if err != nil {
 		log.Println(err)
@@ -1458,17 +1458,24 @@ func GetChannels(client *octopusdeploy.Client, project *octopusdeploy.Project) [
 	return results
 }
 
-func GetMachineByName(client *octopusdeploy.Client, targetName string) *octopusdeploy.DeploymentTarget {
-	// Get targets
-	targets, err := client.Machines.GetByName(targetName)
+func GetTarget(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, targetName string) *octopusdeploy.DeploymentTarget {
+	// Create client
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	machinesQuery := octopusdeploy.MachinesQuery{
+		Name: targetName,
+	}
+
+	// Get specific machine object
+	machines, err := client.Machines.Get(machinesQuery)
 
 	if err != nil {
 		log.Println(err)
 	}
 
-	for _, target := range targets {
-		if target.Name == targetName {
-			return target
+	for _, machine := range machines.Items {
+		if machine.Name == targetName {
+			return machine
 		}
 	}
 

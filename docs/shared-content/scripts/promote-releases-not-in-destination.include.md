@@ -520,9 +520,8 @@ func main() {
 	client := octopusAuth(apiURL, APIKey, space.ID)
 
 	// Get source environment
-	sourceEnvironment := GetEnvironmentByName(client, sourceEnvironmentName)
-
-	destinationEnvironment := GetEnvironmentByName(client, destinationEnvironmentName)
+    sourceEnvironment := GetEnvironment(apiURL, APIKey, space, sourceEnvironmentName)
+    destinationEnvironment := GetEnvironment(apiURL, APIKey, space, destinationEnvironmentName)
 
 	// Loop through projects
 	for _, projectName := range projectNames {
@@ -654,13 +653,21 @@ func GetUserRoleByName(client *octopusdeploy.Client, roleName string) *octopusde
 	return nil
 }
 
-func GetEnvironmentByName(client *octopusdeploy.Client, environmentName string) *octopusdeploy.Environment {
-	environments, err := client.Environments.GetByName(environmentName)
+func GetEnvironment(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, environmentName string) *octopusdeploy.Environment {
+	// Get client for space
+	client := octopusAuth(octopusURL, APIKey, space.ID)
+
+	// Get environment
+	environmentsQuery := octopusdeploy.EnvironmentsQuery {
+		Name: environmentName,		
+	}
+	environments, err := client.Environments.Get(environmentsQuery)
 	if err != nil {
 		log.Println(err)
 	}
 
-	for _, environment := range environments {
+	// Loop through results
+	for _, environment := range environments.Items {
 		if environment.Name == environmentName {
 			return environment
 		}
