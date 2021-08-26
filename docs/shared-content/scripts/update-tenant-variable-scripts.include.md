@@ -453,7 +453,7 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 
 func GetTenant(client *octopusdeploy.Client, tenantName string, skip int) *octopusdeploy.Tenant {
 	tenantQuery := octopusdeploy.TenantsQuery{
-		Name: tenantName,
+		PartialName: tenantName,
 	}
 
 	// Get tenants
