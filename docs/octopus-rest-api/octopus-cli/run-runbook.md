@@ -15,8 +15,8 @@ Where [<options>] is any of:
 
 Run Runbook:
 
-      --project=VALUE        Name or ID of the project. This is optional if
-                             the runbook argument is an ID
+      --project=VALUE        Name or ID of the project that contains the
+                             Runbook. This is required.
       --runbook=VALUE        Name or ID of the runbook. If the name is
                              supplied, the project parameter must also be
                              specified.
@@ -61,7 +61,7 @@ Run Runbook:
                              DateTimeOffset format, and assuming the time
                              zone is the current local time zone.
   -v, --variable=VALUE       [Optional] Specifies the value for a prompted
-                             variable in the format Label:Value. For JSON
+                             variable in the format Name:Value. For JSON
                              values, embedded quotation marks should be
                              escaped with a backslash.
       --waitForRun           [Optional] Whether to wait synchronously for
