@@ -22,6 +22,10 @@ Release creation:
                              Default version number of all packages to use
                              for this release. Override per-package using --
                              package.
+      --gitCommit=VALUE      [Optional, Experimental] Git commit to use when
+                             creating the release. Use in conjunction with
+                             the --gitRef parameter to select any previous
+                             commit.
       --ref, --gitRef=VALUE  [Optional, Experimental] Git reference to use
                              when creating the release.
       --version, --releaseNumber=VALUE
