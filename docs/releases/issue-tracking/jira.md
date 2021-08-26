@@ -5,7 +5,8 @@ position: 20
 ---
 
 Octopus integrates with Jira issues. The integration includes the ability to:
-- Automatically add links to Jira issues from releases and deployments in Octopus.
+
+- Automatically add links to Jira issues in your Octopus releases and deployments.
 - View release and deployment details from Jira issues (Jira Cloud only).
 
 ## How Jira integration works {#how-jira-integration-works}

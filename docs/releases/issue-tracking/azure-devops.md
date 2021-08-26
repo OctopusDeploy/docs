@@ -5,7 +5,8 @@ position: 40
 ---
 
 Octopus integrates with Azure DevOps work items. The integration includes the ability to:
-- Automatically add links to Azure DevOps work items from releases and deployments in Octopus.
+
+- Automatically add links to Azure DevOps work items in your Octopus releases and deployments.
 - Retrieve release notes from Azure DevOps work item comments for automatic release note generation.
 
 ## How Azure DevOps integration works
@@ -33,6 +34,10 @@ The ability to push the build information to Octopus, which is required for Azur
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
  - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
+
+### Deployment updates not supported {#deployment-updates-unsupported}
+
+The Azure DevOps integration does **not support** the ability to have Octopus release and deployment information displayed within Azure Devops work items.
 
 ## Configuring Azure DevOps Integration
 
