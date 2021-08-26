@@ -1,6 +1,6 @@
 ---
 title: Azure DevOps and TFS package management
-description: Configuring an Azure Devops or TFS package management NuGet feed as an Octopus feed.
+description: Configuring an Azure DevOps or TFS package management NuGet feed as an Octopus feed.
 position: 40
 ---
 

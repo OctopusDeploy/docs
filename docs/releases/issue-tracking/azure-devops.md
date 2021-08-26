@@ -37,7 +37,7 @@ The ability to push the build information to Octopus, which is required for Azur
 
 ### Deployment updates not supported {#deployment-updates-unsupported}
 
-The Azure DevOps integration does **not support** the ability to have Octopus release and deployment information displayed within Azure Devops work items.
+The Azure DevOps integration does **not support** the ability to have Octopus release and deployment information displayed within Azure DevOps work items.
 
 ## Configuring Azure DevOps Integration
 
