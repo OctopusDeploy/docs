@@ -19,8 +19,8 @@ Install AutoComplete:
 
       --shell=VALUE          The type of shell to install auto-complete
                              scripts for. This will alter your shell
-                             configuration files. Supported shells are Pwsh,
-                             Zsh, Bash and Powershell.
+                             configuration files. Supported shells are Bash,
+                             Powershell, Pwsh and Zsh.
       --dryRun               [Optional] Dry run will output the proposed
                              changes to console, instead of writing to disk.
 

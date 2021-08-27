@@ -23,6 +23,7 @@ hideInThisSection: true
 - **[create-release](/docs/octopus-rest-api/octopus-cli/create-release.md)**:  Creates (and, optionally, deploys) a release.
 - **[create-workerpool](/docs/octopus-rest-api/octopus-cli/create-workerpool.md)**:  Creates a pool for workers.
 - **[delete-autodeployoverride](/docs/octopus-rest-api/octopus-cli/delete-autodeployoverride.md)**:  Deletes auto deploy release overrides.
+- **[delete-package](/docs/octopus-rest-api/octopus-cli/delete-package.md)**:  Deletes a package from the built-in NuGet repository in an Octopus Server.
 - **[delete-releases](/docs/octopus-rest-api/octopus-cli/delete-releases.md)**:  Deletes a range of releases.
 - **[deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release.md)**:  Deploys a release.
 - **[dump-deployments](/docs/octopus-rest-api/octopus-cli/dump-deployments.md)**:  Writes deployments to an XML file that can be imported in Excel.
