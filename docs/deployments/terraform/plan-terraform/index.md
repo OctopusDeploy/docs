@@ -27,6 +27,21 @@ Saving variable "Octopus.Action[Plan Apply].Output.TerraformPlanOutput" with the
 
 This log message indicates the output variable that was created with the plan text (the name of the step, `Plan Apply` in this case, will reflect the name you assigned to the plan step).
 
+Selecting the **JSON output** option configures Terraform to generate JSON output for any planning steps. Each JSON blob is captured in a variable like `Octopus.Action[Plan Apply].Output.TerraformPlanLine[#].JSON`, with `#` replaced by a number.
+
+This variable format can be used with Octostache loops:
+
+```Powershell
+#{each output in Octopus.Action[Plan Apply].Output.TerraformPlanLine}
+Write-Host 'JSON Output line #{output}: #{output.JSON}'
+#{/each}
+```
+
+The resource change counts are captured in the following variables:
+* `Octopus.Action[Plan Apply].Output.TerraformPlanJsonAdd`
+* `Octopus.Action[Plan Apply].Output.TerraformPlanJsonRemove`
+* `Octopus.Action[Plan Apply].Output.TerraformPlanJsonChange`
+
 ## Manual intervention
 
 Typically the result of a plan will be displayed in a Manual Intervention step. Because the plan text can contain markdown characters, the variable should be wrapped up in back ticks to display it verbatim.
