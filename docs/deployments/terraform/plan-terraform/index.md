@@ -19,6 +19,10 @@ The plan steps do not support saving the plan to a file and applying that file a
 
 ## Plan outputs
 
+Terraform planning steps can output the plan details in either plain text or JSON.
+
+### Plain text output
+
 When a plan steps is run, the output will include a line that looks like this:
 
 ```
@@ -26,6 +30,8 @@ Saving variable "Octopus.Action[Plan Apply].Output.TerraformPlanOutput" with the
 ```
 
 This log message indicates the output variable that was created with the plan text (the name of the step, `Plan Apply` in this case, will reflect the name you assigned to the plan step).
+
+### JSON output
 
 Selecting the **JSON output** option configures Terraform to generate JSON output for any planning steps. Each JSON blob is captured in a variable like `Octopus.Action[Plan Apply].Output.TerraformPlanLine[#].JSON`, with `#` replaced by a number.
 
