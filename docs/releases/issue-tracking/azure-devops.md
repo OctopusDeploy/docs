@@ -79,7 +79,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
-When configured, this integration will retrieve Azure DevOps work item details and add details to your releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
+When configured, this integration will retrieve Azure DevOps work item details and add details about them in your Octopus releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
 
 ## Learn more
 
