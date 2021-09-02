@@ -77,10 +77,10 @@ This example lists the tenants on the default space:
 octo list-tenants --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
-This example lists the tenants in the space [Tenants - SaaS](https://samples.octopus.app/app#/Spaces-2):
+This example lists the tenants in the space [Pattern - Tenants](https://samples.octopus.app/app#/Spaces-682):
 
 ```text
-octo list-tenants --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Tenants - SaaS"
+octo list-tenants --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Pattern - Tenants"
 ```
 
 ## Learn more
