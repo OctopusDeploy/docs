@@ -87,7 +87,7 @@ foreach ($project in $projects)
             foreach($prop in $props) 
             {
                 $propName = $prop.Name                
-                $json = $step.$propName | ConvertTo-Json -Compress
+                $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
                 if($null -ne $json -and ($json -like "*$variableToFind*")) {
                     $result = [pscustomobject]@{
                         Project = $project.Name
@@ -123,7 +123,7 @@ foreach ($project in $projects)
                 foreach($prop in $props) 
                 {
                     $propName = $prop.Name                
-                    $json = $step.$propName | ConvertTo-Json -Compress
+                    $json = $step.$propName | ConvertTo-Json -Compress -Depth 10
                     if($null -ne $json -and ($json -like "*$variableToFind*")) {
                         $result = [pscustomobject]@{
                             Project = $project.Name
