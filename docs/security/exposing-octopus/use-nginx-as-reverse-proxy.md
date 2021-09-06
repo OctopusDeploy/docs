@@ -182,7 +182,7 @@ ADMIN_PASSWORD=REPLACE ME!
 # Email associated with the default created user. If empty will default to octopus@example.local
 ADMIN_EMAIL=test@test.com
 
-# Accept the Microsoft Sql Server Eula found here: https://hub.docker.com/r/microsoft/mssql-server-windows-express/
+# Accept the Microsoft Sql Server Eula found here: https://go.microsoft.com/fwlink/?linkid=857698
 ACCEPT_EULA=Y
 
 # Use of this Image means you must accept the Octopus Deploy Eula found here: https://octopus.com/company/legal

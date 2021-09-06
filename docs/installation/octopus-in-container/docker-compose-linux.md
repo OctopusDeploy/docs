@@ -1,6 +1,6 @@
 ---
 title: Octopus Linux Container with Docker Compose
-description: A fully self-contained SQL Server and Octopus Server
+description: A fully self-contained SQL Server and Octopus Server provisioned as Linux containers using Docker Compose
 position: 15
 ---
 :::warning
@@ -83,7 +83,7 @@ ADMIN_PASSWORD=
 # Email associated with the default created user. If empty will default to octopus@example.local
 ADMIN_EMAIL=
 
-# Accept the Microsoft Sql Server Eula found here: https://hub.docker.com/r/microsoft/mssql-server-windows-express/
+# Accept the Microsoft Sql Server Eula found here: https://go.microsoft.com/fwlink/?linkid=857698
 ACCEPT_EULA=Y
 
 # Use of this Image means you must accept the Octopus Deploy Eula found here: https://octopus.com/company/legal
@@ -135,11 +135,11 @@ When both containers are healthy, you can browse directly to `http://localhost:8
 
 ## Upgrade with Docker Compose
 
-If you have used the default image tag of `latest`, you can run `docker-compose pull` to download the most recent version of the image. Alternatively you can specify a fixed image tage via the `OCTOPUS_SERVER_TAG` property, and update the value as new images are released.
+If you have used the default image tag of `latest`, you can run `docker-compose pull` to download the most recent version of the image. Alternatively you can specify a fixed image tag via the `OCTOPUS_SERVER_TAG` property, and update the value as new images are released.
 
 The new Octopus container will mount the files persisted in the Docker volumes, and update the database as needed.
 
-For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) pages. It is generally advised, however, not to run SQL Server inside a container for production purposes.
+For further information about the additional configuration of the SQL Server container consult the appropriate [Docker Hub repository information](https://hub.docker.com/_/microsoft-mssql-server) pages. It is generally advised, however, not to run SQL Server inside a container for production purposes.
 
 ## Learn more
 
