@@ -36,6 +36,12 @@ Health check steps are added to deployment and runbook processes in the same way
     - Ignore any newly available deployment targets (default)
     - Include new deployment targets in the deployment - This option is recommended in dynamic deployments that involve targets that are created as part of the _current deployment_.
 
+## Maximum number of concurrent health checks
+
+There is a limit to the number of concurrent health checks possible when running the health check step. This ensures that the step doesn't adversely effect the performance of your Octopus Server.
+
+The number of concurrent health checks will be double the Octopus Server's logical processor count which is a minimum of 2 and will not exceed 32.
+
 ## Health check for workers
 
 Whilst the built-in Health check step works for deployment targets, it was not designed for [Workers](/docs/infrastructure/workers/index.md).
