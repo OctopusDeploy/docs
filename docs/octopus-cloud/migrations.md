@@ -1,10 +1,12 @@
 ---
-title: Migrating between self-hosted and Octopus Cloud
+title: Migrating from Octopus Server to Octopus Cloud
 position: 40
-description:  Migrating between self-hosted and Octopus Cloud.
+description:  Migrating from Octopus Server to Octopus Cloud.
 ---
 
-This guide will walk you through a general set of steps to take to migrate your self-hosted instance to Octopus Cloud.  It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please [email our support team](mailto:support@octopus.com). We're always happy to help, and we can provide more specific information when you are ready to migrate.
+This guide will walk you through a general set of steps to take to migrate your self-hosted instance to Octopus Cloud.  This guide was written to minimize risk and keep any potential downtime as low as possible.
+
+It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please [email our support team](mailto:support@octopus.com). We're always happy to help, and we can provide more specific information when you are ready to migrate.
 
 :::hint
 This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
@@ -27,15 +29,19 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 Octopus Cloud and Octopus Server are built on the same code base.  The differences stem from the additional configuration steps we perform during the Octopus Cloud build.  The differences are:
 
 - Octopus Cloud users cannot be Octopus Administrators, the "highest" level of permission possible is [Octopus Manager](/docs/octopus-cloud/permissions.md).
-- Octopus Cloud users are managed via [OctopusID](/docs/security/authentication/octopusid-authentication.md), which at the time of this writing, has [no support for external groups and roles support](/docs/security/authentication/auth-provider-compatibility.md).
+- Octopus Cloud users are managed via [OctopusID](/docs/security/authentication/octopusid-authentication.md), which at the time of this writing, has [no support for external groups and roles](/docs/security/authentication/auth-provider-compatibility.md).
 - Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits).
 - Octopus Cloud does not support running tasks on the server itself.  Everything must run on a deployment target or worker.  To help, Octopus Cloud includes [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools.md) with both Windows and Linux workers.
 
-Before starting your migration, please ensure you are familiar with these key differences (and limitations).  If any of these limitations are deal-breakers, we'd love to know; please [email our support team](mailto:support@octopus.com).  We are constantly improving Octopus Cloud; a current limit has a genuine chance of changing in the future.
+Before starting your migration, please ensure you are familiar with these fundamental differences (and limitations).  Depending on your requirements, Octopus Cloud, in its current form, might not be suitable for you.  If any of these limitations are deal-breakers, we'd love to know; please [email our support team](mailto:support@octopus.com).  We are constantly improving Octopus Cloud; a current limit has a genuine chance of changing in the future.
 
 ### Upgrading your Octopus Server instance
 
 The [Export/Import Projects](/docs/projects/export-import/index.md) feature released in **Octopus 2021.1** requires the source Octopus Deploy server (your local Octopus Server instance) to be running the same major/minor as the destination Octopus Deploy server (your Octopus Cloud instance).  Data models and functionality change between major/minor versions of Octopus.  For example, in **Octopus 2021.2** we added Google Cloud support.  If you exported a project referencing a Google Cloud account to an instance running **Octopus 2021.1**, it would fail because it has no concept of Google Cloud.
+
+:::warning
+Your self-hosted Octopus Server instance **MUST** be running the same major/minor release as your Octopus Cloud instance.
+:::
 
 ### Listening or Polling Tentacles
 
@@ -75,7 +81,7 @@ Our recommendation is to:
 3. Change your deployment and runbook processes to target the appropriate worker pool.  You can leverage [worker pool variables](/docs/projects/variables/worker-pool-variables.md) to change worker pools per environment.  Ensure all deployments and runbooks work as expected.
 
 :::warning
-Please do not skip Step 3 above, as it will make sure you are migrating from a known good state.  If you change to workers _after_ migration to Octopus Cloud, you will have changed two things, making it much harder to troubleshoot.
+Please do not skip Step 3.  In doing step 3, you will start your migration in a known good state.  If you change to workers _after_ migration to Octopus Cloud, you will have changed two things (workers and your instance), making it much harder to troubleshoot.
 :::
 
 ### Testing External Package Repository Connectivity
@@ -84,7 +90,7 @@ If you use an external package repository, such as a self-hosted Artifactory ins
 
 ### Proof of Concept Deployments
 
-Set up a couple of sample projects to deploy to your servers.  This will be a final "plugs-out" test to ensure you are ready to start your migration.
+Set up a couple of sample projects to deploy to your servers.  That will be a final "plugs-out" test to ensure you are ready to start your migration.
 
 ## Migration
 
@@ -158,9 +164,9 @@ Disabling a project will prevent it from being able to create and deploy release
 
 If anything goes wrong immediately after the migration, you can re-enable this project so your application can still be deployed while troubleshooting the migration.
 
-### Deprecate your Octopus Server instance
+## Deprecate your Octopus Server instance
 
-Eventually, you will migrate all your projects over to Octopus Cloud.  When that day comes, we recommend [turning on maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and setting the [task cap to 0](/docs/support/increase-the-octopus-server-task-cap.md) on your Octopus Server.  That will turn your Octopus Server into "read-only" mode, and no new deployments will be triggered.  Keep this running for a short while to review any old audit logs.
+Eventually, you will migrate all your projects over to Octopus Cloud.  When that day comes, we recommend [turning on maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode.md) and setting the [task cap to 0](/docs/support/increase-the-octopus-server-task-cap.md) on your Octopus Server.  That will make your Octopus Server read-only.  No new deployments will be triggered.  Keep this running for a short while to review any old audit logs.
 
 At this point, we recommend deleting all the tentacle instances still pointing to your Octopus Server instance.  You can run this script in the [script console](/docs/administration/managing-infrastructure/script-console.md) to delete the original tentacle instance.  Please test this on a few non-production servers first.
 
@@ -168,10 +174,12 @@ At this point, we recommend deleting all the tentacle instances still pointing t
 & "C:\Program Files\Octopus Deploy\tentacle\tentacle.exe" delete-instance --instance="Tentacle"
 ```
 
-After some time, decided upon by you, you can turn off the Octopus Server completely.  Take a backup of the database and delete all the appropriate resources.
+In our experience, most people turn off their Octopus Server in about three to six months.  When you decide to turn off your Octopus server, first take a full backup of the database and delete all the appropriate resources.
 
 ## No Longer Offered or Supported
 
 Before the **Export/Import Projects** feature, we offered a manual migration process.  With the release of that feature, we no longer offer manual migrations from a self-hosted Octopus Server to Octopus Cloud and vice-versa. 
 
 Please note that our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
+
+The legacy [Data Migration](/docs/administration/data/data-migration.md) included with Octopus Deploy is **not supported** for migrations to cloud instances.  That tool is a Windows command-line application that must be run directly on the server hosting Octopus Deploy via an RDP session.  Octopus Cloud runs on our Linux Container image on a Kubernetes Cluster.
