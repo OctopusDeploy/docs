@@ -10,8 +10,9 @@ Octopus Deploy supports the most common authentication providers out-of-the-box,
 - [Active Directory Authentication](/docs/security/authentication/active-directory/index.md)
 - [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication.md)
 - [GoogleApps Authentication](/docs/security/authentication/googleapps-authentication.md)
+- [LDAP Authentication](/docs/security/authentication/ldap/index.md)
 - [Okta Authentication](/docs/security/authentication/okta-authentication.md)
-- [Octopus ID](octopusid-authentication.md)
+- [Octopus ID](/docs/security/authentication/octopusid-authentication.md)
 - [Guest Login](/docs/security/authentication/guest-login.md)
 
 :::hint
