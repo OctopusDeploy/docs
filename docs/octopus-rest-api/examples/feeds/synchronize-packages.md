@@ -13,7 +13,7 @@ Provide values for:
     - **FileVersions** - sync versions specified in the file specified by the `Path` parameter.
     - **LatestVersion** - sync the latest version of packages in the built-in feed.
     - **AllVersions** - sync all versions of packages in the built-in feed.
-- `Path` - the path to a file containing details of the packages and versions to sync. The file input format is:
+- `PackageListFilePath` - the path to a file containing details of the packages and versions to sync. The file input format is:
 
     ```json
     [
@@ -48,7 +48,7 @@ This example takes packages specified in the `packages.json` file, finding all v
 ```powershell
 /SyncPackages.ps1 `
 -VersionSelection AllVersions `
--Path "packages.json" `
+-PackageListFilePath "packages.json" `
 -SourceUrl https://source.octopus.app `
 -SourceApiKey "API-SOURCEKEY" `
 -SourceSpace "Default" `
