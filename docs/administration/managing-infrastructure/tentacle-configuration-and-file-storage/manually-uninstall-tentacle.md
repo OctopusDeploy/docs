@@ -49,9 +49,9 @@ This will also remove your deployed applications if you have not configured Tent
 :::
 4. Find and delete the Octopus registry entries from the following locations:
     * **`HKLM\SOFTWARE\Octopus`** 
-    * **`HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Installer\Products`**
-    * **`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData`**
-    * **`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
+    * **`HKLM\SOFTWARE\Classes\Installer\Products`**
+    * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData`**
+    * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
 5. Find and delete any Octopus folders from:
     * **`%ProgramData%\Octopus`** - used for storing instance configuration and can be used for log files when a Home Directory cannot be discovered
     * **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
