@@ -52,7 +52,7 @@ This will also remove your deployed applications if you have not configured Tent
 4. Find and delete the Octopus Tentacle registry entries from the following locations:
 Entire Folder:
     * **`HKLM\SOFTWARE\Octopus\Tentacle`**
-Octopus Tentacle Specific Registries - Check in each folder for a key with DisplayName "Octopus Tetacle" and remove the folder that key resides in.
+Octopus Tentacle Specific Registries - Check in each folder for a key with a **DisplayName** of `Octopus Tentacle` and remove the folder where that key resides.
     * **`HKLM\SOFTWARE\Classes\Installer\Products`** 
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for a **DisplayName** of  `Octopus Tentacle`.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
