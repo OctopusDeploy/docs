@@ -48,16 +48,17 @@ These steps will remove all traces of Octopus Tentacle from your computer:
 This will also remove your deployed applications if you have not configured Tentacle to use a different Application folder. See below for more details.
 :::
 
-
 4. Find and delete the Octopus Tentacle registry entries from the following locations:
 Entire Folder:
     * **`HKLM\SOFTWARE\Octopus\Tentacle`**
-Octopus Tentacle Specific Registries - Check in each folder for a key with a **DisplayName** of `Octopus Tentacle` and remove the folder where that key resides.
+Octopus Tentacle Specific Registries - Check in each folder for a key with a DisplayName of **`Octopus Tentacle`** and remove the folder where that key resides.
     * **`HKLM\SOFTWARE\Classes\Installer\Products`** 
-    * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for a **DisplayName** of  `Octopus Tentacle`.
+    * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for a DisplayName of **`Octopus Tentacle`**.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
+
 :::problem
-Removing entries from the Registry can have serious implications. Please make sure you understand and are comfortable with the potentail risks. Remember to backup the keys before any registries are modified! Feel free to reach out to support@octopus.com for assistance.
+**Take care removing registry entries**
+Removing entries from the registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always backup any keys before they are modified. If you have any questions or need assistance, please [email our support team](mailto:support@octopus.com).
 :::
 
 5. Find and delete any Octopus folders from:
