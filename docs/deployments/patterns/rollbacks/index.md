@@ -52,6 +52,55 @@ However, there are certain scenarios where a rollback is the best solution.  Hav
 - Are there any other steps that should be skipped?
 - Should certain steps _only_ run during a rollback?
 
+For example, consider a project that has the following steps:
+
+1. Run a runbook to create the database if not exists.
+1. Deploy the database changes.
+1. Deploy a windows service.
+1. Deploy an IIS website.
+1. Pause deployment for manual verification of application.
+1. Notify stakeholders of deployment.
+
+Re-running that deployment process as-is for a rollback could lead to data loss (depending on the database deployment tool).  In addition, the deploy a windows service and deploy an IIS website will extract the package into a newly created folder, run any predeploy/deploy/postdeploy scripts, and perform configuration transforms.  
+
+Depending on your application, all of that is perfectly okay.  In talking with some of our customers, extracting packages, running scripts and performing configuration transforms is sub-optimal.  What they'd prefer is the ability to point to the folder created during the first deployment.  _How_ that is accomplished is dependent upon the underlying application framework and host operating system.  Please see the guides in this section for further details on how to accomplish that.
+
+### Skip If Already Installed
+
+Adding the variable `Octopus.Action.Package.SkipIfAlreadyInstalled` with a value of `True` will short-circuit the package installation process for steps run on Windows or Linux targets.  When present, Calamari will check the `DeploymentJournal.xml` file for the package.  If that package is found in the deployment journal it will set the output variable `Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath` to the previously installed location and exit the step.
+
+### Previous Deployments System Variables
+
+Octopus provides a number of system variables containing information about the previous deployment, and the current release number in the environment.  
+
+- `Octopus.Deployment.PreviousSucessful.Id`: The ID (`deployments-122`) of the previous **successful** deployment of this project in the target environment.
+- `Octopus.Release.Previous.Id`: The ID (`releases-122`) of the last release of the project.
+- `Octopus.Release.Previous.Number`: The number (`1.2.2`) of the last release of the project.
+- `Octopus.Release.PreviousForEnvironment.Id`: The ID (`releases-122`) of the last release deployed to the current environment.
+- `Octopus.Release.PreviousForEnvironment.Number`: The number (`1.2.2`) of the last release deployed to the current environment.
+- `Octopus.Release.CurrentForEnvironment.Id`: The ID (`releases-122`) of the last **successful** release deployed to the current environment.
+- `Octopus.Release.CurrentForEnvironment.Number`: The ID (`releases-122`) of the last **successful** release deployed to the current environment.
+- `Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory`: The directory (`C:\InetPub\WWWRoot\OctoFx`) into which the previous version of the package was deployed.
+- `Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath`: The directory (`C:\Octopus\Tentacle\Apps\Production\OctoFx\1.2.2`) into which the previous version of the package was extracted.
+- `Octopus.Tentacle.PreviousInstallation.PackageFilePath`: The path to the package file previously deployed (`C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg`).
+- `Octopus.Tentacle.PreviousInstallation.PackageVersion`: The previous version (`1.2.3`) of the package that was deployed to the Tentacle.
+
+### Staging Your Deployments
+
+In our experience, deployments have the highest chance of success (and rollbacks), when they are deployed to the target environment in a "staging" area.  The deployment is then verified, and assuming everything checks out the "staging" area becomes live.  If there is a problem, the deployment is aborted and all the pre-exiting configuration remains untouched.
+
+That is the core concept around deployment patterns:
+
+- [Blue/Green Deployments](https://martinfowler.com/bliki/BlueGreenDeployment.html)
+- [Red/Black Deployments](https://octopus.com/blog/blue-green-red-black)
+- [Canary Deployments](https://martinfowler.com/bliki/CanaryRelease.html)
+
+In addition, a lot of popular tools have similar concepts and provide the necessary tools
+
+- [Azure Web App "Staging" slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots)
+- [Kubernetes Blue/Green Deployments](https://octopus.com/blog/deconstructing-blue-green-deployments)
+- [Canary Deployments on AWS Lambda Functions](https://aws.amazon.com/blogs/compute/implementing-canary-deployments-of-aws-lambda-functions-with-alias-traffic-shifting/)
+
 ## Deciding to rollback
 
 Deciding to rollback can be a complex decision.  During a deployment we typically see a user pass through multiple "go/no-go" decision gates.
@@ -72,3 +121,7 @@ Before making the decision to rollback we asking yourself the following:
 - How long have the changes "been live" for users to use?  Will they notice if a rollback were occur?
 
 Keep in mind, when you rollback a component or an entire application you cannot cherry pick which change to rollback.  Everything goes, or none of it goes.
+
+### Automatic Trigger of Rollbacks
+
+Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md), or the [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  While this is possible, this is not something we recommend unless you have a robust testing suite to avoid any "false positives" that would cause a rollback to be triggered.  Starting out, we recommend manually triggering the rollback.  Once you are confident in your rollback process then look into updating your process to be automatically triggered.
