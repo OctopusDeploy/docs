@@ -54,7 +54,7 @@ Entire Folder:
     * **`HKLM\SOFTWARE\Octopus\Tentacle`**
 Octopus Tentacle Specific Registries - Check in each folder for a key with DisplayName "Octopus Tetacle" and remove the folder that key resides in.
     * **`HKLM\SOFTWARE\Classes\Installer\Products`** 
-    * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for DisplayName "Octopus Tetacle"
+    * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for a **DisplayName** of  `Octopus Tentacle`.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
 :::problem
 Removing entries from the Registry can have serious implications. Please make sure you understand and are comfortable with the potentail risks. Remember to backup the keys before any registries are modified! Feel free to reach out to support@octopus.com for assistance.
