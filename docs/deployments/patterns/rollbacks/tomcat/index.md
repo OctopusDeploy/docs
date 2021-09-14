@@ -9,15 +9,24 @@ In Tomcat v7, Apache included the ability to do [parallel deployments](https://t
 ## Configuring an application rollback for Tomcat
 The following guide will configure a code rollback for the Random Quotes application.  The deployment process will consist of the following steps:
 - Calculate Deployment Mode
+- Rollback reason
 - Deploy Random Quotes to Tomcat
 - Start App in Tomcat
 - Stop App in Tomcat
+- Block Release Progression
+
+:::warning
+The rollback strategy described in this guide will not work if the [undeployOldVersions](https://tomcat.apache.org/tomcat-9.0-doc/config/host.html) feautre is enabled on Tomcat.
+:::
 
 ### Calculate Deployment Mode
 The first step in your process is going to be determining what scenario you're working with.  The [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) Community Step Template has been expressly created for this purpose by the Octopus Solutions team.  This template produces a set of [Output Variables](https://octopus.com/docs/deployments/custom-scripts/output-variables) that tell you what scenario has been detected.  In addition, the template produced output variables in [Variable Run Condition](https://octopus.com/docs/projects/steps/conditions) syntax that can be applied to subsequent steps.
 :::info
 The Calculate Deployment Mode step template requires no configuration or parameters.
 :::
+
+### Rollback reason
+This is a [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step which prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
 
 ### Deploy Random Quotes to Tomcat Via Manager
 Octopus Deploy contains a built-in step to deploy to a Tomcat server using the Manager feature.  Under the `Advanced Options` section, you will find the place to specify the version number of the application as mentioned above.  When deployed, the step renames the the `.war` file to `<contextpath>##<version>.war` to allow multiple versions of the application.  In the following screenshot, you will see the Octpous variable of `#{Octopus.Release.Number}` being used for version number
@@ -59,3 +68,28 @@ Reactivating an older version in Tomcat would not result in diverting traffic aw
 Octopus Deploy has a [System Variable](https://octopus.com/docs/projects/variables/system-variables) that can be used to identify the version that needs to be stopeed, `#{Octopus.Release.CurrentForEnvironment.Number}`.  This variable can be used for the version number for the Start/Stop App in Tomcat
 
 ![](octopus-tomcat-stop-app.png)
+
+
+
+### Block Release Progression
+Rolling back usually means that there is something wrong with the release.  The [Block Release Progression](https://library.octopus.com/step-templates/78a182b3-5369-4e13-9292-b7f991295ad1/actiontemplate-block-release-progression) Community Step Template will set the Block flag on a release so it is prevented from being deployed to other environments.
+
+- Octopus Url: #{Octopus.Web.BaseUrl} (default value)
+- Octopus API Key: API Key with permissions to block releases
+- Release Id to Block: #{Octopus.Release.CurrentForEnvironment.Id} (default value)
+- Reason: #{Octopus.Action[Rollback reason].Output.Manual.Notes} (text from the Manual Intervention step)
+
+Ensure to set the variable run condition to:
+
+```
+#{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
+```
+
+## What a rollback looks like
+When a rollback occurs, you should see something similar to this within Tomcat showing the older version is running and the newest version is not.
+
+![](tomcat-random-quotes-version.png)
+
+Within Octopus, you will see that the version is now blocked from being deployed
+
+![](octopus-release-blocked.png)
