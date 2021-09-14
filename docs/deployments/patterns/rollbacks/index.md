@@ -9,9 +9,11 @@ Being able to rollback to a known good state of code is often just as important 
 
 ## Zero Configuration Rollbacks
 
-Octopus Deploy supports zero configuration rollbacks out of the box.  Octopus always keeps the two most recent successful releases in any given environment with the goal of being able to rollback quickly.
+Octopus Deploy supports rollbacks out of the box.  Octopus always keeps the two most recent successful releases in any given environment with the goal of being able to rollback quickly to the previous version quickly.  In addition, you can configure [retention policies](/docs/administration/retention-policies/index.md) to keep more releases on your target machines.
 
-Imagine you just deployed `1.1.21` to your **QA** servers.  For whatever reason, that version does not work.  You can redeploy the previous version, `1.1.20` to **QA** by going to that release and clicking on the **REDEPLOY** button.  You won't have to configure or change anything in Octopus Deploy.  However, it will re-extract any packages, re-run all the configuration transforms, re-run any manual intervention steps, etc.  You are re-running that deployment, if it took an hour before, it will most likely take an hour again.    
+Imagine you just deployed `1.1.21` to your **QA** servers.  For whatever reason, that version does not work.  You can redeploy the previous version, `1.1.20` to **QA** by going to that release and clicking on the **REDEPLOY** button.  You won't have to configure or change anything in Octopus Deploy.  
+
+However, it is re-running the previous deployment as it was deployed the first time.  That means it will re-extract any packages, re-run all the configuration transforms, re-run any manual intervention steps, etc.  If it took an hour before, it will most likely take an hour again.
 
 ## Rollback Scenarios
 
@@ -34,13 +36,21 @@ In general, rolling back code is easy, while rolling back a database **without d
 
 The previous version of the code _should_ run fine if the table is left as-is.  After all, the previous version of the code wasn't aware of that table, and won't try to reference it or insert data directly.  However, what about any stored procedures or views that were changed to include columns from that new table?  Will they return the same results if that table is empty?
 
+Restoring a back-up will also result in data loss, as any data changed since that backup will be lost.  Restoring a database backup should be for disaster recovery or a last resort for a rollback. 
+
+In the event you have a schema change in your database, we recommend rolling forward. 
+
 ### Dependent Applications
 
-One of the primary goals of Service Oriented Architecture (SOA) and it's cousin Microservices is to loose coupling.  Changes in one service shouldn't affect any dependent applications.  While great in theory, the real-world is often messy, and coupling exists.  Imagine the scenario where a credit card service introduces a new endpoint your application depends on.  If the latest version of the credit card service was rolled out, then rolled back after a few days, then that endpoint will no longer exist.  Any functionality your application depends on from that service would start failing.
+One of the primary goals of Service Oriented Architecture (SOA) and it's cousin Microservices is to loose coupling.  Changes in one service shouldn't affect any dependent applications.  While great in theory, the real-world is often messy, and coupling exists.  Services and their clients have an implied, or explict data contract.  If either the service or the client violate that contract a failure will occur.
+
+Imagine the scenario where a credit card service introduces a new endpoint your application depends on.  If the latest version of the credit card service was rolled out, then rolled back after a few days, then that endpoint will no longer exist.  Any functionality your application depends on from that service would start failing.   
+
+In the event you made a contract change, we recommend rolling forward.
 
 ## Designing a Rollback Process
 
-Our default recommendation is to rollforward rather than rollback.  In our experience, it causes much less user disruption, has fewer gotchas, and (generally) has a much higher chance of success.
+Our default recommendation is to roll forward rather than rollback.  In our experience, it causes much less user disruption, has fewer gotchas, and (generally) has a much higher chance of success.
 
 However, there are certain scenarios where a rollback is the best solution.  Having the ability to rollback, even if rarely used, is a useful option.  What you don't want is to make up your rollback process in the middle of an emergency.  If you want to have the ability to rollback, start thinking about what that process should look like now.  Below are some questions to help get you started.
 
@@ -63,7 +73,9 @@ For example, consider a project that has the following steps:
 
 Re-running that deployment process as-is for a rollback could lead to data loss (depending on the database deployment tool).  In addition, the deploy a windows service and deploy an IIS website will extract the package into a newly created folder, run any predeploy/deploy/postdeploy scripts, and perform configuration transforms.  
 
-Depending on your application, all of that is perfectly okay.  In talking with some of our customers, extracting packages, running scripts and performing configuration transforms is sub-optimal.  What they'd prefer is the ability to point to the folder created during the first deployment.  _How_ that is accomplished is dependent upon the underlying application framework and host operating system.  Please see the guides in this section for further details on how to accomplish that.
+Depending on your application, that all might be perfectly okay.  Or it might be sub-optimal as it could take quite a bit of time to re-extract packages, run script and performing configuration transforms.  Being able to point a website or a service at a previous folder is preferred.  _How_ that is accomplished is dependent upon the underlying application framework and host operating system.  Please see the guides in this section for further details on how to accomplish that.
+
+Octopus provides tools and information to make it easier to tweak your rollback process to match your requirements.
 
 ### Skip If Already Installed
 
@@ -85,7 +97,7 @@ Octopus provides a number of system variables containing information about the p
 - `Octopus.Tentacle.PreviousInstallation.PackageFilePath`: The path to the package file previously deployed (`C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg`).
 - `Octopus.Tentacle.PreviousInstallation.PackageVersion`: The previous version (`1.2.3`) of the package that was deployed to the Tentacle.
 
-### Staging Your Deployments
+## Staging Your Deployments
 
 In our experience, deployments have the highest chance of success (and rollbacks), when they are deployed to the target environment in a "staging" area.  The deployment is then verified, and assuming everything checks out the "staging" area becomes live.  If there is a problem, the deployment is aborted and all the pre-exiting configuration remains untouched.
 
@@ -103,15 +115,13 @@ In addition, a lot of popular tools have similar concepts and provide the necess
 
 ## Deciding to rollback
 
-Deciding to rollback can be a complex decision.  During a deployment we typically see a user pass through multiple "go/no-go" decision gates.
+Deciding to rollback can be a complex decision.  During a deployment, we typically see a user pass through multiple "go/no-go" decision gates.
 
 - Approval or decision to start the deployment.
 - After database changes.
 - After backend changes.
 - After front-end changes.
 - After the deployment is complete.
-
-We've typically seen anyone on a frequent deployment schedule generally deploy a subset of components rather than the entire application.  Rolling back changes involves rolling back that same subset.  
 
 Before making the decision to rollback we asking yourself the following:
 
@@ -120,7 +130,7 @@ Before making the decision to rollback we asking yourself the following:
 - Are there any external components/applications depending on this deployment?  
 - How long have the changes "been live" for users to use?  Will they notice if a rollback were occur?
 
-Keep in mind, when you rollback a component or an entire application you cannot cherry pick which change to rollback.  Everything goes, or none of it goes.
+Keep in mind, when you rollback you cannot pick specific change in a specific application's binaries to rollback.  Everything goes, or none of it goes.  If you have made dozens upon dozens of changes, attempting to untangle the web of what to rollback could take just as long as rolling forward.
 
 ### Automatic Trigger of Rollbacks
 
