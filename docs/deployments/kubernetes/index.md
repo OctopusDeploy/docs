@@ -9,7 +9,7 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
 
 - Centralize your Kubernetes clusters and resources in a single place so you can focus on your applications and customers
 - Adopt development best practices:
-  - Deploy to development, test, and production environments with automatic configuration updates ([variable substitution](/docs/projects/variables/variable-substitutions/index.md))
+  - Deploy to development, test, and production environments with automatic configuration updates ([variable substitution](/docs/projects/variables/variable-substitutions.md))
   - Use built-in service accounts for simple and secure authentication
   - Implement deployment patterns like blue/green, canary, and rolling deployments
 - Automate routine maintenance and respond more quickly to emergencies:
