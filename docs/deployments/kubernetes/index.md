@@ -9,12 +9,12 @@ Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're
 
 - Centralize your Kubernetes clusters and resources in a single place so you can focus on your applications and customers
 - Adopt development best practices:
-  - Deploy to development, test, and production environments with automatic configuration updates ([variable substitution](https://octopus.com/docs/projects/variables/variable-substitutions))
+  - Deploy to development, test, and production environments with automatic configuration updates ([variable substitution](/docs/projects/variables/variable-substitutions))
   - Use built-in service accounts for simple and secure authentication
   - Implement deployment patterns like blue/green, canary, and rolling deployments
 - Automate routine maintenance and respond more quickly to emergencies:
-  - Octopus runbooks and projects share the same variables and accounts to interact with your clusters
-  - Use pre-approved kubectl scripts
+  - Octopus [runbooks](/docs/runbooks) and [projects](/docs/projects) share the same variables and accounts to interact with your clusters
+  - Use pre-approved [kubectl](/docs/deployments/kubernetes/kubectl) scripts
 
 ## Get started with Kubernetes and Octopus or manage a complex setup
 
@@ -26,7 +26,7 @@ Our Kubernetes automation supports three approaches:
 
 All three methods:
 
-- Are compatible with runbooks, environments, and shared variables in Octopus
+- Are compatible with runbooks, [environments](/docs/infrastructure/environments), and shared variables in Octopus
 - Include robust config file support for repeatable and reliable deployments across multiple environments
 
 ### Structured UI step without YAML input
@@ -41,7 +41,7 @@ You can also edit the YAML underlying the UI step if you find it faster or more 
 
 ### Helm chart automation steps
 
-Helm is the de facto Kubernetes package manager, so our [Helm chart steps](https://octopus.com/blog/deploy-helm-chart-with-octopus) are a popular option. Again, you have the full power of Octopus at your disposal, but there's less raw YAML to configure.
+Helm is the de facto Kubernetes package manager, so our [Helm chart steps](/docs/deployments/kubernetes/helm-update.md) are a popular option. Again, you have the full power of Octopus at your disposal, but there's less raw YAML to configure.
 
 ## Kubernetes targets
 
