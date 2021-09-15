@@ -26,8 +26,6 @@ These options configure the deployment target to be tenanted and only for the `D
 ## Adding Tenant Tags to Infrastructure
 The above screenshot shows that it is possible to attach Tenant Tags to infrastructure.  An example of how this can be used is if we assign the `Alpha` Release Ring tag to the target, it would further restrict this target in that it can only be deployed to for the `Des Moines` tenant and `Alpha` releases.  Conversely, if we remove the `Des Moines` tenant, this target can participate in any deployment that uses the `Alpha` Release Ring tag.
 
-The above screenshot shows that it is possible to attach Tenant Tags to infrastructure.  An example of how this can be used is if we assign the `Alpha` Release Ring tag to the target, it would further restrict this target in that it can only be deployed to for the `De Moines` tenant and `Alpha` releases.  Conversely, if we remove the `De Moines` tenant, this target can participate in any deployment that uses the `Alpha` Release Ring tag.
-
 ![](images/tenant-demoines-tenanted-alpha-tag.png "width=500")
 
 ## Example automation script
