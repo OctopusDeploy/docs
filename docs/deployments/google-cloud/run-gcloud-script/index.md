@@ -1,6 +1,6 @@
 ---
-title: Google Cloud CLI scripts
-description: Google Cloud CLI Scripts allow you to manage your Google Cloud resources as part of your deployment process.
+title: Google cloud CLI scripts
+description: Google cloud CLI Scripts allow you to manage your Google cloud resources as part of your deployment process.
 position: 10
 hideInThisSectionHeader: true
 ---
@@ -17,7 +17,7 @@ If this is not an option in your scenario, we recommend that you provision your 
 
 When executing a script against GCP, Octopus Deploy will automatically use your provided Google cloud account details to authenticate you to the target instance, or you can choose to use the service account associated with the target instance.
 
-This functionality requires the Google Cloud (gcloud) CLI to be installed on the worker.
+This functionality requires the Google cloud (gcloud) CLI to be installed on the worker.
 
 ## Run a gcloud script step {#RunningGcloudScript}
 
