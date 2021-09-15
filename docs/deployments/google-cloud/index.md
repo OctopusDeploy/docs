@@ -9,6 +9,8 @@ Google Cloud Platform (GCP) is a leading provider of cloud computing services an
 
 Building and shipping systems to Google Cloud has its challenges. Different teams have different processes and there’s a raft of application and infrastructure artifacts to manage. 
 
+![Google Cloud Platform accounts in Octopus](centralized-google-cloud-accounts.png)
+
 Octopus makes it easier to ship to Google Cloud by helping you to:
 * Connect and authenticate with GCP via a [dedicated account type](/docs/infrastructure/accounts/google-cloud/index.md). This allows you to centralize and secure your GCP authentication and use it in your deployments and runbooks.
 * Use [gcloud](https://cloud.google.com/sdk/gcloud), the GCP command-line tool, in custom scripts out-of-the-box with the [**Run gcloud in a Script** step](/docs/deployments/google-cloud/run-gcloud-script/index.md). This step can be used to execute scripts on targets within Google cloud platforms.
