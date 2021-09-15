@@ -1,7 +1,7 @@
 ---
 title: Rollback .NET Application on Windows Server
 description: A guide on how to rollback a .NET application hosted on Windows Servers.
-position: 10
+position: 5
 hideInThisSectionHeader: true
 ---
 
@@ -25,6 +25,8 @@ For this guide, we will start with the following deployment process for the Octo
 1. Notify stakeholders
 
 ![original windows deployment process](images/original-windows-deployment-process.png)
+
+See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
 
 ## Zero Configuration Rollback
 
@@ -62,6 +64,8 @@ The updated deployment process will be:
 1. Notify stakeholders
 
 ![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
+
+See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please be sure to login as a guest.
 
 ### Calculate Deployment Mode
 
@@ -118,6 +122,8 @@ The resulting process will be:
 1. Notify stakeholders
 
 ![windows complex rollbacks](images/windows-complex-rollbacks.png)
+
+See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please be sure to login as a guest.
 
 ### Comparison to Simple Rollback Process
 
