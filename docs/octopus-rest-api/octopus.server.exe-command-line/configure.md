@@ -91,6 +91,8 @@ Where [<options>] is any of:
       --webReferrerPolicy=VALUE
                              Sets the 'Referrer-Policy' response header.
                                Defaults to 'no-referrer'.
+      --webServer=VALUE      Web server to use when running Octopus
+                               ('HttpSys', 'Kestrel')
       --webTrustedRedirectUrls=VALUE
                              Comma-seperated list of URLs that are trusted
                                for redirection
@@ -172,6 +174,73 @@ Where [<options>] is any of:
                              Tell Octopus which Google Apps domain to trust.
       --guestloginenabled=VALUE
                              Whether guest login should be enabled
+      --ldapIsEnabled=VALUE  Set whether ldap is enabled.
+      --ldapServer=VALUE     Set the server URL.
+      --ldapPort=VALUE       Set the port using to connect.
+      --ldapSecurityProtocol=VALUE
+                             Sets the security protocol to use in securing
+                               the connection (None, StartTLS, or SSL).
+      --ldapIgnoreSslErrors=VALUE
+                             Sets whether to ignore certificate validation
+                               errors.
+      --ldapUsername=VALUE   Set the user DN to query LDAP.
+      --ldapPassword=VALUE   Set the password to query LDAP (leave empty for
+                               anonymous bind).
+      --ldapUserBaseDn=VALUE Set the root distinguished name (DN) to query
+                               LDAP for Users.
+      --ldapGroupBaseDn=VALUE
+                             Set the root distinguished name (DN) to query
+                               LDAP for Groups.
+      --ldapDefaultDomain=VALUE
+                             Set the default domain when none is given in the
+                               logon form. Optional.
+      --ldapUniqueAccountNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the unique account name, which is used to
+                               authenticate via the logon form.  This will be
+                               'sAMAccountName' for Active Directory.
+      --ldapUserFilter=VALUE The filter to use when searching valid users.
+                               '*' is replaced with a normalized version of the
+                               username.
+      --ldapGroupFilter=VALUE
+                             The filter to use when searching valid user
+                               groups.  '*' is replaced with the group name.
+      --ldapNestedGroupFilter=VALUE
+                             The filter to use when searching for nested
+                               groups. '*' is replaced by the distinguished
+                               name of the initial group.
+      --ldapNestedGroupSearchDepth=VALUE
+                             Specifies how many levels of nesting will be
+                               searched. Set to '0' to disable searching for
+                               nested groups.
+      --ldapAllowAutoUserCreation=VALUE
+                             Whether unknown users will be automatically
+                               created upon successful login.
+      --ldapReferralFollowingEnabled=VALUE
+                             Sets whether to allow referral following (this
+                               can slow down queries).
+      --ldapReferralHopLimit=VALUE
+                             Sets the maximum number of referrals to follow
+                               during automatic referral following.
+      --ldapConstraintTimeLimit=VALUE
+                             Sets the time limit in seconds for LDAP
+                               operations on the directory.  '0' specifies no
+                               limit.
+      --ldapUserDisplayNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the user's full name.
+      --ldapUserPrincipalNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the user's principal name.
+      --ldapUserMembershipAttribute=VALUE
+                             Set the name of the LDAP attribute to use when
+                               loading the user's groups.
+      --ldapUserEmailAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the user's email address.
+      --ldapGroupNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the group's name.
       --oktaIsEnabled=VALUE  Set the okta IsEnabled, used for authentication.
       --oktaIssuer=VALUE     Follow our documentation to find the Issuer for
                                okta.
