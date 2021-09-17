@@ -57,7 +57,8 @@ Release creation:
                              version rules specified by the channel.
       --packagePrerelease=VALUE
                              [Optional] Pre-release for latest version of all
-                             packages to use for this release.
+                             packages to use for this release. This argument
+                             supports regex patterns.
       --whatIf               [Optional, Flag] Perform a dry run but don't
                              actually create/deploy release.
 
