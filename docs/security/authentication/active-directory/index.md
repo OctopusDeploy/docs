@@ -20,7 +20,23 @@ If you are using Active Directory Authentication with Octopus, there are two way
 2. Forms-based
 
 ## Authentication Schemes
-By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication. 
+By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication.
+
+If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
+
+**Kernel Mode authentication via HTTP.sys (default) - Command Line** {#ActiveDirectoryAuthentication-KernelModeAuthentication}\
+Select this mode if you require features of HTTP.sys, such as port sharing.
+
+```bash
+Octopus.Server.exe configure --webServer=HttpSys
+```
+
+**User Mode authentication via Kestrel - Command Line** {#ActiveDirectoryAuthentication-UserModeAuthentication}\
+Select this mode for High Availability configurations.
+
+```bash
+Octopus.Server.exe configure --webServer=Kestrel
+```
 
 ## Integrated authentication {#ActiveDirectoryauthentication-Integratedauthentication}
 The easiest way to sign in when using Active Directory is to use Integrated Authentication. 
