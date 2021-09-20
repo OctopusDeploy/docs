@@ -11,7 +11,7 @@ This guide will walk through rolling back .NET Windows Services and .NET Web App
 - Windows Service
 - Website
 
-Rolling back a database is out of the scope of this guide.  As stated in this [article](https://octopus.com/blog/database-rollbacks-pitfalls), rolling back a database schema change could result in wrong or deleted data.  This guide focuses on scenarios where there were no database changes, or the database changes are backward compatible.  
+Rolling back a database is out of the scope of this guide.  As stated in this [article](https://octopus.com/blog/database-rollbacks-pitfalls), rolling back a database schema change could result in wrong or deleted data.  This guide focuses on scenarios where there were no database changes, or the database changes are backward compatible.  Because the database changes are out of scope for rollbacks, the database packages will be "skipped" during the rollback process.
 
 ## Existing Deployment Process
 
@@ -29,28 +29,11 @@ For this guide, we will start with the following deployment process for the Octo
 See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
 
 ## Zero Configuration Rollback
-
-The easiest way to rollback to a previous version is to:
-
-1. Find the release you want to roll back.
-2. Click the **REDEPLOY** button next to the environment you want to roll back.
-
-That redeployment will work because a snapshot is taken when you create a release.  The snapshot includes:
-
-- Deployment Process
-- Project Variables
-- Referenced Library Variables Sets
-- Package Versions
-
-Re-deploying the previous release will re-run the deployment process as it existed when that release was created.  By default, the deploy package steps (such as deploy to IIS or deploy a Windows Service) will extract to a new folder each time a deployment is run, perform the [configuration transforms](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md), and [run any scripts embedded in the package](/docs/deployments/custom-scripts/scripts-in-packages/index.md).  
-
-:::hint
-If this works for your rollbacks, you can skip the rest of the guide.  The rest of the guide will detail how to skip specific steps and re-extracting packages.
-:::
+!include <zero-configuration-rollback>
 
 ## Simple Rollback Process
 
-For most rollbacks, the typical strategy is to skip the database steps but still re-deploy the windows service and website.  A rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression.md).
+For most rollbacks, the typical strategy is to skip the database steps while re-deploying the windows service and website.  In addition, a rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression.md).
 
 The updated deployment process will be:
 
@@ -69,7 +52,7 @@ See that deployment process on [samples instance](https://samples.octopus.app/ap
 
 ### Calculate Deployment Mode
 
-Calculate Deployment Mode is a [community step template](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) created by Octopus Deploy.  It compares the release number being deployed with the current release number for the environment.  When the release number is greater than the current release number, it is a deployment.  When it is less, then it is a rollback.  The step templates sets a number of [output variables](/docs/projects/variables/output-variables.md), including ones you can use in variable run conditions.
+!include <calculate-deployment-mode>
 
 ### Skip Database Deployment Steps
 
@@ -85,21 +68,15 @@ We also recommend adding or updating the notes field to indicate it will only ru
 
 ![windows updating notes field](images/windows-updating-notes-field.png)
 
-### Block Release Progression
+### Prevent Release Progression
 
-Blocking Release Progression is an optional step to add to your rollback process.  [The Block Release Progression](https://library.octopus.com/step-templates/78a182b3-5369-4e13-9292-b7f991295ad1/actiontemplate-block-release-progression) step template uses the API to [prevent the rolled back release from progressing](/docs/releases/prevent-release-progression.md).
-
-This step will only run on a rollback; set the run condition for this step to:
-
-```
-#{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
-```
+!include <prevent-release-progression>
 
 ## Complex Rollback Process
 
 As mentioned earlier, re-deploying the website and windows service involves re-extracting the package, running configuration transforms, and any embedded scripts.  Generally, those steps will finish within 60 seconds.  However, re-deploying those packages carries a small amount of risk because variable snapshots can be updated.  Or, the embedded scripts are complex and take time to finish.  
 
-By default, Octopus Deploy will keep all releases on your Windows Server (this can be changed via [retention policies](https://octopus.com/docs/administration/retention-policies)), which means the previously extracted and configured Windows Service or Website already exists.  Way back in Octopus 3.x we added the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled`.  When that variable is set to `True`, Octopus Deploy will:
+By default, Octopus Deploy will keep all releases on your Windows Server (this can be changed via [retention policies](https://octopus.com/docs/administration/retention-policies)), which means the previously extracted and configured Windows Service or Website already exists.  Back in Octopus 3.x we added the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled`.  When that variable is set to `True`, Octopus Deploy will:
 
 1. Check the `deploymentjournal.xml` to see if the package has already been installed.
 2. If it hasn't been installed, then it will proceed with the deployment.
@@ -127,16 +104,18 @@ See that deployment process on [samples instance](https://samples.octopus.app/ap
 
 ### Comparison to Simple Rollback Process
 
-The complex rollback process and simple rollback process have some overlap.  Please refer to the earlier section on how to configure those steps.
+The complex rollback process and simple rollback process have some overlap.  Please refer to the earlier section on how to configure these steps.
 
 1. Add Check Deployment Mode step
 1. Update Run Database Creation Runbook to skip during rollback
 1. Update Deploy OctoFX database to skip during rollback
 1. Add Block Release Progression step
 
+As stated earlier, the primary difference between the simple and complex rollback process is the complex rollback process reuses the pre-existing extracted application.
+
 ### Add System Variable to Skip Package Deployment
 
-As stated earlier, adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed apckages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
+Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed apckages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
 
 ```
 #{if Octopus.Action[Calculate Deployment Mode].Output.DeploymentMode == "Deploy"}False#{else}True#{/if}
