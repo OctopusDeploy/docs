@@ -26,7 +26,7 @@ For this guide, we will start with the following deployment process for the Octo
 
 ![original windows deployment process](images/original-windows-deployment-process.png)
 
-See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
+See the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
@@ -42,13 +42,13 @@ The updated deployment process will be:
 1. Deploy the OctoFX Database (skip during rollback)
 1. Deploy the OctoFX Windows Service
 1. Deploy the OctoFX Website
-1. Verify the Application
 1. Block Release Progression
+1. Verify the Application
 1. Notify stakeholders
 
 ![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
 
-See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please be sure to login as a guest.
+See the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please be sure to login as a guest.
 
 ### Calculate Deployment Mode
 
