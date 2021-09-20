@@ -4,7 +4,7 @@ description: This guide covers the topic of rolling back an application deployed
 position: 10
 hideInThisSectionHeader: true
 ---
-This guide will walk through rolling back a Java application deployed to a Tomcat web server.  We will be using the [PetClinic](https://bitbucket.org/octopussamples/petclinic/src/master/) Spring Boot example.  The application consists of two components:
+This guide will walk through rolling back a Java application deployed to a Tomcat web server.  We will be using the [PetClinic](https://bitbucket.org/octopussamples/petclinic/src/master/) Spring Boot example.  The PetClinic application consists of two components:
 
 - Database
 - Website
@@ -12,7 +12,7 @@ This guide will walk through rolling back a Java application deployed to a Tomca
 Rolling back the database is out of scope for this guide.  This [article](https://octopus.com/blog/database-rollbacks-pitfalls) describes reasons and scenarios in which rolling back a database could result in data loss or incorrect data.  This guide assumes that there are not database changes or the changes are backwards compatible.
 
 ## Parallel deployments in Apache Tomcat
-In Tomcat v7, Apache included the ability to do [parallel deployments](https://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Parallel_deployment) which allows you to deploy multiple versions of the same application to a Tomcat server.  When a version number is provided, Tomcat combines it with the context path to rename the `.war` to `<contextpath>##<version>.war`.  Once the new version is in a running state, Tomcat will redirect new sessions to the new version of the application allowing existing sessions to expire and flow to the new version.  This functionality is ideally suited for supporting rollback scenarios when deploying to Tomcat.
+In Tomcat v7, Apache included the ability to do [parallel deployments](https://tomcat.apache.org/tomcat-9.0-doc/config/context.html#Parallel_deployment) which allows you to deploy multiple versions of the same application to a Tomcat server.  If a version number is provided during deployment, Tomcat will combine it with the context path to rename the `.war` to `<contextpath>##<version>.war`.  Once the new version is in a running state, Tomcat will redirect new sessions to the new version of the application.  Existing sessions will continue against the old version until they expire.  This functionality is ideally suited for supporting rollback scenarios when deploying to Tomcat.
 
 :::warning
 The rollback strategy described in this guide will not work if the [undeployOldVersions](https://tomcat.apache.org/tomcat-9.0-doc/config/host.html) feature is enabled on Tomcat.
@@ -47,7 +47,7 @@ If this works for your rollbacks, you can skip the rest of the guide.  The rest 
 :::
 
 ## Simple Rollback Process
-While doing a rollback can be an operational exercise, the most typical reason for a rollback is something is wrong with the release and you need back out the changes.  A bad release also needs to be [prevented from moving forward](/docs/releases/prevent-release-progression.md).
+While doing a rollback can be an operational exercise, the most typical reason for a rollback is something is wrong with the release and you need back out the changes.  A bad release should also be [prevented from moving forward](/docs/releases/prevent-release-progression.md).
 
 The updated deployment process for a simple rollback would look like this:
 
@@ -158,6 +158,10 @@ The `Rollback Reason` step captures the reason for the rollback.  We can pass th
 ```
 #{Octopus.Action[Rollback reason].Output.Manual.Notes}
 ```
+
+:::info
+The retention policy of Octopus Deploy will clean up any old versions of the applications in folders controlled by Octopus.  However, the `<contextpath>##<version>.war` files are not controlled by Octopus and will not be cleaned up with a retention policy.  To assist in Tomcat maintenance, the Octopus Solutions team developed the [Undeploy Tomcat Application via Manager](https://library.octopus.com/step-templates/34f13b4c-64e1-42b4-ad1a-4599f25a850e/actiontemplate-undeploy-tomcat-application-via-manager) step template.  This template will remove the application using the specified context path and optional version number.  
+:::
 
 ## Choosing a rollback strategy
 Not all releases can or even should be rolled back.  In cases where the release contains a large amount of changes, the best strategy is to fix the issue(s) you've encountered and keep moving foward.  For this reason, it is our recommendation that you start off with the simple rollback strategy, moving to the complex if you determine that simple method doesn't suite your needs.
