@@ -94,15 +94,17 @@ The new deployment process would look like this:
 
 ![](octopus-complex-rollback-process.png)
 
+We'll go through the newly added and altered steps:
+
 ### Rollback reason
 This is a [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step which prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
 
 ### Deploy PetClinic Web
-The revision history command for Kubernetes showed that there were multiple revisions stored within Kubernetes for a deployment.  However, it's not readily clear as to which revision belongs to which Octopus release number.  Adding an `kubernetes.io/change-cause` annotation to the `Deploy PetClinic Web` step would add the Octopus Release Number as the `change-cause` so we could later parse it for which revision to roll back to.
+The revision history command for Kubernetes showed that there were multiple revisions stored within Kubernetes for a deployment.  However, it's not obvious as to which revision belongs to which Octopus release.  Adding an `kubernetes.io/change-cause` annotation to the `Deploy PetClinic Web` step would add the Octopus Release Number as the `change-cause` so we could later parse it for which revision to roll back to.
 
 ![](octopus-k8s-deployment-annotation.png)
 
-Runnin `kubectl rollout history deployment.v1.apps/<deploymentname>` would now show something like this
+Running `kubectl rollout history deployment.v1.apps/<deploymentname>` would now show something like this
 
 ```
 REVISION  CHANGE-CAUSE
