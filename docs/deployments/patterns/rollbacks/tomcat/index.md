@@ -30,21 +30,7 @@ For this guide, we'll start off with an existing deployment process for deployin
 ![](octopus-original-deployment-process.png)
 
 ## Zero Configuration Rollback
-When a release is created, Octopus Deploy snapshots the following items:
-- Deployment Process
-- Project Variables
-- Referenced Library Variables Sets
-- Package Versions
-
-The easiest way to roll back is to do the following:
-1. Find the release you want to deploy.
-1. Click **REDEPLOY** next to the environment you want to roll back.
-
-Redeployment of a release will execute the process exactly how it was when it was created.  For Tomcat, the package will be sent to the tentacle and extracted to a work folder.  Variable substitution will be performed on the extracted files, then the files are repackaged and sent over to Tomcat for deployment.
-
-:::hint
-If this works for your rollbacks, you can skip the rest of the guide.  The rest of the guide will detail how to skip specific steps and re-extracting packages.
-:::
+!include <zero-configuration-rollback>
 
 ## Simple Rollback Process
 While doing a rollback can be an operational exercise, the most typical reason for a rollback is something is wrong with the release and you need back out the changes.  A bad release should also be [prevented from moving forward](/docs/releases/prevent-release-progression.md).
@@ -62,7 +48,7 @@ The updated deployment process for a simple rollback would look like this:
 ![](octopus-simple-rollback-process.png)
 
 ### Calculate Deployment Mode
-The first step in your process is going to be determining what scenario you're working with.  The [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) Community Step Template has been expressly created for this purpose by the Octopus Solutions team.  This template produces a set of [Output Variables](https://octopus.com/docs/deployments/custom-scripts/output-variables) that tell you what scenario has been detected.  In addition, the template produces output variables in [Variable Run Condition](https://octopus.com/docs/projects/steps/conditions) syntax that can be applied to subsequent steps.
+!include <calculate-deployment-mode>
 
 ### Skipping Database Steps
 The two database steps, `Create Database If Not Exists` and `Deploy Database Changes` should be skipped for a rollback scenario.  Rolling back database changes could result in data loss or interrupt testing operations.  To skip these steps, we'll use one of the Variable Run Condition output variables from Calculate Depoloyment Mode step:
