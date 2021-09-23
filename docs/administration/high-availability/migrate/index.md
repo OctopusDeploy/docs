@@ -31,7 +31,7 @@ You can prepare for that by doing the following:
 - Provision the SQL Server Instance (if it doesn't already exist).
 - Create the SQL Server user Octopus will use to log into SQL Server (if it doesn't already exist).
 
-After the SQL Server has been provisioned and the user has been created, you'll want to ensure Octopus Deploy can see the SQL Server and successfully log in.  It is important to do this via a remote connection to the server hosting Octopus Deploy as the same user the Octopus Deploy Windows Service is running as.  If the Octopus Deploy Windows Service is running as a `Local System` any administrator account should work for this test.
+After the SQL Server has been provisioned and the user has been created, you'll want to ensure Octopus Deploy can connect to the SQL Server.  It is important to do this on the server hosting Octopus Deploy with the same user the Octopus Deploy Windows Service is running as.  If the Octopus Deploy Windows Service is running as a `Local System` any administrator account should work for this test.
 
 ```PowerShell
 $userName = ""
@@ -63,7 +63,7 @@ You can run that script using the Octopus Deploy [script console](/docs/administ
 
 ### Moving BLOB data
 
-Most of the BLOB data stored on the file system can be copied to the new location prior to the outage window.  In addition, you can make sure your Octopus Deploy instance can see that shared location by running a test script to create and delete a file.  
+Most of the BLOB data (task logs, artifacts, packages, etc) stored on the file system can be copied to the new location prior to the outage window.  Doing so will reduce the amount of copying you have to do during the outage windows.  In addition, you can make sure your Octopus Deploy instance can use that shared location by running a test script to create and delete a file.  
 
 - Provision the shared storage folder.
 - If you are going to create a symbolic link to that shared folder, do that now.
@@ -147,12 +147,12 @@ Your version might not have all the above paths.  Remove them from the script if
 
 After you finish moving the database and file storage, it is time to turn back on your Octopus Deploy instance.
 
-1. Turn back on the Octopus Deploy instance if the instance does not startup, indicating a database connection issue.
+1. Turn back on the Octopus Deploy instance.  If the instance does not startup that indicates a database connection issue.
 1. Log in to your instance.
-1. Navigate to previous deployments if you cannot see the task logs that indicate a file storage issue.
+1. Navigate to previous deployments.  If you cannot see the task logs that indicate a file storage issue.
 1. Perform a couple of test deployments.
 1. Assuming all goes well, disable maintenance mode.
-1. Notify everyone of the new URL (if there is one)
+1. Notify everyone of the new URL (if there is one).
 
 ## Adding Additional Nodes
 
