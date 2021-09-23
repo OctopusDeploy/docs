@@ -115,19 +115,7 @@ mklink /D C:\Octopus\Packages \\octostorage.file.core.windows.net\octoha\Package
 
 To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster.
 
-Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`.
-
-![Load balancer](images/load-balance-ping.png "width=500")
-
-Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
-
-- HTTP Status Code `200 OK` as long as the Octopus Server node is online and not in [drain mode](#drain).
-- HTTP Status Code `418 I'm a teapot` when the Octopus Server node is online, but it is currently in [drain mode](#drain) preparing for maintenance.
-- Anything else indicates the Octopus Server node is offline, or something has gone wrong with this node.
-
-:::hint
-The Octopus Server node configuration is also returned as JSON in the HTTP response body.
-:::
+!include <load-balancer-endpoint-info>
 
 Azure has a wide range of [load balancers](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
 
