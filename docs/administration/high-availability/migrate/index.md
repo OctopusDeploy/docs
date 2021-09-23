@@ -4,17 +4,23 @@ description: How to migrate from a stand-alone Octopus server to a High Availabi
 position: 30
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1tXVA5pyuqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [Configuring High Availability for Octopus](/docs/administration/high-availability/configure/index.md), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
 
 1. Moving the SQL Server Database to a dedicated SQL Server.
 1. Moving all the task logs, packages, artifacts, etc., to a shared storage folder (BLOB data).
 1. Configuring a load balancer.
 
-These actions will require downtime.  You can do prep work to keep the downtime to a minimum.
+This guide is generic and purposely mentioning specific such as Azure File Storage, AWS RDS SQL Server, etc.  Please refer to the guide matching your hosting solution for specifics.
+
+- [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
+- [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
+- [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 
 ## Prep Work
 
-The following steps can be done anytime before your outage window.  
+These actions will require downtime.  You can do prep work to keep the downtime to a minimum.
 
 ### Moving the database
 
@@ -23,10 +29,7 @@ Moving the SQL Server database involves performing a backup and restore of the d
 - Provision the SQL Server Instance (if it doesn't already exist).
 - Create the SQL Server user Octopus will use to log into SQL Server (if it doesn't already exist).
 
-After the SQL Server has been provisioned and the user has been created, you'll want to ensure Octopus Deploy can see the SQL Server and successfully log in.  It is important to do this as the same user your Octopus Deploy instance is running as.  To test the connection as the same user, use the Octopus Deploy [script console](/docs/administration/managing-infrastructure/script-console.md).  The script console options will be:
-
-- Targets: `Run the script on the Octopus Server`
-- Body: use this example PowerShell script
+After the SQL Server has been provisioned and the user has been created, you'll want to ensure Octopus Deploy can see the SQL Server and successfully log in.  It is important to do this via a remote connection to the server hosting Octopus Deploy as the same user the Octopus Deploy Windows Service is running as.  If the Octopus Deploy Windows Service is running as a `Local System` any administrator account should work for this test.
 
 ```PowerShell
 $userName = ""
@@ -53,9 +56,7 @@ $sqlConnection.Close()
 ```
 
 :::hint
-After performing this test, change the user's password, as that password will appear in your task log.
-
-An even better option is to use integrated authentication to avoid storing a username/password in your connection string.
+You can run that script using the Octopus Deploy [script console](/docs/administration/managing-infrastructure/script-console.md).  If you are using a SQL Login, you'll want to change the user's password after your run your tests as that password will appear in the task log.
 :::
 
 ### Moving BLOB data
