@@ -83,22 +83,22 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
 
     $serverFolders = Invoke-RestMethod -Uri "$url/api/configuration/server-folders/values" -Headers @{'X-Octopus-ApiKey' = $apiKey}
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $filebackUpFolder\TaskLogs /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.LogsDirectory) $fileBackupLocation\TaskLogs /mir" -Wait -Passthru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\TaskLogs"
+        Throw "Unable to copy files to $fileBackupLocation\TaskLogs"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $filebackUpFolder\Artifacts /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.ArtifactsDirectory) $fileBackupLocation\Artifacts /mir" -Wait -Passthru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\Artifacts"
+        Throw "Unable to copy files to $fileBackupLocation\Artifacts"
     }
 
-    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $filebackUpFolder\Packages /mir" -Wait -Passthru).ExitCode
+    $msiExitCode = (Start-Process -FilePath "robocopy" -ArgumentList "$($serverFolders.PackagesDirectory) $fileBackupLocation\Packages /mir" -Wait -Passthru).ExitCode
     if ($msiExitCode -ge 8) 
     {
-        Throw "Unable to copy files to $filebackUpFolder\Packages"
+        Throw "Unable to copy files to $fileBackupLocation\Packages"
     }
 }
 
@@ -110,6 +110,7 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
 $backupFileName = "$octopusDeployDatabaseName_" + (Get-Date -Format FileDateTime) + '.bak'
 $backupFileFullPath = "$sqlbackupFolderLocation\$backupFileName"
 
+# OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
 $instanceConfig = (& $serverExe show-configuration --instance="OctopusServer" --format="JSON") | Out-String | ConvertFrom-Json
    
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -138,6 +139,7 @@ $msiExitCode = (Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $msiToIn
 Write-Output "Server MSI installer returned exit code $msiExitCode" 
 
 # Upgrade database and restart service
+# OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
 & $serverExe database --instance="OctopusServer" --upgrade
 & $serverExe service --instance="OctopusServer" --start
 & $serverExe node --instance="OctopusServer" --drain=false
@@ -326,6 +328,7 @@ $serverExe = "$installPath\Octopus.Server.exe"
 $backupFileName = "$OctopusDatabaseName_" + (Get-Date -Format FileDateTime) + '.bak'
 $backupFileFullPath = "$backupFolderLocation\$backupFileName"
 
+# OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
 $instanceConfig = (& $serverExe show-configuration --instance="OctopusServer" --format="JSON") | Out-String | ConvertFrom-Json
    
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -372,6 +375,7 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 $serverExe = "$installPath\Octopus.Server.exe"
 
+# OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
 & $serverExe database --instance="OctopusServer" --upgrade
 ```
 

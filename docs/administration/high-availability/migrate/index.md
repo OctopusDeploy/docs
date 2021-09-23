@@ -12,7 +12,7 @@ You may already have an existing Octopus Server that you wish to make highly ava
 1. Moving all the task logs, packages, artifacts, etc., to a shared storage folder (BLOB data).
 1. Configuring a load balancer.
 
-This guide is generic and purposely mentioning specific such as Azure File Storage, AWS RDS SQL Server, etc.  Please refer to the guide matching your hosting solution for specifics.
+This guide is generic and purposely avoids mentioning specific technologies such as Azure File Storage, AWS RDS SQL Server, etc.  Please refer to the guide matching your hosting solution for specifics.
 
 - [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
@@ -24,7 +24,9 @@ These actions will require downtime.  You can do prep work to keep the downtime 
 
 ### Moving the database
 
-Moving the SQL Server database involves performing a backup and restore of the database.  That backup and restore have to occur during the outage window.  You can prepare for that by doing the following:
+Moving the SQL Server database involves performing a backup and restore of the database.  That backup and restore have to occur during the outage window.  
+
+You can prepare for that by doing the following:
 
 - Provision the SQL Server Instance (if it doesn't already exist).
 - Create the SQL Server user Octopus will use to log into SQL Server (if it doesn't already exist).
@@ -61,6 +63,8 @@ You can run that script using the Octopus Deploy [script console](/docs/administ
 
 ### Moving BLOB data
 
+Most of the BLOB data stored on the file system can be copied to the new location prior to the outage window.  In addition, you can make sure your Octopus Deploy instance can see that shared location by running a test script to create and delete a file.  
+
 - Provision the shared storage folder.
 - If you are going to create a symbolic link to that shared folder, do that now.
 - Use the [script console](/docs/administration/managing-infrastructure/script-console.md) to ensure Octopus can connect to the shared folder and create files.
@@ -83,7 +87,7 @@ robocopy C:\Octopus\Packages \\YOURFILESHARE\OctopusHA\Packages /mir /r:5
 
 ### Configure load balancer
 
-We'd recommend creating a new URL for your Octopus instance.  For example, if the current URL for your Octopus Instance is `octopus.mydomain.local`, the load-balanced URL could be `octopusha.mydomain.local`.  
+Octopus Deploy must sit behind a load balancer when configured in HA mode.  We'd recommend creating a new URL for your Octopus HA cluster.  For example, if the current URL for your Octopus Instance is `octopus.mydomain.local`, the load-balanced URL could be `octopusha.mydomain.local`.  
 
 The advantage of a new URL is:
 1. You can still access each server directly (if need be).
@@ -94,7 +98,7 @@ The advantage of a new URL is:
 
 ## Outage Windows
 
-These changes require an outage window.  With all the prep work, the outage window should be small.  If possible, we do recommend making this change off-hours.  That is a recommendation, not a requirement.  
+The below steps will cause an outage in Octopus Deploy.  With all the prep work, the outage window should be small.  If possible, we recommend making these change off-hours.  In addition, you don't have to do them all in one outage window.  You can move the database in one outage window, and the file system in the other outage window.  
 
 During your outage window, perform the following steps (skip the sections that don't apply).
 
