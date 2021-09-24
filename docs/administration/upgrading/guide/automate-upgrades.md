@@ -106,31 +106,37 @@ if ($versionSplit[0] -ne $upgradeSplit[0])
 & $serverExe node --instance="OctopusServer" --drain=true --wait=0
 & $serverExe service --instance="OctopusServer" --stop
 
-# Backup database
-$backupFileName = "$octopusDeployDatabaseName_" + (Get-Date -Format FileDateTime) + '.bak'
-$backupFileFullPath = "$sqlbackupFolderLocation\$backupFileName"
+try{
+    # Backup database
+    $backupFileName = "$octopusDeployDatabaseName_" + (Get-Date -Format FileDateTime) + '.bak'
+    $backupFileFullPath = "$sqlbackupFolderLocation\$backupFileName"
 
-# OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
-$instanceConfig = (& $serverExe show-configuration --instance="OctopusServer" --format="JSON") | Out-String | ConvertFrom-Json
-   
-$sqlConnection = New-Object System.Data.SqlClient.SqlConnection
-$sqlConnection.ConnectionString = $instanceConfig.'Octopus.Storage.ExternalDatabaseConnectionString'
+    # OctopusServer is the default instance name.  If you have multiple instances, or are not using the default instance name, change the --instance parameter.
+    $instanceConfig = (& $serverExe show-configuration --instance="OctopusServer" --format="JSON") | Out-String | ConvertFrom-Json
+    
+    $sqlConnection = New-Object System.Data.SqlClient.SqlConnection
+    $sqlConnection.ConnectionString = $instanceConfig.'Octopus.Storage.ExternalDatabaseConnectionString'
 
-$command = $sqlConnection.CreateCommand()
-$command.CommandType = [System.Data.CommandType]'Text'
-$command.CommandTimeout = 0
+    $command = $sqlConnection.CreateCommand()
+    $command.CommandType = [System.Data.CommandType]'Text'
+    $command.CommandTimeout = 0
 
-Write-Host "Opening the connection"
-$sqlConnection.Open()
+    Write-Host "Opening the connection"
+    $sqlConnection.Open()
 
-$command.CommandText = "BACKUP DATABASE [$octopusDeployDatabaseName]
-  TO DISK = '$backupFileFullPath'
-      WITH FORMAT"
-$command.ExecuteNonQuery()
+    $command.CommandText = "BACKUP DATABASE [$octopusDeployDatabaseName]
+    TO DISK = '$backupFileFullPath'
+        WITH FORMAT"
+    $command.ExecuteNonQuery()
 
-Write-Host "Successfully backed up the database $octopusDeployDatabaseName"
-Write-Host "Closing the connection"
-$sqlConnection.Close()
+    Write-Host "Successfully backed up the database $octopusDeployDatabaseName"
+    Write-Host "Closing the connection"
+    $sqlConnection.Close()
+}
+catch {
+    Write-Error $_.Exception
+    exit 1
+}
 
 # Running the installer
 $msiToInstall = "$downloadDirectory\$msiFilename"
