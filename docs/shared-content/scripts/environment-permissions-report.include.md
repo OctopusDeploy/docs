@@ -271,7 +271,7 @@ function Get-UserPermission
             }
         }
         
-        if ($scopedRole.TenantIds.Length -gt 0 -and $newPermission.TenantIds.Length -le 0)
+        if ($scopedRole.TenantIds.Length -gt 0 -and $newPermission.Tenants.Length -le 0)
         {
             Write-OctopusVerbose "The role is scoped to tenants, but none of the tenants are assigned to $($project.Name).  This user role does not apply to this project."
 
