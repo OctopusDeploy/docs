@@ -24,7 +24,7 @@ Where `[<options>]` is any of:
 
 **configure options**
 
-```
+```text
       --instance=VALUE       Name of the instance to use
       --config=VALUE         Configuration file to use
       --home=VALUE           Home directory
