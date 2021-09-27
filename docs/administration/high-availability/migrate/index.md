@@ -132,7 +132,7 @@ $filePath = "YOUR ROOT DIRECTORY"
 & .\Octopus.Server.exe path --taskLogs "$filePath\TaskLogs"
 & .\Octopus.Server.exe path --nugetRepository "$filePath\Packages"
 & .\Octopus.Server.exe path --imports "$filePath\Imports"
-& .\Octopus.Server.exe path --telemetry "$filePath\telemtry"
+& .\Octopus.Server.exe path --telemetry "$filePath\Telemetry"
 ```
 
 :::hint
