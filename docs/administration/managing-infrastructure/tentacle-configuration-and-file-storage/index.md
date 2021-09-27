@@ -12,40 +12,7 @@ Make sure you have a **current backup** of your Tentacle Home Directory before
 
 ## Tentacle configuration {#Tentacleconfigurationandfilestorage-Tentacleconfiguration}
 
-If you need to re-configure your Tentacle instance, you can do that using the command-line as described below.
-
-**Usage**
-
-```powershell
-Tentacle configure [<options>]
-```
-
-Where `[<options>]` is any of:
-
-**configure options**
-
-```text
-      --instance=VALUE       Name of the instance to use
-      --config=VALUE         Configuration file to use
-      --home, --homedir=VALUE
-                             Home directory
-      --app, --appdir=VALUE  Default directory to deploy applications to
-      --port=VALUE           TCP port on which Tentacle should listen to
-                               connections
-      --noListen=VALUE       Suppress listening on a TCP port (intended for
-                               polling Tentacles only)
-      --listenIpAddress=VALUE
-                             IP address on which Tentacle should listen.
-                               Default: any
-      --trust=VALUE          The thumbprint of the Octopus Server to trust
-      --remove-trust=VALUE   The thumbprint of the Octopus Server to remove
-                               from the trusted list
-      --reset-trust          Removes all trusted Octopus Servers
-
-Or one of the common options:
-
-      --help                 Show detailed help for this command
-```
+If you need to re-configure your Tentacle instance, you can do that using the Tentacle [configure](/docs/octopus-rest-api/tentacle.exe-command-line/configure.md) command.
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
@@ -82,4 +49,3 @@ Once a 2.6 Tentacle has been migrated to a modern version the following folders 
 - `C:\Octopus\Application\.Tentacle\Packages`
 - `C:\Octopus\Logs`
 - `C:\Octopus\Tentacle\<Instance>`
-
