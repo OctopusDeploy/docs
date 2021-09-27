@@ -87,7 +87,7 @@ robocopy C:\Octopus\Packages \\YOURFILESHARE\OctopusHA\Packages /mir /r:5
 
 ### Configure load balancer
 
-Octopus Deploy must sit behind a load balancer when configured in HA mode.  We'd recommend creating a new URL for your Octopus HA cluster.  For example, if the current URL for your Octopus Instance is `octopus.mydomain.local`, the load-balanced URL could be `octopusha.mydomain.local`.  
+Octopus Deploy must sit behind a load balancer when configured in HA mode.  We recommend creating a new URL for your Octopus HA cluster.  For example, if the current URL for your Octopus Instance is `octopus.mydomain.local`, the load-balanced URL could be `octopusha.mydomain.local`.  
 
 The advantage of a new URL is:
 1. You can still access each server directly (if need be).
