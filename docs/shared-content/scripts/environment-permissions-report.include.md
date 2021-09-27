@@ -1637,12 +1637,20 @@ def get_user_permission (space, project, user_role, project_permission_list, per
                     'Name': environment['Name']
                 }]                                        
 
+        if len(scoped_role['EnvironmentIds']) > 0 and len(new_permission['Environments']) <= 0
+            print ('The role is scoped to environments, but none of the environments are assigned to {0}.  This user role does not apply to this project.'.format(project['Name']))
+            return project_permission_list
+
         for tenantId in scoped_role['TenantIds']:
             tenant = next((x for x in tenant_list if x['Id'] == tenantId), None)
             new_permission['Tenants'] += [{
                 'Id': tenant['Id'],
                 'Name': tenant['Name']
             }]
+
+        if len(scoped_role['TenantIds']) > 0 and len(new_permission['Tenants']) <= 0
+            print('The role is scoped to tenants, but none of the tenants are assigned to the {0}.  This user does not apply to this project.'.format(project['Name']))
+            return project_permission_list
 
     existing_permission = next((x for x in project_permission_list if x['UserId'] == new_permission['UserId']), None)
 
