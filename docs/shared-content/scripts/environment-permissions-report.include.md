@@ -4,6 +4,7 @@ $octopusApiKey = "YOUR API KEY"
 $reportPath = "./Report.csv"
 $spaceFilter = "Permissions" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly 
 $environmentFilter = "Production" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly
+$userFilter = "all" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly
 $permissionToCheck = "DeploymentCreate"
 
 $cachedResults = @{}
@@ -236,7 +237,7 @@ function Get-UserPermission
         {
             if ($projectEnvironmentList -notcontains $environmentId)
             {
-                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not asigned to $($project.Name), excluding from this project's report"
+                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not assigned to $($project.Name), excluding from this project's report"
                 continue
             }
 
@@ -245,6 +246,13 @@ function Get-UserPermission
                 Id = $environment.Id
                 Name = $environment.Name
             }
+        }
+
+        if ($scopedRole.EnvironmentIds.Length -gt 0 -and $newPermission.Environments.Length -le 0)
+        {
+            Write-OctopusVerbose "The role is scoped to environments, but none of the environments are assigned to $($project.Name).  This user role does not apply to this project."
+
+            return @($projectPermissionList)
         }
     
         foreach ($tenantId in $scopedRole.tenantIds)
@@ -262,13 +270,20 @@ function Get-UserPermission
                 Name = $tenant.Name
             }
         }
+        
+        if ($scopedRole.TenantIds.Length -gt 0 -and $newPermission.TenantIds.Length -le 0)
+        {
+            Write-OctopusVerbose "The role is scoped to tenants, but none of the tenants are assigned to $($project.Name).  This user role does not apply to this project."
+
+            return @($projectPermissionList)
+        }
     }
 
     $existingPermission = $projectPermissionList | Where-Object { $_.UserId -eq $newPermission.UserId }
 
     if ($null -eq $existingPermission)
     {
-        Write-OctopusVerbose "$($user.DisplayName) is not assigned to this project adding this permission"
+        Write-OctopusVerbose "This is the first time we've seen $($user.DisplayName) for this permission.  Adding the permission to the list."
 
         $projectPermissionList += $newPermission
 
@@ -403,7 +418,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -412,7 +427,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -482,6 +497,7 @@ $spaceList = New-OctopusFilteredList -itemType "Spaces" -itemList $spaceList -fi
 
 $userRolesList = Get-OctopusItemList -itemType "User Roles" -endpoint "userroles" -spaceId $null -octopusUrl $octopusUrl -octopusApiKey $octopusApiKey
 $userList = Get-OctopusItemList -itemType "Users" -endpoint "users" -spaceId $null -octopusUrl $octopusUrl -octopusApiKey $octopusApiKey
+$userList = New-OctopusFilteredList -itemType "Users" -itemList $userList -filters $userFilter
 
 $permissionsReport = @()
 foreach ($space in $spaceList)
