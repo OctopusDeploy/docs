@@ -122,7 +122,7 @@ To configure our deployment to work with the parallel deployment feature, we nee
 
 The radio button at the bottom gives you the option to have this deployment be in a `Running` state or a `Stopped` state, the default is `Running`.
 
-For this guide, we only want the Deploy step to occur on a Deployment or a Redeployment.  The Calculate Deployment Mode step provides us with an output variable called `RunOnDeployOrRedeploy` that contains the correct statement for a variable run condition for this step.  Add the following as the value for the Varibale Run Condition on this step
+For this guide, we only want the Deploy step to occur on a Deployment or a Redeployment.  The Calculate Deployment Mode step provides us with an output variable called `RunOnDeployOrRedeploy` that contains the correct statement for a variable run condition for this step.  Add the following as the value for the Variable Run Condition on this step
 ```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeployOrRedeploy}
 ```
