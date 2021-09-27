@@ -20,12 +20,13 @@ If you need to re-configure your Tentacle instance, you can do that using the co
 Tentacle configure [<options>]
 ```
 
-Where`[<options>]`is any of:
+Where `[<options>]` is any of:
 
 **configure options**
 
-```powershell
+```
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --home, --homedir=VALUE
                              Home directory
       --app, --appdir=VALUE  Default directory to deploy applications to
@@ -40,13 +41,10 @@ Where`[<options>]`is any of:
       --remove-trust=VALUE   The thumbprint of the Octopus Server to remove
                                from the trusted list
       --reset-trust          Removes all trusted Octopus Servers
- 
+
 Or one of the common options:
 
-      --console              Don't attempt to run as a service, even if the
-                               user is non-interactive
-      --nologo               Don't print title or version information
-      --noconsolelogging     Don't log to the console
+      --help                 Show detailed help for this command
 ```
 
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}

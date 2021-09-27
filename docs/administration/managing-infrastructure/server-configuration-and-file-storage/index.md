@@ -20,20 +20,37 @@ If you need to re-configure your Octopus Server instance, you can do that using 
 Octopus.Server configure [<options>]
 ```
 
-Where`[<options>]`is any of:
+Where `[<options>]` is any of:
 
 **configure options**
 
-```powershell
+```
       --instance=VALUE       Name of the instance to use
+      --config=VALUE         Configuration file to use
       --home=VALUE           Home directory
-      --serverNodeName=VALUE Unique Server Node name for a clustered
-                               environment
+      --skipDatabaseCompatibilityCheck
+                             Skips the database compatibility check
+      --skipDatabaseSchemaUpgradeCheck
+                             Skips the database schema upgrade checks. Use
+                               with caution
+      --serverNodeName=VALUE Deprecated: set the node name via the create-
+                               instance command instead. Unique Server Node
+                               name for a clustered environment.
       --cachePackages=VALUE  Days to cache packages for. Default: 20
+      --cacheLowDiskSpaceThreshold=VALUE
+                             Threshold of free disk space (in gigabytes)
+                               where packages are cleaned up from cache
+                               regardless of age. Default: 1
+      --cacheDirectoryFullThreshold=VALUE
+                             Threshold of the size of the cache folder(in
+                               gigabytes) where packages are cleaned up from
+                               cache regardless of age. Default: 0 (no limit)
       --maxConcurrentTasks=VALUE
-                             Maximum number of concurrent tasks that the
+                             Deprecated: may be removed in a future release
+                               (currently has no effect; set Task Cap instead).
+                                Maximum number of concurrent tasks that the
                                Octopus Server can execute. Default is 0 (no
-                               limit)
+                               limit).
       --upgradeCheck=VALUE   Whether checking for upgrades is allowed (true
                                or false)
       --upgradeCheckWithStatistics=VALUE
@@ -45,9 +62,9 @@ Where`[<options>]`is any of:
       --commsListenWebSocket=VALUE
                              WebSocket prefix that the communications service
                                should listen on (e.g.
-                               'https://+:443/OctopusComms'); Set to blank to
-                               disable websockets; Refer to http://g.octopush-
-                               q.com/WebSocketComms
+                               'https://+:443/OctopusComms'); set to blank to
+                               disable websockets. Refer to http://g.octopush-
+                               q.com/WebSocketComms.
       --webListenPrefixes=VALUE
                              Comma-separated list of HTTP.sys listen prefixes
                                (e.g., 'http://localhost/octopus')
@@ -55,19 +72,26 @@ Where`[<options>]`is any of:
                                get redirected to HTTPS)
       --requestLoggingEnabled=VALUE
                              Whether to enable logging of web requests
-      --azurePowerShellModule=VALUE
-                             Path to Azure PowerShell module to be used
       --customBundledPackageDirectory=VALUE
                              A custom folder for getting packages (like
                                Calamari) that are normally bundled with Octopus
                                Server
+      --upgradeNotification=VALUE
+                             Modifies the visibility of the notification when
+                               upgrades are available. Valid values are
+                               AlwaysShow, ShowOnlyMajorMinor and NeverShow.
       --webCorsWhitelist=VALUE
                              Comma-separated whitelist of domains that are
                                allowed to retrieve data (empty turns CORS off,
                                * allows all).
+      --xFrameOptions=VALUE  A directive to provide in the X-Frame-Options
+                               header
       --xFrameOptionAllowFrom=VALUE
-                             A uri to provide in the X-Frame-Option http
-                               header in conjunction with the ALLOW-FROM value.
+                             (DEPRECATED) A uri to provide in the X-Frame-
+                               Options http header in conjunction with the
+                               ALLOW-FROM value. The directive allow-from uri
+                               for X-Frame-Options has been deprecated and no
+                               longer works in modern browsers.
       --hstsEnabled=VALUE    Enables or disables sending the Strict-Transport-
                                Security (HSTS) header. Defaults to false.
       --hstsMaxAge=VALUE     Sets the max-age value (in seconds) of the
@@ -79,24 +103,39 @@ Where`[<options>]`is any of:
       --webReferrerPolicy=VALUE
                              Sets the 'Referrer-Policy' response header.
                                Defaults to 'no-referrer'.
+      --webServer=VALUE      Web server to use when running Octopus
+                               ('HttpSys', 'Kestrel')
       --webTrustedRedirectUrls=VALUE
                              Comma-seperated list of URLs that are trusted
                                for redirection
       --autoLoginEnabled=VALUE
                              Enable/disable automatic user login.
+      --selfServiceLoginEditingEnabled=VALUE
+                             Enable/disable whether users can edit their own
+                               logins.
+      --cookieDomain=VALUE   Set a specific domain for issued cookies.
+      --dynamicExtensionsEnabled=VALUE
+                             Enable/disable dynamic extensions.
       --azureADIsEnabled=VALUE
                              Set the azureAD IsEnabled, used for
                                authentication.
-      --azureADIssuer=VALUE  Set the azureAD Issuer, used for authentication.
+      --azureADIssuer=VALUE  Follow our documentation to find the Issuer for
+                               azureAD.
       --azureADClientId=VALUE
-                             Set the azureAD ClientId.
-      --azureADScope=VALUE   Set the azureAD Scope.
+                             Follow our documentation to find the Client ID
+                               for azureAD.
+      --azureADScope=VALUE   Only change this if you need to change the
+                               OpenID Connect scope requested by Octopus for
+                               azureAD.
       --azureADNameClaimType=VALUE
-                             Set the azureAD NameClaimType.
+                             Only change this if you want to use a different
+                               security token claim for the name from azureAD.
       --azureADAllowAutoUserCreation=VALUE
-                             Set azureAD AllowAutoUserCreation.
+                             Tell Octopus to automatically create a user
+                               account when a person signs in with azureAD.
       --azureADRoleClaimType=VALUE
-                             Set the RoleClaimType.
+                             Tell Octopus how to find the roles in the
+                               security token from Azure Active Directory.
       --activeDirectoryIsEnabled=VALUE
                              Set whether active directory is enabled.
       --activeDirectoryContainer=VALUE
@@ -106,7 +145,13 @@ Where`[<options>]`is any of:
                              When Domain authentication is used, specifies
                                the scheme (Basic, Digest,
                                IntegratedWindowsAuthentication, Negotiate,
-                               Ntlm).
+                               Ntlm). You will need to restart all Octopus
+                               Server nodes in your cluster for these changes
+                               to take effect. Please note that using Negotiate
+                               or IntegratedWindowsAuthentication [may require
+                               additional server configuration](https://-
+                               g.octopushq.com/AuthAD) in order to work
+                               correctly.
       --allowFormsAuthenticationForDomainUsers=VALUE
                              When Domain authentication is used, specifies
                                whether the HTML-based username/password form
@@ -115,39 +160,142 @@ Where`[<options>]`is any of:
                              When Domain authentication is used, specifies
                                whether to support security groups from AD.
       --activeDirectoryAllowAutoUserCreation=VALUE
-                             Whether unknown users will be automatically upon
-                               successful login.
+                             Whether unknown users will be automatically
+                               created upon successful login.
       --googleAppsIsEnabled=VALUE
                              Set the googleApps IsEnabled, used for
                                authentication.
       --googleAppsIssuer=VALUE
-                             Set the googleApps Issuer, used for
-                               authentication.
+                             Follow our documentation to find the Issuer for
+                               googleApps.
       --googleAppsClientId=VALUE
-                             Set the googleApps ClientId.
+                             Follow our documentation to find the Client ID
+                               for googleApps.
       --googleAppsScope=VALUE
-                             Set the googleApps Scope.
+                             Only change this if you need to change the
+                               OpenID Connect scope requested by Octopus for
+                               googleApps.
       --googleAppsNameClaimType=VALUE
-                             Set the googleApps NameClaimType.
+                             Only change this if you want to use a different
+                               security token claim for the name from
+                               googleApps.
       --googleAppsAllowAutoUserCreation=VALUE
-                             Set googleApps AllowAutoUserCreation.
+                             Tell Octopus to automatically create a user
+                               account when a person signs in with googleApps.
       --googleAppsHostedDomain=VALUE
-                             Set the googleApps HostedDomain.
+                             Tell Octopus which Google Apps domain to trust.
       --guestloginenabled=VALUE
                              Whether guest login should be enabled
+      --ldapIsEnabled=VALUE  Set whether ldap is enabled.
+      --ldapServer=VALUE     Set the server URL.
+      --ldapPort=VALUE       Set the port using to connect.
+      --ldapSecurityProtocol=VALUE
+                             Sets the security protocol to use in securing
+                               the connection (None, StartTLS, or SSL).
+      --ldapIgnoreSslErrors=VALUE
+                             Sets whether to ignore certificate validation
+                               errors.
+      --ldapUsername=VALUE   Set the user DN to query LDAP.
+      --ldapPassword=VALUE   Set the password to query LDAP (leave empty for
+                               anonymous bind).
+      --ldapUserBaseDn=VALUE Set the root distinguished name (DN) to query
+                               LDAP for Users.
+      --ldapGroupBaseDn=VALUE
+                             Set the root distinguished name (DN) to query
+                               LDAP for Groups.
+      --ldapDefaultDomain=VALUE
+                             Set the default domain when none is given in the
+                               logon form. Optional.
+      --ldapUniqueAccountNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the unique account name, which is used to
+                               authenticate via the logon form.  This will be
+                               'sAMAccountName' for Active Directory.
+      --ldapUserFilter=VALUE The filter to use when searching valid users.
+                               '*' is replaced with a normalized version of the
+                               username.
+      --ldapGroupFilter=VALUE
+                             The filter to use when searching valid user
+                               groups.  '*' is replaced with the group name.
+      --ldapNestedGroupFilter=VALUE
+                             The filter to use when searching for nested
+                               groups. '*' is replaced by the distinguished
+                               name of the initial group.
+      --ldapNestedGroupSearchDepth=VALUE
+                             Specifies how many levels of nesting will be
+                               searched. Set to '0' to disable searching for
+                               nested groups.
+      --ldapAllowAutoUserCreation=VALUE
+                             Whether unknown users will be automatically
+                               created upon successful login.
+      --ldapReferralFollowingEnabled=VALUE
+                             Sets whether to allow referral following (this
+                               can slow down queries).
+      --ldapReferralHopLimit=VALUE
+                             Sets the maximum number of referrals to follow
+                               during automatic referral following.
+      --ldapConstraintTimeLimit=VALUE
+                             Sets the time limit in seconds for LDAP
+                               operations on the directory.  '0' specifies no
+                               limit.
+      --ldapUserDisplayNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the user's full name.
+      --ldapUserPrincipalNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the user's principal name.
+      --ldapUserMembershipAttribute=VALUE
+                             Set the name of the LDAP attribute to use when
+                               loading the user's groups.
+      --ldapUserEmailAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the user's email address.
+      --ldapGroupNameAttribute=VALUE
+                             Set the name of the LDAP attribute containing
+                               the group's name.
       --oktaIsEnabled=VALUE  Set the okta IsEnabled, used for authentication.
-      --oktaIssuer=VALUE     Set the okta Issuer, used for authentication.
-      --oktaClientId=VALUE   Set the okta ClientId.
-      --oktaScope=VALUE      Set the okta Scope.
+      --oktaIssuer=VALUE     Follow our documentation to find the Issuer for
+                               okta.
+      --oktaClientId=VALUE   Follow our documentation to find the Client ID
+                               for okta.
+      --oktaScope=VALUE      Only change this if you need to change the
+                               OpenID Connect scope requested by Octopus for
+                               okta.
       --oktaNameClaimType=VALUE
-                             Set the okta NameClaimType.
+                             Only change this if you want to use a different
+                               security token claim for the name from okta.
       --oktaAllowAutoUserCreation=VALUE
-                             Set okta AllowAutoUserCreation.
+                             Tell Octopus to automatically create a user
+                               account when a person signs in with okta.
       --oktaRoleClaimType=VALUE
-                             Set the RoleClaimType.
+                             Tell Octopus how to find the roles in the
+                               security token from Okta.
+      --oktaUsernameClaimType=VALUE
+                             Tell Octopus how to find the value for the
+                               Octopus Username in the Okta token. Defaults to
+                               "preferred_username" if left blank.
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.
+      --AzureDevOpsIsEnabled=VALUE
+                             Set whether Azure DevOps issue tracker
+                               integration is enabled.
+      --AzureDevOpsBaseUrl=VALUE
+                             Set the base url for the Azure DevOps
+                               organization or collection or project.
+      --AzureDevOpsPersonalAccessToken=VALUE
+                             A Personal Access Token (PAT) authorized to read
+                               scopes 'Build' and 'Work items', added under
+                               User Settings.
+      --GitHubIsEnabled=VALUE
+                             Set whether GitHub issue tracker integration is
+                               enabled.
+      --GitHubBaseUrl=VALUE  Set the base url for the Git repositories.
+      --jiraIsEnabled=VALUE  Set whether Jira Integration is enabled.
+      --jiraBaseUrl=VALUE    Enter the base url of your Jira instance. Once
+                               set, work item references will render as links.
+      --customextension=VALUE
+                             File path of a custom extension to load
 
 Or one of the common options:
 
