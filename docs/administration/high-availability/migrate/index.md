@@ -149,7 +149,7 @@ After you finish moving the database and file storage, it is time to turn back o
 
 1. Turn back on the Octopus Deploy instance.  If the instance does not startup that indicates a database connection issue.
 1. Log in to your instance.
-1. Navigate to previous deployments.  If you cannot see the task logs that indicate a file storage issue.
+1. Navigate to previous deployments.  If you cannot see the task logs, that indicates a file storage issue.
 1. Perform a couple of test deployments.
 1. Assuming all goes well, disable maintenance mode.
 1. Notify everyone of the new URL (if there is one).
