@@ -1,6 +1,6 @@
 ---
 title: Creating project template variables
-description: Create varibales for each tenant used as part of a multi-tenant SaaS setup in Octopus Deploy.
+description: Create variables for each tenant used as part of a multi-tenant SaaS setup in Octopus Deploy.
 position: 50
 hideInThisSectionHeader: true
 ---
