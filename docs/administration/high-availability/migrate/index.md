@@ -91,7 +91,7 @@ Octopus Deploy must sit behind a load balancer when configured in HA mode.  We r
 
 The advantage of a new URL is:
 1. You can still access each server directly (if need be).
-1. After going through the initial pain of redirecting everyone, you shouldn't ever have to do it again.
+1. The process of redirecting users and applications to the new URL should only need to be done once.
 1. You can configure and test it before the outage window, along with working through any connection issues.
 
 !include <load-balancer-endpoint-info>
