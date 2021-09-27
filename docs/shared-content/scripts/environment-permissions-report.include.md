@@ -688,6 +688,13 @@ function Get-UserPermission
                 Name = $environment.Name
             }
         }
+
+        if ($scopedRole.EnvironmentIds.Length -gt 0 -and $newPermission.Environments.Length -le 0)
+        {
+            Write-OctopusVerbose "The role is scoped to environments, but none of the environments are assigned to $($project.Name).  This user role does not apply to this project."
+
+            return @($projectPermissionList)
+        }
     
         foreach ($tenantId in $scopedRole.tenantIds)
         {            
@@ -703,6 +710,13 @@ function Get-UserPermission
                 Id = $tenant.Id
                 Name = $tenant.Name
             }
+        }
+
+        if ($scopedRole.TenantIds.Length -gt 0 -and $newPermission.Tenants.Length -le 0)
+        {
+            Write-OctopusVerbose "The role is scoped to tenants, but none of the tenants are assigned to $($project.Name).  This user role does not apply to this project."
+
+            return @($projectPermissionList)
         }
     }
 
@@ -1264,6 +1278,13 @@ static System.Collections.Generic.List<Permission> GetUserPermission (SpaceResou
             }
         }
 
+        if (ScopedRole.EnvironmentIds.Count > 0 and newPermission.Environments.Count <= 0)
+        {
+            Console.WriteLine(string.Format("The role is scoped to environments, but none of the environments are assigned to {1}.  This user role does not apply to this project.", Project.Name));
+
+            return ProjectPermissionList;
+        }
+
         foreach (var tenantId in ScopedRole.TenantIds)
         {
             var tenant = TenantList.FirstOrDefault(t => t.Id == tenantId);
@@ -1278,6 +1299,13 @@ static System.Collections.Generic.List<Permission> GetUserPermission (SpaceResou
 
                 newPermission.Tenants.Add(tenant);
             }
+        }
+
+        if (ScopedRole.TenantIds.Count > 0 and newPermission.Tenants.Count <= 0)
+        {
+            Console.WriteLine(string.Format("The role is scoped to tenants, but none of the tenants are assigned to {1}.  This user role does not apply to this project.", Project.Name));
+
+            return ProjectPermissionList;
         }
     }
 
@@ -1607,10 +1635,7 @@ def get_user_permission (space, project, user_role, project_permission_list, per
                 new_permission['Environments'] += [{
                     'Id': environment['Id'],
                     'Name': environment['Name']
-                }]
-                
-
-                print('hi')
+                }]                                        
 
         for tenantId in scoped_role['TenantIds']:
             tenant = next((x for x in tenant_list if x['Id'] == tenantId), None)
@@ -2211,6 +2236,11 @@ func GetUserPermission(space *octopusdeploy.Space, project *octopusdeploy.Projec
 			}
 		}
 
+        if len(scopedRole.EnvironmentIDs) > 0 && len(newPermission.Environments) == 0 {
+            fmt.Println("The role is scoped to environments but the project is not assigned to them.  This user role does not apply.")
+            return permissions
+        }
+
 		for i := 0; i < len(scopedRole.TenantIDs); i++ {
 			for j := 0; j < len(tenantList); j++ {
 				if tenantList[j].ID == scopedRole.TenantIDs[i] {
@@ -2222,6 +2252,11 @@ func GetUserPermission(space *octopusdeploy.Space, project *octopusdeploy.Projec
 				}
 			}
 		}
+
+        if len(scopedRole.TenantIDs) > 0 && len(newPermission.Tenants) == 0 {
+            fmt.Println("The role is scoped to tenants but the project is not assigned to them.  This user role does not apply.")
+            return permissions
+        }
 	}
 
 	existingPermission := Permission{}
