@@ -1896,6 +1896,7 @@ func main() {
 	environmentFilter := "Development"
 	permissionToCheck := "DeploymentCreate"
 	reportPath := "path:\\to\\Report.csv"
+    userFilter := "all"
 
 	// Create client object
 	client := octopusAuth(apiURL, APIKey, "")
@@ -1920,6 +1921,9 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
+
+    // Filter users
+	users = FilterUsers(users, userFilter)
 
 	permissionsReport := []ProjectPermission{}
 
@@ -2144,6 +2148,35 @@ func FilterSpaces(spaces []*octopusdeploy.Space, filter string) []*octopusdeploy
 				filteredList = append(filteredList, spaces[i])
 			} else {
 				fmt.Println("The item " + spaces[i].Name + " does not match filter " + filters[j])
+			}
+		}
+	}
+
+	return filteredList
+}
+
+func FilterUsers(users []*octopusdeploy.User, filter string) []*octopusdeploy.User {
+	filteredList := []*octopusdeploy.User{}
+
+	// Split filter
+	filters := strings.Split(filter, ",")
+
+	for i := 0; i < len(users); i++ {
+		for j := 0; j < len(filters); j++ {
+			fmt.Println("Checking to see if " + filters[j] + " matches " + users[i].Name)
+			match, err := regexp.MatchString(filter, users[i].Name)
+			if err != nil {
+				log.Println(err)
+			}
+
+			if filters[j] == "all" {
+				fmt.Println("The filter is all -> adding " + users[i].Name + " to filtered list")
+				filteredList = append(filteredList, users[i])
+			} else if match {
+				fmt.Println("The filter " + filters[j] + " matches " + users[i].Name + " adding " + users[i].Name + " to filtered list")
+				filteredList = append(filteredList, users[i])
+			} else {
+				fmt.Println("The item " + users[i].Name + " does not match filter " + filters[j])
 			}
 		}
 	}
