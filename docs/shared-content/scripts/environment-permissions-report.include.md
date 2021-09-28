@@ -678,7 +678,7 @@ function Get-UserPermission
         {
             if ($projectEnvironmentList -notcontains $environmentId)
             {
-                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not asigned to $($project.Name), excluding from this project's report"
+                Write-OctopusVerbose "The role is scoped to environment $environmentId, but the environment is not assigned to $($project.Name), excluding from this project's report"
                 continue
             }
 
@@ -724,8 +724,8 @@ function Get-UserPermission
 
     if ($null -eq $existingPermission)
     {
-        Write-OctopusVerbose "$($user.DisplayName) is not assigned to this project adding this permission"
-
+        Write-OctopusVerbose "This is the first time we've seen $($user.DisplayName) for this permission.  Adding the permission to the list."
+        
         $projectPermissionList += $newPermission
 
         return @($projectPermissionList)
@@ -871,7 +871,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -880,7 +880,7 @@ function Get-EnvironmentsScopedToProject
             {
                 if ($scopedEnvironmentList -notcontains $environmentId)
                 {
-                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) enviornment list"
+                    Write-OctopusVerbose "Adding $environmentId to $($project.Name) environment list"
                     $scopedEnvironmentList += $environmentId
                 }
             }
@@ -1130,6 +1130,37 @@ class Permission
     }
 }
 
+static System.Collections.Generic.List<UserResource> FilterUserList(System.Collections.Generic.List<UserResource> Users, string Filter)
+{
+    var filters = Filter.Split(",", StringSplitOptions.RemoveEmptyEntries);
+    System.Collections.Generic.List<UserResource> filteredList = new System.Collections.Generic.List<UserResource>();
+
+    foreach (var userResource in Users)
+    {
+        // Loop through filters
+        foreach (string filter in filters)
+        {
+            if (filter.ToLower() == "all")
+            {
+                // Add to list
+                Console.WriteLine(string.Format("The filter is 'all' -> adding {0} to filtered list", userResource.Name));
+                filteredList.Add(userResource);
+            }
+            else if (Regex.IsMatch(userResource.Name, filter))
+            {
+                Console.WriteLine(string.Format("The filter {0} matches {1}, adding {1} to filtered list", filter, userResource.Name));
+                filteredList.Add(userResource);
+            }
+            else
+            {
+                Console.WriteLine(string.Format("User {0} does not match filter {1}", userResource.Name, filter));
+            }
+        }
+    }
+
+    return filteredList;
+}
+
 static System.Collections.Generic.List<SpaceResource> FilterSpaceList(System.Collections.Generic.List<SpaceResource> Spaces, string Filter)
 {
     var filters = Filter.Split(",", StringSplitOptions.RemoveEmptyEntries);
@@ -1145,7 +1176,6 @@ static System.Collections.Generic.List<SpaceResource> FilterSpaceList(System.Col
                 // Add to list
                 Console.WriteLine(string.Format("The filter is 'all' -> adding {0} to filtered list", spaceResource.Name));
                 filteredList.Add(spaceResource);
-                
             }
             else if (Regex.IsMatch(spaceResource.Name, filter))
             {
@@ -1280,7 +1310,7 @@ static System.Collections.Generic.List<Permission> GetUserPermission (SpaceResou
 
         if (ScopedRole.EnvironmentIds.Count > 0 and newPermission.Environments.Count <= 0)
         {
-            Console.WriteLine(string.Format("The role is scoped to environments, but none of the environments are assigned to {1}.  This user role does not apply to this project.", Project.Name));
+            Console.WriteLine(string.Format("The role is scoped to environments, but none of the environments are assigned to {0}.  This user role does not apply to this project.", Project.Name));
 
             return ProjectPermissionList;
         }
@@ -1303,7 +1333,7 @@ static System.Collections.Generic.List<Permission> GetUserPermission (SpaceResou
 
         if (ScopedRole.TenantIds.Count > 0 and newPermission.Tenants.Count <= 0)
         {
-            Console.WriteLine(string.Format("The role is scoped to tenants, but none of the tenants are assigned to {1}.  This user role does not apply to this project.", Project.Name));
+            Console.WriteLine(string.Format("The role is scoped to tenants, but none of the tenants are assigned to {0}.  This user role does not apply to this project.", Project.Name));
 
             return ProjectPermissionList;
         }
@@ -1313,7 +1343,7 @@ static System.Collections.Generic.List<Permission> GetUserPermission (SpaceResou
 
     if (existingPermission == null)
     {
-        Console.WriteLine(string.Format("{0} is not assigned to this project adding this permission", User.DisplayName));
+        Console.WriteLine(string.Format("This is the first time we've seen {0} for this permission. Adding the permission to the list.", User.DisplayName));
         ProjectPermissionList.Add(newPermission);
 
         return ProjectPermissionList;
@@ -1414,7 +1444,7 @@ string spaceFilter = "all";
 string environmentfilter = "Development";
 string permissionToCheck = "DeploymentCreate";
 string reportPath = "path:\\to\\csv.file";
-
+string userFilter = "all";
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -1426,6 +1456,7 @@ spaceList = FilterSpaceList(spaceList, spaceFilter);
 
 var userRoleList = repository.UserRoles.FindAll();
 var userList = repository.Users.FindAll();
+userList = FilterUserList(userList, userFilter);
 
 var permissionsReport = new System.Collections.Generic.List<ProjectPermission>();
 
@@ -1655,7 +1686,7 @@ def get_user_permission (space, project, user_role, project_permission_list, per
     existing_permission = next((x for x in project_permission_list if x['UserId'] == new_permission['UserId']), None)
 
     if existing_permission == None:
-        print ('{0} is not assigned to this project adding this permission'.format(user['DisplayName']))
+        print ('This is the first time we''ve seen {0} for this permission. Adding the permission to the list'.format(user['DisplayName']))
         project_permission_list.append(new_permission)
         return project_permission_list
 
@@ -1723,8 +1754,6 @@ def write_permission_list (permission_name, permission_list, permission, report_
         report.write('\n'.join(["{0},{1},{2},{3},{4},{5}".format(row['Space'], row['Project'], row['PermissionName'], row['User'], row['EnvironmentScope'], row['TenantScope'])]) + '\n')
         report.close()
 
-
-
 octopus_server_uri = 'https://YourURL'
 octopus_api_key = 'API-YourAPIKey'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
@@ -1732,6 +1761,7 @@ space_filter = "all"
 environment_filter = "Development"
 permission_to_check = "DeploymentCreate"
 report_path = "path:\\to\\report.file"
+user_filter = "all" # Supports "all" for everything, wild cards "hello*" will pull back everything that starts with hello, or specific names.  Comma separated "Hello*,Testing" will pull back everything that starts with Hello and matches Testing exactly
 
 # Get spaces
 uri = '{0}/api/spaces'.format(octopus_server_uri)
@@ -1745,6 +1775,7 @@ user_roles_list = get_octopus_resource(uri, headers)
 # Get user list
 uri = '{0}/api/users'.format(octopus_server_uri)
 user_list = get_octopus_resource(uri, headers)
+user_list = new_octopus_filtered_list(user_list, user_filter)
 
 permissions_report = []
 
@@ -2279,7 +2310,7 @@ func GetUserPermission(space *octopusdeploy.Space, project *octopusdeploy.Projec
 	}
 
 	if !permissionFound {
-		fmt.Println(user.DisplayName + " is not assigned to this project, adding this permission")
+        fmt.Println("This is the first time we've seen " + user.DisplayName + " for this permission. Adding the permission to the list.")
 		permissions = append(permissions, newPermission)
 		return permissions
 	}
