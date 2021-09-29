@@ -20,7 +20,7 @@ Octopus on your infrastructure, for free.
 
 ### How to switch to Community Server
 
-Select your Server licence, and on the overview pane under the serial select "Change licence"
+Select your Server license, and on the overview pane under the serial select "Change license"
 
 ![](images/octopus-server-change-license.png "width=500")
 
