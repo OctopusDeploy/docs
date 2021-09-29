@@ -5,7 +5,7 @@ position: 10
 hideInThisSection: true
 ---
 
-The Community edition of Octopus is designed for individuals making personal projects or open source software. It's free to self-host using Octopus Server, and we have a low-cost Cloud Community plan that is `$10 USD` per month. 
+The Community edition of Octopus is for individuals making personal projects or open source software. It's free to self-host using Octopus Server, and we have a low-cost Cloud Community plan that is `$10 USD` per month. 
 
 This page outlines the limits for the Community edition of Octopus, and how to switch to a community license via the [Octopus Control Center](https://octopus.com/control-center/).
 
@@ -51,6 +51,6 @@ The Octopus Cloud Community plan has limits that apply.
 
 ### How to switch to Community Cloud
 
-From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Cloud Instances, View}}**, select your instance and click on the **Finance** pane. Once there, click on the **Configure Plan** button, and you'll be presented with an option at the bottom of the page. To complete the switch to Community Cloud, click on the **Switch to community plan** link.
+From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Cloud Instances, View}}**, select your instance and click on the **Finance** pane. Once there, click on the **Change Plan** button, and you'll be presented with an option at the bottom of the page. To complete the switch to Community Cloud, click on the **Switch to community plan** link.
 
 ![](images/octopus-cloud-community.png "width=500")
