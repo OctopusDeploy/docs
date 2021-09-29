@@ -5,7 +5,7 @@ position: 71
 hideInThisSection: true
 ---
 
-This page outlines the community limits and how to switch to community via the control center.
+This page outlines the community limits and how to switch to a community license via the octopus.com control center.
 
 ## Server
 
