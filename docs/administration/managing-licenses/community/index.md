@@ -1,59 +1,56 @@
 ---
-title: Community
-description: Server and Cloud community limits
+title: Community edition
+description: Server and Cloud community edition limits
 position: 10
 hideInThisSection: true
 ---
 
-This page outlines the community limits and how to switch to a community license via the octopus.com control center.
+The Community edition of Octopus is designed for individuals making personal projects or open source software. It's free to self-host using Octopus Server, and we have a low-cost Cloud Community plan that is `$10 USD` per month. 
 
-## Server
+This page outlines the limits for the Community edition of Octopus, and how to switch to a community license via the [Octopus Control Center](https://octopus.com/control-center/).
 
-Octopus on your infrastructure, for free.
+## Server Community
+
+With Octopus Server Community, you host it on your own infrastructure, for free. The license is available 12-months from when you register. This period can be extended by 12-months **at no cost at any time**.
 
 ### Server Community limits
-  - Deploy to 5 targets
-  - Limit of 5 users with limited permissions
-  - Limit of 5 projects
-  - Valid for 12 months, extend anytime for free
-  - Technical support included
+
+Octopus Server Community has limits that apply: 
+
+!include <octopus-server-community-limits>
 
 ### How to switch to Community Server
 
-Select your Server license, and on the overview pane under the serial select "Change license"
+From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Server Licenses, View}}**, select your Server license and on the **Overview** pane under the serial select **Change license**.
 
 ![](images/octopus-server-change-license.png "width=500")
 
-This will take you to the  "Manage your licenses" page there'll be a "Change to Community" button.
+This will take you to the **Manage your licenses** page. Here you can switch to a Community Server license by clicking on **Change to Community**.
 
 ![](images/octopus-server-community.png "width=500")
 
-You will end up on  a preview screen where you can "Agree, change license" to complete your switch to community.
+Lastly, you'll be shown a preview screen where you can review the changes. Once you're happy, click the **Agree, change license** button to complete your switch to the Community edition.
 
 ![](images/octopus-server-agree.png "width=500")
 
-## Cloud
+## Cloud Community
 
-DevOps automation as-a-service for $10 USD per month
+With Octopus Cloud, we host Octopus on your behalf. Our team takes care of managing the service, ensuring it is backed up and has the latest patches and features. We have a low-cost Cloud Community plan that is `$10 USD` per month.
 
 ### Cloud Community limits
 
-Instance limits
- - Deploy to 5 targets
- - Limit of 5 users with limited permissions
- - Limit of 5 projects
- - Limit of 20 worker hours per month
- - Technical support included
+The Octopus Cloud Community plan has limits that apply.
 
+**Instance limits:**
 
-Storage limits
- - Storage for artifacts, task logs, packages and package cache is limited to 20 GB
- - Storage for configuration data is limited to 5 GB
- - Maximum size for any single package is 5 GB
- - Maximum retention of unused resources is 30 days
+!include <octopus-cloud-community-plan-instance-limits>
+
+**Storage limits:**
+
+!include <octopus-cloud-community-plan-storage-limits>
 
 ### How to switch to Community Cloud
 
-From the Control Center select your instance and click on the finance pane. There you will see a "Chane plan" option at the bottom of that page is the selection to switch to community.
+From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Cloud Instances, View}}**, select your instance and click on the **Finance** pane. Once there, click on the **Configure Plan** button, and you'll be presented with an option at the bottom of the page. To complete the switch to Community Cloud, click on the **Switch to community plan** link.
 
 ![](images/octopus-cloud-community.png "width=500")
