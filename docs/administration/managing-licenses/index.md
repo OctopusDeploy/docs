@@ -1,6 +1,6 @@
 ---
 title: Managing Licenses
-description: 
+description: Managing your licenses for Octopus Server and Octopus Cloud.
 position: 50
 hideInThisSectionHeader: true
 ---
