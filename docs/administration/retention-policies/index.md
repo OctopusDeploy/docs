@@ -1,7 +1,7 @@
 ---
 title: Retention policies
 description: Retention policies allow you to specify the releases, packages and files you want to keep as well as the ones you want cleaned up.
-position: 90
+position: 70
 hideInThisSectionHeader: true
 ---
 
