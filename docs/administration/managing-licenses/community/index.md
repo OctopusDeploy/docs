@@ -1,7 +1,7 @@
 ---
 title: Community
 description: Server and Cloud community limits
-position: 71
+position: 10
 hideInThisSection: true
 ---
 

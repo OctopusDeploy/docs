@@ -1,7 +1,7 @@
 ---
 title: Spaces
 description: Spaces setup and configuration.
-position: 40
+position: 30
 version: 2019.1
 ---
 
