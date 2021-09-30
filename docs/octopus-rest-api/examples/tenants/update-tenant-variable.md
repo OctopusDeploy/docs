@@ -1,6 +1,6 @@
 ---
 title: Update tenant variables
-description: An example script that updates tenant variables for a specific project tenplate with a single value across each connected environment in Octopus using the REST API and Octopus.Client.
+description: An example script that updates tenant variables for a specific project template with a single value across each connected environment in Octopus using the REST API and Octopus.Client.
 ---
 
 This script demonstrates how to programmatically update tenant variables with a single value across each connected environment in Octopus.
