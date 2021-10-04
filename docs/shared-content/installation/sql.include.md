@@ -10,9 +10,11 @@ The following versions of SQL Server Database are supported and automatically te
 | 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
 :::hint
-The following versions of Octopus have a requirement for SQL Server 2017+. This requirement has been relaxed to SQL Server 2016+ with any patch version later than specified in this note.
-2020.2.1 ➜ 2020.2.18
-2020.3.1 ➜ 2020.3.5
+The following versions of Octopus have a requirement for SQL Server 2017+.
+- 2020.2.0 ➜ 2020.2.17
+- 2020.3.0 ➜ 2020.3.5
+
+This requirement has been relaxed to SQL Server 2016+ for any patch version **later** than specified in this note. Please see [this post](https://octopus.com/blog/raising-minimum-requirements-for-octopus-server) for further details.
 :::
 
 Supported editions:
