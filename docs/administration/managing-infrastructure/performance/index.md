@@ -158,7 +158,7 @@ While it is fun to have gifs and fancy images for your projects consider the siz
 
 ## Deployment Parallelism
 
-By default, Octopus will only run one process on each [deployment target]/docs/infrastructure/deployment-targets/index.md) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
+By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets/index.md) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
 
 - `OctopusBypassDeploymentMutex` - allows for multiple processes to run at once on the target.
 - `Octopus.Acquire.MaxParallelism` - limits the maximum number of packages that can be concurrently deployed to multiple targets.
