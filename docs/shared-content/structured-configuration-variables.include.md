@@ -425,9 +425,24 @@ When parsing the XML document, Octopus collects all namespace declarations for u
 
 One limitation is that if the same prefix is declared more than once in a document, only the first will be available in XPath expressions. Because this is a potentially surprising situation, a warning will be logged, similar to the following:
 
-```
+```text
 The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
 ```
+
+**Root elements with namespaces**
+If you have xml files that have a namespace on the root element, you might find your XPath expression doesn't match the root node. 
+XPath provides different ways to select an element. One option to try is using a wildcard namespace in your XPath expression like `/*:rootelement/*:childelement`
+
+Given the following xml:
+
+```xml
+<server xmlns="urn:my:domain:1.0">
+  <properties>
+    <property name="host.name" value="localhost" />
+  </properties>
+</server>
+```
+If you wanted to replace the value `localhost`, you could use the XPath expression of: `/*:server/*:properties/*:property[@name='host.name']/@value`
 
 ## Java Properties 
 
