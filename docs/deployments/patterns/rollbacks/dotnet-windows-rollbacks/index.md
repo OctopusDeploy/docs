@@ -26,7 +26,7 @@ For this guide, we will start with the following deployment process for the Octo
 
 ![original windows deployment process](images/original-windows-deployment-process.png)
 
-View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
@@ -48,7 +48,7 @@ The updated deployment process will be:
 
 ![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
 
-View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please be sure to login as a guest.
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
 
 ### Calculate Deployment Mode
 
@@ -100,7 +100,7 @@ The resulting process will be:
 
 ![windows complex rollbacks](images/windows-complex-rollbacks.png)
 
-View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please be sure to login as a guest.
+View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please login as a guest.
 
 ### Comparison to Simple Rollback Process
 

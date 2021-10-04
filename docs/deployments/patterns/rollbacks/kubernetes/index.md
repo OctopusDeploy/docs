@@ -22,6 +22,8 @@ For this guide, we'll start with an existing deployment process for deploying Pe
 
 ![](octopus-original-deployment-process.png)
 
+View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-kubernetes-original/deployments/process).  Please login as a guest.
+
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
 
@@ -39,6 +41,8 @@ The updated deployment process for a simple rollback would look like this:
 1. Block Release Progression (only during rollback)
 
 ![](octopus-simple-rollback-process.png)
+
+View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-kubernetes-simple-rollback/deployments/process).  Please login as a guest.
 
 ### Calculate Deployment Mode
 !include <calculate-deployment-mode>
@@ -84,6 +88,8 @@ The new deployment process would look like this:
 1. Block Release Progression (only during rollback)
 
 ![](octopus-complex-rollback-process.png)
+
+View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-kubernetes-complex-rollback/deployments/process).  Please login as a guest.
 
 We'll go through the newly added and altered steps:
 

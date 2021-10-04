@@ -22,7 +22,7 @@ The existing deployment process is:
 
 ![Original deployment process for Node.js application](images/rollback-nginx-original-process.png)
 
-See the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
@@ -42,7 +42,7 @@ The updated deployment process will be:
 
 ![simple rollback for windows deployment](images/rollback-nginx-simple-rollback.png)
 
-See the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/bestbags-rollback/deployments/process).  Please be sure to login as a guest.
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/bestbags-rollback/deployments/process).  Please login as a guest.
 
 ### Calculate Deployment Mode
 
