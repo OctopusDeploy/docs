@@ -52,22 +52,13 @@ To ensure that both of those steps are not run during a rollback, use the follow
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
-#### Adding notes to the deployment steps
+:::hint
 When viewing the deployment process at a glance, it is not readily apparant that a step has a run condition associated with it.  Octopus Deploy provides a `Notes` field for each step where you can add information such has in which conditions the step will run as a way of self-documentaion.
+:::
 
 ### Block Release Progression
-Rolling back usually means that there is something wrong with the release.  The [Block Release Progression](https://library.octopus.com/step-templates/78a182b3-5369-4e13-9292-b7f991295ad1/actiontemplate-block-release-progression) Community Step Template will set the Block flag on a release so it is prevented from being deployed to other environments.
 
-- Octopus Url: #{Octopus.Web.BaseUrl} (default value)
-- Octopus API Key: API Key with permissions to block releases
-- Release Id to Block: #{Octopus.Release.CurrentForEnvironment.Id} (default value)
-- Reason: #{Octopus.Action[Rollback reason].Output.Manual.Notes} (text from the Manual Intervention step)
-
-Ensure to set the variable run condition to:
-
-```
-#{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
-```
+!include <prevent-release-progression>
 
 ## Complex Rollback Process
 A feature of Kubernetes is the revision history of the cluster components.  The command `kubectl rollout history deployment.v1.apps/<deploymentname>` lists all the revisions of a deployment.
@@ -167,4 +158,4 @@ The `Rollback Reason` step captures the reason for the rollback.  We can pass th
 ```
 
 ## Choosing a rollback strategy
-Not all releases can or even should be rolled back.  In cases where the release contains a large amount of changes, the best strategy is to fix the issue(s) you've encountered and keep moving foward.  For this reason, it is our recommendation that you start off with the simple rollback strategy, moving to the complex if you determine that simple method doesn't suite your needs.
+It is our recommendation that you start off with the simple rollback strategy, moving to the complex if you determine that simple method doesn't suit your needs.

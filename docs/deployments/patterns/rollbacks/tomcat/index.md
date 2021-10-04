@@ -62,18 +62,8 @@ When looking at the deployment process from the Process tab, there isn't a quick
 ![](octopus-step-notes.png)
 
 ### Block Release Progression
-Rolling back usually means that there is something wrong with the release.  The [Block Release Progression](https://library.octopus.com/step-templates/78a182b3-5369-4e13-9292-b7f991295ad1/actiontemplate-block-release-progression) Community Step Template will set the Block flag on a release so it is prevented from being deployed to other environments.
 
-- Octopus Url: #{Octopus.Web.BaseUrl} (default value)
-- Octopus API Key: API Key with permissions to block releases
-- Release Id to Block: #{Octopus.Release.CurrentForEnvironment.Id} (default value)
-- Reason: #{Octopus.Action[Rollback reason].Output.Manual.Notes} (text from the Manual Intervention step)
-
-Ensure to set the variable run condition to:
-
-```
-#{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
-```
+!include <prevent-release-progression>
 
 ## Complex Rollback Process
 In the simple rollback scenario, the `.war` file is redeployed, extracted, variable replacement is executed, the `.war` is repackages before finally being sent to the Tomcat server webapps location.  In cases where the `.war` is very large, the extraction and repackaging of the `.war` could take quite some time, making the rollback process lengthy.  This is where the parallel deployments feature of Tomcat can benefit us as all the processes have already occured during the initial deployment of that release.  
@@ -150,4 +140,4 @@ The retention policy of Octopus Deploy will clean up any old versions of the app
 :::
 
 ## Choosing a rollback strategy
-Not all releases can or even should be rolled back.  In cases where the release contains a large amount of changes, the best strategy is to fix the issue(s) you've encountered and keep moving foward.  For this reason, it is our recommendation that you start off with the simple rollback strategy, moving to the complex if you determine that simple method doesn't suite your needs.
+It is our recommendation that you start off with the simple rollback strategy, moving to the complex if you determine that simple method doesn't suit your needs.

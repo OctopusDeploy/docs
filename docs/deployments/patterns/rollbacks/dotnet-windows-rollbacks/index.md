@@ -26,14 +26,14 @@ For this guide, we will start with the following deployment process for the Octo
 
 ![original windows deployment process](images/original-windows-deployment-process.png)
 
-See the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please be sure to login as a guest.
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
 
 ## Simple Rollback Process
 
-For most rollbacks, the typical strategy is to skip the database steps while re-deploying the windows service and website.  In addition, a rollback indicates something is wrong with a release, so we'd want to [prevent that release from progressing](/docs/releases/prevent-release-progression.md).
+For most rollbacks, the typical rollback strategy is to skip specific steps and run additional ones during a rollback.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression.md) will run during a rollback..
 
 The updated deployment process will be:
 
@@ -42,13 +42,13 @@ The updated deployment process will be:
 1. Deploy the OctoFX Database (skip during rollback)
 1. Deploy the OctoFX Windows Service
 1. Deploy the OctoFX Website
-1. Block Release Progression
+1. Block Release Progression (only run during rollback)
 1. Verify the Application
 1. Notify stakeholders
 
 ![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
 
-See the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please be sure to login as a guest.
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please be sure to login as a guest.
 
 ### Calculate Deployment Mode
 
@@ -94,13 +94,13 @@ The resulting process will be:
 1. Update Windows Service Binary Path
 1. Restart Windows Service
 1. IIS Update Physical Path
-1. Block Release Progression
+1. Block Release Progression (only run during a rollback)
 1. Verify the Application
 1. Notify stakeholders
 
 ![windows complex rollbacks](images/windows-complex-rollbacks.png)
 
-See that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please be sure to login as a guest.
+View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please be sure to login as a guest.
 
 ### Comparison to Simple Rollback Process
 
@@ -161,6 +161,6 @@ Set the run condition for this step to:
 If you are using application pools instead of websites, use [IIS AppPool - Update Property](https://library.octopus.com/step-templates/183c1676-cb8e-44e8-a348-bbcb2b77536e/actiontemplate-iis-apppool-update-property) step template.
 :::
 
-## Picking a rollback option
+## Simple or Complex Rollback Process
 
-Not all releases can and should be rolled back.  The majority of the time, rolling forward is the fastest option.  That is especially true if you have a release with 100s of changes across the entire tech stack.  Because of that, we recommend starting with the simple rollback process first.  That requires the least amount of changes while at the same time gives you the rollback functionality.  Only move to the complex rollback process if you determine the simple rollback process isn't meeting a specific need.
+We recommend starting with the simple rollback process first.  That requires the least amount of changes while at the same time gives you the rollback functionality.  Only move to the complex rollback process if you determine the simple rollback process isn't meeting a specific need.
