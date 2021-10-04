@@ -50,10 +50,10 @@ Email steps are added to deployment processes in the same way as other steps.
 5. The step will run on the Octopus Server.
 6. Choose the recipients of the email. You have several options:
 
-  - Enter a comma-separated list of email addresses.
-  - Bind to a [variable](/docs/projects/variables/index.md) which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment).
-  - Choose one or more teams to include members of those teams in the recipient list.
-  - Use a combination of all of these options.
+   - Enter a comma-separated list of email addresses.
+   - Bind to a [variable](/docs/projects/variables/index.md) which defines a list of email addresses (this is really useful for tailoring your recipient list per-environment).
+   - Choose [one or more teams](/docs/security/users-and-teams/index.md) to include members of those teams in the recipient list.
+   - Use a combination of all of these options.
 
 Octopus will build the resulting recipient list during the deployment, remove duplicate emails addresses, and send the email to each recipient.
 docs
@@ -62,9 +62,9 @@ docs
 8. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions.md#extended-syntax-variablesubstitutionsyntax-extendedsyntax) to include information about the deployment in the email. See the [Email Template Examples](#email-template-examples) below.
 9. You can set conditions to determine when the step should run. For instance:
 
-  - Send the email only for successful deployments to certain environments.
-  - Send a specific email for failed deployments.
-  - Send an email based on the value of a variable expression which works really well with [output variables](/docs/projects/variables/output-variables.md).
+   - Send the email only for successful deployments to certain environments.
+   - Send a specific email for failed deployments.
+   - Send an email based on the value of a variable expression which works really well with [output variables](/docs/projects/variables/output-variables.md).
 
 10. Save the step.
 
