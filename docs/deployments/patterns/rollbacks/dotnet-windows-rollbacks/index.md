@@ -11,7 +11,7 @@ This guide will walk through rolling back .NET Windows Services and .NET Web App
 - Windows Service
 - Website
 
-Rolling back a database is out of the scope of this guide.  As stated in this [article](https://octopus.com/blog/database-rollbacks-pitfalls), rolling back a database schema change could result in wrong or deleted data.  This guide focuses on scenarios where there were no database changes, or the database changes are backward compatible.  Because the database changes are out of scope for rollbacks, the database packages will be "skipped" during the rollback process.
+Rolling back a database is out of the scope of this guide.  As stated in this [article](https://octopus.com/blog/database-rollbacks-pitfalls), rolling back a database schema change could result in wrong or deleted data.  This guide focuses on scenarios where there were no database changes or the database changes are backward compatible.  Because the database changes are out of scope for rollbacks, the database packages will be "skipped" during the rollback process.
 
 ## Existing Deployment Process
 
@@ -33,7 +33,7 @@ View the deployment process on [samples instance](https://samples.octopus.app/ap
 
 ## Simple Rollback Process
 
-For most rollbacks, the typical rollback strategy is to skip specific steps and run additional ones during a rollback.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression.md) will run during a rollback..
+The typical rollback strategy is to skip specific steps and run additional ones during a rollback for most rollbacks.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression.md) will run during a rollback.
 
 The updated deployment process will be:
 
@@ -115,7 +115,7 @@ As stated earlier, the primary difference between the simple and complex rollbac
 
 ### Add System Variable to Skip Package Deployment
 
-Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed apckages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
+Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed packages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
 
 ```
 #{if Octopus.Action[Calculate Deployment Mode].Output.DeploymentMode == "Deploy"}False#{else}True#{/if}

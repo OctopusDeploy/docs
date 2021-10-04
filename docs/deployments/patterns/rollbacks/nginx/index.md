@@ -1,5 +1,5 @@
 ---
-title: Rolling back a NGINX deployment
+title: Rolling back an NGINX deployment
 description: A guide on how to rollback a Node.js application hosted on NGINX
 position: 15
 hideInThisSectionHeader: true
@@ -50,7 +50,7 @@ See the deployment process on [samples instance](https://samples.octopus.app/app
 
 ### Skip Database Deployment Step
 
-The database deployment step, should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be trigger with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
+The database deployment step should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be trigger with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
 
 To skip these steps during a rollback, set the variable run condition to be:
 

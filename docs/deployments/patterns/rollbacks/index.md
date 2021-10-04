@@ -5,16 +5,16 @@ position: 10
 hideInThisSectionHeader: true
 ---
 
-Being able to roll back to a known good state of code is often just as important as deploying software.  In our experience, rolling back to a previous release is rarely as simple as "redeploying the last successful deployment."  This section will walk you through the patterns and pitfalls you'll encounter when configuring a rollback process.
+Being able to roll back to a known good state of code is often just as important as deploying software.  In our experience, rolling back to a previous release is rarely as simple as "re-deploying the last successful deployment."  This section will walk you through the patterns and pitfalls you'll encounter when configuring a rollback process.
 
 ## Built-In Rollback Support
 
-Octopus Deploy supports rollbacks out of the box.  It always keeps the two most recent successful releases in any given environment, making it easy to rollback to the previous version.  In addition, you can configure [retention policies](/docs/administration/retention-policies/index.md) to keep more releases on your target machines.
+Octopus Deploy supports rollbacks out of the box.  It always keeps the two most successful releases in any given environment, making it easy to roll back to the previous version.  In addition, you can configure [retention policies](/docs/administration/retention-policies/index.md) to keep more releases on your target machines.
 
-For example, Imagine you just deployed `1.1.21` to your **QA** servers.  For whatever reason, that version does not work.  You can redeploy the previous version, `1.1.20`, to **QA** by going to that release and clicking on the **REDEPLOY** button.  That scenario is supported by default, you won't have to configure anything else.
+For example, Imagine you just deployed `1.1.21` to your **QA** servers.  For whatever reason, that version does not work.  You can re-deploy the previous version, `1.1.20`, to **QA** by going to that release and clicking on the **REDEPLOY** button.  That scenario is supported by default; you won't have to configure anything else.
 
 :::hint
-Doing that will re-run the previous deployment process as it existed at release creation.  It will re-extract any packages, re-run all the configuration transforms, re-run any manual intervention steps, etc.  If it took an hour before, it would most likely retake an hour on redeployment.
+Doing that will re-run the previous deployment process as it existed at release creation.  It will re-extract any packages, re-run all the configuration transforms, re-run any manual intervention steps, etc.  If it took an hour before, it would most likely retake an hour on re-deployment.
 :::
 
 ## Ideal Rollback Scenarios
@@ -25,17 +25,17 @@ It would be impossible to list every scenario in which a rollback will be succes
 - Code changes with no public interface or contract changes.
 - Zero to minimal coupling with other applications.
 - Zero to minimal coupled database changes (new index, tweaked view, store procedure performance improvement).
-- Number of changes since last release is low.
+- Number of changes since the last release is low.
 
 Rollbacks are much more complicated (if not impossible) when you have tightly coupled database and code changes, are doing a once-a-quarter release with 100s of changes, or the changes are tightly coupled with other applications.  In those scenarios, we recommend **rolling forward**.
 
 ## Designing a Rollback Process
 
-Having the ability to rollback, even if rarely used, is a valuable option.  What you don't want is to make up your rollback process in the middle of an emergency.  If you want to have the ability to rollback, start thinking about what that process should look like now.  Below are some questions to help get you started.
+Having the ability to roll back, even if rarely used, is a valuable option.  What you don't want is to make up your rollback process in the middle of an emergency.  If you want to have the ability to roll back, start thinking about what that process should look like now.  Below are some questions to help get you started.
 
 - Who will trigger the rollback?  Will it be automated or manual?
 - What platform are you using (Windows, Linux, Azure Web Apps, K8s, etc.)?  Does it support multiple paths or versions?
-- When a rollback occurs, do you want to do a complete redeployment of your application (including variable transforms)?
+- When a rollback occurs, do you want to do a complete re-deployment of your application (including variable transforms)?
 - If you have manual interventions, should they run?
 - If you have database deployments, should they run?
 - Are there any other steps that should be skipped?
@@ -61,11 +61,11 @@ Re-running that deployment process as-is for a rollback could lead to data loss 
 
 ### Calculating Deployment Mode
 
-When a release is deployed to an environment there are three deployment scenarios known as "Deployment Mode."
+When a release is deployed to an environment, three deployment scenarios are known as "Deployment Mode."
 
-- **Deploy**: First time the release is deployed to the environment.  For example, `2021.2.1` is deployed.
-- **Rollback**: Previous version is re-deployed to the environment.  For example, `2021.2.1` is rolled back to `2021.1.10`.
-- **Redeployment**: Same release is re-deployed to the environment.  For example, `2021.2.1` is re-deployed the same environment because a new web server was added.
+- **Deploy**: The first time the release is deployed to the environment.  For example, `2021.2.1` is deployed.
+- **Rollback**: The previous version is re-deployed to the environment.  For example, `2021.2.1` is rolled back to `2021.1.10`.
+- **Redeployment**: The same release is re-deployed to the environment.  For example, `2021.2.1` is re-deployed the same environment because a new webserver was added.
 
 Calculating deployment mode is done by comparing the system variable `Octopus.Release.CurrentForEnvironment.Number` with the system variable `Octopus.Release.Number`.
 
@@ -113,7 +113,7 @@ While it is possible to automatically trigger a rollback, this is not something 
 
 ## Rollback Considerations
 
-Once a rollback process is in place, you'll need to decide when to use it.  Specifically, when a issue occurs, is the solution a roll forward or roll back.  When making that decision, here are a few questions to ask.
+Once a rollback process is in place, you'll need to decide when to use it.  Specifically, when an issue occurs, is the solution a roll forward or rollback.  When making that decision, here are a few questions to ask.
 
 - Carefully reviewing the changelog, and answering "if this were reverted, what would happen?"
 - Were there any database schema changes?
@@ -122,44 +122,44 @@ Once a rollback process is in place, you'll need to decide when to use it.  Spec
 
 ### Large Changeset
 
-Rolling back a large change set is much, much harder than rolling back a small change set.  When you roll back, you cannot pick a specific change in a specific application's binaries to roll back.  Everything goes, or none of it goes.  If you have made dozens and dozens of changes, attempting to untangle the web of what to rollback could take just as long as rolling forward.
+Rolling back a large changeset is much, much harder than rolling back a small changeset.  When you roll back, you cannot pick a specific change in a specific application's binaries to roll back.  Everything goes, or none of it goes.  If you have made dozens and dozens of changes, attempting to untangle the web of what to roll back could take just as long as rolling forward.
 
-If it has been a month or more since the last release to **Production**, we recommend **rolling forward**.  If it has been a few hours since the last release, for example deploying to a **Test** or **QA** environment, then a **rollback** is suitable.
+If it has been a month or more since the last release to **Production**, we recommend **rolling forward**.  If it has been a few hours since the last release, for example, deploying to a **Test** or **QA** environment, then a **rollback** is suitable.
 
 ### Database Rollbacks
 
-Rolling back code is much easier than rolling back a database **without data loss**.  It becomes nearly impossible a database schema change once users start manipulating data.  
+Rolling back code is much easier than rolling back a database **without data loss**.  It becomes nearly impossible to roll back a database schema change once users start manipulating data.  
 
 Consider the scenario in which a new table is added during a deployment.  If you decide to roll back your application, you have two choices.
 
 1. Delete the table (either via script or database restore).
 2. Leave the table as-is.
 
-The previous version of the code _should_ run fine if the table is left as-is.  After all, the previous version of the code wasn't aware of that table and won't reference it or insert data directly.  However, there is no way to know for sure the code will work if the database changes weren't tested with the previous version of the code.  A stored procedure, view, or function could now expect data in that new table.
+The previous version of the code _should_ run fine if the table is left as-is.  After all, the previous code version wasn't aware of that table and won't reference it or insert data directly.  However, there is no way to know for sure the code will work if the database changes weren't tested with the previous version of the code.  A stored procedure, view, or function could now expect data in that new table.
 
-Restoring a backup will also result in data loss, any data changed by users since that backup will be lost.  Restoring a database backup should be for disaster recovery or a emergency rollback. 
+Restoring a backup will also result in data loss; any data changed by users since that backup will be lost.  Restoring a database backup should be for disaster recovery or an emergency rollback. 
 
 In the event you have a schema change in your database, we recommend **rolling forward**. 
 
 ### Dependent Applications
 
-In a perfect world every service and project would be loosely coupled.  While great in theory, the real world is often messy, and coupling exists.  Services and their clients have an implied or explicit data contract, and can be tightly coupled together.  If either the service or the client violates that contract, a failure will occur.
+In a perfect world, every service and project would be loosely coupled.  While great in theory, the real world is often messy, and coupling exists.  Services and their clients have an implied or explicit data contract and can be tightly coupled together.  If either the service or the client violates that contract, a failure will occur.
 
-Imagine the scenario where a credit card service introduces a new endpoint in version `3.1.0`.  Your application makes a change to leverage that new endpoint.  If version `3.1.0` of the credit card service was rolled out along with your application, and then a few days later rolled back to `3.0.0` that endpoint will no longer exist.  Any functionality your application depends on from that service would start failing.   
+Imagine the scenario where a credit card service introduces a new endpoint in version `3.1.0`.  Your application makes a change to leverage that new endpoint.  If version `3.1.0` of the credit card service was rolled out along with your application and then rolled back to `3.0.0` a few days later, that endpoint would no longer exist.  Any functionality your application depends on from that service would start failing.   
 
-In the event you make a contract change, we recommend **rolling forward** unless all the dependent applications can be rolled back as well, or have fault tolerance built-in to handle missing endpoints or unexpected results.
+In the event you make a contract change, we recommend **rolling forward** unless all the dependent applications can be rolled back as well or have fault tolerance built-in to handle missing endpoints or unexpected results.
 
 ### Time since deployment
 
-A timer starts once a release is deployed.  Once that timer reaches zero, the ability to rollback successfully, with minimal user impact, becomes impossible.  The timer duration depends on the number of users and day-to-day importance of the application.  An application used once a day by a dozen people can be rolled back days or even a week after the last deployment.  Meanwhile a internal application used by everyone in the company for three hours a day might have a few business hours before a rollback becomes impossible.
+A timer starts once a release is deployed.  Once that timer reaches zero, the ability to roll back successfully becomes impossible with minimal user impact.  The timer duration depends on the number of users and the day-to-day importance of the application.  An application used by a dozen people once a day can be rolled back days or even a week after the last deployment.  Meanwhile, an internal application used by everyone in the company for three hours a day might have a few business hours before a rollback becomes impossible.
 
-That is due to user perception.  If a release with a new feature and several bug fixes is deployed, users _will_ notice when a rollback occurs.  Either they will see the feature disappears or a bug they thought was fixed happens again.  
+That is due to user perception.  If a release with a new feature and several bug fixes is deployed, users _will_ notice when a rollback occurs.  Either they will see the feature disappears, or a bug they thought was fixed happens again.  
 
 Generally, unless a showstopping bug is found, limit rollbacks to outage windows.  Once the userbase starts using the new release, we recommend **rolling forward**.  
 
 ## Staging Your Deployments
 
-In our experience, deployments (and rollbacks) have the highest chance of success when deployed to the target environment in a "staging" area on your production servers.  The deployment is then verified, and assuming verification passes, the "staging" area becomes live.  If there is a problem, the deployment is aborted, and all the pre-exiting configuration remains untouched.
+In our experience, deployments (and rollbacks) have the highest chance of success when deployed to the target environment in a "staging" area on your production servers.  The deployment is then verified, and assuming verification passes, the "staging" area becomes live.  If there is a problem, the deployment is aborted, and all the pre-existing configuration remains untouched.
 
 That is the core concept around deployment patterns:
 
