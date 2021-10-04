@@ -135,6 +135,26 @@ Using complex syntax you can have expressions like `#{if Octopus.Environment.Nam
 #{/if}
 ```
 
+**OR Conditions**
+
+It's common to want to check for more than one value in an Octopus variable. To achieve this, you can create an effective `OR` statement by combining an `if` with another `else` statement:
+
+```
+#{if Octopus.Environment.Name == "Development"}
+  Do this if it's Development
+#{else}
+  #{if Octopus.Environment.Name == "Test"}
+    Do this if it's Test
+  #{else}
+    Do this if it's neither
+  #{/if}
+#{/if}
+```
+
+This is the equivalent of checking the Environment name for Development or Test.
+
+**Comparing one variable value with another**
+
 Sometimes, you might want to compare one variable value with another. 
 
 Given the variables:
