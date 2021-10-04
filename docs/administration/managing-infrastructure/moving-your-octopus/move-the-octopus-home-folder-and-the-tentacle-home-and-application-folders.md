@@ -6,11 +6,13 @@ position: 13
 
 ## Move the Octopus home folder {#MovetheOctopusHomefolderandtheTentacleHomeandApplicationfolders-MovetheOctopusHomefolder}
 
-Occasionally it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance. This can be done using the command-line on the Octopus Server.
-
 :::problem
 Make sure you have a **current backup** of your Octopus data before proceeding. You will also need your **Master Key** if you need to use the backup, so please copy that also!
 :::
+
+Occasionally it may be necessary to change the location at which Octopus stores its data (called the "Octopus Home" folder) as well as the Registry Key which defines the Octopus Server instance. This can be done using the command-line on the Octopus Server.
+
+A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
 :::hint
 **Administrator Rights Required**
@@ -18,8 +20,6 @@ The following commands will need to be run as Administrator as they require acce
 
 N.B. The delete-instance command will not actually delete any files, just the Registry key referring to the configuration file. This is a safe operation which will not delete your Octopus Server data.
 :::
-
-A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
 
 ```powershell
 $oldHome = "C:\Octopus"
@@ -41,16 +41,16 @@ mv $oldHome $newHome
 
 Occasionally it may be necessary to change the location at which a Tentacle stores its data (called the "Tentacle Home" and "Tentacle Applications" folder) as well as the Registry Key which defines the Tentacle instance. This can be done using the command-line on the machine where the Tentacle is installed.
 
+A PowerShell script showing the steps is set out below. You need to change the variables to match your Tentacle installation, and you may wish to run each step separately to deal with any issues like locked files.
+
+Default Tentacle instances are named *Tentacle*. You can find your instance names by running the [Tentacle.exe list-instances](/docs/octopus-rest-api/tentacle.exe-command-line/list-instances.md) command.
+
 :::hint
 **Administrator rights required**
 The following commands will need to be run as Administrator as they require access to the Registry.
 
 N.B. The delete-instance command will not actually delete any files, just the Registry key referring to the configuration file. This is a safe operation which will not delete your Tentacle data.
 :::
-
-A PowerShell script showing the steps is set out below. You need to change the variables to match your Tentacle installation, and you may wish to run each step separately to deal with any issues like locked files.
-
-Default Tentacle instances are named *Tentacle*. You can find your instance names by running the [Tentacle.exe list-instances](/docs/octopus-rest-api/tentacle.exe-command-line/list-instances.md) command.
 
 ```powershell
 ##Config##

@@ -20,6 +20,7 @@ Provide values for the following:
 - Report Path
 - Space Filter
 - Environment Filter
+- User Filter
 - Permission Name
 
 The filters allow you to choose which space(s), project(s), and user(s) to generate a report for.  They all have the same features.

@@ -8,7 +8,7 @@ position: 2
 
 Lifecycles enable a number of advanced deployment workflow features:
 
-- **Control the order of promotion**: for example, to prevent a release being deployed to *production* if it hasn't been deployed to *staging*.
+- **Control the order of promotion**: for example, to prevent a release from being deployed to *production* if it hasn't been deployed to *staging*.
 - **Automate deployment to specific environments**: for example, automatically deploy to *test* as soon as a release is created.
 - **Retention policies**: specify the number of releases to keep depending on how far they have progressed through the lifecycle.
 
@@ -28,7 +28,7 @@ Phases can also include multiple environments. This can be useful where you have
 When no phases are defined in a lifecycle, Octopus will use a default convention to control which environments may be deployed to, and in which order. The default convention forces releases to be deployed to each environment in the order that they are defined on the environments page.
 
 :::warning
-When you add a new environment to Octopus, it will automatically be included in the list of environments available to the default convention. To prevent Octopus applying the default convention, define your own phases or restrict your lifecycle to specific environments.
+When you add a new environment to Octopus, it will automatically be included in the list of environments available to the default convention. To prevent Octopus from applying the default convention, define your own phases or restrict your lifecycle to specific environments.
 :::
 
 ### Phases with environments
@@ -42,7 +42,7 @@ When adding an environment to a phase, you can choose whether you want deploymen
 
 1. If tenanted deployments are allowed, attempt to enqueue a new deployment for each tenant connected to the automatic-environment(s), taking the following into consideration:
    1. Filter the tenants by any Tenant filter defined on the Channel for the Release being considered for deployment.
-   2. Further filter the tenants based on promotion rules (e.g. deploy to UAT before Production for this tenant)
+   2. Further, filter the tenants based on promotion rules (e.g. deploy to UAT before Production for this tenant)
 2. If untenanted deployments are allowed, attempt to enqueue the untenanted deployment to the automatic-environment(s).
 
 :::
@@ -71,17 +71,17 @@ At this point, you can add one or multiple environments, or leave the default **
 
 7. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
-If you have a project setup with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release, and a deployment to that environment.
+If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
 
 8. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 
 - **All must complete**.
-- **A minimum of x must complete**. If choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
+- **A minimum of x must complete**. If you choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
 - **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
 ![Optional Phase](images/optional-phase.png "width=500")
 
-If you want to be able to deploy to any environment at any time, then simply create a single phase which has `Phase Progression` set to `All must complete` and includes all your environments.
+If you want to be able to deploy to any environment at any time, then simply create a single-phase that has `Phase Progression` set to `All must complete` and includes all your environments.
 
 9. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
 10. Add as many additional phases as you need.
@@ -141,7 +141,7 @@ In this section, we cover some lifecycle examples and their included phases.
 
 A hotfix lifecycle is useful when you have a critical bug-fix that needs to be deployed quickly. In this scenario, lower environments such as Development and Testing are skipped.
 
-It's recommended to follow good deployment practices and validate any changes before pushing to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging, and then promoted to Production. Your lifecycle may be different to reflect how you decide to handle hotfixes.
+It's recommended to follow good deployment practices and validate any changes before pushing them to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging and then promoted to Production. Your lifecycle may be different to reflect how you decide to handle hotfixes.
 
 ![Hotfix lifecycle](images/hotfix-lifecycle.png "width=500")
 

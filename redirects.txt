@@ -1023,3 +1023,4 @@ docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/creating-your-first-multi-tenant-project.md -> docs/tenants/tenant-creation/index.md
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/tenants/guides/index.md
 docs/deployments/patterns/multi-tenant-deployments/index.md -> docs/tenants/index.md
+docs/administration/community/index.md -> docs/administration/managing-licenses/community/index.md

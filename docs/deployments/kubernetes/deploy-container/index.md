@@ -884,7 +884,7 @@ metadata:
 By creating each custom resource with a unique name and common labels, Octopus will ensure that a new resource is created with each deployment, and old resources are cleaned up. This means that the custom resources are tightly coupled to a Deployment resource, and can be treated as a single deployment.
 
 :::success
-To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` step.
+To deploy resources that are not bound to the lifecycle of the Deployment resource, use an additional step such as the `Run a kubectl CLI Script` or `Deploy raw Kubernetes YAML` step.
 :::
 
 ### Service

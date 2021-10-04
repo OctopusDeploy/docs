@@ -1,7 +1,7 @@
 ---
 title: Reporting
 description: Octopus reporting makes it easy to produce reports over your deployment history, using your preferred reporting tools.
-position: 100
+position: 80
 ---
 
 The reporting feature makes it easy to produce reports over your deployment history, using your preferred reporting tools.

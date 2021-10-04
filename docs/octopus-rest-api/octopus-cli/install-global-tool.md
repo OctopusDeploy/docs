@@ -57,3 +57,15 @@ so by first uninstalling the tool and installing it again.
 dotnet tool uninstall Octopus.DotNet.Cli --global
 dotnet tool install Octopus.DotNet.Cli --global --version <version>
 ```
+
+## Troubleshooting installation
+
+If you run into any issues installing the Octopus CLI as a global tool then these steps might help.
+
+### Unable to install due to 401 unauthorized error
+
+If you receive an error that states `Response status code does not indicate success: 401 (Unauthorized)` this might be due to a nuget feed configured in the `nuget.config` file that requires authentication.
+
+A workaround is to try using the `--ignore-failed-sources` switch.
+
+For more information, see this [.NET SDK GitHub issue](https://github.com/dotnet/sdk/issues/9555).

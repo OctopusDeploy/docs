@@ -1,7 +1,7 @@
 ---
 title: Upgrading Octopus
 description: Everything you need to know about upgrading Octopus to a newer version.
-position: 70
+position: 40
 hideInThisSection: true
 ---
 

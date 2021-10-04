@@ -37,11 +37,7 @@ Before starting your migration, please ensure you are familiar with these fundam
 
 ### Upgrading your Octopus Server instance
 
-The [Export/Import Projects](/docs/projects/export-import/index.md) feature released in **Octopus 2021.1** requires the source Octopus Deploy server (your local Octopus Server instance) to be running the same major/minor as the destination Octopus Deploy server (your Octopus Cloud instance).  Data models and functionality change between major/minor versions of Octopus.  For example, in **Octopus 2021.2** we added Google Cloud support.  If you exported a project referencing a Google Cloud account to an instance running **Octopus 2021.1**, it would fail because it has no concept of Google Cloud.
-
-:::warning
-Your self-hosted Octopus Server instance **MUST** be running the same major/minor release as your Octopus Cloud instance.
-:::
+You must be running **Octopus 2021.1.x** or higher to leverage the [Export/Import Projects](/docs/projects/export-import/index.md) feature in order to migrate your projects.  We recommend upgrading to the latest version of Octopus Deploy prior to starting your upgrade.
 
 ### Listening or Polling Tentacles
 

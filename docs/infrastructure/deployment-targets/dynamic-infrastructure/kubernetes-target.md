@@ -24,6 +24,12 @@ Command: **_New-OctopusKubernetesTarget_**
 | `-octopusDefaultWorkerPoolIdOrName`      | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6. |
 | `-healthCheckContainerImageFeedIdOrName` | Name or Id of the feed that contains the health check container image. Added in 2021.2. |
 | `-healthCheckContainerImage`             | The name of the health check container image. Added in 2021.2. |
+| `-clusterProject`                        | The ID of the GCE project containing the GKE cluster to connect to. |
+| `-clusterRegion`                         | The name of the GKE cluster region (for regional clusters). |
+| `-clusterZone`                           | The name of the GKE cluster zone (for zonal clusters). |
+| `-clusterImpersonateServiceAccount`      | Set to `$True` to impersonate service accounts when defining a GKE cluster. |
+| `-clusterServiceAccountEmails`           | Defines the service account emails to assume when defining a GKE cluster. |
+| `-clusterUseVmServiceAccount`            | Set to `$True` to use the service account assigned to the virtual machine hosting the GKE target worker. |
 
 ### Examples
 
@@ -79,4 +85,18 @@ New-OctopusKubernetesTarget `
     -namespace "kubernetes-namespace" `
     -updateIfExisting `
     -skipTlsVerification True
+```
+
+When creating a GKE target, the GCE project, region or zone, and cluster names are required:
+
+```
+New-OctopusKubernetesTarget `
+    -name dynamicGKE `
+    -octopusRoles gke `
+    -environment Development `
+    -octopusAccountIdOrName Google `
+    -clusterProject kubernetes-demo-198002 `
+    -clusterRegion australia-southeast1 `
+    -clusterName mattc-test `
+    -updateIfExisting
 ```
