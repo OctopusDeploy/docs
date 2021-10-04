@@ -49,11 +49,11 @@ We recommend using an up to date version of SQL Server for Octopus which is gene
 | 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
 
 :::hint
-The following versions of Octopus have a requirement for SQL Server 2017+. This requirement has been relaxed to SQL Server 2016+ with any patch version later than specified in this note.
-2020.2.1 ➜ 2020.2.18
-2020.3.1 ➜ 2020.3.5
+The following versions of Octopus have a requirement for SQL Server 2017+.
+- 2020.2.0 ➜ 2020.2.17
+- 2020.3.0 ➜ 2020.3.5
+
+This requirement has been relaxed to SQL Server 2016+ for any patch version **later** than specified in this note. Please see [this post](https://octopus.com/blog/raising-minimum-requirements-for-octopus-server) for further details.
 :::
 
-:::hint
-In **{{Octopus 1.0, 2.6.5}}** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0** and you can read more about it on our [blog](https://octopus.com/blog/3.0-switching-to-sql).
-:::
+In **{{Octopus 1.0, 2.6.5}}** it used [RavenDB](https://ravendb.net/) and we switched to SQL in **Octopus 3.0**. You can read more about it in our [blog post](https://octopus.com/blog/3.0-switching-to-sql).
