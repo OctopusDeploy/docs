@@ -23,7 +23,7 @@ $project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/pro
 # Get project variables
 $projectVariables = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header
 
-# Check to see if varialbe is already present
+# Check to see if variable is already present
 $variableToUpdate = $projectVariables.Variables | Where-Object {$_.Name -eq $variable.Name}
 if ($null -eq $variableToUpdate)
 {
