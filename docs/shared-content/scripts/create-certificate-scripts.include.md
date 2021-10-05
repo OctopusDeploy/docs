@@ -32,7 +32,7 @@ $jsonPayload = @{
         HasValue = $true
         NewValue = $certificateContent
     }
-    Password = @{
+    password = @{
         HasValue = $true
         NewValue = $certificatePfxPassword
     }
@@ -170,7 +170,7 @@ certificate = {
         'HasValue': True,
         'NewValue': certificate_base64
     },
-    'Password': {
+    'password': {
         'HasValue': True,
         'NewValue': certificate_file_password
     },
