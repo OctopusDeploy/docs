@@ -26,18 +26,20 @@ For this guide, we will start with the following deployment process for the Octo
 
 ![original windows deployment process](images/original-windows-deployment-process.png)
 
+:::success
 View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
+:::
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
 
 ## Simple Rollback Process
 
-The typical rollback strategy is to skip specific steps and run additional ones during a rollback for most rollbacks.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression.md) will run during a rollback.
+The typical rollback strategy is to skip specific steps and run additional ones during a rollback.  In this example, the database steps will be skipped with another step to [prevent that release from progressing](/docs/releases/prevent-release-progression.md) will run during a rollback.
 
 The updated deployment process will be:
 
-1. Check Deployment Mode
+1. Calculate Deployment Mode
 1. Run Database Creation Runbook (skip during rollback)
 1. Deploy the OctoFX Database (skip during rollback)
 1. Deploy the OctoFX Windows Service
@@ -48,7 +50,9 @@ The updated deployment process will be:
 
 ![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
 
+:::success
 View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
+:::
 
 ### Calculate Deployment Mode
 
@@ -86,7 +90,7 @@ The rollback process in this section will use that functionality to update IIS a
 
 The resulting process will be:
 
-1. Check Deployment Mode
+1. Calculate Deployment Mode
 1. Run Database Creation Runbook (skip during rollback)
 1. Deploy the OctoFX Database (skip during rollback)
 1. Deploy the OctoFX Windows Service (with `Octopus.Action.Package.SkipIfAlreadyInstalled` set to `True`)
@@ -100,24 +104,26 @@ The resulting process will be:
 
 ![windows complex rollbacks](images/windows-complex-rollbacks.png)
 
+:::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please login as a guest.
+:::
 
 ### Comparison to Simple Rollback Process
 
 The complex rollback process and simple rollback process have some overlap.  Please refer to the earlier section on how to configure these steps.
 
-1. Add Check Deployment Mode step
+1. Add Calculate Deployment Mode step
 1. Update Run Database Creation Runbook to skip during rollback
 1. Update Deploy OctoFX database to skip during rollback
 1. Add Block Release Progression step
 
-As stated earlier, the primary difference between the simple and complex rollback process is the complex rollback process reuses the pre-existing extracted application.
+The primary difference between the simple and complex rollback process is the complex rollback process reuses the pre-existing extracted application.
 
 ### Add System Variable to Skip Package Deployment
 
 Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed packages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
 
-```
+```text
 #{if Octopus.Action[Calculate Deployment Mode].Output.DeploymentMode == "Deploy"}False#{else}True#{/if}
 ```
 
@@ -132,13 +138,13 @@ Updating the existing Windows Service to point to an earlier version of the appl
 
 The binary path must include the application's .exe file.  For example, `#{Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath}\YOUREXEFILE.exe`. For this guide, that value will be:
 
-```
+```text
 #{Octopus.Action[Deploy OctoFX Windows Service].Output.Package.InstallationDirectoryPath}\OctoFX.RateService.exe
 ```
 
 Set the run condition for this step to:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
@@ -153,7 +159,7 @@ The parameters to set for this step template are:
 
 Set the run condition for this step to:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 

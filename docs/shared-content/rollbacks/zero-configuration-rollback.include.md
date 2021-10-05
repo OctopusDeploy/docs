@@ -13,5 +13,5 @@ That redeployment will work because a snapshot is taken when you create a releas
 Re-deploying the previous release will re-run the deployment process as it existed when that release was created.  By default, the deploy package steps (such as deploy to IIS or deploy a Windows Service) will extract to a new folder each time a deployment is run, perform the [configuration transforms](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md), and [run any scripts embedded in the package](/docs/deployments/custom-scripts/scripts-in-packages/index.md).  
 
 :::hint
-Zero Configuration Rollbacks should work for a good chunk of our customers.  However, your deployment process might need a bit more fine tuning.  The rest of this guide is focused on disabling specific steps during a rollback process.
+Zero Configuration Rollbacks should work for most our customers.  However, your deployment process might need a bit more fine tuning.  The rest of this guide is focused on disabling specific steps during a rollback process.
 :::

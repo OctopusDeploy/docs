@@ -61,7 +61,7 @@ Re-running that deployment process as-is for a rollback could lead to data loss 
 
 ### Calculating Deployment Mode
 
-When a release is deployed to an environment, three deployment scenarios are known as "Deployment Mode."
+When a release is deployed to an environment, there are three possible "Deployment Mode" scenarios.
 
 - **Deploy**: The first time the release is deployed to the environment.  For example, `2021.2.1` is deployed.
 - **Rollback**: The previous version is re-deployed to the environment.  For example, `2021.2.1` is rolled back to `2021.1.10`.
@@ -107,13 +107,13 @@ The usage will be:
 
 ## Automatic Trigger of Rollbacks
 
-Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md), or the [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
+Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md), or [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
 
 While it is possible to automatically trigger a rollback, this is not something we recommend unless you have a robust testing suite and you've tested your rollback process multiple times.  We recommend first manually triggering the rollback.  Once you are confident in your rollback process, look into updating your process to be automatically triggered.
 
 ## Rollback Considerations
 
-Once a rollback process is in place, you'll need to decide when to use it.  Specifically, when an issue occurs, is the solution a roll forward or rollback.  When making that decision, here are a few questions to ask.
+Once a rollback process is in place, you'll need to decide when to use it.  Specifically, when an issue occurs, you must decide to roll forward or rollback.  When making that decision, here are a few questions to ask.
 
 - Carefully reviewing the changelog, and answering "if this were reverted, what would happen?"
 - Were there any database schema changes?

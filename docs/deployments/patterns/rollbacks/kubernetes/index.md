@@ -22,7 +22,9 @@ For this guide, we'll start with an existing deployment process for deploying Pe
 
 ![](octopus-original-deployment-process.png)
 
+:::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-kubernetes-original/deployments/process).  Please login as a guest.
+:::
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
@@ -42,7 +44,9 @@ The updated deployment process for a simple rollback would look like this:
 
 ![](octopus-simple-rollback-process.png)
 
+:::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-kubernetes-simple-rollback/deployments/process).  Please login as a guest.
+:::
 
 ### Calculate Deployment Mode
 !include <calculate-deployment-mode>
@@ -52,7 +56,7 @@ Deploying the MySQL container and running the Flyway job should be skipped in a 
 
 To ensure that both of those steps are not run during a rollback, use the following output variable from the `Calculate Deployment Mode` step as the Variable Run condition.
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
@@ -67,7 +71,7 @@ When viewing the deployment process at a glance, it is not readily apparent that
 ## Complex Rollback Process
 A feature of Kubernetes is the revision history of the cluster components.  The command `kubectl rollout history deployment.v1.apps/<deploymentname>` lists all deployment revisions.
 
-```
+```text
 REVISION  CHANGE-CAUSE
 1         <none>
 2         <none>
@@ -78,18 +82,20 @@ Using this feature, we can create a rollback process that would allow us to roll
 The new deployment process would look like this:
 
 1. Calculate Deployment Mode
-1. Rollback Reason (only during Rollback)
+1. Rollback Reason (only during rollback)
 1. Deploy MySQL Container (skip during rollback)
 1. Deploy PetClinic web
 1. Run Flyway job (skip during rollback)
 1. Verify the deployment
 1. Notify stakeholders
-1. Rollback to the previous version for Petclinic Web (only during rollback)
+1. Rollback to the previous version for PetClinic Web (only during rollback)
 1. Block Release Progression (only during rollback)
 
 ![](octopus-complex-rollback-process.png)
 
+:::success
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-kubernetes-complex-rollback/deployments/process).  Please login as a guest.
+:::
 
 We'll go through the newly added and altered steps:
 
@@ -103,7 +109,7 @@ The revision history command for Kubernetes showed that there were multiple revi
 
 Running `kubectl rollout history deployment.v1.apps/<deploymentname>` would now show something like this.
 
-```
+```text
 REVISION  CHANGE-CAUSE
 1         2021.09.23.0
 2         2021.09.23.1
@@ -159,7 +165,7 @@ else
 ### Block Release Progression
 The `Rollback Reason` step captures the reason for the rollback.  We can pass the text entered in this step to the `Reason` field of this step by using the following output variable.
 
-```
+```text
 #{Octopus.Action[Rollback reason].Output.Manual.Notes}
 ```
 
