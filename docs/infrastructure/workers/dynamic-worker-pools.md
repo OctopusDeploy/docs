@@ -39,16 +39,16 @@ When an image is marked as deprecated, you will see warnings in the Octopus UI, 
 
 When you start getting warnings in your deployments and/or see deprecation warnings in the Octopus portal, please plan to modify your worker pool to use a different image and test your scripts on the new image.
 
-If your Worker Pool is set to use the Operating System default, for example, `Windows (default)`, you don't have to do anything. The default will be swapped over to a new Operating System version and your deployments and runbooks will automattically use the new version. 
+If your Worker Pool is set to use the Operating System default, for example, `Windows (default)`, you don't have to do anything. The default will be swapped over to a new Operating System version and your deployments and runbooks will automatically use the new version. 
 
-### Modifiying the worker pool 
+### Modifying the worker pool 
 
 If the Worker Pool has been configured to specifically use a deprecated worker type, you will need to update the Worker Image on the Worker Pool.
 
-The Worker Pool with a deprecated Worker Type will show a `Deprecated` label next the the worker pool, available by navigating to {{ Infrastructure, Worker Pools }}:
+The Worker Pool with a deprecated Worker Type will show a `Deprecated` label next to the worker pool, available by navigating to {{ Infrastructure, Worker Pools }}:
 ![Worker Pool list with deprecated worker](images/deprecated-worker-pool-overview.png)
 
-The Worker Type can be modifed by editing the Worker Pool and changing the Worker Type to a different option, such as `Windows (default)` or a specific operating system version.
+The Worker Type can be modified by editing the Worker Pool and changing the Worker Type to a different option, such as `Windows (default)` or a specific operating system version.
 
 ## Available Dynamic Worker Images 
 
