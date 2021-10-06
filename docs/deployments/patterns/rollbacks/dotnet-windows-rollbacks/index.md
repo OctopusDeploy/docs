@@ -64,7 +64,7 @@ The two steps related to database deployments, Run Database Creation Runbook and
 
 To skip these steps during a rollback, set the variable run condition to be:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
