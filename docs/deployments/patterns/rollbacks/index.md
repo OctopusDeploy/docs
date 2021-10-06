@@ -2,7 +2,7 @@
 title: Rollbacks
 description: Rolling back to a previous version of code is entirely possible, but there is quite a bit to consider.  This guide will walk you through the patterns and pitfalls for a successful rollback.
 position: 10
-hideInThisSectionHeader: true
+hideInThisSectionHeader: false
 ---
 
 Being able to roll back to a known good state of code is often just as important as deploying software.  In our experience, rolling back to a previous release is rarely as simple as "re-deploying the last successful deployment."  This section will walk you through the patterns and pitfalls you'll encounter when configuring a rollback process.
@@ -167,7 +167,7 @@ That is the core concept around deployment patterns:
 - [Red/Black Deployments](https://octopus.com/blog/blue-green-red-black)
 - [Canary Deployments](https://martinfowler.com/bliki/CanaryRelease.html)
 
-In addition, a lot of popular tools have similar concepts and provide the necessary tools.
+In addition, a lot of popular tools have similar concepts and provide the necessary tools.  Some examples include:
 
 - [Azure Web App "Staging" slots](https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots)
 - [Kubernetes Blue/Green Deployments](https://octopus.com/blog/deconstructing-blue-green-deployments)
