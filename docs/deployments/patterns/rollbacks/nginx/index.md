@@ -71,6 +71,6 @@ We also recommend adding or updating the notes field to indicate it will only ru
 
 ![windows updating notes field](images/rollback-nginx-notes-field.png)
 
-### Prevent Release Progression
+### Block Release Progression
 
 !include <prevent-release-progression>
