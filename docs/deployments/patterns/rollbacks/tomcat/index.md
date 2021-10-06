@@ -61,7 +61,7 @@ View the deployment process on [samples instance](https://samples.octopus.app/ap
 ### Skipping Database Steps
 The two database steps, `Create Database If Not Exists` and `Deploy Database Changes` should be skipped for a rollback scenario.  Rolling back database changes could result in data loss or interrupt testing operations.  To skip these steps, we'll use one of the Variable Run Condition output variables from Calculate Depoloyment Mode step:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
