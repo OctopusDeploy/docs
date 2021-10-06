@@ -4,10 +4,6 @@ description: Octopus Deploy can use Okta authentication to identify users.
 position: 25
 ---
 
-:::hint
-Okta authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/index.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information.
-:::
-
 Authentication using [Okta](https://www.okta.com/), a cloud-based identity management service.
 
 To use Okta authentication with Octopus you will need to:

@@ -14,6 +14,18 @@ Octopus ID authentication allows you to log in to your Octopus Cloud instance us
 
 After you've used Octopus.com to [invite some other users](/docs/octopus-cloud/index.md#OctopusCloud-Invitingusers) to your instance, you can configure the users with [Teams](/docs/security/users-and-teams/index.md) and [User Roles](/docs/security/users-and-teams/user-roles.md) as you normally would using the product.
 
+## Supported authentication providers
+
+Octopus ID allows you to sign in using the following external authentication providers:
+
+- Google
+- Microsoft Azure Active Directory (AAD)
+- GitHub
+
+:::hint
+Octopus ID does not currently support configuring [external groups and roles](/docs/security/users-and-teams/external-groups-and-roles.md) using any of the authentication providers listed.
+:::
+
 ### Learn more
 
 - [Invite users via Octopus.com](/docs/octopus-cloud/index.md#OctopusCloud-Invitingusers)
