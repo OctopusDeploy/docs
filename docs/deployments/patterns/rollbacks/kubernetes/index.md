@@ -4,7 +4,7 @@ description: A guide on how to rollback a Kubernetes deployment
 position: 5
 hideInThisSectionHeader: true
 ---
-This guide will walk through rolling back a Kubernetes Deployment.  The example application used in this guide is a containerized version of PetClinic which will create the following pods:
+This guide will walk through rolling back a Kubernetes Deployment.  The example application used in this guide is a containerized version of [PetClinic](https://bitbucket.org/octopussamples/petclinic/src/master/) that will create the following pods:
 - MySQL database container for the backend (deployment)
 - Flyway database migrations container (job)
 - PetClinic web frontend container (deployment)
