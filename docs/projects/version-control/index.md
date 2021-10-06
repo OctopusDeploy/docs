@@ -24,7 +24,7 @@ It was important to us that the Octopus UI remain fully functional for version-c
 
 ![Branch-switcher UI](branch-switcher-ui.png "width=500")
 
-Of course, there is also now a text representation of the process in the git repository, and if you prefer editing text then open your favourite editor and go for it.  We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
+Of course, there is also now a text representation of the process in the git repository, and if you prefer editing text then open your favorite editor and go for it.  We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
 This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When [creating releases](#creating-releases) the branch can be selected. 
 
@@ -75,5 +75,4 @@ When editing the deployment process via the Octopus UI, the branch is selected i
 
 ### Via code
 
-Changes can also be made using your favourite text-editor or IDE, and committed and pushed just as you would any other code change. 
-
+Changes can also be made using your favorite text-editor or IDE, and committed and pushed just as you would any other code change. 
