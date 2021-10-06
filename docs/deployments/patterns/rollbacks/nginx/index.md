@@ -40,7 +40,7 @@ For most rollbacks, the typical strategy is to skip the database step while re-d
 
 The updated deployment process will be:
 
-1. Check Deployment Mode
+1. Calculate Deployment Mode
 1. Deploy to MongoDB (skip during rollback)
 1. Deploy to NGINX
 1. Block Release Progression
