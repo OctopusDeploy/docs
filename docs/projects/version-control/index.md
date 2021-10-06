@@ -18,7 +18,7 @@ Welcome to the config-as-code Early Access Preview!  Support for version-control
 Config-as-code is still in development. We strongly recommend not using it on critical production projects at this stage.
 :::
 
-The config-as-code EAP adds support for configuring Octopus projects with the details of a Git repository.  For the EAP, is is the _deployment process_ which is version-controlled.  
+The config-as-code EAP adds support for configuring Octopus projects with the details of a Git repository.  For the EAP, this is the _deployment process_ which is version-controlled.  
 
 It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has.  You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. 
 
