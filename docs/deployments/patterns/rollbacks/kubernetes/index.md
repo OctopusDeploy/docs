@@ -77,6 +77,7 @@ REVISION  CHANGE-CAUSE
 2         <none>
 3         <none>
 ```
+
 Using this feature, we can create a rollback process that would allow us to roll back quickly.
 
 The new deployment process would look like this:
@@ -97,7 +98,7 @@ The new deployment process would look like this:
 View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-kubernetes-complex-rollback/deployments/process).  Please login as a guest.
 :::
 
-We'll go through the newly added and altered steps:
+Next, we'll go through the newly added and altered steps:
 
 ### Rollback reason
 This is a [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.

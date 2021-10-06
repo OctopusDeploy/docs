@@ -27,7 +27,7 @@ For this guide, we will start with the following deployment process for the Octo
 ![original windows deployment process](images/original-windows-deployment-process.png)
 
 :::success
-View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
+View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
 :::
 
 ## Zero Configuration Rollback
@@ -51,7 +51,7 @@ The updated deployment process will be:
 ![simple rollback for windows deployment](images/windows-simple-rollback-process.png)
 
 :::success
-View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
+View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
 :::
 
 ### Calculate Deployment Mode
@@ -60,7 +60,7 @@ View the deployment process on [samples instance](https://samples.octopus.app/ap
 
 ### Skip Database Deployment Steps
 
-The two steps related to database deployments, Run Database Creation Runbook and Deploy OctoFX Database, should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be trigger with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
+The two steps related to database deployments, Run Database Creation Runbook and Deploy OctoFX Database, should be skipped during a rollback.  Unlike code, databases cannot easily be rolled back without risking data loss.  For most rollbacks, you won't have database changes.  However, a rollback could accidentally be triggered with a database change.  For example, rolling back a change in **Test** to unblock the QA team.   Skipping these steps during the rollback reduces the chance of accidental data loss.  
 
 To skip these steps during a rollback, set the variable run condition to be:
 
