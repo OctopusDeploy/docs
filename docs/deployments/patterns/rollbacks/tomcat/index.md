@@ -51,7 +51,9 @@ The updated deployment process for a simple rollback would look like this:
 
 ![](octopus-simple-rollback-process.png)
 
-View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-petclinic-simplerollback/deployments/process).  Please login as a guest.
+:::success
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-petclinic-simplerollback/deployments/process).  Please login as a guest.
+:::
 
 ### Calculate Deployment Mode
 !include <calculate-deployment-mode>
