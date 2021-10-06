@@ -29,7 +29,9 @@ For this guide, we'll start with an existing deployment process for deploying th
 
 ![](octopus-original-deployment-process.png)
 
-View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-petclinic-original/deployments/process).  Please login as a guest.
+:::success
+View the deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-petclinic-original/deployments/process).  Please login as a guest.
+:::
 
 ## Zero Configuration Rollback
 !include <zero-configuration-rollback>
