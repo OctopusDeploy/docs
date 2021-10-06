@@ -5,7 +5,7 @@ position: 30
 ---
 
 :::hint
-Octopus ID authentication is only available in [Octopus Cloud](/docs/octopus-cloud/index.md) and is being progressively rolled out to customers.
+Octopus ID authentication is only available in [Octopus Cloud](/docs/octopus-cloud/index.md).
 :::
 
 Octopus ID authentication allows you to log in to your Octopus Cloud instance using the same account that you use to sign in at [Octopus.com](https://Octopus.com). This allows you to manage who is able to access your Octopus instance from [your organization](https://Octopus.com/organization/) and saves you time when moving between our website and your instance.
