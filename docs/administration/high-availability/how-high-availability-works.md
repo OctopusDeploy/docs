@@ -2,7 +2,7 @@
 title: How High Availability Works
 description: Understanding the inner workings on how high availability works in Octopus Deploy.
 hideInThisSection: true
-position: 10
+position: 5
 ---
 
 High Availability (HA) in Octopus enables you to run multiple Octopus Server nodes, distributing load between them.  There are two kinds of load a Server node encounters:
