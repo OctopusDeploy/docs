@@ -1,5 +1,7 @@
 Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`.
 
+![](/docs/shared-content/administration/images/load-balance-ping.png "width=500")
+
 Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
 
 - HTTP Status Code `200 OK` as long as the Octopus Server node is online and not in [drain mode](#drain).

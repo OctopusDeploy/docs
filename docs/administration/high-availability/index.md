@@ -2,7 +2,7 @@
 title: High Availability
 description: Octopus High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them.
 hideInThisSection: true
-position: 10
+position: 5
 ---
 
 Octopus: High Availability (HA) enables you to run multiple Octopus Server nodes, distributing load and tasks between them. We designed it for enterprises that need to deploy around the clock and rely on the Octopus Server being available.
@@ -22,7 +22,7 @@ An Octopus High Availability configuration requires four main components:
 
 ## How High Availablity Works
 
-In broad terms, HA allows for load to be distibuted between multiple Octopus Server nodes.  How that load is distributed, specifically tasks, is more complex than "it's load balanced."
+In broad terms, HA allows for load to be distributed between multiple Octopus Server nodes.  How that load is distributed, specifically tasks, is more complex than "it's load balanced."
 
 Learn more in our [How High Availability Works](/docs/administration/high-availability/how-high-availability-works.md) section.
 

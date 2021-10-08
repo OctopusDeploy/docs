@@ -113,7 +113,7 @@ mklink /D C:\Octopus\Packages \\octostorage.file.core.windows.net\octoha\Package
 
 ### Load balancing in Azure
 
-To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster.
+To distribute HTTP load among Octopus Server nodes with a single point of access, we recommended using an HTTP load balancer. 
 
 !include <load-balancer-endpoint-info>
 

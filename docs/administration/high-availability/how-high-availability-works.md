@@ -5,10 +5,10 @@ hideInThisSection: true
 position: 10
 ---
 
-The High Availability (HA) in Octopus Deploy enables you to run multiple Octopus Server nodes, distributing load between them.  There are two kinds of load an Octopus Server encounters:
+High Availability (HA) in Octopus enables you to run multiple Octopus Server nodes, distributing load between them.  There are two kinds of load a Server node encounters:
 
-- Tasks (Deployments, runbook runs, health checks, package re-indexing, system integrity checks, etc.)
-- User Interface via the Web UI and REST API (Users, build server integrations, deployment target registrations, etc.)
+1. Tasks (Deployments, runbook runs, health checks, package re-indexing, system integrity checks, etc.)
+2. User Interface via the Web UI and REST API (Users, build server integrations, deployment target registrations, etc.)
 
 ## Tasks
 
@@ -16,6 +16,7 @@ Deploying a release or triggering a runbook run places that work into a first-in
 
 Some other examples of tasks include (but are not limited to):
 
+- Apply Retention policies
 - Delete Space
 - Export Projects
 - Health check
@@ -27,17 +28,19 @@ Some other examples of tasks include (but are not limited to):
 - Sync Community Step templates
 - Sync External Security Groups
 - Tentacle upgrade
-- Update calamari
+- Update Calamari
 
 By default, each Octopus Deploy node is configured to process five (5) tasks concurrently.  That is known as the task cap.  It is possible to [change the task cap on each node](/docs/support/increase-the-octopus-server-task-cap.md).  
 
-While it is possible to increase the task cap on a single node to 50, 75, or even 100, you'll eventually run into the underlying host OS and .NET limits.  A server can only open up many network connections, transport so many files, and run many concurrent threads.  High Availability solves that problem by scaling the task cap horizontally.  Each node will pull items from the task queue and process them.  
+While it is possible to increase the task cap on a single node to 50, 75, or even 100, you'll eventually run into the underlying host OS and .NET limits.  A server can only open up so many network connections, transport so many files, and run so many concurrent threads.  High Availability solves that problem by scaling the task cap horizontally.  Each node will pull items from the task queue and process them.  
 
 ### How Tasks are distributed between HA nodes
 
 Every 20 seconds, each node in the HA cluster will check the task queue for pending tasks.  When pending tasks are found, the node will start processing them.
 
-Octopus will do its best to balance the load between all the nodes to ensure one node doesn't process all the tasks while the other nodes remain unused.  It does that by comparing the current node workload ratio (active tasks on node / node limit) with the prospective cluster workload ratio (active cluster tasks + pending tasks / max cluster tasks).  
+Octopus will do its best to balance the load between all the nodes to ensure one node doesn't process all the tasks while the other nodes remain unused.  It does that by comparing the **current node workload ratio**  with the **prospective cluster workload ratio**. 
+
+The **current node workload ratio** is defined as `(active tasks on node / node limit)`.   The **prospective cluster workload ratio** is defined as `(active cluster tasks + pending tasks / max cluster tasks)`.
 
 A node will not pick up pending tasks when:
 
@@ -47,10 +50,10 @@ A node will not pick up pending tasks when:
 
 The last item in that list needs a deeper dive to understand.  For this example, we have a cluster with three nodes, each with a task cap set to ten (10).  Thus, making the HA cluster's total task capacity 30.  There are 12 pending tasks in the queue and 10 active tasks.
 
-For a moment, assume all three nodes check the task queue at the same time.  The prospective cluster workload ratio is 73.34% (12 pending tasks + 10 active tasks / 30 task capacity).
+Lets assume all three nodes check the task queue at the same time.  The prospective cluster workload ratio is **73.34%** (12 pending tasks + 10 active tasks / 30 task capacity).
 
-- One node is currently processing eight tasks making the current node workload ratio 80% (8/10).  While this node can pick up three more tasks, it will not because 80% > 73.34%.
-- One node is currently processing three tasks making the current node workload ratio 30% (3/10).  It can pick up seven more tasks but will only pick up five more tasks.  It picks up tasks until its current node workload ratio is greater than the prospective cluster workload ratio.
+- One node is currently processing eight tasks making the current node workload ratio **80%** (8/10).  While this node can pick up three more tasks, it will not because **80%** > 73.34%.
+- One node is currently processing three tasks making the current node workload ratio **30%** (3/10).  It can pick up seven more tasks but will only pick up five more tasks.  It picks up tasks until its current node workload ratio is greater than the prospective cluster workload ratio.
 - One node is not processing any tasks.  It will pick up all the remaining seven tasks.
 
 There are a few considerations this example did not take into account.
@@ -61,15 +64,15 @@ There are a few considerations this example did not take into account.
 
 ### First-in, first-out queue
 
-The task queue is a first-in, first-out (FIFO) queue.  The node does not consider the task type, the expected duration of the task, the environment the task is configured to run on, or any other factors.  Being a FIFO queue, combined with task distribution logic, can result in one node processing all deployments while other nodes processing runbook runs or health checks.  When that happens, it was just luck.
+The task queue is a first-in, first-out (FIFO) queue.  The node does not consider the task type, the expected duration of the task, the environment the task is configured to run on, or any other factors.  Being a FIFO queue, combined with task distribution logic, this can result in one node processing all deployments while other nodes processing runbook runs or health checks.  When that happens, it was just luck.
 
 ### Restarting the server during an active deployment
 
 Restarting the Octopus Deploy windows service or the underlying host OS will (eventually) cause any active tasks to fail.  At first, the tasks will look like they are still in process.  Once the node comes back online, it will cancel all active tasks.  If the node doesn't come back online within an hour, one of the other nodes will cancel those tasks.
 
-For planned outages, the recommendation is to enable drain mode.  That will tell the node to finish up all active tasks and not pick up any new ones.  That can be by:
+For planned outages, the recommendation is to enable drain mode.  That will tell the node to finish up all active tasks and not pick up any new ones.  That can be achieved by:
 
-1. Going to {{Configuration, Nodes}}.
+1. Navigating to **{{Configuration, Nodes}}**.
 2. Clicking on the overflow menu (`...`) next to the node you plan on restarting.
 3. Selecting **Drain Node**.
 
