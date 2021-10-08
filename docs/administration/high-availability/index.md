@@ -20,6 +20,26 @@ An Octopus High Availability configuration requires four main components:
 - **Shared storage**
   Some larger files - like [packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
+## Licensing
+
+Each Octopus Deploy SQL Server database is a unique **Instance**.  Nodes are the Octopus Server service that connects to the database.  High Availability occurs when two or more nodes connect to the same Octopus Deploy database.  An HA Cluster refers to all components, the load balancer, nodes, database, and shared storage.
+
+For self-hosted customers, High Availability is available to the following licenses type:
+
+- High Avalability (discontinued license type): limited to 2, 3, or 4 nodes.
+- Data Center (discontinued license type): unlimited nodes
+- Server: unlimited nodes
+
+All other license types, such as Standard, Enterprise, Team, and Professional, are limited to a single node and cannot be used for High Availablity.
+
+The node limit is included in the license key in the NodeLimit node.
+
+```XML
+<NodeLimit>Unlimited</NodeLimit>
+```
+
+If you do not have that node in your license key then you are limited to a single node.  If you recently purchased a license key and it is missing that node then reach out to [sales@octopus.com](mailto:sales@octopus.com).
+
 ## How High Availablity Works
 
 In broad terms, HA allows for load to be distributed between multiple Octopus Server nodes.  How that load is distributed, specifically tasks, is more complex than "it's load balanced."

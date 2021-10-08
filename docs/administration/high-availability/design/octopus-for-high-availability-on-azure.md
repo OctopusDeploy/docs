@@ -37,7 +37,11 @@ For a highly available Octopus configuration, you need a minimum of two Virtual 
 - [Retention Policies](/docs/administration/retention-policies/index.md)
 - [Number of concurrent tasks](/docs/support/increase-the-octopus-server-task-cap.md)
 
-Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. We recommend looking at the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and selecting the size most suitable for your requirements.
+Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and selecting the size most suitable for your requirements.  We recommend starting with either 2 cores / 4 GB of RAM or 4 cores / 8 GB of RAM and limiting the task cap to 20 for each node.  In our experience, it is much better to have 4 smaller VMs, each with 4 cores / 8 GB of RAM than 2 large VMs, each with 8 cores / 16 GB of RAM.  With 2 servers, if one of them were to go down, you'd lose 50% of your capacity.  With 4 servers, if one of them were to go down, you'd lose 25% of your capacity.  The difference in cost between the 4 smaller VMs and 2 large VMs is minimal.
+
+:::warning
+Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
+:::
 
 ### Database
 
