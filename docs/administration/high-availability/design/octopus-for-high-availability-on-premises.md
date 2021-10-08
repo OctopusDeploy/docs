@@ -70,13 +70,7 @@ When you configured the first Octopus Server node, as well as each of the subseq
 
 Octopus can work with any load balancer technology, including hardware and software load balancers.
 
-#### Load balancer session persistence
-
-We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster, as the Octopus Web Portal is stateless. 
-
-However, each node in the cluster keeps a local cache of data including user permissions. There is a known issue that occurs when a users permissions change. The local cache is only invalidated on the node where the change was made. This will be resolved in a future version of Octopus. 
-
-To work around this issue in the meantime, you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node.
+!include <load-balancer-endpoint-info>
 
 #### Software load balancers
 

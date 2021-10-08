@@ -5,7 +5,13 @@ position: 50
 hideInThisSectionHeader: true
 ---
 
-There are plenty of options when it comes to choosing a load balancer to direct user traffic between each of the Octopus Server nodes. 
+Octopus Deploy can work with any http/https load balancer technology.  There are plenty of options when it comes to choosing a load balancer to direct user traffic between each of the Octopus Server nodes.
+
+## Load Balancer Basics
+
+!include <load-balancer-endpoint-info>
+
+## Third Party Load Balancers
 
 This section contains information on how to set up third-party load balancers for use with Octopus High Availability:
 
