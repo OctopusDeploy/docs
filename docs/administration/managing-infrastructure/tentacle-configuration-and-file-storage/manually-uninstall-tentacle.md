@@ -40,19 +40,23 @@ Learn about [Tentacle configuration and file storage](/docs/administration/manag
 These steps will remove all traces of Octopus Tentacle from your computer:
 
 1. Before uninstalling the MSI, use the Octopus Tentacle Manager to delete the Tentacle instance from the computer.
-    * This will stop and uninstall the Tentacle windows service.
+   - This will stop and uninstall the Tentacle windows service.
 2. Now uninstall the MSI.
-    * This will remove the application files.
+   - This will remove the application files.
 3. Find and delete the Octopus Home folder. By default this is in **`%SYSTEMDRIVE%\Octopus`**.
-:::problem
-This will also remove your deployed applications if you have not configured Tentacle to use a different Application folder. See below for more details.
-:::
+   :::problem
+   This will also remove your deployed applications if you have not configured Tentacle to use a different Application folder. See below for more details.
+   :::
 
 4. Find and delete the Octopus Tentacle registry entries from the following locations:
+
 Entire Folder:
+
     * **`HKLM\SOFTWARE\Octopus\Tentacle`**
-Octopus Tentacle Specific Registries - Check in each folder for a key with a DisplayName of **`Octopus Tentacle`** and remove the folder where that key resides.
-    * **`HKLM\SOFTWARE\Classes\Installer\Products`** 
+
+Octopus Tentacle Specific Registries - Check in each folder for a key with a DisplayName of **`Octopus Tentacle`** and remove the folder where that key resides:
+
+    * **`HKLM\SOFTWARE\Classes\Installer\Products\<RandomID>`** - Look under InstallProperties for a ProductName of **`Octopus Tentacle`**.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for a DisplayName of **`Octopus Tentacle`**.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
 
@@ -62,11 +66,11 @@ Removing entries from the registry can have serious implications. Please make su
 :::
 
 5. Find and delete any Octopus folders from:
-    * **`%ProgramData%\Octopus`** - used for storing instance configuration and can be used for log files when a Home Directory cannot be discovered
-    * **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
+   - **`%ProgramData%\Octopus`** - used for storing instance configuration and can be used for log files when a Home Directory cannot be discovered
+   - **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
 6. Find and delete any Octopus certificates from the following certificate stores:
-    * **`Local Computer\Octopus`**
-    * **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
+   - **`Local Computer\Octopus`**
+   - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 
