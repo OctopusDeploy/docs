@@ -19,7 +19,7 @@ We use **git** at Octopus and the rest of this pattern provides examples using *
 
 ## Scripts as code {#scripts-as-code}
 
-The simplest way to get started with **deployment process as code** is to manage your custom deployment **scripts as code**. When you deploy your application, Octopus can execute a script contained inside a package. You can collocate your deployment scripts with your application source code, leveraging all the benefits of source control including change tracking and branching, then package it all up for Octopus.
+The simplest way to get started with **deployment process as code** is to manage your custom deployment **scripts as code**. When you deploy your application, Octopus can execute a script contained inside a package. You can colocate your deployment scripts with your application source code, leveraging all the benefits of source control including change tracking and branching, then package it all up for Octopus.
 
 There is a downside to stopping here: your scripts are managed as code, but your deployment process and variables are still controlled by Octopus. Depending on your situation, this trade off might be quite acceptable.
 
