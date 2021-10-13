@@ -91,7 +91,7 @@ This example uploads [build information](/docs/packaging-applications/build-serv
 ```json
 {
   "BuildEnvironment":"BitBucket",
-  "Branch":"master",
+  "Branch":"main",
   "BuildNumber":"288",
   "BuildUrl":"https://bitbucket.org/octopussamples/petclinic/addon/pipelines/home#!/results/288",
   "VcsType":"Git",

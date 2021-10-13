@@ -48,7 +48,7 @@ As shown in the above screenshots, the exact `octo` command that was executed (a
 ```
 [15:00:43][Octopus Deploy] Running command:   octo create-release --server https://demo.octopus.com --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
 [15:00:43][Octopus Deploy] Creating Octopus Deploy release
-[15:00:43][Octopus Deploy] Octopus Deploy Command Line Tool, version 3.3.8+Branch.master.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
+[15:00:43][Octopus Deploy] Octopus Deploy Command Line Tool, version 3.3.8+Branch.main.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
 [15:00:43][Octopus Deploy]
 [15:00:43][Octopus Deploy] Build environment is NoneOrUnknown
 [15:00:43][Octopus Deploy] Handshaking with Octopus Server: https://demo.octopus.com

@@ -163,7 +163,7 @@ Note, you need to replace **Arm Template Step Name** with the name of your ARM s
 
 ### Using linked templates {#DeployusinganAzureResourceGroupTemplate-Usinglinkedtemplates}
 
-Azure Resource Manager supports the concept of [linking templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates). In this model you create a "master" template which links to other templates and parameters files via URI. This can be a really useful way to break your ARM templates into manageable components. In this case you would configure Octopus to deploy your "master" template, and the Azure Resource Manager will download any linked templates and parameters files as required to complete the deployment.
+Azure Resource Manager supports the concept of [linking templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-linked-templates). In this model you create a main template which links to other templates and parameters files via URI. This can be a really useful way to break your ARM templates into manageable components. In this case you would configure Octopus to deploy your main template, and the Azure Resource Manager will download any linked templates and parameters files as required to complete the deployment.
 
 :::hint
 **Linked templates must be publicly accessible via URI**

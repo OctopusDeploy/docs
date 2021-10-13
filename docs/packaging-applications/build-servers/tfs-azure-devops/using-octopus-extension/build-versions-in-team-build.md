@@ -11,7 +11,7 @@ This guide shows you how best to version your builds and packages in Azure DevOp
 
 In Team Build (the build system in Azure DevOps and TFS), build numbers may be in a format that doesn't represent a valid SemVer number.
 
-For example, Microsoft's [Build Number format documentation](https://www.visualstudio.com/en-gb/docs/build/define/general#build-number-format) gives an example: `$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)` will result in a version number like `Fabrikam_CIBuild_master_20090805.2`.
+For example, Microsoft's [Build Number format documentation](https://www.visualstudio.com/en-gb/docs/build/define/general#build-number-format) gives an example: `$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)` will result in a version number like `Fabrikam_CIBuild_main_20090805.2`.
 
 While this is a valid Team Build build number, it can cause issues when trying to pack the build output into a NuGet package or zip file for Octopus.
 
@@ -24,7 +24,7 @@ The link above explains versioning in detail, but in its simplest form it means 
 1. Numbered versions in 3 or 4 segments that can be interpreted as `major.minor.patch`, with an optional "prerelease tag" afterwards in the form `-tag`.
 2. Versions can be sorted predictably. For example, `1.2.3` is newer than `1.2.0`.
 
-As you can see, a package version of `Fabrikam_CIBuild_master_20090805.2` won't be valid will cause issues!
+As you can see, a package version of `Fabrikam_CIBuild_main_20090805.2` won't be valid will cause issues!
 
 ### Setting a SemVer-compliant build number
 
@@ -95,7 +95,7 @@ Build and Release variables can be found in [the Microsoft Documentation](https:
 
 - `$(Build.BuildNumber)` - This is the full build number (see [above](#setting-a-semver-compliant-build-number) for setting an appropriate format).
 - `$(Build.BuildID)` - This is a unique, incrementing ID at the Project collection level. Every new build will give you a new number.
-- `$(Build.SourceBranchName)` - this is the last path segment in the name of the branch. For example, a branch of `refs/heads/master` will return `master`.
+- `$(Build.SourceBranchName)` - this is the last path segment in the name of the branch. For example, a branch of `refs/heads/main` will return `main`.
 
 ### Build task recommendation
 

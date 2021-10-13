@@ -20,7 +20,7 @@ The section below describes some common branching strategies, and what they mean
 
 ### No branches {#Branching-Nobranches}
 
-The simplest branching workflow is, of course, no branches - all developers work directly on trunk or master. For small projects with few developers, and when the project isn't really in "production" yet, this strategy can work well.
+The simplest branching workflow is, of course, no branches - all developers work directly on `trunk` or the `main` (default) branch. For small projects with few developers, and when the project isn't really in "production" yet, this strategy can work well.
 
 ![](images/3278438.png "width=500")
 
@@ -72,7 +72,7 @@ Eventually, `release/v3` will become more and more stable, and packages from it 
 
 ### Feature branches {#Branching-Featurebranches}
 
-Feature branches are usually short lived, and allow developers to work on a new feature in isolation. When the feature is complete, it is merged back to trunk/master. Often, feature branches are not deployed, and so don't need to be mapped in Octopus.
+Feature branches are usually short lived, and allow developers to work on a new feature in isolation. When the feature is complete, it is merged back to the `trunk` or the `main` (default) branch. Often, feature branches are not deployed, and so don't need to be mapped in Octopus.
 
 ![](images/3278442.png "width=500")
 

@@ -214,9 +214,9 @@ More complex sets of related values are handled using multiple variables:
 | Name                      | Value                  | Scope |
 | ------------------------- | ---------------------- | ----- |
 | `Endpoint[A].Address`     | `http://a.example.com` |       |
-| `Endpoint[A].Description` | `Master`               |       |
+| `Endpoint[A].Description` | `Primary`              |       |
 | `Endpoint[B].Address`     | `http://b.example.com` |       |
-| `Endpoint[B].Description` | `Replica`                |       |
+| `Endpoint[B].Description` | `Replica`              |       |
 
 Given the template:
 
@@ -231,7 +231,7 @@ The result will be:
 
 ```powershell
 Listening on:
- - Endpoint A at http://a.example.com is Master
+ - Endpoint A at http://a.example.com is Primary
  - Endpoint B at http://b.example.com is Replica
 ```
 
