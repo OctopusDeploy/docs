@@ -4,6 +4,11 @@ description: With Octopus you can manage your deployment process as code. This m
 position: 70
 ---
 
+:::hint
+**Looking for Configuration as Code?**
+This section looks at storing your deployment process as code **without** using the [Configuration as Code (Early Access)](/docs/projects/version-control.md) feature.
+:::
+
 With Octopus you can manage your deployment process as code. This means you can define your deployment process, scripts, and variables in source code. You can store this configuration in the same source control repository as your application source code, or somewhere else.
 
 This page describes the different options available in Octopus to store your deployment process as code.
@@ -13,9 +18,7 @@ We recommend taking a two-phase approach when moving to **deployment process as 
 1. Start with [scripts as code](#scripts-as-code): this method offers the best cost/reward ratio, and it is the simplest to implement and maintain over time.
 2. Move towards [project as code](#project-as-code): this method is more difficult to set up but comes with the benefit of having your entire Octopus project managed as code.
 
-:::hint
-We use **git** at Octopus and the rest of this pattern provides examples using **git** concepts. The same principles apply regardless of your source control tool of choice.
-:::
+At Octopus we use `git` and the rest of this pattern provides examples using git concepts. The same principles apply regardless of your source control tool of choice.
 
 ## Scripts as code {#scripts-as-code}
 
@@ -42,11 +45,11 @@ When you manage your **scripts as code**, Octopus still makes sure your deployme
 
 ### Introducing changes safely using scripts as code {#scripts-as-code-change-safely}
 
-Branches in source control let you test application code changes in isolation before integrating them with other code changes. You can use the exact same approach to introduce changes to your scripts as code. This lets you make changes to your scripts without breaking deployments from your `master` branch.
+Branches in source control let you test application code changes in isolation before integrating them with other code changes. You can use the exact same approach to introduce changes to your scripts as code. This lets you make changes to your scripts without breaking deployments from your `main` (default) branch. 
 
-- **Modifying an existing script**: If you modify a script in a branch, that change flows through the whole process just like the changes to your application code. When you deploy a release from that branch, your modified script will be used. When you merge your branch into the `master` branch, your modified script will be used for deployments from the `master` branch.
-- **Adding a new script**: Add an empty script to your `master` branch, configure Octopus to execute the script, and then author the script content on your branch. This enables you to test your new script in isolation. Merge into `master` when you are ready to integrate.
-- **Deleting a script**: Delete the content of your script in your branch, leaving the empty script file to be packaged. Now you can test your deployment still works with the empty script. When you are ready, you can configure Octopus to stop calling the script, and delete the script from your `master` branch.
+- **Modifying an existing script**: If you modify a script in a branch, that change flows through the whole process just like the changes to your application code. When you deploy a release from that branch, your modified script will be used. When you merge your branch into the `main` branch, your modified script will be used for deployments from the `main` branch.
+- **Adding a new script**: Add an empty script to your `main` branch, configure Octopus to execute the script, and then author the script content on your branch. This enables you to test your new script in isolation. Merge into `main` when you are ready to integrate.
+- **Deleting a script**: Delete the content of your script in your branch, leaving the empty script file to be packaged. Now you can test your deployment still works with the empty script. When you are ready, you can configure Octopus to stop calling the script, and delete the script from your `main` branch.
 
 ## Project as code {#project-as-code}
 
@@ -93,13 +96,13 @@ This means you can push configuration changes to Octopus as code, and get the sa
 This is where things get a bit more difficult compared to the [scripts as code](#scripts-as-code) pattern. You can approach this problem in several ways, where one approach will suit your scenario better than others:
 
 1. **Space-per-branch**: In this approach you push your configuration changes from each branch in your source control repository into a unique space in Octopus. A space is a sandbox containing all the things you need for your application or set of applications. By using a space-per-branch you dynamically create little "parallel universes" in the same Octopus Server, safely isolated from each other, then tear them down when you are done. This approach is suitable in most situations since it offers the best isolation and most flexibility. It is especially appropriate for service-oriented architectures and microservice architectures where you may have many projects interacting with each other.
-2. **Blessed branch**: In this approach you only push configuration changes from a specific branch, like `master` in most git repositories. This approach is suitable in some simpler scenarios where you don't expect to change your deployment process very often.
+2. **Blessed branch**: In this approach you only push configuration changes from a specific branch, like `main` in most git repositories. This approach is suitable in some simpler scenarios where you don't expect to change your deployment process very often.
 
 #### Space-per-branch approach
 
 In this approach you will be pushing configuration changes from **any branch** into a unique space in Octopus, using a naming convention. Here is one potential naming convention you could use:
 
-- `master` targets the space called `MySpace-master` (or `MySpace` if you don't like the suffix).
+- `main` targets the space called `MySpace-main` (or just `MySpace` if you don't like the suffix).
 - `feature-rocksville` targets the space called `MySpace-rocksville`.
 - `feature-planetside` targets the space called `MySpace-planetside`.
 
@@ -109,28 +112,28 @@ The general process should look something like this, tailored to your situation:
 1. Make the changes on your branch.
 1. In your build pipeline, push the changes to the correct space like `MySpace-rocksville`, creating the space if it doesn't exist already.
 1. Test your changes in your space.
-1. When you are happy the changes are safe to share, merge the `feature-rocksville` branch into `master` allowing those changes to flow through to the `MySpace-master` space.
+1. When you are happy the changes are safe to share, merge the `feature-rocksville` branch into `main` allowing those changes to flow through to the `MySpace-main` space.
 1. Clean up by deleting the `feature-rocksville` space.
 
 #### Blessed branch approach
 
-In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `master` branch into Octopus, and use [Channels](/docs/releases/channels/index.md) to safely introduce changes to your process and variables.
+In this approach you will be pushing configuration changes from **one specific branch** into Octopus. Using the example of git, you should only push changes from the `main` (default) branch into Octopus, and use [Channels](/docs/releases/channels/index.md) to safely introduce changes to your process and variables.
 
 The general process should look something like this, tailored to your situation:
 
 1. Create a channel to match your branch, with package version rules to enforce the integrity of the release process. _You can create channels manually, or automatically as part of your build pipeline if that suits._
 1. Make the changes on your branch, making sure to scope your changes to your channel to avoid interrupting deployments from other branches. _You can scope each step, action and variable value to a specific channel for isolation._
 1. Get a peer to review your configuration change on your branch.
-1. Merge your configuration change to the `master` branch so your changes are actually pushed into Octopus.
+1. Merge your configuration change to the `main` branch so your changes are actually pushed into Octopus.
 1. Test your change by deploying releases through your channel.
 
-    a. If you are unhappy with your change, fix it in your branch, get a peer to review your new commits, merge the new commits to `master`, and repeat your testing.
+    a. If you are unhappy with your change, fix it in your branch, get a peer to review your new commits, merge the new commits to `main`, and repeat your testing.
 1. When you are happy the changes are safe to share:
 
     a. Remove the channel scoping from your changes in your branch.
     b. Get a peer to review this final change.
-    c. Merge your changes to the `master` branch.
-    d. Test your brand new deployment through the `master` branch and your main channel.
+    c. Merge your changes to the `main` branch.
+    d. Test your brand new deployment through the `main` branch and your main channel.
     e. If something goes wrong, you can revert the single commit, isolating your changes back to your channel.
 
 :::hint
