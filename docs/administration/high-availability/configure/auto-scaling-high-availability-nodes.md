@@ -198,7 +198,7 @@ Auto-scaling technologies don't let you run scripts directly on virtual machines
 - Delete the node from the `OctopusServerNodes` table.
 
 :::warning
-The user required to run this script will need `Administrator` rights to your cluster.  We recommend you create a [service account](/docs/security/users-and-teams/service-accounts) and carefully guard that API Key.
+The user required to run this script will need `Administrator` rights to your cluster.  We recommend you create a [service account](/docs/security/users-and-teams/service-accounts.md) and carefully guard that API Key.
 :::
 
 ```PowerShell
