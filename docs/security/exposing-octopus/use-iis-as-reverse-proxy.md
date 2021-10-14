@@ -27,12 +27,12 @@ At the end of this walk-through, you should be able to:
 
 ## Install URLRewrite and ARR
 
-URLRewrite and Application Request Routing are provided by the [Microsoft Web Platform Installer](http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi). After installing the Web Platform Installer, search for "URL Rewrite" and "Application Request Routing", and install.
+URLRewrite and Application Request Routing are provided by the [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx). After installing the Web Platform Installer, search for "URL Rewrite" and "Application Request Routing", and install.
 
 Alternatively, use the following PowerShell snippet:
 
 ```powershell
-$downloadUrl = "http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi"
+$downloadUrl = "https://download.microsoft.com/download/8/4/9/849DBCF2-DFD9-49F5-9A19-9AEE5B29341A/WebPlatformInstaller_x64_en-US.msi"
 $downloadtarget = ([uri]$downloadUrl).segments | select -last 1
 Invoke-WebRequest $downloadUrl -OutFile $env:tmp\$downloadtarget
 Start-Process $env:tmp\$downloadtarget '/qn' -PassThru | Wait-Process
