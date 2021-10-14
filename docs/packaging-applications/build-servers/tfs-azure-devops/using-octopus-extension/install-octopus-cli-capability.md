@@ -43,7 +43,7 @@ each agent individually which can be quite cumbersome.
 
 ## Images and automation
 
-Microsoft provide a number of starting points to create your own build agent images which can be modified to include the Octopus CLI as an added capability. This includes [packer images](https://github.com/Microsoft/vsts-image-generation) as well as the [docker images](https://github.com/Microsoft/vsts-agent-docker).
+Microsoft provide a number of starting points to create your own build agent images which can be modified to include the Octopus CLI as an added capability. This includes [packer images](https://github.com/actions/virtual-environments/tree/main/images) as well as instructions on [running a self-hosted agent in Docker](https://docs.microsoft.com/en-gb/azure/devops/pipelines/agents/docker).
 
 ## Troubleshooting
 
