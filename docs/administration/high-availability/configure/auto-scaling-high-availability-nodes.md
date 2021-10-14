@@ -4,15 +4,15 @@ description: What to consider if you want to use auto-scaling technology to scal
 position: 50
 ---
 
-Cloud providers, such as AWS and Azure, provide the ability to scale out and scale in virtual machines automatically.  It is possible to leverage that technology to automatically add and remove nodes from your Octopus High Availability cluster, but there are a few pitfalls to note.
+Cloud providers, such as AWS and Azure, provide the ability to scale out and scale in virtual machines automatically.  It's possible to leverage that technology to automatically add and remove nodes from your Octopus High Availability cluster, but there are a few pitfalls to note.
 
 :::warning
-At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll _all_ the nodes of your High Availability cluster.  That requires [additional configuration](docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).  Attempting to perform that additional configuration using auto-scaling will only result in frustration and errors.
+At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll _all_ the nodes of your High Availability cluster.  That requires [additional configuration](docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).  Attempting to perform that additional configuration using auto-scaling can result in frustration and errors.
 :::
 
-## Adding New Nodes via Scale-Out event
+## Adding new nodes with Scale-out events
 
-A scale-in event is when auto-scaling technology decides it is time to create a new virtual machine via a schedule or a metric-based trigger.  Octopus High Availablity is designed for new nodes to come online at random intervals.  When you create a new node, an entry is added to the `OctopusServerNodes` table with a default task cap of `5`.  That node will start picking up tasks to process within 60 seconds.  A scale-out event is treated no differently than a person manually creating a VM and configuring as a new node via the UI.
+A scale-out event is when auto-scaling technology decides it is time to create a new virtual machine via a schedule or a metric-based trigger.  Octopus High Availablity is designed for new nodes to come online at random intervals.  When you create a new node, an entry is added to the `OctopusServerNodes` table with a default task cap of `5`.  That node will start picking up tasks to process within 60 seconds.  A scale-out event is treated no differently than a person manually creating a VM and configuring as a new node via the UI.
 
 The sections below will walk you through _how_ to automate adding new nodes via a script.
 
@@ -26,7 +26,7 @@ All nodes in the Octopus High Availability cluster must be running the same vers
 Unlike most API calls, the `/api` endpoint does not require an API key.  
 :::
 
-Once you have the version, you can then download that from the Octopus Deploy website (or use [Chocolatey](https://chocolatey.org)).  The URL to use is `https://download.octopusdeploy.com/octopus/Octopus.[Version]-x64.msi`, for example: `https://download.octopusdeploy.com/octopus/Octopus.2021.3.6053-x64.msi`.  
+Once you have the version, you can then download that from the Octopus Deploy website (or use [Chocolatey](https://chocolatey.org)).  The URL to use is `https://download.octopusdeploy.com/octopus/Octopus.[Version]-x64.msi`, for example: `https://download.octopusdeploy.com/octopus/Octopus.2021.2.7650-x64.msi`.  
 
 Below is a sample script to download and install Octopus Deploy.
 
@@ -108,9 +108,9 @@ $taskCapSize = "5" ##set this to 0 for UI-only nodes!
 & "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" service --instance "Default" --restart
 ```
 
-### Potential Pitfalls
+### Potential pitfalls
 
-Generally, adding a new node will fail for one the following reasons:
+Generally, adding a new node to an Octopus High Availability cluster will fail for one the following reasons:
 
 1. Unable to connect to the database.
 1. Unable to connect to the shared file storage.
@@ -121,14 +121,14 @@ If you are going to use auto-scaling technologies, we recommend adding each node
 
 On the new server:
 
-1. If the Octopus UI, there is a problem connecting to the database or something is preventing the server from starting.
-1. If none of the deployment logs appear when viewing the Octopus UI on that node, there is a problem connecting to the file store.
+1. If the Octopus Web Portal won't load or shows an error, there is a problem connecting to the database or something is preventing the server from starting.
+1. If none of the deployment logs appear when viewing the Octopus Web Portal on that node, there is a problem connecting to the file store.
 1. Run the **SAVE AND TEST** on any cloud accounts and external feeds to ensure the new node can connect.
 1. Remote into the VM and run this PowerShell script.  It will attempt to connect to one of your tentacles.
 
 ```PowerShell
 
-$tentacleHost = "127.0.0.1" # REPLACE ME WITH A HOST NAME OF ONE OF YOUR TENTACLES"
+$tentacleHost = "127.0.0.1" # REPLACE WITH A HOST NAME OF ONE OF YOUR TENTACLES"
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 if (-not ([System.Management.Automation.PSTypeName]'ServerCertificateValidationCallback').Type)
@@ -173,10 +173,9 @@ try{
 catch {        
     Throw "Unable to find the tentacle at $url"
 }
-
 ```
 
-## Removing Nodes via a Scale In Event
+## Removing nodes with Scale-in events
 
 A scale-in event is when the auto-scaling technology decides it is time to delete the virtual machine via a schedule or a metric-based trigger.  
 
@@ -184,7 +183,7 @@ A scale-in event is when the auto-scaling technology decides it is time to delet
 
 A task node is a node where the task cap is greater than 0.  By default, all nodes are task nodes because the default task cap is 5.  However, you can configure UI-Only nodes by setting the task cap to 0. When the underlying VM hosting a task node is deleted, the following will happen:
 
-- Any in-process tasks, including deployments and runbook runs, will fail but will still appear as being in the process.
+- Any in-process tasks, including deployments and runbook runs, will fail but will still appear as being executed.
 - The node will stop updating the `OctopusServerNodes` table.
 - After 60 minutes, the in-process tasks that failed will be marked as canceled by another node in the High Availability cluster.
 
@@ -198,11 +197,11 @@ Auto-scaling technologies don't let you run scripts directly on virtual machines
 - Delete the node from the `OctopusServerNodes` table.
 
 :::warning
-The user required to run this script will need `Administrator` rights to your cluster.  We recommend you create a [service account](/docs/security/users-and-teams/service-accounts.md) and carefully guard that API Key.
+The user required to run this script will need `Administrator` rights to your cluster.  We recommend creating a [service account](/docs/security/users-and-teams/service-accounts.md) and store that API Key securely.
 :::
 
 ```PowerShell
-$octopusUrl = "URL of your instances" #https://samples.octopus.app
+$octopusUrl = "URL of your instances" # e.g. https://samples.octopus.app
 $octopusApiKey = "YOUR API KEY"
 $nodeName = "Name of node to delete"
 
@@ -407,4 +406,7 @@ Invoke-OctopusApi -endPoint "octopusservernodes/$($nodeInformation.Id)" -method 
 
 ### Removing a UI-only node
 
-Removing a UI-only node is no different than removing a web server from a web farm.  The Octopus Deploy UI is stateless; your steps to remove a UI-only node are: remove the VM from the load balancer and delete the VM.
+Removing a UI-only node is no different than removing a web server from a web farm.  The Octopus Deploy UI is stateless; your steps to remove a UI-only node are:
+
+- Remove the VM from the load balancer.
+- Delete the VM.
