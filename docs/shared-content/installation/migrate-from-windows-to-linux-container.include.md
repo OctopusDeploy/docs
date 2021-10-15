@@ -4,7 +4,7 @@ We recommend making the following changes and testing them on your existing Octo
 
 ### Migrate from Active Directory to LDAP
 
-Migrating from Active Directory to LDAP is not as simple as turning off Active Directory authentication and enabling LDAP authentication.  As far as Octopus is concerned, they are two separate auth providers.  Having Active Directory and LDAP enabled is treated the same as having Google auth and LDAP enabled.  
+Migrating from Active Directory to LDAP is not as simple as turning off Active Directory authentication and enabling LDAP authentication.  As far as Octopus is concerned, they are two separate auth providers.  Having Active Directory and LDAP enabled is treated the same as having Google Auth and LDAP enabled.  
 
 Both users and teams are associated with 0 to N external identities.  The external identities are stored in an array on the user or team object.  For example, a user object with both Active Directory and LDAP could appear as:
 
@@ -68,11 +68,11 @@ Both users and teams are associated with 0 to N external identities.  The extern
 To migrate from Active Directory to LDAP, you will need to:
 
 1. Enable and configure the [LDAP auth provider](docs/security/authentication/ldap/index.md).
-2. Add the LDAP provider to each user and group.  We created [this script](docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group.md) to help speed that up.
+2. Add the LDAP auth provider to each user and group.  We created [this script](docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group.md) to help speed that up.
 3. Log out with your current user and log back in, ideally with a new test user.
 4. Verify permissions are as expected.
 5. Test a few more users out.
-6. Disable the active directory auth provider.
+6. Disable the Active Directory auth provider.
 
 ### Configure a Windows Worker
 
@@ -100,7 +100,7 @@ Octopus Deploy stores all the BLOB data (deployment logs, runbook logs, packages
 - Artifacts
 - Packages
 
-If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to {{Configuration, Settings, Server Folders}}.
+If you are moving from a Windows VM, the default path for those folders is: `C:\Octopus`.  For example, the task logs folder would be `C:\Octopus\TaskLogs`.  If you are unsure of the path, you can find it in the Octopus Deploy UI by navigating to **{{Configuration, Settings, Server Folders}}**.
 
 :::warning
 Failure to copy files over to the new storage location for the Linux Container to access will result in the following:
@@ -108,7 +108,7 @@ Failure to copy files over to the new storage location for the Linux Container t
 - Existing deployment and runbook run screens will be empty.
 - Project, Step Template, and Tenant images will not appear.
 - Attempting to download any existing artifacts will fail.
-- If you are using the built-in repository, all existing deployments will fail as they won't have anything to deploy.
+- If you are using the built-in repository, any existing deployments that use packages hosted there will fail as they won't be able to access them.
 :::
 
 ### Polling Tentacles
@@ -116,15 +116,15 @@ Failure to copy files over to the new storage location for the Linux Container t
 Polling Tentacles are designed to handle connection interruptions.  For example, when the Octopus Server is restarted.  When the Octopus Server comes back online, any running Polling Tentacles will re-connect.  If you are currently using Polling Tentacles, you will need to ensure:
 
 1. The same server URL will be used after the move.
-1. You enable port 10943 on the Octopus Server Linux Container. 
+1. You enable the communication port used (default: `10943`) on the Octopus Server Linux Container. 
 
 If you wish to use a new URL, you will need to run this script on each machine hosting the polling tentacles.  Replace the server and API key with values specific to your instance.
 
 ```Text Windows
-C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-MyApiKey --server-comms-port=10943
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
 ```Text Linux
-/opt/octopus/tentacle/Tentacle poll-server --server=http://my.Octopus.server --apikey=API-MyApiKey --server-comms-port=10943
+/opt/octopus/tentacle/Tentacle poll-server --server=httpa://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
 
 ## Folder Paths
@@ -137,7 +137,7 @@ For example:
 ./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
 ```
 
-Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.  
+Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.
 
 |  Name       |    |
 | ------------- | ------- |
@@ -156,7 +156,7 @@ Due to how paths are stored, you cannot run an Octopus Server Windows Container 
 
 ## Database Connection String and Master Key
 
-Like with the Octopus Server Windows Container, you will need to provide the database connection string and master key to the Octopus Server Linux Container.  The underlying database technology Octopus Deploy relies upon, SQL Server, has not changed.  The connection string format is the same, so you shouldn't need to change anything.
+Just as it is with Octopus Server running on Windows (VM or Container), you will need to provide the database connection string and master key to the Octopus Server Linux Container.  The underlying database technology Octopus Deploy relies upon, SQL Server, has not changed.  The connection string format is the same, so you shouldn't need to change anything.
 
 ## Server Thumbprint
 
