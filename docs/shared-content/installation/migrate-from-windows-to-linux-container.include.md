@@ -120,10 +120,10 @@ Polling Tentacles are designed to handle connection interruptions.  For example,
 
 If you wish to use a new URL, you will need to run this script on each machine hosting the polling tentacles.  Replace the server and API key with values specific to your instance.
 
-```Text (Windows)
+```Text Windows
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=http://my.Octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
-```Text (Linux)
+```Text Linux
 /opt/octopus/tentacle/Tentacle poll-server --server=http://my.Octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
 
