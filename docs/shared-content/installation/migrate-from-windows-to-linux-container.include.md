@@ -67,7 +67,7 @@ Both users and teams are associated with 0 to N external identities.  The extern
 
 To migrate from Active Directory to LDAP, you will need to:
 
-1. Enable and configure the [LDAP auth provider](docs/security/authentication/ldap.md).
+1. Enable and configure the [LDAP auth provider](docs/security/authentication/ldap/index.md).
 2. Add the LDAP provider to each user and group.  We created [this script](docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group.md) to help speed that up.
 3. Log out with your current user and log back in, ideally with a new test user.
 4. Verify permissions are as expected.
