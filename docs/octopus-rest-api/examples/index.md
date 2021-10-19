@@ -39,6 +39,12 @@ The Python examples are written using Python 3 and use the [Requests](https://re
 
 The Go examples are written using the [go-octopusdeploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
 
+### Java examples
+
+The Java examples are written using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
+
+The Java Client library requires Java 1.8 or above.
+
 ## Bulk operations
 
 Sometimes you want to perform an action on a resource in Octopus multiple times. For example, connecting a tenant to all of your projects. Having to run a script that performs an operation once, repeatedly, can become tedious. 
