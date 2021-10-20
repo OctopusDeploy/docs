@@ -25,6 +25,7 @@ Provide values for:
 - Max number of records to update in the script execution.
 - Name of the domain to use to find a users existing Active Directory record to optionally remove, in the format `your-ad-domain.com`.
 - Name of the domain to use when searching LDAP for matching external user records in the format `your-ldap-domain.com`. *This is typically the same value as the Active Directory domain*.
+- LDAP username lookup - A boolean value to toggle whether or not to include the LDAP domain when matching the Active Directory username to the LDAP one.
 - WhatIf - A boolean value to toggle whether or not to perform the actual updates to users in Octopus.
 - Remove old Active Directory records - A boolean value to toggle whether or not to remove the existing active directory record from each user.
 
