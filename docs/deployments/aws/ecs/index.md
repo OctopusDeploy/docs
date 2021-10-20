@@ -1,6 +1,6 @@
 ---
 title: Deploy Amazon ECS Service
-description: Deploy a service to an Amazon ECS Cluster.
+description: Deploy a service to an Amazon ECS cluster.
 ---
 
 Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides an opinionated deployment workflow that combines a Fargate task definition and service into a single step.
@@ -9,57 +9,59 @@ Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Serv
 Presently only Fargate clusters are supported. We might add support for EC2 clusters in the future.
 :::
 
-An ECS deployment will then execute the following process:
+At a high level, the Deploy Amazon ECS Step will:
 
-* Select the Docker image tags to be defined in the task definition when creating a release.
-* Create a new task definition with the details specific to the deployment to a given environment.
-* Configure the service with the task definition from step 2.
-* Combine the provided configuration into a single CloudFormation template.
-* Execute the template via AWS SDK after performing variable substitution and package acquisition.
+* Select the Docker image tags for the task definition (Done during creating a release).
+* Build a CloudFormation template with:
+    * A task definition with the details specific to the deployment for the selected environment and docker image tags.
+    * A service that references the task definition.
+* Perform variable substitution on the CloudFormation template.
+* Deploy a CloudFormation stack with the template.
 
-The proceeding instructions can be followed to configure the `Deploy Amazon ECS Service` step. We have deliberately chosen not to document some fields here as they map directly to ECS settings and are well documented in AWS docs (a link to the relevant docs section is typically provided in the fields' notes section). 
+The proceeding instructions can be followed to configure the `Deploy Amazon ECS Service` step. We have chosen not to document some fields here as they map directly to ECS settings and are well documented in the AWS documentation (a link to the relevant documentation section is typically provided in each fields' notes in the Octopus UI). 
 
-## Make a note of your ECS Cluster's settings
+## Step 1: Make a note of your ECS cluster's settings
 
-Configuring an ECS service for the very first time can be quite intimidating due to a large number of available options. Fortunately, most of them are optional and at a minimum the following settings will need to be provided:
+Configuring an ECS service for the first time can be quite intimidating due to a large number of available options. Fortunately, most of them are optional. At a minimum the following settings will need to be configured:
+
 * Name of the ECS cluster
 * Cluster's region
-* Ids of the subnets belonging to cluster's VPC
-* Ids of the security groups attached to the cluster's VPC
+* Ids of the PVC subnets the service and task will be deployed within
+* Ids of the security groups the service and task will be associated with
 
-## Create a deployment target for the ECS cluster
+## Step 2: Create a deployment target for your ECS cluster
 
-`Deploy Amazon ECS Service` step requires [a deployment target](/docs/getting-started/first-deployment/add-deployment-targets) to be defined.
+The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/getting-started/first-deployment/add-deployment-targets) to be defined.
 
-Select the `AWS Account` under `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
+Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
 
-![ECS Cluste Deployment Target Settings](images/target.png "width=500")
+![ECS Cluster Deployment Target Settings](images/target.png "width=500")
 
 :::hint
-The reasons why we chose to model ECS deployments with a deployment target are outlined in our [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
+The benefits of using deployment targets for ECS are outlined in the [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
 :::
 
-## Add the ECS step
+## Step 3: Add the ECS step
 
 Add the `Deploy Amazon ECS Service` step to the project, and provide it a name.
 
-As the step is using a deployment target a target role will also need to be specified. The role will be used to determine which ECS cluster to deploy to.
+As the step is using a deployment target a target role will also need to be specified. The role will be used to determine which ECS cluster to deploy to. Use the same role that you applied to your deployment target in Step 2.
 
 ![ECS Step General Settings](images/ecs-step-1.png "width=500")
-
-### Configuration section
-
-Specify the name for the resulting task definition.
 
 :::hint
 CloudFormation stack and service names will be automatically generated and cannot be changed manually.
 :::
 
+### Configuration section
+
+Specify a name for your task definition. This name can be anything you want, as long as it meets the specified naming limitations.
+
 ![ECS Step Configuration Section](images/ecs-configuration.png "width=500")
 
 ### Task Execution IAM Role section
 
-Under the `Task Execution IAM Role` section, the Task Execution Role can optionally be defined. If one wasn't specified the step will create one automatically and assign the `arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy` role to it.
+Under the `Task Execution IAM Role` section, the Task Execution Role can optionally be defined. If you don't specify it, the step will create one automatically and assign the `arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy` role to it.
 
 ![ECS Step Task Execution IAM Role](images/ecs-task-execution-role.png "width=500")
 
@@ -93,17 +95,17 @@ At least one container definition must be specified when registering a task defi
 
 ![ECS Step Container Definitions Section](images/ecs-container-section.png "width=500")
 
-Specify container name that will be used to reference the particular container definition, Docker feed and image name (particular image version will be specified later, when creating a deployment).
+Specify the container name that will be used to reference the particular container definition within your task, and select a feed and image that will be run by your task. The specific image version will be specified later, when creating a release.
 
-To authenticate with private repositories you can either rely on the default IAM authentication by assigning required secrets to task execution role, or manually provide the full secret's ARN. For more information, refer to [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
+To authenticate with private repositories you can either rely on the default IAM authentication by assigning required secrets to the task execution role, or manually provide the full secret's ARN. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
 
-Specify the ports exposed by the container here. These can be referenced in the `Load Balancer Mappings` section to publicly expose these ports.
+Specify the ports exposed by the container here. These can be referenced in the `Load Balancer Mappings` section if you wish to publicly expose the ports.
 
 ![ECS Step Container Definition Parameters](images/ecs-container-definition.png "width=500")
 
 #### Health Check section
 
-This section directly corresponds to Docker health check parameters. For more information, refer to [Docker documentation](https://docs.docker.com/engine/reference/builder/#healthcheck).
+This section directly corresponds to Docker health check parameters. For more information, refer to the [Docker documentation](https://docs.docker.com/engine/reference/builder/#healthcheck).
 
 ![ECS Step Container Definition Health Check](images/ecs-health-check.png "width=500")
 
@@ -117,7 +119,7 @@ Specify additional options for the running container, such as `Entry Point`, `Wo
 
 In this section you can specify mount points for the running container. Mount points can refer to the volumes specified in `Volumes` section of the ECS step.
 
-For container logging the step can either auto-configure CloudWatch logs or you can provide logging configuration manually. If you choose to have CloudWatch logs auto-configured, please ensure that you have specified a Task Execution Role ARN for this step. 
+For container logging the step can either auto-configure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs auto-configured, please ensure that you have specified a Task Execution Role ARN for this step. 
 
 ![ECS Step Container Definition Storage and Logging](images/ecs-container-storage-and-logging.png "width=500")
 
@@ -129,15 +131,15 @@ Specify the minimum and maximum health percentages for the resulting service.
 
 ### Deployment Options section
 
-You can also optionally change whether the step should wait until the CloudFormation stack fully deploys by changing the `Wait Option` selection. By default, the step will wait until the CloudFormation stack deployment is complete and the resulting ECS Task is running (or failed to run).
+You can optionally change whether the step should wait until the CloudFormation stack fully deploys by changing the `Wait Option` selection. By default, the step will wait until the CloudFormation stack deployment is complete and the resulting ECS Task is running (or failed to run).
 
 ![ECS Step Deployment Options section](images/ecs-deployment-options.png "width=500")
 
 :::hint
-Selecting `Don't wait` option means that the step will not fail if the CloudFormation deployment fails.
+Selecting the `Don't wait` option means that the step will not fail if the CloudFormation deployment fails.
 :::
 
-Snippet of deployment verification logic can be seen in the diagram provided below in `CloudFormation deployment workflow` section.
+A snippet of the deployment verification logic we have implemented can be seen in the diagram provided below in `CloudFormation deployment workflow` section.
 
 ### Load Balancer Mappings section
 
@@ -177,7 +179,7 @@ Any of the input fields can be bound to an Octostache expression. Variable repla
 
 ### Output variables
 
-Presently, the step does not output any Octopus variables specific to the step or the resulting CloudFormation stack. It is expected to be added in future versions of the step.
+Presently, the step does not output any variables. We expect to add output variables containing stack and service information in a future version of the step.
 
 ## CloudFormation deployment workflow
 
