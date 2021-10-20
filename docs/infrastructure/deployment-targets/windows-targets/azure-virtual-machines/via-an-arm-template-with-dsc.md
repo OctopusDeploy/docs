@@ -391,7 +391,7 @@ If you are using your own template, and not the sample above, you can just add t
 {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/dscExtension')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2021-04-01",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
