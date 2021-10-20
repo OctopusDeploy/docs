@@ -480,7 +480,7 @@ az deployment group create \
     --name "DeployTentacle" \
     --resource-group "OctopusDeployTentacle" \
     --template-file "arm-template.json" \
-    --parameters "@arm-template.parameters.json"
+    --parameters "@arm-template.properties.json"
 ```
 
 ## Troubleshooting 
