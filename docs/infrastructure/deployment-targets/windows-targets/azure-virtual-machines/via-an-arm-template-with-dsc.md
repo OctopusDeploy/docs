@@ -54,7 +54,7 @@ configuration OctopusTentacle
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmAdminUsername": {
@@ -178,7 +178,7 @@ configuration OctopusTentacle
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
+      "apiVersion": "2021-04-01",
       "name": "[variables('diagnostics').storageAccount.name]",
       "location": "[variables('location')]",
       "tags": {
@@ -193,7 +193,7 @@ configuration OctopusTentacle
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "name": "[variables('networkSecurityGroupName')]",
       "location": "[variables('location')]",
       "tags": {
@@ -222,7 +222,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[variables('publicIPAddressName')]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -238,7 +238,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('vnet').name]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -269,7 +269,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nic').name]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -300,7 +300,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[variables('vmName')]",
-      "apiVersion": "2016-04-30-preview",
+      "apiVersion": "2021-04-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -352,7 +352,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/dscExtension')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2021-04-01",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -382,6 +382,7 @@ configuration OctopusTentacle
     }
   ]
 }
+
 ```
 
 If you are using your own template, and not the sample above, you can just add the resource to your existing template:
