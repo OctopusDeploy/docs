@@ -209,7 +209,6 @@ func GetProject(octopusURL *url.URL, APIKey string, space *octopusdeploy.Space, 
 }
 ```
 ```java Java
-
 import com.octopus.sdk.Repository;
 import com.octopus.sdk.api.ProjectApi;
 import com.octopus.sdk.domain.Project;
@@ -227,8 +226,8 @@ import java.util.Optional;
 public class DeleteProject {
 
   static final String octopusServerUrl = "http://localhost:8065";
-  static final String apiKey =
-      "YOUR_API_KEY"; // as read from your profile in your Octopus Deploy server
+  // as read from your profile in your Octopus Deploy server
+  static final String apiKey = System.getenv("OCTOPUS_SERVER_API_KEY");
 
   public static void main(final String... args) throws IOException {
     final OctopusClient client = createClient();

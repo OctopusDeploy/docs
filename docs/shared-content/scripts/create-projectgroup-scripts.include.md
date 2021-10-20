@@ -289,10 +289,11 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.Optional;
 
-public class CreateProjectGroupExample {
+public class CreateProjectGroup {
 
-  final static String octopusServerUrl = "http://localhost:8065";
-  final static String apiKey = "YOUR_API_KEY"; // as read from your profile in your Octopus Deploy server
+  static final String octopusServerUrl = "http://localhost:8065";
+  // as read from your profile in your Octopus Deploy server
+  static final String apiKey = System.getenv("OCTOPUS_SERVER_API_KEY");
 
   public static void main(final String... args) throws IOException {
     final OctopusClient client = createClient();
@@ -300,19 +301,21 @@ public class CreateProjectGroupExample {
     final Repository repo = new Repository(client);
     final Optional<Space> space = repo.spaces().getByName("TheSpaceName");
 
-    if(!space.isPresent()) {
+    if (!space.isPresent()) {
       System.out.println("No space named 'TheSpaceName' exists on server");
       return;
     }
-    final ProjectGroupResource projectGroupResource = new ProjectGroupResource("TheProjectGroup");
-    final ProjectGroup projectGroup = space.get().projectGroups().create(projectGroupResource);
-
+    final ProjectGroupResource projectGroupResource =
+        new ProjectGroupResource("TheProjectGroupName");
+    final ProjectGroup createdProjectGroup =
+        space.get().projectGroups().create(projectGroupResource);
   }
 
   // Create an authenticated connection to your Octopus Deploy Server
   private static OctopusClient createClient() throws MalformedURLException {
     final Duration connectTimeout = Duration.ofSeconds(10L);
-    final ConnectData connectData = new ConnectData(new URL(octopusServerUrl), apiKey, connectTimeout);
+    final ConnectData connectData =
+        new ConnectData(new URL(octopusServerUrl), apiKey, connectTimeout);
     final OctopusClient client = OctopusClientFactory.createClient(connectData);
 
     return client;
