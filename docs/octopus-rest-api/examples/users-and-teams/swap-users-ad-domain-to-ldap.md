@@ -5,11 +5,16 @@ description: An example script that swaps an Octopus user's Active Directory log
 
 This script demonstrates how to programmatically swap an Octopus user's Active Directory login record for a matching LDAP one. This can be useful when you are migrating from the Active Directory authentication provider to the LDAP provider.
 
-:::hint
-The [LDAP authentication provider](/docs/security/authentication/ldap/index.md) must be enabled for this script to work as it queries for matching users in LDAP.
-:::
-
 We also have a script that will [swap Active Directory groups with matching LDAP groups](/docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group.md) for Octopus teams.
+
+:::hint
+**Note:**
+Please note there are some things to consider before using this script:
+
+- The [LDAP authentication provider](/docs/security/authentication/ldap/index.md) must be enabled for this script to work as it queries for matching users in LDAP.
+- The script won't work if the LDAP server and the AD Server domains are different. For example migrating from `domain-one.local` to `domain-two.local`.
+- Always ensure you test the script on a non-production server first, and have a production database backup.
+:::
 
 ## Usage
 

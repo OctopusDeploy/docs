@@ -14,6 +14,10 @@ $AD_Domain = "your-ad-domain.com"
 # Provide the domain for LDAP. Typically this is the same as the AD_Domain value.
 $LDAP_Domain = "your-ldap-domain.com"
 
+# If set to $True  -> the script will search for a matching user in LDAP using the format: username@$LDAP_Domain
+# If set to $False -> the script will search for a matching user in LDAP using the format: username
+$LDAP_UsernameLookup_IncludeDomain = $True
+
 # Set this to $False if you want the Script to perform the update on Octopus Users.
 $WhatIf = $True
 
@@ -98,7 +102,12 @@ while ($True) {
                 elseif ($userRecordToUpdate.Username -like "*`\*") {
                     $userNameToLookUp = ($userRecordToUpdate.Username -Split "\\")[1]
                 }
-                $expectedMatch = "$($userNameToLookUp)@$LDAP_Domain"
+
+                $expectedMatch = "$userNameToLookUp"
+                If ($LDAP_UsernameLookup_IncludeDomain -eq $True) {
+                    $expectedMatch = "$($userNameToLookUp)@$($LDAP_Domain)"
+                }
+
                 $ldapMatchFound = $False
 
                 Write-Host "Looking up the LDAP account $userNameToLookup in Octopus Deploy"
