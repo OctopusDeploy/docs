@@ -31,9 +31,9 @@ Configuring an ECS service for the first time can be quite intimidating due to a
 
 ## Step 2: Create a deployment target for your ECS cluster
 
-The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/getting-started/first-deployment/add-deployment-targets) to be defined.
+The `Deploy Amazon ECS Service` step requires [a deployment target](/https://octopus.com/docs/infrastructure/deployment-targets/index.md) to be defined.
 
-Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
+Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
 
 ![ECS Cluster Deployment Target Settings](images/target.png "width=500")
 
