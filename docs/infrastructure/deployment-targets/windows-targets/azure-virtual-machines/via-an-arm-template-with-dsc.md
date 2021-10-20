@@ -4,7 +4,7 @@ description: How to install the Tentacle using Desired State configuration (DSC)
 position: 1
 ---
 
-The following example shows how to install a Tentacle during VM provisioning with [Desired State Configuration](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) (DSC).
+The following example shows how to install a Tentacle during VM provisioning with [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC).
 
 1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder.
 2. Create a configuration file (eg `OctopusTentacle.ps1`) next to the `OctopusDSC` folder:
@@ -49,7 +49,7 @@ configuration OctopusTentacle
 ```
 
 3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file.
-4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 5. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:
 
 ```json
@@ -426,7 +426,7 @@ Note that if you are using a private Azure storage location that requires a SAS 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmAdminUsername": {
@@ -475,7 +475,7 @@ To deploy the template, you can use the [Azure CLI](https://docs.microsoft.com/c
 az login
 az account set --subscription 'xxxxxxxxxxx'
 az group create --name "OctopusDeployTentacle" --location "Australia East"
-az group deployment create \
+az deployment group create \
     --name "DeployTentacle" \
     --resource-group "OctopusDeployTentacle" \
     --template-file "arm-template.json" \
@@ -484,9 +484,9 @@ az group deployment create \
 
 ## Troubleshooting 
 
-To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
+To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
 
 If you have remote access to the machine you are troubleshooting the installation for, these two commands may offer diagnostic information about the state of DSC:
 
-* The [`Test-DscConfiguration`](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine. 
-* The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/en-us/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.
+* The [`Test-DscConfiguration`](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine. 
+* The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.
