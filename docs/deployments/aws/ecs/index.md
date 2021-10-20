@@ -6,7 +6,7 @@ description: Deploy a service to an Amazon ECS cluster.
 Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides an opinionated deployment workflow that combines a Fargate task definition and service into a single step.
 
 :::hint
-Presently only Fargate clusters are supported. We might add support for EC2 clusters in the future.
+Presently only FARGATE clusters are supported. We might add support for EC2 clusters in the future.
 :::
 
 At a high level, the Deploy Amazon ECS Step will:
@@ -21,6 +21,10 @@ At a high level, the Deploy Amazon ECS Step will:
 The proceeding instructions can be followed to configure the `Deploy Amazon ECS Service` step. We have chosen not to document some fields here as they map directly to ECS settings and are well documented in the AWS documentation (a link to the relevant documentation section is typically provided in each fields' notes in the Octopus UI). 
 
 ## Step 1: Make a note of your ECS cluster's settings
+
+:::note
+Refer to [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with `FARGATE` capacity provider.
+:::
 
 Configuring an ECS service for the first time can be quite intimidating due to a large number of available options. Fortunately, most of them are optional. At a minimum the following settings will need to be configured:
 
@@ -179,7 +183,7 @@ The dialog window will appear, showing the complete CloudFormation template and 
 
 #### Variable replacements
 
-Any of the input fields can be bound to an Octostache expression. Variable replacement will be performed before the template is deployed.
+Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions) will be performed before the template is deployed.
 
 ### Output variables
 
