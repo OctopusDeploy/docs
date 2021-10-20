@@ -3,11 +3,19 @@ title: Deploy Amazon ECS Service
 description: Deploy a service to an Amazon ECS Cluster.
 ---
 
-Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides a friendly user interface for configuring both service and task definitions in a single screen. At deployment time the step generates an AWS CloudFormation template, executes it, and verifies the state of the resulting stack.
+Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides an opinionated deployment workflow that combines a Fargate task definition and service into a single step.
 
 :::hint
 Presently only Fargate clusters are supported. We might add support for EC2 clusters in the future.
 :::
+
+An ECS deployment will then execute the following process:
+
+* Select the Docker image tags to be defined in the task definition when creating a release.
+* Create a new task definition with the details specific to the deployment to a given environment.
+* Configure the service with the task definition from step 2.
+* Combine the provided configuration into a single CloudFormation template.
+* Execute the template via AWS SDK after performing variable substitution and package acquisition.
 
 The proceeding instructions can be followed to configure the `Deploy Amazon ECS Service` step. We have deliberately chosen not to document some fields here as they map directly to ECS settings and are well documented in AWS docs (a link to the relevant docs section is typically provided in the fields' notes section). 
 
@@ -26,6 +34,10 @@ Configuring an ECS service for the very first time can be quite intimidating due
 Select the `AWS Account` under `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
 
 ![ECS Cluste Deployment Target Settings](images/target.png "width=500")
+
+:::hint
+The reasons why we chose to model ECS deployments with a deployment target are outlined in our [ECS RFC blog post](https://octopus.com/blog/rfc-ecs-integration-with-octopus#why-use-targets).
+:::
 
 ## Add the ECS step
 
@@ -70,6 +82,8 @@ Specify whether to enable Amazon ECS managed tags. Changing this value will forc
 :::hint
 Octopus automatically adds stack-level tags that propagate to the task definition and the service. The full list of these auto-generated tags can be found in our [Architecture repository](https://github.com/OctopusDeploy/Architecture/blob/main/Steps/StepDesignGuidelines.md#tags-and-labels).
 :::
+
+No more than 20 additional tags can be provided.
 
 ![ECS Step Tags](images/ecs-tags.png "width=500")
 
