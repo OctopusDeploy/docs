@@ -89,13 +89,21 @@ Specify the ports exposed by the container here. These can be referenced in the 
 
 #### Health Check section
 
+This section directly corresponds to Docker health check parameters. For more information, refer to [Docker documentation](https://docs.docker.com/engine/reference/builder/#healthcheck).
+
 ![ECS Step Container Definition Health Check](images/ecs-health-check.png "width=500")
 
 #### Environment section
 
+Specify additional options for the running container, such as `Entry Point`, `Working Directory` and `Environment Variables`.
+
 ![ECS Step Container Definition Environment](images/ecs-container-environment.png "width=500")
 
 #### Container Storage and Logging section
+
+In this section you can specify mount points for the running container. Mount points can refer to the volumes specified in `Volumes` section of the ECS step.
+
+For container logging the step can either auto-configure CloudWatch logs or you can provide logging configuration manually. If you choose to have CloudWatch logs auto-configured, please ensure that you have specified a Task Execution Role ARN for this step. 
 
 ![ECS Step Container Definition Storage and Logging](images/ecs-container-storage-and-logging.png "width=500")
 
@@ -103,13 +111,13 @@ Specify the ports exposed by the container here. These can be referenced in the 
 
 Specify the minimum and maximum health percentages for the resulting service.
 
-![ECS Step Container Definitions](images/ecs-deployment.png "width=500")
+![ECS Step Deployment section](images/ecs-deployment.png "width=500")
 
 ### Deployment Options section
 
 You can also optionally change whether the step should wait until the CloudFormation stack fully deploys by changing the `Wait Option` selection. By default, the step will wait until the CloudFormation stack deployment is complete and the resulting ECS Task is running (or failed to run).
 
-![ECS Step Deployment Options](images/ecs-deployment-options.png "width=500")
+![ECS Step Deployment Options section](images/ecs-deployment-options.png "width=500")
 
 :::hint
 Selecting `Don't wait` option means that the step will not fail if the CloudFormation deployment fails.
