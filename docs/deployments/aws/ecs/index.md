@@ -26,7 +26,7 @@ Configuring an ECS service for the first time can be quite intimidating due to a
 
 * Name of the ECS cluster
 * Cluster's region
-* Ids of the PVC subnets the service and task will be deployed within
+* Ids of the VPC subnets the service and task will be deployed within
 * Ids of the security groups the service and task will be associated with
 
 ## Step 2: Create a deployment target for your ECS cluster
