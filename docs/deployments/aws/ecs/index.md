@@ -63,6 +63,10 @@ Specify a name for your task definition. This name can be anything you want, as 
 
 Under the `Task Execution IAM Role` section, the Task Execution Role can optionally be defined. If you don't specify it, the step will create one automatically and assign the `arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy` role to it.
 
+:::note
+Additional permissions might need to be assigned to the task execution role if your tasks pull container images from private repositories. For more information, refer to [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth).
+:::
+
 ![ECS Step Task Execution IAM Role](images/ecs-task-execution-role.png "width=500")
 
 ### Task Size section
@@ -97,7 +101,7 @@ At least one container definition must be specified when registering a task defi
 
 Specify the container name that will be used to reference the particular container definition within your task, and select a feed and image that will be run by your task. The specific image version will be specified later, when creating a release.
 
-To authenticate with private repositories you can either rely on the default IAM authentication by assigning required secrets to the task execution role, or manually provide the full secret's ARN. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
+To authenticate with private repositories you can either rely on the default IAM authentication or manually provide the ARN of the secret created in AWS Secrets Manager. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
 
 Specify the ports exposed by the container here. These can be referenced in the `Load Balancer Mappings` section if you wish to publicly expose the ports.
 
