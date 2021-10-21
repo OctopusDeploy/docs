@@ -628,5 +628,4 @@ public class CreateReleaseWithVersion {
     return client;
   }
 }
-
 ```

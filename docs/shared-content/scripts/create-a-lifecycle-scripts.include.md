@@ -399,5 +399,4 @@ public class CreateLifecycle {
     return client;
   }
 }
-
 ```

@@ -239,5 +239,4 @@ public class DeleteSpace {
     return client;
   }
 }
-
 ```

@@ -258,5 +258,4 @@ public class DeleteProject {
     return client;
   }
 }
-
 ```
