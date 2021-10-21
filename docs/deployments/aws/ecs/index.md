@@ -183,7 +183,7 @@ The dialog window will appear, showing the complete CloudFormation template and 
 
 #### Variable replacements
 
-Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions) will be performed before the template is deployed.
+Any of the input fields can be bound to an Octostache expression. [Variable substitution](/docs/projects/variables/variable-substitutions.md) will be performed before the template is deployed.
 
 ### Output variables
 
