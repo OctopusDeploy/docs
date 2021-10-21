@@ -6,12 +6,12 @@ description: Deploy a service to an Amazon ECS cluster.
 Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides an opinionated deployment workflow that combines a Fargate task definition and service into a single step.
 
 :::hint
-Presently only FARGATE clusters are supported. We might add support for EC2 clusters in the future.
+Presently only FARGATE clusters are supported.
 :::
 
-At a high level, the Deploy Amazon ECS Step will:
+At a high level, the `Deploy Amazon ECS Service` step will:
 
-* Select the Docker image tags for the task definition (Done during creating a release).
+* Select the Docker image tags for the task definition (version selection is performed when creating a release).
 * Build a CloudFormation template with:
     * A task definition with the details specific to the deployment for the selected environment and docker image tags.
     * A service that references the task definition.
@@ -23,7 +23,7 @@ The proceeding instructions can be followed to configure the `Deploy Amazon ECS 
 ## Step 1: Make a note of your ECS cluster's settings
 
 :::note
-Refer to [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with `FARGATE` capacity provider.
+Refer to [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with the `FARGATE` capacity provider.
 :::
 
 Configuring an ECS service for the first time can be quite intimidating due to a large number of available options. Fortunately, most of them are optional. At a minimum the following settings will need to be configured:
@@ -59,7 +59,7 @@ CloudFormation stack and service names will be automatically generated and canno
 
 ### Configuration section
 
-Specify a name for your task definition. This name can be anything you want, as long as it meets the specified naming limitations.
+Specify a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 
 ![ECS Step Configuration Section](images/ecs-configuration.png "width=500")
 
@@ -107,13 +107,13 @@ Specify the container name that will be used to reference the particular contain
 
 To authenticate with private repositories you can either rely on the default IAM authentication or manually provide the ARN of the secret created in AWS Secrets Manager. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
 
-Specify the ports exposed by the container here. These can be referenced in the `Load Balancer Mappings` section if you wish to publicly expose the ports.
+Specify the ports exposed by the container here. These can be referenced in the overall step configuration in the `Load Balancer Mappings` section if you wish to publicly expose the ports.
 
 ![ECS Step Container Definition Parameters](images/ecs-container-definition.png "width=500")
 
 #### Health Check section
 
-This section directly corresponds to Docker health check parameters. For more information, refer to the [Docker documentation](https://docs.docker.com/engine/reference/builder/#healthcheck).
+This section directly corresponds to Docker health check parameters. Specifying these settings will override the values built into the container image. For more information, refer to the [Docker documentation](https://docs.docker.com/engine/reference/builder/#healthcheck).
 
 ![ECS Step Container Definition Health Check](images/ecs-health-check.png "width=500")
 
