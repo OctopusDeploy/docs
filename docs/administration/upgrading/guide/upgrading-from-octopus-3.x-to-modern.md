@@ -16,8 +16,6 @@ You should be safe doing an in-place upgrade of 3.x to the latest version of Oct
 - Terraform support was introduced.
 - Execution containers running on docker on workers were introduced.
 
-There is some risk involved with doing an in-place upgrade.  This guide will walk through the steps needed to reduce the risk and keep downtime to a minimum.
-
 ## Prep Work
 
 Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the next steps.
@@ -27,9 +25,34 @@ Before starting the upgrade, it is critical to back up the master key and licens
 
 !include <upgrade-octopus-backup-master-key>
 
-## Recommended approach - create a cloned instance
+## Standard upgrade process
 
-The recommended approach is to create a cloned instance, upgrade that instance, and test out the new functionality with any integrations.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance to test future upgrades.  This provides the means to test an upgrade without affecting your CI/CD pipeline.   
+The standard upgrade process is an in-place upgrade.  In-place upgrades update the binaries in the install directory and update the database.  The guide below includes additional steps to backup key components to make it easier to rollback in the unlikely event of a failure.
+
+### Overview
+
+The steps for this are:
+
+1. Download the latest version of Octopus Deploy.
+1. Enable maintenance mode.
+1. Backup the database.
+1. Do an in-place upgrade.
+1. Test the upgraded instance.
+1. Disable maintenance mode.
+
+!include <upgrade-download-latest-version>
+!include <upgrade-octopus-backup-database>
+!include <upgrade-inplace-upgrade>
+!include <upgrade-testing-upgraded-instance>
+!include <upgrade-high-availability>
+
+:::warning
+While an in-place upgrade will work, it involves risk as you are upgrading from a version released back in 2017 (or earlier).  Please see below for steps on how to mitigate that risk.
+:::
+
+## Risk mitigation recommended approach - create a cloned instance
+
+The recommended approach to risk mitigation is to create a cloned instance, upgrade that instance, and test out the new functionality with any integrations.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance to test future upgrades.  This provides the means to test an upgrade without affecting your CI/CD pipeline.   
 
 ### Overview 
 
@@ -59,7 +82,7 @@ Creating a clone of an existing instance involves:
 !include <upgrade-octopus-backup-folders>
 !include <upgrade-main-instance-after-test-instance>
 
-## Alternative approach - create a test instance
+## Risk mitigation alternative approach - create a test instance
 
 Creating and migrating to a cloned instance can be quite a bit of work.  You have to worry about drift and getting new compute resources allocated.  An alternative approach to the cloned instance is creating a test instance with only a handful of projects.  Test the upgrade with that test instance and then do the upgrade of your main instance.
 

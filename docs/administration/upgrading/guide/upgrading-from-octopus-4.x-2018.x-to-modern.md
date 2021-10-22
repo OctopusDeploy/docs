@@ -22,7 +22,32 @@ Before starting the upgrade, it is critical to back up the master key and licens
 
 !include <upgrade-octopus-backup-master-key>
 
-## Recommended approach - create a test instance
+## Standard upgrade process
+
+The standard upgrade process is an in-place upgrade.  In-place upgrades update the binaries in the install directory and update the database.  The guide below includes additional steps to backup key components to make it easier to rollback in the unlikely event of a failure.
+
+### Overview
+
+The steps for this are:
+
+1. Download the latest version of Octopus Deploy.
+1. Enable maintenance mode.
+1. Backup the database.
+1. Do an in-place upgrade.
+1. Test the upgraded instance.
+1. Disable maintenance mode.
+
+!include <upgrade-download-latest-version>
+!include <upgrade-octopus-backup-database>
+!include <upgrade-inplace-upgrade>
+!include <upgrade-testing-upgraded-instance>
+!include <upgrade-high-availability>
+
+:::warning
+While an in-place upgrade is possible, it involves risk as you are upgrading from a version released back in 2018.  Please see below for steps on how to mitigate that risk.
+:::
+
+## Risk mitigation recommended approach - create a test instance
 
 An in-place upgrade should be the safest approach.  Upgrade scripts assume you are upgrading from older versions of Octopus Deploy.  While the upgrade will work, there might be a new feature or breaking changes you will want to test first.  The recommended approach is to create a test instance containing a subset of projects representing your main instance.  Upgrade that test instance, verify it, and then upgrade the main instance.  
 
@@ -56,7 +81,7 @@ The steps for this are:
 !include <upgrade-octopus-backup-folders>
 !include <upgrade-main-instance-after-test-instance>
 
-## Alternative approach - create a cloned instance
+## Risk mitigation alternative approach - create a cloned instance
 
 An alternative approach to an in-place upgrade is to create a cloned instance and upgrade that.  From there, you can migrate over to the cloned instance or do an in-place upgrade of your existing instance and use the cloned instance for testing future upgrades.  
 
