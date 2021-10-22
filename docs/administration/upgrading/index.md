@@ -98,7 +98,7 @@ Please pick from one of these upgrade scenarios.  Any version 3.x or higher is c
   - [Upgrade from 1.6 to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5.md)
 
 :::hint
-Prior to Octopus Deploy 3.x, the backing database was RavenDB.  That is why we consider it a legacy upgrade.
+Since Octopus Deploy 3.x, the backing database is SQL Server.  Prior to Octopus Deploy 3.x, the backing database was RavenDB.  That is why we consider any version released before 3.x a legacy upgrade.
 :::
 
 ## Mitigating Risk
