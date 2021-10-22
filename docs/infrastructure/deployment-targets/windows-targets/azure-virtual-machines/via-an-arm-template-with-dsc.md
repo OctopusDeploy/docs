@@ -4,9 +4,10 @@ description: How to install the Tentacle using Desired State configuration (DSC)
 position: 1
 ---
 
-The following example shows how to install a Tentacle during VM provisioning with [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC).
+The following example shows how to install a Tentacle during virtual machine (VM) provisioning with [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC).
 
 1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder.
+
 2. Create a configuration file (eg `OctopusTentacle.ps1`) next to the `OctopusDSC` folder:
 
 ```powershell
@@ -48,7 +49,10 @@ configuration OctopusTentacle
 }
 ```
 
-3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file.
+3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up. 
+
+![A brief description of the image](images/dsc-folder-structure-example.png)
+
 4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 5. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:
 
@@ -360,7 +364,7 @@ configuration OctopusTentacle
       "properties": {
         "publisher": "Microsoft.Powershell",
         "type": "DSC",
-        "typeHandlerVersion": "2.20",
+        "typeHandlerVersion": "2.77",
         "autoUpgradeMinorVersion": true,
         "forceUpdateTag": "2",
          "settings": {
@@ -399,7 +403,7 @@ If you are using your own template, and not the sample above, you can just add t
       "properties": {
         "publisher": "Microsoft.Powershell",
         "type": "DSC",
-        "typeHandlerVersion": "2.20",
+        "typeHandlerVersion": "2.77",
         "autoUpgradeMinorVersion": true,
         "forceUpdateTag": "2",
          "settings": {
