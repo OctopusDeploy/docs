@@ -24,7 +24,7 @@ Octopus includes the default Swagger UI for displaying the API documentation in 
 
 ![Server API](images/server-api.png "width=500")
 
-You can view the API through the Octopus Demo server at [demo.octopus.com/swaggerui/index.html](https://demo.octopus.com/swaggerui/index.html).
+You can view the API through the Octopus Demo server at [demo.octopus.app/swaggerui/index.html](https://demo.octopus.app/swaggerui/index.html).
 
 ## API and Spaces
 
