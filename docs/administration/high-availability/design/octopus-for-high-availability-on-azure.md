@@ -106,6 +106,9 @@ New-Item -Path C:\Octopus\Artifacts -ItemType SymbolicLink -Value \\octostorage.
 New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Packages
 
 ````
+:::hint
+It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
+:::
 
 [Install Octopus](/docs/installation/index.md) and then run the following:
 
