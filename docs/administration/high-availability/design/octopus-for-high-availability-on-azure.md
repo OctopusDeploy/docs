@@ -47,15 +47,15 @@ Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, 
 
 Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in Azure, there are two options that you should consider:
 
-- [SQL Server on a Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/)
-- [Azure SQL Database as a Service](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-technical-overview/)
+- [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/)
+- [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
 
 From the Octopus perspective, how the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
 
 Octopus High Availability works with:
 
-- [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
-- [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [SQL Server Failover Clusters](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
+- [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 :::warning
@@ -80,11 +80,11 @@ Whichever way you provide the shared storage, there are a few considerations to 
 - The service account that Octopus runs needs **full control** over the directory.
 - Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.
 
-If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction); it just presents a file share over SMB 3.0.
+If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction); it just presents a file share over SMB 3.0.
 
 #### Azure Files
 
-If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/en-us/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
+If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
 
 After you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, and TaskLogs which need to be available to all nodes.
 
@@ -101,15 +101,19 @@ New-Item -ItemType directory -Path C:\Octopus
 
 # Add the Symbolic Links. Do this before installing Octopus.
 
-mklink /D C:\Octopus\TaskLogs \\octostorage.file.core.windows.net\octoha\TaskLogs
-mklink /D C:\Octopus\Artifacts \\octostorage.file.core.windows.net\octoha\Artifacts
-mklink /D C:\Octopus\Packages \\octostorage.file.core.windows.net\octoha\Packages
+New-Item -Path C:\Octopus\TaskLogs -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\TaskLogs
+New-Item -Path C:\Octopus\Artifacts -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Artifacts
+New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Packages
+
 ````
+:::hint
+It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
+:::
 
 [Install Octopus](/docs/installation/index.md) and then run the following:
 
 ````powershell
-# Set the path
+# Set the path 
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --artifacts "C:\Octopus\Artifacts"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --taskLogs "C:\Octopus\TaskLogs"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --nugetRepository "C:\Octopus\Packages"
@@ -121,12 +125,12 @@ To distribute HTTP load among Octopus Server nodes with a single point of access
 
 !include <load-balancer-endpoint-info>
 
-Azure has a wide range of [load balancers](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
+Azure has a wide range of [load balancers](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) that will work with Octopus in a highly-available configuration:
 
-- [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)
-- [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview)
-- [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
-- [Azure Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview)
+- [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)
+- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+- [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
 - [Kemp LoadMaster](https://kemptechnologies.com/uk/solutions/microsoft-load-balancing/loadmaster-azure/)
 - [F5 Big-IP Virtual Edition](https://www.f5.com/partners/technology-alliances/microsoft-azure)
 

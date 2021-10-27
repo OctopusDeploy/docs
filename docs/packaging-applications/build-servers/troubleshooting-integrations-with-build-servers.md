@@ -46,15 +46,17 @@ As shown in the above screenshots, the exact `octo` command that was executed (a
 - Each version of our extension/plugin will ship with the latest version of the Octopus CLI at the moment it was created. Perhaps the version of the Octopus CLI used by your current extension version is not the latest, in which case the recommended thing to do would be to upgrade your extension to the latest version available. You can tell which version of the Octopus CLI you are using from the initial line that gets printed by the command:
 
 ```
-[15:00:43][Octopus Deploy] Running command:   octo create-release --server https://demo.octopus.com --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
-[15:00:43][Octopus Deploy] Creating Octopus Deploy release
-[15:00:43][Octopus Deploy] Octopus Deploy Command Line Tool, version 3.3.8+Branch.main.Sha.f8a34fc6097785d7d382ddfaa9a7f009f29bc5fb
-[15:00:43][Octopus Deploy]
-[15:00:43][Octopus Deploy] Build environment is NoneOrUnknown
-[15:00:43][Octopus Deploy] Handshaking with Octopus Server: https://demo.octopus.com
-[15:00:44][Octopus Deploy] Handshake successful. Octopus version: 3.15.8; API version: 3.0.0
+10:38:52     Running command:   octo.exe create-release --server https://demo.octopus.app --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
+10:38:52     Creating Octopus Deploy release
+10:38:52     Octopus Deploy Command Line Tool, version 7.4.3264
+10:38:52     
+10:38:52     Detected automation environment: "TeamCity/2021.1.3"
+10:38:52     Space name unspecified, process will run in the default space context
+10:38:52     Handshaking with Octopus Server: https://demo.octopus.app
+10:38:52     Handshake successful. Octopus version: 2021.2.7660; API version: 3.0.0
+
 ```
-*In this case we are using `octo` version `3.3.8` against an Octopus Server version `3.15.8`*
+*In this case we are using `octo` version `7.4.3264` against an Octopus Server version `2021.2.7660`*
 
 - If the version of the Octopus CLI that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of the Octopus CLI and see if you can still reproduce it. You can [download the latest version from the downloads page](https://octopus.com/downloads). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed Octopus CLI. If that's the case, then [log an issue with our support team](https://octopus.com/support) so we can take care of it.
 

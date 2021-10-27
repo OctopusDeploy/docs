@@ -4,9 +4,10 @@ description: How to install the Tentacle using Desired State configuration (DSC)
 position: 1
 ---
 
-The following example shows how to install a Tentacle during VM provisioning with [Desired State Configuration](https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview/overview) (DSC).
+The following example shows how to install a Tentacle during virtual machine (VM) provisioning with [Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (DSC).
 
 1. Download the latest release of the OctopusDSC from the [OctopusDSC repo](https://github.com/OctopusDeploy/OctopusDSC/releases) and extract it into a new folder.
+
 2. Create a configuration file (eg `OctopusTentacle.ps1`) next to the `OctopusDSC` folder:
 
 ```powershell
@@ -48,13 +49,20 @@ configuration OctopusTentacle
 }
 ```
 
-3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file.
-4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up. 
+
+:::hint
+If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
+:::
+
+![A brief description of the image](images/dsc-folder-structure-example.png)
+
+4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 5. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmAdminUsername": {
@@ -178,7 +186,7 @@ configuration OctopusTentacle
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
+      "apiVersion": "2021-04-01",
       "name": "[variables('diagnostics').storageAccount.name]",
       "location": "[variables('location')]",
       "tags": {
@@ -193,7 +201,7 @@ configuration OctopusTentacle
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "name": "[variables('networkSecurityGroupName')]",
       "location": "[variables('location')]",
       "tags": {
@@ -222,7 +230,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[variables('publicIPAddressName')]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -238,7 +246,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('vnet').name]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -269,7 +277,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nic').name]",
-      "apiVersion": "2016-03-30",
+      "apiVersion": "2021-02-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -300,7 +308,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[variables('vmName')]",
-      "apiVersion": "2016-04-30-preview",
+      "apiVersion": "2021-04-01",
       "location": "[variables('location')]",
       "tags": {
         "vendor": "[variables('tags').vendor]",
@@ -352,7 +360,7 @@ configuration OctopusTentacle
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/dscExtension')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2021-04-01",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -360,7 +368,7 @@ configuration OctopusTentacle
       "properties": {
         "publisher": "Microsoft.Powershell",
         "type": "DSC",
-        "typeHandlerVersion": "2.20",
+        "typeHandlerVersion": "2.77",
         "autoUpgradeMinorVersion": true,
         "forceUpdateTag": "2",
          "settings": {
@@ -382,6 +390,7 @@ configuration OctopusTentacle
     }
   ]
 }
+
 ```
 
 If you are using your own template, and not the sample above, you can just add the resource to your existing template:
@@ -390,7 +399,7 @@ If you are using your own template, and not the sample above, you can just add t
 {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/dscExtension')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2021-04-01",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -398,7 +407,7 @@ If you are using your own template, and not the sample above, you can just add t
       "properties": {
         "publisher": "Microsoft.Powershell",
         "type": "DSC",
-        "typeHandlerVersion": "2.20",
+        "typeHandlerVersion": "2.77",
         "autoUpgradeMinorVersion": true,
         "forceUpdateTag": "2",
          "settings": {
@@ -426,7 +435,7 @@ Note that if you are using a private Azure storage location that requires a SAS 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmAdminUsername": {
@@ -475,18 +484,18 @@ To deploy the template, you can use the [Azure CLI](https://docs.microsoft.com/c
 az login
 az account set --subscription 'xxxxxxxxxxx'
 az group create --name "OctopusDeployTentacle" --location "Australia East"
-az group deployment create \
+az deployment group create \
     --name "DeployTentacle" \
     --resource-group "OctopusDeployTentacle" \
     --template-file "arm-template.json" \
-    --parameters "@arm-template.parameters.json"
+    --parameters "@arm-template.properties.json"
 ```
 
 ## Troubleshooting 
 
-To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
+To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
 
 If you have remote access to the machine you are troubleshooting the installation for, these two commands may offer diagnostic information about the state of DSC:
 
-* The [`Test-DscConfiguration`](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine. 
-* The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/en-us/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.
+* The [`Test-DscConfiguration`](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine. 
+* The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.

@@ -11,7 +11,7 @@ Because the Octopus Deploy application itself is built entirely on the API, any 
 Octopus.Client is [published on NuGet](https://www.nuget.org/packages/Octopus.Client). The package contains both a .NET Framework build as well as a .NET Standard build. The .NET Framework build targets 4.5.2, and the .NET Standard build is cross-platform and compatible with a [variety of runtimes](https://docs.microsoft.com/en-us/dotnet/articles/standard/library), including .NET Core and can be used from PowerShell Core.
 
 :::hint
-Details for where to find the API, how to authenticate, and the resources that are available can be found on [the API documentation site](https://g.octopushq.com/ApiDocs), and [swagger documentation is also available](https://demo.octopus.com/swaggerui).
+Details for where to find the API, how to authenticate, and the resources that are available can be found on [the API documentation site](https://g.octopushq.com/ApiDocs), and [swagger documentation is also available](https://demo.octopus.app/swaggerui/index.html).
 :::
 
 ## Octopus.Client Examples

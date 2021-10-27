@@ -39,7 +39,7 @@ If you are using the [Service Watchdog](/docs/administration/managing-infrastruc
 
 ### Upgrading a highly available Octopus Deploy instance
 
-You are required to install the latest MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
+You are required to install the same MSI on all servers or nodes in your highly available Octopus Deploy instance.  The MSI installs the updated binaries, which include the latest database upgrade scripts.  Unlike the binaries, the database upgrade only needs to happen once.
 
 :::warning
 A small outage window will occur when upgrading a highly available Octopus Deploy instance.  The outage window will happen between when you shut down all the nodes and upgrade the first node.  The window duration depends on the number of database changes, the size of the database, and compute resources.  It is highly recommended to [automate your upgrade process](/docs/administration/upgrading/guide/automate-upgrades.md) to reduce that outage window.
@@ -75,8 +75,8 @@ We use our version numbering scheme to help you understand the type of changes w
   - Upgrading should be easy, but rolling back will require restoring your database.  Check our release notes for more details.
     - We will usually make changes to the database schema.
     - We will usually make changes to the API, being backward compatible wherever possible.  
-- **Patch version change**: Small bug fixes and computational logic changes.
-  - Example **Octopus 2020.2.3** to any other patch of **Octopus 2020.2.x** (upgrade or downgrade).
+- **Build version change**: Small bug fixes and computational logic changes.
+  - Example **Octopus 2021.1.7500** to **Octopus 2021.1.7595** (upgrade or downgrade).
   - Patches should be **safe to update, safe to roll back*.
   - We will rarely make database changes, only if we absolutely must to patch a critical bug. If we do, the change will be safe for any other patches of the same release.
   - We may decide to make API changes, but any changes will be backward compatible.
@@ -85,7 +85,7 @@ If you're interested in more details about versioning Octopus, check out the blo
 
 ## Scenarios
 
-Please pick from one of these upgrade scenarios.  Prior to Octopus Deploy 3.x, the backing database was RavenDB.  The database was changed to SQL Server in version 3.x.  Any version 3.x or higher is considered modern; any version before that is considered legacy.
+Please pick from one of these upgrade scenarios.  Any version 3.x or higher is considered modern; any version before that is considered legacy.
 
 - [Upgrading minor and patch releases](/docs/administration/upgrading/guide/upgrading-minor-and-patch-releases.md)
 - [Upgrading major releases](/docs/administration/upgrading/guide/upgrading-major-releases.md)
@@ -96,6 +96,10 @@ Please pick from one of these upgrade scenarios.  Prior to Octopus Deploy 3.x, t
   - [Upgrade from 2.6.5 to 2018.10.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md)
   - [Upgrade from 2.x to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5.md)
   - [Upgrade from 1.6 to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5.md)
+
+:::hint
+Since Octopus Deploy 3.x, the backing database is SQL Server.  Prior to Octopus Deploy 3.x, the backing database was RavenDB.  That is why we consider any version released before 3.x a legacy upgrade.
+:::
 
 ## Mitigating Risk
 

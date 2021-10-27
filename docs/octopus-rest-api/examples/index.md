@@ -12,6 +12,7 @@ As you work with the Octopus API, you may need some guidance on how to perform c
 - C# using Octopus.Client.
 - Python using the REST API.
 - Go using the REST API.
+- Java using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
 
 In addition, we also have a wide range of some of the more common examples here as well.
 
@@ -33,11 +34,17 @@ Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) 
 
 ### Python examples
 
-The Python examples are written using Python 3 and use the [Requests](https://requests.readthedocs.io/en/master/) library. Some examples also use the [urllib](https://docs.python.org/3/library/urllib.html) module.
+The Python examples are written using **Python 3** and use the [Requests](https://requests.readthedocs.io/en/master/) library. Some examples also use the [urllib](https://docs.python.org/3/library/urllib.html) module.
 
 ### Go examples
 
 The Go examples are written using the [go-octopusdeploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
+
+### Java examples
+
+The Java examples are written using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
+
+The Java Client library requires **Java 1.8** or above.
 
 ## Bulk operations
 
