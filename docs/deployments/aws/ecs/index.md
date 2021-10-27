@@ -61,11 +61,15 @@ CloudFormation stack and service names will be automatically generated and canno
 
 Specify a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 
+The task role controls access from within the task running the container. For example, task role can be used to control access to other AWS resources such as S3 buckets.
+
 ![ECS Step Configuration Section](images/ecs-configuration.png "width=500")
 
 ### Task Execution IAM Role section
 
 Under the `Task Execution IAM Role` section, the Task Execution Role can optionally be defined. If you don't specify it, the step will create one automatically and assign the `arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy` role to it.
+
+Task Execution Role is used by ecs-agent which runs on ECS to access AWS resources (for example, ECR feeds) and write logs to CloudWatch. The `AmazonECSTaskExecutionRolePolicy` role assigned by default should be sufficient for most scenarios.
 
 :::note
 Additional permissions might need to be assigned to the task execution role if your tasks pull container images from private repositories. For more information, refer to [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth).
@@ -133,7 +137,7 @@ For container logging the step can either auto-configure CloudWatch logs, or you
 
 ### Deployment section
 
-Specify the minimum and maximum health percentages for the resulting service.
+Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
 
 ![ECS Step Deployment section](images/ecs-deployment.png "width=500")
 
