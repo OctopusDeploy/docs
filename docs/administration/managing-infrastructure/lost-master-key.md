@@ -31,7 +31,7 @@ Make sure to [back up everything](/docs/administration/data/backup-and-restore.m
 
 ### Step 2. Install Octopus Server on a new machine
 
-Provision a new machine and install Octopus Server on it just like you would normally **except** you won't be able to point it at your existing database because you don't have the Master Key. We are going to get your new Octopus Server up and running on a new database, and then trick it into pointing at your new database.
+Provision a new machine and install Octopus Server on it just like you would normally **except** you won't be able to point it at your existing database because you don't have the Master Key. We are going to get your new Octopus Server up and running on a new database, and then trick it into pointing at your old database.
 
 1. Install Octopus Server.
 1. Either point it at a blank database you've created for this purpose, or let Octopus create a database for itself. **We will delete this afterwards.**
