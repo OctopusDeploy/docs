@@ -150,7 +150,7 @@ foreach ($project in $projects)
 }
 
 # De-dupe
-$variableTracking = $variableTracking | Sort-Object -Property * -Unique
+$variableTracking = @($variableTracking | Sort-Object -Property * -Unique)
 
 if($variableTracking.Count -gt 0) {
     Write-Host ""
@@ -322,7 +322,7 @@ foreach ($project in $projects)
 }
 
 # De-dupe
-$variableTracking = $variableTracking | Sort-Object -Property * -Unique
+$variableTracking = @($variableTracking | Sort-Object -Property * -Unique)
 
 if($variableTracking.Count -gt 0) {
     Write-Host ""
