@@ -150,7 +150,7 @@ It is possible to install additional software on dynamic workers.  By default, e
 - Writing the necessary scripts to download and install that software.
 - Verifying the latest version of the software works with the latest security patches of the host OS.
 
-We don't recommend going through that effort except for a POC or a Pilot.  For production workloads, the recommendation is to leverage [execution worker containers](https://octopus.com/blog/execution-containers) to manage software dependencies.  We provide execution with a lot of software pre-installed.  However, we can't possibly create a container with every possible software you might need.  Please see this [blog post](https://octopus.com/blog/tips-building-custom-execution-containers) for more information on how to create custom execution containers.
+We don't recommend going through that effort except for a POC or a Pilot.  For production workloads, the recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md) to manage software dependencies.  We provide execution containers with a lot of software pre-installed.  However, we can't create a container with every possible software combination you might need.  Please see this [blog post](https://octopus.com/blog/tips-building-custom-execution-containers) for more information on how to create custom execution containers.
 
 ## Learn more
 
