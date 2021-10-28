@@ -137,7 +137,7 @@ For container logging the step can either auto-configure CloudWatch logs, or you
 
 ### Deployment section
 
-Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
+Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments.md). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
 
 ![ECS Step Deployment section](images/ecs-deployment.png "width=500")
 
