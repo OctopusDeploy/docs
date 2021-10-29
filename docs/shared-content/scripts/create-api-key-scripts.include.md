@@ -233,8 +233,10 @@ import com.octopus.sdk.model.apikey.ApiKeyCreatedResource;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Clock;
 import java.time.Duration;
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 
 public class CreateApiKey {
 
@@ -250,7 +252,9 @@ public class CreateApiKey {
 
     final ApiKeyApi apiKeyApi = ApiKeyApi.create(client, theUser.getProperties());
     final ApiKeyCreatedResource apiKey =
-        apiKeyApi.addApiKey("For Use In testing", OffsetDateTime.now().plus(Duration.ofDays(365)));
+        apiKeyApi.addApiKey(
+            "For Use In testing",
+            OffsetDateTime.now(Clock.system(ZoneId.systemDefault())).plus(Duration.ofDays(365)));
 
     // Api keys should not be logged to output in production systems
     System.out.println("The Key is " + apiKey.getApiKey());
@@ -266,4 +270,5 @@ public class CreateApiKey {
     return client;
   }
 }
+
 ```
