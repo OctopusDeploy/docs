@@ -22,7 +22,7 @@ The proceeding instructions can be followed to configure the `Deploy Amazon ECS 
 
 ## Step 1: Make a note of your ECS cluster's settings
 
-:::note
+:::hint
 Refer to [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with the `FARGATE` capacity provider.
 :::
 
