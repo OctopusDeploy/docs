@@ -129,7 +129,7 @@ Specify additional options for the running container, such as `Entry Point`, `Wo
 
 #### Container Storage and Logging section
 
-In this section you can specify mount points for the running container. Mount points can refer to the volumes specified in `Volumes` section of the ECS step.
+In this section, you can specify mount points for the running container. Mount points can refer to the volumes specified in the **Volumes** section of the ECS step.
 
 For container logging the step can either auto-configure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs auto-configured, please ensure that you have specified a Task Execution Role ARN for this step. 
 
