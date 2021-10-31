@@ -6,7 +6,7 @@ description: Deploy a service to an Amazon ECS cluster.
 Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides an opinionated deployment workflow that combines a Fargate task definition and service into a single step.
 
 :::hint
-Presently only FARGATE clusters are supported.
+The `Deploy Amazon ECS Step` was added in Octopus **2021.3**. Presently only **Fargate** clusters are supported.
 :::
 
 At a high level, the `Deploy Amazon ECS Service` step will:
