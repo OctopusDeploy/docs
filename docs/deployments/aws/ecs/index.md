@@ -167,7 +167,7 @@ Specify volumes that can be referenced by each individual container within the t
 
 ### Export to CloudFormation template
 
-The ECS step operates entirely via CloudFormation templates, which means that every input field corresponds to a set of options in the generated template. To cater for more advanced deployment scenarios the step provides an option to export the CloudFormation template as YAML text. This template can be used via AWS CLI or as input in the `Deploy an AWS CloudFormation Template` step.
+The ECS step operates entirely via CloudFormation templates, which means that every input field corresponds to a set of options in the generated template. To cater for more advanced deployment scenarios the step provides an option to export the CloudFormation template as YAML text. This template can be used via AWS CLI or as input in the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation/index.md) step.
 
 Some options will be converted to CloudFormation parameters with default values matching the specific values provided in the step. This allows you to easily override these values, while maintaining a simple conversion process between the ECS step and the `Deploy an AWS CloudFormation Template` step.
 
