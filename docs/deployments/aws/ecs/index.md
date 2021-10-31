@@ -67,7 +67,7 @@ The task role controls access from within the task running the container. For ex
 
 ### Task Execution IAM Role section
 
-Under the `Task Execution IAM Role` section, the Task Execution Role can optionally be defined. If you don't specify it, the step will create one automatically and assign the `arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy` role to it.
+Under the **Task Execution IAM Role** section, the Task Execution Role can optionally be defined. If you don't specify it, the step will create one automatically and assign the `arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy` role to it.
 
 Task Execution Role is used by ecs-agent which runs on ECS to access AWS resources (for example, ECR feeds) and write logs to CloudWatch. The `AmazonECSTaskExecutionRolePolicy` role assigned by default should be sufficient for most scenarios.
 
