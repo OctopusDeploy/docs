@@ -111,7 +111,7 @@ Specify the container name that will be used to reference the particular contain
 
 To authenticate with private repositories you can either rely on the default IAM authentication or manually provide the ARN of the secret created in AWS Secrets Manager. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
 
-Specify the ports exposed by the container here. These can be referenced in the overall step configuration in the `Load Balancer Mappings` section if you wish to publicly expose the ports.
+Specify the ports exposed by the container here. These can be referenced in the overall step configuration in the **Load Balancer Mappings** section if you wish to publicly expose the ports.
 
 ![ECS Step Container Definition Parameters](images/ecs-container-definition.png "width=500")
 
