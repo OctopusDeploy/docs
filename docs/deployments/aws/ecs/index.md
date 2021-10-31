@@ -155,7 +155,7 @@ A snippet of the deployment verification logic we have implemented can be seen i
 
 ### Load Balancer Mappings section
 
-Specify how exposed container ports map to Target Groups attached to your Load Balancer. `Container Name` and `Container Port` fields must match the values specified in `Container Definitions` section of the same task definition. For more information refer to [AWS Documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html).
+Specify how exposed container ports map to Target Groups attached to your Load Balancer. `Container Name` and `Container Port` fields must match the values specified in the `Container Definitions` section of the same task definition. For more information refer to the [AWS Documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html).
 
 ![ECS Step Load Balancer Mappings](images/ecs-load-balancer.png "width=500")
 
