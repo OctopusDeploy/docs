@@ -1,10 +1,10 @@
 ---
-title: Data migration
+title: Legacy Data Migrator
 description: Octopus comes with a data migrator which can help in certain scenarios like moving projects from one Octopus Server to another, and exporting your configuration for auditing in a source control repository.
 position: 900
 ---
 
-:::hint
+:::problem
 The recommended way to migrate data to or from an Octopus instance is with the **Export/Import Projects** feature that was released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
 :::
 
