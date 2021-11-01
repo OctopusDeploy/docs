@@ -8,11 +8,11 @@ Targets defined by step packages can be created either by PowerShell or bash fun
 
 To create a target defined by a step package, you will need to know the `target identifier`, and the `inputs` required by the target. These can currently be found in the following locations:
 
-#### Target Identifiers
+**Target Identifiers**
 
 - [AWS ECS Cluster](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/metadata.json#L5)
 
-#### Required Inputs
+**Required Inputs**
 
 - [AWS ECS Cluster](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/inputs.ts)
 
