@@ -6,8 +6,6 @@ position: 120
 
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
-
-
 ## Enable dynamic infrastructure
 
 Dynamic infrastructure can be enabled when a new environment is created, or it can be enabled or disabled for existing environments.
@@ -29,11 +27,11 @@ Octopus comes with a REST API that can be used to register Octopus accounts and 
 
 To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/index.md) section.
 
-## Available commands and syntax
+## Using PowerShell functions
 
 Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
 
-:::warning
+:::hint
 Only a subset of account types and deployment targets support being created dynamically using the commands listed below.
 :::
 
@@ -50,11 +48,19 @@ Only a subset of account types and deployment targets support being created dyna
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
 :::
 
+:::hint
+**Targets from Step Packages**
+Octopus Deploy has recently developed a new architecture for deployment steps and targets, known as step packages. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
+
+Targets defined by step packages use the new generic `New-OctopusTarget` function to create targets. 
+:::
+
 - [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
 - [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
 - [Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
-- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md)
+- [AWS ECS Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md)
+- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md)
 
 ### Restrictions
 
@@ -64,6 +70,10 @@ This cannot be overridden through the commands.
 :::warning
 These commands are not available in the **Script Console**.
 :::
+
+## Using bash functions
+
+Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-target.md) for further information.
 
 ## Examples
 
