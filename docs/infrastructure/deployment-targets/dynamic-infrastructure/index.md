@@ -73,7 +73,7 @@ These commands are not available in the **Script Console**.
 
 ## Using bash functions
 
-Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-target.md) for further information.
+Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) for further information.
 
 ## Examples
 
