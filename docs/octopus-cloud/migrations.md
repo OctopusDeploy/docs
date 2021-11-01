@@ -23,6 +23,7 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 1. Configuring any firewall settings for your tentacles.
 1. Configuring workers and worker pools.
 1. Testing external package repository connectivity.
+1. Creating your Octopus Cloud users.
 
 ### Differences between Octopus Cloud and Octopus Server
 
@@ -87,6 +88,10 @@ If you use an external package repository, such as a self-hosted Artifactory ins
 ### Proof of Concept Deployments
 
 Set up a couple of sample projects to deploy to your servers.  That will be a final "plugs-out" test to ensure you are ready to start your migration.
+
+### User Migration
+
+The project export/import feature does not include users.  All users must be created from scratch.  If you are using an external authentication provider, such as Azure AD, or Okta, you can turn on "auto-create users" feature.
 
 ## Migration
 
