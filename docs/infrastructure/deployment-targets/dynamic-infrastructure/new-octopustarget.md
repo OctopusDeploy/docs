@@ -17,6 +17,7 @@ To create a target defined by a step package, you will need to know the `target 
 - [AWS ECS Cluster](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/inputs.ts)
 
 ## New octopus target
+
 Command (pwsh): **New-OctopusTarget** 
 
 | Parameter                           | Value                                  |
@@ -43,8 +44,7 @@ Command (bash) **new_octopustarget**
 
 The below examples demonstrate creating a new AWS ECS Cluster target, evidenced by the `aws-ecs-target` target identifier. These scripts would typically be invoked after creating the cluster in a preceeding step. The required information can be passed to these scripts via [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), or via [output variables](/docs/deployments/custom-scripts/output-variables.md) published in preceeding steps, or can simply be hard-coded.
 
-#### PowerShell
-```powershell
+```powershell PowerShell
 $inputs = @"
 {
     "clusterName": "$($OctopusParameters["clusterName"])",
@@ -55,9 +55,7 @@ $inputs = @"
 
 New-OctopusTarget -Name $OctopusParameters["target_name"] -TargetId "aws-ecs-target" -Inputs $inputs -Roles $OctopusParameters["role"]
 ```
-
-#### Bash
-```bash
+```bash Bash
 read -r -d '' INPUTS <<EOT
 {
     "clusterName": "$(get_octopusvariable "clusterName")",
