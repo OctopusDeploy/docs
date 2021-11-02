@@ -59,7 +59,7 @@ Targets defined by step packages use the new generic `New-OctopusTarget` functio
 - [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
 - [Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
-- [New Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md)
+- [AWS ECS Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md)
 - [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md)
 
 ### Restrictions
