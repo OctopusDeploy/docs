@@ -50,7 +50,7 @@ Before you can create dynamic targets in an Environment, the environment needs t
 
 :::hint
 **Targets from Step Packages**
-Octopus Deploy has recently developed a new architecture for deployment steps and targets, known as step packages. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
+Octopus Deploy has recently developed a new architecture for deployment steps and targets, known as step packages. Step packages are available in Octopus Deploy version 2021.3 and later. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
 
 Targets defined by step packages use the new generic `New-OctopusTarget` function to create targets. 
 :::

@@ -4,17 +4,18 @@ description: Function for removing an Octopus target
 position: 50
 ---
 
-Targets defined by step packages can be created either by PowerShell or bash functions available in any Octopus script-running context.  To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
+Targets defined by step packages can be created either by PowerShell or bash functions available in any Octopus script-running context. Not all targets are defined by step packages. The complete list of targets defined by step packages is available below.
+
+:::hint
+**Targets from Step Packages**
+Step packages are available in Octopus Deploy version 2021.3 and later. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
+:::
 
 To create a target defined by a step package, you will need to know the `target identifier`, and the `inputs` required by the target. These can currently be found in the following locations:
 
-**Target Identifiers**
-
-- [AWS ECS Cluster](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/metadata.json#L5)
-
-**Required Inputs**
-
-- [AWS ECS Cluster](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/inputs.ts)
+| Target                              | Identifier                             | Required Inputs                        |
+| ----------------------------------- | -------------------------------------- | -------------------------------------- |
+| AWS ECS Cluster | [Identifier](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/metadata.json#L5) | [Inputs](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/inputs.ts)
 
 ## New octopus target
 
