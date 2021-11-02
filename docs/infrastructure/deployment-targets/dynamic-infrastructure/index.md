@@ -48,13 +48,6 @@ Only a subset of account types and deployment targets support being created dyna
 Before you can create dynamic targets in an Environment, the environment needs to be configured to allow it. See [Enabling dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md#enable-dynamic-infrastructure) for more information.
 :::
 
-:::hint
-**Targets from Step Packages**
-Octopus Deploy has recently developed a new architecture for deployment steps and targets, known as step packages. Step packages are available in Octopus Deploy version 2021.3 and later. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
-
-Targets defined by step packages use the new generic `New-OctopusTarget` function to create targets. 
-:::
-
 - [Azure Web App](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md)
 - [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)

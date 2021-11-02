@@ -8,7 +8,9 @@ Targets defined by step packages can be created either by PowerShell or bash fun
 
 :::hint
 **Targets from Step Packages**
-Step packages are available in Octopus Deploy version 2021.3 and later. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
+Octopus Deploy has recently developed a new architecture for deployment steps and targets, known as step packages. Step packages are available in Octopus Deploy version 2021.3 and later. To learn more about step packages, read the [step package documentation](https://github.com/octopusdeploy/step-api#overview).
+
+Targets defined by step packages use the new generic `New-OctopusTarget` function to create targets. 
 :::
 
 To create a target defined by a step package, you will need to know the `target identifier`, and the `inputs` required by the target. These can currently be found in the following locations:
