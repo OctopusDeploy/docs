@@ -56,7 +56,7 @@ $inputs = @"
 }
 "@
 
-New-OctopusTarget -Name $OctopusParameters["target_name"] -TargetId "aws-ecs-target" -Inputs $inputs -Roles $OctopusParameters["role"]
+New-OctopusTarget -Name "$($OctopusParameters["target_name"])" -TargetId "aws-ecs-target" -Inputs $inputs -Roles "$($OctopusParameters["role"])"
 ```
 ```bash Bash
 read -r -d '' INPUTS <<EOT
