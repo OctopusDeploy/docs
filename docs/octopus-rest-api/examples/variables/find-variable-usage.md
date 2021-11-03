@@ -21,7 +21,8 @@ Provide values for the following:
 - Name of the variable to search for
 - Boolean value to toggle searching in a project's deployment process
 - Boolean value to toggle searching in a project's runbook processes
-- Optional path to export the results to a csv file
+- (Optional) Boolean value to toggle searching in library variable sets
+- (Optional) path to export the results to a csv file
 
 ## Script
 
