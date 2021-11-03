@@ -1,32 +1,25 @@
 ---
-title: Designing Octopus HA on Azure
+title: Designing Octopus HA in Azure
 description: Information on configuring Octopus High Availability hosted in Microsoft Azure.
 position: 20
 ---
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
 
-:::hint
-If you are setting Octopus up on AWS or on-premises please see the following guides:
-
-- [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
-- [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-:::
-
 ## Setting up Octopus: High availability
 
-For the sake of simplicity, this guide assumes that all of the servers are hosted in Azure.
+For the sake of simplicity, this guide assumes that all of the servers are hosted in Azure running Windows Server.
 
-:::hint
 **Some assembly required**
 A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
 
-- You should be familiar with SQL Server failover clustering or Azure SQL or have DBAs available to create and manage the database.
-- You should be familiar with SANs and Azure Files or other approaches to sharing storage between servers.
+- You should be familiar with SQL Server failover clustering, [Azure SQL](https://azure.microsoft.com/products/azure-sql/), or have DBAs available to create and manage the database.
+- You should be familiar with SANs, [Azure Files](https://azure.microsoft.com/services/storage/files/), or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
 
-**Note on Iaas:**
-If you are using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) in Azure then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as you may have your Domain Controllers, SQL Database Server, and load balancers in the cloud.
+:::hint
+**IaaS vs PaaS:**
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in Azure and don't intend to use their PaaS offerings (such as Azure SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibilty.
 :::
 
 ### Compute

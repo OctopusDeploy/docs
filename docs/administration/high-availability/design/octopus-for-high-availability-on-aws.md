@@ -1,23 +1,25 @@
 ---
-title: Designing Octopus HA on AWS
+title: Designing Octopus HA in AWS
 description: Information on configuring Octopus High Availability hosted in AWS.
 position: 30
 ---
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [AWS](https://aws.amazon.com/).
 
-:::hint
-If you are setting up Octopus High Availability on Azure or on-premises please see the following guides:
-- [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-:::
-
 ## Setting up AWS for Octopus: High Availability 
 
-For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS.
+For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS and are running Windows Server.
 
-:::warning
-If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on AWS then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as you may have your Domain Controllers, SQL Database Server, and load balancers in the cloud.
+**Some assembly required**
+A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
+
+- You should be familiar with SQL Server failover clustering, [AWS RDS](https://aws.amazon.com/rds/sqlserver/), or have DBAs available to create and manage the database.
+- You should be familiar with SANs, [AWS FSx](https://aws.amazon.com/fsx/), or other approaches to sharing storage between servers.
+- You should be familiar with load balancing for applications.
+
+:::hint
+**IaaS vs PaaS:**
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in AWS and don't intend to use their PaaS offerings (such as AWS RDS), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibilty.
 :::
 
 ### Compute

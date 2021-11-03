@@ -6,24 +6,16 @@ position: 10
 
 This section walks through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
-:::hint
-If you are setting Octopus up in a private cloud such as Azure or AWS please see the following guides:
-- [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
-:::
-
 ## Setting up Octopus: High availability
 
 For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus High Availability can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 
-:::hint
 **Some assembly required**
 While a single server Octopus installation is easy, Octopus High Availability is designed for mission critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
 
 - You should be familiar with SQL Server failover clustering, or have DBAs available to create and manage the database.
 - You should be familiar with SANs or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
-:::
 
 ### Compute
 
