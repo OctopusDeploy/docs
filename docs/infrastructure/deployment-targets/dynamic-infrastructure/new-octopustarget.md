@@ -36,8 +36,8 @@ Command (bash) **new_octopustarget**
 
 | Parameter                           | Value                                  |
 | ----------------------------------- | -------------------------------------- |
-| `-n` | `--name`                     | The Name of the target to create |
-| `-t` | `--targetId`                 | The target identifier of target to create |
+| `-n` \| `--name`                     | The Name of the target to create |
+| `-t` \| `--targetId`                 | The target identifier of target to create |
 | `--inputs`                          | The inputs required to define the target being created |
 | `--roles`                           | Comma separated list of Roles to assign |
 | `--update-if-existing`              | Will update an existing target with the same name, create if it doesn't exist |
