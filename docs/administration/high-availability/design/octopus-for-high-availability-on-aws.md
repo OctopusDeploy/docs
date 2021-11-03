@@ -24,11 +24,10 @@ If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure
 
 ### Compute
 
-To install Octopus nodes you need at least two machines running Windows Server 2016+. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, we generally find sticking with the General purpose size is the best option.  We recommend starting with either 2 cores / 4 GB of RAM or 4 cores / 8 GB of RAM and limiting the task cap to 20 for each node.  In our experience, it is much better to have 4 smaller VMs, each with 4 cores / 8 GB of RAM than 2 large VMs, each with 8 cores / 16 GB of RAM.  With 2 servers, if one of them were to go down, you'd lose 50% of your capacity.  With 4 servers, if one of them were to go down, you'd lose 25% of your capacity.  The difference in cost between the 4 smaller VMs and 2 large VMs is minimal.
+To install Octopus nodes you need at least two machines running Windows Server 2016+. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, we generally find sticking with the General purpose size is the best option.  
+!include <high-availability-compute-recommendations>
 
-:::warning
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
-:::
+!include <octopus-instance-mixed-os-warning>
 
 ### Database
 

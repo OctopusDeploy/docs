@@ -21,11 +21,9 @@ While a single server Octopus installation is easy, Octopus High Availability is
 
 When running Octopus Deploy Windows Server, the underlying OS  can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.
 
-We recommend starting with either 2 cores / 4 GB of RAM or 4 cores / 8 GB of RAM and limiting the task cap to 20 for each node.  In our experience, it is much better to have 4 smaller VMs, each with 4 cores / 8 GB of RAM than 2 large VMs, each with 8 cores / 16 GB of RAM.  With 2 servers, if one of them were to go down, you'd lose 50% of your capacity.  With 4 servers, if one of them were to go down, you'd lose 25% of your capacity.  
+!include <ha-compute-general-recommendations>
 
-:::warning
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
-:::
+!include <octopus-instance-mixed-os-warning>
 
 ### Database
 
