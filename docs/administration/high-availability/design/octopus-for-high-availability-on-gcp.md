@@ -55,9 +55,9 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 
 **Google Cloud Shared Storage Options**
 
-Octopus running on Windows works best with shared storage accessed via the industry standard [Server Message Block (SMB) protocol](https://docs.microsoft.com/en-us/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
+Octopus running on Windows works best with shared storage accessed via the [Server Message Block (SMB) protocol](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
 
-Google Cloud offers its own managed file storage option known as [Filestore](https://cloud.google.com/filestore), however it's only accessible via the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (v3), and not SMB.
+Google Cloud offers its own managed file storage option known as [Filestore](https://cloud.google.com/filestore), however it's only accessible via the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System) (v3).
 
 For SMB storage, Google have partenered with NetApp to offer [NetApp Cloud Volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes). This is a fully managed, cloud-based solution that runs on a Compute Engine virtual machine and uses a combination of persistent disks (PDs) and Cloud Storage buckets to store your NAS data.
 
