@@ -4,5 +4,3 @@ Octopus High Availability works with:
 
 - [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
 - [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-
-high-availability-db-logshipping-mirroring-warning
