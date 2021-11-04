@@ -19,7 +19,7 @@ A single server Octopus installation is straightforward; Octopus High Availabili
 
 :::hint
 **IaaS vs PaaS:**
-If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in Azure and don't intend to use their PaaS offerings (such as Azure SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibilty.
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in Azure and don't intend to use their PaaS offerings (such as Azure SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
 
 ### Compute
