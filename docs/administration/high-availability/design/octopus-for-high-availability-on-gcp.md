@@ -87,6 +87,8 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
 5. Create folders in your **SMB share** for the Artifacts, Packages, TaskLogs, and Imports.
 
+   ![Create folders in your SMB share](images/smb-create-folders.png "width=500")
+
 6. Create the symbolic links for the Artifacts, Packages, TaskLogs, and Imports folders.
 
    Run the following PowerShell script, substituting the placeholder values with your own:

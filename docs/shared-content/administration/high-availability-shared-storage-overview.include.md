@@ -10,9 +10,9 @@ Whichever way you provide the shared storage, there are a few considerations to 
 
 - To Octopus, it needs to appear as either:
   - A mapped network drive e.g. `X:\`
-  - A UNC path to a file share e.g. `\\server\path`
+  - A UNC path to a file share e.g. `\\server\share`
   - A [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, e.g. 
 
-    `C:\OctopusShared\Artifacts <<===>> \\server\Artifacts` 
+    `C:\OctopusShared\Artifacts <<===>> \\server\share\Artifacts` 
 - The service account that Octopus runs needs **full control** over the directory.
 - Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.
