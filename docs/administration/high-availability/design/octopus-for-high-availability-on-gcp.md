@@ -26,7 +26,7 @@ If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure
 
 For a highly available Octopus configuration, you need a minimum of two Virtual Machines running Windows Server (ideally `2016+`) in GCP. 
 
-Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [GCP Compute instance machine families](https://cloud.google.com/compute/docs/machine-types) and select the type most suitable for your requirements. If you're still unsure the [General purpose](https://cloud.google.com/compute/docs/general-purpose-machines) machine family is a good option to start with as they are machines designed for common workloads, optimised for cost and flexibility.
+Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [GCP Compute instance machine families](https://cloud.google.com/compute/docs/machine-types) and select the type most suitable for your requirements. If you're still unsure the [General purpose](https://cloud.google.com/compute/docs/general-purpose-machines) machine family is a good option to start with as they are machines designed for common workloads, optimized for cost and flexibility.
 !include <high-availability-compute-recommendations>
 
 Google's Compute Engine also routinely provides [machine type recommendations](https://cloud.google.com/compute/docs/instances/apply-machine-type-recommendations-for-instances). These are automatically generated based on system metrics from your virtual machines. Resizing your instances can allow you to use resources more efficiently.

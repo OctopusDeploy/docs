@@ -21,7 +21,7 @@ While a single server Octopus installation is easy, Octopus High Availability is
 
 When running Octopus Deploy Windows Server, the underlying OS  can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.
 
-!include <ha-compute-general-recommendations>
+!include <high-availability-compute-recommendations>
 
 !include <octopus-instance-mixed-os-warning>
 
