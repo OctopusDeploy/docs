@@ -31,7 +31,7 @@ Each organization has different requirements when it comes to choosing the right
 
 !include <high-availability-compute-recommendations>
 
-Google's Compute Engine also routinely provides [machine type recommendations](https://cloud.google.com/compute/docs/instances/apply-machine-type-recommendations-for-instances). These are automatically generated based on system metrics from your virtual machines. Resizing your instances can allow you to use resources more efficiently.
+Google's Compute Engine also provides [machine type recommendations](https://cloud.google.com/compute/docs/instances/apply-machine-type-recommendations-for-instances). These are automatically generated based on system metrics over time from your virtual machines. Resizing your instances can allow you to use resources more efficiently.
 
 !include <octopus-instance-mixed-os-warning>
 
