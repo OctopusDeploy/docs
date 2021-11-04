@@ -6,7 +6,7 @@ position: 10
 
 This section walks through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
-## Setting up Octopus: High availability
+## Setting up Octopus: High Availability
 
 For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus High Availability can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 

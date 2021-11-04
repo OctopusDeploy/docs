@@ -6,7 +6,7 @@ position: 30
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [AWS](https://aws.amazon.com/).
 
-## Setting up AWS for Octopus: High Availability 
+## Setting up Octopus: High Availability 
 
 For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS and are running Windows Server.
 

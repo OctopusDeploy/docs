@@ -6,7 +6,7 @@ position: 30
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Google Cloud Platform (GCP)](https://cloud.google.com/gcp).
 
-## Setting up GCP for Octopus: High Availability 
+## Setting up Octopus: High Availability 
 
 For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in GCP and are running Windows Server 2019.
 
