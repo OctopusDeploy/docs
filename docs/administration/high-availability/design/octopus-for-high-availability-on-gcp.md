@@ -196,10 +196,6 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
       
    Below is an example scheduled task for mounting an NFS volume. Remember to substitute `C:\OctoHA\MountNfsShare.cmd` with the path to your batch file and ensure the task is set to run as `LocalSystem`. 
 
-   <details>
-   <summary>OctopusDeploy - Mount NFS Volume Task</summary>
-   <p>
-
    ```xml
    <?xml version="1.0" encoding="UTF-16"?>
    <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
@@ -245,10 +241,6 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
      </Actions>
    </Task>
    ```
-
-   </p>
-   </details>
-
    
    You can add multiple Actions to a Scheduled task. If you want to be sure the NFS share is mounted before the Octopus Service is started, you can add the following command:
 
@@ -262,14 +254,16 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    </Exec>
 
    ```
+   :::hint
    This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md) command to configure a scheduled task to monitor the Octopus Server service.
+   :::
 
 6. Create folders in your **NFS share** for the Artifacts, Packages, TaskLogs, and Imports.
 
 7. Create the symbolic links for the Artifacts, Packages, TaskLogs, and Imports folders.
 
-   Substitute `C:\OctopusShared` with the path to the local folder you want, and `\\your-nfs-share\share-name` with the path to your NFS share.
-
+   Run the following PowerShell script, substituting the placeholder values with your own:
+   
    ```PowerShell
    # Create the local folder to use to create the symbolic links within.
    $LocalFolder="C:\OctopusShared"
