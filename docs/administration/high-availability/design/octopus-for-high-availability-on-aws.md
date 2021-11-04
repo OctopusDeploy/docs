@@ -25,7 +25,8 @@ If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure
 
 ### Compute
 
-To install Octopus nodes you need at least two machines running Windows Server 2016+. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, we generally find sticking with the General purpose size is the best option.  
+To install Octopus nodes you need at least two machines running Windows Server 2016+. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, we generally find sticking with the General purpose size is the best option. 
+ 
 !include <high-availability-compute-recommendations>
 
 !include <octopus-instance-mixed-os-warning>

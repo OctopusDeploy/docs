@@ -32,6 +32,7 @@ For a highly available Octopus configuration, you need a minimum of two Virtual 
 - [Number of concurrent tasks](/docs/support/increase-the-octopus-server-task-cap.md)
 
 Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and select the size most suitable for your requirements.  
+
 !include <high-availability-compute-recommendations>
 
 !include <octopus-instance-mixed-os-warning>
