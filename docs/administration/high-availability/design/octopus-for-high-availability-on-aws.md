@@ -11,6 +11,7 @@ This section walks through the different options and considerations for the comp
 For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS and are running Windows Server.
 
 **Some assembly required**
+
 A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
 
 - You should be familiar with SQL Server failover clustering, [AWS RDS](https://aws.amazon.com/rds/sqlserver/), or have DBAs available to create and manage the database.
