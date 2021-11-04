@@ -1,7 +1,7 @@
 ---
 title: Designing Octopus HA in GCP
 description: Information on configuring Octopus High Availability hosted in Google Cloud Platform (GCP).
-position: 30
+position: 40
 ---
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Google Cloud Platform (GCP)](https://cloud.google.com/gcp).

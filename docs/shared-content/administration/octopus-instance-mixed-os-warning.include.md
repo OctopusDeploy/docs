@@ -1,3 +1,3 @@
 :::warning
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
+Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run a mix of both Windows Servers, and Octopus Linux containers connected to the same Octopus Deploy instance.  A single instance should only be hosted using one method.
 :::
