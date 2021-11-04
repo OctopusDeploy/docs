@@ -56,7 +56,7 @@ Once you've settled on an edition, the great thing about using AWS RDS is that y
 
 !include <high-availability-shared-storage-overview>
 
-AWS offers file storage called `Amazon FSx`, It’s a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and Microsoft Active Directory (AD) integration. This makes it an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
+AWS offers file storage called `Amazon FSx`, It’s a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and requires Microsoft Active Directory (AD) integration. This makes it an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
 
 If you choose to go with Amazon FSx there are some resources that will help you get started:
 - AWS have a [starter guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) which explains how to configure Amazon FSx and connect it up to an EC2 machine.
