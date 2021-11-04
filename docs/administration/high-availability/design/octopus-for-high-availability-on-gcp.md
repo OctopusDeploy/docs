@@ -62,8 +62,7 @@ Google Cloud offers its own managed file storage option known as [Filestore](htt
 For SMB storage, Google have partenered with NetApp to offer [NetApp Cloud Volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes). This is a fully managed, cloud-based solution that runs on a Compute Engine virtual machine and uses a combination of persistent disks (PDs) and Cloud Storage buckets to store your NAS data.
 
 :::hint
-Typically, NFS shares are better suited to Linux or macOS clients, although it is possible to access NFS shares on Windows Servers. The downside of using NFS shares on Windows is that by default, shares are mounted per-user and aren't persisted when the server reboots.
-It's for these reasons that Octopus recommends using SMB storage over NFS when running on Windows Servers.
+Typically, NFS shares are better suited to Linux or macOS clients, although it is possible to access NFS shares on Windows Servers. NFS shares on Windows are mounted per-user and are not persisted when the server reboots. It's for these reasons that Octopus recommends using SMB storage over NFS when running on Windows Servers.
 :::
 
 You can see the different file server options Google Cloud has in their [File Storage on Compute Engine](https://cloud.google.com/architecture/filers-on-compute-engine) overview.
