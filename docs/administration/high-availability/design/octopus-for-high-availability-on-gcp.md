@@ -194,7 +194,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
 5. Create a Windows Scheduled Task to run at system startup to mount the NFS share using the batch file.
       
-   Below is an example scheduled task for mounting an NFS volume. Substitute `C:\OctoHA\MountNfsShare.cmd` with the path to your batch file.
+   Below is an example scheduled task for mounting an NFS volume. Remember to substitute `C:\OctoHA\MountNfsShare.cmd` with the path to your batch file and ensure the task is set to run as `LocalSystem`. 
 
    <details>
    <summary>OctopusDeploy - Mount NFS Volume Task</summary>
@@ -248,8 +248,6 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
    </p>
    </details>
-
-   **Note:** Ensure the task is set to run as `LocalSystem`. 
 
    :::hint
    You can add multiple Actions to a Scheduled task. If you want to be sure the NFS share is mounted before the Octopus Service is started, you can add the following command:
