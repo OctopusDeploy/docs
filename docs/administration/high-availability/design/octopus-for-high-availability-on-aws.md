@@ -12,7 +12,7 @@ This guide assumes that all of the servers used for your Octopus High Availabili
 
 **Some assembly required**
 
-A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
+Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
 
 - You should be familiar with SQL Server failover clustering, [AWS RDS](https://aws.amazon.com/rds/sqlserver/), or have DBAs available to create and manage the database.
 - You should be familiar with SANs, [AWS FSx](https://aws.amazon.com/fsx/), or other approaches to sharing storage between servers.
