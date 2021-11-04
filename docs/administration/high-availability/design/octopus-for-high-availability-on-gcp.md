@@ -70,7 +70,9 @@ You can see the different file server options Google Cloud has in their [File St
 
 #### NetApp Cloud Volumes
 
+:::hint
 To successfully create a NetApp Cloud SMB Volume in Google Cloud, you must have an Active Directory service that can be used to connect to the SMB volume. Please see the [creating and managing SMB volumes](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes) for further information. It's also worth reviewing the [security considerations for SMB access](https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations) too.
+:::
 
 Once you have configured your NetApp Cloud SMB Volume, the best option is to mount the SMB share and then create a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\OctopusShared\` for the Artifacts, Packages, TaskLogs, and Imports folders which need to be available to all nodes.
 
