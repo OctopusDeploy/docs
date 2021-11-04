@@ -51,17 +51,17 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 
 !include <high-availability-shared-storage-overview>
 
-If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction); it just presents a file share over SMB 3.0.
+If your Octopus Server is running in Microsoft Azure, you can use [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction); it presents a file share over SMB 3.0.
 
 #### Azure Files
 
-If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
+If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that can be shared across all of your Octopus servers.
 
 After you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, and TaskLogs which need to be available to all nodes.
 
 Run the PowerShell below before installing Octopus, substituting the placeholders with your own values:
 
-````PowerShell
+```PowerShell
 # Add the Authentication for the symbolic links. You can get this from the Azure Portal.
 
 cmdkey /add:octostorage.file.core.windows.net /user:Azure\octostorage /pass:XXXXXXXXXXXXXX
@@ -76,19 +76,19 @@ New-Item -Path C:\Octopus\TaskLogs -ItemType SymbolicLink -Value \\octostorage.f
 New-Item -Path C:\Octopus\Artifacts -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Artifacts
 New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Packages
 
-````
+```
 :::hint
 It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
 :::
 
 [Install Octopus](/docs/installation/index.md) and then run the following:
 
-````powershell
+```powershell
 # Set the path 
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --artifacts "C:\Octopus\Artifacts"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --taskLogs "C:\Octopus\TaskLogs"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --nugetRepository "C:\Octopus\Packages"
-````
+```
 
 ### Load balancing in Azure
 
