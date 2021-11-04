@@ -249,7 +249,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    </p>
    </details>
 
-   :::hint
+   
    You can add multiple Actions to a Scheduled task. If you want to be sure the NFS share is mounted before the Octopus Service is started, you can add the following command:
 
    ```cmd Command-line
@@ -263,7 +263,6 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
 
    ```
    This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog.md) command to configure a scheduled task to monitor the Octopus Server service.
-   :::
 
 6. Create folders in your **NFS share** for the Artifacts, Packages, TaskLogs, and Imports.
 
