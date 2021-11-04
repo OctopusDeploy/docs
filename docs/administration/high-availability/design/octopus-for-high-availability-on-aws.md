@@ -8,7 +8,7 @@ This section walks through the different options and considerations for the comp
 
 ## Setting up Octopus: High Availability 
 
-For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS and are running Windows Server.
+This guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS and are running Windows Server.
 
 **Some assembly required**
 

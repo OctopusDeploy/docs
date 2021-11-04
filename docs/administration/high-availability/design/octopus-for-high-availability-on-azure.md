@@ -8,7 +8,7 @@ This section walks through the different options and considerations for the comp
 
 ## Setting up Octopus: High availability
 
-For the sake of simplicity, this guide assumes that all of the servers are hosted in Azure running Windows Server.
+This guide assumes that all of the servers are hosted in Azure running Windows Server.
 
 **Some assembly required**
 

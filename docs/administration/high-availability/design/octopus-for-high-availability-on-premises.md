@@ -8,7 +8,7 @@ This section walks through the different options and considerations for the comp
 
 ## Setting up Octopus: High Availability
 
-For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus High Availability can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
+The guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus High Availability can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 
 **Some assembly required**
 
