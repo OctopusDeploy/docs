@@ -12,7 +12,7 @@ For the sake of simplicity, this guide assumes that all of the servers used for 
 
 **Some assembly required**
 
-A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
+A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
 
 - You should be familiar with SQL Server failover clustering, [Cloud SQL](https://cloud.google.com/sql), or have DBAs available to create and manage the database.
 - You should be familiar with SANs, [Google Filestore](https://cloud.google.com/filestore), or other approaches to sharing storage between servers.
