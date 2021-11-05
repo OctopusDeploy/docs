@@ -6,69 +6,39 @@ position: 10
 
 This section walks through the different options and considerations for the components required when setting up Octopus High Availability for an on-premises install of Octopus Deploy.
 
-:::hint
-If you are setting Octopus up in a private cloud such as Azure or AWS please see the following guides:
-- [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
-:::
+## Setting up Octopus: High Availability
 
-## Setting up Octopus: High availability
+The guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus High Availability can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
 
-For the sake of simplicity, the guide assumes that all of the servers are on-premises and are part of an Active Directory domain, as this is the most common configuration. Octopus High Availability can work without the servers being part of an AD domain, but you'll need to vary the instructions accordingly.
-
-:::hint
 **Some assembly required**
-While a single server Octopus installation is easy, Octopus High Availability is designed for mission critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
+
+While a single server Octopus installation is easy, Octopus High Availability is designed for mission critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
 
 - You should be familiar with SQL Server failover clustering, or have DBAs available to create and manage the database.
 - You should be familiar with SANs or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
-:::
 
 ### Compute
 
 When running Octopus Deploy Windows Server, the underlying OS  can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.
 
-We recommend starting with either 2 cores / 4 GB of RAM or 4 cores / 8 GB of RAM and limiting the task cap to 20 for each node.  In our experience, it is much better to have 4 smaller VMs, each with 4 cores / 8 GB of RAM than 2 large VMs, each with 8 cores / 16 GB of RAM.  With 2 servers, if one of them were to go down, you'd lose 50% of your capacity.  With 4 servers, if one of them were to go down, you'd lose 25% of your capacity.  
+!include <high-availability-compute-recommendations>
 
-:::warning
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
-:::
+!include <octopus-instance-mixed-os-warning>
 
 ### Database
 
 Each Octopus Server node stores project, environment and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available.
 
-From the Octopus perspective, how the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
+!include <high-availability-database-recommendations>
 
-Octopus High Availability works with:
-
-- [SQL Server Failover Clusters](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
-- [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-
-:::warning
-Octopus High Availability has not been tested with Log Shipping or Database Mirroring, and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md#highavailability)
-:::
-
-See also the [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports and explains the requirements for how the database must be configured.
+!include <high-availability-db-logshipping-mirroring-note>
 
 Since each of the Octopus Server nodes will need access to the database, we recommend creating a special user account in Active Directory with **db\_owner** permission on the Octopus database and using that account as the service account when configuring Octopus.
 
 ### Shared storage
 
-Octopus stores a number of files that are not suitable to store in the database. These include:
-
-- Packages used by the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md). These packages can often be very large in size.
-- [Artifacts](docs/projects/deployment-process/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
-- Task logs, which are text files that store all of the log output from deployments and other tasks.
-
-As with the database, from the Octopus perspective, you'll simply tell the Octopus Servers where to store them as a file path within your operating system. Octopus doesn't really care what technology you use to present the shared storage, it could be a mapped network drive, or a UNC path to a file share. Each of these three types of data can be stored in a different place.
-
-Whichever way you provide the shared storage, there are a few considerations to keep in mind:
-
-- To Octopus, it needs to appear as a mapped network drive (e.g., `D:\`) or a UNC path to a file share (e.g., `\\server\path`).
-- The service account that Octopus runs as needs **full control** over the directory.
-- Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.
+!include <high-availability-shared-storage-overview>
 
 The simplest way to provide shared storage, assuming the Octopus Server nodes are part of the same Active Directory domain, is by creating a file share that each of the Octopus Server nodes can access. Of course, this assumes that the underlying directory is reliable, such as in a RAID array.
 
