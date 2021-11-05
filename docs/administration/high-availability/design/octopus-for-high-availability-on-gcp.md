@@ -243,7 +243,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    </Task>
    ```
    
-   You can add multiple Actions to a Scheduled task. If you want to be sure the NFS share is mounted before the Octopus Service is started, you can add the following command:
+   You can add multiple Actions to a Scheduled task. If you want to be sure the NFS share is mounted *before* the Octopus Service is started, you can set the service **Startup Type** to `Manual`, and add the following command to run *after* the NFS share is mounted:
 
    ```cmd Command-line
    C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" checkservices --instances OctopusServer
