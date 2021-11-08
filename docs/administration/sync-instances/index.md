@@ -5,7 +5,7 @@ position: 45
 hideInThisSection: true
 ---
 
-Syncing two or more Octopus Deploy instances is not an easy task.  There are several items to consider with lots of hidden pitfalls.  This section will guide you through the necessary steps to sync multiple Octopus Deploy instances.
+Syncing two or more Octopus Deploy instances is one of those is not an trivial task.  There are several items to consider with lots of hidden pitfalls.  This section will guide you through the necessary steps to sync multiple Octopus Deploy instances.
 
 ## Use Cases
 
@@ -16,28 +16,55 @@ There are several use cases for creating separate Octopus Deploy instances and w
 - Isolating Tenants: Specific tenants have to be on a separate instance due to contracts or local laws.
 
 :::problem
-The process to sync instances will take time to create and manage.  As such, splitting and syncing instances should be done for business reasons, such as industry regulation requirements or corporate policies.  It should not be done as a way to reduce license costs.  You'll end up spending more time in people-hours maintaining the process than the license cost.
+The process to sync instances will take time to create and manage.  Before embarking on this effort, please be sure to read this entire guide.  If you are unsure, please reach out to your account manager or a customer success manager at [customersuccess@octopus.com](mailto:customersuccess@octopus.com).  
 :::
 
 ## Syncing is not cloning
 
-It is important to note that syncing is not the same as cloning.  Cloning an instance will result in the same targets, environments, variables, tenants, projects, etc.  Based on the use cases above, a clone is not appropriate.  A sync will clone a subset of the data.
+Syncing is not the same as cloning.  Cloning an instance will result in the same targets, environments, variables, tenants, projects, etc.  Based on the use cases above, a clone is not appropriate.  A sync will clone a subset of the data.
 
 For example:
 - Separate Dev/Test instance and Stage/Prod instance will have different environments, lifecycle phases, retention policies, variable values (and scoping), tenants, and deployment targets to name a few.
 - A instance per data center will have different variable values (most likely connection strings), deployment targets, and lifecycle phases.
 - Instance to isolate specific tenants will have different tenants and deployment targets.
 
-As you can see, your reason for splitting the instance will have a direct impact on the data you'll need to sync.
+Why you want to sync will have a direct impact on the data you need to sync and the data that will be different.
+
+## Matching on Names
+
+Each instance of Octopus Deploy will have different IDs for your data.  For example, on one instance the **Production** environment's ID is `Environments-123` while on another instance the ID is `Environments-700`.  Because of that the syncing process will need to match on names.  That means there will be a translation from ID to Name on the source instance to Name to ID on the destination instance.  
+
+:::problem
+Once you start syncing instances think very carefully about each name change.  Most likely a name change will result in a "new" item (such as Environment) getting created as opposed to updating an existing item.
+:::
 
 ## Data to Sync
 
-An Octopus Project relies on a lot of scaffolding data.  Some of that data directly, for example a step can reference a worker pool, or indirectly, an environment is part of a lifecycle associated with a channel.  That scaffolding data needs to be in place prior syncing projects.
+As stated earlier, syncing is not the same as cloning.  You will need to decide on what data to sync and the data you want to be different.  What makes it difficult is a deployment or runbook process relies on a lot of scaffolding data.  The deployment or runbook process is typically the same across all instances while it is the scaffolding data that is different.
+
+There are two ways scaffolding is referenced, as a single ID or as a list of 1 to N IDs.  For example, you can have a deployment process that runs on a worker pool, which is a stored as a single ID.  Or, a step can be configured to run on 1 to N environments, which stored as list of IDs.  When data stored as a single ID is not found an error will occur on save.  When data stored as a list of IDs is not found the save is permitted but you might encounter unexpected results (a step runs in an environment it shouldn't).
+
+Not all data needs to be an exact 1:1 to match between instances.  For example, a deployment process references an external feed with the name of **External Docker Feed**.  All the instances must have an external feed of **External Docker Feed**, but the URL and credentials used on each instance can be different.  As long as that feed is with that name exists on all instances, everything will work fine.  The same is true for worker pools.  The worker pool can have different workers as long as the same worker pool exists on all instances.  
+
+The scaffolding data and the results of it not existing on all instances are:
 
 - Infrastructure
+    - Accounts
+        - Variables (project, library variable set, and tenants): Fail on save when no matching account are found.
+        - Deployment Targets (K8s and Azure Web App targets): Fail on save when no matching account are found.
     - Environments
+        - Accounts: Accounts can be configured to limit access to specific environments.  The account will be available to all environments when no matching environments are found.
+        - Certificates: Certificates an be configured to limit access to specific environments.  The certificate will be availiable to all environments when no matching environments are found.
+        - Deployment Targets: A deployment target must have at least one environment.  When no matching environments are found the deployment target will be unable to save.
+        - Team User Role: The user role for a team can be configured to only apply to specific environments.  The user role for that team will apply to all environments when no matching environments are found.
+        - Tenants: Part of the Project/Environment relationship.  Will only be scoped to matching environments.
+        - Lifecycles: Used to specify environments for each phase.  Each phase will only apply to environments found.  If no environments are found the phase will be for all remaining environments.  Please note: a lifecycle can only have one phase with no environments.
+        - Process Step (both runbook process and deployment process): Environments are scoped to run or skip specific environments.  When no matching environments are found to scope to the step will run on all environments.
+        - Variables (project, library variable set and tenants): Environments are scoped to specific environments.  When no matching environments are found the variable will be applicable to all environments.
+        - Runbooks: Can limit what environments a run book can run in.  When no matching environments are found the runbook can run in any environment.
     - Worker Pools
-    - Machine Policies
+        - Deployment Targets (Azure Web App, K8s, Service Fabric) : An optional worker pool is configured to use for health checks for specific target types.
+        - 
 - Library
     - Certificates
     - External Feeds
@@ -50,6 +77,35 @@ An Octopus Project relies on a lot of scaffolding data.  Some of that data direc
 - Project Groups
 - Server Configuration
     - Teams
+
+### Required Scaffolding Data
+
+Required scaffolding data is data that has to exist for a succesful save.  
+
+_However_ the data doesn't have to an exact 1:1 match with the source instance.  For example, if your deployment process references an external feed with the name of **External Docker Feed**.  All the instances must have an external feed of **External Docker Feed**, but the URL and credentials used on each instance can be different.  As long as that feed is there, everything will work.
+
+The required data is:
+- Infrastructure    
+    - Worker Pools    
+- Library
+    - Certificates
+    - External Feeds
+    - Lifecycles    
+    - Step Templates    
+    - Tenant Tags
+- Project Groups
+- Server Configuration
+    - Teams
+
+### Optional Scaffolding Data
+
+Optional scaffolding dta is data that doesn't need to exist for a successful save, but it not being there can lead to interesting results.
+
+For example, if you have one instance with the environments **Development** and **Test** and another instance with **Staging** and **Production**.  Your deployment process on the first instance has a step scoped to **Test**.  Should that step be synced over to the other instance?  
+
+## Project Data
+
+
 
 Once that scaffolding data is in place, then you can sync the project over.  Not all the data in the project should be synced over.  The project data to sync is:
 
