@@ -5,40 +5,101 @@ position: 45
 hideInThisSection: true
 ---
 
-Syncing two or more Octopus Deploy instances is one of those is not an trivial task.  There are several items to consider with lots of hidden pitfalls.  This section will guide you through the necessary steps to sync multiple Octopus Deploy instances.
+Syncing two or more Octopus Deploy instances is not an trivial task as there are several items to consider.  This section will guide you through the necessary steps to sync multiple Octopus Deploy instances.
 
 ## Use Cases
 
-There are several use cases for creating separate Octopus Deploy instances and wanting to sync them.
+This guide assumes you are attempting one of these use cases.  
 
-- Separation of Concerns: Developers have full control over a Dev/Test instance, while a Staging/Production instance is locked down to a select few individuals.
-- Multiple Data Centers: A main "central control" instance with multiple production instances in different data centers around the globe.
-- Isolating Tenants: Specific tenants have to be on a separate instance due to contracts or local laws.
+- You want to create a separate **Dev/Test** instance and a **Staging/Production** instance.  A release starts in Dev/Test and moves to Staging/Production.  You want the deployment process (and a few other items) to be kept in sync.
+- You have a "main" Dev/Test/Staging/Production instance, but need an isolated **Production** instance for a set of tenants/targets due to regulations or business contracts.  The main instance is the truth center, the other **Production** instance is a clone with a few minor differences. 
+- You need to have multiple **Production** instances, one for each data center/region.
 
-:::problem
-The process to sync instances will take time to create and manage.  Before embarking on this effort, please be sure to read this entire guide.  If you are unsure, please reach out to your account manager or a customer success manager at [customersuccess@octopus.com](mailto:customersuccess@octopus.com).  
-:::
+In a nutshell, you have 2 or more instances you want to keep in sync, but each instance will have different variable values, lifecycles, tenants, targets, and more.  You want to keep the deployment process, runbooks, and unscoped variables in sync.
+
+### Use Cases solved by other tooling
+
+This guide will not cover all use cases.  The below use cases are solved with different tooling / guides available.
+
+- You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md)
+- You want to upgrade the underlying VM hosting Octopus Deploy from Windows Server 2012 to Windows Server 2019.  Please see our guide on [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
+- You want to move the SQL Server database from a SQL Server 2012 to SQL Server 2019.  Please see our guide on [moving the Octopus Database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
+- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations.md) on how to leverage [Projects Export/Import feature](docs/projects/export-import/index.md) to accomplish this.
+- You want to consolidate multiple Octopus Deploy instances into a single Octopus Deploy instance.  Please see our documentation on [Projects Export/Import feature](docs/projects/export-import/index.md).
+- You want to move a project from the default space to another space on the same instance.  Please see our documentation on [Projects Export/Import feature](docs/projects/export-import/index.md).
 
 ## Syncing is not cloning
 
-Syncing is not the same as cloning.  Cloning an instance will result in the same targets, environments, variables, tenants, projects, etc.  Based on the use cases above, a clone is not appropriate.  A sync will clone a subset of the data.
+Syncing is not the same as cloning.  Cloning an instance will result in the same targets, environments, variables, tenants, projects, etc.  If you wish to clone an instance please either look at our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md), [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md) or how to leverage the new [Projects Export/Import feature](docs/projects/export-import/index.md).
+
+Based on the use cases above we want to sync a subset of data, not clone all the data.
 
 For example:
 - Separate Dev/Test instance and Stage/Prod instance will have different environments, lifecycle phases, retention policies, variable values (and scoping), tenants, and deployment targets to name a few.
 - A instance per data center will have different variable values (most likely connection strings), deployment targets, and lifecycle phases.
 - Instance to isolate specific tenants will have different tenants and deployment targets.
 
-Why you want to sync will have a direct impact on the data you need to sync and the data that will be different.
+The reason why you are creating separate instances will have a direct impact on which data to keep in sync and which data to keep different.
 
 ## Matching on Names
 
 Each instance of Octopus Deploy will have different IDs for your data.  For example, on one instance the **Production** environment's ID is `Environments-123` while on another instance the ID is `Environments-700`.  Because of that the syncing process will need to match on names.  That means there will be a translation from ID to Name on the source instance to Name to ID on the destination instance.  
 
 :::problem
-Once you start syncing instances think very carefully about each name change.  Most likely a name change will result in a "new" item (such as Environment) getting created as opposed to updating an existing item.
+Once you start syncing instances be very careful about each name change.  A name change will result in a "new" item (such as Environment) getting created as opposed to updating an existing item.
 :::
 
-## Data to Sync
+## Octopus Data Structure
+
+Before writing a syncing process you should spend some time learning the data structure within Octopus.  Knowing the data structure and how it all fits together will make the sync process more robust.
+
+### Projects
+
+When we talk to customers who wish to sync their instances they generally mean they want to sync their projects.  The project data you will want to sync between instances is:
+
+- Deployment Process
+- Runbooks
+- Channels
+- Variables
+- Settings  
+
+You'll notice releases, deployments, runbook snapshots and runbook runs are not included in that list.  That is because that data _must_ be different per instance.  When you create a release or a snapshot a runbook you are snapshotting the process, variables, and packages as it exists on that instance at that point in time.  You will have different variable values, if not slightly different deployment processes (more on that later).  Syncing a release from one instance to another will result in an inaccurate representation of what was snapshotted.  
+
+Our tooling doesn't allow you to copy deployments or runbook runs.  The syncing process will have to use the Octopus Deploy REST API (or a wrapper such as the Octopus CLI) to create a deployment or runbook run.  If you use the REST API it will create the deployment or runbook run, but it will also execute it.  
+
+### Library Variable Sets
+
+### Tenants
+
+### Scaffolding Data
+
+Octopus Deploy is more than deployment processes, tenants, and variables.  A lot of scaffolding data is needed for everything to properly work.  When syncing multiple instances you'll find it is the scaffolding data that is different.  The scaffolding data is:
+
+- Infrastructure
+    - Accounts        
+    - Environments
+    - Worker Pools        
+- Library
+    - Packages
+    - Certificates
+    - External Feeds
+    - Lifecycles
+    - Script Modules
+    - Step Templates    
+    - Tenant Tags
+- Server Configuration
+    - Teams
+
+As stated earlier, all the matching between instances must occur by name.  That includes all the scaffolding data.  However, the details of the scaffolding data do not need to be the same.  For example, imagine you have a deployment process using the worker pool **Ubuntu Worker Pool**.  On one Octopus instance that pool has 5 EC2 instances hosted in the AWS Oregon Region.  On another Octopus instance, a worker pool with the same name exists, but it has 3 EC2 instances hosted in the AWS Ohio region.
+
+Some of that scaffolding data is referenced directly in a deployment process or a variable, such as step template or worker pool.  While other scaffolding data is a indirect reference, such as a script module.  
+
+
+
+
+
+
+
 
 As stated earlier, syncing is not the same as cloning.  You will need to decide on what data to sync and the data you want to be different.  What makes it difficult is a deployment or runbook process relies on a lot of scaffolding data.  The deployment or runbook process is typically the same across all instances while it is the scaffolding data that is different.
 
@@ -65,67 +126,6 @@ The scaffolding data and the results of it not existing on all instances are:
     - Worker Pools
         - Deployment Targets (Azure Web App, K8s, Service Fabric) : An optional worker pool is configured to use for health checks for specific target types.
         - 
-- Library
-    - Certificates
-    - External Feeds
-    - Lifecycles
-    - Script Modules
-    - Step Templates
-    - Variable Sets
-    - Tenant Tags
-- Tenants
-- Project Groups
-- Server Configuration
-    - Teams
-
-### Required Scaffolding Data
-
-Required scaffolding data is data that has to exist for a succesful save.  
-
-_However_ the data doesn't have to an exact 1:1 match with the source instance.  For example, if your deployment process references an external feed with the name of **External Docker Feed**.  All the instances must have an external feed of **External Docker Feed**, but the URL and credentials used on each instance can be different.  As long as that feed is there, everything will work.
-
-The required data is:
-- Infrastructure    
-    - Worker Pools    
-- Library
-    - Certificates
-    - External Feeds
-    - Lifecycles    
-    - Step Templates    
-    - Tenant Tags
-- Project Groups
-- Server Configuration
-    - Teams
-
-### Optional Scaffolding Data
-
-Optional scaffolding dta is data that doesn't need to exist for a successful save, but it not being there can lead to interesting results.
-
-For example, if you have one instance with the environments **Development** and **Test** and another instance with **Staging** and **Production**.  Your deployment process on the first instance has a step scoped to **Test**.  Should that step be synced over to the other instance?  
-
-## Project Data
-
-
-
-Once that scaffolding data is in place, then you can sync the project over.  Not all the data in the project should be synced over.  The project data to sync is:
-
-- Settings
-- Channels
-- Variables
-- Runbooks
-- Runbook Processes
-- Deployment Process
-
-But not all project data should be synced, specifically anything related to releases, runbook snapshots, deployments or runbook runs.  When you create a release or a snapshot a runbook you are snapshotting the process, variables, and packages.  At the very least, there are going to be different variable values.  Syncing a release from one instance to another will result in an inaccurate representation of what was snapshotted.  In addition, if you are using the REST API, or a wrapper around the rest api such as the Octo CLI, then it is impossible to sync releases as the release snapshot will be created on any POST to the API.  
-
-Syncing Deployments or Runbook runs while technically possible is not an accurate representation of what happened on each instance.  If you were to sync a deployment from a Dev/Test instance to a Prod instance then whatever you synced is essentially a lie.  That deployment did not happen on that instance.  It won't deploy to the same machines.   If you attempt to re-run it you will never get the same result.
-
-The project data to not sync is:
-    - Releases
-    - Deployments
-    - Runbook Runs
-    - Runbook Snapshots  
-
 ### Packages
 
 Packages can be large which can take a tremendous amount of time to copy over.  We recommend excluding them from your syncing process and instead do one of the following:
