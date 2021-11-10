@@ -43,7 +43,7 @@ foreach ($project in $projects) {
     $projectVariableSet = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/variables/$($project.VariableSetId)" -Headers $header
 
     # Check to see if variable is named in project variables.
-    $matchingNamedVariables = $projectVariableSet.Variables | Where-Object { $_.Name -like "*$variableToFind*" }
+    $matchingNamedVariables = $projectVariableSet.Variables | Where-Object { $_.Name -ieq "$variableToFind" }
     if ($null -ne $matchingNamedVariables) {
         foreach ($match in $matchingNamedVariables) {
             $result = [pscustomobject]@{
@@ -216,7 +216,7 @@ foreach ($project in $projects)
     $projectVariableSet = $repositoryForSpace.VariableSets.Get($project.VariableSetId)
     
     # Find any name matches
-    $matchingNamedVariable = $projectVariableSet.Variables | Where-Object {$_.Name -like "*$variableToFind*"}
+    $matchingNamedVariable = $projectVariableSet.Variables | Where-Object {$_.Name -ieq "$variableToFind"}
 
     if ($null -ne $matchingNamedVariable)
     {
@@ -237,7 +237,7 @@ foreach ($project in $projects)
     }
 
     # Find any value matches
-    $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*$variableToFind*"}
+    $matchingValueVariables = $projectVariableSet.Variables | Where-Object {$_.Value -like "*#{$variableToFind}*"}
 
     if ($null -ne $matchingValueVariables)
     {
