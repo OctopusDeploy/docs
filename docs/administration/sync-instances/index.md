@@ -49,154 +49,138 @@ Each instance of Octopus Deploy will have different IDs for your data.  For exam
 Once you start syncing instances be very careful about each name change.  A name change will result in a "new" item (such as Environment) getting created as opposed to updating an existing item.
 :::
 
-## Octopus Data Structure
+## Data to Sync
 
-Before writing a syncing process you should spend some time learning the data structure within Octopus.  Knowing the data structure and how it all fits together will make the sync process more robust.
-
-### Projects
-
-When we talk to customers who wish to sync their instances they generally mean they want to sync their projects.  The project data you will want to sync between instances is:
-
-- Deployment Process
-- Runbooks
-- Channels
-- Variables
-- Settings  
-
-You'll notice releases, deployments, runbook snapshots and runbook runs are not included in that list.  That is because that data _must_ be different per instance.  When you create a release or a snapshot a runbook you are snapshotting the process, variables, and packages as it exists on that instance at that point in time.  You will have different variable values, if not slightly different deployment processes (more on that later).  Syncing a release from one instance to another will result in an inaccurate representation of what was snapshotted.  
-
-Our tooling doesn't allow you to copy deployments or runbook runs.  The syncing process will have to use the Octopus Deploy REST API (or a wrapper such as the Octopus CLI) to create a deployment or runbook run.  If you use the REST API it will create the deployment or runbook run, but it will also execute it.  
-
-### Library Variable Sets
-
-### Tenants
-
-### Scaffolding Data
-
-Octopus Deploy is more than deployment processes, tenants, and variables.  A lot of scaffolding data is needed for everything to properly work.  When syncing multiple instances you'll find it is the scaffolding data that is different.  The scaffolding data is:
+Octopus Deploy is more than a deployment process and variables.  A lot of scaffolding data is needed for everything to properly work.  The syncing process should consider syncing the following data:
 
 - Infrastructure
     - Accounts        
     - Environments
     - Worker Pools        
 - Library
-    - Packages
     - Certificates
     - External Feeds
     - Lifecycles
     - Script Modules
-    - Step Templates    
+    - Step Templates   
+    - Variable Sets 
     - Tenant Tags
+    - Packages
 - Server Configuration
-    - Teams
+    - Space Specific Teams
+    - User Roles
+- Tenants
+- Project Groups
+    - Projects
+        - Deployment Process
+        - Runbooks and Runbook Processes            
+        - Variables
+        - Channels
+        - Settings
 
-As stated earlier, all the matching between instances must occur by name.  That includes all the scaffolding data.  However, the details of the scaffolding data do not need to be the same.  For example, imagine you have a deployment process using the worker pool **Ubuntu Worker Pool**.  On one Octopus instance that pool has 5 EC2 instances hosted in the AWS Oregon Region.  On another Octopus instance, a worker pool with the same name exists, but it has 3 EC2 instances hosted in the AWS Ohio region.
+In our experience, the scaffolding data, and by extension the variables and steps associated with that data, is what is different between your instances.  
 
-Some of that scaffolding data is referenced directly in a deployment process or a variable, such as step template or worker pool.  While other scaffolding data is a indirect reference, such as a script module.  
+### Scaffolding data that must be an exact match
 
+Some scaffolding data must be an exact match between your instances.  If they aren't an exact match then the deployment or runbook run will either fail or have unexpected results.  That data is:
 
+- Script Modules
+- Step Templates
+- Tenant Tags
+- User Roles
 
+### Scaffolding data with different details
 
+Most of the scaffolding data referenced by your deployment and runbook processes as well as your variables has to exist for everything to work.  For example, if your deployment process references a worker pool with the name **Ubuntu Worker Pool** then all instances have to have that worker pool.  
 
+However, while they have to exist, only the name needs to be the same between instances.  The details can be very different.  Going back to the worker pool example.  One instance could have 5 EC2 instances in the Oregon region while another instance could have 3 EC2 instances in the Ohio region.  As long as the worker pool **Ubuntu Worker Pool** exists in both instances with running workers everything will work fine.
 
-
-
-As stated earlier, syncing is not the same as cloning.  You will need to decide on what data to sync and the data you want to be different.  What makes it difficult is a deployment or runbook process relies on a lot of scaffolding data.  The deployment or runbook process is typically the same across all instances while it is the scaffolding data that is different.
-
-There are two ways scaffolding is referenced, as a single ID or as a list of 1 to N IDs.  For example, you can have a deployment process that runs on a worker pool, which is a stored as a single ID.  Or, a step can be configured to run on 1 to N environments, which stored as list of IDs.  When data stored as a single ID is not found an error will occur on save.  When data stored as a list of IDs is not found the save is permitted but you might encounter unexpected results (a step runs in an environment it shouldn't).
-
-Not all data needs to be an exact 1:1 to match between instances.  For example, a deployment process references an external feed with the name of **External Docker Feed**.  All the instances must have an external feed of **External Docker Feed**, but the URL and credentials used on each instance can be different.  As long as that feed is with that name exists on all instances, everything will work fine.  The same is true for worker pools.  The worker pool can have different workers as long as the same worker pool exists on all instances.  
-
-The scaffolding data and the results of it not existing on all instances are:
+That data is:
 
 - Infrastructure
-    - Accounts
-        - Variables (project, library variable set, and tenants): Fail on save when no matching account are found.
-        - Deployment Targets (K8s and Azure Web App targets): Fail on save when no matching account are found.
-    - Environments
-        - Accounts: Accounts can be configured to limit access to specific environments.  The account will be available to all environments when no matching environments are found.
-        - Certificates: Certificates an be configured to limit access to specific environments.  The certificate will be availiable to all environments when no matching environments are found.
-        - Deployment Targets: A deployment target must have at least one environment.  When no matching environments are found the deployment target will be unable to save.
-        - Team User Role: The user role for a team can be configured to only apply to specific environments.  The user role for that team will apply to all environments when no matching environments are found.
-        - Tenants: Part of the Project/Environment relationship.  Will only be scoped to matching environments.
-        - Lifecycles: Used to specify environments for each phase.  Each phase will only apply to environments found.  If no environments are found the phase will be for all remaining environments.  Please note: a lifecycle can only have one phase with no environments.
-        - Process Step (both runbook process and deployment process): Environments are scoped to run or skip specific environments.  When no matching environments are found to scope to the step will run on all environments.
-        - Variables (project, library variable set and tenants): Environments are scoped to specific environments.  When no matching environments are found the variable will be applicable to all environments.
-        - Runbooks: Can limit what environments a run book can run in.  When no matching environments are found the runbook can run in any environment.
-    - Worker Pools
-        - Deployment Targets (Azure Web App, K8s, Service Fabric) : An optional worker pool is configured to use for health checks for specific target types.
-        - 
+    - Accounts: Same account type, different credentials           
+    - Worker Pools: Different workers
+- Library
+    - Certificates: same certificate type, different cert
+    - External Feeds: same feed type, different credentials
+    - Lifecycles: different phases and retention policies
+- Server Configuration
+    - Space Specific Teams: same user role mapping, different members
+
 ### Packages
 
-Packages can be large which can take a tremendous amount of time to copy over.  We recommend excluding them from your syncing process and instead do one of the following:
+Packages can be very large; we've seen some that are 1 GB+ in size.  Syncing that much BLOB data between instances can take a tremendous amount of time.  We recommend excluding them from your syncing process and instead do one of the following:
 
 - Switch over to an external feed such as Feedz.io, Artifactory, Azure Artifacts, etc.
 - Update your build server integration to push to multiple instances.
 
-### Data not to sync
+## Environments
 
-Not all data should be synced between instances.
+It is very rare to see _all_ environments synced between instances.  It is either a subet of environments or different environments.  Having a different environment list per instance makes a lot of sense, but it impacts a lot of other data.  
 
-**Server Configuration**
-The Server Configuration data to avoid syncing is core configuration data that you'll set once and shouldn't touch again.  Being core configuration, the risk is too high to be automatically updated.  An error in the syncing process could cause your instance to not allow people to login or get into a unrecoverable state.
+That data includes:
 
-The server configuration to not sync is:
-- SMTP Settings
-- External Issue Trackers
-- Authentication Providers
-- Users
-- Server Folders
-- Subscriptions
-- User Roles
+- Accounts
+- Certificates
+- Deployment and Runbook Steps
+- Lifecycles
+- Runbooks Scoping
+- Tenants
+- Team User Role Scoping
+- Variables
 
-**Infrastructure**
-High-level infrastructure, such as environments and worker pools should be synced.  Those items are referenced directly by projects.  But think back to why you are creating a separate instance.  A big reason is to isolate your infrastructure.  Any specific infrastructure, such as deployment targets should not be synced.
+What makes it even trickier is when data is scoped to two or more of those environments and one of those environments is not included in the sync.  For example, a step is scoped to `Development` and `Test`, but only `Test` is included in the sync.  Should that step be cloned with just `Test` scoped to it?  Should all scoping be removed?  Should it be skipped and not synced over?
 
-The infrastructure data to not sync is:
-    - Targets
-    - Worker
+## Data Not To Sync
+
+The eagle eyed reader will note the above data is not ALL the data stored in Octopus Deploy is on the list of data to sync.  You should avoid syncing the following data:
+
+- Infrastructure
+    - Deployment Targets
+    - Workers
     - Machine Proxies
-    - Infrastructure Accounts
- 
+- System Configuration
+    - System Settings (server folders, SMTP, etc.)
+    - External Auth Providers
+    - Issue Trackers
+    - Users
+    - Subscriptions
+    - Spaces
+    - System Level Teams
+- Projects
+    - Releases
+    - Deployments
+    - Runbook Snapshots
+    - Runbook Runs
 
-Outline:
-- Introduction -> Why should someone read this guide
-- Use Cases -> Dev/Test + Production or split Production Instances
-- Data Challenges with Syncing Instances
-    - Shared Items
-        - Environments
-        - Feeds
-        - Accounts
-        - Lifecycle Phases
-        - Certificates
-        - Targets
-        - Workers
-        - Library Variable Sets
-        - Step Templates
-    - Project Items
-        - Deployment Processes
-        - Runbooks and Runbook Processes
-        - Variables
-        - Channels (and their rules)
-    - What you shouldn't sync
-        - Deployments
-        - Releases
-        - Users
-        - External Auth Providers
-        - Server Settings (folders, SMTP, issue tracking integration)
-- Tools to Avoid
-    - Project export/import
-    - Legacy Migrator
-- Considerations
-    - Encrypted Items
-        - Accounts
-        - Feed Credentials
-        - Sensitive Variables
-    - Variables
-    - Storing Scripts
-    - When to sync
-- Options     
-    - Terraform Provider (link to guide)
-    - Config as Code (link to guide)
-    - Rest API (link to guide)
-    
+### Infrastructure
+
+The whole point of having separate instances is to have separate deployment targets and workers.  It doesn't make a lot of sense to sync them.  And for tentacles it'd be a real pain as each tentacle would have to be configured to trust all the instances.
+
+### System Configuration
+
+Items in the system configuration list are generally set once and forget about it.  Or set once and update once a quarter or once a year.  And most of that data requires admin-level permission.  It too risky to include system configuration in a syncing process.
+
+### Projects
+
+:::warning
+Do not sync releases, deployments, runbook snapshots or runbook runs.  
+:::
+
+When you create a release or a snapshot a runbook you are snapshotting the process, variables, and packages as it exists on that instance at that point in time on that instance.  A deployment or runbook run is using that release or runbook snapshot to perform a set of actions on your deployment targets or workers.
+
+All the use cases for syncing an instance has different environments.  You can scope environments to steps in runbooks and deployment processes as well as variables.  Any release or runbook snapshot synced from one instance to another would be innaccurate.  The same is true for deployments or runbook runs.  The destination instance is not the instance that originally ran deployment or runbook.  
+
+Besides it is impossible to sync that data without low-level database access.  The syncing process will have to leverage the Octopus Deploy REST API or a wrapper around the API, such as the Octopus CLI.  If you created a release using the Octopus REST API it will snapshot the deployment process, packages, and variables on the instance at that point in time.  Creating a deployment via the REST API will perform a deployment.
+
+## Migrator or Project Export/Import
+
+:::warning
+Do not use the [migrator](docs/administration/data/data-migration.md) or the [Project Export/Import](docs/projects/export-import/index.md) feature to sync instances.
+:::
+
+The [migrator](docs/administration/data/data-migration.md) and the [Project Export/Import](docs/projects/export-import/index.md) feature were designed to migrate a project to another instance (or space for Project Export/Import).  The primary use case for both of those tools is a user wants to move a project to a new instance and depreciate the older instance.  For example, migrating from self-hosted Octopus Server to Octopus Cloud.
+
+That use case influences how those tools function.  They both will grab all the scaffolding data associated with a project push it to the destination instance.  That includes releases and deployments.  That is because they are moving projects, not keeping them in sync.
+
+In some, but not all cases, existing scaffolding data is left alone.  But other data, specifically environments, must match exactly.  Outside of a few command line switches, you cannot pick and choose which data the tool will move over.  It is extremely difficult to have a Dev/Test instance and a Production instance when using those tools.  Oftentimes, our users resort to modifying the exported JSON files, which increases the likleyhood of a failed import.    
