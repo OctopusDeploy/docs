@@ -12,6 +12,25 @@ It is impossible to cover every last use case in a single guide, and as such, if
 This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
 :::
 
+:::problem
+**Historical Data is not included in the migration.**
+
+The Export/Import Projects feature will create releases and "shells" of your deployments.  The releases are created so you can promote existing releases through your environments.  The deployments are created because lifecycle conditions need to be met prior to those releases being promoted.  
+
+The deployments will **not** include:
+
+- Task Log (the deployment screen will be blank)
+- Artifacts
+- Task History (including, but not limited to):
+    - Who created the deployment
+    - When the deployment was created
+    - When the deployment started
+    - When the deployment finished
+    - Guided Failure logs
+    - Manual Intervention logs
+- Audit History
+:::
+
 ## Prep Work
 
 Before starting your migration to Octopus Cloud, you will need to address the following:
@@ -23,13 +42,14 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 1. Configuring any firewall settings for your tentacles.
 1. Configuring workers and worker pools.
 1. Testing external package repository connectivity.
+1. Creating your Octopus Cloud users.
 
 ### Differences between Octopus Cloud and Octopus Server
 
 Octopus Cloud and Octopus Server are built on the same code base.  The differences stem from the additional configuration steps we perform during the Octopus Cloud build.  The differences are:
 
 - Octopus Cloud users cannot be Octopus Administrators, the "highest" level of permission possible is [Octopus Manager](/docs/octopus-cloud/permissions.md).
-- Octopus Cloud users are managed via [Octopus ID](/docs/security/authentication/octopusid-authentication.md), which at the time of this writing, has [no support for external groups and roles](/docs/security/authentication/auth-provider-compatibility.md).
+- Octopus Cloud has a subset of auth providers available to the Octopus Server.  Most notably, Octopus Cloud does not include Active Directory or LDAP.  Please see the [authentication provider compatiblity page](/docs/security/authentication/auth-provider-compatibility.md) for an up to date list of what is available.
 - Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits).
 - Octopus Cloud does not support running tasks on the server itself.  Everything must run on a deployment target or worker.  To help, Octopus Cloud includes [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools.md) with both Windows and Linux workers.
 
@@ -87,6 +107,10 @@ If you use an external package repository, such as a self-hosted Artifactory ins
 ### Proof of Concept Deployments
 
 Set up a couple of sample projects to deploy to your servers.  That will be a final "plugs-out" test to ensure you are ready to start your migration.
+
+### User Migration
+
+The project export/import feature does not include users.  All users must be created from scratch.  If you are using an external authentication provider, such as Azure AD, or Okta, you can turn on "auto-create users" feature.
 
 ## Migration
 

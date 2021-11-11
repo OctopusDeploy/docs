@@ -1,32 +1,35 @@
 ---
-title: Designing Octopus HA on AWS
+title: Designing Octopus HA in AWS
 description: Information on configuring Octopus High Availability hosted in AWS.
 position: 30
 ---
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [AWS](https://aws.amazon.com/).
 
+## Setting up Octopus: High Availability 
+
+This guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS and are running Windows Server.
+
+**Some assembly required**
+
+Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
+
+- You should be familiar with SQL Server failover clustering, [AWS RDS](https://aws.amazon.com/rds/sqlserver/), or have DBAs available to create and manage the database.
+- You should be familiar with SANs, [AWS FSx](https://aws.amazon.com/fsx/), or other approaches to sharing storage between servers.
+- You should be familiar with load balancing for applications.
+
 :::hint
-If you are setting up Octopus High Availability on Azure or on-premises please see the following guides:
-- [Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
-- [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-:::
-
-## Setting up AWS for Octopus: High Availability 
-
-For the sake of simplicity, this guide assumes that all of the servers used for your Octopus High Availability instance are hosted in AWS.
-
-:::warning
-If you are choosing [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) on AWS then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as you may have your Domain Controllers, SQL Database Server, and load balancers in the cloud.
+**IaaS vs PaaS:**
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in AWS and don't intend to use their PaaS offerings (such as AWS RDS), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
 
 ### Compute
 
-To install Octopus nodes you need at least two machines running Windows Server 2016+. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, we generally find sticking with the General purpose size is the best option.  We recommend starting with either 2 cores / 4 GB of RAM or 4 cores / 8 GB of RAM and limiting the task cap to 20 for each node.  In our experience, it is much better to have 4 smaller VMs, each with 4 cores / 8 GB of RAM than 2 large VMs, each with 8 cores / 16 GB of RAM.  With 2 servers, if one of them were to go down, you'd lose 50% of your capacity.  With 4 servers, if one of them were to go down, you'd lose 25% of your capacity.  The difference in cost between the 4 smaller VMs and 2 large VMs is minimal.
+To install Octopus nodes you need at least two machines running Windows Server 2016+. There’s only one choice when building virtual machines in AWS, and that’s [EC2 Instances](https://aws.amazon.com/ec2/instance-types/). There are a number of different instance types to choose from. When selecting the size of the instance, we generally find sticking with the General purpose size is the best option. 
 
-:::warning
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
-:::
+!include <high-availability-compute-recommendations>
+
+!include <octopus-instance-mixed-os-warning>
 
 ### Database
 
@@ -44,17 +47,16 @@ For a highly available SQL Server in AWS RDS, we recommend SQL Server Standard o
 
 Once you've settled on an edition, the great thing about using AWS RDS is that you can start small and scale the size of your instance on demand as your Octopus usage grows. AWS provide a [list of the instance sizes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.InstanceClasses) for each SQL Server edition and versions.
 
-For further information see our [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports and explains the requirements for how the database must be configured.
+!include <high-availability-database-recommendations>
+- [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/)
 
-From the Octopus perspective, how the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
+!include <high-availability-db-logshipping-mirroring-note>
 
 ### Shared storage
 
-You will need shared storage that all Octopus nodes can access as Octopus stores a number of files that are not suitable for the database.
+!include <high-availability-shared-storage-overview>
 
-To build a highly available Octopus server install, you need some durable Windows file storage.
-
-AWS recently introduced `Amazon FSx`, It’s a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and Microsoft Active Directory (AD) integration, and is an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
+AWS offers file storage called `Amazon FSx`, It’s a native Windows file system built on Windows Server. It includes full support for the SMB protocol, Windows NTFS, and requires Microsoft Active Directory (AD) integration. This makes it an ideal choice for connecting to your EC2 instances hosting Octopus to store all your Octopus packages and log files.
 
 If you choose to go with Amazon FSx there are some resources that will help you get started:
 - AWS have a [starter guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html) which explains how to configure Amazon FSx and connect it up to an EC2 machine.
@@ -69,7 +71,7 @@ To distribute traffic to the Octopus web portal on multiple nodes, you need to u
 * [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
 * [Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html)
 
-If you are using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), we recommend using the Application Load Balancer.
+If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), we recommend using the Application Load Balancer.
 
 However, [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) don't work well with the Application Load Balancer, so instead, we recommend using the Network Load Balancer. To setup a Network Load Balancer for Octopus High Availability with Polling Tentacles take a look at this [knowledge base article](https://help.octopus.com/t/how-can-i-configure-my-polling-tentacles-to-hit-my-octopus-deploy-high-availability-instance-to-sitting-behind-an-aws-load-balancer/24890). 
 

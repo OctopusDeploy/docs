@@ -89,7 +89,7 @@ The Octopus subscription has been created and set up to send data to RequestBin.
         "Subscription": {
             "Id": "Subscriptions-21",
             "Name": "User and User Role Change Alert",
-            "Type": 0,
+            "Type": "Event",
             "IsDisabled": false,
             "EventNotificationSubscription": {
                 "Filter": {
@@ -112,7 +112,7 @@ The Octopus subscription has been created and set up to send data to RequestBin.
                 },
                 "EmailTeams": [],
                 "EmailFrequencyPeriod": "01:00:00",
-                "EmailPriority": 0,
+                "EmailPriority": "Normal",
                 "EmailDigestLastProcessed": null,
                 "EmailDigestLastProcessedEventAutoId": null,
                 "EmailShowDatesInTimeZoneId": "UTC",

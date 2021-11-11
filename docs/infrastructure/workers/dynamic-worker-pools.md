@@ -11,7 +11,12 @@ Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/wo
 Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time before being destroyed.  
 
 ::: info
-Octopus Cloud defines the use of the worker as **finished** when it has been idle for an hour (60 minutes). If your cloud instance does another deployment or runbook run within an hour, the same worker will be re-used.  No matter what, Octopus Cloud will destroy the worker after 72 hours (3 days). Please reach out to [support@octopus.com](mailto:support@octopus.com) if you need these values to be adjusted for your instance
+Octopus Cloud will automatically destroy dynamic workers as soon as one of these conditions is met:
+
+- The worker has been idle for 60 minutes.
+- The worker has existed for 72 hours (3 days).
+
+Please reach out to [support@octopus.com](mailto:support@octopus.com) if you need these values to be adjusted for your instance.
 :::
 
 ## Isolated
@@ -115,7 +120,9 @@ Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools includ
 - Python 3 (latest)
 - GCloud CLI (339.0.0)
 
+:::hint
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as kubectl and helm. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+:::
 
 ## kubectl on Windows Images
 
@@ -134,6 +141,16 @@ A specific version can be used by [specifying a custom kubectl location](/docs/d
 - `1.18.0`
 - `1.19.9`
 - `1.20.5`
+
+## Installing Software On Dynamic Workers
+
+It is possible to install additional software on dynamic workers.  By default, every worker is destroyed after it has been allocated for over 72 hours.  Because of that, if you choose to install additional software, you are responsible for:
+
+- Ensuring that software is installed at the start of each deployment or runbook run.
+- Writing the necessary scripts to download and install that software.
+- Verifying the latest version of the software works with the latest security patches of the host OS.
+
+We don't recommend going through that effort except for a POC or a Pilot.  For production workloads, the recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md) to manage software dependencies.  We provide execution containers with a baseline of tools pre-installed.  However, we can't create a container with every possible software combination you might need.  Please see this [blog post](https://octopus.com/blog/tips-building-custom-execution-containers) for more information on how to create custom execution containers.
 
 ## Learn more
 
