@@ -4,7 +4,7 @@ description: Telemetry from Octopus Server and what is included
 position: 25
 ---
 
-By default, telemetry reporting is enabled. We use the data we receive to inform our decisions and to help us make a better product. You can opt-out of sending telemetry by navigating to **{{Configuration,Telemetry}}** in Octopus.
+Telemetry reporting is enabled by default. We use the data we receive to inform our decisions and to help us make a better product. You can opt-out of sending telemetry by navigating to **{{Configuration,Telemetry}}** in Octopus.
 
 When the "Telemetry Reporting" option is enabled, Octopus will make a HTTPS request, this request includes:
 
