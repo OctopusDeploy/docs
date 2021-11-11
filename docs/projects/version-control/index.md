@@ -59,7 +59,12 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 
 The default branch must exist.
 
-The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  The password will likely be a personal access token. 
+The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token where possible. Click on the relevant link below to get your personal access token -
+
+* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [Azure DevOps - Use personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
+* [BitBucket - Personal access tokens](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html)
+* [GitLab - Personal access tokens](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored.  If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory. If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
 
