@@ -6,7 +6,7 @@ position: 25
 
 Telemetry reporting is enabled by default. We use the data we receive to inform our decisions and to help us make a better product. You can opt-out of sending telemetry by navigating to **{{Configuration,Telemetry}}** in Octopus.
 
-When the "Telemetry Reporting" option is enabled, Octopus will make a HTTPS request, this request includes:
+When the **Telemetry Reporting** option is enabled, Octopus will make an HTTPS request, this request includes:
 
 - The current Octopus Deploy version number that you are running.
 - A unique installation ID (read more below).
