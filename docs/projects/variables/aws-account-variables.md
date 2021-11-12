@@ -28,11 +28,6 @@ The AWS account variable also exposes the following properties that you can refe
 
 Each of the above properties can be referenced in PowerShell.
 
-:::hint
-**Parameter naming convention**
-The name of the Octopus Parameter will be mapped to the name of the variable that was defined. As shown in the PowerShell example below, one of the parameters is named "aws account" because the variable defined above was named "AWS account". If the variable were named "Test Account Information", the code example below would need to be changed to "test account information".
-:::
-
 ```powershell
 # For an account with a variable name of 'aws account'
 
@@ -44,6 +39,11 @@ Write-Host 'AwsAccount.AccessKey=' $OctopusParameters["aws account.AccessKey"]
 Write-Host 'AwsAccount.Id=' #{aws account}
 Write-Host 'AwsAccount.AccessKey=' #{aws account.AccessKey}
 ```
+
+:::hint
+**Parameter naming convention**
+The name of the Octopus Parameter will be mapped to the name of the variable that was defined. As shown in the PowerShell example, one of the parameters is named "aws account" because the variable defined above was named "AWS account". If the variable were named "Test Account Information", the PowerShell example would need to be changed to "test account information".
+:::
 
 ## Add an AWS account to Octopus
 
