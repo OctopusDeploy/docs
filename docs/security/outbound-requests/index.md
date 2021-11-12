@@ -31,8 +31,6 @@ NOTE: Our community contributed step template integration queries `library.octop
 
 ## What information is included when Octopus checks for updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
-By default, Octopus will periodically check for new releases and send usage statistics to help us understand how the product is used and how we can improve it. You can opt-out of sending usage statistics or also opt-out of checking for updates by navigating to **{{Configuration,Settings,Updates & Usage Telemetry}}** in Octopus.
-
 When the "Check for updates" option is enabled, Octopus will make a HTTPS request to the `octopus.com` domain every 8 hours. This request includes:
 
 - The current Octopus Deploy version number that you are running.
