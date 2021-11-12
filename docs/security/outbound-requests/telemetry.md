@@ -52,6 +52,6 @@ The installation ID is a GUID that we generate when Octopus is installed. This G
 
 Together, this information helps us when making decisions about the product. For example, we expected users to only have a handful of machines, but the statistics tell us that some customers have over 900; we now take that into account when designing the user experience.
 
-Be assured that names, descriptions, URI's and so on are _never_ included. You can download a preview of the data that will be sent by clicking on the "Download Preview" button on the **{{Configuration,Telemetry}}** page
+Be assured that names, descriptions, URI's, and so on are _never_ included. You can download a preview of the data that will be sent by clicking on the **Download Preview** button on the **{{Configuration,Telemetry}}** page
 
 Please do consider enabling "Telemetry Reporting". We look at the data every week, and it really does help us to make a better product.
