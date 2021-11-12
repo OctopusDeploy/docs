@@ -12,7 +12,7 @@ When the **Telemetry Reporting** option is enabled, Octopus will make an HTTPS r
 - A unique installation ID (read more below).
 - Telemetry data payload
 
-When the "Telemetry Reporting" option is enabled, we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
+In addition, we'll send some specific aggregate criteria along with the request. This has evolved a bit over time, so it depends on the version you are running:
 
 | Metrics       | Since   |
 | ------------- | ------- |
