@@ -222,7 +222,7 @@ If a deployment failure is detected the step will attempt to extract error messa
 This error is raised if the CloudFormation stack is not in one of the expected states after the deployment has completed. 
 
 :::hint
-CloudFormation stack owns only the task definition and the service, therefore this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), and not the tasks spawned from the service definition.
+CloudFormation stack only owns the task definition and the service. Therefore this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), not the tasks spawned from the service definition.
 :::
 
 We will attempt to retrieve the error message behind the stack's status and any events that have occurred. Please note, that due to the limitations in the AWS SDK some presented events could be related to previous deployments.
