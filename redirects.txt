@@ -39,7 +39,7 @@ docs/administration/security-headers.md -> docs/security/http-security-headers.m
 docs/administration/security-and-encryption.md -> docs/security/data-encryption.md
 docs/administration/fips-and-octopus-deploy.md -> docs/security/fips-and-octopus-deploy.md
 docs/administration/security/cve/fips-and-octopus-deploy.md -> docs/security/fips-and-octopus-deploy.md
-docs/administration/outbound-requests.md -> docs/security/outbound-requests.md
+docs/administration/outbound-requests.md -> docs/security/outbound-requests/index.md
 docs/administration/csrf-and-octopus-deploy.md -> docs/security/cve/csrf-and-octopus-deploy.md
 docs/administration/security/csrf-and-octopus-deploy.md -> docs/security/cve/csrf-and-octopus-deploy.md
 docs/installation/expose-the-octopus-web-portal-over-https.md -> docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https.md
@@ -595,7 +595,7 @@ docs/administration/security/data-encryption.md -> docs/security/data-encryption
 docs/administration/security/fips-and-octopus-deploy.md -> docs/security/fips-and-octopus-deploy.md
 docs/administration/security/hardening-octopus.md -> docs/security/hardening-octopus.md
 docs/administration/security/http-security-headers.md -> docs/security/http-security-headers.md
-docs/administration/security/outbound-requests.md -> docs/security/outbound-requests.md
+docs/administration/security/outbound-requests.md -> docs/security/outbound-requests/index.md
 docs/administration/security/pci-compliance-and-octopus-deploy.md -> docs/security/pci-compliance-and-octopus-deploy.md
 docs/administration/security/script-integrity.md -> docs/security/script-integrity.md
 docs/administration/security/cve/index.md -> docs/security/cve/index.md

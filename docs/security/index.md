@@ -116,7 +116,7 @@ Learn about [PCI/DSS compliance and Octopus Deploy](pci-compliance-and-octopus-d
 
 Some components in Octopus Deploy will make outbound requests from time to time. Generally these requests are required to perform your deployments, some of them are for things like certificate revocation checks, and some are designed to help us build a better product for you.
 
-Learn about the [outbound requests](outbound-requests.md) made by Octopus Deploy.
+Learn about the [outbound requests](outbound-requests/index.md) made by Octopus Deploy.
 
 ## Privacy
 
