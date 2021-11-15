@@ -216,3 +216,29 @@ The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/User
 ## Error messages
 
 If a deployment failure is detected the step will attempt to extract error messages from both the CloudFormation stack and the task spawned from service and task definitions. In some cases, these messages can include errors and warnings from previous deployment attempts. Unfortunately, the step cannot distinguish which errors are relevant and will err on the side of over-communication. In most cases, the error log should provide enough information to resolve any issues without having to refer to the AWS Dashboard or other tools.
+
+### ECS Deployment Deploy Failed
+
+This error is raised if the CloudFormation stack is not in one of the expected states after the deployment has completed. 
+
+:::hint
+CloudFormation stack owns only the task definition and the service, therefore this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), and not the tasks spawned from the service definition.
+:::
+
+We will attempt to retrieve the error message behind the stack's status and any events that have occurred. Please note, that due to the limitations in the AWS SDK some presented events could be related to previous deployments.
+
+The following states are considered unsuccessful:
+* `UPDATE_ROLLBACK_COMPLETE`
+* `UPDATE_ROLLBACK_FAILED`
+* `ROLLBACK_COMPLETE`
+* `ROLLBACK_FAILED`
+* `DELETE_FAILED`
+* `CREATE_FAILED`
+* `UPDATE_FAILED`
+
+### ECS Update Validation Error
+
+This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and could not be resolved until a new release is deployed. The ECS step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
+* Specifying more than 20 tags per task definition.
+* Non-unique tag keys.
+* Bound expressions resolving to empty values when the field is required.
