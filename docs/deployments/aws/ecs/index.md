@@ -215,7 +215,7 @@ The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/User
 
 ## Error messages
 
-If a deployment failure is detected the step will attempt to extract error messages from both the CloudFormation stack and the task spawned from service and task definitions. In some cases, these messages can include errors and warnings from previous deployment attempts. Unfortunately, the step cannot distinguish which errors are relevant and will err on the side of over-communication. In most cases, the error log should provide enough information to resolve any issues without having to refer to the AWS Dashboard or other tools.
+If a deployment failure is detected, the step will attempt to extract error messages from both the CloudFormation stack and the task spawned from service and task definitions. In some cases, these messages can include errors and warnings from previous deployment attempts. Unfortunately, the step cannot distinguish which errors are relevant and will err on the side of over-communication. In most cases, the error log should provide enough information to resolve any issues without referring to the AWS Dashboard or other tools.
 
 ### ECS Deployment Deploy Failed
 
