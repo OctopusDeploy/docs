@@ -225,7 +225,7 @@ This error is raised if the CloudFormation stack is not in one of the expected s
 CloudFormation stack only owns the task definition and the service. Therefore this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), not the tasks spawned from the service definition.
 :::
 
-We will attempt to retrieve the error message behind the stack's status and any events that have occurred. Please note, that due to the limitations in the AWS SDK some presented events could be related to previous deployments.
+We will attempt to retrieve the error message behind the stack's status and any events that have occurred. Please note, that due to the limitations in the AWS SDK, some presented events could be related to previous deployments.
 
 The following states are considered unsuccessful:
 * `UPDATE_ROLLBACK_COMPLETE`
