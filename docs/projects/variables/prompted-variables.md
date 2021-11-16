@@ -53,7 +53,7 @@ Prompted variables can be [scoped to specific processes](/docs/runbooks/runbook-
 
 ## Prompted variable ordering
 
-When Octopus renders prompted variables for a deployment or runbook, they are sorted alphabetically by the prompted variable label. If you want to customise the order in which the variables appear, one option is to include a numerical prefix in the label:
+When Octopus renders prompted variables for a deployment or runbook, they are sorted alphabetically by the prompted variable label. If you want to customize the order in which the variables appear, one option is to include a numerical prefix in the label:
 
 ![](images/prompted-variable-custom-sort.png "width=500")
 
