@@ -62,7 +62,7 @@ The default branch must exist.
 The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token. Git providers allow you to create an access token in different ways:
 
 * [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-* [Azure DevOps - Use personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
+* [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
 * [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html)
 * [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 
