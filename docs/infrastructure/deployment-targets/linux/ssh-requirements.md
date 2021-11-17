@@ -60,7 +60,7 @@ Self-contained Calamari is built as a [.NET Core self-contained distributable](h
 
 [Calamari](/docs/octopus-rest-api/calamari.md) can execute on the [Mono framework](http://www.mono-project.com/).
 
-Version **3.10** or greater of Mono is required; however, we recommended a minimum of version **5.14.0**.
+Version **3.10** or greater of Mono is required; however, we recommend a minimum of version **5.14.0**.
 
 You can find instructions for installing Mono in the [Mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
