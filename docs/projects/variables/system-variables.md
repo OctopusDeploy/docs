@@ -142,7 +142,7 @@ There is also a distinct list of issues across all packages available in:
 
 ### Release Branch information {#release-branch-information}
 
-For projects that have version control enabled, information about the branch and commit from which the release was created is also available.
+For projects that have [version control](/docs/projects/version-control/index.md) enabled, information about the branch and commit from which the release was created is also available.
 
 | Name and description                   | Example                                    |
 | -------------------------------------- | ------------------------------------------ |
