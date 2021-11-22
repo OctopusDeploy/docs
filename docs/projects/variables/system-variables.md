@@ -146,7 +146,7 @@ For projects that have version control enabled, information about the branch and
 
 | Name and description                   | Example                                    |
 | -------------------------------------- | ------------------------------------------ |
-| `Octopus.Release.Git.BranchName` <br/> | *features/some-new-feature*                |
+| `Octopus.Release.Git.BranchName` <br/>The branch name. This variable was added in Octopus **2021.3.0**. | *features/some-new-feature*                |
 | `Octopus.Release.Git.CommitHash` <br/>The commit hash. This variable was added in Octopus **2021.3.0**. | *0c708fdec272bc4446c6cabea4f0022c2b616eba* |
 | `Octopus.Release.Git.Ref` <br/>The git reference. This variable was added in Octopus **2021.3.0**. | *Version 1*                                |
 
