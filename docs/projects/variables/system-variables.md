@@ -138,6 +138,18 @@ There is also a distinct list of issues across all packages available in:
 #{/each}
 ```
 
+
+
+### Release Branch information {#release-branch-information}
+
+For projects that have [version control](/docs/projects/version-control/index.md) enabled, information about the branch and commit from which the release was created is also available.
+
+| Name and description                   | Example                                    |
+| -------------------------------------- | ------------------------------------------ |
+| `Octopus.Release.Git.BranchName` <br/>The branch name. This variable was added in Octopus **2021.3.0**. | *features/some-new-feature*                |
+| `Octopus.Release.Git.CommitHash` <br/>The commit hash. This variable was added in Octopus **2021.3.0**. | *0c708fdec272bc4446c6cabea4f0022c2b616eba* |
+| `Octopus.Release.Git.Ref` <br/>The git reference. This variable was added in Octopus **2021.3.0**. | *Version 1*                                |
+
 ## Deployment {#Systemvariables-Deployment}
 
 Deployment-level variables are drawn from the project and release being deployed.
