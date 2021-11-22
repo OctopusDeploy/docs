@@ -26,7 +26,7 @@ It was important to us that the Octopus UI remain fully functional for version-c
 
 Of course, there is also now a text representation of the process in the git repository, and if you prefer editing text then open your favorite editor and go for it.  We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
-This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases the relevant branch can be selected. We have also added [branch system variables](https://octopus.com/docs/projects/variables/system-variables#release-branch-information) that can be used in your custom deployment scripts.
+This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables#release-branch-information) that can be used in your custom deployment scripts.
 
 ### What's next?
 
