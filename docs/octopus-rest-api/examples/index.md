@@ -13,6 +13,7 @@ As you work with the Octopus API, you may need some guidance on how to perform c
 - Python using the REST API.
 - Go using the REST API.
 - Java using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
+- TypeScript using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts).
 
 In addition, we also have a wide range of some of the more common examples here as well.
 
@@ -45,6 +46,10 @@ The Go examples are written using the [go-octopusdeploy](https://github.com/Octo
 The Java examples are written using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
 
 The Java Client library requires **Java 1.8** or above.
+
+### TypeScript examples
+
+The TypeScript examples are written using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts).
 
 ## Bulk operations
 
