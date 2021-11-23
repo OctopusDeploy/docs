@@ -49,7 +49,7 @@ The Java Client library requires **Java 1.8** or above.
 
 ### TypeScript examples
 
-The TypeScript examples are written using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts).
+The TypeScript examples are written using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts). Currently, this client does not support being hosted in a browser context; a Node.js runtime host is assumed.
 
 ## Bulk operations
 
