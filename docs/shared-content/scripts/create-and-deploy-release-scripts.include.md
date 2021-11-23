@@ -669,6 +669,7 @@ func GetPackageVersion(octopusURL *url.URL, APIKey string, space *octopusdeploy.
 }
 ```
 ```ts TypeScript
+import { Client, ClientConfiguration, Repository } from '@octopusdeploy/api-client';
 import {
 	ChannelResource,
 	DeploymentProcessResource,
@@ -680,7 +681,6 @@ import {
 	ReleaseResource,
 	ReleaseTemplateResource
 } from '@octopusdeploy/message-contracts';
-import { Client, ClientConfiguration, Repository } from '@octopusdeploy/api-client';
 
 const configuration: ClientConfiguration = {
     apiKey: 'api-key',
