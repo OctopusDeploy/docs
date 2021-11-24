@@ -31,9 +31,9 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 The Octopus Server Linux Container can be hosted in a number of different ways. This section walks through the different options for hosting the Octopus Octopus Server Linux Container. 
 
-- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/hosting/docker-compose-linux.md)
-- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/hosting/systemd-service-definition.md)
-- [Octopus Server in Kubernetes](/docs/installation/octopus-server-linux-container/hosting/systemd-service-definition.md)
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 
 ## Migration
 

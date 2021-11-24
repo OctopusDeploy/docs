@@ -549,7 +549,7 @@ docs/release-management/issue-tracking/azure-devops.md -> docs/releases/issue-tr
 docs/release-management/issue-tracking/github.md -> docs/releases/issue-tracking/github.md
 docs/release-management/issue-tracking/jira.md -> docs/releases/issue-tracking/jira.md
 docs/installation/octopus-in-container/octopus-server-container.md -> docs/installation/octopus-server-linux-container/index.md
-docs/installation/octopus-in-container/docker-compose.md -> docs/installation/octopus-server-linux-container/hosting/docker-compose-linux.md
+docs/installation/octopus-in-container/docker-compose.md -> docs/installation/octopus-server-linux-container/docker-compose-linux.md
 docs/octopus-concepts/octo.exe.md -> docs/octopus-rest-api/octopus-cli/index.md
 docs/octopus-rest-api/octo.exe-command-line/build-information.md -> docs/octopus-rest-api/octopus-cli/build-information.md
 docs/octopus-rest-api/octo.exe-command-line/clean-environment.md -> docs/octopus-rest-api/octopus-cli/clean-environment.md
@@ -1026,7 +1026,7 @@ docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide
 docs/deployments/patterns/multi-tenant-deployments/index.md -> docs/tenants/index.md
 docs/administration/community/index.md -> docs/administration/managing-licenses/community/index.md
 docs/installation/octopus-in-container/docker-compose-windows.md -> docs/installation/octopus-server-windows-container.md
-docs/installation/octopus-in-container/docker-compose-linux.md -> docs/installation/octopus-server-linux-container/hosting/docker-compose-linux.md
+docs/installation/octopus-in-container/docker-compose-linux.md -> docs/installation/octopus-server-linux-container/docker-compose-linux.md
 docs/installation/octopus-in-container/octopus-server-container-linux.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/migrate-to-server-container-linux-from-windows-container.md -> docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container.md
 docs/installation/octopus-in-container/migrate-to-server-container-linux-from-windows-server.md -> docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server.md
