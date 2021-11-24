@@ -172,7 +172,8 @@ No steps here for Helm
 <p>
 
 ```
-  docker login docker.cloudsmith.io\n\n# You will be prompted for your Username and Password. Enter your Cloudsmith username and your Cloudsmith API Key.
+  docker login docker.cloudsmith.io
+  # You will be prompted for your Username and Password. Enter your Cloudsmith username and your Cloudsmith API Key.
 ```
 </p>
 </details>
