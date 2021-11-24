@@ -255,7 +255,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 ## Harden your containers
 
-If you run an [Octopus Deploy container](/docs/installation/octopus-in-container/index.md), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
+If you run an [Octopus Deploy container](/docs/installation/octopus-server-linux-container/index.md), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
 
 - Move your docker data directory (the default location is `/var/lib/docker`) so that your containers are stored on a separate partition. 
 - Assign resources carefully:

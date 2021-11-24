@@ -1,18 +1,19 @@
 ---
-title: Octopus Server Linux Container
-description: An Octopus Server instance can be run directly from within a container.
-position: 1
+title: Octopus Server in a Container
+description: Running the Octopus Server in the official Docker container
+position: 8
+hideInThisSectionHeader: true
 ---
 
-:::hint
-Octopus Server Linux Containers launched as part of **2020.6**. You will need to upgrade to **2020.6** before using the Octopus Linux Container.
+:::warning
+The [Octopus Server Windows Container](/docs/installation/octopus-server-windows-container.md) is deprecated, and no longer maintained.
 :::
 
-This page describes how to run Octopus Deploy within a Linux Container.
-
-**Note:** When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+This page describes how to run Octopus Server in a **Linux Container**, introduced in Octopus **2020.6**. 
 
 Running the Octopus Server inside a container provides a simple way to set up an Octopus Deploy instance, and upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
+
+**Note:** When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 Although there are a few different configuration options, the following is a simple example of starting an Octopus Server container:
 
@@ -30,7 +31,7 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 ## Configuration
 
-:::warning
+:::hint
 Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility.md) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
 :::
 

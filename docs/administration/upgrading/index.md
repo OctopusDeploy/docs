@@ -17,8 +17,8 @@ Octopus Deploy connects to a SQL Server database, and can be hosted:
 
 - As a Windows Service, installed via an MSI.
 - In a container, either:
-    - A [Linux](docs/installation/octopus-in-container/octopus-server-container-linux.md) container (recommended)
-    - A [Windows](docs/installation/octopus-in-container/octopus-server-container-windows.md) container *(deprecated)*
+    - A [Linux](docs/installation/octopus-server-linux-container/index.md) container (recommended)
+    - A [Windows](docs/installation/octopus-server-windows-container.md) container *(deprecated)*
 
 ### Upgrade Process
 

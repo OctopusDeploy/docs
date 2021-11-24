@@ -1,5 +1,5 @@
 ---
-title: Octopus Tentacle Container
+title: Octopus Tentacle in a Container
 description: An Octopus Tentacle instance can be run directly from within a container.
 position: 10
 ---
