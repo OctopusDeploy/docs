@@ -29,7 +29,7 @@ In this example, we are running the image `!docker-image <octopusdeploy/octopusd
 
 ## Running Octopus Server in a Container
 
-This section walks through some of the different ways you can run the Octopus Octopus Server Linux Container, from `docker compose` to using a full orchestration service such as Kubernetes:
+This section walks through some of the different ways you can run the Octopus Server Linux Container, from `docker compose` to using a full orchestration service such as Kubernetes:
 
 - [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
 - [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
