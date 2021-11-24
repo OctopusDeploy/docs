@@ -87,7 +87,7 @@ Groups.startsWith("active_directory", "Octopus.", 10)
 ```
 This expression will search `active_directory` for any groups that start with the name `Octopus.` and only return the first 10 results.
 
-> A complete guide to Okta's group expressions are available [here](https://developer.okta.com/docs/how-to/creating-token-with-groups-claim#create-groups-claims-with-a-dynamic-whitelist)
+> A complete guide to Okta's group expressions are available [here](https://developer.okta.com/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
 
 ### Assign app {#Oktaauthentication-AssignApp}
 
