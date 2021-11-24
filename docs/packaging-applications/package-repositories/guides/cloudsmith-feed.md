@@ -56,7 +56,7 @@ Below we will give an overview using package-specific native CLI for NuGet, Dock
 The instructions below should be entered into a command line shell and we expect you to be in the same directory as your package. We will use this terminology in the following examples: 
 | Identifier | Description                                                           |
 |------------|-----------------------------------------------------------------------|
-| OWNER      | Your Cloudsmith account name or organisation name (namespace)         |
+| OWNER      | Your Cloudsmith account name or organization name (namespace)         |
 | REGISTRY   | Your Cloudsmith Repository name (also called "slug")                  |
 | USERNAME   | Your Cloudsmith Entitlement Token (see Entitlements for more details) |
 | USERNAME   | Your Cloudsmith username                                              |
@@ -224,7 +224,7 @@ No steps here for Helm
 ## Adding Cloudsmith as an External Feed for Octopus Deploy
 Now that we have created our repository we can add our Cloudsmith repository as an external feed in our Octopus Deploy account.
 
-Log into your Octopus control centre and navigate to the Octopus dashboard for your Organization. 
+Log into your Octopus control center and navigate to the Octopus dashboard for your Organization. 
 
 Navigate to your Organizations Cloud instance, by clicking the *View* button and selecting your plan. 
 
