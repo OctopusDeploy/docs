@@ -4,18 +4,11 @@ description: Configuring a Cloudsmith repository as an Octopus feed for NuGet, D
 position: 70
 ---
 
-![](images/cloudsmith-logo.png)
-
-[Cloudsmith](https://www.cloudsmith.com) is a fully managed package management as a service which securely hosts all of your packages (26+), in any format, including NuGet, Helm, Docker, Maven or NPM in one location and accessible across the organization.
-
-It's easy to set up a repository with Cloudsmith and configure it to be an external feed for Octopus Deploy to consume.
+[Cloudsmith](https://www.cloudsmith.com) is a fully managed package management as a service which securely hosts all of your packages, in any format, including NuGet, Helm, Docker, Maven or NPM in one location and accessible across the organization.
 
 :::hint
 All Cloudsmith repositories are [multi-format](https://www.youtube.com/watch?v=Wgn-zJ8R3fg). This means you can mix and match different package types in one repository. A NuGet package can sit beside a Maven package, a Docker or a NPM package!
 :::
-
-## Sign up for a Trial
-You can sign up for a trial for Cloudsmith [here](https://cloudsmith.com/signup/). You get access to all the features during the trial including custom domains and SSO. 
 
 ## Create a Cloudsmith Organization
 Before setting up a Cloudsmith repository, you should create an [Organization](https://help.cloudsmith.io/docs/organisations) and invite others to join the Organization. Creating an Organization in Cloudsmith gives you the ability to configure and manage access for teams, individuals and machines that map to your companies organizational structure. 
