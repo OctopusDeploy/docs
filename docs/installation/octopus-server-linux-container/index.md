@@ -27,9 +27,9 @@ $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --e
 
 In this example, we are running the image `!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
-## Hosting
+## Running Octopus Server in a Container
 
-The Octopus Server Linux Container can be hosted in a number of different ways. This section walks through the different options for hosting the Octopus Octopus Server Linux Container. 
+This section walks through some of the different ways you can run the Octopus Octopus Server Linux Container, from `docker compose` to using a full orchestration service such as Kubernetes:
 
 - [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
 - [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
