@@ -56,14 +56,14 @@ If the task appears to hang after a log message output by the Octopus Server or 
 
 If this test shows that anti-virus is interfering with your tasks, you may need to configure your anti-virus software with the appropriate exclusions to ensure that it does not lock any files owned by Octopus, or affect any running processes initiated by Octopus. Consult your anti-virus provider's documentation for more information.
 
-Some examples of directory exclusions you could try whitelisting (and their sub-directories) are:
+Some examples of directories (and their sub-directories) you could try adding to an allow list are:
 
 - `<Tentacle Home>\Tools`
     - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
 - `<Tentacle Home>\Work`
     - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
-If you're still seeing issues you could also try whitelisting the following directories (and their sub-directories):
+If you're still seeing issues you could also try including these additional directories (and their sub-directories):
 
 - `<Tentacle Home>\Files`
     - This is the package cache used to store the most recent packages in case they need to be used again.
@@ -71,7 +71,7 @@ If you're still seeing issues you could also try whitelisting the following dire
     - This is where the Tentacle log files are stored.
 
 :::hint
-We recommend including sub-directories in the whitelisting of the directories above as processes initiated by Octopus may also create new folders within them.
+We recommend including sub-directories in any allow list for the directories listed above as processes initiated by Octopus may also create new folders within them.
 :::
 
 ## Steps are slow to start
