@@ -224,37 +224,21 @@ No steps here for Helm
 ## Adding Cloudsmith as an External Feed for Octopus Deploy
 Now that we have created our repository we can add our Cloudsmith repository as an external feed in our Octopus Deploy account.
 
-Log into your Octopus control center and navigate to the Octopus dashboard for your Organization. 
-
-Navigate to your Organizations Cloud instance, by clicking the *View* button and selecting your plan. 
-
-![Navigate to your external feed](images/cloudsmith-octopus1.png)
-
-Then navigate to your Octopus app, by selecting the link on the top right.
-
-![Navigate to your external feed](images/cloudsmith-octopus2.png)
-
-Select the Library tab.
-![Navigate to your external feed](images/cloudsmith-octopus3.png)
-
-Then, create a new Octopus Feed by navigating to **External Feeds->Add Feed**.
-![Select External Feeds](images/cloudsmith-octopus4.png)
-
-![Select ADD FEED](images/cloudsmith-octopus5.png)
+Log into your Octopus control center and navigate to the Octopus dashboard for your Organization. From here you can create a new external feed by navigating to **Library->External Feeds** and selecting **Add Feed**.
 
 In the *Create Feed* page:
 - Select the Feed type (NuGet, Helm, Docker, Maven), 
 - Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of your Cloudsmith repository. For more information on the URL Feed follow the section below on **URLs for Feeds**
 - Populate the credentials of your Cloudsmith repository if necessary. For more information on the URL Feed follow the section below on **Adding Credentials for Private Repositories**.
 
-![Select your Feed Type](images/cloudsmith-octopus6.png)
+![Select your Feed Type](images/cloudsmith-octopus1.png)
 
 ## URLs for Feeds
 This section contains information about what Cloudsmith feed URL to use for your specific package.
  
 ### NuGet
 Create a new Octopus Feed by navigating to **Library->External Feeds** and selecting the *NuGet* Feed type.
-![NuGet Feed Type](images/cloudsmith-octopus7.png)
+![NuGet Feed Type](images/cloudsmith-octopus2.png)
 
 - Give the NuGet feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith NuGet repository following the instructions in the box below:
@@ -282,7 +266,7 @@ Private repositories require authentication- refer to the section below on **Add
 
 ### Docker
 Create a new Octopus Feed by navigating to **Library->External Feeds** and selecting the *Docker Container Registry* Feed type.
-![Docker Feed Type](images/cloudsmith-octopus8.png)
+![Docker Feed Type](images/cloudsmith-octopus3.png)
 
 - Give the Docker feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Docker repository following the instructions in the box below: 
@@ -295,7 +279,7 @@ Private repositories require authentication- refer to the section below on **Add
 
 ### Maven 
 Create a new Octopus Feed by navigating to **Library->External Feeds** and selecting the *Maven* Feed type.
-![Maven Feed Type](images/cloudsmith-octopus9.png)
+![Maven Feed Type](images/cloudsmith-octopus4.png)
 
 - Give the feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Maven repository following the instructions in the box below:
@@ -333,7 +317,7 @@ Private repositories require authentication- refer to the section below on **Add
 
 ### Helm 
 Create a new Octopus Feed by navigating to **Library->External Feeds** and selecting the *Helm* Feed type.
-![Helm Feed Type](images/cloudsmith-octopus10.png)
+![Helm Feed Type](images/cloudsmith-octopus5.png)
 
 - Give the feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Helm repository following the instructions in the box below:
@@ -381,7 +365,7 @@ Entitlement Tokens, User Credentials and API-Keys should be treated as secrets, 
 :::
 
 When you are adding or editing your external feed, you can add credentials for your feed by populating the *Credentials* section. 
-![Credentials for your external feed](images/cloudsmith-octopus11.png)
+![Credentials for your external feed](images/cloudsmith-octopus6.png)
 
 Provide one of the following three types of credentials:
 
