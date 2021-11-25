@@ -8,8 +8,8 @@ hideInThisSectionHeader: true
 Octopus Deploy includes dedicated integration with Amazon Web Services (AWS) to help you achieve repeatable, recoverable, secure, and auditable deployments:
 
 - [Deploy Amazon ECS Service](/docs/deployments/aws/ecs/index.md) is a UI-driven step with an opinionated deployment workflow that builds the CloudFormation template for you.
-- [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation/index.md) can be used when you need more flexibility to create or update a CloudFormation stack.
-- [Delete an AWS CloudFormation stack](/docs/deployments/aws/removecloudformation/index.md) will delete existing CloudFormation stacks.
+- [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation/index.md) allows you to create or update a CloudFormation stack. It offers more flexibility than the UI step.
+- [Delete an AWS CloudFormation stack](/docs/deployments/aws/removecloudformation/index.md) deletes existing CloudFormation stacks.
 - [Upload a package to an AWS S3 bucket](/docs/deployments/aws/s3/index.md) allows you to upload files and packages to S3 buckets.
 - [Run an AWS CLI Script](/docs/deployments/custom-scripts/aws-cli-scripts.md) runs a custom script with AWS credentials pre-loaded.
 
