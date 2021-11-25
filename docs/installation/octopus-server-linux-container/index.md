@@ -2,7 +2,7 @@
 title: Octopus Server Linux Container
 description: Running the Octopus Server in the official Docker Linux container
 position: 8
-hideInThisSectionHeader: true
+hideInThisSection: true
 ---
 
 !include <octopus-server-in-container>
@@ -114,6 +114,11 @@ $ docker run --interactive --detach --name OctopusServer --publish 1322:8080 --e
 ```
 
 The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
+
+## Troubleshooting
+
+If you're running into issues with the Octopus Server Linux Container then please use our [Troubleshooting](/docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container.md) guide.
+
 
 ## Learn more
 
