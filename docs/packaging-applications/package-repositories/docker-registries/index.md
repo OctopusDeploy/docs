@@ -61,12 +61,13 @@ docker run -d -p 5000:5000 --name registry registry:2
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
 ## Other registry options {#DockerRegistriesasFeeds-OtherOptions}
-There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
+There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
 - [Docker Hub](/docs/packaging-applications/package-repositories/guides/docker-hub.md)
 - [Azure Container Services](/docs/packaging-applications/package-repositories/guides/azure-container-services.md)
 - [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/amazon-ec2-container-services.md)
+- [Cloudsmith](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed.md)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
