@@ -5,7 +5,7 @@ position: 10
 hideInThisSectionHeader: true
 ---
 
-The first step in this guide is to create a new [lifecycle](https://octopus.com/docs/releases/lifecycles) for our project.
+The first step in this guide is to create a new [lifecycle](/docs/releases/lifecycles.md) for our project.
 
 To create a new Lifecycle, navigate to **{{Library, Lifecycles, ADD LIFECYCLE}}**.
 
