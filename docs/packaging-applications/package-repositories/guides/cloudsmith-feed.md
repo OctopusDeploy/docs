@@ -18,7 +18,7 @@ You can create an Organization by clicking on the **+** dropdown on the top menu
 
 ![create a new organization](images/cloudsmith-new-org.png "width=500")
 
-This will take you to the "Create Organization" form. You are required to enter a name for your Organization and a primary email address before creating your Organization (the organization name is checked to ensure it's unique before creating it).
+This will take you to the **Create Organization** form. You are required to enter a name for your Organization and a primary email address before creating your Organization (the organization name is checked to ensure it's unique before creating it).
 
 ![create a new organization](images/cloudsmith-create-org.png "width=500")
 
@@ -59,7 +59,7 @@ Cloudsmith provides three ways to push your packages/files/assets into your repo
 Documentation for package-specific native CLI and tooling is available on the website within each repository.  For example, after selecting `NuGet` as the package format to upload, a new form will pop up, click the link **upload setup documentation** and the following documentation is available: 
 ![contextual documentation for uploading NuGet packages](images/cloudsmith-new-package-native.png "width=500")
 
-The next section will give an overview uploading your package using the package-specific native CLI for NuGet, Docker and Maven. For Helm we will use the Cloudsmith CLI. See the [Cloudsmith supported formats documentation](https://help.cloudsmith.io/docs/supported-formats) for more information.
+The next section will give an of overview uploading your package using the package-specific native CLI for NuGet, Docker and Maven. For Helm we will use the Cloudsmith CLI. See the [Cloudsmith supported formats documentation](https://help.cloudsmith.io/docs/supported-formats) for more information.
 
 The commands that are included in this section should be entered into a command line shell, and it's assumed the commands are run in the same directory as your package. We will use this terminology in the following examples:
 
@@ -144,7 +144,7 @@ docker login docker.cloudsmith.io
 
 ### Publish Package {#publish-package}
 
-Finally you can publish (or upload) your package to Cloudsmith usig one of the following commands:
+Finally you can publish (or upload) your package to Cloudsmith using one of the following commands:
 
 ```shell NuGet
 nuget push PACKAGE_NAME-PACKAGE_VERSION.nupkg -Source example-repo -ApiKey API-KEY
@@ -187,11 +187,11 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
 - Give the NuGet feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith NuGet repository using the version of NuGet that matches your configuration:
 
-  ```text NuGet V3
-  https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
-  ```
   ```text NuGet V2
   https://nuget.cloudsmith.io/OWNER/REPOSITORY/v2
+  ```
+  ```text NuGet V3
+  https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
   ```
 
 :::hint
@@ -226,7 +226,7 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
 
   - Entitlement Token Authentication:
   
-    `https://dl.cloudsmith.xyz/TOKEN/OWNER/REPOSITORY/maven/`
+    `https://dl.cloudsmith.io/TOKEN/OWNER/REPOSITORY/maven/`
 
   - HTTP Basic Authentication:
   
