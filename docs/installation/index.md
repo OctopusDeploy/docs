@@ -11,13 +11,17 @@ hideInThisSection: true
 
 When installed, the self-hosted Octopus Server:
 
-- Runs as a Windows service called **OctopusDeploy**.
+- Runs
+  - As a Windows Service called **OctopusDeploy**, installed via an MSI.
+  - In a container, either:
+     - A [Linux](docs/installation/octopus-server-linux-container/index.md) container (recommended)
+     - A [Windows](docs/installation/octopus-server-windows-container.md) container *(deprecated)*
 - Stores its data in an [SQL Server Database](/docs/installation/sql-server-database.md). ([SQL Server Express](http://downloadsqlserverexpress.com/) is an easy way of getting started.)
 - Includes an embedded HTTP server which serves the [Octopus REST API](/docs/octopus-rest-api/index.md) and the  **Octopus Web Portal** that you will use to manage your [infrastructure](/docs/infrastructure/index.md), [deployments](/docs/projects/deployment-process/index.md), [runbooks](/docs/runbooks/index.md), and coordinate your [releases](/docs/releases/index.md).
 
 Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements.md), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database.md) that you can use with Octopus Deploy.
 
-## Install Octopus
+## Install Octopus as a Windows Service {#install-octopus}
 
 1. [Download](https://Octopus.com/downloads/server) the Octopus installer.
 1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
@@ -44,13 +48,13 @@ Learn more about the [permissions required for the Octopus Windows Service](/doc
 
 When the installation has completed, click **Finish** to launch the **Octopus Manager**.
 
-## Octopus Manager
+### Octopus Manager
 
 Before you launch the **Octopus Web Portal**, it's worth taking note of the other settings such as controlling the Octopus Windows Service, importing and exporting the data Octopus stores in the SQL server, and viewing the Master Key.
 
 You can launch the Octopus Web Portal from the Octopus Manager, by clicking **Open in Browser**.
 
-## Save your Master Key
+### Save your Master Key
 
 Under the storage section, you will see a link to **View Master Key**.
 
@@ -63,6 +67,18 @@ Make a copy of the Master Key and save it in a **secure** location.
 
 If you don't have a copy of your Master Key and your hardware fails, you will not be able to recover the encrypted data from the database. Make a copy of the **Master Key** and save it in a secure location. Hopefully you will never need it, but you'll be glad you have it if you ever do. Learn about [Recovering After Losing Your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
 :::
+
+## Run Octopus Server in a Container {#run-octopus-in-container}
+
+!include <octopus-server-in-container>
+
+This section includes information about different options to run the Octopus Server Linux Container, and migration considerations when moving to the Octopus Server Linux Container From Windows Server or the *deprecated* Windows Container.
+
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md)
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
+- [Migrating to the Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/migration/index.md)
 
 ## Launch the Octopus Web Portal
 

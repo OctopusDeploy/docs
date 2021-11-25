@@ -1,7 +1,7 @@
 ---
 title: Isolated Octopus Servers
 description: Working with isolated Octopus Servers due to infrastructure or governance requirements.
-position: 9
+position: 11
 ---
 
 Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus Server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/security/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/deployment-targets/windows-targets/index.md), giving you multiple options to work around firewall issues.

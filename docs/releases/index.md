@@ -71,7 +71,16 @@ You can deploy releases to a specific subset of deployment targets.
 
 ### Variable snapshot
 
-For each release you create, a snapshot is taken of the project variables. You can review the variables in the **Variable Snapshot** section of the release page by clicking **SHOW SNAPSHOT**. This lets you see the variables as they existed when the release was created.
+For each release you create, a snapshot is taken of the project variables. You can review the variables for a release from within a project:
+
+1. Using the project side menu, navigate to **{{Deployments, Releases}}** 
+1. Select the release that you wish to view the variable snapshot for
+1. On the release page scroll to the **Variable Snapshot** section
+1. Click **SHOW SNAPSHOT**
+
+This lets you see the variables as they existed when the release was created.
+
+![](images/release-variable-snapshot-section.png "width=500")
 
 You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
 

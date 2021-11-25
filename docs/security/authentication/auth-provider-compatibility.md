@@ -4,7 +4,7 @@ description: Compatibility of authentication providers differ between Octopus Se
 position: 0
 ---
 
-Octopus ships with a number of authentication providers. The support for these providers differ between Octopus Server, [Octopus Cloud](/docs/octopus-cloud/index.md) and the [Octopus Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md). Some authentication providers only work with Octopus Server, whilst others only work with Octopus Cloud. This page describes the compatibility of these providers in Octopus.
+Octopus ships with a number of authentication providers. The support for these providers differ between Octopus Server, [Octopus Cloud](/docs/octopus-cloud/index.md) and the [Octopus Linux Container](/docs/installation/octopus-server-linux-container/index.md). Some authentication providers only work with Octopus Server, whilst others only work with Octopus Cloud. This page describes the compatibility of these providers in Octopus.
 
 :::hint
 Most of the authentication providers listed here are available in modern versions of Octopus. However, some are shipped with Octopus from a specific version. Where this is the case, the version will be noted alongside the provider.

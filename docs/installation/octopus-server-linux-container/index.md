@@ -1,20 +1,19 @@
 ---
 title: Octopus Server Linux Container
-description: An Octopus Server instance can be run directly from within a container.
-position: 1
+description: Running the Octopus Server in the official Docker Linux container
+position: 8
+hideInThisSection: true
 ---
 
-:::hint
-Octopus Server Linux Containers launched as part of **2020.6**. You will need to upgrade to **2020.6** before using the Octopus Linux Container.
-:::
+!include <octopus-server-in-container>
 
-This page describes how to run Octopus Deploy within a Linux Container.
+This page describes how to run Octopus Server in the Linux Container.
 
 **Note:** When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
-Running the Octopus Server inside a container provides a simple way to set up an Octopus Deploy instance, and upgrading to the latest version of Octopus is just a matter of running a new container with the new image version.
+## Getting started
 
-Although there are a few different configuration options, the following is a simple example of starting an Octopus Server container:
+Although there are a few different configuration options, the following is a simple example of starting the  Octopus Server Linux container:
 
 ```Bash
 $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --env ACCEPT_EULA="Y" --env DB_CONNECTION_STRING="..." !docker-image <octopusdeploy/octopusdeploy>
@@ -28,9 +27,24 @@ $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --e
 
 In this example, we are running the image `!docker-image <octopusdeploy/octopusdeploy>`. The tag maps directly to the Octopus Server version that is bundled inside the image.
 
+## Running Octopus Server in a Container
+
+This section walks through some of the different ways you can run the Octopus Server Linux Container, from `docker compose` to using a full orchestration service such as Kubernetes:
+
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
+
+## Migration
+
+You may already have an existing Octopus Server running on Windows Server or running in a Windows container that you wish to run in a Linux Container. This section walks through the different options and considerations for migration to the Octopus Server Linux Container. 
+
+- [Migrate to Octopus Server Linux Container from Windows Server](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server.md)
+- [Migrate to Octopus Server Linux Container from Windows Container](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container.md)
+
 ## Configuration
 
-:::warning
+:::hint
 Support for authentication providers differs depending on how you host Octopus Server. Please see our [authentication provider compatibility section](/docs/security/authentication/auth-provider-compatibility.md) to ensure any existing authentication provider is supported when running Octopus in a Linux Container.
 :::
 
@@ -44,102 +58,6 @@ Master keys must be a 128 bit string that is then base 64 encoded. You can gener
 
 ```
 openssl rand 16 | base64
-```
-
-### Helm chart
-
-Octopus can be installed into a Kubernetes cluster using a Helm chart.
-
-Add the helm chart repository with the following commands:
-
-```
-helm repo add octopus https://octopus-helm-charts.s3.amazonaws.com
-helm repo update
-```
-
-Then install the chart with the command:
-
-```
-helm upgrade --install octopus octopus/octopusdeploy --set octopus.acceptEula=Y --set mssql-linux.acceptEula.value=Y --set octopus.image=octopusdeploy/octopusdeploy --set octopus.masterKey=YOUR_GENERATED_KEY
-```
-
-The source code for the Helm chart can be found on [GitHub](https://github.com/OctopusSamples/OctopusHelmChart). The [values.yaml](https://github.com/OctopusSamples/OctopusHelmChart/blob/master/values.yaml) contains comments describing the options available.
-
-For more information on how the helm chart works, especially with regards to high availability deployments, see the blog post [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image).
-
-### Service Definition with systemd
-
-You can use systemd to boot the Octopus Docker container each time the OS starts. To do this, create a file called `/etc/systemd/system/docker-octopusdeploy.service` with the following contents:
-
-:::hint
-Be sure to change the `ADMIN_PASSWORD` and `MASTER_KEY` from the defaults shown here.
-:::
-
-```
-[Unit]
-Description=Daemon for octopusdeploy
-After=docker-mssql.service docker.service
-Wants=
-Requires=docker-mssql.service docker.service
-StartLimitIntervalSec=20
-StartLimitBurst=3
-
-[Service]
-Restart=on-failure
-TimeoutStartSec=0
-RestartSec=5
-Environment="HOME=/root"
-SyslogIdentifier=docker-octopusdeploy
-ExecStartPre=-/usr/bin/docker create --net octopus -m 0b -e "ADMIN_USERNAME=admin" -e "ADMIN_EMAIL=example@example.org" -e "ADMIN_PASSWORD=Password01!" -e "ACCEPT_EULA=Y" -e "DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!;ConnectRetryCount=6" -e "MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ==" -e "DISABLE_DIND=Y" -p 80:8080 -p 10943:10943 --restart=always --name octopusdeploy octopusdeploy/octopusdeploy
-ExecStart=/usr/bin/docker start -a octopusdeploy
-ExecStop=-/usr/bin/docker stop --time=0 octopusdeploy
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Note that we assume a Docker bridge network called `octopus` exists. This can be created with the command:
-
-```
-docker network create -d bridge octopus
-```
-
-The Octopus service also relies on a MS SQL service define in the file `/etc/systemd/system/docker-mssql.service` with the following contents:
-
-```
-[Unit]
-Description=Daemon for mssql
-After=docker.service
-Wants=
-Requires=docker.service
-StartLimitIntervalSec=20
-StartLimitBurst=3
-
-[Service]
-Restart=on-failure
-TimeoutStartSec=0
-RestartSec=5
-Environment="HOME=/root"
-SyslogIdentifier=docker-mssql
-ExecStartPre=-/usr/bin/docker create --net octopus -m 0b -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Password01!" -e "MSSQL_PID=Express" -e "MSSQL_MEMORY_LIMIT_MB=2048" -p 1433:1433 --restart=always --name mssql mcr.microsoft.com/mssql/server:2019-latest
-ExecStart=/usr/bin/docker start -a mssql
-ExecStop=-/usr/bin/docker stop --time=0 mssql
-
-[Install]
-WantedBy=multi-user.target
-```
-
-To load the new service files, run:
-
-```
-systemctl daemon-reload
-```
-
-Then start the services with the commands:
-
-```
-systemctl start docker-mssql
-systemctl start docker-octopusdeploy
 ```
 
 ### Environment Variables
@@ -196,6 +114,11 @@ $ docker run --interactive --detach --name OctopusServer --publish 1322:8080 --e
 ```
 
 The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
+
+## Troubleshooting
+
+If you're running into issues with the Octopus Server Linux Container then please use our [Troubleshooting](/docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container.md) guide.
+
 
 ## Learn more
 

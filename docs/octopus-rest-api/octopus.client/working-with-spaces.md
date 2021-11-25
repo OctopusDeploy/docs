@@ -4,9 +4,9 @@ description: How to work with Spaces in the Octopus.Client library.
 position: 40
 ---
 
-Working with anything other than the default space in the Octopus.Client library requires specifying the target space. There are two methods of specifying the target space with Octopus.Client:
+Working with anything other than the default space in the Octopus.Client library requires specifying the target space. There are two methods of specifying the target space with Octopus.Client.
 
-## `OctopusClient.ForSpace`
+The first is the `OctopusClient.ForSpace` method:
 
 ```powershell PowerShell
 # Create endpoint and client
@@ -35,7 +35,7 @@ var repositoryForSpace = client.ForSpace(space);
 var projects = repositoryForSpace.Projects.GetAll();
 ```
 
-## `OctopusRepositoryExtensions.ForSpace`
+The other method is `OctopusRepositoryExtensions.ForSpace`:
 
 ```powershell PowerShell
 # Create endpoint and repository

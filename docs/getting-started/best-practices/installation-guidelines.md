@@ -266,6 +266,6 @@ For further reading on installation requirements and guidelines for Octopus Depl
 - [Installation](/docs/installation/index.md)
 - [Requirements](/docs/installation/requirements.md)
 - [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md)
-- [Octopus Server Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md)
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md)
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>

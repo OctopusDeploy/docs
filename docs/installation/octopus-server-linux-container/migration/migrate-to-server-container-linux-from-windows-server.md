@@ -1,7 +1,7 @@
 ---
 title: Migrate to Octopus Server Linux Container from Windows Server
 description: A guide on how to migrate to the Octopus Server Linux Container from Octopus Server running on a Windows Server
-position: 4
+position: 10
 ---
 
 This guide will help you migrate an instance of Octopus hosted on a Windows Server to the Octopus Server Linux Container.
@@ -31,4 +31,4 @@ The LDAP authentication provider was introduced in Octopus Deploy **2021.2**.
 
 ## Further Reading
 
-This guide is meant to address the differences you may encounter when switching from running Octopus Server on Windows to the Octopus Server Linux Container.  For a deeper dive in how to run the Octopus Server Linux Container please refer to [this documentation](/docs/installation/octopus-in-container/octopus-server-container-linux.md).
+This guide is meant to address the differences you may encounter when switching from running Octopus Server on Windows to the Octopus Server Linux Container.  For a deeper dive in how to run the Octopus Server Linux Container please refer to [this documentation](/docs/installation/octopus-server-linux-container/index.md).

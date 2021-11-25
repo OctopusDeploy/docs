@@ -80,7 +80,7 @@ We also recommend adding or updating the notes field to indicate it will only ru
 
 As mentioned earlier, re-deploying the website and windows service involves re-extracting the package, running configuration transforms, and any embedded scripts.  Generally, those steps will finish within 60 seconds.  However, re-deploying those packages carries a small amount of risk because variable snapshots can be updated.  Or, the embedded scripts are complex and take time to finish.  
 
-By default, Octopus Deploy will keep all releases on your Windows Server (this can be changed via [retention policies](https://octopus.com/docs/administration/retention-policies)), which means the previously extracted and configured Windows Service or Website already exists.  Back in Octopus 3.x we added the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled`.  When that variable is set to `True`, Octopus Deploy will:
+By default, Octopus Deploy will keep all releases on your Windows Server (this can be changed via [retention policies](/docs/administration/retention-policies/index.md)), which means the previously extracted and configured Windows Service or Website already exists.  Back in Octopus 3.x we added the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled`.  When that variable is set to `True`, Octopus Deploy will:
 
 1. Check the `deploymentjournal.xml` to see if the package has already been installed.
 2. If it hasn't been installed, then it will proceed with the deployment.
