@@ -11,7 +11,7 @@ All Cloudsmith repositories are [multi-format](https://www.youtube.com/watch?v=W
 :::
 
 ## Create a Cloudsmith Organization
-Before setting up a Cloudsmith repository, you should create an [Organization](https://help.cloudsmith.io/docs/organisations) and invite others to join the Organization. Creating an Organization in Cloudsmith gives you the ability to configure and manage access for teams, individuals and machines that map to your companies organizational structure. 
+Before setting up a Cloudsmith repository, you should create an [Organization](https://help.cloudsmith.io/docs/organisations) and invite others to join the Organization. Creating an Organization in Cloudsmith gives you the ability to configure and manage access for teams, individuals, and machines that map to your company's organizational structure. 
 
 You can create an Organization by clicking on the + dropdown on the top menu bar and selecting "New Organization".
 ![create a new organization](images/cloudsmith-new-org.png)
