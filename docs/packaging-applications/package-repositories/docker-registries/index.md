@@ -29,10 +29,6 @@ When you add your Docker Registry as a feed in Octopus Deploy, Octopus will atte
 According to the Docker API documentation, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
 Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
 
-:::hint
-**Container Images Are Downloaded Directly by the Deployment Target**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/index.md#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
-:::
 
 :::success
 **Accessing Docker registries from different security zones**
@@ -48,6 +44,11 @@ Docker images with the same name are grouped together and referred to (in Docker
 When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as an [Octopus Version](https://g.octopushq.com/OctopusVersionRegex/).
 
 ![](images/5865828.png "width=500")
+
+:::hint
+**Container images are downloaded directly by the Deployment Target or Worker**
+Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/index.md#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
+:::
 
 ## Private registry {#DockerRegistriesasFeeds-PrivateRegistry}
 
