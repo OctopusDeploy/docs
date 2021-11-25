@@ -38,11 +38,11 @@ When you outgrow the guided UI step or need more flexibility, you can expose the
 
 Octopus offers a central platform to manage your AWS resources, including account credentials, ECS clusters, certificates, configuration, and scripts.
 
-The ECS [deployment target](/docs/getting-started/first-deployment/add-deployment-targets/index.md) and steps integrate with other Octopus features, including [built-in AWS service accounts](/docs/infrastructure/accounts/aws/index.md), [runbooks](/docs/runbooks/index.md), [variables](/docs/projects/variables/index.md), [channels](/docs/releases/channels/index.md), and [lifecycles](/docs/releases/lifecycles/index.md).
+The ECS [deployment target](/docs/getting-started/first-deployment/add-deployment-targets.md) and steps integrate with other Octopus features, including [built-in AWS service accounts](/docs/infrastructure/accounts/aws/index.md), [runbooks](/docs/runbooks/index.md), [variables](/docs/projects/variables/index.md), [channels](/docs/releases/channels/index.md), and [lifecycles](/docs/releases/lifecycles/index.md).
 
 Octopus and projects share the same variables and accounts, making it easier to capture shared procedures, automate routine maintenance and respond quickly to emergencies.
 
-Flexible, role-based security allows you to decide who can deploy to production and trigger runbooks against specific clusters. You can view the history of significant events and changes in the Octopus [audit log](/docs/security/users-and-teams/auditing/index.md).
+Flexible, role-based security allows you to decide who can deploy to production and trigger runbooks against specific clusters. You can view the history of significant events and changes in the Octopus [audit log](/docs/security/users-and-teams/auditing.md).
 
 ## Learn more
 
