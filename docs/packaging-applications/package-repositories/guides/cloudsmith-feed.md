@@ -53,17 +53,18 @@ Documentation for package-specific native CLI and tooling is available on the we
 
 Below we will give an overview using package-specific native CLI for NuGet, Docker and Maven and for Helm we will use the Cloudsmith CLI. The Cloudsmith documentation gives more in depth information on how to do this [here](https://help.cloudsmith.io/docs/supported-formats).
 
-The instructions below should be entered into a command line shell and we expect you to be in the same directory as your package. We will use this terminology in the following examples: 
-| Identifier | Description                                                           |
+The instructions below should be entered into a command line shell and we expect you to be in the same directory as your package. We will use this terminology in the following examples:
+
+| Identifier | Description |
 |------------|-----------------------------------------------------------------------|
-| OWNER      | Your Cloudsmith account name or organization name (namespace)         |
-| REGISTRY   | Your Cloudsmith Repository name (also called "slug")                  |
+| OWNER      | Your Cloudsmith account name or organization name (namespace) |
+| REGISTRY   | Your Cloudsmith Repository name (also called "slug") |
 | USERNAME   | Your Cloudsmith Entitlement Token (see Entitlements for more details) |
-| USERNAME   | Your Cloudsmith username                                              |
-| PASSWORD   | Your Cloudsmith password                                              |
-| API-KEY    | Your Cloudsmith API Key                                               |
-| IMAGE_NAME | The name of your Docker image                                         |
-| TAG        | A tag for your Docker image                                           |
+| USERNAME   | Your Cloudsmith username |
+| PASSWORD   | Your Cloudsmith password |
+| API-KEY    | Your Cloudsmith API Key |
+| IMAGE_NAME | The name of your Docker image |
+| TAG        | A tag for your Docker image |
 
 ### Install the Cloudsmith CLI tool
 The instructions on how to upload a Helm package, require the Cloudsmith CLI to be installed. Follow the instructions [here](https://help.cloudsmith.io/docs/cli) for how to install the Cloudsmith CLI
