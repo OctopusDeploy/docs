@@ -75,7 +75,7 @@ To upload, you need to generate your package first. You can do this with:
 <summary>NuGet</summary>
 <p>
 
-```
+```shell
 nuget pack
 ```
 </p>
@@ -85,7 +85,7 @@ nuget pack
 <summary>Maven</summary>
 <p>
 
-```
+```shell
   mvn package
 ```
 </p>
@@ -95,7 +95,7 @@ nuget pack
 <summary>Helm</summary>
 <p>
 
-```
+```shell
   helm package .
 ```
 </p>
@@ -105,7 +105,7 @@ nuget pack
 <summary>Docker</summary>
 <p>
 
-```
+```shell
   docker save -o your-image.docker your-image:latest
 ```
 </p>
@@ -116,7 +116,7 @@ nuget pack
 <summary>NuGet</summary>
 <p>
 
-```
+```shell
   nuget sources add -Name example-repo -Source https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
 ```
 </p>
@@ -172,9 +172,10 @@ No steps here for Helm
 <summary>Docker</summary>
 <p>
 
-```
+```shell
   docker login docker.cloudsmith.io
-  # You will be prompted for your Username and Password. Enter your Cloudsmith username and your Cloudsmith API Key.
+  # You will be prompted for your Username and Password. 
+  # Enter your Cloudsmith username and your Cloudsmith API Key.
 ```
 </p>
 </details>
@@ -184,7 +185,7 @@ No steps here for Helm
 <summary>NuGet</summary>
 <p>
 
-```
+```shell
   nuget push PACKAGE_NAME-PACKAGE_VERSION.nupkg -Source example-repo -ApiKey API-KEY
 ```
 </p>
@@ -194,7 +195,7 @@ No steps here for Helm
 <summary>Maven</summary>
 <p>
 
-```
+```shell
   mvn deploy
 ```
 </p>
@@ -204,7 +205,7 @@ No steps here for Helm
 <summary>Helm</summary>
 <p>
 
-```
+```shell
   # The command to upload a Helm chart via the Cloudsmith CLI is:
   cloudsmith push helm OWNER/REPOSITORY CHART_NAME-CHART_VERSION.tgz
 ```
@@ -248,9 +249,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>NuGet V3</summary>
 <p>
 
-```
-https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
-```
+`https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json`
 </p>
 </details>
 
@@ -258,9 +257,7 @@ https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
 <summary>NuGet V2</summary>
 <p>
 
-```
-  https://nuget.cloudsmith.io/OWNER/REPOSITORY/v2
-```
+`https://nuget.cloudsmith.io/OWNER/REPOSITORY/v2`
 </p>
 </details>
 
@@ -273,9 +270,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 - Give the Docker feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Docker repository following the instructions in the box below: 
 
-```
-https://docker.cloudsmith.io/v2/OWNER/REGISTRY/
-```
+`https://docker.cloudsmith.io/v2/OWNER/REGISTRY/`
 
 Private repositories require authentication- refer to the section below on **Adding Credentials for Private Repositories** for information on how to add your credentials.
 
@@ -289,9 +284,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>Public URL with no authentication</summary>
 <p>
 
-```
-  https://dl.cloudsmith.io/public/OWNER/REPOSITORY/maven/
-```
+`https://dl.cloudsmith.io/public/OWNER/REPOSITORY/maven/`
 </p>
 </details>
 
@@ -299,9 +292,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>Entitlement Token Authentication</summary>
 <p>
 
-```
-  https://dl.cloudsmith.xyz/TOKEN/OWNER/REPOSITORY/maven/
-```
+`https://dl.cloudsmith.xyz/TOKEN/OWNER/REPOSITORY/maven/`
 </p>
 </details>
 
@@ -309,9 +300,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>HTTP Basic Authentication</summary>
 <p>
 
-```
-  https://dl.cloudsmith.io/basic/cloudsmith-test/ciara-repo1/maven/
-```
+`https://dl.cloudsmith.io/basic/cloudsmith-test/ciara-repo1/maven/`
 </p>
 </details>
 
@@ -327,9 +316,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>Public URL with no authentication</summary>
 <p>
 
-```
-  https://dl.cloudsmith.io/public/OWNER/REPOSITORY/helm/charts/
-```
+`https://dl.cloudsmith.io/public/OWNER/REPOSITORY/helm/charts/`
 </p>
 </details>
 
@@ -337,9 +324,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>Entitlement Token Authentication</summary>
 <p>
 
-```
-  https://dl.cloudsmith.io/TOKEN/OWNER/REPOSITORY/helm/charts/
-```
+`https://dl.cloudsmith.io/TOKEN/OWNER/REPOSITORY/helm/charts/`
 </p>
 </details>
 
@@ -347,9 +332,7 @@ Create a new Octopus Feed by navigating to **Library->External Feeds** and selec
 <summary>HTTP Basic Authentication</summary>
 <p>
 
-```
-  https://dl.cloudsmith.io/basic/OWNER/REPOSITORY/helm/charts/
-```
+`https://dl.cloudsmith.io/basic/OWNER/REPOSITORY/helm/charts/`
 </p>
 </details>
 
@@ -380,9 +363,9 @@ These will be populated in the Credentials section of the Octopus External Feed.
 <summary>Basic Authentication</summary>
 <p>
 
-```
-  Feed username: USERNAME\nFeed password: PASSWORD
-```
+`Feed username`: `USERNAME`
+
+`Feed password`: `PASSWORD`
 </p>
 </details>
 
@@ -390,9 +373,9 @@ These will be populated in the Credentials section of the Octopus External Feed.
 <summary>API Key</summary>
 <p>
 
-```
-  Feed username: USERNAME\nFeed password: API-KEY
-```
+`Feed username`: `USERNAME`
+
+`Feed password`: `API-KEY`
 </p>
 </details>
 
@@ -400,9 +383,9 @@ These will be populated in the Credentials section of the Octopus External Feed.
 <summary>Entitlement Token</summary>
 <p>
 
-```
-  Feed username: token\nFeed password: TOKEN
-```
+`Feed username`: `token`
+
+`Feed password`: `TOKEN`
 </p>
 </details>
 
