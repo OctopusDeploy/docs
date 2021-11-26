@@ -7,6 +7,8 @@ hideInThisSection: true
 
 !include <octopus-server-in-container>
 
+![Introducing the Octopus Server Linux Docker image](octopus-linux-docker-image.png "width=500")
+
 This page describes how to run Octopus Server in the Linux Container.
 
 **Note:** When using Linux containers on a Windows machine, please ensure you have [switched to Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
