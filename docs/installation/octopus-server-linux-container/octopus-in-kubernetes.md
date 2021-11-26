@@ -718,6 +718,35 @@ In Kubernetes this can be configured using an [Ingress Controller](https://kuber
 
 For web traffic destined for the Octopus Web Portal and REST API, you would terminate SSL on the ingress controller. For Polling Tentacles, passthrough would need to be allowed, usually on port `10943`.
 
+The following YAML creates an Ingress controller and routes to the service with name `octopus` on port `8080`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: octopus-ingress-example
+spec:
+  tls:
+    - hosts:
+      - your.octopus.domain.com
+      # This assumes tls-secret exists and the SSL
+      # certificate contains a CN for your.octopus.domain.com
+      secretName: tls-secret
+  ingressClassName: nginx
+  rules:
+    - host: your.octopus.domain.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            # This assumes octopus exists and routes to healthy endpoints
+            service:
+              name: octopus
+              port:
+                number: 8080
+```
+
 ## Octopus in Kubernetes example {#octopus-in-kubernetes-example}
 
 View a working example that deploys an Octopus High Availability configuration to a GKE Kubernetes cluster in our [samples instance](https://samples.octopus.app/app#/Spaces-105/projects/octopus-ha-in-gke/operations/runbooks/Runbooks-1862/process/RunbookProcess-Runbooks-1862).
