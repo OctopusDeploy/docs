@@ -8,7 +8,7 @@ One of the driving forces behind creating the Octopus Server Linux Container was
 
 This page describes how to run Octopus Server in Kubernetes, along with platform specific considerations when using different Kubernetes providers such as Azure AKS, AWS EKS, and Google GKE.
 
-Since [Octopus High Availability](/docs/administration/high-availability/index.md) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful sets.
+Since [Octopus High Availability](/docs/administration/high-availability/index.md) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
 
 ## Getting started {#getting-started}
 
@@ -20,19 +20,19 @@ Whether you are running Octopus in a Container using Docker or Kubernetes, or ru
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
 - Creating each Octopus Server node, including the Startup and upgrade processes that may result in database schema upgrades
 
-The following sections describe these in more detail by creating an Octopus High Availability cluster with two Octopus Server nodes.
+The following sections describe these in more detail by creating an Octopus High Availability cluster with two Octopus Server nodes being served by a load balancer on port `80`.
 
 :::hint
-The YAML provided in this guide is designed to provide you with a starting point to help you get Octopus Server running in a container in Kubernetes. We recommend taking the time to configure your Octopus instance to meet your organization's requirements.
+The YAML provided in this guide is designed to provide you with a starting point to help you get Octopus Server running in a container in Kubernetes. We recommend taking the time to configure your Octopus instance to meet your own organization's requirements.
 :::
 
 ## SQL Server Database {#sql-database}
 
 !include <high-availability-database-recommendations>
 
-If you plan to host Octopus in Kubernetes using one of the major Cloud providers managed Kubernetes platforms, for example AWS, Azure, or GCP, a good option to consider for your SQL Server database is their Database PaaS offerings.
+If you plan to host Octopus in Kubernetes using one of managed Kubernetes platforms from Cloud providers, for example AWS, Azure, or GCP, then a good option to consider for your SQL Server database is their database PaaS offering as well.
 
-For more details on the different hosted offerings, refer to the documentation for each Cloud provider:
+For more details on the different hosted database options, refer to the documentation for each Cloud provider:
 
 - [AWS RDS](https://aws.amazon.com/rds/sqlserver/)
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
@@ -145,7 +145,7 @@ spec:
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
 
-The following YAML creates load balancers with separate public IPs for each node:
+The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80` and Polling Tentacle traffic on port `10943`.
 
 The `octopus-0` load balancer:
 ```yaml
@@ -196,14 +196,14 @@ Note the selectors of:
 
 These labels are added to pods created as part of a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset), and the values are the combination of the Stateful Set name and the pod index.
 
-See our [Polling Tentacles with High Availability](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md) documentation for more information.
+For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md) on the topic.
 
 ## File Storage {#file-storage}
 
-To share common files between the Octopus Server nodes, we need access to three shared volumes that multiple pods can read to and write from simultaneously:
+To share common files between the Octopus Server nodes, we need access to a minimum of three shared volumes that multiple pods can read to and write from simultaneously:
 
 - Artifacts
-- Package
+- Packages
 - Task Logs
 
 These are created via [persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes) with an [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) of `ReadWriteMany` to indicate they are shared between multiple pods. 
@@ -211,7 +211,7 @@ These are created via [persistent volume claims](https://kubernetes.io/docs/conc
 Most of the YAML in this guide can be used with any Kubernetes provider. However, the YAML describing file storage can have differences between each Kubernetes provider as they typically expose different names for their shared filesystems via the `storageClassName` property. 
 
 :::hint
-To find out more about storage classes, refer to the [Kubernetes Storage Classes documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+To find out more about storage classes, refer to the [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) documentation.
 :::
 
 Whilst it is possible to mount external storage by manually defining Persistent Volume definitions in YAML, Cloud providers offering Kubernetes managed services typically include the option to dynamically provision file storage based on persistent volume claim definitions. 
@@ -226,7 +226,7 @@ The following YAML creates the shared persistent volume claims that will host th
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: repository-claim
+  name: artifacts-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -238,7 +238,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: artifacts-claim
+  name: repository-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -265,7 +265,7 @@ spec:
 The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, and the task logs using the `standard-rwx` storage class from the Google [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver).
 
 :::hint
-**GKE Cluster version Pre-requisite:**
+**GKE Cluster version pre-requisite:**
 To use the Filestore CSI driver, your clusters must use **GKE version 1.21 or later**. The Filestore CSI driver is supported for clusters using Linux.
 :::
 
@@ -273,7 +273,7 @@ To use the Filestore CSI driver, your clusters must use **GKE version 1.21 or la
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: repository-claim
+  name: artifacts-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -285,7 +285,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: artifacts-claim
+  name: repository-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -307,7 +307,7 @@ spec:
       storage: 1Gi
 ```
 
-If you are running a GKE cluster in a non-default VPC network in Google Cloud, you may need to create a custom storage class specifying the network name. The following YAML shows creating a custom class that can be used with a non-default VPC network in GKE called `my-custom-network-name`:
+If you are running a GKE cluster in a non-default VPC network in Google Cloud, you may need to define your own storage class specifying the network name. The following YAML shows creating a storage class that can be used with a non-default VPC network in GKE called `my-custom-network-name`:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -380,15 +380,16 @@ volumeMounts:
 Lastly, we can combine all of the resources discussed previously into a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset) that creates the Octopus Server nodes.
 
 A Stateful Set is beneficial, as it provides a mechanism for deploying pods that have:
+
 - Fixed names 
 - Consistent ordering
 - An initial deployment process that rolls out one pod at a time, ensuring each is healthy before the next is started.
 
-This functionality works very nicely when deploying Octopus, as we need to ensure that Octopus instances start sequentially so only one instance attempts to apply updates to the database schema. However redeployments (e.g. when upgrading) do need special consideration, see the [Upgrading Octopus in Kubernetes](#upgrading-octopus-in-kubernetes) section for further details
+This functionality works very nicely when deploying Octopus, as we need to ensure that Octopus instances start sequentially so only one instance attempts to apply updates to the database schema. However redeployments (e.g. when upgrading) do need special consideration, see the [Upgrading Octopus in Kubernetes](#upgrading-octopus-in-kubernetes) section for further details.
 
 The following YAML below creates a Stateful Set with two pods. These pods will be called `octopus-0` and `octopus-1`, which will also be the value assigned to the `statefulset.kubernetes.io/pod-name` label. This is how we can link services exposing individual pods. 
 
-The pods then mount a single shared volume for the built-in feed packages, artifacts, task logs and each pod's server task logs.
+The pods then mount a single shared volume for the artifacts, built-in feed packages, task logs and the server task logs for each pod.
 
 ```yaml
 apiVersion: apps/v1
@@ -457,12 +458,12 @@ spec:
         - containerPort: 10943
           name: tentacle
         volumeMounts:
-        - name: octopus-storage-vol
-          mountPath: /repository
-          subPath: repository
         - name: octopus-storage-vol                                                  
           mountPath: /artifacts
           subPath: artifacts
+        - name: octopus-storage-vol
+          mountPath: /repository
+          subPath: repository
         - name: octopus-storage-vol
           mountPath: /taskLogs
           subPath: taskLogs
@@ -516,6 +517,12 @@ spec:
 **Change the Default values:**
 If you use the YAML definition above, remember to change the default values entered including the Admin Username, Admin Password, and the version of the `octopusdeploy/octopusdeploy` image to use. You also need to provide values for the License Key and database Master Key.
 :::
+
+Once fully deployed, this Stateful Set configuration will have three load balancers, and three public IPs.
+
+The `octopus-web` service is used to access the web interface. The Octopus Web Portal can make requests to any node, so load balancing across all the nodes means the web interface is accessible even if one node is down.
+
+The `octopus-0` service is used to point Polling Tentacles to the first node, and the `octopus-1` service is used to point Polling Tentacles to the second node. We have also exposed the web interface through these services, which gives the ability to directly interact with a given node, but the `octopus-web` service should be used for day to day work as it is load balanced. 
 
 The next sections describe the Stateful Set definition in more detail.
 
@@ -588,51 +595,88 @@ The `readinessProbe` is used to ensure the Octopus Server node is responding to 
 
 ### UI-only and back-end nodes {#ui-and-backend-nodes}
 
+When managing an Octopus High Availability cluster, it can be beneficial to separate the Octopus Web Portal from the deployment orchestration of tasks that Octopus Server provides. It's possible to create *UI-only* nodes that have the sole responsibility to serve web traffic for the Octopus Web Portal and the [Octopus REST API](/docs/octopus-rest-api/index.md).
+
+:::hint
+By default, all Octopus Server nodes are task nodes because the default task cap is set to `5`. To create UI-only Octopus Server nodes, you need to set the task cap for each node to `0`.
+:::
+
+When running Octopus in Kubernetes, it'd be nice to increase the `replicaCount` property and direct web traffic to only certain pods in our Stateful Set. However, it takes additional configuration to set-up UI only nodes as the Stateful Set workload we created previously has web traffic directed to pods with the label `app:octopus`. It's not currently possible to use [Match expressions](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#resources-that-support-set-based-requirements) to direct web traffic to only certain pods.
+
+In order to create UI-only nodes in Kubernetes, you need to perform some additional configuration:
+
+- Create an additional Stateful Set just for the UI-only nodes, for example called `octopus-ui`.
+- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node.md) to `0`.
+- Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
+
+:::hint
+If you use Polling Tentacles, you don't need to export port `10943` on UI-only nodes as they won't be responsible for handling deployments or other tasks.
+:::
+
 ### Accessing Server node logs {#access-pod-server-logs}
 
-Mounting Share:
+When running Octopus Server on Windows Server, to access the logs for an Octopus Server Node, you'd typically either log into the Server using Remote Desktop and access them locally, or you might [publish the logs to a centralized logging tool](https://help.octopus.com/t/how-can-i-configure-octopus-deploy-to-write-logs-to-a-centralized-logger-such-as-seq-splunk-or-papertrail/24551).
+
+In Kubenetees there are a number of different options to access the Octopus Server Node logs.
+
+Using `kubectl` you can access the logs for each pod by running the following commands:
 
 ```bash
-sudo apt-get -y update &&
-sudo apt-get install nfs-common
-
-sudo mkdir -p /mnt/octo-ha-nfs
-
-sudo mount 10.42.148.74:/vol1 /mnt/octo-ha-nfs
-
-# Then access logs by navigating to the path and running 
-sudo nano OctopusServer.txt
-```
-
-Logs from each pod:
-
-```bash
+# Get logs for Node 0
 kubectl logs octopus-0 
+# Get logs for Node 1
 kubectl logs octopus-1
 ```
 
-Tail logs on each pod:
+If you want to watch the logs in real-time, you can tail the logs using the following commands:
 
 ```bash
+# Tail logs for Node 0
 kubectl logs octopus-0 -f 
+# Tail logs for Node 1
 kubectl logs octopus-1 -f
 ```
 
-Logs from all pods (interspersed):
+Sometimes it can be useful to see all of the logs in one. For this you can use the `octopus` label selector:
 
 ```bash
 kubectl logs -l app=octopus
 ```
 
-Inspect the logs interactively:
+You can also view the logs interactively. Here is an example opening an interactive shell to the `octopus-0` pod and tailing the Server logs:
 
 ```bash
 kubectl exec -it octopus-0 bash
+
+# Change PWD to Logs folder
+cd /home/octopus/.octopus/OctopusServer/Server/Logs
+
+# Tail logs
+sudo tail OctopusServer.txt
+```
+
+If you've configured your Octopus Server node logs to be mounted to a [unique folder per pod on an external volume](#server-pod-logs) then it's possible to mount the external volume on a virtual machine that can access the volume.
+
+Here is an example of installing the necessary tooling and commands to mount a Google [NFS Filestore](https://cloud.google.com/filestore/docs/creating-instances) volume called `vol`, accessible by the private IP address of `10.0.0.1` in a Linux VM:
+
+```bash
+# Install tools
+sudo apt-get -y update &&
+sudo apt-get install nfs-common
+
+# Make directory to mount
+sudo mkdir -p /mnt/octo-ha-nfs
+
+# Mount NFS 
+sudo mount 10.0.0.1:/vol1 /mnt/octo-ha-nfs
+
+# tail logs
+sudo tail /mnt/octo-ha-nfs/serverLogs/OctopusServer.txt
 ```
 
 ## Upgrading Octopus in Kubernetes {#upgrading-octopus-in-kubernetes}
 
-An initial deployment of the Stateful Set decribed above works exactly as Octopus requires; one pod at a time is successfully started before the next. This gives the first node a chance to update the SQL schema with any required changes, and all other nodes start-up and share the already configured database.
+An initial deployment of the [Stateful Set decribed above](#octopus-server-nodes) works exactly as Octopus requires; one pod at a time is successfully started before the next. This gives the first node a chance to update the SQL schema with any required changes, and all other nodes start-up and share the already configured database.
 
 One limitation with Stateful Sets is how they process updates. For example, if the Docker image version was updated, by default the [rolling update strategy](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets) is used. A rolling update deletes and recreates each pod, which means that during the update there will be a mix of old and new versions of Octopus. This won’t work, as the new version may apply schema updates that the old version can not use, leading to unpredictable results at best, and could result in corrupted data.
 
@@ -664,10 +708,17 @@ kubectl delete statefulset octopus
 
 Once the old Stateful Set has been deleted, the new fresh copy of the Stateful Set can then be deployed. It will start the new pods one by one, allowing the database update to complete as expected.
 
+## Octopus in Kubernetes with SSL
+
+Its recommended best practise to access your Octopus instance over a secure HTTPS connection.
+
+Whilst this guide doesn't include instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
+
+Internally, [Octopus Cloud](/docs/octopus-cloud/index.md) instances make use of an NGINX Ingress Controller for secure communication. For more information see the [NGINX Ingress TLS user guide](https://kubernetes.github.io/ingress-nginx/user-guide/tls/).
+
 ## Octopus in Kubernetes example {#octopus-in-kubernetes-example}
 
-
-View a working example that deploys an Octopus High Availability configuration in our [samples instance](https://samples.octopus.app/app#/Spaces-105/projects/octopus-ha-in-gke/operations/runbooks/Runbooks-1862/process/RunbookProcess-Runbooks-1862).
+View a working example that deploys an Octopus High Availability configuration to a GKE Kubernetes cluster in our [samples instance](https://samples.octopus.app/app#/Spaces-105/projects/octopus-ha-in-gke/operations/runbooks/Runbooks-1862/process/RunbookProcess-Runbooks-1862).
 
 The runbook consists of a number of [Deploy Raw Kubernetes YAML](/docs/deployments/kubernetes/index.md#raw-yaml-step) steps that deploy the resources discussed in this guide.
 
