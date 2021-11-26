@@ -710,7 +710,7 @@ Once the old Stateful Set has been deleted, the new fresh copy of the Stateful S
 
 ## Octopus in Kubernetes with SSL
 
-Its recommended best practise to access your Octopus instance over a secure HTTPS connection.
+Its recommended best practice to access your Octopus instance over a secure HTTPS connection.
 
 Whilst this guide doesn't include instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
 
