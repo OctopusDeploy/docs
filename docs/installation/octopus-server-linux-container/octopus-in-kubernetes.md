@@ -45,7 +45,7 @@ Its possible to run SQL Server in a container. This can be useful when running a
 The following YAML creates a single instance of SQL Server Express that can be deployed to a Kubernetes cluster. It creates a [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes) to store the database files, a [service](https://kubernetes.io/docs/concepts/services-networking/service/) to expose the database internally, and the database itself.
 
 :::warning
-Although Octopus [supports SQL Server Express](https://octopus.com/docs/installation/sql-server-database#sql-server-database), the edition has limitations. For more details, see the [Microsoft SQL Server editions documentation](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15#-editions).
+Although Octopus [supports SQL Server Express](https://octopus.com/docs/installation/sql-server-database#sql-server-database), the edition has limitations. For more details, see the [Microsoft SQL Server editions](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15#-editions) documentation.
 :::
 
 ```yaml
@@ -328,7 +328,7 @@ allowVolumeExpansion: true
 ```
 
 :::hint
-Firewall rules may also need to be configured to allow the Kubernetes cluster access to the Filestore. Refer to the [Filestore Firewall rules documentation](https://cloud.google.com/filestore/docs/configuring-firewall) for further details.
+Firewall rules may also need to be configured to allow the Kubernetes cluster access to the Filestore. Refer to the [Filestore Firewall rules](https://cloud.google.com/filestore/docs/configuring-firewall) for further details.
 :::
 
 Once the storage class has been defined, you can mount your persistent volume claims using the name of the storage class. In the example above that was named `my-custom-network-csi-filestore`.
@@ -530,7 +530,7 @@ The next sections describe the Stateful Set definition in more detail.
 
 ### Octopus Server Pod affinity {#server-pod-affinity}
 
-For a greater degree of reliability, [Pod anti-affinity rules](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) are used in the Stateful Set to ensure Octopus pods are not placed onto the same node. This ensures the loss of a node does not bring down the Octopus HIgh Availability cluster.
+For a greater degree of reliability, [Pod anti-affinity rules](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity) are used in the Stateful Set to ensure Octopus pods are not placed onto the same node. This ensures the loss of a node does not bring down the Octopus High Availability cluster.
 
 ```yml
 affinity:
