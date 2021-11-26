@@ -42,7 +42,11 @@ For more details on the different hosted database options, refer to the document
 
 Its possible to run SQL Server in a container. This can be useful when running a Proof of Concept (PoC) with Octopus in Kubernetes. 
 
-The following YAML creates a single instance of SQL Server Express that can be deployed to a Kubernetes cluster. It creates a [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes) to store the database files, a [service](https://kubernetes.io/docs/concepts/services-networking/service/) to expose the database internally, and the database itself:
+The following YAML creates a single instance of SQL Server Express that can be deployed to a Kubernetes cluster. It creates a [persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes) to store the database files, a [service](https://kubernetes.io/docs/concepts/services-networking/service/) to expose the database internally, and the database itself.
+
+:::warning
+Although Octopus [supports SQL Server Express](https://octopus.com/docs/installation/sql-server-database#sql-server-database), the edition has limitations. For more details, see the [Microsoft SQL Server editions documentation](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15#-editions).
+:::
 
 ```yaml
 kind: PersistentVolumeClaim
@@ -113,8 +117,6 @@ spec:
 **Change the SA Password:**
 If you use the YAML definition above, remember to change the `SA_PASSWORD` from the value used here.
 :::
-
-Although Octopus [supports SQL Server Express](https://octopus.com/docs/installation/sql-server-database#sql-server-database), the edition has limitations. For more details, see the [Microsoft SQL Server editions documentation](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15#-editions).
 
 ## Load balancer {#load-balancer}
 
