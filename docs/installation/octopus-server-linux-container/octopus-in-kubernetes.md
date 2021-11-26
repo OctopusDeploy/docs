@@ -6,7 +6,7 @@ position: 40
 
 One of the driving forces behind creating the Octopus Server Linux Container was so Octopus could run in a container in Kubernetes for [Octopus Cloud](/docs/octopus-cloud/index.md). With the release of the Octopus Server Linux Container image in **2020.6**, this option is available for those who want to host Octopus in their own Kubernetes clusters.
 
-This page describes how to run Octopus Server in Kubernetes, along with platform specific considerations when using different Kubernetes providers such as Azure AKS, AWS EKS, and Google GKE.
+This page describes how to run Octopus Server in Kubernetes, along with platform specific considerations when using different Kubernetes providers such as Azure AKS  and Google GKE.
 
 Since [Octopus High Availability](/docs/administration/high-availability/index.md) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
 
