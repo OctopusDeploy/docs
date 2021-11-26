@@ -714,7 +714,9 @@ Its recommended best practice to access your Octopus instance over a secure HTTP
 
 Whilst this guide doesn't include instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
 
-Internally, [Octopus Cloud](/docs/octopus-cloud/index.md) instances make use of an NGINX Ingress Controller for secure communication. For more information see the [NGINX Ingress TLS user guide](https://kubernetes.github.io/ingress-nginx/user-guide/tls/).
+In Kubernetes this can be configured using an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), for example [NGINX](https://kubernetes.github.io/ingress-nginx/user-guide/tls/). 
+
+For web traffic destined for the Octopus Web Portal and REST API, you would terminate SSL on the ingress controller. For Polling Tentacles, passthrough would need to be allowed, usually on port `10943`.
 
 ## Octopus in Kubernetes example {#octopus-in-kubernetes-example}
 
