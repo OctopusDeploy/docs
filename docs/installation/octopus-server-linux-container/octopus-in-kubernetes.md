@@ -612,14 +612,14 @@ In order to create UI-only nodes in Kubernetes, you need to perform some additio
 - Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
 
 :::hint
-If you use Polling Tentacles, you don't need to export port `10943` on UI-only nodes as they won't be responsible for handling deployments or other tasks.
+If you use Polling Tentacles, you don't need to export port `10943` on the `LoadBalancer` Service definition for the UI-only nodes as they won't be responsible for handling deployments or other tasks. For the same reason, you don't need to configure any Polling Tentacles to poll UI-only nodes.
 :::
 
 ### Accessing Server node logs {#access-pod-server-logs}
 
 When running Octopus Server on Windows Server, to access the logs for an Octopus Server Node, you'd typically either log into the Server using Remote Desktop and access them locally, or you might [publish the logs to a centralized logging tool](https://help.octopus.com/t/how-can-i-configure-octopus-deploy-to-write-logs-to-a-centralized-logger-such-as-seq-splunk-or-papertrail/24551).
 
-In Kubenetees there are a number of different options to access the Octopus Server Node logs.
+In Kubernetes there are a number of different options to access the Octopus Server Node logs.
 
 Using `kubectl` you can access the logs for each pod by running the following commands:
 
