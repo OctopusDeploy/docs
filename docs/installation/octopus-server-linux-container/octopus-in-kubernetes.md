@@ -714,9 +714,9 @@ Once the old Stateful Set has been deleted, the new fresh copy of the Stateful S
 
 It's recommended best practice to access your Octopus instance over a secure HTTPS connection.
 
-Whilst this guide doesn't include instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
+Whilst this guide doesn't include specific instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
 
-In Kubernetes this can be configured using an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), for example [NGINX](https://kubernetes.github.io/ingress-nginx/user-guide/tls/). 
+In Kubernetes, this can be configured using an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), for example [NGINX](https://kubernetes.github.io/ingress-nginx/user-guide/tls/). 
 
 For web traffic destined for the Octopus Web Portal and REST API, you would terminate SSL on the ingress controller. For Polling Tentacles, passthrough would need to be allowed, usually on port `10943`.
 
