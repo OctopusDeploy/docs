@@ -43,7 +43,7 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 - [Cloud SQL PaaS](https://cloud.google.com/sql/docs/sqlserver/create-instance)
 
 !include <high-availability-database-recommendations>
-- [Cloud SQL Database](https://cloud.google.com/sql)
+- [Cloud SQL Database](https://cloud.google.com/sql/sqlserver)
 
 !include <high-availability-db-logshipping-mirroring-note>
 
