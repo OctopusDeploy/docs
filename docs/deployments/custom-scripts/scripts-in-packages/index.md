@@ -27,6 +27,7 @@ The following steps have been designed to support running scripts; either at the
 - Deploy a Windows Service
 - Deploy a Package
 - Deploy an Azure Web App
+- Deploy an Azure App Service
 - Deploy an Azure Resource Manager template
 - Deploy a Service Fabric App
 - Deploy to NGINX
