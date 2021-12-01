@@ -10,6 +10,11 @@ By default, Octopus will only run one process on each [deployment target](/docs/
 
 `OctopusBypassDeploymentMutex` must be set at the project variable stage. It will allow for multiple processes to run at once on the target. Having said that, _deployments of the same project to the same environment (and, if applicable, the same tenant)_ are not able to be run in parallel even when using this variable.
 
+:::hint
+**Scoping** `OctopusBypassDeploymentMutex`:
+Just like any other Octopus variable, it's possible to scope the `OctopusBypassDeploymentMutex` variable. That might be a specific Environment or target role. This can be useful in certain scenarios, for example where you don't want to run deployments in parallel in lower environments.
+:::
+
 ## Multiple projects
 
 If you require multiple steps to run on a target, by multiple Projects in parallel, you need to add the `OctopusBypassDeploymentMutex` variable to **ALL** of your projects.
