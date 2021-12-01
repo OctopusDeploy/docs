@@ -4,7 +4,7 @@ description: How to configure an Amazon ECS cluster target in Octopus Deploy
 position: 30
 ---
 
-ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws/ecs/index.md) to define the context in which deployments and scripts are run.
+ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws/index.md) to define the context in which deployments and scripts are run.
 
 :::hint
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.

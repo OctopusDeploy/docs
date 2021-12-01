@@ -1,7 +1,7 @@
 ---
 title: Azure targets
 description: Configure your Azure infrastructure
-position: 30
+position: 40
 hideInThisSection: true
 ---
 
