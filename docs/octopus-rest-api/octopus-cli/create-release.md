@@ -201,7 +201,7 @@ octo create-release --project HelloWorld --version 1.0.3 --server http://octopus
 
 ## Version controlled projects {#Creatingreleases-version-controlled}
 
-For projects that use the Config as Code feature (they are version controlled), you can create a release pointing at a git reference, e.g. a branch name or tag. This example creates a release using the branch name of `main`:
+For projects that use the [Config as Code feature](/docs/projects/version-control/index.md) (they are version controlled), you can create a release pointing at a git reference, e.g. a branch name or tag. This example creates a release using the branch name of `main`:
 
 ```bash
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
