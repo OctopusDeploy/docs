@@ -48,12 +48,15 @@ Learn more in our [How High Availability Works](/docs/administration/high-availa
 
 ## Designing Octopus High Availability
 
-There are several ways to configure High Availability for Octopus and this differs based on where you host Octopus. We have created guides that will help you design the best solution for your installation. This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components making them highly-available, whether its using on-premises servers or cloud infrastructure such as Azure, AWS or GCP:
+There are several ways to configure High Availability for Octopus and this differs based on both how and where you host Octopus. We have created guides that will help you design the best solution for your installation. 
+
+This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components, making them highly-available, whether you're using Windows Servers or running the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md) in Kubernetes, hosted on-premises or in the Cloud.
 
 - [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
 - [Designing Octopus for High Availability in AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
 - [Designing Octopus for High Availability in GCP](/docs/administration/high-availability/design/octopus-for-high-availability-on-gcp.md)
+- [Designing Octopus for High Availability in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 
 ## Configuring Octopus High Availability
 
