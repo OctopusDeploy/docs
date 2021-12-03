@@ -13,13 +13,19 @@ Keeping multiple instances in sync is a complex task involving dozens if not hun
 TL;DR; copying projects between instances should be done when all other options are exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  Due to the number of decisions and business rules, you will have to create and maintain a custom syncing process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
 :::
 
-## When to split an instance
+## Suitable Scenarios
 
 Split and sync instances only when Octopus lacks a critical feature to satisfy a company policy, industry regulation, or a business contract.  The use cases we've seen in the past are:
 
 - A separate **Dev/Test** instance and a **Staging/Production** instance so developers can have unlimited access to make changes, but **Production** must be locked down because of a business contract.
 - A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets because of regulations such as the separate instance must be hosted in Azure Gov.
 - A separate instance for a specific set of tenants.  Like the above use case, except all the environments are the same, only the tenants are different.
+
+The expectation is the source instance is the the source of truth and the destination instance(s) contain copies of that data.  You plan on running a syncing process periodically to ensure any changes made on the source instance are added to the destination instance.
+
+:::hint
+If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend [Export/Import Projects feature](docs/projects/export-import/index.md) feature.  
+:::
 
 ## Consider alternatives
 
@@ -42,17 +48,17 @@ A secondary reason we hear about is to "speed up the deployment."  Typically we 
 We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  Spaces are hard walls and do not allow the sharing of environments, projects, library variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
 :::
 
-## When not to split an instance
+## Unsuitable Scenarios
 
-Do not split an instance for any of the following use cases.  
+Do not split an instance and sync it for any of the following use cases.  
 
-- You want an approval process for any changes to your deployment process.  Please see our [config as code feature](/docs/projects/version-control/index.md) as that integrates with git.  
+- You want an approval process for any changes to your deployment process.  Please see our [config as code feature](/docs/projects/version-control/index.md) as that integrates with git.
+- You want to move a project from the default space to another space on the same instance (or different instance).  Please see our documentation on [Export/Import Projects feature](docs/projects/export-import/index.md).
 - You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md)
 - You want to upgrade the underlying VM hosting Octopus Deploy from Windows Server 2012 to Windows Server 2019.  Please see our guide on [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
 - You want to move the SQL Server database from SQL Server 2012 to SQL Server 2019.  Please see our guide on [moving the Octopus Database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
-- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations.md) on how to leverage [Projects Export/Import feature](docs/projects/export-import/index.md) to accomplish this.
-- You want to consolidate multiple Octopus Deploy instances into a single Octopus Deploy instance.  Please see our documentation on [Projects Export/Import feature](docs/projects/export-import/index.md).
-- You want to move a project from the default space to another space on the same instance.  Please see our documentation on [Projects Export/Import feature](docs/projects/export-import/index.md).
+- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations.md) on how to leverage [Export/Import Projects feature](docs/projects/export-import/index.md) to accomplish this.
+- You want to consolidate multiple Octopus Deploy instances into a single Octopus Deploy instance.  Please see our documentation on [Export/Import Projects feature](docs/projects/export-import/index.md).
 
 ## Syncing is not cloning
 
