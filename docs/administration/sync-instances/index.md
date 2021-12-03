@@ -5,25 +5,25 @@ position: 45
 hideInThisSection: true
 ---
 
-Syncing instances is when projects appear on more than one Octopus Deploy instance with a delta between instances.  The delta can be different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.   
+Syncing instances is involves copying projects and all the required scaffolding data between Octopus Deploy instances with a known delta.  The delta can be different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.   
 
-Keeping multiple instances in sync is a non-trivial task as you will have to design and maintain a syncing process.  That syncing process is complex as it will need to know the data to sync and the data to leave alone.  This guide will walk you through when you should split and sync multiple instances, when you shouldn't, tooling available, and how to design a syncing process.  
+Keeping multiple instances in sync is a complex task involving dozens if not hundreds of decisions on the data to sync and the data to be left alone.  This guide will walk you through when you should do this, when you shouldn't, tooling available, and how to design a syncing process.  
 
-:::warning
-TL;DR; splitting an instance and syncing it should be done when all other options are exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  The syncing process will have to be created by you because of the dozens if not hundreds of decisions to make.  That, in turn, means you will have to maintain the process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
+:::problem
+TL;DR; copying projects between instances should be done when all other options are exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  Due to the number of decisions and business rules, you will have to create and maintain a custom syncing process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
 :::
 
 ## When to split an instance
 
-Only split and sync multiple instances when Octopus lacks a critical feature to satisfy a company policy, industry regulation, or a business contract.  The use cases we've seen in the past are:
+Split and sync instances only when Octopus lacks a critical feature to satisfy a company policy, industry regulation, or a business contract.  The use cases we've seen in the past are:
 
-- A separate **Dev/Test** instance and a **Staging/Production** instance so developers can have unlimited access to make changes, but **Production** must be locked down.
+- A separate **Dev/Test** instance and a **Staging/Production** instance so developers can have unlimited access to make changes, but **Production** must be locked down because of a business contract.
 - A primary **Dev/Test/Staging/Production** instance with an isolated **Production** only instance for a set of targets because of regulations such as the separate instance must be hosted in Azure Gov.
 - A separate instance for a specific set of tenants.  Like the above use case, except all the environments are the same, only the tenants are different.
 
 ## Consider alternatives
 
-In our experience, the primary reason for splitting an instance is due to permissions.  Octopus Deploy's Role-Based Access control is robust and supports various use cases.
+In talking to users, the primary reason for splitting an instance is due to permissions.  Before doing that, research the built-in role-based access control as it supports a variety of common permissions use cases.
 
 - Developers can modify the deployment process, deploy to **Development**, **Test**, and **Staging** but not **Production**.
 - System admins can modify deployment targets in Octopus, deploy to **Production** but cannot modify a deployment process.
@@ -31,16 +31,20 @@ In our experience, the primary reason for splitting an instance is due to permis
 - Release managers can modify the variables on a subset of tenants.  All other tenants are read-only.
 - An approval process is needed for any changes to the deployment process.  Please see our [config as code feature](/docs/projects/version-control/index.md) as that integrates with git, which allows for branching and pull requests.  
 
-A secondary reason is to "speed up the deployment."  Typically Octopus is located in one data center with the deployment targets in a data center located in another country or continent.  
+A secondary reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
 
 - If package acquisition is taking a long time to transfer to the targets, consider:
     - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers.md) to reduce the amount of data to transfer.  
     - Leveraging an external feed such as Artifactory, GitHub Packages, AWS CodeArtifact, or Feedz.io and configure Octopus to download the packages directly from the external feeds.
 - If there appears to be latency when running scripts on the Octopus Server to make database changes, run e2e tests, or any other similar task, then leverage [workers](/docs/infrastructure/workers/index.md).  Workers can execute tasks that don't need to run on individual deployment targets.  They can be located in the same data center as your database or applications.
 
+:::hint
+We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  Spaces are hard walls and do not allow the sharing of environments, projects, library variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
+:::
+
 ## When not to split an instance
 
-There are alternative solutions for other use cases we've encountered.
+Do not split an instance for any of the following use cases.  
 
 - You want an approval process for any changes to your deployment process.  Please see our [config as code feature](/docs/projects/version-control/index.md) as that integrates with git.  
 - You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md)
@@ -52,17 +56,13 @@ There are alternative solutions for other use cases we've encountered.
 
 ## Syncing is not cloning
 
-Syncing is not the same as cloning.  Cloning an instance will result in the same data.  Not only will all the targets, environments, variables, tenants, projects, etc., be the same, but the unique identifiers stored in the Octopus database will be the same along with the thumbprint and master key.  Cloning is typically a one-time operation, such as standing up a new server.  
+Syncing is not the same as cloning.  Cloning an instance will result in the same data.  In addition to having all the same targets, environments, variables, tenants, projects, etc., the unique identifiers stored in the Octopus database will be the same; including the thumbprint and master key.  Cloning is typically a one-time operation, such as standing up a new server.  
 
-Syncing an instance involves copying data between instances with a known delta.  The delta is typically projects, deployment processes, environments, lifecycles, retention policies, tenants, accounts, workers, targets, or variable values.  Each instance will have different ids, thumbprint, and master key.  
+Syncing an instance involves copying data between instances with a known delta.  The delta is can range from projects, deployment processes, environments, lifecycles, retention policies, tenants, accounts, workers, targets, or variable values.  Each instance will have different ids, thumbprint, and master key.  
 
 ## Tools and features to avoid 
 
-Unfortunately, there are many decisions and business rules in syncing two instances with a known delta, and there is no first-class tool to support syncing two instances.  In the past, our users have attempted to repurpose provided features and tooling to support their syncing process.  However, they were not designed for syncing use cases; the result was often frustration or corrupted projects.  
-
-:::warning
-Do not use any of the below tools to sync two or more instances with a known delta automatically.
-:::
+Unfortunately, there are many decisions and business rules in syncing two instances with a known delta, and there is no first-class tool to support syncing two instances.  In the past, our users have attempted to repurpose provided features and tooling to support their syncing process.  However, they were not designed for syncing use cases; the result was often frustration because of lack of customization, or hand editing files causing corrupted projects.
 
 ### Migrator and Project Export/Import
 
@@ -84,9 +84,9 @@ You can write a tool to compare files between instances automatically.  It would
 
 We recommend creating a custom tool that leverages the [Octopus Deploy REST API](docs/octopus-rest-api/index.md), or one of the API wrappers, such as the [Octopus.Client .NET library](https://github.com/OctopusDeploy/OctopusClients), [Octopus Go API Client](https://github.com/OctopusDeploy/go-octopusdeploy), or the [TypeScript API Client](https://github.com/OctopusDeploy/api-client.ts).  
 
-We recommend a custom tool because, as you'll soon see, there are a lot of business rules and decisions to make.  Our solutions team has written a sample PowerShell tool, [SpaceCloner](https://github.com/OctopusDeployLabs/SpaceCloner), you can use as a reference or example for your syncing process.  A lot of this documentation used lessons from writing that tool. 
+We make that recommendation because, as you'll soon see, there are a lot of business rules and decisions to make.  
 
-While the SpaceCloner supports syncing instances with a known delta, we recommend using that tool as a guide.  It was created with specific use cases in mind and probably won't support your hyper-specific use case.
+Our solutions team has written a sample PowerShell tool, [SpaceCloner](https://github.com/OctopusDeployLabs/SpaceCloner), you can use as a reference or example for your syncing process.  A lot of this documentation used lessons from writing that tool.  While the SpaceCloner supports syncing instances with a known delta, we recommend using that tool as a guide.  It was created with specific use cases in mind and probably won't support your hyper-specific use case.
 
 ## Syncing Process
 
@@ -94,13 +94,13 @@ While the actual business rules and decisions will vary, the core rules for any 
 
 ### Avoid mismatched versions
 
-It is possible to take a JSON result retrieved via a GET request on an instance running 2020.1, make some modifications, and then POST that data to an instance running 2021.3.  There is no guarantee that the data model will be the same between versions.  Something might have changed between the versions, and you'll end up with a dreaded 400 bad request.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
+It is possible to take JSON data retrieved via a GET request on an instance running 2020.1, make some modifications, and then POST that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  A new required property could've been added, or a property was renamed.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
 
 :::hint
 In late 2020 an engineering effort was made to move from NancyFX to ASP.NET for the Octopus Deploy API Controllers.  Since that conversion started, missing or additional previously tolerated fields will cause a 400 bad request error.  Looking at the SpaceCloner code, you will see several invocations of an "add field if missing" method because of a model change.
 :::
 
-The general rule of thumb is don't have instances more than one minor version apart.  For example, the source instance runs **Octopus 2021.2**, and the destination instance runs **Octopus 2021.3**.  Ideally, all instances would be on the same Major.Minor version.  If you run into errors, the typical remediation is to upgrade.
+A rule of thumb to follow is don't have instances more than one minor version apart.  For example, the source instance runs **Octopus 2021.2**, and the destination instance runs **Octopus 2021.3**.  Ideally, all instances would be on the same Major.Minor version.  If you run into unexpected 400 bad request errors, the typical remediation is to upgrade both instances to the same version.
 
 ### Data to Sync
 
@@ -145,7 +145,7 @@ That complexity is further exacerbated by the fact that some data is required, f
 
 ### Data that must be an exact match
 
-The following items must be an exact match between your instances, or you will get unexpected results, and most likely errors, for any deployments or runbook runs.
+The following items must be an exact match between your instances.  If not you will get either missing data errors, corrupted projects, 400 bad requests or unexpected runs from deployments or runbook runs.
 
 - Script Modules
 - Step Templates
@@ -153,9 +153,7 @@ The following items must be an exact match between your instances, or you will g
 
 ### Data with the same name but different details
 
-Most of the data referenced by your deployment and runbook processes have to exist for everything to work.  For example, if your deployment process directly references a worker pool with the name **Ubuntu Worker Pool**, all instances have to have that worker pool.  
-
-However, while they must exist, only the name must be the same between instances.  The details can be very different.  The source instance could have 5 EC2 instances for the **Ubuntu Worker Pool**, while the destination instance could have 3 EC2 instances in a different region.  As long as the worker pool **Ubuntu Worker Pool** exists in both instances with running workers, everything will work fine.
+Most of the data referenced by your deployment and runbook processes have to exist.  For example, a deployment process directly references a worker pool with the name **Ubuntu Worker Pool**. While the data has to exist, only the name must be the same between instances.  The source instance could have 5 EC2 instances for the **Ubuntu Worker Pool**, while the destination instance could have 3 EC2 instances in a different region.  As long as the worker pool **Ubuntu Worker Pool** exists in both instances with running workers, everything will work fine.
 
 The data that must exist but have different details is:
 
@@ -171,7 +169,7 @@ The data that must exist but have different details is:
     - Teams: user role mapping, different members
 - Project Groups: You don't have to sync all the projects in a project group; only the project group has to exist.
 
-It is possible to leverage variables instead of directly referencing that data in a deployment or runbook process.  As long as the variable exists, is the correct type, and is assigned to something that exists on the deployment target, the deployment process will work.  For example, if you had a variable `Project.AWS.Account`, it is assigned to `Dev/Test Account` on the source instance, but it is assigned to `Staging/Prod Account` on the destination instance, everything will work fine. 
+It is possible to leverage variables instead of directly referencing that data in a deployment or runbook process.  As long as the variable exists, is of the correct type, and is assigned to something that exists on the deployment target, the deployment process will work.  For example, a variable with the name `Project.AWS.Account` is assigned to an account named `Dev/Test Account` on the source instance.  On the destination instance that same variable can be assigned to `Staging/Prod Account`. 
 
 Items that can be variables are:
 - Infrastructure
@@ -180,9 +178,9 @@ Items that can be variables are:
 - Library
     - Certificates
 
-### Data to avoid syncing
+### Data not to sync
 
-The eagle-eyed reader will note that the above list of data items is not ALL the data stored in Octopus Deploy.  You should avoid syncing the following data:
+The eagle-eyed reader will note that the above list of data items is not ALL the data stored in Octopus Deploy.  You should not sync the following data:
 
 - Infrastructure
     - Deployment Targets
@@ -196,9 +194,9 @@ The eagle-eyed reader will note that the above list of data items is not ALL the
     - Subscriptions
     - System Level Teams
 
-One of the primary reasons for having separate instances is to isolate deployment targets and workers.  It doesn't make much sense to sync them.  Tentacles especially, as each tentacle would have to be configured to trust all the instances.
+One of the primary reasons for having separate instances is to isolate deployment targets and workers.  Besides, each tentacle would have to be configured to trust all the instances.
 
-Items in the system configuration list are set and forget.  Or, set once and update once a year.  Most of that data requires admin-level permission.  It is too risky to include system configuration in a syncing process.
+Items in the system configuration list are set and forget.  Or, set and update once a year.  Most of that data requires admin-level permission.  It is too risky to include system configuration in a syncing process.
 
 ### Syncing Packages
 
