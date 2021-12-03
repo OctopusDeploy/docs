@@ -1,10 +1,10 @@
 ---
 title: Migrate to Octopus Server Linux Container from Windows Container
 description: A guide on how to migrate to the Octopus Server Linux Container from the Octopus Server Windows Container
-position: 3
+position: 20
 ---
 
-The Octopus Server Windows Container has been deprecated starting with Octopus Server 2020.6.  We made this decision because the uptake was low, and Microsoft has stopped supporting the OS Versions we were publishing (Windows [1809](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1809-and-windows-server-2019), [1903](https://docs.microsoft.com/en-us/lifecycle/announcements/windows-10-1903-end-of-servicing), and [1909](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1909)).  Going forward, we will only publish the Octopus Server Linux Container.  
+The Octopus Server Windows Container has been deprecated starting from **Octopus 2020.6**.  We made this decision because the uptake was low, and Microsoft has stopped supporting the OS Versions we were publishing (Windows [1809](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1809-and-windows-server-2019), [1903](https://docs.microsoft.com/en-us/lifecycle/announcements/windows-10-1903-end-of-servicing), and [1909](https://docs.microsoft.com/en-us/windows/release-health/status-windows-10-1909)).  Going forward, we will only publish the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md).  
 
 :::hint
 We will continue to publish Windows Docker images for Tentacle. Once we've updated the Windows images for Tentacle to more modern OS versions, we will deprecate the existing Windows 1809/1903/1909 images.
@@ -29,4 +29,4 @@ The LDAP authentication provider was introduced in Octopus Deploy **2021.2**.
 
 ## Further Reading
 
-This guide is meant to address the differences you may encounter when switching from the Octopus Server Windows Container to the Octopus Server Linux Container.  For a deeper dive in how to run the Octopus Server Linux Container please refer to [this documentation](/docs/installation/octopus-in-container/octopus-server-container-linux.md).
+This guide is meant to address the differences you may encounter when switching from the Octopus Server Windows Container to the Octopus Server Linux Container.  For a deeper dive in how to run the Octopus Server Linux Container please refer to [this documentation](/docs/installation/octopus-server-linux-container/index.md).

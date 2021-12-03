@@ -48,7 +48,7 @@ This header instructs browsers on how much information to share, and with whom, 
 
 ### Content-Security-Policy (CSP)
 
-The `Content-Security-Policy` header defines the list of browser features required by the Octopus portal and the whitelist of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
+The `Content-Security-Policy` header defines the list of browser features required by the Octopus portal and the allow list of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
 
 This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md) command.
 
@@ -72,7 +72,7 @@ While there is limited scope for attack on this page, as some security scanning 
 
 ### Content-Security-Policy (CSP)
 
-The `Content-Security-Policy` header defines the list of browser features required by the Octopus portal and the whitelist of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
+The `Content-Security-Policy` header defines the list of browser features required by the Octopus portal and the allow list of domains which Octopus uses. This is used to limit the attack surface area for XSS and data injection attacks.
 
 This is enabled by default, and set to the tightest policy that allows full functionality. This can be disabled via the Octopus Server [configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md) command.
 

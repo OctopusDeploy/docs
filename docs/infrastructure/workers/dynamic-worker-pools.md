@@ -88,6 +88,10 @@ We recommend execution containers as the preferred option for steps requiring ex
 
 ### Windows Server Core 2016
 
+:::warning
+Windows Server Core 2016 workers are deprecated and will be removed in February 2022.
+:::
+
 Each `Windows Server Core 2016` worker is provisioned with a baseline of tools including (but not limited to):
 
 - .NET Core (2.1, 3.1)

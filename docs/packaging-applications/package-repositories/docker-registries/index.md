@@ -29,10 +29,6 @@ When you add your Docker Registry as a feed in Octopus Deploy, Octopus will atte
 According to the Docker API documentation, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
 Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
 
-:::hint
-**Container Images Are Downloaded Directly by the Deployment Target**
-Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/index.md#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
-:::
 
 :::success
 **Accessing Docker registries from different security zones**
@@ -49,6 +45,11 @@ When you create a release in Octopus, you need to choose the "version" of the Im
 
 ![](images/5865828.png "width=500")
 
+:::hint
+**Container images are downloaded directly by the Deployment Target or Worker**
+Octopus Deploy does not currently support functionality to push Images from the Octopus Server to the deployment targets in the same way that it does with other [supported packages](/docs/packaging-applications/index.md#supported-formats). That being said, the [layered architecture of Images](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) allows your deployment targets to retrieve only those pieces that have changed from previous versions that are locally available, which is behavior built in to the Docker Engine.
+:::
+
 ## Private registry {#DockerRegistriesasFeeds-PrivateRegistry}
 
 The simplest way to host your own private v2 Docker Registry is to run the run a container from the official registry image!
@@ -60,12 +61,13 @@ docker run -d -p 5000:5000 --name registry registry:2
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
 ## Other registry options {#DockerRegistriesasFeeds-OtherOptions}
-There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
+There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://www.jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
 - [Docker Hub](/docs/packaging-applications/package-repositories/guides/docker-hub.md)
 - [Azure Container Services](/docs/packaging-applications/package-repositories/guides/azure-container-services.md)
 - [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/amazon-ec2-container-services.md)
+- [Cloudsmith](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed.md)
 
 Note that as of the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 

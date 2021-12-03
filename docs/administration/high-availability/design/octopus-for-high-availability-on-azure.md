@@ -1,32 +1,26 @@
 ---
-title: Designing Octopus HA on Azure
+title: Designing Octopus HA in Azure
 description: Information on configuring Octopus High Availability hosted in Microsoft Azure.
 position: 20
 ---
 
 This section walks through the different options and considerations for the components required to set up Octopus High Availability in [Microsoft Azure](https://azure.microsoft.com/en-us/).
 
-:::hint
-If you are setting Octopus up on AWS or on-premises please see the following guides:
-
-- [AWS](/docs/administration/high-availability/design/octopus-for-high-availability-on-aws.md)
-- [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
-:::
-
 ## Setting up Octopus: High availability
 
-For the sake of simplicity, this guide assumes that all of the servers are hosted in Azure.
+This guide assumes that all of the servers are hosted in Azure running Windows Server.
 
-:::hint
 **Some assembly required**
-A single server Octopus installation is straightforward; Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Windows components. At a minimum:
 
-- You should be familiar with SQL Server failover clustering or Azure SQL or have DBAs available to create and manage the database.
-- You should be familiar with SANs and Azure Files or other approaches to sharing storage between servers.
+Octopus High Availability is designed for mission-critical enterprise scenarios and depends heavily on infrastructure and Microsoft components. At a minimum:
+
+- You should be familiar with SQL Server failover clustering, [Azure SQL](https://azure.microsoft.com/products/azure-sql/), or have DBAs available to create and manage the database.
+- You should be familiar with SANs, [Azure Files](https://azure.microsoft.com/services/storage/files/), or other approaches to sharing storage between servers.
 - You should be familiar with load balancing for applications.
 
-**Note on Iaas:**
-If you are using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) in Azure then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as you may have your Domain Controllers, SQL Database Server, and load balancers in the cloud.
+:::hint
+**IaaS vs PaaS:**
+If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service) exclusively in Azure and don't intend to use their PaaS offerings (such as Azure SQL), then the [On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md) guide might be a better approach for you as management of your virtual machines, Domain Controllers, SQL Database Servers, and load balancers will be your responsibility.
 :::
 
 ### Compute
@@ -37,60 +31,39 @@ For a highly available Octopus configuration, you need a minimum of two Virtual 
 - [Retention Policies](/docs/administration/retention-policies/index.md)
 - [Number of concurrent tasks](/docs/support/increase-the-octopus-server-task-cap.md)
 
-Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and selecting the size most suitable for your requirements.  We recommend starting with either 2 cores / 4 GB of RAM or 4 cores / 8 GB of RAM and limiting the task cap to 20 for each node.  In our experience, it is much better to have 4 smaller VMs, each with 4 cores / 8 GB of RAM than 2 large VMs, each with 8 cores / 16 GB of RAM.  With 2 servers, if one of them were to go down, you'd lose 50% of your capacity.  With 4 servers, if one of them were to go down, you'd lose 25% of your capacity.  The difference in cost between the 4 smaller VMs and 2 large VMs is minimal.
+Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and select the size most suitable for your requirements.  
 
-:::warning
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
-:::
+!include <high-availability-compute-recommendations>
+
+!include <octopus-instance-mixed-os-warning>
 
 ### Database
 
-Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in Azure, there are two options that you should consider:
+Each Octopus Server node stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. Since this database is shared, it's important that the database server is also highly available. To host the Octopus SQL database in Azure, there are two options to consider:
 
 - [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/)
 - [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
 
-From the Octopus perspective, how the database is made highly available is really up to you; to Octopus, it's just a connection string. We are not experts on SQL Server high availability, so if you have an on-site DBA team, we recommend using them. There are many [options for high availability with SQL Server](https://msdn.microsoft.com/en-us/library/ms190202.aspx), and [Brent Ozar also has a fantastic set of resources on SQL Server Failover Clustering](http://www.brentozar.com/sql/sql-server-failover-cluster/) if you are looking for an introduction and practical guide to setting it up.
-
-Octopus High Availability works with:
-
-- [SQL Server Failover Clusters](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
-- [SQL Server AlwaysOn Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+!include <high-availability-database-recommendations>
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
-:::warning
-Octopus High Availability has not been tested with Log Shipping or Database Mirroring and does not support SQL Server replication. [More information](/docs/administration/data/octopus-database/index.md)
-:::
-
-See also the [SQL Server Database](/docs/installation/sql-server-database.md) page, which explains the editions and versions of SQL Server that Octopus supports and explains the requirements for how the database must be configured.
+!include <high-availability-db-logshipping-mirroring-note>
 
 ### Shared storage
 
-Octopus stores several files that are not suitable to store in the database. These include:
+!include <high-availability-shared-storage-overview>
 
-- Packages used by the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md). These packages can often be very large in size.
-- [Artifacts](docs/projects/deployment-process/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
-- Task logs are text files that store all of the log output from deployments and other tasks.
-
-As with the database, from the Octopus perspective, you'll tell the Octopus Servers where to store them as a file path within your operating system. Octopus doesn't care what technology you use to present the shared storage; it could be a mapped network drive or a UNC path to a file share. Each of these three types of data can be stored in a different place.
-
-Whichever way you provide the shared storage, there are a few considerations to keep in mind:
-
-- To Octopus, it needs to appear as a mapped network drive (e.g. `D:\`) or a UNC path to a file share (e.g. `\\server\path`).
-- The service account that Octopus runs needs **full control** over the directory.
-- Drives are mapped per-user, so you should map the drive using the same service account that Octopus is running under.
-
-If your Octopus Server is running in Microsoft Azure, you can use [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction); it just presents a file share over SMB 3.0.
+If your Octopus Server is running in Microsoft Azure, you can use [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction); it presents a file share over SMB 3.0.
 
 #### Azure Files
 
-If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure File Storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that will is shared across all of your Octopus servers.
+If your Octopus Server is running in Microsoft Azure, there is only one solution unless you have a [DFS Replica](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-overview) in Azure. That solution is [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) which presents a file share over SMB 3.0 that can be shared across all of your Octopus servers.
 
 After you have created your File Share, the best option is to add the Azure File Share as a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) pointing at a local folder, for example `C:\Octopus\` for the Artifacts, Packages, and TaskLogs which need to be available to all nodes.
 
 Run the PowerShell below before installing Octopus, substituting the placeholders with your own values:
 
-````PowerShell
+```PowerShell
 # Add the Authentication for the symbolic links. You can get this from the Azure Portal.
 
 cmdkey /add:octostorage.file.core.windows.net /user:Azure\octostorage /pass:XXXXXXXXXXXXXX
@@ -105,19 +78,19 @@ New-Item -Path C:\Octopus\TaskLogs -ItemType SymbolicLink -Value \\octostorage.f
 New-Item -Path C:\Octopus\Artifacts -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Artifacts
 New-Item -Path C:\Octopus\Packages -ItemType SymbolicLink -Value \\octostorage.file.core.windows.net\octoha\Packages
 
-````
+```
 :::hint
 It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
 :::
 
 [Install Octopus](/docs/installation/index.md) and then run the following:
 
-````powershell
+```powershell
 # Set the path 
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --artifacts "C:\Octopus\Artifacts"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --taskLogs "C:\Octopus\TaskLogs"
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path --nugetRepository "C:\Octopus\Packages"
-````
+```
 
 ### Load balancing in Azure
 

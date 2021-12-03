@@ -79,7 +79,7 @@ This variable will be available in subsequent steps of the _Project Voltron_ pro
 
 ## Lifecycles
 
-The Lifecycles of project's being deployed by a _Deploy a Release_ step must be compatible with the coordinating project.
+The Lifecycles of projects being deployed by a _Deploy a Release_ step must be compatible with the coordinating project.
 
 For example, if you have two projects, `Project A` and `Project B` which are referenced by _Deploy a Release_ steps in another project `Project Alphabet`. When deploying `Project Alphabet` to the `Test` environment, the release versions chosen for `Project A` and `Project B` must also be eligible to be deployed to the `Test` environment according to the lifecycles of those projects.
 

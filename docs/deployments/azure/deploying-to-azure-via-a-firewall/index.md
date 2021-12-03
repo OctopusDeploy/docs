@@ -37,11 +37,11 @@ If everything is working as expected, you will see output showing all the Azure 
 
 ![Screenshot of Azure Resource Groups](image.png "width=500")
 
-If you need to add firewall exclusions to a whitelist, here are a few things to take into consideration:
+If you need to add firewall exclusions to an allow list, here are a few things to take into consideration:
 
 - Figure out which Azure Data Centers you will be targeting.
 - Figure out which Azure services you will be targeting in those Data Centers.
-- Configure a whitelist from the Octopus Server to the appropriate IP Address Ranges.
+- Configure an allow list from the Octopus Server to the appropriate IP Address Ranges.
 
 Download the latest list of IP Address Ranges from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56519) (updated weekly).
 

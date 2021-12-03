@@ -1,12 +1,10 @@
 ---
 title: Dynamic infrastructure
 description: Octopus resources created in cloud providers can also be modeled in Octopus using service messages and scripts, which form part of dynamic infrastructure.
-position: 120
+position: 100
 ---
 
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
-
-
 
 ## Enable dynamic infrastructure
 
@@ -29,11 +27,11 @@ Octopus comes with a REST API that can be used to register Octopus accounts and 
 
 To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/index.md) section.
 
-## Available commands and syntax
+## Using PowerShell functions
 
 Each of the resource commands is available as a PowerShell function anywhere that a step allows you to run a PowerShell script.
 
-:::warning
+:::hint
 Only a subset of account types and deployment targets support being created dynamically using the commands listed below.
 :::
 
@@ -54,7 +52,8 @@ Before you can create dynamic targets in an Environment, the environment needs t
 - [Azure Service Fabric](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-service-fabric-target.md)
 - [Azure Cloud Service](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-cloud-service-target.md)
 - [Kubernetes Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/kubernetes-target.md)
-- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-target.md)
+- [AWS ECS Cluster](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md)
+- [Remove Target](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md)
 
 ### Restrictions
 
@@ -64,6 +63,10 @@ This cannot be overridden through the commands.
 :::warning
 These commands are not available in the **Script Console**.
 :::
+
+## Using bash functions
+
+Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) for further information.
 
 ## Examples
 

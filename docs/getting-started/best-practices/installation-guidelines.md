@@ -62,9 +62,7 @@ Our recommendation is to use Windows Server over the Octopus Server Linux Contai
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.  
 
-:::hint
-Due to how Octopus stores the paths to various BLOB data (task logs, artifacts, packages, etc.), you cannot run both Windows, and Octopus Linux containers in the same Octopus Deploy instance.  It has to be either all Windows or all containers.
-:::
+!include <octopus-instance-mixed-os-warning>
 
 We are confident in the Octopus Server Linux Container's reliability and performance. After all, Octopus Cloud runs on the Octopus Linux container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we made some design decisions and create custom workflows due to the above limitations.  We restrict the authentication options to Okta, AzureAD, OctopusID, Google Auth and the built-in username and password.  Octopus Cloud disables the built-in worker and uses [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md).  Finally, we have a process that injects a custom logging configuration to output the server logs to our [Seq](https://datalust.co/seq) instance so we can debug any issues.
 
@@ -268,6 +266,6 @@ For further reading on installation requirements and guidelines for Octopus Depl
 - [Installation](/docs/installation/index.md)
 - [Requirements](/docs/installation/requirements.md)
 - [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md)
-- [Octopus Server Linux Container](/docs/installation/octopus-in-container/octopus-server-container-linux.md)
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md)
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>

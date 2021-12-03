@@ -98,7 +98,7 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 Next, we'll go through the newly added and altered steps:
 
 ### Rollback reason
-The Rollback Reason is a [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
+The Rollback Reason is a [Manual Intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals.md) step that prompts the user for the reason they are rolling back.  The text entered is stored in an output variable which will be used in the Block Release Progression step further down the process.
 
 ### Stop App in Tomcat
 Before we deploy a new version of our application, we first must stop the existing one.  The Advanced Options section of the `Start/Stop App in Tomcat` step is where we specify which version of the application we're going to stop.  For this guide, the version is identified as the previous release number, which is represented by the following variable.

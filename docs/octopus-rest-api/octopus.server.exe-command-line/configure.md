@@ -91,8 +91,8 @@ Where [<options>] is any of:
       --webReferrerPolicy=VALUE
                              Sets the 'Referrer-Policy' response header.
                                Defaults to 'no-referrer'.
-      --webServer=VALUE      Web server to use when running Octopus
-                               ('HttpSys', 'Kestrel')
+      --webServer=VALUE      Web server to use when running Octopus (HttpSys,
+                               Kestrel)
       --webTrustedRedirectUrls=VALUE
                              Comma-seperated list of URLs that are trusted
                                for redirection

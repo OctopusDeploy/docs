@@ -12,6 +12,25 @@ It is impossible to cover every last use case in a single guide, and as such, if
 This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
 :::
 
+:::problem
+**Historical Data is not included in the migration.**
+
+The Export/Import Projects feature will create releases and "shells" of your deployments.  The releases are created so you can promote existing releases through your environments.  The deployments are created because lifecycle conditions need to be met prior to those releases being promoted.  
+
+The deployments will **not** include:
+
+- Task Log (the deployment screen will be blank)
+- Artifacts
+- Task History (including, but not limited to):
+    - Who created the deployment
+    - When the deployment was created
+    - When the deployment started
+    - When the deployment finished
+    - Guided Failure logs
+    - Manual Intervention logs
+- Audit History
+:::
+
 ## Prep Work
 
 Before starting your migration to Octopus Cloud, you will need to address the following:

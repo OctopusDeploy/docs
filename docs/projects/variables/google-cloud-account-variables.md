@@ -35,7 +35,7 @@ Each of the above properties can be referenced in PowerShell.
 
 # Using $OctopusParameters
 Write-Host 'GoogleCloudAccount.Id=' $OctopusParameters["google cloud account"]
-Write-Host 'GoogleCloudAccount.JsonKey=' $OctopusParameters["google cloud account.AccessKey"]
+Write-Host 'GoogleCloudAccount.JsonKey=' $OctopusParameters["google cloud account.JsonKey"]
 
 # Directly as a variable
 Write-Host 'GoogleCloudAccount.Id=' #{google cloud account}

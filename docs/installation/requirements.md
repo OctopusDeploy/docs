@@ -87,5 +87,5 @@ The Octopus Server includes the Octopus Web Portal user interface and we try to 
 
 ## Learn more
 
-- [Installation](/docs/installation/index.md).
-- [Compatability](/docs/support/compatibility.md)
+- [Installation](/docs/installation/index.md)
+- [Compatibility](/docs/support/compatibility.md)

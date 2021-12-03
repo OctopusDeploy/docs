@@ -96,7 +96,7 @@ If your containers are based on an earlier image of Windows, we strongly recomme
 It's important to understand there are some limits to which Linux Docker images can be used as a container image. The Docker image must be based on a Linux distribution using the GNU C library, or **glibc**. This includes operating systems like Ubuntu, Debian, and Fedora.
 
 :::warning
-Linux distributions built on **muscl**, most notably Alpine, do not support Calamari, and cannot be used as a container image. This is due to Calamari currently only being compiled against **glibc** and not **musl**.
+Linux distributions built on **musl**, most notably Alpine, do not support Calamari, and cannot be used as a container image. This is due to Calamari currently only being compiled against **glibc** and not **musl**.
 :::
 
 You can usually find the base operating system of a Linux Docker image by running the following command:

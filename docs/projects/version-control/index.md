@@ -26,7 +26,7 @@ It was important to us that the Octopus UI remain fully functional for version-c
 
 Of course, there is also now a text representation of the process in the git repository, and if you prefer editing text then open your favorite editor and go for it.  We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
-This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When [creating releases](#creating-releases) the branch can be selected. 
+This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables.md#release-branch-information) that can be used in your custom deployment scripts.
 
 ### What's next?
 
@@ -59,7 +59,12 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 
 The default branch must exist.
 
-The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  The password will likely be a personal access token. 
+The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token. Git providers allow you to create an access token in different ways:
+
+* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
+* [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html)
+* [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored.  If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory. If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
 

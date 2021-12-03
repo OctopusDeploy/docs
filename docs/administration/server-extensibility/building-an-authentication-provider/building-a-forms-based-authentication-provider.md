@@ -13,7 +13,7 @@ All Forms based providers share the Username/Password/Remember Me UI shipping wi
         * a Name.
         * FormsLoginEnabled = true.
         * Links containing path to the API from above.
-    * GetAuthenticationUrls return the same API url (which is used to whitelisting APIs when in MaintenanceMode etc).
+    * GetAuthenticationUrls return the same API url (which is used to add APIs to an allow list when in MaintenanceMode etc).
 - Implement whatever configuration storage you require.
 
 The Octopus Deploy [UsernamePasswordAuthenticaionProvider](https://github.com/OctopusDeploy/UsernamePasswordAuthenticationProvider) on GitHub provides a good reference point.
