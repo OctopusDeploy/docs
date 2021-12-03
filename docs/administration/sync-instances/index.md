@@ -64,11 +64,11 @@ Syncing an instance involves copying data between instances with a known delta. 
 
 Unfortunately, there are many decisions and business rules in syncing two instances with a known delta, and there is no first-class tool to support syncing two instances.  In the past, our users have attempted to repurpose provided features and tooling to support their syncing process.  However, they were not designed for syncing use cases; the result was often frustration because of lack of customization, or hand editing files causing corrupted projects.
 
-### Migrator and Project Export/Import
+### Migrator and Export/Import Project
 
-The [migrator](docs/administration/data/data-migration.md) and the [Project Export/Import](docs/projects/export-import/index.md) feature were designed to migrate or clone a project to another instance (or space for Project Export/Import).  The primary use case for both tools is that a user wants to move a project to a new instance and depreciate the older instance.  For example, when migrating from a self-hosted Octopus Server to Octopus Cloud.
+The [migrator](docs/administration/data/data-migration.md) and the [Export/Import Project](docs/projects/export-import/index.md) feature were designed to migrate or clone a project to another instance (or space for Export/Import Project).  The primary use case for both tools is that a user wants to move a project to a new instance and depreciate the older instance.  For example, when migrating from a self-hosted Octopus Server to Octopus Cloud.
 
-The migrator and Project Export/Import can be run multiple times, but they will ensure the source and destination instances match.  There is no way to exclude specific environments, tenants, or any specific data you wish to keep separate.  While it is possible to modify the JSON exported by those tools, such an approach is error-prone and unsupported.  
+The migrator and Export/Import Project can be run multiple times, but they will ensure the source and destination instances match.  There is no way to exclude specific environments, tenants, or any specific data you wish to keep separate.  While it is possible to modify the JSON exported by those tools, such an approach is error-prone and unsupported.  
 
 ### Octopus CLI
 
