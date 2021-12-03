@@ -108,6 +108,14 @@ In late 2020 an engineering effort was made to move from NancyFX to ASP.NET for 
 
 A rule of thumb to follow is don't have instances more than one minor version apart.  For example, the source instance runs **Octopus 2021.2**, and the destination instance runs **Octopus 2021.3**.  Ideally, all instances would be on the same Major.Minor version.  If you run into unexpected 400 bad request errors, the typical remediation is to upgrade both instances to the same version.
 
+### Have a single source of truth
+
+It is much easier to sync everything in a one-way direction.  The source instance should remain the source instance every time the syncing process runs.  It shouldn't be the source instance on day, and two days later it is the destination instance.  
+
+When a conflict is found it will be nearly impossible to know which instance is "right" and the change should be accepted.  For example, both instances have added a step added to the same deployment process, on one instance it is new manual intervention step, while the other instance it is a run a script step.  Should both exist?  Only one copied over?  You'd need a merging tool similar to BeyondCompare to reconcile this conflict.
+
+It is okay to have known differences between the instances, such as different environments, lifecycles, variable values, tenants, deployment targes, channels, and more.  But when something new is added, such as a new variable or step, it should done on one instance and synced to the other instance.  It is hard enough to detect when something is "new."  There is no need to add to that complexity.  A one-way sync will help keep conflicts to a minimum.
+
 ### Data to Sync
 
 Octopus Deploy is more than a deployment process and variables.  A lot of scaffolding data is needed for everything to work correctly.  The syncing process should allow for the syncing of the following data:
