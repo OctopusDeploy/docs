@@ -1034,3 +1034,5 @@ docs/installation/octopus-in-container/troubleshooting-octopus-server-in-a-conta
 docs/installation/octopus-in-container/octopus-server-container-windows.md -> docs/installation/octopus-server-windows-container.md
 docs/installation/octopus-in-container/index.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/octopus-tentacle-container.md -> docs/installation/octopus-tentacle-container.md
+docs/deployments/terraform/destroy-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
+docs/deployments/terraform/apply-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md

@@ -1,11 +1,14 @@
 ---
-title: Destroy existing Terraform resources
-description: Destroy existing Terraform resources.
+title: Working with Terraform resources
+description: Documentation on using Octopus built-in steps to Apply and Destroy Terraform resources.
+position: 40
 ---
 
-Existing Terraform resources can be destroyed through the `Destroy Terraform resources` step. This step destroys the resources created using a Terraform template, optionally using AWS credentials managed by Octopus.
+## Apply Terraform configuration
 
-The proceeding instructions can be followed to configure the `Destroy Terraform resources` step.
+Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using AWS credentials managed by Octopus, and captures the Terraform output variables as Octopus output variables.
+
+These instructions can be followed to configure the `Apply a Terraform template` step, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` step.
 
 ## Terraform backends
 
@@ -13,10 +16,9 @@ When running Terraform on a local PC, the state of the resources managed by Terr
 
 When Terraform is run by Octopus, this state file is not preserved between executions. This means that, for almost all practical applications of Terraform through Octopus, a remote backend must be configured. A remote backend allows this state information to be preserved between Terraform steps.
 
-Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/index.html) for more information on configuring backends.
-
 :::warning
-While neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend.
+Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/deployments/terraform/remote-state/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/remote-state/index.md) and more general information
+regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 :::
 
 ## Template section
@@ -101,9 +103,47 @@ The `Allow additional plugin downloads` option can be checked to allow Terraform
 
 The `Custom terraform init parameters` option can be optionally set to include any parameters to pass to the `terraform init` action.
 
-The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform destroy` action.
+The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform apply` action.
 
 ![Terraform Advanced Options](images/terraform-advanced.png "width=500")
+
+## Output variables
+
+Terraform's output variables are captured as Octopus variables after a template is applied. Each output variable is captured in two different formats: the JSON representation of the variable, and the value only of the variable.
+
+The JSON representation of the output variable is the result of calling `terraform output -json variablename`. For example, the JSON representation of a string output variable (which would appear in the logs as a message similar to `Saving variable "Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test]" with the JSON value of "test"`) would look similar to this:
+
+```json
+{
+    "sensitive":  false,
+    "type":  "string",
+    "value":  "hi there"
+}
+```
+
+While the value only output (which would appear in the logs as a message similar to `Saving variable "Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]" with the value only of "test"`) would look similar to this:
+
+```
+"hi there"
+```
+
+## Accessing Terraform output variables
+
+Using the previous example output variable called `test` you can access the output using PowerShell as follows:
+
+```
+$value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]"]
+
+// OR
+
+$value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test]"] | ConvertFrom-Json  | select -ExpandProperty value
+```
+
+The syntax for accessing JSON variables as covered by our [documentation here](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-JSONParsingjson) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs`. However the latter is less useful as it can also be a primitive value. In this case Octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
+
+```
+#{Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test].value}
+```
 
 ### Special variables
 
