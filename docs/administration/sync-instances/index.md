@@ -374,7 +374,7 @@ Syncing variables between instances with different environments is the most comp
 |  | `OctoFX-Test`  | Test        |
 | ConnectionString          | `Database=#{Application.Database.Name}` | |
 
-Syncing `ConnectionString` as-is to the destination instance makes much sense as it has no scoping.  You'll need to sync over the variable `Application.Database.Name` as `ConnectionString` references it.  But what about the values?  Those values are tied to environments that do not exist on the destination instance.  
+Syncing `ConnectionString` as-is to the destination instance makes sense as it has no scoping.  You'll need to sync over the variable `Application.Database.Name` as `ConnectionString` references it.  But what about the values?  Those values are tied to environments that do not exist on the destination instance.  
 
 There are a couple of options.  You could clone the variable values as-is with no environment scoping and then change the values after the sync.  That is useful when the destination instance has unique values per environment.  The initial sync would look like this:
 
