@@ -410,7 +410,7 @@ Imagine the variables on the source instance were changed from:
 | Variable Name             | Value        | Scope       |
 | ------------------------- | ------------ | ----------- |
 | Application.Database.Name | `OctoFx-Dev`   | Development |
-|  | OctoFX-Test  | Test        |
+|  | `OctoFX-Test`  | Test        |
 | ConnectionString          | `Database=#{Application.Database.Name}` | |
 
 To this:
