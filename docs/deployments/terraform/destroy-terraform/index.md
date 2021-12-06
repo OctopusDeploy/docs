@@ -19,12 +19,6 @@ Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/in
 While neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend.
 :::
 
-!include <aws-account>
-
-!include <azure-account>
-
-!include <google-cloud-account>
-
 ## Template section
 
 The Terraform template can come from two sources: directly entered source code or from files in a package.
