@@ -248,6 +248,8 @@ For auditability, Octopus Deploy prevents the updating of any auditable / snapsh
 
 A deployment, and runbook run, have the same limitation.  Issuing a `POST` command to those endpoints will trigger a deployment or a runbook run.  You cannot copy the task history, artifacts, or task logs via the Octopus Deploy REST API.  That is because that deployment or runbook run you are attempting to sync _did not happen_ on the destination instance, only the source instance.  Not only that, the associated releases and runbook snapshots will have different variable values and deployment processes.  
 
+What this comes back to is auditability.  If that data can be modified by any outside process then it is not auditable.
+
 ### Syncing Order
 
 In our experience, it is far easier to group data by type and sync them all together.  For example, sync all the Project Groups before syncing Projects.  That requires an order of precedence in syncing due to data dependencies.  That order of precedence is:
