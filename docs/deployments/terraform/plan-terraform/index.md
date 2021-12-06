@@ -12,7 +12,7 @@ Octopus has two steps that generate plan information: `Plan to apply a Terraform
 
 ## Step options
 
-The options for the planning steps are the same as those that are specified for the [Apply a Terraform template](../apply-terraform/index.md) and [Destroy Terraform resources](../destroy-terraform/index.md) steps. You can refer to the documentation for those steps for more details on the options for the plan steps.
+The options for the planning steps are the same as those that are specified for the [Apply a Terraform template](../working-with-terraform-templates/index.md) and [Destroy Terraform resources](../working-with-terraform-templates/index.md) steps. You can refer to the documentation for those steps for more details on the options for the plan steps.
 
 :::warning
 The plan steps do not support saving the plan to a file and applying that file at a later date. This means the plan information only makes sense when the same values are used in the plan and apply/destroy steps. Configuring shared variables for the step fields ensures that the same values will be used.
