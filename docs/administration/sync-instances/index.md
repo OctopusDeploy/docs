@@ -102,7 +102,7 @@ Our solutions team has written a sample PowerShell tool, [SpaceCloner](https://g
 
 ## Syncing Process
 
-While the actual business rules and decisions will vary between implementations, the core rules for any syncing process will remain the same.
+If you do determine the best course of action is to sync projects across multiple Octopus Deploy instances, then you will need to start designing a syncing process.  While the actual business rules and decisions will vary between implementations, the core rules for any syncing process will remain the same.
 
 ### Avoid mismatched versions
 
@@ -161,7 +161,7 @@ What makes that complex is that items such as lifecycles, environments, accounts
 2. Translate the lifecycle name to the lifecycle id on the destination instance.
 3. Update the project's default lifecycle id before saving it on the destination instance.
 
-That complexity is further exacerbated by the fact that some data is required, for example, a project's default lifecycle, while other data is not, for example, a step scoped to an environment.
+That complexity is further exacerbated by the fact that some data is required, for example, a project's default lifecycle, while other data is not, for example, a step scoped to an environment. 
 
 ### Data that must be an exact match
 
