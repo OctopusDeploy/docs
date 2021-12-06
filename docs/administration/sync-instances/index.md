@@ -227,7 +227,7 @@ Packages size can be substantial; we've seen some that are 1 GB+ in size.  Synci
 
 ### Data you cannot sync
 
-The Octopus Deploy REST API is powerful, but it has its limits.  It doesn't return sensitive information or allow you to modify audit history.  Because of that, you cannot sync:
+The Octopus Deploy REST API is powerful, but it has intentional limits put in place for security and auditability.  Namely, it doesn't return sensitive information or allow you to modify audit history.  Because of that, you cannot sync:
 
 - Sensitive Data
     - Sensitive Variables
@@ -239,10 +239,12 @@ The Octopus Deploy REST API is powerful, but it has its limits.  It doesn't retu
     - Runbook Snapshots
     - Deployments
     - Runbook Runs
+    - Audit history
+    - Task history
 
-The sensitive data limitation is for security reasons.  Decrypting and returning that data via the API has never been built into Octopus Deploy.  We have considered it, but there are several security concerns, and we'd want to ensure they were all met or mitigated before adding such functionality.
+For sensitive data, decrypting and returning that data via the API has never been built into Octopus Deploy.  We have considered it, but there are several security concerns, and we'd want to ensure they were all met or mitigated before adding such functionality.
 
-The audit data limitation is due to how Octopus Deploy works.  The release endpoint accepts a `POST` command.  In addition to creating a release, the variables, package versions, and deployment process is snapshotted using data as it exists at that exact point in time.  That prevents the ability to sync a release created six months ago via the Octopus Deploy REST API.  If you did, it wouldn't use the variables and deployment process from six months ago; it would use the variables and deployment process as it exists right now on the destination instance.
+For auditability, Octopus Deploy prevents the updating of any auditable / snapshot data as well as limiting how that data is created.  For example, the release endpoint accepts a `POST` command.  In addition to creating a release, the variables, package versions, and deployment process is snapshotted using data as it exists at that point in time.  That prevents the ability to sync a release created six months ago via the Octopus Deploy REST API.  If you did, it wouldn't use the variables and deployment process from six months ago; it would use the variables and deployment process as it exists right now on the destination instance.
 
 A deployment, and runbook run, have the same limitation.  Issuing a `POST` command to those endpoints will trigger a deployment or a runbook run.  You cannot copy the task history, artifacts, or task logs via the Octopus Deploy REST API.  That is because that deployment or runbook run you are attempting to sync _did not happen_ on the destination instance, only the source instance.  Not only that, the associated releases and runbook snapshots will have different variable values and deployment processes.  
 
