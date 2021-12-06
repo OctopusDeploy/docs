@@ -933,8 +933,8 @@ docs/deployment-examples/package-deployments/transfer-package.md -> docs/deploym
 docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md -> docs/deployments/packages/troubleshoot-missing-packages.md
 docs/deployment-examples/terraform-deployments/index.md -> docs/deployments/terraform/index.md
 docs/deployment-examples/terraform-deployments/plan-terraform/index.md -> docs/deployments/terraform/plan-terraform/index.md
-docs/deployment-examples/terraform-deployments/destroy-terraform/index.md -> docs/deployments/terraform/destroy-terraform/index.md
-docs/deployment-examples/terraform-deployments/apply-terraform/index.md -> docs/deployments/terraform/apply-terraform/index.md
+docs/deployment-examples/terraform-deployments/destroy-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
+docs/deployment-examples/terraform-deployments/apply-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
 docs/deployment-examples/terraform-deployments/remote-state/index.md -> docs/deployments/terraform/remote-state/index.md
 docs/deployment-process/conditions/index.md -> docs/projects/steps/conditions/index.md
 docs/deployment-process/configuration-features/custom-installation-directory.md -> docs/projects/steps/configuration-features/custom-installation-directory.md
