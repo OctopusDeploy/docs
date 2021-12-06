@@ -12,7 +12,7 @@ Octopus comes with a data migrator which can help in certain scenarios like movi
 
 ## Suitable scenarios
 
-With the addition of the **Export/Import Projects** feature, the number of suitable scenarios has been reduced to the following.  
+With the addition of the [Export/Import Projects](/docs/projects/export-import/index.md) feature, the number of suitable scenarios has been reduced to the following.  
 
 - Copying projects and their dependencies from one Octopus Server to another periodically in a single direction where there is a single source of truth.
 - Wanting to exclude tenants, releases, or deployments from the migration.

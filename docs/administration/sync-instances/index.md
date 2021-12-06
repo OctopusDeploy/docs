@@ -5,12 +5,12 @@ position: 45
 hideInThisSection: true
 ---
 
-Syncing instances is involves copying projects and all the required scaffolding data between Octopus Deploy instances with a known delta.  The delta can be different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.   
+Syncing instances involves copying projects and all of the required scaffolding data between Octopus Deploy instances with a known delta.  The delta can be different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.
 
 Keeping multiple instances in sync is a complex task involving dozens if not hundreds of decisions on the data to sync and the data to be left alone.  This guide will walk you through when you should do this, when you shouldn't, tooling available, and how to design a syncing process.  
 
 :::problem
-TL;DR; copying projects between instances should be done when all other options are exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  Due to the number of decisions and business rules, you will have to create and maintain a custom syncing process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
+TL;DR; copying projects between instances should be done when all other options have been exhausted.  There is no provided tooling to support syncing instances with different environments, tenants, or variable values.  Due to the number of decisions and business rules, you will have to create and maintain a custom syncing process.  Before making this decision, reach out to [customersuccess@octopus.com](mailto:customersuccess@octopus.com) to see if there are alternatives.
 :::
 
 ## Suitable Scenarios
@@ -24,7 +24,7 @@ Split and sync instances only when Octopus lacks a critical feature to satisfy a
 The expectation is the source instance is the the source of truth and the destination instance(s) contain copies of that data.  You plan on running a syncing process periodically to ensure any changes made on the source instance are added to the destination instance.
 
 :::hint
-If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend [Export/Import Projects feature](docs/projects/export-import/index.md) feature.  
+If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend the [Export/Import Projects](docs/projects/export-import/index.md) feature.  
 :::
 
 ## Consider alternatives
@@ -45,7 +45,7 @@ A secondary reason we hear about is to "speed up the deployment."  Typically we 
 - If there appears to be latency when running scripts on the Octopus Server to make database changes, run e2e tests, or any other similar task, then leverage [workers](/docs/infrastructure/workers/index.md).  Workers can execute tasks that don't need to run on individual deployment targets.  They can be located in the same data center as your database or applications.
 
 :::hint
-We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  Spaces are hard walls and do not allow the sharing of environments, projects, library variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
+We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  [Spaces](/docs/administration/spaces/index.md) are hard walls and do not allow the sharing of environments, projects, library variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
 :::
 
 ## Unsuitable Scenarios
@@ -53,18 +53,18 @@ We've been asked if splitting environments, tenants or deployment targets by spa
 Do not split an instance and sync it for any of the following use cases.  
 
 - You want an approval process for any changes to your deployment process.  Please see our [config as code feature](/docs/projects/version-control/index.md) as that integrates with git.
-- You want to move a project from the default space to another space on the same instance (or different instance).  Please see our documentation on [Export/Import Projects feature](docs/projects/export-import/index.md).
+- You want to move a project from the default space to another space on the same instance (or different instance).  Please see our documentation on our [Export/Import Projects feature](docs/projects/export-import/index.md).
 - You want to create a test instance to test out upgrades or try out new processes.  Please see our guide on [creating a test instance](/docs/administration/upgrading/guide/creating-test-instance.md)
 - You want to upgrade the underlying VM hosting Octopus Deploy from Windows Server 2012 to Windows Server 2019.  Please see our guide on [moving the Octopus Server](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
 - You want to move the SQL Server database from SQL Server 2012 to SQL Server 2019.  Please see our guide on [moving the Octopus Database](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-server.md).
-- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations.md) on how to leverage [Export/Import Projects feature](docs/projects/export-import/index.md) to accomplish this.
-- You want to consolidate multiple Octopus Deploy instances into a single Octopus Deploy instance.  Please see our documentation on [Export/Import Projects feature](docs/projects/export-import/index.md).
+- You want to migrate from self-hosted Octopus to Octopus Cloud.  Please see our [migration guide](/docs/octopus-cloud/migrations.md) on how to leverage the [Export/Import Projects feature](docs/projects/export-import/index.md) to accomplish this.
+- You want to consolidate multiple Octopus Deploy instances into a single Octopus Deploy instance.  Please see our documentation on our [Export/Import Projects feature](docs/projects/export-import/index.md).
 
 ## Syncing is not cloning
 
-Syncing is not the same as cloning.  Cloning an instance will result in the same data.  In addition to having all the same targets, environments, variables, tenants, projects, etc., the unique identifiers stored in the Octopus database will be the same; including the thumbprint and master key.  Cloning is typically a one-time operation, such as standing up a new server.  
+Syncing is not the same as cloning.  Cloning an instance will result in an exact replica (or copy) of data from the source.  In addition to having all the same targets, environments, variables, tenants, projects, etc., the unique identifiers stored in the Octopus database will be the same; including the Server thumbprint and database master key.  Cloning is typically a one-time operation, such as standing up a new server.  
 
-Syncing an instance involves copying data between instances with a known delta.  The delta is can range from projects, deployment processes, environments, lifecycles, retention policies, tenants, accounts, workers, targets, or variable values.  Each instance will have different ids, thumbprint, and master key.  
+Syncing an instance involves copying data between instances with a known delta.  The delta can range from projects, deployment processes, environments, lifecycles, retention policies, tenants, accounts, workers, targets, or variable values.  Each instance will have different ids, Server thumbprint, and database master key.  
 
 ## Tools and features to avoid 
 
@@ -72,17 +72,17 @@ Unfortunately, there are many decisions and business rules in syncing two instan
 
 ### Migrator and Export/Import Project
 
-The [migrator](docs/administration/data/data-migration.md) and the [Export/Import Project](docs/projects/export-import/index.md) feature were designed to migrate or clone a project to another instance (or space for Export/Import Project).  The primary use case for both tools is that a user wants to move a project to a new instance and depreciate the older instance.  For example, when migrating from a self-hosted Octopus Server to Octopus Cloud.
+The [Migrator](docs/administration/data/data-migration.md) and the [Export/Import Project](docs/projects/export-import/index.md) feature were designed to migrate or clone a project to another instance (or space for Export/Import Project).  The primary use case for both tools is that a user wants to move a project to a new instance and deprecate the older instance.  For example, when migrating from a self-hosted Octopus Server to Octopus Cloud.
 
-The migrator and Export/Import Project can be run multiple times, but they will ensure the source and destination instances match.  There is no way to exclude specific environments, tenants, or any specific data you wish to keep separate.  While it is possible to modify the JSON exported by those tools, such an approach is error-prone and unsupported.  
+The Migrator and Export/Import Project feature can be run multiple times, but they will ensure the source and destination instances match.  There is no way to exclude specific environments, tenants, or any specific data you wish to keep separate.  While it is possible to modify the JSON exported by those tools, such an approach is error-prone and unsupported.  
 
 ### Octopus CLI
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) includes the [export](/docs/octopus-rest-api/octopus-cli/export.md) and [import](/docs/octopus-rest-api/octopus-cli/import.md) commands.  Those commands are depreciated and should not be used.  
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) includes the [export](/docs/octopus-rest-api/octopus-cli/export.md) and [import](/docs/octopus-rest-api/octopus-cli/import.md) commands.  Those commands are deprecated and should not be used.  
 
 ### Config as Code and Octopus Terraform Provider
 
-Terraform uses Hashicorp Configuration Language or HCL.  The [Cofig as Code feature](/docs/projects/version-control/index.md) uses Octopus Configuration Language (OCL) and that is based on HCL.  HCL does not support complex logic.  That means you'd need a unique set of files per instance.  To sync instances using these features, you'd need to use a tool such as Beyond Compare to move changes between instances manually.  Anything manual is error-prone and will eventually fail. 
+Terraform uses Hashicorp Configuration Language or HCL.  The [Config as Code feature](/docs/projects/version-control/index.md) uses Octopus Configuration Language (OCL) and that is based on HCL.  HCL does not support complex logic.  That means you'd need a unique set of files per instance.  To sync instances using these features, you'd need to use a comparison tool such as Beyond Compare to move changes between instances manually.  Anything manual is error-prone and will eventually fail. 
 
 You can write a tool to compare files between instances automatically.  It would need to follow a lot of the same rules detailed below.
 
@@ -100,21 +100,21 @@ While the actual business rules and decisions will vary, the core rules for any 
 
 ### Avoid mismatched versions
 
-It is possible to take JSON data retrieved via a GET request on an instance running 2020.1, make some modifications, and then POST that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  A new required property could've been added, or a property was renamed.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
+It is possible to take JSON data retrieved via a `GET` request on an instance running 2020.1, make some modifications, and then `POST` that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  A new required property could've been added, or a property was renamed.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
 
 :::hint
 In late 2020 an engineering effort was made to move from NancyFX to ASP.NET for the Octopus Deploy API Controllers.  Since that conversion started, missing or additional previously tolerated fields will cause a 400 bad request error.  Looking at the SpaceCloner code, you will see several invocations of an "add field if missing" method because of a model change.
 :::
 
-A rule of thumb to follow is don't have instances more than one minor version apart.  For example, the source instance runs **Octopus 2021.2**, and the destination instance runs **Octopus 2021.3**.  Ideally, all instances would be on the same Major.Minor version.  If you run into unexpected 400 bad request errors, the typical remediation is to upgrade both instances to the same version.
+A rule of thumb to follow is don't have instances more than one minor version apart.  For example, the source instance runs **Octopus 2021.2**, and the destination instance runs **Octopus 2021.3**.  Ideally, all instances would be on the same `Major.Minor` version.  If you run into unexpected 400 bad request errors, the typical remediation is to upgrade both instances to the same version.
 
 ### Have a single source of truth
 
-It is much easier to sync everything in a one-way direction.  The source instance should remain the source instance every time the syncing process runs.  It shouldn't be the source instance on day, and two days later it is the destination instance.  
+It is much easier to sync everything in a one-way direction.  The source instance should remain the source instance every time the syncing process runs.  It shouldn't be the source instance one day, and two days later it is the destination instance.  
 
-When a conflict is found it will be nearly impossible to know which instance is "right" and the change should be accepted.  For example, both instances have added a step added to the same deployment process, on one instance it is new manual intervention step, while the other instance it is a run a script step.  Should both exist?  Only one copied over?  You'd need a merging tool similar to BeyondCompare to reconcile this conflict.
+When a conflict is found it will be nearly impossible to know which instance is "right" and the change should be accepted.  For example, both instances have added a step added to the same deployment process, on one instance it is a new manual intervention step, while the other instance it is a run a script step.  Should both exist?  Only one copied over?  You'd need a comparison tool similar to Beyond Compare to reconcile this conflict.
 
-It is okay to have known differences between the instances, such as different environments, lifecycles, variable values, tenants, deployment targes, channels, and more.  But when something new is added, such as a new variable or step, it should done on one instance and synced to the other instance.  It is hard enough to detect when something is "new."  There is no need to add to that complexity.  A one-way sync will help keep conflicts to a minimum.
+It's okay to have known differences between the instances, such as different environments, lifecycles, variable values, tenants, deployment targets, channels, and more.  But when something new is added, such as a new variable or step, it should done on one instance and synced to the other instance.  It is hard enough to detect when something is "new".  There is no need to add to that complexity.  A one-way sync will help keep conflicts to a minimum.
 
 ### Data to Sync
 
@@ -169,7 +169,7 @@ The following items must be an exact match between your instances.  If not you w
 
 Most of the data referenced by your deployment and runbook processes have to exist.  For example, a deployment process directly references a worker pool with the name **Ubuntu Worker Pool**. While the data has to exist, only the name must be the same between instances.  The source instance could have 5 EC2 instances for the **Ubuntu Worker Pool**, while the destination instance could have 3 EC2 instances in a different region.  As long as the worker pool **Ubuntu Worker Pool** exists in both instances with running workers, everything will work fine.
 
-The data that must exist but have different details is:
+The data that must exist but can have different details is:
 
 - Infrastructure
     - Accounts: Same account type, different credentials           
@@ -183,7 +183,7 @@ The data that must exist but have different details is:
     - Teams: user role mapping, different members
 - Project Groups: You don't have to sync all the projects in a project group; only the project group has to exist.
 
-It is possible to leverage variables instead of directly referencing that data in a deployment or runbook process.  As long as the variable exists, is of the correct type, and is assigned to something that exists on the deployment target, the deployment process will work.  For example, a variable with the name `Project.AWS.Account` is assigned to an account named `Dev/Test Account` on the source instance.  On the destination instance that same variable can be assigned to `Staging/Prod Account`. 
+It is possible to leverage variables instead of directly referencing that data in a deployment or runbook process.  As long as the variable exists, is of the correct type, and is assigned to something that exists on the destination instance, the deployment process will work.  For example, a variable with the name `Project.AWS.Account` is assigned to an account named `Dev/Test Account` on the source instance.  On the destination instance that same variable can be assigned to `Staging/Prod Account`. 
 
 Items that can be variables are:
 - Infrastructure
@@ -273,9 +273,9 @@ The Octopus Deploy REST API is powerful, but it has its limits.  It doesn't retu
 
 The sensitive data limitation is for security reasons.  Decrypting and returning that data via the API has never been built into Octopus Deploy.  We have considered it, but there are several security concerns, and we'd want to ensure they were all met or mitigated.
 
-The audit data limitation is due to how Octopus Deploy works.  The release endpoint accepts a POST command.  In addition to creating a release, the variables, package versions, and deployment process is snapshotted using data as it exists at that exact point in time.  That prevents the ability to sync a release created six months ago via the Octopus Deploy REST API.  If you did, it wouldn't use the variables and deployment process from six months ago; it would use the variables and deployment process as it exists right now on the destination instance.
+The audit data limitation is due to how Octopus Deploy works.  The release endpoint accepts a `POST` command.  In addition to creating a release, the variables, package versions, and deployment process is snapshotted using data as it exists at that exact point in time.  That prevents the ability to sync a release created six months ago via the Octopus Deploy REST API.  If you did, it wouldn't use the variables and deployment process from six months ago; it would use the variables and deployment process as it exists right now on the destination instance.
 
-A deployment, and runbook run, have the same limitation.  Issuing a POST command to those endpoints will trigger a deployment or a runbook run.  You cannot copy the task history, artifacts, or task logs via the Octopus Deploy REST API.  That is because that deployment or runbook run you are attempting to clone _did not happen_ on the destination instance, only the source instance.
+A deployment, and runbook run, have the same limitation.  Issuing a `POST` command to those endpoints will trigger a deployment or a runbook run.  You cannot copy the task history, artifacts, or task logs via the Octopus Deploy REST API.  That is because that deployment or runbook run you are attempting to clone _did not happen_ on the destination instance, only the source instance.
 
 ### Keep a log of data to clean-up
 
@@ -295,7 +295,7 @@ There is a ripple effect when the source and destination instance have different
 - The destination and source instance has a different set of environments.  For example, **Dev/Test** on the source instance and **Staging/Production** on the destination.
 - It is a combo of both use cases.  For example, **Dev/Test/Staging** on the source and **Staging/Production** on the destination. 
 
-One or more environments are excluded from the syncing process in all the use cases.  Consider all the data that can reference and environment:
+One or more environments are excluded from the syncing process in all the use cases above.  Consider all the data that can reference an environment:
 
 - Infrastructure
     - Accounts
@@ -340,13 +340,13 @@ In Octopus Deploy, a Tenant is tied to both a Project and 1 to N Environments.  
 - Not all tenants should be synced between instances.  It is common to have a different list of tenants on each instance.  There could be some overlap (typically with test tenants) or no overlap.  
 - The environments a tenant is scoped to for a project affect the Tenant Variables to copy over.
 
-The source instance has **Development**, **Test**, **Staging** and **Production** and the destination instance has **Staging** and **Production**.  You have the Tenant **Internal** tied to all four environments and another tenant **Development Team A** tied to **Development** and **Test** on the source instance.  
+Consider the following example. The source instance has **Development**, **Test**, **Staging** and **Production** and the destination instance has **Staging** and **Production**.  You have the Tenant **Internal** tied to all four environments and another tenant **Development Team A** tied to **Development** and **Test** on the source instance.  
 
 For this scenario, should both tenants be cloned?  It makes sense to sync the **Internal** Tenant and tie it to **Staging** and **Production** on the destination instance and not sync **Development Team A**.  For the **Internal** Tenant, should all the variables in **Staging** and **Production** for that Tenant be copied over as well?  Or, should you have to manually enter the values as they'll be different between instances?
 
 ### Deployment and Runbook Processes
 
-A common use for environments is to scope them to steps in Deployment and Runbook Processes.  For example, a manual intervention step is scoped to **Test**on the source instance.  That step pauses a deployment so the QA team can review the newly deployed release before starting their integration tests.  Should that step be included with the Staging/Prod instance sync?  There are valid use cases for both yes and no.
+A common use for environments is to scope them to steps in Deployment and Runbook Processes.  For example, a manual intervention step is scoped to **Test** on the source instance.  That step pauses a deployment so the QA team can review the newly deployed release before starting their integration tests.  Should that step be included with the Staging/Prod instance sync?  There are valid use cases for both yes and no.
 
 - Yes, QA runs integration tests in **Staging**.  It should be cloned but scoped to run in **Staging**.
 - No, QA only runs integration tests in **Test**.  
@@ -370,9 +370,9 @@ Syncing variables between instances with different environments is the most comp
 
 | Variable Name             | Value        | Scope       |
 | ------------------------- | ------------ | ----------- |
-| Application.Database.Name | OctoFx-Dev   | Development |
-|  | OctoFX-Test  | Test        |
-| ConnectionString          | Database=#{Application.Database.Name} | |
+| Application.Database.Name | `OctoFx-Dev `  | Development |
+|  | `OctoFX-Test`  | Test        |
+| ConnectionString          | `Database=#{Application.Database.Name}` | |
 
 Syncing `ConnectionString` as-is to the destination instance makes much sense as it has no scoping.  You'll need to sync over the variable `Application.Database.Name` as `ConnectionString` references it.  But what about the values?  Those values are tied to environments that do not exist on the destination instance.  
 
@@ -380,16 +380,16 @@ There are a couple of options.  You could clone the variable values as-is with n
 
 | Variable Name             | Value        | Scope       |
 | ------------------------- | ------------ | ----------- |
-| Application.Database.Name | OctoFx-Dev   | |
-|  | OctoFX-Test  |         |
-| ConnectionString          | Database=#{Application.Database.Name} | |
+| Application.Database.Name | `OctoFx-Dev`   | |
+|  | `OctoFX-Test`  |         |
+| ConnectionString          | `Database=#{Application.Database.Name}` | |
 
 The downside to the above option is that you'd need to know which values to clean up.  Another option is to copy the variable name with text indicating that it needed replacing and exclude any scoping.  The initial sync would look like this:
 
 | Variable Name             | Value        | Scope       |
 | ------------------------- | ------------ | ----------- |
-| Application.Database.Name | Replace Me   | |
-| ConnectionString          | Database=#{Application.Database.Name} | |
+| Application.Database.Name | `Replace Me`   | |
+| ConnectionString          | `Database=#{Application.Database.Name}` | |
 
 That only covers the initial sync.  Recurring syncs will add additional challenges because you'll need to account for both changed and new variables.  The fact that a variable can have multiple values, each with different scoping, makes detecting "new" variables complex.  
 
@@ -409,22 +409,22 @@ Imagine the variables on the source instance were changed from:
 
 | Variable Name             | Value        | Scope       |
 | ------------------------- | ------------ | ----------- |
-| Application.Database.Name | OctoFx-Dev   | Development |
+| Application.Database.Name | `OctoFx-Dev`   | Development |
 |  | OctoFX-Test  | Test        |
-| ConnectionString          | Database=#{Application.Database.Name} | |
+| ConnectionString          | `Database=#{Application.Database.Name}` | |
 
 To this:
 
 | Variable Name             | Value        | Scope       |
 | ------------------------- | ------------ | ----------- |
-| Application.Database.Name | OctoFx-#{Octopus.Environment.Name}   | |
-| ConnectionString          | Database=#{Application.Database.Name} | SQL-Server (role) |
-|           | Data Source=#{Application.Database.Name} | Oracle (role) |
+| Application.Database.Name | `OctoFx-#{Octopus.Environment.Name}`   | |
+| ConnectionString          | `Database=#{Application.Database.Name}` | SQL-Server (role) |
+|           | `Data Source=#{Application.Database.Name}` | Oracle (role) |
 
 The desired result on the destination instance will be:
 
 - Leave `Application.Database.Name` alone.  
-- Add the scoping to `SQL-Server` to the `ConnectionString` variable with the value `Database=#{Application.Database.Name}`.
+- Add the scoping of `SQL-Server` to the `ConnectionString` variable with the value `Database=#{Application.Database.Name}`.
 - Add an additional `ConnectionString` option with the value set to `Data Source=#{Application.Database.Name}` and the scoping set to `Oracle`.
 
 Variable syncing is so complex because the rules for each project and variable scoping mismatch are different.  The syncing process will need some logic in it that you can configure.
