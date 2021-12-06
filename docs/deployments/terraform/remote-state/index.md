@@ -1,6 +1,7 @@
 ---
 title: Terraform remote state
 description: Using remote state with Octopus
+position: 10
 ---
 
 When running Terraform on a local PC, the state of the resources managed by Terraform is saved in a local file. This state is queried to learn which resources already exist in order to properly apply updates and destroy resources.
