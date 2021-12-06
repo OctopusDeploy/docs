@@ -183,7 +183,7 @@ The data that must exist but can have different details is:
     - Teams: user role mapping, different members
 - Project Groups: You don't have to sync all the projects in a project group; only the project group has to exist.
 
-It is possible to leverage variables instead of directly referencing that data in a deployment or runbook process.  As long as the variable exists, is of the correct type, and is assigned to something that exists on the destination instance, the deployment process will work.  For example, a variable with the name `Project.AWS.Account` is assigned to an account named `Dev/Test Account` on the source instance.  On the destination instance that same variable can be assigned to `Staging/Prod Account`. 
+It is possible to leverage variables instead of directly referencing that data in a deployment or runbook process.  The deployment process will work as long as the variable exists, is of the correct type, and is assigned to something that exists on the destination instance.  For example, a variable named `Project.AWS.Account` refers to an account called `Dev/Test Account` on the source instance.  That same variable can refer to the `Staging/Prod Account` on the destination instance. 
 
 Items that can be variables are:
 - Infrastructure
