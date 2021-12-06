@@ -114,7 +114,7 @@ It is much easier to sync everything in a one-way direction.  The source instanc
 
 It will be nearly impossible to know which instance is "right" and whether the change should be accepted when a conflict is found.  For example, both instances have a step added to the same deployment process; on one instance, it is a new manual intervention step, while in the other instance, it is a run a script step.  Should both exist?  Only one copied over?  You'd need a comparison tool similar to Beyond Compare to reconcile this conflict.
 
-It's okay to have known differences between the instances, such as different environments, lifecycles, variable values, tenants, deployment targets, channels, and more.  But when something new is added, such as a new variable or step, it should done on one instance and synced to the other instance.  It is hard enough to detect when something is "new".  There is no need to add to that complexity.  A one-way sync will help keep conflicts to a minimum.
+It's okay to have known differences between the instances, such as different environments, lifecycles, variable values, tenants, deployment targets, channels, and more.  But when something new is added, such as a new variable or step, it should be done on one instance and synced to the other instance.  It is hard enough to detect when something is "new". A one-way sync will help keep conflicts to a minimum, and reduce complexity.
 
 ### Data to Sync
 
