@@ -4,11 +4,13 @@ description: Documentation on using Octopus built-in steps to Apply and Destroy 
 position: 40
 ---
 
-## Apply Terraform configuration
+## Working with Terraform configuration files
 
-Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using AWS credentials managed by Octopus, and captures the Terraform output variables as Octopus output variables.
+Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using [cloud credentials managed by Octopus](docs/deployments/terraform/managed-accounts/index.md), and captures the Terraform output variables as Octopus output variables.
 
-These instructions can be followed to configure the `Apply a Terraform template` step, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` step.
+In addition, Octopus supports the destruction of existing Terraform resources through the `Destroy Terraform resources` step. This step destroys the resources created using a Terraform template, optionally using [cloud credentials managed by Octopus](docs/deployments/terraform/managed-accounts/index.md).
+
+These instructions can be followed to configure either of the above steps, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` or `Destroy Terraform resources` step.
 
 ## Terraform backends
 
