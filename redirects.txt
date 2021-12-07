@@ -1036,3 +1036,5 @@ docs/installation/octopus-in-container/index.md -> docs/installation/octopus-ser
 docs/installation/octopus-in-container/octopus-tentacle-container.md -> docs/installation/octopus-tentacle-container.md
 docs/deployments/terraform/destroy-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
 docs/deployments/terraform/apply-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
+docs/deployments/terraform/remote-state/index.md -> docs/deployment/terraform/preparing-your-terraform-environment/index.md
+docs/deployments/terraform/managed-accounts/index.md -> docs/deployments/terraform/preparing-your-terraform-environment/index.md

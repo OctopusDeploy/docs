@@ -1,6 +1,6 @@
 ---
-title: Terraform remote state
-description: Using remote state with Octopus
+title: Preparing your Terraform environment
+description: Configuring remote state, backends, and cloud accounts using Terraform with Octopus
 position: 10
 ---
 
@@ -14,6 +14,14 @@ Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/in
 
 Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/deployments/terraform/remote-state/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/remote-state/index.md) and more general information
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
+
+## Managed Cloud Accounts
+
+You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template. Using credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable. Credentials defined in the Terraform template take precedence over any credentials defined in the step. The following pages provide instruction on creating cloud accounts:
+
+- [Azure accounts](/docs/infrastructure/accounts/azure/index.md)
+- [AWS accounts](/docs/infrastructure/accounts/aws/index.md)
+- [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md)
 
 ## Remote state Terraform cloud
 

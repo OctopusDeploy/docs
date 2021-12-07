@@ -1,7 +1,7 @@
 ---
 title: Working with Terraform resources
 description: Documentation on using Octopus built-in steps to Apply and Destroy Terraform resources.
-position: 40
+position: 30
 ---
 
 Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using [cloud credentials managed by Octopus](docs/deployments/terraform/managed-accounts/index.md), and captures the Terraform output variables as Octopus output variables.
@@ -15,7 +15,15 @@ Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/d
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 :::
 
-## Template section
+## Managed Accounts
+
+You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
+
+:::hint
+Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts/index.md).
+:::
+
+## Template section 
 
 The Terraform template can come from two sources: directly entered source code or from files in a package.
 

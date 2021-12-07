@@ -1,7 +1,7 @@
 ---
 title: Planning changes made by Terraform templates
 description: Planning changes made by applying or destroying Terraform templates
-position: 30
+position: 20
 ---
 
 The Terraform `plan` command is used to identify changes that would be executed if a template was applied or destroyed. This information is useful to confirm the intended changes before they are executed.
