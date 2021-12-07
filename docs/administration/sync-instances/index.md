@@ -106,7 +106,7 @@ If you do determine the best course of action is to sync projects across multipl
 
 ### Avoid mismatched versions
 
-It is possible to take JSON data retrieved via a `GET` request on an instance running 2020.1, make some modifications, and then `POST` that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  Something could've changed, a new required property, a property type was updated, or any other reasons a model changes when there are over 12 months between releases.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
+It is possible to take JSON data retrieved via a `GET` request on an instance running 2020.1, make some modifications, and then `POST` that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  Something could've changed, a new required property, a property type was updated, or any other reason a model changes when there are over 12 months between releases.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
 
 :::hint
 In late 2020 an engineering effort was made to move from NancyFX to ASP.NET for the Octopus Deploy API Controllers.  Since that conversion started, missing or additional previously tolerated fields will now cause a 400 bad request error.  Looking at the SpaceCloner code, you will see several invocations of an "add field if missing" method because of a model change.
