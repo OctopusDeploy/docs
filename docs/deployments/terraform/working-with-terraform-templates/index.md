@@ -4,14 +4,14 @@ description: Documentation on using Octopus built-in steps to Apply and Destroy 
 position: 30
 ---
 
-Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using [cloud credentials managed by Octopus](docs/deployments/terraform/managed-accounts/index.md), and captures the Terraform output variables as Octopus output variables.
+Octopus supports the deployment of Terraform templates through the `Apply a Terraform template` step. This step executes a Terraform template, optionally using [cloud credentials managed by Octopus](docs/deployments/terraform/preparing-your-terraform-environment/index.md#managed-cloud-accounts), and captures the Terraform output variables as Octopus output variables.
 
-In addition, Octopus supports the destruction of existing Terraform resources through the `Destroy Terraform resources` step. This step destroys the resources created using a Terraform template, optionally using [cloud credentials managed by Octopus](docs/deployments/terraform/managed-accounts/index.md).
+In addition, Octopus supports the destruction of existing Terraform resources through the `Destroy Terraform resources` step. This step destroys the resources created using a Terraform template, optionally using [cloud credentials managed by Octopus](/docs/deployments/terraform/preparing-your-terraform-environment/index.md#managed-cloud-accounts).
 
 These instructions can be followed to configure either of the above steps, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` or `Destroy Terraform resources` step.
 
 :::warning
-Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/deployments/terraform/remote-state/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/remote-state/index.md) and more general information
+Neither Octopus nor Terraform will generate errors if a [remote backend](docs/deployments/terraform/preparing-your-terraform-environment/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](docs/deployments/terraform/preparing-your-terraform-environment/index.md) and more general information
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
 :::
 
