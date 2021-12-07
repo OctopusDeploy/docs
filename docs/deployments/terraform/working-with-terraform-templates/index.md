@@ -10,12 +10,6 @@ In addition, Octopus supports the destruction of existing Terraform resources th
 
 These instructions can be followed to configure either of the above steps, which can be found by navigating to your project and clicking **{{Process, Add Step}}** and selecting the `Apply a Terraform template` or `Destroy Terraform resources` step.
 
-## Terraform backends
-
-When running Terraform on a local PC, the state of the resources managed by Terraform is saved in a local file. This state is queried to learn which resources already exist in order to properly apply updates and destroy resources.
-
-When Terraform is run by Octopus, this state file is not preserved between executions. This means that, for almost all practical applications of Terraform through Octopus, a remote backend must be configured. A remote backend allows this state information to be preserved between Terraform steps.
-
 :::warning
 Neither Octopus nor Terraform will generate errors if a [remote backend](/docs/deployments/terraform/remote-state/index.md) is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/remote-state/index.md) and more general information
 regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
