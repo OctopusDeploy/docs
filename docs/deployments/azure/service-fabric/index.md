@@ -4,7 +4,7 @@ description: Learn how Octopus Deploy fits into a Continuous Deployment pipeline
 position: 2
 ---
 
-This section contains resources for using Octopus to deploy your Azure Service Fabric applications. We assume you already have a Service Fabric cluster set up in Azure. If you don't yet, check out Microsoft's documentation on[getting started with Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
+This section contains resources for using Octopus to deploy your Azure Service Fabric applications. We assume you already have a Service Fabric cluster set up in Azure. If you don't yet, check out Microsoft's documentation on [getting started with Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
 
 ## Service Fabric Deployment Targets in Octopus
 
