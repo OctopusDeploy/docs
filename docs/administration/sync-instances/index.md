@@ -104,6 +104,10 @@ Our solutions team has written a sample PowerShell tool, [SpaceCloner](https://g
 
 If you do determine the best course of action is to sync projects across multiple Octopus Deploy instances, then you will need to start designing a syncing process.  While the actual business rules and decisions will vary between implementations, the core rules for any syncing process will remain the same.
 
+:::warning
+As the syncing process requires the use of the Octopus Deploy REST API, or one of the API wrappers, you should be comfortable with the Octopus Deploy data model and API endpoint structure before starting.  
+:::
+
 ### Avoid mismatched versions
 
 It is possible to take JSON data retrieved via a `GET` request on an instance running 2020.1, make some modifications, and then `POST` that data to an instance running 2021.3.  But there is no guarantee that the data model will be the same between versions.  Something could've changed, a new required property, a property type was updated, or any other dozen other reasons a model changes when there is over 12 months between releases.  The risk of error is directly correlated to the delta between versions—the greater the delta, the greater the risk.
