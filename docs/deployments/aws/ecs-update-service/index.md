@@ -58,10 +58,6 @@ Use the same role that you applied to your deployment target in Step 2.
 Specify the name of your Destination Task Definition.
 This is the task definition that will receive a new revision upon deploy.
 
-Optionally, specify the name of the Template Task Definition.
-If provided, this task definition will be used as a template for the new task definition.
-This configuration allows the template task definition to be updated without conflicting with the changes made to the target task definition during deployment.
-
 Lastly, specify the name of the service to be updated.
 Upon deployment, the named service will be updated to refer to the newly created task definition revision.
 
@@ -104,6 +100,14 @@ Merging environment variables will add any new variables and overwrite the value
 Specify any additional tags that should be added to the task definition and service. Tags can be used to attach arbitrary metadata to categorize and organize resources. For more information see the [ECS Documentation](https://g.octopushq.com/ECSUsingTags)
 
 ![ECS Step Tags](images/update-ecs-tags.png "width=500")
+
+### Advanced Options section
+
+Optionally, specify the name of the Template Source Task Definition.
+If provided, this task definition will be used as a template for the new task definition.
+This configuration allows the template task definition to be updated without conflicting with the changes made to the target task definition during deployment.
+
+![ECS Advanced Options](images/update-ecs-advanced-options.png "width=500")
 
 ### Deployment Options section
 
