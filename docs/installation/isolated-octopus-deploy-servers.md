@@ -23,13 +23,7 @@ You can configure an [offline package drop deployment target](/docs/infrastructu
 
 > A credit card processing gateway have decided to use Octopus to manage deployments. For PCI-compliance reasons, the production environment is required to be on a different network to the pre-production environments, and very little is shared. Since they own the servers, they can install the Octopus Servers and Tentacles on each environment, but they just can't share an Octopus Server between environments.
 
-In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, they can use a combination of strategies:
-
-- They could use the new [data migration tool](/docs/administration/data/data-migration.md) to export the internal Octopus Deploy configuration to a folder. The resulting folder tree could be imported into the production Octopus instance. This will result in a duplicate configuration in the production environment.
-- The migration tool could be reused periodically to keep both servers in sync. Because the resulting export is simply a collection of JSON files in folders, a source control system like Git could be used for this purpose. Any imports subsequent to the initial import would result in a merge of any changes.
-- They can manually keep some additional settings in sync, such as common Nuget feeds.
-- Packages can be moved between environments using [NuGet.exe](http://docs.nuget.org/docs/reference/command-line-reference) to push packages to both Octopus Servers. For example, the CI server could publish packages to both the pre-production and production Octopus Server after a build, or they could manually use Nuget to push them when ready to promote.
-- Finally, to automate anything else that isn't possible above, the [REST API](/docs/octopus-rest-api/index.md) or [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) can be used.
+In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, refer to the [documentation on keeping instances in sync](/docs/administration/sync-instances/index.md).
 
 :::success
 **Friendly multi-instance licensing model**
