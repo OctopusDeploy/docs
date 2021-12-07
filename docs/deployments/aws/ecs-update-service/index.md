@@ -142,3 +142,13 @@ ServiceName
 
 Region
 : The AWS region in which the operations were executed
+
+## Error messages
+
+If a deployment failure is detected, the step will attempt to extract error messages from the task spawned from the ECS service and task definitions. In some cases, these messages can include errors and warnings from previous deployment attempts. Unfortunately, the step cannot distinguish which errors are relevant and will err on the side of over-communication. In most cases, the error log should provide enough information to resolve any issues without referring to the AWS Dashboard or other tools.
+
+### ECS Update Validation Error
+
+This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and could not be resolved until a new release is deployed. The ECS step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
+* Non-unique tag and/or environment variable keys.
+* Bound expressions resolving to empty values when the field is required.
