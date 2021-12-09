@@ -106,4 +106,4 @@ The second team is **Octopus Administrators.** Members of this team have permiss
 
 The third team is **Octopus Managers.** That can manage a smaller subset of system-level functions reserved. You can also add or remove members from this team. We recommend adding users to this team who should be able to manage teams and other top-level things in Octopus, but not be able to change how Octopus is hosted.
 
-The fourth team is **Space Managers** Members of this team can do everything in a given space. Out of the box the initial user added to  **Octopus Administrators** is also added as a **Space Manager**. If you do not need granular access for what users need to do withing Octopus relating to Projects, Tenants, Environments you can add them as **Space Managers**.
+The fourth team is **Space Managers** Members of this team can do everything in a given space. Out of the box the initial user added to  **Octopus Administrators** is also added as a **Space Manager**. If you do not need granular access for what users need to do with Octopus relating to Projects, Tenants, Environments you can add them as **Space Managers**.
