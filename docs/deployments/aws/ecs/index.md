@@ -236,7 +236,7 @@ The following states are considered unsuccessful:
 * `CREATE_FAILED`
 * `UPDATE_FAILED`
 
-### ECS Update Validation Error
+### ECS Deploy Validation Error
 
 This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and could not be resolved until a new release is deployed. The ECS step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
 * Specifying more than 20 tags per task definition.
