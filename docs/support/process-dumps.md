@@ -18,12 +18,16 @@ secure upload facility. We will also delete them as soon as they have been analy
 
 :::warning
 Creating a process dump will pause the process for anywhere between a few seconds
-to a few minutes, depending on the amount of memory in use and the disk speed
+to a few minutes, depending on the amount of memory in use and the disk speed.
+:::
+
+:::warning
+When capturing a process dump for Tentacle.exe, please make sure to also capture any child Calamari.exe processes!
 :::
 
 1. Right click on the task bar and select **Task Manager**.
 1. Select the **Details** tab.
-1. Find the **Octopus.Server.exe** or **Tentacle.exe** process.
+1. Find the **Octopus.Server.exe** or **Tentacle.exe** & **Calamari.exe** processes.
 1. Right click on it and select **Create dump file**.
 1. Note where the file is saved (generally in your temp folder).
 
