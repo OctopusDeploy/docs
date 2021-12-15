@@ -98,4 +98,4 @@ BACKUP DATABASE [OctopusDeploy_Sanitized]
 
 7. Upload your database backup.
 
-In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup and the encrypted Master Key. Only we have access to view and download these files, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been to ensure only you and our team can see the link.
+In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup. Only we have access to view and download files uploaded to this location, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been to ensure only you and our team can see the link.
