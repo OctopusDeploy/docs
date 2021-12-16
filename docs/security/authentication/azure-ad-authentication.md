@@ -57,7 +57,7 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 1. Within your new App registration in AzureAD navigate to Branding.
 2. Ensure the homepage URL is set to the same as your Redirect URL
 
-![Enable ID Token](images/homepageURL.png "width=500")
+![HomepageURL](images/homepageURL.png "width=500")
 
 #### Enable Logout URL if using Single Sign-On (optional)
 
