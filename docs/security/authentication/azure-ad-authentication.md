@@ -33,10 +33,10 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 
 ![New App registration](images/aad-new-app-registration.png "width=500")
 
-4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Sign-On URL** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
+4. Choose a **Name** like *Octopus Deploy*, select the correct **Supported account type**  for Single or Multi-Tenant, and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
  - The URL must use HTTPS.
  - When users input their credentials, the value you specify for **Name** will appear at the top of the Azure authentication page.
- - The value you specify for **Sign-On URL** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
+ - The value you specify for **Redirect URI** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
  - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL.
 
 :::hint
