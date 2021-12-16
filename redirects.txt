@@ -933,8 +933,8 @@ docs/deployment-examples/package-deployments/transfer-package.md -> docs/deploym
 docs/deployment-examples/package-deployments/troubleshoot-missing-packages.md -> docs/deployments/packages/troubleshoot-missing-packages.md
 docs/deployment-examples/terraform-deployments/index.md -> docs/deployments/terraform/index.md
 docs/deployment-examples/terraform-deployments/plan-terraform/index.md -> docs/deployments/terraform/plan-terraform/index.md
-docs/deployment-examples/terraform-deployments/destroy-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
-docs/deployment-examples/terraform-deployments/apply-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
+docs/deployment-examples/terraform-deployments/destroy-terraform/index.md -> docs/deployments/terraform/apply-terraform-changes/index.md
+docs/deployment-examples/terraform-deployments/apply-terraform/index.md -> docs/deployments/terraform/apply-terraform-changes/index.md
 docs/deployment-process/conditions/index.md -> docs/projects/steps/conditions/index.md
 docs/deployment-process/configuration-features/custom-installation-directory.md -> docs/projects/steps/configuration-features/custom-installation-directory.md
 docs/deployment-process/configuration-features/iis-website-and-application-pool.md -> docs/projects/steps/configuration-features/iis-website-and-application-pool.md
@@ -1033,7 +1033,7 @@ docs/installation/octopus-in-container/troubleshooting-octopus-server-in-a-conta
 docs/installation/octopus-in-container/octopus-server-container-windows.md -> docs/installation/octopus-server-windows-container.md
 docs/installation/octopus-in-container/index.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/octopus-tentacle-container.md -> docs/installation/octopus-tentacle-container.md
-docs/deployments/terraform/destroy-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
-docs/deployments/terraform/apply-terraform/index.md -> docs/deployments/terraform/working-with-terraform-templates/index.md
+docs/deployments/terraform/destroy-terraform/index.md -> docs/deployments/terraform/apply-terraform-changes/index.md
+docs/deployments/terraform/apply-terraform/index.md -> docs/deployments/terraform/apply-terraform-changes/index.md
 docs/deployments/terraform/remote-state/index.md -> docs/deployments/terraform/preparing-your-terraform-environment/index.md
 docs/deployments/terraform/managed-accounts/index.md -> docs/deployments/terraform/preparing-your-terraform-environment/index.md

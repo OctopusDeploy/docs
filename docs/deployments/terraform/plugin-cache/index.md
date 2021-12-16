@@ -1,7 +1,7 @@
 ---
 title: Terraform plugin cache
 description: Using plugin caches with Terraform
-position: 40
+position: 60
 ---
 
 Terraform allows plugins to be cached to improve performance and remove the need to download plugins with each Terraform operation. However, there are considerations to take into account when configuring Terraform to use a plugin cache directory.
