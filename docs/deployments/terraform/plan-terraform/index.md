@@ -77,4 +77,4 @@ The `Custom terraform init parameters` option can be optionally set to include a
 
 The `Custom terraform plan parameters` option can be optionally set to include any parameters to pass to the `terraform plan` action.
 
-![Terraform Advanced Options](/docs/deployments/terraform//images/terraform-advanced.png "width=500")
+![Terraform Advanced Options](/docs/deployments/terraform/images/terraform-advanced.png "width=500")
