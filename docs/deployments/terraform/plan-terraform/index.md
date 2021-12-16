@@ -12,7 +12,7 @@ Octopus has two steps that generate plan information: `Plan to apply a Terraform
 
 ## Step options
 
-The planning steps offer the [same base configuration as the other built-in Terraform steps](../working-with-terraform-templates/index.md). You can refer to the documentation for those steps for more details on the options for the plan steps.
+The planning steps offer the [same base configuration as the other built-in Terraform steps](/docs/deployments/terraform/working-with-built-in-steps/index.md). You can refer to the documentation for those steps for more details on the options for the plan steps.
 
 :::warning
 The plan steps do not support saving the plan to a file and applying that file at a later date. This means the plan information only makes sense when the same values are used in the plan and apply/destroy steps. Configuring shared variables for the step fields ensures that the same values will be used.
@@ -77,4 +77,4 @@ The `Custom terraform init parameters` option can be optionally set to include a
 
 The `Custom terraform plan parameters` option can be optionally set to include any parameters to pass to the `terraform plan` action.
 
-![Terraform Advanced Options](../images/terraform-advanced.png "width=500")
+![Terraform Advanced Options](/docs/deployments/terraform//images/terraform-advanced.png "width=500")

@@ -4,7 +4,7 @@ description: Direction on using Octopus steps for applying or destroying Terrafo
 position: 40
 ---
 
-The [Terraform `apply` command](https://www.terraform.io/cli/commands/apply) is used to execute changes based on a [Terraform execution plan](../plan-terraform/index.md).
+The [Terraform `apply` command](https://www.terraform.io/cli/commands/apply) is used to execute changes based on a [Terraform execution plan](/docs/deployments/terraform/plan-terraform/index.md).
 
 Octopus has two steps that execute plan information: `Apply a Terraform template` and `Destroy Terraform resources`. As their names suggest, `Apply a Terraform template` will execute the additions indicated by the execution plan, while `Destroy Terraform resources` will destroy the resources marked for removal by the execution plan.
 
@@ -16,7 +16,7 @@ The plan steps do not support saving the plan to a file and applying that file a
 
 ## Step options
 
-The planning steps offer the [same base configuration as the other built-in Terraform steps](../working-with-terraform-templates/index.md). You can refer to the documentation for those steps for more details on the options for the plan steps.
+The planning steps offer the [same base configuration as the other built-in Terraform steps](/docs/deployments/terraform/working-with-built-in-steps/index.md). You can refer to the documentation for those steps for more details on the options for the plan steps.
 
 ## Advanced options section
 
@@ -32,4 +32,4 @@ The `Custom terraform init parameters` option can be optionally set to include a
 
 The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform apply` action.
 
-![Terraform Advanced Options](../images/terraform-advanced.png "width=500")
+![Terraform Advanced Options](/docs/deployments/terraform//images/terraform-advanced.png "width=500")
