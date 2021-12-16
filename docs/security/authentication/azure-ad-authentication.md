@@ -52,16 +52,9 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 
 ![Enable ID Token](images/aad_id_token.png "width=500")
 
-#### Enable Home Page URL within Branding
-
-1. Within your new App registration in AzureAD navigate to Branding.
-2. Ensure the homepage URL is set to the same as your Redirect URL
-
-![HomepageURL](images/homepageURL.png "width=500")
-
 #### Enable Logout URL if using Single Sign-On (optional)
 
-1. Within your new App registration in AzureAD navigate to Branding.
+1. Within your new App registration in AzureAD navigate to Authentication.
 2. Input logout URL and enter `https://octopus.example.com/app#/users/sign-out` substituting your URL.
 
 ![Configure Logout URL](images/aad_logout_url.png "width=500")
