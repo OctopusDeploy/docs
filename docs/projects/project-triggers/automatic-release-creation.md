@@ -33,11 +33,6 @@ From the project's trigger tab, under the section called **Automatic Release Cre
 
 As a project can contain multiple packages you need to select the package that will upload LAST in your build and push CI process. If you have multiple packages, make sure you select the package that is always uploaded last.
 
-:::warning
-**Cannot use variables for PackageId**
-You cannot use variables to define the PackageId (either in full or in part). Octopus will only create a release on your behalf when you have selected a specific Package (the PackageId must be a constant value).
-:::
-
 ![Automatic release creation last package option](images/automatic-release-creation-last-package.png "width=500")
 
 When a release is set to be created this way, the audit will tell you that is how the release was created.

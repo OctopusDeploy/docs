@@ -754,30 +754,3 @@ spec:
 View a working example that deploys an Octopus High Availability configuration to a GKE Kubernetes cluster in our [samples instance](https://samples.octopus.app/app#/Spaces-105/projects/octopus-ha-in-gke/operations/runbooks/Runbooks-1862/process/RunbookProcess-Runbooks-1862).
 
 The runbook consists of a number of [Deploy Raw Kubernetes YAML](/docs/deployments/kubernetes/index.md#raw-yaml-step) steps that deploy the resources discussed in this guide.
-
-## Octopus Helm chart {#octopus-helm-chart}
-
-Octopus can be installed into a Kubernetes cluster using a Helm chart.
-
-Add the helm chart repository with the following commands:
-
-```bash
-helm repo add octopus https://octopus-helm-charts.s3.amazonaws.com
-helm repo update
-```
-
-Generate a new database Master Key with the command:
-
-```bash
-openssl rand 16 | base64
-```
-
-Then install the chart with the command:
-
-```bash
-helm install octopus octopus/octopusdeploy --set octopus.username=admin --set octopus.password=Password01! --set octopus.licenseKeyBase64=<your Octopus license key base64 encoded> --set octopus.acceptEula=Y --set mssql-linux.acceptEula.value=Y --set octopus.masterKey=YOUR_GENERATED_KEY
-```
-
-The source code for the Helm chart can be found on [GitHub](https://github.com/OctopusSamples/OctopusHelmChart). The [values.yaml](https://github.com/OctopusSamples/OctopusHelmChart/blob/master/values.yaml) contains comments describing the options available.
-
-For more information on how the helm chart works, see the blog post [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image).

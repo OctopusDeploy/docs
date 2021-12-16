@@ -14,7 +14,7 @@ A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/
 For more information about Helm Chart repositories and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/chart_repository/).
 
 ## Helm upgrade step
-Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provides the ability to ensure that the chart is installed when it runs for the fist time (by using the `--install` argument), this upgrade command is the most practical step to provide.
+Since the [helm upgrade](https://docs.helm.sh/helm/#helm-upgrade) command provides the ability to ensure that the chart is installed when it runs for the first time (by using the `--install` argument), this upgrade command is the most practical step to provide.
 
 :::success
 Remember that since the Kubernetes cluster connection context is available via the kubectl script step, any helm commands that you want to perform that don't fit into the existing helm upgrade step can easily be scripted as per usual.
@@ -58,7 +58,7 @@ The configuration for the Kubernetes resources required in a Helm Chart can be p
 
 ## Known limitations
 :::warning
-Please note that [Cloud Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools.md#available-dynamic-worker-images) come with Helm 2.9.1 installed.  This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution.  To get around this problem, use the [Execution Containers](/docs/projects/steps/execution-containers-for-workers/index.md) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  You will also need to edit the Default Worker Pool on your cloud instance and change the Worker Image to something other than Default (default uses Windos Server core 2016) or Windows Server Core 2016 as neither image have Docker installed.
+Please note that [Cloud Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools.md#available-dynamic-worker-images) come with Helm 2.9.1 installed.  This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution.  To get around this problem, use the [Execution Containers](/docs/projects/steps/execution-containers-for-workers/index.md) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  You will also need to edit the Default Worker Pool on your cloud instance and change the Worker Image to something other than Default (default uses Windows Server Core 2016) or Windows Server Core 2016 as neither image have Docker installed.
 :::
 Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.
 

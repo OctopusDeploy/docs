@@ -32,15 +32,10 @@ A quick way to create the App Service Plan is go use the Azure Portal UI to begi
 $resourceGroupName = $OctopusParameters["Azure.ResourceGroup.Name"]
 $resourceGroupLocation = $OctopusParameters["Azure.Location.Abbr"]
 
-Try {
-	Get-AzureRmResourceGroup -Name $resourceGroupName
-    $createResourceGroup = $false
-} Catch {
-	$createResourceGroup = $true
-}
-
-if ($createResourceGroup -eq $true){
-	New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+if ((az group exists --name $resourceGroupName) -eq $false)
+{
+    Write-Output "Creating resource group $resourceGroupName in $resourceGroupLocation"
+    az group create --location $resourceGroupLocation --name $resourceGroupName --tags "Space=#{Octopus.Space.Name}" "Environment=Space"
 }
 ```
 6. Add a **Deploy an Azure Resource Manager Template** step.
