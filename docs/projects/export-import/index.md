@@ -75,9 +75,14 @@ The Octopus Deploy data-model is a web, not a graph.  Some resources are shared 
 
 Any environments which can be reached via the project will be included in the export.  This includes:
 
-- Environments included in any of the project's lifecycles 
-- Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets.md) connected to the project 
-- Environment restrictions defined on any accounts or certificates referenced by the project 
+- Environments included in any of the project's lifecycles.
+
+:::hint
+Important caveat: If your projects use the Octopus built-in, [default Lifecycle](/docs/releases/lifecycles#default-lifecycle), environments associated with that lifecycle will *not* be included in the project export. This was an intentional design decision made to avoid some tricky, unexpected behavior when during project import.
+:::
+
+- Environments used to scope variables in any [library variable sets](/docs/projects/variables/library-variable-sets.md) connected to the project
+- Environment restrictions defined on any accounts or certificates referenced by the project
 
 ### Deployment targets #{deployment-targets}
 
