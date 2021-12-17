@@ -1,6 +1,7 @@
 ---
-title: Terraform remote state
-description: Using remote state with Octopus
+title: Preparing your Terraform environment
+description: Configuring remote state, backends, and cloud accounts using Terraform with Octopus
+position: 10
 ---
 
 When running Terraform on a local PC, the state of the resources managed by Terraform is saved in a local file. This state is queried to learn which resources already exist in order to properly apply updates and destroy resources.
@@ -9,9 +10,18 @@ When Terraform is run by Octopus, this state file is not preserved between execu
 
 Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/index.html) for more information on configuring backends.
 
-:::warning
-Neither Octopus or Terraform will generate errors if a remote backend is not configured, but most attempts to update or delete existing resources will not work as expected without a remote backend.
-:::
+## Terraform backends
+
+Neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend. We therefore recommend using a remote backend when using terraform with Octopus. You can learn more about storing state remotely [here](/docs/deployments/terraform/preparing-your-terraform-environment/index.md#remote-state-terraform-cloud) and more general information
+regarding backends in the [Terraform documentation](https://www.terraform.io/docs/backends/index.html).
+
+## Managed Cloud Accounts
+
+You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template. Using credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable. Credentials defined in the Terraform template take precedence over any credentials defined in the step. The following pages provide instruction on creating cloud accounts:
+
+- [Azure accounts](/docs/infrastructure/accounts/azure/index.md)
+- [AWS accounts](/docs/infrastructure/accounts/aws/index.md)
+- [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md)
 
 ## Remote state Terraform cloud
 
