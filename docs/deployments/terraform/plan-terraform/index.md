@@ -54,11 +54,11 @@ The resource change counts are captured in the following variables:
 
 Typically the result of a plan will be displayed in a Manual Intervention step. Because the plan text can contain markdown characters, the variable should be wrapped up in back ticks to display it verbatim.
 
-```text
-    ```
-    #{Octopus.Action[Plan Apply].Output.TerraformPlanOutput}
-    ```
+````text
 ```
+#{Octopus.Action[Plan Apply].Output.TerraformPlanOutput}
+```
+````
 
 ![Terraform manual intervention](images/terraform-manual-intervention.png "width=500")
 
