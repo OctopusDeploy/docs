@@ -6,7 +6,7 @@ position: 10
 
 Artifactory provides support for a number of [NuGet repositories](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories) including Local, Remote and Virtual repositories. An Artifactory Local NuGet repository can be configured in Octopus as an external [NuGet feed](/docs/packaging-applications/package-repositories/nuget-feeds.md).
 
-## Setting up an Artifactory Local NuGet repository
+## Configuring an Artifactory Local NuGet repository
 
 :::hint
 This guide was written using Artifactory version `7.11.5`.
