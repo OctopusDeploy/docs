@@ -6,7 +6,11 @@ position: 40
 
 The Terraform [apply command](https://www.terraform.io/cli/commands/apply) is used to execute changes based on a [Terraform execution plan](/docs/deployments/terraform/plan-terraform/index.md).
 
-Octopus has two steps that execute plan information: `Apply a Terraform template` and `Destroy Terraform resources`. As their names suggest, `Apply a Terraform template` will execute the additions indicated by the execution plan, while `Destroy Terraform resources` will destroy the resources marked for removal by the execution plan.
+Octopus has two steps that execute plan information: 
+- `Apply a Terraform template` and 
+- `Destroy Terraform resources`. 
+
+As their names suggest, the `Apply a Terraform template` step will execute the additions indicated by the execution plan, while the `Destroy Terraform resources` step will destroy the resources marked for removal by the execution plan.
 
 ![Octopus Steps](images/octopus-terraform-apply-step.png "width=500")
 

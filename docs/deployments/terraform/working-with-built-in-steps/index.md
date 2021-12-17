@@ -4,7 +4,11 @@ description: Configuring common Terraform options using the Octopus built in ste
 position: 20
 ---
 
-Octopus provides four built-in step templates for managing and interacting with your Terraform code: `Apply a Terraform template`, `Destroy Terraform resources`, `Plan to apply a Terraform template`, and `Plan a Terraform destroy`.
+Octopus provides four built-in step templates for managing and interacting with your Terraform code: 
+- `Apply a Terraform template`
+- `Destroy Terraform resources`
+- `Plan to apply a Terraform template` 
+- `Plan a Terraform destroy`
 
 ![Built-in Terraform step badges](images/terraform-step-badges.png "width=500")
 
