@@ -11,7 +11,7 @@ Octopus provides four built-in step templates for managing and interacting with 
 All four of the built-in Terraform steps provide common configuration points you can use to control how the steps execute your Terraform code.
 
 :::hint
-While these are the options common to each step, there are additional ways to interact and extend these steps, specifically using [Terraform plan outputs]() and [Terraform output variables]()
+While these are the options common to each step, there are additional ways to interact and extend these steps, specifically using [Terraform plan outputs](/docs/deployments/terraform/plan-terraform/index.md#plan-output-format) and [Terraform output variables](/docs/deployments/terraform/terraform-output-variables/index.md)
 :::
 
 ## Managed Accounts
