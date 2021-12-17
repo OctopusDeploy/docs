@@ -39,9 +39,17 @@ We talk about Tentacles here, but the same process and logic applies to [SSH Tar
 
 ### Built-in repository {#built-in-repo-whats-deleted}
 
-The built-in repository will delete any **packages** that are not attached to any release. If you happen to have higher versions of packages that have not been released, we will keep them assuming a release will be created. If you delete releases using the Octopus Server retention policy then any packages that were associated with those releases will then be deleted with that task.
+A retention policy can be applied to packages in the built-in Octopus package repository. By default, the policy is set to keep all packages indefinitely. This policy is *separate* from the [release retention policy](#releases-whats-deleted) described above.
 
-A list of packages IDs that a project has deployed is kept and then used to determine retention for projects that [dynamically select packages using variables](/docs/deployments/packages/dynamically-selecting-packages.md). A package will be kept if it appears in that list and the package's version matches any of the package versions referenced by the project's releases.
+![](images/3278059.png "width=500")
+
+When a package retention policy is applied, Octopus will delete packages that meet *both* of the following criteria:
+1. The time span from the package's initial publish date exceeds the configured time period in the policy
+2. The package is **not associated with any releases in Octopus**.
+
+:::hint
+When using a repository retention policy, pay close attention to your [retention policy on releases](#releases-whats-deleted). When releases are deleted as a result of your release retention policy, then packages associated with those releases may become subject to cleanup by your repository policy.
+:::
 
 ### Build information {#build-information-whats-deleted}
 
