@@ -88,7 +88,7 @@ Changes can also be made using your favorite text-editor or IDE, and committed a
 
 ## Additional options in your Build Server integration
 
-Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus. To enable this, we have added the following two new fields to the our common integrations - TeamCity, Asure DevOps, Jenkins, Github Actions and Bamboo.
+Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus. To enable this, we have added the following two new fields to our common integrations - TeamCity, Azure DevOps, Jenkins, GitHub Actions, and Bamboo.
 
 * Git Reference - the user-friendly alias for a commit hash.
 * Git Commit - the commit SHA-1 hash.
