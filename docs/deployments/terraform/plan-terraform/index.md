@@ -8,7 +8,7 @@ The Terraform [plan command](https://www.terraform.io/cli/commands/plan) is used
 
 Octopus has two steps that generate plan information: 
 - `Plan to apply a Terraform template` and 
-- `Plan a Terraform destroy`. 
+- `Plan a Terraform destroy`
 
 As their names suggest, the `Plan to apply a Terraform template` step will generate a plan for the result of running `apply` on the template, while the `Plan a Terraform destroy` step will generate a plan for the result of running `destroy` on the template.
 
