@@ -17,8 +17,8 @@ The built-in Octopus Terraform steps are created to help you follow a pipeline u
 
 - [Preparing your Terraform workspace (backend, remote state, cloud accounts)](/docs/deployments/terraform/preparing-your-terraform-environment/index.md)
 - [Configure your Terraform template](/docs/deployments/terraform/working-with-built-in-steps/index.md)
-- [Run `Terraform Plan` to create an execution plan](/docs/deployments/terraform/plan-terraform/index.md)
-- [Run `Terraform Apply` to process the created execution plan](/docs/deployments/terraform/apply-terraform-changes/index.md)
+- [Run Terraform Plan to create an execution plan](/docs/deployments/terraform/plan-terraform/index.md)
+- [Run Terraform Apply to process the created execution plan](/docs/deployments/terraform/apply-terraform-changes/index.md)
 - Configure advanced items like [output variables](/docs/deployments/terraform/terraform-output-variables/index.md) and [the Terraform plugin cache](/docs/deployments/terraform/plugin-cache/index.md)
 
 **Where do Terraform Steps execute?**
