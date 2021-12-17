@@ -98,7 +98,7 @@ An alternative to configuring a user is to enable [anonymous access](https://www
 
 To learn more about setting up anonymous access to specific repositories, see this Artifactory [knowledge base article](https://jfrog.com/knowledge-base/how-to-grant-an-anonymous-user-access-to-specific-repositories/).
 
-## Adding Local repository to Octopus
+## Adding an Artifactory Local NuGet repository as an Octopus External Feed
 
 Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `NuGet Feed` Feed type. 
 
