@@ -63,7 +63,7 @@ The _Authentication_ field specifies the credentials used by Octopus when authen
 
 Git providers allow you to create an access token in different ways. The recommended *scope* for each provider is also listed in brackets. 
 
-* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token); (Scope - *repo*)
+* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token); (Scope - `repo`)
 * [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate); (Scope - *vso.code_full*)
 * [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - *Project admin*)
 * [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - *write_repository*)
