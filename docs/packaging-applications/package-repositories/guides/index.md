@@ -2,7 +2,7 @@
 title: Guides
 description: Instructions on how to set-up third-party external package feeds for Octopus to consume for use in deployments and runbooks.
 position: 60
-hideInThisSectionHeader: true
+hideInThisSection: true
 ---
 
 Octopus can consume package feeds from the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), and supports the following external repositories:
@@ -14,4 +14,8 @@ Octopus can consume package feeds from the [built-in repository](/docs/packaging
  - Helm feeds.
  - AWS ECR feeds.
  
-This section provides instructions how to set-up a number of these external feeds from third-parties for use within Octopus.
+This section provides instructions on how to set-up a number of these external feeds from third-parties for use within Octopus.
+
+- [Configuring Container registries as external feeds in Octopus](/docs/packaging-applications/package-repositories/guides/container-registries/index.md)
+- [Configuring NuGet repositories as external feeds in Octopus](/docs/packaging-applications/package-repositories/guides/nuget-repositories/index.md)
+- [Cloudsmith Multi-format repositories](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed.md)
