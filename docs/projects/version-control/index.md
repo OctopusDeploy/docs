@@ -57,7 +57,7 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 - When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
 - When creating releases, this will be the branch selected initially
 
-For existing repositories that are initialised, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
+For existing repositories that are initialized, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
 The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token. We also recommend that you follow the principle of least privilege when selecting scopes or permissions to grant this personal access token. 
 
