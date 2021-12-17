@@ -25,7 +25,7 @@ Your package repository will typically be:
 - A [maven feed](/docs/packaging-applications/package-repositories/maven-feeds.md).
 - A [JetBrains TeamCity](http://blogs.jetbrains.com/dotnet/2011/08/native-nuget-support-in-teamcity/) server (version 7 and above).
 - A [MyGet](http://www.myget.org/) server.
-- An [Azure DevOps or TFS Package Management](/docs/packaging-applications/package-repositories/guides/tfs-azure-devops.md).
+- An [Azure DevOps or TFS Package Management](/docs/packaging-applications/package-repositories/guides/nuget-repositories/tfs-azure-devops.md).
 
 ## Choosing the right repository {#Packagerepositories-Choosingtherightrepository}
 
