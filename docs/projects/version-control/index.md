@@ -57,7 +57,7 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 - When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
 - When creating releases, this will be the branch selected initially
 
-The default branch must exist.
+For existing repositories that are initialised, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
 The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token. We also recommend that you follow the principle of least privilege when selecting scopes or permissions to grant this personal access token. 
 
@@ -93,4 +93,4 @@ Once an Octopus project is configured to be version-controlled, you can choose w
 * Git Reference - the user-friendly alias for a commit hash.
 * Git Commit - the commit SHA-1 hash.
 
-It is highly recommended that you provide the commit. Otherwise Octopus will take the current head which may not work if the deployment process and the application code are in different repositories.
+When the app being built is in a different repository to the octopus project, Octopus does not guess or auto-populate the commit or branch that you want to create the release from. Also, in the case where the app and the octopus project is in the same repository, the head of that branch could have moved forward from what is expected. So in both cases, it is highly recommended that you provide the commit and not just the branch.
