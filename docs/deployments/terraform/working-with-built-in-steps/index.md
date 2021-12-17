@@ -1,31 +1,32 @@
 ---
-title: Destroy existing Terraform resources
-description: Destroy existing Terraform resources.
+title: Terraform step configuration
+description: Configuring common Terraform options using the Octopus built in steps 
+position: 20
 ---
 
-Existing Terraform resources can be destroyed through the `Destroy Terraform resources` step. This step destroys the resources created using a Terraform template, optionally using AWS credentials managed by Octopus.
+Octopus provides four built-in step templates for managing and interacting with your Terraform code: 
+- `Apply a Terraform template`
+- `Destroy Terraform resources`
+- `Plan to apply a Terraform template` 
+- `Plan a Terraform destroy`
 
-The proceeding instructions can be followed to configure the `Destroy Terraform resources` step.
+![Built-in Terraform step badges](images/terraform-step-badges.png "width=500")
 
-## Terraform backends
+All four of the built-in Terraform steps provide common configuration points you can use to control how the steps execute your Terraform code.
 
-When running Terraform on a local PC, the state of the resources managed by Terraform is saved in a local file. This state is queried to learn which resources already exist in order to properly apply updates and destroy resources.
-
-When Terraform is run by Octopus, this state file is not preserved between executions. This means that, for almost all practical applications of Terraform through Octopus, a remote backend must be configured. A remote backend allows this state information to be preserved between Terraform steps.
-
-Refer to the [Terraform documentation](https://www.terraform.io/docs/backends/index.html) for more information on configuring backends.
-
-:::warning
-While neither Octopus nor Terraform will generate errors if a remote backend is not configured, most attempts to update or delete existing resources will not work as expected without a remote backend.
+:::hint
+While these are the options common to each step, there are additional ways to interact and extend these steps, specifically using [Terraform plan outputs](/docs/deployments/terraform/plan-terraform/index.md#plan-output-format) and [Terraform output variables](/docs/deployments/terraform/terraform-output-variables/index.md)
 :::
 
-!include <aws-account>
+## Managed Accounts
 
-!include <azure-account>
+You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
 
-!include <google-cloud-account>
+:::hint
+Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts/index.md).
+:::
 
-## Template section
+## Template section 
 
 The Terraform template can come from two sources: directly entered source code or from files in a package.
 
@@ -94,27 +95,3 @@ See the [variable substitution](/docs/projects/variables/variable-substitutions.
 The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
 
 Each line entered into this field will be passed to Terraform as `-var-file '<filename>'`.
-
-## Advanced options section
-
-You can optionally control how Terraform downloads plugins and where the plugins will be located in the `Advanced Options` section.
-
-The `Terraform workspace` field can optionally be set to the desired workspace. If the workspace does not exist it will be created and selected, and if it does it exist it will be selected.
-
-The `Terraform plugin cache directory` can be optional set to a directory where Terraform will look for existing plugins, and optionally download new plugins into. By default this directory is not shared between targets, so additional plugins have to be downloaded by all targets. By setting this value to a shared location, the plugins can be downloaded once and shared amongst all targets.
-
-The `Allow additional plugin downloads` option can be checked to allow Terraform to download missing plugins, and unchecked to prevent these downloads.
-
-The `Custom terraform init parameters` option can be optionally set to include any parameters to pass to the `terraform init` action.
-
-The `Custom terraform apply parameters` option can be optionally set to include any parameters to pass to the `terraform destroy` action.
-
-![Terraform Advanced Options](images/terraform-advanced.png "width=500")
-
-### Special variables
-
-Setting the variable `Octopus.Action.Terraform.CustomTerraformExecutable` to the absolute path of a custom Terraform executable will result in the step using that executable instead of the one shipped with Octopus. You can use this variable to force the Terraform steps to use a specific version of Terraform, or to use the x64 version if you wish.
-
-For example, setting `Octopus.Action.Terraform.CustomTerraformExecutable` to `C:\Apps\terraform.exe` will cause the steps to execute `C:\Apps\terraform.exe` rather than the built in copy of Terraform.
-
-Setting the `Octopus.Action.Terraform.AttachLogFile` variable to `True` will attach the Terraform log file as an artifact to the step.
