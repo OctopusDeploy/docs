@@ -93,4 +93,4 @@ Once an Octopus project is configured to be version-controlled, you can choose w
 * Git Reference - the user-friendly alias for a commit hash.
 * Git Commit - the commit SHA-1 hash.
 
-When the app being built is in a different repository to the octopus project, Octopus does not guess or auto-populate the commit or branch that you want to create the release from. Also, in the case where the app and the octopus project is in the same repository, the head of that branch could have moved forward from what is expected. So in both cases, it is highly recommended that you provide the commit and not just the branch.
+When the app being built is in a different repository to the Octopus project, Octopus does not guess or auto-populate the commit or branch that you want to create the release from. Also, in the case where the app and the Octopus project are in the same repository, the head of that branch could have moved forward from what is expected. In both cases, it is highly recommended that you provide the commit and not just the branch.
