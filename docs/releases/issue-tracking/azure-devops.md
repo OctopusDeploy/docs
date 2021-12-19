@@ -65,22 +65,28 @@ If you had previously been using the older functionality on the Create Octopus R
 
 1. Configure the Azure DevOps Issue Tracker extension in Octopus Deploy.
 
-    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Azure DevOps Issue Tracker}}** and set the following values:
+    In the Octopus Web Portal, navigate to **{{Configuration,Settings,Azure DevOps Issue Tracker}}**
+
+1. Add a Connection, and set the following values:
 
     - **Azure DevOps Base URL**. This tells Octopus where the Azure DevOps instance is located.
+    - **Personal Access Token (PAT)**. Unless the Azure DevOps instance is public, you'll need to supply an access token, created in the Azure DevOps User Settings (under Personal access tokens), with authorization to read scopes `Build` and `Work items`.
+    -  **Release Note Prefix**. This value is *optional*. If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note. This will then be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item. 
+    
+        For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
-    - Unless the Azure DevOps instance is public, you'll need to supply a **Personal Access Token** (PAT), created in the Azure DevOps User Settings (under Personal access tokens), with authorization to read scopes **Build** and **Work items**.
+    :::hint
+    **Multiple Azure DevOps connections:**
+    If you need to connect to more than one Azure DevOps organization, repeat this step.
+    :::
 
-    - Ensure the **Is Enabled** property is set as well.
+    !["Multiple Azure DevOps Issue Tracker connections"](images/octopus-azure-devops-tracker-multiple-connections.png "width=500")
 
-2. Configure the Release Note Options _(optional)_.
-
-    - **Release Note Prefix**: If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
-
-    For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
+1. Ensure the **Is Enabled** property is enabled
 
 When configured, this integration will retrieve Azure DevOps work item details and add details about them in your Octopus releases and deployments. If you ever need to disable the Azure DevOps Issue Tracker extension you can do so under **{{Configuration,Settings,Azure DevOps Issue Tracker}}**.
 
 ## Learn more
 
  - [Build information](/docs/packaging-applications/build-servers/build-information/index.md).
+
