@@ -16,7 +16,8 @@ Where [<options>] is any of:
 
 Deletion:
 
-      --package=VALUE        Id of the package.
+      --packageId=VALUE      Id of the package.
+      --version=VALUE        Version number of the package.
 
 Common options:
 
