@@ -22,7 +22,7 @@ If you operate in a highly secure environment, where it's not possible to open a
 ## Requirements
 
 - The `$HOME` environment variable must be available.
-- `bash` 3+ is available at `/bin/bash`. (It does not need to be the user’s default shell.)
+- `bash` 3+ is available at `/bin/bash`. 
 - `tar` is available. This is used to unpack Calamari.
 - `base64` is available. This is used for encoding and decoding variables.
 - `grep` is available.
