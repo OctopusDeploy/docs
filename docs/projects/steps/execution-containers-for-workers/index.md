@@ -53,6 +53,8 @@ When a step is configured to use an execution container, you can choose from:
 - One of the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
 - A [custom docker image](#custom-docker-images) you build. 
 
+If you run into issues with the provided [worker-tools](#worker-tools-images) images or they don't meet your needs, you will have to create a custom image. Take a look at the [custom docker image](#custom-docker-images) section or the [blog post on extending execution containers](https://octopus.com/blog/extending-octopus-execution-container) to learn how to create a custom image.
+
 ### The octopusdeploy/worker-tools Docker images {#worker-tools-images} 
 
 For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
