@@ -33,7 +33,7 @@ Choose **docker (hosted)** from the list of repositories to create
 
 Give the repository a name and change any applicable configuration options.  When using HTTPS, a Nexus docker repository will listen on the specified port.
 
-Click **Create repository** when you are are done.
+Click **Create repository** when you are done.
 
 ![Create Nexus docker repository](images/nexus-docker-repository.png)
 
