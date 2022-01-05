@@ -48,7 +48,7 @@ When a package retention policy is applied, Octopus will delete packages that me
 2. The package is **not associated with any releases in Octopus**.
 
 :::hint
-When using a repository retention policy, pay close attention to your [retention policy on releases](#releases-whats-deleted). When releases are deleted as a result of your release retention policy, then packages associated with those releases may become subject to cleanup by your repository policy.
+When configuring the repository retention policy, it's also worth making note of your [release retention policy](#releases-whats-deleted) settings too. When releases are deleted as a result of your release retention policy, then packages associated with those releases may become subject to cleanup by your repository policy.
 :::
 
 ### Build information {#build-information-whats-deleted}
