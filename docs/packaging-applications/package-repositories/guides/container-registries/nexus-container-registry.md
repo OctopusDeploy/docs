@@ -44,7 +44,7 @@ Optionally push a container to the feed to make sure the feed works when added t
 ## Adding an Nexus Docker repository as an Octopus External Feed
 Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `Docker Container Registry` Feed type. 
 
-Give the feed a name, in the URL field, paste the URL to your Nexus server with the associated port.  Supply credentials if they are required.  It should look similar to this format:
+Give the feed a name, in the URL field, paste the URL to your Nexus server with the associated port. It should look similar to this format:
 
 `https://your.nexus.url:[repository port]`
 
