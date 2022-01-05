@@ -40,7 +40,7 @@ Copy the URL property, that is what you will use when adding it as an external f
 
 Optionally upload a package to the repository so you can verify search functionality when added as an external feed.
 
-## Adding an Nexus NuGet repository as an Octopus External Feed
+## Adding a Nexus Maven repository as an Octopus External Feed
 Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `NuGet Feed` Feed type. 
 
 Give the feed a name and in the URL field, paste the URL you copied earlier.  It should look similar to this format:
