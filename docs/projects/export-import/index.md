@@ -81,7 +81,7 @@ Any environments which can be reached via the project will be included in the ex
 
 :::warning
 **Environments from the default lifecycle are not exported:**
-If your projects use the [default lifecycle](/docs/releases/lifecycles.md#default-lifecycle) that Octopus creates, environments associated with that lifecycle will *not* be included in the project export. This was an intentional design decision made to avoid some tricky, unexpected behavior when during project import.
+If your projects use the [default lifecycle](/docs/releases/lifecycles.md#default-lifecycle) that Octopus creates, environments associated with that lifecycle will *not* be included in the project export. This was an intentional design decision made to avoid some tricky, unexpected behavior during project import.
 :::
 
 ### Deployment targets #{deployment-targets}
