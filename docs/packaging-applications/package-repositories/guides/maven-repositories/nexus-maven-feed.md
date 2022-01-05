@@ -5,7 +5,7 @@ position: 10
 ---
 Both Nexus OSS and Nexus Pro offer three types of Maven repository, Hosted, Group, and Proxy.  This guide will cover creating a Hosted Maven repository and adding it as an External Feed in Octopus Deploy.
 
-## Configuring a Hosted NuGet repository
+## Configuring a Hosted Maven repository
 :::info
 This guide was written using Nexus OSS version 3.37.0-01
 :::
