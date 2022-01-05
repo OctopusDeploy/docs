@@ -19,7 +19,7 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
 Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the feed for your GitLab Project or Group in the format:
 
 Project:
-https://gitlab.octopusdemos.app/api/v4/projects/4
+
 `https://your.gitlab.url/api/v4/projects/[project id]/packages/packages/maven`
 
 Group:
