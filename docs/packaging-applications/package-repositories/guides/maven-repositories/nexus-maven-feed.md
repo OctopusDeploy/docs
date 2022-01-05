@@ -26,7 +26,7 @@ Choose **maven2 (hosted)** from the list of repositories to create
 
 ![Maven (hosted)](images/nexus-maven-repository.png)
 
-Give the repository a name and change any applicable configuration options.  Click **Create repository** when you are are done.
+Give the repository a name and change any applicable configuration options.  Click **Create repository** when you are done.
 
 ![Create repository](images/nexus-create-maven-repository.png)
 
