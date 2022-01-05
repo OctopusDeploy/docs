@@ -49,3 +49,5 @@ Give the feed a name, in the URL field, paste the URL to your Nexus server with 
 `https://your.nexus.url:[repository port]`
 
 ![Nexus NuGet feed](images/nexus-docker-feed.png)
+
+Optionally add Credentials if they are required. 
