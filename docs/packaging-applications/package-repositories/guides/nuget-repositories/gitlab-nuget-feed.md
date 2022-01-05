@@ -26,7 +26,7 @@ Group:
 
 `https://your.gitlab.url/api/v4/groups/[group id]/-/packages/nuget/index.json`
 
-Replace the URL from teh examples above.
+Replace the URL from the examples above.
 
 ![GitLab NuGet Feed](images/gitlab-octopus-add-nuget-feed.png)
 
