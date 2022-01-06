@@ -18,4 +18,5 @@ This section provides instructions on how to set-up a number of these external f
 
 - [Configuring Container registries as external feeds in Octopus](/docs/packaging-applications/package-repositories/guides/container-registries/index.md)
 - [Configuring NuGet repositories as external feeds in Octopus](/docs/packaging-applications/package-repositories/guides/nuget-repositories/index.md)
+- [Configuring Maven repositories as external feeds in Octopus](/docs/packaging-applications/package-repositories/guides/maven-repositories/index.md)
 - [Cloudsmith Multi-format repositories](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed.md)
