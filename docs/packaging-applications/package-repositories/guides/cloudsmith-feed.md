@@ -1,7 +1,7 @@
 ---
 title: Cloudsmith Multi-format repositories
 description: Configuring a Cloudsmith repository as an Octopus feed for NuGet, Docker, Maven or Helm packages.
-position: 30
+position: 40
 ---
 
 [Cloudsmith](https://www.cloudsmith.com) is a fully managed package management as a service that securely hosts all of your packages, in any format that you need, including NuGet, Helm, Docker, Maven, or NPM in one location and accessible across your organization.
