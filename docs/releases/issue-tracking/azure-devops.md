@@ -78,6 +78,8 @@ If you had previously been using the older functionality on the Create Octopus R
     :::hint
     **Multiple Azure DevOps connections:**
     If you need to connect to more than one Azure DevOps organization, repeat this step.
+    
+    Support for multiple Azure DevOps connections was added in Octopus **2021.3**.
     :::
 
     !["Multiple Azure DevOps Issue Tracker connections"](images/octopus-azure-devops-tracker-multiple-connections.png "width=500")
