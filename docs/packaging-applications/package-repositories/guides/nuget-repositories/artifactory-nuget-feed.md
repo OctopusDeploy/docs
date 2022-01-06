@@ -6,7 +6,7 @@ position: 10
 
 Artifactory provides support for a number of [NuGet repositories](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories) including Local, Remote and Virtual repositories. An Artifactory Local NuGet repository can be configured in Octopus as an external [NuGet feed](/docs/packaging-applications/package-repositories/nuget-feeds.md).
 
-## Setting up an Artifactory Local NuGet repository
+## Configuring an Artifactory Local NuGet repository
 
 :::hint
 This guide was written using Artifactory version `7.11.5`.
@@ -98,7 +98,7 @@ An alternative to configuring a user is to enable [anonymous access](https://www
 
 To learn more about setting up anonymous access to specific repositories, see this Artifactory [knowledge base article](https://jfrog.com/knowledge-base/how-to-grant-an-anonymous-user-access-to-specific-repositories/).
 
-## Adding Local repository to Octopus
+## Adding an Artifactory Local NuGet repository as an Octopus External Feed
 
 Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and select the `NuGet Feed` Feed type. 
 
