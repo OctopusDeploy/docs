@@ -10,10 +10,11 @@ Sonatype Nexus Repository Manager offers three types of docker registry;
 
 This guide will focus on adding a `Hosted` docker registry as an External Octopus Feed.
 
-## Configuring a Nexus Hosted Docker Registry
 :::info
 This guide was written using Nexus OSS version 3.37.0-01
 :::
+
+## Configuring a Nexus Hosted Docker Registry
 
 From the Nexus web portal, click on the **gear icon** to get to the **Administration** screen.
 
