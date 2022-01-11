@@ -11,7 +11,7 @@ We designed Octopus Cloud and self-hosted Octopus to provide the same functional
 
 ![Octopus Dashboard](/docs/shared-content/concepts/images/dashboard.png "width=500")
 
-You can sign up for Octopus Cloud at [Octopus.com/start/cloud](https://octopus.com/start/cloud).
+You can get started with Octopus Cloud for [free](https://octopus.com/start/cloud).
 
 ## Create an Octopus account {#create-an-octopus-account}
 

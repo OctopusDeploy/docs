@@ -13,7 +13,7 @@ Octopus Deploy is a deployment tool.  It takes the packages and artifacts genera
 
 ### Octopus Server
 
-You can install a self-hosted instance of the **Octopus Server** or use the hosted version **Octopus Cloud**. You can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).
+You can install a self-hosted instance of the **Octopus Server** or use the hosted version **Octopus Cloud**. You can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/start/cloud).
 
 ### Consistent deployments and releases
 
@@ -49,7 +49,7 @@ As you start using Octopus Deploy, you will learn a lot of new terms. You can vi
 
 ## Next steps
 
-You can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/free).  After setting up your instance, you can use our guides to help you deploy your software, run your first runbook, or integrate Octopus Deploy into your CI/CD pipeline.
+You can get started with either Octopus Server or Octopus Cloud for [free](https://octopus.com/start/cloud).  After setting up your instance, you can use our guides to help you deploy your software, run your first runbook, or integrate Octopus Deploy into your CI/CD pipeline.
 
 - [Hello World Deployment using sample scripts and packages](/docs/getting-started/first-deployment/index.md)
 - [Hello World Runbook run using sample scripts](/docs/getting-started/first-runbook-run/index.md)
