@@ -43,3 +43,5 @@ This sometimes happens when attempting to import _crt_ files. If you are having 
 * Choose Base-64 encoded X.509 (.cer), and then click on Next.
 * Now, browse to store your file and type in the filename that you want to keep
 * Finally, save the file.
+
+This will need to be completed on Windows.
