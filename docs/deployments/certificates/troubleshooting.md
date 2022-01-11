@@ -31,3 +31,17 @@ This is the same root cause as the message above, however, it includes details a
 This can happen when certificates include extension data without specifying the certificate format of v3. If the version is omitted, then v1 is implied. Since only v3 certificates are allowed to have this additional data, this leads to an invalid certificate. Please see [BC-CSharp issue #158](https://github.com/bcgit/bc-csharp/issues/158) for further information.
 
 Please review the certificates in  {{Library,Certificates}} to find the invalid one, update any usages to use a new valid certificate, and delete the old certificate via the REST API.
+
+
+### `Invalid certificate detected - Unable to parse certificate`
+
+This sometimes happens when attempting to import _crt_ files. If you are having trouble importing a crt file, you can convert the crt file to a cer file using the following method, and try re-importing:
+
+* Double-click on the file labeled .crt to open it into the certificate display.
+* Select the Details tab, and then click Copy to File.
+* Click the Next option in the certificate wizard.
+* Choose Base-64 encoded X.509 (.cer), and then click on Next.
+* Now, browse to store your file and type in the filename that you want to keep
+* Finally, save the file.
+
+This will need to be completed on Windows.
