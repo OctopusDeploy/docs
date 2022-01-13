@@ -145,8 +145,8 @@ This runs a runbook using the published snapshot:
 octo run-runbook --runbook="Hello World"  \
                  --project="Smurfs"       \
                  --environment="Test"     \
-                 --server http://octopus/ \
-                 --apiKey API-ABCDEF123456
+                 --server="http://octopus/" \
+                 --apiKey="API-ABCDEF123456"
 ```
 
 This runs a runbook using a specific snapshot (e.g., Snapshot KGHSL3L):
@@ -156,8 +156,8 @@ octo run-runbook --runbook="Hello World"       \
                  --project="Smurfs"            \
                  --environment="Test"          \
                  --snapshot="Snapshot KGHSL3L" \
-                 --server http://octopus/      \
-                 --apiKey API-ABCDEF123456
+                 --server="http://octopus/"    \
+                 --apiKey="API-ABCDEF123456"
 ```
 
 To specify multiple environments, you can use the following:
@@ -167,8 +167,8 @@ octo run-runbook --runbook="Hello World"  \
                  --project="Smurfs"       \
                  --environment="Test"     \
                  --environment="Dev"      \
-                 --server http://octopus/ \
-                 --apiKey API-ABCDEF123456
+                 --server="http://octopus/" \
+                 --apiKey="API-ABCDEF123456"
 ```
 
 :::success
