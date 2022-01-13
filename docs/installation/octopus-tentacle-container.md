@@ -20,22 +20,24 @@ When an Octopus Tentacle container starts up, it will attempt to invoke the [`re
 docker run --interactive --detach `
  --name OctopusTentacle `
  --publish 10933:10933 `
- --env "ListeningPort=10933" `
- --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
- --env "TargetEnvironment=Development" `
- --env "TargetRole=container-server" `
- --env "ServerUrl=http://10.0.0.1:8080" `
- octopusdeploy/tentacle:6.0.383
+ --env ACCEPT_EULA="Y" `
+ --env ListeningPort="10933" `
+ --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env TargetEnvironment="Development" `
+ --env TargetRole="container-server" `
+ --env ServerUrl="http://10.0.0.1:8080" `
+ !docker-image <octopusdeploy/tentacle>
 ```
 ```PowerShell Worker
 docker run --interactive --detach `
  --name OctopusWorker `
  --publish 10933:10933 `
- --env "ListeningPort=10933" `
- --env "ServerApiKey=API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
- --env "TargetWorkerPool=Windows2019Workers" `
- --env "ServerUrl=http://10.0.0.1:8080" `
- octopusdeploy/tentacle:6.0.383
+ --env ACCEPT_EULA="Y" `
+ --env ListeningPort="10933" `
+ --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
+ --env TargetWorkerPool="Windows2019Workers" `
+ --env ServerUrl="http://10.0.0.1:8080" `
+ !docker-image <octopusdeploy/tentacle>
 ```
 
 ## Configuration
@@ -48,15 +50,21 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 
 |  Name       |    |
 | ------------- | ------- |
+|**DISABLE_DIND**|Set to Y to disable Docker-in-Docker (used to run container images)|
 |**ServerApiKey**|The API Key of the Octopus Server the Tentacle should register with|
-|**ServerUsername**|If not using an api key, the user to use when registering the Tentacle with the Octopus Server|
-|**ServerPassword**|If not using an api key, the password to use when registering the Tentacle|
+|**ServerUsername**|If not using an API key, the user to use when registering the Tentacle with the Octopus Server|
+|**ServerPassword**|If not using an API key, the password to use when registering the Tentacle|
 |**ServerUrl**|The Url of the Octopus Server the Tentacle should register with|
+|**Space**|The name of the space which the Tentacle will be added to. Defaults to the default space|
 |**TargetEnvironment**|Comma delimited list of environments to add this target to|
 |**TargetRole**|Comma delimited list of roles to add to this target|
 |**TargetWorkerPool**|Comma delimited list of worker pools to add to this target to (not to be used with environments or role variable).|
 |**TargetName**|Optional Target name, defaults to container generated host name|
-|**ServerPort**|The port on the Octopus Server that the Tentacle will poll for work. Implies a polling Tentacle|
+|**TargetTenant**|Comma delimited list of tenants to add to this target|
+|**TargetTenantTag**|Comma delimited list of tenant tags to add to this target|
+|**TargetTenantedDeploymentParticipation**|The tenanted deployment mode of the target. Allowed values are `Untenanted`, `TenantedOrUntenanted`, and `Tenanted`. Defaults to `Untenanted`|
+|**MachinePolicy**|The name of the machine policy that will apply to this Tentacle. Defaults to the default machine policy|
+|**ServerPort**|The port on the Octopus Server that the Tentacle will poll for work. Defaults to `10943`. Implies a Polling Tentacle|
 |**ListeningPort**|The port that the Octopus Server will connect back to the Tentacle with. Defaults to `10933`. Implies a listening Tentacle|
 |**PublicHostNameConfiguration**|How the url that the Octopus Server will use to communicate with the Tentacle is determined. Can be `PublicIp`, `FQDN`, `ComputerName` or `Custom`. Defaults to `PublicIp`|
 |**CustomPublicHostName**|If PublicHostNameConfiguration is set to `Custom`, the host name that the Octopus Server should use to communicate with the Tentacle|
