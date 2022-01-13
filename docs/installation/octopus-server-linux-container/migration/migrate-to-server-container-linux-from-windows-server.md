@@ -8,10 +8,10 @@ This guide will help you migrate an instance of Octopus hosted on a Windows Serv
 
 ## Running the Octopus Server Linux Container
 
-We are confident in the Octopus Linux Docker image's reliability and performance.  Octopus Cloud runs the Octopus Server Linux Container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we had to make some design decisions and level up our knowledge about Docker concepts.  We recommend migrating from Windows to the Octopus Server Linux Container if you are okay with **all** these conditions:
+We are confident in the Octopus Linux Docker image's reliability and performance.  [Octopus Cloud](/docs/octopus-cloud/index.md) runs the Octopus Server Linux Container in AKS clusters in Azure.  But to use the Octopus Server Linux Container in Octopus Cloud, we had to make some design decisions and level up our knowledge about Docker concepts.  We recommend migrating from Windows to the Octopus Server Linux Container if you are okay with **all** these conditions:
 
 - You are familiar with Docker concepts, specifically around debugging containers, volume mounting, and networking.
-- You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
+- You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker itself.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.
 
 ## Differences between Windows Server and Linux Containers

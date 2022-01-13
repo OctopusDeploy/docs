@@ -93,6 +93,8 @@ spec:
         app: mssql
     spec:
       terminationGracePeriodSeconds: 10
+      securityContext:
+        fsGroup: 10001
       volumes:
         - name: mssqldb
           persistentVolumeClaim:
