@@ -1,6 +1,6 @@
 ---
 title: Hardening Octopus
-description: If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself.
+description: If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself. This includes things such as configuring malware protection (anti-virus), and utilizing allow lists.
 position: 10
 ---
 
