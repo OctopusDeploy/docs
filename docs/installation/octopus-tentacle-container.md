@@ -72,6 +72,10 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 ### Exposed Container Ports
 Read the [Docker docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
+:::warning
+**Warning:** On Linux containers, prior to Tentacle `6.1.1271` the internal listening port was set by the `ListeningPort` environment variable. Any containers which previously exposed Tentacle on a port other than `10933` will need to have their port configuration updated if updating to a version `>=6.1.1271`. For example if the container was run with `-p 10934:10934` this should be updated to `-p 10934:10933`.
+:::
+
 |  Name       |    |
 | ------------- | ------- |
 |**10933**|Port Tentacle will be listening on (if in listening mode)|
