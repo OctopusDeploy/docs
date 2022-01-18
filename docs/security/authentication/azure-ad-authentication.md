@@ -4,11 +4,15 @@ description: Octopus Deploy can use Azure AD authentication to identify users.
 position: 10
 ---
 
-To use Azure Active Directory (AAD) authentication with Octopus, you will need to do the following:
+You can use Azure Active Directory (AAD) to authenticate when logging in to the Octopus Web Portal. To use Azure Active Directory (AAD) authentication with Octopus, you will need to do the following:
 
 1. Configure AAD to trust your Octopus Deploy instance by setting it up as an App in AAD.
 2. Optionally map AAD Users into Roles so you the users can be automatically connected to Octopus Teams.
 3. Configure your Octopus Deploy instance to trust and use AAD as an Identity Provider.
+
+:::hint
+If your Octopus database is running in Azure SQL, it's also possible to configure an Azure Active Directory (AAD) Managed identity for use with your SQL database. See our [Using Azure Active Directory (AAD) in Azure SQL](/docs/installation/sql-server-database.md#using-aad-in-azure-sql) section for further information.
+:::
 
 ## Configure Azure Active Directory (AAD)
 

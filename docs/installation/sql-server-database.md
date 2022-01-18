@@ -42,8 +42,18 @@ Make sure the Octopus Server is connecting to the listener which will route data
 
 A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
 
-```plain
+```text
 Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
+```
+
+## Using Azure Active Directory (AAD) in Azure SQL {#using-aad-in-azure-sql}
+
+Support for [Azure Active Directory (AAD) authentication](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#setting-azure-active-directory-authentication) was added in Octopus **2021.1**. This includes the ability to use a [Managed Identity](https://docs.microsoft.com/en-us/sql/connect/ado-net/sql/azure-active-directory-authentication?view=sql-server-ver15#using-active-directory-managed-identity-authentication) when connecting to your Octopus database hosted in Azure SQL.
+
+A typical connection string for using Azure Active Directory Authentication with a Managed Identity looks like this:
+
+```text
+Server=localhost;Initial catalog=Octopus;authentication="Active Directory Managed Identity"
 ```
 
 ## Database administration and maintenance
