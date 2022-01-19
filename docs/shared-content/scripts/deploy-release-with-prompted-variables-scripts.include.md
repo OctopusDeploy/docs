@@ -385,7 +385,7 @@ func main() {
 
 		// check to see if the element display name matches
 		if (element["Control"].(map[string]interface{}))["Name"] == parsedPromptedVariable[0] {
-			formElements[element["Control"].(map[string]interface{})["Name"].(string)] = parsedPromptedVariable[1]
+			formElements[element["Name"].(string)] = parsedPromptedVariable[1]
 		}
 	}
 
