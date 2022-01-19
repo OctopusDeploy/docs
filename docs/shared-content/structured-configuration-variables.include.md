@@ -63,7 +63,13 @@ If the file extension is not recognized (for example, a file with a `config` fil
 
 ### Variable Replacement {#StructuredConfigurationVariablesFeature-VariableReplacement}
 
-Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`. In XML files, structures can be identified by setting Octopus variable names to XPath expressions. Finally, Java Properties files have their keys matched against Octopus variable names. An example for each supported file type can be found in the following table:
+Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. The hierarchical location is identified differently depending on the type of target file:
+
+- In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`. 
+- In XML files, structures can be identified by setting Octopus variable names to XPath expressions. 
+- In Java Properties files, they have their keys matched against Octopus variable names. 
+
+An example for each supported file type can be found in the following table:
 
 | Format | Input file | Octopus variable name | Octopus variable value | Output file |
 | ------ | ---------- | ---- | ----- | ----------- |
@@ -71,6 +77,26 @@ Octopus uses variable names to identify the structures that should be replaced w
 | YAML   | app:<br/>&nbsp;&nbsp;port: 80 | app:port | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
 | XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | /app/port | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
 | Java Properties | app_port: 80 | app_port | 4444 | app_port: 4444 |
+
+#### Variable names containing the word Octopus
+
+When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables.md) that start with the word `Octopus` that aren't intended for use with this feature. 
+
+Any variables that start with `Octopus` that **aren't** followed with a `:` are ignored when performing variable replacement on JSON and YAML files.
+
+Consider the following JSON input file:
+
+```json
+{
+  "OctopusServer": {
+    "WebPort": "80"
+  }
+}
+```
+
+If you had a variable named `OctopusServer:WebPort` with value `8080`, the value would *not be replaced* as the variable name starts with the word `Octopus`.
+
+The easiest way to workaround this is to change the name of your variable to something other than the word `Octopus`. 
 
 #### Variable casing
 
