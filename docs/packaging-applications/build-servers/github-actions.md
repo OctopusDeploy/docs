@@ -254,5 +254,7 @@ Use either the `--progress` or `--waitForDeployment` switches to have the build 
 :::success
 **Example GitHub Actions Repo:**
 
-View a working GitHub Actions example on our [samples GitHub repository](https://github.com/OctopusSamples/OctoPetShop/blob/master/.github/workflows/dotnet-core.yml).
+View a working GitHub Actions examples on our [samples GitHub repository](https://github.com/OctopusSamples).
+- [.NET Core](https://github.com/OctopusSamples/OctoPetShop/blob/master/.github/workflows/dotnet-core.yml)
+- [Java using Maven](https://github.com/OctopusSamples/RandomQuotes-Java/blob/master/.github/workflows/maven.yml)
 :::
