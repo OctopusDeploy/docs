@@ -258,7 +258,6 @@ Using the Octopus CLI Action, add a step to issue the [create-release](/docs/oct
 
 To have your GitHub Action build deploy a release, add a step with the [deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release.md) command.
 
-:::hint
 Use either the `--progress` or `--waitForDeployment` switches to have the build wait for the deployment to complete and report success or failure. Using  `--progress` will display messages from Octopus itself whereas `--waitForDeployment` will simply wait for Octopus to report success or failure.
 
 ```yaml
@@ -266,7 +265,6 @@ Use either the `--progress` or `--waitForDeployment` switches to have the build 
       run: |
         octo deploy-release --project="Octo Pet Shop" --server="${{ secrets.OCTOPUSSERVERURL }}" --apiKey="${{ secrets.OCTOPUSSERVERAPIKEY }}" --space="${{ secrets.OCTOPUSSERVER_SPACE }}" --releaseNumber="latest" --deployTo="Development"
 ```
-:::
 
 :::success
 **Example GitHub Actions Repo:**
