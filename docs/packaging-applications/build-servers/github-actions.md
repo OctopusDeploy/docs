@@ -14,16 +14,19 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 
 ## Integrating with GitHub Actions
 
-Octopus Deploy has a custom GitHub Action, [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli).
+Octopus Deploy has several custom GitHub Actions available, 
+- [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
+- [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
+- [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
+- [Run a runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
 
-The GitHub Action `install-octopus-cli-action` installs the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on any operating system, including:
+All of the Actions are compatible with following runner types:
 
 - Windows
 - MacOS
 - Linux
 - Self-Hosted Runners
 
-Once the Octopus CLI is installed, you can perform any action that you would on the terminal using the CLI.
 
 ## GitHub Actions secrets
 
@@ -259,6 +262,9 @@ To create a release, use the **OctopusDeploy/create-release-action**.  This acti
 The variable **PACKAGE_VERSION** must be referenced like **${{ env.PACKAGE_VERSION }}** for both **push-package-action** and **create-release-action**
 :::
 
+### Complete build example
+The previous sections displayed only the portions relavent to the topic being discussed.  The entire build YAML for the Octo Pet Shop is located below:
+
 <details>
   <summary>Click here to view the entire example build YAML</summary>
 
@@ -344,6 +350,7 @@ jobs:
         progress: true
 ```
 </details>
+
 
 ### Run a runbook
 In addition to common build steps, we also have an action that can Run a Runbook.
