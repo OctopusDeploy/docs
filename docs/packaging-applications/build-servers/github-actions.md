@@ -33,9 +33,9 @@ For example:
 
 | Variable name       | Description|
 | ------------- | ------- |
-| OCTOPUSSERVERURL | The Octopus Server URL you wish to push the final package to |
-| OCTOPUSSERVERAPIKEY | The Octopus Deploy API Key required for authentication |
-| OCTOPUSSERVER_SPACE | The Space to push packages to |
+| `OCTOPUSSERVERURL` | The Octopus Server URL you wish to push the final package to |
+| `OCTOPUSSERVERAPIKEY` | The Octopus Deploy API Key required for authentication |
+| `OCTOPUSSERVER_SPACE` | The Space to push packages to |
 
 ![GitHub Actions Secrets](images/github-actions-secrets.png "width=500")
 
