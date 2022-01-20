@@ -78,11 +78,13 @@ An example for each supported file type can be found in the following table:
 | XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | /app/port | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
 | Java Properties | app_port: 80 | app_port | 4444 | app_port: 4444 |
 
-#### Variable names containing the word Octopus
+#### Variable names starting with the word Octopus
 
 When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables.md) that start with the word `Octopus` that aren't intended for use with this feature. 
 
+:::warning
 Any variables that start with `Octopus` that **aren't** followed with a `:` are ignored when performing variable replacement on JSON and YAML files.
+:::
 
 Consider the following JSON input file:
 
@@ -96,7 +98,7 @@ Consider the following JSON input file:
 
 If you had a variable named `OctopusServer:WebPort` with value `8080`, the value would *not be replaced* as the variable name starts with the word `Octopus`.
 
-The easiest way to workaround this is to change the name of your variable to something other than the word `Octopus`. 
+The easiest way to workaround this is to change the name of your variable to start with something other than the word `Octopus`. 
 
 #### Variable casing
 
