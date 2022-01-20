@@ -343,8 +343,23 @@ jobs:
         deploy_to: "Development"
         progress: true
 ```
-
 </details>
+
+### Run a runbook
+In addition to common build steps, we also have an action that can Run a Runbook.
+
+```yaml
+  - name: Run a runbook in Octopus Deploy
+    uses: OctopusDeploy/run-runbook-action@1.0.1
+    with:
+      api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
+      environments: 'Development'
+      project: 'Octo Pet Shop'
+      runbook: 'Restart IIS App pool'
+      server: ${{ secrets.OCTOPUSSERVERURL }}
+      space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+      show_progress: 'true'
+```
 
 :::success
 **Example GitHub Actions Repo:**
