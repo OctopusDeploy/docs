@@ -68,7 +68,7 @@ on:
 
 #### Push
 
-A common method for triggering a build is to initiate the build whenever something is pushed to the repository.  Adding `push` will trigger a build whenever a push is made to the repository.
+A common method for triggering a build is to initiate the build whenever something is pushed to the repository.  Adding `push` will trigger a build whenever a push is made to the repository:
 
 ```yaml
 name: MyBuild
@@ -79,7 +79,7 @@ on:
 
 #### Schedule
 
-A GitHub Actions build can also be triggered on a schedule.  Schedules are defined using the unix `cron` format.  The following example configures the build to execute at 7AM every day.
+A GitHub Actions build can also be triggered on a schedule.  Schedules are defined using the unix `cron` format.  The following example configures the build to execute at 7AM every day:
 
 ```yaml
 name: MyBuild
@@ -95,7 +95,7 @@ If your repo has been inactive for over 60 days, cron jobs will stop building.
 
 #### On-demand
 
-It's also possible to manually trigger a GitHub Actions build on-demand.  To configure manual builds, add `workflow_dispatch` to your build file
+It's also possible to manually trigger a GitHub Actions build on-demand.  To configure manual builds, add `workflow_dispatch` to your build file:
 
 ```yaml
 name: MyBuild
@@ -195,7 +195,7 @@ jobs:
 
 ### Packaging artifacts
 
-To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity).
+To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity):
 
 ```yaml
     - name: Install Octopus CLI
@@ -204,7 +204,7 @@ To package your artifacts for deployment, configure your build to use the `Octop
         version: latest
 ```
 
-Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/index.md).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above.
+Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/index.md).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
 
 ```yaml
     - name: Install Octopus CLI
@@ -227,7 +227,7 @@ Adding this Action allows your build to use the commands from the Octopus [comma
 
 ### Pushing artifacts to Octopus Server
 
-Once the artifacts are packaged, use the Octopus CLI Action to [push](/docs/octopus-rest-api/octopus-cli/push.md) the packages to the Octopus Server built-in repository.  The following example pushes the packages created from the previous `pack` operation.
+Once the artifacts are packaged, use the Octopus CLI Action to [push](/docs/octopus-rest-api/octopus-cli/push.md) the packages to the Octopus Server built-in repository.  The following example pushes the packages created from the previous `pack` operation:
 
 ```yaml
     - name: Push OctoPetShop Database
@@ -246,7 +246,7 @@ Once the artifacts are packaged, use the Octopus CLI Action to [push](/docs/octo
 
 ### Creating a release
 
-Using the Octopus CLI Action, add a step to issue the [create-release](/docs/octopus-rest-api/octopus-cli/create-release.md) command to create a release.
+Using the Octopus CLI Action, add a step to issue the [create-release](/docs/octopus-rest-api/octopus-cli/create-release.md) command to create a release:
 
 ```yaml
     - name: Create release
