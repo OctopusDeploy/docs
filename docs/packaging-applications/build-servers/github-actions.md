@@ -17,6 +17,7 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 Octopus Deploy has a custom GitHub Action, [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli).
 
 The GitHub Action `install-octopus-cli-action` installs the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) on any operating system, including:
+
 - Windows
 - MacOS
 - Linux
@@ -36,14 +37,16 @@ For example:
 | OCTOPUSSERVERAPIKEY | The Octopus Deploy API Key required for authentication |
 | OCTOPUSSERVER_SPACE | The Space to push packages to |
 
-![](images/github-actions-secrets.png)
+![GitHub Actions Secrets](images/github-actions-secrets.png "width=500")
 
 ## GitHub Actions configuration
 
 When you create your first GitHub Action for your repository, GitHub stores the actions as workflows in the `.github/workflows` folder in your repository. You need to modify those files to run the build, pack, and/or push package commands.
 
 ### Triggering a build
-A build within GitHub Actions can be triggered on a few different ways such as
+
+A build within GitHub Actions can be triggered in a few different ways such as:
+
 - Pull requests on a branch
 - Push
 - Schedule
@@ -52,6 +55,7 @@ A build within GitHub Actions can be triggered on a few different ways such as
 All build triggers are defined in the `on` section of the GitHub Actions YAML file.
 
 #### Pull requests
+
 To configure your build to be triggered from a pull request on a branch, add a `pull_request` element to the `on` section of the YAML file.  Branches are listed in an array so you can define more than one.  In this example, the build can be triggered from a pull request on the `main` branch:
 
 ```yaml
@@ -63,7 +67,8 @@ on:
 ```
 
 #### Push
-A common method for triggering a build is to iniate the build whenever something is pushed to the repository.  Adding `push` will trigger a build whenever a push is made to the repository
+
+A common method for triggering a build is to initiate the build whenever something is pushed to the repository.  Adding `push` will trigger a build whenever a push is made to the repository.
 
 ```yaml
 name: MyBuild
@@ -72,9 +77,9 @@ on:
   push:
 ```
 
-
 #### Schedule
-A GitHub Actions build can also be triggered on a schedule.  Schedules are defined in `cron job` format.  The following example configures the build to execute at 7AM every day
+
+A GitHub Actions build can also be triggered on a schedule.  Schedules are defined using the unix `cron` format.  The following example configures the build to execute at 7AM every day.
 
 ```yaml
 name: MyBuild
@@ -89,7 +94,8 @@ If your repo has been inactive for over 60 days, cron jobs will stop building.
 :::
 
 #### On-demand
-Lastly, it is possible to trigger a GitHub Actions build manually.  To configure manual builds, add `workflow_dispatch` to your build file
+
+It's also possible to manually trigger a GitHub Actions build on-demand.  To configure manual builds, add `workflow_dispatch` to your build file
 
 ```yaml
 name: MyBuild
@@ -98,14 +104,15 @@ on:
   workflow_dispatch:
 ```
 
-Adding `workflow_dispatch` will enable `Run workflow` button which will allow manual runs
+Adding `workflow_dispatch` will enable the `Run workflow` button that will allow manual runs.
 
-![](images/github-actions-run-workflow.png)
+![GitHub Actions Run Workflow](images/github-actions-run-workflow.png "width=500")
 
 ### Building with GitHub Actions
-GitHub Actions builds consist of `jobs` which in turn cosist of `steps`.  By default, GitHub Actions `jobs` will run in parallel with each other while the `steps` within a job are executed sequentially.  It is possible to configure `jobs` to run sequentually using `jobs.<job_id>.need`, see [here](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) for more details.
 
-Before defining the steps for your job, you must first tell GitHub Actions what type of runner to use, [this](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job) documentation explains the different types to choose from.
+GitHub Actions builds consist of **jobs** which in turn consist of **steps**.  By default, GitHub Actions jobs will run in parallel with each other while the steps within a job are executed sequentially.  It's possible to configure jobs to run sequentially using the `jobs.<job_id>.need` keyword. See the GitHub documentation on [Using jobs in a workflow](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) for more details.
+
+Before defining the steps for your job, you must first tell GitHub Actions what type of runner to use. The [GitHub documentation](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job) explains the different types to choose from.
 
 ```yaml
 name: MyBuild
@@ -123,19 +130,24 @@ jobs:
 ```
 
 #### Example .NET Core build
-The following example demonstrates a GitHub Actions build of our example application, [OctoPetShop](https://github.com/OctopusSamples/OctoPetShop).  This application is written in .NET Core and consists of four components
+
+The following example demonstrates a GitHub Actions build of our example application, [OctoPetShop](https://github.com/OctopusSamples/OctoPetShop).  This application is written in .NET Core and consists of four components:
+
 - OctopusSamples.OctoPetShop.Database - Database updates using DBUp
 - OctopusSamples.OctoPetShop.Web - Web front end
 - OctopusSamples.OctoPetShop.ProductService - Product service API
 - OctopusSamples.OctoPetShop.ShoppingCartService - Shopping cart service API
 
 To build this application, you'll need the following steps:
+
 - Checkout the source code
 - Configure the runner with the appropriate version of .NET core
 - Restore any NuGet packages required by the solution
 - Build the solution
 - Create folders to store published/compiled artifacts
 - Publish each project to their respective artifact folders
+
+Below is an example GitHub Actions workflow which includes these steps:
 
 ```yaml
 name: MyBuild
@@ -182,20 +194,21 @@ jobs:
 ```
 
 ### Packaging artifacts
-To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity)
+
+To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity).
 
 ```yaml
     - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1.1.6
+      uses: !include <image-version-install-octopus-cli-action>
       with:
         version: latest
 ```
 
-Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](https://octopus.com/docs/octopus-rest-api/octopus-cli).  Using the [pack](https://octopus.com/docs/octopus-rest-api/octopus-cli/pack), you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above.
+Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/index.md).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above.
 
 ```yaml
     - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1.1.6
+      uses: !include <image-version-install-octopus-cli-action>
       with:
         version: latest
     - name: Package OctoPetShopDatabase
@@ -213,7 +226,8 @@ Adding this Action allows your build to use the commands from the Octopus [comma
 ```
 
 ### Pushing artifacts to Octopus Server
-Once the artifacts are packaged, use the Octopus CLI Action to [push](https://octopus.com/docs/octopus-rest-api/octopus-cli/push) the packages to the Octopus Server built-in repository.  The following example pushes the packages created from the Package operation.
+
+Once the artifacts are packaged, use the Octopus CLI Action to [push](/docs/octopus-rest-api/octopus-cli/push.md) the packages to the Octopus Server built-in repository.  The following example pushes the packages created from the previous `pack` operation.
 
 ```yaml
     - name: Push OctoPetShop Database
@@ -231,7 +245,8 @@ Once the artifacts are packaged, use the Octopus CLI Action to [push](https://oc
 ```
 
 ### Creating a release
-Using the Octopus CLI Action, add a step to issue the [create-release](https://octopus.com/docs/octopus-rest-api/octopus-cli/create-release) command to create a release
+
+Using the Octopus CLI Action, add a step to issue the [create-release](/docs/octopus-rest-api/octopus-cli/create-release.md) command to create a release.
 
 ```yaml
     - name: Create release
@@ -240,9 +255,11 @@ Using the Octopus CLI Action, add a step to issue the [create-release](https://o
 ```
 
 ### Deploying a release
-To have your GitHub Action build deploy a release, add a step with the [deploy-release](https://octopus.com/docs/octopus-rest-api/octopus-cli/deploy-release) command.
+
+To have your GitHub Action build deploy a release, add a step with the [deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release.md) command.
+
 :::hint
-Use either the `--progress` or `--waitForDeployment` switches to have the build wait for the deployment to complete and report success or failed.  `--progress` will display messages from Octopus itself whereas `--waitForDeployment` will simply wait for Octopus to report success or failure.
+Use either the `--progress` or `--waitForDeployment` switches to have the build wait for the deployment to complete and report success or failure. Using  `--progress` will display messages from Octopus itself whereas `--waitForDeployment` will simply wait for Octopus to report success or failure.
 
 ```yaml
     - name: Deploy release

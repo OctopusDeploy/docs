@@ -1,1 +1,1 @@
-OctopusDeploy/install-octopus-cli-action@v1.1.1
+OctopusDeploy/install-octopus-cli-action@v1.1.8
