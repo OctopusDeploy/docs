@@ -14,7 +14,7 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 
 ## Integrating with GitHub Actions
 
-Octopus Deploy has several custom GitHub Actions available, 
+Octopus Deploy has several custom GitHub Actions available: 
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
 - [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
 - [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
