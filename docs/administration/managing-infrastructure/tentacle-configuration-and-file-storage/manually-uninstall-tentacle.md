@@ -62,7 +62,7 @@ Octopus Tentacle Specific Registries - Check in each folder for a key with a Dis
 
 :::problem
 **Take care removing registry entries**
-Removing entries from the registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always backup any keys before they are modified. If you have any questions or need assistance, please [email our support team](mailto:support@octopus.com).
+Removing entries from the registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always backup any keys before they are modified. If you have any questions or need assistance, please [contact us](https://octopus.com/support).
 :::
 
 5. Find and delete any Octopus folders from:

@@ -146,7 +146,7 @@ catch {
 }
 
 Write-Verbose "Disable SSL v3"
-###Impact: SL 3.0 is an obsolete and insecure protocol.
+###Impact: SSL 3.0 is an obsolete and insecure protocol.
 ###Encryption in SSL 3.0 uses either the RC4 stream cipher, or a block cipher in CBC mode.
 ###RC4 is known to have biases, and the block cipher in CBC mode is vulnerable to the POODLE attack.
 try {

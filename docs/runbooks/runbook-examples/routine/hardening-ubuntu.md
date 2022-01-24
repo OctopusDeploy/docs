@@ -88,3 +88,7 @@ sudo passwd -l root
 ```
 
 The above script is a very basic hardening of Ubuntu.  Using the CIS guidelines, you could further harden the installation per your organizations requirements.
+
+## Disabling insecure TLS protocols {#disable-insecure-tls-protocols}
+
+It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling insecure TLS protocols](/docs/security/hardening-octopus.md#disable-insecure-tls-protocols) section.
