@@ -78,7 +78,7 @@ These steps apply to the host operating system for your Octopus Server. You may 
 
 1. Rename local administrator account.
 1. Configure malware protection.
-1. Disable insecure TLS protocols.
+1. Disable weak TLS protocols.
 1. Prevent user-provided scripts from doing harm.
     a. Run workers under a different security context.
     a. Prevent unwanted file access.
@@ -134,7 +134,7 @@ Add-MpPreference -ExclusionPath "C:\Octopus\Work"
 Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 ```
 
-### Disable insecure TLS protocols {#disable-insecure-tls-protocols}
+### Disable weak TLS protocols {#disable-weak-tls-protocols}
 
 All communication between Octopus Server and Tentacles is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Both Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating. 
 
@@ -142,9 +142,9 @@ It's possible to disable older, less secure versions of SSL and TLS. This can be
 
 !include <security-disclaimer>
 
-#### Disable SSLv3, TLS 1.0 and 1.1 on Windows {#disable-insecure-tls-protocols-windows}
+#### Disable SSLv3, TLS 1.0 and 1.1 on Windows {#disable-weak-tls-protocols-windows}
 
-On Windows, the way to disable insecure versions of SSL and TLS are by editing the registry.
+On Windows, the way to disable weak versions of SSL and TLS are by editing the registry.
 
 :::problem
 **Take care editing registry entries**
@@ -187,7 +187,7 @@ New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Once the version of TLS is set, reboot your Server and it should be available via `TLSv1.2`.
 :::
 
-#### Disable SSLv3, TLS 1.0 and 1.1 on Ubuntu Server  {#disable-insecure-tls-protocols-ubuntu}
+#### Disable SSLv3, TLS 1.0 and 1.1 on Ubuntu Server  {#disable-weak-tls-protocols-ubuntu}
 
 On Ubuntu `20.04` using OpenSSL `1.1.1f` (the latest at time of writing), you can specify the minimum TLS version to use to be `TLSv1.2` by setting the `MinProtocol` directive in the `/etc/ssl/openssl.cnf` OpenSSL config file:
 

@@ -71,7 +71,7 @@ The TLS implementation uses the [.NET SslStream](https://docs.microsoft.com/en-u
 TLS 1.2 requires .NET 4.5 which was introduced as a requirement in **Octopus 3.1**. Earlier versions of Octopus use TLS 1.0.
 :::
 
-It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling insecure TLS protocols](/docs/security/hardening-octopus.md#disable-insecure-tls-protocols) section.
+It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols) section.
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 

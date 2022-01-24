@@ -227,9 +227,9 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 !include <rootless-tentacle-instance-creation>
 
-## Disabling insecure TLS protocols {#disable-insecure-tls-protocols}
+## Disabling weak TLS protocols {#disable-weak-tls-protocols}
 
-It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling insecure TLS protocols](/docs/security/hardening-octopus.md#disable-insecure-tls-protocols) section.
+It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling insecure TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols) section.
 
 ## Learn more
 
