@@ -151,7 +151,7 @@ On Windows, the way to disable insecure versions of SSL and TLS are by editing t
 Editing the Windows registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always backup any keys before they are modified. If you have any questions or need assistance, please [contact us](https://octopus.com/support).
 :::
 
-The following example PowerShell will disable `SSLv3`, `TLSv1` and `TLSv1.1`:
+The following example PowerShell script will disable `SSLv3`, `TLSv1` and `TLSv1.1`:
 
 ```powershell
 # SSLv3
@@ -191,14 +191,14 @@ Once the version of TLS is set, reboot your Server and it should be available vi
 
 On Ubuntu `20.04` using OpenSSL `1.1.1f` (the latest at time of writing), you can specify the minimum TLS version to use to be `TLSv1.2` by setting the `MinProtocol` directive in the `/etc/ssl/openssl.cnf` OpenSSL config file:
 
-```bash
+```text
 [system_default_sect]
 MinProtocol = TLSv1.2
 ```
 
 On Ubuntu `18.04`, if the `MinProtocol` directive doesn't work, you can try this alternative. When using OpenSSL `1.1.1` (the latest at time of writing), you can specify the available TLS Protocols explicitly in the `/etc/ssl/openssl.cnf` OpenSSL config file:
 
-```bash
+```text
 [system_default_sect]
 Protocol = -SSLv3, -TLSv1, -TLSv1.1, TLSv1.2
 ```
