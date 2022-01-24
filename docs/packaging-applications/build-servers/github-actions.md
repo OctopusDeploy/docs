@@ -280,7 +280,7 @@ on:
     logLevel:
       description: 'Log level'
       required: true
-      derault: 'warning'
+      default: 'warning'
 
 jobs:
   build:
