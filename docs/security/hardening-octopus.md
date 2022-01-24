@@ -138,20 +138,20 @@ Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 
 All communication between Octopus Server and Tentacles is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Both Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating. 
 
-It's possible to disable older, less secure versions of SSL and TLS. This can be done on your Octopus Server as well as both [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/infrastructure/workers/index.md) you have.
+It's possible to disable older, weaker versions of SSL and TLS. This can be done on your Octopus Server as well as both [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/infrastructure/workers/index.md) you have.
 
 !include <security-disclaimer>
 
 #### Disable SSLv3, TLS 1.0 and 1.1 on Windows {#disable-weak-tls-protocols-windows}
 
-On Windows, the way to disable weak versions of SSL and TLS are by editing the registry.
+On Windows, the easiest way to disable weak versions of SSL and TLS are by using a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto) to change the Windows Registry. 
 
 :::problem
 **Take care editing registry entries**
 Editing the Windows registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always [backup any keys](https://support.microsoft.com/en-us/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) before they are modified. If you have any questions or need assistance, please [contact us](https://octopus.com/support).
 :::
 
-The following example PowerShell script will disable `SSLv3`, `TLSv1` and `TLSv1.1`:
+If you prefer, you can also script it too. This can be useful when automating installation of Servers. The following example PowerShell script will disable `SSLv3`, `TLSv1` and `TLSv1.1`:
 
 ```powershell
 # SSLv3
