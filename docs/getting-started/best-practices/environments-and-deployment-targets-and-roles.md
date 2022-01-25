@@ -53,7 +53,7 @@ Environments are designed as a macro grouping of deployment targets meant for us
 - Deployment targets
 - Process step scoping (only run a step on a specific environment)
 
-Target roles are designed as a micro groping of deployment targets meant to deploy a specific project or application component.  Below is a list of items where roles are used:
+Target roles are designed as a micro grouping of deployment targets meant to deploy a specific project or application component.  Below is a list of items where roles are used:
 
 - Project Variable scoping
 - Process step scoping (run this step for specific environments)
