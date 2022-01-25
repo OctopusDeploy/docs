@@ -5,7 +5,7 @@ position: 110
 ---
 
 :::hint
-The Early Access Preview of the config-as-code feature is available in Octopus Cloud instances, and is enabled via {{Configuration, Features}}
+The Early Access Preview of the config-as-code feature was added in **Octopus 2021.3** and is enabled via **{{Configuration, Features}}**.
 :::
 
 ![Config as code feature toggle](config-as-code-feature-toggle.png "width=500")
@@ -83,8 +83,6 @@ When editing the deployment process via the Octopus UI, the branch is selected i
 ### Via code
 
 Changes can also be made using your favorite text-editor or IDE, and committed and pushed just as you would any other code change. 
-
-
 
 ## Additional options in your Build Server integration
 
