@@ -229,7 +229,7 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 ## Disabling weak TLS protocols {#disable-weak-tls-protocols}
 
-It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling insecure TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols) section.
+To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols).
 
 ## Learn more
 

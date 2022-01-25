@@ -136,9 +136,7 @@ Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 
 ### Disable weak TLS protocols {#disable-weak-tls-protocols}
 
-All communication between Octopus Server and Tentacles is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Both Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating. 
-
-It's possible to disable older, weaker versions of SSL and TLS. This can be done on your Octopus Server as well as both [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/infrastructure/workers/index.md) you have.
+All communication between Octopus Server and Tentacles is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Since both Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating, you can harden the available TLS implementation.
 
 !include <security-disclaimer>
 

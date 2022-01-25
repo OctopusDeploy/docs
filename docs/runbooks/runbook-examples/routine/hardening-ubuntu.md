@@ -91,4 +91,4 @@ The above script is a very basic hardening of Ubuntu.  Using the CIS guidelines,
 
 ## Disabling weak TLS protocols {#disable-weak-tls-protocols}
 
-It's possible to restrict the version of TLS available to use on both Tentacle and Server. For more information on how to do this, see our [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols) section.
+To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols).
