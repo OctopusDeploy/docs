@@ -48,7 +48,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#set
 
 |  Name       |    |
 | ------------- | ------- |
-|**DISABLE_DIND**|Setting `DISABLE_DIND` to `Y` will disable Docker-in-Docker (used for [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md)) when the container is run. See [this section](#using-execution-containers-dind) for more information|
+|**DISABLE_DIND**|Setting `DISABLE_DIND` to `Y` will disable Docker-in-Docker (used for [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md)) when the container is run. **Note:** This requires the image to be launched with privileged permissions. See [this section](#using-execution-containers-dind) for more information|
 |**ServerApiKey**|The API Key of the Octopus Server the Tentacle should register with|
 |**ServerUsername**|If not using an API key, the user to use when registering the Tentacle with the Octopus Server|
 |**ServerPassword**|If not using an API key, the password to use when registering the Tentacle|
