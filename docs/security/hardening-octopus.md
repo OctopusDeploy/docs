@@ -182,10 +182,10 @@ New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 ```
 
 :::hint
-Once the version of TLS is set, reboot your Server and it should be available via `TLSv1.2`.
+Once the TLS versions are disabled, reboot your Server and importantly [verify the change was successful](#disable-weak-tls-protocols-verify).
 :::
 
-#### Disable SSLv3, TLS 1.0 and 1.1 on Ubuntu Server  {#disable-weak-tls-protocols-ubuntu}
+#### Disable SSLv3, TLS 1.0 and 1.1 on Ubuntu Server {#disable-weak-tls-protocols-ubuntu}
 
 On Ubuntu `20.04` using OpenSSL `1.1.1f` (the latest at time of writing), you can specify the minimum TLS version to use to be `TLSv1.2` by setting the `MinProtocol` directive in the `/etc/ssl/openssl.cnf` OpenSSL config file:
 
@@ -202,8 +202,12 @@ Protocol = -SSLv3, -TLSv1, -TLSv1.1, TLSv1.2
 ```
 
 :::hint
-Once the version of TLS is set in your config, you'll want to restart any Tentacle service, and it should be available via `TLSv1.2`.
+Once the version of TLS is set in your config, you'll want to restart any Tentacle service, and importantly [verify the change was successful](#disable-weak-tls-protocols-verify).
 :::
+
+#### Verification of disabling weak TLS protocols {#disable-weak-tls-protocols-verify}
+
+Once you have performed changes to the available versions of TLS, you should verify that they have been disabled successfully. Tools such as [openssl](https://www.openssl.org/) and [nmap](https://nmap.org/), and web sites like [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) can be used to verify the TLS version and cipher suites available.
 
 ### Prevent user-provided scripts from doing harm
 
