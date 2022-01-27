@@ -88,3 +88,7 @@ sudo passwd -l root
 ```
 
 The above script is a very basic hardening of Ubuntu.  Using the CIS guidelines, you could further harden the installation per your organizations requirements.
+
+## Disabling weak TLS protocols {#disable-weak-tls-protocols}
+
+To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols).

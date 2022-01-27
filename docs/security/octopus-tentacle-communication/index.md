@@ -63,11 +63,15 @@ Both Tentacle and Server expose a simple page on the listening port to web brows
 
 ### Transport Layer Security (TLS) implementation {#Octopus-Tentaclecommunication-TransportLayerSecurity(TLS)implementation}
 
-The TLS implementation uses the [SslStream](http://msdn.microsoft.com/en-us/library/system.net.security.sslstream(v=vs.110).aspx) class from the .NET Framework, and uses the best available of TLS 1.2, TLS 1.1 or TLS 1.0. Fallback to SSL is disallowed.
+Octopus Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating. 
+
+The TLS implementation uses the [.NET SslStream](https://docs.microsoft.com/en-us/dotnet/api/system.net.security.sslstream) class, and uses the best available of TLS 1.2, TLS 1.1 or TLS 1.0. Fallback to SSL is disallowed. 
 
 :::hint
 TLS 1.2 requires .NET 4.5 which was introduced as a requirement in **Octopus 3.1**. Earlier versions of Octopus use TLS 1.0.
 :::
+
+To harden the TLS implementation used, review our documentation on [Disabling weak TLS protocols](/docs/security/hardening-octopus.md#disable-weak-tls-protocols).
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 

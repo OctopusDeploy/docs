@@ -78,6 +78,7 @@ These steps apply to the host operating system for your Octopus Server. You may 
 
 1. Rename local administrator account.
 1. Configure malware protection.
+1. Disable weak TLS protocols.
 1. Prevent user-provided scripts from doing harm.
     a. Run workers under a different security context.
     a. Prevent unwanted file access.
@@ -132,6 +133,81 @@ Write-Output "Excluding Octopus Work folder from Windows Defender..."
 Add-MpPreference -ExclusionPath "C:\Octopus\Work"
 Add-MpPreference -ExclusionPath "C:\Octopus\Work\*"
 ```
+
+### Disable weak TLS protocols {#disable-weak-tls-protocols}
+
+All communication between Octopus Server and Tentacles is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Since both Server and Tentacle rely on the host OS for the available TLS version to use when establishing a secure TLS connection when communicating, you can harden the available TLS implementation.
+
+!include <security-disclaimer>
+
+#### Disable SSLv3, TLS 1.0 and 1.1 on Windows {#disable-weak-tls-protocols-windows}
+
+On Windows, the easiest way to disable weak versions of SSL and TLS are by using a tool like [IISCrypto](https://www.nartac.com/Products/IISCrypto) to change the Windows Registry. 
+
+:::problem
+**Take care editing registry entries**
+Editing the Windows registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always [backup any keys](https://support.microsoft.com/en-us/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) before they are modified. If you have any questions or need assistance, please [contact us](https://octopus.com/support).
+:::
+
+If you prefer, you can also script it too. This can be useful when automating Server installation. The following example PowerShell script will disable `SSLv3`, `TLSv1` and `TLSv1.1`:
+
+```powershell
+# SSLv3
+New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server" -name "Enabled" -value "0" -PropertyType "DWord" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
+New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client" -name "Enabled" -value "0" -PropertyType "DWord" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
+
+# TLSv1.0
+Write-Output "Disable TLS 1.0"
+
+New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" -name "Enabled" -value "0" -PropertyType "DWord" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
+New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client" -Force | Out-Null    
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client" -name "Enabled" -value "0" -PropertyType "DWord" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
+
+# TLSv1.1
+Write-Output "Disable TLS 1.1"
+
+New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" -name "Enabled" -value "0" -PropertyType "DWord" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
+New-Item "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client" -Force | Out-Null
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client" -name "Enabled" -value "0" -PropertyType "DWord" -Force | Out-Null    
+New-ItemProperty -path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client" -name "DisabledByDefault" -value 1 -PropertyType "DWord" -Force | Out-Null
+```
+
+:::hint
+Once the TLS versions are disabled, reboot your Server and importantly [verify the change was successful](#disable-weak-tls-protocols-verify).
+:::
+
+#### Disable SSLv3, TLS 1.0 and 1.1 on Ubuntu Server {#disable-weak-tls-protocols-ubuntu}
+
+On Ubuntu `20.04` using OpenSSL `1.1.1f` (the latest at time of writing), you can specify the minimum TLS version to use to be `TLSv1.2` by setting the `MinProtocol` directive in the `/etc/ssl/openssl.cnf` OpenSSL config file:
+
+```text
+[system_default_sect]
+MinProtocol = TLSv1.2
+```
+
+On Ubuntu `18.04`, if the `MinProtocol` directive doesn't work, you can try this alternative. When using OpenSSL `1.1.1` (the latest at time of writing), you can specify the available TLS Protocols explicitly in the `/etc/ssl/openssl.cnf` OpenSSL config file:
+
+```text
+[system_default_sect]
+Protocol = -SSLv3, -TLSv1, -TLSv1.1, TLSv1.2
+```
+
+:::hint
+Once the version of TLS is set in your config, you'll want to restart any Tentacle service, and importantly [verify the change was successful](#disable-weak-tls-protocols-verify).
+:::
+
+#### Verification of disabling weak TLS protocols {#disable-weak-tls-protocols-verify}
+
+Once you have performed changes to the available versions of TLS, you should verify that they have been disabled successfully. Tools such as [openssl](https://www.openssl.org/) and [nmap](https://nmap.org/), and web sites like [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) can be used to verify the TLS version and cipher suites available.
 
 ### Prevent user-provided scripts from doing harm
 
