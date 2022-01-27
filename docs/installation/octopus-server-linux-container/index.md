@@ -74,7 +74,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
 |**ADMIN_EMAIL**|The email associated with the admin user account|
-|**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [worker execution containers](/docs/projects/steps/execution-containers-for-workers/index.md). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
+|**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
 
 ### Exposed Container Ports
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
