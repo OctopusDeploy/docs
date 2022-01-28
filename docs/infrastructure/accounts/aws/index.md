@@ -31,17 +31,17 @@ AWS steps can also defer to the IAM role assigned to the instance that hosts the
 
 You can access your AWS account from within projects through a variable of type **AWS Account Variable**. Learn more about [AWS Account Variables](/docs/projects/variables/aws-account-variables.md)
 
-## Using AWS Service roles for an EC2 instances
+## Using AWS Service roles for an EC2 instance
 
 AWS allows you to assign a role to an EC2 instance, referred to as an [AWS service role for an EC2 instance](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts), and that role can be accessed to generate the credentials that are used to deploy AWS resources and run scripts.
 
-Because the AWS steps run on the Octopus Server, Octopus itself needs to be running on an EC2 instance with an IAM role applied to take advantage of this feature.
+All AWS steps execute on a worker. By default, that will be the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) in the Octopus Server. As such, Octopus Server itself would need to be run on an EC2 instance with an IAM role applied to take advantage of this feature.
+
+If you use [external workers](/docs/infrastructure/workers/index.md#external-workers) which are their own EC2 instances, they can have their own IAM roles that apply when running AWS steps.
 
 :::hint
-It is expected that in future these steps will be run on [worker instances](https://github.com/OctopusDeploy/Specs/blob/master/Workers/index.md), which can execute on their own EC2 instances with their own roles applies. This will make IAM roles much more useful and flexible.
+When using the IAM role assigned to either the built-in worker or external worker EC2 instances, there is no need to create an AWS account in Octopus.
 :::
-
-When using the IAM role assigned to the Octopus EC2 instance, there is no need to create an AWS account in Octopus.
 
 ## Manually using AWS account details in a step
 

@@ -15,7 +15,7 @@ Octopus Deploy includes dedicated integration with Amazon Web Services (AWS) to 
 
 :::hint
 **Where do AWS Steps execute?**
-All AWS steps execute on a worker. By default, that will be the built-in worker in the Octopus Server. Learn about [workers](/docs/infrastructure/workers/index.md) and the different configuration options.
+All AWS steps execute on a worker. By default, that will be the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) in the Octopus Server. Learn about [workers](/docs/infrastructure/workers/index.md) and the different configuration options.
 :::
 
 ## Get started with ECS or deploy a new service
