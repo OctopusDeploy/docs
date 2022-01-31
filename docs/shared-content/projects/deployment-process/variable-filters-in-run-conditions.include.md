@@ -1,5 +1,24 @@
-:::hint
-You can use [variable filters](https://octopus.com/docs/projects/variables/variable-filters) to help create complex run conditions and conditional variable evaluations. However, these filters must be applied using a project variable rather than evaluating them inline as a run condition.
+It's possible to use [variable filters](/docs/projects/variables/variable-filters.md) to help create both complex run conditions and variable expressions, but there are limitations to be aware of.
 
-For example, if you wanted to run a step when the release had a prerelease tag matching `mybranch`, you would set a project variable (for this example, we'll call it `PreReleaseBranch`) with the value `#{Octopus.Release.Number | VersionPreReleasePrefix}`. Then, you would use that evaluated variable in your run condition as `#{if PreReleaseBranch == "mybranch"}True#{/if}`.
+:::warning
+Using variable filters *inline* in the two [conditional statements](/docs/projects/variables/variable-substitutions.md{#VariableSubstitutionSyntax-Conditionalsconditionals}) `if` and `unless` are **not supported**.
 :::
+
+If you wanted to include a variable run condition to run a step *only* when the release had a prerelease tag matching `mybranch`, you might be tempted to use the `VersionPreReleasePrefix` [extraction filter](/docs/projects/variables/variable-filters.md#VariableSubstitutionSyntax-ExtractionFilters) to write a condition like this:
+
+```text
+#{if Octopus.Release.Number | VersionPreReleasePrefix == "mybranch"}true#{/if}
+```
+However, the evaluation of the statement would always return `False` as the syntax is not supported.
+
+Instead you need to create a variable that includes the variable filter you want to use. For this example, lets assume it's named `PreReleaseBranch` with the value:
+
+```text
+#{Octopus.Release.Number | VersionPreReleasePrefix}
+```
+
+Once you have created your variable, you can use it in your run condition like this:
+
+```text
+#{if PreReleaseBranch == "mybranch"}True#{/if}
+```
