@@ -112,6 +112,10 @@ You could achieve a similar result, with a different default/fallback behavior, 
 <compilation #{unless DebugDisabled}debug="true"#{/unless}>
 ```
 
+### Variable filters in conditonals {#VariableSubstitutionSyntax-Conditionalfilters}
+
+!include <variable-filters-in-run-conditions>
+
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
 The `if`, `if-else` and `unless` statements consider a value to be *falsy* if it is undefined; an empty string; or (ignoring case and any leading or trailing whitespace) `False`, `No` or `0`. All other values are considered to be *truthy*.
