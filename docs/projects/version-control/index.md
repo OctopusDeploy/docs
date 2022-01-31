@@ -20,7 +20,7 @@ Config-as-code is still in development. We strongly recommend not using it on cr
 
 The config-as-code EAP adds support for configuring Octopus projects with the details of a Git repository.  For the EAP, this is the _deployment process_ which is version-controlled.  
 
-It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has.  You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. If you type the name of a branch that does not exist in your repository, you will see an option to create that branch, and this is possible when committing your changes as well. 
+It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has.  You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you’ll see an option to create that branch. This option is available when committing changes to your deployment process too.
 
 ![Branch-switcher UI](branch-switcher-ui.png "width=500")
 
