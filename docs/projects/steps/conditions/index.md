@@ -87,7 +87,7 @@ Machine-level variable expressions are also supported in [rolling deployments](/
 
 ### Variable filters in run conditions
 
-!include <variable-filters-in-run-conditions>
+!include <variable-filters-in-octostache-conditionals>
 
 ## Start trigger
 

@@ -114,7 +114,7 @@ You could achieve a similar result, with a different default/fallback behavior, 
 
 #### Using variable filters in conditionals {#VariableSubstitutionSyntax-Conditionalfilters}
 
-!include <variable-filters-in-run-conditions>
+!include <variable-filters-in-octostache-conditionals>
 
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
