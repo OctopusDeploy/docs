@@ -85,6 +85,10 @@ This will evaluate to `True` on Web01 and `False` on Web02.
 
 Machine-level variable expressions are also supported in [rolling deployments](/docs/deployments/patterns/rolling-deployments.md) using child steps.
 
+### Variable filters in run conditions
+
+!include <variable-filters-in-octostache-conditionals>
+
 ## Start trigger
 
 If you have more than one step in your deployment process, the Start Trigger option lets you choose between:

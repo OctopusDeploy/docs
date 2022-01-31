@@ -75,7 +75,7 @@ Given the variables:
 
 ### Conditionals {#VariableSubstitutionSyntax-Conditionalsconditionals}
 
-Two conditional statements are supported in Octopus prior to version 3.5 - `if` and `unless`; these have identical syntax, but `if` evaluates only if the variable is *truthy*, while `unless` evaluates if the variable is *falsy*.  `if` and `unless` syntax is as follows:
+Two conditional statements are supported in Octopus - `if` and `unless`; these have identical syntax, but `if` evaluates only if the variable is *truthy*, while `unless` evaluates if the variable is *falsy*.  The syntax for `if` and `unless` is as follows:
 
 `#{if VariableName}conditional statements#{/if}`
 
@@ -111,6 +111,10 @@ You could achieve a similar result, with a different default/fallback behavior, 
 ```powershell
 <compilation #{unless DebugDisabled}debug="true"#{/unless}>
 ```
+
+#### Using variable filters in conditionals {#VariableSubstitutionSyntax-Conditionalfilters}
+
+!include <variable-filters-in-octostache-conditionals>
 
 #### *Truthy* and *Falsy* Values {#VariableSubstitutionSyntax-TruthyandFalsyvalues}
 
