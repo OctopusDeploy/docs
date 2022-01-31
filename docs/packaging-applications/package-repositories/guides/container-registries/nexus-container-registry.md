@@ -1,7 +1,7 @@
 ---
 title: Nexus Container Registry  
 description: How to add a Nexus Docker Registry as an Octopus feed 
-position: 20
+position: 80
 ---
 Sonatype Nexus Repository Manager offers three types of docker registry;
 - Group
