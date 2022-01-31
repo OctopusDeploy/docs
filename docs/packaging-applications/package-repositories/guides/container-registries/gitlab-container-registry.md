@@ -1,7 +1,7 @@
 ---
 title: GitLab container registry
 description: Configuring a GitLab container registry as an Octopus feed.
-position: 20
+position: 60
 ---
 GitLab creates a Container Registry for each Project or Group.  By default, container registries are disabled on self-hosted installations of GitLab.  To use the container registry, you must first enable it and assign a port for the registry to listen on.
 
