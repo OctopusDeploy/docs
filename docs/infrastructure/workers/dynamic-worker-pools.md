@@ -25,11 +25,11 @@ Each worker is provisioned exclusively to a specific customer, and is completely
 
 ## Dynamic Worker Images
 
-Each dynamic worker pool can specify the worker image used. As of August 2020, Windows Server Core 2016 is the default. Windows Server Core 2019 and Ubuntu Server 18.04 worker images are also available.
+Each dynamic worker pool can specify the worker image used. Windows Server Core 2019 is the default. Ubuntu Server 18.04 worker images are also available.
 
 Editing a dynamic worker pool allows you to modify the image used. 
 
-The available worker images list specific operating system versions (e.g.,`Windows Server Core 2016`, `Windows Server Core 2019`) but also generic "default" options such as `Windows (default)`. Choosing the default option means that your worker will get the latest stable worker image released. This is a good option to choose if you're running a basic script that doesn't have any dependencies on specific tool or operating system versions.
+The available worker images list specific operating system versions (e.g., `Windows Server Core 2019`) but also generic "default" options such as `Windows (default)`. Choosing the default option means that your worker will get the latest stable worker image released. This is a good option to choose if you're running a basic script that doesn't have any dependencies on specific tool or operating system versions.
 
 If you're writing a script that relies on a specific version of tooling (e.g., helm), then we recommend choosing a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
@@ -86,34 +86,6 @@ Windows 2019 workers are capable of running [execution worker containers](/docs/
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
 :::
 
-### Windows Server Core 2016
-
-:::warning
-Windows Server Core 2016 workers are deprecated and will be removed in February 2022.
-:::
-
-Each `Windows Server Core 2016` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET Core (2.1, 3.1)
-- .NET Framework 3.5
-- .NET Framework 4.7.2
-- AWS IAM Authenticator (0.5.1)
-- Chocolatey (latest)
-- Helm (2.9.1)
-- Kubectl (1.16.10)
-- Microsoft Service Fabric (6.1.480.9494)
-- Microsoft Service Fabric SDK (3.0.480)
-- Nuget CLI (latest)
-- Octopus Client (latest)
-- Pip (20.1.1)
-- Powershell Core (latest)
-- Python (3.7.4)
-- GCloud CLI (339.0.0)
-
-:::warning
-Please note that [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md) are not supported on Windows 2016 workers.
-:::
-
 ### Ubuntu 18.04
 
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
@@ -130,7 +102,7 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 
 ## kubectl on Windows Images
 
-Windows 2016 and 2019 dynamic worker images come with many versions of `kubectl` available.
+Windows 2019 dynamic worker images come with many versions of `kubectl` available.
 
 A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
