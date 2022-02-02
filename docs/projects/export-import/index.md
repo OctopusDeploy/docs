@@ -14,7 +14,7 @@ Export/Import features are found in the overflow menu on the {{Projects}} page.
 
 ![Import Export Menu](import-export-menu.png "width=500")
 
-When exporting a password is used to protect the zip file. The password should be treated sensitively, as the export file includes any sensitive variable values.
+When exporting, a password is required to assist with encryption. The password should be treated sensitively, as it will be used to decrypt any sensitive values contained within the export when importing the project(s) into Octopus.
 
 ![Export projects](export-project-page.png "width=500")
 
