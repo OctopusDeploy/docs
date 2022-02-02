@@ -58,7 +58,7 @@ The configuration for the Kubernetes resources required in a Helm Chart can be p
 
 ## Known limitations
 :::warning
-Please note that [Cloud Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools.md#available-dynamic-worker-images) come with Helm 2.9.1 installed.  This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution.  To get around this problem, use the [Execution Containers](/docs/projects/steps/execution-containers-for-workers/index.md) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  You will also need to edit the Default Worker Pool on your cloud instance and change the Worker Image to something other than Default (default uses Windows Server Core 2016) or Windows Server Core 2016 as neither image have Docker installed.
+Please note that [Cloud Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools.md#available-dynamic-worker-images) come with Helm 2.9.1 installed.  This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution.  To get around this problem, use the [Execution Containers](/docs/projects/steps/execution-containers-for-workers/index.md) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  
 :::
 Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.
 
