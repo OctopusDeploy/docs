@@ -65,7 +65,7 @@ We try to keep the .NET Framework requirements for Octopus Server as stable as p
 - **Octopus 3.4** to **Octopus 2018.4** requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
 - **Octopus 2018.5** and later requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.
 - **Octopus 2019.7** and later requires [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/?LinkID=863265) or newer.
-- **Octopus 2020.1** and later is a fully self-contained distribution bundling the .NET Core 3.1 runtime - no .NET Framework is required.
+- **Octopus 2020.1** and later is a fully self-contained distribution bundling the .NET runtime - no .NET Framework or additional runtime is required.
 
 ## Windows PowerShell
 
