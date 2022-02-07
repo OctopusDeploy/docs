@@ -4,6 +4,10 @@ description: Octopus resources created in cloud providers can also be modeled in
 position: 100
 ---
 
+:::hint
+Octopus version 2022.??? has support for automatically discovering and cleaning up supported types of deployment targets by tagging your cloud resources, please see our documentation on [Reflected Targets](/docs/infrastructure/deployment-targets/reflected-targets) for more information.
+:::
+
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
 ## Enable dynamic infrastructure
@@ -97,6 +101,7 @@ New-OctopusAzureWebAppTarget -Name $uniqueName -AzureWebApp $uniqueName -AzureRe
 Building on the Web App example, you may wish to spin up an application and then tear it down at the end of the day. By combining [Recurring Deployments](https://octopus.com/blog/recurring-deployments) and a tear-down script, you can keep your cloud hosting costs down.
 
 Using as little as two lines of PowerShell you can remove all the resources from Azure and Octopus:
+
 ```
 Remove-AzureRmResourceGroup -Name "AzureWebAppResourceGroup" -Force
 Remove-OctopusTarget -targetIdOrName "AzureWebApp"
