@@ -4,7 +4,7 @@ description: Resources created in cloud providers can be discovered as deploymen
 position: 100
 ---
 
-Octopus can discover deployment targets in cloud providers during deployment using tags added to resources. Any targets discovered will also be removed from Octopus when the associated cloud resource is removed. Discovery takes place before deployment steps and can be used as part of processes that create your cloud infrastructure.
+Octopus can discover deployment targets during deployments using tags added to your cloud resources. Octopus will remove any discovered targets when the associated cloud resource is removed. Target discovery takes place before deployment steps, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
 :::hint
 Using discovery of deployment targets is recommended over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure) functionality.
