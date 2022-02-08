@@ -28,6 +28,10 @@ Of course, there is also now a text representation of the process in the git rep
 
 This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables.md#release-branch-information) that can be used in your custom deployment scripts.
 
+:::warning
+Config-as-code only supports [git](https://git-scm.com/) repositories.  You should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching before using this feature.
+:::
+
 ### What's next?
 
 We have some strong opinions on what's next.  We've always intended to version-control variables and runbooks, and we'd like to evolve the OCL schema to make it friendlier for editing by hand.  
@@ -50,39 +54,13 @@ Version-control is configured per-project, and can be found under the {{Version 
 
 ![Version-control configuration UI](version-control-configuration.png "width=500")
 
-The _Git Repository_ field should contain the URL for the repository you wish the Octopus configuration to be persisted to. e.g. `https://github.com/OctopusSamples/OctoFX.git`  
-The repository must be initialized (i.e. contain at least one branch).
-
-The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is the also the default branch which will be used in various situations, for example
-- When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
-- When creating releases, this will be the branch selected initially
-
-For existing repositories that are initialized, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
-
-The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token. We also recommend that you follow the principle of least privilege when selecting scopes or permissions to grant this personal access token. 
-
-Git providers allow you to create an access token in different ways. The recommended *scope* for each provider is also listed in brackets. 
-
-* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token); (Scope - `repo`)
-* [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate); (Scope - `vso.code_full`)
-* [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
-* [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - `write_repository`)
-
-_Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored.  If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory. If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
+Learn more about [Configuring version control on a project](/docs/projects/version-control/configuring-version-control-on-a-project.md).
 
 ## Making changes to the deployment process 
 
 Once an Octopus project is configured to be version-controlled, any changes to the deployment process are made on a branch. 
 
-### Via the Octopus UI
-
-When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher at the top of the deployment process editor.
-
-![Branch-switcher user-interface](branch-switcher-ui.png "width=500")
-
-### Via code
-
-Changes can also be made using your favorite text-editor or IDE, and committed and pushed just as you would any other code change. 
+Learn more about [Editing a project with version control enabled](/docs/projects//version-control//editing-a-project-with-version-control-enabled.md).
 
 ## Additional options in your Build Server integration
 
