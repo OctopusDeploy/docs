@@ -13,7 +13,7 @@ Before you can configure a Linux Tentacle, the Linux server must meet the [requi
 
 - Octopus Server **2019.8.3** or newer
 
-Linux Tentacle is a .NET Core application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd). On most Linux distributions it will *just work*, but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
+Linux Tentacle is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained). On most Linux distributions it will *just work*, but be aware that there are [.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md) that may need to be installed.
 
 ## Known limitations
 
