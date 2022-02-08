@@ -7,7 +7,7 @@ position: 100
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Octopus will remove any discovered targets when the associated cloud resource is removed. Target discovery takes place before deployment steps, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
 :::hint
-Using discovery of deployment targets is recommended over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure) functionality.
+Using discovery of deployment targets is recommended over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
 :::
 
 To enable discovery use the following steps.
@@ -34,11 +34,11 @@ Tags are in the format `octopus-{scope}` and support the following for discovery
 
 | Tag                   | Required | Description                                                                                                                                                                         | Example                             |
 | --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
-| `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
-| `octopus-space`       | No       | The name of the [space](/docs/administration/spaces) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
-| `octopus-project`     | No       | The name of the [project](/docs/projects) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
-| `octopus-tenant`      | No       | The name of the [tenant](/docs/projects) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |
+| `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments/index.md) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
+| `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets/index.md#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
+| `octopus-space`       | No       | The name of the [space](/docs/administration/spaces/index.md) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
+| `octopus-project`     | No       | The name of the [project](/docs/projects/index.md) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
+| `octopus-tenant`      | No       | The name of the [tenant](/docs/projects/index.md) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |
 
 ## Add step to deployment process
 

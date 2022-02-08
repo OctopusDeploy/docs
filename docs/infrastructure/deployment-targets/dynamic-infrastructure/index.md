@@ -5,7 +5,7 @@ position: 100
 ---
 
 :::hint
-Octopus version 2022.??? has support for automatically discovering and cleaning up supported types of deployment targets by tagging your cloud resources, please see our documentation on [Reflected Targets](/docs/infrastructure/deployment-targets/reflected-targets) for more information.
+Octopus version 2022.??? has support for automatically discovering and cleaning up supported types of deployment targets by tagging your cloud resources, please see our documentation on [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
 :::
 
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
