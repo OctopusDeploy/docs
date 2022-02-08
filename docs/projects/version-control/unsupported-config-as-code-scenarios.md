@@ -1,6 +1,6 @@
 ---
 title: Unsupported Configuration as Code Scenarios
-description: Unsupported scenarios for the Config as Code feature in Octopus Deploy.
+description: Unsupported scenarios for the Configuration as Code feature in Octopus Deploy.
 position: 50 
 ---
 
