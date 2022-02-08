@@ -32,8 +32,6 @@ Learn about [automating installation](/docs/installation/automating-installation
 
 Octopus Server will run on client/desktop versions of Windows, such as Windows 7 and Windows 10. This can be an easy way to trial Octopus Server; however, we do not support Octopus Server for production workloads unless it is hosted on a server operating system.
 
-!include <sql>
-
 ### Octopus Server in Container
 
 From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on DockerHub.
@@ -45,6 +43,8 @@ Requirements for the [Octopus Server Linux Container](/docs/installation/octopus
 - [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 
 You can also run the Octopus Server Linux Container using a platform such as [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html).
+
+!include <sql>
 
 ### Hypervisors
 
