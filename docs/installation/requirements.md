@@ -34,7 +34,7 @@ Octopus Server will run on client/desktop versions of Windows, such as Windows 7
 
 ### Octopus Server in Container
 
-From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on DockerHub.
+From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
 
 Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
 

@@ -32,7 +32,6 @@ This can happen when certificates include extension data without specifying the 
 
 Please review the certificates in  {{Library,Certificates}} to find the invalid one, update any usages to use a new valid certificate, and delete the old certificate via the REST API.
 
-
 ### `Invalid certificate detected - Unable to parse certificate`
 
 This sometimes happens when attempting to import _crt_ files. If you are having trouble importing a crt file, you can convert the crt file to a cer file using the following method, and try re-importing:
@@ -44,4 +43,22 @@ This sometimes happens when attempting to import _crt_ files. If you are having 
 * Now, browse to store your file and type in the filename that you want to keep
 * Finally, save the file.
 
-This will need to be completed on Windows.
+**Note:** This will need to be completed on Windows.
+
+### `Unknown encryption algorithm: 1.2.840.113549.1.5.13`
+
+When attempting to import a certificate in `PKCS#12` format you might receive an error similar to:
+
+```text
+Could not parse certificate data. Possible causes: 1) The certificate format is not supported. 2) The password is incorrect. 3) The file is corrupt. Error: Unable to parse certificate 'example.cert.domain'
+(id: ): Unknown encryption algorithm: 1.2.840.113549.1.5.13
+```
+
+This error may be caused by the use of [openssl](https://www.openssl.org/) version **3.0** (or higher) to create the certificate. 
+To workaround this error, you can try the following:
+
+* Generate the certificate using openssl version **1.1.1** and re-attempting the certificate upload/import.
+* Import the certificate into the Windows Certificate store, export it using the `PKCS#12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
+* Generate the certificate using openssl version **3.0** (or higher) using [legacy algorithms](https://wiki.openssl.org/index.php/OpenSSL_3.0#Legacy_Algorithms). This requires the [legacy provider](https://wiki.openssl.org/index.php/OpenSSL_3.0#Providers) to be loaded in the openssl configuration first, and then generating the certificate using the `-provider legacy` switch. Finally, re-attempting the certificate upload/import.
+
+For more information, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/7156).
