@@ -17,7 +17,7 @@ Automating the installation of Octopus Server is a three step process.
 ### 1. Install the MSI on a temporary machine interactively
 In this step we install the MSI on a machine interactively so that we can complete the wizard to add a new instance.
 
-Follow all the steps in the [installation process](/docs/installation/index.md/#installation), but in the final step copy the generated script into a new file. **Do not click Install**.
+Follow all the steps in the [installation process](/docs/installation/index.md#install-octopus), but in the final step copy the generated script into a new file. **Do not click Install**.
 
 Save the script into a new file.
 
@@ -32,7 +32,7 @@ Here is an example of what the script might look like:
 "[INSTALLLOCATION]\Octopus.Server.exe" service --instance "<instance name>" --install --reconfigure --start --dependOn "MSSQLSERVER"
 ```
 
-### 2. Install MSI in server silently
+### 2. Install MSI silently
 
 To install the MSI silently:
 
