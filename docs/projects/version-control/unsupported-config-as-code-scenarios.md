@@ -33,7 +33,7 @@ While it may work initially, it will be harder and harder to manage over time. Y
 The first version of Configuration as Code only stores the deployment process in the git repo. It does not store variables or runbook processes. Once variables are added, the amount of scaffolding data will increase.  
 :::
 
-Typically, having two instances results from splitting an Octopus Deploy instance by environment (one instance has Dev/Test the other has Staging/Prod), by Tenant (one instance has test tenants, the other has customers), or both. Pointing multiple instances at the same folder will only work if they instances _are all exactly the same forever_.
+Typically, having two instances results from splitting an Octopus Deploy instance by environment (one instance has Dev/Test the other has Staging/Prod), by Tenant (one instance has test tenants, the other has customers), or both. Pointing multiple instances at the same folder will only work if they _are all exactly the same forever_.
 
 ### Octopus Terraform Provider
 
