@@ -8,7 +8,7 @@ The Configuration as Code feature is designed to give you the benefits of source
 
 ## Core Design Decision
 
-The core design decision is that each project in each space has a unique folder in a git repository. A git repository can store several projects across several spaces or store a single project in a single space. Each project must have a unique folder in a git repository because of all the scaffolding data referenced by a project.  
+The core design decision is each project in each space has a unique folder in a git repository. A git repository can store several projects across several spaces or store a single project in a single space.  But, each project must have a unique folder in a git repository because of all the scaffolding data referenced by a project.  
 
 That scaffolding data includes (but is not limited to):
 
@@ -27,13 +27,13 @@ An error will occur when Octopus Deploy attempts to load a process from source c
 
 The configuration as code feature is not designed to allow two or more projects on different instances to point to the same folder. We've seen our users attempt to use Configuration as Code to keep the deployment processes in sync across multiple instances. That scenario is unsupported.
 
-While it may work initially, it will be harder and harder to manage over time. You will need to keep _all_ the scaffolding data in-sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances/index.md).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
+While it may work initially, it will be harder and harder to manage over time. You will need to keep _all_ the scaffolding data in sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances/index.md).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
 
 :::warning
 The first version of Configuration as Code only stores the deployment process in the git repo. It does not store variables or runbook processes. Once variables are added, the amount of scaffolding data will increase.  
 :::
 
-Typically, having two instances is a result of splitting an Octopus Deploy instance by environment (one instance has Dev/Test the other has Staging/Prod), by Tenant (one instance has test tenants, the other has customers), or both. Pointing multiple instances at the same will only work if all instances _are the exact same forever_.
+Typically, having two instances results from splitting an Octopus Deploy instance by environment (one instance has Dev/Test the other has Staging/Prod), by Tenant (one instance has test tenants, the other has customers), or both. Pointing multiple instances at the same folder will only work if they instances _are all exactly the same forever_.
 
 ### Octopus Terraform Provider
 
@@ -50,7 +50,7 @@ The downside to this approach is you'll be unable to use the Octopus Deploy UI t
 Another alternative is each instance points to a unique folder in the same GitHub repo. For example, if you had a Developer instance and a Production instance.
 
 - .octopus/project-a/dev-instance
-- .octopus/project-a/production instance
+- .octopus/project-a/production-instance
 
 Use a file diff tool, Beyond Compare, Meld, WinMerge, or KDiff, to manually copy specific changes between the two directories. Any instance-specific configuration, such as environment scoping, worker pools, or feeds, would be excluded.
 
@@ -64,7 +64,7 @@ The downside to this approach is it is a manual process and prone to error.
 
 The configuration as code feature is not designed to allow two or more projects on the same space to point to the same folder. We've seen our users attempt to use Configuration as Code as project templating. This scenario is unsupported.
 
-While it may work for the first couple of projects, all the required scaffolding data is there; projects will have subtle differences. Those differences include:
+While it may work for the first couple of projects, as all the necessary scaffolding data is there because the projects will be in the same space.  However, projects will have subtle differences. Those differences include:
 
 - Packages to deploy
 - Target roles
@@ -74,7 +74,7 @@ While it may work for the first couple of projects, all the required scaffolding
 
 You will find projects are constantly overwriting each other.
 
-This scenario will not scale well. Branch naming conventions would need to be strictly enforced if 50 projects were all pointed to the git repo. The number of possible branches would exponentially grow with each added project. The chances of a person selecting the wrong branch will subsequently increase.
+One option is to have a single git repo for all your projects, with each project saved to a unique folder in the repository.  You could then use a file comparison tool to copy changes between projects. That scenario will not scale well. Branch naming conventions would need to be strictly enforced if you configured 50 projects to save to the same git repo. The number of possible branches would exponentially grow with each added project. The chances of a person selecting the wrong branch will subsequently increase.  And manually copying changes via a file comparison tool is error prone and time consuming.
 
 Having a branch per project will partially solve the problem of the subtle differences, but it will be very time-consuming to sync any "main" branch changes with the project branches. You will need to manually sync all the branches or create and maintain a process to handle the syncing.
 
@@ -84,6 +84,6 @@ Configuration as Code is an all-or-nothing feature. You'll be unable to say mana
 
 ### Octopus Terraform Provider
 
-Use the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs) to create a deployment process template. Use Terraform's [variable functionality](https://www.terraform.io/language/values/variables) to manage the different projects. For example, have a variable for target roles; one project has **OctoFX-WebApi** while another project uses **RandomQuotes-WebApi**.  
+Use the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs) to create a deployment process template. Use Terraform's [variable functionality](https://www.terraform.io/language/values/variables) to manage the different projects. For example, have a variable for target roles; one project has **OctoFX-WebApi** while another uses **RandomQuotes-WebApi**.  
 
 One advantage to this approach is the flexibility to decide what resources are managed by the Terraform Provider and what resources are managed by users in the Octopus UI. The downside to this approach is you'll be unable to use the Octopus Deploy UI to manage your deployment processes. In addition, you'll need to convert your existing deployment process into Terraform manually. The files generated by Configuration as Code has a similar syntax as the Terraform provider, but it is not a 1:1 match.
