@@ -58,6 +58,6 @@ This error may be caused by the use of [openssl](https://www.openssl.org/) versi
 To workaround this error, you can try the following:
 
 * Generate the certificate using openssl version **1.1.1** and re-attempting the certfiicate upload/import.
-* Import the certificate into the Windows Certificate store, export it using the `#PKSCS12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
+* Import the certificate into the Windows Certificate store, export it using the `#PKCS12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
 
 For more information, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/7156).
