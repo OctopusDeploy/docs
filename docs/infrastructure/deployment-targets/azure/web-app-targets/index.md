@@ -7,7 +7,7 @@ position: 20
 Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
 
 :::hint
-From version 2022.??? Octopus can discover Azure Web App targets for you using tags on your Web App resource.
+From version 2022.1 Octopus can discover Azure Web App targets using tags on your Web App resource.
 :::
 
 ## Requirements

@@ -4,6 +4,10 @@ description: Resources created in cloud providers can be discovered as deploymen
 position: 100
 ---
 
+:::hint
+The Early Access Preview of the cloud target discovery feature was added in **Octopus 2022.1** and is enabled via **{{Configuration, Features}}**.
+:::
+
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Octopus will remove any discovered targets when the associated cloud resource is removed. Target discovery takes place before deployment steps, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
 :::hint
