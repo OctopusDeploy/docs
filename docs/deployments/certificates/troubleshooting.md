@@ -47,7 +47,7 @@ This sometimes happens when attempting to import _crt_ files. If you are having 
 
 ### `Unknown encryption algorithm: 1.2.840.113549.1.5.13`
 
-When attempting to import a certificate in `PKSC12` format you might receive an error similar to:
+When attempting to import a certificate in `PKCS12` format you might receive an error similar to:
 
 ```text
 Could not parse certificate data. Possible causes: 1) The certificate format is not supported. 2) The password is incorrect. 3) The file is corrupt. Error: Unable to parse certificate 'example.cert.domain'
@@ -58,6 +58,6 @@ This error may be caused by the use of [openssl](https://www.openssl.org/) versi
 To workaround this error, you can try the following:
 
 * Generate the certificate using openssl version **1.1.1** and re-attempting the certfiicate upload/import.
-* Import the certificate into the Windows Certificate store, export it using the `#PKSC12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
+* Import the certificate into the Windows Certificate store, export it using the `#PKSCS12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
 
 For more information, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/7156).
