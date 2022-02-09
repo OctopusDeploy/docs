@@ -22,18 +22,14 @@ The variables used are different for each supported cloud provider.
 
 To discover Azure cloud resources, Octopus uses an [Azure account](/docs/projects/variables/azure-account-variables.md) variable named **Octopus.Azure.Account**.
 
-### AWS
-
-To discover AWS cloud resources, Octopus uses an [AWS account](/docs/projects/variables/aws-account-variables.md) variable named **Octopus.AWS.Account**. TODO: Additional variables ??? can be used to authenticate using an EC2 IAM role.
-
 ## Tag cloud resources
 
 Octopus looks for tags applied to cloud resources to discover and create deployment targets for you.
 
 Tags are in the format `octopus-{scope}` and support the following for discovery. Note that only a single value is supported in tags at the moment.
 
-| Tag                   | Required | Description                                                                                                                                                                         | Example                             |
-| --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| Tag                   | Required | Description                                                                                                                                                                                  | Example                             |
+| --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
 | `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments/index.md) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
 | `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets/index.md#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
 | `octopus-space`       | No       | The name of the [space](/docs/administration/spaces/index.md) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
@@ -46,8 +42,6 @@ Octopus will discover targets if one of the following steps are in your deployme
 
 - Deploy an Azure App Service
 - Deploy an Azure Web App (Web Deploy)
-- Deploy Amazon ECS Service
-- Update Amazon ECS Service
 
 ## Enabling discovery for existing projects
 
@@ -72,36 +66,27 @@ Using target discovery during a deployment means that there may be no existing t
 
 ## Examples
 
-### ECS Cluster
-
-Let's say you have an project in Octopus called _Pet Shop_ that deploys an application to an ECS cluster in a _Development_ environment using a role of _PetShopFrontEnd_ and this cluster is dynamically created as part of the deployment using a CloudFormation template.
-
-To use this ECS cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) with custom code to try and find and create the ECS cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md) or manually remove the target in Octopus.
-
-By configuring credentials in a variable and adding tags to the deployment of the ECS cluster Octopus can discover this target for you and also remove the target from Octopus when it is removed in AWS.
-
-- Configure an [AWS account](/docs/projects/variables/aws-account-variables.md) variable in your project named **Octopus.AWS.Account**, selecting an account that has permissions to be able to find the ECS cluster.
-- Add tags to the CloudFormation template for the ECS cluster to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
-
-```json
-Tags: [
-    {
-        Key: "octopus-environment",
-        Value: "#{Octopus.Environment.Name}"
-    },
-    {
-        Key: "octopus-role",
-        Value: "PetShopFrontEnd"
-    },
-    {
-        Key: "octopus-project",
-        Value: "#{Octopus.Project.Name}"
-    }
-]
-```
-
-Octopus will now discover the ECS cluster as a target before deploying to it, matching the environment, role and project from the deployment to the tags created with the CloudFormation template, without any custom scripts or manual intervention steps! Octopus will also remove this target if it is later removed from AWS.
-
 ### Azure Web App
 
-TODO: Should we have two examples?
+Let's say you have an project in Octopus called _Pet Shop_ that deploys an application to an Azure Web App in a _Development_ environment using a role of _PetShopFrontEnd_ and this web app is dynamically created as part of the deployment using an ARM template.
+
+To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md) or manually remove the target in Octopus.
+
+By configuring credentials in a variable and adding tags to the deployment of the web app Octopus can discover this target for you and also remove the target from Octopus when it is removed in Azure.
+
+- Configure an [Azure account](/docs/projects/variables/azure-account-variables.md) variable in your project named **Octopus.Azure.Account**, selecting an account that has permissions to be able to find the web app.
+- Add tags to the ARM template for the web app to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
+
+```json
+"resources": [{
+    "type": "Microsoft.Web/sites",
+    //...otherProperties,
+    "tags": {
+        "octopus-environment": "#{Octopus.Environment.Name}",
+        "octopus-role": "PetShopFrontEnd",
+        "octopus-project": "#{Octopus.Project.Name}"
+    }
+}]
+```
+
+Octopus will now discover the web app as a target before deploying to it, matching the environment, role and project from the deployment to the tags created with the ARM template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from Azure.

@@ -7,22 +7,8 @@ position: 30
 ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws/index.md) to define the context in which deployments and scripts are run.
 
 :::hint
-From version 2022.??? Octopus can discover ECS targets for you using tags on your ECS Cluster.
-:::
-
-:::hint
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.
 :::
-
-## Discovering an ECS cluster target
-
-Octopus can discover ECS targets as part of your deployment using tags on your cluster. To discover targets use the following steps.
-
-- Add an AWS account variable **Octopus.AWS.Account** to your project.
-- Add tags to your ECS cluster so that Octopus can match it to your deployment step and environment.
-- Add a "Deploy Amazon ECS Service" or "Update Amazon ECS Service" step to your deployment process. The target role on the step will be used along with the environment being deployed to, to discover the ECS cluster and then deploy to it.
-
-See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
 
 ## Creating an ECS cluster target
 
