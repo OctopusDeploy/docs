@@ -8,69 +8,56 @@ Version-control is configured per-project, and can be found under the {{Version 
 
 ![Version-control configuration UI](version-control-configuration.png "width=500")
 
-## Configuring a project to be version-controlled
+## Enable the Configuration as Code feature.
 
-Navigate to the {{Version Control}} page in the project.
+To begin, you will need to ensure that you have a Git repository with an account that has permission to edit and a personal access token. Octopus will use need to authenticate. Once you have your Git repository, username and PAT, you will need to ensure the Configuration as Code feature is enabled in Octopus. You can access this feature under Configuration -> Features -> Configuration as Code.
 
-### Git Repository
+>Screenshot
 
-The _Git Repository_ field should contain the URL for the repository you wish the Octopus configuration to be persisted to. e.g. `https://github.com/OctopusSamples/OctoFX.git`  
+## Creating a new version-controlled project
 
-The repository must be initialized (i.e. contain at least one branch) prior to saving.  Octopus will convert the existing items in the project to OCL (Octopus Configuration Language) and save it to that repository when you click save.  If the repository isn't initialized that will fail.
+To get a a feel for the config-as-code feature, you may want to create a new project that you can test with before committing to permanently converting an existing project. When configured, this project's deployment process will be stored in a git repository.
 
-### Default Branch Name
+Click the **New Project** button and select **Configure TODO**
 
-The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is the also the default branch which will be used in various situations, for example
-- When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
-- When creating releases, this will be the branch selected initially
+>screenshot - create new project
 
-For existing repositories that are initialized, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
+Once you click the save button, you'll be sent to the version control screen to configure your version control settings.  Enter the URL for your git repository, the name of the default branch, your username and password / personal access token or stored Git Credentials. 
 
-### Authentication
+Learn more about [git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
 
-The _Authentication_ field specifies the credentials used by Octopus when authenticating with the git provider.  For the Password field, we recommend using a personal access token. We also recommend that you follow the principle of least privilege when selecting scopes or permissions to grant this personal access token. 
+Next, add the directory you would like Octopus to store the deployment process. You can have multiple deployment processes in the same repository if they all use a different sub-directory. E.g. `.octopus/acme`
 
-Git providers allow you to create an access token in different ways. The recommended *scope* for each provider is also listed in brackets. 
+>screenshot - Version-Control-Settings
 
-* [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token); (Scope - `repo`)
-* [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate); (Scope - `vso.code_full`)
-* [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
-* [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - `write_repository`)
+## Configuring an existing project to be version-controlled
 
-### File Storage
+Note: This is a one way change. No project that has been converted to version control can be converted back. Make sure you are absolutely certain you want to do this and perhaps clone your project test that it works how you expect before converting important projects.
 
-_Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored.  The default directory is `.octopus`, but that can be changed.  If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory. 
+With the release of config-as-code, you can perform a one way conversion of existing projects into to a version controlled format. 
+
+First, select the project you would like to convert and select {{Version Control}} under the **Settings** section in the left hand menu. This will load the page where you can enter the connection information for your Git repository. You need to provide the URL for your git repository, the name of the default branch, username and password / personal access token (or Anonymous for an open repository) and the directory you would like Octopus to store the deployment process.
+
+Learn more about [git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
 
 :::hint
-If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
+You can have multiple deployment processes in the same repository if they all use a different sub-directory.
 :::
 
-While it is possible to store all your projects in one repository, we do not recommend that.  As you add more projects it will be very difficult to manage.  Store all the Octopus projects related to the application in the repository.  For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository.
+Once you press the green configure button, you will be met with a window to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
 
-### Conversion
+>Screenshot - Configure Version Control confirmation/commit box.
 
-When you click the save button Octopus will convert the existing items in the project to OCL (Octopus Configuration Language) and save it to the folder in the specified repository using the provided credentials.  
-
-:::warning
-At the time of this writing, the conversion process is one-way.  You cannot convert back to a non-version controlled project.  Our recommendation is to create a clone of an existing project for the first couple of projects to ensure the feature meets your needs prior to going all in.
-:::
-
-## Configure version control during Project creation
-
-You can configure version control during Project creation by checking the **Use version control for this project** checkbox on the project creation modal window and then clicking **Save and Configure VCS**.  That will create the project in Octopus and take you to the Version Control page for the project.
+Your project is now configured with Version Control. You can see this change reflected on the Process page where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will not be created, and it should contain your _deployment_process.ocl_, _deployment_settings.ocl_, and _schema_version.ocl_ files. 
 
 ## Not everything is saved to version control
 
 The Configuration as Code feature is per-project, and eventually it will include the deployment process, variables, and runbooks.  There are a number of project-level settings not stored in version control.
 
-:::hint
-The first version of Configuration as Code will only include the deployment process.  
-:::
+Learn more about [what is stored in version control](/docs/projects/version-control/config-as-code-reference.md).
 
-Those settings include:
+## Using a project with version control enabled
 
-- Project Name
-- Logo
-- Description
-- Project Group
-- Triggers
+In general, modifying a project via the Octopus UI with version control enabled is the same as modifying a project configured to save changes to SQL Server.  There are some minor differences though you should be aware of.
+
+Learn more about [Editing a project with version control enabled](/docs/projects/version-control//editing-a-project-with-version-control-enabled.md).

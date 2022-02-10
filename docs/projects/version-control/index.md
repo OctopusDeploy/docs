@@ -34,13 +34,18 @@ Config-as-code only supports [git](https://git-scm.com/) repositories.  You shou
 
 ### What's next?
 
-We have some strong opinions on what's next.  We've always intended to version-control variables and runbooks, and we'd like to evolve the OCL schema to make it friendlier for editing by hand.  
+We have some strong opinions on what's next.  The first release of config-as-code will only include the _deployment process_.  
 
-But we are very interested to hear what's important to _you_. 
+Our plans for future releases of config-as-code are to add support for:
+
+- Variables
+- Runbooks
+
+In addition, we'd like to evolve the OCL schema to make it friendlier for editing by hand.  
 
 ### We want your feedback
 
-Our major goal for the early stages of this feature is to discover the ways people want config as code to evolve.  What scenarios would you like to see unlocked?  What doesn't work the way you hoped? 
+Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve.  What scenarios would you like to see unlocked?  What doesn't work the way you hoped? 
 
 You can provide feedback through whichever of the following channels you feel most comfortable with: 
 
@@ -52,21 +57,22 @@ You can provide feedback through whichever of the following channels you feel mo
 
 Version-control is configured per-project, and can be found under the {{Version Control}} navigation menu item. 
 
-![Version-control configuration UI](version-control-configuration.png "width=500")
-
 Learn more about [Configuring version control on a project](/docs/projects/version-control/configuring-version-control-on-a-project.md).
 
-## Making changes to the deployment process 
+## Config-as-code reference
 
-Once an Octopus project is configured to be version-controlled, any changes to the deployment process are made on a branch. 
+Several resources previously stored in SQL Server will now be stored in git once a project to be version-controlled.
 
-Learn more about [Editing a project with version control enabled](/docs/projects//version-control//editing-a-project-with-version-control-enabled.md).
+Learn more about [Configuration as Code reference](/docs/projects/version-control/config-as-code-reference.md)
 
-## Additional options in your Build Server integration
+## Making changes to a version-controlled project
 
-Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus. To enable this, we have added the following two new fields to our common integrations - TeamCity, Azure DevOps, Jenkins, GitHub Actions, and Bamboo.
+Any changes to the deployment process or settings are made on a branch after a project is configured to be version-controlled.
 
-* Git Reference - the user-friendly alias for a commit hash.
-* Git Commit - the commit SHA-1 hash.
+Learn more about [Editing a project with version control enabled](/docs/projects/version-control//editing-a-project-with-version-control-enabled.md).
 
-When the app being built is in a different repository to the Octopus project, Octopus does not guess or auto-populate the commit or branch that you want to create the release from. Also, in the case where the app and the Octopus project are in the same repository, the head of that branch could have moved forward from what is expected. In both cases, it is highly recommended that you provide the commit and not just the branch.
+## Creating and deploying releases
+
+Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus.
+
+Learn more about [creatign and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
