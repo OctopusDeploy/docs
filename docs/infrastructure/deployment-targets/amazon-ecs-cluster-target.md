@@ -22,5 +22,5 @@ Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/de
     - Select an AWS account. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
     - Enter the AWS region where the ECS cluster is running in AWS. 
     - Enter a cluster name that matches the cluster name running in your AWS region.
-
+    
     ![ECS Cluster Deployment Target Settings](images/aws-ecs-target.png "width=500")
