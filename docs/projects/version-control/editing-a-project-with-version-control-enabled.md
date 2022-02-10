@@ -1,7 +1,7 @@
 ---
 title: Editing a project with version control enabled
 description: What to expect when using the Configuration as Code feature in Octopus Deploy
-position: 20 
+position: 30 
 ---
 
 Once an Octopus project is configured to be version-controlled, your experience making changes to a project will change.  With the configuration as code feature you can either continue to edit the project via the Octopus Deploy UI or you can edit files using your favorite file edit tool. This page will walk through what to expect.
@@ -22,11 +22,13 @@ Each branch can have a different deployment process.  For example, if you decide
 
 Before enabling version control on the project, clicking on save updated a record in the SQL Server database.  That record would be overwritten with each change.  Once version control is enabled, that is no longer the case.  You'll be generating commits each time you "save."  As such, the save experience has been updated.  The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving.  Next to the **Commit** button is a quick save, useful when you made a minor change.
 
-TODO: Add Screenshot
+![committing a change to version control](commit-process.png)
 
 ### Viewing and Editing OCL
 
 Enabling version control also adds the option to **View/Edit OCL** to the `...` or overflow menu.  Clicking on this option will open up a modal window allowing you to edit the OCL (Octopus Configuration Language) file directly.  
+
+![viewing the ocl files](view-ocl-button.png)
 
 :::hint
 The Octopus Deploy UI will only add non-default properties to the OCL files.  For example, if a step isn't scoped to run for specific environment(s), that property will not show up when you edit the OCL file in the UI.
@@ -62,4 +64,4 @@ Storing the deployment process in the same repository as your source code has ma
 - Leveraging Pull Requests for approvals to any changes.
 - Reverting changes if something doesn't work right.
 
-Generally, if you make any changes outside of the Octopus UI (merging a branch, reverting a change, etc.), you'll most likely need to perform a **Fetch** for those changes to be reflected in the Octopus UI.
+If you make any changes outside of the Octopus UI (merging a branch, reverting a change, etc.), you'll might need to perform a **Fetch** for those changes to be reflected in the Octopus UI.

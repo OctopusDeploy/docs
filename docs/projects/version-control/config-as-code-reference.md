@@ -98,7 +98,8 @@ The repository must be initialized (i.e. contain at least one branch) prior to s
 
 ### Default Branch Name
 
-The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is the also the default branch which will be used in various situations, for example
+The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is the also the default branch which will be used in various situations, for example:
+
 - When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
 - When creating releases, this will be the branch selected initially
 
@@ -133,7 +134,7 @@ If multiple projects will be persisted to the repository, adding the project nam
 
 While it is possible to store all your projects in one repository, we do not recommend that.  As you add more projects it will be very difficult to manage.  Store all the Octopus projects related to the application in the repository.  For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository.
 
-## OCL Files Examples
+## OCL Files
 
 After successfully configuring a project to be version controlled, the specified Git repository will be populated with a set of Octopus Configuration Language (OCL) files. These files are created in the directory you define during setup. E.g. `./octopus/acme`
 
@@ -142,7 +143,6 @@ Currently, Octopus creates following files:
 * deployment_process.ocl
 * deployment_settings.ocl
 * schema_version.ocl
-
 
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
 
@@ -222,7 +222,7 @@ versioning_strategy {
 }
 ```
 
-## Other Config as Code items of note
+## Items of note
 
 When designing the config-as-code feature we made a number of decisions to keep an appropriate balance of usability and functionality.  There are a few limitations and items of note you should be aware of with config-as-code.
 
