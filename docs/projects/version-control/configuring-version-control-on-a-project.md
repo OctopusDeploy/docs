@@ -58,4 +58,4 @@ Learn more about [what is stored in version control](/docs/projects/version-cont
 
 In general, modifying a project via the Octopus UI with version control enabled is the same as modifying a project configured to save changes to SQL Server.  There are some minor differences though you should be aware of.
 
-Learn more about [Editing a project with version control enabled](/docs/projects/version-control//editing-a-project-with-version-control-enabled.md).
+Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled.md).

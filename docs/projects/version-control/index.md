@@ -69,7 +69,7 @@ Learn more about [Configuration as Code reference](/docs/projects/version-contro
 
 Any changes to the deployment process or settings are made on a branch after a project is configured to be version-controlled.
 
-Learn more about [Editing a project with version control enabled](/docs/projects/version-control//editing-a-project-with-version-control-enabled.md).
+Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled.md).
 
 ## Creating and deploying releases
 
