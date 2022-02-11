@@ -42,14 +42,16 @@ Tags are in the format `octopus-{scope}` and support the following for discovery
 
 ## Add step to deployment process
 
-Octopus will discover targets if one of the following steps are in your deployment process. Each step will discover targets that match it's target role before the step is run.
+Octopus will discover targets if one of the following steps are in your deployment process. Each step will discover targets that match it's target role.
 
 - Deploy an Azure App Service
 - Deploy an Azure Web App (Web Deploy)
 
 ## Enabling discovery for existing projects
 
-Target discovery is enabled for all new projects by default, to enable it for existing projects use the following steps.
+Target discovery is enabled for all new projects and environments by default. 
+
+If you have an existing project or environment, enable it with the following steps.
 
 ### Enable dynamic infrastructure
 
@@ -57,12 +59,12 @@ To discover targets for an environment, dynamic infrastructure needs to be enabl
 
 1. Navigate to **{{Infrastructure,Environments}}**.
 1. Click the ... overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
-1. Expand the **Dynamic infrastructure** section and tick or untick the check-box to enable or disable managing dynamic infrastructure.
+1. Expand the **Dynamic infrastructure** section and tick the check-box to enable dynamic infrastructure.
 1. Click **SAVE**.
 
 ### Enable deployments without a target
 
-Using target discovery during a deployment means that there may be no existing targets at the start of a deployment. To allow deployments to start without any targets for an existing project:
+Using target discovery during a deployment means that there may be no existing targets at the start of a deployment. To allow deployments to start without any targets:
 
 1. Navigate to **{{Projects,{Project name},Deployments,Settings}}**.
 1. Expand the **Deployment Targets Required** and select the "Allow deployments to be created when there are no deployment targets" option.
@@ -76,10 +78,10 @@ Let's say you have an project in Octopus called _Pet Shop_ that deploys an appli
 
 To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md) or manually remove the target in Octopus.
 
-By configuring credentials in a variable and adding tags to the deployment of the web app Octopus can discover this target for you and also remove the target from Octopus when it is removed in Azure.
+By configuring a well-known variable and tagging your Azure Web App appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in Azure.
 
 - Configure an [Azure account](/docs/projects/variables/azure-account-variables.md) variable in your project named **Octopus.Azure.Account**, selecting an account that has permissions to be able to find the web app.
-- Add tags to the ARM template for the web app to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
+- Add tags to the web app resource within the ARM template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
 
 ```json
 "resources": [{
