@@ -12,29 +12,29 @@ The Early Access Preview of the config-as-code feature was added in **Octopus 20
 
 ## Introduction 
 
-Welcome to the config-as-code Early Access Preview!  Support for version-controlling Octopus projects has been highly requested for a long time now, and we're excited to release the first cut. The goal of the EAP is to gather feedback, and help us evaluate which problems we have solved, and which are the most valuable to solve next.  
+Welcome to the config-as-code Early Access Preview! Support for version-controlling Octopus projects has been highly requested for a long time now, and we're excited to release the first cut. The goal of the EAP is to gather feedback and help us evaluate which problems are the most valuable to solve next.  
 
 :::warning
-Config-as-code is still in development. We strongly recommend not using it on critical production projects at this stage.
+Config-as-code is still in development. We firmly recommend not using it on critical production projects at this stage.
 :::
 
-The config-as-code EAP adds support for configuring Octopus projects with the details of a Git repository.  For the EAP, this is the _deployment process_ which is version-controlled.  
+The config-as-code EAP adds support for configuring Octopus projects with the details of a Git repository. For the EAP, this is the _deployment process_ which is version-controlled.  
 
-It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has.  You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you’ll see an option to create that branch. This option is available when committing changes to your deployment process too.
+It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes to your deployment process too.
 
 ![Branch-switcher UI](branch-switcher-ui.png "width=500")
 
-Of course, there is also now a text representation of the process in the git repository, and if you prefer editing text then open your favorite editor and go for it.  We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
+Of course, there is now a text representation of the process in the git repository, and if you prefer editing text, open your favorite editor and go for it. We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
-This means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables.md#release-branch-information) that can be used in your custom deployment scripts.
+That means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables.md#release-branch-information) that can be used in your custom deployment scripts.
 
 :::warning
-Config-as-code only supports [git](https://git-scm.com/) repositories.  You should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching before using this feature.
+Config-as-code only supports [git](https://git-scm.com/) repositories.  Before using this feature, you should be familiar with [git concepts](https://git-scm.com/doc) such as distributed version control, pushing, pulling, branching, merging, and fetching.
 :::
 
 ### What's next?
 
-We have some strong opinions on what's next.  The first release of config-as-code will only include the _deployment process_.  
+We have some strong opinions on what's next. The first release of config-as-code will only include the _deployment process_.  
 
 Our plans for future releases of config-as-code are to add support for:
 
@@ -45,23 +45,23 @@ In addition, we'd like to evolve the OCL schema to make it friendlier for editin
 
 ### We want your feedback
 
-Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve.  What scenarios would you like to see unlocked?  What doesn't work the way you hoped? 
+Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped? 
 
 You can provide feedback through whichever of the following channels you feel most comfortable with: 
 
-- Feedback forms.  The orange EAP chips in the product link to feedback forms when clicked. This is a great way to provide structured feedback. 
+- Feedback forms. The orange EAP chips in the product link to feedback forms when clicked. This is a great way to provide structured feedback. 
 - Community slack. The `config-as-code` channel in the [Octopus community slack](https://octopus.com/slack) is the best place to have a conversation with the team.
 - Support. For errors or issues, see our [official support](https://octopus.com/support) channels. 
 
 ## Configuring a project to be version-controlled 
 
-Version-control is configured per-project, and can be found under the {{Version Control}} navigation menu item. 
+Version-control is configured per project and is accessed via the {{Version Control}} navigation menu item. 
 
 Learn more about [Configuring version control on a project](/docs/projects/version-control/configuring-version-control-on-a-project.md).
 
 ## Config-as-code reference
 
-Several resources previously stored in SQL Server will now be stored in git once a project to be version-controlled.
+Several resources previously stored in SQL Server will now be stored in git once a project is version-controlled.
 
 Learn more about [Configuration as Code reference](/docs/projects/version-control/config-as-code-reference.md)
 

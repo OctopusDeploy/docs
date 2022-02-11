@@ -8,7 +8,7 @@ The Configuration as Code feature is designed to give you the benefits of source
 
 ## Core Design Decision
 
-The core design decision is each project in each space has a unique folder in a git repository. A git repository can store several projects across several spaces or store a single project in a single space.  But, each project must have a unique folder in a git repository because of all the scaffolding data referenced by a project.  
+The core design decision is each project in each space has a unique folder in a git repository. A git repository can store several projects across several spaces or store a single project in a single space. But, each project must have a unique folder in a git repository because of all the scaffolding data referenced by a project.  
 
 That scaffolding data includes (but is not limited to):
 
@@ -64,7 +64,7 @@ The downside to this approach is it is a manual process and prone to error.
 
 The configuration as code feature is not designed to allow two or more projects on the same space to point to the same folder. We've seen our users attempt to use Configuration as Code as project templating. This scenario is unsupported.
 
-While it may work for the first couple of projects, as all the necessary scaffolding data is there because the projects will be in the same space.  However, projects will have subtle differences. Those differences include:
+While it may work for the first couple of projects, as all the necessary scaffolding data is there because the projects will be in the same space. However, projects will have subtle differences. Those differences include:
 
 - Packages to deploy
 - Target roles
@@ -74,7 +74,7 @@ While it may work for the first couple of projects, as all the necessary scaffol
 
 You will find projects are constantly overwriting each other.
 
-One option is to have a single git repo for all your projects, with each project saved to a unique folder in the repository.  You could then use a file comparison tool to copy changes between projects. That scenario will not scale well. Branch naming conventions would need to be strictly enforced if you configured 50 projects to save to the same git repo. The number of possible branches would exponentially grow with each added project. The chances of a person selecting the wrong branch will subsequently increase.  And manually copying changes via a file comparison tool is error prone and time consuming.
+One option is to have a single git repo for all your projects, with each project saved to a unique folder in the repository. You could then use a file comparison tool to copy changes between projects. That scenario will not scale well. Branch naming conventions would need to be strictly enforced if you configured 50 projects to save to the same git repo. The number of possible branches would exponentially grow with each added project. The chances of a person selecting the wrong branch will subsequently increase. And manually copying changes via a file comparison tool is error-prone and time-consuming.
 
 Having a branch per project will partially solve the problem of the subtle differences, but it will be very time-consuming to sync any "main" branch changes with the project branches. You will need to manually sync all the branches or create and maintain a process to handle the syncing.
 
