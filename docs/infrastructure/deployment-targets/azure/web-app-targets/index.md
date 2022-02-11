@@ -20,9 +20,9 @@ From version 2022.1 Octopus can discover Azure Web App targets using tags on you
 
 Octopus can discover Azure Web App targets as part of your deployment using tags on your resource. To discover targets use the following steps.
 
-- Add an Azure account variable **Octopus.Azure.Account** to your project.
+- Add an Azure account variable named **Octopus.Azure.Account** to your project.
 - Add tags to your Azure Web App so that Octopus can match it to your deployment step and environment.
-- Add a "Deploy an Azure App Service" or "Deploy an Azure Web App (Web Deploy)" step to your deployment process. The target role on the step will be used along with the environment being deployed to, to discover Azure Web App targets and then deploy to them.
+- Add a "Deploy an Azure App Service" or "Deploy an Azure Web App (Web Deploy)" step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Azure Web App targets to deploy to.
 
 See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
 

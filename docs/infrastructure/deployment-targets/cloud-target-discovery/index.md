@@ -1,6 +1,6 @@
 ---
 title: Cloud Target Discovery
-description: Resources created in cloud providers can be discovered as deployment targets by Octopus
+description: Cloud resources can be discovered and registered as deployment targets by Octopus
 position: 100
 ---
 
@@ -8,10 +8,10 @@ position: 100
 The Early Access Preview of the cloud target discovery feature was added in **Octopus 2022.1** and is enabled via **{{Configuration, Features}}**.
 :::
 
-Octopus can discover deployment targets during deployments using tags added to your cloud resources. Octopus will remove any discovered targets when the associated cloud resource is removed. Target discovery takes place before deployment steps, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
+Octopus can discover deployment targets during deployments using tags added to your cloud resources. Octopus will remove any discovered targets when the associated cloud resource is removed. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
 :::hint
-Using discovery of deployment targets is recommended over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
+We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
 :::
 
 To enable discovery use the following steps.
