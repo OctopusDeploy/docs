@@ -20,7 +20,7 @@ Each branch can have a different deployment process. For example, if you decide 
 
 ### Commits
 
-Before enabling version control on the project, clicking on save updated a record in the SQL Server database. That record would be overwritten with each change. Once version control is enabled, that is no longer the case. You'll be generating commits each time you "save."  As such, the save experience has been updated. The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving. Next to the **Commit** button is a quick save, useful when you made a minor change.
+Before enabling version control on the project, clicking on save updated a record in the SQL Server database. That record would be overwritten with each change. Once version control is enabled, that is no longer the case. You'll be generating commits each time you "save."  As such, the save experience has been updated. The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving. Next to the **Commit** button is a quick save, useful when you make a minor change.
 
 ![committing a change to version control](commit-process.png)
 
