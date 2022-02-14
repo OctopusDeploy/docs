@@ -4,7 +4,7 @@ description: Configuring a project to leverage the configuration as a code featu
 position: 10 
 ---
 
-Version-control is configured per project and is accessed via the {{Version Control}} link in the project navigation menu. This page will walk through how to configure a project to be version-controlled.
+Version-control is configured per project and is accessed via the **{{ Settings, Version Control }}** link in the project navigation menu. This page will walk through how to configure a project to be version-controlled.
 
 ![Version-control configuration UI](version-control-configuration.png "width=500")
 
