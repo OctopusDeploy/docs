@@ -26,7 +26,7 @@ Before enabling version control on the project, clicking on save updated a recor
 
 ### Viewing and Editing OCL
 
-Enabling version control also adds the option to **View/Edit OCL** to the `...` or overflow menu. Clicking on this option will open up a modal window allowing you to edit the OCL (Octopus Configuration Language) file directly.  
+Enabling version control also adds the option to **View/Edit OCL** to the overflow menu (`...`). Clicking on this option will open up a modal window allowing you to edit the OCL (Octopus Configuration Language) file directly.  
 
 ![viewing the ocl files](view-ocl-button.png)
 
