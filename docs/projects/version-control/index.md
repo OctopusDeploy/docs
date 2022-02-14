@@ -82,4 +82,4 @@ Learn more about [creating and deploying releases in a version controlled projec
 
 The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
 
-Learn more about [unsuitable config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md)
+Learn more about [unsupported config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md)
