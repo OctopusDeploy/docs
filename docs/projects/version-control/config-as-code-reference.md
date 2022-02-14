@@ -111,7 +111,7 @@ The config-as-code feature is designed to work with _any_ git repository. When c
 Do not use credentials from a personal account. Select a shared or service account. When Octopus Deploy saves to your git repo, you will typically see the message `[User Name] authored and [Service Account] committed on [Date].`
 :::
 
-For the Password field, we recommend using a personal access token or using our Get Credentials feature. We also recommend that you follow the principle of least privilege when selecting scopes or permissions to grant this personal access token.
+For the Password field, we recommend using a personal access token. We also recommend that you follow the principle of least privilege when selecting scopes or permissions to grant this personal access token.
 
 Git providers allow you to create an access token in different ways. The recommended _scope_ for each provider is listed in brackets.
 
@@ -119,12 +119,6 @@ Git providers allow you to create an access token in different ways. The recomme
 -   [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate); (Scope - `vso.code_full`)
 -   [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
 -   [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - `write_repository`)
-
-If you wish to re-use the same credentials between projects, we recommend leveraging Octopus's *Git Credentials* shared resource. The option can be found under *Library* -> *Git Credentials*. We have introduced the following permissions to manage your Git Credentials access: `GitCredentialEdit` and `GitCredentialView`.
-
-:::hint
-The *Git Credentials* feature was introduced in later builds for **2022.1**.
-:::
 
 ### File Storage
 

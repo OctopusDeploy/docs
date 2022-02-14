@@ -22,7 +22,7 @@ Click the **New Project** button and select **Use version control for this proje
 
 ![adding a project using vcs](add-project-vcs.png)
 
-Once you click the save button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your git repository, the name of the default branch, your username and password / personal access token, or stored Git Credentials. 
+Once you click the save button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your git repository, the name of the default branch, your username and password / personal access token. 
 
 Learn more about [git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
 
@@ -39,6 +39,7 @@ With the release of config-as-code, you can perform a one-way conversion of exis
 Select the project you would like to convert and click {{Version Control}} under the **Settings** section in the project navigation menu. 
 Enter the connection information for your Git repository. You need to provide the URL for your git repository, the name of the default branch, username and password / personal access token (or Anonymous for an open repository) 
 Provide the directory you would like Octopus to store the deployment process.
+
 Learn more about [git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
 
 :::hint
