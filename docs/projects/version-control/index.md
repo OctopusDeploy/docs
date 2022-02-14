@@ -2,6 +2,7 @@
 title: Configuration as Code (Early Access) 
 description: Projects can be version-controlled as text in a git repository 
 position: 110 
+hideInThisSection: true
 ---
 
 :::hint
@@ -76,3 +77,9 @@ Learn more about [Editing a project with version control enabled](/docs/projects
 Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus.
 
 Learn more about [creatign and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
+
+## Unsupported Scenarios
+
+The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
+
+Learn more about [unsuitable config-as-code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md)
