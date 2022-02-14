@@ -75,4 +75,4 @@ Learn more about [Editing a project with version control enabled](/docs/projects
 
 Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus.
 
-Learn more about [creatign and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
+Learn more about [creating and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
