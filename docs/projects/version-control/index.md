@@ -56,7 +56,7 @@ You can provide feedback through whichever of the following channels you feel mo
 
 ## Configuring a project to be version-controlled 
 
-Version-control is configured per project and is accessed via the {{Version Control}} navigation menu item. 
+Version-control is configured per project and is accessed via the **{{Settings,Version Control}}** navigation menu item. 
 
 Learn more about [Configuring version control on a project](/docs/projects/version-control/configuring-version-control-on-a-project.md).
 
@@ -76,7 +76,7 @@ Learn more about [Editing a project with version control enabled](/docs/projects
 
 Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus.
 
-Learn more about [creatign and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
+Learn more about [creating and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
 
 ## Unsupported Scenarios
 

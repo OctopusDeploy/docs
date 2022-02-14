@@ -4,7 +4,7 @@ description: What to expect when using the Configuration as Code feature in Octo
 position: 30 
 ---
 
-Once an Octopus Project is configured to be version-controlled, your experience making changes to a project will change. With the configuration as code feature, you can either edit the resources via the Octopus Deploy UI or your favorite file edit tool. This page will walk through what to expect.
+Once an Octopus Project is configured to be version-controlled, your experience making changes to a project will change. With the configuration as code feature, you can either edit the resources via the Octopus Deploy UI or your favorite file editing tool. This page will walk through what to expect.
 
 ## Editing via the Octopus UI
 
@@ -20,13 +20,13 @@ Each branch can have a different deployment process. For example, if you decide 
 
 ### Commits
 
-Before enabling version control on the project, clicking on save updated a record in the SQL Server database. That record would be overwritten with each change. Once version control is enabled, that is no longer the case. You'll be generating commits each time you "save."  As such, the save experience has been updated. The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving. Next to the **Commit** button is a quick save, useful when you made a minor change.
+Before enabling version control on the project, clicking on save updated a record in the SQL Server database. That record would be overwritten with each change. Once version control is enabled, that is no longer the case. You'll be generating commits each time you "save."  As such, the save experience has been updated. The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving. Next to the **Commit** button is a quick save, useful when you make a minor change.
 
 ![committing a change to version control](commit-process.png)
 
 ### Viewing and Editing OCL
 
-Enabling version control also adds the option to **View/Edit OCL** to the `...` or overflow menu. Clicking on this option will open up a modal window allowing you to edit the OCL (Octopus Configuration Language) file directly.  
+Enabling version control also adds the option to **View/Edit OCL** to the overflow menu (`...`). Clicking on this option will open up a modal window allowing you to edit the OCL (Octopus Configuration Language) file directly.  
 
 ![viewing the ocl files](view-ocl-button.png)
 
