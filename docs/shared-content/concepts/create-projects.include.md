@@ -9,9 +9,13 @@ Projects are used to collect all the assets that make up your deployment process
 
 **Optional**
 
-By default, Octopus Deploy will store the deployment process, runbook process, and variables in the back-end SQL Server.  Starting with **Octopus 2022.1**, you have the option to store that information in a git repository.  
+By default, Octopus Deploy will store the deployment process, runbook process, and variables in the back-end SQL Server.  From **Octopus 2022.1**, you have the option to store the *deployment process* in a git repository.  
 
-To store that information in source control:
+:::hint
+The ability to store runbook processes and variables will be added in future versions.
+:::
+
+To configure the project to use version control:
 
 1. Select the option **Use Version Control for this project**
 1. Click **Save and Configure VCS**
@@ -20,7 +24,3 @@ To store that information in source control:
 1. Click **Save** to save the VCS information.
 
 Learn more about [config as code](/docs/projects/version-control/index.md).
-
-:::hint
-**Please note:** **Octopus 2022.1** added the ability to store the deployment process in a git repo.  The ability to store runbook processes and variables will be added in future versions.
-:::

@@ -43,6 +43,14 @@ Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
 We have created a [step by step guide on how to complete your first runbook run](/docs/getting-started/first-runbook-run/index.md).
 
+### Config as Code
+
+Octopus now provides the option to host multiple branches of your deployment processes in Git. This feature enables you to track changes to your deployment process via commits directly to your Git repository. This provides greater control when testing changes to your projects, allowing you to branch your deployment process and test changes before altering your main branch.
+
+Learn more about [Config as Code](/docs/projects/version-control/index.md)
+
+We have created a [step by step guide on getting started with Config as Code](/docs/projects/version-control/configuring-version-control-on-a-project.md).
+
 ## Glossary
 
 As you start using Octopus Deploy, you will learn a lot of new terms. You can view a list of common terms on the [glossary page](docs/getting-started/glossary.md).
