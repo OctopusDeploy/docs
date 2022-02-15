@@ -12,7 +12,7 @@ To get the most out of this guide you will need to understand how to [manage use
 
 ## Account manager {#account-manager}
 
-Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/app#/Spaces-682/projects/vetclinic/deployments) and manages the relationships for several of the largest customers. In his role Toby:
+Toby is a member of the sales team for [Vet Clinic](https://samples.octopus.app/app#/Spaces-682/projects/vet-clinic/deployments) and manages the relationships for several of the largest customers. In his role Toby:
 
 - The main point of contact for specific tenants.
 - Manages the details/variables of particular tenants and keeps them up to date.

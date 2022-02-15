@@ -41,9 +41,8 @@ Where [<options>] is any of:
                                limit).
       --upgradeCheck=VALUE   Whether checking for upgrades is allowed (true
                                or false)
-      --upgradeCheckWithStatistics=VALUE
-                             Include usage statistics when checking for
-                               upgrades (true or false)
+      --sendTelemetry=VALUE  Whether telemetry data is sent to Octopus (true
+                               or false)
       --commsListenPort=VALUE
                              TCP port that the communications service should
                                listen on
@@ -268,13 +267,6 @@ Where [<options>] is any of:
       --AzureDevOpsIsEnabled=VALUE
                              Set whether Azure DevOps issue tracker
                                integration is enabled.
-      --AzureDevOpsBaseUrl=VALUE
-                             Set the base url for the Azure DevOps
-                               organization or collection or project.
-      --AzureDevOpsPersonalAccessToken=VALUE
-                             A Personal Access Token (PAT) authorized to read
-                               scopes 'Build' and 'Work items', added under
-                               User Settings.
       --GitHubIsEnabled=VALUE
                              Set whether GitHub issue tracker integration is
                                enabled.

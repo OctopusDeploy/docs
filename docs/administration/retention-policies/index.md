@@ -148,6 +148,23 @@ Alternatively, you can specify a number of days worth of releases and files to k
 
 !include <octopus-cloud-storage-limits-hint>
 
+### Inherited retention policies
+
+As mentioned above, any phase that does not have a retention policy set will inherit its retention policy in the following priority:
+1. From the latest previous phase with a custom retention policy
+2. From the lifecycle retention policy
+
+This can be observed in the following retention policy setup:
+* Lifecycle: Keep 3 Releases
+* Phase 1 (Dev): Inherit (Keep 3 Releases)
+* Phase 2 (Test): Inherit (Keep 3 Releases)
+* Phase 3 (Staging): Keep 5 Releases
+* Phase 4 (Prod): Inherit (Keep 5 Releases)
+
+Note how Dev and Test inherit their policies from the lifecycle retention policy as there is no previous phase with a custom retention policy. As Prod comes after Staging, a phase which has a custom retention policy, Prod inherits its retention policy from Staging instead.
+
+Phases prioritize retention policies from the latest previous phase over the lifecycle retention policy as later phases tend to be treated more seriously. The more serious a phase is, the more the retention policy matters. The final phases are more likely to be production environments, and therefore once a release reaches this point you will want to keep more of them.
+
 ## Set Built-in feed retention policy {#set-builtinfeed-retentionpolicy}
 
 You can find the built-in repository retention policy settings under **{{Library,Packages}}**.

@@ -8,23 +8,41 @@ If you are hosting your Octopus Server yourself, these are the minimum requireme
 
 ## Operating system
 
-The Octopus Server is hosted on a Microsoft Windows operating system, however, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, Cloud Regions, or even an offline package drop.
+Octopus Server can be hosted on either:
+- A Microsoft Windows operating system
+- In a container, either:
+     - A [Linux](docs/installation/octopus-server-linux-container/index.md) container (recommended)
+     - A [Windows](docs/installation/octopus-server-windows-container.md) container *(deprecated)*
+
+However, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, GCP, Cloud Regions, or even an offline package drop.
 
 ### Windows Server
 
-Octopus Server can be hosted on any modern Windows Server. We automatically test the Octopus Server on the following versions of Windows Server:
+Octopus Server can be hosted on **Windows Server 2012 R2 or higher**. We automatically test Octopus Server on the following versions of Windows Server:
 
 - Windows Server 2012 R2
 - Windows Server 2016
 - Windows Server 2019
 
-Octopus Server will run on the newer versions of Windows Server without GUIs, however, the easiest installation path is to use "Windows Server with a GUI" and run our installation wizard. If you want to use one of the new GUI-less servers, you will need to add some missing Windows Features and configure the Octopus Server yourself.
+Octopus Server will run on [Windows Server (Core)](https://docs.microsoft.com/en-us/windows-server/administration/server-core/what-is-server-core) without the Desktop experience. However, the easiest installation path is to use "Server with Desktop Experience" which has a GUI and supports running our installation wizard. If you want to use Windows Server Core, you will need to add some missing Windows Features and configure the Octopus Server yourself.
 
 Learn about [automating installation](/docs/installation/automating-installation.md).
 
 ### Windows desktop
 
 Octopus Server will run on client/desktop versions of Windows, such as Windows 7 and Windows 10. This can be an easy way to trial Octopus Server; however, we do not support Octopus Server for production workloads unless it is hosted on a server operating system.
+
+### Octopus Server in Container
+
+From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
+
+Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
+
+- [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
+- [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
+
+You can also run the Octopus Server Linux Container using a platform such as [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html).
 
 !include <sql>
 
@@ -58,9 +76,9 @@ The list of hypervisors and virtual private servers include (but not limited to)
 
 Most, if not all, of those tools include documentation or pre-built images for Windows Server 2012 R2, 2016 and 2019.  Please refer to their documentation on how to install and configure a Windows Server VM.  
 
-## .NET Framework
+## .NET {#dotnet-requirements}
 
-We try to keep the .NET Framework requirements for Octopus Server as stable as possible:
+Octopus Server is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained) that has all the components required to run, including the .NET runtime. Older versions of Octopus Server require the .NET Framework:
 
 - **Octopus 3.4** to **Octopus 2018.4** requires [.NET Framework 4.5.1](https://www.microsoft.com/en-au/download/details.aspx?id=40773) or newer.
 - **Octopus 2018.5** and later requires [.NET Framework 4.5.2](https://www.microsoft.com/en-au/download/details.aspx?id=42642) or newer and [WMF/PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) or newer.

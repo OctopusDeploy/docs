@@ -16,7 +16,7 @@ hideInThisSection: true
 - **[checkservices](/docs/octopus-rest-api/octopus.server.exe-command-line/checkservices.md)**:  Checks the Octopus instances are running.
 - **[configure](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md)**:  Configure this Octopus instance.
 - **[create-instance](/docs/octopus-rest-api/octopus.server.exe-command-line/create-instance.md)**:  Registers a new instance of the Octopus service.
-- **[database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md)**:  Create or drop the Octopus database.
+- **[database](/docs/octopus-rest-api/octopus.server.exe-command-line/database.md)**:  Create, drop or configure the Octopus database.
 - **[delete-instance](/docs/octopus-rest-api/octopus.server.exe-command-line/delete-instance.md)**:  Deletes an instance of the Octopus service.
 - **[export-certificate](/docs/octopus-rest-api/octopus.server.exe-command-line/export-certificate.md)**:  Exports the certificate that Octopus Server can use to authenticate itself with its Tentacles.
 - **[import-certificate](/docs/octopus-rest-api/octopus.server.exe-command-line/import-certificate.md)**:  Replace the certificate that Octopus Server uses to authenticate itself with its Tentacles.

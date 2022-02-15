@@ -40,7 +40,7 @@ Build information is independent of the packages that it relates to. You can pas
 
 Commit messages and deep links may not be shown if an unsupported `VcsType` is passed to Octopus as part of the build information call. Currently we support values of `Git` and `TFVC` (TFS / Azure DevOps). `SVN` (Subversion) is **not supported**.
 
-Work items will not show unless you have one of the [Issue Tracker](https://octopus.com/docs/releases/issue-tracking) integrations configured.
+Work items will not show unless you have one of the [Issue Tracker](/docs/releases/issue-tracking/index.md) integrations configured.
 :::
 
 ## Build information step {#build-information-step}

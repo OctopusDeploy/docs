@@ -31,26 +31,26 @@ Internally we have opted for a space per application suite.
 
 We've also found several anti-patterns with the Spaces feature you should avoid.
 
-- A space per team (Team A Space, Team B space, etc.).  Typically in larger corporations, applications move between teams; a space per team would require you to move projects between spaces all the time.
-- A space per environment (Development Space, Production Space, Test Space, etc.).  Spaces were not designed, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.
+- A space per team (Team A Space, Team B space, etc.).  Typically in larger corporations, applications move between teams; a space per team would require you to move projects between spaces. The project export/import makes this easier, but it doesn't copy everything.  You'd need to move packages, deployment targets, and workers.  Release and Deployment history is not moved either.
+- A space per environment (Development Space, Production Space, Test Space, etc.).  Spaces were not designed, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.  Such a syncing process is [difficult to create and maintain](/docs/administration/sync-instances/index.md).
 - A space per tenant.  Just like the environments per space scenario, spaces were not designed, nor do they support this scenario.  You would need a way to keep the deployment process in sync across multiple spaces.
 - A space per application component.  You would need to track a single application across multiple spaces.
-- Sharing deployment targets across spaces.  It is possible to register the same listening Tentacle, Azure Web App, or K8s cluster across spaces, but that indicates a space is too fine-grained.  Sharing deployment targets across spaces only lead to confusion as deployments in one space will appear "locked" because of deployment in another space.
+- Sharing deployment targets across spaces.  It is possible to register the same Tentacle, Azure Web App, or K8s cluster across spaces, but that indicates a space is too fine-grained.  Sharing deployment targets across spaces only lead to confusion as deployments in one space will appear "locked" because of deployment in another space.
 
 ## Prevent Sharing of Deployment Targets
 
-To prevent sharing of deployment targets and workers across spaces, the easiest solution is to use [polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).  A polling Tentacle can only be registered to a single space.
+A tentacle trusts the entire Octopus Server, not a specific space.  It is not possible to prevent a tentacle from being shared across multiple spaces.  Polling tentacles are harder to configure, but possible.
 
 For other deployment targets, such as Azure Web Apps, or K8s clusters, you would have to re-key the credentials in each space.  As such, store those credentials in a secure location and limit access to them.
 
 ## Sharing Workers
 
-Sharing workers configured as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.
+Sharing workers configured as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.  Polling Tentacles configured as Workers can be used in multiple spaces by running the [register-worker](/docs/octopus-rest-api/tentacle.exe-command-line/register-worker.md) command.
 
 There are some considerations when sharing workers.
-- The Tentacle agent on the worker can be running as a specific Active Directory account.  If you need to limit that account access, you should use a polling Tentacle and register it to one specific space.
-- The Tentacle agent could be running on an EC2 instance with a specific IAM role attached.  Just like above, to limit access to that IAM role, you should use a polling Tentacle and register it to one specific space.
-- When workers download packages, they require a mutex; no other task can be running on that worker.  99% of the time, this isn't noticed.  However, if a worker runs a 10-hour integration test, you run the risk of getting stuck behind that test waiting for the mutex to be created.
+- The Tentacle agent on the worker can be running as a specific Active Directory account.
+- The Tentacle agent could be running on an EC2 instance with a specific IAM role attached.
+- When workers download packages, they require a mutex; no other task can be running on that worker.  99% of the time, this isn't noticed.  However, if a worker runs a 10-hour integration test, you run the risk of getting stuck behind that test waiting for the mutex to be created.  Have a separate set of workers to run these long-running tasks.
 
 ## Moving Projects Between Spaces
 
