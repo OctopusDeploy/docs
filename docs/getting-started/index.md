@@ -55,6 +55,16 @@ Before you can deploy software with Octopus Deploy, you need to bundle all the f
 
 Learn more about [packaging your applications](/docs/packaging-applications/index.md).
 
+## Projects
+
+<!-- needs runbooks -->
+
+Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy let you manage multiple software projects across different environments with different deployment processes (the specific deployment steps) defined per project.
+
+A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects, for instance, if you have five developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
+
+Learn more about [projects](/docs/projects/index.md).
+
 ## Deploying Applications
 
 Octopus Deploy is designed to work with teams following modern DevOps methodologies, that is, continuously deploying software, getting feedback, making changes, and redeploying.
@@ -63,21 +73,13 @@ The deployment process is like a recipe for deploying your software. You define 
 
 Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also add steps from the community step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-Learn more about the [deployment process](/docs/deployment-process/index.md) and see some [deployment examples](/docs/deployment-examples/index.md).
+Learn more about the [deployment process](/docs/projects/deployment-process/index.md) and see some example [deployments](/docs/deployment/index.md).
 
 ### Variables
 
 As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impact by codes changes that are still in review.
 
 Learn more about [variables](/docs/projects/variables/index.md) and advanced [configuration features](/docs/projects/steps/configuration-features/index.md).
-
-### Projects
-
-Octopus Deploy can manage the deployment of many applications across your organization. Projects within Octopus Deploy let you manage multiple software projects across different environments with different deployment processes (the specific deployment steps) defined per project.
-
-A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects, for instance, if you have five developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
-
-Learn more about [projects](/docs/projects/index.md).
 
 ### Lifecycle
 
@@ -119,7 +121,7 @@ We have created a [step by step guide on getting started with Config as Code](/d
 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy slightly different versions of the software configured for each customer. For instance, you might deploy version 1.0.1 to Customer A with the software configured to display customer A's logo on their landing page, and version 1.1.0 to Customer B configured to display their logo on their landing page. The multi-tenant feature in Octopus Deploy helps you manage deploying different versions of the same software to multiple customers.
 
-Learn more about [tenants](/docs/tenant/index.md).
+Learn more about [tenants](/docs/tenants/index.md).
 
 ## Spaces
 
