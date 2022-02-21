@@ -73,7 +73,7 @@ The deployment process is like a recipe for deploying your software. You define 
 
 Octopus Deploy provides a range of built-in step templates that can be included in your deployment processes, you can also add steps from the community step template library, and even create your own custom steps. Each step contains a specific action (or set of actions) that is executed as part of the deployment process each time your software is deployed. After the initial setup, your deployment process shouldn't change between deployments even though the software being deployed will change as part of the development process.
 
-Learn more about the [deployment process](/docs/projects/deployment-process/index.md) and see some example [deployments](/docs/deployment/index.md).
+Learn more about the [deployment process](/docs/projects/deployment-process/index.md) and see some example [deployments](/docs/deployments/index.md).
 
 ### Variables
 
