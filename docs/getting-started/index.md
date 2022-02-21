@@ -17,11 +17,11 @@ After your build server has compiled and packaged your software, Octopus progres
 
 ## Octopus Deploy Server
 
-You can install your own [self-hosted](/docs/getting-started.md#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](/docs/getting-started.md#octopus-cloud).
+You can install your own [self-hosted](#self-hosted-octopus) instance of the Octopus Deploy Server or use [Octopus Cloud](#octopus-cloud).
 
 ## Self-Hosted Octopus
 
-Installing the self-hosted [Octopus Server](/docs/installation/index.md) sets up the [Octopus Web Portal](/docs/getting-started.md#the-octopus-web-portal) and the [Octopus REST API](/docs/api-and-integration/api/index.md).
+Installing the self-hosted [Octopus Server](/docs/installation/index.md) sets up the [Octopus Web Portal](#the-octopus-web-portal) and the [Octopus REST API](/docs/octopus-rest-api/index.md).
 
 The [installation documentation](/docs/installation/index.md) provides instructions for downloading, installing, and configuring your Octopus Deploy Server.
 
@@ -69,7 +69,7 @@ Learn more about the [deployment process](/docs/deployment-process/index.md) and
 
 As you deploy your applications between different environments, you'll need to change their configuration files based on the scope of the deployment. Octopus has advance support for managing and scoping variables. For instance, your test environment shouldn't have access to your production database. Using variables, you can specify a different database for each environment, ensuring your production data won't be impact by codes changes that are still in review.
 
-Learn more about [variables](/docs/deployment-process/variables/index.md) and advanced [configuration features](/docs/deployment-process/configuration-features/index.md).
+Learn more about [variables](/docs/projects/variables/index.md) and advanced [configuration features](/docs/projects/steps/configuration-features/index.md).
 
 ### Projects
 
@@ -77,7 +77,7 @@ Octopus Deploy can manage the deployment of many applications across your organi
 
 A project in Octopus can consist of many deliverable components (e.g., web sites, micro services, and database scripts). It's usually helpful to think of Octopus projects in terms of business projects, for instance, if you have five developers working together on the "HR Portal rewrite" project, then that's probably a single project in Octopus.
 
-Learn more about [projects](/docs/deployment-process/projects/index.md).
+Learn more about [projects](/docs/projects/index.md).
 
 ### Lifecycle
 
@@ -85,7 +85,7 @@ When you define a project, you also select a lifecycle. The lifecycle defines th
 
 Lifecycles are defined by phases, each phase can have one or more environments, and each environment can be defined as an automatic deployment environment or a manual deployment environment. Each phase can have a set number of environments that must be released to before the next phase is available for deployment.
 
-Learn more about [lifecycles](/docs/deployment-process/lifecycles/index.md).
+Learn more about [lifecycles](/docs/releases/lifecycles/index.md).
 
 ### Releases
 
@@ -95,7 +95,7 @@ A release in Octopus, is a snapshot of the packaged software, variables, and the
 
 A release is deployed to the environments defined in the deployment process. Typically, releases are deployed to one environment and then promoted to the next environment when they are successful. Releases can be deployed manually each time or set up to deploy automatically.
 
-Learn more about [deploying releases](/docs/deployment-process/releases/index.md).
+Learn more about [deploying releases](/docs/releases/index.md).
 
 ## Runbook automation {#octopus-runbooks}
 
@@ -119,7 +119,7 @@ We have created a [step by step guide on getting started with Config as Code](/d
 
 Over time your software may become so successful that you on-sell it to some external customers, and due to the way the software is architected, you need to deploy slightly different versions of the software configured for each customer. For instance, you might deploy version 1.0.1 to Customer A with the software configured to display customer A's logo on their landing page, and version 1.1.0 to Customer B configured to display their logo on their landing page. The multi-tenant feature in Octopus Deploy helps you manage deploying different versions of the same software to multiple customers.
 
-Learn more about tenants in our [Multi-tenant Deployments Guide](/docs/deployment-patterns/multi-tenant-deployments/index.md).
+Learn more about [tenants](/docs/tenant/index.md).
 
 ## Spaces
 
