@@ -6,9 +6,9 @@ position: 60
 
 Version-control is configured per project and is accessed via the **{{ Settings, Version Control }}** link in the project navigation menu. This page will walk through moving the existing config as code repository to a new location.
 
-## Can you change your mind and move it?
+## Moving configuration as code files
 
-Configuring config as code is a one-way journey, but that doesn't mean you can't change where the configuration is stored later.
+Enabling config as code is a one-way journey, but that doesn't mean you can't change where the configuration is stored later.
 
 You may need to move files from the root of the `.octopus` folder into a sub-folder because you want to divide the application into smaller components. Alternatively, you might be changing your version control strategy and want to move the configuration from the application repository to a stand-alone deployment repository (or vice-versa).
 
