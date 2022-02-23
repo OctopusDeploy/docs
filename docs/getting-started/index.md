@@ -109,7 +109,7 @@ Learn more about [Octopus Runbooks](/docs/runbooks/index.md).
 
 Octopus now provides the option to host multiple branches of your deployment processes in Git. This feature enables you to track changes to your deployment process via commits directly to your Git repository. This provides greater control when testing changes to your projects, allowing you to branch your deployment process and test changes before altering your main branch.
 
-Learn more about [Config as Code](/docs/projects/version-control/index.md)
+Learn more about [Config as Code](/docs/projects/version-control/index.md).
 
 ## Tenants
 
