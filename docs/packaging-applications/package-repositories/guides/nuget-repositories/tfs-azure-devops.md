@@ -1,7 +1,7 @@
 ---
 title: Azure DevOps and TFS package management
 description: Configuring an Azure DevOps or TFS package management NuGet feed as an Octopus feed.
-position: 40
+position: 20
 ---
 
 With Azure DevOps and TFS package management, Octopus can consume either v2 or v3 NuGet feeds.
