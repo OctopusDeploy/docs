@@ -121,6 +121,11 @@ This behavior will be configurable in a future release to provide additional fle
 :::
 
 ### Output variables
+
+:::hint
+Output variables for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
+:::
+
 Octopus will create several output variables storing the properties of any uploaded files. The values can then be used in subsequent steps to access the uploaded files.
 
 Here is the list of variables created after **a single file** has been uploaded:
