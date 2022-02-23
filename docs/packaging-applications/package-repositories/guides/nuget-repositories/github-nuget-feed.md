@@ -1,7 +1,7 @@
 ---
 title: GitHub NuGet repository
 description: Configuring a GitHub NuGet repository as an Octopus feed.
-position: 20
+position: 30
 ---
 
 GitHub projects come with a built-in NuGet package registry that can be configured as an External Feed for Octopus Deploy.  The NuGet package registry is present by default and does not require any configuration on GitHub to be enabled.
