@@ -120,6 +120,30 @@ keys.
 This behavior will be configurable in a future release to provide additional flexibility.
 :::
 
+### Output variables
+Octopus will create several output variables storing the properties of any uploaded files. The values can then be used in subsequent steps to access the uploaded files.
+
+Here is the list of variables created after **a single file** has been uploaded:
+
+| Variable                                                 | Description                                                                                                      | Example                                                             |
+|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| Octopus.Action[`step-name`].Output.Package.Key           | The key to the uploaded file, including any prefix which may have been specified                                 | `Octopus.Action[Upload package to S3].Output.Package.Key`           |
+| Octopus.Action[`step-name`].Output.Package.S3Uri         | The S3 Uri to the uploaded file, of the form `s3://bucket-name/key`                                              | `Octopus.Action[Upload package to S3].Output.Package.S3Uri`         |
+| Octopus.Action[`step-name`].Output.Package.Uri           | The virtual-hosted-style Uri to the uploaded file, of the form `https://bucket-name.s3.region.amazonaws.com/key` | `Octopus.Action[Upload package to S3].Output.Package.Uri`           |
+| Octopus.Action[`step-name`].Output.Package.Arn           | The ARN for the uploaded file, of the form `arn:aws:s3:::bucket-name/key`                                        | `Octopus.Action[Upload package to S3].Output.Package.Arn`           |
+| Octopus.Action[`step-name`].Output.Package.ObjectVersion | The version of the object, if applicable. (`Not versioned` is returned if the object doesn't have a version)     | `Octopus.Action[Upload package to S3].Output.Package.ObjectVersion` |
+
+
+Here is the list of variables created after **multiple files** have been uploaded:
+
+| Variable                                                              | Description                                                                                                      | Example                                                                       |
+|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Octopus.Action[`step-name`].Output.Package.Key[`file-name`]           | The key to the uploaded file, including any prefix which may have been specified                                 | `Octopus.Action[Upload package to S3].Output.Package.Key[Logo.gif]`           |
+| Octopus.Action[`step-name`].Output.Package.S3Uri[`file-name`]         | The S3 Uri to the uploaded file, of the form `s3://bucket-name/key`                                              | `Octopus.Action[Upload package to S3].Output.Package.S3Uri[Logo.gif]`         |
+| Octopus.Action[`step-name`].Output.Package.Uri[`file-name`]           | The virtual-hosted-style Uri to the uploaded file, of the form `https://bucket-name.s3.region.amazonaws.com/key` | `Octopus.Action[Upload package to S3].Output.Package.Uri[Logo.gif]`           |
+| Octopus.Action[`step-name`].Output.Package.Arn[`file-name`]           | The ARN for the uploaded file, of the form `arn:aws:s3:::bucket-name/key`                                        | `Octopus.Action[Upload package to S3].Output.Package.Arn[Logo.gif]`           |
+| Octopus.Action[`step-name`].Output.Package.ObjectVersion[`file-name`] | The version of the object, if applicable. (`Not versioned` is returned if the object doesn't have a version)     | `Octopus.Action[Upload package to S3].Output.Package.ObjectVersion[Logo.gif]` |
+
 ## Error messages
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors and any additional troubleshooting steps that can be taken to rectify them.
 
