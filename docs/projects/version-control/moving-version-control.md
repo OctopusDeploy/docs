@@ -30,8 +30,6 @@ The basic process for a move is:
 
 Before starting the move, make sure you have the latest version of the config files.
 
-![Moving to a new folder](change-version-control-folder.png)
-
 Create the new folder under the `.octopus` directory and copy the `*.ocl` files into the new folder. Then commit and push your changes.
 
 You can then update the version control settings by following the steps below:
@@ -51,8 +49,6 @@ If you receive the error "Branch has not been initialized," it is likely you hav
 ## Moving config files to a new repository
 
 You can move your configuration to a brand new or existing repository. Before starting the move, make sure you have the latest version of the config files.
-
-![Moving to a new repository](change-version-control-repository.png)
 
 Create an `.octopus` folder in the root of your repository if it doesn't already exist, and decide whether you will add a sub-folder for the configuration files.
 
