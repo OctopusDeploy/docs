@@ -121,7 +121,7 @@ This behavior will be configurable in a future release to provide additional fle
 :::
 
 ### Output variables
-Once the file(s) is uploaded, Octopus will create several variables storing the properties of the uploaded files. These values can be used in subsequent steps to access the uploaded files.
+Octopus will create several output variables storing the properties of any uploaded files. The values can then be used in subsequent steps to access the uploaded files.
 
 Here is the list of variables created after **a single file** has been uploaded:
 
