@@ -8,7 +8,7 @@ Version-control is configured per project and is accessed via the **{{ Settings,
 
 ## Moving configuration as code files
 
-Switching on version control for your project is a one-way change. You can't move the project back into the database once it's in a repository. However, you are free to move the configuration to a new folder or repository.
+Switching on version control for your project is a one-way change. You can't move the project back into the Octopus database once it's in a repository. However, you are free to move the configuration to a new folder or repository.
 
 You may need to move files from the root of the `.octopus` folder into a sub-folder because you want to divide the application into smaller components. Alternatively, you might be changing your version control strategy and want to move the configuration from the application repository to a stand-alone deployment repository (or vice-versa).
 
