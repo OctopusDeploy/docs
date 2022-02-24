@@ -14,7 +14,7 @@ Octopus can discover deployment targets during deployments using tags added to y
 We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
 :::
 
-To enable discovery use the following steps.
+This page will walk you through the steps needed to enable cloud target discovery.
 
 ## Configure credentials for discovery
 
@@ -58,7 +58,7 @@ If you have an existing project or environment, enable it with the following ste
 To discover targets for an environment, dynamic infrastructure needs to be enabled. To enable for an existing environment:
 
 1. Navigate to **{{Infrastructure,Environments}}**.
-1. Click the ... overflow menu for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
+1. Click the overflow menu (`...`) for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick the check-box to enable dynamic infrastructure.
 1. Click **SAVE**.
 
@@ -67,7 +67,7 @@ To discover targets for an environment, dynamic infrastructure needs to be enabl
 Using target discovery during a deployment means that there may be no existing targets at the start of a deployment. To allow deployments to start without any targets:
 
 1. Navigate to **{{Projects,{Project name},Deployments,Settings}}**.
-1. Expand the **Deployment Targets Required** and select the "Allow deployments to be created when there are no deployment targets" option.
+1. Expand the **Deployment Targets Required** and select the **Allow deployments to be created when there are no deployment targets** option.
 1. Click **SAVE**.
 
 ## Examples
@@ -95,4 +95,4 @@ By configuring a well-known variable and tagging your Azure Web App appropriatel
 }]
 ```
 
-Octopus will now discover the web app as a target before deploying to it, matching the environment, role and project from the deployment to the tags created with the ARM template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from Azure.
+Octopus will now discover the web app as a target before deploying to it, matching the environment, role, and project from the deployment to the tags created with the ARM template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from Azure in future releases of this feature.
