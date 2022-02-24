@@ -43,7 +43,7 @@ You can then update the version control settings by following the steps below:
 You can now delete the files from the old location.
 
 :::hint
-If you receive the error "Branch has not been initialized," it is likely you haven't copied the configuration files to the new location, didn't publish your changes, or have mistyped the directory name.
+If you receive the error `Branch has not been initialized` it is likely you haven't copied the configuration files to the new location, didn't publish your changes, or have mistyped the directory name.
 :::
 
 ## Moving config files to a new repository
