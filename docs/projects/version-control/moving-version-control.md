@@ -59,7 +59,7 @@ Copy the latest version of the `*.ocl` files into the new location. Then commit 
 - Expand **Git Repository** and enter the new **URL**
 - Adjust the **Default Branch Name** if the new repository has a different main branch
 - Expand **Authentication**
-- - add a **Username**
+- - Add a **Username**
 - - Enter a personal access token in the **Password** field
 - Click **TEST** to check your connection to the repository
 - Click **SAVE** to store the changes
