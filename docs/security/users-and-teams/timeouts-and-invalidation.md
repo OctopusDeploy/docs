@@ -21,7 +21,7 @@ There is also a **Maximum Session Duration**, which applies when users click the
 
 ## Session Invalidation {#TimeoutsAndInvalidation-SessionInvalidation}
 
-A user's sessions can also explicitly be revoked. This ensures that a user cannot interact with the system until after they have re-authenticated. 
+A user's sessions can explicitly be revoked. This ensures that a user cannot interact with the system until after they have re-authenticated. 
 
 This can be particularly useful in the following scenarios: 
 
