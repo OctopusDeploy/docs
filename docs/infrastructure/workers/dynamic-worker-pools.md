@@ -117,6 +117,8 @@ A specific version can be used by [specifying a custom kubectl location](/docs/d
 - `1.18.0`
 - `1.19.9`
 - `1.20.5`
+- `1.21.9`
+- `1.22.6`
 
 ## Installing Software On Dynamic Workers
 
