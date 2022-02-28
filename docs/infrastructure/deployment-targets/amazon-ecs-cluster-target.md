@@ -24,4 +24,3 @@ Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/de
     - Enter a cluster name that matches the cluster name running in your AWS region.
     
     ![ECS Cluster Deployment Target Settings](images/aws-ecs-target.png "width=500")
-

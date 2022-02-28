@@ -6,11 +6,25 @@ position: 20
 
 Azure Web App deployment targets allow you to reference existing Web Apps in your Azure subscription, that you can then reference by role during deployments.
 
+:::hint
+From version 2022.1 Octopus can discover Azure Web App targets using tags on your Web App resource.
+:::
+
 ## Requirements
 
 - You need an [Azure Service Principal account](/docs/infrastructure/accounts/azure/index.md#azure-service-principal) that references your Azure subscription.
 
 - Once your Azure account is setup, you need an existing Azure Web App / App Service setup within your Azure subscription. To learn more about App Services, see the [Azure App Services documentation](https://docs.microsoft.com/en-us/azure/app-service/) that can help you get started. If you are dynamically creating the web app during your deployment, check our section about [creating Web App targets by scripts using service messages](#creating-web-app-targets-by-scripts).
+
+## Discovering web app targets
+
+Octopus can discover Azure Web App targets as part of your deployment using tags on your resource. To discover targets use the following steps:
+
+- Add an Azure account variable named **Octopus.Azure.Account** to your project.
+- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your Azure Web App so that Octopus can match it to your deployment step and environment.
+- Add a `Deploy an Azure App Service` or `Deploy an Azure Web App (Web Deploy)` step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Azure Web App targets to deploy to.
+
+See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
 
 ## Creating web app targets
 
@@ -35,7 +49,6 @@ You can also leave the slot selection blank and specify the slot, by name, on th
 - If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.
 
 ![](deployment-targets-web-app-healthy.png "width=500")
-
 
 ### Creating Web App targets by scripts
 
