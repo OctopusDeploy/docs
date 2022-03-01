@@ -8,7 +8,13 @@ There are two ways to use the Octopus Client library:
 1. The `Octopus.Server.Client` package is a standard NuGet package useful for normal applications.
 1. The `Octopus.Client` package is NuGet package containing an ILMerged single `Octopus.Client.dll` comprising `Octopus.Server.Client.dll` (above) and all of its dependencies. This is useful for scripting where importing a single .NET assembly is preferable.
 
-Unless you hae a specific need to use the ILMerged `Octopus.Client`, we recommend using the `Octopus.Server.Client` package. In both cases, the calling conventions are identical - one is just an ILMerged version of the other.
+:::hint
+Unless you hae a specific need to use the ILMerged `Octopus.Client`, we recommend using the `Octopus.Server.Client` package. In both cases, the calling conventions are identical - the former is just an ILMerged version of the latter.
+:::
+
+:::hint
+If you're intending to use the contract DTO classes from the library with your own serialization mechanism, you'll definitely want to use `Octopus.Server.Client`. The ILMerged client also merges in `Newtonsoft.Json` so your own serializer won't recognize any of the serialization attributes.
+:::
 
 !include <octopus-client-shipped-with-server-and-tentacle>
 
@@ -19,10 +25,10 @@ Unless you hae a specific need to use the ILMerged `Octopus.Client`, we recommen
 To use from C#, first install the package via the NuGet Package Manager:
 
 ```powershell Package Management Console
-PM> Install-Package Octopus.Server.Client
+Install-Package Octopus.Server.Client
 ```
 ```bash .NET CLI
-> dotnet add package Octopus.Server.Client
+dotnet add package Octopus.Server.Client
 ```
 
 ### Creating and using the client (Synchronous API) {#Octopus.Client-SynchronousAPI}
@@ -81,7 +87,7 @@ Add-Type -Path $path
 Note that for the `PowerShell Core` example above, the path needs to be slightly different than the one for `PowerShell`.
 :::
 
-If you're referencing the netstandard version of Octopus.Client, you may find you also need to add a reference to `NewtonSoft.Json.dll` and `Octodiff`:
+If you're referencing an older version of the .NET Standard version of Octopus.Client, you may find you also need to add a reference to `NewtonSoft.Json.dll` and `Octodiff`:
 ```powershell
 # Using `Install-Package`
 $path = Join-Path (Get-Item ((Get-Package NewtonSoft.Json).source)).Directory.FullName "lib/netstandard2.0/NewtonSoft.Json.dll"
