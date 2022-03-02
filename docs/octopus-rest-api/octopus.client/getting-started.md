@@ -6,7 +6,7 @@ position: 10
 
 There are two ways to use the Octopus Client library:
 1. The `Octopus.Server.Client` package is a standard NuGet package useful for normal applications.
-1. The `Octopus.Client` package is NuGet package containing an ILMerged single `Octopus.Client.dll` comprising `Octopus.Server.Client.dll` (above) and all of its dependencies. This is useful for scripting where importing a single .NET assembly is preferable.
+1. The `Octopus.Client` package is a NuGet package containing an ILMerged single `Octopus.Client.dll` comprising `Octopus.Server.Client.dll` (above) and all of its dependencies. This is useful for scripting where importing a single .NET assembly is preferable.
 
 :::hint
 **Usage guidance**
