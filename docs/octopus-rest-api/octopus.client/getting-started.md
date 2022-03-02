@@ -9,11 +9,10 @@ There are two ways to use the Octopus Client library:
 1. The `Octopus.Client` package is NuGet package containing an ILMerged single `Octopus.Client.dll` comprising `Octopus.Server.Client.dll` (above) and all of its dependencies. This is useful for scripting where importing a single .NET assembly is preferable.
 
 :::hint
-Unless you hae a specific need to use the ILMerged `Octopus.Client`, we recommend using the `Octopus.Server.Client` package. In both cases, the calling conventions are identical - the former is just an ILMerged version of the latter.
-:::
+**Usage guidance**
 
-:::hint
-If you're intending to use the contract DTO classes from the library with your own serialization mechanism, you'll definitely want to use `Octopus.Server.Client`. The ILMerged client also merges in `Newtonsoft.Json` so your own serializer won't recognize any of the serialization attributes.
+- Unless you have a specific need to use the ILMerged `Octopus.Client`, we recommend using the `Octopus.Server.Client` package. In both cases, the calling conventions are identical - the former is just an ILMerged version of the latter.
+- If you're intending to use the contract DTO classes from the library with your own serialization mechanism, you'll definitely want to use `Octopus.Server.Client`. The ILMerged client also merges in `Newtonsoft.Json` so your own serializer won't recognize any of the serialization attributes.
 :::
 
 !include <octopus-client-shipped-with-server-and-tentacle>
