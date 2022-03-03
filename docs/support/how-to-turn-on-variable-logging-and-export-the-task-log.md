@@ -17,10 +17,12 @@ Write the variables to the deployment log
    - `OctopusPrintVariables`
    - `OctopusPrintEvaluatedVariables`
 
+Two sets of variables will be printed, first, the raw definitions before any substitutions have been performed, then the result of evaluating all variables for deployment.
+
    ![](images/variables.png "width=500")
 3. **Create a new release** of your project for the variables to take effect.
 4. Deploy the new release.
-5. Open the deployment/task details, and go to the **Task log** tab. Click on the **Raw** link. You can also select the **Download** option if you want to look at this locally. You can download this and attach the log file to your support query.
+5. Open the deployment/task details, and go to the **Task log** tab. Click on the **Raw** link. You can also select the **Download** option if you want to look at this locally. You can download this and attach the log file to your support query. 
 
    ![](images/rawlogs.png "width=500")
 
