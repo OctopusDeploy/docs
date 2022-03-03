@@ -19,9 +19,14 @@ See the [Octopus style guide](https://style.octopus.com) for information includi
 
 ## Deploying to test environment (Octopus Developers)
 
-Before merging to master it's possible you'd like to see your changes in the test environment. It's simple to do this:
+Before merging to `master` it's possible you'd like to see your changes in a preview environment. It's simple to do this:
 
-1. Navigate to Team City
-2. Find the project called `Docs - Development`
-3. Select your branch 
-4. Select `Run` to build the docs and deploy it to the test environment
+1. Navigate to TeamCity.
+1. Find the build called `Docs - Dev A` in the `Octofront / CPT` project.
+1. Select `Run...` and choose your branch to build the docs and deploy it to the test environment.
+1. View the test environment at https://dev-a.octopus.com/docs/.
+
+:::hint
+You may need to refresh the preview environment several times as various caching layers are invalidated. It may take a minute or two between when the pipeline completes and your changes
+become visible.
+:::
