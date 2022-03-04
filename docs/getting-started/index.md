@@ -5,13 +5,15 @@ position: 0
 hideInThisSectionHeader: true
 ---
 
-This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with [Octopus Cloud](#octopus-cloud) or your own [self-hosted Octopus Server](#self-hosted-octopus).
+This section provides an overview of Octopus Deploy concepts and links to the relevant documentation, which explore the concepts further and guide you through implementing them with [Octopus Cloud](#octopus-cloud) or your own [self-hosted Octopus Server](#self-hosted-octopus). When you are ready, you can start a free trial and explore.
+
+<span><a class="btn btn-success" href="https://octopus.com/start">Start a Trial</a></span>
 
 ## Consistent Releases
 
-Octopus Deploy simplifies complex deployments. 
+Octopus Deploy simplifies complex deployments.
 
-Octopus Deploy sits between your build servers and the deployment targets your software will be deployed to, and gives you control over ever step in the deployment process. 
+Octopus Deploy sits between your build servers and the deployment targets your software will be deployed to, and gives you control over ever step in the deployment process.
 
 After your build server has compiled and packaged your software, Octopus progresses the software through your environments from **Dev** and **QA** all the way through to **Production**, whether your deployment targets are Windows servers, Linux servers, Azure, AWS, Kubernetes, or Google Cloud Platform.
 
@@ -122,7 +124,5 @@ Learn more about [tenants](/docs/tenants/index.md).
 If you're a large organization with lots of teams working in Octopus, you can use the Spaces feature to provide each of your teams with a space for the projects, environments, and infrastructure they work with, while keeping other team's assets separate in their own spaces.
 
 Learn more about [Octopus Spaces](/docs/administration/spaces/index.md).
-
-<span><a class="btn btn-success" href="https://octopus.com/start">Start a Trial</a></span>
 
 ## Next steps
