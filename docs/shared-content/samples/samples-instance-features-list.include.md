@@ -109,3 +109,51 @@
   - [Rancher](https://samples.octopus.app/app#/Spaces-105/projects/Projects-1032)
   - [Shopping Cart API](https://samples.octopus.app/app#/Spaces-105/projects/Projects-204)
   - [Web App](https://samples.octopus.app/app#/Spaces-105/projects/Projects-205)
+### Terraform
+
+**Octopus Admin**
+  - [Instance Infrastructure](https://samples.octopus.app/app#/Spaces-142/projects/Projects-1001): *Creates infrastructure that is used instance wide such as workers*<span class='collapse' id='more-terraform-spaces-142-projects-1001'> *that can be used in all Spaces.*</span>
+<span>
+<a href='#more-terraform-spaces-142-projects-1001' data-toggle='collapse'> ...</a>
+</span>
+
+**Pattern - IaC**
+  - [Dynamic worker army](https://samples.octopus.app/app#/Spaces-48/projects/Projects-68): *An example deployment for creating workers using Terraform and AWS*<span class='collapse' id='more-terraform-spaces-48-projects-68'> *Autoscaling Groups that register to your Octopus server. Follow along with building and deploying your own using [our blog](https://octopus.com/blog/dynamic-worker-army) .*</span>
+<span>
+<a href='#more-terraform-spaces-48-projects-68' data-toggle='collapse'> ...</a>
+</span>
+  - [Random Quotes - Azure](https://samples.octopus.app/app#/Spaces-48/projects/Projects-1851): *Uses runbooks to create Azure virtual machines [using Terraform code](https://dev.azure.com/octopussamples/Terraform%20-%20RandomQuotes%20Azure/_git/Terraform%20-%20RandomQuotes%20Azure)*<span class='collapse' id='more-terraform-spaces-48-projects-1851'> *for hosting an application and backing database, then deploys the Random Quotes database and application to those machines.*</span>
+<span>
+<a href='#more-terraform-spaces-48-projects-1851' data-toggle='collapse'> ...</a>
+</span>
+  - [Random Quotes AWS](https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861): *This is a sample project that showcases the use of*<span class='collapse' id='more-terraform-spaces-48-projects-1861'> *Terraform with runbooks to create the infrastructure that is needed for a projects deployments. The runbooks in this project spin up two EC2 instances within AWS that are then used to deploy the Random Quotes web application and database to.*</span>
+<span>
+<a href='#more-terraform-spaces-48-projects-1861' data-toggle='collapse'> ...</a>
+</span>
+
+**Target - Kubernetes**
+  - [Space Infrastructure](https://samples.octopus.app/app#/Spaces-105/projects/Projects-290): *Manages the infrastructure (creation, deletion, etc) for the entire **Target*<span class='collapse' id='more-terraform-spaces-105-projects-290'> *- Kubernetes** space.*</span>
+<span>
+<a href='#more-terraform-spaces-105-projects-290' data-toggle='collapse'> ...</a>
+</span>
+
+**Target - Serverless**
+  - [AWS OctoSubscriber](https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742): *A Lambda Function that accepts and processes Octopus Deploy Subscription*<span class='collapse' id='more-terraform-spaces-1-projects-1742'> *Guided Failure or Manual Intervention Events. [Build definition](https://github.com/OctopusSamples/OctoSubscriber/blob/main/.github/workflows/AWSLambdas.yml)*</span>
+<span>
+<a href='#more-terraform-spaces-1-projects-1742' data-toggle='collapse'> ...</a>
+</span>
+  - [AWS Subscriber S3](https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781): *A Lambda Function that accepts and processes Octopus Deploy Subscription*<span class='collapse' id='more-terraform-spaces-1-projects-1781'> *Events*</span>
+<span>
+<a href='#more-terraform-spaces-1-projects-1781' data-toggle='collapse'> ...</a>
+</span>
+  - [Space Infrastructure](https://samples.octopus.app/app#/Spaces-1/projects/Projects-568)
+
+**Target - Windows**
+  - [eShopOnWeb](https://samples.octopus.app/app#/Spaces-202/projects/Projects-1481): *Microsoft ASP.NET Core 5.0 Reference Application*
+                    
+
+**Tenants - Regions**
+  - [To Do - Linux](https://samples.octopus.app/app#/Spaces-102/projects/Projects-148): *This project will deploy this .NET Core application to Ubuntu*<span class='collapse' id='more-terraform-spaces-102-projects-148'> *EC2 instances in AWS. The EC2 instances are located in US West 1, US West 2 and US East 2.*</span>
+<span>
+<a href='#more-terraform-spaces-102-projects-148' data-toggle='collapse'> ...</a>
+</span>
