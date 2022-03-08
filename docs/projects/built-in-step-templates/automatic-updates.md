@@ -10,7 +10,7 @@ Optionally, automatic version updates of built-in steps can be turned off by nav
 
 ![](images/automatic-updates-configuration.png "width=500")
 
-### Notes
+## Notes
 
 * Existing deployment processes and runbooks will be automatically updated to use the latest **minor** version of the built-in step templates, without any user-intervention. This enables rapid deployment of security and patch fixes in a backward compatible manner.
 * Major version upgrades of steps within existing deployment processes and runbooks will require manual intervention, as the steps will not be backward compatible and likely require additional input.
