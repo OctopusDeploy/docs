@@ -27,11 +27,11 @@ You need Docker installed and running on the [worker](docs/infrastructure/worker
 - Set the **Execution Location** for your step to **Run on a worker**.
 - In **Container Image** select **Runs on a worker inside a container**.
 - Choose the previously added container registry.
-- Enter the name of the image (aka execution container) you want your step to run in. (e.g. !docker-image <octopusdeploy/worker-tools:ubuntu.18.04>).
+- Enter the name of the image (execution container) you want your step to run in. (e.g. !docker-image <octopusdeploy/worker-tools:ubuntu.18.04>).
 - Click **Save**.
 - Click **Create release & deploy**.
 
-![](images/selector.png "width=500")
+![](images/container-selector.png "width=500")
 
 ## First deployment on a docker container
 
