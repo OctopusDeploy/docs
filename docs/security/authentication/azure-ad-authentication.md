@@ -65,7 +65,23 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 
 #### Mapping AAD users into Octopus teams (optional)
 
-If you want to manage user/team membership via AAD, you need to configure Roles for your App.  To add a Role(s), you need to edit the App's manifest.
+If you want to manage user/team membership via AAD, you need to configure Roles for your App.  To add a Role(s), you can either create and assign a new App Role or alternatively edit the App's manifest directly.
+
+##### Create and Assign a new AAD App Role
+
+1. Under App Roles, select **Create app role**.
+
+![Creating new App Role](images/aad-new-app-role-create.png "width=500")
+
+2. Enter all required fields and click **Apply** to create the new app role.
+
+![Apply App Role value and name](images/aad-new-app-role-create-apply.png "width=500")
+
+:::hint
+The **value** property is the most important field. This value becomes the external Role ID you use later on when [adding this Role to a Team](/docs/security/users-and-teams/index.md) in Octopus Deploy.
+:::
+
+##### Edit AAD App Manifest
 
 1. Under the App Registration, select **Manifest**, and then you can start editing your manifest file as required.
 
