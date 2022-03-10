@@ -26,19 +26,13 @@ Before enabling version control on the project, clicking on save updated a recor
 
 ### Viewing and Editing OCL
 
-Enabling version control also adds the option to **View/Edit OCL** to the overflow menu (`...`). Clicking on this option will open up a modal window allowing you to edit the OCL (Octopus Configuration Language) file directly.  
-
-![viewing the ocl files](view-ocl-button.png)
+Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. 
 
 :::hint
 The Octopus Deploy UI will only add non-default properties to the OCL files. For example, if a step isn't scoped to run for a specific environment(s), that property will not show up when you edit the OCL file in the UI.
 :::
 
-Once you are finished editing the OCL file, you can commit changes those changes to the git repo. The UI will automatically refresh.
-
-## Editing via a text editor
-
-Changes can also be made using your favorite text editor or IDE and committed and pushed just as you would any other code change. 
+We suggest using your favorite text editor or IDE to make changes, commit and push them just as you would any other code change. 
 
 :::hint
 We have a [Visual Studio Code Plug-in](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.vscode-octopusdeploy) that will add syntax highlighting, OCL snippets, and an integrated tree view for navigating nodes in an HCL file.
