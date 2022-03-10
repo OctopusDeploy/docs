@@ -13,7 +13,7 @@ This section provides an overview of Octopus Deploy concepts and links to the re
 
 Octopus Deploy simplifies complex deployments.
 
-Octopus Deploy sits between your build servers and the deployment targets your software will be deployed to, and gives you control over ever step in the deployment process.
+Octopus Deploy sits between your build servers and the deployment targets your software will be deployed to, and gives you control over every step in the deployment process.
 
 After your build server has compiled and packaged your software, Octopus progresses the software through your environments from **Dev** and **QA** all the way through to **Production**, whether your deployment targets are Windows servers, Linux servers, Azure, AWS, Kubernetes, or Google Cloud Platform.
 
