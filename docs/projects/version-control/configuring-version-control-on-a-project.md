@@ -31,14 +31,18 @@ Next, add the directory you would like Octopus to store the deployment process. 
 ## Configuring an existing project to be version-controlled
 
 :::warning
-Converting a project to use version control is a one-way change. No project that has converted to version control can be converted back. Please make sure you want to do this and perhaps clone your project to test how it works so you know what to expect before converting important projects.
+Converting a project to use version control is a one-way change. Once a project is converted to version control, it **cannot** be converted back. Please make sure you want to do this, and perhaps clone your project to test how it works, so you know what to expect before converting important projects.
 :::
 
 With the release of config-as-code, you can perform a one-way conversion of existing projects to leverage version control. 
 
-Select the project you would like to convert and click {{Version Control}} under the **Settings** section in the project navigation menu. 
-Enter the connection information for your Git repository. You need to provide the URL for your git repository, the name of the default branch, username and password / personal access token (or Anonymous for an open repository) 
-Provide the directory you would like Octopus to store the deployment process.
+Select the project you would like to convert and click on the **{{ Settings, Version Control }}** link on the project navigation menu.
+Enter the connection information for your Git repository. You need to provide: 
+- The URL for your git repository
+- The name of the default branch
+- A Username and password / personal access token (or anonymous for a public repository)
+
+Finally, provide the directory you would like Octopus to store the deployment process in.
 
 Learn more about [git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference.md).
 
@@ -50,7 +54,7 @@ Once you press the **Configure** button, a modal window will appear to confirm t
 
 ![configuring version control](configure-version-control.png)
 
-Your project is now configured with Version Control. You can see this change reflected on the Process page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will not be created, and it should contain your _deployment_process.ocl_, _deployment_settings.ocl_, and _schema_version.ocl_ files. 
+Your project is now configured with Version Control. You can see this change reflected on the Process page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain your _deployment_process.ocl_, _deployment_settings.ocl_, and _schema_version.ocl_ files. 
 
 ## Not everything is saved to version control
 
@@ -62,6 +66,6 @@ Learn more about [what is stored in version control](/docs/projects/version-cont
 
 ## Using a project with version control enabled
 
-In general, modifying a project via the Octopus UI with version control enabled is the same as modifying a project configured to save changes to SQL Server. There are some minor differences.
+In general, modifying a project via the Octopus UI with version control enabled is the same as modifying a project configured to save changes to SQL Server. However, there are some minor differences.
 
 Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled.md).

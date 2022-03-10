@@ -4,7 +4,7 @@ description: Details about the configuration as code feature.
 position: 20 
 ---
 
-The configuration as code feature enables you to save some project-level settings as files in a git repository instead of SQL Server. The files are written in OCL (Octopus Configuration Language) format. Storing resources as files enables you to leverage version control features such as branching, pull requests, and reverting. In addition, how you deploy your code and your source code can now be saved in the same git repository. This page is a reference document of how the config-as-code feature works.
+The configuration as code feature enables you to save some project-level settings as files in a git repository instead of SQL Server. The files are written in the OCL (Octopus Configuration Language) format. Storing resources as files lets you leverage version control features such as branching, pull requests, and reverting changes. In addition, you can save both your source code and how you deploy your code in the same git repository. This page is a reference document of how the config-as-code feature works.
 
 ## Octopus Project Level Only
 
@@ -12,7 +12,7 @@ The config-as-code feature will store Octopus Project resources in git instead o
 
 ### Resources NOT version controlled by config-as-code
 
-The config-as-code feature will not manage several Octopus Deploy resources. At the moment, there are no plans to include these resources. Those resources are:
+The config-as-code feature manages project-level resources. However, it is worth explicitly mentioning some things that are **not included**:
 
 - Infrastructure
     - Environments
@@ -44,7 +44,7 @@ The config-as-code feature will not manage several Octopus Deploy resources. At 
     - Users
     - User Roles
 
-Several of the above resources can be put into version control using [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs).  
+Currently, there are no plans to include these resources in the config-as-code feature. Several of the resources above can be put into version control using the [Octopus Terraform Provider](https://registry.terraform.io/providers/OctopusDeployLabs/octopusdeploy/latest/docs). 
 
 :::hint
 Resources managed by the Octopus Terraform Provider will have their state managed by Terraform. Resources managed by the Octopus config-as-code feature will have the state managed by Octopus Deploy. The two are not the same and shouldn't be treated as such.
@@ -86,7 +86,7 @@ Runbooks and Variables are planned for future releases of config-as-code.
 
 ## Git Configuration Options
 
-Project version control settings can be accessed by clicking on the {{Version Control}} link on the project navigation menu.
+Project version control settings can be accessed by clicking on the **{{ Settings, Version Control }}** link on the project navigation menu.
 
 ### Git Repository
 
@@ -99,13 +99,13 @@ The repository must be initialized (i.e. contain at least one branch) prior to s
 The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is also the default branch that will be used in various situations, for example:
 
 - When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
-- When creating releases, this will be the branch selected initially
+- When creating releases, this will be the default branch selected
 
 For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
 ### Authentication
 
-The config-as-code feature is designed to work with _any_ git repository. When configuring a project to be version-controlled, you can optionally provide credentials.  
+The config-as-code feature is designed to work with _any_ git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
 
 :::hint
 Do not use credentials from a personal account. Select a shared or service account. When Octopus Deploy saves to your git repo, you will typically see the message `[User Name] authored and [Service Account] committed on [Date].`
@@ -142,7 +142,7 @@ Currently, Octopus creates the following files:
 
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
 
-``` text
+```hcl
 step "Deploy a Package" {
     properties = {
         Octopus.Action.TargetRoles = "web"
@@ -175,7 +175,7 @@ step "Deploy a Package" {
 
 The _deployment_settings.ocl_ file contains the configuration for the deployment settings associated with the deployment process. If using the default deployment process settings, the .ocl will be mostly empty.
 
-```
+```hcl
 connectivity_policy {
 }
 
@@ -185,7 +185,7 @@ versioning_strategy {
 
 However, configuring the settings via Octopus will populate the fields with their properties and values.
 
-```
+```hcl
 default_guided_failure_mode = "On"
 deployment_changes_template = <<-EOT
         #{each release in Octopus.Deployment.Changes}
