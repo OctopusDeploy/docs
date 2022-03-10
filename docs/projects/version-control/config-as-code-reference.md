@@ -10,6 +10,40 @@ The configuration as code feature enables you to save some project-level setting
 
 The config-as-code feature will store Octopus Project resources in git instead of SQL Server.
 
+### Project Resources version controlled
+
+Currently, the Project level resources saved to git are:
+
+- Deployment Process
+- Deployment Settings
+    - Release Versioning
+    - Release Notes Template
+    - Deployment Targets Required
+    - Transient Deployment Targets
+    - Deployment Changes Template
+    - Default Failure Mode
+
+### Project Resources saved to SQL Server
+
+Currently, the Project level resources saved to SQL Server when version control is enabled are:
+
+- Channels
+- Triggers
+- Releases
+- Deployments
+- Runbooks
+- Variables
+- General Settings
+    - Project Name
+    - Enabled / Disabled
+    - Logo
+    - Description
+    - Project Group
+
+:::hint
+Runbooks and Variables are planned for future releases of config-as-code.
+:::
+
 ### Resources NOT version controlled by config-as-code
 
 The config-as-code feature manages project-level resources. However, it is worth explicitly mentioning some things that are **not included**:
@@ -48,40 +82,6 @@ Currently, there are no plans to include these resources in the config-as-code f
 
 :::hint
 Resources managed by the Octopus Terraform Provider will have their state managed by Terraform. Resources managed by the Octopus config-as-code feature will have the state managed by Octopus Deploy. The two are not the same and shouldn't be treated as such.
-:::
-
-### Project Resources version controlled
-
-Currently, the Project level resources saved to git are:
-
-- Deployment Process
-- Deployment Settings
-    - Release Versioning
-    - Release Notes Template
-    - Deployment Targets Required
-    - Transient Deployment Targets
-    - Deployment Changes Template
-    - Default Failure Mode
-
-### Project Resources saved to SQL Server
-
-Currently, the Project level resources saved to SQL Server when version control is enabled are:
-
-- Channels
-- Triggers
-- Releases
-- Deployments
-- Runbooks
-- Variables
-- General Settings
-    - Project Name
-    - Enabled / Disabled
-    - Logo
-    - Description
-    - Project Group
-
-:::hint
-Runbooks and Variables are planned for future releases of config-as-code.
 :::
 
 ## Git Configuration Options
