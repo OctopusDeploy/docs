@@ -1,25 +1,13 @@
 ---
-title: Configuration as Code (Early Access) 
+title: Configuration as Code
 description: Projects can be version-controlled as text in a git repository 
 position: 110 
 hideInThisSection: true
 ---
 
-:::hint
-The Early Access Preview of the config-as-code feature was added in **Octopus 2021.3** and is enabled via **{{Configuration, Features}}**.
-:::
-
-![Config as code feature toggle](config-as-code-feature-toggle.png "width=500")
-
 ## Introduction 
 
-Welcome to the config-as-code Early Access Preview! Support for version-controlling Octopus projects has been highly requested for a long time now, and we're excited to release the first cut. The goal of the EAP is to gather feedback and help us evaluate which problems are the most valuable to solve next.  
-
-:::warning
-Config-as-code is still in development. We firmly recommend not using it on critical production projects at this stage.
-:::
-
-The config-as-code EAP adds support for configuring Octopus projects with the details of a Git repository. For the EAP, this is the _deployment process_ which is version-controlled.  
+The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, only the _deployment process_ and some deployment settings can be version-controlled.  
 
 It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes to your deployment process too.
 
@@ -50,7 +38,7 @@ Our major goal for the early stages of this feature is to discover the ways peop
 
 You can provide feedback through whichever of the following channels you feel most comfortable with: 
 
-- Feedback forms. The orange EAP chips in the product link to feedback forms when clicked. This is a great way to provide structured feedback. 
+- Feedback form. There is a link in a version-controlled project's **Version Control Settings** section that takes you to a feedback form when clicked. This is a great way to provide structured feedback. 
 - Community slack. The `config-as-code` channel in the [Octopus community slack](https://octopus.com/slack) is the best place to have a conversation with the team.
 - Support. For errors or issues, see our [official support](https://octopus.com/support) channels. 
 
