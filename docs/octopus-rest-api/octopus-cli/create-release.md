@@ -207,8 +207,8 @@ For projects that use the [Config as Code feature](/docs/projects/version-contro
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
 ```
 
-:::hint
-The `--gitRef` parameter is ignored for non-version controlled projects.
+:::warning
+If the provided project is **not a version controlled one**, passing `--gitRef` (or `--gitCommit`) will result in an error as these parameters are only valid for projects that are version controlled.
 :::
 
 ## Specifying the Package Version {#Creatingreleases-Specifyingthepackageversion}
