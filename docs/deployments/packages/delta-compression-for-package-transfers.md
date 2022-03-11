@@ -16,12 +16,11 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 
 ## A package deployment in Octopus Deploy now looks something like this {#Deltacompressionforpackagetransfers-ApackagedeploymentinOctopusDeploynowlookssomethinglikethis}
 
-1. Find nearest previous versions of the package on the machine by calling [Calamari](https://octopus.com/blog/calamari).
-2. If a previous version of a package is found and the same package (matching PackageId, Version and file hash) exist on the Octopus Server.
-3. Create a signature file for the nearest package found.
-4. Build the delta between the previous package (using the above signature file) and the new package.
-5. Upload delta file to Tentacle and call Calamari to apply the delta file to the package found in the previous step.
-6. If no previous version of the package was found, we upload the full package instead.
+1. Find the nearest previous version of the package on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
+2. Compare the nearest previous package version available on the Octopus Server with the package identified in step 1. If the PackageId, Version and file hash are identical then create a signature file for the package.
+3. Build the delta file between the previous package (using the above signature file) and the newest package on the Octopus Server.
+4. Upload the delta file to the Tentacle. 
+5. If the delta file size meets the criteria (see note below) then call Calamari to apply the delta file to the package identified in Step 1, otherwise if the delta file fails to be created or any other issue outlined in [the next section](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) occurs, then the full package will be uploaded.
 
 :::info
 **Delta file size**
