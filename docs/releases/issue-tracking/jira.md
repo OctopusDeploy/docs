@@ -174,6 +174,10 @@ The following illustrates Octopus attempting to send an _in_progress_, and then 
 
 If you're running into issues with the Jira Integration, it's possible it could be one of the common problems we get asked about here. If it's still not working quite right, [we are here to help!](https://octopus.com/support)
 
+### Issues after upgrading the Jira Plugin {#troubleshooting-jira-plugin-upgrades}
+
+If you find a previously working Jira integration has stopped working after upgrading the Jira plugin, then you may need to uninstall and reinstall the Jira plugin from the Atlassian marketplace. During configuration of the reinstalled Jira plugin, you will be provided with a new Jira Connect Password which will need to be entered into the Jira Settings page on your Octopus Server.  
+
 ### Map Jira environments to Octopus environments {#troubleshooting-map-your-environments}
 
 If your deployments aren't being displayed in Jira, this likely means you will need to double check that your Octopus environments are correctly mapped to your Jira environments.
