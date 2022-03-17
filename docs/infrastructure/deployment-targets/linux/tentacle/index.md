@@ -87,6 +87,10 @@ Many instances of Tentacle can be configured on a single machine. To configure a
 
 Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
 
+:::warning
+The installer script does not make any adjustments to firewalls. Be sure to check any ports specified are open on your firewalls. For example port `10933` for listening tentacles.
+:::
+
 ## Running Tentacle
 
 ### Running Tentacle interactively
