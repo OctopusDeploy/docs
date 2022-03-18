@@ -124,7 +124,12 @@ Octopus does not recommend installing additional software on Dynamic Workers.
 
 By default, every dynamic worker is destroyed after it has been allocated for over 72 hours. In addition Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
 
-For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md).  Octopus provides execution containers with a baseline of tools pre-installed.  However, we can't create a container with every possible software combination you might need.  Please see this [blog post](https://octopus.com/blog/tips-building-custom-execution-containers) for more information on how to create custom execution containers.
+For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/index.md#custom-docker-images).
+
+:::hint
+**Octopus worker-tools cached on Dynamic Workers**
+The `octopusdeploy/worker-tools` images provided for the execution containers feature have the `latest` version cached on a Dynamic Worker when its created. This makes them a great choice over installing additional software on a Dynamic worker.
+:::
 
 If you choose to install additional software on a dynamic worker, you are responsible for:
 
