@@ -16,11 +16,12 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 
 ## A package deployment in Octopus Deploy now looks something like this {#Deltacompressionforpackagetransfers-ApackagedeploymentinOctopusDeploynowlookssomethinglikethis}
 
-1. Find the nearest previous version of the package on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
-2. Compare the nearest previous package version available on the Octopus Server with the package identified in step 1. If the PackageId, Version and file hash are identical then create a signature file for the package.
-3. Build the delta file between the previous package (using the above signature file) and the newest package on the Octopus Server.
-4. Upload the delta file to the Tentacle. 
-5. If the delta file size meets the criteria (see note below) then call Calamari to apply the delta file to the package identified in Step 1, otherwise if the delta file fails to be created or any other issue outlined in [the next section](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) occurs, then the full package will be uploaded.
+1. Identify all of the versions of the package available on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
+2. Calamari then attempts to match these packages with packages available on the Octopus Server. If the PackageId, Version and file hash are identical then create a signature file for the package.
+3. Build the delta file between the previous package and the package being transferred from the Octopus Server. 
+4. If the delta file meets the size criteria (see note below) then the server will upload the delta file to the Tentacle and call Calamari to apply the delta file to the transferred package. 
+n.b. If any of [these issues](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) are experienced during the creation or application of the delta, then the entire package will be uploaded to the tentacle.
+6. Once the delta is applied, the signature file from step 2 will be compared with the final applied package on the target to determine if the change was successful. If the signatures do not match, calamari will request the server to re-upload the entire package.
 
 :::info
 **Delta file size**
