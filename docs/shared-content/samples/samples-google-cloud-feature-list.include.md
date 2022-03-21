@@ -9,7 +9,7 @@
 
 **Secrets Management**
 
-- <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1703" target="_blank">GCP Secret Manager</a>
+- <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1703" target="_blank">GCP Secret Manager</a>: *Sample project retrieving secrets from GCP Secrets Manager using the [Retrieve Secrets](https://library.octopus.com/step-templates/9f5a9e3c-76b1-462f-972a-ae91d5deaa05/actiontemplate-gcp-secret-manager-retrieve-secrets) step template.*
 
 **Target - Containers**
 
@@ -18,5 +18,5 @@
 **Target - Kubernetes**
 
 - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1707" target="_blank">Multi-Cloud PetClinic</a>: *Setup AWS EKS, GCP GKE, and Azure AKS Clusters and targets within Octopus*
-- <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1032" target="_blank">Rancher</a>
+- <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1032" target="_blank">Rancher</a>: *A sample project that deploys the PetClinic application to a Rancher-managed Kubernetes cluster.*
 - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-290" target="_blank">Space Infrastructure</a>: *Manages the infrastructure (creation, deletion, etc) for the entire **Target - Kubernetes** space.*

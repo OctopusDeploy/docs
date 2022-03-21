@@ -16,7 +16,7 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742" target="_blank">AWS OctoSubscriber</a>: *A Lambda Function that accepts and processes Octopus Deploy Subscription Guided Failure or Manual Intervention Events. [Build definition](https://github.com/OctopusSamples/OctoSubscriber/blob/main/.github/workflows/AWSLambdas.yml)*
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781" target="_blank">AWS Subscriber S3</a>: *A Lambda Function that accepts and processes Octopus Deploy Subscription Events*
-- <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-568" target="_blank">Space Infrastructure</a>
+- <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-568" target="_blank">Space Infrastructure</a>: *Creates and destroys Infrastructure for this space.*
 
 **Target - Windows**
 

@@ -9,14 +9,14 @@
 
 **Pattern - Rollbacks**
 
-- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1603" target="_blank">01 OctoFx - Original</a>
-- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1604" target="_blank">02 OctoFX - Simple Rollback</a>
-- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1602" target="_blank">03 OctoFX - Complex Rollback</a>
+- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1603" target="_blank">01 OctoFx - Original</a>: *A sample .NET project showing deployments to Windows *without* any rollback functionality.*
+- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1604" target="_blank">02 OctoFX - Simple Rollback</a>: *A sample .NET project showing deployments to Windows with a simple set of rollback functionality added.*
+- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1602" target="_blank">03 OctoFX - Complex Rollback</a>: *A sample .NET project showing deployments to Windows with a complex set of rollback functionality added.*
 
 **Pattern-AutoScaling**
 
-- <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1502" target="_blank">App + VMSS</a>
-- <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1466" target="_blank">To Do Web Application</a>
+- <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1502" target="_blank">App + VMSS</a>: *A sample project showing how to deploy an application when using an Azure Virtual Machine scale set (VMSS).*
+- <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1466" target="_blank">To Do Web Application</a>: *A sample child application used with the [Azure VMSS orchestration](https://samples.octopus.app/app#/Spaces-742/projects/azure-vmss-orchestration/deployments) project.*
 
 **Target - Hybrid**
 
@@ -24,6 +24,6 @@
 
 **Target - Windows**
 
-- <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-761" target="_blank">Computer Provisioning</a>
+- <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-761" target="_blank">Computer Provisioning</a>: *A project containing a collection of runbooks designed to ensure a provisioned machine has software developer dependencies, chocolatey apps, and windows updates installed.*
 - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-1481" target="_blank">eShopOnWeb</a>: *Microsoft ASP.NET Core 5.0 Reference Application*
 - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282" target="_blank">OctoFX</a>: *Build Server: [Azure DevOps](https://dev.azure.com/octopussamples/octofx) Webinar: [YouTube](https://youtu.be/mLgeQRUlcl0)*

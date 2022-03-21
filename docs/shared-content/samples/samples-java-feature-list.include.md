@@ -1,6 +1,6 @@
 **Artifactory API**
             
-- <a href="https://samples.octopus.app/app#/Spaces-622/projects/Projects-1061" target="_blank">Octopus Pet Shop</a>
+- <a href="https://samples.octopus.app/app#/Spaces-622/projects/Projects-1061" target="_blank">Octopus Pet Shop</a>: *A sample project that downloads a package from Artifactory and deploys it to Tomcat.*
 
 **Pattern - Blue-Green**
 
@@ -23,4 +23,4 @@
 
 **Target - Wildfly**
 
-- <a href="https://samples.octopus.app/app#/Spaces-85/projects/Projects-141" target="_blank">PetClinic</a>
+- <a href="https://samples.octopus.app/app#/Spaces-85/projects/Projects-141" target="_blank">PetClinic</a>: *A sample project deploying the Java PetClinic app to a Linux VM in Azure.*
