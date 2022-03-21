@@ -56,7 +56,7 @@ Customize your project logo to make it easily identifiable amongst other project
 
 1. From the project's main page, select **Settings**.
 2. Click the **Logo** section of the settings page.
-3. Select from our built-in icon library paired with your choice of colour or upload a custom image.
+3. Select from our built-in icon library paired with your choice of color or upload a custom image.
 4. Click **Save**.
 
 :::hint
