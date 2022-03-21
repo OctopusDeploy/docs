@@ -52,15 +52,15 @@ You can change the projects settings by accessing the settings menu on the proje
 
 ## Project logo {#project-logo}
 
-Add a logo to make it easily identifiable from the projects page.
+Customize your project logo to make it easily identifiable amongst other projects.
 
-1. From the project's main page, select **settings**.
+1. From the project's main page, select **Settings**.
 2. Click the **Logo** section of the settings page.
-3. Click the file selector and select a file to upload.
-4. Click **open** to upload your logo image, and click **Save**.
+3. Select from our built-in icon library paired with your choice of color or upload a custom image.
+4. Click **Save**.
 
 :::hint
-Adding an image to your project is a useful way to set them apart from other projects visually. In addition to supporting .jpg and .png files, we also support .gif files. This means you can have an animated icon to add a little flair to your Octopus Deploy instance!
+For custom images, in addition to supporting .jpg and .png files, we also support .gif files. This means you can have an animated icon to add a little flair to your Octopus Deploy instance!
 :::
 
 ## Project group {#project-group}
