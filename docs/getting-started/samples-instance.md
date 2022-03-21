@@ -8,7 +8,7 @@ Many of the deployment samples in our docs reference our Octopus Cloud [samples 
 
 ## Features
 
-This section acts as a directory of features found in our samples instance.
+This section acts as a directory of features found in our samples instance. Each feature lists the Octopus space in which the feature is found, followed by each project.
 
 :::hint
 We're constantly adding to our samples instance. If you'd like to explore any of our samples further, just go to [https://samples.octopus.app](https://samples.octopus.app) and log in as a guest.
