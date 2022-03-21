@@ -92,7 +92,7 @@ Next you will need to assign your app to people or groups within your Okta direc
 You will need the **Client ID** (aka **Audience**), **Client secret** and **Issuer** obtained from the Okta portal as described above.
 
 :::success
-Your **Client ID** and **Client secret** should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
+Your **Client ID** should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
 Your **Client secret** should be a string value like `uJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSS`.
 Your **Issuer** should be a URL like `https://dev-xxxxxx.oktapreview.com`.
 :::

@@ -156,20 +156,26 @@ If you only have one role it will be automatically assigned. If you have **multi
 
 ## Configure Octopus Server
 
-### Get the client ID and Issuer
+There are three values you need from the Azure AD configuration to complete the Octopus configuration: the **Client ID**, **Client Secret** and **Issuer**.
 
-There are two values you need from the Azure AD configuration to complete the Octopus configuration: the **Client ID** and **Issuer**.
+### Get the Client ID and Issuer
 
-#### Using the Azure portal
-
-In the Azure portal, you can see the **Application (client) ID**  and **Directory (tenant) ID** on your App's Overview page.
+In the Azure portal, you can see the **Application (client) ID** and **Directory (tenant) ID** on your App's Overview page.
 
 ![Getting the App registration](images/aad-get-app-registration-id.png "width=500")
 
-### Setting the client ID and Issuer in Octopus Deploy
+### Generate the Client secret
+
+In the Azure portal, navigate to the **Certificates & secrets** page and click **New client secret** to generate a new client secret for the App registration.
+
+![Generating a client secret](images/aad-client-secret.png "width=500")
+
+### Setting the Client ID, Client secret and Issuer in Octopus Deploy
 
 :::success
 Your **Client ID** should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.
+
+Your **Client secret** should be a long string value. This is the **Value** of a client secret in the Azure App Registration Portal.
 
 Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
 :::
@@ -177,13 +183,13 @@ Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` wh
 When you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
-Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --azureADClientId=ClientID
+Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --azureADClientId=ClientID --azureADClientSecret=ClientSecret
 
 #Eg:
-# Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+# Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientSecret=bCeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Alternatively, these settings can be defined through the user interface by selecting **{{Configuration,Settings,Azure AD}}** and populating the fields **Issuer**, **ClientId**, and **IsEnabled**.
+Alternatively, these settings can be defined through the user interface by selecting **{{Configuration,Settings,Azure AD}}** and populating the fields **Issuer**, **ClientId**, **ClientSecret**, and **IsEnabled**.
 
 ![Settings](images/aad-azure-ad-settings.png "width=500")
 
