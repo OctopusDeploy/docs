@@ -13,11 +13,11 @@
 
 **Pattern-AutoScaling**
 
-- <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1464" target="_blank">AWS ASG</a>
+- <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1464" target="_blank">AWS ASG</a>: *A sample project showing how to check the provisioning status of an AWS Auto Scaling Group (ASG).*
 
 **Secrets Management**
 
-- <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1702" target="_blank">AWS Secrets Manager</a>
+- <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1702" target="_blank">AWS Secrets Manager</a>: *Sample project retrieving secrets from AWS Secrets Manager using the [Retrieve Secrets](https://library.octopus.com/step-templates/5d5bd3ae-09a0-41ac-9a45-42a96ee6206a/actiontemplate-aws-secrets-manager-retrieve-secrets) step template.*
 
 **Target - Containers**
 
@@ -45,7 +45,7 @@
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-361" target="_blank">Flyway - AWS RDS</a>: *Example project for automated database deployments using Flyway against an AWS RDS MySQL instance. [Build defintion](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)*
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-869" target="_blank">Liquibase - AWS RDS</a>: *Sample project that creates and deploys the sakila database to an AWS RDS MySQL instance using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)*
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-387" target="_blank">RoundhousE - AWS RDS</a>: *Example project for automated database deployments using RoundhousE against an AWS RDS MySQL instance. [Build defintion](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildRoundhouse)*
-- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-324" target="_blank">Space Infrastructure</a>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-324" target="_blank">Space Infrastructure</a>: *Creates and destroys Infrastructure for this space.*
 
 **Target - Oracle**
 
@@ -60,7 +60,7 @@
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-373" target="_blank">Flyway - AWS RDS</a>: *Example project for automated database deployments using Flyway against an AWS RDS PostgreSQL instance. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)*
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-867" target="_blank">Liquibase - AWS RDS</a>: *Sample project that creates and deploys the sakila database to Postgres using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)*
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-442" target="_blank">RoundhousE - AWS RDS</a>: *Example project for automated database deployments using RoundhousE against an AWS RDS PosgreSQL instance. [Build defintion](https://bitbucket.org/octopussamples/sakila/src/posgres/)*
-- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-341" target="_blank">Space Infrastructure</a>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-341" target="_blank">Space Infrastructure</a>: *Creates and destroys Infrastructure for this space.*
 
 **Target - Serverless**
 
