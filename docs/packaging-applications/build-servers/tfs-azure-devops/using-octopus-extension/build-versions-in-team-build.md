@@ -7,9 +7,9 @@ Correctly versioning the packages you deploy with Octopus Deploy is important so
 
 This guide shows you how best to version your builds and packages in Azure DevOps, when using the recommended [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
-## Build numbers in Team Build
+## Build numbers in Azure DevOps
 
-In Team Build (the build system in Azure DevOps), build numbers may be in a format that doesn't represent a valid SemVer number.
+In Azure DevOps, build numbers may be in a format that doesn't represent a valid SemVer number.
 
 For example, Microsoft's [Build Number format documentation](https://www.visualstudio.com/en-gb/docs/build/define/general#build-number-format) gives an example: `$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)` will result in a version number like `Fabrikam_CIBuild_main_20090805.2`.
 
@@ -44,13 +44,13 @@ The only downside of this numbering format is the `$(BuildID)` variable _always_
 Other extensions such as [gitversion](https://github.com/GitTools/GitVersion) can also be used to easily get SemVer compliant build numbers.
 :::
 
-## Packaging in Team Build
+## Packaging in Azure DevOps
 
 As mentioned above the recommended approach to package your application is to use the [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
 ### Versioning
 
-This task does not provide you with a default version number - this is something you have to set yourself as part of the naming of the output file. Clearly it wouldn't be feasible to change this value every time you do a build, so we recommend you make use of the build variables that Team Build provides.
+This task does not provide you with a default version number - this is something you have to set yourself as part of the naming of the output file. Clearly it wouldn't be feasible to change this value every time you do a build, so we recommend you make use of the build variables that Azure DevOps provides.
 
 Build and Release variables can be found in [the Microsoft Documentation](https://www.visualstudio.com/en-us/docs/build/define/variables), but the more useful ones include:
 

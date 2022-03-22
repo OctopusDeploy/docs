@@ -19,7 +19,7 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 ## Installing the extension
 
-You can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
+You can [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
 If you're using an earlier version of TFS, see the [Extension Compatibility documentation](extension-compatibility.md) for details on where to get a compatible extension.
 
@@ -31,7 +31,7 @@ You can bring your own version of the Octopus CLI and avoid the use of installer
 
 ## Add a connection to Octopus Deploy
 
-Follow this instruction on how to creaste a new service connection and make sure you pick **Octopus Deploy**.
+Follow [these](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) instructions to create a new service connection and make sure you pick **Octopus Deploy**.
 
 Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field and the Octopus server url.
 
