@@ -17,6 +17,8 @@ You can also view the status of a project in an environment using the Dashboard 
 
 We've open-sourced the [OctoTFS repository in GitHub](https://github.com/OctopusDeploy/OctoTFS) if you'd like to contribute.
 
+!include <tfs-notice>
+
 ## Installing the extension
 
 You can [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
@@ -68,7 +70,7 @@ The Azure DevOps extension tasks require the Octopus CLI to be available on the 
 To integrate with Octopus Deploy, an application must be packaged into either a NuGet, ZIP archive or tarball, and pushed to Octopus Deploy (or any external [feed supported](/docs/packaging-applications/package-repositories/index.md) by Octopus Server).
 
 :::hint
-We strongly recommend reading the [Build Versions in Team Build](build-versions-in-team-build.md) guide for advice around build and package versions.
+We strongly recommend reading the [Build Versions in Azure DevOps](build-versions-in-team-build.md) guide for advice around build and package versions.
 :::
 
 There are many ways to create such package formats in Azure DevOps, our recommended approach is to use [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.

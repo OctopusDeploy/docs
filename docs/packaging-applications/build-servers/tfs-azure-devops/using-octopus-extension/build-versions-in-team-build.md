@@ -7,6 +7,8 @@ Correctly versioning the packages you deploy with Octopus Deploy is important so
 
 This guide shows you how best to version your builds and packages in Azure DevOps, when using the recommended [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
+!include <tfs-notice>
+
 ## Build numbers in Azure DevOps
 
 In Azure DevOps, build numbers may be in a format that doesn't represent a valid SemVer number.
