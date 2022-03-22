@@ -13,7 +13,7 @@ In Azure DevOps, build numbers may be in a format that doesn't represent a valid
 
 For example, Microsoft's [Build Number format documentation](https://www.visualstudio.com/en-gb/docs/build/define/general#build-number-format) gives an example: `$(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)` will result in a version number like `Fabrikam_CIBuild_main_20090805.2`.
 
-While this is a valid Team Build build number, it can cause issues when trying to pack the build output into a NuGet package or zip file for Octopus.
+While this is a valid Azure DevOps build number, it can cause issues when trying to pack the build output into a NuGet package, a ZIP archive or tarball to be consumed by Octopus Server.
 
 ## SemVer
 
