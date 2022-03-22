@@ -19,9 +19,8 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 1. Identify all of the versions of the package available on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
 2. Calamari then attempts to match these packages with packages available on the Octopus Server. If the PackageId, Version and file hash are identical then create a signature file for the package.
 3. Build the delta file between the previous package and the package being transferred from the Octopus Server. 
-4. If the delta file meets the size criteria (see note below) then the server will upload the delta file to the Tentacle and call Calamari to apply the delta file to the transferred package. 
-n.b. If any of [these issues](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) are experienced during the creation or application of the delta, then the entire package will be uploaded to the tentacle.
-6. Once the delta is applied, the signature file from step 2 will be compared with the final applied package on the target to determine if the change was successful. If the signatures do not match, calamari will request the server to re-upload the entire package.
+4. If the delta file meets the size criteria (see note below), the server will upload the delta file to the Tentacle and call Calamari to apply the delta file to the transferred package. N.B. If any of [these issues](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) are experienced during the creation or application of the delta, then the entire package will be uploaded to the tentacle.
+5. Once the delta is applied, the signature file from step 2 will be compared with the final applied package on the target to determine if the change was successful. If the signatures don't match, calamari will request the server to re-upload the entire package.
 
 :::info
 **Delta file size**
