@@ -4,11 +4,11 @@ description: Octopus Deploy and Azure DevOps can work together to make automated
 position: 1
 ---
 
-The new structure of Team Foundation Build gives us a great opportunity to integrate better with your build and release processes from Azure DevOps (formerly VSO) and on-premises Team Foundation Server (TFS) servers. We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance or TFS 2017 server.  This extension makes the following tasks available to your Build and Release processes:
+We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance.  This extension makes the following tasks available to your Build and Release processes:
 
 - The Octopus Tools installer task.
-- Packaging your application.
 - Pushing your package to Octopus.
+- Push package build Information to Octopus
 - Creating a release in Octopus.
 - Deploying a release to an environment in Octopus.
 - Promoting a release from one environment to the next.
@@ -19,16 +19,11 @@ We've open-sourced the [OctoTFS repository in GitHub](https://github.com/Octopu
 
 ## Installing the extension
 
-If you're using **Azure DevOps or on-premises Team Foundation Server (TFS) 2017 (or newer)** you can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
+You can simply [install the extension from the marketplace](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) and follow the instructions below.
 
 If you're using an earlier version of TFS, see the [Extension Compatibility documentation](extension-compatibility.md) for details on where to get a compatible extension.
 
 After installing the extension, follow the below steps to get it running for your build.
-
-:::hint
-**Manually installing the extension (not recommended)**
-If you want to make changes to the build task that might not be appropriate for everyone, you can download and manually install the build task yourself. See [Manually install the Build Task (not recommended)](manually-install-the-build-task.md) for details.
-:::
 
 ## Use your own version of Octo
 
@@ -36,21 +31,9 @@ You can bring your own version of the Octopus CLI and avoid the use of installer
 
 ## Add a connection to Octopus Deploy
 
-In Azure DevOps, click the **Project Settings** cog at the bottom-left of the project screen, then click **Service connections** under **Pipelines**.
+Follow this instruction on how to creaste a new service connection and make sure you pick **Octopus Deploy**.
 
-In Visual Studio Team Services, hover over the **Manage Project** cog in the top right corner of the project screen, and click the **Services** link.
-
-![](images/services-setting.jpg "width=206")
-
-Click **New service connection** or **New Service Endpoint** and choose **Octopus Deploy**.
-
-![](images/new-octopus-connection.jpg "width=241")
-
-Specify a **Connection Name** and specify the **Server Url** to your Octopus Server (including the port if required).
-
-Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field.
-
-![](images/new-octopus-connection-2.jpg "width=500")
+Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field and the Octopus server url.
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
@@ -77,43 +60,18 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 
 ## Demands and the Octopus tools installer task
 
-The Azure DevOps extension tasks require the Octopus CLI to be available on the path when executing on a build agent and must have the .net core 2.0.0 runtime or newer installed. This may not always be possible such as with the Azure DevOps hosted agents. In order to
-make this work, all Octopus tasks will automatically attempt to download and use the latest version of the Octopus CLI unless they're [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md) as specified above. If you would like to avoid any additional downloads or to use a specific version of the Octopus CLI then you can by adding the Octopus Tools Installer task to the start of your build definition. No attempt will be made to download the Octopus CLI if the capability is detected on your build agent.
+The Azure DevOps extension tasks require the Octopus CLI to be available on the path when executing on a build agent. Because of this we have created the "Octopus Tools installer" task that will download the Octopus CLI for you, you need to specify the version of the CLI you want to use. Alternative you can have the Octopus CLI [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md). 
 
-:::hint
-Version 2.x.x of the extension included a bundled version of the Octo tools and did not require the agent to be setup with Octo in the path and did not support running on Linux or Mac build agents.
-:::
 
 ## Package your application and push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
-To integrate with Octopus Deploy, an application must be packaged into either a NuGet or Zip package, and pushed to Octopus Deploy (or any NuGet repository).
+To integrate with Octopus Deploy, an application must be packaged into either a NuGet, Zip or tar package, and pushed to Octopus Deploy (or any NuGet repository).
 
 :::hint
 We strongly recommend reading the [Build Versions in Team Build](build-versions-in-team-build.md) guide for advice around build and package versions.
 :::
 
-There are two options for packaging and pushing:
-
-- Use the [Package Application](#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension) Steps added by this extension.
-- [Use OctoPack](#PackageyourApplicationandPushtoOctopus-UsingOctoPack) as part of your build process.
-
-
-### Using OctoPack to create and push a package {#PackageyourApplicationandPushtoOctopus-UsingOctoPack}
-
-Follow the [OctoPack instructions](/docs/packaging-applications/create-packages/octopack/index.md) to add OctoPack to your project and configure the msbuild arguments.
-
-In the new Team Foundation build process, the arguments below should be in the **MSBuild Arguments** field for the **Visual Studio Build** or **MSBuild** step. Here is a list of the available variables that you can use from the Microsoft [Build use variables](https://msdn.microsoft.com/Library/vs/alm/Build/scripts/variables).
-
-```powershell
-/p:RunOctoPack=true /p:OctoPackPublishPackageToHttp=http://path.to.octopus/nuget/packages /p:OctoPackPublishApiKey=API-ABCDEFGHIJLKMNOP
-```
-
-:::warning
-**Octopack and .NET Core**
-Octopack is not supported for .NET Core and we suggest using the Azure DevOps extensions instead.
-:::
-
-![](images/3278377.png "width=500")
+There are many ways to create such package formats in Azure DevOps, our recommended approach is to use [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
 ## Add steps to your build or release process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
 
@@ -128,52 +86,55 @@ To add a step to your Release process, edit your Release Definition, select the 
 
 ### Add a package application step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
 
-:::hint
-**If not using OctoPack**
-This step is only required if you are not [using OctoPack](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopack.md) to create your package.
-:::
-
-Add a step to your Build or Release process, choose **Package**, click **Add** next to the **Package Application** task.
-
-![](images/add-package-step.jpg "width=500")
-
-![](images/configure-package-step.jpg "width=500")
+Add a step to your Build or Release process, our recommended approach is to use [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
 :::success
 **Package versioning**
-In the above image, the package version is defined as $(Build.BuildNumber).
-It's a common (and handy) practice to do this, and set the Build Number to be a format that corresponds to a valid NuGet version number.
-
 We recommend you read the [Build Versions in Team Build](build-versions-in-team-build.md) document for full details on versioning builds and packages.
 :::
-
-See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/packaging-applications/create-packages/octopus-cli.md) for more details).
 
 #### Publish package artifact {#UsetheTeamFoundationBuildCustomTask-PublishPackageArtifact}
 
 If your Package Application step is part of your Build process and your Push Packages to Octopus step is part of your Release process, then you will need to add a **{{Utility,Publish}}** Artifact step to make the package available to the Release process.
 
-![](images/5865475.png "width=500")
-
-![](images/5865476.png "width=500")
+```yaml
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+```
 
 ### Add a push package(s) to Octopus step {#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackagestoOctopusStep}
 
-Add a step to your build or release process, choose **Package**, click **Add** the **Push Packages(s) to Octopus** task.
+Add a step to your build or release process, search for **Push Packages(s) to Octopus** task.
 
-![](images/add-push-step.jpg "width=500")
-
-![](images/configure-push-step.jpg "width=500")
+```yaml
+- task: OctopusPush@4
+  inputs:
+    OctoConnectedServiceName: 'Octopus Server'
+    Space: 'Default'
+    Package: '$(Build.ArtifactStagingDirectory)/packages/*.zip'
+    Replace: 'true'
+```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/push.md) for more details).
 
 ### Add a push package build information to Octopus step {#UsetheTeamFoundationBuildCustomTask-AddBuildInformationStep}
 
-Add a step to your Build or Release process, choose **Package**, click **Add** next to the **Push Package Build Information to Octopus** task.
+Add a step to your Build or Release process, search for **Push Package Build Information to Octopus** task.
 
-![](images/add-buildinfo-step.png "width=500")
-
-![](images/configure-buildinfo-step.png "width=500")
+```yaml
+- task: OctopusMetadata@4
+  inputs:
+    OctoConnectedServiceName: 'Octopus Server'
+    Space: 'Default'
+    PackageId: |
+      OctoFX.Database
+      OctoFX.RateService
+    PackageVersion: '$(Build.BuildNumber)'
+    Replace: 'false'
+```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/build-information.md) for more details).
 
@@ -183,41 +144,47 @@ There are known compatibility issues with the build link generated by the Octopu
 
 ### Add a create Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaCreateOctopusReleaseStep}
 
-Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Create Octopus Release** task.
+Add a step to your Build or Release process, search for **Create Octopus Release** task.
 
-![](images/add-createrelease-step.jpg "width=500")
-
-![](images/configure-createrelease-step.jpg "width=500")
+```yaml
+- task: OctopusCreateRelease@5
+  inputs:
+    OctoConnectedServiceName: 'Octopus Server'
+    Space: 'Default'
+    ProjectName: 'OctoFX'
+```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/create-release.md) for more details).
 
-**Release Notes (Legacy)**
-
-Enabling the Include Changeset Comments and/or Include Work Items options will result in release notes which include deep-links into the TFS Work Items and Changesets.
-
-![](images/3278502.png "width=500")
-
-:::hint
-**Note:** The Release Notes options are considered legacy. We recommend clearing them and pushing [Build Information](#UsetheTeamFoundationBuildCustomTask-AddBuildInformationStep) alongside your packages, which allows the customizable Release Notes Template to generate automatic release notes.
-:::
-
 ### Add a deploy Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
 
-Add a step to your Build or Release process, choose **Deploy**, click **Add** next to the **Deploy Octopus Release** task.
+Add a step to your Build or Release process,search for **Deploy Octopus Release** task.
 
-![](images/add-deploy-step.jpg "width=500")
-
-![](images/configure-deploy-step.jpg "width=500")
+```yaml
+- task: OctopusDeployRelease@5
+  inputs:
+    OctoConnectedServiceName: 'Octopus Server'
+    Space: 'Default'
+    Project: 'OctoFX'
+    ReleaseNumber: 'latest'
+    Environments: 'Test'
+```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
 
 ## Add a promote Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep}
 
-Add a step to your build or release process, choose **Deploy**, click **Add** next to the **Promote Octopus Release** task.
+Add a step to your build or release process, search for **Promote Octopus Release** task.
 
-![](images/add-promote-step.jpg "width=500")
-
-![](images/configure-promote-step.jpg "width=500")
+```yaml
+- task: OctopusPromote@4
+  inputs:
+    OctoConnectedServiceName: 'Octopus Server'
+    Space: 'Default'
+    Project: 'OctoFX'
+    From: 'Test'
+    To: 'Production'
+```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
 
