@@ -16,12 +16,11 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 
 ## A package deployment in Octopus Deploy now looks something like this {#Deltacompressionforpackagetransfers-ApackagedeploymentinOctopusDeploynowlookssomethinglikethis}
 
-1. Find nearest previous versions of the package on the machine by calling [Calamari](https://octopus.com/blog/calamari).
-2. If a previous version of a package is found and the same package (matching PackageId, Version and file hash) exist on the Octopus Server.
-3. Create a signature file for the nearest package found.
-4. Build the delta between the previous package (using the above signature file) and the new package.
-5. Upload delta file to Tentacle and call Calamari to apply the delta file to the package found in the previous step.
-6. If no previous version of the package was found, we upload the full package instead.
+1. Identify all of the versions of the package available on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
+2. Calamari then attempts to match these packages with packages available on the Octopus Server. If the PackageId, Version and file hash are identical then create a signature file for the package.
+3. Build the delta file between the previous package and the package being transferred from the Octopus Server. 
+4. If the delta file meets the size criteria (see note below), the server will upload the delta file to the Tentacle and call Calamari to apply the delta file to the transferred package. N.B. If any of [these issues](#Deltacompressionforpackagetransfers-Whatifsomethinggoeswrong?ifanyofthebelowoccurswewilluploadthefullpackage) are experienced during the creation or application of the delta, then the entire package will be uploaded to the tentacle.
+5. Once the delta is applied, the signature file from step 2 will be compared with the final applied package on the target to determine if the change was successful. If the signatures don't match, calamari will request the server to re-upload the entire package.
 
 :::info
 **Delta file size**
