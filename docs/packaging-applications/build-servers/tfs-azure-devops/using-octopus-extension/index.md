@@ -33,7 +33,7 @@ You can bring your own version of the Octopus CLI and avoid the use of installer
 
 Follow [these](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) instructions to create a new service connection and make sure you pick **Octopus Deploy**.
 
-Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field and the Octopus server url.
+Enter a valid [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **API Key** field and the Octopus Server url.
 
 After you've saved the connection, it should be available from the Octopus Deploy Build Tasks.
 
@@ -65,7 +65,7 @@ The Azure DevOps extension tasks require the Octopus CLI to be available on the 
 
 ## Package your application and push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
-To integrate with Octopus Deploy, an application must be packaged into either a NuGet, Zip or tar package, and pushed to Octopus Deploy (or any NuGet repository).
+To integrate with Octopus Deploy, an application must be packaged into either a NuGet, ZIP or tar package, and pushed to Octopus Deploy (or any NuGet repository).
 
 :::hint
 We strongly recommend reading the [Build Versions in Team Build](build-versions-in-team-build.md) guide for advice around build and package versions.
