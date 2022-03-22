@@ -1,6 +1,6 @@
 ---
 title: Installing the Octopus CLI as a capability
-description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps/TFS custom build agents.
+description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps custom build agents.
 ---
 
 There are times when you may want to install the Octopus CLI on a build agent, such as to avoid downloads, opening any firewalls and or changing proxy rules. There are a few ways in which this can be
