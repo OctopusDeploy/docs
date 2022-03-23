@@ -58,37 +58,37 @@ This section contains features that are found in Octopus [runbooks](/docs/runboo
 
 ### AWS
 
-Explore examples of Octopus Deploy's [AWS integration](/docs/deployments/aws/index.md) , including EC2, AWS RDS database, AWS CLI, Lambda and ECS deployments.
+Explore examples of Octopus Deploy's [AWS integration](/docs/deployments/aws/index.md), including EC2, AWS RDS database, AWS CLI, Lambda and ECS deployments.
 
 !include <samples-aws-runbook-feature-list>
 
 ### Azure
 
-Explore ways to use Octopus Deploy's built-in [Azure](/docs/deployments/azure/index.md) steps , including Azure WebApp, Azure CLI, ARM template and Azure SQL deployments.
+Explore ways to use Octopus Deploy's built-in [Azure](/docs/deployments/azure/index.md) steps, including Azure WebApp, Azure CLI, ARM template and Azure SQL deployments.
 
 !include <samples-azure-runbook-feature-list>
 
 ### Google Cloud (GCP)
 
-Find out more about the new Octopus dedicated [Google Cloud](/docs/deployments/google-cloud/index.md) support , including gcloud CLI, Google Container Registry (GCR), Terraform and Kubernetes deployments.
+Find out more about the new Octopus dedicated [Google Cloud](/docs/deployments/google-cloud/index.md) support, including gcloud CLI, Google Container Registry (GCR), Terraform and Kubernetes deployments.
 
 !include <samples-google-cloud-runbook-feature-list>
 
 ### IIS
 
-Learn more about the [IIS](/docs/deployments/windows/iis-websites-and-application-pools.md) support that Octopus has to offer , including IIS deployments, and community step templates that allow fine-grain control of your IIS Websites and applications.
+Learn more about the [IIS](/docs/deployments/windows/iis-websites-and-application-pools.md) support that Octopus has to offer, including IIS deployments, and community step templates that allow fine-grain control of your IIS Websites and applications.
 
 !include <samples-iis-runbook-feature-list>
 
 ### Java
 
-Octopus has a range of [Java application](/docs/deployments/java/index.md) deployment examples , from deploying to Tomcat via Manager, deployments to Wildfly EAP and community step templates that offer first-class database deployment options like Flyway.
+Octopus has a range of [Java application](/docs/deployments/java/index.md) deployment examples, from deploying to Tomcat via Manager, deployments to Wildfly EAP and community step templates that offer first-class database deployment options like Flyway.
 
 !include <samples-java-runbook-feature-list>
 
 ### Kubernetes
 
-View practical [Kubernetes](/docs/deployments/kubernetes/index.md) examples , including deployment, service, ingress resources, and helm chart upgrades.
+View practical [Kubernetes](/docs/deployments/kubernetes/index.md) examples, including deployment, service, ingress resources, and helm chart upgrades.
 
 !include <samples-kubernetes-runbook-feature-list>
 
