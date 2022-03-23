@@ -67,7 +67,7 @@ The Azure DevOps extension tasks require the Octopus CLI to be available on the 
 
 ## Package your application and push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
-To integrate with Octopus Deploy, an application must be packaged into either a NuGet, ZIP archive or tarball, and pushed to Octopus Deploy (or any external [feed supported](/docs/packaging-applications/package-repositories/index.md) by Octopus Server).
+To integrate with Octopus Deploy, an application must be packaged into either a NuGet, ZIP archive, or tarball, and pushed to Octopus Deploy (or any supported [external feed](/docs/packaging-applications/package-repositories/index.md) by Octopus Server).
 
 :::hint
 We strongly recommend reading the [Build Versions in Azure DevOps](build-versions-in-team-build.md) guide for advice around build and package versions.
