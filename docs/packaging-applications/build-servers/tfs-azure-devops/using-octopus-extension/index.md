@@ -88,7 +88,7 @@ To add a step to your Release process, edit your Release Definition, select the 
 
 ### Add a package application step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
 
-Add a step to your Build or Release process, our recommended approach is to use [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
+Add a step to your Build or Release process, our recommended approach is to use the [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
 :::success
 **Package versioning**
