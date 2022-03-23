@@ -40,7 +40,7 @@ foreach ($projectKey in $projects)
     if($null -ne $variableTemplate) {
 
         $variableTemplateId = $variableTemplate.Id
-        $variableTemplateIsSensitiveControlType = $variableTemplate.DisplaySettings.{Octopus.ControlType} -eq "Sensitive"
+        $variableTemplateIsSensitiveControlType = $variableTemplate.DisplaySettings["Octopus.ControlType"] -eq "Sensitive"
 
         Write-Host "Found templateId for Template: $variableTemplateName = $variableTemplateId"
         $projectConnectedEnvironments = $project.Variables | Get-Member | Where-Object {$_.MemberType -eq "NoteProperty"} | Select-Object -ExpandProperty "Name"
@@ -123,7 +123,7 @@ try
         # Get Project template ID
         $variableTemplate = ($project.Templates | Where-Object Name -eq $variableTemplateName | Select-Object -First 1)
         $variableTemplateId = $variableTemplate.Id
-        $variableTemplateIsSensitiveControlType = $variableTemplate.DisplaySettings.{Octopus.ControlType} -eq "Sensitive"
+        $variableTemplateIsSensitiveControlType = $variableTemplate.DisplaySettings["Octopus.ControlType"] -eq "Sensitive"
 
         if($null -ne $variableTemplateId) {
 
