@@ -73,7 +73,7 @@ To integrate with Octopus Deploy, an application must be packaged into either a 
 We strongly recommend reading the [Build Versions in Azure DevOps](build-versions-in-team-build.md) guide for advice around build and package versions.
 :::
 
-There are many ways to create such package formats in Azure DevOps, our recommended approach is to use [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
+There are many ways to create such package formats in Azure DevOps, our recommended approach is to use the [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
 ## Add steps to your build or release process {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess}
 
