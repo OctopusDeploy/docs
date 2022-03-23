@@ -1,3 +1,8 @@
+**Octopus Admin**
+
+- Instance Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1001/operations/runbooks/Runbooks-1941/process/RunbookProcess-Runbooks-1941" target="_blank">Pre-load Calamari on worker</a>
+    
 **Pattern - IaC**
 
 - Dynamic worker army
@@ -10,6 +15,12 @@
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861/operations/runbooks/Runbooks-1923/process/RunbookProcess-Runbooks-1923" target="_blank">Create Infrastructure</a>: <i>Creates EC2 instances using Terraform, registers them as deployment targets with Octopus, and then provisions them with the necessary tooling for application deployment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861/operations/runbooks/Runbooks-1924/process/RunbookProcess-Runbooks-1924" target="_blank">Destroy Infrastructure</a>: <i>Destroys created EC2 instances and all supporting resources created through Terraform along with deregistering them as targets within Octopus.</i>
     
+**Target - Kubernetes**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-290/operations/runbooks/Runbooks-263/process/RunbookProcess-Runbooks-263" target="_blank">Create OctoPetShop GCP K8s Cluster</a>: <i>Runbook for spinning up the K8s cluster for the OctoPetShop application</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-290/operations/runbooks/Runbooks-266/process/RunbookProcess-Runbooks-266" target="_blank">Destroy OctoPetShop GCP K8s Cluster</a>: <i>Runbook for destroying the OctoPetShop K8s cluster at the end of the day.</i>
+    
 **Target - Serverless**
 
 - AWS OctoSubscriber
@@ -18,6 +29,8 @@
 - AWS Subscriber S3
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1821/process/RunbookProcess-Runbooks-1821" target="_blank">Spin Up Subscriber Infrastructure</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1823/process/RunbookProcess-Runbooks-1823" target="_blank">Tear Down AWS Subscriber Infrastructure</a>
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-568/operations/runbooks/Runbooks-569/process/RunbookProcess-Runbooks-569" target="_blank">Create Linux Worker</a>
     
 **Target - Windows**
 

@@ -1,3 +1,8 @@
+**Octopus Admin**
+
+- Instance Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1001/operations/runbooks/Runbooks-1941/process/RunbookProcess-Runbooks-1941" target="_blank">Pre-load Calamari on worker</a>
+    
 **Pattern - Blue-Green**
 
 - Random Quotes .NET
@@ -32,6 +37,9 @@
    - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-647/operations/runbooks/Runbooks-664/process/RunbookProcess-Runbooks-664" target="_blank">Deregister task definitions</a>: <i>Removes the task definitions from ECS</i>
 - AWS ECS 2
    - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-1848/operations/runbooks/Runbooks-1896/process/RunbookProcess-Runbooks-1896" target="_blank">Deregister task definitions</a>: <i>Removes the task definitions from ECS</i>
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-945/operations/runbooks/Runbooks-970/process/RunbookProcess-Runbooks-970" target="_blank">Create Infrastructure</a>
+   - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-945/operations/runbooks/Runbooks-971/process/RunbookProcess-Runbooks-971" target="_blank">Destroy Infrastructure</a>
     
 **Target - Kubernetes**
 
@@ -46,6 +54,30 @@
 
 This creates a single cluster in the Production environment, and then copies it as a target to all environments</i>
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-861/operations/runbooks/Runbooks-902/process/RunbookProcess-Runbooks-902" target="_blank">Delete Cluster</a>: <i>Delete Kubernetes cluster and node groups from AWS</i>
+    
+**Target - MariaDB**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-350/operations/runbooks/Runbooks-344/process/RunbookProcess-Runbooks-344" target="_blank">Create AWS RDS</a>: <i>Create environment-specific AWS infrastructure.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-350/operations/runbooks/Runbooks-345/process/RunbookProcess-Runbooks-345" target="_blank">Destroy AWS RDS</a>: <i>Destroy environment-specific AWS infrastructure.</i>
+    
+**Target - MySQL**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-324/operations/runbooks/Runbooks-336/process/RunbookProcess-Runbooks-336" target="_blank">Create AWS RDS DB</a>: <i>Create environment-specific AWS infrastructure.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-324/operations/runbooks/Runbooks-338/process/RunbookProcess-Runbooks-338" target="_blank">Destroy AWS RDS DB</a>: <i>Destroy environment-specific AWS infrastructure.</i>
+    
+**Target - Oracle**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-422/projects/Projects-662/operations/runbooks/Runbooks-683/process/RunbookProcess-Runbooks-683" target="_blank">Create AWS RDS</a>: <i>Creates an Oracle database instance.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-422/projects/Projects-662/operations/runbooks/Runbooks-684/process/RunbookProcess-Runbooks-684" target="_blank">Destroy AWS RDS</a>: <i>Destroys Oracle database stack.</i>
+    
+**Target - PostgreSQL**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-341/operations/runbooks/Runbooks-350/process/RunbookProcess-Runbooks-350" target="_blank">Create AWS RDS</a>
+   - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-341/operations/runbooks/Runbooks-352/process/RunbookProcess-Runbooks-352" target="_blank">Destroy AWS RDS</a>
     
 **Target - Serverless**
 
@@ -68,12 +100,22 @@ This creates a single cluster in the Production environment, and then copies it 
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-374/operations/runbooks/Runbooks-366/process/RunbookProcess-Runbooks-366" target="_blank">Restore AWS Redgate Masked Backup for Feature Branches</a>: <i>Runbook that will create a feature branch database on test using the masked production database backup stored in s3</i>
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-374/operations/runbooks/Runbooks-354/process/RunbookProcess-Runbooks-354" target="_blank">Spin Up AWS Redgate SQL Server RDS Server</a>: <i>Runbook to spin up a database in AWS for the Redgate Sample</i>
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-374/operations/runbooks/Runbooks-355/process/RunbookProcess-Runbooks-355" target="_blank">Tear Down AWS Redgate SQL Server RDS Server</a>: <i>Runbook to tear down the database in AWS for Redgate sample</i>
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-153/operations/runbooks/Runbooks-488/process/RunbookProcess-Runbooks-488" target="_blank">Query AWS EC2 Instances</a>: <i>Runbook to query EC2 instances using AWS PowerShell Cmdlets</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-153/operations/runbooks/Runbooks-356/process/RunbookProcess-Runbooks-356" target="_blank">Spin up AWS Windows Worker</a>: <i>Runbook to spin up an AWS Windows Worker in the Oregon Region</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-153/operations/runbooks/Runbooks-357/process/RunbookProcess-Runbooks-357" target="_blank">Tear Down AWS Windows Worker</a>: <i>Runbook to tear down the AWS Windows Worker in the California Region</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-153/operations/runbooks/Runbooks-122/process/RunbookProcess-Runbooks-122" target="_blank">Unleash the Kraken</a>: <i>Runbook to kick off the spinning up of all Azure Windows Workers, along with any other infrastructure which depends on those workers in an orderly manner.</i>
     
 **Target - Tomcat**
 
 - Pet Clinic AWS
    - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-371/operations/runbooks/Runbooks-348/process/RunbookProcess-Runbooks-348" target="_blank">Create Infrastructure</a>
    - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-371/operations/runbooks/Runbooks-353/process/RunbookProcess-Runbooks-353" target="_blank">Destroy Infrastructure</a>
+    
+**Target - Windows**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-1846/operations/runbooks/Runbooks-1981/process/RunbookProcess-Runbooks-1981" target="_blank">Create Terraform State AWS Bucket</a>: <i>Creates an AWS Bucket to store Terraform state file in.</i>
     
 **Tenants - Regions**
 

@@ -1,3 +1,8 @@
+**Octopus Admin**
+
+- Instance Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1001/operations/runbooks/Runbooks-1941/process/RunbookProcess-Runbooks-1941" target="_blank">Pre-load Calamari on worker</a>
+    
 **Pattern - Rolling**
 
 - PetClinic Infrastructure
@@ -21,3 +26,5 @@
 - Rancher
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1032/operations/runbooks/Runbooks-1027/process/RunbookProcess-Runbooks-1027" target="_blank">Create Infrastructure</a>: <i>Creates VM in GCP that runs Rancher.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1032/operations/runbooks/Runbooks-1123/process/RunbookProcess-Runbooks-1123" target="_blank">Destroy Infrastructure</a>: <i>Tears down VM hosting Rancher and removes clusters from Deployment Targets.</i>
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-290/operations/runbooks/Runbooks-1442/process/RunbookProcess-Runbooks-1442" target="_blank">Refresh GKE OctoPetShop Token</a>: <i>Refreshes (or creates) the GKE OctoPetShop Account token</i>

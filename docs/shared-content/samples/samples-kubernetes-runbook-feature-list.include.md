@@ -1,3 +1,9 @@
+**Pattern - Tenants**
+
+- Space Infrastructure
+   - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1301/operations/runbooks/Runbooks-1341/process/RunbookProcess-Runbooks-1341" target="_blank">Create Region Workers</a>: <i>Creates workers for all of the specified regions.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1301/operations/runbooks/Runbooks-1942/process/RunbookProcess-Runbooks-1942" target="_blank">Test listening worker NodePort</a>
+    
 **Target - Kubernetes**
 
 - nginx+httpd
