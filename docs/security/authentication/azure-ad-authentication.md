@@ -52,7 +52,7 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 #### Enable ID Tokens and configure
 
 :::hint
-As of version `2022.2.XXXXX`, Octopus Deploy no longer uses implicit flow for OAuth by default. We suggest following the instructions for generating a client secret below instead.
+From **Octopus 2022.2.XXXXX**, OAuth implicit flow is no longer used by default. We suggest following the instructions for generating a client secret below instead.
 :::
 
 1. Within your new App registration in AzureAD navigate to Authentication.
