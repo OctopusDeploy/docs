@@ -135,7 +135,6 @@
 
 - OctoFX
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282/operations/runbooks/Runbooks-274/process/RunbookProcess-Runbooks-274" target="_blank">Manual Failover to Primary</a>: <i>This is a Runbook designed to failover back from Disaster Recovery in UK South to Western Europe. Please check all resources are healthy before running this Runbook:
-
       * Must be run in the context of Production for URL testing to work successfully.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282/operations/runbooks/Runbooks-273/process/RunbookProcess-Runbooks-273" target="_blank">Monitor Primary Website & Failover to DR if offline</a>: <i>This is to be run in the context of Disaster Recovery so it can spin up the correct machines and then failover:
       * Checks Production URL
