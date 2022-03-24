@@ -1,5 +1,5 @@
 ---
-title: Google Cloud
+title: Google Cloud Platform (GCP)
 description: Octopus Deploy can help you perform repeatable and controlled deployments of your applications into Google Cloud Platform (GCP).
 position: 35
 hideInThisSection: true

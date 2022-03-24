@@ -1,5 +1,5 @@
 ---
-title: AWS
+title: Amazon Web Services (AWS)
 description: Octopus Deploy provides built-in support for deploying to Amazon Web Services (AWS).
 position: 20
 hideInThisSectionHeader: true

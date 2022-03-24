@@ -1,11 +1,11 @@
 ---
-title: AWS
-description: Octopus Deploy can help you automate provisioning infrastructure in AWS using runbooks.
+title: Amazon Web Services (AWS)
+description: Octopus Deploy can help you automate provisioning infrastructure in Amazon Web Services (AWS) using runbooks.
 position: 40
 hideInThisSectionHeader: true
 ---
 
-Runbooks are a powerful tool that can be used to ensure that infrastructure is created in a repeatable and consistent fashion.  Octopus comes with a number of built-in step templates to help interface with the AWS cloud platform:
+Runbooks are a powerful tool that can be used to ensure that infrastructure is created in a repeatable and consistent fashion.  Octopus comes with a number of built-in step templates to help interface with the Amazon Web Services (AWS) cloud platform:
 
 - Run an AWS CLI Script.
 - Deploy an AWS CloudFormation template.
