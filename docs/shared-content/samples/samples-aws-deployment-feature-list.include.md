@@ -2,6 +2,11 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1702/deployments/process" target="_blank">AWS Secrets Manager</a>: <i>Sample project retrieving secrets from AWS Secrets Manager using the [Retrieve Secrets](https://library.octopus.com/step-templates/5d5bd3ae-09a0-41ac-9a45-42a96ee6206a/actiontemplate-aws-secrets-manager-retrieve-secrets) step template.</i>
     
+**Target - Containers**
+
+- <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-1848/deployments/process" target="_blank">AWS ECS 2</a>: <i>Deploys the OctoPetShop application to AWS ECS Fargate using AWS ECR. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/OctoPetShop_OctoPetShopDockerEcr)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-647/deployments/process" target="_blank">AWS ECS</a>: <i>Deploys the OctoPetShop application to AWS ECS Fargate using AWS ECR. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/OctoPetShop_OctoPetShopDockerEcr)</i>
+    
 **Target - MariaDB**
 
 - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-363/deployments/process" target="_blank">DBUp - AWS RDS</a>: <i>Example project for automated database deployments using Dbup against an AWS RDS MariaDB instance. [Build definition](https://jenkinssample.octopus.com/job/PetClinic%20-%20Target%20-%20MariaDB%20-%20Dbup/)</i>
