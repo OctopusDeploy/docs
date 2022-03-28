@@ -334,6 +334,7 @@ When [referencing packages](/docs/deployments/custom-scripts/run-a-script-step.m
 | `Octopus.Action.Package[Acme].PackageId` <br/>The package ID | *Acme* |
 | `Octopus.Action.Package[Acme].FeedId` <br/>The feed ID | *feeds-123* |
 | `Octopus.Action.Package[Acme].PackageVersion` <br/>The version of the package included in the release | *1.4.0* |
+| `Octopus.Action.Package[Acme].OriginalPath` <br/>The location of the zip file before any actions are taken | *C:\Octopus\Packages\Spaces-1\feeds-builtin\Acme\Acme.1.4.0.zip* |
 | `Octopus.Action.Package[Acme].ExtractedPath` <br/>The absolute path to the extracted directory (if the package is configured to be extracted) |  *C:\Octopus\Work\20210821060923-7117-31\Acme* |
 | `Octopus.Action.Package[Acme].PackageFilePath` <br/>The absolute path to the package file (if the package has been configured to not be extracted) | *C:\Octopus\Work\20210821060923-7117-31\Acme.zip* |
 | `Octopus.Action.Package[Acme].PackageFileName` <br/>The name of the package file (if the package has been configured to not be extracted) | *Acme.zip* |
