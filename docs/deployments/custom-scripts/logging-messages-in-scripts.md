@@ -67,7 +67,7 @@ Wait log messages will be show in a different color in the log. Their primary us
 
 ## Progress log level
 
-Progress messages will display and update a progress bar on your deployment tasks while they are running. You can provide the percentage complete and an optional message to display with the progress bar.
+Progress messages will display and update a progress bar on your deployment tasks while they are running, on the Task Log tab. You can provide the percentage complete and an optional message to display with the progress bar.
 
 ```ps PowerShell
 Update-Progress 10
