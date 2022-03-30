@@ -46,7 +46,7 @@ By default, the entire package will be uploaded to the S3 bucket untouched with 
 #### Variable Substitution File Patterns
 
 :::hint
-Variable Substitution File Patterns for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
+Variable Substitution File Patterns field for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
 :::
 
 A newline-separated list of file names to transform, relative to the package contents. Extended wildcard syntax is supported. E.g., `Notes.txt`, `Config\*.json`, `**\specific-folder\*.config`.
@@ -63,7 +63,7 @@ Iteration over variable sets or comma-separated values with `each`:
 #### Structured Variable File Patterns
 
 :::hint
-Structured Variable File Patterns for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
+Structured Variable File Patterns field for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
 :::
 
 A list of files to perform structured variable substitution on. 
@@ -73,7 +73,7 @@ Target files need to be newline-seperated, relative to the package contents. Ext
 #### Use filename with embedded content hash
 
 :::hint
-The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
+The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
 :::
 
 ![Package options](filename-with-content-hash-option.png "width=500")
