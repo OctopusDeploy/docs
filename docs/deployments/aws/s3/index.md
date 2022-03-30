@@ -41,12 +41,48 @@ The [Github feed](/docs/packaging-applications/package-repositories/github-feeds
 
 By default, the entire package will be uploaded to the S3 bucket untouched with the given bucket key, metadata, and tags.
 
-![Package options](package-options.png "width=500")
+![Package options](entire-package-options.png "width=500")
 
-:::warning
-Please note, we do not support file substitutions within the package if the entire package is going to be uploaded to the s3 bucket.
+#### Variable Substitution File Patterns
+
+:::hint
+Variable Substitution File Patterns for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
 :::
 
+A newline-separated list of file names to transform, relative to the package contents. Extended wildcard syntax is supported. E.g., `Notes.txt`, `Config\*.json`, `**\specific-folder\*.config`.
+This field supports extended template syntax. Conditional `if` and `unless`:
+```
+#{if MyVar}...#{/if}
+```
+
+Iteration over variable sets or comma-separated values with `each`:
+```
+#{each mv in MyVar}...#{mv}...#{/each}
+```
+
+#### Structured Variable File Patterns
+
+:::hint
+Structured Variable File Patterns for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
+:::
+
+A list of files to perform structured variable substitution on. 
+
+Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
+
+#### Use filename with embedded content hash
+
+:::hint
+The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** were added in Octopus **2022.2**.
+:::
+
+![Package options](filename-with-content-hash-option.png "width=500")
+
+Selecting this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
+
+The hash should appear before the extension in the format of `filename@hash.extensions`. The hash value is based on the contents of the zip package and is calculated after any variable substitutions/replacements.
+
+Additionally, the hash value is available as a variable named `Octopus.Action.Package.PackageContentHash` to be used as a custom key. Note that this variable can only be used in this step.
 
 ### Individual files from the package
 
