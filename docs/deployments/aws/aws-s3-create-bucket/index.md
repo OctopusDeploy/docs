@@ -29,13 +29,21 @@ The following settings will need to be configured:
 * AWS Region
 * AWS Account
 
-The Bucket Name and the CloudFormationStack Name will be automatically generated if they are not provided.
+The Bucket Name will be automatically generated if it are not provided.
 
 ### Tags section
 
 Specify a list of tags and their values. These tags will be added to Bucket as well as the CloudFormation Stack.
 
 ![Create an Amazon S3 Bucket Tags section](images/tags-section.png "width=500")
+
+### Advanced section
+
+Provide some optional, advanced configuration options.
+
+![Create an Amazon S3 Bucket Tags section](images/advanced-section.png "width=500")
+
+The bucket is created and managed through a CloudFormation stack and you can optionally provide a specific CloudFormation Stack Name to use, otherwise one will be automatically generated.
 
 ## Output variables
 
