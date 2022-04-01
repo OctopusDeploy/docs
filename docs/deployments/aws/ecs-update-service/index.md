@@ -7,7 +7,7 @@ Octopus supports deploying a new release to an existing ECS Service through the 
 This step provides an opinionated deployment workflow that allows new released to be deployed to an ECS Cluster that is managed externally, for example manually or via Terraform.
 
 :::hint
-The `Update Amazon ECS Step` was added in Octopus **2021.3**. Presently only **Fargate** clusters are supported.
+The `Update Amazon ECS Step` was added in Octopus **2021.3**.
 :::
 
 At a high level, the `Update Amazon ECS Service` step will:
@@ -22,7 +22,7 @@ The following instructions can be followed to configure the `Update Amazon ECS S
 ## Step 1: Make a note of your ECS cluster's settings
 
 :::hint
-Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with the `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with the `FARGATE` capacity provider.
+Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.
 :::
 
 The following settings will need to be configured:
