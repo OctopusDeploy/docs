@@ -49,9 +49,6 @@ This creates a single cluster in the Production environment, and then copies it 
     
 **Target - Serverless**
 
-- AWS OctoSubscriber
-   - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-1806/process/RunbookProcess-Runbooks-1806" target="_blank">Get Canonical ID</a>
-   - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-1805/process/RunbookProcess-Runbooks-1805" target="_blank">Spin Up Subscriber Infrastructure</a>
 - AWS Subscriber S3
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1822/process/RunbookProcess-Runbooks-1822" target="_blank">Get Canonical ID</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1821/process/RunbookProcess-Runbooks-1821" target="_blank">Spin Up Subscriber Infrastructure</a>
