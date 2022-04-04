@@ -20,10 +20,15 @@ When you create a release via the UI, you must specify a branch name. Octopus wi
 
 We have added two new fields to our standard integrations - TeamCity, Azure DevOps, Jenkins, GitHub Actions, and Bamboo.
 
-* Git Reference - the user-friendly alias for a commit hash.
+* Git Reference - a user-friendly alias for a commit hash (branch).
 * Git Commit - the commit SHA-1 hash.
 
-When the app is built in a different repository to the Octopus project, Octopus does not guess or auto-populate the commit or branch from which you want to create the release. Also, if the app and the Octopus project are in the same repository, the head of that branch could have moved forward from what is expected. It is highly recommended that you provide the commit and not just the branch in both cases.
+The use of these fields will change depending on your requirements and where the Octopus project code resides. 
+
+If the Project's Deployment Process is in the same repository as the application, then it's most likely that a specific commit is to be used which relates to the build artifacts (see [Build.SourceVersion](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml)). This ensures that deployments will use the correct process and not any potential changes made to the head of the branch by the time the build was finished. The Release Creation Step in this case would include both the GitCommit, specifying the desired commit id, and GitRef for the branch, which provides additional information. 
+
+However, if the Projects Deployment Process is in a different repository as the application, then a specific branch or tag can identify which Deployment Process to use. E.g  Use the master branch, regardless of the application package contents. In this case, the Release Creation Step would not include a GitCommit, and only need to specify the GitRef for the branch. 
+
 
 :::hint
 Octopus and your build server have a different copy of your git repo. Sending in the commit or reference via the plug-in or the CLI is your build server's way of telling Octopus Deploy which copy of your OCL files to use.
