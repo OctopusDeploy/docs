@@ -28,8 +28,6 @@ The use of these fields can change depending on where the version-controlled pro
 1. If the OCL files are stored in the **same repository** as the application(s) being built, it's likely that a specific commit that relates to any artifacts created as part of the build itself should be used when creating the release. In this scenario, you should provide both the Git Reference and Git Commit hash of the executing build. This ensures that the release will use the correct version of the project, and won't include any potential changes made to the `HEAD` of the branch *before* the build has completed.
 2. If the OCL files are stored in a **different repository** than the application(s) being built, a specific branch or tag can identify which version of the project to use when creating the release. In this case, you would provide the Git Reference where the OCL files are stored, and not the Git Commit hash. e.g. Use the `main` branch, regardless of the location of the repository where the application(s) are being built as they are different.
 
-It is highly recommended that you provide the commit and not just the branch in both cases.
-
 :::hint
 Octopus and your build server have a different copy of your git repo. Sending in the commit or reference via the plug-in or the CLI is your build server's way of telling Octopus Deploy which copy of your OCL files to use.
 :::
