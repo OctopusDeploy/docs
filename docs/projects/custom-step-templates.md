@@ -56,7 +56,7 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![Step templates usage](images/step-templates-usage.png "width=500")
 
-If you have [version-controlled](/docs/projects/version-control/index.md) Octopus projects that are using action templates, you will be able to see a tab with version-controlled usages in up to twenty recently released projects. You can also search for usages in a specific branch or project using the filtering and advanced filtering. Usages of version-controlled projects are only detected in projects and branches that have been released.
+If you have [version-controlled](/docs/projects/version-control/index.md) projects that use step templates, you will be able to see a tab with version-controlled usages in up to twenty recently released projects. You can filter this list to search for usage in a specific branch or use the advanced filters. Step template usage for version-controlled projects is limited to projects (and branches) that have had a release created.
 
 ![Step templates usage 2](images/step-templates-usage-2.png "width=500")
 
