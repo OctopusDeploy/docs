@@ -20,7 +20,7 @@
     
 **Pattern - Tenants**
 
-- <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1302/deployments/process" target="_blank">Vet Clinic - Tenanted</a>: <i>A project that deploys the VetClinic application for [multiple customers modeled as tenants](https://octopus.com/docs/tenants/guides/multi-tenant-saas-application).</i>
+- <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1302/deployments/process" target="_blank">Vet Clinic</a>: <i>A project that deploys the VetClinic application for [multiple customers modeled as tenants](https://octopus.com/docs/tenants/guides/multi-tenant-saas-application).</i>
 - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1341/deployments/process" target="_blank">Car Rental</a>: <i>A sample car rental application utilizing PHP, Linux, and MySQL. [Build definition](https://jenkinssample.octopus.com/job/CarRental/)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1361/deployments/process" target="_blank">OctoPetShop</a>: <i>A project that deploys the OctoPetShop application for [different teams modeled as tenants](https://octopus.com/docs/tenants/guides/multi-tenant-teams).</i>
     
