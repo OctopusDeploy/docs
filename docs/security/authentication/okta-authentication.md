@@ -124,7 +124,7 @@ Alternatively these settings can be defined through the user interface by select
 ![Settings](okta/okta-settings.png "width=500")
 
 :::hint
-The request to Okta from Octopus will need to include the required scopes, see [Inspect the request to Okta for scope](#Oktaauthentication-Inspecttherequesttookta) for information about how to inspect the current requests scope.
+The request to Okta from Octopus will need to include the required scopes. See the [Inspect the request to Okta for scope](#Oktaauthentication-Inspecttherequesttookta) section for information about how to inspect the scope of the current request.
 :::
 
 Run the command below as an Administrator to configure the scopes OpenId, Profile, Email, and Groups:
