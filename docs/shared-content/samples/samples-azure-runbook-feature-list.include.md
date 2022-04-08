@@ -48,7 +48,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1361/operations/runbooks/Runbooks-1381/process/RunbookProcess-Runbooks-1381" target="_blank">Create Azure Web Apps</a>
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1361/operations/runbooks/Runbooks-1385/process/RunbookProcess-Runbooks-1385" target="_blank">Destroy Azure Database</a>
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1361/operations/runbooks/Runbooks-1382/process/RunbookProcess-Runbooks-1382" target="_blank">Destroy Azure Web Apps</a>
-- Vet Clinic - Tenanted
+- Vet Clinic
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1302/operations/runbooks/Runbooks-1321/process/RunbookProcess-Runbooks-1321" target="_blank">Create Azure Web Apps</a>
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1302/operations/runbooks/Runbooks-1343/process/RunbookProcess-Runbooks-1343" target="_blank">Destroy Azure Web Apps</a>
     
