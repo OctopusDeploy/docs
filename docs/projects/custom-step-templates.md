@@ -52,9 +52,14 @@ The Settings tab allows you to give your step a name and optional description.
 
 After saving your step, you'll notice another tab called Usage. This tab shows where the step is being used and whether the version being used is current or a previous version.
 
-You'll also see a handy counter next to the Usage tab so you can see at a glance how many projects are out-of-date.
+You'll also see a handy counter next to the Usage tab so you can see at a glance how many projects are out-of-date. You have the ability to filter database-backed usages by project, process type, and whether they are on the latest version of the step template or not.
 
 ![Step templates usage](images/step-templates-usage.png "width=500")
+
+If you have [version-controlled](/docs/projects/version-control/index.md) projects that use step templates, you will be able to see a tab with version-controlled usages in up to twenty recently released projects. You can filter this list to search for usage in a specific branch or use the advanced filters. Step template usage for version-controlled projects is limited to projects (and branches) that have had a release created.
+
+![Step templates usage 2](images/step-templates-usage-2.png "width=500")
+
 
 ## Custom logo
 
