@@ -128,7 +128,7 @@ The request to Okta from Octopus will need to include the required scopes, see [
 :::
 
 Run the command below as Administrator to configure the scopes OpenId, Profile, Email and Groups:
-```
+```text
 octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"
 ```
 
