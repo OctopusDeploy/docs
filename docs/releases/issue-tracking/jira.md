@@ -90,10 +90,10 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. If these are not provided, work items will not be displayed when viewing packages or creating releases.
 
-    :::warning
-    **An API token should be used**
-    Please note: The value entered for the password should be an **API Token**, rather than an actual password. You can create an API token from an Atlassian account in the **Security** area.
-    :::
+      :::warning
+      **Jira Cloud only supports API tokens**
+      Please note: Jira Cloud only supports an **API Token** for authentication. An API token should be entered, rather than an actual password. You can create one from an Atlassian account in the **Security** area.
+      :::
 
     - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
@@ -132,10 +132,10 @@ This process is for Jira Server, if you are using Jira Cloud, see [Connecting Ji
 
     - **Jira username/password**: Set these values to allow Octopus to connect to Jira and retrieve the Jira issue (work item) title when viewing packages or creating releases. Note that if these credentials are not provided, work items will not be displayed when viewing packages or creating releases.
 
-    :::warning
-    **API tokens not supported**
-    Please note: Jira Server does not support API tokens, so a username and password must be entered.
-    :::
+      :::warning
+      **Jira Server does not support API tokens**
+      Please note: Jira Server does not support API tokens, so a username and password must be entered.
+      :::
 
     - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md/) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
