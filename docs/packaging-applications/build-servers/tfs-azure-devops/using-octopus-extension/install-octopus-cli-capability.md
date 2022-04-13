@@ -72,7 +72,7 @@ Self-hosted agents are available for Linux, macOS, or Windows. They may also be 
 
 Binaries and/or packages for the Octopus CLI can be downloaded from the page, [Download Octopus CLI](https://octopus.com/downloads/octopuscli). A self-hosted agent must be configured to include the Octopus CLI before it is used in a pipeline. Furthermore, it must expose the user-defined capability, `octo` along with the version of the Octopus CLI installed on the agent (i.e. `8.0.1`). This capability will be asserted (via `demands`) by other tasks in the Octopus extension to ensure availability of the Octopus CLI.
 
-![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png)
+![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png "width=500")
 
 If this user-defined capability (above) is not defined for self-hosted agent then jobs will fail with the following error:
 
