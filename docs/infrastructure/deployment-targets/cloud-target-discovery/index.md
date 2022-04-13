@@ -66,7 +66,7 @@ To discover targets for an environment, dynamic infrastructure needs to be enabl
 
 Using target discovery during a deployment means that there may be no existing targets at the start of a deployment. To allow deployments to start without any targets:
 
-1. Navigate to **{{Projects,{Project name},Deployments,Settings}}**.
+1. Navigate to **{{Projects,\{Project name\},Deployments,Settings}}**.
 1. Expand the **Deployment Targets Required** and select the **Allow deployments to be created when there are no deployment targets** option.
 1. Click **SAVE**.
 
