@@ -122,13 +122,13 @@ Git providers allow you to create an access token in different ways. The recomme
 
 ### File Storage
 
-_Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory. 
+_Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
 
 :::hint
 If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
 :::
 
-While storing all your projects in one repository is possible, we do not recommend that. It will be challenging to manage and store all the Octopus projects related to the application in the repository as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository.
+We recommend storing projects alongside the application code. While it is possible to store all your deployment projects in a single central repository with folders for each project, it will be challenging to manage as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository. If you move the application code later, you can also [move the deployment configuration](/docs/projects/version-control/moving-version-control.md) to keep it with the application.
 
 ## OCL Files
 
