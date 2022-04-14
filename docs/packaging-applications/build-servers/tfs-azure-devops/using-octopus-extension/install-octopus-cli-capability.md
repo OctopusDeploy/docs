@@ -88,7 +88,7 @@ A self-hosted agent must be configured to include the Octopus CLI before using i
 Tasks in version 5 of the Octopus extension now assert [demands](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/demands) for agent capabilities. These tasks now require that self-hosted agents expose the user-defined capability, `octo` along with the version of the Octopus CLI installed on the agent (i.e. `8.0.1`).
 :::
 
-These task demands are introduced and mandated in version 5 in order to ensure availability of the Octopus CLI.
+These task demands were introduced and mandated in version 5 to ensure the availability of the Octopus CLI.
 
 ![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png)
 
