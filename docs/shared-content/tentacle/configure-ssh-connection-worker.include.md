@@ -12,7 +12,7 @@ If this discovery process is not successful, you will need to click **ENTER DETA
 5. Add a display name for the Worker.
 6. Select which [worker pools](/docs/infrastructure/workers/worker-pools.md) the Worker will be assigned to.
 7. Select the account that will be used for the Octopus Server and the SSH target to communicate.
-8. If entering the details manually, enter the **Host**, **Port** and the host's [fingerprint](#fingerprint).
+8. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
 
 You can retrieve the fingerprint of the default key configured in your sshd\_config file from the target server with the following command:
 
