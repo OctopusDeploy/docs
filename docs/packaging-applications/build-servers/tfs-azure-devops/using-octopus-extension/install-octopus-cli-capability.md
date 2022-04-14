@@ -92,7 +92,7 @@ These task demands are introduced and mandated in version 5 in order to ensure a
 
 ![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png)
 
-If this user-defined capability (above) is not defined for self-hosted agent then jobs will fail with the following error:
+If this user-defined capability described above is not defined for self-hosted agents then jobs will fail with the following error:
 
 ```text
 No agent found in pool [POOL-NAME] which satisfies demands: octo
