@@ -32,9 +32,9 @@ The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. U
 
 ```yaml
 - task: OctoInstaller@4
-  displayName: 'Octopus CLI Installer'
+  displayName: "Octopus CLI Installer"
   inputs:
-    version: 'latest'
+    version: "latest"
 ```
 
 ### Octopus CLI Installer v5
@@ -54,9 +54,9 @@ The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. U
 
 ```yaml
 - task: OctoInstaller@5
-  displayName: 'Octopus CLI Installer'
+  displayName: "Octopus CLI Installer"
   inputs:
-    version: '*'
+    version: "*"
 ```
 
 ## Using the Octopus CLI with Self-Hosted Agents
@@ -70,12 +70,22 @@ Self-hosted agents are available for Linux, macOS, or Windows. They may also be 
 - [Windows agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows) (x64, x86)
 - [Docker agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker)
 
-Binaries and/or packages for the Octopus CLI can be downloaded from the page, [Download Octopus CLI](https://octopus.com/downloads/octopuscli). A self-hosted agent must be configured to include the Octopus CLI before it is used in a pipeline. Furthermore, it must expose the user-defined capability, `octo` along with the version of the Octopus CLI installed on the agent (i.e. `8.0.1`). This capability will be asserted (via `demands`) by other tasks in the Octopus extension to ensure availability of the Octopus CLI.
+A self-hosted agent must be configured to include the Octopus CLI before it is used in a pipeline. Binaries and/or packages for the Octopus CLI can be downloaded from the page, [Download Octopus CLI](https://octopus.com/downloads/octopuscli).
 
-![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png "width=500")
+:::warning
+**Breaking Change in Version 5**
+
+Tasks in version 5 of the Octopus extension now assert [demands](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/demands) for agent capabilities. These tasks now require that self-hosted agents expose the user-defined capability, `octo` along with the version of the Octopus CLI installed on the agent (i.e. `8.0.1`).
+:::
+
+These task demands are introduced and mandated in version 5 in order to ensure availability of the Octopus CLI.
+
+![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png)
 
 If this user-defined capability (above) is not defined for self-hosted agent then jobs will fail with the following error:
 
 ```
 No agent found in pool [POOL-NAME] which satisfies demands: octo
 ```
+
+Please note that tasks in version 4 (and below) of the Octopus extension do not assert demands for agent capabilities. Therefore, it is not required to specify agent capabilities for these tasks.
