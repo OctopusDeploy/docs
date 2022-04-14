@@ -14,7 +14,7 @@ Using the tool installer task **Octopus CLI Installer** in a build pipeline defi
 
 The **Octopus CLI Installer** task downloads and installs the Octopus CLI, making it available to other tasks in a build pipeline definition. It can be added to a definition through the Classic editor of Azure Pipelines or through the YAML pipeline editor.
 
-Currently, the Octopus extension ships two versions of the **Octopus CLI Installer** task; version 4 is provided for backwards-compatibility with older pipeline definitions while version 5 is recommended because it provides additional features.
+Currently, the Octopus extension ships two versions of the **Octopus CLI Installer** task; version 4 is provided for backward compatibility with older pipeline definitions while version 5 is recommended because it offers additional features.
 
 ### Octopus CLI Installer v4
 
