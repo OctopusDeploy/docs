@@ -55,7 +55,10 @@ This field accepts a limited set of values -- specified as `MAJOR.MINOR.PATCH` w
 - `9.0.0`: install the exact version 9.0 of the Octopus CLI
 - `*`: install the latest version of the Octopus CLI
 
-Range and range operators (i.e. `~1.2.3`) are not supported.
+:::hint
+**Range operators not supported**
+Please note: Range and range operators e.g. `~1.2.3` are not supported.
+:::
 
 The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. Using the YAML pipeline editor, the following snippet will download and install the latest version of the Octopus CLI:
 
