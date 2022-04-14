@@ -43,12 +43,14 @@ In the Classic editor, version 5.\* of the **Octopus CLI Installer** task has a 
 
 ![Octopus CLI Installer v5 in Azure Pipelines](images/octopus-cli-installer-v5.png)
 
-This field accepts a limited set of values -- specified as `major.minor.patch` with wildcards -- that adhere to [Semantic Versioning](https://semver.org/) rules. For example:
+This field accepts a limited set of values -- specified as `MAJOR.MINOR.PATCH` with wildcards -- that adhere to [Semantic Versioning](https://semver.org/) rules. For example:
 
 - `8.*`: install latest minor version for v8 of the Octopus CLI
 - `7.3.*`: install the latest patch version for v7.3 of the Octopus CLI
 - `9.0.0`: install the exact version 9.0 of the Octopus CLI
 - `*`: install the latest version of the Octopus CLI
+
+Range and range operators (i.e. `~1.2.3`) are not supported.
 
 The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. Using the YAML pipeline editor, the following snippet will download and install the latest version of the Octopus CLI:
 
