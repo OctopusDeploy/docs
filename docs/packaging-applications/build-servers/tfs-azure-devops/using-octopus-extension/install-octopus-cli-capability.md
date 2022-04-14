@@ -8,7 +8,7 @@ Tasks in the Octopus extension use the [Octopus CLI](/docs/octopus-rest-api/octo
 1. Use the tool installer task, **Octopus CLI Installer** as part of a build pipeline definition
 2. Install the Octopus CLI into a [self-hosted agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents#install)
 
-Using the tool installer task, **Octopus CLI Installer** in the build pipeline definition is suitable for installing the Octopus CLI just-in-time for a build. This is a required task for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to pre-load custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
+Using the tool installer task **Octopus CLI Installer** in a build pipeline definition is suitable for installing the Octopus CLI just in time for a build.  This is required for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to pre-load custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
 
 ## Using the Octopus CLI Installer
 
