@@ -80,7 +80,7 @@ Self-hosted agents are available for Linux, macOS, or Windows. They may also be 
 - [Windows agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows) (x64, x86)
 - [Docker agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker)
 
-A self-hosted agent must be configured to include the Octopus CLI before it is used in a pipeline. Binaries and/or packages for the Octopus CLI can be downloaded from the page, [Download Octopus CLI](https://octopus.com/downloads/octopuscli).
+A self-hosted agent must be configured to include the Octopus CLI before using it in a pipeline. Binaries and/or packages for the Octopus CLI can be downloaded from the [Octopus CLI downloads](https://octopus.com/downloads/octopuscli) page.
 
 :::warning
 **Breaking Change in Version 5**
