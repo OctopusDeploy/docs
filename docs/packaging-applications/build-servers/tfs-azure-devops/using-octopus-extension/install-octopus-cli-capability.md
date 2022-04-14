@@ -26,7 +26,12 @@ The accepted values for this field are:
 
 - `embedded`: use the built-in version of the Octopus CLI
 - `latest`: downloads and installs the latest version of the Octopus CLI
-- the version number of the Octopus CLI (i.e. `7.4.3556`) -- note: wildcards are NOT supported
+- A specific version number of the Octopus CLI to use e.g. `7.4.3556`
+
+ :::hint
+ **Wildcards not supported**
+Please note: Wildcard values are **NOT** supported when providing a specific version of the Octopus CLI to use.
+ :::
 
 The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. Using the YAML pipeline editor, the following snippet will download and install the latest version of the Octopus CLI:
 
