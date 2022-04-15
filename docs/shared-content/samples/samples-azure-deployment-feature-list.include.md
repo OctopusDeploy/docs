@@ -46,10 +46,6 @@
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1824/deployments/process" target="_blank">Azure OctoSubscriber</a>: <i>Azure Functions that accept and process an Octopus Deploy Subscription and notify users via slack when a variable has changed. [Build definition](https://github.com/OctopusSamples/OctoSubscriber/blob/main/.github/workflows/AzureFunctions.yml)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-66/deployments/process" target="_blank">Sample Azure Function</a>: <i>A sample project that deploys an Azure function using the `Deploy to Azure App Service` step.</i>
     
-**Target - SQL Server**
-
-- <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-164/deployments/process" target="_blank">DACPAC - Azure SQL</a>: <i>Sample project for deploying to SQL Server using a database project (DACPAC). [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildDacpac)</i>
-    
 **Target - Tomcat**
 
 - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-1681/deployments/process" target="_blank">Pet Clinic - Azure Web App</a>: <i>Deploy the Java PetClinic application to Tomcat hosted in an Azure Web App.</i>
