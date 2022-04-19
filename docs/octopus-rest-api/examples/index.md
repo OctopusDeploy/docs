@@ -11,7 +11,7 @@ As you work with the Octopus API, you may need some guidance on how to perform c
 - PowerShell using Octopus.Client.
 - C# using Octopus.Client.
 - Python using the REST API.
-- Go using the REST API.
+- Go using the [Go API Client for Octopus Deploy](https://github.com/OctopusDeploy/go-octopusdeploy).
 - Java using the [java-octopus-deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy) Client.
 - TypeScript using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts).
 
@@ -39,7 +39,7 @@ The Python examples are written using **Python 3** and use the [Requests](https:
 
 ### Go examples
 
-The Go examples are written using the [go-octopusdeploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
+The Go examples are written using the [Go API Client for Octopus Deploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
 
 ### Java examples
 
@@ -49,11 +49,11 @@ The Java Client library requires **Java 1.8** or above.
 
 ### TypeScript examples
 
-The TypeScript examples are written using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts). Currently, this client does not support being hosted in a browser context; a Node.js runtime host is assumed.
+The TypeScript examples are written using the [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts).
 
 ## Bulk operations
 
-Sometimes you want to perform an action on a resource in Octopus multiple times. For example, connecting a tenant to all of your projects. Having to run a script that performs an operation once, repeatedly, can become tedious. 
+Sometimes you want to perform an action on a resource in Octopus multiple times. For example, connecting a tenant to all of your projects. Having to run a script that performs an operation once, repeatedly, can become tedious.
 
 To help with this, we've included examples of [bulk operations](/docs/octopus-rest-api/examples/bulk-operations/index.md) using the Octopus REST API.
 
