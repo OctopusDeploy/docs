@@ -77,15 +77,19 @@ If you have a project set up with [Automatic Release Creation](/docs/projects/pr
 
 - **All must complete**.
 - **A minimum of x must complete**. If you choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
-- **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
+- **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
+
+:::hint
+Optional phases do not execute automatic deployments. If you want to deploy releases automatically to any environments in a phase, use one of the other  *Required to progress* options.
+:::
 
 ![Optional Phase](images/optional-phase.png "width=500")
 
 If you want to be able to deploy to any environment at any time, then simply create a single-phase that has `Phase Progression` set to `All must complete` and includes all your environments.
 
-9. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
-10. Add as many additional phases as you need.
-11. Click **SAVE**.
+1. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
+2.  Add as many additional phases as you need.
+3.  Click **SAVE**.
 
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
