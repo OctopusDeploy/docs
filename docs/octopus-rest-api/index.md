@@ -11,7 +11,7 @@ The Octopus REST API is designed:
 1. To be friendly and easy to figure out.
 2. To be [hypermedia driven](http://en.wikipedia.org/wiki/HATEOAS), using links and the occasional [URI template](http://tools.ietf.org/html/rfc6570) ([read more](https://github.com/OctopusDeploy/OctopusDeploy-Api/wiki/Links)).
 3. To be comprehensive - 100% of the actions that you perform via the Octopus UI can be performed via the API.
-4. To provide a great developer experience through [API clients](#api-clients) and [detailed examples](https://octopus.com/docs/octopus-rest-api/examples).
+4. To provide a great developer experience through [API clients](#api-clients) and [detailed examples](/docs/octopus-rest-api/examples/index.md).
 
 ## API Clients
 
