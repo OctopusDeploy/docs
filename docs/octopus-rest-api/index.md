@@ -82,7 +82,7 @@ For example, a `GET` request to `/api` returns a resource that looks like:
     }
 }
 ```
-:::
+:::hint
 Note: the `Links` collection example above has been significantly reduced in size for demonstration purposes.
 :::
 
