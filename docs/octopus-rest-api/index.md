@@ -113,7 +113,7 @@ Collections of resources also include links. For example, following the `Environ
         "Template": "/api/Spaces-1/environments{?skip,ids,take,partialName}",
         "Page.All": "/api/Spaces-1/environments?skip=0&take=2147483647",
         "Page.Next": "/api/Spaces-1/environments?skip=10&take=10",
-        "Page.Next": "/api/Spaces-1/environments?skip=0&take=10"
+        "Page.Current": "/api/Spaces-1/environments?skip=0&take=10"
     }
 }
 ```
