@@ -19,7 +19,7 @@ Octopus provides API clients for popular programming languages and runtime envir
 
 - [Go API Client for Octopus Deploy](https://github.com/OctopusDeploy/go-octopusdeploy)
 - [Java API Client for Octopus Deploy](https://github.com/OctopusDeployLabs/java-octopus-deploy)
-- [OctopusClients](https://github.com/OctopusDeploy/OctopusClients) (C#-based API client for .NET)
+- [.NET C# API Client for Octopus Deploy](https://github.com/OctopusDeploy/OctopusClients)
 - [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts)
 
 Code snippets using these clients for various operations in the Octopus REST API are available in our [API examples](/docs/octopus-rest-api/examples/index.md) documentation.
