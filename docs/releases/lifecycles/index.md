@@ -35,7 +35,6 @@ When you add a new environment to Octopus, it will automatically be included in 
 
 It's possible to add one or multiple environments to a phase. When a phase has environments added to it, this defines which ones can be deployed to during this phase of the lifecycle.
 
-:::hint
 **Tenants and automatic-environments**
 
 When adding an environment to a phase, you can choose whether you want deployments to begin automatically once the release enters the phase, or if you want users to manually queue the deployment. For manual deployments, users can choose the desired tenants for deployment before the release begins (i.e. untenanted deployment, deployment to all tenants, or deployment to specific tenants). However, as deployments begin as soon as the release enters the next phase for environments set to automatic, users cannot choose which tenants to deploy to. Below outlines the behavior for a deployment to an automatic-environment:
@@ -45,11 +44,10 @@ When adding an environment to a phase, you can choose whether you want deploymen
    2. Further, filter the tenants based on promotion rules (e.g. deploy to UAT before Production for this tenant)
 2. If untenanted deployments are allowed, attempt to enqueue the untenanted deployment to the automatic-environment(s).
 
-:::
 
 ### Phases without environments
 
-When a phase is defined without any environments added to it, this phase of the lifecycle will deploy to all the environments that haven't been explicitly added to the lifecycle in previous phases. 
+When a phase is defined without any environments added to it, this phase of the lifecycle will deploy to all the environments that haven't been *explicitly added* to the lifecycle in previous phases. 
 
 :::hint
 Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
@@ -61,27 +59,32 @@ Any future environments you define will also be deployed to as part of this phas
 2. Give the Lifecycle a name and add a description.
 3. Define the Retention Policy.
 
-Retention policies define how long releases are kept for, and how long extracted packages and files are kept on Tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
+   Retention policies define how long releases are kept for, and how long extracted packages and files are kept on Tentacles. The default for both is to keep all. Learn more about [Retention Policies](/docs/administration/retention-policies/index.md).
 
 4. Click **ADD PHASE** to define the phases of the lifecycle.
 5. Give the phase a name.
 6. Click **ADD ENVIRONMENT** to define which environments can be deployed to during this phase of the lifecycle.
 
-At this point, you can add one or multiple environments, or leave the default **Any Environments** option selected. Note, if you choose to use **Any Environments**, this phase of the Lifecycle will deploy to all the environments that haven't been explicitly added to the Lifecycle in previous phases. Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
+   You can add one or multiple environments, or leave the default **Any Environments** option selected. Note, if you choose to use **Any Environments**, this phase of the Lifecycle will deploy to all the environments that haven't been explicitly added to the Lifecycle in previous phases. Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
 
 7. By default, users must manually queue the deployment to the environment, if you would like the deployment to occur automatically as soon as the release enters the phase, select *Deploy automatically...*.
 
-If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
+   If you have a project set up with [Automatic Release Creation](/docs/projects/project-triggers/automatic-release-creation.md) and set your first phase and environment to automatically deploy, pushing a package to the internal library will trigger both a release and a deployment to that environment.
 
 8. Set the *Required to progress* option. This determines how many environments must be deployed to before the next phase can be activated. The options are:
 
-- **All must complete**.
-- **A minimum of x must complete**. If you choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
-- **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression and Automatic Deployment rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
+   - **All must complete**.
+   - **A minimum of x must complete**. If you choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
+   - **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
-![Optional Phase](images/optional-phase.png "width=500")
+     :::warning
+     **Automatic deployments not evaluated for Optional phases**
+     Optional phases do not execute automatic deployments. If you want to deploy releases automatically to any environments in a phase, use one of the other *Required to progress* options.
+     :::
 
-If you want to be able to deploy to any environment at any time, then simply create a single-phase that has `Phase Progression` set to `All must complete` and includes all your environments.
+     ![Optional Phase](images/optional-phase.png "width=500")
+
+   If you want to be able to deploy to any environment at any time, then simply create a single-phase that has **Required to progress** set to `All must complete` and includes all your environments.
 
 9. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
 10. Add as many additional phases as you need.
