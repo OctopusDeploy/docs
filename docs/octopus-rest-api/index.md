@@ -22,7 +22,7 @@ Octopus provides API clients for popular programming languages and runtime envir
 - [OctopusClients](https://github.com/OctopusDeploy/OctopusClients) (C#-based API client for .NET)
 - [TypeScript API Client for Octopus Deploy](https://github.com/OctopusDeploy/api-client.ts)
 
-Code snippets using these clients for various operations in the Octopus REST API are available in our documentation: [API examples](https://octopus.com/docs/octopus-rest-api/examples).
+Code snippets using these clients for various operations in the Octopus REST API are available in our [API examples](/docs/octopus-rest-api/examples/index.md) documentation.
 
 ## REST API Documentation via Swagger
 
