@@ -39,7 +39,7 @@ The Python examples are written using **Python 3** and use the [Requests](https:
 
 ### Go examples
 
-The Go examples are written using the [Go API Client for Octopus Deploy](https://github.com/OctopusDeploy/go-octopusdeploy) Client.
+The Go examples are written using the [Go API Client for Octopus Deploy](https://github.com/OctopusDeploy/go-octopusdeploy).
 
 ### Java examples
 
