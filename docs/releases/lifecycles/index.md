@@ -87,9 +87,9 @@ Optional phases do not execute automatic deployments. If you want to deploy rele
 
 If you want to be able to deploy to any environment at any time, then simply create a single-phase that has `Phase Progression` set to `All must complete` and includes all your environments.
 
-1. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
-2.  Add as many additional phases as you need.
-3.  Click **SAVE**.
+9. Each phase of the Lifecycle can have its own retention policy defined. Set the retention policy for the phase if you don't want it to inherit the retention policy defined for the entire Lifecycle.
+10. Add as many additional phases as you need.
+11. Click **SAVE**.
 
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
