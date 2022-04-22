@@ -182,6 +182,11 @@ If you're running into issues with the Jira Integration, it's possible it could 
 
 ### Issues after upgrading the Jira Plugin {#troubleshooting-jira-plugin-upgrades}
 
+:::warning
+**Change of functionality resulting in Data Loss**
+Please note: The reinstallation of the plugin has worked in the past to restore functionality of the integration. From April 2022 performing the below step will remove all Historical Deployment Information from Jira Cloud. We are waiting on information from Atlassian to confirm if this is a permanent or temporary feature. Please contact support@octopus.com for the latest information regarding this issue.
+:::
+
 If you find a previously working Jira integration has stopped working after upgrading the Jira plugin, then you may need to uninstall and reinstall the Jira plugin from the Atlassian marketplace. During configuration of the reinstalled Jira plugin, you will be provided with a new Jira Connect Password which will need to be entered into the Jira Settings page on your Octopus Server.  
 
 ### Map Jira environments to Octopus environments {#troubleshooting-map-your-environments}
