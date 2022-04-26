@@ -78,7 +78,7 @@ The option **Use filename with embedded content hash** for the **Upload a packag
 
 ![Use filename with embedded content hash options](filename-with-content-hash-option.png "width=500")
 
-Selecting this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
+Select this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
 
 The hash should appear before the extension in the format of `filename@hash.extensions`. The hash value is based on the contents of the zip package and is calculated after any variable substitutions/replacements.
 
