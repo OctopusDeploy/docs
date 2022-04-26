@@ -63,7 +63,7 @@ Iteration over variable sets or comma-separated values with `each`:
 #### Structured Variable File Patterns
 
 :::hint
-Structured Variable File Patterns field for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
+The **Structured Variable File Patterns** field for the **Upload a package to an AWS S3 bucket** step was added in Octopus **2022.2**.
 :::
 
 A list of files to perform structured variable substitution on. 
