@@ -76,7 +76,7 @@ Target files need to be newline-seperated, relative to the package contents. Ext
 The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
 :::
 
-![Package options](filename-with-content-hash-option.png "width=500")
+![Use filename with embedded content hash options](filename-with-content-hash-option.png "width=500")
 
 Selecting this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
 
