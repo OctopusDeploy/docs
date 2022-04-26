@@ -56,7 +56,7 @@ This field supports extended template syntax. Conditional `if` and `unless`:
 ```
 
 Iteration over variable sets or comma-separated values with `each`:
-```
+```text
 #{each mv in MyVar}...#{mv}...#{/each}
 ```
 
