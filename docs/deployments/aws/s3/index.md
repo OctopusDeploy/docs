@@ -51,7 +51,7 @@ The **Variable Substitution File Patterns field** for the **Upload a package to 
 
 A newline-separated list of file names to transform, relative to the package contents. Extended wildcard syntax is supported. E.g., `Notes.txt`, `Config\*.json`, `**\specific-folder\*.config`.
 This field supports extended template syntax. Conditional `if` and `unless`:
-```
+```text
 #{if MyVar}...#{/if}
 ```
 
