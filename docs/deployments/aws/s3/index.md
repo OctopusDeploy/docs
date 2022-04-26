@@ -41,7 +41,7 @@ The [Github feed](/docs/packaging-applications/package-repositories/github-feeds
 
 By default, the entire package will be uploaded to the S3 bucket untouched with the given bucket key, metadata, and tags.
 
-![Package options](entire-package-options.png "width=500")
+![Entire package options](entire-package-options.png "width=500")
 
 #### Variable Substitution File Patterns
 
