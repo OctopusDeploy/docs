@@ -80,7 +80,7 @@ The option **Use filename with embedded content hash** for the **Upload a packag
 
 Select this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
 
-The hash should appear before the extension in the format of `filename@hash.extensions`. The hash value is based on the contents of the zip package and is calculated after any variable substitutions/replacements.
+The hash should appear before the extension in the format of `filename@hash.extension`. The hash value is based on the contents of the zip package and is calculated after any variable substitutions/replacements.
 
 Additionally, the hash value is available as a variable named `Octopus.Action.Package.PackageContentHash` to be used as a custom key. Note that this variable can only be used in this step.
 
