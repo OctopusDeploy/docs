@@ -77,6 +77,12 @@ Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDepende
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net452/Octopus.Client.dll"
 Add-Type -Path $path
 ```
+```powershell PowerShell on Windows 2016
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
+$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net452/Octopus.Client.dll"
+Add-Type -Path $path
+```
 ```powershell PowerShell Core
 Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
