@@ -16,7 +16,7 @@ Click on **Create repository**
 ![](images/oracle-cloud-infrastructure-create-registry.png)
 
 Fill in the following:
-- Compartment - select which compartment to place the repository in
+- **Compartment**: Select which compartment to place the repository in
 - Repoistory name - give the repository a name
 - Access - select whether this will be an `Public` or `Private` repository
 
