@@ -1,6 +1,6 @@
 ---
 title: Oracle Cloud Infrastructure Container Registry  
-description: How to add an Oracle Cloud Infrastructure Container Registry as an Octopus feed 
+description: How to add an Oracle Cloud Infrastructure (OCI) Container Registry as an Octopus feed 
 position: 90
 ---
 
