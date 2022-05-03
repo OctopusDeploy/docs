@@ -22,7 +22,7 @@ Fill in the following:
 
 Click **Create repository**
 
-Take note of which region you created the repository in, this will be needed to determine the correct URL for the repository.  Use [https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm) to translate the region name to the shortened code.  In this example, the repository was created in `US West (San Jose)` which has the code of `sjc`.
+Take note of which region you created the repository in as this will be needed to determine the correct URL for the repository.  Use the [Oracle region documentation](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm) to lookup the **Region Key**.  In this example, the repository was created in `US West (San Jose)` which has the region key of `SJC`.
 
 ![](images/oracle-cloud-infrastructure-region.png)
 
