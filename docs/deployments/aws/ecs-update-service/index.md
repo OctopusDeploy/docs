@@ -126,22 +126,15 @@ Any of the input fields can be bound to an Octostache expression. [Variable subs
 
 ### Output variables
 
-Presently, the step does outputs the following variables.
+Presently, the step outputs the following variables.
 
-TaskDefinitionRevision
-: The revision number of the newly created task (if a new revision was created)
-
-TaskDefinitionFamily
-: The name of a family that the new task definition is registered to (if a new revision was created)
-
-ClusterName
-: The name of the cluster to which the updated service belongs
-
-ServiceName
-: The name of the updated service
-
-Region
-: The AWS region in which the operations were executed
+| Name        | Description |
+| ------------| ----------- |
+|`TaskDefinitionRevision` | The revision number of the newly created task (if a new revision was created) |
+|`TaskDefinitionFamily` | The name of a family that the new task definition is registered to (if a new revision was created) |
+|`ClusterName` | The name of the cluster to which the updated service belongs |
+|`ServiceName` | The name of the updated service |
+|`Region` | The AWS region in which the operations were executed |
 
 ## Error messages
 
