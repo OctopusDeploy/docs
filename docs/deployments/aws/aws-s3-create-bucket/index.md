@@ -49,17 +49,12 @@ The bucket is created and managed through a CloudFormation stack and you can opt
 
 Presently, the step does outputs the following variables.
 
-BucketName
-: The name of the bucket that was created
-
-StackName
-: The name of the CloudFormation stack
-
-StackId
-: The ID (ARN) of the CloudFormation stack
-
-Region
-: The AWS region in which the operations were executed
+| Name        | Description |
+| ------------| ----------- |
+|`BucketName` | The name of the bucket that was created  |
+|`StackName`  | The name of the CloudFormation stack     |
+|`StackId`    | The ID (ARN) of the CloudFormation stack |
+|`Region`     | The AWS region in which the operations were executed |
 
 ## Create S3 Bucket Validation Error
 
