@@ -31,7 +31,7 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
 
 Give the feed a name, in the URL field, paste the URL to your OCI region repository. It should look similar to this format:
 
-`https://[region code].ocir.io`
+`https://[region key].ocir.io`
 
 ![OCI Docker Registry feed](images/oracle-cloud-infrastructure-external-feed.png)
 
