@@ -34,7 +34,7 @@ Octopus has the following community step templates for integrating with Secret M
 View working examples of all of our Secrets Management community step templates in our [samples instance](https://samples.octopus.app/app#/Spaces-822) of Octopus. You can sign in as `Guest` to view them.
 :::
 
-**Note:** If you choose to use one of the community step templates, it's important to consider who can create and edit step templates to prevent unauthorized access to sensitive values stored in your Secret Manager/Key Vault.
+**Note:** If you choose to use one of the community step templates, it's important to consider who has permission to edit a project deployment or runbook process, and manage step templates to prevent unauthorized access to sensitive values stored in your Secret Manager/Key Vault.
 
 ## Sensitive variables stored in Octopus {#Sensitivevariables-in-octopus}
 
