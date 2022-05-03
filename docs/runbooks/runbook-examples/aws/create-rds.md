@@ -113,4 +113,4 @@ In just a few steps, we've automated the creation of a PostgreSQL RDS instance.
 
 ## Samples
 
-We have a [Target - PostgreSQL](https://g.octopushq.com/TargetPostgreSQLSampleSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Space Infrastructure` project.
+We have a [Target - PostgreSQL](https://oc.to/TargetPostgreSQLSampleSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Space Infrastructure` project.

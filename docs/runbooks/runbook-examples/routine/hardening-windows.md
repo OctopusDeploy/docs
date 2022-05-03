@@ -255,4 +255,4 @@ Now you can have the peace of mind that the OS has been hardened.
 
 ## Samples
 
-We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.
+We have an [Octopus Admin](https://oc.to/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more Runbooks in the `Deployment Target Management` project.

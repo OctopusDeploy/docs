@@ -30,7 +30,7 @@ The `Service Name` field is the name of the associated service to direct the tra
 
 Ingress resources only provide configuration. A Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
-There are many Ingress Controller resources available. [NGINX](https://g.octopushq.com/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
+There are many Ingress Controller resources available. [NGINX](https://oc.to/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://oc.to/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://oc.to/GoogleCloudIngressController). A [third party Ingress Controller resource](https://oc.to/AwsIngressController) is available for AWS making use of the ALB service.
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
@@ -39,16 +39,16 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://g.octopushq.com/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer.
 
-On the other hand, the [NGINX Ingress Controller resource installation procedure](https://g.octopushq.com/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
+On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
 
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
-* [NGINX](https://g.octopushq.com/NginxIngressControllerAnnotations)
-* [Google Cloud](https://g.octopushq.com/GoogleCloudIngressControllerGithub)
-* [AWS](https://g.octopushq.com/AwsAlbAnnotations)
+* [NGINX](https://oc.to/NginxIngressControllerAnnotations)
+* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
+* [AWS](https://oc.to/AwsAlbAnnotations)
 
 A new annotation is defined by clicking the `Add Annotation` button.
 
@@ -57,7 +57,7 @@ The `Name` field will provide suggested annotation names, but this list of sugge
 The `Value` field defines the annotation value.
 
 :::hint
-Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
+Annotation values are always considered to be strings. See this [GitHub issue](https://oc.to/KubernetesAnnotationStringsIssue) for more information.
 :::
 
 The `Service Name` defines the name of the Service resource that this Ingress will send traffic to.

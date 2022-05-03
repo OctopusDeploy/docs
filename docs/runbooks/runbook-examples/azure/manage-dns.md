@@ -124,6 +124,6 @@ Configure any other settings for the step and click **Save**, and in just a few 
 
 ## Samples
 
-We have a [Pattern - Rolling](https://g.octopushq.com/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples in the `PetClinic Infrastructure` project:
+We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples in the `PetClinic Infrastructure` project:
 - The Create DNS record step is located in the `Spin up GCP PetClinic Project Infrastructure` runbook.
 - The Delete DNS record step is located in the `Destroy the GCP Kraken` runbook.

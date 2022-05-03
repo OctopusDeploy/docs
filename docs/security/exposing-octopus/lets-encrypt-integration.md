@@ -4,7 +4,7 @@ description: Octopus can integrate with Let's Encrypt to setup and automatically
 position: 2300
 ---
 
-Octopus can integrate with [Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
+Octopus can integrate with [Let's Encrypt](https://oc.to/LetsEncryptOrg) to setup and manage the SSL certificate for the Octopus Portal. When the certificate nears its expiration date, Octopus will automatically renew the certificate with no intervention required.
 
 **Octopus 2019.10.3, 2019.9.6 LTS, 2019.6.12 LTS** or newer use ACME v2, which is required after Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/end-of-life-plan-for-acmev1/88430) in November 2019.
 
@@ -22,7 +22,7 @@ Enter the DNS name that you want to have on the new SSL certificate. Do not ente
 The DNS name you enter must be publicly accessible from the Internet (specifically the Let's Encrypt servers) over HTTP on port 80, so that Let's Encrypt can validate that you have control of this domain name. If your firewall has the ability, we recommend only allowing paths starting with `http://youroctopusserver.example.com/.well-known/acme-challenge/`.
 :::
 
-Once you have accepted the [Let's Encrypt Terms of Service](https://g.octopushq.com/LetsEncryptTermsOfService), and entered a registration email address, click the `Register` button.
+Once you have accepted the [Let's Encrypt Terms of Service](https://oc.to/LetsEncryptTermsOfService), and entered a registration email address, click the `Register` button.
 
 :::hint
 An account key for Let's Encrypt will be created automatically by Octopus, and reused for future requests.

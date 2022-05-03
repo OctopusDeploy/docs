@@ -8,10 +8,10 @@ Azure Service Fabric Cluster deployment targets let you reference existing Servi
 
 ## Requirements
 
-1. The **Service Fabric SDK** must be installed on the Octopus Server. For details, see [Service Fabric SDK](https://g.octopushq.com/ServiceFabricSdkDownload).
+1. The **Service Fabric SDK** must be installed on the Octopus Server. For details, see [Service Fabric SDK](https://oc.to/ServiceFabricSdkDownload).
   If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
 
-2. The **PowerShell script execution** may also need to be enabled. For details see [Enable PowerShell script execution](https://g.octopushq.com/ServiceFabricEnableScriptExection).
+2. The **PowerShell script execution** may also need to be enabled. For details see [Enable PowerShell script execution](https://oc.to/ServiceFabricEnableScriptExection).
 
 After the above SDK has been installed, you will need to restart your Octopus Server for the changes to take effect.
 

@@ -33,7 +33,7 @@ For Debian distributions, there is a .deb package for use with `apt-get`. On Cen
 
 - apt.octopus.com
 - rpm.octopus.com
-- [Octopus Deploy downloads page](https://g.octopushq.com/ProductDownloadPage)
+- [Octopus Deploy downloads page](https://oc.to/ProductDownloadPage)
 
 The latest release of Linux Tentacle is available for download from:
 

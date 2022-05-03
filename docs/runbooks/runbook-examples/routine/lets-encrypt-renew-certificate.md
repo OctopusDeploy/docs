@@ -4,7 +4,7 @@ description: Renew and store TLS certificates issued by Let's Encrypt with a run
 position: 130
 ---
 
-[Let's Encrypt](https://g.octopushq.com/LetsEncryptOrg) is a popular nonprofit Certificate Authority that provides TLS certificates. However, creating and managing the renewals of these certificates across a large estate can be time-consuming. With Runbooks, you can automate this process to have your TLS certificates routinely checked for expiration, renewed, and securely stored in the Octopus [certificate library](/docs/deployments/certificates/index.md).
+[Let's Encrypt](https://oc.to/LetsEncryptOrg) is a popular nonprofit Certificate Authority that provides TLS certificates. However, creating and managing the renewals of these certificates across a large estate can be time-consuming. With Runbooks, you can automate this process to have your TLS certificates routinely checked for expiration, renewed, and securely stored in the Octopus [certificate library](/docs/deployments/certificates/index.md).
 
 :::hint
 If you're looking to secure your Octopus instance with a TLS certificate, take a look at our built-in [Let's Encrypt integration](/docs/security/exposing-octopus/lets-encrypt-integration.md).
@@ -37,7 +37,7 @@ Configure any other settings for the step and click **Save**, and you have a run
 
 ## Samples
 
-We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example in the `Lets Encrypt Certificate renewal` project.
+We have an [Octopus Admin](https://oc.to/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example in the `Lets Encrypt Certificate renewal` project.
 
 ## Learn More
 

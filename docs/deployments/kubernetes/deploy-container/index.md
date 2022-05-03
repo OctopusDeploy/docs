@@ -509,7 +509,7 @@ The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
 The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defines to `http`.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
@@ -519,7 +519,7 @@ The TCP Socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 #### Readiness probe
 
@@ -564,7 +564,7 @@ The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
 The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defaults to `http`.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
@@ -574,15 +574,15 @@ The TCP socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 #### Command
 
-The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
+The [command and arguments](https://oc.to/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
 
 This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can define an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://oc.to/DockerCmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
@@ -644,7 +644,7 @@ The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
 The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defaults to `http`.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
@@ -654,15 +654,15 @@ The TCP socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 #### Command
 
-The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
+The [command and arguments](https://oc.to/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
 
 This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can define an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://oc.to/DockerCmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
@@ -683,7 +683,7 @@ an argument with a space
 
 #### Pod security context
 
-The `Pod Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
+The `Pod Security context` section defines the [container resource security context options](https://oc.to/KubernetesContainerSecurityContext).
 
 The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process. Note that this field is implied when the `Privileged` option is enabled.
 
@@ -952,9 +952,9 @@ The name of the ingress resource is not affected by the deployment strategy.
 
 #### Ingress class name
 
-[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined in the `Ingress Class Name` field.
+[Starting with Kubernetes 1.18](https://oc.to/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined in the `Ingress Class Name` field.
 
-See the [Kubernetes documentation](https://g.octopushq.com/K8SIngressClassDocs) for more information.
+See the [Kubernetes documentation](https://oc.to/K8SIngressClassDocs) for more information.
 
 #### Ingress host rules
 
@@ -968,7 +968,7 @@ The `Add Path` button adds a new mapping between a request path and the Service 
 
 Ingress resources only provide configuration. An Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
-There are many Ingress Controller resources available. [NGINX](https://g.octopushq.com/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
+There are many Ingress Controller resources available. [NGINX](https://oc.to/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://oc.to/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://oc.to/GoogleCloudIngressController). A [third party Ingress Controller resource](https://oc.to/AwsIngressController) is available for AWS making use of the ALB service.
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
@@ -977,16 +977,16 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://g.octopushq.com/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](../deploy-ingress/index.md) step.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](../deploy-ingress/index.md) step.
 
-On the other hand, the [NGINX Ingress Controller resource installation procedure](https://g.octopushq.com/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
+On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
 
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
-* [NGINX](https://g.octopushq.com/NginxIngressControllerAnnotations)
-* [Google Cloud](https://g.octopushq.com/GoogleCloudIngressControllerGithub)
-* [AWS](https://g.octopushq.com/AwsAlbAnnotations)
+* [NGINX](https://oc.to/NginxIngressControllerAnnotations)
+* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
+* [AWS](https://oc.to/AwsAlbAnnotations)
 
 A new annotation is defined by clicking the `Add Annotation` button.
 
@@ -995,7 +995,7 @@ The `Name` field will provide suggested annotation names, but this list of sugge
 The `Value` field defines the annotation value.
 
 :::hint
-Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
+Annotation values are always considered to be strings. See this [GitHub issue](https://oc.to/KubernetesAnnotationStringsIssue) for more information.
 :::
 
 ### ConfigMap and secret

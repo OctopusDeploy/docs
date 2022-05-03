@@ -18,7 +18,7 @@ The table below outlines the backward compatibility between Octopus Server and r
 
 ## &ast; Partial forwards compatibility
 
-Older versions of some libraries and plugins _may_ work with **2019.1** and higher _only if_ the [default space](https://g.octopushq.com/default-space) is enabled and such integrations are only used against that space. To make use of other spaces, please upgrade.
+Older versions of some libraries and plugins _may_ work with **2019.1** and higher _only if_ the [default space](https://oc.to/default-space) is enabled and such integrations are only used against that space. To make use of other spaces, please upgrade.
 
 However, **2019.1** also carries some breaking changes to the API so care must be taken when upgrading from a prior version that existing integrations are not affected. There is a comprehensive rundown of these changes available in our [downloads section](https://octopus.com/downloads/compare?from=2018.12.1&to=2019.1.0).
 

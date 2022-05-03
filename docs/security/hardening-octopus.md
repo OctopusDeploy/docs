@@ -343,7 +343,7 @@ The security of your Linux container host and its Docker configuration can be an
 
 ## Samples
 
-We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at some examples of how we have used Octopus for hardening tasks. 
+We have an [Octopus Admin](https://oc.to/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at some examples of how we have used Octopus for hardening tasks. 
 
 ## Getting help
 
