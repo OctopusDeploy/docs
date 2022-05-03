@@ -4,15 +4,45 @@ description: Sensitive variables allow you to define secret values used in your 
 position: 50
 ---
 
-As you work with [variables](/docs/projects/variables/index.md) in Octopus, there will be times when you work with applications that require configuration values that are considered sensitive information. These should be kept secret, but used as clear-text during deployment. Think of something like a password or API Key to an external resource. Octopus provides support for this scenario with Sensitive Variables.
+As you work with [variables](/docs/projects/variables/index.md) in Octopus, there will be times when you work with applications that require configuration values that are considered sensitive information. These should be kept secret, but used as clear-text during deployment. That could be a password or an API Key to an external resource. Octopus provides support for this scenario with **Sensitive variables**.
 
-## Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
+Sensitive variables can be sourced from either:
 
-Variables such as passwords or API keys can be marked as **sensitive**. Select **Change Type** when entering the value and select **Sensitive**.
+- A Secret Manager/Key Vault using one of our Community step templates
+- Octopus itself, with values stored securely using `AES128` encryption.
+
+## Values from a Secret Manager/Key Vault {#Sensitivevariables-in-keyvaults}
+
+Storing sensitive values in Octopus solves many problems, but it's [not a two-way key vault](#Sensitivevariables-HowOctopushandlesyoursensitivevariables). 
+For this, there are a number of Secret Manager and Key Vault tools available. They also offer additional functionality such as automatic secret rotation and versioning.
+
+Octopus supports the retrieval of sensitive values from a number of Secret Manager/Key Vaults through the use of [Community step templates](/docs/projects/community-step-templates.md) that extend the functionality of Octopus to integrate with them.
+
+![Aure Key Vault Retrieve Secrets step template](images/azure-keyvault-retrieve-secrets-step-in-process.png "width=500")
+
+Each of the community step templates work by retrieving secrets from the Secret Manager/Key Vault and create [sensitive output variables](/docs/projects/variables/output-variables.md#sensitive-output-variables) for use in your executing deployments and runbooks.
+
+Octopus has the following community step templates for integrating with Secret Manager/Key Vault tools:
+
+- [AWS Secret Manager](https://octopus.com/blog/using-aws-secrets-manager-with-octopus)
+- [Azure Key Vault](https://octopus.com/blog/using-azure-key-vault-with-octopus)
+- [CyberArk Conjur](https://library.octopus.com/step-templates/522c7010-7189-4b2e-a3c8-36cb1759422a/actiontemplate-cyberark-conjur-retrieve-secrets)
+- [GCP Secret Manager](https://octopus.com/blog/using-google-cloud-secret-manager-with-octopus)
+- [HashiCorp Vault](https://octopus.com/blog/using-hashicorp-vault-with-octopus-deploy)
+
+:::success
+View working examples of all of our Secrets Management community step templates in our [samples instance](https://samples.octopus.app/app#/Spaces-822) of Octopus. You can sign in as `Guest` to view them.
+:::
+
+**Note:** If you choose to use one of the community step templates, it's important to consider who can create and edit step templates to prevent unauthorised access to sensitive values stored in your Secret Manager/Key Vault.
+
+## Sensitive variables stored in Octopus {#Sensitivevariables-in-octopus}
+
+Variables, such as passwords or API keys can be marked as **sensitive**. 
 
 Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) but be careful with any part of your sensitive variable that could [unintentionally be interpreted](/docs/projects/variables/sensitive-variables.md#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax) as an attempted substitution. See also, other [common mistakes](#Sensitivevariables-Avoidingcommonmistakes).
 
-## Defining sensitive variables
+### Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
 To make a variable a **sensitive variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
 
@@ -22,7 +52,7 @@ For variable type, select **Sensitive**.
 
 ![Variable editor](images/variable-editor.png "width=500")
 
-## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
+### How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
 :::hint
 Learn more about [security and encryption](/docs/security/data-encryption.md) in Octopus Deploy.
@@ -33,20 +63,23 @@ When dealing with sensitive variables, Octopus encrypts these values using **AE
 - Once the variable is saved, Octopus will **never allow you to retrieve the value** via the [REST API](/docs/octopus-rest-api/index.md) or the Octopus Web Portal; and
 - Whenever possible, Octopus will **mask these sensitive values in logs**.
 
-:::success
-**Use a password manager or key vault**
-If you need to retrieve these values for other purposes, consider using a password manager or key vault. The support we provide in Octopus is to securely store values that will be used during deployment, and cannot be retrieved for any other purposes. There are plenty available, and some are free, like [KeePass](http://keepass.info/), or [HashiCorp Vault](https://www.vaultproject.io/).
-:::
-
-## Choosing which variables should be sensitive
+### Choosing which variables should be sensitive
 
 Any value you want can be treated as a secret by Octopus. It is up to you to choose the most appropriate balance of secrecy and usability. As a rule of thumb, any individual value which should be encrypted, or masked in logs, should be made sensitive in Octopus.
 
 The most straightforward example is a password or key. Make the password or key sensitive and it will be encrypted into the database and masked in the Octopus task logs.
 
-Another common example is building a compound value using the [variable substitution syntax](/docs/projects/variables/variable-substitutions.md), like a database connection string. Imagine a variable called `DB.ConnectionString` with the value `Server=#{DB.Server};Database=#{DB.Database};User=#{DB.Username};Password#{DB.Password};`. In this case you should at least make the `DB.Password` variable sensitive so it will be encrypted in the database and masked from any Octopus task log messages like this `Server=db01.mycompany.com;Database=mydatabase;User=myuser;Password=*****`. You could also make `DB.Username` or any of the other components of this template sensitive.
+Another common example is building a *composite* value using the [variable substitution syntax](/docs/projects/variables/variable-substitutions.md), like a database connection string. Imagine a variable called `DB.ConnectionString` with the value:
 
-## Avoiding common mistakes {#Sensitivevariables-Avoidingcommonmistakes}
+`Server=#{DB.Server};Database=#{DB.Database};User=#{DB.Username};Password#{DB.Password};`
+
+In this case you should at least make the `DB.Password` variable sensitive so it will be encrypted in the database and masked from any Octopus task log messages like this:
+
+`Server=db01.mycompany.com;Database=mydatabase;User=myuser;Password=*****`. 
+
+You could also make `DB.Username` or any of the other components of this template sensitive.
+
+### Avoiding common mistakes {#Sensitivevariables-Avoidingcommonmistakes}
 
 Here are some common pitfalls to avoid:
 
@@ -57,8 +90,7 @@ Here are some common pitfalls to avoid:
 - **Sensitivity is not transitive/infectious**: For example, imagine you have a sensitive variable called `DB.Password` and another variable called `DB.ConnectionString` with the value `Server=#{DB.Server};...;Password=#{DB.Password}`; the `DB.ConnectionString` does not become sensitive just because `DB.Password` is sensitive. However, if you happen to write the database connection string to the task log, the password component will be masked like this `Server=db01.mycompany.com;...;Password=*****` which is probably the desired outcome.
 - **Avoid mixing binding expressions and sensitivity**: For example, if you have a variable called `Service.Credential` with the value `Password=#{Service.Password}` and make that variable sensitive, Octopus treats the **literal** value `Password=#{Service.Password}` as sensitive instead of treating the **evaluated** value as sensitive, which might be different to what you would expect. Instead, you should make the variable called `Service.Password` sensitive so the password itself will be encrypted in the database, and subsequently masked in any logs like this `Password=*****`.
 - **Avoid sequences that are part of the variable substitution syntax** {#Sensitivevariables-Avoidingcommonmistakes-SubstituionSyntax}: For example, the sequence `##{` will be replaced by `#{` by logic that's part of [referencing variables](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions) so you would need to escape it by modifying it to be `###{` which will result in `##{`, see also [variable substitution syntax](/docs/projects/variables/variable-substitutions.md).
-
-- **Octopus is not a 2-way key vault**: use a password manager or key vault like [KeePass](http://keepass.info/) or [HashiCorp Vault](https://www.vaultproject.io/).
+- **Octopus is not a 2-way key vault**: use a [Secret Manager/Key Vault](#Sensitivevariables-in-keyvaults) instead.
 
 ## Logging {#Sensitivevariables-LoggingLogging}
 
