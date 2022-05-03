@@ -20,7 +20,7 @@ To make a variable a **sensitive variable**, you need to enter the variable edit
 
 For variable type, select **Sensitive**.
 
-![Variable editor](images/variable-editor.jpg "width=500")
+![Variable editor](images/variable-editor.png "width=500")
 
 ## How Octopus handles your sensitive variables {#Sensitivevariables-HowOctopushandlesyoursensitivevariables}
 
@@ -62,8 +62,8 @@ Here are some common pitfalls to avoid:
 
 ## Logging {#Sensitivevariables-LoggingLogging}
 
-:::success
-Try to avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
+:::warning
+Avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
 :::
 
 Octopus/Tentacle will do its best to prevent sensitive values from inadvertently appearing in any logs. For example, if a custom PowerShell script accidentally did this:
