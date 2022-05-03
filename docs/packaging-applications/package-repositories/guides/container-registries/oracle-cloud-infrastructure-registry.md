@@ -33,6 +33,8 @@ Give the feed a name, in the URL field, paste the URL to your OCI region reposit
 
 `https://[region key].ocir.io`
 
+Replace `[region key]` with the region key where your OCI container repository is located.
+
 ![OCI Docker Registry feed](images/oracle-cloud-infrastructure-external-feed.png)
 
 Optionally add Credentials if they are required. 
