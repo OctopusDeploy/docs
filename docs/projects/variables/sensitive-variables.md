@@ -1,6 +1,6 @@
 ---
 title: Sensitive variables
-description: Sensitive variables allow you to define secret values used in your applications that are secured stored in Octopus.
+description: Sensitive variables allow you to define secret values used in your applications that can be securely stored in Octopus, or retrieved from a Secret Manager/Key Vault using one of our community step templates.
 position: 50
 ---
 
