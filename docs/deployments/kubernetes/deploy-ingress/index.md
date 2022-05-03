@@ -4,7 +4,7 @@ description: Deploy an ingress resource to a Kubernetes cluster.
 position: 40
 ---
 
-[Ingress resources](http://g.octopushq.com/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
+[Ingress resources](https://oc.to/KubernetesIngressResource) provide a way to direct HTTP traffic to service resources based on the requested host and path.
 
 ![Deploy ingress step](deploy-ingress-step.png "width=500")
 
@@ -68,7 +68,7 @@ When there are no matching ingress rules, traffic can be sent to the service con
 
 ## Ingress labels
 
-[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Ingress resource.
+[Labels](https://oc.to/KubernetesLabels) are optional name/value pairs that are assigned to the Ingress resource.
 
 ## Learn more
 

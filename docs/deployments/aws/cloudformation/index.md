@@ -41,7 +41,7 @@ If creating the CloudFormation stack, you can select `Disable rollback` to preve
 
 #### IAM capabilities
 
-This is a quote from the [AWS documentation](http://g.octopushq.com/AwsDocsControllingIAM):
+This is a quote from the [AWS documentation](https://oc.to/AwsDocsControllingIAM):
 
 > Before you can create a stack, AWS CloudFormation validates your template. During validation, AWS CloudFormation checks your template for IAM resources that it might create. IAM resources, such as an IAM user with full access, can access and modify any resource in your AWS account. Therefore, we recommend that you review the permissions associated with each IAM resource before proceeding so that you don't unintentionally create resources with escalated permissions. To ensure that you've done so, you must acknowledge that the template contains those resources, giving AWS CloudFormation the specified capabilities before it creates the stack.
 
