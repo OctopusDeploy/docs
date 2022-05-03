@@ -17,7 +17,7 @@ Click on **Create repository**
 
 Fill in the following:
 - **Compartment**: Select which compartment to place the repository in
-- Repoistory name - give the repository a name
+- **Repository name**: Give the repository a name
 - Access - select whether this will be an `Public` or `Private` repository
 
 Click **Create repository**
