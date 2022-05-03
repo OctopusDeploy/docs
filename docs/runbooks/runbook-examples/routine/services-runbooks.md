@@ -40,7 +40,7 @@ With a relatively simple runbook you can empower developers and speed up time to
 
 ### Windows services samples {#windows-services-samples}
 
-We have a [Target - Windows](https://g.octopushq.com/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
+We have a [Target - Windows](https://oc.to/TargetWindowsSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `OctoFX` project.
 
 ## Linux services runbooks {#linux-services-runbooks}
 
@@ -68,7 +68,7 @@ After adding all of the required parameters, click **Save**, and you have a basi
 
 ### Linux service samples {#linux-services-samples}
 
-We have a [Target - Wildfly](https://g.octopushq.com/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
+We have a [Target - Wildfly](https://oc.to/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
 
 ## Learn more
 

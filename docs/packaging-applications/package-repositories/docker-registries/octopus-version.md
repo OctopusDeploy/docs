@@ -14,7 +14,7 @@ Starting with 2020.6, Octopus introduced a new, permissive versioning scheme for
 Prior to 2020.6, Octopus only recognized Docker image tags that complied with the Semantic Versioning standard.
 :::
 
-The following [regular expression](https://g.octopushq.com/OctopusVersionRegex/) defines how docker tags are parsed into version components:
+The following [regular expression](https://oc.to/OctopusVersionRegex/) defines how docker tags are parsed into version components:
 
 ```
 ^(?:(?<prefix>v|V)?(?<major>\d+)(?:\.(?<minor>\d+))?(?:\.(?<patch>\d+))?(?:\.(?<revision>\d+))?)?(?:[.\-_])?(?<prerelease>(?<prereleaseprefix>[^+.\-_\s]*?)([.\-_](?<prereleasecounter>[^+\s]*?)?)?)?(?:\+(?<buildmetadata>[^\s]*?))?$
@@ -26,7 +26,7 @@ The four optional leading integers define the version major, minor, patch and re
 
 The prerelease label captures all characters, excluding the plus symbol, after an optional dot, dash or underscore separator.
 
-The metadata field captures any characters after a plus symbol. Note however that [Docker tags can not include the plus character](https://g.octopushq.com/DockerTags), and so can not define a metadata component. The metadata field has been defined for future use.
+The metadata field captures any characters after a plus symbol. Note however that [Docker tags can not include the plus character](https://oc.to/DockerTags), and so can not define a metadata component. The metadata field has been defined for future use.
 
 This versioning scheme allows for traditional labels like `1.0` or `V1.2.3.4`. A string with no integer components, like `myversion`, is captured in the prerelease label, and assumed to have a major, minor, patch and revision of `0.0.0.0`.
 

@@ -80,4 +80,4 @@ You'll note the use of `2>&1` which redirects the stderr stream to stdout.  Bash
 
 ## Samples
 
-We have a [Target - Wildfly](https://g.octopushq.com/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.
+We have a [Target - Wildfly](https://oc.to/TargetWildflySamplePetClinic) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic` project.

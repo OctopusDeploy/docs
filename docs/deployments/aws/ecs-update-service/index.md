@@ -97,7 +97,7 @@ Merging environment variables will add any new variables and overwrite the value
 
 ### Tags section
 
-Specify any additional tags that should be added to the task definition and service. Tags can be used to attach arbitrary metadata to categorize and organize resources. For more information see the [ECS Documentation](https://g.octopushq.com/ECSUsingTags)
+Specify any additional tags that should be added to the task definition and service. Tags can be used to attach arbitrary metadata to categorize and organize resources. For more information see the [ECS Documentation](https://oc.to/ECSUsingTags)
 
 ![ECS Step Tags](images/update-ecs-tags.png "width=500")
 

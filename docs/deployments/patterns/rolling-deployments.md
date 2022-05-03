@@ -107,6 +107,6 @@ Octopus will evaluate the value of the [Output variable](/docs/projects/variable
     d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
 
 ## Learn more
-- [View rolling deployment examples on our samples instance](https://g.octopushq.com/PatternRollingSamplesSpace).
-- [Rolling deployment knowledge base articles](https://g.octopushq.com/RollingDeployTaggedKBArticles).
+- [View rolling deployment examples on our samples instance](https://oc.to/PatternRollingSamplesSpace).
+- [Rolling deployment knowledge base articles](https://oc.to/RollingDeployTaggedKBArticles).
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

@@ -4,7 +4,7 @@ description: Deploy a service resource to a Kubernetes cluster.
 position: 30
 ---
 
-[Service resources](http://g.octopushq.com/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
+[Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Deploy Kubernetes service resource` steps can be used to configure and deploy a Service resource.
 
 ![Deploy service step](deploy-service-step.png "width=500")
 
@@ -54,14 +54,14 @@ If the Service resource is a NodePort or LoadBalancer, then there is an addition
 
 ### Service labels
 
-[Labels](http://g.octopushq.com/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
+[Labels](https://oc.to/KubernetesLabels) are optional name/value pairs that are assigned to the Service resource.
 
 ### Service selector labels
 
-[Selector Labels](http://g.octopushq.com/KubernetesLabels) define the optional labels that must exist on the Pod resources in order for this Service resource to send traffic to them.
+[Selector Labels](https://oc.to/KubernetesLabels) define the optional labels that must exist on the Pod resources in order for this Service resource to send traffic to them.
 
 :::hint
-There are some advanced use cases where creating a Service resource without selectors is useful. Refer to the [Kubernetes documentation](http://g.octopushq.com/KubernetesServicesWithoutSelectors) for more information.
+There are some advanced use cases where creating a Service resource without selectors is useful. Refer to the [Kubernetes documentation](https://oc.to/KubernetesServicesWithoutSelectors) for more information.
 :::
 
 ## Learn more

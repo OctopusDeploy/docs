@@ -37,7 +37,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 ![AWS Role](images/step-aws-role.png "width=500")
 
 :::hint
-If you select **Yes** to **Execute using the AWS service role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+If you select **Yes** to **Execute using the AWS service role for an EC2 instance**, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
 ### CloudFormation section
@@ -60,4 +60,4 @@ In a single step, you can delete all the resources created within a CloudFormati
 
 ## Samples
 
-We have a [Target - PostgreSQL](https://g.octopushq.com/TargetPostgreSQLSampleSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Space Infrastructure` project.
+We have a [Target - PostgreSQL](https://oc.to/TargetPostgreSQLSampleSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Space Infrastructure` project.

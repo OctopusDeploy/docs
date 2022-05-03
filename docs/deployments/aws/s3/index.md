@@ -24,7 +24,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 ![AWS Role](step-aws-role.png "width=500")
 
 :::hint
-If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
 ### Package section
@@ -139,14 +139,14 @@ Any metadata and tags provided will be applied to all files uploaded to the buck
 :::
 
 ### Metadata and tags
-Metadata and tags can be provided for the package, for file selections for the package, or for individual files. See the [AWS documentation](https://g.octopushq.com/AwsS3UsingMetadata) for more information regarding the usage of metadata.
+Metadata and tags can be provided for the package, for file selections for the package, or for individual files. See the [AWS documentation](https://oc.to/AwsS3UsingMetadata) for more information regarding the usage of metadata.
 
 ### Canned ACL
-The canned ACL must be specified when uploading files as it dictates the permissions for a file within the S3 bucket. Please see the [AWS documentation](https://g.octopushq.com/AwsS3CannedAcl) for information regarding Canned ACLs.
+The canned ACL must be specified when uploading files as it dictates the permissions for a file within the S3 bucket. Please see the [AWS documentation](https://oc.to/AwsS3CannedAcl) for information regarding Canned ACLs.
 
 ### Storage class
 The storage class for files specify the performance access requirements for a file.
-Please see the [AWS documentation](https://g.octopushq.com/AwsS3StorageClasses) for more information regarding Storage classes.
+Please see the [AWS documentation](https://oc.to/AwsS3StorageClasses) for more information regarding Storage classes.
 
 ### Upload behavior
 Uploads are skipped if the content hash is the same as an existing object in the target bucket. This is done to avoid unnecessary uploads and may require special care to be taken when using custom bucket
@@ -195,7 +195,7 @@ An exception was thrown while contacting the AWS API.
 
 This can happen when accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
-An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-S3-ERROR-0002
 The AWS account used to perform the operation does not have the required permissions to upload to the bucket.
@@ -204,10 +204,10 @@ An exception was thrown while contacting the AWS API.
 
 This can happen when accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
-An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-S3-ERROR-0003
 An error occurred uploading a file to a bucket possibly due to metadata. Specified value has invalid HTTP header characters.
 
-This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://g.octopushq.com/AwsS3UsingMetadata) is not used as part of
+This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://oc.to/AwsS3UsingMetadata) is not used as part of
 metadata.

@@ -75,7 +75,7 @@ The following qualifiers in the version are used to indicate that it is a pre-re
 
 ## Version ranges with Maven feeds
 
-When defining versions ranges against artifacts sourced from a Maven feed (when defining a channel rule for example), the [Maven range specification](https://g.octopushq.com/MavenVersioning) is used. The table below shows some common examples of Maven version ranges.
+When defining versions ranges against artifacts sourced from a Maven feed (when defining a channel rule for example), the [Maven range specification](https://oc.to/MavenVersioning) is used. The table below shows some common examples of Maven version ranges.
 
 | Range |	Meaning |
 |-|-|

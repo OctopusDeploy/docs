@@ -4,7 +4,7 @@ description: Deploy to a Kubernetes cluster.
 position: 10
 ---
 
-Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource), a [Service resource](http://g.octopushq.com/KubernetesServiceResource), and an [Ingress resource](http://g.octopushq.com/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
+Octopus supports the deployment of Kubernetes resources through the `Deploy Kubernetes containers` step. This step exposes a UI that builds up a [Kubernetes Deployment resource](https://oc.to/KubernetesDeploymentResource), a [Service resource](https://oc.to/KubernetesServiceResource), and an [Ingress resource](https://oc.to/KubernetesIngressResource). The combination of these resources represents an opinionated view about what makes up a typical Kubernetes deployment.
 
 ## Deploy Kubernetes containers step
 
@@ -14,11 +14,11 @@ To begin, add the `Deploy Kubernetes containers` step to a project.
 
 This step has three important sections that make up the combined objects that are deployed to Kubernetes.
 
-The first section is the `Deployment`. This section is used to build of the [Deployment resource](http://g.octopushq.com/KubernetesDeploymentResource).
+The first section is the `Deployment`. This section is used to build of the [Deployment resource](https://oc.to/KubernetesDeploymentResource).
 
-The second feature is the `Service`. This feature is used to build a [Service resource](http://g.octopushq.com/KubernetesServiceResource).
+The second feature is the `Service`. This feature is used to build a [Service resource](https://oc.to/KubernetesServiceResource).
 
-The third feature is the `Ingress`. This feature is used to build a [Ingress resource](http://g.octopushq.com/KubernetesIngressResource).
+The third feature is the `Ingress`. This feature is used to build a [Ingress resource](https://oc.to/KubernetesIngressResource).
 
 ![Deploy Container Resources](deploy-container.svg "width=500")
 
@@ -30,15 +30,15 @@ To distinguish between Kubernetes and Octopus terminology, we will reference Kub
 
 ### Deployment
 
-A Deployment resource provides a declarative interface for a [Pod resource](http://g.octopushq.com/KubernetesPodResource) and a [ReplicaSet resource](http://g.octopushq.com/KubernetesReplicaSetResource).
+A Deployment resource provides a declarative interface for a [Pod resource](https://oc.to/KubernetesPodResource) and a [ReplicaSet resource](https://oc.to/KubernetesReplicaSetResource).
 
-A Pod resource in turn configures one or more [Containers resources](http://g.octopushq.com/KubernetesContainer). Container resources reference a Docker container image and provide all the additional configuration required for Kubernetes to deploy, run, expose, monitor, and secure the Docker container.
+A Pod resource in turn configures one or more [Containers resources](https://oc.to/KubernetesContainer). Container resources reference a Docker container image and provide all the additional configuration required for Kubernetes to deploy, run, expose, monitor, and secure the Docker container.
 
 A ReplicaSet resource monitors the Pod resources to ensure that the required number of instances are running.
 
 ### Deployment name
 
-Each Deployment resource requires a unique `Deployment Name`. Kubernetes resources are identified by their names, so the name must be unique in the target [namespace](http://g.octopushq.com/KubernetesNamespace).
+Each Deployment resource requires a unique `Deployment Name`. Kubernetes resources are identified by their names, so the name must be unique in the target [namespace](https://oc.to/KubernetesNamespace).
 
 When using the blue/green deployment strategy, the name entered in this field will be used as the base for the Deployment resource name. The Octopus deployment ID will then be appended to the name to ensure the blue and green Deployment resources have unique names.
 
@@ -60,7 +60,7 @@ This value affects [Blue/Green deployments](#bluegreen-deployment-strategy), whi
 
 ### Pod termination grace period
 
-An optional value that defines how long Kubernetes will wait for the Pod resource to shutdown before it is killed. See the [Kubernetes documentation](http://g.octopushq.com/KubernetesPodTermination) for more details.
+An optional value that defines how long Kubernetes will wait for the Pod resource to shutdown before it is killed. See the [Kubernetes documentation](https://oc.to/KubernetesPodTermination) for more details.
 
 ### Add label
 
@@ -110,17 +110,17 @@ This field is used when creating Kubernetes `Job` resources only.
 
 ### Deployment strategy
 
-Kubernetes exposes two native deployment strategies: [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) and [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
+Kubernetes exposes two native deployment strategies: [Recreate](https://oc.to/KubernetesRecreateStrategy) and [Rolling Update](https://oc.to/KubernetesRollingStrategy). When deploying containers with this step, Octopus supports a third deployment strategy called blue/green.
 
 :::hint
 Deployment strategies are not applicable to Kubernetes `Job` resources.
 :::
 
 ### Recreate deployment strategy
-The first native deployment strategy is the [Recreate](http://g.octopushq.com/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
+The first native deployment strategy is the [Recreate](https://oc.to/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
 
 ### Rolling update deployment strategy
-The second native deployment strategy is the [Rolling Update](http://g.octopushq.com/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
+The second native deployment strategy is the [Rolling Update](https://oc.to/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
 ### Blue/Green deployment strategy
 The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Deploy Kubernetes containers` step because it creates and coordinates both the Deployment resource and the Service resources.
@@ -151,7 +151,7 @@ At the end of Phase 2 there are three resources in Kubernetes: the green Deploym
 
 The third phase involves waiting for the blue Deployment resource to be ready.
 
-Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [readiness probes](http://g.octopushq.com/KubernetesProbes) must have successfully completed.
+Octopus executes the command `kubectl rollout status "deployment/blue-deployment-name"`, which will wait until the newly created blue Deployment resource is ready. For a Deployment resource to be considered ready, it must have been successfully created, and any Container resource [readiness probes](https://oc.to/KubernetesProbes) must have successfully completed.
 
 :::hint
 The [progression deadline](#progression-deadline) field can be used to limit how long Kubernetes will wait for a deployment to be successful.
@@ -207,7 +207,7 @@ The Blue/Green deployment strategy always waits for the rollout to succeed, as t
 
 ### Volumes
 
-[Volume resources](http://g.octopushq.com/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
+[Volume resources](https://oc.to/KubernetesVolumes) allow external data to be accessed by a Container resource via its file system. Volume resources are defined in the `Volumes` section, and later referenced by the container configuration.
 
 The volumes can reference externally managed storage, such as disks hosted by a cloud provider, network shares, or ConfigMap and Secret resources that are created outside of the step.
 
@@ -221,7 +221,7 @@ All Volume resources must have a unique name defined in the `Name` field.
 
 #### ConfigMap
 
-The [ConfigMap Volume resource](http://g.octopushq.com/KubernetesConfigMapVolume) exposes the data saved in a [ConfigMap resource](http://g.octopushq.com/KubernetesConfigMap) as files in a container.
+The [ConfigMap Volume resource](https://oc.to/KubernetesConfigMapVolume) exposes the data saved in a [ConfigMap resource](https://oc.to/KubernetesConfigMap) as files in a container.
 
 The `ConfigMap name` field defines the name of the ConfigMap resource that is to be exposed.
 
@@ -248,7 +248,7 @@ If this Volume resource is mounted by a container under the directory `/data`, t
 
 #### Secret
 
-The [Secret Volume resource](http://g.octopushq.com/KubernetesSecretVolume) exposes the data saved in a [Secret resource](http://g.octopushq.com/KubernetesSecretResource) as files in a container.
+The [Secret Volume resource](https://oc.to/KubernetesSecretVolume) exposes the data saved in a [Secret resource](https://oc.to/KubernetesSecretResource) as files in a container.
 
 The `Secret name` field defines the name of the Secret resource that is to be exposed.
 
@@ -275,7 +275,7 @@ If this Volume resource is mounted by a container under the directory `/data`, t
 
 #### Empty dir
 
-The [Empty Dir Volume resource](http://g.octopushq.com/KubernetesEmptyDirVolume) is used to create volume that is initially empty. The volume can be shared between containers. Some uses for an Empty Dir Volume resource are:
+The [Empty Dir Volume resource](https://oc.to/KubernetesEmptyDirVolume) is used to create volume that is initially empty. The volume can be shared between containers. Some uses for an Empty Dir Volume resource are:
 
 * Scratch space, such as for a disk-based merge sort.
 * Check-pointing a long computation for recovery from crashes.
@@ -285,7 +285,7 @@ By default, Empty Dir Volumes resources are stored on whatever medium is backing
 
 #### Host path
 
-The [Host path volume resource](http://g.octopushq.com/KubernetesHostPathVolume) mounts a file or directory from the host node’s filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
+The [Host path volume resource](https://oc.to/KubernetesHostPathVolume) mounts a file or directory from the host node’s filesystem into your Pod. This is not something that most Pods will need, but it offers a powerful escape hatch for some applications.
 
 For example, some uses for a Host Path Volume resource are:
 
@@ -310,7 +310,7 @@ The `Type` field is optional and has the supported values:
 
 #### Persistent volume claim
 
-The [Persistent Volume Claim volume resource](http://g.octopushq.com/KubernetesPersistentVolumeClaimVolume) is used to mount a PersistentVolume into a Pod. [PersistentVolume resources](http://g.octopushq.com/KubernetesPersistentVolumes) are a way for users to "claim" durable storage (such as a GCE PersistentDisk or an iSCSI volume) without knowing the details of the particular cloud environment.
+The [Persistent Volume Claim volume resource](https://oc.to/KubernetesPersistentVolumeClaimVolume) is used to mount a PersistentVolume into a Pod. [PersistentVolume resources](https://oc.to/KubernetesPersistentVolumes) are a way for users to "claim" durable storage (such as a GCE PersistentDisk or an iSCSI volume) without knowing the details of the particular cloud environment.
 
 The `Persistent Volume Claim Name` field must be set to the name of the PersistentVolumeClaim resource to be used.
 
@@ -337,7 +337,7 @@ The `Persistent Volume Claim Name` field would be set to `mysql-pv-claim`.
 
 Kubernetes supports a huge range of volume resources, and only a small number are exposed directly by the step user interface. Other volume resources can be defined as raw YAML.
 
-The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](http://g.octopushq.com/KubernetesAwsEbsVolume) type:
+The YAML entered must only include the details of the specific volume resource, and not include fields like `name`. For example, consider this example YAML provided by the Kubernetes documentation for the [AWS EBS volume resource](https://oc.to/KubernetesAwsEbsVolume) type:
 
 ```yaml
 apiVersion: v1
@@ -380,7 +380,7 @@ The container image must have a name that consists of lower case alphanumeric ch
 
 The image is then selected from one of those available from the Docker feed.
 
-If the Docker feed requires authentication, Octopus will automatically generated the [required Secret resource](http://g.octopushq.com/KubernetesPrivateRegistry) as part of the deployment.
+If the Docker feed requires authentication, Octopus will automatically generated the [required Secret resource](https://oc.to/KubernetesPrivateRegistry) as part of the deployment.
 
 #### Ports
 
@@ -404,7 +404,7 @@ The image pull policy and the tag of the image affect when the kubelet attempts 
 
 #### Container type
 
-To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](http://g.octopushq.com/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
+To support configuring and initializing Pod resources, Kubernetes has the concept of an [Init Container resource](https://oc.to/KubernetesInitContainer). Init Container resources are run before App Container resources and are often used to run setup scripts.
 
 For example, an Init Container resource may be used to set the permissions on a directory exposed by a PersistentVolumeClaim volume resource before the App Container resource is launched. This is especially useful when you do not manage the App Container resource image, and therefore can't include such initialization directly into the image.
 
@@ -418,7 +418,7 @@ The requested resources must be available in the Kubernetes cluster, or else the
 
 The resource limits allow a Container resource to burst up to the defined limits.
 
-The `CPU Request` field defines the minimum CPU resources that the Container resource requires. The value is measured in [CPU units](http://g.octopushq.com/KubernetesCpuUnits). One CPU, in Kubernetes, is equivalent to:
+The `CPU Request` field defines the minimum CPU resources that the Container resource requires. The value is measured in [CPU units](https://oc.to/KubernetesCpuUnits). One CPU, in Kubernetes, is equivalent to:
 
 * 1 AWS vCPU
 * 1 GCP Core
@@ -429,7 +429,7 @@ Fractional values are allowed. A Container that requests `0.5` cpu is guaranteed
 
 The `CPU Limit` field defines the maximum amount of CPU resources that the Container resource can use.
 
-The `Memory Request` field defines the minimum amount of memory that the Container resource requires. The memory resource is [measured in bytes](http://g.octopushq.com/KubernetesMemoryResourceUnits). You can express memory as a plain integer or a fixed-point integer with one of these suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki. For example, the following represent approximately the same value:
+The `Memory Request` field defines the minimum amount of memory that the Container resource requires. The memory resource is [measured in bytes](https://oc.to/KubernetesMemoryResourceUnits). You can express memory as a plain integer or a fixed-point integer with one of these suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki. For example, the following represent approximately the same value:
 
 * 128974848
 * 129e6
@@ -474,7 +474,7 @@ See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
 
 #### Liveness probe
 
-The [Liveness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it is currently operational.
+The [Liveness probe resource](https://oc.to/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it is currently operational.
 
 The `Failure threshold` defines how many times the probe can fail after the pod has been started. After this many failures, the pod is restarted. The default value is 3.
 
@@ -509,7 +509,7 @@ The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
 The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defines to `http`.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
@@ -519,11 +519,11 @@ The TCP Socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 #### Readiness probe
 
-The [Readiness probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
+The [Readiness probe resource](https://oc.to/KubernetesProbes) configures a health check that is executed against the Container resource to verify that it has started correctly. Readiness probes are not supported by Init Container resources.
 
 :::hint
 If defined, the readiness probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the readiness probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
@@ -564,7 +564,7 @@ The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
 The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defaults to `http`.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
@@ -574,15 +574,15 @@ The TCP socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 #### Command
 
-The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
+The [command and arguments](https://oc.to/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
 
 This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can define an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://oc.to/DockerCmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
@@ -603,7 +603,7 @@ an argument with a space
 
 #### Startup probe
 
-The [Startup probe resource](http://g.octopushq.com/KubernetesProbes) configures a health check that must complete before the Liveness probe begins. This is useful to accomodate any inital delay in booting a container.
+The [Startup probe resource](https://oc.to/KubernetesProbes) configures a health check that must complete before the Liveness probe begins. This is useful to accomodate any inital delay in booting a container.
 
 :::hint
 If defined, the startup probe must succeed for a [Blue/Green](#bluegreen-deployment-strategy) deployment to complete successfully. If the startup probe fails, the Blue/Green deployment will halt at [phase 3](#phase-3).
@@ -644,7 +644,7 @@ The `Path` field defines the URL path that the HTTP GET request will be sent to.
 
 The `Scheme` field defines the scheme of the URL that is requested. If not defined, this value defaults to `http`.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
@@ -654,15 +654,15 @@ The TCP socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
-The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://g.octopushq.com/IANA) port name.
+The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
 
 #### Command
 
-The [command and arguments](https://g.octopushq.com/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
+The [command and arguments](https://oc.to/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
 
 This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
 
-Docker images can define an [ENTRYPOINT](https://g.octopushq.com/DockerEntrypoint), a [CMD](https://g.octopushq.com/DockerCmd), or both.
+Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://oc.to/DockerCmd), or both.
 
 When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
 
@@ -683,7 +683,7 @@ an argument with a space
 
 #### Pod security context
 
-The `Pod Security context` section defines the [container resource security context options](https://g.octopushq.com/KubernetesContainerSecurityContext).
+The `Pod Security context` section defines the [container resource security context options](https://oc.to/KubernetesContainerSecurityContext).
 
 The `Allow privilege escalation` section controls whether a process can gain more privileges than its parent process. Note that this field is implied when the `Privileged` option is enabled.
 
@@ -952,9 +952,9 @@ The name of the ingress resource is not affected by the deployment strategy.
 
 #### Ingress class name
 
-[Starting with Kubernetes 1.18](https://g.octopushq.com/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined in the `Ingress Class Name` field.
+[Starting with Kubernetes 1.18](https://oc.to/K8SIngressClassAnnouncement), the ingress controller that implements ingress rules is defined in the `Ingress Class Name` field.
 
-See the [Kubernetes documentation](https://g.octopushq.com/K8SIngressClassDocs) for more information.
+See the [Kubernetes documentation](https://oc.to/K8SIngressClassDocs) for more information.
 
 #### Ingress host rules
 
@@ -968,7 +968,7 @@ The `Add Path` button adds a new mapping between a request path and the Service 
 
 Ingress resources only provide configuration. An Ingress Controller resource uses the Ingress configuration to direct network traffic within the Kubernetes cluster.
 
-There are many Ingress Controller resources available. [NGINX](https://g.octopushq.com/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://g.octopushq.com/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://g.octopushq.com/GoogleCloudIngressController). A [third party Ingress Controller resource](https://g.octopushq.com/AwsIngressController) is available for AWS making use of the ALB service.
+There are many Ingress Controller resources available. [NGINX](https://oc.to/NginxIngressController) is a popular option, that is used by the [Azure AKS service](https://oc.to/AzureIngressController). Google Cloud provides its [own Ingress Controller resource](https://oc.to/GoogleCloudIngressController). A [third party Ingress Controller resource](https://oc.to/AwsIngressController) is available for AWS making use of the ALB service.
 
 The diagram below shows a typical configuration with Ingress and Ingress Controller resources.
 
@@ -977,16 +977,16 @@ The diagram below shows a typical configuration with Ingress and Ingress Control
 :::hint
 There is no standard behavior to the creation of load balancers when configuring Ingress Controller resources.
 
-For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://g.octopushq.com/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](../deploy-ingress/index.md) step.
+For example, the Google Cloud Ingress Controller will create a new load balancer for every Ingress resource. The [documentation](https://oc.to/GoogleCloudIngressFanOut) suggests to create a single Ingress resource to achieve a fanout pattern that shares a single load balancer. This can be achieved using the [Deploy Kubernetes ingress resource](../deploy-ingress/index.md) step.
 
-On the other hand, the [NGINX Ingress Controller resource installation procedure](https://g.octopushq.com/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
+On the other hand, the [NGINX Ingress Controller resource installation procedure](https://oc.to/NginxIngressControllerDocs) creates a single LoadBalancer Service resource that is shared by default.
 :::
 
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
-* [NGINX](https://g.octopushq.com/NginxIngressControllerAnnotations)
-* [Google Cloud](https://g.octopushq.com/GoogleCloudIngressControllerGithub)
-* [AWS](https://g.octopushq.com/AwsAlbAnnotations)
+* [NGINX](https://oc.to/NginxIngressControllerAnnotations)
+* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
+* [AWS](https://oc.to/AwsAlbAnnotations)
 
 A new annotation is defined by clicking the `Add Annotation` button.
 
@@ -995,7 +995,7 @@ The `Name` field will provide suggested annotation names, but this list of sugge
 The `Value` field defines the annotation value.
 
 :::hint
-Annotation values are always considered to be strings. See this [GitHub issue](https://g.octopushq.com/KubernetesAnnotationStringsIssue) for more information.
+Annotation values are always considered to be strings. See this [GitHub issue](https://oc.to/KubernetesAnnotationStringsIssue) for more information.
 :::
 
 ### ConfigMap and secret

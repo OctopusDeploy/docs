@@ -207,4 +207,4 @@ This will provide basic hardening of an Apache installation at the click of a bu
 
 ## Samples
 
-We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more runbooks in the `Deployment Target Management` project.
+We have an [Octopus Admin](https://oc.to/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples and more runbooks in the `Deployment Target Management` project.

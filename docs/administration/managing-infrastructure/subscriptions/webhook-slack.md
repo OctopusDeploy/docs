@@ -73,7 +73,7 @@ az functionapp create -g OctopusFunctions -n SubscriptionHandler -s octofuncstor
 ### Write the Function App code
 
 :::hint
-The code for this can be found in the [samples repo](http://g.octopushq.com/SamplesSubscriptionsRepo).
+The code for this can be found in the [samples repo](https://oc.to/SamplesSubscriptionsRepo).
 :::
 
 The Octopus subscription has been created and set up to send data to RequestBin.  Here's the resulting JSON payload following creation of a new Service Account user:
@@ -315,7 +315,7 @@ This example uses [Github Actions](https://github.com/features/actions) to build
 
 ![Build output](images/github-action-build-output.png "width=800")
 
-The build YAML can be found in `.github/workflows/AzureSlackFunction.yaml` in the [samples repo](http://g.octopushq.com/SamplesSubscriptionsRepo).
+The build YAML can be found in `.github/workflows/AzureSlackFunction.yaml` in the [samples repo](https://oc.to/SamplesSubscriptionsRepo).
 
 ### Deploy the Azure App Function
 
@@ -329,7 +329,7 @@ The project has two steps:
 1. Deploy the Azure Function App.
 2. Set the environment variable for `SLACK_URI_APIKEY`.
 
-The project can be viewed in the `AzFuncNotifySlack` project on our Octopus [samples instance](http://g.octopushq.com/OctopusAdminSamplesSpace).
+The project can be viewed in the `AzFuncNotifySlack` project on our Octopus [samples instance](https://oc.to/OctopusAdminSamplesSpace).
 
 ## Test the subscription
 
