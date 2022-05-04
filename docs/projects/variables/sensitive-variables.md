@@ -48,7 +48,7 @@ To make a variable a **sensitive variable**, either select **Change Type** when 
 
 If using the variable editor, on any of the variable fields, click **OPEN EDITOR**:
 
-![Open Variable Editor](images/open-editor.png "width=500")
+![Open Variable Editor](images/open-variable-editor.png "width=500")
 
 For variable type, select **Sensitive**.
 
