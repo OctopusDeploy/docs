@@ -4,15 +4,15 @@ description: Create a new bucket in Amazon S3.
 ---
 
 Octopus supports creating a new S3 bucket through the `Create an Amazon S3 Bucket` step.
-This step provides a way to create or manage an arbitrary Amazon S3 Bucket. This could be especially useful in conjunction with AWS Lambda functions.
+This step provides a way to create or manage an arbitrary Amazon S3 Bucket via CloudFormation. This could be especially useful in conjunction with AWS Lambda functions.
 
 :::hint
-The `Create an Amazon S3 Bucket` manages the S3 bucket via CloudFormation.
+The `Create an Amazon S3 Bucket` step was added in **Octopus 2022.1**.
 :::
 
 The following instructions can be followed to configure the `Create an Amazon S3 Bucket` step.
 
-## Add the "Create an Amazon S3 Bucket" step
+## Add the Create an Amazon S3 Bucket step
 
 Add the `Create an Amazon S3 Bucket` step to the project, and provide it a name.
 
@@ -29,7 +29,9 @@ The following settings will need to be configured:
 * AWS Region
 * AWS Account
 
-The Bucket Name will be automatically generated if it are not provided.
+:::hint
+Note: The **S3 Bucket Name** will be automatically generated if not provided.
+:::
 
 ### Tags section
 
@@ -39,15 +41,14 @@ Specify a list of tags and their values. These tags will be added to Bucket as w
 
 ### Advanced section
 
-Provide some optional, advanced configuration options.
+The S3 bucket is created and managed through a CloudFormation stack. You can optionally specify a CloudFormation Stack Name to use, otherwise, one will be automatically generated.
 
 ![Create an Amazon S3 Bucket Tags section](images/advanced-section.png "width=500")
 
-The bucket is created and managed through a CloudFormation stack and you can optionally provide a specific CloudFormation Stack Name to use, otherwise one will be automatically generated.
 
 ## Output variables
 
-Presently, the step does outputs the following variables.
+Presently, the step outputs the following variables.
 
 | Name        | Description |
 | ------------| ----------- |
@@ -56,8 +57,12 @@ Presently, the step does outputs the following variables.
 |`StackId`    | The ID (ARN) of the CloudFormation stack |
 |`Region`     | The AWS region in which the operations were executed |
 
-## Create S3 Bucket Validation Error
+## Errors
 
-This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and could not be resolved until a new release is deployed. The step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
+If a deployment failure is detected, you may receive one of the following errors.
+
+### Create S3 Bucket Validation Error
+
+This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and cannot be resolved until a new release is deployed. The step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
 * Non-unique tag and/or environment variable keys.
 * Bound expressions resolving to empty values when the field is required.
