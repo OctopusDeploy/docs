@@ -8,8 +8,8 @@ As you work with [variables](/docs/projects/variables/index.md) in Octopus, ther
 
 Sensitive variables can be sourced from either:
 
-- A Secret Manager/Key Vault using one of our Community step templates
-- Octopus itself, with values stored securely using `AES128` encryption.
+- A Secret Manager/Key Vault using one of our Community step templates.
+- Octopus itself, with values stored securely using **AES128 encryption**.
 
 ## Values from a Secret Manager/Key Vault {#Sensitivevariables-in-keyvaults}
 
