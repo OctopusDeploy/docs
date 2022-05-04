@@ -44,7 +44,9 @@ Just like non-sensitive variables they can [reference other variables](/docs/pro
 
 ### Configuring sensitive variables {#Sensitivevariables-Configuringsensitivevariables}
 
-To make a variable a **sensitive variable**, you need to enter the variable editor when you are creating or editing the variable. On any of the variable fields, click **OPEN EDITOR**:
+To make a variable a **sensitive variable**, either select **Change Type** when entering the value and select **Sensitive**, or enter the variable editor when you are creating or editing the variable. 
+
+If using the variable editor, on any of the variable fields, click **OPEN EDITOR**:
 
 ![Open Variable Editor](images/open-editor.png "width=500")
 
