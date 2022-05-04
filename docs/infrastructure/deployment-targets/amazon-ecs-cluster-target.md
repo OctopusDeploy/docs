@@ -59,6 +59,6 @@ When assuming a role there are a number of options which can be configured.
 | Role ARN         | The ARN of the role to be assumed                                                                                                                                                                                                | Y        |
 | Session Name     | The name of the session to use when assuming the role. If this is not provided a default session will be automatically generated.                                                                                                | N        |
 | Session Duration | The duration that the session will be available for. If this is not provided the default session duration for the role will be used.                                                                                             | N        |
-| External ID      | An external ID which can be provided to authorise third-party access. See the [AWS documentation on External Id](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) for more information | N        |
+| External ID      | An external ID which can be provided to authorize third-party access. See the [AWS documentation on External Id](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) for more information | N        |
 
 ![ECS Cluster Assume Role](images/aws-ecs-target-assume-role.png "width=500")
