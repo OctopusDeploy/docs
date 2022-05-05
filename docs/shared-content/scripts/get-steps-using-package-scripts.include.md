@@ -32,7 +32,7 @@ foreach ($project in $projectList) {
     foreach ($step in $deploymentProcess.Steps) {
         $packages = $step.Actions.Packages
         if ($null -ne $packages) {
-            $package = $packages | Where-Object { $_.PackageId -eq $packageId }
+            $packageIds = $packages | Where-Object {$_.PackageId -eq $packageId}
             if($packageIds.Count -gt 0) {
                 Write-Host "Step: $($step.Name) of project: $($project.Name) is using package '$packageId'."
             }
