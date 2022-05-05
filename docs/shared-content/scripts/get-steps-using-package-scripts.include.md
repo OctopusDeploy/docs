@@ -8,6 +8,10 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $packageId = "PackageId"
 
+# Get base instance for version check
+$baseInstance = Invoke-RestMethod -Method Get -Uri "$octopusURL/api" -Headers $header
+$version = [System.Version]::Parse($baseInstance.Version.Replace("-hotfix", "")) 
+
 # Get space
 $space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
 
@@ -17,17 +21,39 @@ $projectList = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/
 # Loop through projects
 foreach ($project in $projectList)
 {
-    # Get project deployment process
-    $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header
+ 
+    # Check if project is Config-as-Code
+    if($project.IsVersionControlled)
+    {
+        # Get default Git branch for Config-as-Code project
+        $defaultBranch = $project.PersistenceSettings.DefaultBranch
 
-    # Get steps
+        # Get project deployment process for Config-as-Code projects
+        $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/$defaultBranch/deploymentprocesses" -Headers $header
+    }
+    else
+    {
+        # Check if version is greater/equal to 2022.1 for endpoint breaking change, else use old endpoint
+        if($version.Major -ge 2022 -And $version.Minor -ge 1)
+        {
+            # Get project deployment process post 2022.1
+            $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/deploymentprocesses" -Headers $header
+        }
+        else
+        {
+            #Get project deployment process pre 2022.1
+            $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header
+        }        
+    }
+
+    # Get steps and check step for specified package
     foreach ($step in $deploymentProcess.Steps)
     {
         $packages = $step.Actions.Packages
         if ($null -ne $packages)
         {
-            $packageIds = $packages | Where-Object {$_.PackageId -eq $packageId}
-            if($packageIds.Count -gt 0) {
+            $package = $packages | Where-Object {$_.PackageId -eq $packageId}
+            if($package.PackageId -eq $packageId) {
                 Write-Host "Step: $($step.Name) of project: $($project.Name) is using package '$packageId'."
             }
         }
