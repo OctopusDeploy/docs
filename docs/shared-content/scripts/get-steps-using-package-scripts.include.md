@@ -32,8 +32,8 @@ foreach ($project in $projectList) {
     foreach ($step in $deploymentProcess.Steps) {
         $packages = $step.Actions.Packages
         if ($null -ne $packages) {
-            $packageIds = $packages | Where-Object {$_.PackageId -eq $packageId}
-            if($packageIds.Count -gt 0) {
+            $packageIds = $packages | Where-Object { $_.PackageId -eq $packageId }
+            if ($packageIds.Count -gt 0) {
                 Write-Host "Step: $($step.Name) of project: $($project.Name) is using package '$packageId'."
             }
         }
@@ -61,19 +61,16 @@ $projectList = $repositoryForSpace.Projects.GetAll()
 
 "Looking for steps with the package $($packageId) in them..."
 
-foreach($project in $projectList)
-{
-    # Get deployment process
-    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
+foreach ($project in $projectList) {
+    
+    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project)
 
     # Loop through steps
-    foreach ($step in $deploymentProcess.Steps)
-    {
+    foreach ($step in $deploymentProcess.Steps) {
         $packages = $step.Actions.Packages
-        if ($null -ne $packages)
-        {
-            $packageIds = $packages | Where-Object {$_.PackageId -eq $packageId}
-            if($packageIds.Count -gt 0) {
+        if ($null -ne $packages) {
+            $packageIds = $packages | Where-Object { $_.PackageId -eq $packageId }
+            if ($packageIds.Count -gt 0) {
                 Write-Host "Step: $($step.Name) of project: $($project.Name) is using package '$packageId'."
             }
         }
@@ -111,7 +108,7 @@ try
     foreach (var project in projectList)
     {
         // Get the deployment process
-        var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
+        var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project);
 
         // Loop through steps
         foreach (var step in deploymentProcess.Steps)
@@ -134,40 +131,34 @@ catch (Exception ex)
 ```python Python3
 import json
 import requests
-
-octopus_server_uri = 'https://your.octopus.app/api'
-octopus_api_key = 'API-YOURAPIKEY'
+octopus_server_uri = 'https://your.octopus.app/'
+octopus_api_key = 'API-KEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
-
-
 def get_octopus_resource(uri):
     response = requests.get(uri, headers=headers)
     response.raise_for_status()
-
     return json.loads(response.content.decode('utf-8'))
-
 
 space_name = 'Default'
 package_id = 'YourPackageId'
 
-spaces = get_octopus_resource('{0}/spaces/all'.format(octopus_server_uri))
+spaces = get_octopus_resource('{0}/api/spaces/all'.format(octopus_server_uri))
 space = next((x for x in spaces if x['Name'] == space_name), None)
-
 projects = get_octopus_resource(
-    '{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']))
+    '{0}/api/{1}/projects/all'.format(octopus_server_uri, space['Id']))
 
 for project in projects:
-    uri = '{0}/{1}/deploymentprocesses/{2}'.format(octopus_server_uri, space['Id'], project['DeploymentProcessId'])
+    deploymentprocess_link = project['Links']['DeploymentProcess']
+    if project['IsVersionControlled'] == True:
+        default_branch = project['PersistenceSettings']['DefaultBranch']
+        deploymentprocess_link = deploymentprocess_link.replace('{gitRef}', default_branch)
+    uri = '{0}{1}'.format(octopus_server_uri, deploymentprocess_link)
     process = get_octopus_resource(uri)
-
     for step in process['Steps']:
         packages = [package for action in step['Actions'] for package in action['Packages']]
-
         if packages is None:
             continue
-
         ids = [package['PackageId'] for package in packages]
-
         if package_id in ids:
             print('Step \'{0}\' of project \'{1}\' is using package \'{2}\''.format(step['Name'], project['Name'], package_id))
 ```

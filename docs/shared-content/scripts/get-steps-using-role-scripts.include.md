@@ -17,8 +17,16 @@ $projectList = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/
 # Loop through projects
 foreach ($project in $projectList)
 {
-    # Get project deployment process
-    $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/deploymentprocesses/$($project.DeploymentProcessId)" -Headers $header
+    $deploymentProcessLink = $project.Links.DeploymentProcess
+    
+    # Check if project is Config-as-Code
+    if ($project.IsVersionControlled) {
+        # Get default Git branch for Config-as-Code project
+        $defaultBranch = $project.PersistenceSettings.DefaultBranch
+        $deploymentProcessLink = $deploymentProcessLink -Replace "{gitRef}", $defaultBranch
+    }
+
+    $deploymentProcess = Invoke-RestMethod -Method Get -Uri "$octopusURL$deploymentProcessLink" -Headers $header
 
     # Get steps
     foreach ($step in $deploymentProcess.Steps)
@@ -54,7 +62,7 @@ $projectList = $repositoryForSpace.Projects.GetAll()
 foreach($project in $projectList)
 {
     # Get deployment process
-    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project.DeploymentProcessId)
+    $deploymentProcess = $repositoryForSpace.DeploymentProcesses.Get($project)
 
     # Loop through steps
     foreach ($step in $deploymentProcess.Steps)
@@ -97,7 +105,7 @@ try
     foreach (var project in projectList)
     {
         // Get the deployment process
-        var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project.DeploymentProcessId);
+        var deploymentProcess = repositoryForSpace.DeploymentProcesses.Get(project);
 
         // Loop through steps
         foreach (var step in deploymentProcess.Steps)
@@ -123,39 +131,31 @@ catch (Exception ex)
 ```python Python3
 import json
 import requests
-
-octopus_server_uri = 'https://your.octopus.app/api'
+octopus_server_uri = 'https://your.octopus.app/'
 octopus_api_key = 'API-YOURAPIKEY'
 headers = {'X-Octopus-ApiKey': octopus_api_key}
-
-
 def get_octopus_resource(uri):
     response = requests.get(uri, headers=headers)
     response.raise_for_status()
-
     return json.loads(response.content.decode('utf-8'))
-
-
 space_name = 'Default'
 role_name = 'My target role'
-
-spaces = get_octopus_resource('{0}/spaces/all'.format(octopus_server_uri))
+spaces = get_octopus_resource('{0}/api/spaces/all'.format(octopus_server_uri))
 space = next((x for x in spaces if x['Name'] == space_name), None)
-
-projects = get_octopus_resource('{0}/{1}/projects/all'.format(octopus_server_uri, space['Id']))
-
+projects = get_octopus_resource('{0}/api/{1}/projects/all'.format(octopus_server_uri, space['Id']))
 for project in projects:
-    uri = '{0}/{1}/deploymentprocesses/{2}'.format(octopus_server_uri, space['Id'], project['DeploymentProcessId'])
+    deploymentprocess_link = project['Links']['DeploymentProcess']
+    if project['IsVersionControlled'] == True:
+        default_branch = project['PersistenceSettings']['DefaultBranch']
+        deploymentprocess_link = deploymentprocess_link.replace('{gitRef}', default_branch)
+    uri = '{0}{1}'.format(octopus_server_uri, deploymentprocess_link)
     process = get_octopus_resource(uri)
-
     for step in process['Steps']:
         properties = step['Properties']
         roles_key = 'Octopus.Action.TargetRoles'
         roles = properties[roles_key].split(',') if roles_key in properties else None
-
         if roles is None:
             continue
-
         if role_name in roles:
             print('Step \'{0}\' of project \'{1}\' is using role \'{2}\''.format(step['Name'], project['Name'], role_name))
 ```
