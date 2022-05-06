@@ -52,7 +52,7 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 #### Enable ID Tokens and configure
 
 :::hint
-Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. This step is not required for any newer versions of Octopus. We instead suggest following the instructions for generating a client secret below.
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. This step is **not required** for any newer versions of Octopus. Instead we suggest following the instructions for [generating a client secret](#generate-the-client-secret) below.
 :::
 
 1. Within your new App registration in AzureAD navigate to Authentication.
@@ -173,23 +173,21 @@ In the Azure portal, navigate to the **Certificates & secrets** page and click *
 ### Setting the Client ID, Client secret and Issuer in Octopus Deploy
 
 :::hint
-Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
 
-:::success
-Your **Client ID** should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.
+To configure Octopus to use Azure AD authentication you'll need:
 
-Your **Client secret** should be a long string value. This is the **Value** of a client secret in the Azure App Registration Portal.
-
-Your **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the GUID is a particular GUID identifying your Azure Active Directory tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
-:::
+- The **Client ID**, which should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.
+- The **Client secret**, which should be a long string value. This is the **Value** of a client secret in the Azure App Registration Portal.
+- The **Issuer**, which should be a URL like `https://login.microsoftonline.com/GUID` where the `GUID` is a particular GUID identifying your Azure Active Directory tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
 
 When you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
 Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=Issuer --azureADClientId=ClientID --azureADClientSecret=ClientSecret
 
-#Eg:
+# e.g.
 # Octopus.Server.exe configure --azureADIsEnabled=true --azureADIssuer=https://login.microsoftonline.com/12341234-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientId=43214321-xxxx-xxxx-xxxx-xxxxxxxxxxxx --azureADClientSecret=bCeXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 

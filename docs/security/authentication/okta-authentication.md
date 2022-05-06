@@ -49,7 +49,7 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
    ![](okta/okta-initiatelogin.png "width=500")
 
 :::warning
-Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this you will need to also select the **Implicit (hybrid)** grant type.
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this you will also need to select the **Implicit (hybrid)** grant type.
 :::
 
 ### OpenID Connect settings {#Oktaauthentication-OpenIDConnectSettings}
@@ -96,21 +96,21 @@ Next you will need to assign your app to people or groups within your Okta direc
 You will need the **Client ID** (aka **Audience**), **Client secret** and **Issuer** obtained from the Okta portal as described above.
 
 :::hint
-Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
 
-:::success
-Your **Client ID** should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
-Your **Client secret** should be a string value like `uJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSS`.
-Your **Issuer** should be a URL like `https://dev-xxxxxx.oktapreview.com`.
-:::
+To configure Octopus to use Okta authentication you'll need:
+
+- The **Client ID**, which should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
+- The **Client secret**, which should be a string value like `uJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSS`.
+- The **Issuer**, which should be a URL like `https://dev-xxxxxx.oktapreview.com`.
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
 Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClientId=ClientID --OktaClientSecret=ClientSecret
 
-#Eg:
+# e.g.
 # Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=https://dev-xxxxxx.oktapreview.com --OktaClientId=0a4bxxxxxxxxxxxx9yc3 --OktaClientSecret=uJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSS
 ```
 

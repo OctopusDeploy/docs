@@ -34,7 +34,7 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
 You can configure the GoogleApps settings from the command line. You will need the **Client ID** and **Client secret** from the Credentials tab and your **hosted domain name**.
 
 :::hint
-Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
