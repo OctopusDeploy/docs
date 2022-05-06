@@ -52,7 +52,7 @@ Take care when you add this URL. They are **case-sensitive** and can be sensitiv
 #### Enable ID Tokens and configure
 
 :::hint
-From **Octopus 2022.2.XXXXX**, OAuth implicit flow is no longer used by default. We suggest following the instructions for generating a client secret below instead.
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. This step is not required for any newer versions of Octopus. We instead suggest following the instructions for generating a client secret below.
 :::
 
 1. Within your new App registration in AzureAD navigate to Authentication.
@@ -171,6 +171,10 @@ In the Azure portal, navigate to the **Certificates & secrets** page and click *
 ![Generating a client secret](images/aad-client-secret.png "width=500")
 
 ### Setting the Client ID, Client secret and Issuer in Octopus Deploy
+
+:::hint
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+:::
 
 :::success
 Your **Client ID** should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.

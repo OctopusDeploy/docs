@@ -48,6 +48,10 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
 
    ![](okta/okta-initiatelogin.png "width=500")
 
+:::warning
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this you will need to also select the **Implicit (hybrid)** grant type.
+:::
+
 ### OpenID Connect settings {#Oktaauthentication-OpenIDConnectSettings}
 
 There are two values you will need from the Okta configuration to complete the Octopus configuration: the **Client ID** and **Issuer**. (The Client ID is also referred to as Audience.)
@@ -90,6 +94,10 @@ Next you will need to assign your app to people or groups within your Okta direc
 ## Configure Octopus Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
 You will need the **Client ID** (aka **Audience**), **Client secret** and **Issuer** obtained from the Okta portal as described above.
+
+:::hint
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+:::
 
 :::success
 Your **Client ID** should be a string value like `0a4bxxxxxxxxxxxx9yc3`.

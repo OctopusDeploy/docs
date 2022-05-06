@@ -31,15 +31,19 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
 
 ## Configure Octopus Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
-You can configure the GoogleApps settings from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
+You can configure the GoogleApps settings from the command line. You will need the **Client ID** and **Client secret** from the Credentials tab and your **hosted domain name**.
+
+:::hint
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+:::
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
-Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsHostedDomain=yourdomain.com
+Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsClientSecret=ClientSecret --googleAppsHostedDomain=yourdomain.com
 ```
 
-Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Hosted Domain`, `Client Id` and `Is Enabled`.
+Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Is Enabled`, `Hosted Domain`, `Client ID` and `Client Secret`.
 
 ![Settings](images/google.png "width=500")
 
