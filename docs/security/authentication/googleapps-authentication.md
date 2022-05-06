@@ -15,7 +15,7 @@ To configure an app within GoogleApps, you must have a Developer account at [htt
 Once you have an account, log in to [https://console.developers.google.com](https://console.developers.google.com) and the following actions:
 
 1. Create a project for Octopus (this might take a minute or so) and then within that project
-2. Select **{{API Manager,Credentials menu}}**.
+2. Select **{{APIs & Services,Credentials menu}}**.
 3. Set the **OAuth consent screen** information. In the **Application Logo** box, upload a logo to make it easy to identify the application. You can download the Octopus logo [here](https://octopus.com/images/company/Logo-Blue_140px_rgb.png "width=500").
 4. Add the Top Level Domain of your Octopus instance to the **Authorized domains** list. If you are setting Google Apps up for **Hosted Octopus** this will be `octopus.app` or `octopus.com`.
 5. Select the Credentials tab and Create a new **OAuth client ID** for a **Web app**.
@@ -31,15 +31,19 @@ Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-enc
 
 ## Configure Octopus Server {#GoogleAppsauthentication-ConfiguringOctopusDeployServer}
 
-You can configure the GoogleApps settings from the command line. You will need the **Client ID** from the Credentials tab and your **hosted domain name**.
+You can configure the GoogleApps settings from the command line. You will need the **Client ID** and **Client secret** from the Credentials tab and your **hosted domain name**.
+
+:::hint
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the client secret setting is not required.
+:::
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
-Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsHostedDomain=yourdomain.com
+Octopus.Server.exe configure --googleAppsIsEnabled=true --googleAppsClientId=ClientID --googleAppsClientSecret=ClientSecret --googleAppsHostedDomain=yourdomain.com
 ```
 
-Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Hosted Domain`, `Client Id` and `Is Enabled`.
+Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,GoogleApps}}** and populating the fields `Is Enabled`, `Hosted Domain`, `Client ID` and `Client Secret`.
 
 ![Settings](images/google.png "width=500")
 
