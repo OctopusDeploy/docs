@@ -24,6 +24,12 @@ Octopus can discover Azure Web App targets as part of your deployment using tags
 - [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your Azure Web App so that Octopus can match it to your deployment step and environment.
 - Add a `Deploy an Azure App Service` or `Deploy an Azure Web App (Web Deploy)` step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Azure Web App targets to deploy to.
 
+From version 2022.2 deployment slots within an Azure Web App can also be discovered separately from the Web App it is a part of by adding tags to the slot. Any deployment slot discovered during deployment will be created as a separate target in Octopus.
+
+:::hint
+The name of discovered Azure Web Apps has changed in version 2022.2 to include additional information about the resource group, any Web App targets discovered in version 2022.1 whilst this feature was in Early Access Preview will need to be deleted and will be rediscovered during the next deployment.
+:::
+
 See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
 
 ## Creating web app targets
