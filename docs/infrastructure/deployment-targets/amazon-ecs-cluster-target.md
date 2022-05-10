@@ -18,8 +18,9 @@ Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/de
 4. Select at least one [environment](/docs/infrastructure/environments/index.md) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the target.
 6. In the **Authentication** section (see [Authentication](#authentication) below for more information):
+   
    - Select whether to use an AWS account configured in Octopus or to use credentials from the worker on which your deployment runs.
-     - Select an AWS account if necessary. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
+   - Select an AWS account if necessary. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
    - Select whether to assume an IAM role during authentication.
 7. In the **ECS Cluster** section:
 
