@@ -7,7 +7,7 @@ Octopus supports creating a new S3 bucket through the `Create an Amazon S3 Bucke
 This step provides a way to create or manage an arbitrary Amazon S3 Bucket via CloudFormation. This could be especially useful in conjunction with AWS Lambda functions.
 
 :::hint
-The `Create an Amazon S3 Bucket` step was added in **Octopus 2022.1**.
+The `Create an Amazon S3 Bucket` step was added in **Octopus 2022.1**. We'd love to hear [your feedback about this step](https://octopusdeploy.typeform.com/to/KwQXY2zv).
 :::
 
 The following instructions can be followed to configure the `Create an Amazon S3 Bucket` step.
