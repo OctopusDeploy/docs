@@ -1,6 +1,6 @@
 ---
 title: Octopus Server in Kubernetes
-description: Octopus can be installed into a Kubernetes cluster running the Octopus Server Linux container, optionally leveraging High Availability too.
+description: Octopus can be installed into a Kubernetes cluster running the Octopus Server Linux container, optionally leveraging High Availability (HA).
 position: 40
 ---
 
@@ -122,7 +122,7 @@ If you use the YAML definition above, remember to change the `SA_PASSWORD` from 
 
 ## Load balancer {#load-balancer}
 
-A Load balancer is required to direct traffic to the Octopus Web Portal and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).
+A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).
 
 ### Octopus Web Portal load balancer {#octopus-web-portal-load-balancer}
 
