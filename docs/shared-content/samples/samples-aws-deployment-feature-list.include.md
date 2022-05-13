@@ -37,6 +37,7 @@
 **Target - Serverless**
 
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1465/deployments/process" target="_blank">AWS SAM</a>: <i>AWS SAM deployment based on the [blog post](https://octopus.com/blog/aws-sam-and-octopus) using code in the [AWSSamExample](https://github.com/OctopusSamples/AWSSamExample) repo.</i>
+- <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/deployments/process" target="_blank">AWS OctoSubscriber</a>: <i>A Lambda Function that accepts and processes Octopus Deploy Subscription Guided Failure or Manual Intervention Events. [Build definition](https://github.com/OctopusSamples/OctoSubscriber/blob/main/.github/workflows/AWSLambdas.yml)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/deployments/process" target="_blank">AWS Subscriber S3</a>: <i>A Lambda Function that accepts and processes Octopus Deploy Subscription Events</i>
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-511/deployments/process" target="_blank">Sample AWS Lambda</a>
     
