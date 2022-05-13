@@ -8,6 +8,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1503/operations/runbooks/Runbooks-1591/process/RunbookProcess-Runbooks-1591" target="_blank">Check for Premium LRS SSDs</a>: <i>This runbook uses the Azure CLI to check all virtual machines in a subscription for the presence of Premium_LRS on either the OS or Data disk</i>
 - Lets Encrypt Certificate renewal
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-661/operations/runbooks/Runbooks-682/process/RunbookProcess-Runbooks-682" target="_blank">Renew LetsEncrypt Certificates</a>: <i>Runbook which renews and stores LetsEncrypt certificates in the Octopus Certificate library</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-661/operations/runbooks/Runbooks-2141/process/RunbookProcess-Runbooks-2141" target="_blank">Tomcat8-Debug-Certificate</a>
 - Maintain Samples build servers
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-948/process/RunbookProcess-Runbooks-948" target="_blank">Shutdown Samples build server VMs</a>
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-949/process/RunbookProcess-Runbooks-949" target="_blank">Start Samples build server VMs</a>
@@ -44,6 +45,10 @@
 - Car Rental
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1341/operations/runbooks/Runbooks-1361/process/RunbookProcess-Runbooks-1361" target="_blank">Create Azure Web Apps</a>
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1341/operations/runbooks/Runbooks-1362/process/RunbookProcess-Runbooks-1362" target="_blank">Destroy Azure Web Apps</a>
+- OctoHR
+   - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1581/operations/runbooks/Runbooks-1661/process/RunbookProcess-Runbooks-1661" target="_blank">Create Infrastructure</a>: <i>Create environment-specific infrastructure.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1581/operations/runbooks/Runbooks-1663/process/RunbookProcess-Runbooks-1663" target="_blank">Destroy Infrastructure</a>: <i>Destroy environment-specific infrastructure.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1581/operations/runbooks/Runbooks-1682/process/RunbookProcess-Runbooks-1682" target="_blank">Test enable app_offline</a>
 - OctoPetShop
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1361/operations/runbooks/Runbooks-1381/process/RunbookProcess-Runbooks-1381" target="_blank">Create Azure Web Apps</a>
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1361/operations/runbooks/Runbooks-1385/process/RunbookProcess-Runbooks-1385" target="_blank">Destroy Azure Database</a>
