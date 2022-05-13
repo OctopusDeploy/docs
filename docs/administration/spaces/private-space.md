@@ -1,3 +1,9 @@
+---
+title: Private Space
+description: Information on Private Spaces
+position: 30
+---
+
 :::hint
 Private spaces were added in **Octopus 2022.2**.
 :::
