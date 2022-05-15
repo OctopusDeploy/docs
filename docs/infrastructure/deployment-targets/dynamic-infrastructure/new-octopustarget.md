@@ -15,9 +15,9 @@ Targets defined by step packages use the new generic `New-OctopusTarget` functio
 
 To create a target defined by a step package, you will need to know the `target identifier`, and the `inputs` required by the target. These can currently be found in the following locations:
 
-| Target          | Identifier                                                                                                        | Required Inputs                                                                                        |
-| --------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| AWS ECS Cluster | [Identifier](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/metadata.json#L5) | [Inputs](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target/src/inputs.ts) |
+| Target          | Identifier                                                                                                           | Required Inputs                                                                                           |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| AWS ECS Cluster | [Identifier](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target-v2/src/metadata.json#L5) | [Inputs](https://github.com/OctopusDeploy/step-package-ecs/blob/main/targets/ecs-target-v2/src/inputs.ts) |
 
 ## New octopus target
 
