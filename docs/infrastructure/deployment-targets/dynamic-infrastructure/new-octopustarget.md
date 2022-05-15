@@ -49,7 +49,7 @@ The below examples demonstrate creating a new AWS ECS Cluster target, evidenced 
 
 #### Account credentials
 
-To create an AWS ECS Cluster target with [account credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#aws-account):
+Below is an example of creating an AWS ECS Cluster target with [account credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#aws-account).
 
 ```powershell PowerShell
 $inputs = @"
@@ -93,7 +93,7 @@ new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" 
 
 #### Worker credentials
 
-To create an AWS ECS Cluster target with [worker credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#worker-credentials):
+Below is an example of creating an AWS ECS Cluster target with [worker credentials](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#worker-credentials).
 
 ```powershell PowerShell
 $inputs = @"
@@ -135,7 +135,7 @@ new_octopustarget -n "$(get_octopusvariable "target_name")" -t "aws-ecs-target" 
 
 #### Assuming an IAM role
 
-To create an AWS ECS Cluster target using an [assumed role](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#assuming-an-iam-role). Assuming a role can be used with either worker or account credentials, the example below uses worker credentials.
+Below is an example of creating an AWS ECS Cluster target using an [assumed role](/docs/infrastructure/deployment-targets/amazon-ecs-cluster-target.md#assuming-an-iam-role). Assuming a role can be used with either worker or account credentials, the example below uses worker credentials.
 
 ```powershell PowerShell
 $inputs = @"
