@@ -150,7 +150,7 @@ $inputs = @"
             "type": "assumeRole",
             "arn": "$($OctopusParameters["assumeRoleArn"])",  // Required
             "sessionName": "$($OctopusParameters["assumeRoleSessionName"])", // Optional
-            "sessionDuration": "$($OctopusParameters["assumeRoleSessionDuration"])", // Optional
+            "sessionDuration": $($OctopusParameters["assumeRoleSessionDuration"]), // Optional
             "externalId": "$($OctopusParameters["assumeRoleExternalId"])", // Optional
         }
     }
@@ -173,7 +173,7 @@ read -r -d '' INPUTS <<EOT
             "type": "assumeRole",
             "arn": "$($(get_octopusvariable "assumeRoleArn")",  // Required
             "sessionName": "$($(get_octopusvariable "assumeRoleSessionName")", // Optional
-            "sessionDuration": "$($(get_octopusvariable "assumeRoleSessionDuration")", // Optional
+            "sessionDuration": $($(get_octopusvariable "assumeRoleSessionDuration"), // Optional
             "externalId": "$($(get_octopusvariable "assumeRoleExternalId")", // Optional
         }
     }
