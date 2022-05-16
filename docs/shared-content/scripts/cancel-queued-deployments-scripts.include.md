@@ -37,7 +37,7 @@ using Octopus.Client.Model;
 
 // Declare working varibles
 var octopusURL = "http://octotemp";
-var octopusAPIKey = "API-DY8544IVQCQX8JXCGNH4URENNY";
+var octopusAPIKey = "API-YOURAPIKEY";
 string spaceName = "default";
 
 // Create repository object
@@ -134,7 +134,7 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
-	APIKey := "API-YourAPIKey"
+	APIKey := "API-YOURAPIKEY"
 	spaceName := "Default"
 
 	// Get reference to space
