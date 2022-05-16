@@ -24,7 +24,7 @@ while ($canContinue -eq $true)
         Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/tasks/$($task.Id)/cancel" -Headers $header
     }
 
-    $canContinue = $task.NumberOfPages -gt 1
+    $canContinue = $tasks.NumberOfPages -gt 1
 }
 
 ```
