@@ -8,7 +8,7 @@ If you are deploying packages located in an S3 bucket you can register them with
 
 You can add S3 feeds by clicking the **Add feed** button.
 
-You will then need to select if you want to explicitly specify key and secret to use to connect to your AWS account or to use the account implicitly defined on your Octopus worker (for example as environment variables). Provide a name for the feed then click **Save and test**.
+You will then need to select if you want to explicitly specify the key and secret to use to connect to your AWS account or to use the account implicitly defined on your Octopus worker (for example in environment variables). Provide a name for the feed then click **Save and test**.
 
 ![](images/s3-feed.png "width=500") 
 
