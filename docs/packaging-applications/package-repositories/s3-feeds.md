@@ -26,4 +26,4 @@ On the test page, you can check whether the feed is working by searching for pac
   - The bucket you are trying to access is not in your AWS account (note that bucket names are globally unique).
   - Your AWS account does not have sufficient permissions to access the bucket.
 
-- Octopus will connect to the bucket via its regional endpoint. If you have a lot of packages in your bucket consider moving it to the same region where your Octopus Server is located.
+- Octopus will connect to the bucket via its regional endpoint. If you have a lot of packages in your bucket, consider moving it to the same region where your Octopus Server is located.
