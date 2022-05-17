@@ -12,7 +12,7 @@ You will then need to select if you want to explicitly specify key and secret to
 
 ![](images/s3-feed.png "width=500") 
 
-The AWS S3 feed will try to connect to the bucket specified as part of the package name, for example `test-bucket/test-package` will search for the package `test-package` in the `test-bucket` bucket. The account provided as part of the feed configuration must have access to the bucket.
+The AWS S3 feed will try to connect to the bucket specified as part of the package name. For example, `test-bucket/test-package` will search for the package `test-package` in the `test-bucket` bucket. The account provided as part of the feed configuration must have access to the bucket.
 
 The AWS S3 Bucket feed follows the same [package versioning conventions](/docs/packaging-applications/create-packages/versioning.md) as other feeds.
 
