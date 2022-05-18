@@ -4,7 +4,6 @@
     
 **Target - Containers**
 
-- <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-1848/deployments/process" target="_blank">AWS ECS 2</a>: <i>Deploys the OctoPetShop application to AWS ECS Fargate using AWS ECR. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/OctoPetShop_OctoPetShopDockerEcr)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-647/deployments/process" target="_blank">AWS ECS</a>: <i>Deploys the OctoPetShop application to AWS ECS Fargate using AWS ECR. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/OctoPetShop_OctoPetShopDockerEcr)</i>
     
 **Target - MariaDB**

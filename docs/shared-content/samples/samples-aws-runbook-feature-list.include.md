@@ -30,8 +30,6 @@
 
 - AWS ECS
    - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-647/operations/runbooks/Runbooks-664/process/RunbookProcess-Runbooks-664" target="_blank">Deregister task definitions</a>: <i>Removes the task definitions from ECS</i>
-- AWS ECS 2
-   - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-1848/operations/runbooks/Runbooks-1896/process/RunbookProcess-Runbooks-1896" target="_blank">Deregister task definitions</a>: <i>Removes the task definitions from ECS</i>
     
 **Target - Kubernetes**
 
