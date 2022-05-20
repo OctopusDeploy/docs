@@ -72,7 +72,7 @@ Removing entries from the registry can have serious implications. Please make su
 6. Find and delete any Octopus certificates from the following certificate stores:
    - **`Local Computer\Octopus`**
    - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
-7. Find and delete any scheduled tasks associated with the Tentacle windows service
+7. Find and delete any [scheduled tasks](https://octopus.com/docs/administration/managing-infrastructure/service-watchdog) associated with the Tentacle windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 
