@@ -59,6 +59,7 @@ Octopus Tentacle Specific Registries - Check in each folder for a key with a Dis
     * **`HKLM\SOFTWARE\Classes\Installer\Products\<RandomID>`** - Look under InstallProperties for a ProductName of **`Octopus Tentacle`**.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\<RandomID>`** - Look under InstallProperties for a DisplayName of **`Octopus Tentacle`**.
     * **`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall`**
+    * **`HKLM\SYSTEM\CurrentControlSet\Services`**
 
 :::problem
 **Take care removing registry entries**
@@ -71,6 +72,7 @@ Removing entries from the registry can have serious implications. Please make su
 6. Find and delete any Octopus certificates from the following certificate stores:
    - **`Local Computer\Octopus`**
    - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
+7. Find and delete any scheduled tasks associated with the Tentacle windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 
