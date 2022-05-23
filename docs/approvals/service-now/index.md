@@ -3,6 +3,9 @@ title: Service Now Integration
 description: Approvals, approvals, approvals
 position: 10
 ---
+```warning
+The ServiceNow Integration feature is only available as an EAP for version 2022.2.5556 or later and it requires a feature license to be able to use it.
+```
 
 ## Overview
 
