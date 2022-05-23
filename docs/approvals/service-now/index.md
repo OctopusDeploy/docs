@@ -141,7 +141,7 @@ e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 
 - The `Planned start date` and `Planned end date` supplied on a CR will not be considered.
 
-- Once a CR is deemed to be related to a deployment, then only this CR will be evaluated for the deployment to proceed. If the CR is incorrect, you can either close the CR or create a new release of the project.
+- Once a CR is deemed to be related to a deployment, then only this CR will be evaluated for the deployment to proceed. If the CR is incorrect, you will need to cancel the deployment, close the CR and try the deployment again.
 
 - Each project only supports a single ServiceNow connection.
 
