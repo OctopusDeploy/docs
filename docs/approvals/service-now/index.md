@@ -99,7 +99,7 @@ By default, the CR creation will result in a `Normal` change. Setting the **Chan
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md) 
+If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
 
 ### Setting up environments for CR approval
 
