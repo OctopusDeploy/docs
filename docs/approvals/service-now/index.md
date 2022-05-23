@@ -106,7 +106,7 @@ The number of the CR created will appear in the Task Summary tab of the executin
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md) 
+If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md) 
 
 ### Standard Change Templates
 By default, the CR creation will result in a `Normal` change. Setting the **Change Template Name** setting under **Project Settings** to the name of a valid, approved **Change Template** will result in a `Standard` change being created based upon the change template.
