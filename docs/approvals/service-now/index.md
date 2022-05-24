@@ -3,15 +3,13 @@ title: Service Now Integration
 description: Approvals, approvals, approvals
 position: 10
 ---
-```warning
-The ServiceNow Integration feature is only available as an EAP for version 2022.2.5556 or later and it requires a feature license to be able to use it.
-```
+:::warning
+The ServiceNow Integration feature is only available as an EAP for **Octopus 2022.2.5556** or later and it requires a feature license to be able to use it.
+:::
 
 ## Overview
 
 The Octopus Deploy/ServiceNow integration allows users to block the execution of specifically configured deployments unless they have a corresponding approved ServiceNow **Change Request** (CR).
-
-For configured project and environment combinations, Octopus Deploy will 
 
 To enable this behavior, both systems must be configured before deployments can be managed.
 
@@ -22,10 +20,10 @@ To enable this behavior, both systems must be configured before deployments can 
 
 ## Getting started
 
-The Service Now integration requires Octopus 2022.2.5556 or later, and an Octopus license with the Service Now Integration feature enabled.
+The Service Now integration requires Octopus **2022.2.5556** or later and an Octopus license with the Service Now Integration feature enabled.
 
 To get started:
-1. Configure ServiceNow
+1. Configure ServiceNow OAuth credentials (for use by Octopus)
 1. Obtain a ServiceNow feature license for your Octopus instance 
 1. Configure a connection from Octopus to ServiceNow
 1. Configure which deployments require an approved CR
@@ -41,7 +39,7 @@ The Octopus Deploy / ServiceNow integration requires security configuration in y
 Follow the [ServiceNow OAuth documentation](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) to configure an OAuth endpoint for Octopus to use for authentication. Take note of the OAuth client id and client secret from the configuration.
 
 Next, the integration will require a user account on ServiceNow. The recommendation is to create a user account specifically for Octopus.
-To create a new ServiceNow user, follow the ServiceNow [Create a user](https://docs.servicenow.com/en-US/bundle/sandiego-platform-administration/page/administer/users-and-groups/task/t_CreateAUser.html) documentation. 
+To create a new ServiceNow user, follow the [ServiceNow Create a user](https://docs.servicenow.com/en-US/bundle/sandiego-platform-administration/page/administer/users-and-groups/task/t_CreateAUser.html) documentation. 
 
 Ensure that the new user has `Web service access only` checked. 
 Take note of the password assigned or generated for this user.
@@ -50,7 +48,7 @@ Take note of the password assigned or generated for this user.
 
 For the ServiceNow approval checks to be performed as part of the deployment process, an appropriate Octopus license must be configured in your Octopus instance.
 
-A ServiceNow enabled Octopus license must be requested from Octopus directly, and cannot be managed through the usual self-service process.
+A ServiceNow enabled Octopus license must be requested from Octopus directly, and cannot be managed through the usual self-service process. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
 
 Once you have received your feature-enabled license, you can install it by navigating **{**{Configuration, License}}**. 
 
@@ -99,7 +97,7 @@ By default, the CR creation will result in a `Normal` change. Setting the **Chan
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md) 
+If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
 
 ### Setting up environments for CR approval
 

@@ -1,7 +1,8 @@
 ---
 title: Approvals
 description: Approvals, approvals, approvals
-position: 800
+position: 140
+hideInThisSection: true
 ---
 
 
