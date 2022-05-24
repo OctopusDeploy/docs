@@ -137,15 +137,15 @@ The following worker-tools images are cached:
 
 **On Linux Workers**:
 
-- [Latest Linux-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.18.04): `!docker-image <octopusdeploy/worker-tools:ubuntu.18.04>`
+- `!docker-image <octopusdeploy/worker-tools:ubuntu.18.04>` ([Latest Linux-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.18.04))
 - `!docker-image <octopusdeploy/worker-tools:3.3.1-ubuntu.18.04>`
-- octopusdeploy/worker-tools:3.2.1-ubuntu.18.04
-- octopusdeploy/worker-tools:3.2.0-ubuntu.18.04
-- octopusdeploy/worker-tools:3.0.0-ubuntu.18.04
+- `!docker-image <octopusdeploy/worker-tools:3.2.1-ubuntu.18.04>`
+- `!docker-image <octopusdeploy/worker-tools:3.2.0-ubuntu.18.04>`
+- `!docker-image <octopusdeploy/worker-tools:3.0.0-ubuntu.18.04>`
 
 **On Windows Workers**:
 
-- [Latest Windows-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019): `!docker-image <octopusdeploy/worker-tools:windows.ltsc2019>`
+- `!docker-image <octopusdeploy/worker-tools:windows.ltsc2019>` ([Latest Windows-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019))
 
 Using non-cached versions of these worker-tools can result in long downloads.
 
