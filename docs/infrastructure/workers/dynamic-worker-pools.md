@@ -130,7 +130,7 @@ For deployments and runbook runs that require additional software dependencies o
 
 :::hint
 **Octopus worker-tools cached on Dynamic Workers**
-The `octopusdeploy/worker-tools` images provided for the execution containers feature have the most recent version cached on a Dynamic Worker when its created. This makes them a great choice over installing additional software on a Dynamic worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature have the most commonly used versions (including the newest) cached on a Dynamic Worker when it's created. This makes them a great choice over installing additional software on a Dynamic worker.
 
 
 The following worker-tools images are cached:
@@ -146,7 +146,6 @@ The following worker-tools images are cached:
 **On Windows Workers**:
 
 - [Latest Windows-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019): `!docker-image <octopusdeploy/worker-tools:windows.ltsc2019>`
-- octopusdeploy/worker-tools:3.3.1-windows.ltsc2019
 
 Using non-cached versions of these worker-tools can result in long downloads.
 
