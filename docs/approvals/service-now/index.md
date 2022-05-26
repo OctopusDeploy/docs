@@ -48,11 +48,11 @@ Take note of the password assigned or generated for this user.
 
 For the ServiceNow approval checks to be performed as part of the deployment process, an appropriate Octopus license must be configured in your Octopus instance.
 
-A ServiceNow enabled Octopus license must be requested from Octopus directly, and cannot be managed through the usual self-service process. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
+A ServiceNow enabled Octopus license must be requested from Octopus directly, and cannot be managed through the self-service process. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
 
 Once you have received your feature-enabled license, you can install it by navigating to **{{Configuration, License}}**. 
 
-An enabled license will include a node similar to the below:
+An enabled license will include a block similar to the below:
 
 ```xml
 <Features>
@@ -93,7 +93,7 @@ Check the **Change-controlled** setting and select your ServiceNow connection in
 ![](images/servicenow-project-settings.png)
 
 ### Standard Change Templates
-By default, the CR creation will result in a `Normal` change. Setting the **Change Template Name** setting under **Project Settings** to the name of a valid, approved **Change Template** will result in a `Standard` change being created based upon the change template.
+By default, the deployments resulting in a CR creation will produce a `Normal` change. Setting the **Change Template Name** setting under **Project Settings** to the name of a valid, approved **Change Template** will instead create a `Standard` change based upon the change template.
 
 ### Supplying the CR number to a deployment
 
