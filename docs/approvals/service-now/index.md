@@ -50,7 +50,7 @@ For the ServiceNow approval checks to be performed as part of the deployment pro
 
 A ServiceNow enabled Octopus license must be requested from Octopus directly, and cannot be managed through the usual self-service process. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
 
-Once you have received your feature-enabled license, you can install it by navigating **{**{Configuration, License}}**. 
+Once you have received your feature-enabled license, you can install it by navigating to **{{Configuration, License}}**. 
 
 An enabled license will include a node similar to the below:
 
