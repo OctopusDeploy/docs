@@ -5,10 +5,8 @@ position: 10
 ---
 
 :::warning
-The ServiceNow Integration feature is only available as an EAP for version **2022.2.5556** or later and it requires a ServiceNow feature license to be able to use it.
+The ServiceNow Integration feature is only available as an EAP for version **2022.2.5556** or later and it requires a ServiceNow feature license to use it.
 :::
-
-!toc
 
 ## Overview
 
@@ -27,11 +25,12 @@ To enable this behavior, both systems must be configured before deployments can 
 
 The Service Now integration requires Octopus **2022.2.5556** or later and an Octopus license with the Service Now Integration feature enabled.
 
-To get started:
-1. Configure ServiceNow OAuth credentials (for use by Octopus)
-1. Request and install a new Octopus license, required to enable the ServiceNow feature
-1. Configure a connection from Octopus to ServiceNow
-1. Configure which deployments require an approved CR
+Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
+
+1. Configure ServiceNow OAuth credentials (for use by Octopus).
+1. Request and install a new Octopus license required to enable the ServiceNow feature.
+1. Configure a connection from Octopus to ServiceNow.
+1. Configure which deployments require an approved CR.
 
 ### Configuring Service Now
 
@@ -43,8 +42,8 @@ The Octopus Deploy / ServiceNow integration requires security configuration in y
 
 Follow the [ServiceNow OAuth documentation](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) to configure an OAuth endpoint for Octopus to use for authentication. Take note of the OAuth client id and client secret from the configuration.
 
-Next, the integration will require a user account on ServiceNow. The recommendation is to create a user account specifically for Octopus.
-To create a new ServiceNow user, follow the [ServiceNow Create a user](https://docs.servicenow.com/en-US/bundle/sandiego-platform-administration/page/administer/users-and-groups/task/t_CreateAUser.html) documentation. 
+Next, the integration will require a user account on ServiceNow. The recommendation is to ser account specifically for Octopus.
+To create a new ServiceNow user, follow the [ServiceNow user documentation](https://docs.servicenow.com/en-US/bundle/sandiego-platform-administration/page/administer/users-and-groups/task/t_CreateAUser.html). 
 
 Ensure that the new user has `Web service access only` checked. 
 Take note of the password assigned or generated for this user.
@@ -70,17 +69,18 @@ An enabled license will include a block similar to the below:
 ### Configuring ServiceNow connections
 
 :::hint
-The instructions in this section will require an Octopus Deploy manager or administrator
+The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
-To connect your Octopus Deploy instance to ServiceNow, navigate to  **{{Configuration, Settings, ServiceNow Integration}}**.
+To connect your Octopus Deploy instance to ServiceNow, navigate to **Configuration ➜ Settings ➜ ServiceNow Integration**.
 
 Check the **Enabled** option
-![](images/servicenow-connections-1.png)
+![ServiceNow Integration Settings page](images/servicenow-connections-1.png "width=500")
 
 Click on **ADD CONNECTION** and fill out the details.
-The ServiceNow Base Url should be the root URL and include the protocol. 
-![](images/servicenow-connections-2.png)
+The ServiceNow Base Url should be the root URL and include the protocol e.g. `https://`
+
+![ServiceNow Integration Add Connection](images/servicenow-connections-2.png "width=500")
 
 Press **TEST** to ensure that the connection details are working. 
 
@@ -92,23 +92,26 @@ To enforce a deployment to require an approved CR, the **Change Controlled** set
 
 ### Setting up projects for CR approval
 
-To enable a project to enforce a requirement for an approved CR, navigate to the project and then **{{Settings,General}}**.
-Check the **Change-controlled** setting and select your ServiceNow connection in the **Service Now Connection** setting, and then press **SAVE**.
+To enable a project to enforce a requirement for an approved CR:
 
-![](images/servicenow-project-settings.png)
+1. Navigate to the project and then **{{Settings,General}}**.
+2. Check the **Change-controlled** setting.
+3. Select your ServiceNow connection in the **Service Now Connection** setting and click **SAVE**.
+
+![ServiceNow Integration Project settings](images/servicenow-project-settings.png "width=500")
 
 ### Standard Change Templates
 By default, the deployments resulting in a CR creation will produce a `Normal` change. Setting the **Change Template Name** setting under **Project Settings** to the name of a valid, approved **Change Template** will instead create a `Standard` change based upon the change template.
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project named `Octopus.ServiceNow.Change.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
+If you add a variable to your project named `Octopus.ServiceNow.Change.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
 
 ### Setting up environments for CR approval
 
 To enable an environment to enforce a requirement for an approved CR, navigate to **{{Infrastructure,Environments}}**, edit the environment via the overflow menu and check the **Change Controlled** setting, and then press **SAVE**.
 
-![](images/servicenow-environment-settings.png)
+![ServiceNow Integration Environment settings](images/servicenow-environment-settings.png "width=500")
 
 ## How it works
 
@@ -133,7 +136,7 @@ If the deployment is scheduled to execute in the future, then a CR will be creat
 
 The number of the CR created or found will appear in the Task Summary tab of the executing Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in ServiceNow.
 
-![](images/servicenow-pending-cr-task-message.png)
+![Deployment Task Summary awaiting ServiceNow approval](images/servicenow-pending-cr-task-message.png "width=500")
 
 
 ### Title text matching
@@ -142,11 +145,11 @@ Octopus supports matching a CR by setting the **Short Description** of the CR to
 
 `Octopus: Deploy "{project name}" version {release version number} to "{environment name}"`
 
-:::warning
-The title must match the format exactly including the double-quote marks
-:::
-
 e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
+
+:::hint
+The title must match the format **exactly**, including the double-quotes.
+:::
 
 ## Known Issues and limitations
 
