@@ -29,7 +29,7 @@ The Service Now integration requires Octopus **2022.2.5556** or later and an Oct
 
 To get started:
 1. Configure ServiceNow OAuth credentials (for use by Octopus)
-1. Request and install a new Octopus licence, required to enable the ServiceNow feature
+1. Request and install a new Octopus license, required to enable the ServiceNow feature
 1. Configure a connection from Octopus to ServiceNow
 1. Configure which deployments require an approved CR
 
