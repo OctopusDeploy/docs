@@ -5,14 +5,14 @@ position: 10
 ---
 
 :::warning
-The ServiceNow Integration feature is only available as an EAP for version **2022.2.5556** or later and it requires a ServiceNow feature license to use it.
+The ServiceNow Integration feature is only available as an EAP for version **2022.2.5556** or later and it requires a ServiceNow feature license to use it. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
 :::
 
 ## Overview
 
 The Octopus Deploy/ServiceNow integration allows users to block the execution of specifically configured deployments unless they have a corresponding approved ServiceNow **Change Request** (CR).
 
-To enable this behavior, both systems must be configured before deployments can be managed.
+To enable this behavior, both the Octopus Project and Environment you are deploying to must be configured and the ServiceNow configuration is set up before deployments can be managed.
 
 | Project | Environment | Outcome |
 |--|--|--|
