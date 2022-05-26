@@ -1,6 +1,6 @@
 ---
 title: Service Now Integration
-description: Approvals, approvals, approvals
+description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 position: 10
 ---
 :::warning
