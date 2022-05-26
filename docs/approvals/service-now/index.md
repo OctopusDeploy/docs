@@ -56,7 +56,7 @@ A ServiceNow enabled Octopus license must be requested from Octopus directly, an
 
 Once you have received your feature-enabled license, you can install it by navigating to **{{Configuration, License}}**. 
 
-An enabled license will include a block similar to the below:
+An enabled license will include a block similar to below:
 
 ```xml
 <Features>
