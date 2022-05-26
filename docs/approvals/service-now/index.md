@@ -13,10 +13,12 @@ The Octopus Deploy/ServiceNow integration allows users to block the execution of
 
 To enable this behavior, both systems must be configured before deployments can be managed.
 
-| Project | Environment Change Controlled | Environment **Not** Change Controlled| 
-| --------|--|-- |
-| Change Controlled | _Approval Required_  | No Approval Required | 
-| **Not** Change Controlled | No Approval Required | No Approval Required |
+| Project | Environment | Outcome |
+|--|--|--|
+| Change controlled| Change controlled| Approval required for deployment |
+| **_Not_** Change controlled| Change controlled| No approval required |
+| Change controlled| **_Not_** Change controlled| No approval required |
+
 
 ## Getting started
 
@@ -97,7 +99,7 @@ By default, the deployments resulting in a CR creation will produce a `Normal` c
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project called `Octopus.ServiceNow.Change.Number`, then a CR will not be created and only the supplied CR number will be used to check for approval. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
+If you add a variable to your project named `Octopus.ServiceNow.Change.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [Scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
 
 ### Setting up environments for CR approval
 
@@ -116,7 +118,13 @@ When a **Change Controlled** deployment is evaluated for approval, the following
   - This will be a `Normal` change, or a `Standard` change if the project has a `Change Template Name` set.
   - A CR created by Octopus will have a **Short Description** in the format outlined in [Title text matching](#title-text-matching).
 
+When re-deploying a previous deployment, the same CR will be used if it is still open. If it is closed the above process will be followed again.
+
 Once a CR has been found, the deployment will only proceed if the **State** of the CR is `Implement`. If the **State** is either `New`, `Assess`, `Authorize`, or `Scheduled` the deployment will wait. Any other **State** will cause the deployment task to fail.
+
+:::info
+The only supported states are those defined in the default CR lifecycle
+:::
 
 If the deployment is scheduled to execute in the future, then a CR will be created at the scheduled deployment time, and not when the deployment was requested.
 
@@ -131,8 +139,11 @@ Octopus supports matching a CR by setting the **Short Description** of the CR to
 
 `Octopus: Deploy "{project name}" version {release version number} to "{environment name}"`
 
-e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
+:::warning
+The title must match the format exactly including the double-quote marks
+:::
 
+e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 
 ## Known Issues and limitations
 
