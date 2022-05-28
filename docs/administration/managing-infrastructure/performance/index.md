@@ -39,7 +39,7 @@ You should implement a routine maintenance plan for your Octopus database. Here 
 - Regenerate statistics once a month.
 
 :::hint
-Modern versions of Octopus Deploy automatically rebuilt fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
+Modern versions of Octopus Deploy automatically rebuild fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
 :::
 
 ## Maintenance {#maintenance}
