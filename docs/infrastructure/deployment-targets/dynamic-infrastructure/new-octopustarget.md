@@ -13,6 +13,12 @@ Octopus Deploy has recently developed a new architecture for deployment steps an
 Targets defined by step packages use the new generic `New-OctopusTarget` function to create targets.
 :::
 
+:::warning
+**Deprecated**
+
+Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favour of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md).
+:::
+
 To create a target defined by a step package, you will need to know the `target identifier`, and the `inputs` required by the target. These can currently be found in the following locations:
 
 | Target          | Identifier                                                                                                           | Required Inputs                                                                                           |
