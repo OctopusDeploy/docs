@@ -48,14 +48,14 @@ thumbprint=$(get_octopusvariable "MyCertificate.Thumbprint")
 echo "$thumbprint"
 ```
 
-It's possible to write the PEM representation of the certificate to a file for use directly with a web server e.g. Apache, or a reverse proxy like NGINX:
+It's possible to write the PEM representation of the certificate to a file for use directly with a web server e.g. Apache, or a reverse proxy like NGINX. In bash, the script looks like this:
 
 ```bash
 CERT=$(get_octopusvariable "MyCertificate.CertificatePem")
 echo "$CERT" > my_cert.crt
 ```
 
-If your certificate also contains any chain certificates (e.g. intermediate or certificate authority), they can also be written to a file that contains the primary certificate too:
+If your certificate also contains any chain certificates (e.g. intermediate or certificate authority), they can be written to a file that contains the primary certificate too. The following example shows how to do so in bash:
 
 ```bash
 CERT=$(get_octopusvariable "MyCertificate.CertificatePem")
@@ -64,7 +64,7 @@ COMBINED_CHAIN="$CERT\n$CHAIN"
 echo -e "$COMBINED_CHAIN" > my_combined.crt
 ```
 
-If your certificate also has a private key that you need to export, you can use the `PrivateKeyPem` property:
+If your certificate also has a private key that you need to export, you can use the `PrivateKeyPem` property using bash:
 
 ```bash
 KEY=$(get_octopusvariable "MyCertificateVariable.PrivateKeyPem")
