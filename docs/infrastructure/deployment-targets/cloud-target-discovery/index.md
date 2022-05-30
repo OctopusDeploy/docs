@@ -24,7 +24,25 @@ The variables used are different for each supported cloud provider.
 
 ### Azure
 
-To discover Azure cloud resources, Octopus uses an [Azure account](/docs/projects/variables/azure-account-variables.md) variable named **Octopus.Azure.Account**.
+To discover Azure cloud resources, Octopus uses the following variables:
+
+| Name                   | Required | Description                                                                                                   |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| Octopus.Azure.Accounts | Y        | An [Azure account](/docs/projects/variables/azure-account-variables.md) to use when discovering cloud targets |
+
+### AWS
+
+To discover AWS cloud resources, Octopus uses the following variables:
+
+| Name                                    | Required | Description                                                                                                                                                                                                   |
+| --------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Octopus.Aws.Account                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables.md) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used. |
+| Octopus.Aws.WorkerPool                  | N        | A [Worker pool](/docs/infrastructure/workers/worker-pools.md) to use when discovering cloud targets. If this is not set then the worker pool from the step that triggers discovery will be used.              |
+| Octopus.Aws.AssumedRole.Arn             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles. |
+| Octopus.Aws.AssumedRole.SessionName     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                             |
+| Octopus.Aws.AssumedRole.SessionDuration | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                              |
+| Octopus.Aws.AssumedRole.ExternalId      | N        | An external id to use if assuming a role during discovery. See the AWS documentation for more information on the use of external ids.                                                                         |
+| Octopus.Aws.Regions                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                         |
 
 ## Tag cloud resources
 
@@ -46,6 +64,8 @@ Octopus will discover targets if one of the following steps are in your deployme
 
 - Deploy an Azure App Service
 - Deploy an Azure Web App (Web Deploy)
+- Deploy Amazon ECS Service
+- Update Amazon ECS Service
 
 ## Enabling discovery for existing projects
 
@@ -95,4 +115,45 @@ By configuring a well-known variable and tagging your Azure Web App appropriatel
 }]
 ```
 
-Octopus will now discover the web app as a target before deploying to it, matching the environment, role, and project from the deployment to the tags created with the ARM template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from Azure in future releases of this feature.
+Octopus will now discover the web app as a target before deploying to it, matching the environment, role, and project from the deployment to the tags created with the ARM template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from Azure.
+
+### Amazon ECS
+
+Let's say you have an project in Octopus called _Pet Shop_ that deploys an application to an Amazon ECS Cluster in a _Development_ environment using a role of _PetShopFrontEnd_ and the cluster is dynamically created as part of the deployment using a CloudFormation template.
+
+To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md) or manually remove the target in Octopus.
+
+By configuring some well-known variables and tagging your ECS cluster appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in AWS.
+
+- Set the credentials to use during discovery by either
+  - Configuring an [AWS account](/docs/projects/variables/aws-account-variables.md) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster.
+  - Configuring a [worker pool](/docs/projects/variables/worker-pool-variables.md) variable in your project named **Octopus.Aws.WorkerPool** to use in discovery.
+  - If neither of these has been supplied the credentials from the worker set on the deployment step will be used.
+  - Optionally configuring discovery to use an assumed role by setting a variable in your project named **Octopus.Aws.AssumedRole.Arn** as well as other variables to configure the session name, duration and external id if required.
+- Configure which AWS region your ECS cluster resides in by setting a variable in your project named **Octopus.Aws.Regions**.
+- Add tags to the ECS cluster resource within the CloudFormation template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
+
+```json
+{
+  "Type": "AWS::ECS::Cluster",
+  "Properties": {
+    //...otherProperties
+    "Tags": [
+      {
+        "Key": "octopus-environment",
+        "Value": "#{Octopus.Environment.Name}"
+      },
+      {
+        "Key": "octopus-role",
+        "Value": "PetShopFrontEnd"
+      },
+      {
+        "Key": "octopus-project",
+        "Value": "#{Octopus.Project.Name}"
+      }
+    ]
+  }
+}
+```
+
+Octopus will now discover the ECS cluster as a target before deploying to it, matching the environment, role, and project from the deployment to the tags created with the CloudFormation template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from AWS.
