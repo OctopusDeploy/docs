@@ -28,7 +28,7 @@ To discover Azure cloud resources, Octopus uses the following variables:
 
 | Name                   | Required | Description                                                                                                   |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-| Octopus.Azure.Accounts | Y        | An [Azure account](/docs/projects/variables/azure-account-variables.md) to use when discovering cloud targets |
+| `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables.md) to use when discovering cloud targets |
 
 ### AWS
 
@@ -36,13 +36,13 @@ To discover AWS cloud resources, Octopus uses the following variables:
 
 | Name                                    | Required | Description                                                                                                                                                                                                   |
 | --------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Octopus.Aws.Account                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables.md) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used. |
-| Octopus.Aws.WorkerPool                  | N        | A [Worker pool](/docs/infrastructure/workers/worker-pools.md) to use when discovering cloud targets. If this is not set then the worker pool from the step that triggers discovery will be used.              |
-| Octopus.Aws.AssumedRole.Arn             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles. |
-| Octopus.Aws.AssumedRole.SessionName     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                             |
-| Octopus.Aws.AssumedRole.SessionDuration | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                              |
-| Octopus.Aws.AssumedRole.ExternalId      | N        | An external id to use if assuming a role during discovery. See the AWS documentation for more information on the use of external ids.                                                                         |
-| Octopus.Aws.Regions                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                         |
+| `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables.md) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used. |
+| `Octopus.Aws.WorkerPool`                  | N        | A [Worker pool](/docs/infrastructure/workers/worker-pools.md) to use when discovering cloud targets. If this is not set then the worker pool from the step that triggers discovery will be used.              |
+| `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles. |
+| `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                             |
+| `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                              |
+| `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external id to use if assuming a role during discovery. See the AWS documentation for more information on the use of external ids.                                                                         |
+| `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                         |
 
 ## Tag cloud resources
 

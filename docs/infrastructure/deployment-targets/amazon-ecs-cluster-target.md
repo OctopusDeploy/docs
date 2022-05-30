@@ -11,7 +11,7 @@ Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/de
 :::
 
 :::hint
-From version 2022.2 Octopus can discover ECS Cluster targets using tags on your cluster resource.
+From **Octopus 2022.2**, ECS Cluster targets can be discovered using tags on your cluster resource.
 :::
 
 ## Discovering ECS cluster targets
