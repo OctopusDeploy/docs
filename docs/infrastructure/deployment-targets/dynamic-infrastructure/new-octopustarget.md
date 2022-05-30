@@ -1,10 +1,8 @@
 ---
 title: New Octopus Target Command
-description: Function for removing an Octopus target
+description: Function for creating an Octopus target for a step package
 position: 50
 ---
-
-Targets defined by step packages can be created either by PowerShell or bash functions available in any Octopus script-running context. Not all targets are defined by step packages. The complete list of targets defined by step packages is available below.
 
 :::warning
 **Deprecated**
@@ -12,12 +10,9 @@ Targets defined by step packages can be created either by PowerShell or bash fun
 Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md).
 :::
 
-:::hint
-**Targets from Step Packages**
-Octopus Deploy has recently developed a new architecture for deployment steps and targets, known as step packages. Step packages are available in Octopus Deploy version 2021.3 and later.
+In **Octopus 2021.3**, a new architecture for deployments and steps targets was developed, known as **step packages**.
 
-Targets defined by step packages use the new generic `New-OctopusTarget` function to create targets.
-:::
+Targets defined by step packages can be created either by PowerShell or bash functions available in any Octopus script-running context. Not all targets are defined by step packages. The complete list of targets defined by step packages is available below.
 
 To create a target defined by a step package, you will need to know the `target identifier`, and the `inputs` required by the target. These can currently be found in the following locations:
 
