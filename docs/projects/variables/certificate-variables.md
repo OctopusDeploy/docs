@@ -67,7 +67,7 @@ echo -e "$COMBINED_CHAIN" > my_combined.crt
 If your certificate also has a private key that you need to export, you can use the `PrivateKeyPem` property using bash:
 
 ```bash
-KEY=$(get_octopusvariable "MyCertificateVariable.PrivateKeyPem")
+KEY=$(get_octopusvariable "MyCertificate.PrivateKeyPem")
 echo "$KEY" > ssl.key
 ```
 
