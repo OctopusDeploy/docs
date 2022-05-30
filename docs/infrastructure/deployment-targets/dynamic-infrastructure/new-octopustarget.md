@@ -9,7 +9,7 @@ Targets defined by step packages can be created either by PowerShell or bash fun
 :::warning
 **Deprecated**
 
-Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favour of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md).
+Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md).
 :::
 
 :::hint
