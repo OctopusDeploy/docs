@@ -25,9 +25,20 @@ The Octopus Server makes the following outbound requests:
 2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories/index.md) that you configure.
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
-5. Checking for updated [community contribute step templates](/docs/projects/community-step-templates.md) (if enabled).
+5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates/index.md) (if enabled).
+6. Checking for updated [community contribute step templates](/docs/projects/community-step-templates.md) (if enabled).
 
-NOTE: Our community contributed step template integration queries `library.octopus.com` for updates.
+
+### Built-in step templates
+
+From **Octopus 2022.1** some built-in step templates can be automatically updated. Octopus will make requests to the following URLs in order to check for and download updated versions of step templates:
+
+- `steps-feed.octopus.com`
+- `stepsprodpackages.blob.core.windows.net`. The infrastructure for the service that hosts the updated versions of step templates runs in Azure.
+
+### Community contributed step templates
+
+Our community contributed step template integration queries `library.octopus.com` for updates.
 
 ## What information is included when Octopus checks for updates? {#Outboundrequests-WhatinformationisincludedwhenOctopuschecksforupdates?}
 
