@@ -26,8 +26,7 @@ The Octopus Server makes the following outbound requests:
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates/index.md) (if enabled).
-6. Checking for updated [community contribute step templates](/docs/projects/community-step-templates.md) (if enabled).
-
+6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates.md) (if enabled).
 
 ### Built-in step templates
 
