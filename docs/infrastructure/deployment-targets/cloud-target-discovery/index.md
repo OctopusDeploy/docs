@@ -26,18 +26,17 @@ The variables used are different for each supported cloud provider.
 
 To discover Azure cloud resources, Octopus uses the following variables:
 
-| Name                   | Required | Description                                                                                                   |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| Name                    | Required | Description                                                                                                   |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
 | `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables.md) to use when discovering cloud targets |
 
 ### AWS
 
 To discover AWS cloud resources, Octopus uses the following variables:
 
-| Name                                    | Required | Description                                                                                                                                                                                                   |
-| --------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                                      | Required | Description                                                                                                                                                                                                   |
+| ----------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables.md) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used. |
-| `Octopus.Aws.WorkerPool`                  | N        | A [Worker pool](/docs/infrastructure/workers/worker-pools.md) to use when discovering cloud targets. If this is not set then the worker pool from the step that triggers discovery will be used.              |
 | `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles. |
 | `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                             |
 | `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                              |
@@ -126,9 +125,7 @@ To use this cluster previously in Octopus you might have either registered the t
 By configuring some well-known variables and tagging your ECS cluster appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in AWS.
 
 - Set the credentials to use during discovery by either
-  - Configuring an [AWS account](/docs/projects/variables/aws-account-variables.md) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster.
-  - Configuring a [worker pool](/docs/projects/variables/worker-pool-variables.md) variable in your project named **Octopus.Aws.WorkerPool** to use in discovery.
-  - If neither of these has been supplied the credentials from the worker set on the deployment step will be used.
+  - Configuring an [AWS account](/docs/projects/variables/aws-account-variables.md) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster. If not configured the credentials from the worker set on the deployment step will be used.
   - Optionally configuring discovery to use an assumed role by setting a variable in your project named **Octopus.Aws.AssumedRole.Arn** as well as other variables to configure the session name, duration and external id if required.
 - Configure which AWS region your ECS cluster resides in by setting a variable in your project named **Octopus.Aws.Regions**.
 - Add tags to the ECS cluster resource within the CloudFormation template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
