@@ -46,7 +46,7 @@ After the Octopus Server has been configured, from Octopus Manager copy the Mast
 
 ![](images/wizard-master-key.png "width=500")
 
-Finally, you need to tell Octopus to store artifacts, task logs, and packages in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you need to use the command-line:
+Finally, you need to tell Octopus to store artifacts, packages, task logs, and imports in the shared storage that you provisioned, that way each Octopus node can see the same files. To do this, you need to use the command-line:
 
 ### Configure shared storage
 
@@ -70,6 +70,7 @@ Setting the root shared storage directory is the recommend approach because any 
 Octopus.Server.exe path --artifacts \\Octoshared\OctopusData\Artifacts
 Octopus.Server.exe path --taskLogs \\Octoshared\OctopusData\TaskLogs
 Octopus.Server.exe path --nugetRepository \\Octoshared\OctopusData\Packages
+Octopus.Server.exe path --imports \\Octoshared\OctopusData\Imports
 Octopus.Server.exe path --telemetry \\Octoshared\OctopusData\Telemetry
 ```
 
