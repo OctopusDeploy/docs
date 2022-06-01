@@ -139,7 +139,7 @@ $filePath = "YOUR ROOT DIRECTORY"
 :::hint
 Your version might not have all the above paths.  Remove them from the script if you are running an older version of Octopus.
 
-- `Imports` was added in 2021.x
+- `Imports` was added in 2021.1
 - `Telemetry` was added in 2020.x
 - `ClusterShared` was added in 2020.x
 :::
