@@ -36,12 +36,12 @@ To discover AWS cloud resources, Octopus uses the following variables:
 
 | Name                                      | Required | Description                                                                                                                                                                                                   |
 | ----------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                         |
 | `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables.md) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used. |
 | `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles. |
 | `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                             |
 | `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                              |
 | `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external id to use if assuming a role during discovery. See the AWS documentation for more information on the use of external ids.                                                                         |
-| `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                         |
 
 ## Tag cloud resources
 
@@ -124,7 +124,7 @@ To use this cluster previously in Octopus you might have either registered the t
 
 By configuring some well-known variables and tagging your ECS cluster appropriately, Octopus can discover this target for you at deployment time. Additionally, Octopus will continue to monitor the target, and will remove it if it is removed in AWS.
 
-- Set the credentials to use during discovery by either
+- Set the credentials to use during discovery by
   - Configuring an [AWS account](/docs/projects/variables/aws-account-variables.md) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster. If not configured the credentials from the worker set on the deployment step will be used.
   - Optionally configuring discovery to use an assumed role by setting a variable in your project named **Octopus.Aws.AssumedRole.Arn** as well as other variables to configure the session name, duration and external id if required.
 - Configure which AWS region your ECS cluster resides in by setting a variable in your project named **Octopus.Aws.Regions**.
