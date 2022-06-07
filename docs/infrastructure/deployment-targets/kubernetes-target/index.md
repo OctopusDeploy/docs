@@ -8,7 +8,7 @@ Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernet
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
 :::hint
-From Octopus 2022.2 can discover Kubernetes targets using tags on your cloud resources in Azure. This feature is in Early Access Preview.
+From **Octopus 2022.2**, Kubernetes targets can be discovered using tags on your cloud resources in Azure. This feature is in Early Access Preview.
 :::
 
 ## Discovering Kubernetes targets
