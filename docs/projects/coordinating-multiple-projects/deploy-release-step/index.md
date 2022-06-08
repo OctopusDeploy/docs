@@ -19,6 +19,10 @@ When creating a release of a project containing _Deploy a Release_ steps you can
 
 ![Create release with deploy release steps](deploy-release-create-release-screen.png "width=500")
 
+:::hint
+By default, Octopus will select the *latest* release based on the creation time of the release, and **not** the Semantic version. This means Octopus might initially select a release that has a lower version that the latest for a Project.
+::
+
 ### Channels
 
 The [Channel](/docs/releases/channels/index.md) used for any _Deploy a Release_ step is automatically determined by the release version of the project you select in the create release screen, since a channel is chosen when a release is created.
