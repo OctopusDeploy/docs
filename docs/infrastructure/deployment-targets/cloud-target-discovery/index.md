@@ -119,7 +119,7 @@ Octopus will now discover the web app as a target before deploying to it, matchi
 
 ### Amazon ECS
 
-Let's say you have an project in Octopus called _Pet Shop_ that deploys an application to an Amazon ECS Cluster in a _Development_ environment using a role of _PetShopFrontEnd_ and the cluster is dynamically created as part of the deployment using a CloudFormation template.
+Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Amazon ECS Cluster in a _Development_ environment using a role of _PetShopFrontEnd_ and the cluster is dynamically created as part of the deployment using a CloudFormation template.
 
 To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget.md) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md) or manually remove the target in Octopus.
 
@@ -129,8 +129,8 @@ By configuring some well-known variables and tagging your ECS cluster appropriat
   - Configuring an [AWS account](/docs/projects/variables/aws-account-variables.md) variable in your project named **Octopus.Aws.Account**, selecting an account that has permissions to be able to find the cluster. If not configured the credentials from the worker set on the deployment step will be used.
   - Optionally configuring a [worker pool](/docs/projects/variables/worker-pool-variables.md) variable in your project named **Octopus.Aws.WorkerPool** if discovery should be executed in a specific worker pool.
   - Optionally configuring discovery to use an assumed role by setting a variable in your project named **Octopus.Aws.AssumedRole.Arn** as well as other variables to configure the session name, duration and external id if required.
-- Configure which AWS region your ECS cluster resides in by setting a variable in your project named **Octopus.Aws.Regions**.
-- Add tags to the ECS cluster resource within the CloudFormation template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
+- Configure which AWS region to search for your ECS cluster in by setting a variable in your project named **Octopus.Aws.Regions**.
+- Add tags to the ECS cluster resource within the CloudFormation template to allow Octopus to discover it. For our example we can add the following tags to ensure that it is discovered correctly by our project (and only by our project) using [variable substitution](/docs/projects/variables/variable-substitutions.md):
 
 ```json
 {
