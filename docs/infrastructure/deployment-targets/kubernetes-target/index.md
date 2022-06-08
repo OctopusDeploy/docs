@@ -7,6 +7,22 @@ Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernet
 
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
+:::hint
+From **Octopus 2022.2**, Kubernetes targets can be discovered using tags on your cloud resources in Azure. This feature is in Early Access Preview.
+:::
+
+## Discovering Kubernetes targets
+
+Octopus can discover Kubernetes targets in Azure Kubernetes Service (AKS) as part of your deployment using tags on your AKS resource. To discover targets use the following steps:
+
+- Add an Azure account variable named **Octopus.Azure.Account** to your project.
+- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your AKS cluster so that Octopus can match it to your deployment step and environment.
+- Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
+
+Kubernetes targets discovered will not have a namespace set, the namespace on the step will be used during deployment (or the default namespace in the cluster if no namespace is set on the step).
+
+See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
+
 ## A sample config file
 
 The YAML file below shows a sample **kubectl** configuration file. Existing Kubernetes users will likely have a similar configuration file.

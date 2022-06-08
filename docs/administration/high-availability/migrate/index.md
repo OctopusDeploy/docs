@@ -9,7 +9,7 @@ position: 30
 You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [Configuring High Availability for Octopus](/docs/administration/high-availability/configure/index.md), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
 
 1. Moving the SQL Server Database to a dedicated SQL Server.
-1. Moving all the task logs, packages, artifacts, etc., to a shared storage folder (BLOB data).
+1. Moving all the task logs, packages, artifacts, imports etc., to a shared storage folder (BLOB data).
 1. Configuring a load balancer.
 
 This guide is generic and purposely avoids mentioning specific technologies such as Azure File Storage, AWS RDS SQL Server, etc.  Please refer to the guide matching your hosting solution for specifics.
@@ -63,7 +63,7 @@ You can run that script using the Octopus Deploy [script console](/docs/administ
 
 ### Moving BLOB data
 
-Most of the BLOB data (task logs, artifacts, packages, etc) stored on the file system can be copied to the new location prior to the outage window.  Doing so will reduce the amount of copying you have to do during the outage windows.  In addition, you can make sure your Octopus Deploy instance can use that shared location by running a test script to create and delete a file.  
+Most of the BLOB data (task logs, artifacts, packages, imports etc) stored on the file system can be copied to the new location prior to the outage window.  Doing so will reduce the amount of copying you have to do during the outage windows.  In addition, you can make sure your Octopus Deploy instance can use that shared location by running a test script to create and delete a file.  
 
 - Provision the shared storage folder.
 - If you are going to create a symbolic link to that shared folder, do that now.
@@ -83,6 +83,7 @@ An example PowerShell script using RoboCopy will be:
 robocopy C:\Octopus\TaskLogs \\YOURFILESHARE\OctopusHA\TaskLogs /mir /r:5
 robocopy C:\Octopus\Artifacts \\YOURFILESHARE\OctopusHA\Artifacts /mir /r:5
 robocopy C:\Octopus\Packages \\YOURFILESHARE\OctopusHA\Packages /mir /r:5
+robocopy C:\Octopus\Imports \\YOURFILESHARE\OctopusHA\Imports /mir /r:5
 ```
 
 ### Configure load balancer
@@ -138,7 +139,7 @@ $filePath = "YOUR ROOT DIRECTORY"
 :::hint
 Your version might not have all the above paths.  Remove them from the script if you are running an older version of Octopus.
 
-- `Imports` was added in 2021.x
+- `Imports` was added in 2021.1
 - `Telemetry` was added in 2020.x
 - `ClusterShared` was added in 2020.x
 :::

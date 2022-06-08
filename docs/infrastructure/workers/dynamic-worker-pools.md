@@ -146,6 +146,7 @@ The following worker-tools images are cached:
 **On Windows Workers**:
 
 - `!docker-image <octopusdeploy/worker-tools:windows.ltsc2019>` ([Latest Windows-based image](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019))
+- `!docker-image <octopusdeploy/worker-tools:3.3.1-windows.ltsc2019>`
 
 Using non-cached versions of these worker-tools can result in long downloads.
 
