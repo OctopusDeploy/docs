@@ -42,7 +42,7 @@ To discover AWS cloud resources, Octopus uses the following variables:
 | `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles.                                                |
 | `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                                                                            |
 | `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                                                                             |
-| `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external id to use if assuming a role during discovery. See the AWS documentation for more information on the use of external ids.                                                                                                                        |
+| `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external ID to use if assuming a role during discovery. See the AWS documentation for more information on the use of external IDs.                                                                                                                        |
 
 ## Tag cloud resources
 
