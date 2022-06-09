@@ -15,7 +15,7 @@ From **Octopus 2022.2**:
 3. AKS target discovery (Azure Kubernetes) has been added as an Early Access Preview and is enabled via **{{Configuration, Features}}**.
 
 From **Octopus 2022.3**:
-1. EKS target discovery (AWS Kubernetes) has been added under the Early Access Preview and is enabled via **{{Configuration, Features}}**.
+1. EKS target discovery (AWS Kubernetes) has been added as an Early Access Preview and is enabled via **{{Configuration, Features}}**.
 :::
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
