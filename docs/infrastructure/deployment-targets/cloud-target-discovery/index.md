@@ -5,7 +5,23 @@ position: 100
 ---
 
 :::hint
-The Early Access Preview of the cloud target discovery feature was added in **Octopus 2022.1** and is enabled via **{{Configuration, Features}}**. The preview does not currently include removal of targets when the cloud resource is removed, this is on our roadmap.
+This feature was added to **Octopus 2022.1** as an Early Access Preview and is enabled via **{{Configuration, Features}}**.
+In the preview, the auto-removal of targets when a cloud resource is removed is not included.
+:::
+
+:::hint
+From **Octopus 2022.2**, this feature is out of Early Access Preview and the auto-removal of
+targets when a cloud resource is removed has been added.
+:::
+
+:::hint
+From **Octopus 2022.2**, AKS (Azure Kubernetes) target discovery has been
+added as an Early Access Preview and is enabled via **{{Configuration, Features}}**.
+:::
+
+:::hint
+From **Octopus 2022.3**, EKS (AWS Kubernetes) target discovery has been added under the Early
+Access Preview and is enabled via **{{Configuration, Features}}**
 :::
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
@@ -66,6 +82,18 @@ Octopus will discover targets if one of the following steps are in your deployme
 - Deploy an Azure Web App (Web Deploy)
 - Deploy Amazon ECS Service
 - Update Amazon ECS Service
+- Kubernetes Steps:
+  
+  _Note:_ AKS support from **Octopus 2022.2** and EKS support from **Octopus
+  2022.3**
+  - Deploy Kubernetes containers
+  - Run a kubectl CLI Script
+  - Deploy raw Kubernetes YAML
+  - Update a Helm Chart
+  - Deploy Kubernetes config map resource
+  - Deploy Kubernetes ingress resource
+  - Deploy Kubernetes secret resource
+  - Deploy Kubernetes service resource
 
 ## Enabling discovery for existing projects
 
