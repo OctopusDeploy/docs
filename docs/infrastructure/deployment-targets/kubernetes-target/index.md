@@ -17,7 +17,7 @@ From **Octopus 2022.3**:
 
 ## Discovering Kubernetes targets
 
-Octopus can discover Kubernetes targets in Azure Kubernetes Service (AKS) or Amazon Elastic Container Service for Kubernetes (EKS) as part of your deployment using tags on your AKS or EKS resource. To discover targets use the following steps:
+Octopus can discover Kubernetes targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. To discover targets use the following steps:
 
 - Add an Azure account variable named **Octopus.Azure.Account** or an AWS account variable named **Octopus.Aws.Account** or another AWS authentication option ([more info here](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#aws)) to your project.
 - [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
