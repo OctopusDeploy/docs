@@ -6,16 +6,16 @@ position: 100
 
 :::hint
 From **Octopus 2022.1**:
-1. Feature added as an Early Access Preview and is enabled via **{{Configuration, Features}}**. 
-2. In the preview, the auto-removal of targets when a cloud resource is removed is not included.
+- Feature added as an Early Access Preview and is enabled via **{{Configuration, Features}}**. 
+- In the preview, the auto-removal of targets when a cloud resource is removed has not been included.
 
 From **Octopus 2022.2**:
-1. Feature is out of Early Access Preview.
-2. Auto-removal of targets when a cloud resource is removed has been added.
-3. AKS target discovery (Azure Kubernetes) has been added as an Early Access Preview and is enabled via **{{Configuration, Features}}**.
+- Feature is out of Early Access Preview.
+- Auto-removal of targets when a cloud resource is removed has been added.
+- AKS Kubernetes target discovery (Azure) has been added as the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 
 From **Octopus 2022.3**:
-1. EKS target discovery (AWS Kubernetes) has been added as an Early Access Preview and is enabled via **{{Configuration, Features}}**.
+- EKS Kubernetes target discovery (AWS) has been added as the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 :::
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
@@ -77,9 +77,6 @@ Octopus will discover targets if one of the following steps are in your deployme
 - Deploy Amazon ECS Service
 - Update Amazon ECS Service
 - Kubernetes Steps:
-  
-  _Note:_ AKS support from **Octopus 2022.2** and EKS support from **Octopus
-  2022.3**
   - Deploy Kubernetes containers
   - Run a kubectl CLI Script
   - Deploy raw Kubernetes YAML
@@ -178,3 +175,5 @@ By configuring some well-known variables and tagging your ECS cluster appropriat
 ```
 
 Octopus will now discover the ECS cluster as a target before deploying to it, matching the environment, role, and project from the deployment to the tags created with the CloudFormation template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from AWS.
+
+### 
