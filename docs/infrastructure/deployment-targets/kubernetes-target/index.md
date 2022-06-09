@@ -9,10 +9,10 @@ Conceptually, a Kubernetes target represent a permission boundary and an endpoin
 
 :::hint
 From **Octopus 2022.2**:
-- AKS Kubernetes target discovery (Azure) has been added as the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+- AKS Kubernetes target discovery (Azure) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 
 From **Octopus 2022.3**:
-- EKS Kubernetes target discovery (AWS) has been added as the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+- EKS Kubernetes target discovery (AWS) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
   :::
 
 ## Discovering Kubernetes targets

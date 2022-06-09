@@ -12,10 +12,10 @@ From **Octopus 2022.1**:
 From **Octopus 2022.2**:
 - Feature is out of Early Access Preview.
 - Auto-removal of targets when a cloud resource is removed has been added.
-- AKS Kubernetes target discovery (Azure) has been added as the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+- AKS Kubernetes target discovery (Azure) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 
 From **Octopus 2022.3**:
-- EKS Kubernetes target discovery (AWS) has been added as the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+- EKS Kubernetes target discovery (AWS) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 :::
 
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
