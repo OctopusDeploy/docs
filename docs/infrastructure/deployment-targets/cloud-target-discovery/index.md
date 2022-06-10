@@ -4,27 +4,19 @@ description: Cloud resources can be discovered and registered as deployment targ
 position: 100
 ---
 
+Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
+
 :::hint
-From **Octopus 2022.1**:
-- Feature added as an Early Access Preview and is enabled via **{{Configuration, Features}}**. 
-- In the preview, the auto-removal of targets when a cloud resource is removed has not been included.
+Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP support for AKS clusters is provided via a feature toggle in **{{Configuration -> Features}}**.
 
-From **Octopus 2022.2**:
-- Feature is out of Early Access Preview.
-- Auto-removal of targets when a cloud resource is removed has been added.
-- AKS Kubernetes target discovery (Azure) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
-
-From **Octopus 2022.3**:
-- EKS Kubernetes target discovery (AWS) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+**Octopus 2022.3** will include EKS cluster support.
 :::
 
-Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
+This page will walk you through the steps needed to enable cloud target discovery.
 
 :::hint
 We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
 :::
-
-This page will walk you through the steps needed to enable cloud target discovery.
 
 ## Configure credentials for discovery
 
@@ -175,5 +167,3 @@ By configuring some well-known variables and tagging your ECS cluster appropriat
 ```
 
 Octopus will now discover the ECS cluster as a target before deploying to it, matching the environment, role, and project from the deployment to the tags created with the CloudFormation template, without any custom scripts or manual registration! Octopus will also remove this target if it is later removed from AWS.
-
-### 

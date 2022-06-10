@@ -8,12 +8,11 @@ Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernet
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
 :::hint
-From **Octopus 2022.2**:
-- AKS Kubernetes target discovery (Azure) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+From **Octopus 2022.2**, AKS target discovery has been added to the 
+Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
 
-From **Octopus 2022.3**:
-- EKS Kubernetes target discovery (AWS) has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
-  :::
+From **Octopus 2022.3** will include EKS cluster support.
+:::
 
 ## Discovering Kubernetes targets
 
