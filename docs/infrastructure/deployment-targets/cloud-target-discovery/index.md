@@ -4,17 +4,19 @@ description: Cloud resources can be discovered and registered as deployment targ
 position: 100
 ---
 
+Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
+
 :::hint
-The Early Access Preview of the cloud target discovery feature was added in **Octopus 2022.1** and is enabled via **{{Configuration, Features}}**. The preview does not currently include removal of targets when the cloud resource is removed, this is on our roadmap.
+Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP support for AKS clusters is provided via a feature toggle in **{{Configuration, Features}}**.
+
+**Octopus 2022.3** will include EKS cluster support.
 :::
 
-Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
+This page will walk you through the steps needed to enable cloud target discovery.
 
 :::hint
 We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
 :::
-
-This page will walk you through the steps needed to enable cloud target discovery.
 
 ## Configure credentials for discovery
 
@@ -66,6 +68,15 @@ Octopus will discover targets if one of the following steps are in your deployme
 - Deploy an Azure Web App (Web Deploy)
 - Deploy Amazon ECS Service
 - Update Amazon ECS Service
+- Kubernetes Steps:
+  - Deploy Kubernetes containers
+  - Run a kubectl CLI Script
+  - Deploy raw Kubernetes YAML
+  - Update a Helm Chart
+  - Deploy Kubernetes config map resource
+  - Deploy Kubernetes ingress resource
+  - Deploy Kubernetes secret resource
+  - Deploy Kubernetes service resource
 
 ## Enabling discovery for existing projects
 
@@ -87,8 +98,43 @@ To discover targets for an environment, dynamic infrastructure needs to be enabl
 Using target discovery during a deployment means that there may be no existing targets at the start of a deployment. To allow deployments to start without any targets:
 
 1. Navigate to **{{Projects,Project name,Deployments,Settings}}**.
-1. Expand the **Deployment Targets Required** and select the **Allow deployments to be created when there are no deployment targets** option.
-1. Click **SAVE**.
+2. Expand the **Deployment Targets Required** and select the **Allow deployments to be created when there are no deployment targets** option.
+3. Click **SAVE**.
+
+## Discovering existing targets
+
+Cloud Target Discovery will often discover resources which already have targets in Octopus. Here are some things to be aware of: 
+
+### Previously discovered targets
+
+If a target has been created via Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Existing targets are matched by target name, which is formatted depending on the discovered resource. The names are chosen to be unique but as readable as possible.
+
+- Azure Web App: `azure-web-app/{resource-group}/{web-app-name}`
+- ECS Cluster: `{ecs-cluster-arn}`
+- AKS Cluster: `aks/{subscription-id}/{resource-group}/{cluster-name}`
+- EKS Cluster: `{eks-cluster-arn}`
+
+:::warning
+Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become unhealthy and be removed automatically by Octopus (see [Cleaning up unhealthy targets]) but in some cases the old target may still be healthy. In these cases, it must be removed manually.
+
+**Example:** If you move an AKS Cluster to a different subscription and then update your Account in Octopus to use the new subscription ID, the old target will still pass its health-check. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
+:::
+
+### Overwriting manually added targets
+
+Manually added targets can be overridden by Cloud Target Discovery but this will only happen if they match the name format above exactly. If they are different, a new target will be created.
+
+:::hint
+We recommend not manually adding targets when using Cloud Target Discovery to avoid duplicate targets for a single cloud resource.
+:::
+
+### Cleaning up unhealthy targets
+
+When targets are created via Cloud Target Discovery, they are monitored by Octopus. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
+
+:::hint
+Server will not remove unhealthy targets immediately. Targets need to fail multiple health checks over a period of at least one hour before they are removed.
+:::
 
 ## Examples
 

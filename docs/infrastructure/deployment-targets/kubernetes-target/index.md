@@ -8,15 +8,18 @@ Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernet
 Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
 
 :::hint
-From **Octopus 2022.2**, Kubernetes targets can be discovered using tags on your cloud resources in Azure. This feature is in Early Access Preview.
+From **Octopus 2022.2**, AKS target discovery has been added to the 
+Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+
+From **Octopus 2022.3** will include EKS cluster support.
 :::
 
 ## Discovering Kubernetes targets
 
-Octopus can discover Kubernetes targets in Azure Kubernetes Service (AKS) as part of your deployment using tags on your AKS resource. To discover targets use the following steps:
+Octopus can discover Kubernetes targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. To discover targets use the following steps:
 
-- Add an Azure account variable named **Octopus.Azure.Account** to your project.
-- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your AKS cluster so that Octopus can match it to your deployment step and environment.
+- Add an Azure account variable named **Octopus.Azure.Account** or the appropriate AWS authentication variables ([more info here](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#aws)) to your project.
+- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
 - Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
 
 Kubernetes targets discovered will not have a namespace set, the namespace on the step will be used during deployment (or the default namespace in the cluster if no namespace is set on the step).
