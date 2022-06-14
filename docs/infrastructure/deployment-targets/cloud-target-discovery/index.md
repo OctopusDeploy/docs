@@ -108,7 +108,7 @@ Cloud Target Discovery will often discover resources which already have targets 
 
 ### Previously discovered targets
 
-If a target has been created via Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Targets are matched by to the resource by target name, which is formatted depending on the discovered resource. The names are chosen to be unique but as readable as possible.
+If a target has been created via Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Existing targets are matched by target name, which is formatted depending on the discovered resource. The names are chosen to be unique but as readable as possible.
 
 - Azure Web App: `azure-web-app/{resource-group}/{web-app-name}`
 - ECS Cluster: `{ecs-cluster-arn}`
@@ -126,7 +126,7 @@ Renaming or moving cloud resources can cause target discovery to create duplicat
 Manually added targets can be overridden by Cloud Target Discovery but this will only happen if they match the name format above exactly. If they are different, a new target will be created.
 
 :::hint
-We recommend avoiding manually added targets when using Cloud Target Discovery to avoid duplicate targets for a single cloud resource.
+We recommend not manually adding targets when using Cloud Target Discovery to avoid duplicate targets for a single cloud resource.
 :::
 
 ### Cleaning up unhealthy targets
@@ -134,7 +134,7 @@ We recommend avoiding manually added targets when using Cloud Target Discovery t
 When targets are created via Cloud Target Discovery, they are monitored by Octopus. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
 
 :::hint
-Server will not remove unhealthy targets immediately, it could take up to an hour before old targets are removed.
+Server will not remove unhealthy targets immediately. Targets need to fail multiple health checks over a period of at least one hour before they are removed.
 :::
 
 ## Examples
