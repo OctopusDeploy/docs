@@ -134,7 +134,7 @@ We recommend avoiding manually added targets when using Cloud Target Discovery t
 When targets are created via Cloud Target Discovery, they are monitored by Octopus. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
 
 :::hint
-Server will not remove unhealthy targets immediately, it could take up to approximately an hour before old targets are removed.
+Server will not remove unhealthy targets immediately, it could take up to an hour before old targets are removed.
 :::
 
 ## Examples
