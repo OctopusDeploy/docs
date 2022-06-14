@@ -108,7 +108,7 @@ Cloud Target Discovery will often discover resources which already have targets 
 
 ### Previously discovered targets
 
-If a target has been created by Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Targets are matched by to the resource by target name, which is formatted depending upon the discovered resource. The names are chosen to be unique but as readable as possible.
+If a target has been created via Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Targets are matched by to the resource by target name, which is formatted depending on the discovered resource. The names are chosen to be unique but as readable as possible.
 
 - Azure Web App: `azure-web-app/{resource-group}/{web-app-name}`
 - ECS Cluster: `{ecs-cluster-arn}`
@@ -118,23 +118,23 @@ If a target has been created by Cloud Target Discovery, the next time the same c
 :::hint
 Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become healthy and be removed via the lifetime manager but in some cases the old target may still be healthy. In these cases, the old target must be removed manually.
 
-Example: If you move an AKS Cluster to a different subscription and then update your Account in Server to use the new subscription ID, the old target will still validate correctly. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
+**Example:** If you move an AKS Cluster to a different subscription and then update your Account in Octopus to use the new subscription ID, the old target will still validate correctly. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
 :::
 
 ### Overwriting manually added targets
 
-Manually added targets will only be overwritten by target discovery if they match the name format above exactly. If they are different, a new target will be created.
+Manually added targets can be overridden by Cloud Target Discovery but this will only happen if they match the name format above exactly. If they are different, a new target will be created.
 
 :::hint
-If you're using Cloud Target Discovery, we recommend avoiding manually added targets to avoid duplicate targets for a single cloud resource.
+We recommend avoiding manually added targets when using Cloud Target Discovery to avoid duplicate targets for a single cloud resource.
 :::
 
 ### Cleaning up unhealthy targets
 
-When a target has been created via Target Discovery, it is monitored by Server. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
+When targets are created via Cloud Target Discovery, they are monitored by Octopus. When the cloud resources are removed, Octopus will detect unhealthy targets and remove them periodically.
 
 :::hint
-Server will not remove unhealthy targets immediately, it will wait at least an hour before removing them.
+Server will not remove unhealthy targets immediately, it could take up to approximately an hour before old targets are removed.
 :::
 
 ## Examples
