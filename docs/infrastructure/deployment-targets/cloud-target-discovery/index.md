@@ -7,8 +7,7 @@ position: 100
 Octopus can discover deployment targets during deployments using tags added to your cloud resources. Target discovery takes place during deployment, and is useful when your deployment process creates your target cloud infrastructure before deploying software to it.
 
 :::hint
-Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP 
-support for AKS clusters is provided via a feature toggle in **{{Configuration, Features}}**.
+Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps and ECS. EAP support for AKS clusters is provided via a feature toggle in **{{Configuration, Features}}**.
 
 **Octopus 2022.3** will include EKS cluster support.
 :::
