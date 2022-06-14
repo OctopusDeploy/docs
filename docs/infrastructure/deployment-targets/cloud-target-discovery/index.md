@@ -104,22 +104,21 @@ Using target discovery during a deployment means that there may be no existing t
 
 ## Discovering existing targets
 
-The Cloud Target Discovery feature will often discover resources which already have targets in Octopus. Here are some things to be aware of: 
+Cloud Target Discovery will often discover resources which already have targets in Octopus. Here are some things to be aware of: 
 
 ### Previously discovered targets
 
-If a target has been created by Cloud Target Discovery, the next time it is discovered it will simply be updated. Targets are matched by the target name, which depends upon the resource being discovered. The names are chosen to be unique but as readable as possible.
+If a target has been created by Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Targets are matched by to the resource by target name, which is formatted depending upon the discovered resource. The names are chosen to be unique but as readable as possible.
 
-example:
 - Azure Web App: `azure-web-app/{resource-group}/{web-app-name}`
 - ECS Cluster: `{ecs-cluster-arn}`
 - AKS Cluster: `aks/{subscription-id}/{resource-group}/{cluster-name}`
 - EKS Cluster: `{eks-cluster-arn}`
 
 :::hint
-Renaming resources or moving resources can cause target discovery to create duplicate targets. In most cases the old target will become healthy and be removed via the lifetime manager but in some special cases the old target may still be healthy. In these cases, the old target must be removed manually.
+Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become healthy and be removed via the lifetime manager but in some cases the old target may still be healthy. In these cases, the old target must be removed manually.
 
-Example: If you move an AKS Cluster to a new subscription and then update your Account in Octopus to contain the new Subscription ID, the old target will still validate correctly. When discovery occurs the new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
+Example: If you move an AKS Cluster to a different subscription and then update your Account in Server to use the new subscription ID, the old target will still validate correctly. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
 :::
 
 ### Overwriting manually added targets
