@@ -116,7 +116,7 @@ If a target has been created via Cloud Target Discovery, the next time the same 
 - EKS Cluster: `{eks-cluster-arn}`
 
 :::hint
-Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become unhealthy and be removed automatically by Octopus (see [Cleaning up unhealthy targets](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#Cleaning up unhealthy targets)) but in some cases the old target may still be healthy. In these cases, it must be removed manually.
+Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become unhealthy and be removed automatically by Octopus (see [Cleaning up unhealthy targets]) but in some cases the old target may still be healthy. In these cases, it must be removed manually.
 
 **Example:** If you move an AKS Cluster to a different subscription and then update your Account in Octopus to use the new subscription ID, the old target will still pass its health-check. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
 :::
