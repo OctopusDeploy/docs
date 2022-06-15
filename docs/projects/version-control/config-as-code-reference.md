@@ -143,7 +143,8 @@ Currently, Octopus creates the following files:
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
 
 ```hcl
-step "Deploy a Package" {
+step "deploy-a-package" {
+    name = "Deploy a Package"
     properties = {
         Octopus.Action.TargetRoles = "web"
     }
@@ -156,14 +157,14 @@ step "Deploy a Package" {
             Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
             Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
             Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "Octopus Server (built-in)"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
             Octopus.Action.Package.PackageId = "webConfig"
         }
         worker_pool_variable = ""
 
         packages {
             acquisition_location = "Server"
-            feed = "Octopus Server (built-in)"
+            feed = "octopus-server-built-in"
             package_id = "webConfig"
             properties = {
                 SelectionMode = "immediate"
@@ -213,7 +214,7 @@ connectivity_policy {
 versioning_strategy {
 
     donor_package {
-        step = "Deploy a Package"
+        step = "deploy-a-package"
     }
 }
 ```
@@ -223,7 +224,7 @@ versioning_strategy {
 When designing the config-as-code feature, we made several decisions to keep an appropriate balance of usability and functionality. There are a few limitations and items of note you should be aware of with config-as-code.
 
 - The Octopus Terraform Provider and OCL are not a 1:1 match. You cannot copy resources between the two and expect everything to work. We want to narrow the gap as much as possible, but as of right now, a gap exists.
-- Shared resources (environments, external feeds, step templates, etc.) are referenced by name, not ID. Be very careful when changing the names of any shared resources.  
+- Shared resources (environments, external feeds, step templates, etc.) are referenced by their slug, not ID.
 - Shared resources must exist before loading an OCL file into Octopus Deploy. What that means is if you copy the OCL files from one git repo to another, and point a new project at those files, then any shared resource must exist before creating that project. That only applies when projects are in different spaces or on different instances. If the resources do not exist, an error message will appear.
 - Pointing multiple projects to the same folder in the same git repo is unsupported. Please see our [unsupported config as code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md) for more information.
 - Converting a project to be version-controlled is a one-way process. At this time, you cannot convert back.
