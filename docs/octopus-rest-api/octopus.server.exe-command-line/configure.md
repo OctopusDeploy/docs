@@ -111,6 +111,9 @@ Where [<options>] is any of:
       --azureADClientId=VALUE
                              Follow our documentation to find the Client ID
                                for azureAD.
+      --azureADClientSecret=VALUE
+                             Follow our documentation to find the Client
+                               Secret for azureAD.
       --azureADScope=VALUE   Only change this if you need to change the
                                OpenID Connect scope requested by Octopus for
                                azureAD.
@@ -158,6 +161,9 @@ Where [<options>] is any of:
       --googleAppsClientId=VALUE
                              Follow our documentation to find the Client ID
                                for googleApps.
+      --googleAppsClientSecret=VALUE
+                             Follow our documentation to find the Client
+                               Secret for googleApps.
       --googleAppsScope=VALUE
                              Only change this if you need to change the
                                OpenID Connect scope requested by Octopus for
@@ -245,6 +251,9 @@ Where [<options>] is any of:
                                okta.
       --oktaClientId=VALUE   Follow our documentation to find the Client ID
                                for okta.
+      --oktaClientSecret=VALUE
+                             Follow our documentation to find the Client
+                               Secret for okta.
       --oktaScope=VALUE      Only change this if you need to change the
                                OpenID Connect scope requested by Octopus for
                                okta.
