@@ -106,6 +106,10 @@
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-162/operations/runbooks/Runbooks-102/process/RunbookProcess-Runbooks-102" target="_blank">Delete Azure SQL Server Database</a>: <i>Runbook to tear down the database in Azure</i>
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-162/operations/runbooks/Runbooks-221/process/RunbookProcess-Runbooks-221" target="_blank">Export Azure SQL Server Database</a>
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-162/operations/runbooks/Runbooks-101/process/RunbookProcess-Runbooks-101" target="_blank">Spin Up Azure SQL Server Database</a>: <i>Runbook to spin up a database in Azure</i>
+- DBUp - GCP
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1961/operations/runbooks/Runbooks-2182/process/RunbookProcess-Runbooks-2182" target="_blank">Delete Azure SQL Server Database</a>: <i>Runbook to tear down the database in Azure</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1961/operations/runbooks/Runbooks-2184/process/RunbookProcess-Runbooks-2184" target="_blank">Export Azure SQL Server Database</a>
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1961/operations/runbooks/Runbooks-2181/process/RunbookProcess-Runbooks-2181" target="_blank">Spin Up Azure SQL Server Database</a>: <i>Runbook to spin up a database in Azure</i>
 - Flyway - Azure SQL
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-864/operations/runbooks/Runbooks-1062/process/RunbookProcess-Runbooks-1062" target="_blank">Destroy Infrastructure</a>: <i>Drops database for the environment.</i>
 - Flyway - Azure SQL Execution Containers
