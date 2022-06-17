@@ -125,7 +125,7 @@ if ([string]::IsNullOrWhiteSpace($runbookPromptedVariables) -eq $false)
     	foreach ($promptedValue in $promptedValueList)
         {
         	$splitValue = $promptedValue -Split "::"
-            Write-Host "Comparing $nameToSearchFor with provided prompted variable $($promptedValue[0])"
+            Write-Host "Comparing $nameToSearchFor with provided prompted variable $($splitValue[0])"
             if ($splitValue.Length -gt 1)
             {
             	if ($nameToSearchFor -eq $splitValue[0])
