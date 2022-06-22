@@ -42,10 +42,13 @@ The Octopus Deploy / ServiceNow integration requires security configuration in y
 
 Follow the [ServiceNow OAuth documentation](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) to configure an OAuth endpoint for Octopus to use for authentication. Take note of the OAuth client id and client secret from the configuration.
 
-Next, the integration will require a user account on ServiceNow. The recommendation is to ser account specifically for Octopus.
-To create a new ServiceNow user, follow the [ServiceNow user documentation](https://docs.servicenow.com/en-US/bundle/sandiego-platform-administration/page/administer/users-and-groups/task/t_CreateAUser.html). 
+Next, the integration will require a user account in ServiceNow. The recommendation is to create a service account specifically for Octopus, once created the user must be assigned the following two roles:
 
-Ensure that the new user has `Web service access only` checked. 
+- `sn_change_read`
+- `sn_change_write`
+
+Ensure that the new user has the `Web service access only` checkbox checked.
+
 Take note of the password assigned or generated for this user.
 
 ### Licensing
