@@ -35,26 +35,24 @@ The certificate file (.crt, .pem, etc.) should contain the entire certificate ch
 
 The next step is to modify the configuration file.  The file to edit depends on how the NGINX server use case.  Modify the `/etc/nginx/nginx.conf` file if this reverse proxy is the only item hosted by NGINX.  Otherwise, modify the appropriate `/etc/nginx/sites-enabled/[Site_name.com.conf]` or `/etc/nginx/conf.d/[Site_Name.com.conf]` file.
 
-Below is the entire contents of the file.
+Below is an example reverse proxy configuration:
 
 ```
-http {
-    upstream octopusdeploy {
-        server servername:8080;               
-    }
+upstream octopusdeploy {
+   server servername:8080;               
+}
 
-    server {
-        listen       443 ssl;
-        server_name  localhost;
+server {
+   listen       443 ssl;
+   server_name  localhost;
 
-        ssl_certificate /etc/nginx/STAR_octopusdemos_app.pem;
-        ssl_certificate_key /etc/nginx/STAR_octopusdemos_app.key;
+   ssl_certificate /etc/nginx/STAR_octopusdemos_app.pem;
+   ssl_certificate_key /etc/nginx/STAR_octopusdemos_app.key;
         
-        location / {
-            proxy_set_header Host $host;
-            proxy_pass http://octopusdeploy;
-        }        
-    }
+   location / {
+      proxy_set_header Host $host;
+      proxy_pass http://servername:8080;
+    }        
 }
 ```
 
