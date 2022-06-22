@@ -51,7 +51,7 @@ server {
         
    location / {
       proxy_set_header Host $host;
-      proxy_pass http://servername:8080;
+      proxy_pass http://octopusdeploy;
     }        
 }
 ```
