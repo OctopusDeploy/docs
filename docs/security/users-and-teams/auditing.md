@@ -52,7 +52,9 @@ In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissi
 
 ### Modifying and deleting audit logs is prevented
 
-Octopus actively prevents modifying or deleting audit logs via its API. That being said, a user with the appropriate permissions to the `Events` table in your Octopus SQL Database could modify or delete records in that table. If you are concerned about this kind of tampering you should configure the permissions to the `Events` table in your Octopus SQL Database appropriately.
+Octopus actively prevents modifying or deleting audit logs within the configured retention period via its API. That being said, a user with the appropriate permissions to the `Events` table in your Octopus SQL Database could modify or delete records in that table. If you are concerned about this kind of tampering you should configure the permissions to the `Events` table in your Octopus SQL Database appropriately.
+
+Entries older than the retention period can be deleted by users with the appropriate permissions (typically `Octopus Manager`). An audit log entry will be created each time an archived event file is deleted. You can prevent archived files from being deleted by setting the configured folder to be read-only at the filesystem level.
 
 ### Sensitive values in audit logs
 
@@ -71,3 +73,5 @@ Users with appropriate permissions (typically `Octopus Manager`) can download or
 :::warning
 Deleting the archived files will permanently erase the audit entries.
 :::
+
+The archived files can also be accessed via the API endpoints `/api/event/archives` and `/api/event/archives/{filename}`.
