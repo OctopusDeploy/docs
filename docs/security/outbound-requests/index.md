@@ -27,6 +27,7 @@ The Octopus Server makes the following outbound requests:
 4. Checking for updates (if enabled).
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates/index.md) (if enabled).
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates.md) (if enabled).
+7. Behavioural telemetry is sent to https://telemetry.octopus.com (if enabled).
 
 ### Built-in step templates
 
