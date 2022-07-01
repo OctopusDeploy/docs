@@ -219,6 +219,11 @@ versioning_strategy {
 }
 ```
 
+## Slugs in OCL
+
+Previously, version controlled projects would reference shared resources using their name. This had a side-effect causing API responses for version controlled projects to contained names instead of IDs.
+This has recently changed. Shared resources are now referenced from OCL by their slug. These slugs will be converted to IDs when fetching resources via the API.
+
 ## Items of note
 
 When designing the config-as-code feature, we made several decisions to keep an appropriate balance of usability and functionality. There are a few limitations and items of note you should be aware of with config-as-code.
