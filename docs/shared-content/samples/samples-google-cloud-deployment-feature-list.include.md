@@ -10,6 +10,11 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-1761/deployments/process" target="_blank">Cloud Run - Hello</a>: <i>A simple deployment of a pre-built Google container [Hello World Service](https://cloud.google.com/run/docs/samples/cloudrun-helloworld-service) using the `gcloud` CLI. The code for the sample is available on [GitHub](https://github.com/GoogleCloudPlatform/cloud-run-hello/).</i>
     
+**Target - MySQL**
+
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2001/deployments/process" target="_blank">Flyway - GCP Service Account</a>: <i>Example project for automated database deployments using Flyway against an AWS RDS MySQL instance. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2002/deployments/process" target="_blank">Liquibase - GCP Service Account</a>: <i>Sample project that creates and deploys the sakila database to an AWS RDS MySQL instance using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+    
 **Target - PostgreSQL**
 
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1941/deployments/process" target="_blank">Liquibase - GCP Service Account</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL instance hosted in GCP using Liquibase and using a GCP Service Account for authentication. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
