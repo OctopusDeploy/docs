@@ -38,6 +38,11 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-342/projects/Projects-445/deployments/process" target="_blank">Octo Pet Shop</a>: <i>Sample project that uses the Deploy to IIS step to deploy to both IIS on a VM and an Azure Web App. [Build definition](https://app.circleci.com/pipelines/github/OctopusSamples/OctoPetShop)</i>
     
+**Target - MySQL**
+
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1122/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against MySQL. [Build defintion](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1123/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a MySQL container hosted in Azure using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+    
 **Target - PaaS**
 
 - <a href="https://samples.octopus.app/app#/Spaces-64/projects/Projects-1381/deployments/process" target="_blank">OctoPetShop</a>: <i>A .NET Core Sample application used by Octopus to sample deployments and Runbooks.  This example deploys OctoPetShop to Azure PaaS. The Product, Shopping Cart and Web App are deployed to Azure Web Apps and the Database to an empty Azure SQL server - [Build](https://octopussamplesext.visualstudio.com/OctoPetShop/)</i>
