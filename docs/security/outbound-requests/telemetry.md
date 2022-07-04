@@ -47,6 +47,7 @@ In addition, we'll send some specific aggregate criteria along with the request.
 | Structured Configuration Variable usage across projects including how many steps have Structured Configuration Variables enabled and what file extensions are being used | 2020.4.0 |
 | OS Architecture of Deployment Target Tentacles | 2021.1.0 |
 | The number of Projects that are version controlled | 2021.2.0 |
+| Aggregated data about the number and type of ITSM change managed deployments | 2022.2.0 |
 
 The installation ID is a GUID that we generate when Octopus is installed. This GUID is simply a way for us to get a rough idea of the number of installations there are in the wild, and which versions people are using, so we can make decisions about backwards compatibility support.
 
