@@ -222,7 +222,21 @@ versioning_strategy {
 ## Slugs in OCL
 
 Previously, Git projects would reference shared resources using their name. This had a side-effect causing API responses for Git projects to contain names instead of IDs.
-This has recently changed. Shared resources are now referenced from OCL by their slug. IDs will be used in API responses instead of names.
+This has recently changed. A handful of resources are now referenced from OCL by their slug. IDs will be used in API responses instead of names.
+
+The following resources will be referenced via their slug:
+- Account
+- Channel
+- Deployment Action
+- Deployment Step
+- Deployment Target
+- Environment
+- Feed
+- Lifecycle
+- Team
+- Worker Pool
+
+All other resources will be referenced from OCL via their ID. We plan on growing this list to include more resources in the future as we introduce slugs into more places throughout Octopus.
 
 ## Items of note
 
