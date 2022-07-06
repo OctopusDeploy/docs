@@ -1,7 +1,7 @@
 ### Debian
 
 ```bash Listening deployment target
-serverUrl="https://my-octopus"   # The url of your Octous server
+serverUrl="https://my-octopus"   # The url of your Octopus server
 thumbprint=""       # The thumbprint of your Octopus Server
 apiKey=""           # An Octopus Server api key with permission to add machines
 spaceName="Default" # The name of the space to register the Tentacle in
@@ -26,7 +26,7 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
 ```
 
 ```bash Polling deployment target
-serverUrl="https://my-octopus"   # The url of your Octous server
+serverUrl="https://my-octopus"   # The url of your Octopus server
 serverCommsPort=10943            # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=""           # An Octopus Server api key with permission to add machines
 spaceName="Default" # The name of the space to register the Tentacle in
@@ -50,7 +50,7 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
 ```
 
 ```bash Listening worker
-serverUrl="https://my-octopus"   # The url of your Octous server
+serverUrl="https://my-octopus"   # The url of your Octopus server
 thumbprint=""       # The thumbprint of your Octopus Server
 apiKey=""           # An Octopus Server api key with permission to add machines
 spaceName="Default" # The name of the space to register the Tentacle in
@@ -74,7 +74,7 @@ echo "Registering the Tentacle $name with server $serverUrl in worker pool $work
 ```
 
 ```bash Polling worker
-serverUrl="https://my-octopus"   # The url of your Octous server
+serverUrl="https://my-octopus"   # The url of your Octopus server
 serverCommsPort=10943            # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=""           # An Octopus Server api key with permission to add machines
 spaceName="Default" # The name of the space to register the Tentacle in
