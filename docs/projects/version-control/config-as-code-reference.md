@@ -221,7 +221,7 @@ versioning_strategy {
 
 ## Slugs in OCL
 
-Previously, Git projects would reference shared resources using their name. This had a side-effect causing API responses for Git projects to contain names instead of IDs.
+Prior to version 2022.3, Git projects would reference shared resources using their name. This had a side-effect causing API responses for Git projects to contain names instead of IDs.
 This has recently changed. A handful of resources are now referenced from OCL by their slug. IDs will be used in API responses instead of names.
 
 The following resources will be referenced via their slug:
