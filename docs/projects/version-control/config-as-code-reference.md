@@ -222,7 +222,7 @@ versioning_strategy {
 ## Slugs in OCL
 
 Prior to version 2022.3, Git projects would reference shared resources using their name. This had a side-effect causing API responses for Git projects to contain names instead of IDs.
-This has recently changed. A handful of resources are now referenced from OCL by their slug. IDs will be used in API responses instead of names.
+From version 2022.3 onwards, a handful of resources are from OCL by their slug. IDs will be used in API responses instead of names.
 
 The following resources will be referenced via their slug:
 - Account
@@ -243,7 +243,7 @@ All other resources will be referenced from OCL via their ID. We plan on growing
 When designing the config-as-code feature, we made several decisions to keep an appropriate balance of usability and functionality. There are a few limitations and items of note you should be aware of with config-as-code.
 
 - The Octopus Terraform Provider and OCL are not a 1:1 match. You cannot copy resources between the two and expect everything to work. We want to narrow the gap as much as possible, but as of right now, a gap exists.
-- Shared resources (environments, external feeds, step templates, etc.) are referenced by their slug from OCL. The API however will still use IDs.
+- Shared resources (environments, external feeds, channels, etc.) are referenced by their slug from OCL. The API however will still use IDs.
 - Shared resources must exist before loading an OCL file into Octopus Deploy. What that means is if you copy the OCL files from one git repo to another, and point a new project at those files, then any shared resource must exist before creating that project. That only applies when projects are in different spaces or on different instances. If the resources do not exist, an error message will appear.
 - Pointing multiple projects to the same folder in the same git repo is unsupported. Please see our [unsupported config as code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md) for more information.
 - Converting a project to be version-controlled is a one-way process. At this time, you cannot convert back.
