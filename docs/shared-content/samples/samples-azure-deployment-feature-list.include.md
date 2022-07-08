@@ -47,6 +47,11 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-64/projects/Projects-1381/deployments/process" target="_blank">OctoPetShop</a>: <i>A .NET Core Sample application used by Octopus to sample deployments and Runbooks.  This example deploys OctoPetShop to Azure PaaS. The Product, Shopping Cart and Web App are deployed to Azure Web Apps and the Database to an empty Azure SQL server - [Build](https://octopussamplesext.visualstudio.com/OctoPetShop/)</i>
     
+**Target - PostgreSQL**
+
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1084/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against PostgreSQL. [Build defintion](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1085/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL container hosted in Azure using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+    
 **Target - Serverless**
 
 - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1824/deployments/process" target="_blank">Azure OctoSubscriber</a>: <i>Azure Functions that accept and process an Octopus Deploy Subscription and notify users via slack when a variable has changed. [Build definition](https://github.com/OctopusSamples/OctoSubscriber/blob/main/.github/workflows/AzureFunctions.yml)</i>
