@@ -6,16 +6,17 @@
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1082/operations/runbooks/Runbooks-1083/process/RunbookProcess-Runbooks-1083" target="_blank">Stop Artifactory VM</a>: <i>Stops the Artifactory VM running in Azure</i>
 - Azure VM management
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1503/operations/runbooks/Runbooks-1591/process/RunbookProcess-Runbooks-1591" target="_blank">Check for Premium LRS SSDs</a>: <i>This runbook uses the Azure CLI to check all virtual machines in a subscription for the presence of Premium_LRS on either the OS or Data disk</i>
-- Lets Encrypt Certificate renewal
+- Lets Encrypt Certificates
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-661/operations/runbooks/Runbooks-682/process/RunbookProcess-Runbooks-682" target="_blank">Renew LetsEncrypt Certificates</a>: <i>Runbook which renews and stores LetsEncrypt certificates in the Octopus Certificate library</i>
-- Maintain Samples build servers
-   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-948/process/RunbookProcess-Runbooks-948" target="_blank">Shutdown Samples build server VMs</a>
-   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-949/process/RunbookProcess-Runbooks-949" target="_blank">Start Samples build server VMs</a>
 - Provision SQL Server
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1162/operations/runbooks/Runbooks-1170/process/RunbookProcess-Runbooks-1170" target="_blank">Destroy Azure SQL IaaS</a>
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1162/operations/runbooks/Runbooks-1169/process/RunbookProcess-Runbooks-1169" target="_blank">Destroy Azure SQL PaaS</a>
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1162/operations/runbooks/Runbooks-1167/process/RunbookProcess-Runbooks-1167" target="_blank">Provision Azure SQL IaaS</a>
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1162/operations/runbooks/Runbooks-1168/process/RunbookProcess-Runbooks-1168" target="_blank">Provision Azure SQL PaaS</a>
+- Samples build servers
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-2241/process/RunbookProcess-Runbooks-2241" target="_blank">Renew Lets Encrypt certificates</a>
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-948/process/RunbookProcess-Runbooks-948" target="_blank">Shutdown Samples build server VMs</a>
+   - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-930/operations/runbooks/Runbooks-949/process/RunbookProcess-Runbooks-949" target="_blank">Start Samples build server VMs</a>
 - Windows Server Admin
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-202/operations/runbooks/Runbooks-205/process/RunbookProcess-Runbooks-205" target="_blank">Create hardened Windows Azure VM</a>: <i>- Create an Azure Windows virtual machine.
       - Configure that machine as an Octopus tentacle

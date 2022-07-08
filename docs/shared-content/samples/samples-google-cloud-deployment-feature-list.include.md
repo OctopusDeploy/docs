@@ -12,7 +12,7 @@
     
 **Target - MySQL**
 
-- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2001/deployments/process" target="_blank">Flyway - GCP Service Account</a>: <i>Example project for automated database deployments using Flyway against an AWS RDS MySQL instance. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2001/deployments/process" target="_blank">Flyway - GCP Service Account</a>: <i>Example project for automated database deployments using Flyway against a GCP MySQL instance. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2002/deployments/process" target="_blank">Liquibase - GCP Service Account</a>: <i>Sample project that creates and deploys the sakila database to an AWS RDS MySQL instance using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
     
 **Target - PostgreSQL**
