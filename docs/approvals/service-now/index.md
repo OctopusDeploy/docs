@@ -108,7 +108,7 @@ By default, the deployments resulting in a CR creation will produce a `Normal` c
 
 ### Supplying the CR number to a deployment
 
-If you add a variable to your project named `Octopus.ServiceNow.Change.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
+If you add a variable to your project named `Octopus.ServiceNow.ChangeRequest.Number`, then a CR will not be created, and instead, the supplied CR number will be used during the approval check. This variable can also be [scoped](/docs/projects/variables/index.md#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables.md).
 
 ### Setting up environments for CR approval
 
@@ -121,7 +121,7 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 Deployments where both the project and environment have **Change Controlled** enabled, will query ServiceNow for an approved CR before execution can begin.
 
 When a **Change Controlled** deployment is evaluated for approval, the following checks are performed:
-- If a specific CR number is available, via a variable named `Octopus.ServiceNow.Change.Number`, then only this CR will be checked.
+- If a specific CR number is available, via a variable named `Octopus.ServiceNow.ChangeRequest.Number`, then only this CR will be checked.
 - If there is an existing CR with the specifically formatted **Short Description** available. See [Title text matching](#title-text-matching) for more information, then this CR will be evaluated.
 - Create a new CR. 
   - This will be a `Normal` change, or a `Standard` change if the project has a `Change Template Name` set.
