@@ -14,7 +14,7 @@ It is possible to manually upload a package file from your local machine via the
 
 However, we recommend using a [build server](/docs/packaging-applications/build-servers/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
 
-In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
+In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations)).
 
 In addition to manually uploading packagings or using your build server, you can add, upload, and push packages to the built-in feed in the following ways:
 
@@ -27,17 +27,17 @@ In addition to manually uploading packagings or using your build server, you can
 To push packages using these methods, you will need:
 
 1. The URL to your Octopus Server.
-2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository)).
+2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations)).
 
 ## Using the Octopus CLI {#UsingOctopusCli}
 
 You can push one or more packages using the [Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli.md), the command-line tool for Octopus Deploy. The example below will push `MyApp.Website.1.1.0.zip` and `MyApp.Database.1.1.0.zip` to the built-in repository, automatically replacing existing packages if there are conflicts.
 
-```powershell
-C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
+```powershell PowerShell
+C:\> octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
-```bash
-$ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server http://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
+```bash Bash
+$ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --replace-existing --server https://my.octopus.url --apiKey API-XXXXXXXXXXXXXXXX
 ```
 
 ## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}
