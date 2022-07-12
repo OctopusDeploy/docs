@@ -1,6 +1,6 @@
 ---
 title: OCL Syntax for Config as Code
-description: A description of  for Octopus Deploy's OCL file format.
+description: A description of Octopus Deploy's OCL file format.
 position: 70
 ---
 
@@ -8,14 +8,16 @@ position: 70
 
 Octopus Configuration Language (OCL) is based on a subset of Hashicorp Configuration Language (HCL). OCL files use the `.ocl` file extension, and are located in the base path defined in the projects version control settings.
 
+General information about the OCL format can be found [here](https://github.com/OctopusDeploy/Ocl), including the [EBNF notation](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
+
 ## Deployment Process
 
 The Deployment Process is defined in the `deployment_process.ocl` file.
 
 ### Steps
 
-Deployment processes can consist of many steps, these steps are defined as blocks in OCL.
-Each step contains one lable, which is the slug of the step. This must be unique throughout the process.
+Deployment processes can consist of many steps. These steps are defined as blocks in OCL.
+Each step contains one label, which is the slug of the step. This must be unique throughout the process.
 
 ```ocl
 step "<step-slug>" {
@@ -25,7 +27,7 @@ step "<step-slug>" {
 
 #### `name`
 
-The name of the step. If omitted, the name will default to the slug. 
+The name of the step. If omitted, the name will default to the slug.
 
 #### `condition`
 
@@ -161,9 +163,9 @@ packages "<PACKAGE_NAME>" {
     acquisition_location = "Server|ExecutionTarget|NotAcquired"
     feed = "<FEED_SLUG>"
     package_id = "<PACKAGE_ID>"
-    
+
     # Optional properties block, same as above properties
-    properties = {                                     
+    properties = {
         <PROPERTY NAME> = "<VALUE>"
     }
 
