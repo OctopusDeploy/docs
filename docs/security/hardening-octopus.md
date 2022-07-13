@@ -125,9 +125,9 @@ Write-Output "Setting Windows Update to 'Download updates but let me choose whet
 Write-Output "This value allows Windows Defender to download and install definition updates automatically, but other updates are not automatically installed."
 cscript C:\Windows\System32\Scregedit.wsf /AU 3
 
-Write-Output "Excluding the Calamari folder from Windows Defender..."
-Add-MpPreference -ExclusionPath "C:\Octopus\Calamari"
-Add-MpPreference -ExclusionPath "C:\Octopus\Calamari\*"
+Write-Output "Excluding the Tools folder (e.g. Calamari) from Windows Defender..."
+Add-MpPreference -ExclusionPath "C:\Octopus\Tools"
+Add-MpPreference -ExclusionPath "C:\Octopus\Tools\*"
 
 Write-Output "Excluding Octopus Work folder from Windows Defender..."
 Add-MpPreference -ExclusionPath "C:\Octopus\Work"
