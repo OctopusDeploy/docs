@@ -314,7 +314,7 @@ If you define a variable called `//connectionString` with the value `Server=.;Da
 ```
 
 :::info
-This behaviour of escaping special characters is [a requirement of the XML specification](https://www.w3.org/TR/2008/REC-xml-20081126/#syntax) (see section 2.4 for specifics), but any library or framework (such as IIS) reading the resulting XML document will automatically handle unencoding those special characters when the value is retrieved.
+This behavior of escaping special characters is [a requirement of the XML specification](https://www.w3.org/TR/2008/REC-xml-20081126/#syntax) (see section 2.4 for specifics), but any library or framework (such as IIS) reading the resulting XML document will automatically handle unencoding those special characters when the value is retrieved.
 :::
 
 It's worth noting that an empty element, such as `<rules />`, contains no element structures and will only be filled with text. For example, assume the target file contains the following:
