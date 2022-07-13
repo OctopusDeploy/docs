@@ -301,7 +301,7 @@ Octopus variables with names that are valid XPath expressions are matched agains
 
 When replacing content, the replacement can only be as rich as what was originally there. If you select an element that contains only text, the replacement will be treated as text and structure-defining characters will be encoded as entity references. However, if you select an element that contains further element structures, the replacement is treated as an XML fragment, and structure-defining characters will be added as is.
 
-This means that if you replace a password or connection string, any characters like `&`, `<` and `>` will be safely encoded within the string (as required by the [XML Specification](https://www.w3.org/TR/2008/REC-xml-20081126/)). For example, assume the target file contains the following:
+This means that if you replace a password or connection string, any characters like `&`, `<` and `>` will be safely encoded within the string. For example, assume the target file contains the following:
 
 ```xml
 <connectionString>Server=.;Database=db;User Id=admin;Password=password;</connectionString>
@@ -312,6 +312,10 @@ If you define a variable called `//connectionString` with the value `Server=.;Da
 ```xml
 <connectionString>Server=.;Database=db;User Id=admin&amp;boss;Password=Pass&lt;word&gt;1;</connectionString>
 ```
+
+:::info
+This behaviour of escaping special characters is [a requirement of the XML specification](https://www.w3.org/TR/2008/REC-xml-20081126/#syntax) (see section 2.4 for specifics), but any library or framework (such as IIS) reading the resulting XML document will automatically handle unencoding those special characters when the value is retrieved.
+:::
 
 It's worth noting that an empty element, such as `<rules />`, contains no element structures and will only be filled with text. For example, assume the target file contains the following:
 
