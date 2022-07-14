@@ -211,3 +211,148 @@ step "Hello world (using Bash)" {
     }
 }
 ```
+
+## Variables
+
+The Variables are defined in the `variables.ocl` file. Variables are defined as blocks in OCL.
+
+### `variable` block
+
+```ocl
+variable "<LABEL>" {
+    ...
+}
+```
+
+Each variable block has a label, which is the name of the variable. Although not recommended, there can be multiple variable blocks with the same label value. They will be treated a single variable and the contents of each block will be merged.
+
+The variable block contains one or more value blocks.
+
+### `variable.value` block
+
+```ocl
+value "<VARIABLE_VALUE>" {
+    ...
+}
+```
+
+#### `variable.value.type`
+
+Defines the variable type. If omitted, the type is `String` (text). Valid values are `AzureAccount`, `GoogleCloudAccount`, `AmazonWebServicesAccount`, `Certificate`, `WorkerPool`, `Sensitive`, and `String`. Sensitive values should not be stored in the `variables.ocl` file - they should be stored in the database by using the Octopus Deploy UI instead.
+
+```ocl
+variable "Backup worker pool" {
+
+    value "WorkerPools-3" {
+        type = "WorkerPool"
+    }
+}
+```
+
+#### `variable.value.description`
+
+Defines a description for a variable. This is often used to more fully describe what the variable does or any important notes about changing its value.
+
+```ocl
+variable "Logging.Level" {
+
+    value "Info" {
+        description = "Valid values are 'Trace', 'Debug', 'Info', 'Warn', 'Error', 'Fatal', and 'Off'."
+    }
+}
+```
+
+#### `variable.value.prompt` block
+
+The `value` block can optional contain a `prompt` block. This allows for values to be set manually during deployment.
+
+```ocl
+variable "VersionNumber" {
+
+    value {
+
+        prompt {
+            description = "Use the 'Version Number' spreadsheet to determine the next available version number."
+            label = "Version Number"
+            required = true
+        }
+    }
+}
+```
+
+#### `variable.value.prompt.description`
+
+Defines a description for the prompt. This is often used to provide additional information to the user about what the value should be.
+
+#### `variable.value.prompt.label`
+
+Defines a label that will be displayed to the user when a deployment is created. This is often a 'humanized' version of the variable name.
+
+#### `variable.value.prompt.required`
+
+Determines whether the value can be left blank when a deployment is done. The value can be `true` or `false`. If omitted, the default value is `false`.
+
+#### `variable.value.action`  (Scope)
+
+Defines one or more actions (steps) that the value will apply to.
+
+```ocl
+variable "Logging.Level" {
+
+    value "Info" {
+        action = ["set-up", "tear-down"]
+    }
+}
+```
+
+#### `variable.value.channel` (Scope)
+
+Defines one or more channels that the value will apply to.
+
+```ocl
+variable "Version.Tag" {
+
+    value "2022.3" {
+        channel = ["current", "2022.3"]
+    }
+}
+```
+
+#### `variable.value.environment` (Scope)
+
+Defines one or more environments that the value will apply to.
+
+```ocl
+variable "API.Key" {
+
+    value "20f5cb22-a4f1-493f-a327-a2206f39edd0" {
+        channel = ["production"]
+    }
+}
+```
+
+#### `variable.value.machine` (Scope)
+
+Defines one or more machines that the value will apply to.
+
+```ocl
+variable "Server.Label" {
+
+    value "Test SQL Server" {
+        machine = ["AU023SQL0048PS45-1", "AU023SQL0048PS45-2"]
+    }
+}
+```
+
+#### `variable.value.role` (Scope)
+
+Defines one or more roles that the value will apply to.
+
+```ocl
+variable "Application.Name" {
+
+    value "HAL Portal" {
+        role = ["Hal-WebApp-Portal"]
+    }
+}
+```
