@@ -12,38 +12,38 @@ General information about the OCL format can be found [here](https://github.com/
 
 ## Deployment Process
 
-The Deployment Process is defined in the `deployment_process.ocl` file.
+The Deployment Process is defined in the `deployment_process.ocl` file. It consists of one or more steps. These steps are defined as blocks in OCL.
 
-### Steps
+### `step` block
 
-Deployment processes can consist of many steps. These steps are defined as blocks in OCL.
+
 Each step contains one label, which is the slug of the step. This must be unique throughout the process.
 
-```ocl
+```hcl
 step "<step-slug>" {
     ...
 }
 ```
 
-#### `name`
+### `step.name`
 
 The name of the step. If omitted, the name will default to the slug.
 
-#### `condition`
+### `step.condition`
 
 Valid values: `Success`, `Failure`, `Always`, `Variable`
 Default: `Success`
 
-#### `package_requirement`
+### `step.package_requirement`
 
 Valid values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`
 Default: `LetOctopusDecide`
 
-#### `properties`
+### `step.properties`
 
 Properties is a dictionary of key-value-pairs.
 Example:
-```ocl
+```hcl
 properties = {
     Octopus.Account.Id = "My Awesome Account"
     MyCustomProperty = "My Value"
@@ -51,114 +51,114 @@ properties = {
 }
 ```
 
-#### `start_trigger`
+### `step.start_trigger`
 
 Valid values: `StartAfterPrevious`, `StartWithPrevious`
 Default: `StartAfterPrevious`
 
-### Actions
+### `step.action` block
 
 Steps generally contain a single action. However, there are some cases where they can contain multiple steps.
 Actions are also defined as OCL blocks.
 
-```ocl
+```hcl
 action "<action-slug>" {
     ...
 }
 ```
 
-#### `action_type`
+### `step.action.action_type`
 
 Tells Octopus what type of action this is, e.g: `Octopus.Script`, `Octopus.Nginx`, `Octopus.AzureWebApp`, etc.
 
-#### `channels`
+### `step.action.channels`
 
 A list of channel slugs which this action will be executed for.
 
-```ocl
+```hcl
 channels = ["default", "pre-release"]
 ```
 
-#### `condition`
+### `step.action.condition`
 
 Valid values: `Success`, `Variable`
 Default: `Success`
 
-#### `environments`
+### `step.action.environments`
 
 A list of environment slugs where this action will be executed.
 
-```ocl
+```hcl
 environments = ["production", "staging"]
 ```
 
-#### `excluded_environments`
+### `step.action.excluded_environments`
 
 A list of environment slugs where this action will be excluded from execution.
 
-```ocl
+```hcl
 excluded_environments = ["production", "staging"]
 ```
 
-#### `is_disabled`
+### `step.action.is_disabled`
 
 Valid values: `True`, `False`
 Default: `False`
 
-#### `is_required`
+### `step.action.is_required`
 
 Valid values: `True`, `False`
 Default: `False`
 
-#### `notes`
+### `step.action.notes`
 
 This field allows for any custom notes.
 
-#### `properties`
+### `step.action.properties`
 
 Same as the Step `properties`.
 
-#### `step_package_version`
+### `step.action.step_package_version`
 
 <!-- Todo -->
 
-#### `tenant_tags`
+### `step.action.tenant_tags`
 
 A list of canonical tenant tag names which this action applies to.
 
-```ocl
+```hcl
 tenant_tags = ["My Tenant/My Tag", "My Tenant/My Other Tag"]
 ```
 
-#### `worker_pool`
+### `step.action.worker_pool`
 
 The slug of a worker pool where this action should execute.
-```ocl
+```hcl
 worker_pool = "my-worker-pool"
 ```
 
-#### `worker_pool_variable`
+### `step.action.worker_pool_variable`
 
 The name of the variable pointing to a worker pool where this action should execute.
-```ocl
+```hcl
 worker_pool_variable = "WorkerPoolVariable"
 ```
 
-#### Container
+### `step.action.container` block
 
 If the action should be executed in a container, the `container` block can be used to specify the container.
 
-```ocl
+```hcl
 container "<IMAGE_NAME>" {
     feed = "<CONTAINER_FEED_SLUG>"
 }
 ```
 
-#### Packages
+### `step.action.package` block
 
 Actions can reference packages using one or more `package` blocks.
 
-```ocl
+```hcl
 packages "<PACKAGE_NAME>" {
     acquisition_location = "Server|ExecutionTarget|NotAcquired"
     feed = "<FEED_SLUG>"
@@ -174,7 +174,7 @@ packages "<PACKAGE_NAME>" {
 }
 ```
 
-### Example
+#### Example
 
 ```hcl
 step "Hello world (using PowerShell)" {
@@ -218,7 +218,7 @@ The Variables are defined in the `variables.ocl` file. Variables are defined as 
 
 ### `variable` block
 
-```ocl
+```hcl
 variable "<LABEL>" {
     ...
 }
@@ -230,17 +230,19 @@ The variable block contains one or more value blocks.
 
 ### `variable.value` block
 
-```ocl
+```hcl
 value "<VARIABLE_VALUE>" {
     ...
 }
 ```
 
-#### `variable.value.type`
+### `variable.value.type`
 
 Defines the variable type. If omitted, the type is `String` (text). Valid values are `AzureAccount`, `GoogleCloudAccount`, `AmazonWebServicesAccount`, `Certificate`, `WorkerPool`, `Sensitive`, and `String`. Sensitive values should not be stored in the `variables.ocl` file - they should be stored in the database by using the Octopus Deploy UI instead.
 
-```ocl
+#### Example
+
+```hcl
 variable "Backup worker pool" {
 
     value "WorkerPools-3" {
@@ -249,11 +251,13 @@ variable "Backup worker pool" {
 }
 ```
 
-#### `variable.value.description`
+### `variable.value.description`
 
 Defines a description for a variable. This is often used to more fully describe what the variable does or any important notes about changing its value.
 
-```ocl
+#### Example
+
+```hcl
 variable "Logging.Level" {
 
     value "Info" {
@@ -262,11 +266,13 @@ variable "Logging.Level" {
 }
 ```
 
-#### `variable.value.prompt` block
+### `variable.value.prompt` block
 
 The `value` block can optional contain a `prompt` block. This allows for values to be set manually during deployment.
 
-```ocl
+#### Example
+
+```hcl
 variable "VersionNumber" {
 
     value {
@@ -280,23 +286,25 @@ variable "VersionNumber" {
 }
 ```
 
-#### `variable.value.prompt.description`
+### `variable.value.prompt.description`
 
 Defines a description for the prompt. This is often used to provide additional information to the user about what the value should be.
 
-#### `variable.value.prompt.label`
+### `variable.value.prompt.label`
 
 Defines a label that will be displayed to the user when a deployment is created. This is often a 'humanized' version of the variable name.
 
-#### `variable.value.prompt.required`
+### `variable.value.prompt.required`
 
 Determines whether the value can be left blank when a deployment is done. The value can be `true` or `false`. If omitted, the default value is `false`.
 
-#### `variable.value.action`  (Scope)
+### `variable.value.action`  (Scope)
 
 Defines one or more actions (steps) that the value will apply to.
 
-```ocl
+#### Example
+
+```hcl
 variable "Logging.Level" {
 
     value "Info" {
@@ -305,11 +313,13 @@ variable "Logging.Level" {
 }
 ```
 
-#### `variable.value.channel` (Scope)
+### `variable.value.channel` (Scope)
 
 Defines one or more channels that the value will apply to.
 
-```ocl
+#### Example
+
+```hcl
 variable "Version.Tag" {
 
     value "2022.3" {
@@ -318,11 +328,11 @@ variable "Version.Tag" {
 }
 ```
 
-#### `variable.value.environment` (Scope)
+### `variable.value.environment` (Scope)
 
 Defines one or more environments that the value will apply to.
 
-```ocl
+```hcl
 variable "API.Key" {
 
     value "20f5cb22-a4f1-493f-a327-a2206f39edd0" {
@@ -331,11 +341,11 @@ variable "API.Key" {
 }
 ```
 
-#### `variable.value.machine` (Scope)
+### `variable.value.machine` (Scope)
 
 Defines one or more machines that the value will apply to.
 
-```ocl
+```hcl
 variable "Server.Label" {
 
     value "Test SQL Server" {
@@ -344,11 +354,13 @@ variable "Server.Label" {
 }
 ```
 
-#### `variable.value.role` (Scope)
+### `variable.value.role` (Scope)
 
 Defines one or more roles that the value will apply to.
 
-```ocl
+#### Example
+
+```hcl
 variable "Application.Name" {
 
     value "HAL Portal" {
