@@ -1,6 +1,6 @@
 **Pattern - Blue-Green**
 
-- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-542/deployments/process" target="_blank">Random Quotes .NET</a>: <i>Deploys the .NET version of Random Quotes using the Blue/Green environment pattern. [Build definition](https://bamboosample.octopus.com/browse/RAN-NET)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-542/deployments/process" target="_blank">Random Quotes .NET</a>: <i>Deploys the .NET version of Random Quotes using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-NET)</i>
     
 **Pattern - IaC**
 
