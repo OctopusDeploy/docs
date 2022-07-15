@@ -19,7 +19,7 @@ At a high level, the `Deploy Amazon ECS Service` step will:
     * A service that references the task definition.
 * Perform variable substitution on the CloudFormation template.
 * Deploy a CloudFormation stack with the template.
-* In subsequent deployments, update the deployed CloudFormation stack with an updated task definition
+* In subsequent deployments, update the deployed CloudFormation stack with an updated task definition.
 
 The followed instructions can be used to configure the `Deploy Amazon ECS Service` step. We have chosen not to document some fields here as they map directly to ECS settings and are well documented in the AWS documentation (a link to the relevant documentation section is typically provided in each fields' notes in the Octopus UI). 
 
