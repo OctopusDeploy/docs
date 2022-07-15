@@ -1,6 +1,6 @@
 **Pattern - Blue-Green**
 
-- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/deployments/process" target="_blank">Random Quotes Java</a>: <i>Deploys the Java version of Random Quotes to Tomcat using the Blue/Green environment pattern. [Build definition](https://bamboosample.octopus.com/browse/RAN-JAVA)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/deployments/process" target="_blank">Random Quotes Java</a>: <i>Deploys the Java version of Random Quotes to Tomcat using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-JAVA)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-562/deployments/process" target="_blank">Random Quotes - Tenanted</a>: <i>Deploys the Java version of Random Quotes to Tomcat using the Blue/Green tenant pattern.</i>
     
 **Pattern - Rollbacks**
