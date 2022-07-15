@@ -6,6 +6,8 @@ description: Update an existing Amazon ECS Service.
 Octopus supports deploying a new release to an existing ECS Service through the `Update Amazon ECS Service` step.
 This step provides an opinionated deployment workflow that allows new released to be deployed to an ECS Cluster that is managed externally, for example manually or via Terraform.
 
+Choose this step if you have an existing ECS cluster, service, and task definition, and want Octopus to update your task definition for you during deployments.  
+
 :::hint
 The `Update Amazon ECS Step` was added in Octopus **2021.3**.
 :::
