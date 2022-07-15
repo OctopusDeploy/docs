@@ -130,7 +130,7 @@ For deployments and runbook runs that require additional software dependencies o
 
 :::hint
 **Octopus worker-tools cached on Dynamic Workers**
-The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and 2 latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md) images on a Dynamic Worker when it's created. This makes them a great choice over installing additional software on a Dynamic worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md) images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic worker.
 
 :::
 
