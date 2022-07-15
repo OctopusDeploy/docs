@@ -7,7 +7,7 @@ position: 50
 Worker Tools are a set of docker images used as [execution containers for workers](https://octopus.com/docs/projects/steps/execution-containers-for-workers) to run deployment processes. Worker Tools include a wide range of software tools to support most deployment scenarios out of the box. This page focuses on how we create these Worker Tool images, version, cache on workers, and release them.
 
 ## Versioning Worker Tools
-Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.18.04` or `windows.ltsc2019`), `Major-Distro` and `Major.Minor-Distro`. We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
+Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.18.04` or `windows.ltsc2019`), `Major-Distro` (e.g. `3-Distro`) and `Major.Minor-Distro` (`3.3-Distro`). We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
 
 The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the docker files for [Windows](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019/Dockerfile) and [Ubuntu](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.18.04/Dockerfile) Worker Tools.
 
@@ -15,7 +15,7 @@ The tools pulling their latest releases for Ubuntu include `wget`, `python3-pip`
 
 For Windows these include `chocolatey` and `dotnet core 3.1.*`.
 
-If you depend on any of these packages, we recommend you target the fully qualified SemVer of Worker Tools. Otherwise, our additional Worker Tools tags may be suitable for your use case. We version our releases as follows:
+If your steps depend on any of these packages, we recommend you target the fully qualified SemVer of Worker Tools. Otherwise, our additional Worker Tools tags may be suitable for your use case. We version our releases as follows:
 
 Major update
 * Update of a pinned tools major version
@@ -48,9 +48,9 @@ To update to the latest set of Worker Tools select the "Use latest Distro-based 
 ## Currently Cached Worker Tools
 
 **Octopus worker-tools cached on Dynamic Workers**
-The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
 
-The following worker-tools images are cached:
+The following Worker Tools images are cached:
 
 **On Linux Workers**:
 
