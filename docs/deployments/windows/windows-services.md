@@ -54,7 +54,7 @@ As an approximation including the Windows Service manager integration:
 9. [Output variables](/docs/projects/variables/output-variables.md) and deployment [artifacts](docs/projects/deployment-process/artifacts.md) from this step are sent back to the Octopus Server.
 
 :::success
-You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our open-source [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:
+You can see exactly how Octopus deploys your Windows Service by looking at the scripts in our [open-source Calamari](https://github.com/OctopusDeploy/Calamari) project which actually performs the deployment:
 
 - [Octopus.Features.WindowsService\_AfterPreDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_AfterPreDeploy.ps1)
 - [Octopus.Features.WindowsService\_BeforePostDeploy.ps1](https://github.com/OctopusDeploy/Calamari/blob/master/source/Calamari/Scripts/Octopus.Features.WindowsService_BeforePostDeploy.ps1)
