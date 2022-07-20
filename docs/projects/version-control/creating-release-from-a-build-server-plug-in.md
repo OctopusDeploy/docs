@@ -75,7 +75,7 @@ For *Git Reference*, use
 %teamcity.pullRequest.source.branch%
 ```
 
-For *Git Commit*, use 
-```
-%build.vcs.number%
-```
+ For *Git Commit*, its the same. So the value used will likely look like this -
+ ```
+ %dep.<YOUR PREVIOUS STEP NAME>.build.vcs.number%
+ ```
