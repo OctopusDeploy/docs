@@ -16,18 +16,9 @@ When you create a release via the UI, you must specify a branch name. Octopus wi
 
 ![creating a release via the Octopus UI](create-release-octopus-ui.png)
 
-### Creating a release from a build server plug-in
+### See examples of [creating a release from a build server plug-in here.](/docs/projects/version-control/creating-release-from-a-build-server-plug-in.md) 
 
-We have added two new fields to our standard integrations - TeamCity, Azure DevOps, Jenkins, GitHub Actions, and Bamboo.
 
-* Git Reference - the user-friendly alias for a commit hash.
-* Git Commit - the commit SHA-1 hash.
-
-When the app is built in a different repository to the Octopus project, Octopus does not guess or auto-populate the commit or branch from which you want to create the release. Also, if the app and the Octopus project are in the same repository, the head of that branch could have moved forward from what is expected. It is highly recommended that you provide the commit and not just the branch in both cases.
-
-:::hint
-Octopus and your build server have a different copy of your git repo. Sending in the commit or reference via the plug-in or the CLI is your build server's way of telling Octopus Deploy which copy of your OCL files to use.
-:::
 
 ### Snapshot
 
