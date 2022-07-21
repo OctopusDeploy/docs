@@ -48,7 +48,7 @@ For **Octopus 2.1**, we fixed the MSI and made it a "per machine" installation. 
 
 Instead, we added a check in **Octopus 2.1.3** that checks if a per-user installation already exists, and if so, blocks installation. The error message reads:
 
-> A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [http://g.octopushq.com/UninstallFirst](http://g.octopushq.com/UninstallFirst)
+> A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [https://oc.to/UninstallFirst](https://oc.to/UninstallFirst)
 
 ![](images/3278002.png "width=500")
 

@@ -32,14 +32,14 @@ We've worked with customers who have large Production SQL Server instances with 
 
 ### SQL Server maintenance {#sql-maintenance}
 
-You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](http://g.octopushq.com/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.  At the very least you should:
+You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.  At the very least you should:
 
 - Rebuild all indexes **online** with fragmentation > 50% once a day during off-hours (typically 2-3 AM).
 - Rebuild all indexes **offline** with fragmentation > 50% once a week during off-hours (typically a Sunday morning).
 - Regenerate statistics once a month.
 
 :::hint
-Modern versions of Octopus Deploy automatically rebuilt fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
+Modern versions of Octopus Deploy automatically rebuild fragmented indexes during the upgrade process.  If you frequently upgrade you might not notice high index fragmentation compared to someone who upgrades once a year.
 :::
 
 ## Maintenance {#maintenance}

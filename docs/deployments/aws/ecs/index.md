@@ -5,6 +5,8 @@ description: Deploy a service to an Amazon ECS cluster.
 
 Octopus supports deployments to ECS clusters through the `Deploy Amazon ECS Service` step. This step provides an opinionated deployment workflow that combines a Fargate task definition and service into a single step.
 
+Choose this step if you have an ECS cluster, and want Octopus to create and manage your service and task definition for you.  
+
 :::hint
 The `Deploy Amazon ECS Service` step was added in Octopus **2021.3**. Presently only **Fargate** clusters are supported.
 :::
@@ -17,6 +19,7 @@ At a high level, the `Deploy Amazon ECS Service` step will:
     * A service that references the task definition.
 * Perform variable substitution on the CloudFormation template.
 * Deploy a CloudFormation stack with the template.
+* In subsequent deployments, update the deployed CloudFormation stack with an updated task definition.
 
 The followed instructions can be used to configure the `Deploy Amazon ECS Service` step. We have chosen not to document some fields here as they map directly to ECS settings and are well documented in the AWS documentation (a link to the relevant documentation section is typically provided in each fields' notes in the Octopus UI). 
 
@@ -72,7 +75,7 @@ Under the **Task Execution IAM Role** section, the Task Execution Role can optio
 Task Execution Role is used by ecs-agent which runs on ECS to access AWS resources (for example, ECR feeds) and write logs to CloudWatch. The `AmazonECSTaskExecutionRolePolicy` role assigned by default should be sufficient for most scenarios.
 
 :::hint
-Additional permissions might need to be assigned to the task execution role if your tasks pull container images from private repositories. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth).
+Additional permissions might need to be assigned to the task execution role if your tasks pull container images from private repositories. For more information, refer to the [AWS documentation](https://oc.to/ECSContainerDefinitionRegistryAuth).
 :::
 
 ![ECS Step Task Execution IAM Role](images/ecs-task-execution-role.png "width=500")
@@ -109,7 +112,7 @@ At least one container definition must be specified when registering a task defi
 
 Specify the container name that will be used to reference the particular container definition within your task, and select a feed and image that will be run by your task. The specific image version will be specified later, when creating a release.
 
-To authenticate with private repositories you can either rely on the default IAM authentication or manually provide the ARN of the secret created in AWS Secrets Manager. For more information, refer to the [AWS documentation](https://g.octopushq.com/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
+To authenticate with private repositories you can either rely on the default IAM authentication or manually provide the ARN of the secret created in AWS Secrets Manager. For more information, refer to the [AWS documentation](https://oc.to/ECSContainerDefinitionRegistryAuth). For images stored in Amazon ECR no further configuration is required.
 
 Specify the ports exposed by the container here. These can be referenced in the overall step configuration in the **Load Balancer Mappings** section if you wish to publicly expose the ports.
 

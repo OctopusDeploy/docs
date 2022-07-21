@@ -49,6 +49,6 @@ You can achieve this kind of result using an NGINX server as a reverse proxy to 
 
 ## Learn more
 
-- [View Blue/Green deployment examples on our samples instance](https://g.octopushq.com/PatternBlueGreenSamplesSpace).
-- [Blue/Green deployment knowledge base articles](https://g.octopushq.com/BlueGreenTaggedKBArticles).
+- [View Blue/Green deployment examples on our samples instance](https://oc.to/PatternBlueGreenSamplesSpace).
+- [Blue/Green deployment knowledge base articles](https://oc.to/BlueGreenTaggedKBArticles).
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).

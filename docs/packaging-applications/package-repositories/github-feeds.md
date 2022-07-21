@@ -20,6 +20,7 @@ Only the following authentication methods are supported.
 If you’re attempting to configure access for your organization, and you would prefer not to use the auth token from a particular user, you can create what GitHub refers to as a [Machine User](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users). This is effectively a GitHub account configured exclusively for automation.
 
 ## Adding a GitHub feed
+
 Create a GitHub package feed through **{{Library,External feeds}}**. You can add as many GitHub feeds as you need. Each can have different credentials if required.
 
 In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
@@ -33,6 +34,16 @@ For authorization, it is recommended that you create a [Personal access tokens](
 Give the token a meaningful name and enable the **repo** scope if you want to be able to access private repositories from Octopus Deploy.
 
 Copy the token that is generated and use this value as the password for the GitHub feed in Octopus Deploy.
+
+### Testing a GitHub feed
+
+You can check whether the GitHub feed is working by searching for packages. Click the **TEST** button, and you'll be taken to the test page:
+
+![GitHub Feed Test search](images/github-feed-test.png "width=500")
+
+:::hint
+**Note:** When testing a GitHub Feed, the **Version** field will not be displayed. This is due to the way Octopus queries the GitHub [repository search API](https://docs.github.com/en/rest/reference/search#search-repositories) which doesn't return release tags. This was an intentional decision implemented for performance reasons.
+:::
 
 ## Using GitHub as a package feed
 1. Add your GitHub feed as described above.

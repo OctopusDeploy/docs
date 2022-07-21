@@ -84,4 +84,4 @@ In just a few steps, you're able to create a MySQL database server on GCP.
 
 ## Samples
 
-We have a [Pattern - Rolling](https://g.octopushq.com/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic Infrastructure` project.
+We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `PetClinic Infrastructure` project.

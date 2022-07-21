@@ -122,13 +122,13 @@ Git providers allow you to create an access token in different ways. The recomme
 
 ### File Storage
 
-_Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory. 
+_Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
 
 :::hint
 If multiple projects will be persisted to the repository, adding the project name to the path is the recommended convention, e.g. `./octopus/acme`
 :::
 
-While storing all your projects in one repository is possible, we do not recommend that. It will be challenging to manage and store all the Octopus projects related to the application in the repository as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository.
+We recommend storing projects alongside the application code. While it is possible to store all your deployment projects in a single central repository with folders for each project, it will be challenging to manage as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository. If you move the application code later, you can also [move the deployment configuration](/docs/projects/version-control/moving-version-control.md) to keep it with the application.
 
 ## OCL Files
 
@@ -143,7 +143,8 @@ Currently, Octopus creates the following files:
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
 
 ```hcl
-step "Deploy a Package" {
+step "deploy-a-package" {
+    name = "Deploy a Package"
     properties = {
         Octopus.Action.TargetRoles = "web"
     }
@@ -156,14 +157,14 @@ step "Deploy a Package" {
             Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
             Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
             Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "Octopus Server (built-in)"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
             Octopus.Action.Package.PackageId = "webConfig"
         }
         worker_pool_variable = ""
 
         packages {
             acquisition_location = "Server"
-            feed = "Octopus Server (built-in)"
+            feed = "octopus-server-built-in"
             package_id = "webConfig"
             properties = {
                 SelectionMode = "immediate"
@@ -213,17 +214,36 @@ connectivity_policy {
 versioning_strategy {
 
     donor_package {
-        step = "Deploy a Package"
+        step = "deploy-a-package"
     }
 }
 ```
+
+## Slugs in OCL
+
+Prior to version 2022.3.4517, Git projects would reference shared resources using their name. This had a side-effect causing API responses for Git projects to contain names instead of IDs.
+From version 2022.3.4517 onwards, a handful of resources are referenced from OCL by their slug. IDs will be used in API responses instead of names.
+
+The following resources will be referenced via their slug:
+- Account
+- Channel
+- Deployment Action
+- Deployment Step
+- Deployment Target
+- Environment
+- Feed
+- Lifecycle
+- Team
+- Worker Pool
+
+All other resources will be referenced from OCL via their ID. We plan on growing this list to include more resources in the future as we introduce slugs into more places throughout Octopus.
 
 ## Items of note
 
 When designing the config-as-code feature, we made several decisions to keep an appropriate balance of usability and functionality. There are a few limitations and items of note you should be aware of with config-as-code.
 
 - The Octopus Terraform Provider and OCL are not a 1:1 match. You cannot copy resources between the two and expect everything to work. We want to narrow the gap as much as possible, but as of right now, a gap exists.
-- Shared resources (environments, external feeds, step templates, etc.) are referenced by name, not ID. Be very careful when changing the names of any shared resources.  
+- Shared resources (environments, external feeds, channels, etc.) are referenced by their slug from OCL. The API however will still use IDs.
 - Shared resources must exist before loading an OCL file into Octopus Deploy. What that means is if you copy the OCL files from one git repo to another, and point a new project at those files, then any shared resource must exist before creating that project. That only applies when projects are in different spaces or on different instances. If the resources do not exist, an error message will appear.
 - Pointing multiple projects to the same folder in the same git repo is unsupported. Please see our [unsupported config as code scenarios](/docs/projects/version-control/unsupported-config-as-code-scenarios.md) for more information.
 - Converting a project to be version-controlled is a one-way process. At this time, you cannot convert back.

@@ -6,8 +6,10 @@ description: Update an existing Amazon ECS Service.
 Octopus supports deploying a new release to an existing ECS Service through the `Update Amazon ECS Service` step.
 This step provides an opinionated deployment workflow that allows new released to be deployed to an ECS Cluster that is managed externally, for example manually or via Terraform.
 
+Choose this step if you have an existing ECS cluster, service, and task definition, and want Octopus to update your task definition for you during deployments.  
+
 :::hint
-The `Update Amazon ECS Step` was added in Octopus **2021.3**. Presently only **Fargate** clusters are supported.
+The `Update Amazon ECS Step` was added in Octopus **2021.3**.
 :::
 
 At a high level, the `Update Amazon ECS Service` step will:
@@ -22,7 +24,7 @@ The following instructions can be followed to configure the `Update Amazon ECS S
 ## Step 1: Make a note of your ECS cluster's settings
 
 :::hint
-Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster. When presented with the `Select cluster compatibility` screen select the `Networking only` option, this will automatically associate your cluster with the `FARGATE` capacity provider.
+Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.
 :::
 
 The following settings will need to be configured:
@@ -97,7 +99,7 @@ Merging environment variables will add any new variables and overwrite the value
 
 ### Tags section
 
-Specify any additional tags that should be added to the task definition and service. Tags can be used to attach arbitrary metadata to categorize and organize resources. For more information see the [ECS Documentation](https://g.octopushq.com/ECSUsingTags)
+Specify any additional tags that should be added to the task definition and service. Tags can be used to attach arbitrary metadata to categorize and organize resources. For more information see the [ECS Documentation](https://oc.to/ECSUsingTags)
 
 ![ECS Step Tags](images/update-ecs-tags.png "width=500")
 
@@ -126,22 +128,15 @@ Any of the input fields can be bound to an Octostache expression. [Variable subs
 
 ### Output variables
 
-Presently, the step does outputs the following variables.
+Presently, the step outputs the following variables.
 
-TaskDefinitionRevision
-: The revision number of the newly created task (if a new revision was created)
-
-TaskDefinitionFamily
-: The name of a family that the new task definition is registered to (if a new revision was created)
-
-ClusterName
-: The name of the cluster to which the updated service belongs
-
-ServiceName
-: The name of the updated service
-
-Region
-: The AWS region in which the operations were executed
+| Name        | Description |
+| ------------| ----------- |
+|`TaskDefinitionRevision` | The revision number of the newly created task (if a new revision was created) |
+|`TaskDefinitionFamily` | The name of a family that the new task definition is registered to (if a new revision was created) |
+|`ClusterName` | The name of the cluster to which the updated service belongs |
+|`ServiceName` | The name of the updated service |
+|`Region` | The AWS region in which the operations were executed |
 
 ## Error messages
 

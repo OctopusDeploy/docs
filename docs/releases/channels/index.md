@@ -47,7 +47,7 @@ Version Rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)
 
 1. From the **New Channel** screen, click **ADD VERSION RULE**.
 2. Select the package step(s) (and as such the packages) the version rule will be applied to.
-3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://g.octopushq.com/NuGetVersioning) or [Maven](https://g.octopushq.com/MavenVersioning) versioning syntax to specify the range of versions to include.
+3. Enter the version range in the **Version Range** field. You can use either [Nuget](https://oc.to/NuGetVersioning) or [Maven](https://oc.to/MavenVersioning) versioning syntax to specify the range of versions to include.
 
 You can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `>= alpha.1`), and will exclude the 2.0.0 release.
 

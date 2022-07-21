@@ -8,12 +8,6 @@ Version-control is configured per project and is accessed via the **{{ Settings,
 
 ![Version-control configuration UI](version-control-configuration.png "width=500")
 
-## Enable the Configuration as Code feature.
-
-First, you will need to ensure the Configuration as Code feature is enabled in Octopus. You can access this feature under **{{ Configuration, Features, Configuration as Code }}**.
-
-![enable version control](enable-version-control.png)
-
 ## Creating a new version-controlled project
 
 To get a feel for the config-as-code feature, you may want to create a new project that you can test with before committing to permanently converting an existing project. This project's deployment process will be stored in a git repository when configured.

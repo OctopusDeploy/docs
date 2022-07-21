@@ -3,6 +3,7 @@ Octopus stores several files that are not suitable to store in the database. The
 - Packages used by the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md). These packages can often be very large in size.
 - [Artifacts](docs/projects/deployment-process/artifacts.md) collected during a deployment. Teams using Octopus sometimes use this feature to collect large log files and other files from machines during a deployment.
 - Task logs are text files that store all of the log output from deployments and other tasks.
+- Imported zip files used by the [Export/Import Projects feature](/docs/projects/export-import/index.md).
 
 As with the database, you'll tell the Octopus Servers where to store them as a file path within your operating system. The shared storage needs to be accessible by all Octopus nodes. Each of these three types of data can be stored in a different location.
 

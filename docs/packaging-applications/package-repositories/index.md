@@ -12,6 +12,7 @@ The Octopus Server includes a [built-in repository](/docs/packaging-applications
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds.md).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds.md).
  - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds.md).
+ - [AWS S3 Bucket feeds](/docs/packaging-applications/package-repositories/s3-feeds.md).
  - Helm feeds.
  - AWS ECR feeds.
  

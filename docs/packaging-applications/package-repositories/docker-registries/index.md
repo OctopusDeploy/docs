@@ -41,7 +41,7 @@ Docker images with the same name are grouped together and referred to (in Docker
 
 ![](images/5865827.png "width=500")
 
-When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as an [Octopus Version](https://g.octopushq.com/OctopusVersionRegex/).
+When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as an [Octopus Version](https://oc.to/OctopusVersionRegex/).
 
 ![](images/5865828.png "width=500")
 

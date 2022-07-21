@@ -55,8 +55,8 @@ N.B. The delete-instance command will not actually delete any files, just the Re
 ```powershell
 ##Config##
 $instance = "InstanceName" #Name of the instance.
-$oldHome = "C:\Octopus\InstanceName" #Current home of the instance.
-$newHome = "C:\NewHome\InstanceName" #New home path for the instance.
+$oldHome = "C:\Octopus\$instance" #Current home of the instance.
+$newHome = "C:\NewHome\$instance" #New home path for the instance.
 $appFolder = "Applications" #Name of the folder being used for applications.
 
 ##Process##

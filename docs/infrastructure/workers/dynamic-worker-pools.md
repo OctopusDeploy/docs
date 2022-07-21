@@ -117,17 +117,31 @@ A specific version can be used by [specifying a custom kubectl location](/docs/d
 - `1.18.0`
 - `1.19.9`
 - `1.20.5`
+- `1.21.9`
+- `1.22.6`
 
 ## Installing Software On Dynamic Workers
 
-It is possible to install additional software on dynamic workers.  By default, every worker is destroyed after it has been allocated for over 72 hours.  Because of that, if you choose to install additional software, you are responsible for:
+Octopus does not recommend installing additional software on Dynamic Workers. 
+
+By default, every dynamic worker is destroyed after it has been allocated for over 72 hours. In addition Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
+
+For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/index.md#custom-docker-images).
+
+:::hint
+**Octopus worker-tools cached on Dynamic Workers**
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tool](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md) images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
+
+:::
+
+If you choose to install additional software on a dynamic worker, you are responsible for:
 
 - Ensuring that software is installed at the start of each deployment or runbook run.
 - Writing the necessary scripts to download and install that software.
 - Verifying the latest version of the software works with the latest security patches of the host OS.
-
-We don't recommend going through that effort except for a POC or a Pilot.  For production workloads, the recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md) to manage software dependencies.  We provide execution containers with a baseline of tools pre-installed.  However, we can't create a container with every possible software combination you might need.  Please see this [blog post](https://octopus.com/blog/tips-building-custom-execution-containers) for more information on how to create custom execution containers.
+- Handling any issues that arise if a different dynamic worker is leased to different steps in your deployment or runbook run.
 
 ## Learn more
 
 - [Worker blog posts](https://octopus.com/blog/tag/workers)
+- [Worker Tools, versioning and caching](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md)

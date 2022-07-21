@@ -269,4 +269,4 @@ Forcing the health check like this will allow you to immediately deploy to your 
 
 ## Samples
 
-We have a [Target - Hybrid](https://g.octopushq.com/TargetHybridSampleSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Space Infrastructure` project.
+We have a [Target - Hybrid](https://oc.to/TargetHybridSampleSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more runbooks in the `Space Infrastructure` project.

@@ -63,8 +63,9 @@ Where `[<options>]` is any of:
       --nugetRepository=VALUE
                              Set the package path for the built-in NuGet
                                repository.
-      --artifacts=VALUE      Set the path where artifacts are stored.
-      --taskLogs=VALUE       Set the path where task logs are stored.
+      --artifacts=VALUE      Set the path where artifacts are stored
+      --imports=VALUE        Set the path where imported zip files are stored
+      --taskLogs=VALUE       Set the path where task logs are stored
       --telemetry=VALUE      Set the path where telemetry is stored
 
 Or one of the common options:
@@ -143,5 +144,21 @@ $octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
 mv $oldTelemetry $newTelemetry
 
 & "$octopus" path --telemetry="$newTelemetry"
+& "$octopus" service --start
+```
+
+## Move the imports folder {#MovingOctopusServerfolders-Imports}
+
+A PowerShell script showing the steps is set out below. You need to change the variables to match your Octopus installation, and you may wish to run each step separately to deal with any issues like locked files.
+
+```powershell
+$oldImports = "C:\Octopus\Imports"
+$newImports = "C:\YourNewHomeDir\Imports"
+$octopus = "C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"
+
+& "$octopus" service --stop
+mv $oldImports $newImports
+
+& "$octopus" path --imports="$newImports"
 & "$octopus" service --start
 ```

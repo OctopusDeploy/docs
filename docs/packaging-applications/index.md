@@ -55,6 +55,7 @@ It is important that your packages have the correct **file extension** because O
 | Tar + Gzip   | .tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md) only. |                                          |
 | Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/index.md). Learn about [Docker](/docs/deployments/docker/index.md) and Octopus Deploy. |
+| Helm Chart   | .tgz                       | [Helm Chart Repositories](https://helm.sh/docs/topics/chart_repository/) (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md)). Learn about [Helm](/docs/deployments/kubernetes/helm-update/index.md) and Octopus Deploy. |
 
 ## Learn more
 

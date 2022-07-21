@@ -125,9 +125,9 @@ Write-Output "Setting Windows Update to 'Download updates but let me choose whet
 Write-Output "This value allows Windows Defender to download and install definition updates automatically, but other updates are not automatically installed."
 cscript C:\Windows\System32\Scregedit.wsf /AU 3
 
-Write-Output "Excluding the Calamari folder from Windows Defender..."
-Add-MpPreference -ExclusionPath "C:\Octopus\Calamari"
-Add-MpPreference -ExclusionPath "C:\Octopus\Calamari\*"
+Write-Output "Excluding the Tools folder (e.g. Calamari) from Windows Defender..."
+Add-MpPreference -ExclusionPath "C:\Octopus\Tools"
+Add-MpPreference -ExclusionPath "C:\Octopus\Tools\*"
 
 Write-Output "Excluding Octopus Work folder from Windows Defender..."
 Add-MpPreference -ExclusionPath "C:\Octopus\Work"
@@ -343,7 +343,7 @@ The security of your Linux container host and its Docker configuration can be an
 
 ## Samples
 
-We have an [Octopus Admin](https://g.octopushq.com/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at some examples of how we have used Octopus for hardening tasks. 
+We have an [Octopus Admin](https://oc.to/OctopusAdminSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at some examples of how we have used Octopus for hardening tasks. 
 
 ## Getting help
 

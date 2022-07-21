@@ -22,22 +22,18 @@ You must first have an account at [Okta](https://www.okta.com/). You can sign up
 Once you have an account, log in to the Okta admin portal.
 
 :::hint
-After signing up to Okta you will receive your own url to access the Okta portal. For a developer account, it will look something similar to: `https://dev-xxxxxx-admin.oktapreview.com`.
+After signing up to Okta you will receive your own url to access the Okta portal. For a developer account, it will look something similar to: `https://dev-xxxxxx-admin.okta.com`.
 :::
 
-1. Select the Applications tab and click the **Add Application** button.
+1. Select the Applications tab and click the **Create App Integration** button.
 
    ![](okta/okta-add-app.png "width=500")
 
-2. Click the **Create New App** button.
-
-   ![](okta/okta-create-new-app.png "width=500")
-
-3. Choose **Web** for the **Platform** and **OpenID Connect** for the **Sign on method** and click the **Create** button.
+2. Choose **Web** for the **OIDC - OpenID Connect** for the **Sign-in method** and **Web Application** for the **Application type** and click the **Next** button.
 
    ![](okta/okta-new-app-integration.png "width=400")
 
-4. Enter an **Application Name** like Octopus Deploy and for the **Login redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public url of your Octopus Server, and click the **Save** button.
+3. Enter an **App integration name** like Octopus Deploy and for the **Sign-in redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public URL of your Octopus Server, remove any default **Sign-out redirect URIs** and click the **Save** button.
 
    ![](okta/okta-create-openid-integration.png "width=500")
 
@@ -48,23 +44,19 @@ After signing up to Okta you will receive your own url to access the Okta portal
 Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration.md) making it easier to setup SSL on your Octopus Server.
 :::
 
-5. Under the **General Settings** for the app you have just created, ensure that **Implicit (Hybrid)** and **Allow ID Token with implicit grant type** are both checked, under the **Allowed grant types**. Click the **Save** button to continue.
-
-   ![](okta/okta-general-settings.png "width=500")
-
    If you want to allow users to log in directly from Okta then change the **Login initiated by** to _Either Okta or App_, set **Login flow** to _Redirect to app to initiate login_, and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
 
    ![](okta/okta-initiatelogin.png "width=500")
+
+:::warning
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this you will also need to select the **Implicit (hybrid)** grant type.
+:::
 
 ### OpenID Connect settings {#Oktaauthentication-OpenIDConnectSettings}
 
 There are two values you will need from the Okta configuration to complete the Octopus configuration: the **Client ID** and **Issuer**. (The Client ID is also referred to as Audience.)
 
-First, use Okta's _Classic UI_ by selecting it in the upper right hand menu
-
-![Okta Classic UI](okta/okta-classic-ui.png "width=500")
-
-Now select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
+Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
 
 ![](okta/okta-openid-token.png "width=500")
 
@@ -97,32 +89,43 @@ Next you will need to assign your app to people or groups within your Okta direc
 
    ![](okta/okta-assign-app.png "width=500")
 
-2. To assign the app to all users, you can simply assign the default **Everyone** group to the app, and click **Done**.
-
-   ![](okta/okta-assign-to-groups.png "width=500")
+2. The app may be assigned to **Everyone** by default. If not, to assign the app to all users, you can simply assign the default **Everyone** group to the app, and click **Done**.
 
 ## Configure Octopus Server {#Oktaauthentication-ConfiguringOctopusDeployServer}
 
-You will need the **Client ID** (aka **Audience**) and **Issuer** obtained from the Okta portal as described above.
+You will need the **Client ID** (aka **Audience**), **Client secret** and **Issuer** obtained from the Okta portal as described above.
 
-:::success
-Your **Client ID** should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
-Your **Issuer** should be a URL like `https://dev-xxxxxx.oktapreview.com`.
+:::hint
+Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this, the **Client secret** setting is not required.
 :::
+
+To configure Octopus to use Okta authentication you'll need:
+
+- The **Client ID**, which should be a string value like `0a4bxxxxxxxxxxxx9yc3`.
+- The **Client secret**, which should be a string value like `uJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSS`.
+- The **Issuer**, which should be a URL like `https://dev-xxxxxx.oktapreview.com`.
 
 Once you have those values, run the following from a command prompt in the folder where you installed Octopus Server:
 
 ```powershell
-Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClientId=ClientID
+Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=Issuer --OktaClientId=ClientID --OktaClientSecret=ClientSecret
 
-#Eg:
-# Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=https://dev-xxxxxx.oktapreview.com --OktaClientId=0a4bxxxxxxxxxxxx9yc3
+# e.g.
+# Octopus.Server.exe configure --OktaIsEnabled=true --OktaIssuer=https://dev-xxxxxx.oktapreview.com --OktaClientId=0a4bxxxxxxxxxxxx9yc3 --OktaClientSecret=uJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxSS
 ```
 
-Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,Okta}}** and populating the fields `Issuer`, `ClientId` and `IsEnabled`.
+Alternatively these settings can be defined through the user interface by selecting **{{Configuration,Settings,Okta}}** and populating the fields `Issuer`, `ClientId`, `ClientSecret` and `IsEnabled`.
 
 ![Settings](okta/okta-settings.png "width=500")
 
+:::hint
+The request to Okta from Octopus will need to include the required scopes. See the [Inspect the request to Okta for scope](#Oktaauthentication-Inspecttherequesttookta) section for information about how to inspect the scope of the current request.
+:::
+
+Run the command below as an Administrator to configure the scopes OpenId, Profile, Email, and Groups:
+```text
+octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"
+```
 
 ### Octopus user accounts are still required {#Oktaauthentication-Octopususeraccountsarestillrequired}
 

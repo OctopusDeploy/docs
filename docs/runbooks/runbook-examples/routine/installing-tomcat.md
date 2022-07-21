@@ -144,7 +144,7 @@ The variables can be created by navigating to **{{Project,Variables}}** and addi
 
 ## Samples
 
-We have a [Pattern - Rolling](https://g.octopushq.com/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more Runbooks in the `PetClinic Infrastructure` project.
+We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at this example and more Runbooks in the `PetClinic Infrastructure` project.
 
 ## Learn more
 

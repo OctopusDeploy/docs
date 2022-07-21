@@ -68,7 +68,7 @@ Octopus Deploy includes four built-in teams:
 
 By default, no one has any permissions outside of members of Octopus Administrators, Octopus Managers, and Space Managers.  Every user is automatically a member of the everyone team.  Only assign roles to the `Everyone` team if you are sure you want every user to have that permission.
 
-Teams can either by a system team, meaning it can be used across all spaces, or a space team, meaning a specific space can only access it.  We recommend creating space-specific teams whenever possible.  That will allow you to manage the membership and permissions on a smaller scale.  
+Teams can either be a system team, meaning it can be used across all spaces, or a space team, meaning a specific space can only access it.  We recommend creating space-specific teams whenever possible.  That will allow you to manage the membership and permissions on a smaller scale.  
 
 ## Common RBAC Scenarios
 

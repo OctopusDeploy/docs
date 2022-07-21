@@ -94,6 +94,8 @@ catch {
 using Octopus.Client;
 using Octopus.Client.Model;
 
+string octopusURL = "https://YourURL";
+string octopusAPIKey = "API-YourKey";
 string spaceName = "Default";
 string projectName = "ProjectName";
 string releaseVersion = "0.0.1";

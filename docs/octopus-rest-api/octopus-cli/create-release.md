@@ -22,12 +22,11 @@ Release creation:
                              Default version number of all packages to use
                              for this release. Override per-package using --
                              package.
-      --gitCommit=VALUE      [Optional, Experimental] Git commit to use when
-                             creating the release. Use in conjunction with
-                             the --gitRef parameter to select any previous
-                             commit.
-      --ref, --gitRef=VALUE  [Optional, Experimental] Git reference to use
-                             when creating the release.
+      --gitCommit=VALUE      [Optional] Git commit to use when creating the
+                             release. Use in conjunction with the --gitRef
+                             parameter to select any previous commit.
+      --ref, --gitRef=VALUE  [Optional] Git reference to use when creating
+                             the release.
       --version, --releaseNumber=VALUE
                              [Optional] Release number to use for the new
                              release.
@@ -207,8 +206,8 @@ For projects that use the [Config as Code feature](/docs/projects/version-contro
 octo create-release --project HelloWorld --version 1.0.3 --server http://octopus/ --apiKey API-ABCDEF123456 --gitRef main
 ```
 
-:::hint
-The `--gitRef` parameter is ignored for non-version controlled projects.
+:::warning
+If the provided project is **not a version controlled one**, passing `--gitRef` (or `--gitCommit`) will result in an error as these parameters are only valid for projects that are version controlled.
 :::
 
 ## Specifying the Package Version {#Creatingreleases-Specifyingthepackageversion}

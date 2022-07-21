@@ -24,7 +24,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 ![AWS Role](step-aws-role.png "width=500")
 
 :::hint
-If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
 ### Package section
@@ -41,12 +41,48 @@ The [Github feed](/docs/packaging-applications/package-repositories/github-feeds
 
 By default, the entire package will be uploaded to the S3 bucket untouched with the given bucket key, metadata, and tags.
 
-![Package options](package-options.png "width=500")
+![Entire package options](entire-package-options.png "width=500")
 
-:::warning
-Please note, we do not support file substitutions within the package if the entire package is going to be uploaded to the s3 bucket.
+#### Variable Substitution File Patterns
+
+:::hint
+The **Variable Substitution File Patterns field** for the **Upload a package to an AWS S3 bucket** step was added in Octopus **2022.2**.
 :::
 
+A newline-separated list of file names to transform, relative to the package contents. Extended wildcard syntax is supported. E.g., `Notes.txt`, `Config\*.json`, `**\specific-folder\*.config`.
+This field supports extended template syntax. Conditional `if` and `unless`:
+```text
+#{if MyVar}...#{/if}
+```
+
+Iteration over variable sets or comma-separated values with `each`:
+```text
+#{each mv in MyVar}...#{mv}...#{/each}
+```
+
+#### Structured Variable File Patterns
+
+:::hint
+The **Structured Variable File Patterns** field for the **Upload a package to an AWS S3 bucket** step was added in Octopus **2022.2**.
+:::
+
+A list of files to perform structured variable substitution on. 
+
+Target files need to be newline-seperated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md#StructuredConfigurationVariablesFeature-VariableReplacement) examples.
+
+#### Use filename with embedded content hash
+
+:::hint
+The option **Use filename with embedded content hash** for the **Upload a package to an AWS S3 bucket** was added in Octopus **2022.2**.
+:::
+
+![Use filename with embedded content hash options](filename-with-content-hash-option.png "width=500")
+
+Select this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
+
+The hash should appear before the extension in the format of `filename@hash.extension`. The hash value is based on the contents of the zip package and is calculated after any variable substitutions/replacements.
+
+Additionally, the hash value is available as a variable named `Octopus.Action.Package.PackageContentHash` to be used as a custom key. Note that this variable can only be used in this step.
 
 ### Individual files from the package
 
@@ -103,14 +139,14 @@ Any metadata and tags provided will be applied to all files uploaded to the buck
 :::
 
 ### Metadata and tags
-Metadata and tags can be provided for the package, for file selections for the package, or for individual files. See the [AWS documentation](https://g.octopushq.com/AwsS3UsingMetadata) for more information regarding the usage of metadata.
+Metadata and tags can be provided for the package, for file selections for the package, or for individual files. See the [AWS documentation](https://oc.to/AwsS3UsingMetadata) for more information regarding the usage of metadata.
 
 ### Canned ACL
-The canned ACL must be specified when uploading files as it dictates the permissions for a file within the S3 bucket. Please see the [AWS documentation](https://g.octopushq.com/AwsS3CannedAcl) for information regarding Canned ACLs.
+The canned ACL must be specified when uploading files as it dictates the permissions for a file within the S3 bucket. Please see the [AWS documentation](https://oc.to/AwsS3CannedAcl) for information regarding Canned ACLs.
 
 ### Storage class
 The storage class for files specify the performance access requirements for a file.
-Please see the [AWS documentation](https://g.octopushq.com/AwsS3StorageClasses) for more information regarding Storage classes.
+Please see the [AWS documentation](https://oc.to/AwsS3StorageClasses) for more information regarding Storage classes.
 
 ### Upload behavior
 Uploads are skipped if the content hash is the same as an existing object in the target bucket. This is done to avoid unnecessary uploads and may require special care to be taken when using custom bucket
@@ -159,7 +195,7 @@ An exception was thrown while contacting the AWS API.
 
 This can happen when accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
-An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-S3-ERROR-0002
 The AWS account used to perform the operation does not have the required permissions to upload to the bucket.
@@ -168,10 +204,10 @@ An exception was thrown while contacting the AWS API.
 
 This can happen when accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
-An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-S3-ERROR-0003
 An error occurred uploading a file to a bucket possibly due to metadata. Specified value has invalid HTTP header characters.
 
-This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://g.octopushq.com/AwsS3UsingMetadata) is not used as part of
+This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://oc.to/AwsS3UsingMetadata) is not used as part of
 metadata.

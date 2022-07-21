@@ -480,6 +480,9 @@ description: A listing of the default permissions for each of the built-in user 
 | ArtifactEdit                | Edit the details describing artifacts |
 | ArtifactDelete              | Delete artifacts |
 | FeedView                    | View package feeds and the packages in them |
+| FeedEdit                    | Edit feeds |
+| GitCredentialView           | View Git credentials |
+| GitCredentialEdit           | Edit Git credentials |
 | EventView                   | View Events, including access to the Audit screen |
 | LibraryVariableSetView      | View library variable sets |
 | LibraryVariableSetCreate    | Create library variable sets |
@@ -543,7 +546,6 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateEdit             | Edit certificates |
 | CertificateDelete           | Delete certificates |
 | CertificateExportPrivateKey | Export certificate private-keys |
-| FeedEdit                    | Edit feeds |
 | WorkerView                  | View the workers in worker pools |
 | WorkerEdit                  | Edit workers and worker pools |
 | BuildInformationPush        | Create/update build information |

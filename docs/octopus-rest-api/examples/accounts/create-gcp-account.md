@@ -21,7 +21,7 @@ Provide values for:
 - Octopus Space ID
 - Name for the Google Cloud account
 - *Optional* description for the Google Cloud account
-- Path to the [json key file](https://g.octopushq.com/GoogleCloudServiceAccountKey) to use when authenticating against Google Cloud
+- Path to the [json key file](https://oc.to/GoogleCloudServiceAccountKey) to use when authenticating against Google Cloud
 - *Optional* Array of Environment IDs
 - Octopus Tenanted Participation Type (`Tenanted` | `Untenanted` | `TenantedOrUntenanted`)
 - *Optional* Array of Tenant IDs

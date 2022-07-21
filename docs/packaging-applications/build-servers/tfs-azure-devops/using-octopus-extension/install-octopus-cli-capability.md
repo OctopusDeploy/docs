@@ -1,54 +1,101 @@
 ---
 title: Installing the Octopus CLI as a capability
-description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps/TFS custom build agents.
+description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps custom build agents.
 ---
 
-There are times when you may want to install the Octopus CLI on a build agent, such as to avoid downloads, opening any firewalls and or changing proxy rules. There are a few ways in which this can be
-achieved. In every option presented here, you must [install the Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) so that it's in your current environment path. It should also be noted
-that the same steps can be used to register capabilities such as `DotNetCore` as well.
+Tasks in the Octopus extension use the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) to execute commands with an instance of Octopus. As a result, the Octopus CLI is required to be installed and available on an agent before subsequent tasks run. There are two ways to fulfill this requirement:
 
-:::warning
-Installing the Octopus CLI as a global tool will require an additional shell execution script to be in the path to delegate execution to `dotnet octo`. The reason for this is that the global tool install is only available via `dotnet octo` and doesn't
-provide a way to execute `octo` directly.
+1. Use the tool installer task, **Octopus CLI Installer** as part of a build pipeline definition
+2. Install the Octopus CLI into a [self-hosted agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents#install)
 
-For example, create a script called octo.ps1 with the following content:
-```powershell
-& dotnet octo $args
+Using the tool installer task **Octopus CLI Installer** in a build pipeline definition is suitable for installing the Octopus CLI just in time for a build.  This is required for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to pre-load custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
+
+## Using the Octopus CLI Installer
+
+The **Octopus CLI Installer** task downloads and installs the Octopus CLI, making it available to other tasks in a build pipeline definition. It can be added to a definition through the Classic editor of Azure Pipelines or through the YAML pipeline editor.
+
+Currently, the Octopus extension ships two versions of the **Octopus CLI Installer** task; version 4 is provided for backward compatibility with older pipeline definitions while version 5 is recommended because it offers additional features.
+
+### Octopus CLI Installer v4
+
+In the Classic editor, version 4 of the **Octopus CLI Installer** task has a required field, `Octopus CLI Version` that is used to specify the version of the Octopus CLI to be installed:
+
+![Octopus CLI Installer v4 in Azure Pipelines](images/octopus-cli-installer-v4.png)
+
+The accepted values for this field are:
+
+- `embedded`: use the built-in version of the Octopus CLI
+- `latest`: downloads and installs the latest version of the Octopus CLI
+- A specific version number of the Octopus CLI to use e.g. `7.4.3556`
+
+ :::hint
+ **Wildcards not supported**
+Please note: Wildcard values are **NOT** supported when providing a specific version of the Octopus CLI to use.
+ :::
+
+The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. Using the YAML pipeline editor, the following snippet will download and install the latest version of the Octopus CLI:
+
+```yaml
+- task: OctoInstaller@4
+  displayName: "Octopus CLI Installer"
+  inputs:
+    version: "latest"
 ```
-:::
 
-## Agent capability scanning
+### Octopus CLI Installer v5
 
-Usually Azure DevOps agents scan for associated capabilities, but won't pick anything up from the PATH automatically. In order for a capability to be detected, you must also add an environment variable named `Octo` with the associated
-version.
+In the Classic editor, version 5 of the **Octopus CLI Installer** task has a required field, `Octopus CLI Version` that is used to specify the version of the Octopus CLI to be installed:
 
-![Octo System Variable](images/octo-system-variable.jpg "width=500")
+![Octopus CLI Installer v5 in Azure Pipelines](images/octopus-cli-installer-v5.png)
 
-Once the Octopus CLI is in the path and the above system variable is specified, Azure DevOps will detect the capability automatically.
+This field accepts a limited set of values, specified as `MAJOR.MINOR.PATCH` with wildcard support that adheres to [Semantic Versioning](https://semver.org/) rules. For example:
 
-```powershell
-[Environment]::SetEnvironmentVariable("Octo", "4.39.3", "Machine")
-```
+- `8.*`: install latest minor version for v8 of the Octopus CLI
+- `7.3.*`: install the latest patch version for v7.3 of the Octopus CLI
+- `9.0.0`: install the exact version 9.0 of the Octopus CLI
+- `*`: install the latest version of the Octopus CLI
 
 :::hint
-You must restart the build agent service if making these changes while it is currently running.
+**Range operators not supported**
+Please note: Range and range operators e.g. `~1.2.3` are not supported.
 :::
 
-## Specify the capability manually
+The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. Using the YAML pipeline editor, the following snippet will download and install the latest version of the Octopus CLI:
 
-If you know that a build agent has the Octopus CLI available on the path then you can also specify the capability manually using the Azure DevOps/TFS web interface. Although this may be rather simple, the capability would have to be specified for
-each agent individually which can be quite cumbersome.
+```yaml
+- task: OctoInstaller@5
+  displayName: "Octopus CLI Installer"
+  inputs:
+    version: "*"
+```
 
-![Octo specify capability](images/octo-manual-capability.jpg "width=500")
+## Using the Octopus CLI with Self-Hosted Agents
 
-## Images and automation
+Self-hosted agents provide the ability to install tools that are required for builds and deployments. They can also improve build performance since their associated configuration is persisted between runs.
 
-Microsoft provide a number of starting points to create your own build agent images which can be modified to include the Octopus CLI as an added capability. This includes [packer images](https://github.com/actions/virtual-environments/tree/main/images) as well as instructions on [running a self-hosted agent in Docker](https://docs.microsoft.com/en-gb/azure/devops/pipelines/agents/docker).
+Self-hosted agents are available for Linux, macOS, or Windows. They may also be used in a Docker container. For more information about installing a self-hosted agent, see:
 
-## Troubleshooting
+- [macOS agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-osx)
+- [Linux agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-linux) (x64, ARM, ARM64, RHEL6)
+- [Windows agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows) (x64, x86)
+- [Docker agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker)
 
-If you're having difficulties downloading the Octopus CLI when you run each step (perhaps due to firewalls and proxies) we also offer another helpful step: `Octopus tools installer`
+A self-hosted agent must be configured to include the Octopus CLI before using it in a pipeline. Binaries and/or packages for the Octopus CLI can be downloaded from the [Octopus CLI downloads](https://octopus.com/downloads/octopuscli) page.
 
-![Octopus tools installer](/images/octopus-tools-installer.png "width=500")
+:::warning
+**Breaking Change in Version 5**
 
-This step will fallback to using an embedded version of `octo` if the selected version cannot be successfully downloaded.
+Tasks in version 5 of the Octopus extension now assert [demands](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/demands) for agent capabilities. These tasks now require that self-hosted agents expose the user-defined capability `octo` along with the version of the Octopus CLI installed on the agent (i.e. `8.0.1`).
+:::
+
+These task demands were introduced and mandated in version 5 to ensure the availability of the Octopus CLI.
+
+![Self-Hosted Agent User Capability](images/self-hosted-agent-user-capability.png)
+
+If this user-defined capability described above is not defined for self-hosted agents then jobs will fail with the following error:
+
+```text
+No agent found in pool [POOL-NAME] which satisfies demands: octo
+```
+
+Please note that tasks in version 4 (and below) of the Octopus extension do not assert demands for agent capabilities. Therefore, it is not required to specify agent capabilities for these tasks.

@@ -5,7 +5,26 @@ position: 50
 ---
 Kubernetes targets are used by the [Kubernetes steps](/docs/deployments/kubernetes/index.md) to define the context in which deployments and scripts are run.
 
-Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](http://g.octopushq.com/KubernetesRBAC) and [quotas](http://g.octopushq.com/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
+Conceptually, a Kubernetes target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes target, along with the cluster endpoint URL.
+
+:::hint
+From **Octopus 2022.2**, AKS target discovery has been added to the 
+Kubernetes Target Discovery Early Access Preview and is enabled via **{{Configuration, Features}}**.
+
+From **Octopus 2022.3** will include EKS cluster support.
+:::
+
+## Discovering Kubernetes targets
+
+Octopus can discover Kubernetes targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. To discover targets use the following steps:
+
+- Add an Azure account variable named **Octopus.Azure.Account** or the appropriate AWS authentication variables ([more info here](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#aws)) to your project.
+- [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your cluster so that Octopus can match it to your deployment step and environment.
+- Add any of the Kubernetes built-in steps to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover Kubernetes targets to deploy to.
+
+Kubernetes targets discovered will not have a namespace set, the namespace on the step will be used during deployment (or the default namespace in the cluster if no namespace is set on the step).
+
+See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
 
 ## A sample config file
 
@@ -50,7 +69,7 @@ users:
 3. Enter a display name for the Kubernetes Cluster.
 4. Select at least one [environment](/docs/infrastructure/environments/index.md) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the target.
-6. Select the authentication method. Kubernetes targets support multiple [account types](http://g.octopushq.com/KubernetesAuthentication):
+6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
     - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password.md) account.
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens.md) account.
     - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure/index.md) allow Azure Active Directory accounts to be used.
@@ -67,7 +86,7 @@ users:
 
       :::hint
       **Common issues:**
-      If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the [AWS documentation](http://g.octopushq.com/AWSEKSKubectl) for download links.
+      If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
 
       The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
 
@@ -77,7 +96,7 @@ users:
 
       In the example YAML above, the `client-certificate-data` field is a base 64 encoded certificate, and the `client-key-data` field is a base 64 encoded private key (both have been truncated for readability in this example).
 
-      The certificate and private key can be combined and saved in a single pfx file. The script below accepts the base 64 encoded certificate and private key and uses the [Windows OpenSSL binary from Shining Light Productions](http://g.octopushq.com/OpenSSLWindows) to save them in a single pfx file.
+      The certificate and private key can be combined and saved in a single pfx file. The script below accepts the base 64 encoded certificate and private key and uses the [Windows OpenSSL binary from Shining Light Productions](https://oc.to/OpenSSLWindows) to save them in a single pfx file.
 
       ```Powershell
       param (
@@ -127,7 +146,7 @@ MIIEyDCCArCgAwIBAgIRAOBNYnhYDBamTvQn...
 -----END CERTIFICATE-----
 ```
 
-Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](http://g.octopushq.com/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
+Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](https://oc.to/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
 
 9. Enter the Kubernetes Namespace.
 When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `myapplication-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.

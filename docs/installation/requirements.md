@@ -95,9 +95,16 @@ Octopus Server is a .NET application distributed as a [self-contained deployment
 
 The Octopus Server includes the Octopus Web Portal user interface and we try to keep this as stable as possible:
 
-- **Octopus 3.0** to **Octopus 3.17** supports all modern browsers and Internet Explorer 9+.
-- **Octopus 4.0** and later supports all modern browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer).
-- **Octopus 2020.1** and later only supports modern browsers - Internet Explorer 11 is no longer supported.
+- **Octopus 3.0** to **Octopus 3.17** supports all our default browsers and Internet Explorer 9+.
+- **Octopus 4.0** and later supports all our default browsers, and Internet Explorer 11+ (available on Windows 7 and newer, and Windows Server 2008R2 SP1 and newer).
+- **Octopus 2020.1** and later only supports our default browsers - Internet Explorer 11 is no longer supported.
+
+Our default supported browsers are:
+
+- Edge
+- Chrome
+- Firefox
+- Safari
 
 ## Hardware requirements
 

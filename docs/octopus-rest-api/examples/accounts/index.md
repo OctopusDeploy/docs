@@ -5,7 +5,7 @@ position: 10
 hideInThisSectionHeader: true
 ---
 
-[Accounts](https://g.octopushq.com/OnboardingAccountsLearnMore) help you to centralize account details used during your deployments, including things like username/password, tokens, Azure and AWS credentials and SSH key pairs. 
+[Accounts](https://oc.to/OnboardingAccountsLearnMore) help you to centralize account details used during your deployments, including things like username/password, tokens, Azure and AWS credentials and SSH key pairs. 
 
 Out-of-the-box, Octopus provides different types of accounts to help manage your infrastructure:
 

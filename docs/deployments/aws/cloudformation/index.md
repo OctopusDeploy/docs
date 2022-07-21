@@ -24,7 +24,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 ![AWS Role](images/step-aws-role.png "width=500")
 
 :::hint
-If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://g.octopushq.com/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
 ### Template section
@@ -41,7 +41,7 @@ If creating the CloudFormation stack, you can select `Disable rollback` to preve
 
 #### IAM capabilities
 
-This is a quote from the [AWS documentation](http://g.octopushq.com/AwsDocsControllingIAM):
+This is a quote from the [AWS documentation](https://oc.to/AwsDocsControllingIAM):
 
 > Before you can create a stack, AWS CloudFormation validates your template. During validation, AWS CloudFormation checks your template for IAM resources that it might create. IAM resources, such as an IAM user with full access, can access and modify any resource in your AWS account. Therefore, we recommend that you review the permissions associated with each IAM resource before proceeding so that you don't unintentionally create resources with escalated permissions. To ensure that you've done so, you must acknowledge that the template contains those resources, giving AWS CloudFormation the specified capabilities before it creates the stack.
 
@@ -266,7 +266,7 @@ An exception was thrown while contacting the AWS API.
 
 This can happen if accessing AWS via a proxy, and the response from AWS indicated an error. The response body is printed to the logs in these cases.
 
-An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://g.octopushq.com/AWSRegions).
+An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-CLOUDFORMATION-ERROR-0015
 
