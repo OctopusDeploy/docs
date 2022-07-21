@@ -6,7 +6,7 @@ position: 45
 
 !include <build-server-plugin-version-control-fields>
 
-Below are some examples of how to auto populate this using build parameters for common build servers.
+Below are some examples of how to auto populate these fields using build parameters for common build servers.
 
 ## Azure DevOps
  
@@ -53,7 +53,8 @@ TeamCity provides different data based on if the build is triggered by a branch 
  
  For *Git Commit*, you will need to know the name of your previous step of your build process as that value lives in a build parameter like this example -  `dep.CloudPlatform_Build.build.vcs.number`. 
  
- So the value used will likely look like this -
+ So the value used will likely look like this:
+
  ```
  %dep.<YOUR PREVIOUS STEP NAME>.build.vcs.number%
  ```
