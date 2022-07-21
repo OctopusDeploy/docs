@@ -15,7 +15,7 @@ Consequently, this information is provided as guidance information only and does
 | Level of Disaster| Impact | Data Redundancy | Data durability | RTO (recovery time objective) | RPO (recovery point objective) | Parties involved |
 | Failure of a Node | Minor service interruption | Local copies plus geo-redundant backup | 16 9’s | 30s | 5s | Microsoft |
 | Individual customer breach / data corruption | Service interruption | Restore from a geo-redundant backup | 12 9’s | 1 hr | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
-| Data Centre failure (single Availability zone) | Service interruption | Restore from a geo-redundant backup | 12 9’s | 12 hrs | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
+| Data Center failure (single Availability zone) | Service interruption | Restore from a geo-redundant backup | 12 9’s | 12 hrs | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
 
 For further information, customers should refer to [Microsoft’s disaster recovery](https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql#recover-a-database-to-the-existing-server) documentation.
 
@@ -28,7 +28,7 @@ Note: The portal is hosted in a separate Azure region from customer instances an
 | Level of Disaster| Impact | Data Redundancy | Data durability | RTO (recovery time objective) | RPO (recovery point objective) | Parties involved |
 | Failure of a Node | No customer impact | Local copies plus geo-redundant backup | 16 9’s | 30s | 5s | Microsoft |
 | Portal data corruption or compromise | No customer impact, portal unavailable | Restore from a geo-redundant backup | 12 9’s | 1 hr | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
-| Data Centre failure (single Availability zone) | No customer impact, portal unavailable | Restore from a geo-redundant backup | 12 9’s | 12 hrs | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
+| Data Center failure (single Availability zone) | No customer impact, portal unavailable | Restore from a geo-redundant backup | 12 9’s | 12 hrs | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
 
 
 For further information, customers should refer to [Microsoft’s disaster recovery](https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql#recover-a-database-to-the-existing-server) documentation.
