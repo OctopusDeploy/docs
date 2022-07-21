@@ -6,7 +6,7 @@ description: How to work with your data and disaster recovery in an Octopus Clou
 
 ## Disaster Recovery Procedure
 
-Octopus Deploy hosts the cloud offering (Octopus Cloud) on Microsoft Azure utilising several Azure services. Octopus Deploy shall endeavour to ensure business continuity of Octopus Cloud in the event of any disaster.  Octopus Cloud disaster resiliency and recovery are largely determined by the disaster recovery measures that are provided by these services, in addition to the Customer’s own disaster recovery preparations such as determining which restore point to use for the recovery. Depending upon the nature of the event, Octopus Deploy’s response may be limited to assisting customers and Azure support to restore service. 
+Octopus Deploy hosts the cloud offering (Octopus Cloud) on Microsoft Azure utilizing several Azure services. Octopus Deploy shall endeavor to ensure business continuity of Octopus Cloud in the event of any disaster.  Octopus Cloud disaster resiliency and recovery are largely determined by the disaster recovery measures that are provided by these services, in addition to the Customer’s own disaster recovery preparations such as determining which restore point to use for the recovery. Depending upon the nature of the event, Octopus Deploy’s response may be limited to assisting customers and Azure support to restore service. 
 
 Consequently, this information is provided as guidance information only and does not form part of our Customer Agreement, nor does it affect or limit the operation of any force majeure releases. Customers should ensure that they have their own disaster recovery procedures in place following disaster recovery best practice. 
 
@@ -40,9 +40,9 @@ In the case of an Azure region wide disaster the time to restore services will v
 ### Definitions
 
 | Term | Explanation | Reference | 
-| Node | A single copy of the data within the same data centre | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) |
+| Node | A single copy of the data within the same data center | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) |
 | Availability Zone | A single zone with 3 local copies of data | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) |
-| ZRS (Zone redundant storage) | Zone Redundant storage – Three Availability zones in data centres that are self-contained in the same region. | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) |
+| ZRS (Zone redundant storage) | Zone Redundant storage – Three Availability zones in data centers that are self-contained in the same region. | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) |
 | RA-GRS (Read available geographic redundant storage) | Geographic redundant storage which is the back up of data in a second geographic region within the same privacy jurisdiction (e.g., USA or EU or AU) | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) |
 | Durability | A measure of the integrity of data, once stored, over time (e.g., 99.999% = 5 9’s) i.e., the degree to which the data deteriorates over time (a year) when stored. | [Definition from Google](https://cloud.google.com/blog/products/storage-data-transfer/understanding-cloud-storage-11-9s-durability-target) |
 | RTO (Recovery time objective) | The objective for the time taken to restore a service to operation | [Wikipedia RTO](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Time_Objective) |
