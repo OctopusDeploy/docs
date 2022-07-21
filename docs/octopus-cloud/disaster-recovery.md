@@ -4,7 +4,7 @@ position: 40
 description: How to work with your data and disaster recovery in an Octopus Cloud instance.
 ---
 
-This page describes the Disaster recovery procedure for Octopus Cloud.
+This page describes the disaster recovery procedure and data imports/exports for Octopus Cloud.
 
 ## Disaster Recovery Procedure
 
