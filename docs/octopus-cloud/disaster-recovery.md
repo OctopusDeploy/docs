@@ -25,6 +25,12 @@ The Octopus administration portal is used to manage customer instances.
 
 Note: The portal is hosted in a separate Azure region from customer instances and is not required to be online for continuity of service to customers. The disaster recovery measures taken, as detailed below, will allow the portal to be restored according to the following table: 
 
+| Level of Disaster| Impact | Data Redundancy | Data durability | RTO (recovery time objective) | RPO (recovery point objective) | Parties involved |
+| Failure of a Node | No customer impact | Local copies plus geo-redundant backup | 16 9’s | 30s | 5s | Microsoft |
+| Portal data corruption or compromise | No customer impact, portal unavailable | Restore from a geo-redundant backup | 12 9’s | 1 hr | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
+| Data Centre failure (single Availability zone) | No customer impact, portal unavailable | Restore from a geo-redundant backup | 12 9’s | 12 hrs | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
+
+
 For further information, customers should refer to [Microsoft’s disaster recovery](https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql#recover-a-database-to-the-existing-server) documentation.
 
 ### Azure Region Failure
