@@ -1,6 +1,6 @@
 ---
 title: Migrating from Octopus Server to Octopus Cloud
-position: 40
+position: 30
 description:  Migrating from Octopus Server to Octopus Cloud.
 ---
 

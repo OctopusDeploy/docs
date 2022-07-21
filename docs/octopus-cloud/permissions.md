@@ -1,6 +1,6 @@
 ---
 title: Permissions
-position: 30
+position: 20
 description: Octopus Cloud includes permissions that relate to hosting Octopus itself, and not for the configuration of your instance, as that's managed by Octopus for you.
 ---
 

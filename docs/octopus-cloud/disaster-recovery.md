@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery
-position: 10
+position: 40
 description: How to work with your data and disaster recovery in an Octopus Cloud instance.
 ---
 
@@ -14,7 +14,7 @@ Consequently, this information is provided as guidance information only and does
 
 ### Customer instances
 
-| Level of Disaster                              | Impact                     | Data Redundancy                        | Data durability | RTO (recovery time objective) | RPO (recovery point objective)                     | Parties involved             |
+| Level of Disaster                              | Impact                     | Data Redundancy                        | Data durability | RTO | RPO | Parties involved             |
 |------------------------------------------------|----------------------------|----------------------------------------|-----------------|-------------------------------|----------------------------------------------------|------------------------------|
 | Failure of a Node                              | Minor service interruption | Local copies plus geo-redundant backup | 16 9’s          | 30s                           | 5s                                                 | Microsoft                    |
 | Individual customer breach / data corruption   | Service interruption       | Restore from a geo-redundant backup    | 12 9’s          | 1 hr                          | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
@@ -28,7 +28,7 @@ The Octopus Cloud administration portal is used to manage customer instances.
 
 Note: The portal is hosted in a separate Azure region from customer instances and is not required to be online for continuity of service to customers. The disaster recovery measures taken, as detailed below, will allow the portal to be restored according to the following table: 
 
-| Level of Disaster                              | Impact                                 | Data Redundancy                        | Data durability | RTO (recovery time objective) | RPO (recovery point objective)              | Parties involved             |
+| Level of Disaster                              | Impact                                 | Data Redundancy                        | Data durability | RTO | RPO | Parties involved             |
 |------------------------------------------------|----------------------------------------|----------------------------------------|-----------------|-------------------------------|---------------------------------------------|------------------------------|
 | Failure of a Node                              | No customer impact                     | Local copies plus geo-redundant backup | 16 9’s          | 30s                           | 5s                                          | Microsoft                    |
 | Portal data corruption or compromise           | No customer impact, portal unavailable | Restore from a geo-redundant backup    | 12 9’s          | 1 hr                          | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
@@ -52,11 +52,12 @@ In the case of an Azure region wide disaster the time to restore services will v
 | RTO (Recovery time objective)                        | The objective for the time taken to restore a service to operation                                                                                                 | [Wikipedia RTO](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Time_Objective)                                                   |
 | RPO (Recovery point objective)                       | The objective of how much processing/data is lost (not recoverable) measured in time.                                                                              | [Wikipedia RPO](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective)                                                  |
 
+## Data
 
-## Importing data
+### Importing data
 
 Due to some key differences between the self-hosted and cloud configurations, it **is not possible** to use the existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) to import data. If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations.md).
 
-## Exporting your data
+### Exporting your data
 
 If you need to export your data, this can be done with the [Migration API](/docs/octopus-rest-api/migration-api/index.md), alternatively, we can provide you with a full database backup if required. Please visit the [support page](https://octopus.com/support) if you need this.
