@@ -3,6 +3,19 @@
 - Dynamic worker army
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1893/process/RunbookProcess-Runbooks-1893" target="_blank">Create Infrastructure</a>: <i>Spins up the worker army</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1894/process/RunbookProcess-Runbooks-1894" target="_blank">Destroy Infrastructure</a>: <i>Tears down the worker army.</i>
+- Octopus Deploy Terraform Provider
+   - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-2041/operations/runbooks/Runbooks-2261/process/RunbookProcess-Runbooks-2261" target="_blank">Configure New (Blank) Octopus Deploy Instance Using The Octopus Terraform Provider</a>: <i>This Runbook will configure basic settings within a new (blank) Octopus Deploy instance.
+
+The Octopus Terraform Provider will set up the following:
+
+      - Octopus Project Group
+      - Project examples with variables and deployment processes for Tenanted and Untenanted deployments. 
+      - Deployment Environments.
+      - Worker Pools
+      - Tenants
+      - Deployment Lifecycle 
+      - Tenant Tag Set
+      - Octopus Teams</i>
 - Random Quotes - Azure
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1851/operations/runbooks/Runbooks-1897/process/RunbookProcess-Runbooks-1897" target="_blank">Create and Configure Terraform Infrastructure</a>: <i>Creates necessary infrastructure in Azure [using Terraform](https://dev.azure.com/octopussamples/_git/Azure-Terraform-RandomQuotes) and configures it for application deployment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1851/operations/runbooks/Runbooks-1898/process/RunbookProcess-Runbooks-1898" target="_blank">Destroy Terraform Resources and Delete Deployment Targets</a>: <i>Destroys created Terraform resources and removes registered deployment targets.</i>

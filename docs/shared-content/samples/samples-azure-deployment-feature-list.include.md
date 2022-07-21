@@ -9,10 +9,10 @@
 **Pattern - Monolith**
 
 - <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-523/deployments/process" target="_blank">Pitstop</a>: <i>Sample project of a monolithic deployment process.</i>
-- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-873/deployments/process" target="_blank">Pitstop - Customer Management</a>: <i>Project for the Customer Management API of the Pitstop application. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/PitStop_BuildDotnet)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-875/deployments/process" target="_blank">Pitstop - Vehicle Management</a>: <i>Project for the Vehicle Management API for the Pitstop application. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/PitStop_BuildDotnet)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-876/deployments/process" target="_blank">Pitstop - Workshop Management</a>: <i>Project for the Workshop Management API for the Pitstop application. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/PitStop_BuildDotnet)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-881/deployments/process" target="_blank">Pitstop - Web</a>: <i>Project for the Web front-end of the Pitstop application. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/PitStop_BuildDotnet)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-873/deployments/process" target="_blank">Pitstop - Customer Management</a>: <i>Project for the Customer Management API of the Pitstop application. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/PitStop_BuildDotnet)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-875/deployments/process" target="_blank">Pitstop - Vehicle Management</a>: <i>Project for the Vehicle Management API for the Pitstop application. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/PitStop_BuildDotnet)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-876/deployments/process" target="_blank">Pitstop - Workshop Management</a>: <i>Project for the Workshop Management API for the Pitstop application. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/PitStop_BuildDotnet)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-362/projects/Projects-881/deployments/process" target="_blank">Pitstop - Web</a>: <i>Project for the Web front-end of the Pitstop application. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/PitStop_BuildDotnet)</i>
     
 **Pattern - Rolling**
 
@@ -40,8 +40,8 @@
     
 **Target - MySQL**
 
-- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1122/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against MySQL. [Build defintion](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1123/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a MySQL container hosted in Azure using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1122/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against MySQL. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1123/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a MySQL container hosted in Azure using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2023/deployments/process" target="_blank">grate</a>
     
 **Target - PaaS**
@@ -50,8 +50,8 @@
     
 **Target - PostgreSQL**
 
-- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1084/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against PostgreSQL. [Build defintion](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildFlyway)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1085/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL container hosted in Azure using Liquibase. [Build definition](https://teamcitysample.octopus.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1084/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against PostgreSQL. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1085/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL container hosted in Azure using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
     
 **Target - Serverless**
 
