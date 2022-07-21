@@ -16,9 +16,11 @@ When you create a release via the UI, you must specify a branch name. Octopus wi
 
 ![creating a release via the Octopus UI](create-release-octopus-ui.png)
 
-### See examples of [creating a release from a build server plug-in here.](/docs/projects/version-control/creating-release-from-a-build-server-plug-in.md) 
+### Creating a release from a build server plug-in
 
+!include <build-server-plugin-version-control-fields>
 
+For more information, see examples of [creating a release from a build server plug-in](/docs/projects/version-control/creating-release-from-a-build-server-plug-in.md).
 
 ### Snapshot
 
