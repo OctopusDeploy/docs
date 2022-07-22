@@ -147,7 +147,7 @@ over this:
 echo $(get_octopusvariable 'SecretVariable')
 ```
 
-The first will print any newlines or escape characters literally, however the second could trigger expansion/processing of each word in the variable, and result in log being written in a way that we are unable to mask.
+The second approach could trigger evaluation or stripping of special characters within the variable, and result in a log message sufficiently different to the sensitive variable's value that we are unable to match and mask it.
 
 Of course, the best protection is not to `echo` potentially sensitive variables at all.
 
