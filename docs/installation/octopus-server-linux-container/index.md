@@ -85,17 +85,20 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 |**443**| SSL Port for API and HTTP portal |
 |**10943**|Port for Polling Tentacles to contact the server|
 
+
 ### Volume Mounts
 
 Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
 
-|  Name       |    |
-| ------------- | ------- |
-|**/import**|Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup|
-|**/repository**|Package path for the built-in package repository|
-|**/artifacts**|Path where artifacts are stored|
-|**/taskLogs**|Path where task logs are stored|
-|**/cache**|Path where cached files are stored|
+| Name     | Usage | Mount  |
+| ------------- | ------- | ------- | 
+|**/import**|Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup| Container
+|**/repository**|Package path for the built-in package repository| Shared Storage
+|**/artifacts**|Path where artifacts are stored| Shared Storage
+|**/taskLogs**|Path where task logs are stored| Shared Storage
+|**/cache**|Path where cached files are stored and this is where the signature and delta files used for package acquisitions are stored.| Container
+
+
 
 ## Upgrading
 
