@@ -6,6 +6,10 @@ position: 30
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
+:::warning
+The Event Retention functionality is being rolled out in stages for our Cloud customers. So you may get access to that functionality at a later stage.
+:::
+
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
 
 Below is a short list of just some of the things that Octopus captures:
