@@ -75,6 +75,7 @@ Periodically, Octopus will apply the retention policy to the existing entries an
 Users with appropriate permissions (typically `Octopus Manager`) can download or delete the archived files. The downloaded files are intended to be imported into a datalake for querying and analysis.
 
 :::warning
+**Take care deleting archived files**
 Deleting the archived files will permanently erase the audit entries.
 :::
 
