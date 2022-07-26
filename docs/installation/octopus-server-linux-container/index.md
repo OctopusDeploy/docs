@@ -17,7 +17,7 @@ This page describes how to run Octopus Server in the Linux Container.
 
 Although there are a few different configuration options, the following is a simple example of starting the  Octopus Server Linux container:
 
-```Bash
+```bash
 $ docker run --interactive --detach --name OctopusDeploy --publish 1322:8080 --env ACCEPT_EULA="Y" --env DB_CONNECTION_STRING="..." !docker-image <octopusdeploy/octopusdeploy>
 ```
 
@@ -77,6 +77,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
 
 ### Exposed Container Ports
+
 Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) about exposing ports.
 
 |  Port       |    |
@@ -88,17 +89,19 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 
 ### Volume Mounts
 
-Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volume.
+Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#mount-volume--v---read-only) about mounting volumes.
 
-| Name     | Usage | Mount  |
+| Name     | Description | Mount source |
 | ------------- | ------- | ------- | 
-|**/import**|Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup| Container
-|**/repository**|Package path for the built-in package repository| Shared Storage
-|**/artifacts**|Path where artifacts are stored| Shared Storage
-|**/taskLogs**|Path where task logs are stored| Shared Storage
-|**/cache**|Path where cached files are stored and this is where the signature and delta files used for package acquisitions are stored.| Container
+|**/import**| Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup | Host filesystem or container |
+|**/repository**| Package path for the built-in package repository | Shared storage |
+|**/artifacts**| Path where artifacts are stored | Shared storage |
+|**/taskLogs**| Path where task logs are stored | Shared storage |
+|**/cache**| Path where cached files e.g. signature and delta files (used for package acquisition) are stored | Host filesystem or container |
 
-
+:::hint
+**Note:** We recommend using shared storage when mounting the volumes for files that need to be shared between multiple octopus container nodes, e.g. artifacts, packages and task logs.
+:::
 
 ## Upgrading
 
