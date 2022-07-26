@@ -24,6 +24,8 @@ $[coalesce(variables['system.pullRequest.sourceCommitId'], variables['build.sour
 
 **Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
 
+---
+
 ## Github Actions
 
 Github Actions provides different event data based on if the build is triggered by a branch push versus via a Pull Request (PR). You need to use a conditional statement to select the right variable. Here's a suggested method to do so.
@@ -40,33 +42,32 @@ ${{ github.event.push.after || github.event.pull_request.head.sha }}
 
 **Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
 
+---
+
 ## TeamCity
 
-TeamCity provides different data based on if the build is triggered by a branch push versus via a Pull Request (PR). There is no easy way to automate selecting the right one. Based on your process, we suggest using one of the following options.
+TeamCity provides different data based on if the build is triggered by a branch push versus via a Pull Request (PR). There is no easy way to automate selecting the right one. Based on your process, we suggest using one of the following options. 
 
-### Build triggered by a branch push
+### Git Reference
 
- For *Git Reference*, use 
- ```
- %teamcity.build.branch%
- ```
- 
- For *Git Commit*, you will need to know the name of your previous step of your build process as that value lives in a build parameter like this example -  `dep.CloudPlatform_Build.build.vcs.number`. 
- 
- So the value used will likely look like this:
-
- ```
- %dep.<YOUR PREVIOUS STEP NAME>.build.vcs.number%
- ```
-
-### Build triggered via a PR
-
-For *Git Reference*, use 
+If the build is triggered by a branch push, use 
+```
+%teamcity.build.branch%
+```
+If the build is triggered via a PR, use 
 ```
 %teamcity.pullRequest.source.branch%
 ```
 
-For *Git Commit*, its the same. So the value used will likely look like this -
+
+### Git Commit
+
+This is the same for both scenarios.
 ```
-%dep.<YOUR PREVIOUS STEP NAME>.build.vcs.number%
+%build.vcs.number%
 ```
+
+### Notes
+If you have multiple VCS sources used in a build, remember to add the fully qualified parameter that includes the VCS Root ID. For example, ```teamcity.build.branch.<VCS_Root_ID>``` and  ```build.vcs.number.<VCS_Root_ID>```
+
+For a build that is the result of a chained step, you may need to reference a parameter from the original build dependency. It will look something like this for a *Git Commit* - ```dep.<Dependant_Build_ID>.build.vcs.number``` or ```dep.<Dependant_Build_ID>.build.vcs.number.<VCS_Root_Id>```.
