@@ -42,7 +42,6 @@ ${{ github.event.push.after || github.event.pull_request.head.sha }}
 
 **Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
 
----
 
 ## TeamCity
 
