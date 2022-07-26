@@ -70,4 +70,4 @@ This is the same for both scenarios.
 ### Notes
 If you have multiple VCS sources used in a build, remember to add the fully qualified parameter that includes the VCS Root ID. For example, ```teamcity.build.branch.<VCS_Root_ID>``` and  ```build.vcs.number.<VCS_Root_ID>```
 
-For a build that is the result of a chained step, you may need to reference a parameter from the original build dependency. It will look something like this for a *Git Commit* - ```dep.<Dependant_Build_ID>.build.vcs.number``` or ```dep.<Dependant_Build_ID>.build.vcs.number.<VCS_Root_Id>```.
+For a build resulting from a chained step, you may need to reference a parameter from the original build dependency. It will look something like this for a *Git Commit* - `dep.<Dependant_Build_ID>.build.vcs.number` or `dep.<Dependant_Build_ID>.build.vcs.number.<VCS_Root_Id>`.
