@@ -78,4 +78,4 @@ Users with appropriate permissions (typically `Octopus Manager`) can download or
 Deleting the archived files will permanently erase the audit entries.
 :::
 
-The archived files can also be accessed via the API endpoints `/api/event/archives` and `/api/event/archives/{filename}`.
+The archived files can also be accessed via the Octopus REST API endpoints `/api/event/archives` and `/api/event/archives/{filename}`.
