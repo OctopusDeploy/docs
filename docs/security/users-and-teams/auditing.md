@@ -50,7 +50,7 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams/index.md).
 
-Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days) are archived and can be access via the overflow menu (three dots) in the top right corner of the audit log page ("Manage archived events").
+Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived events** option.
 
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
