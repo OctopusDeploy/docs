@@ -24,7 +24,6 @@ $[coalesce(variables['system.pullRequest.sourceCommitId'], variables['build.sour
 
 **Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
 
----
 
 ## Github Actions
 
