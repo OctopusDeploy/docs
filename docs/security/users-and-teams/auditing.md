@@ -70,7 +70,7 @@ We take the sensitive value and hash it using an irreversible hash algorithm. We
 
 Audit log entries can require significant amount of database space to store, which gradually degrades overall system performance. For this reason Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **{{Configuration, Settings, EventRetention}}**. The location of the archived audit log files can be changed via **{{Configuration, Settings, ServerFolders}}**.
 
-Periodically, Octopus will apply the retention policy to the existing entries and store them as [JSONL](https://jsonlines.org/) files, grouped as a single file per each day (for example, `events-2019-01-01.jsonl`). These files can be accessed through a separate page available via the overflow menu in the top right corner of the main audit log page.
+Periodically, Octopus will apply the retention policy to the existing entries and store them as [JSONL](https://jsonlines.org/) files, grouped as a single file for each day (for example, `events-2019-01-01.jsonl`). These files can be accessed through a separate page available via the overflow menu (`...`) in the top right corner of the audit page.
 
 Users with appropriate permissions (typically `Octopus Manager`) can download or delete the archived files. The downloaded files are intended to be imported into a datalake for querying and analysis.
 
