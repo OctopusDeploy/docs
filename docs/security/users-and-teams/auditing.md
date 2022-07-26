@@ -66,7 +66,7 @@ If you make a change to a sensitive value in Octopus, you will notice we write a
 
 We take the sensitive value and hash it using an irreversible hash algorithm. We then encrypt that hash with a new, unique, non-deterministic salt. We use this irreversible value as an indicator that the sensitive value actually changed in some way.
 
-### Manage archived audit logs
+### Manage archived audit logs {#manage-archived-audit-events}
 
 Audit log entries can require significant amount of database space to store, which gradually degrades overall system performance. For this reason Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **{{Configuration, Settings, EventRetention}}**. The location of the archived audit log files can be changed via **{{Configuration, Settings, ServerFolders}}**.
 
