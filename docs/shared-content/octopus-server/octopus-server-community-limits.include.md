@@ -1,5 +1,5 @@
 - Deploy to 5 targets
-- Limit of 5 users with limited permissions
+- Limit of 5 users with [restricted permissions](/docs/administration/managing-licenses/community/index.md#restricted-permissions)
 - Limit of 5 projects
 - Valid for 12 months, extend anytime for free
 - Technical support included

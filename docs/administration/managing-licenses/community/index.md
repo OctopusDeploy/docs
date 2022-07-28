@@ -54,3 +54,7 @@ The Octopus Cloud Community plan has limits that apply.
 From the [Octopus Control Center](https://octopus.com/control-center/) dashboard, navigate to **{{Cloud Instances, View}}**, select your instance and click on the **Finance** pane. Once there, click on the **Change Plan** button, and you'll be presented with an option at the bottom of the page. To complete the switch to Community Cloud, click on the **Switch to community plan** link.
 
 ![](images/octopus-cloud-community.png "width=500")
+
+## Restricted permissions
+
+The community edition of Octopus runs in a restricted permissions mode. This means that all users within the instance are granted system-wide administrator-level permissions. While Users and Teams can still be configured, any changes to these settings will be ignored.
