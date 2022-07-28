@@ -1,5 +1,5 @@
 - Deploy to 5 targets
-- Limit of 5 users with [restricted permissions](https://octopus.com/docs/administration/managing-licenses/community#restricted-permissions)
+- Limit of 5 users
 - Limit of 5 projects
 - Limit of 20 worker hours per month
 - Technical support included
