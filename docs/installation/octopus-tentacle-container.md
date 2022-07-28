@@ -6,7 +6,11 @@ position: 10
 
 Running an Octopus Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. 
 
-Octopus publishes both `windows/amd64` and `linux/amd64` Docker images for Tentacle and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
+Octopus publishes `linux/amd64` Docker images for Tentacle and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/tentacle).
+
+:::warning
+From Tentacle version **6.2**, Windows Docker images are no longer published. Octopus recommends switching to the `linux/amd64` image.
+:::
 
 The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.
 
@@ -14,7 +18,7 @@ The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastru
 Tentacles set up this way will run *inside a container* and script execution will not happen on the host itself. For this reason, Octopus Tentacles inside a container may not be appropriate for many deployment tasks.
 :::
 
-When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. Due to some limitations in Windows Containers that have only [recently](https://github.com/moby/moby/issues/25982) been fixed and made available in the 1709 Windows release, this registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to remove the duplicated targets.
+When an Octopus Tentacle container starts up, it will attempt to invoke the [`register-with`](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command to connect and add itself as a machine to that server with the provided roles and environments. This registration will occur on every startup and you may end up with multiple instances if you stop/start a container. Our goal is to update this image to de-register the Tentacle when the container `SIGKILL` signal is passed in. In the meantime you may want to use [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md) to remove the duplicated targets.
 
 ```PowerShell Deployment Target
 docker run --interactive --detach `
@@ -35,7 +39,7 @@ docker run --interactive --detach `
  --env ACCEPT_EULA="Y" `
  --env ListeningPort="10933" `
  --env ServerApiKey="API-MZKUUUMK3EYX7TBJP6FAKIFHIEO" `
- --env TargetWorkerPool="Windows2019Workers" `
+ --env TargetWorkerPool="LinuxWorkers" `
  --env ServerUrl="http://10.0.0.1:8080" `
  !docker-image <octopusdeploy/tentacle>
 ```
