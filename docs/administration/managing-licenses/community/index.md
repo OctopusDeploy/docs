@@ -57,4 +57,4 @@ From the [Octopus Control Center](https://octopus.com/control-center/) dashboard
 
 ## Restricted permissions
 
-The community edition of Octopus Server uses a restricted permissions mode. This means that all users within the instance are granted system-wide administrator-level permissions. While Users and Teams can still be configured, any changes to these settings will be ignored.
+The community edition of Octopus runs in a restricted permissions mode. This means that all users within the instance are granted system-wide administrator-level permissions. While Users and Teams can still be configured, any changes to these settings will be ignored.
