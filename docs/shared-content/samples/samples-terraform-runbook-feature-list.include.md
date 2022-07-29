@@ -4,6 +4,19 @@
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1893/process/RunbookProcess-Runbooks-1893" target="_blank">Create Infrastructure</a>: <i>Spins up the worker army</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1894/process/RunbookProcess-Runbooks-1894" target="_blank">Destroy Infrastructure</a>: <i>Tears down the worker army.</i>
 - Octopus Deploy Terraform Provider
+   - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-2041/operations/runbooks/Runbooks-2262/process/RunbookProcess-Runbooks-2262" target="_blank">Configure Existing Octopus Deploy Instance Using the Octopus Terraform Provider</a>: <i>This Runbook will configure basic settings within an existing Octopus Deploy instance using data resources for the Octopus Deploy Terraform provider. These include:
+
+      - octopusdeploy_project_groups
+      - octopusdeploy_environments
+      - octopusdeploy_lifecycles
+      - octopusdeploy_teams
+
+This will also create the following resources:
+
+      - Project With A Deployment Process
+      - Tenant
+      - Tenant Tag Set
+      - Tenant Project Variable</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-2041/operations/runbooks/Runbooks-2261/process/RunbookProcess-Runbooks-2261" target="_blank">Configure New (Blank) Octopus Deploy Instance Using The Octopus Terraform Provider</a>: <i>This Runbook will configure basic settings within a new (blank) Octopus Deploy instance. The Octopus Terraform Provider will set up the following:
 
       - Octopus Project Group
