@@ -46,7 +46,7 @@ The Azure account Variable also exposes the following properties that you can re
 
 Each of the above properties can be referenced in PowerShell.
 
-```powershell
+```powershell PowerShell
 # For an account with a variable name of 'azure account'
 
 # Using $OctopusParameters
@@ -56,6 +56,14 @@ Write-Host 'AzureAccount.Client=' $OctopusParameters["azure account.Client"]
 # Directly as a variable
 Write-Host 'AzureAccount.Id=' $azureAccount
 Write-Host 'AzureAccount.Client=' $azureaccountClient
+```
+```bash Bash
+# For an account with a variable name of 'azure account'
+
+id=$(get_octopusvariable "azure account")
+client=$(get_octopusvariable "azure account.Client")
+echo "Azure Account Id is: $id"
+echo "Azure Account Client is: $client"
 ```
 
 ## Learn more
