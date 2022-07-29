@@ -44,7 +44,7 @@ The Azure account Variable also exposes the following properties that you can re
 
 ### Accessing the properties in a script
 
-Each of the above properties can be referenced in PowerShell.
+Each of the above properties can be referenced in any of the supported scripting languages such as PowerShell and Bash.
 
 ```powershell PowerShell
 # For an account with a variable name of 'azure account'
