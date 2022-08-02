@@ -1,5 +1,5 @@
 ---
-title: Service Now Integration
+title: ServiceNow Integration
 description: Octopus Deploy can integrate with your ServiceNow instance for deployment control using Change Request approvals
 position: 10
 ---
@@ -185,7 +185,7 @@ The title must match the format **exactly**, including the double-quotes.
 ### Respecting Change Windows
 
 :::warning
-This feature is only available for version 2022.2.xxx and later
+This feature is only available for version 2022.3.3026 and later
 :::
 
 In addition to a change request being approved, a change must also be in its schedule change window in order for the deployment to execute.  The change window is controlled by the `Planned start date` and `Planned end date` on the linked change request.
