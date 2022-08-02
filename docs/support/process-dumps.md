@@ -48,7 +48,7 @@ from Microsoft.
 Sometimes the deployment in Octopus can complete or error out too quickly, which means you do not get a chance to capture the failing process. If this is happening [get in touch with us](https://octopus.com/support) and we can suggest some workarounds to make the process last longer so you can capture the dump correctly.
 :::
 
-![](images/processexplorer.png "width=500")
+![Process explorer capturing child processes from Tentacle](images/processexplorer.png "width=500")
 
 ## Dump file analysis
 
