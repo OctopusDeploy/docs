@@ -28,7 +28,7 @@ If you are capturing a process on your Octopus Server follow the below instructi
 1. Note where the file is saved (generally in your temp folder).
 
 :::warning
-When capturing a process dump for **Tentacle.exe**, please make sure to also capture any child **Calamari.exe** processes. To do this follow the process below:
+When capturing a process dump for **Tentacle.exe**, please also capture any child **Calamari.exe** processes. To do this, follow the process below.
 :::
 
 Task manager does not do a great job of capturing child processes such as the Calamari.exe process associated with Tentacle.exe. To allow the correct capture of a child process for a tentacle:
