@@ -31,7 +31,7 @@ If you are capturing a process on your Octopus Server follow the below instructi
 When capturing a process dump for **Tentacle.exe**, please also capture any child **Calamari.exe** processes. To do this, follow the process below.
 :::
 
-Task manager does not do a great job of capturing child processes such as the Calamari.exe process associated with Tentacle.exe. To allow the correct capture of a child process for a tentacle:
+We recommend using [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer) to capture child processes associated with Tentacle.exe, such as the Calamari.exe process. To capture child processes for Tentacle:
 
 1. On the tentacle that is having the issues. Download and install [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 from Microsoft.
