@@ -42,7 +42,7 @@ from Microsoft.
 1. Once that task is running in Octopus go back to Process Explorer on the tentacle and you will now see the tentacle.exe process can be expanded to show the calamari process. This can be expanded further to see the powershell.exe processes associated with both the tentacle.exe and calamari.exe. 
 1. To capture the dump file for calamari.exe make sure your tentacle.exe process is expanded in process explorer and find calamari.exe.
 1. Right click on it and select `Create Dump` and then `Create Full Dump`
-1. Note where the file is saved (generally in your temp folder)
+1. Note where the file is saved (generally in your temp folder).
 
 :::hint
 Sometimes the deployment in Octopus can complete or error out too quickly, which means you do not get a chance to capture the failing process. If this is happening [get in touch with us](https://octopus.com/support) and we can suggest some workarounds to make the process last longer so you can capture the dump correctly.
