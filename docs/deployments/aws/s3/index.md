@@ -218,7 +218,7 @@ The AWS account or role used to perform the operation does not have the required
 
 #### Example User Policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
