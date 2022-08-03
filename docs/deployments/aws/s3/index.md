@@ -214,7 +214,7 @@ metadata.
 
 ### An unrecognized Forbidden error was thrown while uploading to bucket [bucket-name]
 
-The AWS account or role used to perform the operation does not have the required permissions to create and/or upload to the bucket. This error can be caused by a user and/or bucket policy that is too restrictive. The following user and bucket policy examples contain the minimim required permissions for this step:
+The AWS account or role used to perform the operation does not have the required permissions to create and/or upload to the bucket. This error can be caused by a user and/or bucket policy that is too restrictive. The following user and bucket policy examples contain the minimum required permissions for this step:
 
 #### Example User Policy:
 
