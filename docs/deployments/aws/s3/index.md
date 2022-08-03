@@ -255,7 +255,7 @@ The AWS account or role used to perform the operation does not have the required
 }
 ```
 #### Example Bucket Policy:
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
