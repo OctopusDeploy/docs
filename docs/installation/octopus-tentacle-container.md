@@ -6,11 +6,7 @@ position: 10
 
 Running an Octopus Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. 
 
-Octopus publishes `linux/amd64` Docker images for Tentacle and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/tentacle).
-
-:::warning
-From Tentacle version **6.2**, Windows Docker images are no longer published. Octopus recommends switching to the `linux/amd64` image.
-:::
+Octopus publishes both `windows/amd64` and `linux/amd64` Docker images for Tentacle and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/tentacle).
 
 The Octopus Tentacle Docker image can be run in either [polling](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) or [listening](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommend) mode.
 
