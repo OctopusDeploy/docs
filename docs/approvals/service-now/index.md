@@ -91,7 +91,7 @@ Multiple ServiceNow connections are supported, however, each project can only us
 ### Configuring Work Notes
 
 :::warning
-This feature is only available for version 2022.2.xxx and later
+This feature is only available for version 2022.3.1274 and later
 :::
 
 :::hint
@@ -135,7 +135,7 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 ### Continuous Delivery (CD) audit record
 
 :::warning
-This feature is only available for version 2022.2.xxx and later
+This feature is only available for version 2022.3.7086 and later
 :::
 
 This feature allows a CD workflow using standard changes as audit records at the project level. When enabled a standard change will be created and moved to the `Implement` state, the deployment will execute and then the linked change will be moved to the `Review` state.
