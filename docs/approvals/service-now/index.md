@@ -22,7 +22,7 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 ## Getting started
 
-The Service Now integration requires Octopus **2022.2.5556** or later and an Octopus license with the Service Now Integration feature enabled.
+The ServiceNow integration requires Octopus **2022.2.5556** or later and an Octopus license with the ServiceNow Integration feature enabled.
 
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
@@ -203,7 +203,7 @@ The following list assumes the linked change is in an **approved** state.
 
 ## Known Issues and limitations
 
-- The approval status of a deployment is not evaluated until the deployment scheduled start time has been reached.
+- The approval status of a deployment is not evaluated until the Octopus deployment scheduled start time has been reached.
 - Once a CR is deemed to be related to a deployment, then only this CR will be evaluated for the deployment to proceed. If the CR is incorrect, you will need to cancel the deployment, close the CR and try the deployment again.
 - Each project only supports a single ServiceNow connection.
 - Each project only supports supplying the same **Change Template Name** across all environments in the [Lifecycle](/docs/releases/lifecycles/index.md/) attached to the project or channel.
