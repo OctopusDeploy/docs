@@ -79,12 +79,12 @@
 - Multi-Cloud PetClinic
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1707/operations/runbooks/Runbooks-1762/process/RunbookProcess-Runbooks-1762" target="_blank">Create AKS Cluster</a>: <i>Create an Azure Kubernetes Service cluster.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1707/operations/runbooks/Runbooks-1765/process/RunbookProcess-Runbooks-1765" target="_blank">Destroy AKS Cluster</a>: <i>Destroy the Azure Kubernetes Service cluster and resource group.</i>
-- MySQL Helm Chart
-   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-322/operations/runbooks/Runbooks-304/process/RunbookProcess-Runbooks-304" target="_blank">Create Infrastructure</a>: <i>Runbook to Spin Up a K8s Cluster</i>
-   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-322/operations/runbooks/Runbooks-305/process/RunbookProcess-Runbooks-305" target="_blank">Destroy Infrastructure</a>: <i>Runbook to Destroy the K8s Cluster</i>
 - Octo Pet Shop - Raw YAML
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-302/operations/runbooks/Runbooks-284/process/RunbookProcess-Runbooks-284" target="_blank">Create Octo Pet Shop Azure K8s Cluster</a>: <i>Runbook to Spin Up a K8s Cluster</i>
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-302/operations/runbooks/Runbooks-286/process/RunbookProcess-Runbooks-286" target="_blank">Destroy Octo Pet Shop Azure K8s Cluster</a>: <i>Runbook to Destroy the K8s Cluster</i>
+- PetClinic Helm Chart
+   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-322/operations/runbooks/Runbooks-304/process/RunbookProcess-Runbooks-304" target="_blank">Create Infrastructure</a>: <i>Runbook to Spin Up a K8s Cluster</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-322/operations/runbooks/Runbooks-305/process/RunbookProcess-Runbooks-305" target="_blank">Destroy Infrastructure</a>: <i>Runbook to Destroy the K8s Cluster</i>
     
 **Target - Payara**
 
