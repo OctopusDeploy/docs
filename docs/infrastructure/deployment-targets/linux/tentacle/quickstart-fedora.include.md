@@ -12,7 +12,7 @@ configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
 curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
-yum install tentacle
+yum install tentacle -y
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -35,7 +35,7 @@ configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
 curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
-yum install tentacle
+yum install tentacle -y
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -56,7 +56,7 @@ configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
 curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
-yum install tentacle
+yum install tentacle -y
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
@@ -78,7 +78,7 @@ configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
 curl https://rpm.octopus.com/tentacle.repo -o /etc/yum.repos.d/tentacle.repo
-yum install tentacle
+yum install tentacle -y
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
