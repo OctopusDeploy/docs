@@ -12,22 +12,35 @@ Before you can configure the SSH key pair account in Octopus, you need to genera
 
 ### Generating a key pair on Linux {#SSHKeyPair-Linux}
 
-1. Run the following command on your Linux server: `ssh-keygen -m PEM`
-1. Accept the default location: `~/.ssh/id_rsa`
+:::hint
+From **Octopus 2021.1.7466**, Octopus supports newer ED25519 SSH keys. For older versions, and legacy compatibility, please follow the RSA instructions.
+:::
+
+1. Run the following command on your Linux server:
+```bash ED25519
+ssh-keygen -t ed25519
+```
+```bash RSA
+ssh-keygen -t rsa -m PEM
+```
+This will bring up an interactive dialog, prompting for:
+1. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
 1. Enter a passphrase (or press enter for no passphrase).
 1. If you entered a passphrase, re-enter the passphrase.
 
 You now have two files:
-
-- id_rsa (the private key)
-- id_rsa.pub (the public key)
+- `id_ed25519` or `id_rsa` (the private key)
+- `id_ed25519.pub` or `id_rsa.pub` (the public key)
 
 The public key will be stored on this (the Linux) server and the private key will be copied to the Octopus Server.
 
 5. Copy the public key to the `authorized_keys` file that is used during authentication:
 
-```bash
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```bash ED25519
+cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
+```
+```bash RSA
+cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
 ```
 
 6. Modify the permissions of the `authorized_keys` file:
