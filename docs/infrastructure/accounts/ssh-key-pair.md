@@ -40,7 +40,7 @@ The public key will be stored on this (the Linux) server and the private key wil
 cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
 ```
 ```bash RSA
-cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
 6. Modify the permissions of the `authorized_keys` file:
