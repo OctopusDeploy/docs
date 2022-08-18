@@ -26,7 +26,7 @@ If your database server does not support online index reorganization, Octopus wi
 
 The schedules for these tasks can be configured via **{{Configuration, Settings, SQL Maintenance}}**. Each schedule is defined as a [cron expression](https://en.wikipedia.org/wiki/Cron#Overview). These settings can also be overridden via the following environment variables: `OCTOPUS__Sql__IsMaintenanceEnabled`, `OCTOPUS__Sql__IndexMaintenanceSchedule`, `OCTOPUS__Sql__StatisticsUpdateSchedule`.
 
-If you already perform your own scheduled maintenance, and would like Octopus to not do this for you, then you can also disable database maintenance via via **{{Configuration, Settings, SQL Maintenance}}**.
+If you already perform your own scheduled maintenance, and would like Octopus to not do this for you, then you can also disable database maintenance via **{{Configuration, Settings, SQL Maintenance}}**.
 
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
