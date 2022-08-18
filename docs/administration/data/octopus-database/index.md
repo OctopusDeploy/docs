@@ -12,7 +12,21 @@ Octopus Server requires access to a SQL Server to use for storing relational dat
 
 ## Routine maintenance {#maintenance}
 
+:::hint
+This section only applies to self-hosted versions of Octopus Server, [Octopus Cloud](/docs/octopus-cloud/index.md) instances perform database maintenance in the background without user interaction.
+:::
+
 You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
+
+That being said, Octopus will perform minimal routine maintenance of the database for you. In particular, it will periodically run the following tasks:
+* Reorganize and rebuild heavily fragmented indexes (this operation is done in the background without any downtime when running on Azure SQL or SQL Enterprise).
+* Update query optimization statistics for all tables.
+
+If your database server does not support online index reorganization, Octopus will perform index maintenance every time your Octopus Deploy instance is updated.
+
+The schedules for these tasks can be configured via **{{Configuration, Settings, SQL Maintenance}}**. Each schedule is defined as a [cron expression](https://en.wikipedia.org/wiki/Cron#Overview). These settings can also be overridden via the following environment variables: `OCTOPUS__Sql__IsMaintenanceEnabled`, `OCTOPUS__Sql__IndexMaintenanceSchedule`, `OCTOPUS__Sql__StatisticsUpdateSchedule`.
+
+If you already perform your own scheduled maintenance, and would like Octopus to not do this for you, then you can also disable database maintenance via via **{{Configuration, Settings, SQL Maintenance}}**.
 
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
@@ -40,7 +54,7 @@ Each installation of Octopus Deploy will have different data and usage patterns.
 
 **Feel free to create database indexes which suit your scenario, but please understand the impact of modifying the schema.**
 
-We make certain assumptions about the database schema when you upgrade Octopus Server, and the presence (or absence) of indexes may cause your upgrade to fail. To enable custom indexes, the upgrade process will automatically remove any "additional indexes", and then provide you with a script to re-add those indexes again.
+We make certain assumptions about the database schema when you upgrade Octopus Server, and the presence (or absence) of indexes may cause your upgrade to fail. The upgrade process will automatically detect any "additional indexes" and then log warnings about the extra indexes.
 
 If you feel like an index would benefit everyone using Octopus, please contact our [support team](https://octopus.com/support) so we can consider making that index part of the standard database schema.
 
