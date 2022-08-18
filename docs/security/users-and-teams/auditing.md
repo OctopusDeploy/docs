@@ -7,7 +7,7 @@ position: 30
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
 :::hint
-The [Audit Retention functionality](#manage-archived-audit-events) was introduced in **Octopus 2022.3** and is being rolled out in stages for our Cloud customers first. It will be made available to Self-hosted customers in **Octopus 2022.4**.
+The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2022.3** and is being rolled out in stages for our Cloud customers first. It will be made available to Self-hosted customers in **Octopus 2022.4**.
 :::
 
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
@@ -24,7 +24,8 @@ Some  general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does not** capture login and logout events for specific user accounts.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
-- Entries older than 90 days (default, configurable up to 365 days) are archived and deleted from the database. Archived events are not queryable through the user interface.
+- Entries older than 90 days (default, configurable up to 365 days) are archived, and are no longer queryable through the user interface.
+- Archived entries are stored on the file system, and can be accessed via the [Manage archived audit logs](#accessing-archived-logs) page.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
@@ -50,9 +51,12 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams/index.md).
 
+In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
+
+### Accessing archived logs {#accessing-archived-logs}
 Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived events** option.
 
-In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
+![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
 
 ### Modifying and deleting audit logs is prevented
 
@@ -66,7 +70,7 @@ If you make a change to a sensitive value in Octopus, you will notice we write a
 
 We take the sensitive value and hash it using an irreversible hash algorithm. We then encrypt that hash with a new, unique, non-deterministic salt. We use this irreversible value as an indicator that the sensitive value actually changed in some way.
 
-### Manage archived audit logs {#manage-archived-audit-events}
+### Archived audit logs {#archived-audit-events}
 
 :::hint
 Audit Retention functionality was introduced in **Octopus 2022.3** and is being rolled out in stages for our Cloud customers first. It will be made available to Self-hosted customers in **Octopus 2022.4**.
