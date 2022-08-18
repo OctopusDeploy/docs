@@ -19,10 +19,10 @@ This section only applies to self-hosted versions of Octopus Server, [Octopus Cl
 You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
 
 That being said, Octopus will perform minimal routine maintenance of the database for you. In particular, it will periodically run the following tasks:
-* Reorganize and rebuild heavily fragmented indexes (this operation is done in the background without any downtime when running on Azure SQL or SQL Enterprise).
+* Rebuild heavily fragmented indexes (this operation is done in the background without any downtime when running on Azure SQL or SQL Enterprise).
 * Update query optimization statistics for all tables.
 
-If your database server does not support online index reorganization, Octopus will perform index maintenance every time your Octopus Deploy instance is updated.
+If your database server does not support online index rebuilding, Octopus will perform index maintenance every time your Octopus Deploy instance is upgraded.
 
 The schedules for these tasks can be configured via **{{Configuration, Settings, SQL Maintenance}}**. Each schedule is defined as a [cron expression](https://en.wikipedia.org/wiki/Cron#Overview). These settings can also be overridden via the following environment variables: `OCTOPUS__Sql__IsMaintenanceEnabled`, `OCTOPUS__Sql__IndexMaintenanceSchedule`, `OCTOPUS__Sql__StatisticsUpdateSchedule`.
 
