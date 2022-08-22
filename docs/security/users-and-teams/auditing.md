@@ -54,7 +54,7 @@ To grant a user access to audit logs you can make use of a built-in User Role th
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
 ### Accessing archived logs {#accessing-archived-logs}
-Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived events** option.
+Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
 
 ![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
 
