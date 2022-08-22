@@ -23,7 +23,7 @@ ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/sc
 
 Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
 
-:::warning 
+:::warning
 ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
 :::
 
@@ -53,7 +53,7 @@ Many of the steps described below require elevated permissions, or must be run a
 apt-key adv --fetch-keys https://apt.octopus.com/public.key
 
 add-apt-repository "deb https://apt.octopus.com/ stretch main"
-# for Raspbian use 
+# for Raspbian use
 # sh -c "echo 'deb https://apt.octopus.com/ buster main' >> /etc/apt/sources.list"
 
 apt-get update
@@ -62,11 +62,11 @@ apt-get install tentacle
 
 ```bash Redhat/CentOS/Fedora repository
 wget https://rpm.octopus.com/tentacle.repo -O /etc/yum.repos.d/tentacle.repo
-yum install tentacle
+yum install tentacle -y
 ```
 
 ```bash Archive
-arch="x64" 
+arch="x64"
 # arch="arm" # for Raspbian 32-bit
 # arch="arm64" # for 64-bit OS on ARM v7+ hardware
 
@@ -139,36 +139,36 @@ To install and start Tentacle as a service, use the `Tentacle service` command:
 To manually configure a systemd service, use the following sample unit file:
 
 1. Create a systemd **Unit file** to run Tentacle.
-    ```
-    [Unit]
-    Description=Octopus Tentacle Server
-    After=network.target
+   ```
+   [Unit]
+   Description=Octopus Tentacle Server
+   After=network.target
 
-    [Service]
-    Type=simple
-    User=root
-    ExecStart=/opt/octopus/tentacle/Tentacle run --instance <instance name> --noninteractive
-    Restart=always
+   [Service]
+   Type=simple
+   User=root
+   ExecStart=/opt/octopus/tentacle/Tentacle run --instance <instance name> --noninteractive
+   Restart=always
 
-    [Install]
-    WantedBy=multi-user.target
-    ```
+   [Install]
+   WantedBy=multi-user.target
+   ```
 
 2. Copy the unit file to `/etc/systemd/system` and give it permissions
-    ```
-    sudo cp tentacle.service /etc/systemd/system/tentacle.service
-    sudo chmod 644 /etc/systemd/system/tentacle.service
-    ```
+   ```
+   sudo cp tentacle.service /etc/systemd/system/tentacle.service
+   sudo chmod 644 /etc/systemd/system/tentacle.service
+   ```
 
 3. Start the Tentacle service
-    ```
-    sudo systemctl start tentacle
-    ```
+   ```
+   sudo systemctl start tentacle
+   ```
 
 4. Use the `enable` command to ensure that the service start whenever the system boots.
-    ```
-    sudo systemctl enable tentacle
-    ```
+   ```
+   sudo systemctl enable tentacle
+   ```
 
 ## Automatic Tentacle upgrades
 Linux Tentacle can be upgraded via the Octopus portal from the {{Infrastructure > Deployment Targets}} screen. The upgrade attempts to find a package manager capable of performing the upgrade, and then falls back to extracting a `tar.gz` archive to the Tentacle installation folder.
@@ -217,10 +217,10 @@ The following bash scripts install, configure and register Linux Tentacle for us
 - Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 - By default, when registering Linux Targets or Workers, the scripts below assume Octopus will communicate with the target or worker using the server hostname (from the `$HOSTNAME` variable). To provide a different address, consider looking up the hostname/IP address. For example:
 
-    ```bash
-    publicIp=$(curl -s https://ifconfig.info)
-    ```
-    You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command by providing the value to the `--publicHostName` parameter.
+      ```bash
+      publicIp=$(curl -s https://ifconfig.info)
+      ```
+      You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md) command by providing the value to the `--publicHostName` parameter.
 :::
 
 !include <quickstart-debian>

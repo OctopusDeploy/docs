@@ -19,7 +19,7 @@ The table below outlines the backward compatibility between Octopus Server and r
 | 2019.2* ➜ 2022.1 | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    |
 | 2022.2** ➜ latest | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 6.2 ➜ latest | 5.0 ➜ latest    |
 
-### **&ast; Partial forwards compatibility**
+### **&ast; Partial forward compatibility**
 
 Older versions of some libraries and plugins _may_ work with **2019.1** and higher _only if_ the [default space](https://oc.to/default-space) is enabled and such integrations are only used against that space. To make use of other spaces, please upgrade.
 

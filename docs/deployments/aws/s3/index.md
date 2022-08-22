@@ -211,3 +211,71 @@ An error occurred uploading a file to a bucket possibly due to metadata. Specifi
 
 This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://oc.to/AwsS3UsingMetadata) is not used as part of
 metadata.
+
+### An unrecognized Forbidden error was thrown while uploading to bucket [bucket-name]
+
+The AWS account or role used to perform the operation does not have the required permissions to create and/or upload to the bucket. This error can be caused by a user and/or bucket policy that is too restrictive. The following user and bucket policy examples contain the minimum required permissions for this step:
+
+#### Example User Policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAccountOperations",
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowBucketOperations",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:CreateBucket"
+            ],
+            "Resource": "arn:aws:s3:::my-bucket-name"
+        },
+        {
+            "Sid": "AllowObjectOperations",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::my-bucket-name/*"
+            ]
+        }
+    ]
+}
+```
+#### Example Bucket Policy:
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::my_bucket_name/*",
+            "Condition": {
+                "StringNotLike": {
+                    "aws:userId": [
+                        "aws-user-id:*",
+                        "aws-user-id"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
