@@ -39,12 +39,14 @@ To discover Azure cloud resources, Octopus uses the following variables:
 From **Octopus 2022.3**, Azure steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet.
 
 1. Open the deployment process and navigate to the Azure step.
-1. Expand the **Cloud Connections** section.
-1. Click the **Azure** tile. If target discovery variables have not been configured, this will say **Configure Now**.
+1. Expand the **Cloud Connections** section. If target discovery variables have not been configured, the **Azure** tile will say **Configure**.
+1. Click the **Azure** tile to open the **Azure Cloud Connection** drawer.
 1. Select the Azure Account to use.
 1. Click **Ok**. This will save the well-known variables above into your project.
 
 ![Configuring Cloud Connections for an Azure step](configure-azure-target-discovery.png "width=500")
+
+Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
 ### AWS
 
@@ -63,12 +65,14 @@ To discover AWS cloud resources, Octopus uses the following variables:
 From **Octopus 2022.3**, AWS steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet:
 
 1. Open the deployment process and navigate to the AWS step
-1. Expand the **Cloud Connections section.
-1. Click the **Amazon Web Services** tile. If target discovery variables have not been configured, this will say **Configure Now**.
+1. Expand the **Cloud Connections** section. If target discovery variables have not been configured, the **Amazon Web Services** tile will say **Configure**.
+1. Click the **Amazon Web Services** tile to open the **AWS Cloud Connection** drawer.
 1. Choose the credentials to use for target discovery.
 1. Click **Ok**. This will save the well-known variables above into your project.
 
 ![Configuring Cloud Connections for an AWS step](configure-aws-target-discovery.png "width=500")
+
+Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
 ## Tag cloud resources
 
