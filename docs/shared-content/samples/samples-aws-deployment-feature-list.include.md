@@ -8,9 +8,9 @@
     
 **Target - MariaDB**
 
-- <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-363/deployments/process" target="_blank">DBUp - AWS RDS</a>: <i>Example project for automated database deployments using Dbup against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildDBUp#all-projects)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-363/deployments/process" target="_blank">DBUp - AWS RDS</a>: <i>Example project for automated database deployments using Dbup against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildDBUp#all-projects) At this time, DBuP is not compatible with the latest version of MariaDB.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-369/deployments/process" target="_blank">Flyway - AWS RDS</a>: <i>Example project for automated database deployments using Flyway against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-424/deployments/process" target="_blank">RoundhousE - AWS RDS</a>: <i>Example project for automated database deployments using RoundhousE against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildRoundhouse)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-424/deployments/process" target="_blank">RoundhousE - AWS RDS</a>: <i>Example project for automated database deployments using RoundhousE against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildRoundhouse) RoundhousE has been deprecated and no longer compatible with the latest version of MariaDB.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-703/deployments/process" target="_blank">Liquibase - AWS RDS</a>: <i>Sample project that creates and deploys the sakila database to an AWS RDS MariaDB instance using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
     
 **Target - MySQL**

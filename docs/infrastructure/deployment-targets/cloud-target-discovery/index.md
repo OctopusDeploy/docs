@@ -168,7 +168,7 @@ Server will not remove unhealthy targets immediately. Targets need to fail multi
 
 ### Azure Web App
 
-Let's say you have an project in Octopus called _Pet Shop_ that deploys an application to an Azure Web App in a _Development_ environment using a role of _PetShopFrontEnd_ and this web app is dynamically created as part of the deployment using an ARM template.
+Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Azure Web App in a _Development_ environment using a role of _PetShopFrontEnd_ and this web app is dynamically created as part of the deployment using an ARM template.
 
 To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target.md) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget.md) or manually remove the target in Octopus.
 
