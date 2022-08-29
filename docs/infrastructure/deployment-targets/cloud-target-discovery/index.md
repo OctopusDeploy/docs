@@ -22,6 +22,10 @@ We recommend cloud target discovery over the existing [dynamic infrastructure](/
 
 To perform discovery of targets from cloud resources, Octopus uses a well-known set of variables configured within your project to provide the credentials for authentication to the cloud provider. Variables can be [scoped](/docs/projects/variables/index.md#scoping-variables) allowing for different credentials to be used when performing discovery as required (for example in different environments).
 
+:::hint
+From **Octopus 2022.3**, you can configure the well-known variables used for target discovery when editing your deployment process in the Web Portal.
+:::
+
 The variables used are different for each supported cloud provider.
 
 ### Azure
@@ -31,6 +35,18 @@ To discover Azure cloud resources, Octopus uses the following variables:
 | Name                    | Required | Description                                                                                                   |
 | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
 | `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables.md) to use when discovering cloud targets |
+
+From **Octopus 2022.3**, Azure steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet.
+
+1. Open the deployment process and navigate to the Azure step.
+1. Expand the **Cloud Connections** section. If target discovery variables have not been configured, the **Azure** tile will say **Configure**.
+1. Click the **Azure** tile to open the **Azure Cloud Connection** drawer.
+1. Select the Azure Account to use.
+1. Click **Ok**. This will save the well-known variables above into your project.
+
+![Configuring Cloud Connections for an Azure step](configure-azure-target-discovery.png "width=500")
+
+Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
 ### AWS
 
@@ -45,6 +61,18 @@ To discover AWS cloud resources, Octopus uses the following variables:
 | `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                                                                            |
 | `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                                                                             |
 | `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external ID to use if assuming a role during discovery. See the AWS documentation for more information on the use of external IDs.                                                                                                                        |
+
+From **Octopus 2022.3**, AWS steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet:
+
+1. Open the deployment process and navigate to the AWS step
+1. Expand the **Cloud Connections** section. If target discovery variables have not been configured, the **Amazon Web Services** tile will say **Configure**.
+1. Click the **Amazon Web Services** tile to open the **AWS Cloud Connection** drawer.
+1. Choose the credentials to use for target discovery.
+1. Click **Ok**. This will save the well-known variables above into your project.
+
+![Configuring Cloud Connections for an AWS step](configure-aws-target-discovery.png "width=500")
+
+Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
 ## Tag cloud resources
 
@@ -103,7 +131,7 @@ Using target discovery during a deployment means that there may be no existing t
 
 ## Discovering existing targets
 
-Cloud Target Discovery will often discover resources which already have targets in Octopus. Here are some things to be aware of: 
+Cloud Target Discovery will often discover resources which already have targets in Octopus. Here are some things to be aware of:
 
 ### Previously discovered targets
 
