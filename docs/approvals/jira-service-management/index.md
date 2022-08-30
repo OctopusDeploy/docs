@@ -1,7 +1,6 @@
 ---
 title: Jira Service Management Integration
-description: Octopus Deploy can integrate with your Jira Service Management instance for deployment 
-control using Change Requests/Issues
+description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 position: 10
 ---
 
