@@ -7,7 +7,7 @@ position: 10
 :::warning
 The Jira Service Management (JSM) Integration feature is only available as an EAP for version 
 **2022.3.12101** or later and it requires a specific feature license to use it. To request a 
-license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
+license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/jsm-eap)
 :::
 
 ## Overview
@@ -54,7 +54,8 @@ Take note of the password assigned or generated for this user.
 
 For the JSM approval checks to be performed as part of the deployment process, an appropriate Octopus license must be configured in your Octopus instance.
 
-A JSM enabled Octopus license must be requested from Octopus directly, and cannot be managed through the self-service process. To request a license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
+A JSM enabled Octopus license must be requested from Octopus directly, and cannot be managed 
+through the self-service process. To request a license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/jsm-eap)
 
 Once you have received your feature-enabled license, you can install it by navigating to **{{Configuration, License}}**.
 
