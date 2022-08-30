@@ -103,7 +103,7 @@ during the deployment lifecycle which record details about the deployment and it
 To enable this feature navigate to **Configuration ➜ Settings ➜ Jira Service Management 
 Integration**, click the **Customer Comments Enabled** checkbox show below then click **Save**.
 
-![JSM Integration Enable Work Notes](images/jsm-worknotes-settings.png "width=500")
+![JSM Integration Enable Work Notes](images/jsm-customer-comments-settings.png "width=500")
 
 ## Configuring deployments
 
@@ -120,7 +120,7 @@ To enable a project to enforce a requirement for an approved CR:
 
 ![JSM Integration Project settings](images/jsm-project-settings.png "width=500")
 
-### Default Behaviour
+### Default Behavior
 
 Deployments resulting in a CR creation will produce an issue with a Request Type of "Request a 
 change".
