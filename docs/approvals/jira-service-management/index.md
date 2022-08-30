@@ -7,10 +7,8 @@ position: 10
 
 :::warning
 The Jira Service Management (JSM) Integration feature is only available as an EAP for version 
-**2022.3.
-12101** or later and it requires a specific feature license to use it. To request a 
-license register for the [JSM Early Access Program](https://octopusdeploy.
-typeform.com/servicenow-eap)
+**2022.3.12101** or later and it requires a specific feature license to use it. To request a 
+license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
 :::
 
 ## Overview
@@ -46,7 +44,7 @@ Before you can use the Octopus Deploy/JSM integration, you'll need to:
 The instructions in this section will require a JSM Administrator.
 :::
 
-The Octopus Deploy / JSM integration requires security configuration in your target JSM instance.
+The Octopus Deploy/JSM integration requires security configuration in your target JSM instance.
 
 The integration will require a user account in JSM. The recommendation is to create a 
 service account specifically for Octopus.
