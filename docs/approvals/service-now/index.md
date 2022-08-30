@@ -22,7 +22,7 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 ## Getting started
 
-The ServiceNow integration requires Octopus **2022.2.5556** or later and an Octopus enterprise license.
+The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise license.
 
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
