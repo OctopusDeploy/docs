@@ -49,7 +49,7 @@ How many deployments occur to the target environment.
 
 How long it takes to recover a failed deployment with a subsequent successful deployment.
 
-> Some of these metrics differ slightly from the textbook DORA metrics given the data available. Learn more [here](/).
+> Some of these metrics differ slightly from the textbook DORA metrics given the data available. Learn more here.
 
 Together these metrics help you qualify the results of your DevOps performance, as well as gain insights into areas for future improvement.
 
@@ -81,7 +81,7 @@ With the Space level insights, you can build reports with the relevant data that
 
 This also allows you to easily identify contributors to a performance trend you see at the aggregated level. It provides a breakdown of highest and lowest performing projects, and releases that may have a significant impact on the overall performance. This enables you to identify where things are improving or declining and take action based on that.
 
-> Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don’t have access to. Find out more [here](/).
+> Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don’t have access to. Find out more here.
 
 **TODO: Nicely polished summary graphic for Space-Level Insights**
 
