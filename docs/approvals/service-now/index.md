@@ -5,7 +5,7 @@ position: 10
 ---
 
 :::warning
-The ServiceNow Integration feature is available from version **2022.3** and requires an [enterprise license](https://octopus.com/enterprise). Any customers on the existing EAP will be required to move to an enterprise license once their current feature trial expires.
+The ServiceNow Integration feature is available from version **2022.3** onwards and requires an [enterprise license](https://octopus.com/enterprise).
 :::
 
 ## Overview
