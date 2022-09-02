@@ -5,7 +5,7 @@ position: 10
 ---
 
 :::warning
-The ServiceNow Integration feature is only available as an EAP for version **2022.2.5556** or later and it requires a ServiceNow feature license to use it. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
+The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise license](https://octopus.com/enterprise).
 :::
 
 ## Overview
@@ -22,12 +22,12 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 ## Getting started
 
-The ServiceNow integration requires Octopus **2022.2.5556** or later and an Octopus license with the ServiceNow Integration feature enabled.
+The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise license.
 
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
 1. Configure ServiceNow OAuth credentials (for use by Octopus).
-1. Request and install a new Octopus license required to enable the ServiceNow feature.
+1. Request and install an enterprise license which is required to enable the ServiceNow feature.
 1. Configure a connection from Octopus to ServiceNow.
 1. Configure which deployments require an approved CR.
 
@@ -52,11 +52,9 @@ Take note of the password assigned or generated for this user.
 
 ### Licensing
 
-For the ServiceNow approval checks to be performed as part of the deployment process, an appropriate Octopus license must be configured in your Octopus instance.
+For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/enterprise) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
 
-A ServiceNow enabled Octopus license must be requested from Octopus directly, and cannot be managed through the self-service process. To request a license register for the [ServiceNow Early Access Program](https://octopusdeploy.typeform.com/servicenow-eap)
-
-Once you have received your feature-enabled license, you can install it by navigating to **{{Configuration, License}}**.
+Once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**.
 
 An enabled license will include a block similar to below:
 
