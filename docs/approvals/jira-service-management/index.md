@@ -13,7 +13,7 @@ license register for the [JSM Early Access Program](https://octopusdeploy.typefo
 ## Overview
 
 The Octopus Deploy/JSM integration allows users to block the execution of 
-specifically configured deployments unless they have a corresponding approved JSM  **Change 
+specifically configured deployments unless they have a corresponding approved JSM **Change 
 Request** (aka issue).
 
 To enable this behavior, both the Octopus Project and Environment you are deploying to must be 
