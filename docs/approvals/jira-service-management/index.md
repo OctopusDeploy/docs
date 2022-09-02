@@ -123,7 +123,7 @@ To enable a project to enforce a requirement for an approved CR:
 ### Default Behavior
 
 Deployments resulting in a CR creation will produce an issue with a Request Type of **Request a 
-change".
+change**
 
 ### Supplying the CR number to a deployment
 
