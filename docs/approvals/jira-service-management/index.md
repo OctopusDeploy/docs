@@ -5,7 +5,7 @@ position: 10
 ---
 
 :::warning
-The Jira Service Management (JSM) Integration feature is only available as an EAP for version 
+The Jira Service Management (JSM) Integration feature is only available as an EAP for Octopus 
 **2022.3.12101** or later, and it requires a specific feature license to use it. To request a 
 license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/jsm-eap)
 :::
