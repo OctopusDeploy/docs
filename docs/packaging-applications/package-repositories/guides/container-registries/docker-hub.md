@@ -6,7 +6,7 @@ position: 50
 
 The default Docker Registry, which is maintained by the Docker organization, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
 
-Searching for official public repositories do not require credentials. However searching for repositories of a non-official repository will require you to provide your Docker Hub username and password.
+From September 5th 2022, the Docker Hub Registry is [deprecating v1 endpoints](https://www.docker.com/blog/docker-hub-v1-api-deprecation) to retrieve tags and images. The equivalent v2 endpoints require authentication. Therefore external feeds will require a username and password to access the Docker Hub API. Searching for repositories of a non-official repository will also require you to provide your Docker Hub username and password. Searching for official public repositories does not require credentials.
 
 :::problem
 **DockerHub Private Repository Limitations**
@@ -31,5 +31,6 @@ To use the Docker Hub registry in Octopus Deploy, create an external feed with t
 - **Name:** DockerHub (or anything else that makes sense to you)
 - **URL:** [https://index.docker.io](https://index.docker.io)
 - **Registry Path:** *leave blank*
+- **Credentials:** Username and Password (Login for your DockerHub account, this is required for accessing public repositories)
 
 ![Docker Hub Registry Feed](images/dockerhub-feed.png "width=500")
