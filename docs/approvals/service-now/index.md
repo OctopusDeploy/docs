@@ -5,7 +5,7 @@ position: 10
 ---
 
 :::warning
-The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise license](https://octopus.com/enterprise).
+The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/enterprise).
 :::
 
 ## Overview
@@ -22,12 +22,13 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 ## Getting started
 
-The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise license.
+The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise subscription.
 
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
 1. Configure ServiceNow OAuth credentials (for use by Octopus).
-1. Request and install an enterprise license which is required to enable the ServiceNow feature.
+1. Request an enterprise license which is required to enable the ServiceNow feature.
+1. Install the enterprise license (for Self-hosted customers only)
 1. Configure a connection from Octopus to ServiceNow.
 1. Configure which deployments require an approved CR.
 
@@ -54,7 +55,7 @@ Take note of the password assigned or generated for this user.
 
 For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/enterprise) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
 
-Once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**.
+For Self-hosted customers, once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**. For Octopus Cloud customers, the license will be applied automatically for you.
 
 An enabled license will include a block similar to below:
 
