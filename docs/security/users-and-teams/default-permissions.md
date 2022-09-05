@@ -562,6 +562,8 @@ description: A listing of the default permissions for each of the built-in user 
 | --------------------------- | ---------------------------------------- |
 | AdministerSystem            | Perform system-level functions like configuring HTTP web hosting, the public URL, server nodes, maintenance mode, and server diagnostics |
 | ConfigureServer             | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
+| EventRetentionDelete        | Delete archived event files |
+| EventRetentionView          | View/list archived event files |
 | EventView                   | View Events, including access to the Audit screen |
 | TeamCreate                  | Create teams |
 | TeamView                    | View teams |
@@ -586,6 +588,8 @@ description: A listing of the default permissions for each of the built-in user 
 | System Permission           | Description                              |
 | --------------------------- | ---------------------------------------- |
 | ConfigureServer             | Configure server settings like Authentication, SMTP, and HTTP Security Headers |
+| EventRetentionDelete        | Delete archived event files |
+| EventRetentionView          | View/list archived event files |
 | EventView                   | View Events, including access to the Audit screen |
 | TeamCreate                  | Create teams |
 | TeamView                    | View teams |
