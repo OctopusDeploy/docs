@@ -17,7 +17,6 @@ The table below outlines the backward compatibility between Octopus Server and r
 | 2018.2 ➜ 2018.12 | 4.30.7 ➜ 4.47.0                    | 3.5 ➜ latest    | 3.0 ➜ latest | 3.3 ➜ latest    |
 | 2019.1*           | 5.0.0 ➜ 5.2.7                      | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    |
 | 2019.2* ➜ 2022.1 | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 4.0 ➜ latest | 5.0 ➜ latest    |
-| 2022.2** ➜ latest | 6.0.0 ➜ latest                     | 3.5 ➜ latest    | 6.2 ➜ latest | 5.0 ➜ latest    |
 
 ### **&ast; Partial forward compatibility**
 
@@ -30,12 +29,6 @@ The table below outlines partially forwards compatible scenarios between Octopus
 | Octopus Server    | Octopus.Client & Octopus CLI (octo) | Calamari     | Tentacle    | TeamCity Plugin |
 | --------------    | ----------------------------------- | --------     | --------    | --------------- |
 | 2019.1  ➜ latest | 4.30.7 ➜ 4.47.0                    | 3.5 ➜ 4.12.0 | 3.0 ➜ 3.25 | 3.3 ➜ latest   |
-
-### **&ast;&ast; Partial forwards compatibility with older Tentacles**
-
-Versions of Tentacle older than **6.2** will still work with Octopus **2022.2** and higher. However, you may experience longer wait times when running tasks. We recommend upgrading all Tentacles to ensure your deployments run at optimum performance. 
-
-For more information, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6664).
 
 ## Operating System compatibility
 
