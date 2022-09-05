@@ -4,7 +4,7 @@ description: Insights gives you better visibility into your company's DevOps per
 position: 100
 ---
 
-**TODO: Add screenshot of overview**
+![The Overview page of Insights Reports](images/overview.png)
 
 DevOps insights (early access) in Octopus gives you better visibility into your company’s DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results. 
 
@@ -49,7 +49,7 @@ How many deployments occur to the target environment.
 
 How long it takes to recover a failed deployment with a subsequent successful deployment.
 
-> Some of these metrics differ slightly from the textbook DORA metrics given the data available. Learn more here.
+> Some of these metrics differ slightly from the textbook DORA metrics given the data available.
 
 Together these metrics help you qualify the results of your DevOps performance, as well as gain insights into areas for future improvement.
 
@@ -61,9 +61,9 @@ Together these metrics help you qualify the results of your DevOps performance, 
 
 ## Understand performance of your projects with Project level Insights
 
-**TODO: Screenshot of Project-Level Insights**
+![Project Insights Deployment Frequency](images/project.png)
 
-Project level insights are available as a new tab in every project so you can understand performance of your projects across Channels, Environments and Tenants. Each metric can be seen at a summary level and insights can also be filtered to time frames including last month, quarter and year, channels and environments, as well as being exported into CSV. Learn more about how to use Project level insights here.
+Project level insights are available as a new tab in every project so you can understand performance of your projects across Channels, Environments and Tenants. Each metric can be seen at a summary level and insights can also be filtered to time frames including last month, quarter and year, channels and environments, as well as being exported into CSV.
 
 Project level insights are available to all customers out-of-the-box meaning you don’t have to buy or subscribe to another tool. If you’re already a user, Octopus already has all the data it needs to help you uncover rich insights based on your deployment history.
 
@@ -81,9 +81,7 @@ With the Space level insights, you can build reports with the relevant data that
 
 This also allows you to easily identify contributors to a performance trend you see at the aggregated level. It provides a breakdown of highest and lowest performing projects, and releases that may have a significant impact on the overall performance. This enables you to identify where things are improving or declining and take action based on that.
 
-> Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don’t have access to. Find out more here.
-
-**TODO: Nicely polished summary graphic for Space-Level Insights**
+> Users who have view permissions to Space-level Insights reports will see sanitized data on projects / environments they don’t have access to.
 
 Enterprise DevOps Insights (Space-level) are available as a part of the Octopus Deploy Enterprise tier.
 
