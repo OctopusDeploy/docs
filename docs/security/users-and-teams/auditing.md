@@ -64,6 +64,10 @@ Octopus actively prevents modifying or deleting audit logs within the configured
 
 Entries older than the retention period can be deleted by users with the appropriate permissions (typically `Octopus Manager`). An audit log entry will be created each time an archived event file is deleted. Archived files are saved at a filesystem level. So any user that has the appropriate permissions could view or delete these files. If this is a concern, you should restrict the permissions to access the configured folder appropriately.
 
+:::warning
+As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
+:::
+
 ### Sensitive values in audit logs
 
 If you make a change to a sensitive value in Octopus, you will notice we write an audit log showing the fact the sensitive value changed. The value we show in the audit log is simply **an indicator the value has changed**. This is **not** the unencrypted/raw value. This is **not** even the encrypted value.
@@ -84,7 +88,7 @@ Users with appropriate permissions (typically `Octopus Manager`) can download or
 
 :::warning
 **Take care deleting archived files**
-Deleting the archived files will permanently erase the audit entries.
+Deleting the archived files will permanently erase the audit entries. As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
 :::
 
 The archived files can also be accessed via the Octopus REST API endpoints `/api/event/archives` and `/api/event/archives/{filename}`.
