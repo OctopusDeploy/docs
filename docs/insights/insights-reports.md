@@ -71,8 +71,10 @@ By default, some other built-in roles also include Insights report permissions:
 | InsightsReportDelete | Project initiator |
 | InsightsReportCreate | Project initiator |
 
-If you don’t have view permissions for any given project/environment/tenant, you will still be able to see aggregated data that includes them, however their names will be hidden.
+If you do not have view permissions for any given project/environment/tenant, you will still be able to see the aggregated data that includes them, however their names will be hidden.
 
 If you don’t like that these roles include these permissions, then you should create custom roles catered to your specific needs.
 
+:::success
 For more information on how to do this, please see [creating user roles](https://octopus.com/docs/security/users-and-teams/user-roles#UserRoles-CreatingUserRoles).
+:::
