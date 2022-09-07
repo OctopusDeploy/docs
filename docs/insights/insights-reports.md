@@ -37,9 +37,42 @@ Any tenants with the selected tags will be included in the report
 
 ## Charts
 
-The tiem range select for reports works the same as it does for project level insights.
+The time range select for reports works the same as it does for project level insights.
 
 ## Splits
 
+You can split the data by project, environment, environment group, tenant, or tag set.
+
 ## Permissions
 
+Permissions are available to help you manage access to Insights reports, these include:
+
+| Permission           | Description            |
+| -------------------- | ---------------------- |
+| InsightsReportView   | You can view Insights reports. |
+| InsightsReportEdit   | You can edit Insights reports, including changing the report's project groups, projects, and environment groups. |
+| InsightsReportDelete | You can delete Insights reports. |
+| InsightsReportCreate | You can create Insights reports. |
+
+You can limit your team’s ability to view, edit, delete and create Insights reports by disabling these permissions.
+
+There is a role we include out-of-the-box to encapsulate these new permissions:
+
+| Role                    | Description            |
+| ----------------------- | ---------------------- |
+| Insights report manager | Insights report managers can view, edit, create, and delete Insights reports.  They can also view environments, project groups, projects, tenants, and deployment processes and channels. These view permissions are necessary to see the Insights report data. |
+
+By default, some other built-in roles also include Insights report permissions:
+
+| Permission           | Roles            |
+| -------------------- | ---------------------- |
+| InsightsReportView   | Project initiator, Project contributor, Project lead, Project deployer, Project viewer, Release creator, Deployment creator, Build server |
+| InsightsReportEdit   | Project initiator, Project contributor, Project lead, Project deployer |
+| InsightsReportDelete | Project initiator |
+| InsightsReportCreate | Project initiator |
+
+If you don’t have view permissions for any given project/environment/tenant, you will still be able to see aggregated data that includes them, however their names will be hidden.
+
+If you don’t like that these roles include these permissions, then you should create custom roles catered to your specific needs.
+
+For more information on how to do this, please see [creating user roles](https://octopus.com/docs/security/users-and-teams/user-roles#UserRoles-CreatingUserRoles).
