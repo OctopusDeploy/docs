@@ -1111,3 +1111,4 @@ docs/deploying-applications/index.md -> docs/deployments/index.md
 docs/api-and-integration/team-foundation-server-(tfs)/index.md -> docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/extension-compatibility.md
 docs/octopus-cloud/data.md -> docs/octopus-cloud/disaster-recovery.md
 docs/administration/spaces/private-space.md -> docs/administration/spaces/index.md
+docs/projects/version-control/configuring-version-control-on-a-project.md -> docs/projects/version-control/converting/index.md
