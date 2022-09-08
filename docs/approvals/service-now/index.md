@@ -5,7 +5,7 @@ position: 10
 ---
 
 :::warning
-The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/enterprise).
+The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing).
 :::
 
 ## Overview
