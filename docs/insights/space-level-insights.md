@@ -36,7 +36,7 @@ Only data from the default channel for each project is shown. This is to avoid p
 
 ### Environments
 
-Environment groups are a way to logically group environments so that they can be reported on together. In this section, create a group for each logical group of environment and then add the relevant environments to the group. By doing this you are able to compare the data between these groups using the split function. There must be at least one environment group with one environment for the report to generate data.
+Environment groups are a way to logically group environments so that they can be reported on together. In this section, create a group for each logical group of environments and then add the relevant environments to the group. By doing this you are able to compare the data between these groups using the split function. There must be at least one environment group containing one environment for the report to generate data.
 
 For example, the environment group "Production" may contain the environments "Production US", "Production EU" and "Disaster Recovery".
 
