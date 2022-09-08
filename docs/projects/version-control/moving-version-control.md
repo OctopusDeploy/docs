@@ -1,7 +1,7 @@
 ---
 title: Moving version control
 description: Changing the location of your configuration repository. 
-position: 60
+position: 70
 ---
 
 Version-control is configured per project and is accessed via the **{{ Settings, Version Control }}** link in the project navigation menu. This page will walk you through moving an existing config as code repository to a new location.

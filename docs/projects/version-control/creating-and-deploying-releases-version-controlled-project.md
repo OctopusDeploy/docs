@@ -1,7 +1,7 @@
 ---
 title: Creating and deploying releases on a version-controlled project
 description: What to expect when creating and deploying releases on a version-controlled project using the Configuration as Code feature in Octopus Deploy.
-position: 40 
+position: 50 
 ---
 
 There are slight differences when creating and deploying a release with a version-controlled project using the Configuration as Code feature in Octopus Deploy. This page will walk through those differences.

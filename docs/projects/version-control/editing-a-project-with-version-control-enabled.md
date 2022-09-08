@@ -1,7 +1,7 @@
 ---
 title: Editing a project with version control enabled
 description: What to expect when using the Configuration as Code feature in Octopus Deploy
-position: 30 
+position: 40 
 ---
 
 Once an Octopus Project is configured to be version-controlled, your experience making changes to a project will change. With the configuration as code feature, you can either edit the resources via the Octopus Deploy UI or your favorite file editing tool. This page will walk through what to expect.

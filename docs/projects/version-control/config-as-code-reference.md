@@ -1,7 +1,7 @@
 ---
 title: Configuration as Code reference
 description: Details about the configuration as code feature.
-position: 20 
+position: 30 
 ---
 
 The configuration as code feature enables you to save some project-level settings as files in a git repository instead of SQL Server. The files are written in the OCL (Octopus Configuration Language) format. Storing resources as files lets you leverage version control features such as branching, pull requests, and reverting changes. In addition, you can save both your source code and how you deploy your code in the same git repository. This page is a reference document of how the config-as-code feature works.

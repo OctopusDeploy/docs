@@ -1,7 +1,7 @@
 ---
 title: Converting projects to Git
 description: Converting a project to leverage the configuration as a code feature.
-position: 10
+position: 20
 hideInThisSection: true
 ---
 

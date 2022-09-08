@@ -1,7 +1,7 @@
 ---
 title: Creating releases from a build server plugin on a version-controlled project
 description: Examples of how to ensure that the right branch is used to create the release when using a build server plugin.
-position: 45 
+position: 55 
 ---
 
 !include <build-server-plugin-version-control-fields>
