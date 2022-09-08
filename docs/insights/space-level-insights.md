@@ -10,7 +10,7 @@ Space level insights provide actionable DORA metrics for more complex scenarios 
 Space level insights requires and [enterprise subscription](https://octopus.com/enterprise). Contact your Octopus sales manager for a trial.
 :::
 
-To get started with space level insights choose the `Insights` item from the top Menu. From there you can create one or more reports.
+To get started with space level insights, choose the `Insights` item from the top menu. From there you can create one or more reports.
 
 We recommend creating separate reports for each purpose. Typically a report would be configured in one of the following ways:
 - One project or a small set of closely related project and all the relevant environments
