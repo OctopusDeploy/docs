@@ -7,13 +7,13 @@ position: 140
 Space level insights provide actionable DORA metrics for more complex scenarios across projects, project groups, environments, or tenants. This enables managers and decision-makers to get far more insight into the DevOps performance of their organization in line with their business context, such as team, portfolio, or platform.
 
 :::Information
-Space level insights requires and [enterprise subscription](https://octopus.com/enterprise). Contact your Octopus sales manager for a trial.
+Space level insights requires and [enterprise subscription](https://octopus.com/enterprise). Contact Octopus sales for a trial.
 :::
 
 To get started with space level insights, choose the `Insights` item from the top menu. From there you can create one or more reports.
 
 We recommend creating separate reports for each purpose. Typically a report would be configured in one of the following ways:
-- One project or a small set of closely related project and all the relevant environments
+- One project or a small set of closely related projects and all the relevant environments
 - Many projects and only similar environments (e.g. Production-like environments)
 
 If there are many unrelated projects and environments in a report, it will be hard to see any trends.
