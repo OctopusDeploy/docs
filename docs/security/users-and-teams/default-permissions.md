@@ -113,6 +113,20 @@ description: A listing of the default permissions for each of the built-in user 
 | ProxyView                   | View proxies |
 | WorkerView                  | View the workers in worker pools |
 
+## Insights Report Manager {#DefaultPermissions-InsightsReportManager}
+
+| Space Permission            | Description                              |
+| --------------------------- | ---------------------------------------- |
+| InsightsReportView          | View Insights reports  |
+| InsightsReportCreate        | Create Insights reports  |
+| InsightsReportEdit          | Edit Insights reports  |
+| InsightsReportDelete        | Delete Insights reports  |
+| EnvironmentView             | View environments  |
+| ProcessView                 | View the deployment process and channels associated with a project |
+| ProjectGroupView            | View project groups  |
+| ProjectView                 | View the details of projects  |
+| TenantView                  | View tenants  |
+
 ## Package Publisher {#DefaultPermissions-PackagePublisher}
 
 | Space Permission            | Description                              |
