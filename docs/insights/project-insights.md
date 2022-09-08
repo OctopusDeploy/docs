@@ -1,6 +1,6 @@
 ---
 title: Project Insights
-description: Project level insights are available as a new tab in every project so you can understand the performance of your projects across Channels, Environments, and Tenants.
+description: Project level insights are available as a new tab in every project so you can understand the performance of your projects across channels, environments, and tenants.
 position: 130
 ---
 
