@@ -28,7 +28,7 @@ The CSV contains the following columns
 | Release                    | The release which was deployed. |
 | Channel                    | The channel for the deployment. |
 | Completed                  | When the deployment completed. |
-| Environment                | The environment of the release was deployed to. |
+| Environment                | The environment the release was deployed to. |
 | Tenant                     | The tenant the release was deployed to. |
 | State                      | Indicates the success or failure of the deployment. |
 | Had Guided Failure         | Whether or not the deployment had a guided failure. |
