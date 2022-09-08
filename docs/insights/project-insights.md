@@ -30,4 +30,4 @@ Below the chart on the single metric pages are various tables showing more detai
 
 For tenanted projects there is a list of the top 10 tenants whose [trend](trend-indicators.md) for that metric is up or down.
 
-Below that are tables of deployments relevant to that metrics. These give you a starting point when investigating how to improve a metric.
+Below that are tables of deployments relevant to that metric. These give you a starting point when investigating how to improve a metric.
