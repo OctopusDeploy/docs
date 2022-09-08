@@ -53,7 +53,7 @@ Take note of the password assigned or generated for this user.
 
 ### Licensing
 
-For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/enterprise) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
+For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/pricing) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
 
 For Self-hosted customers, once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**. For Octopus Cloud customers, the license will be applied automatically for you.
 
