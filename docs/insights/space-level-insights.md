@@ -42,7 +42,7 @@ For example, the environment group "Production" may contain the environments "Pr
 
 ### Tenants
 
-If the current space has Tenants, there will be an additional section to select tenants. This selection works similar to other areas of the application. First select whether you want to include untenanted data, tenanted data or both. If you select tenanted, specify the tenants directly, or choose them via tags.
+If the current space has tenants, there will be an additional section to select tenants. This selection works similar to other areas of the application. First select whether you want to include untenanted data, tenanted data or both. If you select tenanted, specify the tenants directly, or choose them via tags.
 
 ## Charts
 
