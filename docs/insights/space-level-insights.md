@@ -12,7 +12,7 @@ Space level sights requires and [enterprise subscription](https://octopus.com/en
 
 To get started with space level insights choose the `Insights` item from the top Menu. From there you can create one or more reports.
 
-We recommend creating a separate reports for each purpose. Typically a report would be configured in one of the following ways:
+We recommend creating separate reports for each purpose. Typically a report would be configured in one of the following ways:
 - One project or a small set of closely related project and all the relevant environments
 - Many projects and only similar environments (e.g. Production-like environments)
 
