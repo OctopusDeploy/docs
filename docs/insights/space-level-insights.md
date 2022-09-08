@@ -22,7 +22,7 @@ If there are many unrelated projects and environments in a report, it will be ha
 
 ### Time Zone
 
-The time zone of a report affects which day data is counted in when aggregating. The time zone should be chosen to reflect the most
+The time zone of a report affects which day's data is counted when aggregating. The time zone should be chosen to reflect the most
 common understanding of what constitutes "midnight" for the team.
 
 ### Projects
