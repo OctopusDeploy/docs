@@ -61,10 +61,4 @@ View and export audit logs of controlled deployments for easy compliance and pos
 
 If your team uses Jira Service Management change management, we'd love for you to try it and provide your feedback.
 
-Learn more about our [Jira Service Management EAP](https://octopus.com/docs/approvals/jira-service-management).
-
-:::hint
-Jira Service Management integration (early access) is available as a part of the Octopus Deploy Enterprise subscription.
-
-[Contact our sales team](https://octopus.com/contact) for a demo or learn more about [Octopus Deploy pricing](https://octopus.com/pricing).
-:::
+Register for the [Jira Service Management EAP](https://octopusdeploy.typeform.com/jsm-eap).
