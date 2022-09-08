@@ -4,6 +4,8 @@ description: DORA Metrics
 position: 110
 ---
 
+The metrics are calculated in real time based on deployment completions.
+
 ## Deployment frequency
 
 The deployment frequency is the total number of successful deployments for a given time period.

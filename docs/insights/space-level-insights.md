@@ -20,10 +20,19 @@ If there are many unrelated projects and environments in a report, it will be ha
 
 ## Settings
 
+### Time Zone
+
+The time zone of a report affects which day data is counted in when aggregating. The time zone should be chosen to reflect the most
+common understanding of what constitutes "midnight" for the team.
+
 ### Projects
 
 Projects can be added to a report either by adding a project group, or individual projects. If a selected project already exists in a 
 selected group, it will not be double counted. There must be at least one project selected, directly or indirectly, for the report to generate data.
+
+:::info
+Only data from the default channel for each project is shown. This is to avoid pre-release and prior-version channels from skewing the data.
+:::
 
 ### Environments
 
@@ -43,8 +52,18 @@ The top left drop down allows you to split the data on a particular dimension an
 
 The top right allows you to change the time range and granularity of the chart.
 
+The data is real time and based on the deployment completion time.
+
 See the [trend indicators](trend-indicators.md) section for more details on the trend indicator and trend tables on each page.
 
+
+## Tables
+
+Below the chart on the single metric pages are various tables showing more detailed view of the data.
+
+For each of projects, environments and tenants, a list of [trends](trend-indicators.md) may be shown. The list is only shown if there are at least two of that item present in the data. The list shows the top 10 of that dimension where the trend for the metric is up or down.
+
+Below that there are tables showing a particular measure grouped by project, environment and tenant combination. These give you a starting point when investigating how to improve a metric.
 
 ## Permissions
 
