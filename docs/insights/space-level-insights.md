@@ -59,7 +59,7 @@ See the [trend indicators](trend-indicators.md) section for more details on the 
 
 ## Tables
 
-Below the chart on the single metric pages are various tables showing more detailed view of the data.
+Below the chart on the single metric pages are various tables showing a more detailed view of the data.
 
 For each of projects, environments and tenants, a list of [trends](trend-indicators.md) may be shown. The list is only shown if there are at least two of that item present in the data. The list shows the top 10 of that dimension where the trend for the metric is up or down.
 
