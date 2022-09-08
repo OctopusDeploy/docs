@@ -1,19 +1,19 @@
 ---
 title: Configuration as Code
-description: Projects can be version-controlled as text in a git repository 
+description: Projects can be version-controlled as text in a Git repository 
 position: 110 
 hideInThisSection: true
 ---
 
 ## Introduction 
 
-The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, only the _deployment process_ and some deployment settings can be version-controlled.  
+The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, only the _deployment process_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
 
-It was important to us that the Octopus UI remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional super-power: Git branches are now exposed in the UI, allowing editing the deployment process on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes to your deployment process too.
+The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional superpower: Git branches are now exposed in the UI, allowing editing of currently supported project configuration on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes too.
 
 ![Branch-switcher UI](branch-switcher-ui.png "width=500")
 
-Of course, there is now a text representation of the process in the git repository, and if you prefer editing text, open your favorite editor and go for it. We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
+Of course, there is now a text representation of the process in the Git repository, and if you prefer editing text, open your favorite editor and go for it. We refer to the text format as Octopus Configuration Language (OCL), and it is very much inspired by [HCL](https://github.com/hashicorp/hcl).
 
 That means that where previously there was only a single current version of the deployment process, it is now possible to have many. When creating releases, the relevant branch can be selected. We have also added [branch system variables](docs/projects/variables/system-variables.md#release-branch-information) that can be used in your custom deployment scripts.
 
@@ -23,14 +23,9 @@ Config-as-code only supports [git](https://git-scm.com/) repositories.  Before u
 
 ### What's next?
 
-We have some strong opinions on what's next. The first release of config-as-code will only include the _deployment process_.  
+We have some strong opinions on what's next. The latest release of config-as-code supports _deployment processes_, _deployment settings_, and _non-sensitive variables_.  
 
-Our plans for future releases of config-as-code are to add support for:
-
-- Variables
-- Runbooks
-
-In addition, we'd like to evolve the OCL schema to make it friendlier for editing by hand.  
+We have plans for future releases of config-as-code to support Runbooks. In addition, we'd like to evolve the OCL schema to make it friendlier for editing by hand.
 
 ### We want your feedback
 
@@ -46,7 +41,7 @@ You can provide feedback through whichever of the following channels you feel mo
 
 Version-control is configured per project and is accessed via the **{{Settings,Version Control}}** navigation menu item. 
 
-Learn more about [Configuring version control on a project](/docs/projects/version-control/configuring-version-control-on-a-project.md).
+Learn more about [Configuring version control on a project](/docs/projects/version-control/converting/index.md).
 
 ## Config-as-code reference
 
@@ -60,13 +55,17 @@ Any changes to the deployment process or settings are made on a branch after a p
 
 Learn more about [Editing a project with version control enabled](/docs/projects/version-control/editing-a-project-with-version-control-enabled.md).
 
+## Migrating projects to support new features
+
+Since the initial public release of config-as-code, we've added support for additional project configuration in Git. Learn more about [migrating variables to Git](/docs/projects/version-control/converting/migrating-variables.md)
+
 ## Creating and deploying releases
 
 Once an Octopus project is configured to be version-controlled, you can choose which branch to build from before creating a release in Octopus.
 
 Learn more about [creating and deploying releases in a version controlled project](/docs/projects/version-control/creating-and-deploying-releases-version-controlled-project.md).
 
-## Unsupported Scenarios
+## Unsupported scenarios
 
 The Configuration as Code feature is designed to give you the benefits of source control, branching, reverting, and pull requests while being able to use your tool of choice to manage your processes (and eventually) variables. While it has many benefits, there are some unsuitable use cases and scenarios.
 
