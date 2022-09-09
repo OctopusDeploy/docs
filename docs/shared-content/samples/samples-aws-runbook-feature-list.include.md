@@ -9,6 +9,11 @@
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-381/process/RunbookProcess-Runbooks-381" target="_blank">Create Infrastructure</a>: <i>Runbook that will spin up the _Random Quotes Java_ project infrastructure in AWS for an Octopus Environment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-382/process/RunbookProcess-Runbooks-382" target="_blank">Destroy Infrastructure</a>: <i>Runbook that will tear down the _Random Quotes Java_ project infrastructure in AWS for an Octopus Environment.</i>
     
+**Pattern - IaC**
+
+- Dynamic worker army
+   - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1893/process/RunbookProcess-Runbooks-1893" target="_blank">Create Infrastructure</a>: <i>Spins up the worker army</i>
+    
 **Pattern - Rolling**
 
 - AWS - Rolling Deploy
