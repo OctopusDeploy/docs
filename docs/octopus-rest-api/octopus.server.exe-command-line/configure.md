@@ -41,6 +41,12 @@ Where [<options>] is any of:
                                limit).
       --upgradeCheck=VALUE   Whether checking for upgrades is allowed (true
                                or false)
+      --machineTaskProcessingLimit=VALUE
+                             Maximum number of machines that can be processed
+                               at any given time in machine tasks (ie. Health
+                               Checks, Tentacle Upgrades and Calamari Upgrades-
+                               ). If no value is specified, the limit is based
+                               on the processor count of the server
       --sendTelemetry=VALUE  Whether telemetry data is sent to Octopus (true
                                or false)
       --commsListenPort=VALUE
@@ -50,8 +56,8 @@ Where [<options>] is any of:
                              WebSocket prefix that the communications service
                                should listen on (e.g.
                                'https://+:443/OctopusComms'); set to blank to
-                               disable websockets. Refer to http://g.octopush-
-                               q.com/WebSocketComms.
+                               disable websockets. Refer to https://o-
+                               c.to/WebSocketComms.
       --webListenPrefixes=VALUE
                              Comma-separated list of HTTP.sys listen prefixes
                                (e.g., 'http://localhost/octopus')
@@ -67,6 +73,16 @@ Where [<options>] is any of:
                              Modifies the visibility of the notification when
                                upgrades are available. Valid values are
                                AlwaysShow, ShowOnlyMajorMinor and NeverShow.
+      --AzureDevOpsIsEnabled=VALUE
+                             Set whether Azure DevOps issue tracker
+                               integration is enabled.
+      --jiraIsEnabled=VALUE  Set whether Jira Integration is enabled.
+      --jiraBaseUrl=VALUE    Enter the base url of your Jira instance. Once
+                               set, work item references will render as links.
+      --GitHubIsEnabled=VALUE
+                             Set whether GitHub issue tracker integration is
+                               enabled.
+      --GitHubBaseUrl=VALUE  Set the base url for the Git repositories.
       --webCorsWhitelist=VALUE
                              Comma-separated whitelist of domains that are
                                allowed to retrieve data (empty turns CORS off,
@@ -273,16 +289,6 @@ Where [<options>] is any of:
       --usernamePasswordIsEnabled=VALUE
                              Set whether Octopus username/password
                                authentication is enabled.
-      --AzureDevOpsIsEnabled=VALUE
-                             Set whether Azure DevOps issue tracker
-                               integration is enabled.
-      --GitHubIsEnabled=VALUE
-                             Set whether GitHub issue tracker integration is
-                               enabled.
-      --GitHubBaseUrl=VALUE  Set the base url for the Git repositories.
-      --jiraIsEnabled=VALUE  Set whether Jira Integration is enabled.
-      --jiraBaseUrl=VALUE    Enter the base url of your Jira instance. Once
-                               set, work item references will render as links.
       --customextension=VALUE
                              File path of a custom extension to load
 
