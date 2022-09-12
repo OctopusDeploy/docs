@@ -35,9 +35,7 @@ What’s included in our ServiceNow support?
 Learn more about our [ServiceNow integration](https://octopus.com/docs/approvals/service-now).
 
 :::hint
-ServiceNow integration is available as a part of the Octopus Deploy Enterprise subscription.
-
-[Contact our sales team](https://octopus.com/contact) for a demo or learn more about [Octopus Deploy pricing](https://octopus.com/pricing).
+ServiceNow integration is available to customers with an [enterprise subscription](https://octopus.com/pricing).
 :::
 
 ## Efficient change management approvals with Jira Service Management (early access)
