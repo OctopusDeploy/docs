@@ -20,7 +20,7 @@ Our support focuses on:
 
 ![ServiceNow deployment waiting for approval](service-nowtask-status-with-cr.png)
 
-This new integration links Octopus deployments to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulation.
+This new integration links Octopus deployments to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
 What’s included in our ServiceNow support?
 
 - Easy workflow configuration, so it's straightforward to integrate Octopus with ServiceNow.
