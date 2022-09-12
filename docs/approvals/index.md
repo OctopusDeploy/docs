@@ -46,12 +46,14 @@ To build on our ITSM change management support further, we are also pleased to a
 
 The Jira Service Management integration ensures that teams using this platform can access the benefits of creating change requests automatically in Octopus. It makes it easier to manage deployment pipelines at scale, reducing the complexity of change management. Integrating Octopus with Jira Service Management reduces the need for manually filling out change requests, making it faster and less prone to error. By using Octopus to automatically create change requests, you can create best practice change management easily. 
 
-This new integration links Octopus deployments to Jira Service Management change requests and automatically creates pre-populated, “Request for change” change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulation.
+This new integration links Octopus deployments to Jira Service Management change requests and automatically creates pre-populated “Request for change” change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
+
 What's included in our Jira Service Management support?
-Easy workflow configuration, so it's straightforward to integrate Octopus with Jira Service Management
-Link a deployment to an existing change request, to manually associate deployments with change requests
-Automatically create “Request for change” requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete
-View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation
+
+- Easy workflow configuration, so it's straightforward to integrate Octopus with Jira Service Management
+- Link a deployment to an existing change request, to manually associate deployments with change requests
+- Automatically create "Request for change" requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete
+- View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation
 
 If your team uses Jira Service Management change management, we'd love for you to try it and provide your feedback.
 
