@@ -9,7 +9,7 @@ Managing deployment pipelines at scale is complex and time-consuming for DevOps 
 
 When CI/CD systems create change requests automatically you can work towards best practices with less friction. We want to make change management easier by helping you integrate Octopus with ServiceNow to reduce friction and simplify your development teams' lives.
 
-The Octopus Deploy ITSM integrations for ServiceNow and Jira Service Management (early access) let you balance audit and compliance requirements with team productivity. 
+Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Management (early access) that let you balance audit and compliance requirements with team productivity. 
 
 Our support focuses on:
 
