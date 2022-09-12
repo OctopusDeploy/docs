@@ -7,7 +7,7 @@ hideInThisSection: true
 
 Managing deployment pipelines at scale is complex and time-consuming for DevOps teams, and it's more complicated when you add in change management. Manually filling out change requests takes time and is prone to error. It's also common to have strict change processes needing thorough reviews to get approval to ship new releases of applications. Change advisory boards can be perceived as roadblocks that slow development teams.
 
-When CI/CD systems create change requests automatically you can work towards best practices with less friction. We want to make change management easier by helping you integrate Octopus with ServiceNow to reduce friction and simplify your development teams' lives.
+When CI/CD systems create change requests automatically, you can work towards best practices with less friction. We want to make change management easier by helping you integrate Octopus with ServiceNow to reduce friction and simplify your development teams' lives.
 
 Octopus Deploy includes ITSM integrations for ServiceNow and Jira Service Management (early access) that let you balance audit and compliance requirements with team productivity. 
 
