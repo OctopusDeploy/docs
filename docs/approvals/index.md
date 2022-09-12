@@ -21,15 +21,15 @@ Our support focuses on:
 ![ServiceNow deployment waiting for approval](service-nowtask-status-with-cr.png)
 
 This new integration links Octopus deployments to ServiceNow change requests and automatically creates pre-populated, normal change requests. You get improved traceability out-of-the-box, and you can prove to auditors that every controlled deployment has a change request. This ensures your CI/CD and release management processes are compliant with company policies and regulations.
-What’s included in our ServiceNow support?
+What's included in our ServiceNow support?
 
 - Easy workflow configuration, so it's straightforward to integrate Octopus with ServiceNow.
-- Link a deployment to an existing change request, to manually associate deployments with change requests.
+- Link a deployment to an existing change request to manually associate deployments with change requests.
 - Automatically create normal change requests at deployment time. Octopus pauses the deployment until the appropriate approvals are complete.
-- Let Octopus do the work for you by automating the transition between stages in the change request once it’s created, leaving a record of deployment in ServiceNow.
+- Let Octopus do the work for you by automating the transition between stages in the change request once created, leaving a deployment record in ServiceNow.
 - Use change templates to auto-create standard change requests to reduce manual work and control what information is populated.
-- Ensure “Change Windows” are honored on existing change requests so deployments won’t execute until the time-window specified.
-- Add work notes to change requests with information about deployment start and finish time, and whether it was successful or not.
+- Ensure “Change Windows” are honored on existing change requests so deployments won’t execute until the specified time window.
+- Add work notes to change requests with information about deployment start and finish time and whether it was successful or not.
 - View and export audit logs of controlled deployments for easy compliance and post-deployment reconciliation.
 
 Learn more about our [ServiceNow integration](https://octopus.com/docs/approvals/service-now).
