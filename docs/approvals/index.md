@@ -2,7 +2,7 @@
 title: Approvals
 description: Octopus Deploy can integrate with supported ITSM tools for deployment control using Change Request approvals
 position: 95
-hideInThisSectionHeader: true
+hideInThisSection: true
 ---
 
 Managing deployment pipelines at scale is complex and time-consuming for DevOps teams, and it's more complicated when you add in change management. Manually filling out change requests takes time and is prone to error. It's also common to have strict change processes needing thorough reviews to get approval to ship new releases of applications. Change advisory boards can be perceived as roadblocks that slow development teams.
