@@ -5,10 +5,6 @@ position: 95
 hideInThisSectionHeader: true
 ---
 
-Octopus Deploy includes dedicated integrations for popular ITSM systems to help support blocking deployments for a project and environment based on the approval status of a Change Request.
-
----
-
 Managing deployment pipelines at scale is complex and time-consuming for DevOps teams, and it's more complicated when you add in change management. Manually filling out change requests takes time and is prone to error. It's also common to have strict change processes needing thorough reviews to get approval to ship new releases of applications. Change advisory boards can be perceived as roadblocks that slow development teams.
 
 When CI/CD systems create change requests automatically you can work towards best practices with less friction. We want to make change management easier by helping you integrate Octopus with ServiceNow to reduce friction and simplify your development teams' lives.
