@@ -9,6 +9,10 @@ hideInThisSection: true
 
 This tutorial will help you complete your first deployment in Octopus Deploy. We’ll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers. All you’ll need is a running Octopus Deploy instance.
 
+:::hint
+If you are using version `2022.2` or older please visit the legacy [First deployment guide](/docs/getting-started/first-deployment/legacy-guide.md)
+:::
+
 Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by picking from one of the following options:
 
 !include <octopus-deploy-setup-options>
