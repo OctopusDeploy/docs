@@ -1,0 +1,7 @@
+import type { StepConfigurationExportInputs } from "@octopusdeploy/step-inputs";
+
+export interface ConfigurationExport<StepInputs> {
+    name: string;
+    description: string;
+    export: (configuredInputs: StepConfigurationExportInputs<StepInputs>) => string;
+}

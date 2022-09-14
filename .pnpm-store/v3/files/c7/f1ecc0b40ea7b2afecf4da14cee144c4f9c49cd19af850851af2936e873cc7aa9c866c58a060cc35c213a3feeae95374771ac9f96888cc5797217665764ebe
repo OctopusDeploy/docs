@@ -1,0 +1,8 @@
+import { AccountReference, ContainerImageReference, Discriminator, PackageReference, SupportedValueTypes, BoundValue } from "@octopusdeploy/step-inputs";
+import { RuntimePackageSelection } from "./RuntimePackageSelection";
+import { RuntimeAccountSelection } from "./RuntimeAccountSelection";
+import { RuntimeContainerImageSelection } from "./RuntimeContainerImageSelection";
+export declare type RuntimeInputs<Inputs> = Inputs extends Discriminator<infer D> ? D : Inputs extends Exclude<SupportedValueTypes, string | PackageReference | ContainerImageReference | AccountReference> ? Inputs | BoundValue : Inputs extends string ? Inputs : Inputs extends PackageReference ? RuntimePackageSelection : Inputs extends AccountReference ? RuntimeAccountSelection | BoundValue : Inputs extends ContainerImageReference ? RuntimeContainerImageSelection : Inputs extends Array<infer ArrayItem> ? Array<RuntimeInputs<ArrayItem>> : Inputs extends object ? ObjectRuntimeInputs<Inputs> : never;
+export declare type ObjectRuntimeInputs<Inputs> = {
+    [K in keyof Inputs]: RuntimeInputs<Inputs[K]>;
+};

@@ -1,0 +1,5 @@
+import { EmptyInitialValue } from "../EmptyInitialValue";
+export declare type Token = {
+    readonly __accountBrand: unique symbol;
+    type: "Token";
+} | EmptyInitialValue;

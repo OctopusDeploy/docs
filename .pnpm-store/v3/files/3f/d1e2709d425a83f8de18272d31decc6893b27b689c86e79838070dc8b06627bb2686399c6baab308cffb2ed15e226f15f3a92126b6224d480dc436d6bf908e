@@ -1,0 +1,107 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.awsAuthentication = void 0;
+const Account_1 = require("../Account");
+const Link_1 = require("../Link");
+const InputComponents_1 = require("../InputComponents");
+const Number_1 = require("../Number");
+const RadioButtons_1 = require("../RadioButtons");
+const Text_1 = require("../Text");
+function awsAuthentication({ input }) {
+    const content = [
+        (0, RadioButtons_1.radioButtons)({
+            input: input.credentials,
+            label: "Credentials",
+            helpText: "Execute using credentials configured on the worker or using a specific account",
+            options: [
+                {
+                    label: "Use credentials configured on the worker",
+                    newValue: {
+                        type: "worker",
+                    },
+                },
+                {
+                    label: "Use account",
+                    newValue: {
+                        type: "account",
+                    },
+                },
+            ],
+            note: (0, InputComponents_1.note) `AWS supports several different ways of supplying credentials on a worker to access services with. For more information, see ${(0, Link_1.link)({
+                title: "Setting credentials",
+                href: "AWSAuthenticationCredentials",
+            })}.`,
+        }),
+    ];
+    if (input.credentials.type === "account") {
+        content.push((0, Account_1.account)({
+            input: input.credentials.account,
+            label: "AWS Account",
+            helpText: "The account to authenticate with",
+        }));
+    }
+    content.push((0, RadioButtons_1.radioButtons)({
+        input: input.role,
+        label: "Assume IAM Role",
+        helpText: "Assume a different AWS IAM role",
+        options: [
+            {
+                label: "Don't assume role",
+                newValue: {
+                    type: "noAssumedRole",
+                },
+            },
+            {
+                label: "Assume role",
+                newValue: {
+                    type: "assumeRole",
+                    arn: "",
+                },
+            },
+        ],
+        note: (0, InputComponents_1.note) `AWS allows you to delegate access to services by assuming IAM roles. For more information, see ${(0, Link_1.link)({
+            title: "Using IAM Roles",
+            href: "AWSAuthenticationIAMRoles",
+        })}.`,
+    }));
+    if (input.role.type === "assumeRole") {
+        content.push((0, Text_1.text)({
+            input: input.role.arn,
+            label: "Role ARN",
+            helpText: "The full ARN of the role that you would like to assume",
+        }), (0, Text_1.text)({
+            input: input.role.sessionName.convertTo({
+                toNewType: (sessionName) => sessionName !== null && sessionName !== void 0 ? sessionName : "",
+                toOriginalType: (sessionName) => (sessionName === "" ? undefined : sessionName),
+            }),
+            label: "Session Name",
+            helpText: "The name of the session to use when assuming the service role",
+            note: (0, InputComponents_1.note) `When assuming an IAM role a name can be provided which will form part of the temporary credentials for the user. Leave the session name blank to use an automatically generated session name. For more information, see ${(0, Link_1.link)({
+                title: "Using IAM Roles",
+                href: "AWSAuthenticationIAMRoles",
+            })}.`,
+        }), (0, Number_1.number)({
+            input: input.role.sessionDuration,
+            label: "Session Duration",
+            helpText: "The duration the session should be available for when assuming the service role",
+            note: (0, InputComponents_1.note) `IAM roles can have a session duration specified after which the session can no longer be used. Leave the session duration blank to use the default session duration on the role being assumed. For more information, see ${(0, Link_1.link)({
+                title: "Using IAM Roles",
+                href: "AWSAuthenticationIAMRoles",
+            })}.`,
+        }), (0, Text_1.text)({
+            input: input.role.externalId.convertTo({
+                toNewType: (externalId) => externalId !== null && externalId !== void 0 ? externalId : "",
+                toOriginalType: (externalId) => (externalId === "" ? undefined : externalId),
+            }),
+            label: "External ID",
+            helpText: "An external id to use when assuming the service role.",
+            note: (0, InputComponents_1.note) `An external id can be provided to grant access to AWS resources to a third party. For more information, see ${(0, Link_1.link)({
+                title: "Using an External ID",
+                href: "AWSAuthenticationExternalId",
+            })}.`,
+        }));
+    }
+    return content;
+}
+exports.awsAuthentication = awsAuthentication;
+//# sourceMappingURL=AwsAuthentication.js.map

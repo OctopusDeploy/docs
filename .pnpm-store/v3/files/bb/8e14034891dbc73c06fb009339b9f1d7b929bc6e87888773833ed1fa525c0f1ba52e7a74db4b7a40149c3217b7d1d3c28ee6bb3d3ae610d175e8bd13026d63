@@ -1,0 +1,26 @@
+import { RuntimePackageSelection } from "../RuntimePackageSelection";
+import { RuntimeContainerImageSelection } from "../RuntimeContainerImageSelection";
+export declare type OctopusServerEnricherSupportedRuntimeTypes = RuntimePackageSelection | RuntimeContainerImageSelection;
+export declare type OctopusServerEnricherMappedReturnType<T> = T extends RuntimePackageSelection ? EnrichedPackageReference : T extends RuntimeContainerImageSelection ? EnrichedContainerImageReference : never;
+export declare type EnrichedPackageReference = {
+    packageName: string;
+    referenceId: string;
+    feed: {
+        id: string;
+        name: string;
+    } | undefined;
+    packageExtractionPathExpression: (name: string) => string;
+};
+export declare type EnrichedContainerImageReference = {
+    imageName: string;
+    referenceId: string;
+    feed: {
+        id: string;
+        url: string;
+        name: string;
+    } | undefined;
+    imagePathExpression: (name: string) => string;
+};
+export declare type OctopusServerEnricher = {
+    enrich: <T extends OctopusServerEnricherSupportedRuntimeTypes>(data: T) => OctopusServerEnricherMappedReturnType<T>;
+};

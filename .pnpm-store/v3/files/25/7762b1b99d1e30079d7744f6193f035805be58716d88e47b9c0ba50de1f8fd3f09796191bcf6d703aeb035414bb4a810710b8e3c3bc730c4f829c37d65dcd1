@@ -1,0 +1,27 @@
+{
+  "name": "@octopusdeploy/step-ui",
+  "version": "1.4.1",
+  "description": "The step UI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OctopusDeploy/step-api.git"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "author": "Octopus Deploy",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@octopusdeploy/step-inputs": "1.1.1"
+  },
+  "devDependencies": {
+    "typescript": "4.4.4"
+  },
+  "scripts": {
+    "build": "tsc --declaration",
+    "ci:package": "mkdir -p ../../dist && pnpm pack --pack-destination ../../dist && mv ../../dist/octopusdeploy-step-ui-$npm_package_version.tgz ../../dist/octopusdeploy.step-ui.$npm_package_version.tgz",
+    "lint": "eslint ."
+  }
+}

@@ -1,0 +1,34 @@
+export function toRuntimeSensitiveValue(sensitiveValue) {
+    if (sensitiveValue.HasValue) {
+        if (sensitiveValue.NewValue !== null && sensitiveValue.NewValue !== undefined) {
+            return { type: "new", newValue: sensitiveValue.NewValue };
+        }
+        return { type: "existing" };
+    }
+    return { type: "empty" };
+}
+export function toResourceSensitiveValue(sensitiveValue) {
+    if (sensitiveValue === undefined) {
+        return { HasValue: false };
+    }
+    else if (sensitiveValue.type === "existing") {
+        return { HasValue: true };
+    }
+    else if (sensitiveValue.type === "empty") {
+        return { HasValue: false };
+    }
+    return { HasValue: true, NewValue: sensitiveValue.newValue };
+}
+export function toExportSensitiveValue(sensitiveValue) {
+    if (sensitiveValue === undefined) {
+        return { type: "empty" };
+    }
+    else if (sensitiveValue.type === "existing") {
+        return { type: "existing" };
+    }
+    else if (sensitiveValue.type === "empty") {
+        return { type: "empty" };
+    }
+    return { type: "empty" };
+}
+//# sourceMappingURL=SensitiveValueConverters.js.map

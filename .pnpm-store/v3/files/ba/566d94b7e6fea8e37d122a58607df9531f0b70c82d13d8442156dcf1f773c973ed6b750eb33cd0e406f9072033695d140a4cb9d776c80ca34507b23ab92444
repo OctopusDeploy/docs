@@ -1,0 +1,164 @@
+// simple property maps to a path with one segment
+import { ConvertibleInputPathToValue, InputPaths, InputPathToArray, InputPathToObject, ObjectInputPaths, ObjectInputPathsAndPathToObject } from "../InputPaths";
+import { SensitiveValue } from "../SensitiveValues";
+import { PackageReference } from "../PackageReference";
+import { Discriminator } from "../Discriminator";
+import { ContainerImageReference } from "../ContainerImageReference";
+
+// Does not map optional complex types as primitives
+type TaskDefinition = { runtimePlatform?: { bar: string } };
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<TaskDefinition>,
+        { runtimePlatform: ObjectInputPaths<{ bar: string }> & InputPathToObject<{ bar: string } | undefined> } & InputPathToObject<TaskDefinition>
+    >
+>();
+
+assert<IsExactly<ObjectInputPathsAndPathToObject<{ foo: string }>, { foo: ConvertibleInputPathToValue<string> } & InputPathToObject<{ foo: string }>>>();
+assert<IsExactly<ObjectInputPathsAndPathToObject<{ foo: number }>, { foo: ConvertibleInputPathToValue<number> } & InputPathToObject<{ foo: number }>>>();
+
+// works for sensitive values
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: SensitiveValue }>,
+        { foo: ConvertibleInputPathToValue<SensitiveValue> } & InputPathToObject<{ foo: SensitiveValue }>
+    >
+>();
+
+assert<
+    IsExactly<ObjectInputPathsAndPathToObject<{ foo?: string }>, { foo: ConvertibleInputPathToValue<string | undefined> } & InputPathToObject<{ foo?: string }>>
+>();
+
+// works for package selection
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: PackageReference }>,
+        { foo: ConvertibleInputPathToValue<PackageReference> } & InputPathToObject<{ foo: PackageReference }>
+    >
+>();
+
+// works for container image references
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: ContainerImageReference }>,
+        { foo: ConvertibleInputPathToValue<ContainerImageReference> } & InputPathToObject<{ foo: ContainerImageReference }>
+    >
+>();
+
+// works for optional types
+assert<IsExactly<InputPaths<number | undefined>, ConvertibleInputPathToValue<number | undefined>>>();
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: number | undefined }>,
+        { foo: ConvertibleInputPathToValue<number | undefined> } & InputPathToObject<{ foo: number | undefined }>
+    >
+>();
+
+// recursively applies to objects
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: { bar: string } }>,
+        { foo: { bar: ConvertibleInputPathToValue<string> } & InputPathToObject<{ bar: string }> } & InputPathToObject<{ foo: { bar: string } }>
+    >
+>();
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: { bar: { baz: string } } }>,
+        {
+            foo: { bar: { baz: ConvertibleInputPathToValue<string> } & InputPathToObject<{ baz: string }> } & InputPathToObject<{ bar: { baz: string } }>;
+        } & InputPathToObject<{ foo: { bar: { baz: string } } }>
+    >
+>();
+
+// discriminators for union types are preserved
+assert<IsExactly<ObjectInputPathsAndPathToObject<{ foo: Discriminator<"foo"> }>, { foo: "foo" } & InputPathToObject<{ foo: Discriminator<"foo"> }>>>();
+
+// distributing across unions of interfaces and types behaves the same
+
+// Interfaces behave differently in subtle cases. They appear to sometimes behave differently when distributing over types for some reason.
+interface FirstInterface {
+    type: Discriminator<"bar">;
+    bar: string;
+}
+
+interface SecondInterface {
+    type: Discriminator<"baz">;
+    baz: string;
+}
+
+type FirstType = {
+    type: Discriminator<"bar">;
+    bar: string;
+};
+
+type SecondType = {
+    type: Discriminator<"baz">;
+    baz: string;
+};
+
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: FirstType | SecondType }>,
+        {
+            foo:
+                | ({ type: "bar"; bar: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstType | SecondType>)
+                | ({ type: "baz"; baz: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstType | SecondType>);
+        } & InputPathToObject<{
+            foo: FirstType | SecondType;
+        }>
+    >
+>();
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: FirstInterface | SecondInterface }>,
+        {
+            foo:
+                | ({ type: "bar"; bar: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstInterface | SecondInterface>)
+                | ({ type: "baz"; baz: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstInterface | SecondInterface>);
+        } & InputPathToObject<{
+            foo: FirstInterface | SecondInterface;
+        }>
+    >
+>();
+assert<
+    IsExactly<
+        InputPaths<FirstType | SecondType>,
+        | ({ type: "bar"; bar: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstType | SecondType>)
+        | ({ type: "baz"; baz: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstType | SecondType>)
+    >
+>();
+assert<
+    IsExactly<
+        InputPaths<FirstInterface | SecondInterface>,
+        | ({ type: "bar"; bar: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstInterface | SecondInterface>)
+        | ({ type: "baz"; baz: ConvertibleInputPathToValue<string> } & InputPathToObject<FirstInterface | SecondInterface>)
+    >
+>();
+
+// arrays get a path, and their items have paths
+assert<
+    IsExactly<
+        ObjectInputPathsAndPathToObject<{ foo: Array<{ bar: string }> }>,
+        {
+            foo: Array<{ bar: ConvertibleInputPathToValue<string> } & InputPathToObject<{ bar: string }>> & InputPathToArray<{ bar: string }>;
+        } & InputPathToObject<{ foo: Array<{ bar: string }> }>
+    >
+>();
+
+assert<IsExactly<InputPaths<{ bar: string }>, ObjectInputPathsAndPathToObject<{ bar: string }>>>();
+assert<IsExactly<InputPaths<string>, ConvertibleInputPathToValue<string>>>();
+assert<IsExactly<ObjectInputPaths<{ bar: string }>, { bar: InputPaths<string> }>>();
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function assert<T extends "true">() {
+    // This test only performs compile time checks, so no runtime behaviour is required and this function can remain empty
+}
+
+// We don't want to distribute over conditional types in this mapped type
+// e.g. We want IsExactly<string | boolean, string> to be `false`, since you can't assign a `boolean` to `string`
+// If we typed this as `T extends U ? U extends T ? "true" : "false" : "false""` then typescript would distribute over `string | object`
+// so then `IsExactly<string | boolean, string> = IsExactly<string, string> | IsExactly<boolean, string> = "true" | "false";
+// This is clearly not the result we want, but if we opt out of distributing over conditional types, then we would get the result we want
+// We can do this using a 1-tuple. Source: https://github.com/microsoft/TypeScript/issues/29368#issuecomment-453529532
+type IsExactly<T, U> = [T] extends [U] ? ([U] extends [T] ? "true" : "false") : "false";

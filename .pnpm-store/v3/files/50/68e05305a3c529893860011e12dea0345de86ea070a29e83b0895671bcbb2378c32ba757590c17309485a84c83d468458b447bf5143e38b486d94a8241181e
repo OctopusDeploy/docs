@@ -1,0 +1,58 @@
+{
+  "name": "react-tippy",
+  "version": "1.4.0",
+  "description": "React tippy",
+  "main": "dist/react-tippy.js",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "author": "Khoa Thai",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tvkhoa/react-tippy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tvkhoa/react-tippy/issues"
+  },
+  "homepage": "https://github.com/tvkhoa/react-tippy",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^3.5.0",
+    "eslint": "^4.18.2",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-import": "^2.2.0",
+    "flow-bin": "^0.42.0",
+    "lodash-webpack-plugin": "^0.11.2",
+    "mocha": "^3.2.0",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3",
+    "react-redux": "^5.0.5",
+    "react-scripts": "0.9.5",
+    "recompose": "^0.23.1",
+    "redux": "^3.7.1",
+    "redux-state-action": "^1.0.8",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^2.3.0",
+    "yargs": "^7.0.2",
+    "@types/react": "*"
+  },
+  "dependencies": {
+    "popper.js": "^1.11.1"
+  },
+  "scripts": {
+    "build": "webpack --config webpacklib.config.js --env build",
+    "start": "react-scripts start"
+  },
+  "typings": "./index.d.ts"
+}

@@ -1,0 +1,11 @@
+import type { FormContent } from "../FormContent";
+import type { DeploymentTargetInputComponent } from "../InputComponents";
+import type { InitialInputs } from "../InitialInputs";
+import type { ObjectInputPaths } from "@octopusdeploy/step-inputs";
+
+export interface DeploymentTargetUI<Inputs> {
+    editInputsForm: EditDeploymentTargetInputsForm<Inputs>;
+    createInitialInputs: () => InitialInputs<Inputs>;
+}
+
+export type EditDeploymentTargetInputsForm<Inputs> = (inputPaths: ObjectInputPaths<Inputs>) => FormContent<DeploymentTargetInputComponent>[];

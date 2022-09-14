@@ -1,0 +1,248 @@
+import { createInputValueAccessor, createObjectValueAccessor } from "../InputAccessor";
+import { createObjectInputPaths } from "../InputPaths";
+import { convertFromJsonSchemaToInputSchema } from "Schema";
+describe("InputAccessor", () => {
+    describe("simple property", () => {
+        const inputSchema = { value: { type: "string" } };
+        test("getInputValue", () => {
+            const value = getInputValue((inputs) => inputs.value, inputSchema, { value: "foo" });
+            expect(value).toBe("foo");
+        });
+        test("changeInputValue", () => {
+            const value = changeInputValue((inputs) => inputs.value, inputSchema, { value: "foo" }, "bar");
+            expect(value).toStrictEqual({ value: "bar" });
+        });
+        describe("with type conversion", () => {
+            const converters = {
+                toNewType: (s) => parseInt(s),
+                toOriginalType: (num) => num.toString(),
+            };
+            test("getInputValue", () => {
+                const value = getInputValue((inputs) => inputs.value.convertTo(converters), inputSchema, { value: "42" });
+                expect(value).toBe(42);
+            });
+            test("changeInputValue", () => {
+                const value = changeInputValue((inputs) => inputs.value.convertTo(converters), inputSchema, { value: "5" }, 42);
+                expect(value).toStrictEqual({ value: "42" });
+            });
+            describe("with multiple levels of conversion", () => {
+                const secondConverters = {
+                    toNewType: (num) => num.toString(),
+                    toOriginalType: (s) => parseInt(s),
+                };
+                test("getInputValue", () => {
+                    const value = getInputValue((inputs) => inputs.value.convertTo(converters).convertTo(secondConverters), inputSchema, { value: "42" });
+                    expect(value).toBe("42");
+                });
+                test("changeInputValue", () => {
+                    const value = changeInputValue((inputs) => inputs.value.convertTo(converters).convertTo(secondConverters), inputSchema, { value: "5" }, "42");
+                    expect(value).toStrictEqual({ value: "42" });
+                });
+            });
+        });
+    });
+    describe("nested object", () => {
+        const inputSchema = {
+            firstLevel: {
+                type: "object",
+                properties: {
+                    secondLevel: {
+                        type: "object",
+                        properties: {
+                            value: { type: "number" },
+                        },
+                        required: ["value"],
+                    },
+                },
+                required: ["secondLevel"],
+            },
+        };
+        test("getInputValue", () => {
+            const value = getInputValue((inputs) => inputs.firstLevel.secondLevel.value, inputSchema, {
+                firstLevel: { secondLevel: { value: 5 } },
+            });
+            expect(value).toBe(5);
+        });
+        test("changeInputValue", () => {
+            const value = changeInputValue((inputs) => inputs.firstLevel.secondLevel.value, inputSchema, { firstLevel: { secondLevel: { value: 5 } } }, 7);
+            expect(value).toStrictEqual({ firstLevel: { secondLevel: { value: 7 } } });
+        });
+    });
+    describe("array", () => {
+        const inputSchema = {
+            myArray: { type: "array", items: { type: "object", properties: { value: { type: "number" } }, required: ["value"] } },
+        };
+        test("getInputValue", () => {
+            const value = getInputValue((inputs) => {
+                const arrayElement = inputs.myArray[1];
+                assertIsDefined(arrayElement);
+                return arrayElement.value;
+            }, inputSchema, { myArray: [{ value: 2 }, { value: 4 }] });
+            expect(value).toBe(4);
+        });
+        test("changeInputValue", () => {
+            const value = changeInputValue((inputs) => {
+                const arrayElement = inputs.myArray[1];
+                assertIsDefined(arrayElement);
+                return arrayElement.value;
+            }, inputSchema, { myArray: [{ value: 2 }, { value: 4 }] }, 9);
+            expect(value).toStrictEqual({ myArray: [{ value: 2 }, { value: 9 }] });
+        });
+    });
+    describe("union", () => {
+        const inputSchema = {
+            myUnion: {
+                anyOf: [
+                    {
+                        type: "object",
+                        properties: { type: { type: "string", const: "first", isDiscriminator: true }, firstValue: { type: "number" } },
+                        required: ["type", "firstValue"],
+                    },
+                    {
+                        type: "object",
+                        properties: { type: { type: "string", const: "second", isDiscriminator: true }, secondValue: { type: "string" } },
+                        required: ["type", "secondValue"],
+                    },
+                ],
+            },
+        };
+        describe("primitive values within union types", () => {
+            function pathToInput(inputs) {
+                const unionType = inputs.myUnion;
+                return unionType.secondValue;
+            }
+            test("getInputValue", () => {
+                const value = getInputValue(pathToInput, inputSchema, { myUnion: { type: "second", secondValue: "foo" } });
+                expect(value).toBe("foo");
+            });
+            test("changeInputValue", () => {
+                const value = changeInputValue(pathToInput, inputSchema, { myUnion: { type: "second", secondValue: "foo" } }, "bar");
+                expect(value).toStrictEqual({ myUnion: { type: "second", secondValue: "bar" } });
+            });
+        });
+        describe("getting and modifying the union object", () => {
+            test("getInputValue", () => {
+                const unionValue = { type: "second", secondValue: "foo" };
+                const value = getInputObject((inputs) => inputs.myUnion, inputSchema, { myUnion: unionValue });
+                expect(value).toStrictEqual(unionValue);
+            });
+            test("changeInputValue", () => {
+                const newValue = { type: "first", firstValue: 42 };
+                const value = changeInputObject((inputs) => inputs.myUnion, inputSchema, { myUnion: { type: "second", secondValue: "foo" } }, newValue);
+                expect(value).toStrictEqual({ myUnion: { type: "first", firstValue: 42 } });
+            });
+        });
+    });
+    describe("bound value", () => {
+        const inputSchema = { value: { type: "number" } };
+        test("getInputValue", () => {
+            const value = getInputValue((inputs) => inputs.value, inputSchema, { value: { type: "bound", expression: "foo" } });
+            expect(value).toStrictEqual({ type: "bound", expression: "foo" });
+        });
+        test("change to bound value", () => {
+            const value = changeInputValue((inputs) => inputs.value, inputSchema, { value: 3 }, { type: "bound", expression: "foo" });
+            expect(value).toStrictEqual({ value: { type: "bound", expression: "foo" } });
+        });
+        test("change from bound value", () => {
+            const value = changeInputValue((inputs) => inputs.value, inputSchema, { value: { type: "bound", expression: "foo" } }, 3);
+            expect(value).toStrictEqual({ value: 3 });
+        });
+    });
+    describe("complex mix of nesting and arrays", () => {
+        const inputSchema = {
+            firstLevel: {
+                type: "object",
+                properties: {
+                    array: {
+                        type: "array",
+                        items: {
+                            type: "object",
+                            properties: {
+                                secondLevel: {
+                                    type: "object",
+                                    properties: {
+                                        value: { type: "string" },
+                                    },
+                                    required: ["value"],
+                                },
+                            },
+                            required: ["secondLevel"],
+                        },
+                    },
+                },
+                required: ["array"],
+            },
+        };
+        test("getInputValue", () => {
+            const value = getInputValue((inputs) => {
+                const arrayElement = inputs.firstLevel.array[2];
+                assertIsDefined(arrayElement);
+                return arrayElement.secondLevel.value;
+            }, inputSchema, {
+                firstLevel: {
+                    array: [
+                        { secondLevel: { value: "first" } },
+                        { secondLevel: { value: "second" } },
+                        { secondLevel: { value: "third" } },
+                        { secondLevel: { value: "fourth" } },
+                    ],
+                },
+            });
+            expect(value).toBe("third");
+        });
+        test("changeInputValue", () => {
+            const value = changeInputValue((inputs) => {
+                const arrayElement = inputs.firstLevel.array[2];
+                assertIsDefined(arrayElement);
+                return arrayElement.secondLevel.value;
+            }, inputSchema, {
+                firstLevel: {
+                    array: [
+                        { secondLevel: { value: "first" } },
+                        { secondLevel: { value: "second" } },
+                        { secondLevel: { value: "third" } },
+                        { secondLevel: { value: "fourth" } },
+                    ],
+                },
+            }, "bar");
+            expect(value).toStrictEqual({
+                firstLevel: {
+                    array: [
+                        { secondLevel: { value: "first" } },
+                        { secondLevel: { value: "second" } },
+                        { secondLevel: { value: "bar" } },
+                        { secondLevel: { value: "fourth" } },
+                    ],
+                },
+            });
+        });
+    });
+});
+function getInputObject(getInputPath, schema, inputs) {
+    const inputPath = getInputPath(createInputPaths(schema, inputs));
+    const inputAccessor = createObjectValueAccessor(inputPath);
+    return inputAccessor.getInputValue(inputs);
+}
+function changeInputObject(getInputPath, schema, inputs, newValue) {
+    const inputPath = getInputPath(createInputPaths(schema, inputs));
+    const inputAccessor = createObjectValueAccessor(inputPath);
+    return inputAccessor.changeInputValue(inputs, newValue);
+}
+function getInputValue(getInputPath, schema, inputs) {
+    const inputPath = getInputPath(createInputPaths(schema, inputs));
+    const inputAccessor = createInputValueAccessor(inputPath);
+    return inputAccessor.getInputValue(inputs);
+}
+function changeInputValue(getInputPath, schema, inputs, newValue) {
+    const inputPath = getInputPath(createInputPaths(schema, inputs));
+    const inputAccessor = createInputValueAccessor(inputPath);
+    return inputAccessor.changeInputValue(inputs, newValue);
+}
+function createInputPaths(schema, inputs) {
+    const inputSchema = convertFromJsonSchemaToInputSchema({ definitions: { RootInputs: { type: "object", isRoot: true, properties: schema, required: [] } } }, inputs);
+    return createObjectInputPaths({ type: "object", nonDiscriminatorProperties: inputSchema.properties, discriminatorProperties: [] });
+}
+function assertIsDefined(value) {
+    expect(value).toBeDefined();
+}
+//# sourceMappingURL=InputAccess.spec.js.map

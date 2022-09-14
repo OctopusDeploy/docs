@@ -1,0 +1,5 @@
+import { NewSensitiveValue, SensitiveValue } from "@octopusdeploy/step-inputs";
+import { SensitiveValue as ResourceSensitiveValue } from "../Resources/SensitveValue";
+export declare function toRuntimeSensitiveValue(sensitiveValue: ResourceSensitiveValue): SensitiveValue;
+export declare function toResourceSensitiveValue(sensitiveValue: SensitiveValue): ResourceSensitiveValue;
+export declare function toExportSensitiveValue(sensitiveValue: SensitiveValue): Exclude<SensitiveValue, NewSensitiveValue>;

@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/react-virtualized`
+
+# Summary
+This package contains type definitions for react-virtualized (https://github.com/bvaughn/react-virtualized).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-virtualized
+
+Additional Details
+ * Last updated: Thu, 10 Jan 2019 18:52:51 GMT
+ * Dependencies: @types/react, @types/prop-types
+ * Global values: none
+
+# Credits
+These definitions were written by Kalle Ott <https://github.com/kaoDev>, John Gunther <https://github.com/guntherjh>, Konstantin Nesterov <https://github.com/wasd171>, Szőke Szabolcs <https://github.com/szabolcsx>, Steve Zhang <https://github.com/Stevearzh>, Maciej Goszczycki <https://github.com/mgoszcz2>, Brandon Hall <https://github.com/brandonhall>, Sebastian Busch <https://github.com/sbusch>.

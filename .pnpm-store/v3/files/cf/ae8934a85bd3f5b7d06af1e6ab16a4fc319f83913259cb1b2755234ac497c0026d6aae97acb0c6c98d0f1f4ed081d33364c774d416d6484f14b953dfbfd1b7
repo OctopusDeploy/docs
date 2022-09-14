@@ -1,0 +1,21 @@
+import { SensitiveValue as ResourceSensitiveValue } from "./Resources/SensitveValue";
+import { AccountReference, ContainerImageReference, Discriminator, PackageReference, SensitiveValue, SupportedValueTypes } from "@octopusdeploy/step-inputs";
+import { RuntimePackageSelection } from "./RuntimePackageSelection";
+import { RuntimeAccountSelection } from "./RuntimeAccountSelection";
+import { RuntimeContainerImageSelection } from "./RuntimeContainerImageSelection";
+
+export type ResourceInputs<Inputs> = Inputs extends Discriminator<infer T>
+    ? T
+    : Inputs extends SensitiveValue
+    ? ResourceSensitiveValue | string
+    : Inputs extends PackageReference
+    ? RuntimePackageSelection
+    : Inputs extends AccountReference
+    ? RuntimeAccountSelection
+    : Inputs extends ContainerImageReference
+    ? RuntimeContainerImageSelection
+    : Inputs extends SupportedValueTypes
+    ? Inputs | string
+    : ObjectResourceInputs<Inputs>;
+
+export type ObjectResourceInputs<Inputs> = { [key in keyof Inputs]: ResourceInputs<Inputs[key]> };

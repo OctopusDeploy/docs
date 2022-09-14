@@ -1,0 +1,22 @@
+{
+    "name": "@types/loadjs",
+    "version": "3.5.0",
+    "description": "TypeScript definitions for loadjs",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Christian Rackerseder",
+            "url": "https://github.com/screendriver",
+            "githubUsername": "screendriver"
+        }
+    ],
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git.git"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "c1a663665854bf20874432b1308b099bd68d93d29a20f3499e0825f173a2206f",
+    "typeScriptVersion": "2.6"
+}

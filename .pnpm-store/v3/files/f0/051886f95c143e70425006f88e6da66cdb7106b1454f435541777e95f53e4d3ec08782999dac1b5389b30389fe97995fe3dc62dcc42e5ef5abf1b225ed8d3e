@@ -1,0 +1,40 @@
+describe("ResourceInputs", () => {
+    test("primitives (excluding string) become unioned with strings to represent the bound value case", () => {
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+    });
+    test("package selection maps to runtime package selection", () => {
+        assert();
+    });
+    test("container image reference maps to runtime container image reference", () => {
+        assert();
+    });
+    test("string are unchanged", () => {
+        assert();
+    });
+    test("union types are unioned with strings", () => {
+        assert();
+        assert();
+    });
+    test("inner type of an array is mapped", () => {
+        assert();
+        assert();
+        assert();
+    });
+    test("object types are preserved, and their properties are mapped", () => {
+        assert();
+        assert();
+        assert();
+    });
+    test("Complex types with nesting are supported", () => {
+        assert();
+    });
+});
+function assert() {
+}
+export {};
+//# sourceMappingURL=ResourceInputs.type-test.js.map

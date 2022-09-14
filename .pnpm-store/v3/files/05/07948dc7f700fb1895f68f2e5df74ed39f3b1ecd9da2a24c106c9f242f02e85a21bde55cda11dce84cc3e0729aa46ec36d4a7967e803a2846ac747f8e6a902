@@ -1,0 +1,3 @@
+import { EmptyInitialValue } from "../EmptyInitialValue";
+
+export type AmazonWebServicesAccount = { readonly __accountBrand: unique symbol; type: "AmazonWebServicesAccount" } | EmptyInitialValue;

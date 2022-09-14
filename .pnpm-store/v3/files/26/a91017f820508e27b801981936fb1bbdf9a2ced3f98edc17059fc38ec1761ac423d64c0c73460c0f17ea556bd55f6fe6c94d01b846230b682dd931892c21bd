@@ -1,0 +1,80 @@
+import { isBoundValue } from "@octopusdeploy/step-inputs";
+import { convertFromOriginalType, convertToOriginalType, getPathToArrayInput, getPathToInput, getPathToInputObject, } from "./RuntimeInputPath";
+export function createInputValueAccessor(pathToInput) {
+    return createInputAccessor(getPathToInput(pathToInput), (existingInput) => {
+        if (isBoundValue(existingInput)) {
+            return existingInput;
+        }
+        return convertFromOriginalType(pathToInput, existingInput);
+    }, (newInput) => {
+        if (isBoundValue(newInput)) {
+            return newInput;
+        }
+        else {
+            return convertToOriginalType(pathToInput, newInput);
+        }
+    });
+}
+export function createInputValueAccessorForDeploymentTarget(pathToInput) {
+    return createInputAccessor(getPathToInput(pathToInput), (existingInput) => {
+        return convertFromOriginalType(pathToInput, existingInput);
+    }, (newInput) => {
+        return convertToOriginalType(pathToInput, newInput);
+    });
+}
+export function createObjectValueAccessor(pathToObject) {
+    return createInputAccessor(getPathToInputObject(pathToObject), (existingInput) => existingInput, (newInput) => newInput);
+}
+export function createInputArrayAccessor(pathToArray) {
+    return createInputAccessor(getPathToArrayInput(pathToArray), (existingArray) => existingArray, (newArray) => newArray);
+}
+function createInputAccessor(pathToInput, convertToInput, convertFromInput) {
+    return {
+        getInputValue: (inputs) => {
+            const result = pathToInput.reduce((prev, path) => {
+                if (typeof path === "symbol") {
+                    throw new Error("symbol paths are not supported");
+                }
+                return prev[path];
+            }, inputs);
+            const runtimeInputType = result;
+            return convertToInput(runtimeInputType);
+        },
+        changeInputValue: (inputs, newValue) => {
+            const convertedNewValue = convertFromInput(newValue);
+            const result = changeValueAtPath(pathToInput, inputs, convertedNewValue);
+            return result;
+        },
+    };
+}
+function changeValueAtPath(partialPaths, inputAtPath, newValue) {
+    const [partialPath, ...rest] = partialPaths;
+    if (partialPath === undefined) {
+        return newValue;
+    }
+    if (typeof partialPath === "symbol") {
+        throw new Error("symbol paths are not supported");
+    }
+    if (Array.isArray(inputAtPath)) {
+        return changeValueInArray(partialPath, inputAtPath, rest, newValue);
+    }
+    return changeValueInObject(inputAtPath, partialPath, rest, newValue);
+}
+function changeValueInArray(partialPath, inputAtPath, rest, newValue) {
+    if (typeof partialPath !== "number") {
+        throw new Error("Only number keys can be used for arrays");
+    }
+    return inputAtPath.map((inputItem, index) => {
+        if (index === partialPath) {
+            const indexableItem = inputItem;
+            return changeValueAtPath(rest, indexableItem, newValue);
+        }
+        return inputItem;
+    });
+}
+function changeValueInObject(inputAtPath, partialPath, rest, newValue) {
+    const inputAtPathElement = inputAtPath[partialPath];
+    const indexableInput = inputAtPathElement;
+    return Object.assign(Object.assign({}, inputAtPath), { [partialPath]: changeValueAtPath(rest, indexableInput, newValue) });
+}
+//# sourceMappingURL=InputAccessor.js.map

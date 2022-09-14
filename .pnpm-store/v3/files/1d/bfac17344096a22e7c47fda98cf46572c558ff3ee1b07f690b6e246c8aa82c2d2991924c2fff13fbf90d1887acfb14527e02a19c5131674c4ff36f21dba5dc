@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "dist"
+  },
+  "extends": "../../tsconfig.base",
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.list = void 0;
+function list(props) {
+    return Object.assign({ type: "list" }, props);
+}
+exports.list = list;
+//# sourceMappingURL=List.js.map

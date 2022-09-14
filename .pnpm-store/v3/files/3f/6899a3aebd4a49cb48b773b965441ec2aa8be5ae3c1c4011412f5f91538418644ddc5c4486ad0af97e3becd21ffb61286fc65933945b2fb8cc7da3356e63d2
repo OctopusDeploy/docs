@@ -1,0 +1,30 @@
+import { Discriminator } from "./Discriminator";
+import { PackageReference } from "./PackageReference";
+import { ContainerImageReference } from "./ContainerImageReference";
+import { NewSensitiveValue, SensitiveValue } from "./SensitiveValues";
+declare type BoundValue = {
+    type: "bound";
+    expression: string;
+};
+export declare type StepConfigurationExportInputs<Inputs> = Inputs extends Discriminator<infer D> ? D : Inputs extends number | bigint | boolean | null ? Inputs | BoundValue : Inputs extends string ? Inputs : Inputs extends SensitiveValue ? Exclude<SensitiveValue, NewSensitiveValue> | BoundValue : Inputs extends PackageReference ? ExportedPackageReference : Inputs extends ContainerImageReference ? ExportedContainerImageReference : Inputs extends Array<infer ArrayItem> ? Array<StepConfigurationExportInputs<ArrayItem>> : Inputs extends object ? ObjectStepConfigurationExportInputs<Inputs> : never;
+export declare type ObjectStepConfigurationExportInputs<Inputs> = {
+    [K in keyof Inputs]: StepConfigurationExportInputs<Inputs[K]>;
+};
+export declare type ExportedContainerImageReference = ContainerImageReferenceAndFeed;
+declare type ContainerImageReferenceAndFeed = {
+    imageName: string;
+    imagePathExpression: (name: string) => string;
+    feed: {
+        name: string;
+        url: string;
+    };
+};
+export declare type ExportedPackageReference = PackageReferenceAndFeed;
+export declare type PackageReferenceAndFeed = {
+    packageName: string;
+    packageExtractionPathExpression: (referenceId: string) => string;
+    feed: {
+        name: string;
+    };
+};
+export {};

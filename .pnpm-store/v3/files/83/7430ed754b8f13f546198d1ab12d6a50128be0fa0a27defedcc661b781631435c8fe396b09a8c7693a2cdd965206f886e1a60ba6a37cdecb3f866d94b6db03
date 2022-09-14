@@ -1,0 +1,5 @@
+export declare type RuntimeContainerImageSelection = {
+    referenceId: string;
+    feedId: string | undefined;
+    imageName: string | undefined;
+};

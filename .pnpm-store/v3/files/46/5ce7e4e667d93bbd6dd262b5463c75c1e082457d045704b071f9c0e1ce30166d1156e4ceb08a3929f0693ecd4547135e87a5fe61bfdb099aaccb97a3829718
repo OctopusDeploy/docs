@@ -1,0 +1,31 @@
+import { AmazonWebServicesAccount } from "../accounts";
+import { Discriminator } from "../Discriminator";
+
+interface AwsNoAssumedRole {
+    type: Discriminator<"noAssumedRole">;
+}
+interface AwsAssumedRole {
+    type: Discriminator<"assumeRole">;
+    arn: string;
+    sessionName?: string;
+    sessionDuration?: number;
+    externalId?: string;
+}
+
+export type AwsAssumeRole = AwsNoAssumedRole | AwsAssumedRole;
+
+type AwsWorkerCredentials = {
+    type: Discriminator<"worker">;
+};
+
+type AwsAccountCredentials = {
+    type: Discriminator<"account">;
+    account: AmazonWebServicesAccount;
+};
+
+export type AwsCredentials = AwsWorkerCredentials | AwsAccountCredentials;
+
+export type AwsAuthentication = {
+    credentials: AwsCredentials;
+    role: AwsAssumeRole;
+};

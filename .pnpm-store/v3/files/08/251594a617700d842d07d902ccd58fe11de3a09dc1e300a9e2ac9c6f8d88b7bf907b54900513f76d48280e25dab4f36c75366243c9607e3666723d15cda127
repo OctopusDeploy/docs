@@ -1,0 +1,35 @@
+export function bold(text: string): BoldComponent {
+    return {
+        type: "bold",
+        text,
+    };
+}
+
+export interface BoldComponent {
+    type: "bold";
+    text: string;
+}
+
+export function italic(text: string): ItalicComponent {
+    return {
+        type: "italic",
+        text,
+    };
+}
+
+export interface ItalicComponent {
+    type: "italic";
+    text: string;
+}
+
+export function code(text: string): CodeComponent {
+    return {
+        type: "code",
+        text,
+    };
+}
+
+export interface CodeComponent {
+    type: "code";
+    text: string;
+}

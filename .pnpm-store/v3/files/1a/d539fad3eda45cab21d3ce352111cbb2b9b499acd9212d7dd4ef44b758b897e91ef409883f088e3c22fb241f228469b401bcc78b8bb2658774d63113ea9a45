@@ -1,0 +1,35 @@
+import { BoundValue, isBoundValue, isNotBoundValue } from "BoundValue";
+
+describe("isBoundValue", () => {
+    test("Returns false when not a bound value", () => {
+        const value: number = 100;
+
+        expect(isBoundValue(value)).toBe(false);
+    });
+
+    test("Returns true when a bound value", () => {
+        const value: BoundValue = {
+            type: "bound",
+            expression: "#{MyVariable}",
+        };
+
+        expect(isBoundValue(value)).toBe(true);
+    });
+});
+
+describe("isNotBoundValue", () => {
+    test("Returns true when not a bound value", () => {
+        const value: number = 100;
+
+        expect(isNotBoundValue(value)).toBe(true);
+    });
+
+    test("Returns false when a bound value", () => {
+        const value: BoundValue = {
+            type: "bound",
+            expression: "#{MyVariable}",
+        };
+
+        expect(isNotBoundValue(value)).toBe(false);
+    });
+});

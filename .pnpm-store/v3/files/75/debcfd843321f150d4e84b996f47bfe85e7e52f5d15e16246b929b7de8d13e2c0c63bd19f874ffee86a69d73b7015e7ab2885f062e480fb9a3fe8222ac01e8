@@ -1,0 +1,85 @@
+import { FormContent } from "../FormContent";
+import { DeploymentTargetInputComponent, StepInputComponent } from "../InputComponents";
+import { sectionGroup } from "../SectionGroup";
+import { section } from "../Section";
+import { text } from "../Text";
+import { packageSelector } from "../PackageSelector";
+import { ObjectInputPaths, PackageReference } from "@octopusdeploy/step-inputs";
+
+describe("Section Group component type", () => {
+    describe("section groups containing simple inputs", () => {
+        type Inputs = {
+            textInput: string;
+        };
+        const inputs = createStepInputPaths<Inputs>();
+
+        const testSectionGroup = sectionGroup({
+            title: "",
+            content: [
+                section({
+                    title: "",
+                    content: [
+                        text({
+                            input: inputs.textInput,
+                            label: "",
+                            helpText: "",
+                        }),
+                    ],
+                }),
+            ],
+        });
+
+        type sectionGroupType = typeof testSectionGroup;
+
+        test("Can be used in Step UIs", () => assert<IsAssignableTo<sectionGroupType, FormContent<StepInputComponent>>>());
+        test("Can be used in Deployment Target UIs", () => assert<IsAssignableTo<sectionGroupType, FormContent<DeploymentTargetInputComponent>>>());
+    });
+
+    describe("section groups containing step specific inputs", () => {
+        type Inputs = {
+            textInput: string;
+            package: PackageReference;
+        };
+        const inputs = createStepInputPaths<Inputs>();
+
+        const testSectionGroup = sectionGroup({
+            title: "",
+            content: [
+                section({
+                    title: "",
+                    content: [
+                        text({
+                            input: inputs.textInput,
+                            label: "",
+                            helpText: "",
+                        }),
+                        packageSelector({
+                            input: inputs.package,
+                            label: "",
+                            helpText: "",
+                        }),
+                    ],
+                }),
+            ],
+        });
+
+        type sectionGroupType = typeof testSectionGroup;
+
+        test("Can be used in Step UIs", () => assert<IsAssignableTo<sectionGroupType, FormContent<StepInputComponent>>>());
+        test("Can not be used in Deployment Target UIs", () => assert<IsNotAssignableTo<sectionGroupType, FormContent<DeploymentTargetInputComponent>>>());
+    });
+});
+
+function createStepInputPaths<StepInputs>(): ObjectInputPaths<StepInputs> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return null as unknown as ObjectInputPaths<StepInputs>;
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function assert<T extends "true">() {
+    // This test only performs compile time checks, so no runtime behaviour is required and this function can remain empty
+}
+
+type IsAssignableTo<T, U> = T extends U ? "true" : "false";
+type IsNotAssignableTo<T, U> = T extends U ? "false" : "true";

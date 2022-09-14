@@ -1,0 +1,106 @@
+import { RuntimeInputs } from "../RuntimeInputs";
+import {
+    SensitiveValue,
+    PackageReference,
+    Discriminator,
+    AzureServicePrincipal,
+    AmazonWebServicesAccount,
+    GoogleCloudAccount,
+    SshKeyPair,
+    Token,
+    UsernamePassword,
+    ContainerImageReference,
+    BoundValue,
+} from "@octopusdeploy/step-inputs";
+import { RuntimePackageSelection } from "../RuntimePackageSelection";
+import { RuntimeAccountSelection } from "../RuntimeAccountSelection";
+import { RuntimeContainerImageSelection } from "../RuntimeContainerImageSelection";
+
+// This file tests the RuntimeInputs mapped type. It is not a real test in that it does not do anything at runtime,
+// but rather it tests that the compiler behaves as expected and therefore "runs" at compile time
+describe("RuntimeInputs", () => {
+    test("primitives (excluding string) become unioned with BoundValue", () => {
+        assert<IsExactly<RuntimeInputs<number>, number | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<bigint>, bigint | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<boolean>, boolean | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<null>, null | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<undefined>, undefined | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<SensitiveValue>, SensitiveValue | BoundValue>>();
+    });
+
+    test("package selection maps to runtime package selection or package parameter", () => {
+        assert<IsExactly<RuntimeInputs<PackageReference>, RuntimePackageSelection>>();
+    });
+
+    test("container image reference maps to runtime container image selection or package parameter", () => {
+        assert<IsExactly<RuntimeInputs<ContainerImageReference>, RuntimeContainerImageSelection>>();
+    });
+
+    test("free-form strings don't get unioned with BoundValue", () => {
+        // Free-form strings don't need to have a separate bound value type. They would always be represented in the UI as a plain text input or similar
+        // The string value is always assumed to be possibly bound, and variable resolution is always applied
+        assert<IsExactly<RuntimeInputs<string>, string>>();
+    });
+
+    test("Discriminators map to their literal types", () => {
+        assert<IsExactly<RuntimeInputs<Discriminator<"foo">>, "foo">>();
+    });
+
+    test("union types are unioned with bound values", () => {
+        assert<IsExactly<RuntimeInputs<boolean | number>, boolean | number | BoundValue>>();
+
+        // Union types that contain strings get mapped to a type that can possibly be a BoundValue
+        // This is because when the value represents a non-string value, it needs a BoundValue type to represent the case where it is bound
+        assert<IsExactly<RuntimeInputs<boolean | number | string>, boolean | number | string | BoundValue>>();
+    });
+
+    test("inner type of an array is mapped", () => {
+        // Primitive
+        assert<IsExactly<RuntimeInputs<boolean[]>, Array<boolean | BoundValue>>>();
+        // Union type
+        assert<IsExactly<RuntimeInputs<Array<boolean | number>>, Array<boolean | number | BoundValue>>>();
+        // Object
+        assert<IsExactly<RuntimeInputs<Array<{ y: boolean }>>, Array<{ y: boolean | BoundValue }>>>();
+    });
+
+    test("object types are preserved, and their properties are mapped", () => {
+        // Primitive
+        assert<IsExactly<RuntimeInputs<{ x: { y: boolean } }>, { x: { y: boolean | BoundValue } }>>();
+        // Union type
+        assert<IsExactly<RuntimeInputs<{ x: { y: boolean | number } }>, { x: { y: boolean | number | BoundValue } }>>();
+        // Array
+        assert<IsExactly<RuntimeInputs<{ x: Array<boolean> }>, { x: Array<boolean | BoundValue> }>>();
+    });
+
+    test("Complex types with nesting are supported", () => {
+        assert<
+            IsExactly<
+                RuntimeInputs<{ x: { y: boolean[]; z: Array<{ a: SensitiveValue }> } }>,
+                { x: { y: Array<boolean | BoundValue>; z: Array<{ a: SensitiveValue | BoundValue }> } }
+            >
+        >();
+    });
+
+    test("account selection maps to runtime account selection", () => {
+        assert<IsExactly<RuntimeInputs<AzureServicePrincipal>, RuntimeAccountSelection | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<AmazonWebServicesAccount>, RuntimeAccountSelection | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<GoogleCloudAccount>, RuntimeAccountSelection | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<SshKeyPair>, RuntimeAccountSelection | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<Token>, RuntimeAccountSelection | BoundValue>>();
+        assert<IsExactly<RuntimeInputs<UsernamePassword>, RuntimeAccountSelection | BoundValue>>();
+    });
+});
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function assert<T extends "true">() {
+    // This test only performs compile time checks, so no runtime behaviour is required and this function can remain empty
+}
+
+// We don't want to distribute over conditional types in this mapped type
+// e.g. We want IsExactly<string | boolean, string> to be `false`, since you can't assign a `boolean` to `string`
+// If we typed this as `T extends U ? U extends T ? "true" : "false" : "false""` then typescript would distribute over `string | object`
+// so then `IsExactly<string | boolean, string> = IsExactly<string, string> | IsExactly<boolean, string> = "true" | "false";
+// This is clearly not the result we want, but if we opt out of distributing over conditional types, then we would get the result we want
+// We can do this using a 1-tuple. Source: https://github.com/microsoft/TypeScript/issues/29368#issuecomment-453529532
+type IsExactly<T, U> = [T] extends [U] ? ([U] extends [T] ? "true" : "false") : "false";

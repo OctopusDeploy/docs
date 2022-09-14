@@ -1,0 +1,21 @@
+import { ConvertibleInputPathToValue, InputPaths, InputPathToArray, InputPathToObject, InputPathToValue, ObjectInputPaths, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+export declare type PathToInput = ReadonlyArray<PathSegment>;
+export declare type PathSegment = string | number | symbol;
+export declare function createPathToArrayInput<ArrayType extends ReadonlyArray<ArrayItem>, ArrayItem>(array: ReadonlyArray<InputPaths<ArrayItem>>, pathToInput: PathToInput): ReadonlyArray<InputPaths<ArrayItem>> & InputPathToArray<ArrayType>;
+export declare function getPathToArrayInput(pathToInput: InputPathToArray<unknown>): PathToInput;
+export declare function getArrayFromArrayInputPath<ArrayItem>(pathToInput: InputPathToArray<ArrayItem>): ReadonlyArray<InputPaths<ArrayItem>>;
+export declare function createPathToInput<InputValue>(pathToInput: PathToInput): ConvertibleInputPathToValue<InputValue>;
+export declare function createPathToInputWithConversions<InputValue>(pathToInput: PathToInput, conversions: RequiredConversions<InputValue>): ConvertibleInputPathToValue<InputValue>;
+export declare function getPathToInput<InputValue>(pathToInput: InputPathToValue<InputValue>): PathToInput;
+export declare function convertFromOriginalType<OriginalValue, NewValue>(pathToInput: InputPathToValue<NewValue>, originalValue: OriginalValue): NewValue;
+export declare function convertToOriginalType<OriginalValue, NewValue>(pathToInput: InputPathToValue<NewValue>, value: NewValue): OriginalValue;
+declare type RequiredConversions<NewInput> = {
+    convertFromOriginalType: (originalValue: unknown) => NewInput;
+    convertToOriginalType: (value: NewInput) => unknown;
+};
+export declare function getPathToInputObject<ObjectType>(pathToObject: InputPathToObject<ObjectType>): PathToInput;
+export declare function createPathToInputObject<ObjectType>(pathToObject: PathToInput, objectWithInputPaths: ObjectInputPaths<ObjectType>): ObjectInputPathsAndPathToObject<ObjectType>;
+export declare function isInputPathToObject<Input>(path: InputPathToObject<Input> | InputPathToArray<Input> | InputPathToValue<Input>): path is InputPathToObject<Input>;
+export declare function isInputPathToArray<Input>(path: InputPathToObject<Input> | InputPathToArray<Input> | InputPathToValue<Input>): path is InputPathToArray<Input>;
+export declare function isInputPathToValue<Input>(path: InputPathToObject<Input> | InputPathToArray<Input> | InputPathToValue<Input>): path is InputPathToValue<Input>;
+export {};

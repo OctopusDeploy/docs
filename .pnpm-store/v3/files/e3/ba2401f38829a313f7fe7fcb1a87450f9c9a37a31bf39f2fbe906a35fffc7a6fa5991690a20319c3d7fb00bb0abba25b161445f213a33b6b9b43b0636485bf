@@ -1,0 +1,120 @@
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isInputPathToValue = exports.isInputPathToArray = exports.isInputPathToObject = exports.createPathToInputObject = exports.getPathToInputObject = exports.convertToOriginalType = exports.convertFromOriginalType = exports.getPathToInput = exports.createPathToInputWithConversions = exports.createPathToInput = exports.getArrayFromArrayInputPath = exports.getPathToArrayInput = exports.createPathToArrayInput = void 0;
+function createPathToArrayInput(array, pathToInput) {
+    var partialRuntimePathToArray = __spreadArray([], array, true);
+    partialRuntimePathToArray.__pathToInput = pathToInput;
+    partialRuntimePathToArray.__type = "array";
+    var runtimePathToArray = partialRuntimePathToArray;
+    return runtimePathToArray;
+}
+exports.createPathToArrayInput = createPathToArrayInput;
+function getPathToArrayInput(pathToInput) {
+    var runtimePathToArray = pathToInput;
+    return runtimePathToArray.__pathToInput;
+}
+exports.getPathToArrayInput = getPathToArrayInput;
+function getArrayFromArrayInputPath(pathToInput) {
+    return pathToInput;
+}
+exports.getArrayFromArrayInputPath = getArrayFromArrayInputPath;
+function createPathToInput(pathToInput) {
+    return createPathToInputWithConversions(pathToInput, {
+        convertFromOriginalType: function (x) {
+            return x;
+        },
+        convertToOriginalType: function (x) { return x; },
+    });
+}
+exports.createPathToInput = createPathToInput;
+function createPathToInputWithConversions(pathToInput, conversions) {
+    var runtimePathToValue = {
+        __pathToInput: pathToInput,
+        __conversions: conversions,
+        __type: "value",
+        convertTo: function (newConversions) {
+            return createPathToInputWithConversions(pathToInput, {
+                convertToOriginalType: function (newInput) {
+                    var newConverter = newConversions.toOriginalType
+                        ? newConversions.toOriginalType
+                        : function (x) {
+                            return x;
+                        };
+                    return conversions.convertToOriginalType(newConverter(newInput));
+                },
+                convertFromOriginalType: function (original) {
+                    var toType = newConversions.toNewType
+                        ? newConversions.toNewType
+                        : function (x) {
+                            return x;
+                        };
+                    return toType(conversions.convertFromOriginalType(original));
+                },
+            });
+        },
+    };
+    return runtimePathToValue;
+}
+exports.createPathToInputWithConversions = createPathToInputWithConversions;
+function getPathToInput(pathToInput) {
+    var runtimePathToValue = pathToInput;
+    return runtimePathToValue.__pathToInput;
+}
+exports.getPathToInput = getPathToInput;
+function convertFromOriginalType(pathToInput, originalValue) {
+    var runtimePathToValue = pathToInput;
+    return runtimePathToValue.__conversions.convertFromOriginalType(originalValue);
+}
+exports.convertFromOriginalType = convertFromOriginalType;
+function convertToOriginalType(pathToInput, value) {
+    var runtimePathToValue = pathToInput;
+    var originalValue = runtimePathToValue.__conversions.convertToOriginalType(value);
+    return originalValue;
+}
+exports.convertToOriginalType = convertToOriginalType;
+function getPathToInputObject(pathToObject) {
+    var runtimeObjectWithInputPaths = pathToObject;
+    return runtimeObjectWithInputPaths.__pathToInput;
+}
+exports.getPathToInputObject = getPathToInputObject;
+function createPathToInputObject(pathToObject, objectWithInputPaths) {
+    var runtimeObjectWithInputPaths = __assign(__assign({}, objectWithInputPaths), { __type: "object", __pathToInput: pathToObject });
+    return runtimeObjectWithInputPaths;
+}
+exports.createPathToInputObject = createPathToInputObject;
+function isInputPathToObject(path) {
+    var castedPath = path;
+    return castedPath.__type === "object";
+}
+exports.isInputPathToObject = isInputPathToObject;
+function isInputPathToArray(path) {
+    var castedPath = path;
+    return castedPath.__type === "array";
+}
+exports.isInputPathToArray = isInputPathToArray;
+function isInputPathToValue(path) {
+    var castedPath = path;
+    return castedPath.__type === "value";
+}
+exports.isInputPathToValue = isInputPathToValue;
+//# sourceMappingURL=RuntimeInputPath.js.map

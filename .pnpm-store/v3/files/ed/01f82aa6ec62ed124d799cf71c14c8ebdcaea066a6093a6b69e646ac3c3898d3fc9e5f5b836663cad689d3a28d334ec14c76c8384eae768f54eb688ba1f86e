@@ -1,0 +1,9 @@
+import type { InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+export declare function text(props: TextProps): TextComponent;
+export interface TextComponent extends TextProps {
+    type: "text";
+}
+export interface TextProps extends CommonInputProps {
+    input: InputPathToValue<string>;
+}

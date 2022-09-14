@@ -1,0 +1,41 @@
+# Installation
+> `npm install --save @types/jest-expect-message`
+
+# Summary
+This package contains type definitions for jest-expect-message (https://github.com/mattphillips/jest-expect-message#readme).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jest-expect-message.
+## [index.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jest-expect-message/index.d.ts)
+````ts
+// Type definitions for jest-expect-message 1.0
+// Project: https://github.com/mattphillips/jest-expect-message#readme
+// Definitions by: Mike Davydov <https://github.com/mike-d-davydov>
+//                 Michael Bashurov <https://github.com/saitonakamura>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// Minimum TypeScript Version: 4.3
+
+/// <reference types="jest"/>
+
+declare namespace jest {
+    interface Expect {
+        /**
+         * The `expect` function is used every time you want to test a value.
+         * You will rarely call `expect` by itself.
+         *
+         * @param actual The value to apply matchers against.
+         * @param message Clarification message
+         */
+        <T = any>(actual: T, message: string): JestMatchers<T>;
+    }
+}
+
+````
+
+### Additional Details
+ * Last updated: Fri, 17 Jun 2022 12:01:40 GMT
+ * Dependencies: [@types/jest](https://npmjs.com/package/@types/jest)
+ * Global values: none
+
+# Credits
+These definitions were written by [Mike Davydov](https://github.com/mike-d-davydov), and [Michael Bashurov](https://github.com/saitonakamura).

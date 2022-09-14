@@ -1,0 +1,29 @@
+{
+    "name": "@types/stacktrace-js",
+    "version": "0.0.33",
+    "description": "TypeScript definitions for stacktrace.js",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Exceptionless",
+            "url": "https://github.com/exceptionless",
+            "githubUsername": "exceptionless"
+        },
+        {
+            "name": "Chun-Yan Ho",
+            "url": "https://github.com/pilagod",
+            "githubUsername": "pilagod"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/stacktrace-js"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "a19429b93e8fa4b4b7289e28f07b922fd24569a4bfc38acf43b40e1c39da9885",
+    "typeScriptVersion": "2.0"
+}

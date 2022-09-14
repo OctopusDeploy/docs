@@ -1,0 +1,23 @@
+import type { SensitiveTextComponent } from "./SensitiveText";
+import type { PackageSelectorComponent } from "./PackageSelector";
+import type { TextComponent } from "./Text";
+import type { RadioButtonsComponent } from "./RadioButtons";
+import type { ListComponent } from "./List";
+import type { AccountSelectorComponent } from "./Account";
+import type { ContainerImageSelectorComponent } from "./ContainerImageSelector";
+import type { CheckboxComponent } from "./Checkbox";
+import type { SelectComponent } from "./Select";
+import type { NumberComponent } from "./Number";
+import type { InlineListComponent } from "./InlineList/InlineList";
+import { LinkComponent } from "./Link";
+import { BoldComponent, CodeComponent, ItalicComponent } from "./TextFormat";
+export declare type StepInputComponent = SensitiveTextComponent | PackageSelectorComponent | ContainerImageSelectorComponent | TextComponent | RadioButtonsComponent | ListComponent | CheckboxComponent | SelectComponent | NumberComponent | InlineListComponent | AccountSelectorComponent;
+export declare type DeploymentTargetInputComponent = SensitiveTextComponent | TextComponent | RadioButtonsComponent | AccountSelectorComponent | CheckboxComponent | SelectComponent | NumberComponent;
+export declare type CommonInputProps = {
+    label: string;
+    helpText: string;
+    note?: NoteExpression[];
+};
+export declare type NoteComponent = LinkComponent | BoldComponent | ItalicComponent | CodeComponent;
+export declare type NoteExpression = string | NoteComponent;
+export declare function note(strings: TemplateStringsArray, ...expressions: NoteComponent[]): NoteExpression[];

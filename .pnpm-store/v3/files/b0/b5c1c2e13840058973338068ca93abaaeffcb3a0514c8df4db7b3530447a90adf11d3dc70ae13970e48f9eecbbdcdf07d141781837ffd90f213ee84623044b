@@ -1,0 +1,18 @@
+import type { Discriminator, ServerOwnedTypes, SupportedValueTypes, PartialByType } from "@octopusdeploy/step-inputs";
+
+export type ObjectInitialInputs<StepInputs> = {
+    [K in keyof StepInputs]: InitialInput<StepInputs[K]>;
+};
+
+export type InitialInputs<StepInputs> = ObjectInitialInputs<PartialByType<StepInputs, ServerOwnedTypes>>;
+
+export type InitialInput<T> = T extends Discriminator<infer D>
+    ? D
+    : T extends SupportedValueTypes
+    ? T
+    : T extends Array<infer T>
+    ? Array<InitialInput<T>>
+    : // eslint-disable-next-line @typescript-eslint/ban-types
+    T extends object
+    ? InitialInputs<T>
+    : never;

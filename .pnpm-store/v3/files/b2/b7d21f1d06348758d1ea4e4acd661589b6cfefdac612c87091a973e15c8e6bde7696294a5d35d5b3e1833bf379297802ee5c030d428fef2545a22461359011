@@ -1,0 +1,24 @@
+import type { InputPathToObject, InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { InitialInputs } from "./InitialInputs";
+import type { CommonInputProps } from "./InputComponents";
+
+export function radioButtons<Input>(props: RadioButtonProps<Input>): RadioButtonsComponent {
+    return {
+        type: "radio-buttons",
+        ...props,
+    };
+}
+
+export interface RadioButtonsComponent extends RadioButtonProps<unknown> {
+    type: "radio-buttons";
+}
+
+export interface RadioButtonProps<Input> extends CommonInputProps {
+    input: InputPathToObject<Input> | InputPathToValue<Input>;
+    options: RadioButtonOption<Input>[];
+}
+
+export interface RadioButtonOption<Input> {
+    label: string;
+    newValue: InitialInputs<Input>;
+}

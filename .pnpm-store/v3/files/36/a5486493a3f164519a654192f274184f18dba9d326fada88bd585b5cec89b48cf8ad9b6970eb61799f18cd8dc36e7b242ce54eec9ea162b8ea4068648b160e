@@ -1,0 +1,9 @@
+import type { InputPathToValue, SensitiveValue } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+export declare function sensitiveText(props: SensitiveTextProps): SensitiveTextComponent;
+export interface SensitiveTextComponent extends SensitiveTextProps {
+    type: "sensitive";
+}
+export interface SensitiveTextProps extends CommonInputProps {
+    input: InputPathToValue<SensitiveValue>;
+}

@@ -1,0 +1,34 @@
+import { AccountTypes } from "@octopusdeploy/step-inputs";
+
+// This "root" schema represents the entire input schema for the step package
+export type RootInputSchema = { properties: InputProperty[] };
+
+export type InputProperty = {
+    name: string;
+    isRequired: boolean;
+    type: NonDiscriminatorTypeDefinition;
+};
+
+export type DiscriminatorProperty = {
+    discriminatorName: string;
+    type: DiscriminatorTypeDefinition;
+};
+
+export type PlainObjectTypeDefinition = { type: "object"; nonDiscriminatorProperties: InputProperty[]; discriminatorProperties: DiscriminatorProperty[] };
+export type ArrayTypeDefinition = { type: "array"; itemTypes: NonDiscriminatorTypeDefinition[] };
+export type PackageReferenceTypeDefinition = { type: "package" };
+export type ContainerImageReferenceTypeDefinition = { type: "container-image" };
+export type SensitiveValueTypeDefinition = { type: "sensitive" };
+export type StringValueTypeDefinition = { type: "string" };
+export type OtherPrimitiveTypeDefinition = { type: "primitive" };
+export type DiscriminatorTypeDefinition = { type: "discriminator"; const: number | boolean | string };
+export type AccountTypeDefinition = { type: "account"; accountType: AccountTypes };
+export type NonDiscriminatorTypeDefinition =
+    | AccountTypeDefinition
+    | PlainObjectTypeDefinition
+    | PackageReferenceTypeDefinition
+    | SensitiveValueTypeDefinition
+    | StringValueTypeDefinition
+    | OtherPrimitiveTypeDefinition
+    | ArrayTypeDefinition
+    | ContainerImageReferenceTypeDefinition;

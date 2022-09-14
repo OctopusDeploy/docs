@@ -1,0 +1,15 @@
+export declare function bold(text: string): BoldComponent;
+export interface BoldComponent {
+    type: "bold";
+    text: string;
+}
+export declare function italic(text: string): ItalicComponent;
+export interface ItalicComponent {
+    type: "italic";
+    text: string;
+}
+export declare function code(text: string): CodeComponent;
+export interface CodeComponent {
+    type: "code";
+    text: string;
+}

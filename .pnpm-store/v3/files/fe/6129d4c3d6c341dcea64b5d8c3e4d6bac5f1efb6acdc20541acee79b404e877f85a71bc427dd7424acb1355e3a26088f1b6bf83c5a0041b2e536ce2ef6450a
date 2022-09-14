@@ -1,0 +1,199 @@
+"use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.convertFromJsonSchemaToInputSchema = void 0;
+var exhaustiveCheck_1 = require("../exhaustiveCheck");
+function convertFromJsonSchemaToInputSchema(inputSchema, inputs) {
+    var rootDefinition = getRootDefinition(inputSchema);
+    return {
+        properties: toPairs(rootDefinition.properties).map(function (_a) {
+            var _b;
+            var name = _a[0], definition = _a[1];
+            return {
+                name: name,
+                isRequired: ((_b = rootDefinition.required) !== null && _b !== void 0 ? _b : []).includes(name),
+                type: convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, definition, getValueOfStepInput(inputs, name)),
+            };
+        }),
+    };
+}
+exports.convertFromJsonSchemaToInputSchema = convertFromJsonSchemaToInputSchema;
+function getValueOfStepInput(inputs, propertyName) {
+    var propertyKey = propertyName;
+    return inputs[propertyKey];
+}
+function convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition, input) {
+    if ("$ref" in clientDefinition) {
+        var reference = resolveReference(inputSchema, clientDefinition);
+        return convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, reference, input);
+    }
+    if ("anyOf" in clientDefinition) {
+        if (input === undefined) {
+            throw new Error("Union types cannot be optional");
+        }
+        return convertAnyOfClientDefinitionToUnionTypeDefinition(inputSchema, clientDefinition, input);
+    }
+    switch (clientDefinition.type) {
+        case "object":
+            if ("isPackageReference" in clientDefinition) {
+                return { type: "package" };
+            }
+            if ("isContainerImageReference" in clientDefinition) {
+                return { type: "container-image" };
+            }
+            if ("isSensitiveValue" in clientDefinition) {
+                return { type: "sensitive" };
+            }
+            return convertObjectDefinition(inputSchema, clientDefinition, input);
+        case "array":
+            if (input === undefined) {
+                throw new Error("Array types cannot be optional");
+            }
+            if (!Array.isArray(input)) {
+                throw new Error("Found an array in the schema, but the runtime value was not an array");
+            }
+            return convertArrayDefinition(inputSchema, clientDefinition, input);
+        case "string":
+            if ("isDiscriminator" in clientDefinition) {
+                throw new Error("Not expecting a discriminator at this point");
+            }
+            if ("isAccount" in clientDefinition) {
+                return { type: "account", accountType: clientDefinition.accountType };
+            }
+            return { type: "string" };
+        case "number":
+        case "boolean":
+            if ("isDiscriminator" in clientDefinition) {
+                throw new Error("Not expecting a discriminator at this point");
+            }
+            return { type: "primitive" };
+    }
+    (0, exhaustiveCheck_1.exhaustiveCheck)(clientDefinition, "not all cases are handled");
+}
+function convertAnyOfClientDefinitionToUnionTypeDefinition(inputSchema, possibleDefinitions, inputs) {
+    var flattenedPossibleUnionTypes = collapseAllPossibleUnionTypes(inputSchema, possibleDefinitions);
+    if (flattenedPossibleUnionTypes.every(isObjectTypeDefinition)) {
+        var narrowedUnionType = flattenedPossibleUnionTypes.find(function (t) { return allDiscriminatorTypesMatch(t, inputs); });
+        if (!narrowedUnionType) {
+            throw new Error("No type in the schema could be found for this union type.");
+        }
+        return convertObjectDefinition(inputSchema, narrowedUnionType, inputs);
+    }
+    throw new Error("Only unions of object types are allowed.");
+    function isObjectTypeDefinition(clientDefinition) {
+        switch (clientDefinition.type) {
+            case "object":
+                return true;
+            case "array":
+            case "string":
+            case "number":
+            case "boolean":
+                return false;
+        }
+        (0, exhaustiveCheck_1.exhaustiveCheck)(clientDefinition, "Failed to handle possible definition type.");
+    }
+}
+function allDiscriminatorTypesMatch(possibleType, input) {
+    return toPairs(possibleType.properties)
+        .map(function (_a) {
+        var name = _a[0], propertyType = _a[1];
+        if ("isDiscriminator" in propertyType) {
+            return { discriminatorName: name, discriminatorType: propertyType };
+        }
+        return null;
+    })
+        .every(function (discriminatorProperty) {
+        if (discriminatorProperty === null)
+            return true;
+        return getValueOfStepInput(input, discriminatorProperty.discriminatorName) === discriminatorProperty.discriminatorType.const;
+    });
+}
+function collapseAllPossibleUnionTypes(inputSchema, clientDefinition) {
+    if ("$ref" in clientDefinition) {
+        return collapseAllPossibleUnionTypes(inputSchema, resolveReference(inputSchema, clientDefinition));
+    }
+    if ("anyOf" in clientDefinition) {
+        return flatten(clientDefinition.anyOf.map(function (d) { return collapseAllPossibleUnionTypes(inputSchema, d); }));
+    }
+    return [clientDefinition];
+}
+function convertObjectDefinition(inputSchema, objectDefinition, inputs) {
+    var properties = toPairs(objectDefinition.properties).map(function (_a) {
+        var _b;
+        var propertyKey = _a[0], clientDefinition = _a[1];
+        if ("isDiscriminator" in clientDefinition) {
+            var discriminatorTypeDefinition = {
+                type: "discriminator",
+                const: clientDefinition.const,
+            };
+            return { discriminatorName: propertyKey, type: discriminatorTypeDefinition };
+        }
+        else {
+            return {
+                name: propertyKey,
+                isRequired: ((_b = objectDefinition.required) !== null && _b !== void 0 ? _b : []).includes(propertyKey),
+                type: convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition, inputs === undefined ? inputs : getValueOfStepInput(inputs, propertyKey)),
+            };
+        }
+    });
+    var discriminatorProperties = properties.filter(function (p) { return "discriminatorName" in p; });
+    var nonDiscriminatorProperties = properties.filter(function (p) { return "name" in p; });
+    return {
+        type: "object",
+        discriminatorProperties: discriminatorProperties,
+        nonDiscriminatorProperties: nonDiscriminatorProperties,
+    };
+}
+function convertArrayDefinition(inputSchema, clientDefinition, inputs) {
+    return {
+        type: "array",
+        itemTypes: inputs.map(function (input) {
+            return convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition.items, input);
+        }),
+    };
+}
+function resolveReference(inputSchema, clientDefinition) {
+    var referenceKey = clientDefinition.$ref.replace("#/definitions/", "");
+    var resolvedReference = inputSchema.definitions[referenceKey];
+    if (!resolvedReference) {
+        throw new Error("Input schema reference points to a reference that does not exist.");
+    }
+    if ("isRoot" in resolvedReference) {
+        throw new Error("Can't recursively reference the root definition.");
+    }
+    return resolvedReference;
+}
+function getRootDefinition(inputSchema) {
+    var rootDefinitions = toPairs(inputSchema.definitions)
+        .map(function (_a) {
+        var _ = _a[0], definition = _a[1];
+        return definition;
+    })
+        .filter(function (definition) { return "isRoot" in definition; });
+    var rootDefinition = rootDefinitions.pop();
+    if (rootDefinition === undefined) {
+        throw new Error("No root definition found in the input schema");
+    }
+    if (rootDefinitions.length > 0) {
+        throw new Error("Multiple root definitions found in the input schema");
+    }
+    return rootDefinition;
+}
+function toPairs(obj) {
+    return Object.keys(obj).map(function (primitiveKey) {
+        var key = primitiveKey;
+        return [key, obj[key]];
+    });
+}
+function flatten(manyArrays) {
+    return manyArrays.reduce(function (p, c) { return __spreadArray(__spreadArray([], p, true), c, true); });
+}
+//# sourceMappingURL=convertFromJsonSchemaToInputSchema.js.map

@@ -1,0 +1,11 @@
+export type BoundValue = { type: "bound"; expression: string };
+
+export function isNotBoundValue<T>(value: T | BoundValue): value is T {
+    return !isBoundValue(value);
+}
+
+export function isBoundValue<T>(value: T | BoundValue): value is BoundValue {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const boundValue = value as BoundValue;
+    return boundValue?.type === "bound";
+}

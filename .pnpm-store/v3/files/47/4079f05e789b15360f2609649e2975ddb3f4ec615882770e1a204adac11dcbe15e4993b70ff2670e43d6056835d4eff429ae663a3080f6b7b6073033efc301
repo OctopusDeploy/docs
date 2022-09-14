@@ -1,0 +1,9 @@
+import { ObjectStepConfigurationExportInputs } from "@octopusdeploy/step-inputs";
+import { ObjectRuntimeInputs } from "../RuntimeInputs";
+import { InputProperty } from "../Schema/InputSchema";
+import { ObjectResourceInputs } from "../ResourceInputs";
+import { OctopusServerEnricher } from "../EnrichedTypes/EnrichedTypes";
+export declare function asRuntimeInputs<StepInputs>(inputSchemaProperties: InputProperty[], resourceInputs: ObjectResourceInputs<StepInputs>): ObjectRuntimeInputs<StepInputs>;
+export declare function isResourceBoundValue(input: any): input is string;
+export declare function asResourceInputs<StepInputs>(inputSchemaProperties: InputProperty[], runtimeInputs: ObjectRuntimeInputs<StepInputs>): ObjectResourceInputs<StepInputs>;
+export declare function asStepConfigurationExportInputs<StepInputs>(inputSchemaProperties: InputProperty[], runtimeInputs: ObjectRuntimeInputs<StepInputs>, octopusServerEnricher: OctopusServerEnricher): ObjectStepConfigurationExportInputs<StepInputs>;

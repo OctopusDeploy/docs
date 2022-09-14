@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/showdown`
+
+# Summary
+This package contains type definitions for Showdown (https://github.com/showdownjs/showdown).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown
+
+Additional Details
+ * Last updated: Mon, 07 Jan 2019 17:06:21 GMT
+ * Dependencies: none
+ * Global values: showdown
+
+# Credits
+These definitions were written by Hamed Baatour <https://github.com/hamedbaatour>, cbowdon <https://github.com/cbowdon>, Pei-Tang Huang <https://github.com/tan9>, Ariel-Saldana <https://github.com/arielsaldana>.

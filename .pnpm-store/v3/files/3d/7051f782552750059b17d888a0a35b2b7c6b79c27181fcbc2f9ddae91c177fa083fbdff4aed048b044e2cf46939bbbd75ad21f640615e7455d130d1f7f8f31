@@ -1,0 +1,249 @@
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var InputsConverters_1 = require("../InputsConverters");
+var Schema_1 = require("../../Schema");
+describe("converting between RuntimeInputs and StepConfigurationExportInputs", function () {
+    describe("Sensitive values", function () {
+        var schema = { sensitiveProperty: { type: "object", isSensitiveValue: true } };
+        test("existing value", function () {
+            var configurationInputs = { sensitiveProperty: { type: "existing" } };
+            var runtimeInputs = { sensitiveProperty: { type: "existing" } };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+        test("empty value", function () {
+            var configurationInputs = { sensitiveProperty: { type: "empty" } };
+            var runtimeInputs = { sensitiveProperty: { type: "empty" } };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+        test("bound value", function () {
+            var boundExpression = "#{BoundValue}";
+            var configurationInputs = {
+                sensitiveProperty: { type: "bound", expression: boundExpression },
+            };
+            var runtimeInputs = { sensitiveProperty: { type: "bound", expression: boundExpression } };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+    });
+    describe("Package References", function () {
+        test("converted correctly", function () {
+            var schema = { package: { type: "object", isPackageReference: true } };
+            var configurationInputs = {
+                package: { packageName: "ThePackage", feed: { name: "TheFeed" }, packageExtractionPathExpression: function (s) { return s; } },
+            };
+            var runtimeInputs = {
+                package: { packageId: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+    });
+    describe("Container Image References", function () {
+        test("get expanded with feed data", function () {
+            var schema = { containerImage: { type: "object", isContainerImageReference: true } };
+            var configurationInputs = {
+                containerImage: { imageName: "ThePackage", feed: { name: "TheFeed", url: "https://docker.io" }, imagePathExpression: function (s) { return s; } },
+            };
+            var runtimeInputs = {
+                containerImage: { imageName: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+        test("work in an array", function () {
+            var schema = {
+                containers: {
+                    type: "array",
+                    items: {
+                        $ref: "#/definitions/ContainerDefinition",
+                    },
+                },
+            };
+            var definitions = {
+                ContainerDefinition: {
+                    type: "object",
+                    properties: {
+                        containerImage: {
+                            type: "object",
+                            isContainerImageReference: true,
+                        },
+                    },
+                },
+            };
+            var configurationInputs = {
+                containers: [
+                    { containerImage: { imageName: "ThePackage-1", feed: { name: "TheFeed", url: "https://docker.io" }, imagePathExpression: function (s) { return s; } } },
+                    { containerImage: { imageName: "ThePackage-2", feed: { name: "TheFeed", url: "https://docker.io" }, imagePathExpression: function (s) { return s; } } },
+                ],
+            };
+            var runtimeInputs = {
+                containers: [
+                    { containerImage: { imageName: "ThePackage-1", feedId: "TheFeed", referenceId: "uniqueIdentifier" } },
+                    { containerImage: { imageName: "ThePackage-2", feedId: "TheFeed", referenceId: "uniqueIdentifier" } },
+                ],
+            };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs, definitions);
+        });
+    });
+    describe("String values", function () {
+        describe("remain untouched", function () {
+            var schema = { message: { type: "string" } };
+            test("when not bound", function () {
+                var configurationInputs = { message: "The Value" };
+                var runtimeInputs = { message: "The Value" };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+            test("when bound", function () {
+                var configurationInputs = { message: "#{Bound Value}" };
+                var runtimeInputs = { message: "#{Bound Value}" };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+        });
+        describe("Number values", function () {
+            var schema = { numberValue: { type: "number" } };
+            test("remain untouched when not bound", function () {
+                var configurationInputs = { numberValue: 42 };
+                var runtimeInputs = { numberValue: 42 };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+            test("will convert between bound value and string as needed", function () {
+                var configurationInputs = {
+                    numberValue: { type: "bound", expression: "#{BoundValue}" },
+                };
+                var runtimeInputs = { numberValue: { type: "bound", expression: "#{BoundValue}" } };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+        });
+        describe("BigInt values", function () {
+            var schema = { numberValue: { type: "number" } };
+            test("remain untouched when not bound", function () {
+                var configurationInputs = { numberValue: BigInt(42) };
+                var runtimeInputs = { numberValue: BigInt(42) };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+            test("will convert between bound value and string as needed", function () {
+                var configurationInputs = {
+                    numberValue: { type: "bound", expression: "#{BoundValue}" },
+                };
+                var runtimeInputs = { numberValue: { type: "bound", expression: "#{BoundValue}" } };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+        });
+        describe("Boolean values", function () {
+            var schema = { booleanValue: { type: "boolean" } };
+            test("remain untouched when not bound", function () {
+                var configurationInputs = { booleanValue: true };
+                var runtimeInputs = { booleanValue: true };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+            test("will convert between bound value and string as needed", function () {
+                var configurationInputs = {
+                    booleanValue: { type: "bound", expression: "#{BoundValue}" },
+                };
+                var runtimeInputs = { booleanValue: { type: "bound", expression: "#{BoundValue}" } };
+                assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+            });
+        });
+    });
+    describe("Nested objects", function () {
+        var schema = { nested: { type: "object", properties: { theValue: { type: "string" } } } };
+        test("maps primitives", function () {
+            var configurationInputs = { nested: { theValue: "Hello World" } };
+            var runtimeInputs = { nested: { theValue: "Hello World" } };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+    });
+    describe("object union", function () {
+        var schema = {
+            shape: {
+                anyOf: [
+                    { type: "object", properties: { type: { type: "string", const: "square", isDiscriminator: true }, size: { type: "number" } } },
+                    {
+                        type: "object",
+                        properties: {
+                            type: { type: "string", const: "rectangle", isDiscriminator: true },
+                            width: { type: "number" },
+                            height: { type: "number" },
+                        },
+                    },
+                ],
+            },
+        };
+        test("maps to first object in union", function () {
+            var runtimeInputs = { shape: { type: "square", size: 5 } };
+            var configurationInputs = { shape: { type: "square", size: 5 } };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+        test("maps to second object in union", function () {
+            var runtimeInputs = { shape: { type: "rectangle", width: 5, height: 10 } };
+            var configurationInputs = { shape: { type: "rectangle", width: 5, height: 10 } };
+            assertConvertedValueMatchesExpected(schema, runtimeInputs, configurationInputs);
+        });
+    });
+});
+var isPackageSelection = function (data) {
+    var _a;
+    return ((_a = data) === null || _a === void 0 ? void 0 : _a.packageId) !== undefined;
+};
+var isContainerImageSelection = function (data) {
+    var _a;
+    return ((_a = data) === null || _a === void 0 ? void 0 : _a.imageName) !== undefined;
+};
+var mockEnricher = (function () {
+    var enrich = function (data) {
+        if (isPackageSelection(data)) {
+            return {
+                packageName: data.packageId,
+                referenceId: data.referenceId,
+                feed: {
+                    id: data.feedId,
+                    name: data.feedId,
+                },
+                packageExtractionPathExpression: function (name) { return "Octopus.Action.Package[" + name + "].ExtractedPath"; },
+            };
+        }
+        if (isContainerImageSelection(data)) {
+            return {
+                imageName: data.imageName,
+                referenceId: data.referenceId,
+                feed: {
+                    id: data.feedId,
+                    name: data.feedId,
+                    url: "https://docker.io",
+                },
+                imagePathExpression: function (name) { return "Octopus.Action.Package[" + name + "].Image"; },
+            };
+        }
+        return null;
+    };
+    return {
+        enrich: enrich,
+    };
+})();
+var mockFunctions = function (obj, mock) {
+    var copy = __assign({}, obj);
+    Reflect.ownKeys(copy)
+        .filter(function (key) { return typeof Reflect.get(copy, key) === "object"; })
+        .forEach(function (key) { return Reflect.set(copy, key, mockFunctions(Reflect.get(copy, key), mock)); });
+    Reflect.ownKeys(copy)
+        .filter(function (key) { return typeof Reflect.get(copy, key) === "function"; })
+        .forEach(function (key) { return Reflect.set(copy, key, mock); });
+    return copy;
+};
+function assertConvertedValueMatchesExpected(inputProperties, runtimeInputs, expectedStepConfigurationExportInputs, extraDefinitions) {
+    if (extraDefinitions === void 0) { extraDefinitions = {}; }
+    var mock = jest.fn();
+    var schemaFromRuntimeInputs = (0, Schema_1.convertFromJsonSchemaToInputSchema)({ definitions: __assign({ RootInputs: { type: "object", isRoot: true, properties: inputProperties } }, extraDefinitions) }, runtimeInputs);
+    var converted = mockFunctions((0, InputsConverters_1.asStepConfigurationExportInputs)(schemaFromRuntimeInputs.properties, runtimeInputs, mockEnricher), mock);
+    var expected = mockFunctions(expectedStepConfigurationExportInputs, mock);
+    expect(converted).toMatchObject(expected);
+}
+//# sourceMappingURL=InputConvertersInputsForExport.spec.js.map

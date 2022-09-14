@@ -1,0 +1,4 @@
+import type { SectionGroupComponent } from "./SectionGroup";
+import type { SectionComponent } from "./Section";
+
+export type FormContent<TInputComponents> = SectionGroupComponent<TInputComponents> | SectionComponent<TInputComponents> | TInputComponents;

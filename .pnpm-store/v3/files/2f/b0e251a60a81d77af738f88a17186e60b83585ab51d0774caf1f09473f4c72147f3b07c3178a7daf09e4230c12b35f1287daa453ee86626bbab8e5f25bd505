@@ -1,0 +1,182 @@
+import {
+    Conversions,
+    ConvertibleInputPathToValue,
+    ConvertTo,
+    InputPaths,
+    InputPathToArray,
+    InputPathToObject,
+    InputPathToValue,
+    ObjectInputPaths,
+    ObjectInputPathsAndPathToObject,
+} from "@octopusdeploy/step-inputs";
+
+// Generally speaking the methods below construct runtime input paths and cast them to abstract InputPaths type via `createX` methods
+// `getX` methods on the other hand convert the abstract representation back to the runtime representation.
+
+// interface MyInputs {
+//   foo: {
+//     bar: Array<{
+//       baz: number;
+//     }>
+//   }
+// }
+//
+// "1" here refers to the index of a specific item in the array
+// const inputPath: PathToInput = ["foo", "bar", 1, "baz"];
+export type PathToInput = ReadonlyArray<PathSegment>;
+export type PathSegment = string | number | symbol;
+
+export function createPathToArrayInput<ArrayType extends ReadonlyArray<ArrayItem>, ArrayItem>(
+    array: ReadonlyArray<InputPaths<ArrayItem>>,
+    pathToInput: PathToInput
+): ReadonlyArray<InputPaths<ArrayItem>> & InputPathToArray<ArrayType> {
+    const partialRuntimePathToArray: Partial<RuntimeInputPathToArray<ArrayItem>> = [...array];
+    partialRuntimePathToArray.__pathToInput = pathToInput;
+    partialRuntimePathToArray.__type = "array";
+
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const runtimePathToArray = partialRuntimePathToArray as RuntimeInputPathToArray<ArrayItem>;
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return runtimePathToArray as unknown as ReadonlyArray<InputPaths<ArrayItem>> & InputPathToArray<ArrayType>;
+}
+
+export function getPathToArrayInput(pathToInput: InputPathToArray<unknown>): PathToInput {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const runtimePathToArray = pathToInput as unknown as RuntimeInputPathToArray<unknown>;
+    return runtimePathToArray.__pathToInput;
+}
+
+export function getArrayFromArrayInputPath<ArrayItem>(pathToInput: InputPathToArray<ArrayItem>): ReadonlyArray<InputPaths<ArrayItem>> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return pathToInput as unknown as RuntimeInputPathToArray<ArrayItem>;
+}
+
+// The runtime implementation of InputPathToArray
+type RuntimeInputPathToArray<ArrayItem> = ReadonlyArray<InputPaths<ArrayItem>> & {
+    __pathToInput: PathToInput;
+    __type: "array";
+};
+
+export function createPathToInput<InputValue>(pathToInput: PathToInput): ConvertibleInputPathToValue<InputValue> {
+    return createPathToInputWithConversions(pathToInput, {
+        convertFromOriginalType: (x) => {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            return x as InputValue;
+        },
+        convertToOriginalType: (x) => x,
+    });
+}
+
+export function createPathToInputWithConversions<InputValue>(
+    pathToInput: PathToInput,
+    conversions: RequiredConversions<InputValue>
+): ConvertibleInputPathToValue<InputValue> {
+    const runtimePathToValue: RuntimeInputPathToValue<InputValue> = {
+        __pathToInput: pathToInput,
+        __conversions: conversions,
+        __type: "value",
+        convertTo: <NewValue>(newConversions: Conversions<InputValue, NewValue>): ConvertibleInputPathToValue<NewValue> => {
+            return createPathToInputWithConversions(pathToInput, {
+                convertToOriginalType: (newInput) => {
+                    const newConverter = newConversions.toOriginalType
+                        ? newConversions.toOriginalType
+                        : (x: NewValue) => {
+                              // If it wasn't provided, we assume the type system allowed it to be omitted because the types were assignable
+                              // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                              return x as unknown as InputValue;
+                          };
+                    return conversions.convertToOriginalType(newConverter(newInput));
+                },
+                convertFromOriginalType: (original) => {
+                    const toType = newConversions.toNewType
+                        ? newConversions.toNewType
+                        : (x: InputValue) => {
+                              // If it wasn't provided, we assume the type system allowed it to be omitted because the types were assignable
+                              // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                              return x as unknown as NewValue;
+                          };
+                    return toType(conversions.convertFromOriginalType(original));
+                },
+            });
+        },
+    };
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return runtimePathToValue as unknown as ConvertibleInputPathToValue<InputValue>;
+}
+
+export function getPathToInput<InputValue>(pathToInput: InputPathToValue<InputValue>): PathToInput {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const runtimePathToValue = pathToInput as unknown as RuntimeInputPathToValue<InputValue>;
+    return runtimePathToValue.__pathToInput;
+}
+
+export function convertFromOriginalType<OriginalValue, NewValue>(pathToInput: InputPathToValue<NewValue>, originalValue: OriginalValue): NewValue {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const runtimePathToValue = pathToInput as unknown as RuntimeInputPathToValue<NewValue>;
+    return runtimePathToValue.__conversions.convertFromOriginalType(originalValue);
+}
+
+export function convertToOriginalType<OriginalValue, NewValue>(pathToInput: InputPathToValue<NewValue>, value: NewValue): OriginalValue {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const runtimePathToValue = pathToInput as unknown as RuntimeInputPathToValue<NewValue>;
+    const originalValue = runtimePathToValue.__conversions.convertToOriginalType(value);
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return originalValue as OriginalValue;
+}
+
+type RequiredConversions<NewInput> = {
+    convertFromOriginalType: (originalValue: unknown) => NewInput;
+    convertToOriginalType: (value: NewInput) => unknown;
+};
+
+// The runtime implementation of InputPathToValue
+type RuntimeInputPathToValue<InputValue> = {
+    __type: "value";
+    __pathToInput: PathToInput;
+    __conversions: RequiredConversions<InputValue>;
+    convertTo: ConvertTo<InputValue>;
+};
+
+export function getPathToInputObject<ObjectType>(pathToObject: InputPathToObject<ObjectType>): PathToInput {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const runtimeObjectWithInputPaths = pathToObject as unknown as RuntimeInputPathToObject<ObjectType>;
+    return runtimeObjectWithInputPaths.__pathToInput;
+}
+
+export function createPathToInputObject<ObjectType>(
+    pathToObject: PathToInput,
+    objectWithInputPaths: ObjectInputPaths<ObjectType>
+): ObjectInputPathsAndPathToObject<ObjectType> {
+    const runtimeObjectWithInputPaths: RuntimeInputPathToObject<ObjectType> = {
+        ...objectWithInputPaths,
+        __type: "object",
+        __pathToInput: pathToObject,
+    };
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return runtimeObjectWithInputPaths as unknown as ObjectInputPathsAndPathToObject<ObjectType>;
+}
+
+type RuntimeInputPathToObject<ObjectType> = ObjectInputPaths<ObjectType> & {
+    __type: "object";
+    __pathToInput: PathToInput;
+};
+
+export function isInputPathToObject<Input>(
+    path: InputPathToObject<Input> | InputPathToArray<Input> | InputPathToValue<Input>
+): path is InputPathToObject<Input> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const castedPath = path as unknown as RuntimeInputPathToObject<Input> | RuntimeInputPathToArray<Input> | RuntimeInputPathToValue<Input>;
+    return castedPath.__type === "object";
+}
+
+export function isInputPathToArray<Input>(path: InputPathToObject<Input> | InputPathToArray<Input> | InputPathToValue<Input>): path is InputPathToArray<Input> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const castedPath = path as unknown as RuntimeInputPathToObject<Input> | RuntimeInputPathToArray<Input> | RuntimeInputPathToValue<Input>;
+    return castedPath.__type === "array";
+}
+
+export function isInputPathToValue<Input>(path: InputPathToObject<Input> | InputPathToArray<Input> | InputPathToValue<Input>): path is InputPathToValue<Input> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const castedPath = path as unknown as RuntimeInputPathToObject<Input> | RuntimeInputPathToArray<Input> | RuntimeInputPathToValue<Input>;
+    return castedPath.__type === "value";
+}

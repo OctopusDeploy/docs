@@ -1,0 +1,9 @@
+import type { AccountReference, InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+export declare function account(props: AccountSelectorProps): AccountSelectorComponent;
+export interface AccountSelectorComponent extends AccountSelectorProps {
+    type: "account";
+}
+export interface AccountSelectorProps extends CommonInputProps {
+    input: InputPathToValue<AccountReference>;
+}

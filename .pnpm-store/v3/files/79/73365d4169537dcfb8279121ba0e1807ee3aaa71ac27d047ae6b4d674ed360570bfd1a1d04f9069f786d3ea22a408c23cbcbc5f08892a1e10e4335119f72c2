@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/react-dnd-multi-backend`
+
+# Summary
+This package contains type definitions for react-dnd-multi-backend (https://github.com/LouisBrunner/react-dnd-multi-backend).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-dnd-multi-backend.
+
+### Additional Details
+ * Last updated: Tue, 28 Jan 2020 19:57:20 GMT
+ * Dependencies: [@types/react](https://npmjs.com/package/@types/react), [@types/dnd-core](https://npmjs.com/package/@types/dnd-core)
+ * Global values: none
+
+# Credits
+These definitions were written by Janeene Beeforth (https://github.com/dawnmist), Adam Haglund (https://github.com/beeequeue), and Rob Valentine (https://github.com/robcodemonkey).

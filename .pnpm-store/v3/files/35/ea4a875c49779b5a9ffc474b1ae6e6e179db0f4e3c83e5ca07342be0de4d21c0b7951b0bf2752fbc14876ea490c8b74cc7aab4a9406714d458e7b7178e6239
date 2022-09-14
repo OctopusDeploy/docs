@@ -1,0 +1,5 @@
+import { SensitiveValue } from "./SensitiveValues";
+import { PackageReference } from "./PackageReference";
+import { AccountReference } from "./accounts";
+import { ContainerImageReference } from "./ContainerImageReference";
+export declare type SupportedValueTypes = number | bigint | boolean | string | null | undefined | SensitiveValue | PackageReference | ContainerImageReference | AccountReference;

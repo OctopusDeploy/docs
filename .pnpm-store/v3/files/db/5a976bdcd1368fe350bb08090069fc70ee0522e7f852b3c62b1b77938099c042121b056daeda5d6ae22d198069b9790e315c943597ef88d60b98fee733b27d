@@ -1,0 +1,5 @@
+import { NonDiscriminatorTypeDefinition, PlainObjectTypeDefinition } from "../Schema/InputSchema";
+import { PathToInput } from "./RuntimeInputPath";
+import { InputPaths, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+export declare function createObjectInputPaths<StepInputs>(schema: PlainObjectTypeDefinition): ObjectInputPathsAndPathToObject<StepInputs>;
+export declare function createInputPathForProperty<StepInputs, PropertyKey extends keyof StepInputs>(inputKey: PropertyKey, propertyTypeDefinition: NonDiscriminatorTypeDefinition, pathToParentProperty: PathToInput): InputPaths<StepInputs[PropertyKey]>;

@@ -1,0 +1,24 @@
+{
+    "name": "@types/css-mediaquery",
+    "version": "0.1.0",
+    "description": "TypeScript definitions for css-mediaquery",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Sebastian Silbermann",
+            "url": "https://github.com/eps1lon",
+            "githubUsername": "eps1lon"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/css-mediaquery"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "e60a73eafd9ca94bd4ae8b4a731cf5ce3523ef39708a6518ba4d3dc2cb82cef7",
+    "typeScriptVersion": "3.0"
+}

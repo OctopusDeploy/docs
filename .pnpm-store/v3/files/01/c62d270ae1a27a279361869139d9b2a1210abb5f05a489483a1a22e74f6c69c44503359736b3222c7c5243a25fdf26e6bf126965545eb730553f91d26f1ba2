@@ -1,0 +1,82 @@
+import type { Discriminator } from "./Discriminator";
+import type { SensitiveValue } from "./SensitiveValues";
+import type { PackageReference } from "./PackageReference";
+import type { AccountReference } from "./accounts";
+import type { ContainerImageReference } from "./ContainerImageReference";
+
+// This recursive mapped type allows us to map each individual property type to an extended representation of that type,
+// without having runtime access to the exact values. This in turns allows us to reference a path to a property in the same way
+// that we would access property value (i.e. `someInterface.someProperty` gives us enough information to know that later on we can access
+// the property's value by calling `.someProperty` or `[someProperty]`). If we didn't have this type `someInterface.someProperty` would simply return the value of the property.
+// A more detailed explanation is available here https://github.com/OctopusDeploy/Architecture/blob/main/Steps/Concepts/InputsAndOutputs.md#input-paths
+// This documentation and example might also help understand how this componentry functions https://github.com/OctopusDeploy/OctopusDeploy/blob/master/newportal/docs/step-ui/step-ui-framework.md#editsteppackageinputs
+//
+// Usage: consider this type to be more of an "interface", where the real implementation is in `runtime-inputs` package (ex. `RuntimeInputs` and `ResourceInputs`)
+//
+// This type is recursive and the generic parameter will typically start as an object
+// InputPaths<{ bar: string }> --> ObjectInputPathsAndPathToObject<{ bar: string }>
+// ObjectInputPaths<{ bar: string }> --> { bar: InputPaths<string> };
+//
+// TODO: InputsPaths is an exhaustive description of an individual property and how to get to it
+// TODO: Given a type { value: string; }, then runtime representation of InputsPaths for "value" will look like this:
+// TODO: {"__conversions": {"convertFromOriginalType": [Function convertFromOriginalType], "convertToOriginalType": [Function convertToOriginalType]}, "__pathToInput": ["value"], "__type": "value", "convertTo": [Function convertTo]}
+// TODO: Consider a better name, more representative of what the type actually is
+
+export type InputPaths<PropertyType> = [PropertyType] extends [Discriminator<infer D>]
+    ? D
+    : [PropertyType] extends [SensitiveValue]
+    ? ConvertibleInputPathToValue<PropertyType>
+    : [PropertyType] extends [PackageReference]
+    ? ConvertibleInputPathToValue<PropertyType>
+    : [PropertyType] extends [AccountReference]
+    ? ConvertibleInputPathToValue<PropertyType>
+    : [PropertyType] extends [ContainerImageReference]
+    ? ConvertibleInputPathToValue<PropertyType>
+    : [PropertyType] extends [Array<infer ArrayItem>]
+    ? Array<ObjectInputPathsAndPathToObject<ArrayItem>> & InputPathToArray<ArrayItem> // eslint-disable-next-line @typescript-eslint/ban-types
+    : [PropertyType] extends [object] // Extending from object seems to be the only way to ensure that this type maps the same way across both types and interfaces
+    ? ObjectInputPathsAndPathToObject<PropertyType> // eslint-disable-next-line @typescript-eslint/ban-types
+    : [PropertyType] extends [object] | [undefined]
+    ? ObjectInputPathsAndPathToObject<PropertyType>
+    : [PropertyType] extends [PropertyType]
+    ? ConvertibleInputPathToValue<PropertyType>
+    : never;
+
+// ObjectInputPaths<{ name: { firstName: string; lastName: string }; color: string }> -->
+// {name: InputPaths<{firstName: string, lastName: string}>, color: InputPaths<string>}
+export type ObjectInputPathsAndPathToObject<T> = ObjectInputPaths<T> & InputPathToObject<T>;
+export type ObjectInputPaths<T> = {
+    [K in keyof T]-?: InputPaths<T[K]>;
+};
+
+export type ConvertibleInputPathToValue<InputValue> = {
+    convertTo: ConvertTo<InputValue>;
+} & InputPathToValue<InputValue>;
+
+// These types simulate nominal typing in TypeScript - see discussion here for details https://github.com/Microsoft/TypeScript/issues/202
+// In simple terms it allows us to distinguish between different types even when shapes of objects are exactly the same (like we can in C#)
+export type InputPathToValue<InputValue> = { readonly __inputPathToValueBrand: unique symbol; readonly __valueBrand: TypeBrand<InputValue> };
+export type InputPathToArray<InputArray> = { readonly __inputPathToArrayBrand: unique symbol; readonly _arrayTypeBrand: TypeBrand<InputArray> };
+export type InputPathToObject<InputObject> = { readonly __inputPathToObjectBrand: unique symbol; readonly _objectTypeBrand: TypeBrand<InputObject> };
+export type TypeBrand<T> = { readonly __type: T; readonly __typeBrand: unique symbol };
+
+// These types deal with conversions in UI definitions, for example, numbers are typically converted to strings for presentation
+export type ConvertTo<InputType> = <NewInputType>(conversions: Conversions<InputType, NewInputType>) => ConvertibleInputPathToValue<NewInputType>;
+export type Conversions<InputType, NewInputType> = PossiblyOptionalMapToNewType<InputType, NewInputType> &
+    PossiblyOptionalMapFromNewType<InputType, NewInputType>;
+export type PossiblyOptionalMapToNewType<OriginalType, NewType> = IsAssignableTo<OriginalType, NewType> extends "true"
+    ? Partial<ToNewType<OriginalType, NewType>>
+    : ToNewType<OriginalType, NewType>;
+export type PossiblyOptionalMapFromNewType<OriginalType, NewType> = IsAssignableTo<NewType, OriginalType> extends "true"
+    ? Partial<FromNewType<OriginalType, NewType>>
+    : FromNewType<OriginalType, NewType>;
+export type ToNewType<OriginalType, NewType> = { toNewType: (originalType: OriginalType) => NewType };
+export type FromNewType<OriginalType, NewType> = { toOriginalType: (originalType: NewType) => OriginalType };
+
+// We don't want to distribute over conditional types in this mapped type
+// e.g. We want IsAssignableTo<string | boolean, string> to be `never`, since you can't assign a `boolean` to `string`
+// If we typed this as `T extends U ? T : never` then typescript would distribute over `string | object`
+// so then `IsAssignable<string | boolean, string> = IsAssignableTo<string, string> | IsAssignableTo<boolean, string> = string | never = string;
+// This is clearly not the result we want, but if we opt out of distributing over conditional types, then we would get the assignability check we expect
+// We can do this using a 1-tuple. Source: https://github.com/microsoft/TypeScript/issues/29368#issuecomment-453529532
+export type IsAssignableTo<T, U> = [T] extends [U] ? "true" : "false";

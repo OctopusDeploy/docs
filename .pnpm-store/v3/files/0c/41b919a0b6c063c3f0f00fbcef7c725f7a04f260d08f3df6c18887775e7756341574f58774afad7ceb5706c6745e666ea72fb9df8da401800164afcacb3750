@@ -1,0 +1,11 @@
+import type { InitialInputs } from "./InitialInputs";
+import type { ObjectInputPaths } from "@octopusdeploy/step-inputs";
+import type { FormContent } from "./FormContent";
+import type { StepInputComponent } from "./InputComponents";
+import type { ConfigurationExport } from "./ConfigurationExport";
+export interface StepUI<StepInputs> {
+    editInputsForm: EditStepInputsForm<StepInputs>;
+    createInitialInputs: () => InitialInputs<StepInputs>;
+    exportConfiguration?: ConfigurationExport<StepInputs>[];
+}
+export declare type EditStepInputsForm<StepInputs> = (inputPaths: ObjectInputPaths<StepInputs>) => FormContent<StepInputComponent>[];

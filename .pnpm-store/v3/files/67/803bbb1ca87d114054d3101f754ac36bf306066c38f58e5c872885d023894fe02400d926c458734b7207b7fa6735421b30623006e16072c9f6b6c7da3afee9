@@ -1,0 +1,3 @@
+import { EmptyInitialValue } from "../EmptyInitialValue";
+
+export type AzureServicePrincipal = { readonly __accountBrand: unique symbol; type: "AzureServicePrincipal" } | EmptyInitialValue;

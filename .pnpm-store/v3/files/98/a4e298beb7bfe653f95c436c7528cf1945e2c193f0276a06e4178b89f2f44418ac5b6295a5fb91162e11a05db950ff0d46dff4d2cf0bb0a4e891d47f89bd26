@@ -1,0 +1,85 @@
+import type { AccountTypes } from "@octopusdeploy/step-inputs";
+export declare type RootObjectDefinition = ObjectDefinition & {
+    isRoot: true;
+};
+export declare type ObjectDefinition = {
+    type: "object";
+    properties: {
+        [key: string]: Definition;
+    };
+    required?: string[];
+};
+export declare type Definition = ObjectDefinition | ReferenceDefinition | StringDefinition | NumberDefinition | ArrayDefinition | UnionDefinition | BooleanDefinition | PackageReferenceDefinition | AccountReferenceDefinition | ContainerImageReferenceDefinition | SensitiveValueDefinition;
+export declare type ReferenceDefinition = {
+    $ref: string;
+};
+export declare type ArrayDefinition = {
+    type: "array";
+    items: Definition;
+};
+export declare type UnionDefinition = {
+    anyOf: Definition[];
+};
+export declare type PackageReferenceDefinition = {
+    type: "object";
+    isPackageReference: true;
+};
+export declare type ContainerImageReferenceDefinition = {
+    type: "object";
+    isContainerImageReference: true;
+};
+export declare type SensitiveValueDefinition = {
+    type: "object";
+    isSensitiveValue: true;
+};
+export declare type AccountReferenceDefinition = {
+    type: "string";
+    isAccount: true;
+    accountType: AccountTypes;
+};
+declare type ConstBooleanDefinition = {
+    const: string;
+    isDiscriminator?: true;
+    type: "boolean";
+};
+declare type EnumBooleanDefinition = {
+    enum: string[];
+    type: "boolean";
+};
+declare type AnyBooleanDefinition = {
+    type: "boolean";
+};
+export declare type BooleanDefinition = AnyBooleanDefinition | ConstBooleanDefinition | EnumBooleanDefinition;
+declare type ConstStringDefinition = {
+    const: string;
+    isDiscriminator?: true;
+    type: "string";
+};
+declare type EnumStringDefinition = {
+    enum: string[];
+    type: "string";
+};
+declare type AnyStringDefinition = {
+    type: "string";
+};
+export declare type StringDefinition = AnyStringDefinition | ConstStringDefinition | EnumStringDefinition;
+declare type ConstNumberDefinition = {
+    const: string;
+    isDiscriminator?: true;
+    type: "number";
+};
+declare type EnumNumberDefinition = {
+    enum: string[];
+    type: "number";
+};
+declare type AnyNumberDefinition = {
+    type: "number";
+};
+export declare type NumberDefinition = AnyNumberDefinition | ConstNumberDefinition | EnumNumberDefinition;
+export declare type ExtensionObjectDefinition = PackageReferenceDefinition | AccountReferenceDefinition | SensitiveValueDefinition;
+export declare type InputJsonSchema = {
+    definitions: {
+        [key: string]: RootObjectDefinition | Definition;
+    };
+};
+export {};

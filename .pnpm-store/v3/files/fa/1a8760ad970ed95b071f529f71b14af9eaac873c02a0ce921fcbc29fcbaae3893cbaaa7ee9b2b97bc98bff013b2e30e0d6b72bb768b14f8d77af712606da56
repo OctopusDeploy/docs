@@ -1,0 +1,250 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var InputAccessor_1 = require("../InputAccessor");
+var InputPaths_1 = require("../InputPaths");
+var Schema_1 = require("Schema");
+describe("InputAccessor", function () {
+    describe("simple property", function () {
+        var inputSchema = { value: { type: "string" } };
+        test("getInputValue", function () {
+            var value = getInputValue(function (inputs) { return inputs.value; }, inputSchema, { value: "foo" });
+            expect(value).toBe("foo");
+        });
+        test("changeInputValue", function () {
+            var value = changeInputValue(function (inputs) { return inputs.value; }, inputSchema, { value: "foo" }, "bar");
+            expect(value).toStrictEqual({ value: "bar" });
+        });
+        describe("with type conversion", function () {
+            var converters = {
+                toNewType: function (s) { return parseInt(s); },
+                toOriginalType: function (num) { return num.toString(); },
+            };
+            test("getInputValue", function () {
+                var value = getInputValue(function (inputs) { return inputs.value.convertTo(converters); }, inputSchema, { value: "42" });
+                expect(value).toBe(42);
+            });
+            test("changeInputValue", function () {
+                var value = changeInputValue(function (inputs) { return inputs.value.convertTo(converters); }, inputSchema, { value: "5" }, 42);
+                expect(value).toStrictEqual({ value: "42" });
+            });
+            describe("with multiple levels of conversion", function () {
+                var secondConverters = {
+                    toNewType: function (num) { return num.toString(); },
+                    toOriginalType: function (s) { return parseInt(s); },
+                };
+                test("getInputValue", function () {
+                    var value = getInputValue(function (inputs) { return inputs.value.convertTo(converters).convertTo(secondConverters); }, inputSchema, { value: "42" });
+                    expect(value).toBe("42");
+                });
+                test("changeInputValue", function () {
+                    var value = changeInputValue(function (inputs) { return inputs.value.convertTo(converters).convertTo(secondConverters); }, inputSchema, { value: "5" }, "42");
+                    expect(value).toStrictEqual({ value: "42" });
+                });
+            });
+        });
+    });
+    describe("nested object", function () {
+        var inputSchema = {
+            firstLevel: {
+                type: "object",
+                properties: {
+                    secondLevel: {
+                        type: "object",
+                        properties: {
+                            value: { type: "number" },
+                        },
+                        required: ["value"],
+                    },
+                },
+                required: ["secondLevel"],
+            },
+        };
+        test("getInputValue", function () {
+            var value = getInputValue(function (inputs) { return inputs.firstLevel.secondLevel.value; }, inputSchema, {
+                firstLevel: { secondLevel: { value: 5 } },
+            });
+            expect(value).toBe(5);
+        });
+        test("changeInputValue", function () {
+            var value = changeInputValue(function (inputs) { return inputs.firstLevel.secondLevel.value; }, inputSchema, { firstLevel: { secondLevel: { value: 5 } } }, 7);
+            expect(value).toStrictEqual({ firstLevel: { secondLevel: { value: 7 } } });
+        });
+    });
+    describe("array", function () {
+        var inputSchema = {
+            myArray: { type: "array", items: { type: "object", properties: { value: { type: "number" } }, required: ["value"] } },
+        };
+        test("getInputValue", function () {
+            var value = getInputValue(function (inputs) {
+                var arrayElement = inputs.myArray[1];
+                assertIsDefined(arrayElement);
+                return arrayElement.value;
+            }, inputSchema, { myArray: [{ value: 2 }, { value: 4 }] });
+            expect(value).toBe(4);
+        });
+        test("changeInputValue", function () {
+            var value = changeInputValue(function (inputs) {
+                var arrayElement = inputs.myArray[1];
+                assertIsDefined(arrayElement);
+                return arrayElement.value;
+            }, inputSchema, { myArray: [{ value: 2 }, { value: 4 }] }, 9);
+            expect(value).toStrictEqual({ myArray: [{ value: 2 }, { value: 9 }] });
+        });
+    });
+    describe("union", function () {
+        var inputSchema = {
+            myUnion: {
+                anyOf: [
+                    {
+                        type: "object",
+                        properties: { type: { type: "string", const: "first", isDiscriminator: true }, firstValue: { type: "number" } },
+                        required: ["type", "firstValue"],
+                    },
+                    {
+                        type: "object",
+                        properties: { type: { type: "string", const: "second", isDiscriminator: true }, secondValue: { type: "string" } },
+                        required: ["type", "secondValue"],
+                    },
+                ],
+            },
+        };
+        describe("primitive values within union types", function () {
+            function pathToInput(inputs) {
+                var unionType = inputs.myUnion;
+                return unionType.secondValue;
+            }
+            test("getInputValue", function () {
+                var value = getInputValue(pathToInput, inputSchema, { myUnion: { type: "second", secondValue: "foo" } });
+                expect(value).toBe("foo");
+            });
+            test("changeInputValue", function () {
+                var value = changeInputValue(pathToInput, inputSchema, { myUnion: { type: "second", secondValue: "foo" } }, "bar");
+                expect(value).toStrictEqual({ myUnion: { type: "second", secondValue: "bar" } });
+            });
+        });
+        describe("getting and modifying the union object", function () {
+            test("getInputValue", function () {
+                var unionValue = { type: "second", secondValue: "foo" };
+                var value = getInputObject(function (inputs) { return inputs.myUnion; }, inputSchema, { myUnion: unionValue });
+                expect(value).toStrictEqual(unionValue);
+            });
+            test("changeInputValue", function () {
+                var newValue = { type: "first", firstValue: 42 };
+                var value = changeInputObject(function (inputs) { return inputs.myUnion; }, inputSchema, { myUnion: { type: "second", secondValue: "foo" } }, newValue);
+                expect(value).toStrictEqual({ myUnion: { type: "first", firstValue: 42 } });
+            });
+        });
+    });
+    describe("bound value", function () {
+        var inputSchema = { value: { type: "number" } };
+        test("getInputValue", function () {
+            var value = getInputValue(function (inputs) { return inputs.value; }, inputSchema, { value: { type: "bound", expression: "foo" } });
+            expect(value).toStrictEqual({ type: "bound", expression: "foo" });
+        });
+        test("change to bound value", function () {
+            var value = changeInputValue(function (inputs) { return inputs.value; }, inputSchema, { value: 3 }, { type: "bound", expression: "foo" });
+            expect(value).toStrictEqual({ value: { type: "bound", expression: "foo" } });
+        });
+        test("change from bound value", function () {
+            var value = changeInputValue(function (inputs) { return inputs.value; }, inputSchema, { value: { type: "bound", expression: "foo" } }, 3);
+            expect(value).toStrictEqual({ value: 3 });
+        });
+    });
+    describe("complex mix of nesting and arrays", function () {
+        var inputSchema = {
+            firstLevel: {
+                type: "object",
+                properties: {
+                    array: {
+                        type: "array",
+                        items: {
+                            type: "object",
+                            properties: {
+                                secondLevel: {
+                                    type: "object",
+                                    properties: {
+                                        value: { type: "string" },
+                                    },
+                                    required: ["value"],
+                                },
+                            },
+                            required: ["secondLevel"],
+                        },
+                    },
+                },
+                required: ["array"],
+            },
+        };
+        test("getInputValue", function () {
+            var value = getInputValue(function (inputs) {
+                var arrayElement = inputs.firstLevel.array[2];
+                assertIsDefined(arrayElement);
+                return arrayElement.secondLevel.value;
+            }, inputSchema, {
+                firstLevel: {
+                    array: [
+                        { secondLevel: { value: "first" } },
+                        { secondLevel: { value: "second" } },
+                        { secondLevel: { value: "third" } },
+                        { secondLevel: { value: "fourth" } },
+                    ],
+                },
+            });
+            expect(value).toBe("third");
+        });
+        test("changeInputValue", function () {
+            var value = changeInputValue(function (inputs) {
+                var arrayElement = inputs.firstLevel.array[2];
+                assertIsDefined(arrayElement);
+                return arrayElement.secondLevel.value;
+            }, inputSchema, {
+                firstLevel: {
+                    array: [
+                        { secondLevel: { value: "first" } },
+                        { secondLevel: { value: "second" } },
+                        { secondLevel: { value: "third" } },
+                        { secondLevel: { value: "fourth" } },
+                    ],
+                },
+            }, "bar");
+            expect(value).toStrictEqual({
+                firstLevel: {
+                    array: [
+                        { secondLevel: { value: "first" } },
+                        { secondLevel: { value: "second" } },
+                        { secondLevel: { value: "bar" } },
+                        { secondLevel: { value: "fourth" } },
+                    ],
+                },
+            });
+        });
+    });
+});
+function getInputObject(getInputPath, schema, inputs) {
+    var inputPath = getInputPath(createInputPaths(schema, inputs));
+    var inputAccessor = (0, InputAccessor_1.createObjectValueAccessor)(inputPath);
+    return inputAccessor.getInputValue(inputs);
+}
+function changeInputObject(getInputPath, schema, inputs, newValue) {
+    var inputPath = getInputPath(createInputPaths(schema, inputs));
+    var inputAccessor = (0, InputAccessor_1.createObjectValueAccessor)(inputPath);
+    return inputAccessor.changeInputValue(inputs, newValue);
+}
+function getInputValue(getInputPath, schema, inputs) {
+    var inputPath = getInputPath(createInputPaths(schema, inputs));
+    var inputAccessor = (0, InputAccessor_1.createInputValueAccessor)(inputPath);
+    return inputAccessor.getInputValue(inputs);
+}
+function changeInputValue(getInputPath, schema, inputs, newValue) {
+    var inputPath = getInputPath(createInputPaths(schema, inputs));
+    var inputAccessor = (0, InputAccessor_1.createInputValueAccessor)(inputPath);
+    return inputAccessor.changeInputValue(inputs, newValue);
+}
+function createInputPaths(schema, inputs) {
+    var inputSchema = (0, Schema_1.convertFromJsonSchemaToInputSchema)({ definitions: { RootInputs: { type: "object", isRoot: true, properties: schema, required: [] } } }, inputs);
+    return (0, InputPaths_1.createObjectInputPaths)({ type: "object", nonDiscriminatorProperties: inputSchema.properties, discriminatorProperties: [] });
+}
+function assertIsDefined(value) {
+    expect(value).toBeDefined();
+}
+//# sourceMappingURL=InputAccess.spec.js.map

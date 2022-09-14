@@ -1,0 +1,4 @@
+export function exhaustiveCheck(_, message) {
+    throw new Error(message);
+}
+//# sourceMappingURL=exhaustiveCheck.js.map

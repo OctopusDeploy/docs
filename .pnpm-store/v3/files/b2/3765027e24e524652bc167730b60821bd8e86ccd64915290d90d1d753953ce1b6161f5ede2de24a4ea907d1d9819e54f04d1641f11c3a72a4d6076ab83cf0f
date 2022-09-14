@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.inlineText = void 0;
+function inlineText(props) {
+    return Object.assign({ type: "inline-text" }, props);
+}
+exports.inlineText = inlineText;
+//# sourceMappingURL=InlineText.js.map

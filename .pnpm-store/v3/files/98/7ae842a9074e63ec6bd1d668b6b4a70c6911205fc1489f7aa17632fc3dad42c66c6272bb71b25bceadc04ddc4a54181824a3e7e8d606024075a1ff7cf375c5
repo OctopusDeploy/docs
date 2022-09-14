@@ -1,0 +1,15 @@
+import { ObjectRuntimeInputs } from "../RuntimeInputs";
+import { InputPathToArray, InputPathToObject, InputPathToValue, BoundValue } from "@octopusdeploy/step-inputs";
+export declare type InputObjectAccessor<StepInputs, ObjectType> = InputAccessor<StepInputs, ObjectRuntimeInputs<ObjectType>>;
+export declare type InputValueAccessor<StepInputs, InputValue> = InputAccessor<StepInputs, InputValue | BoundValue>;
+export declare type InputValueAccessorNoBoundValues<StepInputs, InputValue> = InputAccessor<StepInputs, InputValue>;
+export declare type InputArrayAccessor<StepInputs, ArrayItem> = InputAccessor<StepInputs, Array<ObjectRuntimeInputs<ArrayItem>>>;
+declare type InputAccessor<StepInputs, Input> = {
+    getInputValue: (inputs: ObjectRuntimeInputs<StepInputs>) => Input;
+    changeInputValue: (inputs: ObjectRuntimeInputs<StepInputs>, newValue: Input) => ObjectRuntimeInputs<StepInputs>;
+};
+export declare function createInputValueAccessor<StepInputs, InputValue>(pathToInput: InputPathToValue<InputValue>): InputValueAccessor<StepInputs, InputValue>;
+export declare function createInputValueAccessorForDeploymentTarget<StepInputs, InputValue>(pathToInput: InputPathToValue<InputValue>): InputValueAccessorNoBoundValues<StepInputs, InputValue>;
+export declare function createObjectValueAccessor<StepInputs, ObjectType>(pathToObject: InputPathToObject<ObjectType>): InputObjectAccessor<StepInputs, ObjectType>;
+export declare function createInputArrayAccessor<StepInputs, ArrayItem>(pathToArray: InputPathToArray<ArrayItem>): InputArrayAccessor<StepInputs, ArrayItem>;
+export {};

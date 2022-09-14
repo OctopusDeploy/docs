@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.code = exports.italic = exports.bold = void 0;
+function bold(text) {
+    return {
+        type: "bold",
+        text,
+    };
+}
+exports.bold = bold;
+function italic(text) {
+    return {
+        type: "italic",
+        text,
+    };
+}
+exports.italic = italic;
+function code(text) {
+    return {
+        type: "code",
+        text,
+    };
+}
+exports.code = code;
+//# sourceMappingURL=TextFormat.js.map

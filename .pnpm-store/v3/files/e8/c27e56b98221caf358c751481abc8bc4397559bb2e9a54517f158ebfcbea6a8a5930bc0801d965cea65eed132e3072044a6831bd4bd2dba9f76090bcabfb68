@@ -1,0 +1,32 @@
+{
+    "name": "@types/react-event-listener",
+    "version": "0.4.9",
+    "description": "TypeScript definitions for react-event-listener",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Alexey Svetliakov",
+            "url": "https://github.com/asvetliakov",
+            "githubUsername": "asvetliakov"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "typesVersions": {
+        ">=3.1.0-0": {
+            "*": [
+                "ts3.1/*"
+            ]
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/react": "*"
+    },
+    "typesPublisherContentHash": "d3bfe27eeb62b763962ed23edaacef54dcc43d6c40557a538ebd05caed828d8d",
+    "typeScriptVersion": "2.8"
+}

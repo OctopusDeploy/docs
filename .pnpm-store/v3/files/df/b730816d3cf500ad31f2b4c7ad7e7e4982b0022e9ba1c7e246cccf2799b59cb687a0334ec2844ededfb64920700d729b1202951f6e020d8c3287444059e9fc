@@ -1,0 +1,8 @@
+export declare function link(props: LinkProps): LinkComponent;
+export interface LinkComponent extends LinkProps {
+    type: "link";
+}
+export interface LinkProps {
+    title: string;
+    href: string;
+}

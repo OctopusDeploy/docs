@@ -1,0 +1,274 @@
+import { SensitiveValue } from "../Resources/SensitveValue";
+import { toExportSensitiveValue, toResourceSensitiveValue, toRuntimeSensitiveValue } from "./SensitiveValueConverters";
+import {
+    BoundValue,
+    ExportedContainerImageReference,
+    ExportedPackageReference,
+    isBoundValue,
+    ObjectStepConfigurationExportInputs,
+    SensitiveValue as StepUISensitiveValue,
+    StepConfigurationExportInputs,
+} from "@octopusdeploy/step-inputs";
+import { exhaustiveCheck } from "../exhaustiveCheck";
+import { ObjectRuntimeInputs, RuntimeInputs } from "../RuntimeInputs";
+import { InputProperty, NonDiscriminatorTypeDefinition } from "../Schema/InputSchema";
+import { ObjectResourceInputs, ResourceInputs } from "../ResourceInputs";
+import { RuntimePackageSelection } from "RuntimePackageSelection";
+import { RuntimeContainerImageSelection } from "RuntimeContainerImageSelection";
+import { OctopusServerEnricher } from "../EnrichedTypes/EnrichedTypes";
+
+// Some of our well-known types (like for Sensitive Values, or Package References)
+// have a different structure for our Runtime Inputs compared to our Resource Inputs.
+// Our Runtime Inputs change with a different cadence to our resources, so we reduce coupling between resources and our Runtime Inputs by using different types.
+// These functions ensure that any well known types are mapped from the resource representation to the Runtime Input representation, and back again.
+
+export function asRuntimeInputs<StepInputs>(
+    inputSchemaProperties: InputProperty[],
+    resourceInputs: ObjectResourceInputs<StepInputs>
+): ObjectRuntimeInputs<StepInputs> {
+    const result = inputSchemaProperties.reduce<Partial<ObjectRuntimeInputs<StepInputs>>>((prev, p) => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const inputName = p.name as keyof StepInputs;
+        return {
+            ...prev,
+            [p.name]: mapResourceInputToRuntimeInput<StepInputs[typeof inputName]>(p.type, resourceInputs[inputName]),
+        };
+    }, {});
+
+    // We assume that we inputSchemaProperties forms a complete set of properties for StepUIProperties
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return result as ObjectRuntimeInputs<StepInputs>;
+}
+
+export function isResourceBoundValue(input: any): input is string {
+    if (input === null || input === undefined) {
+        return false;
+    }
+
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return typeof input === "string" && (input as string).includes("#{");
+}
+
+function mapResourceInputToRuntimeInput<Input>(typeDefinition: NonDiscriminatorTypeDefinition, resourceInputs: ResourceInputs<Input>): RuntimeInputs<Input> {
+    if (resourceInputs === null || resourceInputs === undefined) {
+        return valueAsRuntimeInputs(resourceInputs);
+    }
+
+    switch (typeDefinition.type) {
+        case "object":
+            const justTheDiscriminators = typeDefinition.discriminatorProperties.reduce((prev, p) => {
+                return { ...prev, [p.discriminatorName]: p.type.const };
+            }, {});
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const objectInput = resourceInputs as ObjectResourceInputs<Input>;
+            const allTheOtherProperties = asRuntimeInputs<Input>(typeDefinition.nonDiscriminatorProperties, objectInput);
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            return { ...justTheDiscriminators, ...allTheOtherProperties } as RuntimeInputs<Input>;
+        case "array": {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const convertedToArray = resourceInputs as ResourceInputs<Input>[];
+            const resultingArray = convertedToArray.map((item, index) => {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                return mapResourceInputToRuntimeInput<Input>(typeDefinition.itemTypes[index]!, item);
+            });
+            return valueAsRuntimeInputs(resultingArray);
+        }
+        case "package":
+        case "container-image":
+        case "string":
+            return valueAsRuntimeInputs(resourceInputs);
+        case "account":
+            if (isResourceBoundValue(resourceInputs)) {
+                const boundValue: BoundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            return valueAsRuntimeInputs(resourceInputs);
+        case "primitive":
+            if (typeof resourceInputs === "string") {
+                const boundValue: BoundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            return valueAsRuntimeInputs(resourceInputs);
+        case "sensitive":
+            if (typeof resourceInputs === "string") {
+                const boundValue: BoundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const resourceSensitiveValue = resourceInputs as unknown as SensitiveValue;
+            return valueAsRuntimeInputs(toRuntimeSensitiveValue(resourceSensitiveValue));
+    }
+    exhaustiveCheck(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+
+export function asResourceInputs<StepInputs>(
+    inputSchemaProperties: InputProperty[],
+    runtimeInputs: ObjectRuntimeInputs<StepInputs>
+): ObjectResourceInputs<StepInputs> {
+    const result = inputSchemaProperties.reduce<Partial<ObjectResourceInputs<StepInputs>>>((prev, p) => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const inputName = p.name as keyof StepInputs;
+        return {
+            ...prev,
+            [p.name]: mapRuntimeInputToResourceInput<StepInputs[typeof inputName]>(p.type, runtimeInputs[inputName]),
+        };
+    }, {});
+
+    // We assume that we inputSchemaProperties forms a complete set of properties for StepUIProperties
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return result as ObjectResourceInputs<StepInputs>;
+}
+
+function mapRuntimeInputToResourceInput<Input>(typeDefinition: NonDiscriminatorTypeDefinition, runtimeInputs: RuntimeInputs<Input>): ResourceInputs<Input> {
+    if (runtimeInputs === null || runtimeInputs === undefined) {
+        return valueAsResourceInputs(runtimeInputs);
+    }
+
+    switch (typeDefinition.type) {
+        case "object":
+            const justTheDiscriminators = typeDefinition.discriminatorProperties.reduce((prev, p) => {
+                return { ...prev, [p.discriminatorName]: p.type.const };
+            }, {});
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const objectInput = runtimeInputs as ObjectRuntimeInputs<Input>;
+            const allTheOtherProperties = asResourceInputs<Input>(typeDefinition.nonDiscriminatorProperties, objectInput);
+            return valueAsResourceInputs({
+                ...justTheDiscriminators,
+                ...allTheOtherProperties,
+            });
+        case "array": {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const convertedToArray = runtimeInputs as RuntimeInputs<Input>[];
+            const resultingArray = convertedToArray.map((item, index) => {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                return mapRuntimeInputToResourceInput<Input>(typeDefinition.itemTypes[index]!, item);
+            });
+            return valueAsResourceInputs(resultingArray);
+        }
+        case "package":
+        case "container-image":
+        case "string":
+            return valueAsResourceInputs(runtimeInputs);
+        case "account":
+        case "primitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsResourceInputs(runtimeInputs.expression);
+            }
+            return valueAsResourceInputs(runtimeInputs);
+        case "sensitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsResourceInputs(runtimeInputs.expression);
+            }
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const resourceSensitiveValue = runtimeInputs as unknown as StepUISensitiveValue;
+            return valueAsResourceInputs(toResourceSensitiveValue(resourceSensitiveValue));
+    }
+    exhaustiveCheck(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+
+export function asStepConfigurationExportInputs<StepInputs>(
+    inputSchemaProperties: InputProperty[],
+    runtimeInputs: ObjectRuntimeInputs<StepInputs>,
+    octopusServerEnricher: OctopusServerEnricher
+): ObjectStepConfigurationExportInputs<StepInputs> {
+    const result = inputSchemaProperties.reduce<Partial<ObjectStepConfigurationExportInputs<StepInputs>>>((prev, p) => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const inputName = p.name as keyof StepInputs;
+        return {
+            ...prev,
+            [p.name]: mapRuntimeInputToStepConfigurationExportInputs<StepInputs[typeof inputName]>(p.type, runtimeInputs[inputName], octopusServerEnricher),
+        };
+    }, {});
+
+    // We assume that we inputSchemaProperties forms a complete set of properties for StepUIProperties
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return result as ObjectStepConfigurationExportInputs<StepInputs>;
+}
+
+function mapRuntimeInputToStepConfigurationExportInputs<Input>(
+    typeDefinition: NonDiscriminatorTypeDefinition,
+    runtimeInputs: RuntimeInputs<Input>,
+    octopusServerEnricher: OctopusServerEnricher
+): StepConfigurationExportInputs<Input> {
+    if (runtimeInputs === null || runtimeInputs === undefined) {
+        return valueAsConfigurationInputs(runtimeInputs);
+    }
+
+    switch (typeDefinition.type) {
+        case "object":
+            const justTheDiscriminators = typeDefinition.discriminatorProperties.reduce((prev, p) => {
+                return { ...prev, [p.discriminatorName]: p.type.const };
+            }, {});
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const objectInput = runtimeInputs as ObjectRuntimeInputs<Input>;
+            const allTheOtherProperties = asStepConfigurationExportInputs<Input>(typeDefinition.nonDiscriminatorProperties, objectInput, octopusServerEnricher);
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            return {
+                ...justTheDiscriminators,
+                ...allTheOtherProperties,
+            } as StepConfigurationExportInputs<Input>;
+        case "package": {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const packageReference = runtimeInputs as RuntimePackageSelection;
+            const enrichedPackageReference = octopusServerEnricher.enrich(packageReference);
+            const exportPackageReference: ExportedPackageReference = {
+                feed: { name: enrichedPackageReference.feed?.name ?? "" },
+                packageName: enrichedPackageReference.packageName ?? "",
+                packageExtractionPathExpression: enrichedPackageReference.packageExtractionPathExpression,
+            };
+            return valueAsConfigurationInputs(exportPackageReference);
+        }
+        case "container-image": {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const runtimeContainerImageSelection = runtimeInputs as RuntimeContainerImageSelection;
+            const enrichedContainerImageSelection = octopusServerEnricher.enrich(runtimeContainerImageSelection);
+            const exportPackageReference: ExportedContainerImageReference = {
+                feed: { url: enrichedContainerImageSelection.feed?.url ?? "", name: enrichedContainerImageSelection.feed?.name ?? "" },
+                imageName: enrichedContainerImageSelection.imageName ?? "",
+                imagePathExpression: enrichedContainerImageSelection.imagePathExpression,
+            };
+            return valueAsConfigurationInputs(exportPackageReference);
+        }
+        case "array": {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const convertedToArray = runtimeInputs as RuntimeInputs<Input>[];
+            const resultingArray = convertedToArray.map((item, index) => {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                return mapRuntimeInputToStepConfigurationExportInputs<Input>(typeDefinition.itemTypes[index]!, item, octopusServerEnricher);
+            });
+            return valueAsConfigurationInputs(resultingArray);
+        }
+        case "account":
+        case "string":
+            return valueAsConfigurationInputs(runtimeInputs);
+        case "primitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsConfigurationInputs({ type: "bound", expression: runtimeInputs.expression });
+            }
+            return valueAsConfigurationInputs(runtimeInputs);
+        case "sensitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsConfigurationInputs({ type: "bound", expression: runtimeInputs.expression });
+            }
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const resourceSensitiveValue = runtimeInputs as StepUISensitiveValue;
+            return valueAsConfigurationInputs(toExportSensitiveValue(resourceSensitiveValue));
+    }
+    exhaustiveCheck(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+
+// These functions save us the trouble of having to override eslint rules on every line
+function valueAsRuntimeInputs<Input>(value: unknown): RuntimeInputs<Input> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return value as RuntimeInputs<Input>;
+}
+
+function valueAsResourceInputs<Input>(value: unknown): ResourceInputs<Input> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return value as ResourceInputs<Input>;
+}
+
+function valueAsConfigurationInputs<Input>(value: unknown): StepConfigurationExportInputs<Input> {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return value as StepConfigurationExportInputs<Input>;
+}

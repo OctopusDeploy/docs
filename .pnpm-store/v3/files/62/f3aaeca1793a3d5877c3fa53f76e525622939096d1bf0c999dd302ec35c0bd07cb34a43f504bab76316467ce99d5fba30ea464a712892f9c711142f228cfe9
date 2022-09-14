@@ -1,0 +1,6 @@
+import { SensitiveValue } from "./SensitiveValues";
+import { PackageReference } from "./PackageReference";
+import { AccountReference } from "./accounts";
+import { ContainerImageReference } from "./ContainerImageReference";
+
+export type ServerOwnedTypes = SensitiveValue | PackageReference | ContainerImageReference | AccountReference;

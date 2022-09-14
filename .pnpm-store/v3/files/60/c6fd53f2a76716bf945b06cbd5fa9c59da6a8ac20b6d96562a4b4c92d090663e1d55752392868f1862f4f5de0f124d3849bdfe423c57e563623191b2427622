@@ -1,0 +1,15 @@
+export function section<TInputComponent>(props: SectionProps<TInputComponent>): SectionComponent<TInputComponent> {
+    return {
+        type: "section",
+        ...props,
+    };
+}
+
+export interface SectionComponent<TInputComponents> extends SectionProps<TInputComponents> {
+    type: "section";
+}
+
+export interface SectionProps<TInputComponents> {
+    title: string;
+    content: TInputComponents[];
+}

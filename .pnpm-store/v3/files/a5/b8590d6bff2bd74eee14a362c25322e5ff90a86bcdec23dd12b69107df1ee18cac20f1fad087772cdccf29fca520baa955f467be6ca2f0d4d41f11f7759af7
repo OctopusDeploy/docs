@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.inlineList = void 0;
+function inlineList(props) {
+    return Object.assign({ type: "inline-list" }, props);
+}
+exports.inlineList = inlineList;
+//# sourceMappingURL=InlineList.js.map

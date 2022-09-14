@@ -1,0 +1,15 @@
+import type { InputPathToObject, InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { InitialInputs } from "../InitialInputs";
+export declare function inlineSelect<Input>(props: InlineSelectProps<Input>): InlineSelectComponent;
+export interface InlineSelectComponent extends InlineSelectProps<unknown> {
+    type: "inline-select";
+}
+export interface InlineSelectProps<Input> {
+    input: InputPathToObject<Input> | InputPathToValue<Input>;
+    options: InlineSelectOption<Input>[];
+    label: string;
+}
+export interface InlineSelectOption<Input> {
+    label: string;
+    newValue: InitialInputs<Input>;
+}

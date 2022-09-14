@@ -1,0 +1,9 @@
+import type { InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+export declare function checkbox(props: CheckboxProps): CheckboxComponent;
+export interface CheckboxComponent extends CheckboxProps {
+    type: "checkbox";
+}
+export interface CheckboxProps extends CommonInputProps {
+    input: InputPathToValue<boolean>;
+}

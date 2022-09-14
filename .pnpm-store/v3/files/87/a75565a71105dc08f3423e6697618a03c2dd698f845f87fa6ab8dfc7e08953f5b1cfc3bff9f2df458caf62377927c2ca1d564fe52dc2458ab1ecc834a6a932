@@ -1,0 +1,78 @@
+import { ResourceInputs } from "../ResourceInputs";
+import { SensitiveValue as ResourceSensitiveValue } from "../Resources/SensitveValue";
+import { ContainerImageReference, PackageReference, SensitiveValue } from "@octopusdeploy/step-inputs";
+import { RuntimePackageSelection } from "../RuntimePackageSelection";
+import { RuntimeContainerImageSelection } from "../RuntimeContainerImageSelection";
+
+// This file tests the RuntimeInputs mapped type. It is not a real test in that it does not do anything at runtime,
+// but rather it tests that the compiler behaves as expected and therefore "runs" at compile time
+describe("ResourceInputs", () => {
+    test("primitives (excluding string) become unioned with strings to represent the bound value case", () => {
+        assert<IsExactly<ResourceInputs<number>, number | string>>();
+        assert<IsExactly<ResourceInputs<bigint>, bigint | string>>();
+        assert<IsExactly<ResourceInputs<boolean>, boolean | string>>();
+        assert<IsExactly<ResourceInputs<null>, null | string>>();
+        assert<IsExactly<ResourceInputs<undefined>, undefined | string>>();
+        assert<IsExactly<ResourceInputs<SensitiveValue>, ResourceSensitiveValue | string>>();
+    });
+
+    test("package selection maps to runtime package selection", () => {
+        assert<IsExactly<ResourceInputs<PackageReference>, RuntimePackageSelection>>();
+    });
+
+    test("container image reference maps to runtime container image reference", () => {
+        assert<IsExactly<ResourceInputs<ContainerImageReference>, RuntimeContainerImageSelection>>();
+    });
+
+    test("string are unchanged", () => {
+        // strings don't need to have a separate bound value type
+        // the string value is always assumed to be possibly bound, and variable resolution is always applied
+        assert<IsExactly<ResourceInputs<string>, string>>();
+    });
+
+    test("union types are unioned with strings", () => {
+        assert<IsExactly<ResourceInputs<boolean | number>, boolean | number | string>>();
+        assert<IsExactly<ResourceInputs<boolean | number | string>, boolean | number | string>>();
+    });
+
+    test("inner type of an array is mapped", () => {
+        // Primitive
+        assert<IsExactly<ResourceInputs<boolean[]>, Array<boolean | string>>>();
+        // Union type
+        assert<IsExactly<ResourceInputs<Array<boolean | number>>, Array<boolean | number | string>>>();
+        // Object
+        assert<IsExactly<ResourceInputs<Array<{ y: boolean }>>, Array<{ y: boolean | string }>>>();
+    });
+
+    test("object types are preserved, and their properties are mapped", () => {
+        // Primitive
+        assert<IsExactly<ResourceInputs<{ x: { y: boolean } }>, { x: { y: boolean | string } }>>();
+        // Union type
+        assert<IsExactly<ResourceInputs<{ x: { y: boolean | number } }>, { x: { y: boolean | number | string } }>>();
+        // Array
+        assert<IsExactly<ResourceInputs<{ x: Array<boolean> }>, { x: Array<boolean | string> }>>();
+    });
+
+    test("Complex types with nesting are supported", () => {
+        assert<
+            IsExactly<
+                ResourceInputs<{ x: { y: boolean[]; z: Array<{ a: SensitiveValue }> } }>,
+                { x: { y: Array<boolean | string>; z: Array<{ a: ResourceSensitiveValue | string }> } }
+            >
+        >();
+    });
+});
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function assert<T extends "true">() {
+    // This test only performs compile time checks, so no runtime behaviour is required and this function can remain empty
+}
+
+// We don't want to distribute over conditional types in this mapped type
+// e.g. We want IsExactly<string | boolean, string> to be `false`, since you can't assign a `boolean` to `string`
+// If we typed this as `T extends U ? U extends T ? "true" : "false" : "false""` then typescript would distribute over `string | object`
+// so then `IsExactly<string | boolean, string> = IsExactly<string, string> | IsExactly<boolean, string> = "true" | "false";
+// This is clearly not the result we want, but if we opt out of distributing over conditional types, then we would get the result we want
+// We can do this using a 1-tuple. Source: https://github.com/microsoft/TypeScript/issues/29368#issuecomment-453529532
+type IsExactly<T, U> = [T] extends [U] ? ([U] extends [T] ? "true" : "false") : "false";

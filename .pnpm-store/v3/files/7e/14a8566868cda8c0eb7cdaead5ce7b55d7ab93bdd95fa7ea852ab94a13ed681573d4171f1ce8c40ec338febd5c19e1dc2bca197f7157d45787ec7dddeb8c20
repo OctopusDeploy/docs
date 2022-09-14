@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.section = void 0;
+function section(props) {
+    return Object.assign({ type: "section" }, props);
+}
+exports.section = section;
+//# sourceMappingURL=Section.js.map

@@ -1,0 +1,9 @@
+import type { InputPathToValue, PackageReference } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+export declare function packageSelector(props: PackageSelectorProps): PackageSelectorComponent;
+export interface PackageSelectorComponent extends PackageSelectorProps {
+    type: "package";
+}
+export interface PackageSelectorProps extends CommonInputProps {
+    input: InputPathToValue<PackageReference>;
+}

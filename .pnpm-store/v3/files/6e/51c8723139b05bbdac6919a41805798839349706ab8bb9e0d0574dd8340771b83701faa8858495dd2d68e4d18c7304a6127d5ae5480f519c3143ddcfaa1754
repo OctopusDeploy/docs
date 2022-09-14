@@ -1,0 +1,190 @@
+import { asResourceInputs, asRuntimeInputs } from "../InputsConverters";
+import { convertFromJsonSchemaToInputSchema } from "../../Schema";
+describe("converting between RuntimeInputs and ResourceInputs", () => {
+    describe("Sensitive values", () => {
+        const schema = { sensitiveProperty: { type: "object", isSensitiveValue: true } };
+        test("existing value", () => {
+            const resourceInputs = { sensitiveProperty: { HasValue: true } };
+            const runtimeInputs = { sensitiveProperty: { type: "existing" } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+        test("new value", () => {
+            const resourceInputs = { sensitiveProperty: { HasValue: true, NewValue: "TheNewValue" } };
+            const runtimeInputs = { sensitiveProperty: { type: "new", newValue: "TheNewValue" } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+        test("empty value", () => {
+            const resourceInputs = { sensitiveProperty: { HasValue: false } };
+            const runtimeInputs = { sensitiveProperty: { type: "empty" } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+        test("bound value", () => {
+            const boundExpression = "#{BoundValue}";
+            const resourceInputs = { sensitiveProperty: boundExpression };
+            const runtimeInputs = { sensitiveProperty: { type: "bound", expression: boundExpression } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+        test("work when inside of an array", () => {
+            const schema = {
+                valuesArray: {
+                    type: "array",
+                    items: {
+                        type: "object",
+                        properties: {
+                            sensitiveValue: {
+                                type: "object",
+                                isSensitiveValue: true,
+                            },
+                        },
+                    },
+                },
+            };
+            const boundExpression = "#{BoundValue}";
+            const resourceInputs = {
+                valuesArray: [{ sensitiveValue: boundExpression }],
+            };
+            const runtimeInputs = {
+                valuesArray: [{ sensitiveValue: { type: "bound", expression: boundExpression } }],
+            };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+    describe("Account References", () => {
+        const schema = { azureServicePrincipal: { type: "string", isAccount: true, accountType: "AzureServicePrincipal" } };
+        test("remain untouched when not bound", () => {
+            const resourceInputs = { azureServicePrincipal: "Accounts-1" };
+            const runtimeInputs = { azureServicePrincipal: "Accounts-1" };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+        test("will convert between bound value and string as needed", () => {
+            const resourceInputs = { azureServicePrincipal: "#{BoundValue}" };
+            const runtimeInputs = { azureServicePrincipal: { type: "bound", expression: "#{BoundValue}" } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+    describe("Package References", () => {
+        test("remain untouched", () => {
+            const schema = { package: { type: "object", isPackageReference: true } };
+            const resourceInputs = {
+                package: { packageId: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            const runtimeInputs = {
+                package: { packageId: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+    describe("Container Image References", () => {
+        test("remain untouched", () => {
+            const schema = { containerImage: { type: "object", isContainerImageReference: true } };
+            const resourceInputs = {
+                containerImage: { imageName: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            const runtimeInputs = {
+                containerImage: { imageName: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+    describe("String values", () => {
+        describe("remain untouched", () => {
+            const schema = { message: { type: "string" } };
+            test("when not bound", () => {
+                const resourceInputs = { message: "The Value" };
+                const runtimeInputs = { message: "The Value" };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+            test("when bound", () => {
+                const resourceInputs = { message: "#{Bound Value}" };
+                const runtimeInputs = { message: "#{Bound Value}" };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+        describe("Number values", () => {
+            const schema = { numberValue: { type: "number" } };
+            test("remain untouched when not bound", () => {
+                const resourceInputs = { numberValue: 42 };
+                const runtimeInputs = { numberValue: 42 };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+            test("will convert between bound value and string as needed", () => {
+                const resourceInputs = { numberValue: "#{BoundValue}" };
+                const runtimeInputs = { numberValue: { type: "bound", expression: "#{BoundValue}" } };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+        describe("BigInt values", () => {
+            const schema = { numberValue: { type: "number" } };
+            test("remain untouched when not bound", () => {
+                const resourceInputs = { numberValue: BigInt(42) };
+                const runtimeInputs = { numberValue: BigInt(42) };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+            test("will convert between bound value and string as needed", () => {
+                const resourceInputs = { numberValue: "#{BoundValue}" };
+                const runtimeInputs = { numberValue: { type: "bound", expression: "#{BoundValue}" } };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+        describe("Boolean values", () => {
+            const schema = { booleanValue: { type: "boolean" } };
+            test("remain untouched when not bound", () => {
+                const resourceInputs = { booleanValue: true };
+                const runtimeInputs = { booleanValue: true };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+            test("will convert between bound value and string as needed", () => {
+                const resourceInputs = { booleanValue: "#{BoundValue}" };
+                const runtimeInputs = { booleanValue: { type: "bound", expression: "#{BoundValue}" } };
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+    });
+    describe("Nested objects", () => {
+        const schema = { nested: { type: "object", properties: { theValue: { type: "string" } }, required: ["theValue"] } };
+        test("maps primitives", () => {
+            const resourceInputs = { nested: { theValue: "Hello World" } };
+            const runtimeInputs = { nested: { theValue: "Hello World" } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+    describe("object union", () => {
+        const schema = {
+            shape: {
+                anyOf: [
+                    {
+                        type: "object",
+                        properties: { type: { type: "string", const: "square", isDiscriminator: true }, size: { type: "number" } },
+                        required: ["type", "size"],
+                    },
+                    {
+                        type: "object",
+                        properties: {
+                            type: { type: "string", const: "rectangle", isDiscriminator: true },
+                            width: { type: "number" },
+                            height: { type: "number" },
+                        },
+                        required: ["type", "width", "height"],
+                    },
+                ],
+            },
+        };
+        test("maps to first object in union", () => {
+            const runtimeInputs = { shape: { type: "square", size: 5 } };
+            const resourceInputs = { shape: { type: "square", size: 5 } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+        test("maps to second object in union", () => {
+            const runtimeInputs = { shape: { type: "rectangle", width: 5, height: 10 } };
+            const resourceInputs = { shape: { type: "rectangle", width: 5, height: 10 } };
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+});
+function assertValuesRoundTrip(inputProperties, runtimeInputs, resourceInputs) {
+    const schemaFromResourceInputs = convertFromJsonSchemaToInputSchema({ definitions: { RootInputs: { type: "object", isRoot: true, properties: inputProperties, required: [] } } }, resourceInputs);
+    expect(asRuntimeInputs(schemaFromResourceInputs.properties, resourceInputs)).toStrictEqual(runtimeInputs);
+    const schemaFromRuntimeInputs = convertFromJsonSchemaToInputSchema({ definitions: { RootInputs: { type: "object", isRoot: true, properties: inputProperties, required: [] } } }, runtimeInputs);
+    expect(asResourceInputs(schemaFromRuntimeInputs.properties, runtimeInputs)).toStrictEqual(resourceInputs);
+}
+//# sourceMappingURL=InputConverters.spec.js.map

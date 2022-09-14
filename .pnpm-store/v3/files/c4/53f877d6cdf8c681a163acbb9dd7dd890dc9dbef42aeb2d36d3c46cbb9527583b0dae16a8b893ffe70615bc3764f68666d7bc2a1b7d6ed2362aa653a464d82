@@ -1,0 +1,6 @@
+import { AwsAuthentication, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+import { DeploymentTargetInputComponent } from "../InputComponents";
+export declare function awsAuthentication({ input }: AwsAuthenticationProps): DeploymentTargetInputComponent[];
+export interface AwsAuthenticationProps {
+    input: ObjectInputPathsAndPathToObject<AwsAuthentication>;
+}

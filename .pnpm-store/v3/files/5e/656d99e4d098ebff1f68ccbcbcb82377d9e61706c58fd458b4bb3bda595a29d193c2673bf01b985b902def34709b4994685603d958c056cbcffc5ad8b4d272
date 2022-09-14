@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/react-responsive`
+
+# Summary
+This package contains type definitions for react-responsive (https://github.com/contra/react-responsive).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-responsive/v1
+
+Additional Details
+ * Last updated: Mon, 06 Aug 2018 21:55:29 GMT
+ * Dependencies: react
+ * Global values: none
+
+# Credits
+These definitions were written by Alexey Svetliakov <https://github.com/asvetliakov>.

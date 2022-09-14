@@ -1,0 +1,51 @@
+describe("RuntimeInputs", () => {
+    test("primitives (excluding string) become unioned with BoundValue", () => {
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+    });
+    test("package selection maps to runtime package selection or package parameter", () => {
+        assert();
+    });
+    test("container image reference maps to runtime container image selection or package parameter", () => {
+        assert();
+    });
+    test("free-form strings don't get unioned with BoundValue", () => {
+        assert();
+    });
+    test("Discriminators map to their literal types", () => {
+        assert();
+    });
+    test("union types are unioned with bound values", () => {
+        assert();
+        assert();
+    });
+    test("inner type of an array is mapped", () => {
+        assert();
+        assert();
+        assert();
+    });
+    test("object types are preserved, and their properties are mapped", () => {
+        assert();
+        assert();
+        assert();
+    });
+    test("Complex types with nesting are supported", () => {
+        assert();
+    });
+    test("account selection maps to runtime account selection", () => {
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+    });
+});
+function assert() {
+}
+export {};
+//# sourceMappingURL=RuntimeInputs.type-test.js.map

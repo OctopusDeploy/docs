@@ -1,0 +1,15 @@
+import type { InputPathToObject, InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { InitialInputs } from "./InitialInputs";
+import type { CommonInputProps } from "./InputComponents";
+export declare function select<Input>(props: SelectProps<Input>): SelectComponent;
+export interface SelectComponent extends SelectProps<unknown> {
+    type: "select";
+}
+export interface SelectProps<Input> extends CommonInputProps {
+    input: InputPathToObject<Input> | InputPathToValue<Input>;
+    options: SelectOption<Input>[];
+}
+export interface SelectOption<Input> {
+    label: string;
+    newValue: InitialInputs<Input>;
+}

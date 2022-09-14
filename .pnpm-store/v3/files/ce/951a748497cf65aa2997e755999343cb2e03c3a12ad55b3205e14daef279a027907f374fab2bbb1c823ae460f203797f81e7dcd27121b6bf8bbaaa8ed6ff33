@@ -1,0 +1,4 @@
+export type HasExistingSensitiveValue = { type: "existing" };
+export type HasNoSensitiveValue = { type: "empty" };
+export type NewSensitiveValue = { type: "new"; newValue: string };
+export type SensitiveValue = HasExistingSensitiveValue | HasNoSensitiveValue | NewSensitiveValue;

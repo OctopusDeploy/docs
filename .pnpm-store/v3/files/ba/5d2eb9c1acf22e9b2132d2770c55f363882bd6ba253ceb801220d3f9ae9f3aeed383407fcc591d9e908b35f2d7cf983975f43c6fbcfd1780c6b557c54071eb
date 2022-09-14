@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/loadjs`
+
+# Summary
+This package contains type definitions for loadjs (https://github.com/muicss/loadjs).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped.git/tree/master/types/loadjs
+
+Additional Details
+ * Last updated: Thu, 24 May 2018 17:14:29 GMT
+ * Dependencies: none
+ * Global values: loadjs
+
+# Credits
+These definitions were written by Christian Rackerseder <https://github.com/screendriver>.

@@ -1,0 +1,5 @@
+export type RuntimeContainerImageSelection = {
+    referenceId: string;
+    feedId: string | undefined; // todo-step-ui these can be bound, and it should be explicit. Change this to string | BoundValue
+    imageName: string | undefined; // todo-step-ui these can be bound, and it should be explicit. Change this to string | BoundValue
+};

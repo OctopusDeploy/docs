@@ -1,0 +1,180 @@
+import { toExportSensitiveValue, toResourceSensitiveValue, toRuntimeSensitiveValue } from "./SensitiveValueConverters";
+import { isBoundValue, } from "@octopusdeploy/step-inputs";
+import { exhaustiveCheck } from "../exhaustiveCheck";
+export function asRuntimeInputs(inputSchemaProperties, resourceInputs) {
+    const result = inputSchemaProperties.reduce((prev, p) => {
+        const inputName = p.name;
+        return Object.assign(Object.assign({}, prev), { [p.name]: mapResourceInputToRuntimeInput(p.type, resourceInputs[inputName]) });
+    }, {});
+    return result;
+}
+export function isResourceBoundValue(input) {
+    if (input === null || input === undefined) {
+        return false;
+    }
+    return typeof input === "string" && input.includes("#{");
+}
+function mapResourceInputToRuntimeInput(typeDefinition, resourceInputs) {
+    if (resourceInputs === null || resourceInputs === undefined) {
+        return valueAsRuntimeInputs(resourceInputs);
+    }
+    switch (typeDefinition.type) {
+        case "object":
+            const justTheDiscriminators = typeDefinition.discriminatorProperties.reduce((prev, p) => {
+                return Object.assign(Object.assign({}, prev), { [p.discriminatorName]: p.type.const });
+            }, {});
+            const objectInput = resourceInputs;
+            const allTheOtherProperties = asRuntimeInputs(typeDefinition.nonDiscriminatorProperties, objectInput);
+            return Object.assign(Object.assign({}, justTheDiscriminators), allTheOtherProperties);
+        case "array": {
+            const convertedToArray = resourceInputs;
+            const resultingArray = convertedToArray.map((item, index) => {
+                return mapResourceInputToRuntimeInput(typeDefinition.itemTypes[index], item);
+            });
+            return valueAsRuntimeInputs(resultingArray);
+        }
+        case "package":
+        case "container-image":
+        case "string":
+            return valueAsRuntimeInputs(resourceInputs);
+        case "account":
+            if (isResourceBoundValue(resourceInputs)) {
+                const boundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            return valueAsRuntimeInputs(resourceInputs);
+        case "primitive":
+            if (typeof resourceInputs === "string") {
+                const boundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            return valueAsRuntimeInputs(resourceInputs);
+        case "sensitive":
+            if (typeof resourceInputs === "string") {
+                const boundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            const resourceSensitiveValue = resourceInputs;
+            return valueAsRuntimeInputs(toRuntimeSensitiveValue(resourceSensitiveValue));
+    }
+    exhaustiveCheck(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+export function asResourceInputs(inputSchemaProperties, runtimeInputs) {
+    const result = inputSchemaProperties.reduce((prev, p) => {
+        const inputName = p.name;
+        return Object.assign(Object.assign({}, prev), { [p.name]: mapRuntimeInputToResourceInput(p.type, runtimeInputs[inputName]) });
+    }, {});
+    return result;
+}
+function mapRuntimeInputToResourceInput(typeDefinition, runtimeInputs) {
+    if (runtimeInputs === null || runtimeInputs === undefined) {
+        return valueAsResourceInputs(runtimeInputs);
+    }
+    switch (typeDefinition.type) {
+        case "object":
+            const justTheDiscriminators = typeDefinition.discriminatorProperties.reduce((prev, p) => {
+                return Object.assign(Object.assign({}, prev), { [p.discriminatorName]: p.type.const });
+            }, {});
+            const objectInput = runtimeInputs;
+            const allTheOtherProperties = asResourceInputs(typeDefinition.nonDiscriminatorProperties, objectInput);
+            return valueAsResourceInputs(Object.assign(Object.assign({}, justTheDiscriminators), allTheOtherProperties));
+        case "array": {
+            const convertedToArray = runtimeInputs;
+            const resultingArray = convertedToArray.map((item, index) => {
+                return mapRuntimeInputToResourceInput(typeDefinition.itemTypes[index], item);
+            });
+            return valueAsResourceInputs(resultingArray);
+        }
+        case "package":
+        case "container-image":
+        case "string":
+            return valueAsResourceInputs(runtimeInputs);
+        case "account":
+        case "primitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsResourceInputs(runtimeInputs.expression);
+            }
+            return valueAsResourceInputs(runtimeInputs);
+        case "sensitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsResourceInputs(runtimeInputs.expression);
+            }
+            const resourceSensitiveValue = runtimeInputs;
+            return valueAsResourceInputs(toResourceSensitiveValue(resourceSensitiveValue));
+    }
+    exhaustiveCheck(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+export function asStepConfigurationExportInputs(inputSchemaProperties, runtimeInputs, octopusServerEnricher) {
+    const result = inputSchemaProperties.reduce((prev, p) => {
+        const inputName = p.name;
+        return Object.assign(Object.assign({}, prev), { [p.name]: mapRuntimeInputToStepConfigurationExportInputs(p.type, runtimeInputs[inputName], octopusServerEnricher) });
+    }, {});
+    return result;
+}
+function mapRuntimeInputToStepConfigurationExportInputs(typeDefinition, runtimeInputs, octopusServerEnricher) {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+    if (runtimeInputs === null || runtimeInputs === undefined) {
+        return valueAsConfigurationInputs(runtimeInputs);
+    }
+    switch (typeDefinition.type) {
+        case "object":
+            const justTheDiscriminators = typeDefinition.discriminatorProperties.reduce((prev, p) => {
+                return Object.assign(Object.assign({}, prev), { [p.discriminatorName]: p.type.const });
+            }, {});
+            const objectInput = runtimeInputs;
+            const allTheOtherProperties = asStepConfigurationExportInputs(typeDefinition.nonDiscriminatorProperties, objectInput, octopusServerEnricher);
+            return Object.assign(Object.assign({}, justTheDiscriminators), allTheOtherProperties);
+        case "package": {
+            const packageReference = runtimeInputs;
+            const enrichedPackageReference = octopusServerEnricher.enrich(packageReference);
+            const exportPackageReference = {
+                feed: { name: (_b = (_a = enrichedPackageReference.feed) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : "" },
+                packageName: (_c = enrichedPackageReference.packageName) !== null && _c !== void 0 ? _c : "",
+                packageExtractionPathExpression: enrichedPackageReference.packageExtractionPathExpression,
+            };
+            return valueAsConfigurationInputs(exportPackageReference);
+        }
+        case "container-image": {
+            const runtimeContainerImageSelection = runtimeInputs;
+            const enrichedContainerImageSelection = octopusServerEnricher.enrich(runtimeContainerImageSelection);
+            const exportPackageReference = {
+                feed: { url: (_e = (_d = enrichedContainerImageSelection.feed) === null || _d === void 0 ? void 0 : _d.url) !== null && _e !== void 0 ? _e : "", name: (_g = (_f = enrichedContainerImageSelection.feed) === null || _f === void 0 ? void 0 : _f.name) !== null && _g !== void 0 ? _g : "" },
+                imageName: (_h = enrichedContainerImageSelection.imageName) !== null && _h !== void 0 ? _h : "",
+                imagePathExpression: enrichedContainerImageSelection.imagePathExpression,
+            };
+            return valueAsConfigurationInputs(exportPackageReference);
+        }
+        case "array": {
+            const convertedToArray = runtimeInputs;
+            const resultingArray = convertedToArray.map((item, index) => {
+                return mapRuntimeInputToStepConfigurationExportInputs(typeDefinition.itemTypes[index], item, octopusServerEnricher);
+            });
+            return valueAsConfigurationInputs(resultingArray);
+        }
+        case "account":
+        case "string":
+            return valueAsConfigurationInputs(runtimeInputs);
+        case "primitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsConfigurationInputs({ type: "bound", expression: runtimeInputs.expression });
+            }
+            return valueAsConfigurationInputs(runtimeInputs);
+        case "sensitive":
+            if (isBoundValue(runtimeInputs)) {
+                return valueAsConfigurationInputs({ type: "bound", expression: runtimeInputs.expression });
+            }
+            const resourceSensitiveValue = runtimeInputs;
+            return valueAsConfigurationInputs(toExportSensitiveValue(resourceSensitiveValue));
+    }
+    exhaustiveCheck(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+function valueAsRuntimeInputs(value) {
+    return value;
+}
+function valueAsResourceInputs(value) {
+    return value;
+}
+function valueAsConfigurationInputs(value) {
+    return value;
+}
+//# sourceMappingURL=InputsConverters.js.map

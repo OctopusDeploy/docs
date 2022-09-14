@@ -1,0 +1,92 @@
+{
+  "name": "react-scroll-up-button",
+  "version": "1.6.4",
+  "main": "dist/react-scroll-up-button.js",
+  "description": "React component Scroll up button, fixed button to scrolll up to desired position",
+  "scripts": {
+    "compile": "npx babel-cli -d dist/ src/",
+    "example:install": "cd example && npm install",
+    "example:build": "npm run compile && npm run example:install && cd example && npm run build",
+    "example:develop": "npm run example:install && cd example && npm run develop",
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
+    "dev:server": "npm run example:develop",
+    "dev:cypress": "start-server-and-test dev:server http://localhost:8000 cypress:open",
+    "dev:test": "npx jest --no-cache --coverage --watch",
+    "test": "npx jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test:server": "npm run compile && npx webpack-dev-server --config ./tests/server/webpack.config.js",
+    "test:cypress": "start-server-and-test test:server http://localhost:8000 cypress:run",
+    "prepublishOnly": "npm run compile",
+    "eslint:example": "node_modules/.bin/eslint example/src",
+    "eslint:cypress": "node_modules/.bin/eslint cypress",
+    "eslint:tests": "node_modules/.bin/eslint tests",
+    "eslint:src": "node_modules/.bin/eslint src",
+    "eslint": "npm run compile && npm run eslint:example && npm run eslint:cypress && npm run eslint:tests && npm run eslint:src"
+  },
+  "jest": {
+    "verbose": true,
+    "testRegex": "(/tests/specs/.*)",
+    "globals": {
+      "window": true
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,jsx}"
+    ]
+  },
+  "author": "Dirtyredz | David McCLain <david.mcclain@dirtyredz.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dirtyredz/react-scroll-up-button.git"
+  },
+  "keywords": [
+    "scroll",
+    "scrollUp",
+    "scrollToTop",
+    "animation",
+    "effects",
+    "react",
+    "react-component"
+  ],
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "jest-dom": "^1.12.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-testing-library": "^5.0.1",
+    "start-server-and-test": "^1.7.1",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  },
+  "peerDependencies": {
+    "react": "^15.5.4 || ^16.0.0"
+  },
+  "dependencies": {
+    "detect-passive-events": "^1.0.4",
+    "prop-types": "^15.6.2",
+    "tween-functions": "^1.2.0"
+  }
+}

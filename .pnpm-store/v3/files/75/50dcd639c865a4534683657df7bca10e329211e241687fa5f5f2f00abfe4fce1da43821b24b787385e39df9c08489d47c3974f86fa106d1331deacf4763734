@@ -1,0 +1,15 @@
+import type { SectionComponent } from "./Section";
+import { DeploymentTargetInputComponent, StepInputComponent } from "./InputComponents";
+declare type ComponentsCommonToStepsAndDeploymentTargets = StepInputComponent & DeploymentTargetInputComponent;
+export declare function sectionGroup(props: SectionGroupProps<ComponentsCommonToStepsAndDeploymentTargets>): SectionGroupComponent<ComponentsCommonToStepsAndDeploymentTargets>;
+export declare function sectionGroup(props: SectionGroupProps<StepInputComponent>): SectionGroupComponent<StepInputComponent>;
+export declare function sectionGroup(props: SectionGroupProps<DeploymentTargetInputComponent>): SectionGroupComponent<DeploymentTargetInputComponent>;
+export interface SectionGroupComponent<TInputComponents> extends SectionGroupProps<TInputComponents> {
+    type: "section group";
+}
+export interface SectionGroupProps<TInputComponents> {
+    title: string;
+    content: SectionGroupContent<TInputComponents>[];
+}
+export declare type SectionGroupContent<TInputComponents> = SectionComponent<TInputComponents> | TInputComponents;
+export {};

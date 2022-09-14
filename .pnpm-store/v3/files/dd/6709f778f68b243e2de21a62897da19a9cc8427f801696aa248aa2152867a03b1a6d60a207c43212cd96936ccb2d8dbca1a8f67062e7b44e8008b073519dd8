@@ -1,0 +1,36 @@
+import { NewSensitiveValue, SensitiveValue } from "@octopusdeploy/step-inputs";
+import { SensitiveValue as ResourceSensitiveValue } from "../Resources/SensitveValue";
+
+export function toRuntimeSensitiveValue(sensitiveValue: ResourceSensitiveValue): SensitiveValue {
+    if (sensitiveValue.HasValue) {
+        // Empty strings are evaluated as falsey, so make sure we check for null or undefined instead
+        if (sensitiveValue.NewValue !== null && sensitiveValue.NewValue !== undefined) {
+            return { type: "new", newValue: sensitiveValue.NewValue };
+        }
+        return { type: "existing" };
+    }
+    return { type: "empty" };
+}
+
+export function toResourceSensitiveValue(sensitiveValue: SensitiveValue): ResourceSensitiveValue {
+    if (sensitiveValue === undefined) {
+        return { HasValue: false };
+    } else if (sensitiveValue.type === "existing") {
+        return { HasValue: true };
+    } else if (sensitiveValue.type === "empty") {
+        return { HasValue: false };
+    }
+    return { HasValue: true, NewValue: sensitiveValue.newValue };
+}
+
+export function toExportSensitiveValue(sensitiveValue: SensitiveValue): Exclude<SensitiveValue, NewSensitiveValue> {
+    if (sensitiveValue === undefined) {
+        return { type: "empty" };
+    } else if (sensitiveValue.type === "existing") {
+        return { type: "existing" };
+    } else if (sensitiveValue.type === "empty") {
+        return { type: "empty" };
+    }
+
+    return { type: "empty" };
+}

@@ -1,0 +1,28 @@
+{
+    "name": "@types/prop-types",
+    "version": "15.5.7",
+    "description": "TypeScript definitions for prop-types",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "DovydasNavickas",
+            "url": "https://github.com/DovydasNavickas",
+            "githubUsername": "DovydasNavickas"
+        },
+        {
+            "name": "Ferdy Budhidharma",
+            "url": "https://github.com/ferdaber",
+            "githubUsername": "ferdaber"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "a4bc5d33236effcfdbed1befbe90ef45317b1586b55897fd7e33369660888533",
+    "typeScriptVersion": "2.8"
+}

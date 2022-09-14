@@ -1,0 +1,1 @@
+export declare function exhaustiveCheck(_: never, message: string): never;

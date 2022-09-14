@@ -1,0 +1,31 @@
+import { AccountReference, ContainerImageReference, Discriminator, PackageReference, SupportedValueTypes, BoundValue } from "@octopusdeploy/step-inputs";
+import { RuntimePackageSelection } from "./RuntimePackageSelection";
+import { RuntimeAccountSelection } from "./RuntimeAccountSelection";
+import { RuntimeContainerImageSelection } from "./RuntimeContainerImageSelection";
+
+// RuntimeInputs represents the actual in-memory representation of the inputs at runtime
+// It is similar to the inputs representation that the UI API knows about, except it has bound values unioned in, and a few type transformations
+
+// Order here is important, since earlier types (eg strings) might be assignable to later types (eg object)
+export type RuntimeInputs<Inputs> = Inputs extends Discriminator<infer D>
+    ? D // Discriminators can't be bound. This is what allows us to switch on the values and narrow types easily
+    : Inputs extends Exclude<SupportedValueTypes, string | PackageReference | ContainerImageReference | AccountReference>
+    ? Inputs | BoundValue
+    : Inputs extends string // We have to check for string after checking for the other types. If it is a union type containing a string (e.g. string | boolean) then the first condition above will be hit and we end up with string | boolean | BoundValue which is correct
+    ? Inputs
+    : Inputs extends PackageReference
+    ? RuntimePackageSelection
+    : Inputs extends AccountReference
+    ? RuntimeAccountSelection | BoundValue
+    : Inputs extends ContainerImageReference
+    ? RuntimeContainerImageSelection
+    : Inputs extends Array<infer ArrayItem>
+    ? Array<RuntimeInputs<ArrayItem>>
+    : // eslint-disable-next-line @typescript-eslint/ban-types
+    Inputs extends object
+    ? ObjectRuntimeInputs<Inputs>
+    : never;
+
+export type ObjectRuntimeInputs<Inputs> = {
+    [K in keyof Inputs]: RuntimeInputs<Inputs[K]>;
+};

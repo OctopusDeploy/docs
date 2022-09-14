@@ -1,0 +1,55 @@
+{
+  "name": "@react-dnd/asap",
+  "version": "4.0.0",
+  "description": "High-priority task queue for Node.js and browsers",
+  "keywords": [
+    "event",
+    "task",
+    "queue"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kriskowal/asap.git"
+  },
+  "main": "dist/cjs/node/index.js",
+  "module": "dist/esm/browser/index.js",
+  "types": "lib/node/index.d.ts",
+  "react-native": {
+    "domain": false
+  },
+  "browser": {
+    "./asap": "./dist/esm/browser/asap.js",
+    "./asap.js": "./dist/esm/browser/asap.js",
+    "./raw": "./dist/esm/browser/raw.js",
+    "./raw.js": "./dist/esm/browser/raw.js"
+  },
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "lint": "tsdx lint",
+    "test": "tsdx test"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@babel/core": "^7.7.5",
+    "@babel/cli": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
+    "babel-preset-env": "^1.7.0",
+    "husky": "^3.1.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  }
+}

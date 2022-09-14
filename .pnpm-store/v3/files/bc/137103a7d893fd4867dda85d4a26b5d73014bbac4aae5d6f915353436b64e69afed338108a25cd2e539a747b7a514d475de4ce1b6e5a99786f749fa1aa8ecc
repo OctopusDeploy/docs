@@ -1,0 +1,3 @@
+import { EmptyInitialValue } from "../EmptyInitialValue";
+
+export type SshKeyPair = { readonly __accountBrand: unique symbol; type: "SshKeyPair" } | EmptyInitialValue;

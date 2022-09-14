@@ -1,0 +1,204 @@
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.asStepConfigurationExportInputs = exports.asResourceInputs = exports.isResourceBoundValue = exports.asRuntimeInputs = void 0;
+var SensitiveValueConverters_1 = require("./SensitiveValueConverters");
+var step_inputs_1 = require("@octopusdeploy/step-inputs");
+var exhaustiveCheck_1 = require("../exhaustiveCheck");
+function asRuntimeInputs(inputSchemaProperties, resourceInputs) {
+    var result = inputSchemaProperties.reduce(function (prev, p) {
+        var _a;
+        var inputName = p.name;
+        return __assign(__assign({}, prev), (_a = {}, _a[p.name] = mapResourceInputToRuntimeInput(p.type, resourceInputs[inputName]), _a));
+    }, {});
+    return result;
+}
+exports.asRuntimeInputs = asRuntimeInputs;
+function isResourceBoundValue(input) {
+    if (input === null || input === undefined) {
+        return false;
+    }
+    return typeof input === "string" && input.includes("#{");
+}
+exports.isResourceBoundValue = isResourceBoundValue;
+function mapResourceInputToRuntimeInput(typeDefinition, resourceInputs) {
+    if (resourceInputs === null || resourceInputs === undefined) {
+        return valueAsRuntimeInputs(resourceInputs);
+    }
+    switch (typeDefinition.type) {
+        case "object":
+            var justTheDiscriminators = typeDefinition.discriminatorProperties.reduce(function (prev, p) {
+                var _a;
+                return __assign(__assign({}, prev), (_a = {}, _a[p.discriminatorName] = p.type.const, _a));
+            }, {});
+            var objectInput = resourceInputs;
+            var allTheOtherProperties = asRuntimeInputs(typeDefinition.nonDiscriminatorProperties, objectInput);
+            return __assign(__assign({}, justTheDiscriminators), allTheOtherProperties);
+        case "array": {
+            var convertedToArray = resourceInputs;
+            var resultingArray = convertedToArray.map(function (item, index) {
+                return mapResourceInputToRuntimeInput(typeDefinition.itemTypes[index], item);
+            });
+            return valueAsRuntimeInputs(resultingArray);
+        }
+        case "package":
+        case "container-image":
+        case "string":
+            return valueAsRuntimeInputs(resourceInputs);
+        case "account":
+            if (isResourceBoundValue(resourceInputs)) {
+                var boundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            return valueAsRuntimeInputs(resourceInputs);
+        case "primitive":
+            if (typeof resourceInputs === "string") {
+                var boundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            return valueAsRuntimeInputs(resourceInputs);
+        case "sensitive":
+            if (typeof resourceInputs === "string") {
+                var boundValue = { type: "bound", expression: resourceInputs };
+                return valueAsRuntimeInputs(boundValue);
+            }
+            var resourceSensitiveValue = resourceInputs;
+            return valueAsRuntimeInputs((0, SensitiveValueConverters_1.toRuntimeSensitiveValue)(resourceSensitiveValue));
+    }
+    (0, exhaustiveCheck_1.exhaustiveCheck)(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+function asResourceInputs(inputSchemaProperties, runtimeInputs) {
+    var result = inputSchemaProperties.reduce(function (prev, p) {
+        var _a;
+        var inputName = p.name;
+        return __assign(__assign({}, prev), (_a = {}, _a[p.name] = mapRuntimeInputToResourceInput(p.type, runtimeInputs[inputName]), _a));
+    }, {});
+    return result;
+}
+exports.asResourceInputs = asResourceInputs;
+function mapRuntimeInputToResourceInput(typeDefinition, runtimeInputs) {
+    if (runtimeInputs === null || runtimeInputs === undefined) {
+        return valueAsResourceInputs(runtimeInputs);
+    }
+    switch (typeDefinition.type) {
+        case "object":
+            var justTheDiscriminators = typeDefinition.discriminatorProperties.reduce(function (prev, p) {
+                var _a;
+                return __assign(__assign({}, prev), (_a = {}, _a[p.discriminatorName] = p.type.const, _a));
+            }, {});
+            var objectInput = runtimeInputs;
+            var allTheOtherProperties = asResourceInputs(typeDefinition.nonDiscriminatorProperties, objectInput);
+            return valueAsResourceInputs(__assign(__assign({}, justTheDiscriminators), allTheOtherProperties));
+        case "array": {
+            var convertedToArray = runtimeInputs;
+            var resultingArray = convertedToArray.map(function (item, index) {
+                return mapRuntimeInputToResourceInput(typeDefinition.itemTypes[index], item);
+            });
+            return valueAsResourceInputs(resultingArray);
+        }
+        case "package":
+        case "container-image":
+        case "string":
+            return valueAsResourceInputs(runtimeInputs);
+        case "account":
+        case "primitive":
+            if ((0, step_inputs_1.isBoundValue)(runtimeInputs)) {
+                return valueAsResourceInputs(runtimeInputs.expression);
+            }
+            return valueAsResourceInputs(runtimeInputs);
+        case "sensitive":
+            if ((0, step_inputs_1.isBoundValue)(runtimeInputs)) {
+                return valueAsResourceInputs(runtimeInputs.expression);
+            }
+            var resourceSensitiveValue = runtimeInputs;
+            return valueAsResourceInputs((0, SensitiveValueConverters_1.toResourceSensitiveValue)(resourceSensitiveValue));
+    }
+    (0, exhaustiveCheck_1.exhaustiveCheck)(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+function asStepConfigurationExportInputs(inputSchemaProperties, runtimeInputs, octopusServerEnricher) {
+    var result = inputSchemaProperties.reduce(function (prev, p) {
+        var _a;
+        var inputName = p.name;
+        return __assign(__assign({}, prev), (_a = {}, _a[p.name] = mapRuntimeInputToStepConfigurationExportInputs(p.type, runtimeInputs[inputName], octopusServerEnricher), _a));
+    }, {});
+    return result;
+}
+exports.asStepConfigurationExportInputs = asStepConfigurationExportInputs;
+function mapRuntimeInputToStepConfigurationExportInputs(typeDefinition, runtimeInputs, octopusServerEnricher) {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+    if (runtimeInputs === null || runtimeInputs === undefined) {
+        return valueAsConfigurationInputs(runtimeInputs);
+    }
+    switch (typeDefinition.type) {
+        case "object":
+            var justTheDiscriminators = typeDefinition.discriminatorProperties.reduce(function (prev, p) {
+                var _a;
+                return __assign(__assign({}, prev), (_a = {}, _a[p.discriminatorName] = p.type.const, _a));
+            }, {});
+            var objectInput = runtimeInputs;
+            var allTheOtherProperties = asStepConfigurationExportInputs(typeDefinition.nonDiscriminatorProperties, objectInput, octopusServerEnricher);
+            return __assign(__assign({}, justTheDiscriminators), allTheOtherProperties);
+        case "package": {
+            var packageReference = runtimeInputs;
+            var enrichedPackageReference = octopusServerEnricher.enrich(packageReference);
+            var exportPackageReference = {
+                feed: { name: (_b = (_a = enrichedPackageReference.feed) === null || _a === void 0 ? void 0 : _a.name) !== null && _b !== void 0 ? _b : "" },
+                packageName: (_c = enrichedPackageReference.packageName) !== null && _c !== void 0 ? _c : "",
+                packageExtractionPathExpression: enrichedPackageReference.packageExtractionPathExpression,
+            };
+            return valueAsConfigurationInputs(exportPackageReference);
+        }
+        case "container-image": {
+            var runtimeContainerImageSelection = runtimeInputs;
+            var enrichedContainerImageSelection = octopusServerEnricher.enrich(runtimeContainerImageSelection);
+            var exportPackageReference = {
+                feed: { url: (_e = (_d = enrichedContainerImageSelection.feed) === null || _d === void 0 ? void 0 : _d.url) !== null && _e !== void 0 ? _e : "", name: (_g = (_f = enrichedContainerImageSelection.feed) === null || _f === void 0 ? void 0 : _f.name) !== null && _g !== void 0 ? _g : "" },
+                imageName: (_h = enrichedContainerImageSelection.imageName) !== null && _h !== void 0 ? _h : "",
+                imagePathExpression: enrichedContainerImageSelection.imagePathExpression,
+            };
+            return valueAsConfigurationInputs(exportPackageReference);
+        }
+        case "array": {
+            var convertedToArray = runtimeInputs;
+            var resultingArray = convertedToArray.map(function (item, index) {
+                return mapRuntimeInputToStepConfigurationExportInputs(typeDefinition.itemTypes[index], item, octopusServerEnricher);
+            });
+            return valueAsConfigurationInputs(resultingArray);
+        }
+        case "account":
+        case "string":
+            return valueAsConfigurationInputs(runtimeInputs);
+        case "primitive":
+            if ((0, step_inputs_1.isBoundValue)(runtimeInputs)) {
+                return valueAsConfigurationInputs({ type: "bound", expression: runtimeInputs.expression });
+            }
+            return valueAsConfigurationInputs(runtimeInputs);
+        case "sensitive":
+            if ((0, step_inputs_1.isBoundValue)(runtimeInputs)) {
+                return valueAsConfigurationInputs({ type: "bound", expression: runtimeInputs.expression });
+            }
+            var resourceSensitiveValue = runtimeInputs;
+            return valueAsConfigurationInputs((0, SensitiveValueConverters_1.toExportSensitiveValue)(resourceSensitiveValue));
+    }
+    (0, exhaustiveCheck_1.exhaustiveCheck)(typeDefinition, "Could not convert an unknown resource input type to a step input.");
+}
+function valueAsRuntimeInputs(value) {
+    return value;
+}
+function valueAsResourceInputs(value) {
+    return value;
+}
+function valueAsConfigurationInputs(value) {
+    return value;
+}
+//# sourceMappingURL=InputsConverters.js.map

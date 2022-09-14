@@ -1,0 +1,57 @@
+import type { SensitiveTextComponent } from "./SensitiveText";
+import type { PackageSelectorComponent } from "./PackageSelector";
+import type { TextComponent } from "./Text";
+import type { RadioButtonsComponent } from "./RadioButtons";
+import type { ListComponent } from "./List";
+import type { AccountSelectorComponent } from "./Account";
+import type { ContainerImageSelectorComponent } from "./ContainerImageSelector";
+import type { CheckboxComponent } from "./Checkbox";
+import type { SelectComponent } from "./Select";
+import type { NumberComponent } from "./Number";
+import type { InlineListComponent } from "./InlineList/InlineList";
+import { LinkComponent } from "./Link";
+import { BoldComponent, CodeComponent, ItalicComponent } from "./TextFormat";
+
+export type StepInputComponent =
+    | SensitiveTextComponent
+    | PackageSelectorComponent
+    | ContainerImageSelectorComponent
+    | TextComponent
+    | RadioButtonsComponent
+    | ListComponent
+    | CheckboxComponent
+    | SelectComponent
+    | NumberComponent
+    | InlineListComponent
+    | AccountSelectorComponent;
+
+export type DeploymentTargetInputComponent =
+    | SensitiveTextComponent
+    | TextComponent
+    | RadioButtonsComponent
+    | AccountSelectorComponent
+    | CheckboxComponent
+    | SelectComponent
+    | NumberComponent;
+
+export type CommonInputProps = {
+    label: string;
+    helpText: string;
+    note?: NoteExpression[];
+};
+
+export type NoteComponent = LinkComponent | BoldComponent | ItalicComponent | CodeComponent;
+
+export type NoteExpression = string | NoteComponent;
+
+export function note(strings: TemplateStringsArray, ...expressions: NoteComponent[]): NoteExpression[] {
+    return strings
+        .map((s, i) => {
+            const expression = expressions[i];
+            if (expression) return [s, expression];
+            return [s];
+        })
+        .reduce((acc, current) => {
+            return [...acc, ...current];
+        }, []);
+}

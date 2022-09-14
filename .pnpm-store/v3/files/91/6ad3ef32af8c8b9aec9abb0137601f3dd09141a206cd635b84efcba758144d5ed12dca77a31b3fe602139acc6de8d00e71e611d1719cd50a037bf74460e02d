@@ -1,0 +1,6 @@
+export interface SensitiveValue {
+    HasValue: boolean;
+    // NewValue can also be null at runtime
+    NewValue?: string;
+    Hint?: string;
+}

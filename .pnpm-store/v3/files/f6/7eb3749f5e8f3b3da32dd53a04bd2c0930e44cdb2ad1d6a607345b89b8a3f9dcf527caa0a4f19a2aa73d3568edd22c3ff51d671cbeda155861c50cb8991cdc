@@ -1,0 +1,678 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var convertFromJsonSchemaToInputSchema_1 = require("../convertFromJsonSchemaToInputSchema");
+describe("convertFromJsonSchemaToInputSchema", function () {
+    test("can convert simple object properties", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myProperty: { type: "string" },
+                    },
+                    required: ["myProperty"],
+                },
+            },
+        };
+        var inputs = {
+            myProperty: "foo",
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myProperty",
+            isRequired: true,
+            type: { type: "string" },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert simple object properties that aren't required", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myProperty: { type: "string" },
+                        mySecondProperty: { type: "string" },
+                    },
+                    required: ["mySecondProperty"],
+                },
+            },
+        };
+        var inputs = {
+            myProperty: "foo",
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedFirstProperty = {
+            name: "myProperty",
+            isRequired: false,
+            type: { type: "string" },
+        };
+        var expectedSecondProperty = {
+            name: "mySecondProperty",
+            isRequired: true,
+            type: { type: "string" },
+        };
+        expect(schema.properties).toEqual([expectedFirstProperty, expectedSecondProperty]);
+    });
+    test("can convert when no required array is provided in json schema", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myProperty: { type: "string" },
+                    },
+                },
+            },
+        };
+        var inputs = {
+            myProperty: "foo",
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myProperty",
+            isRequired: false,
+            type: { type: "string" },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert package references", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myPackageReference: { type: "object", isPackageReference: true },
+                    },
+                    required: ["myPackageReference"],
+                },
+            },
+        };
+        var inputs = {
+            myPackageReference: { feedId: undefined, packageId: undefined },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myPackageReference",
+            isRequired: true,
+            type: { type: "package" },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert accounts", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myAccount: { type: "string", isAccount: true, accountType: "AmazonWebServicesAccount" },
+                    },
+                    required: ["myAccount"],
+                },
+            },
+        };
+        var inputs = {
+            myAccount: "Account1",
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myAccount",
+            isRequired: true,
+            type: { type: "account", accountType: "AmazonWebServicesAccount" },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert union types", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myUnionType: { anyOf: [{ $ref: "FirstType" }, { $ref: "SecondType" }] },
+                    },
+                    required: ["myUnionType"],
+                },
+                FirstType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "first", isDiscriminator: true },
+                        first: { type: "boolean" },
+                    },
+                    required: ["type", "first"],
+                },
+                SecondType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "second", isDiscriminator: true },
+                        second: { type: "object", isSensitiveValue: true },
+                    },
+                    required: ["type", "second"],
+                },
+            },
+        };
+        var inputs = {
+            myUnionType: {
+                type: "first",
+                first: true,
+            },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myUnionType",
+            isRequired: true,
+            type: {
+                type: "object",
+                discriminatorProperties: [
+                    {
+                        discriminatorName: "type",
+                        type: { type: "discriminator", const: "first" },
+                    },
+                ],
+                nonDiscriminatorProperties: [
+                    {
+                        name: "first",
+                        isRequired: true,
+                        type: { type: "primitive" },
+                    },
+                ],
+            },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert union types with correct required properties", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myUnionType: { anyOf: [{ $ref: "FirstType" }, { $ref: "SecondType" }] },
+                    },
+                    required: ["myUnionType"],
+                },
+                FirstType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "first", isDiscriminator: true },
+                        first: { type: "boolean" },
+                    },
+                    required: ["type"],
+                },
+                SecondType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "second", isDiscriminator: true },
+                        second: { type: "object", isSensitiveValue: true },
+                    },
+                    required: ["type", "second"],
+                },
+            },
+        };
+        var inputs = {
+            myUnionType: {
+                type: "first",
+                first: true,
+            },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myUnionType",
+            isRequired: true,
+            type: {
+                type: "object",
+                discriminatorProperties: [
+                    {
+                        discriminatorName: "type",
+                        type: { type: "discriminator", const: "first" },
+                    },
+                ],
+                nonDiscriminatorProperties: [
+                    {
+                        name: "first",
+                        isRequired: false,
+                        type: { type: "primitive" },
+                    },
+                ],
+            },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("flattens simple type references", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myProperty: { $ref: "SomeStringRef" },
+                    },
+                    required: ["myProperty"],
+                },
+                SomeStringRef: { $ref: "SomeString" },
+                SomeString: { type: "string" },
+            },
+        };
+        var inputs = {
+            myProperty: "foo",
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myProperty",
+            isRequired: true,
+            type: { type: "string" },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("flattens union type references", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myUnionType: { anyOf: [{ $ref: "FirstTypeRef" }, { $ref: "SecondOrThirdType" }] },
+                    },
+                    required: ["myUnionType"],
+                },
+                FirstTypeRef: {
+                    $ref: "FirstType",
+                },
+                FirstType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "first", isDiscriminator: true },
+                        first: { type: "boolean" },
+                    },
+                    required: ["first"],
+                },
+                SecondOrThirdType: {
+                    anyOf: [{ $ref: "SecondType" }, { $ref: "ThirdType" }],
+                },
+                SecondType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "second", isDiscriminator: true },
+                        second: { type: "object", isSensitiveValue: true },
+                    },
+                    required: ["second"],
+                },
+                ThirdType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "third", isDiscriminator: true },
+                        third: { type: "object", isPackageReference: true },
+                    },
+                    required: ["third"],
+                },
+            },
+        };
+        var inputs = {
+            myUnionType: {
+                type: "second",
+                second: { type: "empty" },
+            },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myUnionType",
+            isRequired: true,
+            type: {
+                type: "object",
+                discriminatorProperties: [
+                    {
+                        discriminatorName: "type",
+                        type: { type: "discriminator", const: "second" },
+                    },
+                ],
+                nonDiscriminatorProperties: [
+                    {
+                        name: "second",
+                        isRequired: true,
+                        type: { type: "sensitive" },
+                    },
+                ],
+            },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("flattens union type references with correct required properties", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myUnionType: { anyOf: [{ $ref: "FirstTypeRef" }, { $ref: "SecondOrThirdType" }] },
+                    },
+                    required: ["myUnionType"],
+                },
+                FirstTypeRef: {
+                    $ref: "FirstType",
+                },
+                FirstType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "first", isDiscriminator: true },
+                        first: { type: "boolean" },
+                    },
+                    required: ["first"],
+                },
+                SecondOrThirdType: {
+                    anyOf: [{ $ref: "SecondType" }, { $ref: "ThirdType" }],
+                },
+                SecondType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "second", isDiscriminator: true },
+                        second: { type: "object", isSensitiveValue: true },
+                    },
+                    required: [],
+                },
+                ThirdType: {
+                    type: "object",
+                    properties: {
+                        type: { type: "string", const: "third", isDiscriminator: true },
+                        third: { type: "object", isPackageReference: true },
+                    },
+                    required: ["third"],
+                },
+            },
+        };
+        var inputs = {
+            myUnionType: {
+                type: "second",
+                second: { type: "empty" },
+            },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myUnionType",
+            isRequired: true,
+            type: {
+                type: "object",
+                discriminatorProperties: [
+                    {
+                        discriminatorName: "type",
+                        type: { type: "discriminator", const: "second" },
+                    },
+                ],
+                nonDiscriminatorProperties: [
+                    {
+                        name: "second",
+                        isRequired: false,
+                        type: { type: "sensitive" },
+                    },
+                ],
+            },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert arrays", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myArray: { type: "array", items: { $ref: "ItemType" } },
+                    },
+                    required: ["myArray"],
+                },
+                ItemType: { type: "boolean" },
+            },
+        };
+        var inputs = {
+            myArray: [true, false],
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myArray",
+            isRequired: true,
+            type: { type: "array", itemTypes: [{ type: "primitive" }, { type: "primitive" }] },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert arrays of object types with required properties", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myArray: { type: "array", items: { $ref: "ItemType" } },
+                    },
+                    required: ["myArray"],
+                },
+                ItemType: { type: "object", properties: { myProperty: { type: "string" } }, required: ["myProperty"] },
+            },
+        };
+        var inputs = {
+            myArray: [{ myProperty: "first" }, { myProperty: "second" }],
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myArray",
+            isRequired: true,
+            type: {
+                type: "array",
+                itemTypes: [
+                    {
+                        type: "object",
+                        discriminatorProperties: [],
+                        nonDiscriminatorProperties: [{ type: { type: "string" }, name: "myProperty", isRequired: true }],
+                    },
+                    {
+                        type: "object",
+                        discriminatorProperties: [],
+                        nonDiscriminatorProperties: [{ type: { type: "string" }, name: "myProperty", isRequired: true }],
+                    },
+                ],
+            },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("can convert arrays of object types with non required properties", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myArray: { type: "array", items: { $ref: "ItemType" } },
+                    },
+                    required: ["myArray"],
+                },
+                ItemType: { type: "object", properties: { myProperty: { type: "string" } }, required: [] },
+            },
+        };
+        var inputs = {
+            myArray: [{ myProperty: "first" }, { myProperty: "second" }],
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperty = {
+            name: "myArray",
+            isRequired: true,
+            type: {
+                type: "array",
+                itemTypes: [
+                    {
+                        type: "object",
+                        discriminatorProperties: [],
+                        nonDiscriminatorProperties: [{ type: { type: "string" }, name: "myProperty", isRequired: false }],
+                    },
+                    {
+                        type: "object",
+                        discriminatorProperties: [],
+                        nonDiscriminatorProperties: [{ type: { type: "string" }, name: "myProperty", isRequired: false }],
+                    },
+                ],
+            },
+        };
+        expect(schema.properties).toEqual([expectedProperty]);
+    });
+    test("Converts complex non-required types that do not have a runtime value", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myFirstProperty: {
+                            type: "object",
+                            properties: { first: { type: "object", properties: { name: { type: "string" } }, required: ["name"] } },
+                        },
+                        mySecondProperty: { type: "object", properties: { description: { type: "string" } }, required: ["description"] },
+                    },
+                    required: ["mySecondProperty"],
+                },
+            },
+        };
+        var inputs = {
+            mySecondProperty: { description: "does not have a name" },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperties = [
+            {
+                name: "myFirstProperty",
+                isRequired: false,
+                type: {
+                    type: "object",
+                    discriminatorProperties: [],
+                    nonDiscriminatorProperties: [
+                        {
+                            type: {
+                                type: "object",
+                                discriminatorProperties: [],
+                                nonDiscriminatorProperties: [{ isRequired: true, name: "name", type: { type: "string" } }],
+                            },
+                            name: "first",
+                            isRequired: false,
+                        },
+                    ],
+                },
+            },
+            {
+                name: "mySecondProperty",
+                isRequired: true,
+                type: {
+                    type: "object",
+                    discriminatorProperties: [],
+                    nonDiscriminatorProperties: [{ type: { type: "string" }, name: "description", isRequired: true }],
+                },
+            },
+        ];
+        expect(schema.properties).toEqual(expectedProperties);
+    });
+    test("Throws an error when a non-required union without a runtime value is encountered", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myUnionTypeProp: { anyOf: [{ $ref: "MyName" }, { $ref: "MyDescription" }] },
+                        mySecondProperty: { type: "object", properties: { description: { type: "string" } }, required: ["description"] },
+                    },
+                    required: ["mySecondProperty"],
+                },
+                MyName: {
+                    type: "object",
+                    properties: {
+                        name: {
+                            type: "string",
+                        },
+                    },
+                    required: ["name"],
+                },
+                MyDescription: {
+                    type: "object",
+                    properties: {
+                        description: {
+                            type: "string",
+                        },
+                    },
+                    required: ["description"],
+                },
+            },
+        };
+        var inputs = {
+            mySecondProperty: { description: "does not have a name" },
+        };
+        expect(function () {
+            (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        }).toThrow("Union types cannot be optional");
+    });
+    test("Throws an error when a non-required array without a runtime value is encountered", function () {
+        var inputJsonSchema = {
+            definitions: {
+                MyInputs: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        myArray: { type: "array", items: { $ref: "ItemType" } },
+                        mySecondProperty: { type: "object", properties: { description: { type: "string" } }, required: ["description"] },
+                    },
+                    required: ["mySecondProperty"],
+                },
+                ItemType: { type: "object", properties: { myProperty: { type: "string" } }, required: ["myProperty"] },
+            },
+        };
+        var inputs = {
+            mySecondProperty: { description: "does not have a name" },
+        };
+        expect(function () {
+            (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        }).toThrow("Array types cannot be optional");
+    });
+    test("can convert enum and const string properties", function () {
+        var inputJsonSchema = {
+            definitions: {
+                runtimePlatform: {
+                    type: "object",
+                    isRoot: true,
+                    properties: {
+                        cpuArchitecture: { $ref: "CPUArchitecture" },
+                        operatingSystemFamily: { $ref: "OperatingSystemFamily" },
+                    },
+                    required: ["cpuArchitecture", "operatingSystemFamily"],
+                },
+                CPUArchitecture: {
+                    type: "string",
+                    enum: ["ARM64", "X86_64"],
+                },
+                OperatingSystemFamily: {
+                    type: "string",
+                    const: "LINUX",
+                },
+            },
+        };
+        var inputs = {
+            mySecondProperty: { description: "does not have a name" },
+        };
+        var schema = (0, convertFromJsonSchemaToInputSchema_1.convertFromJsonSchemaToInputSchema)(inputJsonSchema, inputs);
+        var expectedProperties = [
+            {
+                name: "cpuArchitecture",
+                isRequired: true,
+                type: {
+                    type: "string",
+                },
+            },
+            {
+                name: "operatingSystemFamily",
+                isRequired: true,
+                type: {
+                    type: "string",
+                },
+            },
+        ];
+        expect(schema.properties).toEqual(expectedProperties);
+    });
+});
+//# sourceMappingURL=convertFromJsonSchemaToInputSchema.spec.js.map

@@ -1,0 +1,40 @@
+import type { Discriminator } from "./Discriminator";
+import type { SensitiveValue } from "./SensitiveValues";
+import type { PackageReference } from "./PackageReference";
+import type { AccountReference } from "./accounts";
+import type { ContainerImageReference } from "./ContainerImageReference";
+export declare type InputPaths<PropertyType> = [PropertyType] extends [Discriminator<infer D>] ? D : [PropertyType] extends [SensitiveValue] ? ConvertibleInputPathToValue<PropertyType> : [PropertyType] extends [PackageReference] ? ConvertibleInputPathToValue<PropertyType> : [PropertyType] extends [AccountReference] ? ConvertibleInputPathToValue<PropertyType> : [PropertyType] extends [ContainerImageReference] ? ConvertibleInputPathToValue<PropertyType> : [PropertyType] extends [Array<infer ArrayItem>] ? Array<ObjectInputPathsAndPathToObject<ArrayItem>> & InputPathToArray<ArrayItem> : [PropertyType] extends [object] ? ObjectInputPathsAndPathToObject<PropertyType> : [PropertyType] extends [object] | [undefined] ? ObjectInputPathsAndPathToObject<PropertyType> : [PropertyType] extends [PropertyType] ? ConvertibleInputPathToValue<PropertyType> : never;
+export declare type ObjectInputPathsAndPathToObject<T> = ObjectInputPaths<T> & InputPathToObject<T>;
+export declare type ObjectInputPaths<T> = {
+    [K in keyof T]-?: InputPaths<T[K]>;
+};
+export declare type ConvertibleInputPathToValue<InputValue> = {
+    convertTo: ConvertTo<InputValue>;
+} & InputPathToValue<InputValue>;
+export declare type InputPathToValue<InputValue> = {
+    readonly __inputPathToValueBrand: unique symbol;
+    readonly __valueBrand: TypeBrand<InputValue>;
+};
+export declare type InputPathToArray<InputArray> = {
+    readonly __inputPathToArrayBrand: unique symbol;
+    readonly _arrayTypeBrand: TypeBrand<InputArray>;
+};
+export declare type InputPathToObject<InputObject> = {
+    readonly __inputPathToObjectBrand: unique symbol;
+    readonly _objectTypeBrand: TypeBrand<InputObject>;
+};
+export declare type TypeBrand<T> = {
+    readonly __type: T;
+    readonly __typeBrand: unique symbol;
+};
+export declare type ConvertTo<InputType> = <NewInputType>(conversions: Conversions<InputType, NewInputType>) => ConvertibleInputPathToValue<NewInputType>;
+export declare type Conversions<InputType, NewInputType> = PossiblyOptionalMapToNewType<InputType, NewInputType> & PossiblyOptionalMapFromNewType<InputType, NewInputType>;
+export declare type PossiblyOptionalMapToNewType<OriginalType, NewType> = IsAssignableTo<OriginalType, NewType> extends "true" ? Partial<ToNewType<OriginalType, NewType>> : ToNewType<OriginalType, NewType>;
+export declare type PossiblyOptionalMapFromNewType<OriginalType, NewType> = IsAssignableTo<NewType, OriginalType> extends "true" ? Partial<FromNewType<OriginalType, NewType>> : FromNewType<OriginalType, NewType>;
+export declare type ToNewType<OriginalType, NewType> = {
+    toNewType: (originalType: OriginalType) => NewType;
+};
+export declare type FromNewType<OriginalType, NewType> = {
+    toOriginalType: (originalType: NewType) => OriginalType;
+};
+export declare type IsAssignableTo<T, U> = [T] extends [U] ? "true" : "false";

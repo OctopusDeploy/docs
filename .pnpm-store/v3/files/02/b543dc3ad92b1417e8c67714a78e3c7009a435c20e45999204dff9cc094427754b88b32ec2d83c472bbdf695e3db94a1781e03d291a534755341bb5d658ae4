@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const BoundValue_1 = require("BoundValue");
+describe("isBoundValue", () => {
+    test("Returns false when not a bound value", () => {
+        const value = 100;
+        expect((0, BoundValue_1.isBoundValue)(value)).toBe(false);
+    });
+    test("Returns true when a bound value", () => {
+        const value = {
+            type: "bound",
+            expression: "#{MyVariable}",
+        };
+        expect((0, BoundValue_1.isBoundValue)(value)).toBe(true);
+    });
+});
+describe("isNotBoundValue", () => {
+    test("Returns true when not a bound value", () => {
+        const value = 100;
+        expect((0, BoundValue_1.isNotBoundValue)(value)).toBe(true);
+    });
+    test("Returns false when a bound value", () => {
+        const value = {
+            type: "bound",
+            expression: "#{MyVariable}",
+        };
+        expect((0, BoundValue_1.isNotBoundValue)(value)).toBe(false);
+    });
+});
+//# sourceMappingURL=BoundValue.spec.js.map

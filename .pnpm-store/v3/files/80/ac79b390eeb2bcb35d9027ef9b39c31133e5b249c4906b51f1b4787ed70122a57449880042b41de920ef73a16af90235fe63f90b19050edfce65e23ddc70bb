@@ -1,0 +1,38 @@
+{
+    "name": "@types/react-dnd-multi-backend",
+    "version": "5.0.0",
+    "description": "TypeScript definitions for react-dnd-multi-backend",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Janeene Beeforth",
+            "url": "https://github.com/dawnmist",
+            "githubUsername": "dawnmist"
+        },
+        {
+            "name": "Adam Haglund",
+            "url": "https://github.com/beeequeue",
+            "githubUsername": "beeequeue"
+        },
+        {
+            "name": "Rob Valentine",
+            "url": "https://github.com/robcodemonkey",
+            "githubUsername": "robcodemonkey"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/react-dnd-multi-backend"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/react": "*",
+        "react-dnd": "^10.0.2",
+        "react-dnd-touch-backend": "^10.0.2"
+    },
+    "typesPublisherContentHash": "5b4db73427e2a0857258ae127eba3bf8637846be186be374d491c40eb08b3052",
+    "typeScriptVersion": "2.8"
+}

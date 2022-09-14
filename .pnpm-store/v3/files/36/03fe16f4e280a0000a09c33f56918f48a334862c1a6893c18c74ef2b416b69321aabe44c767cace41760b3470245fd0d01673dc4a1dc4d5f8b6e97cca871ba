@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.link = void 0;
+function link(props) {
+    return Object.assign({ type: "link" }, props);
+}
+exports.link = link;
+//# sourceMappingURL=Link.js.map

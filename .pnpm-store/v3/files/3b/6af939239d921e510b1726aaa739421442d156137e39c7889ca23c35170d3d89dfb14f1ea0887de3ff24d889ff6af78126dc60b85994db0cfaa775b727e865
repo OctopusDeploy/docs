@@ -1,0 +1,15 @@
+// Create an object that includes the name of the key if it matches the condition
+// TODO: This doesn't work when "Condition" is a subset of a union type :(
+// e.g. IncludeKeysByType<T, string> won't work if the property type is string | number
+type IncludeKeysByType<T, Condition> = {
+    [K in keyof T]: T[K] extends Condition ? K : never;
+};
+
+// Gather a list of the resultant key names that match the condition
+type KeyNamesByType<T, Condition> = IncludeKeysByType<T, Condition>[keyof T];
+
+// Omit any property that isn't part of the key list generated above
+type OmitByType<T, Condition> = Omit<T, KeyNamesByType<T, Condition>>;
+
+// Create a new type that sets any property matching the condition as optional
+export type PartialByType<T, Condition> = OmitByType<T, Condition> & Partial<T>;

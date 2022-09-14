@@ -1,0 +1,17 @@
+import type { InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+
+export function number(props: NumberProps): NumberComponent {
+    return {
+        type: "number",
+        ...props,
+    };
+}
+
+export interface NumberComponent extends NumberProps {
+    type: "number";
+}
+
+export interface NumberProps extends CommonInputProps {
+    input: InputPathToValue<number | undefined>;
+}

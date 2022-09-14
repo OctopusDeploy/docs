@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.containerImageSelector = void 0;
+function containerImageSelector(props) {
+    return Object.assign({ type: "container-image" }, props);
+}
+exports.containerImageSelector = containerImageSelector;
+//# sourceMappingURL=ContainerImageSelector.js.map

@@ -1,0 +1,24 @@
+{
+    "name": "@types/react-responsive",
+    "version": "1.1.12",
+    "description": "TypeScript definitions for react-responsive",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Alexey Svetliakov",
+            "url": "https://github.com/asvetliakov",
+            "githubUsername": "asvetliakov"
+        }
+    ],
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/react": "*"
+    },
+    "typesPublisherContentHash": "d1eb196d647403cf3eb79fc5583e45e153faee47a27a3a1c6b518f567f22cc18",
+    "typeScriptVersion": "2.8"
+}

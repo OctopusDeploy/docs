@@ -1,0 +1,31 @@
+{
+  "name": "@octopusdeploy/step-inputs",
+  "version": "1.1.1",
+  "description": "The step UI",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OctopusDeploy/step-api.git"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "author": "Octopus Deploy",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/jest": "26.0.24",
+    "jest": "26.6.3",
+    "jest-expect-message": "1.0.2",
+    "jest-extended": "0.11.5",
+    "jest-runner-eslint": "1.0.1",
+    "typescript": "4.4.4",
+    "ts-jest": "26.5.6"
+  },
+  "scripts": {
+    "build": "tsc --declaration",
+    "test": "jest --maxWorkers 4 --json --outputFile=./results.json --passWithNoTests",
+    "ci:package": "mkdir -p ../../dist && pnpm pack --pack-destination ../../dist && mv ../../dist/octopusdeploy-step-inputs-$npm_package_version.tgz ../../dist/octopusdeploy.step-inputs.$npm_package_version.tgz",
+    "lint": "eslint ."
+  }
+}

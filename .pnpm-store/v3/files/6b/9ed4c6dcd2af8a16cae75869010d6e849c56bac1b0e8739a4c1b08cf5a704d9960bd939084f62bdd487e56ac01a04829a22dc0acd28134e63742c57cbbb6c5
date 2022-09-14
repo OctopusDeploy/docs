@@ -1,0 +1,24 @@
+{
+    "name": "@types/react-lazyload",
+    "version": "2.2.4",
+    "description": "TypeScript definitions for react-lazyload ver",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "m0a",
+            "url": "https://github.com/m0a",
+            "githubUsername": "m0a"
+        }
+    ],
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/react": "*"
+    },
+    "typesPublisherContentHash": "bf075518bfba4d4ae256d3511e480c7dfdbd5757bd8c85e647c5f511bceaf1a4",
+    "typeScriptVersion": "2.3"
+}

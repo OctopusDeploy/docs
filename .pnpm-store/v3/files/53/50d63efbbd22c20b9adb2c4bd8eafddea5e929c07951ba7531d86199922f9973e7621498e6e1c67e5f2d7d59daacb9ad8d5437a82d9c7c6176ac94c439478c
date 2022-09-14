@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "babel-preset-stage-0",
+    [
+      "babel-preset-env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "ie >= 11"]
+        }
+      }
+    ],
+    "react"
+  ]
+}

@@ -1,0 +1,99 @@
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createInputArrayAccessor = exports.createObjectValueAccessor = exports.createInputValueAccessorForDeploymentTarget = exports.createInputValueAccessor = void 0;
+var step_inputs_1 = require("@octopusdeploy/step-inputs");
+var RuntimeInputPath_1 = require("./RuntimeInputPath");
+function createInputValueAccessor(pathToInput) {
+    return createInputAccessor((0, RuntimeInputPath_1.getPathToInput)(pathToInput), function (existingInput) {
+        if ((0, step_inputs_1.isBoundValue)(existingInput)) {
+            return existingInput;
+        }
+        return (0, RuntimeInputPath_1.convertFromOriginalType)(pathToInput, existingInput);
+    }, function (newInput) {
+        if ((0, step_inputs_1.isBoundValue)(newInput)) {
+            return newInput;
+        }
+        else {
+            return (0, RuntimeInputPath_1.convertToOriginalType)(pathToInput, newInput);
+        }
+    });
+}
+exports.createInputValueAccessor = createInputValueAccessor;
+function createInputValueAccessorForDeploymentTarget(pathToInput) {
+    return createInputAccessor((0, RuntimeInputPath_1.getPathToInput)(pathToInput), function (existingInput) {
+        return (0, RuntimeInputPath_1.convertFromOriginalType)(pathToInput, existingInput);
+    }, function (newInput) {
+        return (0, RuntimeInputPath_1.convertToOriginalType)(pathToInput, newInput);
+    });
+}
+exports.createInputValueAccessorForDeploymentTarget = createInputValueAccessorForDeploymentTarget;
+function createObjectValueAccessor(pathToObject) {
+    return createInputAccessor((0, RuntimeInputPath_1.getPathToInputObject)(pathToObject), function (existingInput) { return existingInput; }, function (newInput) { return newInput; });
+}
+exports.createObjectValueAccessor = createObjectValueAccessor;
+function createInputArrayAccessor(pathToArray) {
+    return createInputAccessor((0, RuntimeInputPath_1.getPathToArrayInput)(pathToArray), function (existingArray) { return existingArray; }, function (newArray) { return newArray; });
+}
+exports.createInputArrayAccessor = createInputArrayAccessor;
+function createInputAccessor(pathToInput, convertToInput, convertFromInput) {
+    return {
+        getInputValue: function (inputs) {
+            var result = pathToInput.reduce(function (prev, path) {
+                if (typeof path === "symbol") {
+                    throw new Error("symbol paths are not supported");
+                }
+                return prev[path];
+            }, inputs);
+            var runtimeInputType = result;
+            return convertToInput(runtimeInputType);
+        },
+        changeInputValue: function (inputs, newValue) {
+            var convertedNewValue = convertFromInput(newValue);
+            var result = changeValueAtPath(pathToInput, inputs, convertedNewValue);
+            return result;
+        },
+    };
+}
+function changeValueAtPath(partialPaths, inputAtPath, newValue) {
+    var partialPath = partialPaths[0], rest = partialPaths.slice(1);
+    if (partialPath === undefined) {
+        return newValue;
+    }
+    if (typeof partialPath === "symbol") {
+        throw new Error("symbol paths are not supported");
+    }
+    if (Array.isArray(inputAtPath)) {
+        return changeValueInArray(partialPath, inputAtPath, rest, newValue);
+    }
+    return changeValueInObject(inputAtPath, partialPath, rest, newValue);
+}
+function changeValueInArray(partialPath, inputAtPath, rest, newValue) {
+    if (typeof partialPath !== "number") {
+        throw new Error("Only number keys can be used for arrays");
+    }
+    return inputAtPath.map(function (inputItem, index) {
+        if (index === partialPath) {
+            var indexableItem = inputItem;
+            return changeValueAtPath(rest, indexableItem, newValue);
+        }
+        return inputItem;
+    });
+}
+function changeValueInObject(inputAtPath, partialPath, rest, newValue) {
+    var _a;
+    var inputAtPathElement = inputAtPath[partialPath];
+    var indexableInput = inputAtPathElement;
+    return __assign(__assign({}, inputAtPath), (_a = {}, _a[partialPath] = changeValueAtPath(rest, indexableInput, newValue), _a));
+}
+//# sourceMappingURL=InputAccessor.js.map

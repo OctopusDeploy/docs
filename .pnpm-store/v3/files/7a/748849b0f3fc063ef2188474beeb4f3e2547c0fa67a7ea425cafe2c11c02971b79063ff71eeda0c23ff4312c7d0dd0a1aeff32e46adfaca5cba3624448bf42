@@ -1,0 +1,26 @@
+import type { InputPathToArray, InputPathToValue, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+import type { InitialInputs } from "./InitialInputs";
+import type { FormContent } from "./FormContent";
+import type { CommonInputProps, StepInputComponent } from "./InputComponents";
+
+export function list<ArrayItem>(props: ListProps<ArrayItem>): ListComponent {
+    return {
+        type: "list",
+        ...props,
+    };
+}
+
+export interface ListProps<ArrayItem> extends CommonInputProps {
+    input: InputPathToArray<ArrayItem>;
+    itemLabel: string;
+    newItem: InitialInputs<ArrayItem>;
+    itemSummary: (arrayItemInputs: ObjectInputPathsAndPathToObject<ArrayItem>) => {
+        title: InputPathToValue<string>;
+        fields?: InputPathToValue<string | number | undefined>[];
+    };
+    editItemForm: (arrayItemInputs: ObjectInputPathsAndPathToObject<ArrayItem>) => FormContent<StepInputComponent>[];
+}
+
+export interface ListComponent extends ListProps<unknown> {
+    type: "list";
+}

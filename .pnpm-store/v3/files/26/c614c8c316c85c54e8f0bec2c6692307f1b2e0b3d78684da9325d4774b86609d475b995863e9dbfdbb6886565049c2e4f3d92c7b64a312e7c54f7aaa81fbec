@@ -1,0 +1,34 @@
+{
+    "name": "@types/amplitude-js",
+    "version": "7.0.1",
+    "description": "TypeScript definitions for Amplitude SDK",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Arvydas Sidorenko",
+            "url": "https://github.com/Asido",
+            "githubUsername": "Asido"
+        },
+        {
+            "name": "Dan Manastireanu",
+            "url": "https://github.com/danmana",
+            "githubUsername": "danmana"
+        },
+        {
+            "name": "Kimmo Hintikka",
+            "url": "https://github.com/HintikkaKimmo",
+            "githubUsername": "HintikkaKimmo"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/amplitude-js"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "7811687b5a6c3827a950a58b925f73ca9908899d2cc79712539a5573b99196d1",
+    "typeScriptVersion": "3.4"
+}

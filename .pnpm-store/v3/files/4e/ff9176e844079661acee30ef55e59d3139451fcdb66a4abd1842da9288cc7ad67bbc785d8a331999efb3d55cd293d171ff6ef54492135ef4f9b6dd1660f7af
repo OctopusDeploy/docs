@@ -1,0 +1,40 @@
+{
+  "name": "@octopusdeploy/step-runtime-inputs",
+  "version": "1.1.0",
+  "description": "The step UI",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OctopusDeploy/step-api.git"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "author": "Octopus Deploy",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/jest": "26.0.24",
+    "jest": "26.6.3",
+    "jest-expect-message": "1.0.2",
+    "jest-extended": "0.11.5",
+    "jest-runner-eslint": "1.0.1",
+    "jsdom": "16.7.0",
+    "ts-jest": "26.5.6",
+    "tslib": "2.3.1",
+    "typescript": "4.4.4"
+  },
+  "dependencies": {
+    "@octopusdeploy/step-inputs": "1.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --declaration true --outDir dist/es --target ES6 --module ES6 && tsc --declaration true --outDir dist/cjs --target ES5 --module CommonJS",
+    "test": "jest --maxWorkers 4 --json --outputFile=./results.json --passWithNoTests",
+    "ci:package": "mkdir -p ../../dist && pnpm pack --pack-destination ../../dist && mv ../../dist/octopusdeploy-step-runtime-inputs-$npm_package_version.tgz ../../dist/octopusdeploy.step-runtime-inputs.$npm_package_version.tgz",
+    "lint": "eslint ."
+  }
+}

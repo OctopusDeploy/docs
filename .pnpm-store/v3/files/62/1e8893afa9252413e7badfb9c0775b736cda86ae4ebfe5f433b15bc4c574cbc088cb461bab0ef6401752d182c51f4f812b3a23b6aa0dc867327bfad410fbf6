@@ -1,0 +1,143 @@
+import { RuntimeInputs, ObjectRuntimeInputs } from "../RuntimeInputs";
+import { InputPathToArray, InputPathToObject, InputPathToValue, BoundValue, isBoundValue } from "@octopusdeploy/step-inputs";
+import {
+    convertFromOriginalType,
+    convertToOriginalType,
+    getPathToArrayInput,
+    getPathToInput,
+    getPathToInputObject,
+    PathSegment,
+    PathToInput,
+} from "./RuntimeInputPath";
+
+export type InputObjectAccessor<StepInputs, ObjectType> = InputAccessor<StepInputs, ObjectRuntimeInputs<ObjectType>>;
+export type InputValueAccessor<StepInputs, InputValue> = InputAccessor<StepInputs, InputValue | BoundValue>;
+export type InputValueAccessorNoBoundValues<StepInputs, InputValue> = InputAccessor<StepInputs, InputValue>;
+export type InputArrayAccessor<StepInputs, ArrayItem> = InputAccessor<StepInputs, Array<ObjectRuntimeInputs<ArrayItem>>>;
+
+type InputAccessor<StepInputs, Input> = {
+    getInputValue: (inputs: ObjectRuntimeInputs<StepInputs>) => Input;
+    changeInputValue: (inputs: ObjectRuntimeInputs<StepInputs>, newValue: Input) => ObjectRuntimeInputs<StepInputs>;
+};
+
+export function createInputValueAccessor<StepInputs, InputValue>(pathToInput: InputPathToValue<InputValue>): InputValueAccessor<StepInputs, InputValue> {
+    return createInputAccessor<StepInputs, InputValue | BoundValue, RuntimeInputs<InputValue>>(
+        getPathToInput(pathToInput),
+        (existingInput) => {
+            if (isBoundValue(existingInput)) {
+                return existingInput;
+            }
+            return convertFromOriginalType(pathToInput, existingInput);
+        },
+        (newInput) => {
+            if (isBoundValue(newInput)) {
+                // Not all inputs support bound values, but if we see a bound value here then we can expect it was allowed for this input type
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                return newInput as RuntimeInputs<InputValue>;
+            } else {
+                return convertToOriginalType(pathToInput, newInput);
+            }
+        }
+    );
+}
+
+export function createInputValueAccessorForDeploymentTarget<StepInputs, InputValue>(
+    pathToInput: InputPathToValue<InputValue>
+): InputValueAccessorNoBoundValues<StepInputs, InputValue> {
+    return createInputAccessor<StepInputs, InputValue, RuntimeInputs<InputValue>>(
+        getPathToInput(pathToInput),
+        (existingInput) => {
+            return convertFromOriginalType(pathToInput, existingInput);
+        },
+        (newInput) => {
+            return convertToOriginalType(pathToInput, newInput);
+        }
+    );
+}
+
+export function createObjectValueAccessor<StepInputs, ObjectType>(pathToObject: InputPathToObject<ObjectType>): InputObjectAccessor<StepInputs, ObjectType> {
+    return createInputAccessor<StepInputs, ObjectRuntimeInputs<ObjectType>, ObjectRuntimeInputs<ObjectType>>(
+        getPathToInputObject(pathToObject),
+        (existingInput) => existingInput,
+        (newInput) => newInput
+    );
+}
+
+export function createInputArrayAccessor<StepInputs, ArrayItem>(pathToArray: InputPathToArray<ArrayItem>): InputArrayAccessor<StepInputs, ArrayItem> {
+    return createInputAccessor<StepInputs, Array<ObjectRuntimeInputs<ArrayItem>>, Array<ObjectRuntimeInputs<ArrayItem>>>(
+        getPathToArrayInput(pathToArray),
+        (existingArray) => existingArray,
+        (newArray) => newArray
+    );
+}
+
+function createInputAccessor<StepInputs, Input, RuntimeInputType>(
+    pathToInput: PathToInput,
+    convertToInput: (valueAtPath: RuntimeInputType) => Input,
+    convertFromInput: (input: Input) => RuntimeInputType
+): InputAccessor<StepInputs, Input> {
+    return {
+        getInputValue: (inputs) => {
+            const result = pathToInput.reduce<Record<PathSegment, unknown>>((prev, path) => {
+                if (typeof path === "symbol") {
+                    throw new Error("symbol paths are not supported");
+                }
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                return prev[path] as Record<PathSegment, unknown>;
+            }, inputs);
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const runtimeInputType = result as RuntimeInputType;
+            return convertToInput(runtimeInputType);
+        },
+        changeInputValue: (inputs, newValue) => {
+            const convertedNewValue = convertFromInput(newValue);
+            const result = changeValueAtPath(pathToInput, inputs, convertedNewValue);
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            return result as ObjectRuntimeInputs<StepInputs>;
+        },
+    };
+}
+
+function changeValueAtPath(partialPaths: readonly PathSegment[], inputAtPath: Record<PathSegment, unknown> | Array<unknown>, newValue: unknown): unknown {
+    const [partialPath, ...rest] = partialPaths;
+    if (partialPath === undefined) {
+        return newValue;
+    }
+    if (typeof partialPath === "symbol") {
+        throw new Error("symbol paths are not supported");
+    }
+    if (Array.isArray(inputAtPath)) {
+        return changeValueInArray(partialPath, inputAtPath, rest, newValue);
+    }
+    // Otherwise it must be an object
+    return changeValueInObject(inputAtPath, partialPath, rest, newValue);
+}
+
+function changeValueInArray(partialPath: string | number, inputAtPath: Array<unknown>, rest: readonly PathSegment[], newValue: unknown): unknown[] {
+    if (typeof partialPath !== "number") {
+        throw new Error("Only number keys can be used for arrays");
+    }
+    return inputAtPath.map((inputItem, index) => {
+        if (index === partialPath) {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const indexableItem = inputItem as Record<PathSegment, unknown> | Array<unknown>;
+            return changeValueAtPath(rest, indexableItem, newValue);
+        }
+        return inputItem;
+    });
+}
+
+function changeValueInObject(
+    inputAtPath: Record<string | number | symbol, unknown>,
+    partialPath: string | number,
+    rest: readonly PathSegment[],
+    newValue: unknown
+) {
+    const inputAtPathElement = inputAtPath[partialPath];
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const indexableInput = inputAtPathElement as Record<PathSegment, unknown> | Array<unknown>;
+    return {
+        ...inputAtPath,
+        [partialPath]: changeValueAtPath(rest, indexableInput, newValue),
+    };
+}

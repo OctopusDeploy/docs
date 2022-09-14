@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.packageSelector = void 0;
+function packageSelector(props) {
+    return Object.assign({ type: "package" }, props);
+}
+exports.packageSelector = packageSelector;
+//# sourceMappingURL=PackageSelector.js.map

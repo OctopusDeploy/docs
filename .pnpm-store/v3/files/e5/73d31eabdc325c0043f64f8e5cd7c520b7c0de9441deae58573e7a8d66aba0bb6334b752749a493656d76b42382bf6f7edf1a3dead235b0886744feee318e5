@@ -1,0 +1,3 @@
+import { EmptyInitialValue } from "../EmptyInitialValue";
+
+export type UsernamePassword = { readonly __accountBrand: unique symbol; type: "UsernamePassword" } | EmptyInitialValue;

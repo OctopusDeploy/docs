@@ -1,0 +1,53 @@
+import type { SectionComponent } from "./Section";
+import { DeploymentTargetInputComponent, StepInputComponent } from "./InputComponents";
+
+type ComponentsCommonToStepsAndDeploymentTargets = StepInputComponent & DeploymentTargetInputComponent;
+
+/* Section groups can contain inputs of varying types (text, packages, accounts, etc.).
+Some of these inputs are usable in Steps (i.e. assignable to StepInputComponent) and some are usable in Deployment Targets (i.e. assignable to DeploymentTargetInputComponent)
+When a step uses this sectionGroup function, the type of its components are inferred based on its content (the inputs).
+It is important that this type is inferred correctly - if it is not then a section group might not be usable in the correct context,
+or alternatively the step author might need to explicitly specify the generic type, which is not desirable
+
+We have provided some overloads here that help force typescript to infer the most appropriate type.
+The order of these overloads is important.
+There are tests that assert the correct types are inferred in the right places.
+*/
+
+// Imagine we have a section group that only has `Text` components.
+// We first try to match against all of the components common to both steps and deployment targets.
+// If we didn't do this, it would fall back to matching against the `StepInputComponent` signature,
+// which would make this sectionGroup unusable for deployment targets.
+export function sectionGroup(
+    props: SectionGroupProps<ComponentsCommonToStepsAndDeploymentTargets>
+): SectionGroupComponent<ComponentsCommonToStepsAndDeploymentTargets>;
+// We then try to match against either step or deployment target inputs if it couldn't match against the common components.
+export function sectionGroup(props: SectionGroupProps<StepInputComponent>): SectionGroupComponent<StepInputComponent>;
+export function sectionGroup(props: SectionGroupProps<DeploymentTargetInputComponent>): SectionGroupComponent<DeploymentTargetInputComponent>;
+// Finally we provide the actual implementation. This particular signature should be resolved from one of the usages,
+// because it should first always match against one of the more specific signatures above.
+export function sectionGroup(
+    props:
+        | SectionGroupProps<StepInputComponent>
+        | SectionGroupProps<DeploymentTargetInputComponent>
+        | SectionGroupProps<ComponentsCommonToStepsAndDeploymentTargets>
+):
+    | SectionGroupComponent<StepInputComponent>
+    | SectionGroupComponent<DeploymentTargetInputComponent>
+    | SectionGroupComponent<ComponentsCommonToStepsAndDeploymentTargets> {
+    return {
+        type: "section group",
+        ...props,
+    };
+}
+
+export interface SectionGroupComponent<TInputComponents> extends SectionGroupProps<TInputComponents> {
+    type: "section group";
+}
+
+export interface SectionGroupProps<TInputComponents> {
+    title: string;
+    content: SectionGroupContent<TInputComponents>[];
+}
+
+export type SectionGroupContent<TInputComponents> = SectionComponent<TInputComponents> | TInputComponents;

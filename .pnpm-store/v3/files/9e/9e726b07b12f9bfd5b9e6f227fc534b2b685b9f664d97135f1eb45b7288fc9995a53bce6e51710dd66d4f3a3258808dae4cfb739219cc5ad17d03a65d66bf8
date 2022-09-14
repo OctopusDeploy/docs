@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.inlineCheckbox = void 0;
+function inlineCheckbox(props) {
+    return Object.assign({ type: "inline-checkbox" }, props);
+}
+exports.inlineCheckbox = inlineCheckbox;
+//# sourceMappingURL=InlineCheckbox.js.map

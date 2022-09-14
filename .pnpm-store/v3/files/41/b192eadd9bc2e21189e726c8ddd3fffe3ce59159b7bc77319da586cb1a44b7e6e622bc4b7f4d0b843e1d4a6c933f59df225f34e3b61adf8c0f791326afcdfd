@@ -1,0 +1,11 @@
+export declare type RuntimePackageSelection = {
+    referenceId: string;
+    feedId: string | undefined;
+    packageId: string | undefined;
+    substituteInFiles?: SubstituteInFilesConfiguration | undefined;
+    structuredConfigVariables?: boolean | undefined;
+};
+declare type SubstituteInFilesConfiguration = {
+    targetFiles: string;
+};
+export {};

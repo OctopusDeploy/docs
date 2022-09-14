@@ -1,0 +1,40 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { createInputPathForProperty, createObjectInputPaths } from "InputAccess/InputPaths";
+import { PlainObjectTypeDefinition, RootInputSchema } from "Schema";
+import { ConvertibleInputPathToValue, InputPaths, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+
+describe("InputPaths", () => {
+    describe("simple property", () => {
+        type Inputs = { value: string; sampleObject: { someProperty: string } };
+        const inputSchema: RootInputSchema = {
+            properties: [
+                { type: { type: "string" }, name: "value", isRequired: false },
+                {
+                    type: {
+                        type: "object",
+                        nonDiscriminatorProperties: [{ type: { type: "string" }, name: "someProperty", isRequired: false }],
+                        discriminatorProperties: [],
+                    },
+                    name: "sampleObject",
+                    isRequired: false,
+                },
+            ],
+        };
+
+        test("createInputPathForProperty", () => {
+            const value: InputPaths<string> = createInputPathForProperty<Inputs, "value">("value", inputSchema.properties[0]!.type, []);
+            expect(value.convertTo).not.toBeUndefined();
+        });
+
+        test("createObjectInputPaths", () => {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const value: ObjectInputPathsAndPathToObject<Inputs> = createObjectInputPaths<Inputs>(inputSchema.properties[1]!.type as PlainObjectTypeDefinition);
+            expect(value).not.toBeUndefined();
+            // Below are compile time checks to ensure input paths are accessible after calling createObjectInputPaths
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            value.value = "value" as unknown as ConvertibleInputPathToValue<string>;
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            value.sampleObject = { someProperty: "value" } as unknown as ObjectInputPathsAndPathToObject<{ someProperty: string }>;
+        });
+    });
+});

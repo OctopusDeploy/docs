@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/stacktrace-js`
+
+# Summary
+This package contains type definitions for stacktrace.js (https://github.com/stacktracejs/stacktrace.js).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/stacktrace-js
+
+Additional Details
+ * Last updated: Tue, 15 Oct 2019 17:10:24 GMT
+ * Dependencies: none
+ * Global values: StackTrace
+
+# Credits
+These definitions were written by Exceptionless <https://github.com/exceptionless>, and Chun-Yan Ho <https://github.com/pilagod>.

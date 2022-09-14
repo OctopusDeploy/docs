@@ -1,0 +1,55 @@
+// StepConfigurationExportInputs represents the inputs in a form appropriate for step authors to use to export
+// It is similar to the runtime inputs, except that it has a different representation for some of the values,
+// in order to hide details (like feedIds) from step authors
+
+import { Discriminator } from "./Discriminator";
+import { PackageReference } from "./PackageReference";
+import { ContainerImageReference } from "./ContainerImageReference";
+import { NewSensitiveValue, SensitiveValue } from "./SensitiveValues";
+
+type BoundValue = { type: "bound"; expression: string };
+
+// Order here is important, since earlier types (eg strings) might be assignable to later types (eg object)
+export type StepConfigurationExportInputs<Inputs> = Inputs extends Discriminator<infer D>
+    ? D // Discriminators can't be bound. This is what allows us to switch on the values and narrow types easily
+    : Inputs extends number | bigint | boolean | null
+    ? Inputs | BoundValue
+    : Inputs extends string // We have to check for string after checking for the other types. If it is a union type containing a string (e.g. string | boolean) then the first condition above will be hit and we end up with string | boolean | BoundValue which is correct
+    ? Inputs
+    : Inputs extends SensitiveValue
+    ? Exclude<SensitiveValue, NewSensitiveValue> | BoundValue
+    : Inputs extends PackageReference
+    ? ExportedPackageReference
+    : Inputs extends ContainerImageReference
+    ? ExportedContainerImageReference
+    : Inputs extends Array<infer ArrayItem>
+    ? Array<StepConfigurationExportInputs<ArrayItem>>
+    : // eslint-disable-next-line @typescript-eslint/ban-types
+    Inputs extends object
+    ? ObjectStepConfigurationExportInputs<Inputs>
+    : never;
+
+export type ObjectStepConfigurationExportInputs<Inputs> = {
+    [K in keyof Inputs]: StepConfigurationExportInputs<Inputs[K]>;
+};
+
+export type ExportedContainerImageReference = ContainerImageReferenceAndFeed;
+
+type ContainerImageReferenceAndFeed = {
+    imageName: string; // e.g. nginx;
+    imagePathExpression: (name: string) => string; // e.g. `Octopus.Action.Package[${name}].Image`
+    feed: {
+        name: string;
+        url: string; // e.g. index.io
+    };
+};
+
+export type ExportedPackageReference = PackageReferenceAndFeed;
+
+export type PackageReferenceAndFeed = {
+    packageName: string; // e.g. Octopus.Client
+    packageExtractionPathExpression: (referenceId: string) => string; // `Octopus.Action.Package[${referenceId}].ExtractedPath`
+    feed: {
+        name: string; // e.g. NuGet.org
+    };
+};

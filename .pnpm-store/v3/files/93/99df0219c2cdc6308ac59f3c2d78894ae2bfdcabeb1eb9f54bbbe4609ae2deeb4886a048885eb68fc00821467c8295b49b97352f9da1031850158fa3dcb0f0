@@ -1,0 +1,34 @@
+{
+    "name": "@types/urijs",
+    "version": "1.15.38",
+    "description": "TypeScript definitions for URI.js",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "RodneyJT",
+            "url": "https://github.com/RodneyJT",
+            "githubUsername": "RodneyJT"
+        },
+        {
+            "name": "Brian Surowiec",
+            "url": "https://github.com/xt0rted",
+            "githubUsername": "xt0rted"
+        },
+        {
+            "name": "Pete Johanson",
+            "url": "https://github.com/petejohanson",
+            "githubUsername": "petejohanson"
+        }
+    ],
+    "main": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git.git"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/jquery": "*"
+    },
+    "typesPublisherContentHash": "88954506bf171565520fb659fedd2ebc0de12e63b78039924b1a2a5ab985da07",
+    "typeScriptVersion": "2.3"
+}

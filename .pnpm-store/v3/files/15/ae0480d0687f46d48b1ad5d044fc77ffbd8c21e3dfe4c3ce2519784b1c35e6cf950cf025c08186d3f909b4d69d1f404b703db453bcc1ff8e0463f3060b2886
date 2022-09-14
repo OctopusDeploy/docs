@@ -1,0 +1,1 @@
+export type PackageReference = { readonly __packageReferenceBrand: unique symbol };

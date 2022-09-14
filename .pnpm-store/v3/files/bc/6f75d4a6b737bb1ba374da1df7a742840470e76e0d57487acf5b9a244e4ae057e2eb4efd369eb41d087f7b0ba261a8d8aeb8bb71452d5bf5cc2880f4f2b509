@@ -1,0 +1,59 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const SectionGroup_1 = require("../SectionGroup");
+const Section_1 = require("../Section");
+const Text_1 = require("../Text");
+const PackageSelector_1 = require("../PackageSelector");
+describe("Section Group component type", () => {
+    describe("section groups containing simple inputs", () => {
+        const inputs = createStepInputPaths();
+        const testSectionGroup = (0, SectionGroup_1.sectionGroup)({
+            title: "",
+            content: [
+                (0, Section_1.section)({
+                    title: "",
+                    content: [
+                        (0, Text_1.text)({
+                            input: inputs.textInput,
+                            label: "",
+                            helpText: "",
+                        }),
+                    ],
+                }),
+            ],
+        });
+        test("Can be used in Step UIs", () => assert());
+        test("Can be used in Deployment Target UIs", () => assert());
+    });
+    describe("section groups containing step specific inputs", () => {
+        const inputs = createStepInputPaths();
+        const testSectionGroup = (0, SectionGroup_1.sectionGroup)({
+            title: "",
+            content: [
+                (0, Section_1.section)({
+                    title: "",
+                    content: [
+                        (0, Text_1.text)({
+                            input: inputs.textInput,
+                            label: "",
+                            helpText: "",
+                        }),
+                        (0, PackageSelector_1.packageSelector)({
+                            input: inputs.package,
+                            label: "",
+                            helpText: "",
+                        }),
+                    ],
+                }),
+            ],
+        });
+        test("Can be used in Step UIs", () => assert());
+        test("Can not be used in Deployment Target UIs", () => assert());
+    });
+});
+function createStepInputPaths() {
+    return null;
+}
+function assert() {
+}
+//# sourceMappingURL=SectionGroup.type-test.js.map

@@ -1,0 +1,7 @@
+declare type IncludeKeysByType<T, Condition> = {
+    [K in keyof T]: T[K] extends Condition ? K : never;
+};
+declare type KeyNamesByType<T, Condition> = IncludeKeysByType<T, Condition>[keyof T];
+declare type OmitByType<T, Condition> = Omit<T, KeyNamesByType<T, Condition>>;
+export declare type PartialByType<T, Condition> = OmitByType<T, Condition> & Partial<T>;
+export {};

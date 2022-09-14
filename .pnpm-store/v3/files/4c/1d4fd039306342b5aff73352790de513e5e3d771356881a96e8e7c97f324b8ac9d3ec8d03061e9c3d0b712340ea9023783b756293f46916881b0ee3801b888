@@ -1,0 +1,40 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.toExportSensitiveValue = exports.toResourceSensitiveValue = exports.toRuntimeSensitiveValue = void 0;
+function toRuntimeSensitiveValue(sensitiveValue) {
+    if (sensitiveValue.HasValue) {
+        if (sensitiveValue.NewValue !== null && sensitiveValue.NewValue !== undefined) {
+            return { type: "new", newValue: sensitiveValue.NewValue };
+        }
+        return { type: "existing" };
+    }
+    return { type: "empty" };
+}
+exports.toRuntimeSensitiveValue = toRuntimeSensitiveValue;
+function toResourceSensitiveValue(sensitiveValue) {
+    if (sensitiveValue === undefined) {
+        return { HasValue: false };
+    }
+    else if (sensitiveValue.type === "existing") {
+        return { HasValue: true };
+    }
+    else if (sensitiveValue.type === "empty") {
+        return { HasValue: false };
+    }
+    return { HasValue: true, NewValue: sensitiveValue.newValue };
+}
+exports.toResourceSensitiveValue = toResourceSensitiveValue;
+function toExportSensitiveValue(sensitiveValue) {
+    if (sensitiveValue === undefined) {
+        return { type: "empty" };
+    }
+    else if (sensitiveValue.type === "existing") {
+        return { type: "existing" };
+    }
+    else if (sensitiveValue.type === "empty") {
+        return { type: "empty" };
+    }
+    return { type: "empty" };
+}
+exports.toExportSensitiveValue = toExportSensitiveValue;
+//# sourceMappingURL=SensitiveValueConverters.js.map

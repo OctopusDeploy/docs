@@ -1,0 +1,145 @@
+# @octopusdeploy/step-inputs
+
+## 1.1.1
+
+### Patch Changes
+
+-   f18e92f: Update CI secret and fix octo cli version in build
+
+## 1.1.0
+
+### Minor Changes
+
+-   72f559b: Adds types and functions for Aws authentication
+
+## 1.0.4
+
+### Patch Changes
+
+-   89596c9: Ensures input paths are correctly calculated for optional complex types
+
+## 1.0.3
+
+### Patch Changes
+
+-   729cc7b: Ensures optional complex types are tolerated when generating runtime input paths
+
+## 1.0.2
+
+### Patch Changes
+
+-   89c54f1: Updates StepConfigurationExportInputs to ensure optional complex types are supported
+
+## 1.0.1
+
+### Patch Changes
+
+-   73ffed9: Ensures change set publish publishes tags
+
+## 1.0.0
+
+### Major Changes
+
+-   f918df7: Cumulative release 1.0 of the Octopus Deploy step-api
+
+## 0.8.0
+
+### Minor Changes
+
+-   8cddd0e: Adds support for arrays when converting between Resource/Runtime/Export inputs
+
+## 0.7.0
+
+### Minor Changes
+
+-   c987778: Adds API for migrating a step between versions
+    Also moves some common types to @octopusdeploy/step-inputs to aid re-use
+
+## 0.6.0
+
+### Minor Changes
+
+-   a34afd8: Added support for configuration exports in StepUI definitions.
+
+## 0.5.0
+
+### Minor Changes
+
+-   1dad13d: Removes initial input factories in favour of making server owned types optional in initial inputs
+
+## 0.4.0
+
+### Minor Changes
+
+-   ae3c5e5: Update all packages to include optional property support
+
+## 0.3.2
+
+### Patch Changes
+
+-   24e4964: Support optional properties for step inputs
+
+## 0.3.1
+
+### Patch Changes
+
+-   a435e5a: Add missing main property in package.json which can cause failures to resolve the package
+
+## 0.3.0
+
+### Minor Changes
+
+-   9fd3641: Adds support for account selection with all supported account types
+
+## 0.2.0
+
+### Minor Changes
+
+-   8ebd4c6: Added support for a new input type: ContainerImageReference
+
+## 0.1.0
+
+### Minor Changes
+
+-   622d034: Update types based on the latest changes from portal
+
+## 0.0.2
+
+### Patch Changes
+
+-   Update with latest types from portal
+
+## 0.0.1
+
+### Patch Changes
+
+-   55ce882: Moved types around and included new runtime inputs package and started to compile things via rollup
+-   899cd9b: Azure password is a sensitive value
+-   55ce882: Move some types out of step-ui into step-inputs
+-   564ce9b: Export AzureServicePrincipal
+-   c5f76fd: Update input types with Account types
+
+## 0.0.1-alpha.26
+
+### Patch Changes
+
+-   55ce882: Moved types around and included new runtime inputs package and started to compile things via rollup
+-   55ce882: Move some types out of step-ui into step-inputs
+
+## 0.0.1-alpha.25
+
+### Patch Changes
+
+-   899cd9b: Azure password is a sensitive value
+
+## 0.0.1-alpha.24
+
+### Patch Changes
+
+-   564ce9b: Export AzureServicePrincipal
+
+## 0.0.1-alpha.23
+
+### Patch Changes
+
+-   c5f76fd: Update input types with Account types

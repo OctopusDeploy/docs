@@ -1,0 +1,336 @@
+# @octopusdeploy/step-ui
+
+## 1.4.1
+
+### Patch Changes
+
+-   f18e92f: Update CI secret and fix octo cli version in build
+-   Updated dependencies [f18e92f]
+    -   @octopusdeploy/step-inputs@1.1.1
+
+## 1.4.0
+
+### Minor Changes
+
+-   ba10b52: Allow account types in executor inputs
+
+## 1.3.0
+
+### Minor Changes
+
+-   72f559b: Adds types and functions for Aws authentication
+
+### Patch Changes
+
+-   Updated dependencies [72f559b]
+    -   @octopusdeploy/step-inputs@1.1.0
+
+## 1.2.0
+
+### Minor Changes
+
+-   14f7840: Allow UI to accept optional (possibly `undefined`) number inputs
+
+## 1.1.5
+
+### Patch Changes
+
+-   Updated dependencies [89596c9]
+    -   @octopusdeploy/step-inputs@1.0.4
+
+## 1.1.4
+
+### Patch Changes
+
+-   fe24635: Revert changes to Select component types.
+
+## 1.1.3
+
+### Patch Changes
+
+-   Updated dependencies [729cc7b]
+    -   @octopusdeploy/step-inputs@1.0.3
+
+## 1.1.2
+
+### Patch Changes
+
+-   Updated dependencies [89c54f1]
+    -   @octopusdeploy/step-inputs@1.0.2
+
+## 1.1.1
+
+### Patch Changes
+
+-   73ffed9: Ensures change set publish publishes tags
+-   Updated dependencies [73ffed9]
+    -   @octopusdeploy/step-inputs@1.0.1
+
+## 1.1.0
+
+### Minor Changes
+
+-   e4cfbd5: Lets step authors' to reference other inputs in Select components.
+
+## 1.0.0
+
+### Major Changes
+
+-   f918df7: Cumulative release 1.0 of the Octopus Deploy step-api
+
+### Patch Changes
+
+-   Updated dependencies [f918df7]
+    -   @octopusdeploy/step-inputs@1.0.0
+
+## 0.18.0
+
+### Minor Changes
+
+-   f76e772: Change List `itemSummary` to add optional `fields` configuration
+
+## 0.17.1
+
+### Patch Changes
+
+-   Updated dependencies [8cddd0e]
+    -   @octopusdeploy/step-inputs@0.8.0
+
+## 0.17.0
+
+### Minor Changes
+
+-   c987778: Adds API for migrating a step between versions
+    Also moves some common types to @octopusdeploy/step-inputs to aid re-use
+
+### Patch Changes
+
+-   Updated dependencies [c987778]
+    -   @octopusdeploy/step-inputs@0.7.0
+
+## 0.16.0
+
+### Minor Changes
+
+-   a34afd8: Added support for configuration exports in StepUI definitions.
+
+### Patch Changes
+
+-   Updated dependencies [a34afd8]
+    -   @octopusdeploy/step-inputs@0.6.0
+
+## 0.15.0
+
+### Minor Changes
+
+-   1dad13d: Removes initial input factories in favour of making server owned types optional in initial inputs
+
+### Patch Changes
+
+-   Updated dependencies [1dad13d]
+    -   @octopusdeploy/step-inputs@0.5.0
+
+## 0.14.0
+
+### Minor Changes
+
+-   5948bf4: Adds empty value factory for container images
+
+## 0.13.1
+
+### Patch Changes
+
+-   d2cb581: Forgot to add format components to index
+
+## 0.13.0
+
+### Minor Changes
+
+-   02a2776: Adding notes support for Components
+
+## 0.12.0
+
+### Minor Changes
+
+-   ae3c5e5: Update all packages to include optional property support
+
+### Patch Changes
+
+-   Updated dependencies [ae3c5e5]
+    -   @octopusdeploy/step-inputs@0.4.0
+
+## 0.11.1
+
+### Patch Changes
+
+-   Updated dependencies [24e4964]
+    -   @octopusdeploy/step-inputs@0.3.2
+
+## 0.11.0
+
+### Minor Changes
+
+-   9822389: Added inlineList and supporting components
+
+## 0.10.0
+
+### Minor Changes
+
+-   3c8553a: Adds number component to step package ui
+
+## 0.9.1
+
+### Patch Changes
+
+-   Updated dependencies [a435e5a]
+    -   @octopusdeploy/step-inputs@0.3.1
+
+## 0.9.0
+
+### Minor Changes
+
+-   8934fa7: Changed signature of the sectionGroup component
+
+## 0.8.0
+
+### Minor Changes
+
+-   4c24664: Adds select component to UI
+
+## 0.7.0
+
+### Minor Changes
+
+-   b2ab2cc: Add literal union support for radio buttons
+
+## 0.6.1
+
+### Patch Changes
+
+-   f6c50e7: Added a main entry to step-ui
+
+## 0.6.0
+
+### Minor Changes
+
+-   64d1cab: Export component factory implementations from the step-ui package, instead of just the type signatures
+
+## 0.5.0
+
+### Minor Changes
+
+-   0553583: Adds checkbox component to step ui
+
+## 0.4.0
+
+### Minor Changes
+
+-   9fd3641: Adds support for account selection with all supported account types
+
+### Patch Changes
+
+-   Updated dependencies [9fd3641]
+    -   @octopusdeploy/step-inputs@0.3.0
+
+## 0.3.0
+
+### Minor Changes
+
+-   8ebd4c6: Added support for a new input type: ContainerImageReference
+
+### Patch Changes
+
+-   Updated dependencies [8ebd4c6]
+    -   @octopusdeploy/step-inputs@0.2.0
+
+## 0.2.0
+
+### Minor Changes
+
+-   622d034: Update types based on the latest changes from portal
+
+### Patch Changes
+
+-   Updated dependencies [622d034]
+    -   @octopusdeploy/step-inputs@0.1.0
+
+## 0.1.0
+
+### Minor Changes
+
+-   323b6f0: Export new DeploymentTargetUI types
+
+## 0.0.4
+
+### Patch Changes
+
+-   a66bc9e: Introduce deployment target UI types
+
+## 0.0.3
+
+### Patch Changes
+
+-   Updated dependencies [undefined]
+    -   @octopusdeploy/step-inputs@0.0.2
+
+## 0.0.2
+
+### Patch Changes
+
+-   3495d85: Add list type to available components
+
+## 0.0.1
+
+### Patch Changes
+
+-   55ce882: Moved types around and included new runtime inputs package and started to compile things via rollup
+-   12a731d: Update api typings with latest from portal
+-   234c627: Updated step ui types from portal
+-   Updated dependencies [55ce882]
+-   Updated dependencies [899cd9b]
+-   Updated dependencies [55ce882]
+-   Updated dependencies [564ce9b]
+-   Updated dependencies [c5f76fd]
+    -   @octopusdeploy/step-inputs@0.0.1
+
+## 0.0.1-alpha.28
+
+### Patch Changes
+
+-   55ce882: Moved types around and included new runtime inputs package and started to compile things via rollup
+-   Updated dependencies [55ce882]
+-   Updated dependencies [55ce882]
+    -   @octopusdeploy/step-inputs@0.0.1-alpha.26
+
+## 0.0.1-alpha.27
+
+### Patch Changes
+
+-   Updated dependencies [899cd9b]
+    -   @octopusdeploy/step-inputs@0.0.1-alpha.25
+
+## 0.0.1-alpha.26
+
+### Patch Changes
+
+-   Updated dependencies [564ce9b]
+    -   @octopusdeploy/step-inputs@0.0.1-alpha.24
+
+## 0.0.1-alpha.25
+
+### Patch Changes
+
+-   Updated dependencies [c5f76fd]
+    -   @octopusdeploy/step-inputs@0.0.1-alpha.23
+
+## 0.0.1-alpha.24
+
+### Patch Changes
+
+-   12a731d: Update api typings with latest from portal
+
+## 0.0.1-alpha.23
+
+### Patch Changes
+
+-   234c627: Updated step ui types from portal

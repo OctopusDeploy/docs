@@ -1,0 +1,48 @@
+import type { AccountTypes } from "@octopusdeploy/step-inputs";
+
+export type RootObjectDefinition = ObjectDefinition & { isRoot: true };
+export type ObjectDefinition = { type: "object"; properties: { [key: string]: Definition } };
+
+export type Definition =
+    | ObjectDefinition
+    | ReferenceDefinition
+    | StringDefinition
+    | NumberDefinition
+    | ArrayDefinition
+    | UnionDefinition
+    | BooleanDefinition
+    | PackageReferenceDefinition
+    | AccountReferenceDefinition
+    | ContainerImageReferenceDefinition
+    | SensitiveValueDefinition;
+
+export type ReferenceDefinition = { $ref: string };
+export type ArrayDefinition = { type: "array"; items: Definition };
+export type UnionDefinition = { anyOf: Definition[] };
+export type PackageReferenceDefinition = { type: "object"; isPackageReference: true };
+export type ContainerImageReferenceDefinition = { type: "object"; isContainerImageReference: true };
+export type SensitiveValueDefinition = { type: "object"; isSensitiveValue: true };
+export type AccountReferenceDefinition = { type: "string"; isAccount: true; accountType: AccountTypes };
+
+type ConstBooleanDefinition = { const: string; isDiscriminator?: true; type: "boolean" };
+type EnumBooleanDefinition = { enum: string[]; type: "boolean" };
+type AnyBooleanDefinition = { type: "boolean" };
+export type BooleanDefinition = AnyBooleanDefinition | ConstBooleanDefinition | EnumBooleanDefinition;
+
+type ConstStringDefinition = { const: string; isDiscriminator?: true; type: "string" };
+type EnumStringDefinition = { enum: string[]; type: "string" };
+type AnyStringDefinition = { type: "string" };
+export type StringDefinition = AnyStringDefinition | ConstStringDefinition | EnumStringDefinition;
+
+type ConstNumberDefinition = { const: string; isDiscriminator?: true; type: "number" };
+type EnumNumberDefinition = { enum: string[]; type: "number" };
+type AnyNumberDefinition = { type: "number" };
+export type NumberDefinition = AnyNumberDefinition | ConstNumberDefinition | EnumNumberDefinition;
+
+export type ExtensionObjectDefinition = PackageReferenceDefinition | AccountReferenceDefinition | SensitiveValueDefinition;
+
+export type InputJsonSchema = {
+    definitions: {
+        [key: string]: RootObjectDefinition | Definition;
+    };
+};

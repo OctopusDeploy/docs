@@ -1,0 +1,43 @@
+import type { InitialInputs } from "../InitialInputs";
+import type { PackageReference, SensitiveValue, Discriminator, ContainerImageReference } from "@octopusdeploy/step-inputs";
+
+// primitives and well known objects map to those types
+assert<IsExactly<InitialInputs<{ foo: string }>, { foo: string }>>();
+assert<IsExactly<InitialInputs<{ foo: number }>, { foo: number }>>();
+assert<IsExactly<InitialInputs<{ foo: undefined }>, { foo: undefined }>>();
+assert<IsExactly<InitialInputs<{ foo: null }>, { foo: null }>>();
+assert<IsExactly<InitialInputs<{ foo: SensitiveValue }>, { foo?: SensitiveValue }>>();
+assert<IsExactly<InitialInputs<{ foo: PackageReference }>, { foo?: PackageReference }>>();
+assert<IsExactly<InitialInputs<{ foo: ContainerImageReference }>, { foo?: ContainerImageReference }>>();
+
+// discriminators map to their underlying values
+assert<IsExactly<InitialInputs<{ foo: Discriminator<string> }>, { foo: string }>>();
+
+// arrays map to their associated types
+assert<IsExactly<InitialInputs<{ foo: Array<{ bar: Discriminator<"baz"> }> }>, { foo: Array<{ bar: "baz" }> }>>();
+
+// objects map recursively
+assert<IsExactly<InitialInputs<{ foo: { bar: Discriminator<"baz"> } }>, { foo: { bar: "baz" } }>>();
+
+// union types distribute
+assert<IsExactly<InitialInputs<{ foo: string | number | undefined }>, { foo: string | number | undefined }>>();
+assert<
+    IsExactly<
+        InitialInputs<{ foo: { first: Discriminator<"first">; firstProp: string } | { second: Discriminator<"second">; secondProp: number } }>,
+        { foo: { first: "first"; firstProp: string } | { second: "second"; secondProp: number } }
+    >
+>();
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function assert<T extends "true">() {
+    // This test only performs compile time checks, so no runtime behaviour is required and this function can remain empty
+}
+
+// We don't want to distribute over conditional types in this mapped type
+// e.g. We want IsExactly<string | boolean, string> to be `false`, since you can't assign a `boolean` to `string`
+// If we typed this as `T extends U ? U extends T ? "true" : "false" : "false""` then typescript would distribute over `string | object`
+// so then `IsExactly<string | boolean, string> = IsExactly<string, string> | IsExactly<boolean, string> = "true" | "false";
+// This is clearly not the result we want, but if we opt out of distributing over conditional types, then we would get the result we want
+// We can do this using a 1-tuple. Source: https://github.com/microsoft/TypeScript/issues/29368#issuecomment-453529532
+type IsExactly<T, U> = [T] extends [U] ? ([U] extends [T] ? "true" : "false") : "false";

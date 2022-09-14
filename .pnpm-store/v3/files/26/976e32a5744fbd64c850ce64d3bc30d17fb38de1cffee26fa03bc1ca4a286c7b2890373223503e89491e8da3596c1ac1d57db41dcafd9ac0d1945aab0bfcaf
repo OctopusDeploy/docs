@@ -1,0 +1,107 @@
+import { ArrayTypeDefinition, DiscriminatorProperty, NonDiscriminatorTypeDefinition, PlainObjectTypeDefinition } from "../Schema/InputSchema";
+import { ObjectRuntimeInputs } from "../RuntimeInputs";
+import { exhaustiveCheck } from "../exhaustiveCheck";
+import { createPathToArrayInput, createPathToInput, createPathToInputObject, PathSegment, PathToInput } from "./RuntimeInputPath";
+import { ConvertibleInputPathToValue, Discriminator, InputPaths, ObjectInputPaths, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+
+// These methods return RuntimeInputPaths, but assert the type to be InputPaths so that they can be passed to step ui function
+// this allows us to abstract away the implementation details from step authors and change execution time representation of these types
+// without having to concern ourselves with backwards compatibility issues
+export function createObjectInputPaths<StepInputs>(schema: PlainObjectTypeDefinition): ObjectInputPathsAndPathToObject<StepInputs> {
+    return createInputPathsForObject(schema, []);
+}
+
+function createInputPathsForObject<StepInputs>(
+    objectTypeDefinition: PlainObjectTypeDefinition,
+    pathsToObject: PathToInput
+): ObjectInputPathsAndPathToObject<StepInputs> {
+    const objectWithNonDiscriminatorProperties = objectTypeDefinition.nonDiscriminatorProperties.reduce<Partial<ObjectInputPaths<StepInputs>>>((prev, p) => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const inputKey = p.name as keyof StepInputs;
+        return {
+            ...prev,
+            [inputKey]: createInputPathForProperty<StepInputs, typeof inputKey>(inputKey, p.type, pathsToObject),
+        };
+    }, {});
+
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const objectWithInputPaths = {
+        ...objectWithNonDiscriminatorProperties,
+        ...getDiscriminatorProperties(objectTypeDefinition.discriminatorProperties),
+    } as ObjectInputPaths<StepInputs>;
+    return createPathToInputObject(pathsToObject, objectWithInputPaths);
+}
+
+function getDiscriminatorProperties<Property>(discriminatorProperties: DiscriminatorProperty[]) {
+    type DiscriminatorProperties = DiscriminatorPropertiesOf<ObjectRuntimeInputs<Property>>;
+    return discriminatorProperties.reduce<Partial<DiscriminatorProperties>>((prev, discriminatorProperty) => {
+        return {
+            ...prev,
+            [discriminatorProperty.discriminatorName]: discriminatorProperty.type.const,
+        };
+    }, {});
+}
+
+type DiscriminatorPropertiesOf<T> = {
+    [K in keyof T]: T[K] extends Discriminator<unknown> ? T[K] : never;
+};
+
+export function createInputPathForProperty<StepInputs, PropertyKey extends keyof StepInputs>(
+    inputKey: PropertyKey,
+    propertyTypeDefinition: NonDiscriminatorTypeDefinition,
+    pathToParentProperty: PathToInput
+): InputPaths<StepInputs[PropertyKey]> {
+    const pathToProperty = [...pathToParentProperty, inputKey];
+    switch (propertyTypeDefinition.type) {
+        case "package":
+        case "container-image":
+        case "sensitive":
+        case "account":
+        case "string":
+        case "primitive":
+            return getPrimitivePath(pathToProperty);
+        case "object":
+            return getObjectPath(propertyTypeDefinition, pathToProperty);
+        case "array":
+            return getArrayPath(propertyTypeDefinition, pathToProperty);
+    }
+    exhaustiveCheck(propertyTypeDefinition, "Possible type not handled in createInputPathForProperty");
+}
+
+function getPrimitivePath<StepInputs, PropertyKey extends keyof StepInputs>(
+    pathsToProperty: (PathSegment | PropertyKey)[]
+): InputPaths<StepInputs[PropertyKey]> {
+    const pathToProperty: ConvertibleInputPathToValue<StepInputs[PropertyKey]> = createPathToInput(pathsToProperty);
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return pathToProperty as InputPaths<StepInputs[PropertyKey]>;
+}
+
+function getObjectPath<StepInputs, PropertyKey extends keyof StepInputs>(
+    type: PlainObjectTypeDefinition,
+    pathsToProperty: (PathSegment | PropertyKey)[]
+): InputPaths<StepInputs[PropertyKey]> {
+    const inputPathsForObject = createInputPathsForObject<StepInputs[PropertyKey]>(type, pathsToProperty);
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return inputPathsForObject as InputPaths<StepInputs[PropertyKey]>;
+}
+
+function getArrayPath<StepInputs, PropertyKey extends keyof StepInputs>(
+    type: ArrayTypeDefinition,
+    pathsToProperty: (PathSegment | PropertyKey)[]
+): InputPaths<StepInputs[PropertyKey]> {
+    type TypesInArray = ArrayType<ObjectRuntimeInputs<StepInputs>[PropertyKey]>;
+    const arrayWithItemsThatHavePaths: Array<InputPaths<TypesInArray>> = type.itemTypes.map((itemType, i) => addPathToArrayItem(i, itemType, pathsToProperty));
+    const pathToInputArray = createPathToArrayInput(arrayWithItemsThatHavePaths, pathsToProperty);
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    return pathToInputArray as InputPaths<StepInputs[PropertyKey]>;
+}
+
+function addPathToArrayItem<StepInputs, PropertyKey extends keyof StepInputs, ArrayType>(
+    i: number,
+    type: NonDiscriminatorTypeDefinition,
+    pathsToProperty: (PathSegment | PropertyKey)[]
+): InputPaths<ArrayType> {
+    return createInputPathForProperty<Array<ArrayType>, typeof i>(i, type, pathsToProperty);
+}
+
+type ArrayType<T> = T extends ReadonlyArray<infer TValue> ? TValue : T extends Array<infer TValue> ? TValue : never;

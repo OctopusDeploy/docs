@@ -1,0 +1,41 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+describe("ResourceInputs", function () {
+    test("primitives (excluding string) become unioned with strings to represent the bound value case", function () {
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+        assert();
+    });
+    test("package selection maps to runtime package selection", function () {
+        assert();
+    });
+    test("container image reference maps to runtime container image reference", function () {
+        assert();
+    });
+    test("string are unchanged", function () {
+        assert();
+    });
+    test("union types are unioned with strings", function () {
+        assert();
+        assert();
+    });
+    test("inner type of an array is mapped", function () {
+        assert();
+        assert();
+        assert();
+    });
+    test("object types are preserved, and their properties are mapped", function () {
+        assert();
+        assert();
+        assert();
+    });
+    test("Complex types with nesting are supported", function () {
+        assert();
+    });
+});
+function assert() {
+}
+//# sourceMappingURL=ResourceInputs.type-test.js.map

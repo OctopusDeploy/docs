@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.note = void 0;
+function note(strings, ...expressions) {
+    return strings
+        .map((s, i) => {
+        const expression = expressions[i];
+        if (expression)
+            return [s, expression];
+        return [s];
+    })
+        .reduce((acc, current) => {
+        return [...acc, ...current];
+    }, []);
+}
+exports.note = note;
+//# sourceMappingURL=InputComponents.js.map

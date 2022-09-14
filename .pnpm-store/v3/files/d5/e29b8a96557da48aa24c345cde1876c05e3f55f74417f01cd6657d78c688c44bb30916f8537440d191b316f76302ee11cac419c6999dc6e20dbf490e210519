@@ -1,0 +1,79 @@
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createInputPathForProperty = exports.createObjectInputPaths = void 0;
+var exhaustiveCheck_1 = require("../exhaustiveCheck");
+var RuntimeInputPath_1 = require("./RuntimeInputPath");
+function createObjectInputPaths(schema) {
+    return createInputPathsForObject(schema, []);
+}
+exports.createObjectInputPaths = createObjectInputPaths;
+function createInputPathsForObject(objectTypeDefinition, pathsToObject) {
+    var objectWithNonDiscriminatorProperties = objectTypeDefinition.nonDiscriminatorProperties.reduce(function (prev, p) {
+        var _a;
+        var inputKey = p.name;
+        return __assign(__assign({}, prev), (_a = {}, _a[inputKey] = createInputPathForProperty(inputKey, p.type, pathsToObject), _a));
+    }, {});
+    var objectWithInputPaths = __assign(__assign({}, objectWithNonDiscriminatorProperties), getDiscriminatorProperties(objectTypeDefinition.discriminatorProperties));
+    return (0, RuntimeInputPath_1.createPathToInputObject)(pathsToObject, objectWithInputPaths);
+}
+function getDiscriminatorProperties(discriminatorProperties) {
+    return discriminatorProperties.reduce(function (prev, discriminatorProperty) {
+        var _a;
+        return __assign(__assign({}, prev), (_a = {}, _a[discriminatorProperty.discriminatorName] = discriminatorProperty.type.const, _a));
+    }, {});
+}
+function createInputPathForProperty(inputKey, propertyTypeDefinition, pathToParentProperty) {
+    var pathToProperty = __spreadArray(__spreadArray([], pathToParentProperty, true), [inputKey], false);
+    switch (propertyTypeDefinition.type) {
+        case "package":
+        case "container-image":
+        case "sensitive":
+        case "account":
+        case "string":
+        case "primitive":
+            return getPrimitivePath(pathToProperty);
+        case "object":
+            return getObjectPath(propertyTypeDefinition, pathToProperty);
+        case "array":
+            return getArrayPath(propertyTypeDefinition, pathToProperty);
+    }
+    (0, exhaustiveCheck_1.exhaustiveCheck)(propertyTypeDefinition, "Possible type not handled in createInputPathForProperty");
+}
+exports.createInputPathForProperty = createInputPathForProperty;
+function getPrimitivePath(pathsToProperty) {
+    var pathToProperty = (0, RuntimeInputPath_1.createPathToInput)(pathsToProperty);
+    return pathToProperty;
+}
+function getObjectPath(type, pathsToProperty) {
+    var inputPathsForObject = createInputPathsForObject(type, pathsToProperty);
+    return inputPathsForObject;
+}
+function getArrayPath(type, pathsToProperty) {
+    var arrayWithItemsThatHavePaths = type.itemTypes.map(function (itemType, i) { return addPathToArrayItem(i, itemType, pathsToProperty); });
+    var pathToInputArray = (0, RuntimeInputPath_1.createPathToArrayInput)(arrayWithItemsThatHavePaths, pathsToProperty);
+    return pathToInputArray;
+}
+function addPathToArrayItem(i, type, pathsToProperty) {
+    return createInputPathForProperty(i, type, pathsToProperty);
+}
+//# sourceMappingURL=InputPaths.js.map

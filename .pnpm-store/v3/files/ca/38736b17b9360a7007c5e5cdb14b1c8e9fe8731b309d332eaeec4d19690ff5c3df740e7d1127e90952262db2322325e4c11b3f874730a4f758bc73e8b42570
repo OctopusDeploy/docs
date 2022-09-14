@@ -1,0 +1,6 @@
+export declare type BoundValue = {
+    type: "bound";
+    expression: string;
+};
+export declare function isNotBoundValue<T>(value: T | BoundValue): value is T;
+export declare function isBoundValue<T>(value: T | BoundValue): value is BoundValue;

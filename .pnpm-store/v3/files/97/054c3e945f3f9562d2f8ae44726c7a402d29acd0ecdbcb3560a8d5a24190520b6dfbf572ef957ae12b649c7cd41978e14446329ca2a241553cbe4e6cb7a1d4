@@ -1,0 +1,2 @@
+// todo: Look to make this a unique symbol instead
+export type EmptyInitialValue = symbol;

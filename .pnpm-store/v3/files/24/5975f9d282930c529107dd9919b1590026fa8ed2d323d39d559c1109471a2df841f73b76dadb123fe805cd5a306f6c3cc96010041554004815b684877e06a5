@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.select = void 0;
+function select(props) {
+    return Object.assign({ type: "select" }, props);
+}
+exports.select = select;
+//# sourceMappingURL=Select.js.map

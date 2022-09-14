@@ -1,0 +1,15 @@
+export function link(props: LinkProps): LinkComponent {
+    return {
+        type: "link",
+        ...props,
+    };
+}
+
+export interface LinkComponent extends LinkProps {
+    type: "link";
+}
+
+export interface LinkProps {
+    title: string;
+    href: string;
+}

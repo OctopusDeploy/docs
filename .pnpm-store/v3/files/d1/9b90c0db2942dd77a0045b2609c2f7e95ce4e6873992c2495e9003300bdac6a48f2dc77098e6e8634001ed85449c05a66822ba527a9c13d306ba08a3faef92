@@ -1,0 +1,250 @@
+import { ArrayDefinition, Definition, InputJsonSchema, ObjectDefinition, ReferenceDefinition, RootObjectDefinition, UnionDefinition } from "./InputJsonSchema";
+import { exhaustiveCheck } from "../exhaustiveCheck";
+
+import {
+    ArrayTypeDefinition,
+    DiscriminatorProperty,
+    DiscriminatorTypeDefinition,
+    InputProperty,
+    NonDiscriminatorTypeDefinition,
+    PlainObjectTypeDefinition,
+    RootInputSchema,
+} from "./InputSchema";
+import { ObjectResourceInputs } from "../ResourceInputs";
+import { ObjectRuntimeInputs } from "../RuntimeInputs";
+
+// If we are using the input schema to convert from resource inputs to runtime inputs,
+// then the type we pass in to this function must be resource inputs (since we don't have runtime inputs yet)
+// Since we also do the same conversion in the other direction (runtime to resource inputs),
+// this function must also be able to accept runtime inputs
+type Inputs<StepInputs> = ObjectResourceInputs<StepInputs> | ObjectRuntimeInputs<StepInputs>;
+
+// Assumption: we should never be handing an undefined set of inputs into the root schema conversion function.
+export function convertFromJsonSchemaToInputSchema<StepInputs>(inputSchema: InputJsonSchema, inputs: Inputs<StepInputs>): RootInputSchema {
+    const rootDefinition = getRootDefinition(inputSchema);
+    return {
+        properties: toPairs(rootDefinition.properties).map<InputProperty>(([name, definition]) => {
+            return {
+                name,
+                isRequired: (rootDefinition.required ?? []).includes(name),
+                type: convertClientDefinitionToNonDiscriminatorDefinition<Inputs<StepInputs>[keyof StepInputs]>(
+                    inputSchema,
+                    definition,
+                    getValueOfStepInput(inputs, name)
+                ),
+            };
+        }),
+    };
+}
+
+function getValueOfStepInput<StepInputs>(inputs: Inputs<StepInputs>, propertyName: string): Inputs<StepInputs>[keyof StepInputs] {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const propertyKey: keyof Inputs<StepInputs> = propertyName as keyof Inputs<StepInputs>;
+    return inputs[propertyKey];
+}
+
+function convertClientDefinitionToNonDiscriminatorDefinition<StepInputs>(
+    inputSchema: InputJsonSchema,
+    clientDefinition: Definition,
+    input?: Inputs<StepInputs> | undefined
+): NonDiscriminatorTypeDefinition {
+    if ("$ref" in clientDefinition) {
+        const reference = resolveReference(inputSchema, clientDefinition);
+        return convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, reference, input);
+    }
+    if ("anyOf" in clientDefinition) {
+        if (input === undefined) {
+            throw new Error("Union types cannot be optional");
+        }
+
+        return convertAnyOfClientDefinitionToUnionTypeDefinition(inputSchema, clientDefinition, input);
+    }
+
+    switch (clientDefinition.type) {
+        case "object":
+            if ("isPackageReference" in clientDefinition) {
+                return { type: "package" };
+            }
+            if ("isContainerImageReference" in clientDefinition) {
+                return { type: "container-image" };
+            }
+            if ("isSensitiveValue" in clientDefinition) {
+                return { type: "sensitive" };
+            }
+            return convertObjectDefinition(inputSchema, clientDefinition, input);
+
+        case "array":
+            if (input === undefined) {
+                throw new Error("Array types cannot be optional");
+            }
+            if (!Array.isArray(input)) {
+                throw new Error("Found an array in the schema, but the runtime value was not an array");
+            }
+            return convertArrayDefinition(inputSchema, clientDefinition, input);
+        case "string":
+            if ("isDiscriminator" in clientDefinition) {
+                throw new Error("Not expecting a discriminator at this point");
+            }
+            if ("isAccount" in clientDefinition) {
+                return { type: "account", accountType: clientDefinition.accountType };
+            }
+            return { type: "string" };
+        case "number":
+        case "boolean":
+            if ("isDiscriminator" in clientDefinition) {
+                throw new Error("Not expecting a discriminator at this point");
+            }
+            return { type: "primitive" };
+    }
+    exhaustiveCheck(clientDefinition, "not all cases are handled");
+}
+
+// Assumption: We cannot support an optional property that contains a union type
+// The reason being is that knocks on to our UI - what state should be represented when none of the discriminated types are chosen?
+// This should be explicitly modelled instead.
+function convertAnyOfClientDefinitionToUnionTypeDefinition<StepInputs>(
+    inputSchema: InputJsonSchema,
+    possibleDefinitions: UnionDefinition,
+    inputs: Inputs<StepInputs>
+): PlainObjectTypeDefinition {
+    const flattenedPossibleUnionTypes = collapseAllPossibleUnionTypes(inputSchema, possibleDefinitions);
+    if (flattenedPossibleUnionTypes.every(isObjectTypeDefinition)) {
+        const narrowedUnionType = flattenedPossibleUnionTypes.find((t) => allDiscriminatorTypesMatch(t, inputs));
+
+        if (!narrowedUnionType) {
+            throw new Error("No type in the schema could be found for this union type.");
+        }
+        return convertObjectDefinition(inputSchema, narrowedUnionType, inputs);
+    }
+    throw new Error("Only unions of object types are allowed.");
+
+    function isObjectTypeDefinition(
+        clientDefinition: Exclude<Definition, UnionDefinition | RootObjectDefinition | ReferenceDefinition>
+    ): clientDefinition is ObjectDefinition {
+        switch (clientDefinition.type) {
+            case "object":
+                return true;
+            case "array":
+            case "string":
+            case "number":
+            case "boolean":
+                return false;
+        }
+        exhaustiveCheck(clientDefinition, "Failed to handle possible definition type.");
+    }
+}
+
+function allDiscriminatorTypesMatch<StepInputs>(possibleType: ObjectDefinition, input: Inputs<StepInputs>): boolean {
+    return toPairs(possibleType.properties)
+        .map(([name, propertyType]) => {
+            if ("isDiscriminator" in propertyType) {
+                return { discriminatorName: name, discriminatorType: propertyType };
+            }
+            return null;
+        })
+        .every((discriminatorProperty) => {
+            if (discriminatorProperty === null) return true;
+            return getValueOfStepInput(input, discriminatorProperty.discriminatorName) === discriminatorProperty.discriminatorType.const;
+        });
+}
+
+function collapseAllPossibleUnionTypes(
+    inputSchema: InputJsonSchema,
+    clientDefinition: Exclude<Definition, RootObjectDefinition>
+): Exclude<Definition, RootObjectDefinition | UnionDefinition | ReferenceDefinition>[] {
+    if ("$ref" in clientDefinition) {
+        return collapseAllPossibleUnionTypes(inputSchema, resolveReference(inputSchema, clientDefinition));
+    }
+    if ("anyOf" in clientDefinition) {
+        return flatten(clientDefinition.anyOf.map((d) => collapseAllPossibleUnionTypes(inputSchema, d)));
+    }
+    return [clientDefinition];
+}
+
+function convertObjectDefinition<StepInputs>(
+    inputSchema: InputJsonSchema,
+    objectDefinition: ObjectDefinition,
+    inputs: Inputs<StepInputs> | undefined
+): PlainObjectTypeDefinition {
+    const properties = toPairs(objectDefinition.properties).map<DiscriminatorProperty | InputProperty>(([propertyKey, clientDefinition]) => {
+        if ("isDiscriminator" in clientDefinition) {
+            const discriminatorTypeDefinition: DiscriminatorTypeDefinition = {
+                type: "discriminator",
+                const: clientDefinition.const,
+            };
+            return { discriminatorName: propertyKey, type: discriminatorTypeDefinition };
+        } else {
+            return {
+                name: propertyKey,
+                isRequired: (objectDefinition.required ?? []).includes(propertyKey),
+                type: convertClientDefinitionToNonDiscriminatorDefinition<Inputs<StepInputs>[keyof StepInputs]>(
+                    inputSchema,
+                    clientDefinition,
+                    inputs === undefined ? inputs : getValueOfStepInput(inputs, propertyKey)
+                ),
+            };
+        }
+    });
+
+    const discriminatorProperties = properties.filter((p): p is DiscriminatorProperty => "discriminatorName" in p);
+    const nonDiscriminatorProperties = properties.filter((p): p is InputProperty => "name" in p);
+    return {
+        type: "object",
+        discriminatorProperties,
+        nonDiscriminatorProperties,
+    };
+}
+
+function convertArrayDefinition<StepInputArrayItem>(
+    inputSchema: InputJsonSchema,
+    clientDefinition: ArrayDefinition,
+    inputs: Array<StepInputArrayItem>
+): ArrayTypeDefinition {
+    return {
+        type: "array",
+        itemTypes: inputs.map((input) => {
+            return convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition.items, input);
+        }),
+    };
+}
+
+function resolveReference(inputSchema: InputJsonSchema, clientDefinition: ReferenceDefinition): Exclude<Definition, RootObjectDefinition> {
+    const referenceKey = clientDefinition.$ref.replace("#/definitions/", "");
+    const resolvedReference = inputSchema.definitions[referenceKey];
+    if (!resolvedReference) {
+        throw new Error("Input schema reference points to a reference that does not exist.");
+    }
+    if ("isRoot" in resolvedReference) {
+        // This is a minor optimisation to make this algorithm simpler. There's no technical reason we couldn't
+        // do this, although we can't currently think of a case where you would ever want to do this
+        throw new Error("Can't recursively reference the root definition.");
+    }
+    return resolvedReference;
+}
+
+function getRootDefinition(inputSchema: InputJsonSchema): RootObjectDefinition {
+    const rootDefinitions: RootObjectDefinition[] = toPairs(inputSchema.definitions)
+        .map(([_, definition]) => definition)
+        .filter((definition): definition is RootObjectDefinition => "isRoot" in definition);
+
+    const rootDefinition = rootDefinitions.pop();
+    if (rootDefinition === undefined) {
+        throw new Error("No root definition found in the input schema");
+    }
+    if (rootDefinitions.length > 0) {
+        throw new Error("Multiple root definitions found in the input schema");
+    }
+    return rootDefinition;
+}
+
+function toPairs<Key extends string, T>(obj: Record<Key, T>): Array<[Key, T]> {
+    return Object.keys(obj).map<[Key, T]>((primitiveKey) => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const key: Key = primitiveKey as Key;
+        return [key, obj[key]];
+    });
+}
+
+function flatten<T>(manyArrays: Array<Array<T>>): Array<T> {
+    return manyArrays.reduce((p, c) => [...p, ...c]);
+}

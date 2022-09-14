@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/urijs`
+
+# Summary
+This package contains type definitions for URI.js (https://github.com/medialize/URI.js).
+
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped.git/tree/master/types/urijs
+
+Additional Details
+ * Last updated: Fri, 04 May 2018 23:55:56 GMT
+ * Dependencies: jquery
+ * Global values: URI, URITemplate
+
+# Credits
+These definitions were written by RodneyJT <https://github.com/RodneyJT>, Brian Surowiec <https://github.com/xt0rted>, Pete Johanson <https://github.com/petejohanson>.

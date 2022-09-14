@@ -1,0 +1,9 @@
+import type { InputPathToValue } from "@octopusdeploy/step-inputs";
+export declare function inlineText(props: InlineTextProps): InlineTextComponent;
+export interface InlineTextComponent extends InlineTextProps {
+    type: "inline-text";
+}
+export interface InlineTextProps {
+    input: InputPathToValue<string>;
+    label: string;
+}

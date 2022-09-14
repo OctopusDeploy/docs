@@ -1,0 +1,32 @@
+{
+    "name": "@types/jest-expect-message",
+    "version": "1.0.4",
+    "description": "TypeScript definitions for jest-expect-message",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jest-expect-message",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Mike Davydov",
+            "url": "https://github.com/mike-d-davydov",
+            "githubUsername": "mike-d-davydov"
+        },
+        {
+            "name": "Michael Bashurov",
+            "url": "https://github.com/saitonakamura",
+            "githubUsername": "saitonakamura"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/jest-expect-message"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/jest": "*"
+    },
+    "typesPublisherContentHash": "3d1c843ef4bb2a2ef6cd35ab1328cd54da21dab7b1c5b1266ae3f2e4b5e1a77a",
+    "typeScriptVersion": "4.3"
+}

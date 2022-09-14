@@ -1,0 +1,17 @@
+import type { InputPathToValue } from "@octopusdeploy/step-inputs";
+
+export function inlineCheckbox(props: InlineCheckboxProps): InlineCheckboxComponent {
+    return {
+        type: "inline-checkbox",
+        ...props,
+    };
+}
+
+export interface InlineCheckboxComponent extends InlineCheckboxProps {
+    type: "inline-checkbox";
+}
+
+export interface InlineCheckboxProps {
+    input: InputPathToValue<boolean>;
+    label: string;
+}

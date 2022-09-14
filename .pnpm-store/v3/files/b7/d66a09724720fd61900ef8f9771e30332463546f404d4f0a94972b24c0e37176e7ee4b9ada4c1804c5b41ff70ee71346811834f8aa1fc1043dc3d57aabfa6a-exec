@@ -1,0 +1,43 @@
+{
+    "name": "@types/jscodeshift",
+    "version": "0.11.5",
+    "description": "TypeScript definitions for jscodeshift",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jscodeshift",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Brie Bunge",
+            "url": "https://github.com/brieb",
+            "githubUsername": "brieb"
+        },
+        {
+            "name": "Brian Jacobel",
+            "url": "https://github.com/bjacobel",
+            "githubUsername": "bjacobel"
+        },
+        {
+            "name": "Will Nguyen",
+            "url": "https://github.com/willtn",
+            "githubUsername": "willtn"
+        },
+        {
+            "name": "Bartosz Szewczyk",
+            "url": "https://github.com/sztobar",
+            "githubUsername": "sztobar"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/jscodeshift"
+    },
+    "scripts": {},
+    "dependencies": {
+        "ast-types": "^0.14.1",
+        "recast": "^0.20.3"
+    },
+    "typesPublisherContentHash": "1d27fbfe98ca3bce5f34e6bfa1f01dc97262ddd6909a9d78823a07346ff1780f",
+    "typeScriptVersion": "3.9"
+}

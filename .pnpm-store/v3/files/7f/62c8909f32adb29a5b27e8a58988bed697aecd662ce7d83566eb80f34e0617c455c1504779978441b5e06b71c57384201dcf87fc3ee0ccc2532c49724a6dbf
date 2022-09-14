@@ -1,0 +1,41 @@
+// In cases where we need additional runtime data we can ask Octopus Server to enrich our runtime types
+// These types are intended to be used strictly within the step API
+import { RuntimePackageSelection } from "../RuntimePackageSelection";
+import { RuntimeContainerImageSelection } from "../RuntimeContainerImageSelection";
+
+export type OctopusServerEnricherSupportedRuntimeTypes = RuntimePackageSelection | RuntimeContainerImageSelection;
+
+export type OctopusServerEnricherMappedReturnType<T> = T extends RuntimePackageSelection
+    ? EnrichedPackageReference
+    : T extends RuntimeContainerImageSelection
+    ? EnrichedContainerImageReference
+    : never;
+
+export type EnrichedPackageReference = {
+    packageName: string;
+    referenceId: string;
+    feed:
+        | {
+              id: string;
+              name: string;
+          }
+        | undefined;
+    packageExtractionPathExpression: (name: string) => string;
+};
+
+export type EnrichedContainerImageReference = {
+    imageName: string;
+    referenceId: string;
+    feed:
+        | {
+              id: string;
+              url: string;
+              name: string;
+          }
+        | undefined;
+    imagePathExpression: (name: string) => string;
+};
+
+export type OctopusServerEnricher = {
+    enrich: <T extends OctopusServerEnricherSupportedRuntimeTypes>(data: T) => OctopusServerEnricherMappedReturnType<T>;
+};

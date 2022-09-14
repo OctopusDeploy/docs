@@ -1,0 +1,5 @@
+import { EmptyInitialValue } from "../EmptyInitialValue";
+export declare type GoogleCloudAccount = {
+    readonly __accountBrand: unique symbol;
+    type: "GoogleCloudAccount";
+} | EmptyInitialValue;

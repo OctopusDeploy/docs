@@ -1,0 +1,17 @@
+import type { ContainerImageReference, InputPathToValue } from "@octopusdeploy/step-inputs";
+import type { CommonInputProps } from "./InputComponents";
+
+export function containerImageSelector(props: ContainerImageSelectorProps): ContainerImageSelectorComponent {
+    return {
+        type: "container-image",
+        ...props,
+    };
+}
+
+export interface ContainerImageSelectorComponent extends ContainerImageSelectorProps {
+    type: "container-image";
+}
+
+export interface ContainerImageSelectorProps extends CommonInputProps {
+    input: InputPathToValue<ContainerImageReference>;
+}

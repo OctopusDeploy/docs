@@ -1,0 +1,24 @@
+import { AmazonWebServicesAccount } from "./AmazonWebServicesAccount";
+import { AzureServicePrincipal } from "./AzureServicePrincipal";
+import { GoogleCloudAccount } from "./GoogleCloudAccount";
+import { SshKeyPair } from "./SshKeyPair";
+import { Token } from "./Token";
+import { UsernamePassword } from "./UsernamePassword";
+
+type AccountTypesObject = {
+    AzureServicePrincipal: AzureServicePrincipal;
+    AmazonWebServicesAccount: AmazonWebServicesAccount;
+    GoogleCloudAccount: GoogleCloudAccount;
+    SshKeyPair: SshKeyPair;
+    Token: Token;
+    UsernamePassword: UsernamePassword;
+};
+export type AccountTypes = keyof AccountTypesObject; // "AzureServicePrincipal" | "AmazonWebServicesAccount" | "GoogleCloudAccount" | "SshKeyPair" | "Token" | "UsernamePassword"
+export type AccountReference = AccountTypesObject[keyof AccountTypesObject];
+
+export * from "./AmazonWebServicesAccount";
+export * from "./AzureServicePrincipal";
+export * from "./GoogleCloudAccount";
+export * from "./SshKeyPair";
+export * from "./Token";
+export * from "./UsernamePassword";

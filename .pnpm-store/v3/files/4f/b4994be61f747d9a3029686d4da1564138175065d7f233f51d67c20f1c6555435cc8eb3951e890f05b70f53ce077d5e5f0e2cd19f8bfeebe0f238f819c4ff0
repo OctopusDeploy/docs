@@ -1,0 +1,1 @@
+export type ContainerImageReference = { readonly __containerImageBrand: unique symbol };

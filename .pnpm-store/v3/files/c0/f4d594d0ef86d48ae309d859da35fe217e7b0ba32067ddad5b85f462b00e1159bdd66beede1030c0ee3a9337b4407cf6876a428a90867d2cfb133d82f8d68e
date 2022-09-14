@@ -1,0 +1,30 @@
+import { createInputPathForProperty, createObjectInputPaths } from "InputAccess/InputPaths";
+describe("InputPaths", () => {
+    describe("simple property", () => {
+        const inputSchema = {
+            properties: [
+                { type: { type: "string" }, name: "value", isRequired: false },
+                {
+                    type: {
+                        type: "object",
+                        nonDiscriminatorProperties: [{ type: { type: "string" }, name: "someProperty", isRequired: false }],
+                        discriminatorProperties: [],
+                    },
+                    name: "sampleObject",
+                    isRequired: false,
+                },
+            ],
+        };
+        test("createInputPathForProperty", () => {
+            const value = createInputPathForProperty("value", inputSchema.properties[0].type, []);
+            expect(value.convertTo).not.toBeUndefined();
+        });
+        test("createObjectInputPaths", () => {
+            const value = createObjectInputPaths(inputSchema.properties[1].type);
+            expect(value).not.toBeUndefined();
+            value.value = "value";
+            value.sampleObject = { someProperty: "value" };
+        });
+    });
+});
+//# sourceMappingURL=InputPaths.spec.js.map

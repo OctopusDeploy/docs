@@ -1,0 +1,309 @@
+import { asResourceInputs, asRuntimeInputs } from "../InputsConverters";
+import {
+    AzureServicePrincipal,
+    ContainerImageReference,
+    Discriminator,
+    PackageReference as StepPackageReference,
+    SensitiveValue as StepSensitiveValue,
+} from "@octopusdeploy/step-inputs";
+import { ObjectResourceInputs } from "../../ResourceInputs";
+import { ObjectRuntimeInputs } from "../../RuntimeInputs";
+import { convertFromJsonSchemaToInputSchema, Definition } from "../../Schema";
+
+describe("converting between RuntimeInputs and ResourceInputs", () => {
+    describe("Sensitive values", () => {
+        type StepInputs = {
+            sensitiveProperty: StepSensitiveValue;
+        };
+        const schema: RootObjectProperties = { sensitiveProperty: { type: "object", isSensitiveValue: true } };
+
+        test("existing value", () => {
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { sensitiveProperty: { HasValue: true } };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { sensitiveProperty: { type: "existing" } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+
+        test("new value", () => {
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { sensitiveProperty: { HasValue: true, NewValue: "TheNewValue" } };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { sensitiveProperty: { type: "new", newValue: "TheNewValue" } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+
+        test("empty value", () => {
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { sensitiveProperty: { HasValue: false } };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { sensitiveProperty: { type: "empty" } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+
+        test("bound value", () => {
+            const boundExpression = "#{BoundValue}";
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { sensitiveProperty: boundExpression };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { sensitiveProperty: { type: "bound", expression: boundExpression } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+
+        test("work when inside of an array", () => {
+            type StepInputs = {
+                valuesArray: [{ sensitiveValue: StepSensitiveValue }];
+            };
+            const schema: RootObjectProperties = {
+                valuesArray: {
+                    type: "array",
+                    items: {
+                        type: "object",
+                        properties: {
+                            sensitiveValue: {
+                                type: "object",
+                                isSensitiveValue: true,
+                            },
+                        },
+                    },
+                },
+            };
+
+            const boundExpression = "#{BoundValue}";
+            const resourceInputs: ObjectResourceInputs<StepInputs> = {
+                valuesArray: [{ sensitiveValue: boundExpression }],
+            };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = {
+                valuesArray: [{ sensitiveValue: { type: "bound", expression: boundExpression } }],
+            };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+
+    describe("Account References", () => {
+        type StepInputs = {
+            azureServicePrincipal: AzureServicePrincipal;
+        };
+
+        const schema: RootObjectProperties = { azureServicePrincipal: { type: "string", isAccount: true, accountType: "AzureServicePrincipal" } };
+
+        test("remain untouched when not bound", () => {
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { azureServicePrincipal: "Accounts-1" };
+            // For the sake of the test, we will shush the type system here
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { azureServicePrincipal: "Accounts-1" } as unknown as ObjectRuntimeInputs<StepInputs>;
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+
+        test("will convert between bound value and string as needed", () => {
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { azureServicePrincipal: "#{BoundValue}" };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { azureServicePrincipal: { type: "bound", expression: "#{BoundValue}" } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+
+    describe("Package References", () => {
+        test("remain untouched", () => {
+            type StepInputs = {
+                package: StepPackageReference;
+            };
+            const schema: RootObjectProperties = { package: { type: "object", isPackageReference: true } };
+
+            //The step ui has a black box for PackageReferences, so in this case so should remain mostly untouched as part of the conversion
+            const resourceInputs: ObjectResourceInputs<StepInputs> = {
+                package: { packageId: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = {
+                package: { packageId: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+
+    describe("Container Image References", () => {
+        test("remain untouched", () => {
+            type StepInputs = {
+                containerImage: ContainerImageReference;
+            };
+
+            const schema: RootObjectProperties = { containerImage: { type: "object", isContainerImageReference: true } };
+
+            //The step ui has a black box for ContainerImageReference, so in this case so should remain mostly untouched as part of the conversion
+            const resourceInputs: ObjectResourceInputs<StepInputs> = {
+                containerImage: { imageName: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = {
+                containerImage: { imageName: "ThePackage", feedId: "TheFeed", referenceId: "uniqueIdentifier" },
+            };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+
+    describe("String values", () => {
+        describe("remain untouched", () => {
+            type StepInputs = {
+                message: string;
+            };
+            const schema: RootObjectProperties = { message: { type: "string" } };
+
+            test("when not bound", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { message: "The Value" };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { message: "The Value" };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+
+            test("when bound", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { message: "#{Bound Value}" };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { message: "#{Bound Value}" };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+
+        describe("Number values", () => {
+            type StepInputs = {
+                numberValue: number;
+            };
+            const schema: RootObjectProperties = { numberValue: { type: "number" } };
+
+            test("remain untouched when not bound", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { numberValue: 42 };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { numberValue: 42 };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+
+            test("will convert between bound value and string as needed", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { numberValue: "#{BoundValue}" };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { numberValue: { type: "bound", expression: "#{BoundValue}" } };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+
+        describe("BigInt values", () => {
+            type StepInputs = {
+                numberValue: bigint;
+            };
+            const schema: RootObjectProperties = { numberValue: { type: "number" } };
+
+            test("remain untouched when not bound", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { numberValue: BigInt(42) };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { numberValue: BigInt(42) };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+
+            test("will convert between bound value and string as needed", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { numberValue: "#{BoundValue}" };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { numberValue: { type: "bound", expression: "#{BoundValue}" } };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+
+        describe("Boolean values", () => {
+            type StepInputs = {
+                booleanValue: boolean;
+            };
+
+            const schema: RootObjectProperties = { booleanValue: { type: "boolean" } };
+
+            test("remain untouched when not bound", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { booleanValue: true };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { booleanValue: true };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+
+            test("will convert between bound value and string as needed", () => {
+                const resourceInputs: ObjectResourceInputs<StepInputs> = { booleanValue: "#{BoundValue}" };
+                const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { booleanValue: { type: "bound", expression: "#{BoundValue}" } };
+
+                assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+            });
+        });
+    });
+
+    describe("Nested objects", () => {
+        type StepInputs = {
+            nested: { theValue: string };
+        };
+
+        const schema: RootObjectProperties = { nested: { type: "object", properties: { theValue: { type: "string" } }, required: ["theValue"] } };
+
+        test("maps primitives", () => {
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { nested: { theValue: "Hello World" } };
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { nested: { theValue: "Hello World" } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+
+    describe("object union", () => {
+        type Square = { type: Discriminator<"square">; size: number };
+        type Rectangle = { type: Discriminator<"rectangle">; width: number; height: number };
+        type PossibleShapes = Square | Rectangle;
+
+        type StepInputs = {
+            shape: PossibleShapes;
+        };
+
+        const schema: RootObjectProperties = {
+            shape: {
+                anyOf: [
+                    {
+                        type: "object",
+                        properties: { type: { type: "string", const: "square", isDiscriminator: true }, size: { type: "number" } },
+                        required: ["type", "size"],
+                    },
+                    {
+                        type: "object",
+                        properties: {
+                            type: { type: "string", const: "rectangle", isDiscriminator: true },
+                            width: { type: "number" },
+                            height: { type: "number" },
+                        },
+                        required: ["type", "width", "height"],
+                    },
+                ],
+            },
+        };
+
+        test("maps to first object in union", () => {
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { shape: { type: "square", size: 5 } };
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { shape: { type: "square", size: 5 } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+
+        test("maps to second object in union", () => {
+            const runtimeInputs: ObjectRuntimeInputs<StepInputs> = { shape: { type: "rectangle", width: 5, height: 10 } };
+            const resourceInputs: ObjectResourceInputs<StepInputs> = { shape: { type: "rectangle", width: 5, height: 10 } };
+
+            assertValuesRoundTrip(schema, runtimeInputs, resourceInputs);
+        });
+    });
+});
+
+function assertValuesRoundTrip<StepInputs>(
+    inputProperties: RootObjectProperties,
+    runtimeInputs: ObjectRuntimeInputs<StepInputs>,
+    resourceInputs: ObjectResourceInputs<StepInputs>
+) {
+    const schemaFromResourceInputs = convertFromJsonSchemaToInputSchema(
+        { definitions: { RootInputs: { type: "object", isRoot: true, properties: inputProperties, required: [] } } },
+        resourceInputs
+    );
+    expect(asRuntimeInputs<StepInputs>(schemaFromResourceInputs.properties, resourceInputs)).toStrictEqual(runtimeInputs);
+
+    const schemaFromRuntimeInputs = convertFromJsonSchemaToInputSchema(
+        { definitions: { RootInputs: { type: "object", isRoot: true, properties: inputProperties, required: [] } } },
+        runtimeInputs
+    );
+    expect(asResourceInputs<StepInputs>(schemaFromRuntimeInputs.properties, runtimeInputs)).toStrictEqual(resourceInputs);
+}
+
+type RootObjectProperties = { [key: string]: Definition };

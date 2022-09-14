@@ -1,0 +1,7 @@
+import { InputJsonSchema } from "./InputJsonSchema";
+import { RootInputSchema } from "./InputSchema";
+import { ObjectResourceInputs } from "../ResourceInputs";
+import { ObjectRuntimeInputs } from "../RuntimeInputs";
+declare type Inputs<StepInputs> = ObjectResourceInputs<StepInputs> | ObjectRuntimeInputs<StepInputs>;
+export declare function convertFromJsonSchemaToInputSchema<StepInputs>(inputSchema: InputJsonSchema, inputs: Inputs<StepInputs>): RootInputSchema;
+export {};

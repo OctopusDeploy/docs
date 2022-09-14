@@ -1,0 +1,180 @@
+import { exhaustiveCheck } from "../exhaustiveCheck";
+export function convertFromJsonSchemaToInputSchema(inputSchema, inputs) {
+    const rootDefinition = getRootDefinition(inputSchema);
+    return {
+        properties: toPairs(rootDefinition.properties).map(([name, definition]) => {
+            var _a;
+            return {
+                name,
+                isRequired: ((_a = rootDefinition.required) !== null && _a !== void 0 ? _a : []).includes(name),
+                type: convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, definition, getValueOfStepInput(inputs, name)),
+            };
+        }),
+    };
+}
+function getValueOfStepInput(inputs, propertyName) {
+    const propertyKey = propertyName;
+    return inputs[propertyKey];
+}
+function convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition, input) {
+    if ("$ref" in clientDefinition) {
+        const reference = resolveReference(inputSchema, clientDefinition);
+        return convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, reference, input);
+    }
+    if ("anyOf" in clientDefinition) {
+        if (input === undefined) {
+            throw new Error("Union types cannot be optional");
+        }
+        return convertAnyOfClientDefinitionToUnionTypeDefinition(inputSchema, clientDefinition, input);
+    }
+    switch (clientDefinition.type) {
+        case "object":
+            if ("isPackageReference" in clientDefinition) {
+                return { type: "package" };
+            }
+            if ("isContainerImageReference" in clientDefinition) {
+                return { type: "container-image" };
+            }
+            if ("isSensitiveValue" in clientDefinition) {
+                return { type: "sensitive" };
+            }
+            return convertObjectDefinition(inputSchema, clientDefinition, input);
+        case "array":
+            if (input === undefined) {
+                throw new Error("Array types cannot be optional");
+            }
+            if (!Array.isArray(input)) {
+                throw new Error("Found an array in the schema, but the runtime value was not an array");
+            }
+            return convertArrayDefinition(inputSchema, clientDefinition, input);
+        case "string":
+            if ("isDiscriminator" in clientDefinition) {
+                throw new Error("Not expecting a discriminator at this point");
+            }
+            if ("isAccount" in clientDefinition) {
+                return { type: "account", accountType: clientDefinition.accountType };
+            }
+            return { type: "string" };
+        case "number":
+        case "boolean":
+            if ("isDiscriminator" in clientDefinition) {
+                throw new Error("Not expecting a discriminator at this point");
+            }
+            return { type: "primitive" };
+    }
+    exhaustiveCheck(clientDefinition, "not all cases are handled");
+}
+function convertAnyOfClientDefinitionToUnionTypeDefinition(inputSchema, possibleDefinitions, inputs) {
+    const flattenedPossibleUnionTypes = collapseAllPossibleUnionTypes(inputSchema, possibleDefinitions);
+    if (flattenedPossibleUnionTypes.every(isObjectTypeDefinition)) {
+        const narrowedUnionType = flattenedPossibleUnionTypes.find((t) => allDiscriminatorTypesMatch(t, inputs));
+        if (!narrowedUnionType) {
+            throw new Error("No type in the schema could be found for this union type.");
+        }
+        return convertObjectDefinition(inputSchema, narrowedUnionType, inputs);
+    }
+    throw new Error("Only unions of object types are allowed.");
+    function isObjectTypeDefinition(clientDefinition) {
+        switch (clientDefinition.type) {
+            case "object":
+                return true;
+            case "array":
+            case "string":
+            case "number":
+            case "boolean":
+                return false;
+        }
+        exhaustiveCheck(clientDefinition, "Failed to handle possible definition type.");
+    }
+}
+function allDiscriminatorTypesMatch(possibleType, input) {
+    return toPairs(possibleType.properties)
+        .map(([name, propertyType]) => {
+        if ("isDiscriminator" in propertyType) {
+            return { discriminatorName: name, discriminatorType: propertyType };
+        }
+        return null;
+    })
+        .every((discriminatorProperty) => {
+        if (discriminatorProperty === null)
+            return true;
+        return getValueOfStepInput(input, discriminatorProperty.discriminatorName) === discriminatorProperty.discriminatorType.const;
+    });
+}
+function collapseAllPossibleUnionTypes(inputSchema, clientDefinition) {
+    if ("$ref" in clientDefinition) {
+        return collapseAllPossibleUnionTypes(inputSchema, resolveReference(inputSchema, clientDefinition));
+    }
+    if ("anyOf" in clientDefinition) {
+        return flatten(clientDefinition.anyOf.map((d) => collapseAllPossibleUnionTypes(inputSchema, d)));
+    }
+    return [clientDefinition];
+}
+function convertObjectDefinition(inputSchema, objectDefinition, inputs) {
+    const properties = toPairs(objectDefinition.properties).map(([propertyKey, clientDefinition]) => {
+        var _a;
+        if ("isDiscriminator" in clientDefinition) {
+            const discriminatorTypeDefinition = {
+                type: "discriminator",
+                const: clientDefinition.const,
+            };
+            return { discriminatorName: propertyKey, type: discriminatorTypeDefinition };
+        }
+        else {
+            return {
+                name: propertyKey,
+                isRequired: ((_a = objectDefinition.required) !== null && _a !== void 0 ? _a : []).includes(propertyKey),
+                type: convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition, inputs === undefined ? inputs : getValueOfStepInput(inputs, propertyKey)),
+            };
+        }
+    });
+    const discriminatorProperties = properties.filter((p) => "discriminatorName" in p);
+    const nonDiscriminatorProperties = properties.filter((p) => "name" in p);
+    return {
+        type: "object",
+        discriminatorProperties,
+        nonDiscriminatorProperties,
+    };
+}
+function convertArrayDefinition(inputSchema, clientDefinition, inputs) {
+    return {
+        type: "array",
+        itemTypes: inputs.map((input) => {
+            return convertClientDefinitionToNonDiscriminatorDefinition(inputSchema, clientDefinition.items, input);
+        }),
+    };
+}
+function resolveReference(inputSchema, clientDefinition) {
+    const referenceKey = clientDefinition.$ref.replace("#/definitions/", "");
+    const resolvedReference = inputSchema.definitions[referenceKey];
+    if (!resolvedReference) {
+        throw new Error("Input schema reference points to a reference that does not exist.");
+    }
+    if ("isRoot" in resolvedReference) {
+        throw new Error("Can't recursively reference the root definition.");
+    }
+    return resolvedReference;
+}
+function getRootDefinition(inputSchema) {
+    const rootDefinitions = toPairs(inputSchema.definitions)
+        .map(([_, definition]) => definition)
+        .filter((definition) => "isRoot" in definition);
+    const rootDefinition = rootDefinitions.pop();
+    if (rootDefinition === undefined) {
+        throw new Error("No root definition found in the input schema");
+    }
+    if (rootDefinitions.length > 0) {
+        throw new Error("Multiple root definitions found in the input schema");
+    }
+    return rootDefinition;
+}
+function toPairs(obj) {
+    return Object.keys(obj).map((primitiveKey) => {
+        const key = primitiveKey;
+        return [key, obj[key]];
+    });
+}
+function flatten(manyArrays) {
+    return manyArrays.reduce((p, c) => [...p, ...c]);
+}
+//# sourceMappingURL=convertFromJsonSchemaToInputSchema.js.map

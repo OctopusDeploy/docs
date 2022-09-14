@@ -1,0 +1,20 @@
+import type { InputPathToArray, ObjectInputPathsAndPathToObject } from "@octopusdeploy/step-inputs";
+import type { InitialInputs } from "../InitialInputs";
+import type { CommonInputProps } from "../InputComponents";
+import type { InlineTextComponent } from "./InlineText";
+import type { InlineCheckboxComponent } from "./InlineCheckbox";
+import type { InlineSelectComponent } from "./InlineSelect";
+export declare function inlineList<ArrayItem>(props: InlineListProps<ArrayItem>): InlineListComponent;
+export interface InlineListProps<ArrayItem> extends CommonInputProps {
+    input: InputPathToArray<ArrayItem>;
+    newItem: InitialInputs<ArrayItem>;
+    editItemForm: (arrayItemInputs: ObjectInputPathsAndPathToObject<ArrayItem>) => InlineInputRows;
+}
+export interface InlineListComponent extends InlineListProps<unknown> {
+    type: "inline-list";
+}
+export declare type InlineComponent = InlineTextComponent | InlineCheckboxComponent | InlineSelectComponent;
+export declare type InlineInputRows = OneOrTwo<InlineInputRow>;
+export declare type InlineInputRow = OneOrTwo<InlineComponent>;
+declare type OneOrTwo<T> = [T] | [T, T];
+export {};
