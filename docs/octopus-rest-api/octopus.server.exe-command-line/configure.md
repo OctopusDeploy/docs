@@ -41,12 +41,6 @@ Where [<options>] is any of:
                                limit).
       --upgradeCheck=VALUE   Whether checking for upgrades is allowed (true
                                or false)
-      --machineTaskProcessingLimit=VALUE
-                             Maximum number of machines that can be processed
-                               at any given time in machine tasks (ie. Health
-                               Checks, Tentacle Upgrades and Calamari Upgrades-
-                               ). If no value is specified, the limit is based
-                               on the processor count of the server
       --sendTelemetry=VALUE  Whether telemetry data is sent to Octopus (true
                                or false)
       --commsListenPort=VALUE
