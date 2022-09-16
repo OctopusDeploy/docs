@@ -27,7 +27,7 @@ services:
    octopus-server:
     image: octopusdeploy/octopusdeploy:${OCTOPUS_SERVER_TAG}
     privileged: ${PRIVILEGED}
-    user: ${USER}
+    user: ${CONTAINER_USER}
     environment:
       ACCEPT_EULA: ${ACCEPT_OCTOPUS_EULA}
       OCTOPUS_SERVER_NODE_NAME: ${OCTOPUS_SERVER_NODE_NAME}
@@ -112,7 +112,7 @@ DISABLE_DIND=Y
 PRIVILEGED=false
 
 # Octopus can be run either as the user root or as octopus.
-USER=octopus
+CONTAINER_USER=octopus
 ```
 
 You will have to supply your own values for `SA_PASSWORD`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`. 
