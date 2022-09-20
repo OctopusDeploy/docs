@@ -8,7 +8,7 @@ Each Octopus Cloud customer has their own instance of the Octopus Server and can
 
 Each customer’s instance may experience its own series of maintenance operations and reprovisioning for operational and upgrade reasons. Therefore a 95th percentile of monthly uptime is used as the basis for the Octopus Cloud uptime SLO. Operational downtime is, other than in exceptional circumstances, scheduled in the customer’s maintenance window. All downtime (unplanned and planned) is used in the determination of the uptime SLO.
 
-### Uptime SLO
+## Uptime SLO
 Monthly uptime SLO: 99.5%
 
 **“Monthly uptime of an instance”** means 100% minus the percentage of downtime (planned and unplanned) minutes out of the total minutes in a calendar month.
