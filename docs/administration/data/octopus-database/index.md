@@ -28,6 +28,10 @@ The schedules for these tasks can be configured via **{{Configuration, Settings,
 
 If you already perform your own scheduled maintenance, and would like Octopus to not do this for you, then you can also disable database maintenance via **{{Configuration, Settings, SQL Maintenance}}**.
 
+:::hint
+Please note that clustered indexes are not rebuilt online.
+:::
+
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
 You are responsible for taking database backups and testing your disaster recovery plans. Refer to [Backup and restore](/docs/administration/data/backup-and-restore.md) for more information about backing up Octopus Deploy and recovering from failure.
