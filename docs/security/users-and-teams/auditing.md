@@ -24,7 +24,7 @@ Some  general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does not** capture login and logout events for specific user accounts.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
-- Entries older than 90 days (default, configurable up to 365 days) are archived, and are no longer queryable through the user interface.
+- Entries older than 90 days (default, configurable up to 365 days or 3650 days for self-hosted customers) are archived, and are no longer queryable through the user interface.
 - Archived entries are stored on the file system, and can be accessed via the [Manage archived audit logs](#accessing-archived-logs) page.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
@@ -54,7 +54,7 @@ To grant a user access to audit logs you can make use of a built-in User Role th
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
 ### Accessing archived logs {#accessing-archived-logs}
-Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
+Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
 
 ![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
 
