@@ -202,7 +202,23 @@ The following list assumes the linked change is in an **approved** state.
 
 ## Known Issues and limitations
 
-- The approval status of a deployment is not evaluated until the Octopus deployment scheduled start time has been reached.
 - Once a CR is deemed to be related to a deployment, then only this CR will be evaluated for the deployment to proceed. If the CR is incorrect, you will need to cancel the deployment, close the CR and try the deployment again.
 - Each project only supports a single ServiceNow connection.
 - Each project only supports supplying the same **Change Template Name** across all environments in the [Lifecycle](/docs/releases/lifecycles/index.md/) attached to the project or channel.
+
+## Troubleshooting
+
+If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
+
+The ServiceNow integration uses the following REST endpoints:
+
+| Purpose                              | HTTP Method | Path                                            | Notes |
+|--------------------------------------|-------------|-------------------------------------------------|-------|
+| Authorize                            | `POST`      | `/oauth_token.do`                               |       |
+| Search for changes                   | `GET`       | `/api/sn_chg_rest/change`                       |       |
+| Create change                        | `POST`      | `/api/sn_chg_rest/change/normal`                |       |
+| Search for Standard Change templates | `GET`       | `/api/sn_chg_rest/change/standard/template`     | Requires project **Change Template Name** configuration |
+| Create Standard Change from template | `POST`      | `/api/sn_chg_rest/change/standard/{templateId}` | Requires project **Change Template Name** configuration |
+|Approve Standard Change               | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration |
+|Add work notes                        | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
+
