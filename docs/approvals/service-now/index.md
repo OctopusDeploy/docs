@@ -126,7 +126,7 @@ By default deployments resulting in CR creation will produce a `Normal` change (
 requiring explicit approval).
 
 Setting the **Standard Change Template Name** setting under **Project Settings** to the name of an 
-active, approved **Standard Change Template** (as found in the Standard Change Catalogue) will instead 
+active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
 result in deployments of the project creating a `Standard` (i.e. low-risk, pre-approved) change. 
 
 For more information on `Normal` vs `Standard` changes, see ServiceNow [Change Types](https://docs.servicenow.com/en-US/bundle/tokyo-it-service-management/page/product/change-management/concept/change-types.html) 
