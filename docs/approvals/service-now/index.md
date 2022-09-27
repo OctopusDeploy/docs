@@ -122,7 +122,7 @@ To enable a project to enforce a requirement for an approved CR:
 
 ### Standard vs Normal Changes
 
-By default deployments resulting in CR creation will produce a `Normal` change (i.e. one 
+By default, deployments resulting in CR creation will produce a `Normal` change (i.e. one 
 requiring explicit approval).
 
 Setting the **Standard Change Template Name** setting under **Project Settings** to the name of an 
