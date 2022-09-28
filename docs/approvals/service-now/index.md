@@ -24,6 +24,9 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise subscription.
 
+Your ServiceNow instance must have the "Change Management" application installed and activated 
+(typically available as part of the ServiceNow ITSM product).
+
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
 1. Configure ServiceNow OAuth credentials (for use by Octopus).
@@ -117,9 +120,14 @@ To enable a project to enforce a requirement for an approved CR:
 
 ![ServiceNow Integration Project settings](images/servicenow-project-settings.png "width=500")
 
-### Standard Change Templates
+### Standard vs Normal Changes
 
-By default, the deployments resulting in a CR creation will produce a `Normal` change. Setting the **Change Template Name** setting under **Project Settings** to the name of a valid, approved **Change Template** will instead create a `Standard` change based upon the change template.
+By default, deployments resulting in CR creation will produce a `Normal` change (i.e. one 
+requiring explicit approval).
+
+Setting the **Standard Change Template Name** setting under **Project Settings** to the name of an 
+active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
+result in deployments of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
 ### Supplying the CR number to a deployment
 
@@ -207,6 +215,9 @@ The following list assumes the linked change is in an **approved** state.
 - Each project only supports supplying the same **Change Template Name** across all environments in the [Lifecycle](/docs/releases/lifecycles/index.md/) attached to the project or channel.
 
 ## Troubleshooting
+
+Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's 
+tooltip. Additional information will also be available in the "System Diagnostic Report".
 
 If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
 
