@@ -3,6 +3,9 @@ title: Metrics
 description: DORA Metrics
 position: 110
 ---
+
+The metrics are calculated in real time based on deployment completions.
+
 Within Insights, a successful deployment is one which has a task status of ‘Success’, and did not have any guided failures.  Conversely, a failed deployment is one which either has a task status of ‘Failed’, or has a status of ‘Success’ but had one or more guided failures.
 
 ## Deployment frequency

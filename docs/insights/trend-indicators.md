@@ -4,18 +4,17 @@ description: Insights helps spot performance trends
 position: 120
 ---
 
-Insights provides visibility into performance trends by showing the current metric value and assigning a trend direction. The trends are calculated in four week blocks (28 days). We get an average of the past four weeks (from the current date) and compare that with an average of the previous block.
+The trend of a metric is shown by a number and an icon indicating the direction. 
 
-- If the current value is higher than the previous, the metric is trending up.
-- If it is lower than the previous, it is trending down.
-- If there was not enough data in the previous block, no trend can be drawn.
-- If the two blocks are similar or the same, it is steady.
+The value is calculated by comparing the last 28 days of deployments with the 28 days prior to that (56 days in total). The blocks are calculated from the current instant, so may shift during the day even if no activity occurs. For each of the two blocks, a single average (mean) is calculated and then compared.
 
-There are four trend directions, each with their own distinct icon/indicator:
+The trend indicators are unaffected by the chosen granularity and time period.
 
-![None trend indicator](images/trend-none.svg) **None**: There is not enough deployment data to draw a trend.
+## Indicators
 
-![Steady trend indicator](images/trend-steady.svg) **Steady**: The metric is neither better nor worse.
+![None trend indicator](images/trend-none.svg) **None**: There are fewer than 10 deployments in the data set in either the current or prior periods.
+
+![Steady trend indicator](images/trend-steady.svg) **Steady**: The current metric is less than 5% higher or lower than the previous value.
 
 ![Up trend indicator](images/trend-up.svg) **Up**: The metric is higher than it was previously.
 
@@ -23,6 +22,8 @@ There are four trend directions, each with their own distinct icon/indicator:
 
 If there is no current value/trend, ![Not enough data indicator](images/trend-no-data.svg) will be shown.
 
-The sentiment of the trend is denoted by its color. For all metrics except deployment frequency, a metric trending up suggests a negative change (red) and trending down suggests a positive change (green). The opposite is true for deployment frequency.
+## Sentiment
 
-For Lead Time, Change Failure Rate and Mean Time to Recovery, the value shown next to the indicator is the overall average of the four week block. For Deployment Frequency, it is the weekly average of the block.
+The sentiment of the trend is denoted by its color. For deployment frequency an upwards trend is positive (green) and downwards negative (red). For all other metrics, the opposite holds, upwards is negative (red) and downwards positive (green).
+
+For deployment frequency, the value shown is the average (mean) number of deployments per week in the 28 day block. For all other metrics, it is the overall average (mean) for the block.

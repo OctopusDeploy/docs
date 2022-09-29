@@ -1,27 +1,33 @@
 ---
 title: Project Insights
-description: Project level insights are available as a new tab in every project so you can understand the performance of your projects across Channels, Environments, and Tenants.
+description: Project level insights are available as a new tab in every project so you can understand the performance of your projects across channels, environments, and tenants.
 position: 130
 ---
 
+Project level insights allow a team to quickly understand the performance of their project. It is available from the project side menu. Beyond what is available on each page, it cannot be configured further.
+
+The timezone of the viewer is used when generating the charts. Viewers in different timezones may see slightly different results.
+
 ## Charts
 
-The charts give an aggregated view of the deployment data for the chosen filter.
+On the Overview page, a chart is shown for each [metric](metrics.md). On each of the metric detail pages, the same chart is shown along with a breakdown of the trends and lists of the data viewed from different angles.
 
-Project level insights can be filtered by Channel, Environment and/or Tenant.
+The top left drop downs allow you to choose which channel, environment and tenant to view data for. The channel drop down is only shown if there is more than one channel. The tenant drop down is only shown if the project is tenanted.
 
-You can also change the time range of the dataset. This allows you to see trends over different periods of time. This is especially useful for projects that only have a limited number of deployments.
+The channel filter will only appear if the project has more than one channel. It defaults to the default channel.
 
-The channel filter will only appear if there are multiple channels configured for the project and defaults to the default project channel.
+The environment filter will default to the last environment in the channel's lifecycle.
 
-The tenant filter will only appear if the project is scoped to tenants. It has an option for each tenant, as well as options for all tenants, untenanted deployments, and both all tenanted and untenanted deployments.
+The tenant filter will only appear if tenanted deployments is enabled for the project.
 
-## Tenant trends
+The data is real time and based on the deployment completion time.
 
-The tenant trend lists only appear in certain situations.
+See the [trend indicators](trend-indicators.md) section for more details on the trend indicator and trend tables on each page.
 
-The project must have tenanted deployments enabled and be scoped to at least one tenant. It must also have had enough tenanted deployments over the past eight weeks to draw a trend.
+## Detail
 
-If this criteria is met, two lists will be rendered. These lists will be specific to the metric page you are on. They show the tenants that have trended up or down in the last 28 days compared with the previous 28 days.
+Below the chart on the single metric pages are various tables showing more detailed view of the data.
 
-The first 10 in descending order by the percentage difference between the current and previous value are shown.
+For tenanted projects there is a list of the top 10 tenants whose [trend](trend-indicators.md) for that metric is up or down.
+
+Below that are tables of deployments relevant to that metric. These give you a starting point when investigating how to improve a metric.

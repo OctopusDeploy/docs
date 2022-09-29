@@ -9,6 +9,11 @@
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-381/process/RunbookProcess-Runbooks-381" target="_blank">Create Infrastructure</a>: <i>Runbook that will spin up the _Random Quotes Java_ project infrastructure in AWS for an Octopus Environment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-382/process/RunbookProcess-Runbooks-382" target="_blank">Destroy Infrastructure</a>: <i>Runbook that will tear down the _Random Quotes Java_ project infrastructure in AWS for an Octopus Environment.</i>
     
+**Pattern - IaC**
+
+- Dynamic worker army
+   - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1893/process/RunbookProcess-Runbooks-1893" target="_blank">Create Infrastructure</a>: <i>Spins up the worker army</i>
+    
 **Pattern - Rolling**
 
 - AWS - Rolling Deploy
@@ -57,6 +62,7 @@ This creates a single cluster in the Production environment, and then copies it 
 - AWS OctoSubscriber
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-2363/process/RunbookProcess-Runbooks-2363" target="_blank">Delete S3 bucket</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-1806/process/RunbookProcess-Runbooks-1806" target="_blank">Get Canonical ID</a>
+   - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-2381/process/RunbookProcess-Runbooks-2381" target="_blank">Get role arn</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-1805/process/RunbookProcess-Runbooks-1805" target="_blank">Spin Up Subscriber Infrastructure</a>
 - AWS Subscriber S3
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1822/process/RunbookProcess-Runbooks-1822" target="_blank">Get Canonical ID</a>
