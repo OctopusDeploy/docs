@@ -482,86 +482,30 @@ GET: api/{spaceId}/insights/reports/{reportId}/metrics
 ### Properties
 | Property | Description |
 | -------- | ----------- |
-| Series   |    |
+| Series   | An array of the series returned, each containing the values for the split provided   |
 
 ### Series Properties
 | Property | Description |
 | -------- | ----------- |
-| Name     |  The name of the series.  If no split is provided, this will be ‘All’.  |
-| Intervals |   |
+| Name     |  The name of the series.  If no split is provided, this will be ‘All’  |
+| Intervals |  An array of the time periods containing the data returned |
 
-### LeadTime, TimeSincePreviousDeployment, MeanTimeToRecovery and DeploymentsUntilRecovery Properties Properties
+### LeadTime, TimeSincePreviousDeployment, MeanTimeToRecovery and DeploymentsUntilRecovery Properties
 | Property | Description |
 | -------- | ----------- |
-| Count    |   | 
-| Mean     |   | 
-| Median   |   | 
-| Min      |   | 
-| Max      |   | 
-| NinetyFifth |   | 
+| Count    | The number of deployments aggregated in the current metric for the interval | 
+| Mean     | The mean value for the current metric for the interval | 
+| Median   | The median value for the current metric for the interval  | 
+| Min      | The minimum value for the current metric for the interval  | 
+| Max      | The maximum value for the current metric for the interval  | 
+| NinetyFifth | The 95th percentile value for the current metric for the interval  | 
 
 ### DeploymentFailureRate Properties
 | Property | Description |
 | -------- | ----------- |
 | Successful | The number of successful deployments for the interval | 
 | DeploymentFailure | The number of deployments with failures | 
-| SuccessfulButHadGuidedFailure |  | 
-| Total    |  | 
-| Failed   |  | 
-| Rate     |  | 
-
-### TimeSincePreviousDeployment Properties
-| Property | Description |
-| -------- | ----------- |
-| Count    |   |
-| Mean     |   |
-| Median   |   |
-| Min      |   |
-| Max      |   |
-| NinetyFifth |   |
-
-### MeanTimeToRecovery  Properties
-| Property | Description |
-| -------- | ----------- |
-| Count    |   |
-| Mean     |   |
-| Median   |   |
-| Min      |   |
-| Max      |   |
-| NinetyFifth |   |
-
-### DeploymentsUntilRecovery  Properties
-| Property | Description |
-| -------- | ----------- |
-| Count    |   |
-| Mean     |   |
-| Median   |   |
-| Min      |   |
-| Max      |   |
-| NinetyFifth |   |
-
-
-
-
-
-
-
-
-## Title
-GET:
-Text
-
-### Parameters
-| Name | Description |
-| ---- | ----------- |
-
-### Request Body
-
-### Sample request
-```json
-
-```
-
-### Properties
-| Property | Required | Description |
-| -------- | -------- | ----------- |
+| SuccessfulButHadGuidedFailure | The number of deployments which succeeded, but only with guided failures | 
+| Total    | The total number of deployments for the interval | 
+| Failed   | The number of failed deployments for the interval | 
+| Rate     | The percentage of failed deployments to successful deployments for the interval | 
