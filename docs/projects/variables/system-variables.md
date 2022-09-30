@@ -10,6 +10,11 @@ This page lists built-in [variables](/docs/projects/variables/index.md) provided
 Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. Where this is the case, the version will be noted alongside the variable.
 :::
 
+:::warning
+**All variables are strings**
+Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
+:::
+
 ## Release {#Systemvariables-Release}
 
 Release-level variables are drawn from the project and release being created.
@@ -298,7 +303,7 @@ Action-level variables are available during execution of an action. Indexer noti
 | -------------------- | ------- |
 |`Octopus.Action.Container.Image` <br/>The name of the container image being deployed | *OctoFx-RateService*|
 |`Octopus.Action.Id` <br/>The ID of the action | *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*|
-|`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)* | *True*|
+|`Octopus.Action.IsSkipped` <br/>Whether or not the action has been skipped in the current deployment *(Boolean)*<br/>Note: This value can be True or null (indicated by an empty string) | *True*|
 |`Octopus.Action.Manual.Instructions` <br/>The instructions provided for a manual step | *Don't break anything* |
 |`Octopus.Action.Manual.ResponsibleTeamIds` <br/>The teams responsible for completing a manual step *(List)* | *teams-123,teams-124*|
 |`Octopus.Action.MaxParallelism` <br/>The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments.md). *(Number - Default: 10)* <br/>**Note:** Some built-in steps have their own concurrent limit and will ignore this value if set. | *5*|
