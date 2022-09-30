@@ -6,13 +6,11 @@ position: 20
 
 This page lists built-in [variables](/docs/projects/variables/index.md) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts/index.md).
 
-:::hint
 Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. Where this is the case, the version will be noted alongside the variable.
-:::
 
 :::warning
 **All variables are strings**
-Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
+Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
 :::
 
 ## Release {#Systemvariables-Release}
