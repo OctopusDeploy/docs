@@ -61,3 +61,4 @@
 **Target - Tomcat**
 
 - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-1681/deployments/process" target="_blank">Pet Clinic - Azure Web App</a>: <i>Deploy the Java PetClinic application to Tomcat hosted in an Azure Web App.</i>
+- <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-2101/deployments/process" target="_blank">Petclinc - Demo</a>: <i>Deploy the Java PetClinic application to Tomcat hosted in an Azure Web App.</i>
