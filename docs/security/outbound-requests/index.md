@@ -58,14 +58,14 @@ The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going
 
 In isolated/air-gapped scenarios without access to the internet, it may prove beneficial to disable attempts to contact these external services to prevent failed tasks and/or errors in the logs. Details on how to disable each feature are as follows:
 * Octopus Server updates
-  * (Via Web UI) Configuration -> Settings -> Updates
-  * (Via CLI)  `Octopus.Server.exe configure --upgradeCheck=false`
+  * Via the Web Portal: **{{ Configuration, Settings, Updates }}**
+  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md): `Octopus.Server.exe configure --upgradeCheck=false`
 * Built-in step template updates
-  * (Via Web UI) Configuration -> Features -> Steps
+  * Via the Web Portal: **{{ Configuration, Features, Step Template Updates }}**
 * Community step updates
-  * (Via Web UI) Configuration -> Features -> Steps
+  * Via the Web Portal: **{{ Configuration, Features, Community Step Templates }}**
 * Telemetry
-  * (Via Web UI) Configuration -> Telemetry
-  * (Via CLI) `Octopus.Server.exe configure --sendTelemetry=false`
+  * Via the Web Portal: **{{ Configuration, Telemetry }}**
+  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md): `Octopus.Server.exe configure --sendTelemetry=false`
 * Dynamic Extensions
-  * (Via CLI) `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
+  * Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
