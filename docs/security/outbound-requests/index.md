@@ -53,3 +53,19 @@ When the "Check for updates" option is enabled, Octopus will make a HTTPS reques
 **Microsoft Azure**
 The Octopus.com site is hosted on Microsoft Azure, so you will see traffic going to Azure services.
 :::
+
+### Disabling outbound requests
+
+In isolated/air-gapped scenarios without access to the internet, it may prove beneficial to disable attempts to contact these external services to prevent failed tasks and/or errors in the logs. Details on how to disable each feature are as follows:
+* Octopus Server updates
+  * (Via Web UI) Configuration -> Settings -> Updates
+  * (Via CLI)  `Octopus.Server.exe configure --upgradeCheck=false`
+* Built-in step template updates
+  * (Via Web UI) Configuration -> Features -> Steps
+* Community step updates
+  * (Via Web UI) Configuration -> Features -> Steps
+* Telemetry
+  * (Via Web UI) Configuration -> Telemetry
+  * (Via CLI) `Octopus.Server.exe configure --sendTelemetry=false`
+* Dynamic Extensions
+  * (Via CLI) `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
