@@ -1112,3 +1112,7 @@ docs/api-and-integration/team-foundation-server-(tfs)/index.md -> docs/packaging
 docs/octopus-cloud/data.md -> docs/octopus-cloud/disaster-recovery.md
 docs/administration/spaces/private-space.md -> docs/administration/spaces/index.md
 docs/projects/version-control/configuring-version-control-on-a-project.md -> docs/projects/version-control/converting/index.md
+docs/getting-started/first-deployment/configure-environments.md -> docs/getting-started/first-deployment/legacy-guide/configure-environments.md
+docs/getting-started/first-deployment/create-and-deploy-a-release.md -> docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release.md
+docs/getting-started/first-deployment/create-projects.md -> docs/getting-started/first-deployment/legacy-guide/create-projects.md
+docs/getting-started/first-deployment/define-the-deployment-process.md -> docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process.md
