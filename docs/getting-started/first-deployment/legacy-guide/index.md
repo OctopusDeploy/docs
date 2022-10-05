@@ -26,7 +26,7 @@ Before starting the tutorial, if you haven't set up an Octopus Deploy instance, 
 
 !include <octopus-deploy-setup-options>
 
-When you have an instance running, go to the [configure environments page](docs/getting-started/first-deployment/configure-environments.md) to get started.
+When you have an instance running, go to the [configure environments page](/docs/getting-started/first-deployment/legacy-guide/configure-environments.md) to get started.
 
 **Further Reading**
 
