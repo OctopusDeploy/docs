@@ -28,8 +28,8 @@ The ability to push the build information to Octopus, which is required for GitH
  - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
  - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
  - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
- - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
-
+ - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/)
+ - [GitHub Actions](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
 ## Configuring GitHub integration
 
 The following steps explain how to integrate Octopus with GitHub issues:  

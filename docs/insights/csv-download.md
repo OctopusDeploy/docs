@@ -4,7 +4,7 @@ description: Download your data as a CSV
 position: 150
 ---
 
-A CSV of the deployments and associated Insights data can be downloaded via the `DOWNLOAD CSV` link underneath the chart
+A CSV of the deployments and associated Insights data can be downloaded via the **DOWNLOAD CSV** link underneath the chart
 on each of the single metric pages. 
 
 On the project pages, the last 12 months of data that matches the channel, environment and tenant filter is returned.
