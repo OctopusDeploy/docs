@@ -7,7 +7,7 @@ hideInThisSection: true
 
 !include <create-projects>
 
-The next step will [define the deployment process](/docs/getting-started/first-deployment/define-the-deployment-process.md) in the newly created project.
+The next step will [define the deployment process](/docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process.md) in the newly created project.
 
 **Further Reading**
 
