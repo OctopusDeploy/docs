@@ -1,3 +1,8 @@
+**Pattern - Blue-Green**
+
+- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/deployments/process" target="_blank">Random Quotes Java</a>: <i>Deploys the Java version of Random Quotes to Tomcat using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-JAVA)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-542/deployments/process" target="_blank">Random Quotes .NET</a>: <i>Deploys the .NET version of Random Quotes using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-NET)</i>
+    
 **Secrets Management**
 
 - <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1702/deployments/process" target="_blank">AWS Secrets Manager</a>: <i>Sample project retrieving secrets from AWS Secrets Manager using the [Retrieve Secrets](https://library.octopus.com/step-templates/5d5bd3ae-09a0-41ac-9a45-42a96ee6206a/actiontemplate-aws-secrets-manager-retrieve-secrets) step template.</i>
