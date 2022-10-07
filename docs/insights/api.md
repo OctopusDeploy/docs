@@ -4,22 +4,24 @@ description: The Insights API
 position: 160
 ---
 
-Insights is still in development.  You can use this API, however, please keep in mind that it could change at any time.
+:::warning
+The DevOps Insights feature is still in development.  You can use this API; however, please keep in mind that it could change at anytime.
+:::
 
-# Insights Reports API
+## Insights Reports API
 
-## Get a list of Insights reports
-GET: api/{spaceId}/insights/reports
+### Get a list of Insights reports
+GET: `/api/{spaceId}/insights/reports`
 Returns a paginated list of the Insights reports in the supplied Octopus Deploy space.
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId | Id of the space |
 | skip | Number of items to skip. Defaults to zero |
 | take | Number of items to take (i.e. the page size). Defaults to 30 |
 
-### Sample response
+#### Sample response
 ```json
 {
   "ItemType": "InsightsReport",
@@ -79,7 +81,7 @@ Returns a paginated list of the Insights reports in the supplied Octopus Deploy 
 }
 ```
 
-### Properties
+#### Properties
 | Property | Description |
 | -------- | ----------- |
 | ItemType | The type of resource - for Insights Reports, this will always be  "InsightsReport” |
@@ -91,19 +93,19 @@ Returns a paginated list of the Insights reports in the supplied Octopus Deploy 
 | Links | Links to other resources.  See REST API Links https://octopus.com/docs/octopus-rest-api#api-links |
 
 
-## Create an Insights report
-POST: api/{spaceId}/insights/reports
+### Create an Insights report
+POST: `/api/{spaceId}/insights/reports`
 Create a new Insights report.
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId | Id of the space | 
 
-### Request Body
+#### Request Body
 The request body is in JSON format.
 
-### Sample request
+#### Sample request
 ```json
 {
     "SpaceId": "Spaces-1",
@@ -140,7 +142,7 @@ The request body is in JSON format.
 }
 ```
 
-### Properties
+#### Properties
 | Property |  | Description |
 | -------- | -------- | ----------- |
 | SpaceId  | Required | The id of the space to contain the report | 
@@ -154,24 +156,24 @@ The request body is in JSON format.
 | EnvironmentGroups | Optional | An array of the environment groups to be  included in this report.  See below for details | 
 | TimeZone | Optional | The timezone to be used in the report. Must be either a Windows or IANA (Tzdb) timezone |
 
-### EnvironmentGroups Properties
+#### EnvironmentGroups Properties
 | Property |  | Description |
 | -------- | -------- | ----------- |
 | Name | Required | The name of the environment group.  Must be unique per report |
 | Environments | Required | An array of the ids of the environments to include in the group |
 
 
-## Get a specific Insights report
-GET: api/{spaceId}/insights/reports/{reportId}
+### Get a specific Insights report
+GET: `/api/{spaceId}/insights/reports/{reportId}`
 Retrieves an existing Insights report.
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId | Id of the space containing the report |
 | reportId | Id of the report to retrieve |
 
-### Sample response
+#### Sample response
 ```json
 {
   "Id": "InsightsReports-1",
@@ -215,7 +217,7 @@ Retrieves an existing Insights report.
 }
 ```
 
-### Properties
+#### Properties
 | Property | Description |
 | -------- | ----------- |
 | Id       | The id of the Insights report | 
@@ -233,20 +235,20 @@ Retrieves an existing Insights report.
 | IconColor | The icon color in hex format (example: '#0D80D8') | 
 | Links     | Links to other resources.  See [REST API Links](https://octopus.com/docs/octopus-rest-api#api-links) |
 
-## Update an Insights report
-PUT: api/{spaceId}/insights/reports/{reportId}
+### Update an Insights report
+PUT: `/api/{spaceId}/insights/reports/{reportId}`
 Updates an existing Insights report.
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId  | Id of the space containing the report |
 | reportId | The id of the Insights report to update |
 
-### Request Body
+#### Request Body
 The request body is in JSON format.
 
-### Sample request
+#### Sample request
 ```json
 {
     "SpaceId": "Spaces-1",
@@ -284,7 +286,7 @@ The request body is in JSON format.
 }
 ```
 
-### Properties
+#### Properties
 | Property | Required | Description |
 | -------- | -------- | ----------- |
 | SpaceId  | Required | The id of the space containing the report. | 
@@ -299,29 +301,28 @@ The request body is in JSON format.
 | EnvironmentGroups | Optional | An array of the environment groups to be  included in this report. | 
 | TimeZone | Optional | The timezone to be used in the report. Must be either a Windows or IANA (Tzdb) timezone. | 
 
-## Delete an Insights report
-DELETE: api/{spaceId}/insights/reports/{reportId}
+### Delete an Insights report
+DELETE: `/api/{spaceId}/insights/reports/{reportId}`
 Deletes an existing Insights report.
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId  | Id of the space containing the report |
 | reportId | The id of the Insights report to delete |
 
-## Get deployment level insights metrics
-GET: api/{spaceId}/insights/reports/{reportId}/deployments
+### Get deployment level insights metrics
+GET: `/api/{spaceId}/insights/reports/{reportId}/deployments`
 Returns the streams of deployments for the given report. A stream is a sequence of deployments used to calculate metrics. Includes all the deployments with their Insights metrics for the last 12 whole months and this month, for the specified report.
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId  | Id of the space containing the report |
 | reportId | The id of the Insights report for which to retrieve details |
 
-### Sample response
+#### Sample response
 ```json
-Sample response
 {
   "ReportName": "High Volume Report",
   "Streams": [
@@ -371,13 +372,13 @@ Sample response
 }
 ```
 
-### Properties
+#### Properties
 | Property | Description |
 | -------- | ----------- |
 | ReportName | The name of the report |
 | Streams | An array of streams.  A stream is a sequence of deployments used to calculate metrics |
 
-### Streams properties
+#### Streams properties
 | Property | Description |
 | -------- | ----------- |
 | ProjectId   | The id of the project for this stream. | 
@@ -390,7 +391,7 @@ Sample response
 | TenantName  | The name of the tenant for this stream.  Will be null if you don’t have access to this tenant. | 
 | Deployments | An array of the deployments in this stream.  | Deployments belong to the same stream if they have the same project, channel, environment and tenant. | 
 
-### Deployments properties
+#### Deployments properties
 | Property | Description |
 | -------- | ----------- |
 | Id | The id of the deployment. | 
@@ -408,11 +409,11 @@ Sample response
 | RecoveredFromFailedReleaseVersion | The first version which had a failed deployment in a series of one or more failed deployments. |  | 
 
 
-## Get deployment level aggregated insights metrics
-GET: api/{spaceId}/insights/reports/{reportId}/metrics
+### Get deployment level aggregated insights metrics
+GET: `/api/{spaceId}/insights/reports/{reportId}/metrics`
 
 
-### Parameters
+#### Parameters
 | Name | Description |
 | ---- | ----------- |
 | spaceId  | Id of the space containing the report. | 
@@ -422,7 +423,7 @@ GET: api/{spaceId}/insights/reports/{reportId}/metrics
 | timeRange   | The time period to get data for. Should be ‘LastMonth’, ‘LastQuarter’, or ‘LastYear’ | 
 | granularity | The data grouping granularity, defaults to weekly if not supplied.  Should be ‘Monthly’, ‘Weekly’, or ‘Daily’. | 
 
-### Sample response
+#### Sample response
 ```json
 {
   "Series": [
@@ -479,18 +480,18 @@ GET: api/{spaceId}/insights/reports/{reportId}/metrics
 }
 ```
 
-### Properties
+#### Properties
 | Property | Description |
 | -------- | ----------- |
 | Series   | An array of the series returned, each containing the values for the split provided   |
 
-### Series Properties
+#### Series Properties
 | Property | Description |
 | -------- | ----------- |
 | Name     |  The name of the series.  If no split is provided, this will be ‘All’  |
 | Intervals |  An array of the time periods containing the data returned |
 
-### LeadTime, TimeSincePreviousDeployment, MeanTimeToRecovery and DeploymentsUntilRecovery Properties
+#### LeadTime, TimeSincePreviousDeployment, MeanTimeToRecovery and DeploymentsUntilRecovery Properties
 | Property | Description |
 | -------- | ----------- |
 | Count    | The number of deployments aggregated in the current metric for the interval | 
@@ -500,7 +501,7 @@ GET: api/{spaceId}/insights/reports/{reportId}/metrics
 | Max      | The maximum value for the current metric for the interval  | 
 | NinetyFifth | The 95th percentile value for the current metric for the interval  | 
 
-### DeploymentFailureRate Properties
+#### DeploymentFailureRate Properties
 | Property | Description |
 | -------- | ----------- |
 | Successful | The number of successful deployments for the interval | 
