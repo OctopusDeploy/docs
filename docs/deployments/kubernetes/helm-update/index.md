@@ -11,6 +11,24 @@ A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/
 
 ![Helm Feed](/helm-feed.png "width=500")
 
+:::info
+The built-in repository is [capable of storing Helm Charts](https://octopus.com/docs/packaging-applications), however, the mechanism for determing the `PackageID` and `Version` may differ depending on the contents of the `.tgz` file.  If the `.tgz` file contains a `chart.yaml` file, the PackageID is determined by the `name` and version is determined by the `version` sections of the YAML.  
+
+```yaml
+apiVersion: v2
+name: petclinic-chart
+description: A Helm chart for Kubernetes
+
+type: application
+
+version: 1.0.0
+
+appVersion: "1.16.0"
+```
+
+If the `.tgz` does not have a `chart.yaml` file, the PackageID and version are interpreted by the filename as described above.
+:::
+
 For more information about Helm Chart repositories and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/chart_repository/).
 
 ## Helm upgrade step
