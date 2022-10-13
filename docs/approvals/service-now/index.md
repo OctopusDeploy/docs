@@ -24,8 +24,12 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise subscription.
 
-Your ServiceNow instance must have the "Change Management" application installed and activated 
-(typically available as part of the ServiceNow ITSM product).
+Your ServiceNow instance must have the following modules installed and activated:
+- Change Management
+- Change Management Standard Change Catalog
+- Change Management State Model
+
+These are typically available as part of the ServiceNow ITSM product
 
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
