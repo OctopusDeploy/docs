@@ -271,7 +271,7 @@ Sometimes the contents of the security token sent back by Azure AD aren't exactl
 
 ![ID Token](images/5866123.png "width=500")
 
-5. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
+5. Octopus uses most of the data to validate the token but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
 
 ### Contact Octopus Support
 
