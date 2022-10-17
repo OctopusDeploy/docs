@@ -4,8 +4,9 @@ description: Octopus Deploy can integrate with your ServiceNow instance for depl
 position: 10
 ---
 
-:::warning
+:::hint
 The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing).
+[Contact us](https://octopus.com/company/contact) to request a trial.
 :::
 
 ## Overview
