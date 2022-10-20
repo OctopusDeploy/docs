@@ -92,7 +92,7 @@ users:
 
       :::hint
       **Common issues:**
-      If using the AWS account type, the Octopus Server or worker will need to have the `aws-iam-authenticator` executable available on the path. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
+      If using the AWS account type, the Octopus Server or worker must have either the `aws cli` (1.16.156 or later) or `aws-iam-authenticator` executable on the path. If both are present the `aws cli` will be used. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
 
       The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
 
