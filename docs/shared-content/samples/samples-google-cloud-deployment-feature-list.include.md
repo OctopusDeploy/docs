@@ -14,11 +14,13 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2001/deployments/process" target="_blank">Flyway - GCP Service Account</a>: <i>Example project for automated database deployments using Flyway against a GCP MySQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2002/deployments/process" target="_blank">Liquibase - GCP Service Account</a>: <i>Sample project that creates and deploys the sakila database to an AWS RDS MySQL instance using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2142/deployments/process" target="_blank">Grate - GCP Service Account</a>
     
 **Target - PostgreSQL**
 
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1941/deployments/process" target="_blank">Liquibase - GCP Service Account</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL instance hosted in GCP using Liquibase and using a GCP Service Account for authentication. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1981/deployments/process" target="_blank">Flyway - GCP Service Account</a>: <i>Demonstrates how to perform automated database updates using Flyway against PostgreSQL. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-2145/deployments/process" target="_blank">Grate - GCP Service Account</a>
     
 **Target - SQL Server**
 
@@ -26,3 +28,4 @@
 - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1944/deployments/process" target="_blank">Flyway - GCP</a>: <i>Sample project that creates and deploys the Sakila database to Microsoft SQL Server using Flyway. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1945/deployments/process" target="_blank">RoundhousE - GCP</a>: <i>Sample project that creates and deploys the Sakila database to Microsoft SQL Server using RoundhousE. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildRoundhouse)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1961/deployments/process" target="_blank">DBUp - GCP</a>: <i>Sample project for deploying to SQL Server using DBUp by using the worker pool variable type. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildDBUp)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-2149/deployments/process" target="_blank">Grate - GCP</a>: <i>Sample project that creates and deploys the Sakila database to Microsoft SQL Server using Grate. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_Grate)</i>
