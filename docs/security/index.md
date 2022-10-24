@@ -1,14 +1,17 @@
 ---
 title: Security
 description: Security considerations for Octopus Administrators.
-position: 120
+position: 130
 ---
 
 We pride ourselves on making Octopus Deploy a secure product. The security and integrity of your Octopus Deploy installation is the result of a partnership between us as the software vendor, and you as the host and administrators of your installation.
 
 This section provides information about the responsibility we take to provide a secure software product, and considerations for you as the host and administrator of your Octopus Deploy installation.
 
-Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](https://octopus.com/documents/security-review-executive-report.pdf)
+Every year Octopus undergoes a security review conducted by a third-party company. The latest reports can be downloaded:
+- [cloud-security-review-2022.pdf](https://octopus.com/documents/cloud-security-review-executive-report-2022.pdf)
+- [octopus-security-review-2022.pdf](https://octopus.com/documents/octopus-security-review-executive-report-2022.pdf)
+
 
 We often hear from customers who want to know more about our security posture. We've performed a [self assessment against various industry-standard controls](/docs/security/caiq/index.md). Feel free to use this in any vendor assessments you need to perform.
 

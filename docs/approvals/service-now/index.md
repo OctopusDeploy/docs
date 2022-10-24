@@ -4,8 +4,9 @@ description: Octopus Deploy can integrate with your ServiceNow instance for depl
 position: 10
 ---
 
-:::warning
-The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise license](https://octopus.com/enterprise).
+:::hint
+The ServiceNow Integration feature is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing).
+[Contact us](https://octopus.com/company/contact) to request a trial.
 :::
 
 ## Overview
@@ -22,12 +23,20 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 
 ## Getting started
 
-The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise license.
+The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise subscription.
+
+Your ServiceNow instance must have the following modules installed and activated:
+- Change Management
+- Change Management Standard Change Catalog
+- Change Management State Model
+
+These are typically available as part of the ServiceNow ITSM product
 
 Before you can use the Octopus Deploy/ServiceNow integration, you'll need to:
 
 1. Configure ServiceNow OAuth credentials (for use by Octopus).
-1. Request and install an enterprise license which is required to enable the ServiceNow feature.
+1. Request an enterprise license which is required to enable the ServiceNow feature.
+1. Install the enterprise license (for Self-hosted customers only)
 1. Configure a connection from Octopus to ServiceNow.
 1. Configure which deployments require an approved CR.
 
@@ -52,9 +61,9 @@ Take note of the password assigned or generated for this user.
 
 ### Licensing
 
-For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/enterprise) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
+For the ServiceNow approval checks to be performed as part of the deployment process, an [enterprise license](https://octopus.com/pricing) must be configured in your Octopus instance. This license must be requested from Octopus directly and cannot be managed through the self-service process.
 
-Once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**.
+For Self-hosted customers, once you have received your enterprise license, you can install it by navigating to **{{Configuration, License}}**. For Octopus Cloud customers, the license will be applied automatically for you.
 
 An enabled license will include a block similar to below:
 
@@ -116,9 +125,14 @@ To enable a project to enforce a requirement for an approved CR:
 
 ![ServiceNow Integration Project settings](images/servicenow-project-settings.png "width=500")
 
-### Standard Change Templates
+### Standard vs Normal Changes
 
-By default, the deployments resulting in a CR creation will produce a `Normal` change. Setting the **Change Template Name** setting under **Project Settings** to the name of a valid, approved **Change Template** will instead create a `Standard` change based upon the change template.
+By default, deployments resulting in CR creation will produce a `Normal` change (i.e. one 
+requiring explicit approval).
+
+Setting the **Standard Change Template Name** setting under **Project Settings** to the name of an 
+active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
+result in deployments of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
 ### Supplying the CR number to a deployment
 
@@ -201,7 +215,26 @@ The following list assumes the linked change is in an **approved** state.
 
 ## Known Issues and limitations
 
-- The approval status of a deployment is not evaluated until the Octopus deployment scheduled start time has been reached.
 - Once a CR is deemed to be related to a deployment, then only this CR will be evaluated for the deployment to proceed. If the CR is incorrect, you will need to cancel the deployment, close the CR and try the deployment again.
 - Each project only supports a single ServiceNow connection.
 - Each project only supports supplying the same **Change Template Name** across all environments in the [Lifecycle](/docs/releases/lifecycles/index.md/) attached to the project or channel.
+
+## Troubleshooting
+
+Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's 
+tooltip. Additional information will also be available in the "System Diagnostic Report".
+
+If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
+
+The ServiceNow integration uses the following REST endpoints:
+
+| Purpose                              | HTTP Method | Path                                            | Notes |
+|--------------------------------------|-------------|-------------------------------------------------|-------|
+| Authorize                            | `POST`      | `/oauth_token.do`                               |       |
+| Search for changes                   | `GET`       | `/api/sn_chg_rest/change`                       |       |
+| Create change                        | `POST`      | `/api/sn_chg_rest/change/normal`                |       |
+| Search for Standard Change templates | `GET`       | `/api/sn_chg_rest/change/standard/template`     | Requires project **Change Template Name** configuration |
+| Create Standard Change from template | `POST`      | `/api/sn_chg_rest/change/standard/{templateId}` | Requires project **Change Template Name** configuration |
+|Approve Standard Change               | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration |
+|Add work notes                        | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
+

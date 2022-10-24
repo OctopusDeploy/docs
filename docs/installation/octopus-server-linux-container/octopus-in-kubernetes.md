@@ -451,10 +451,10 @@ spec:
           - name: ADMIN_EMAIL
             value: admin@example.org
           - name: OCTOPUS_SERVER_BASE64_LICENSE
-            # Your license key goes here. When using more than one node, a HA license is required. Without a HA license, the stateful set can have a replica count of 1.
+            # Your base64 encoded license key goes here. When using more than one node, a HA license is required. Without a HA license, the stateful set can have a replica count of 1.
             value: <License-goes-here>
           - name: MASTER_KEY
-            # Replace this, as this value protects secrets in Octopus
+            # The base64 Master Key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one.
             value: <MasterKey-goes-here>
         ports:
         - containerPort: 8080

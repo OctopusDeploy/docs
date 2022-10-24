@@ -1,9 +1,11 @@
 log/
 obj/
 _site/
+.vs/
 .vscode/
 .idea
 *.iml
 .DS_Store
 **/*.dia~
 tmp
+.pnpm-store/
