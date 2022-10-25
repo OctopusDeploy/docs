@@ -370,9 +370,11 @@ In addition to common build steps, we also have an action that can Run a Runbook
 
 ### Push Build Information
 
-Build information contain information on which build produced an artifact, what commits it contained, and which work items it is associated with.
+Build information contain information on which build produced an artifact, what commits it 
+contained, and which work items it is associated with.
 
-Build information is generated and pushed to Octopus with the `OctopusDeploy/push-build-information-action` step:
+Build information is generated and pushed to Octopus with the 
+`OctopusDeploy/push-build-information-action` step:
 
 ```yaml
   - name: Generate Octopus Deploy build information
