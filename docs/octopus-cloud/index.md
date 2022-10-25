@@ -25,7 +25,7 @@ Now that you've created an Octopus account, you can create a new instance of Oct
 
 !include <octopus-cloud-instance>
 
-When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://Octopus.com/signin).
+When the instance is ready, you will see it (and any other instances you have access to) the next time you log in to your Octopus account at [https://octopus.com/signin](https://octopus.com/signin).
 
 ## Where is Octopus Cloud hosted {#octopus-cloud-hosting-locations}
 
@@ -37,7 +37,7 @@ Octopus Cloud instances are subject to storage limits. Specifically:
 
 !include <octopus-cloud-storage-limits>
 
-Please see our [Cloud pricing FAQ](https://octopus.com/pricing/faq#cloud-storage-limits) for further details.
+Please see our [Cloud pricing FAQ](https://octopus.com/pricing/faq#are-there-any-storage-limits) for further details.
 
 ## Uploading packages to Octopus Cloud servers {#uploading-packages-to-octopus-cloud-servers}
 

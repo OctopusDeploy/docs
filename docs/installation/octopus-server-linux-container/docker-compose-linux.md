@@ -4,10 +4,6 @@ description: A fully self-contained SQL Server and Octopus Server provisioned as
 position: 10
 ---
 
-:::hint
-There is a [known issue](https://github.com/OctopusDeploy/Issues/issues/6629) when providing both the `ADMIN_PASSWORD` and `ADMIN_API_KEY` for the Octopus Server Linux Container that prevents the Administrator from logging in. This will be resolved in a future version of Octopus.
-:::
-
 For evaluation purposes you may want to run a stand-alone SQL Server instance alongside the Octopus Server. For this scenario, you can leverage [Docker Compose](https://docs.docker.com/compose/overview/) to spin up and manage a multi-container Docker application as a single unit.
 
 The following example is a simple `docker-compose.yml` file combining a SQL Server instance with a dependent Octopus Server:
@@ -31,7 +27,7 @@ services:
    octopus-server:
     image: octopusdeploy/octopusdeploy:${OCTOPUS_SERVER_TAG}
     privileged: ${PRIVILEGED}
-    user: ${USER}
+    user: ${CONTAINER_USER}
     environment:
       ACCEPT_EULA: ${ACCEPT_OCTOPUS_EULA}
       OCTOPUS_SERVER_NODE_NAME: ${OCTOPUS_SERVER_NODE_NAME}
@@ -108,9 +104,6 @@ MASTER_KEY=
 # The API Key to set for the administrator. If this is set and no password is provided then a service account user will be created. 
 # If this is set and a password is also set then a standard user will be created.
 #
-# NOTE: There is a known issue when providing both the ADMIN_PASSWORD and ADMIN_API_KEY that prevents the Administrator from logging in.
-# This will be resolved in a future version of Octopus. See: https://github.com/OctopusDeploy/Issues/issues/6629 for further details.
-#
 ADMIN_API_KEY=
 
 # Docker-In-Docker is used to support worker container images. It can be disabled by setting DISABLE_DIND to Y.
@@ -119,7 +112,7 @@ DISABLE_DIND=Y
 PRIVILEGED=false
 
 # Octopus can be run either as the user root or as octopus.
-USER=octopus
+CONTAINER_USER=octopus
 ```
 
 You will have to supply your own values for `SA_PASSWORD`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`. 

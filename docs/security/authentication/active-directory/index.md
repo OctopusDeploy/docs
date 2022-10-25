@@ -167,7 +167,7 @@ All **client machines** will need to be configured to allow automatic logon. We 
 
 To enable the option via the Internet Security Settings
 **Internet Explorer** go to {{ Tools > Internet Options > Security }} tab, Select "Trusted Zones" then **Custom level...**.
-**Windows 10/Windoows Server** Search for "Internet Options" or {{ open Control Panel > Network and Internet > Internet Options}}.
+**Windows 10/Windows Server** Search for "Internet Options" or {{ open Control Panel > Network and Internet > Internet Options}}.
 
 In the **Security Settings - Internet Zone** window, go to {{ User Authentication > Logon }} and select **Automatic logon with current username and password**.
 
