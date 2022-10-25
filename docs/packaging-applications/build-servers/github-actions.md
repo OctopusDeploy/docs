@@ -370,7 +370,7 @@ In addition to common build steps, we also have an action that can Run a Runbook
 
 ### Push Build Information
 
-[Build information](/docs/packaging-applications/build-servers/build-information) contains a link 
+[Build information](/docs/packaging-applications/build-servers/build-information/index.md) contains a link 
 to the build which produced the package, details of the source 
 commits related to the build, and issue references parsed from the commit messages.
 
