@@ -34,13 +34,13 @@ Once everything is backed up and the Octopus Server stopped, the steps are as fo
 1. Run `Octopus.Server.exec rotate-master-key` and follow the prompts. This will guide you through the steps and generate a report at the end of the process. A new master key will also be written to its own file. In an HA setup, this command can be run from any server node.
 1. If you have an HA setup, run `Octopus.Server.exec set-master-key --masterKey=NEW_MASTER_KEY` on the other server nodes.
 1. You can confirm the new master key is being used by running `Octopus.Server.exec show-master-key`.
-1. Run `Octopus.Server.exe service --start` to start the Octopus Server running against the recovered database.
+1. Run `Octopus.Server.exe service --start` to start the Octopus Server running against the rotated database.
 
 **Please read the report carefully and get in touch with us if anything seems out of the ordinary. Back up your new Master Key!**
 
 ### Step 4. Post-rotation
 
-If the rotate goes well, everything should work exactly the same as before. You may want to check
+If the rotation goes well, everything should work exactly the same as before. You may want to check
 
 - Tentacles are still healthy and can connect to Octopus Server.
 - The HA cluster is fully functioning.
