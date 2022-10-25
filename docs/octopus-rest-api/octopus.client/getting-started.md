@@ -75,7 +75,7 @@ To get started with the Octopus Client library from PowerShell, use the `Install
 ```powershell Windows PowerShell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
-$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net452/Octopus.Client.dll"
+$path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/net462/Octopus.Client.dll"
 Add-Type -Path $path
 ```
 ```powershell PowerShell Core

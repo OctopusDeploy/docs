@@ -42,7 +42,7 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1122/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against MySQL. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-1123/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a MySQL container hosted in Azure using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
-- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2023/deployments/process" target="_blank">grate</a>
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2023/deployments/process" target="_blank">Grate - Azure PaaS</a>: <i>Example project for automated database deployments using grate against an Azure MySQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_Grate)</i>
     
 **Target - PaaS**
 
@@ -52,6 +52,7 @@
 
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1084/deployments/process" target="_blank">Flyway - Azure PaaS</a>: <i>Demonstrates how to perform automated database updates using Flyway against PostgreSQL. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-1085/deployments/process" target="_blank">Liquibase - Azure PaaS</a>: <i>Sample project that creates and deploys the sakila database to a PosgreSQL container hosted in Azure using Liquibase. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildLiquibase)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-2144/deployments/process" target="_blank">Grate - Azure PaaS</a>
     
 **Target - Serverless**
 
@@ -61,3 +62,4 @@
 **Target - Tomcat**
 
 - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-1681/deployments/process" target="_blank">Pet Clinic - Azure Web App</a>: <i>Deploy the Java PetClinic application to Tomcat hosted in an Azure Web App.</i>
+- <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-2101/deployments/process" target="_blank">PetClinic - Demo</a>: <i>Deploy the Java PetClinic application to Tomcat hosted in an Azure Web App.</i>

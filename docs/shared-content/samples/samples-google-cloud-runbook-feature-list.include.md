@@ -26,6 +26,8 @@
 
 - Flyway - GCP
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1944/operations/runbooks/Runbooks-2164/process/RunbookProcess-Runbooks-2164" target="_blank">Destroy Infrastructure</a>: <i>Drops database for the environment.</i>
+- Grate - GCP
+   - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-2149/operations/runbooks/Runbooks-2502/process/RunbookProcess-Runbooks-2502" target="_blank">Destroy Infrastructure</a>: <i>Destroys the RoundhousE database for the environment.</i>
 - Liquibase - GCP
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-1942/operations/runbooks/Runbooks-2161/process/RunbookProcess-Runbooks-2161" target="_blank">Destroy Infrastructure</a>: <i>Destroys liquibase database for environment.</i>
 - RoundhousE - GCP
