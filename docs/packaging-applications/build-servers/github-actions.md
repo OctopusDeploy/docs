@@ -370,8 +370,9 @@ In addition to common build steps, we also have an action that can Run a Runbook
 
 ### Push Build Information
 
-Build information contains details on which build produced an artifact, what commits it 
-contained, and which work items it is associated with.
+[Build information](/docs/packaging-applications/build-servers/build-information) contains a link 
+to the build which produced the package, details of the source 
+commits related to the build, and issue references parsed from the commit messages.
 
 Build information is generated and pushed to Octopus with the 
 `OctopusDeploy/push-build-information-action` step:
