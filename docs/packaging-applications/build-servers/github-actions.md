@@ -19,6 +19,7 @@ Octopus Deploy has several custom GitHub Actions available:
 - [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
 - [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
 - [Run a runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
+- [Push Build Information](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
 
 All of the Actions are compatible with following runner types:
 
