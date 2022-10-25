@@ -234,7 +234,7 @@ Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** A
 
 ```yaml
     - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1.1.1
+      uses: OctopusDeploy/push-package-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
@@ -244,11 +244,11 @@ Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** A
 
 ### Creating a release
 
-To create a release, use the **OctopusDeploy/create-release-action**.  This action also contains the ability to deploy the newly created release.  Use either the `progress` or `wait_for_deployment` options to have the build wait for the deployment to complete and report success or failure. Using  `progress` will display messages from Octopus itself whereas `wait_for_deployment` will simply wait for Octopus to report success or failure.:
+To create a release, use the **OctopusDeploy/create-release-action**.  This action also contains the ability to deploy the newly created release.  Use either the `progress` or `wait_for_deployment` options to have the build wait for the deployment to complete and report success or failure. Using  `progress` will display messages from Octopus itself whereas `wait_for_deployment` will simply wait for Octopus to report success or failure:
 
 ```yaml
     - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1.1.1
+      uses: OctopusDeploy/create-release-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
@@ -317,7 +317,7 @@ jobs:
     - name: Publish OctoPetShopShoppingCartService
       run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
     - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1.1.6
+      uses: OctopusDeploy/install-octopus-cli-action@v1
       with:
         version: latest
     - name: Package OctoPetShopDatabase
@@ -333,14 +333,14 @@ jobs:
       run: |
         octo pack --id="OctoPetShop.ShoppingCartService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService" --outFolder="$GITHUB_WORKSPACE/artifacts"
     - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1.1.1
+      uses: OctopusDeploy/push-package-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
         packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
         space: ${{ secrets.OCTOPUSSERVER_SPACE }}
     - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1.1.1
+      uses: OctopusDeploy/create-release-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
@@ -366,6 +366,24 @@ In addition to common build steps, we also have an action that can Run a Runbook
       server: ${{ secrets.OCTOPUSSERVERURL }}
       space: ${{ secrets.OCTOPUSSERVER_SPACE }}
       show_progress: 'true'
+```
+
+### Push Build Information
+
+Build information contain information on which build produced an artifact, what commits it contained, and which work items it is associated with.
+
+Build information is generated and pushed to Octopus with the `OctopusDeploy/push-build-information-action` step:
+
+```yaml
+  - name: Generate Octopus Deploy build information
+    uses: OctopusDeploy/push-build-information-action@v1
+    env:
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_TOKEN }}
+      OCTOPUS_HOST: ${{ secrets.OCTOPUS_SERVER_URL }}
+    with:
+      version: ${{ env.PACKAGE_VERSION }}
+      packages: OctoPetShopWeb
+      overwrite_mode: OverwriteExisting
 ```
 
 :::success
