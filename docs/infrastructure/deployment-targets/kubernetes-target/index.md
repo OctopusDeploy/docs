@@ -92,7 +92,7 @@ users:
 
       :::hint
       **Common issues:**
-      If using the AWS account type, the Octopus Server or worker must have either the `aws cli` (1.16.156 or later) or `aws-iam-authenticator` executable on the path. If both are present the `aws cli` will be used. The EKS api version is selected based on the kubectl version. Versions of `kubectl` `1.23.6` and earlier target the `v1alpha1` endpoints and `aws-iam-authenticator` version `0.5.3` or earlier should be used. For `kubectl` `1.24.0` and later `v1beta1` endpoints are used and versions `0.5.5` and later of the `aws-iam-authenticator` are required. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
+      From version 2022.4 Octopus can use the `aws cli` to authenticate to an EKS cluster, earlier versions rely on the `aws-iam-authenticator`. If using the AWS account type, the Octopus Server or worker must have either the `aws cli` (1.16.156 or later) or `aws-iam-authenticator` executable on the path. If both are present the `aws cli` will be used. The EKS api version is selected based on the kubectl version. For Octopus 2022.3 and earlier `kubectl` `1.23.6` and `aws-iam-authenticator` version `0.5.3` or earlier must be used, these target `v1alpha1` endpoints. For `kubectl` `1.24.0` and later `v1beta1` endpoints are used and versions `0.5.5` and later of the `aws-iam-authenticator` are required. See the [AWS documentation](https://oc.to/AWSEKSKubectl) for download links.
 
       The error `You must be logged into the server (the server has asked for the client to provide credentials)` generally indicates the AWS account does not have permissions in the Kubernetes cluster.
 
