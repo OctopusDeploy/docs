@@ -6,7 +6,7 @@ position: 45
 
 There are times you might want to rotate your master key, for example if you're worried about the existing master key being leaked. This guide walks you through this process. The rotation should have no impact once it's completed.
 
-This guide assumes you still have access to your Master Key. You should be able to run the [`show-master-key` command](/docs/octopus-rest-api/octopus.Server-command-line/show-master-key.md). If you've lost access to the Master Key, please refer to [Recovering after losing your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
+This guide assumes you still have access to your Master Key. You should be able to run the [`show-master-key` command](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md). If you've lost access to the Master Key, please refer to [Recovering after losing your Octopus Server and Master Key](/docs/administration/managing-infrastructure/lost-master-key.md).
 
 ## What is affected by the rotation
 
