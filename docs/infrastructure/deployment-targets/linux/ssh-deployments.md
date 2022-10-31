@@ -24,7 +24,7 @@ If you are writing a cross-platform script, be aware of the differences between 
 :::
 
 :::hint
-** Bash (and other shell) variables**
+**Bash (and other shell) variables**
 Octopus Deploy will log into the SSH target via a non-interactive shell. Because of this, startup files like `.bashrc` are not fully evaluated. If you are referencing bash variables `export`ed in these files, you should move them before the following common code block at the top of the file:
 ```
 # If not running interactively, don't do anything
