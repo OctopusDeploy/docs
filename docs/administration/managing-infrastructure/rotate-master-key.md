@@ -21,7 +21,7 @@ Octopus [encrypts important and sensitive data](/docs/security/data-encryption.m
 
 ### Step 1. Back up before you start
 
-Make sure to [back up everything](/docs/administration/data/backup-and-restore.md) before you start this process. This should also include the ``OctopusServer.config` which contains the old master key in case the process fails.
+Make sure to [back up everything](/docs/administration/data/backup-and-restore.md) before you start this process. This should also include the `OctopusServer.config` which contains the old master key in case the process fails.
 
 ### Step 2. Stop the server
 
