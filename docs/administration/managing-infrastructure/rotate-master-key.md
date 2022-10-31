@@ -25,7 +25,7 @@ Make sure to [back up everything](/docs/administration/data/backup-and-restore.m
 
 ### Step 2. Stop the server
 
-Master key rotation currently only works when the server is stopped. In an HA cluster this means all the server nodes need to be stopped. The database will not be in a valid state during the rotation. You can do this with `Octopus.Server service --stop` on each server node. This also ensures anything in memory or in transit is persisted to disk before we start.
+Master key rotation currently only works when Octopus server is stopped, as the database will not be in a valid state during the rotation process. In an HA cluster, this means all the server nodes need to be stopped. You can do this with `Octopus.Server service --stop` on each server node. This also ensures anything in memory or in transit is persisted to disk before we start.
 
 ### Step 3. Rotate the master key
 
