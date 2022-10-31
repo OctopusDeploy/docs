@@ -59,7 +59,6 @@ Your Master Key has been replaced, and all of your sensitive values updated with
 --------------------------------------------------------------------------------
 10009/10533 documents were updated
 --------------------------------------------------------------------------------
-...
 ```
 
 ### Step 4. Post-rotation
