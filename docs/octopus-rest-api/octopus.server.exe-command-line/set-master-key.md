@@ -28,7 +28,7 @@ Or one of the common options:
 
 ## Basic example
 
-This example will update the config file for the instance named `OctopusServer` with the provided master key .
+This example will update the config file for the instance named `OctopusServer` with the provided master key.
 
 ```text
 octopus.server set-master-key --instance="OctopusServer" --masterKey=NEW_MASTER_KEY
