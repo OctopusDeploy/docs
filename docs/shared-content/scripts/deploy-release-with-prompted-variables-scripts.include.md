@@ -1,4 +1,6 @@
 ```powershell PowerShell (REST API)
+$ErrorActionPreference = "Stop";
+
 # Define working variables
 $apiKey = "Your API Key"
 $OctopusURL = "https://yoururl.octopus.app/"
