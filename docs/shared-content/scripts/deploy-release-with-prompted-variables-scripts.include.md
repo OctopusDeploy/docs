@@ -2,47 +2,39 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl/api"
-$octopusAPIKey = "API-YOURAPIKEY"
-$headers = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$promptedVariable = "PromptedVariableName::PromptedVariableValue"
+$apiKey = "Your API Key"
+$OctopusURL = "https://yoururl.octopus.app/"
 
-$spaceName = "Default"
-$projectName = "Your Project Name"
-$releaseVersion = "0.0.1"
-$environmentName = "Development"
+$ProjectName = "Your Project Name"
+$EnvironmentName = "Your Environment Name"
+$ReleaseNumber = "Your Release Number"
+$spaceName = "Your Space Name"
+$promptedVariableValue = "VariableName::Variable Value"
+
+$Header =  @{ "X-Octopus-ApiKey" = $apiKey }
 
 # Get space id
-$spaces = Invoke-RestMethod -Uri "$octopusURL/api/spaces?partialName=$([uri]::EscapeDataString($spaceName))&skip=0&take=100" -Headers $headers -ErrorVariable octoError
-$space = $spaces.Items | Where-Object { $_.Name -eq $spaceName }
-Write-Host "Using Space named $($space.Name) with id $($space.Id)"
+$spaceList = Invoke-RestMethod "$OctopusUrl/api/spaces?partialName=$([System.Web.HTTPUtility]::UrlEncode($spaceName))&skip=0&take=1" -Headers $Header
+$spaceId = $spaceList.Items[0].Id
 
 # Get project by name
-$projects = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/projects?partialName=$([uri]::EscapeDataString($projectName))&skip=0&take=100" -Headers $headers -ErrorVariable octoError
-$project = $projects.Items | Where-Object { $_.Name -eq $projectName }
-Write-Host "Using Project named $($project.Name) with id $($project.Id)"
-
-# Get release by version
-$releases = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/projects/$($project.Id)/releases?searchByVersion=$releaseVersion" -Headers $headers -ErrorVariable octoError
-$release = $releases.Items | Where-Object { $_.Version -eq $releaseVersion }
-Write-Host "Using Release version $($release.Version) with id $($release.Id)"
+$ProjectList = Invoke-RestMethod "$OctopusURL/api/$spaceId/projects?name=$([System.Web.HTTPUtility]::UrlEncode($projectName))&skip=0&take=1" -Headers $header
+$ProjectId = $ProjectList.Items[0].Id
 
 # Get environment by name
-$environments = Invoke-RestMethod -Uri "$octopusURL/api/$($space.Id)/environments?partialName=$([uri]::EscapeDataString($environmentName))&skip=0&take=100" -Headers $headers -ErrorVariable octoError
-$environment = $environments.Items | Where-Object { $_.Name -eq $environmentName }
-Write-Host "Using Environment named $($environment.Name) with id $($environment.Id)"
+$EnvironmentList = Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/Environments?name=$([System.Web.HTTPUtility]::UrlEncode($EnvironmentName))&skip=0&take=1" -Headers $Header
+$EnvironmentId = $EnvironmentList.Items[0].Id
+
+# Get release by version
+$ReleaseList = Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/projects/$ProjectId/releases?searchByVersion=$([System.Web.HTTPUtility]::UrlEncode($releaseNumber))&skip=0&take=1" -Headers $Header
+$ReleaseId = $ReleaseList.Items[0].Id
 
 # Get deployment preview for prompted variables
-$deploymentPreview = Invoke-RestMethod -Uri "$octopusUrl/api/$($space.Id)/releases/$($release.Id)/deployments/preview/$($environment.Id)?includeDisabledSteps=true" -Headers $header -ErrorVariable OctoError
-Write-Host "Found $($deploymentPreview.Form.Elements.Length) prompted variables to populate"
+$deploymentPreview = Invoke-RestMethod "$OctopusUrl/api/$spaceId/releases/$releaseId/deployments/preview/$($EnvironmentId)?includeDisabledSteps=true" -Headers $Header
 
 $deploymentFormValues = @{}
-if ([string]::IsNullOrWhiteSpace($formValues) -eq $true)
-{
-    return $deploymentFormValues
-}   
-
-$promptedValueList = @(($formValues -Split "`n").Trim())
+$promptedValueList = @(($promptedVariableValue -Split "`n").Trim())
+   
 foreach($element in $deploymentPreview.Form.Elements)
 {
     $nameToSearchFor = $element.Control.Name
@@ -70,20 +62,24 @@ foreach($element in $deploymentPreview.Form.Elements)
     
     if ($promptedVariableFound -eq $false -and $isRequired -eq $true)
     {
-        Write-Host "Unable to find a value for the required prompted variable $nameToSearchFor, exiting"
+        Write-Highlight "Unable to find a value for the required prompted variable $nameToSearchFor, exiting"
         Exit 1
     }
 }
 
+
 # Create deployment
-$deploymentBody = @{
-    ReleaseId     = $release.Id
-    EnvironmentId = $environment.Id
-    FormValues    = $deploymentFormValues
-} | ConvertTo-Json
+$DeploymentBody = @{ 
+            ReleaseID = $releaseId 
+            EnvironmentID = $EnvironmentId
+            FormValues = $deploymentFormValues
+            ForcePackageDownload=$False
+            ForcePackageRedeployment=$False
+            UseGuidedFailure=$False
+          } | ConvertTo-Json
 
 Write-Host "Creating deployment with these values: $deploymentBody"
-$deployment = Invoke-RestMethod -Uri $octopusURL/api/$($space.Id)/deployments -Method POST -Headers $headers -Body $deploymentBody
+Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/deployments" -Method Post -Headers $Header -Body $DeploymentBody
 ```
 ```powershell PowerShell (Octopus.Client)
 # Load assembly
