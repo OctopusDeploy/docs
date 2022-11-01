@@ -120,6 +120,10 @@ Git providers allow you to create an access token in different ways. The recomme
 -   [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
 -   [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - `write_repository`)
 
+:::hint
+Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
+:::
+
 ### File Storage
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
