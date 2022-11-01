@@ -1,6 +1,7 @@
-```##CONFIG##
+```powershell PowerShell (REST API)
+# Define working variables
 $apiKey = "Your API Key"
-$OctopusURL = "Your Octopus URL"
+$OctopusURL = "https://yoururl.octopus.app/"
 
 $ProjectName = "Your Project Name"
 $EnvironmentName = "Your Environment Name"
@@ -8,21 +9,25 @@ $ReleaseNumber = "Your Release Number"
 $spaceName = "Your Space Name"
 $promptedVariableValue = "VariableName::Variable Value"
 
-##PROCESS##
 $Header =  @{ "X-Octopus-ApiKey" = $apiKey }
 
+# Get space id
 $spaceList = Invoke-RestMethod "$OctopusUrl/api/spaces?partialName=$([System.Web.HTTPUtility]::UrlEncode($spaceName))&skip=0&take=1" -Headers $Header
 $spaceId = $spaceList.Items[0].Id
 
+# Get project by name
 $ProjectList = Invoke-RestMethod "$OctopusURL/api/$spaceId/projects?name=$([System.Web.HTTPUtility]::UrlEncode($projectName))&skip=0&take=1" -Headers $header
 $ProjectId = $ProjectList.Items[0].Id
 
+# Get environment by name
 $EnvironmentList = Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/Environments?name=$([System.Web.HTTPUtility]::UrlEncode($EnvironmentName))&skip=0&take=1" -Headers $Header
 $EnvironmentId = $EnvironmentList.Items[0].Id
 
+# Get release by version
 $ReleaseList = Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/projects/$ProjectId/releases?searchByVersion=$([System.Web.HTTPUtility]::UrlEncode($releaseNumber))&skip=0&take=1" -Headers $Header
 $ReleaseId = $ReleaseList.Items[0].Id
 
+# Get deployment preview for prompted variables
 $deploymentPreview = Invoke-RestMethod "$OctopusUrl/api/$spaceId/releases/$releaseId/deployments/preview/$($EnvironmentId)?includeDisabledSteps=true" -Headers $Header
 
 $deploymentFormValues = @{}
@@ -60,16 +65,18 @@ foreach($element in $deploymentPreview.Form.Elements)
     }
 }
 
-#Creating deployment and setting value to the only prompt variable I have on $p.Form.Elements. You're gonna have to do some digging if you have more variables
+
+# Create deployment
 $DeploymentBody = @{ 
-            ReleaseID = $releaseId #mandatory
-            EnvironmentID = $EnvironmentId #mandatory
+            ReleaseID = $releaseId 
+            EnvironmentID = $EnvironmentId
             FormValues = $deploymentFormValues
             ForcePackageDownload=$False
             ForcePackageRedeployment=$False
             UseGuidedFailure=$False
           } | ConvertTo-Json
-          
+
+Write-Host "Creating deployment with these values: $deploymentBody"
 Invoke-RestMethod -Uri "$OctopusURL/api/$spaceId/deployments" -Method Post -Headers $Header -Body $DeploymentBody
 ```
 ```powershell PowerShell (Octopus.Client)
