@@ -7,7 +7,7 @@ position: 30
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
 :::hint
-The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2022.3** and is being rolled out in stages for our Cloud customers first. It will be made available to Self-hosted customers in **Octopus 2022.4**.
+The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2022.3** and will be made available to Cloud customers soon. We will make this available to the on-prem customers later in 2023.
 :::
 
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
@@ -77,7 +77,7 @@ We take the sensitive value and hash it using an irreversible hash algorithm. We
 ### Archived audit logs {#archived-audit-events}
 
 :::hint
-Audit Retention functionality was introduced in **Octopus 2022.3** and is being rolled out in stages for our Cloud customers first. It will be made available to Self-hosted customers in **Octopus 2022.4**.
+Audit Retention functionality was introduced in **Octopus 2022.3** and will be made available to Cloud customers soon. We will make this available to the on-prem customers later in 2023.
 :::
 
 Audit log entries can require a significant amount of database space to store, degrading overall system performance. For this reason, Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **{{Configuration, Settings, Event Retention}}**. The location of the archived audit log files can be changed via **{{Configuration, Settings, Server Folders}}**.
