@@ -14,7 +14,7 @@ In this example we will create an infrastructure project and an application proj
 
 ## Machine Policy {#ImmutableInfrastructure-Machinepolicy}
 
-The Tentacles provisioned in this guide belong the to **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all of the settings at their default value.
+The Tentacles provisioned in this guide belong to the **Immutable Infrastructure** machine policy. For now, create a new machine policy called **Immutable Infrastructure** and leave all of the settings at their default value.
 
 ## Application Project {#ImmutableInfrastructure-Applicationproject}
 
@@ -36,7 +36,7 @@ The infrastructure project runs a script that provisions two new Tentacles and r
 
    ![](images/5865670.png "width=500")
 
-7. Add a step that runs **Teminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles.
+7. Add a step that runs **Terminate.ps1** from the package **HelloWorldInfrastructure** on the Octopus Server on behalf of all roles.
 
 ## Intermission {#ImmutableInfrastructure-Intermission}
 
