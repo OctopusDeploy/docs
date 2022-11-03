@@ -219,13 +219,11 @@ if (usersList.Count > 0)
     {
         System.Collections.Generic.List<string> row = new System.Collections.Generic.List<string>();
         System.Collections.Generic.List<string> header = new System.Collections.Generic.List<string>();
-        bool isFirstRow = false;
-        if (usersList.IndexOf(result) == 0)
-        {
-            isFirstRow = true;
-        }
+        
+        var isFirstRow = variableTracking.IndexOf(result) == 0;
+        var properties = result.GetType().GetProperties();
 
-        foreach (var property in result.GetType().GetProperties())
+        foreach (var property in properties)
         {
             Console.WriteLine(string.Format("{0}: {1}", property.Name, property.GetValue(result)));
             if (isFirstRow)
