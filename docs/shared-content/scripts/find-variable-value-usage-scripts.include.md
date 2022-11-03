@@ -331,10 +331,8 @@ if (variableTracking.Count > 0)
             {
                 row.Add(property.Name);
             }
-            else
-            {
-                row.Add((property.GetValue(result) == null ? string.Empty : property.GetValue(result).ToString()));
-            }
+            
+            row.Add((property.GetValue(result) == null ? string.Empty : property.GetValue(result).ToString()));
         }
 
         if (!string.IsNullOrWhiteSpace(csvExportPath))
