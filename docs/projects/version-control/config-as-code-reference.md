@@ -141,7 +141,7 @@ For existing initialized repositories, the default branch must exist. If the rep
 
 #### Initial Commit Branch
 
-If the default branch is protected in your repository, select the *Is the default branch protected?* checkbox. This will give you the option to use a different _Initial Commit Branch_. If this branch does not existing, Octopus will create the branch automatically. 
+If the default branch is protected in your repository, select the *Is the default branch protected?* checkbox. This will allow you to use a different _Initial Commit Branch_. If this branch does not exist, Octopus will create the branch automatically. 
 
 The Octopus configurations will be written to the initial commit branch instead of the default branch. You will need to merge the changes from this branch into the default branch outside of Octopus. 
 
