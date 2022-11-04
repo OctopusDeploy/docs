@@ -27,11 +27,11 @@ Next, add the directory you would like Octopus to store the project configuratio
 You can have multiple deployment processes in the same repository if they all use a different sub-directory.
 :::
 
-Finally, add in your default branch name in Branch Settings and click **Configure**. Once you press the **Configure** button, a modal window will appear to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
+Finally, add your default branch name in Branch Settings and click **Configure**. Once you press the **Configure** button, a modal window will appear to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
 
 ![configuring version control](configure-version-control.png)
 
-Your project is now configured with Version Control. You can see this change reflected on the left navigation of page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files:
+Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files:
 
 - _deployment_process.ocl_
 - _deployment_settings.ocl_
