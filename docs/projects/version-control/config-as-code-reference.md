@@ -22,6 +22,7 @@ Currently, the Project level resources saved to git are:
     - Transient Deployment Targets
     - Deployment Changes Template
     - Default Failure Mode
+- Variables (excluding Sensitive variables)
 
 ### Project Resources saved to SQL Server
 
@@ -32,7 +33,7 @@ Currently, the Project level resources saved to SQL Server when version control 
 - Releases
 - Deployments
 - Runbooks
-- Variables
+- Sensitive Variables
 - General Settings
     - Project Name
     - Enabled / Disabled
@@ -41,7 +42,7 @@ Currently, the Project level resources saved to SQL Server when version control 
     - Project Group
 
 :::hint
-Runbooks and Variables are planned for future releases of config-as-code.
+Runbooks and Sensitive Variables are planned for future releases of config-as-code.
 :::
 
 ### Resources NOT version controlled by config-as-code
@@ -94,15 +95,6 @@ The _Git Repository_ field should contain the URL for the repository you wish th
 
 The repository must be initialized (i.e. contain at least one branch) prior to saving. Octopus will convert the existing items in the project to OCL (Octopus Configuration Language) and save it to that repository when you click save. If the repository isn't initialized, that will fail.
 
-### Default Branch Name
-
-The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is also the default branch that will be used in various situations, for example:
-
-- When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
-- When creating releases, this will be the default branch selected
-
-For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
-
 ### Authentication
 
 The config-as-code feature is designed to work with _any_ git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
@@ -117,8 +109,9 @@ Git providers allow you to create an access token in different ways. The recomme
 
 -   [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token); (Scope - `repo`)
 -   [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate); (Scope - `vso.code_full`)
--   [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
 -   [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - `write_repository`)
+-   [BitBucket Server](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
+-   [BitBucket Cloud - Use App Passwords](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/); (Permission - `Repositories - Read & Write`)
 
 :::hint
 Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
@@ -133,6 +126,30 @@ If multiple projects will be persisted to the repository, adding the project nam
 :::
 
 We recommend storing projects alongside the application code. While it is possible to store all your deployment projects in a single central repository with folders for each project, it will be challenging to manage as you add more projects. For example, if you have multiple component projects, one for Web UI, another for Web API, etc., but the source code is in one repository, then store all the component projects in that repository. If you move the application code later, you can also [move the deployment configuration](/docs/projects/version-control/moving-version-control.md) to keep it with the application.
+
+### Branch Settings
+
+#### Default Branch Name
+
+The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is also the default branch that will be used in various situations, for example:
+
+- When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
+- When creating releases, this will be the default branch selected
+- When running Runbooks, variable values will be pulled from this branch
+
+For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
+
+#### Initial Commit Branch
+
+If the default branch is protected in your repository, select the *Is the default branch protected?* checkbox. This will allow you to use a different _Initial Commit Branch_. If this branch does not exist, Octopus will create the branch automatically. 
+
+The Octopus configurations will be written to the initial commit branch instead of the default branch. You will need to merge the changes from this branch into the default branch outside of Octopus. 
+
+#### Protected Branches Pattern
+
+You can also nominate protected branches for your Project. This will prevent users from making direct commits to the nominated branches from the Octopus UI and encourage them to create a new branch instead. To nominate protected branches, type in the name or a wildcard pattern in the Protected Branches Pattern field under Branch Settings. This will apply to all existing and future branches.
+
+
 
 ## OCL Files
 
