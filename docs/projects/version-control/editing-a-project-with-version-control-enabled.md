@@ -12,17 +12,17 @@ Editing via the Octopus Deploy UI works the same whether you are saving to a git
 
 ### Branch Switcher 
 
-The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher found in the left hand navigation. 
+The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher in the left-hand navigation. 
 
 ![Branch-switcher user-interface](branch-switcher-ui.png "width=500")
 
-You can only switch branches on a page that is version controlled (Process, Variables, etc). If you have setup Protected branches in the Version Control Settings, then you will see a padlock 🔒 next to the relevant branch in the Branch switcher.
+You can only switch branches on a version-controlled page (Process, Variables, etc.). If you have set up Protected branches in the Version Control Settings, you will see a padlock 🔒 next to the relevant branch in the Branch switcher.
 
 Each branch can have a different deployment process. For example, if you decide to move from running web applications on VMs to PaaS, you could create a branch to hold all your code changes and your deployment process changes. You can make the necessary updates to your deployment process to deploy to a PaaS target. The deployment process currently being used to deploy to **Production** can be left alone until you are ready to merge in both the code changes and the deployment process changes.
 
 ### Commits
 
-Before enabling version control on the project, clicking on save updated a record in the SQL Server database. That record would be overwritten with each change. Once version control is enabled, that is no longer the case. You'll be generating commits each time you "save."  As such, the save experience has been updated. The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving. Next to the **Commit** button is a quick save, useful when you make a minor change. Below the **Commit** button, you can see the branch you are commiting to.
+Before enabling version control on the project, clicking save updated a record in the SQL Server database. That record would be overwritten with each change. Once version control is enabled, that is no longer the case. You'll be generating commits each time you "save."  As such, the save experience has been updated. The **Save** button has been replaced with **Commit**, and clicking on that will allow you to enter a commit message before saving. Next to the **Commit** button is a quick save, useful when you make a minor change. Below the **Commit** button, you can see the branch you are committing to.
 
 ![committing a change to version control](commit-process.png)
 
