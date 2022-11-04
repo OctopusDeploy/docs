@@ -22,6 +22,7 @@ Currently, the Project level resources saved to git are:
     - Transient Deployment Targets
     - Deployment Changes Template
     - Default Failure Mode
+- Variables (excluding Sensitive variables)
 
 ### Project Resources saved to SQL Server
 
@@ -32,7 +33,7 @@ Currently, the Project level resources saved to SQL Server when version control 
 - Releases
 - Deployments
 - Runbooks
-- Variables
+- Sensitive Variables
 - General Settings
     - Project Name
     - Enabled / Disabled
@@ -41,7 +42,7 @@ Currently, the Project level resources saved to SQL Server when version control 
     - Project Group
 
 :::hint
-Runbooks and Variables are planned for future releases of config-as-code.
+Runbooks and Sensitive Variables are planned for future releases of config-as-code.
 :::
 
 ### Resources NOT version controlled by config-as-code
@@ -117,8 +118,9 @@ Git providers allow you to create an access token in different ways. The recomme
 
 -   [GitHub - Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token); (Scope - `repo`)
 -   [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate); (Scope - `vso.code_full`)
--   [BitBucket](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
 -   [GitLab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html); (Scope - `write_repository`)
+-   [BitBucket Server](https://confluence.atlassian.com/bitbucketserver063/personal-access-tokens-972354166.html); (Permission - `Project admin`)
+-   [BitBucket Cloud - Use App Passwords](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/); (Permission - `Repositories - Read & Write`)
 
 :::hint
 Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
