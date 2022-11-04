@@ -1,5 +1,7 @@
 **Target - Kubernetes**
 
+- Multi-Cloud PetClinic
+   - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1707/operations/runbooks/Runbooks-1766/process/RunbookProcess-Runbooks-1766" target="_blank">Destroy EKS Cluster</a>: <i>Destroy the AWS Elastic Kubernetes Service cluster.</i>
 - nginx+httpd
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-964/operations/runbooks/Runbooks-988/process/RunbookProcess-Runbooks-988" target="_blank">Create httpd+nginx infrastructure</a>
 - Octopus HA in GKE
