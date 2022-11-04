@@ -66,7 +66,7 @@ Once you press the **Configure** button, a modal window will appear to confirm t
 
 ![configuring version control](configure-version-control.png)
 
-Your project is now configured with Version Control. You can see this change reflected on the left navigation of page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files:
+Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files:
 
 - _deployment_process.ocl_
 - _deployment_settings.ocl_
