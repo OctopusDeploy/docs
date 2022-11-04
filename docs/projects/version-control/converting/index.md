@@ -38,7 +38,7 @@ Your project is now configured with Version Control. You can see this change ref
 - _variables.ocl_
 - _schema_version.ocl_
 
-If your repository has branch protection setup, see [Setting up in a repository with protected branches](/docs/projects/version-control/converting#setting-up-in-a-repository-with-protected-branches).
+If your repository has branch protection setup, see [Setting up in a repository with protected branches](/docs/projects/version-control/converting/index.md#setting-up-in-a-repository-with-protected-branches).
 
 
 ## Configuring an existing project to use Git
