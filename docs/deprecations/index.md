@@ -20,4 +20,4 @@ Deprecations are subject to change in detail or timeframe. If you need help asse
 
 ## Deprecations for 2023.1
 
-None.
+* Space level `/useronboarding` endpoint is being removed in future versions of Octopus. It was used internally to improve user onboarding experience. We have since reworked the new user experience and decided to remove the old endpoint. There is no replacement for this endpoint. We do not expect that anyone outside our internal teams have used this endpoint, if you believe this could negatively affect you, please contact our [support team](https://octopus.com/support).
