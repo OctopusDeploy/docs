@@ -9,6 +9,7 @@ hideInThisSection: true
 
 :::hint
 As Octopus snapshots the reference to a particular package version rather than the package itself, use care when overwriting existing packages that may be used in releases or snapshots.
+:::
 
 ## Release creation
 
