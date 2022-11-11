@@ -5,7 +5,10 @@ position: 95
 hideInThisSection: true
 ---
 
-[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (packages, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
+[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
+
+:::hint
+As Octopus snapshots the reference to a particular package version rather than the package itself, use care when overwriting existing packages that may be used in releases or snapshots.
 
 ## Release creation
 
