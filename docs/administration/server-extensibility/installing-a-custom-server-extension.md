@@ -3,6 +3,29 @@ title: Installing a custom server extension
 description: To install a custom server extension, you need to copy the extension dll into a folder on the machine that is running the Octopus Server.
 ---
 
+:::warning
+Server extensibility is deprecated, and no longer maintained.
+
+Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via support@octopus.com to let us know if this will affect your instance.
+:::
+
+:::warning
+Installing a custom authentication extension has changed from 2022.4+
+
+New environment variables will need to be set to “false” to ignore similar built-in authentication providers so that they do not conflict with the extension you are loading. The environment variables will need to be accessible to the process running Octopus Server which ensures that Octopus Server correctly uses your extension rather than the standard built-in ones.
+
+|Authentication Provider|Environment Variable|
+| ------------- | ---------------------------------------------------- |
+|**Guest**|`OCTOPUS__FeatureToggles__GuestAuthenticationProviderFeatureToggle`|
+|**UsernamePassword**|`OCTOPUS__FeatureToggles__UsernamePasswordAuthenticationProviderFeatureToggle`|
+|**DirectoryServices**|`OCTOPUS__FeatureToggles__DirectoryServicesAuthenticationProviderFeatureToggle`|
+|**LDAP**|`OCTOPUS__FeatureToggles__LdapAuthenticationProviderFeatureToggle`|
+|**AzureAD**|`OCTOPUS__FeatureToggles__AzureADAuthenticationProviderFeatureToggle`|
+|**GoogleApps**|`OCTOPUS__FeatureToggles__GoogleAppsAuthenticationProviderFeatureToggle`|
+|**Okta**|`OCTOPUS__FeatureToggles__OktaAuthenticationProviderFeatureToggle`|
+|**OctopusID**|`OCTOPUS__FeatureToggles__OctopusIDAuthenticationProviderFeatureToggle`|
+:::
+
 To install a custom server extension, you need to copy the extension dll(s) into the following folder on the machine that is running the Octopus Server:
 
 :::hint
