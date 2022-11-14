@@ -6,7 +6,7 @@ description: Octopus Deploy built-in server extensions are available on GitHub a
 :::warning
 Server extensibility is deprecated, and no longer maintained.
 
-Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via support@octopus.com to let us know if this will affect your instance.
+Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via [support@octopus.com](mailto:support@octopus.com) to let us know if this will affect your instance.
 :::
 
 As part of the Octopus Deploy installation, a number of extensions are provided out-of-the-box.  All of these extensions are managed as open-source projects on GitHub.  They include:

@@ -6,7 +6,7 @@ description: Technical details of how to build an Octopus Deploy Authentication 
 :::warning
 Server extensibility is deprecated, and no longer maintained.
 
-Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via support@octopus.com to let us know if this will affect your instance.
+Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via [support@octopus.com](mailto:support@octopus.com) to let us know if this will affect your instance.
 :::
 
 The documentation in this section covers the implementation as of v2.0.\* of the Extensibility packages.
