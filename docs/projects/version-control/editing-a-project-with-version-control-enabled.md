@@ -18,6 +18,8 @@ The first difference is the addition of a branch-switcher. When editing the depl
 
 You can only switch branches on a version-controlled page (Process, Variables, etc.). If you have set up Protected branches in the Version Control Settings, you will see a padlock 🔒 next to the relevant branch in the Branch switcher.
 
+![branch-switcher protected-branches user-interface](branch-switcher-protected-branches.png "width=500")
+
 Each branch can have a different deployment process. For example, if you decide to move from running web applications on VMs to PaaS, you could create a branch to hold all your code changes and your deployment process changes. You can make the necessary updates to your deployment process to deploy to a PaaS target. The deployment process currently being used to deploy to **Production** can be left alone until you are ready to merge in both the code changes and the deployment process changes.
 
 ### Commits
@@ -30,7 +32,7 @@ Before enabling version control on the project, clicking save updated a record i
 
 If you are making changes on a protected branch, the quick save option will be disabled. When you click the **Commit** button, you will always be asked to Commit to a new branch. The option to commit to this branch will be disabled.
 
-![committing a change on a protected branch](commit-process.png)
+![committing a change on a protected branch](commit-process-protected.png)
 
 ### Viewing and Editing OCL
 

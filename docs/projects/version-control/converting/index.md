@@ -79,13 +79,15 @@ If your repository has branch protection setup, see [Setting up in a repository 
 
 If your default branch is protected, you can select that option under Branch Settings. You will need to provide a different branch name for the initial commit. If the branch doesn't exist, it will be created. Once you click the **Configure** button, Octopus will commit the OCL file to the initial commit branch. 
 
-![initial commit branch and protected branches](version-control-configuration.png "width=500")
+![initial commit branch and protected default branch](configure-initial-commit-branch.png "width=500")
 
 Next, you will need to merge your changes into the default branch in your Git provider using your usual workflow. You will not be able to use the default branch within the project until you have merged your changes from the initial commit branch to the default branch. However, you can continue to make changes to the initial commit branch until then.
 
 Optionally, you can also nominate protected branches for your Project. This will prevent users from committing directly to the nominated branches from the Octopus UI and encourage them to create a new branch instead. To nominate protected branches, type in the name or a wildcard pattern in the Protected Branches Pattern field under Branch Settings. This will apply to all existing and future branches.
 
 *Note that this is independent of your branch protection rules in your Git Provider and does not offer any protection outside of the Octopus UI.*
+
+![protected branches](configure-protected-branches.png "width=500")
 
 
 ## Migrating variables on an existing Git project
