@@ -52,7 +52,7 @@ The last item in that list needs a deeper dive to understand.  For this example,
 
 Lets assume all three nodes check the task queue at the same time.  The prospective cluster workload ratio is **73.34%** (12 pending tasks + 10 active tasks / 30 task capacity).
 
-- One node is currently processing eight tasks making the current node workload ratio **80%** (8/10).  While this node can pick up three more tasks, it will not because **80%** > **73.34%**.
+- One node is currently processing eight tasks making the current node workload ratio **80%** (8/10).  While this node can pick up two more tasks, it will not because **80%** > **73.34%**.
 - One node is currently processing three tasks making the current node workload ratio **30%** (3/10).  It can pick up seven more tasks but will only pick up five more tasks.  It picks up tasks until its current node workload ratio is greater than the prospective cluster workload ratio.
 - One node is not processing any tasks.  It will pick up all the remaining seven tasks.
 
