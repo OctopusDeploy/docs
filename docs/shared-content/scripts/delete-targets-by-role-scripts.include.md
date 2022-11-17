@@ -2,7 +2,7 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl/api"
+$octopusURL = "https://youroctourl"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "default"
@@ -26,7 +26,7 @@ foreach ($machine in $machines)
 Add-Type -Path "path\to\Octopus.Client.dll"
 
 # Octopus variables
-$octopusURL = "https://youroctourl/api"
+$octopusURL = "https://youroctourl/"
 $octopusAPIKey = "API-YOURAPIKEY"
 $spaceName = "default"
 $role = "MyRole"
