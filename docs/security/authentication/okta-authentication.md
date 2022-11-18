@@ -167,8 +167,11 @@ You can see the OpenID Connect metadata by going to the Issuer address in your b
 
 ### Inspect the contents of the security token {#Oktaauthentication-Inspectthecontentsofthesecuritytoken}
 
-:::WARNING
-Please be aware that if you are using the PKCE (with the Client Secret specified in your Okta configuration in Octopus), the JWT won't be accessible within the Network tab of your browser's developer tools. If you would like to use it for troubleshooting you would need to remove the Client Secret, which would revert to Implicit flow authentication. We have plans to improve this in an upcoming version of Octopus, allowing the debugging information to be visible while using PKCE.
+:::warning
+**Inspection of a JWT is impossible with OAuth code flow with PKCE**
+Please note: It's impossible to inspect the JWT within the Network tab of your browser's developer tools if you use OAuth code flow with PKCE (with a Client Secret specified in your Okta configuration in Octopus).
+
+If you'd like to use it for troubleshooting, you would need to remove the Client Secret, which would revert to Implicit flow authentication. We have plans to improve this in an upcoming version of Octopus, allowing more debug information to be visible while using PKCE.
 :::
 
 Perhaps the contents of the security token sent back by Okta aren't exactly the way Octopus expected, especially certain claims which may be missing or named differently. This will usually result in the Okta user incorrectly mapping to a different Octopus User than expected. The best way to diagnose this is to inspect the JSON Web Token (JWT) which is sent from Okta to Octopus via your browser. To inspect the contents of your security token:
