@@ -1,7 +1,6 @@
 ---
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
-position: 30
 ---
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
@@ -33,13 +32,13 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-![Audit Configuration](images/3278051.png "width=500")
+![Audit Configuration](images/audit-configuration.png "width=500")
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
-![Audit Event Details](images/3278050.png "width=500")
+![Audit Event Details](images/audit-event-details.png "width=500")
 
-![Audit Event Details extended](images/3278049.png "width=500")
+![Audit Event Details extended](images/audit-event-details-extended.png "width=500")
 
 This feature makes it extremely easy to see who made what changes on the Octopus Server.
 
