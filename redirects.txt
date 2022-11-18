@@ -624,7 +624,7 @@ docs/administration/authentication/active-directory-authentication/moving-active
 docs/administration/authentication/active-directory-authentication/specifying-a-custom-container-to-use-for-ad-authentication.md -> docs/security/authentication/active-directory/custom-containers-for-ad-authentication.md
 docs/administration/authentication/active-directory-authentication/troubleshooting-active-directory-integration.md -> docs/security/authentication/active-directory/troubleshooting-active-directory-integration.md
 docs/administration/managing-users-and-teams/index.md -> docs/security/users-and-teams/index.md
-docs/administration/managing-users-and-teams/auditing.md -> docs/security/users-and-teams/auditing.md
+docs/administration/managing-users-and-teams/auditing.md -> docs/security/users-and-teams/auditing/index.md
 docs/administration/managing-users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md -> docs/security/users-and-teams/creating-teams-for-a-user-with-mixed-environment-privileges.md
 docs/administration/managing-users-and-teams/default-permissions.md -> docs/security/users-and-teams/default-permissions.md
 docs/administration/managing-users-and-teams/external-groups-and-rolls.md -> docs/security/users-and-teams/external-groups-and-roles.md
