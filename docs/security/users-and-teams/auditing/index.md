@@ -52,6 +52,10 @@ To grant a user access to audit logs you can make use of a built-in User Role th
 
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 
+### Streaming audit logs
+
+From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream.md) to their chosen SIEM solution.
+
 ### Accessing archived logs {#accessing-archived-logs}
 Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
 
