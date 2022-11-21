@@ -9,7 +9,7 @@ Microsoft DFS is a [distributed file system](https://en.wikipedia.org/wiki/Clust
 
 **DFS in the standard configuration (ie, accessed through a DFS Namespace Root) is _not_ suitable for use as a shared file store with Octopus Deploy.**
 
-Operating Octopus Deploy with the non-recommended DFS configuration will likely result in significant, intermittent and difficult to trace problems.
+Operating Octopus Deploy with the non-recommended DFS configuration will likely result in intermittent and potentially significant issues.
 
 Below are recommendations and more details on:
 
@@ -23,7 +23,7 @@ For a single node Octopus server using DFS for file storage it is imperative tha
 
 In the diagram the single node is configured to use the replica `\\SVR_ONE\public` as the DFS file share and not the namespace root (`\\Contoso\public`). 
 
-![](images/single-node-od-with-dfs.png "width=500")
+![A single Octopus Deploy node with DFS shared storage](images/single-node-od-with-dfs.png "width=500")
 
 ## Configuring DFS with a Multi-Node Octopus Server cluster (Octopus HA)
 
@@ -31,7 +31,7 @@ For a multi-node Octopus cluster using DFS for file storage it is imperative tha
 
 In the diagram below each node in the cluster is configured to use the same replica (`\\SVR_ONE\public`) as the DFS file share and not the namespace root (`\\Contoso\public`). 
 
-![](images/multi-node-od-with-dfs.png "width=500")
+![A multi-node (HA) Octopus Cluster with DFS shared storage](images/multi-node-od-with-dfs.png "width=500")
 
 ## DFS for Redundancy (Disaster Recovery)
 
@@ -43,4 +43,4 @@ OD does not need to be restarted in this scenario. Customers can either do this 
 
 In the simplified diagram below, when an outage at DFS Replica `\\SVR_ONE\Public` occurs, by re-configuring each Octopus node to use a different replica (ensuring all nodes are re-configured to the same replica) customers can still take advantage of the redundancy within DFS.
 
-![](images/dfs-for-redundancy.png "width=500")
+![Using DFS for redundancy with Octopus Deploy](images/dfs-for-redundancy.png "width=500")
