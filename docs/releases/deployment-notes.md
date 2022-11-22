@@ -29,7 +29,7 @@ A common example of this is for use in the [email step](/docs/projects/built-in-
 
 In scenarios where you want to use Release Notes Templates and Emails steps together, there can be some complications depending on the layout of the email content you need. The easiest option is to use the release notes directly from the releases:
 
-```
+```text
 Deployment contained releases:<br/>
 #{each change in Octopus.Deployment.Changes}
 <h2>#{change.Version}</h2>
@@ -40,7 +40,7 @@ Deployment contained releases:<br/>
 
 This outputs the details per release, with the work items appearing per release. If you wanted a single set of release notes, with a list of work items below it, you'd have to omit the work item details from the release notes templates itself and use an email body like follows:
 
-```
+```text
 Deployment contained releases:<br/>
 #{each change in Octopus.Deployment.Changes}
 <h2>#{change.Version}</h2>
@@ -59,7 +59,7 @@ Which addressed the following issues:</br>
 
 ## Deployment changes templates {#templates}
 
-Starting from `2019.9.0` you can specify a template for deployment changes output. The output of the template is used in the portal to render the changes in both the deployment preview and on the deployment details.
+Starting from **Octopus 2019.9** you can specify a template for deployment changes output. The output of the template is used in the portal to render the changes in both the deployment preview and on the deployment details.
 
 The output is also available for use during a deployment by using the `Octopus.Deployment.ChangesMarkdown` variable. The content of the email above could be used as the deployment changes template for the project, and the email step could be simplified to:
 
@@ -75,7 +75,7 @@ All environment and tenant related variables are available to the template.
 
 The default template, when the field in the project settings is left blank, is as follows:
 
-```
+```text
 #{each release in Octopus.Deployment.Changes}
 **Release #{release.Version}**
 
@@ -86,11 +86,42 @@ The default template, when the field in the project settings is left blank, is a
 #{/each}
 ```
 
+### Showing only certain changes
+
+There might be instances where you want to customise the deployment notes such that they only show the last change deployed. 
+
+The following template only shows the most recent change being deployed, including release, package and commit information:
+
+```text
+#{each change in Octopus.Deployment.Changes}
+#{if Octopus.Template.Each.Last == "True"}
+*Release #{change.Version}*
+#{each buildInfo in change.BuildInformation}
+#{if Octopus.Template.Each.First == "True"}
+*Packages:*
+#{/if}
+ - #{buildInfo.PackageId} - #{buildInfo.Version}
+#{/each}
+#{each commit in change.Commits}
+#{if Octopus.Template.Each.First == "True"}
+*Commits:*
+#{/if}
+#{if commit.LinkUrl} - <#{commit.LinkUrl}|#{commit.Id}> - #{commit.Comment}#{/if}
+#{unless commit.LinkUrl} - #{commit.Id} - #{commit.Comment}#{/unless}
+#{/each}
+#{/if}
+#{/each}
+```
+
+This is achieved using the Octopus [special variables](https://octopus.com/docs/projects/variables/variable-substitutions#VariableSubstitutionSyntax-SpecialVariables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section, and will render like this:
+
+![Deployment notes rendered using the Octopus.Template.Each.Last variable](images/deployment-notes-template-each-last-example.png "width=500")
+
 ### Deployment changes and targets
 
 The `Octopus.Deployment.Targets` variable is available to the deployment changes template, but it is not available during the deployment. It contains a dictionary of `ID` and `Name` values for all of the targets in the scope of the deployment (keyed by ID). You can iterate over the targets in a template as follows
 
-```
+```text
 #{each target in Octopus.Deployment.Targets}
 - #{target.Name}
 #{/each}
