@@ -88,7 +88,7 @@ The default template, when the field in the project settings is left blank, is a
 
 ### Showing only certain changes
 
-There might be instances where you want to customise the deployment notes such that they only show the last change deployed. 
+There might be instances where you want to customize the deployment notes such that they only show the last change deployed. 
 
 The following template only shows the most recent change being deployed, including release, package and commit information:
 
