@@ -175,3 +175,9 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin:$PATH"`
 Docker images used with the execution containers feature require that no `CMD` or `ENTRYPOINT ` directives be defined in your Dockerfile. 
 
 Including one of these directives will result in the step failing.
+
+## Collecting artifacts with execution containers
+
+You can collect Octopus [artifacts](docs/projects/deployment-process/artifacts.md) from steps used with the execution containers feature. 
+
+!include <collect-artifact-in-execution-container>
