@@ -55,7 +55,3 @@
 **Target - Tomcat**
 
 - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-371/deployments/process" target="_blank">Pet Clinic AWS</a>: <i>Deploy Java PetClinic to AWS Linux [Build definition](https://dev.azure.com/octopussamples/PetClinic/_build?definitionId=25)</i>
-    
-**Tenants - Regions**
-
-- <a href="https://samples.octopus.app/app#/Spaces-102/projects/Projects-148/deployments/process" target="_blank">To Do - Linux</a>: <i>This project will deploy this .NET Core application to Ubuntu EC2 instances in AWS. The EC2 instances are located in US West 1, US West 2 and US East 2.</i>
