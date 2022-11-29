@@ -19,7 +19,7 @@ Below are recommendations and more details on:
 
 ## Configuring DFS with a Single Octopus Server
 
-For a single node Octopus server using DFS for file storage it is imperative that the node is **configured to use a specific DFS Replica and not the DFS Namespace Root**. Despite there being no contention between nodes in the single node configuration, there is still the DFS location transparency, which will cause unpredictable behavior when the node is directed to a different replica.
+For a single node Octopus Server using DFS for file storage it is imperative that the node is **configured to use a specific DFS Replica and not the DFS Namespace Root**. Despite there being no contention between nodes in the single node configuration, there is still the DFS location transparency, which will cause unpredictable behavior when the node is directed to a different replica.
 
 In the diagram the single node is configured to use the replica `\\SVR_ONE\public` as the DFS file share and not the namespace root (`\\Contoso\public`). 
 
