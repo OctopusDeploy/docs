@@ -29,17 +29,20 @@ Release-level variables are drawn from the project and release being created.
 | Name and description | Example|
 | -------------------- | -------|
 |`Octopus.Release.Package` <br/>Packages, including changes, associated with the release. See below. | This is a collection.|
+|`Octopus.Release.Builds` <br/>Build and version control details associated with the release. | This is a collection.|
 
 :::hint 
 
-The `Octopus.Release.Package` variable:
+The `Octopus.Release.Package` and `Octopus.Release.Builds` variables:
 
 * will only be populated if [build information](/docs/packaging-applications/build-servers/build-information/index.md) has been pushed from the build server.  
 * is only available to be used by the project [release notes](/docs/releases/release-notes.md), it is not accessible from the project deployment steps.
 
 :::
 
-The release packages is a collection of `Package` objects based on the following structures:
+#### Octopus.Release.Package details
+
+The `Octopus.Release.Package` variable is a collection of `Package` objects based on the following structures:
 
 ```csharp
 public class Package
@@ -140,6 +143,66 @@ There is also a distinct list of issues across all packages available in:
 - [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
 #{/each}
 ```
+
+#### Octopus.Release.Builds details
+
+The `Octopus.Release.Builds` variable is a collection of Build objects based on the following structures:
+
+```csharp
+public class Package
+{
+  public BuildPackage[] Packages { get; set; }
+  public string BuildUrl { get; set; }
+  public string Branch { get; set; }
+  public string BuildEnvironment { get; set; }
+  public string BuildNumber { get; set; }
+  public string VcsRoot { get; set; }
+  public string VcsType { get; set; }
+  public string VcsCommitNumber { get; set; }
+  public string VcsCommitUrl { get; set; }
+}
+
+public class BuildPackage
+{
+  public string PackageId { get; set; }
+  public string Version { get; set; }
+}
+```
+
+The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions.md#VariableSubstitutionSyntax-Repetition).  e.g.
+
+```
+#{each build in Octopus.Release.Builds}
+    This release contains resources contributed by the build #{build.BuildUrl}
+#{/each}
+```
+
+Builds have a zero-based integer index, meaning the first build can be selected at index 0:
+
+```
+Octopus.Release.Builds[0].BuildUrl
+```
+
+The variables available for builds are:
+
+| Name | Example|
+| -------------------- | -------|
+|`Packages` <br/>A JSON array with the packages created by a build. | `#{build.Packages}` |
+|`BuildUrl` <br/>A link to the CI build.| `#{build.BuildUrl}` |
+|`Branch` <br/>The VCS branch associated with the build.| `#{build.Branch}` |
+|`BuildEnvironment` <br/>The CI server that executed the build.| `#{build.BuildEnvironment}` |
+|`BuildNumber` <br/>The build number associated with the build.| `#{build.BuildNumber}` |
+|`VcsRoot` <br/>A link to the VCS repository associated with the build.| `#{build.VcsRoot}` |
+|`VcsType` <br/>The type of VCS associated with the build (e.g. git)| `#{build.VcsType}` |
+|`VcsCommitNumber` <br/>The VCS commit ID associated with the build.| `#{build.VcsCommitNumber}` |
+|`VcsCommitUrl` <br/>A link to the commit associated with the build.| `#{build.VcsCommitUrl}` |
+
+The variables available for build packages are:
+
+| Name | Example|
+| -------------------- | -------|
+|`PackageId` <br/>The ID of the package created by the build. | `#{build.Packages[0].PackageId}` |
+|`Version` <br/>The version of the package created by the build.| `#{build.Packages[0].Version}` |
 
 
 
