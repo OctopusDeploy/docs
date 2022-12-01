@@ -265,6 +265,15 @@ The token can then be saved as a Token Octopus account, and assigned to the Kube
 
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
 
+## Vendor Authentication Plugins
+Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubetcl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favour of a plugin approach.
+
+What this means for your deployments:
+
+* Amazon Elastic Container Services (ECS): No change required. Octopus already supports using either the AWS CLI or the `aws-iam-authenticator` plugin.
+* Azure Kubernetes Services (AKS): No change required. The way Octopus authenticates against AKS clusters never used the in-tree Azure authentication code, and will continue to function as normal.
+* Google Kubernetes Engine (GKE): If you upgrade to `kubectl` 1.26 or higher, you will need to ensure that the `gke-gcloud-auth-plugin` tool is also available. More information can be found on [Google's announcement about this change](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke).
+
 ## Helm
 
 When a Kubernetes target is used with a Helm step, the `helm` executable must be on the target where the step is run.
