@@ -98,7 +98,7 @@ users:
 
       When you create an Amazon EKS cluster, the IAM entity user or role that creates the cluster is automatically granted `system:master` permissions in the cluster's RBAC configuration. To grant additional AWS users or roles the ability to interact with your cluster, you must edit the `aws-auth` ConfigMap within Kubernetes. See the [Managing Users or IAM Roles for your Cluster](https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html).
       :::
-    - **Google Cloud Account**: When using a GKE cluster, [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud) allow you to authenticate using a Google Cloud IAM service account.
+    - **Google Cloud Account**: When using a GKE cluster, [Google Cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md) allow you to authenticate using a Google Cloud IAM service account.
 
       :::hint
       From `kubectl` version `1.26`, authentication against a GKE cluster [requires an additional plugin called `gke-cloud-auth-plugin` to be available](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke) on the PATH where your step is executing. If you manage your own execution environment (eg self-hosted workers, custom execution containers etc), you will need to ensure the auth plugin is available alongside `kubectl`
@@ -266,7 +266,7 @@ The token can then be saved as a Token Octopus account, and assigned to the Kube
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
 
 ## Vendor Authentication Plugins
-Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubetcl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favour of a plugin approach.
+Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubetcl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favor of a plugin approach.
 
 What this means for your deployments:
 
