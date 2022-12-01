@@ -70,6 +70,30 @@ Here are the notes for the packages
 #{/each}
 ```
 
+Build and version control details are exposed by the `Octopus.Release.Builds` variable. The example below lists the details of each build that contributed to the release:
+
+```
+#{each build in Octopus.Release.Builds}
+* #{build.Packages}
+* #{build.BuildUrl}
+* #{build.Branch}
+* #{build.BuildEnvironment}
+* #{build.BuildNumber}
+* #{build.VcsRoot}
+* #{build.VcsType}
+* #{build.VcsCommitNumber}
+* #{build.VcsCommitUrl}
+#{/each}
+```
+
+The `Octopus.Release.Builds[].Packages` variable is a JSON array containing the packages produced by a build. An example of this variable's value is `[{"PackageId":"randomquotes","Version":"0.1.247"}]`.
+
+The package ID can be used as an index for the `Octopus.Release.Package` variable with a nested Octostache expression:
+
+```
+#{Octopus.Release.Package[#{Octopus.Release.Builds[0].Packages[0].PackageId}].WorkItems}
+```
+
 ### Release notes accumulation 
 
 Inherent in building software is the idea that over time the product is the accumulation of the features, issues, and bugs that have been built, released, and deployed.  When software is deployed to a particular environment it is an aggregate of functionality that has been added since the last deployment.  
