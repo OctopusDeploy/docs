@@ -149,7 +149,7 @@ There is also a distinct list of issues across all packages available in:
 The `Octopus.Release.Builds` variable is a collection of Build objects based on the following structures:
 
 ```csharp
-public class Package
+public class Build
 {
   public BuildPackage[] Packages { get; set; }
   public string BuildUrl { get; set; }
