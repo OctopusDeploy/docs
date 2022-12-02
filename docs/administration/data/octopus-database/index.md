@@ -46,5 +46,5 @@ If you feel like an index would benefit everyone using Octopus, please contact o
 
 :::hint
 **Azure SQL Database automatic index management**
-To ensure that you are aware of which Indexes exist, we suggest disabling the Azure SQL feature to [automatically apply performance recommendations](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor-portal/#enable-automatic-index-management), and apply the recommendations manually instead.
+To ensure that you are aware of which indexes exist, we suggest disabling the Azure SQL feature to [automatically apply performance recommendations](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor-portal/#enable-automatic-index-management), and apply the recommendations manually instead.
 :::
