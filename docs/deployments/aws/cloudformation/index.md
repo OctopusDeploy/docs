@@ -383,3 +383,15 @@ Failed to verify the credentials. Please check the keys assigned to the Amazon W
 This can be done by opening **{{Infrastructure>Accounts}}**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
 
 This error can also be displayed if the proxy settings are incorrect.
+
+### AWS-LOGIN-ERROR-0006
+
+Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
+
+This can be done by opening **{{Infrastructure>Accounts}}**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+
+This error can also be displayed if the proxy settings are incorrect.
+
+When inheriting roles, Octopus first attempts to inherit the [IAM role associated with an EKS Pod service account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html). It then falls back to inheriting an instance role via the [Amazon EC2 Instance Metadata Service (IMDS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html).
+
+If role inheritance fails, ensure the step is run on a worker that has been appropriately configured and, in the case of instance profiles, has network access to the IMDS.

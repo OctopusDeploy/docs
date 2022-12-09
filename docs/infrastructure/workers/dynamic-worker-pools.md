@@ -88,6 +88,10 @@ We recommend execution containers as the preferred option for steps requiring ex
 
 ### Ubuntu 18.04
 
+:::warning
+Ubuntu 18.04 workers are deprecated and will be removed in March 2023.
+:::
+
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
 
 - .NET Core (2.1, 3.1)
@@ -96,8 +100,17 @@ Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools includ
 - Python 3 (latest)
 - GCloud CLI (339.0.0)
 
+### Ubuntu 22.04
+
+Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
+
+- Docker (latest)
+- Powershell Core (latest)
+- Python 3 (latest)
+- GCloud CLI (367.0.0)
+
 :::hint
-Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as kubectl and helm. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
 
 ## kubectl on Windows Images
