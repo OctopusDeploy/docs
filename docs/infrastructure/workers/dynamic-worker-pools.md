@@ -89,7 +89,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 workers are deprecated and will be removed in March 2023.
+Ubuntu 18.04 workers are deprecated and will be removed on 1 April 2023.
 :::
 
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
