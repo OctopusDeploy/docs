@@ -89,25 +89,13 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 images will be removed on 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
-:::
-
-Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
-
-- .NET Core (2.1, 3.1)
-- Docker (latest)
-- Powershell Core (latest)
-- Python 3 (latest)
-- GCloud CLI (339.0.0)
-
-:::hint
-Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as kubectl and helm. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+Ubuntu 18.04 images are no longer available as of 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
 :::
 
 ### Ubuntu 22.04
 
 :::hint
-Ubuntu 22.04 is currently the `Ubuntu (default)` image. If you are having issues with your deployments using Ubuntu 22.04, you can revert your Dynamic Worker pool(s) to use Ubuntu 18.04. However, note that this is only a temporary workaround as Ubuntu 18.04 images will be removed on 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
+Ubuntu 22.04 is currently the `Ubuntu (default)` image.
 :::
 
 Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
