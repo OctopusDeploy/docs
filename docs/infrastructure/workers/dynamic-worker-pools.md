@@ -89,7 +89,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 is currently the `Ubuntu (default)` image. Ubuntu 18.04 images will be deprecated on 1 April 2023. You are advised to test your deployment processes with our Ubuntu 22.04 images. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
+Ubuntu 18.04 images will be removed on 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
 :::
 
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
@@ -105,6 +105,10 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 :::
 
 ### Ubuntu 22.04
+
+:::hint
+Ubuntu 22.04 is currently the `Ubuntu (default)` image. If you are having issues with your deployments using Ubuntu 22.04, you can revert your Dynamic Worker pool(s) to use Ubuntu 18.04. However, note that this is only a temporary workaround as Ubuntu 18.04 images will be removed on 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
+:::
 
 Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
 
