@@ -90,6 +90,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 
 :::warning
 Ubuntu 18.04 is currently the `Ubuntu (default)` image. Ubuntu 18.04 images will be deprecated on 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
+:::
 
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
 
