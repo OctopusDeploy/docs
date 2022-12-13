@@ -89,7 +89,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 images are no longer available as of 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](TODO) for further details.
+Ubuntu 18.04 images are no longer available as of 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](https://www.example.com/TODO) for further details.
 :::
 
 ### Ubuntu 22.04
