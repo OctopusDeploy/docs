@@ -23,6 +23,7 @@ Octopus Server can be hosted on **Windows Server 2012 R2 or higher**. We automat
 - Windows Server 2012 R2
 - Windows Server 2016
 - Windows Server 2019
+- Windows Server 2022
 
 Octopus Server will run on [Windows Server (Core)](https://docs.microsoft.com/en-us/windows-server/administration/server-core/what-is-server-core) without the Desktop experience. However, the easiest installation path is to use "Server with Desktop Experience" which has a GUI and supports running our installation wizard. If you want to use Windows Server Core, you will need to add some missing Windows Features and configure the Octopus Server yourself.
 
