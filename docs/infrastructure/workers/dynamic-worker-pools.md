@@ -12,8 +12,8 @@ Users of Octopus Cloud utilising Linux workers and running custom scripts or com
 
 Cloud customers impacted by the GCloud CLI update will be those with a deployment process which:
 
-* Has a “Run gcloud in a Script” step, which runs on the “Hosted Ubuntu” Worker Pool, which does not use an Execution Container, and the script contains calls to gcloud OR
-* Has a “Run a Script” step, which runs on the “Hosted Ubuntu” Worker Pool, and the script contains calls to gcloud
+* Has a "Run gcloud in a Script" step, which runs on the "Hosted Ubuntu” Worker Pool, which does not use an Execution Container, and the script contains calls to gcloud OR
+* Has a "Run a Script” step, which runs on the "Hosted Ubuntu” Worker Pool, and the script contains calls to gcloud
 
 ### What do I need to do?
 
