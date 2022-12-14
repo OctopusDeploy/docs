@@ -1,4 +1,8 @@
-# Product Change Notification
+---
+title: Product Change Notification
+description: Describing the deprecation process of Ubuntu 18.04 Dynamic Workers.
+position: 50
+---
 
 Our dynamic workers are being upgraded to use Ubuntu 22.04, this upgrade will result in breaking changes for users of GCloud CLI.
 
