@@ -32,7 +32,7 @@ Any impacted custom scripts will need to be updated to use Ubuntu 22.04 and test
 
 ## Timeline
 
-Octopus preparation
+**Octopus preparation**
 
 | Date          |   Details                                                     |
 |---------------|:--------------------------------------------------------------|
@@ -40,7 +40,7 @@ Octopus preparation
 | Jan&nbsp;2023 | Internal testing of existing tooling to confirm compatibility |
 
 
-Customer action required
+**Customer action required**
 
 | Date                  | Details                                                                                                                                                                                                                                                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
