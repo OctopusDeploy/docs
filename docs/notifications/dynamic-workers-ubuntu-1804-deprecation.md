@@ -6,7 +6,7 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
-Our Ubuntu dynamic workers are being upgraded to use Ubuntu 22.04, this upgrade will result in breaking changes for users of gcloud CLI and users of .NET Core 2.1/3.1 and Ubuntu 18.04 capabilities that are not offered by the updated replacements.
+Our Ubuntu Dynamic Workers are being upgraded to use Ubuntu 22.04, this upgrade will result in breaking changes for users of gcloud CLI and users of .NET Core 2.1/3.1 and Ubuntu 18.04 capabilities that are not offered by the updated replacements.
 
 ## What is changing?
 
@@ -17,7 +17,7 @@ Due to the deprecation of Ubuntu 18.04, we are upgrading our dynamic workers to 
 
 ## Who will be impacted?
 
-Users of Octopus Cloud utilizing Linux workers and running custom scripts or community steps may be impacted as there are breaking changes between Ubuntu 18.04 and Ubuntu 22.04, and breaking changes between .NET Core 2.1/3.1 and .NET 6.
+Users of Octopus Cloud utilizing Ubuntu workers and running custom scripts or community steps may be impacted as there are breaking changes between Ubuntu 18.04 and Ubuntu 22.04, and breaking changes between .NET Core 2.1/3.1 and .NET 6.
 
 Cloud customers impacted by the GCloud CLI update will be those with a deployment process which:
 
