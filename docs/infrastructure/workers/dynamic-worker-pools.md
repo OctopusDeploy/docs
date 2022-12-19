@@ -89,7 +89,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 is currently the `Ubuntu (default)` image. Ubuntu 18.04 images will be deprecated on 1 April 2023. Please refer to [planned transition to Ubuntu 22.04](https://www.example.com/TODO) for further details.
+Ubuntu 18.04 is currently the `Ubuntu (default)` image. Ubuntu 18.04 images will be deprecated on 3 April 2023. Please refer to [planned transition to Ubuntu 22.04](https://www.example.com/TODO) for further details.
 :::
 
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
@@ -112,6 +112,7 @@ The Ubuntu 22.04 image is currently in testing by Octopus Deploy staff. Customer
 
 Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
 
+- .NET 6
 - Docker (latest)
 - Powershell Core (latest)
 - Python 3 (latest)
