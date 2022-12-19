@@ -1,5 +1,5 @@
 ﻿---
-title: Product Change Notification
+title: Ubuntu 18.04 End-of-life
 description: Describing the deprecation process of Ubuntu 18.04 Dynamic Workers.
 position: 50
 hideInThisSection: true
