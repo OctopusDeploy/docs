@@ -6,7 +6,7 @@ hideInThisSection: true
 hideInThisSectionHeader: true
 ---
 
-Our Ubuntu Dynamic Workers are being upgraded to use Ubuntu 22.04, this upgrade will result in breaking changes for users of gcloud CLI and users of .NET Core 2.1/3.1 and Ubuntu 18.04 capabilities that are not offered by the updated replacements.
+Our Ubuntu dynamic workers are being upgraded to use Ubuntu 22.04, this upgrade will result in breaking changes for users of gcloud CLI and users of .NET Core 2.1/3.1 and Ubuntu 18.04 capabilities that are not offered by the updated replacements.
 
 ## What is changing?
 
