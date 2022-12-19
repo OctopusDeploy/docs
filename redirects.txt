@@ -1116,3 +1116,4 @@ docs/getting-started/first-deployment/configure-environments.md -> docs/getting-
 docs/getting-started/first-deployment/create-and-deploy-a-release.md -> docs/getting-started/first-deployment/legacy-guide/create-and-deploy-a-release.md
 docs/getting-started/first-deployment/create-projects.md -> docs/getting-started/first-deployment/legacy-guide/create-projects.md
 docs/getting-started/first-deployment/define-the-deployment-process.md -> docs/getting-started/first-deployment/legacy-guide/define-the-deployment-process.md
+docs/notifications/dynamic-workers-ubuntu-1804-deprecation.md -> docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md
