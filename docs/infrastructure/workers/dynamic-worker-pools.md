@@ -61,6 +61,8 @@ Worker images are rebuilt on a regular basis, so that the operating system is up
 
 ### Windows Server Core 2019
 
+This is the default for the Windows operating system, referenced as `Windows (default)`.
+
 Each `Windows Server Core 2019` worker is provisioned with a baseline of tools including (but not limited to):
 
 - .NET Core (2.1, 3.1)
@@ -94,9 +96,7 @@ Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to 
 
 ### Ubuntu 22.04
 
-:::hint
-Ubuntu 22.04 is currently the `Ubuntu (default)` image.
-:::
+This is the default for the Ubuntu operating system, referenced as `Ubuntu (default)`.
 
 Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
 
