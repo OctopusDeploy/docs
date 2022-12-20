@@ -11,9 +11,10 @@ You should be safe doing an in-place upgrade of 3.x to the latest version of Oct
 - Unique internal package feed per space.  Each space has a subfolder in the `Packages` directory to keep them segregated on the file system.  Before, a package would be located at `C:\Octopus\packages\MyPackage.2020.1.1.zip`.  Now it is `C:\Octopus\packages\Spaces-1\MyPackage.2020.1.1.zip`
 - Almost every table in the database had a `Space-Id` column added to it.
 - Workers were introduced.
-- Azure Management APIs were depreciated.
+- Azure Management APIs were deprecated.
 - Support for Kubernetes was introduced.
 - Terraform support was introduced.
+- Raised the [minimum requirements for hosting and using Octopus Server](https://octopus.com/blog/raising-minimum-requirements-for-octopus-server) (both Windows and SQL Server).
 - Execution containers running on docker on workers were introduced.
 
 ## Prep Work
