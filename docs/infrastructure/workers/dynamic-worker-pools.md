@@ -107,7 +107,7 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 ### Ubuntu 22.04 (Alpha)
 
 :::warning
-The Ubuntu 22.04 image is currently in testing by Octopus Deploy staff. Customers are warned that whilst these images can be used, they are at an early stage of testing and may contain bugs. We plan to make these images production ready by 1 February 2023. Please refer to [Ubuntu 18.04 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for further details.
+The Ubuntu 22.04 image is currently in testing. Customers are warned that whilst these images can be used, they are at an early stage of testing and may contain bugs. We plan to make these images production ready by 1 February 2023. Please refer to [Ubuntu 18.04 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for further details.
 :::
 
 Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
