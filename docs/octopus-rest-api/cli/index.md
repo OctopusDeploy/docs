@@ -6,7 +6,7 @@ hideInThisSection: true
 ---
 
 :::hint
-The new Octopus CLI is currently in EAP release
+The new Octopus CLI is currently an EAP release
 :::
 
 The Octopus CLI is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md). With the Octopus CLI you can push your application packages for deployment as either Zip or NuGet packages, and manage your environments, deployments, projects, and workers.
