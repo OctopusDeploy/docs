@@ -17,10 +17,9 @@ Flags:
       --git-credential-store string            The location to store the supplied Git credentials. Options are library or project. Default is library
       --git-credentials string                 The Id or name of the Git credentials stored in Octopus
       --git-initial-commit string              The initial commit message for configuring Config As Code.
-      --git-initial-commit-branch string       The branch to initially commit Config As Code settings. Only required if 'git-protected-default-branch' is supplied.
+      --git-initial-commit-branch string       The branch to initially commit Config As Code settings. Only required if 'git-branch' is listed as a 'git-protected-branch-pattern'. Default value is 'octopus-vcs-conversion'.
       --git-password string                    The password to authenticate with Git
       --git-protected-branch-pattern strings   Git branches which are protected from having Config As Code settings committed directly
-      --git-protected-default-branch           Protect the default branch from having Config As Code settings committed directly.
       --git-url string                         Url of the Git repository for storing project configuration
       --git-username string                    The username to authenticate with Git
   -p, --project string                         Name, ID or Slug of the project to convert

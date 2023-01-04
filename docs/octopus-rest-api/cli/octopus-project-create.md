@@ -25,8 +25,7 @@ Flags:
       --git-credential-store string            The location to store the supplied Git credentials. Options are library or project. Default is library
       --git-initial-commit string              The initial commit message for configuring Config As Code.
       --git-base-path string                   The directory where Octopus should store the project files in the repository. Default is '.octopus/'
-      --git-protected-default-branch           Protect the default branch from having Config As Code settings committed directly.
-      --git-initial-commit-branch string       The branch to initially commit Config As Code settings. Only required if 'git-protected-default-branch' is supplied.
+      --git-initial-commit-branch string       The branch to initially commit Config As Code settings. Only required if 'git-branch' is listed as a 'git-protected-branch-pattern'. Default value is 'octopus-vcs-conversion'.
       --git-protected-branch-pattern strings   Git branches which are protected from having Config As Code settings committed directly
 
 
