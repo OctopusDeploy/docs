@@ -4,9 +4,10 @@ description: Generate a new Master Key and re-encrypt all the sensitive data.
 position: 123
 ---
 
-Generate a new Master Key and re-encrypt all the sensitive data.
+Generate a new Master Key and re-encrypt all the sensitive data. This option was added in **Octopus 2022.4**.
 
 :::warning
+
 Before using this command, we recommend taking a look at our [guide on rotating the Master Key](/docs/administration/managing-infrastructure/rotate-master-key.md).
 :::
 
