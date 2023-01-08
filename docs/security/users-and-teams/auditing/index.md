@@ -1,7 +1,6 @@
 ---
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
-position: 30
 ---
 
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
@@ -33,13 +32,13 @@ If you are concerned that Octopus does not capture a specific action of interest
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
 
-![Audit Configuration](images/3278051.png "width=500")
+![Audit Configuration](images/audit-configuration.png "width=500")
 
 Some audit events will also include details, which you can see by clicking the **show details** link. For example:
 
-![Audit Event Details](images/3278050.png "width=500")
+![Audit Event Details](images/audit-event-details.png "width=500")
 
-![Audit Event Details extended](images/3278049.png "width=500")
+![Audit Event Details extended](images/audit-event-details-extended.png "width=500")
 
 This feature makes it extremely easy to see who made what changes on the Octopus Server.
 
@@ -52,6 +51,10 @@ We take great care to ensure the security and integrity of your audit logs, to m
 To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams/index.md).
 
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
+
+### Streaming audit logs
+
+From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream.md) to their chosen SIEM solution.
 
 ### Accessing archived logs {#accessing-archived-logs}
 Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
