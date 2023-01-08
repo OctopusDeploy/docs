@@ -4,9 +4,9 @@ description: The step involved in building an External Authentication Provider.
 ---
 
 :::warning
-Server extensibility is deprecated, and no longer maintained.
+Server extensibility is deprecated and no longer maintained.
 
-Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via [support@octopus.com](mailto:support@octopus.com) to let us know if this will affect your instance.
+Some of you may have implemented an extension for Octopus Server, we would be interested in understanding your requirements better so that we can work towards resolving missing capabilities. Contact us via [support@octopus.com](mailto:support@octopus.com) to let us know if this will affect your instance.
 :::
 
 When authenticating using an external Identity Provider (IP), it is that provider's responsibility to provide the UI for interacting with the user in order to authenticate them.  The Octopus Server extension's responsibility is to provide a UI and API required to initiate the interaction with the IP, handle the token it returns, and route the user back to the Octopus Deploy UI.
