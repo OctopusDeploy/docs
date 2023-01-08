@@ -76,6 +76,12 @@ import os
 createartifact("C:\Windows\System32\drivers\etc\hosts", "{}-hosts.txt".format(os.environ["COMPUTERNAME"]))
 ```
 
+### Collecting artifacts with execution containers
+
+You can collect artifacts from steps used with the [execution container for workers](/docs/projects/steps/execution-containers-for-workers/index.md) feature too.
+
+!include <collect-artifact-in-execution-container>
+
 ## Security concerns
 
 ### File privileges

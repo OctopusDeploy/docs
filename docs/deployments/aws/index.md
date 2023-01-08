@@ -42,7 +42,7 @@ The ECS [deployment target](/docs/getting-started/first-deployment/add-deploymen
 
 Octopus projects and runbooks share the same variables and accounts, making it easier to capture shared procedures, automate routine maintenance and respond quickly to emergencies.
 
-Flexible, [role-based security](/docs/security/users-and-teams/user-roles.md) allows you to decide who can deploy to production and trigger runbooks against specific clusters. You can view the history of significant events and changes in the Octopus [audit log](/docs/security/users-and-teams/auditing.md).
+Flexible, [role-based security](/docs/security/users-and-teams/user-roles.md) allows you to decide who can deploy to production and trigger runbooks against specific clusters. You can view the history of significant events and changes in the Octopus [audit log](/docs/security/users-and-teams/auditing/index.md).
 
 ## Learn more
 

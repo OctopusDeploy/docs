@@ -79,7 +79,7 @@ Some notes about retention policies:
 - The algorithm calculating the releases to delete is very conservative.  It prefers to keep releases rather than delete them.
 
 :::hint
-When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing.md).  
+When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing/index.md).  
 :::
 
 ## Free up deployment target disk space

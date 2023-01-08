@@ -89,7 +89,7 @@ A high availability configuration will involve setting up:
 - 1 to 3 Windows servers, each with 2 cores / 4 GB of RAM with the task cap set to 10 for each server.
 - SQL Server to host Octopus Deploy database with 2 Cores / 8 GB of RAM or 50-100 DTUs
 - Load balancer for web traffic
-- 40 GB of File storage (DFS, NAS, SAN, Azure File Storage, AWS FSx, etc.)
+- 40 GB of File storage (NAS, SAN, Azure File Storage, AWS FSx, etc.)
 
 ![small instance diagram](images/small-instance-diagram.png "width=500")
 
