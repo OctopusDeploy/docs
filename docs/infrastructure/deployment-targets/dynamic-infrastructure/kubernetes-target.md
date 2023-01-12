@@ -130,3 +130,5 @@ New-OctopusKubernetesTarget `
     -clusterName mattc-test `
     -updateIfExisting
 ```
+
+!include <create-deployment-targets-warning>
