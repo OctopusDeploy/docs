@@ -49,7 +49,7 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 Octopus Cloud and Octopus Server are built on the same code base.  The differences stem from the additional configuration steps we perform during the Octopus Cloud build.  The differences are:
 
 - Octopus Cloud users cannot be Octopus Administrators, the "highest" level of permission possible is [Octopus Manager](/docs/octopus-cloud/permissions.md).
-- Octopus Cloud has a subset of auth providers available to the Octopus Server.  Most notably, Octopus Cloud does not include Active Directory or LDAP.  Please see the [authentication provider compatiblity page](/docs/security/authentication/auth-provider-compatibility.md) for an up to date list of what is available.
+- Octopus Cloud has a subset of auth providers available to the Octopus Server.  Most notably, Octopus Cloud does not include Active Directory or LDAP.  Please see the [authentication provider compatibility page](/docs/security/authentication/auth-provider-compatibility.md) for an up to date list of what is available.
 - Octopus Cloud is subject to [storage limits and default retention policies](/docs/octopus-cloud/index.md#octopus-cloud-storage-limits).
 - Octopus Cloud does not support running tasks on the server itself.  Everything must run on a deployment target or worker.  To help, Octopus Cloud includes [dynamic worker pools](/docs/infrastructure/workers/dynamic-worker-pools.md) with both Windows and Linux workers.
 
