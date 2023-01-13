@@ -67,4 +67,4 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
 
 ```
 
-!include <create-deployment-targets-warning>
+!include <create-deployment-targets-hint>

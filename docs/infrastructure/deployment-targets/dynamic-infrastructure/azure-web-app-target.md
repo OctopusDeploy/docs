@@ -40,4 +40,4 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
                              -updateIfExisting
 ```
 
-!include <create-deployment-targets-warning>
+!include <create-deployment-targets-hint>

@@ -42,4 +42,4 @@ New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
                                    -octopusRoles "AzureCloudService"
 ```
 
-!include <create-deployment-targets-warning>
+!include <create-deployment-targets-hint>

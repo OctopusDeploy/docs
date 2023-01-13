@@ -131,4 +131,4 @@ New-OctopusKubernetesTarget `
     -updateIfExisting
 ```
 
-!include <create-deployment-targets-warning>
+!include <create-deployment-targets-hint>

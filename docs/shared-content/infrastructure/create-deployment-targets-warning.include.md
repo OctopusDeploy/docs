@@ -1,3 +1,0 @@
-:::warning
-Package acquisition is not performed automatically after a deployment target is dynamically created from scripts. If subsequent steps require packages to be acquired on these new deployment targets, make sure you add a [health check](/docs/projects/built-in-step-templates/health-check.md) step for the corresponding target roles after the target creation step. This will ensure required packages are downloaded for the new targets.
-:::

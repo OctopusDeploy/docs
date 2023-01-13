@@ -10,7 +10,7 @@ Octopus version 2022.1 has support for discovering and cleaning up supported typ
 
 You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
-!include <create-deployment-targets-warning>
+!include <create-deployment-targets-hint>
 
 ## Enable dynamic infrastructure
 
