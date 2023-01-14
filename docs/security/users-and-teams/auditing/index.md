@@ -18,7 +18,7 @@ Below is a short list of just some of the things that Octopus captures:
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to.
 - Queuing and canceling of deployments and other tasks.
 
-Some  general points worth noting:
+Some general points worth noting:
 
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does not** capture login and logout events for specific user accounts.
@@ -54,9 +54,10 @@ In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissi
 
 ### Streaming audit logs
 
-From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream.md) to their chosen SIEM solution.
+From **Octopus 2022.4** [enterprise-tier](https://octopus.com/pricing) customers have the option to [stream their audit logs](/docs/security/users-and-teams/auditing/audit-stream.md) to their chosen security information and event management (SIEM) solution.
 
 ### Accessing archived logs {#accessing-archived-logs}
+
 Audit entries older than the configured retention period (defaults to 90 days, configurable up to 365 days or 3650 days for self-hosted customer) are archived and can be accessed via the overflow menu (`...`) in the top right corner of the audit page by selecting the **Manage archived audit logs** option.
 
 ![Manage Archived Audit Logs Menu](images/manage-archived-audit-logs-menu.png "width=500")
