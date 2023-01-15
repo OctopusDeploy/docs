@@ -19,7 +19,7 @@ Where [<options>] is any of:
 
       --instance=VALUE       Name of the instance to use
       --config=VALUE         Configuration file to use
-      --masterKey=VALUE      Updates the configuration file with a new master key.
+      --masterKey=VALUE      The new master key to set
 
 Or one of the common options:
 

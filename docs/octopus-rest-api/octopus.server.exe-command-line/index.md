@@ -27,8 +27,10 @@ hideInThisSection: true
 - **[node](/docs/octopus-rest-api/octopus.server.exe-command-line/node.md)**:  Configure settings related to this Octopus Server node.
 - **[path](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md)**:  Set the file paths that Octopus will use for storage.
 - **[proxy](/docs/octopus-rest-api/octopus.server.exe-command-line/proxy.md)**:  Configure the HTTP proxy used by Octopus.
+- **[rotate-master-key](/docs/octopus-rest-api/octopus.server.exe-command-line/rotate-master-key.md)**:  Rotate the Master Key on your Octopus Server and re-encrypt all sensitive data.
 - **[run](/docs/octopus-rest-api/octopus.server.exe-command-line/run.md)**:  Starts the Octopus Server in debug mode.
 - **[service](/docs/octopus-rest-api/octopus.server.exe-command-line/service.md)**:  Start, stop, install and configure the Octopus service.
+- **[set-master-key](/docs/octopus-rest-api/octopus.server.exe-command-line/set-master-key.md)**:  Set the Master Key on your Octopus Server after rotating the database.
 - **[show-configuration](/docs/octopus-rest-api/octopus.server.exe-command-line/show-configuration.md)**:  Outputs the server configuration.
 - **[show-master-key](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key.md)**:  Print the server's Master Encryption Key, so that it can be backed up.
 - **[show-thumbprint](/docs/octopus-rest-api/octopus.server.exe-command-line/show-thumbprint.md)**:  Shows the squid and thumbprint of the server instance.

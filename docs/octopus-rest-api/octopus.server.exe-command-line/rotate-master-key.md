@@ -22,7 +22,7 @@ Where [<options>] is any of:
       --config=VALUE         Configuration file to use
       --iReallyWantToRotateMyMasterKey
                              Confirm you really want to generate a new Master
-                               Key and en-encrypt all your sensitive data.
+                               Key and re-enecrypt all your sensitive data.
       --iHaveBackedUpMyDatabase
                              Confirm you have taken a backup of your database
                                in its current state. If something goes wrong at
