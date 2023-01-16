@@ -11,6 +11,10 @@ hideInThisSection: true
 As Octopus snapshots the reference to a particular package version rather than the package itself, use care when overwriting existing packages that may be used in releases or snapshots.
 :::
 
+:::hint
+[Tenant](/docs/tenants/index.md) variables are not included in Release snapshots. To find out more, [click here](/docs/tenants/tenant-variables/index.md).
+:::
+
 ## Release creation
 
 When you create a release, you must enter or choose the following items:
