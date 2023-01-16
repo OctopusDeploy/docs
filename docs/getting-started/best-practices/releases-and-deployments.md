@@ -7,12 +7,10 @@ hideInThisSection: true
 
 [Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
 
-:::hint
-As Octopus snapshots the reference to a particular package version rather than the package itself, use care when overwriting existing packages that may be used in releases or snapshots.
-:::
+A release snapshot takes references (rather than the entire resource) for certain items in a release. For example, packages are referenced by their version and not the package itself. Take care when overwriting existing packages that may be used in releases or snapshots.
 
-:::hint
-[Tenant](/docs/tenants/index.md) variables are not included in Release snapshots. To find out more, [click here](/docs/tenants/tenant-variables/index.md).
+:::hint 
+**Tenant variables** are not included in release snapshots. Find out more in our [tenant documentation](/docs/tenants/tenant-variables.md).
 :::
 
 ## Release creation
