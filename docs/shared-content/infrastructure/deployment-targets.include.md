@@ -4,8 +4,8 @@ Deployment targets are defined as:
 
 |Host                                         | Target Count                       | Counts Against License   | Important Note       |
 |-------------------------------------------- | -----------------------------------| ------------------------ | ---------------------|
-| Windows Server running a Tentacle           | 1 Target Per Tentacle Instance     | Yes                      | Listening Tentacles are de-duped across spaces. |
-| Linux Server running a Tentacle             | 1 Target Per Tentacle Instance     | Yes                      | Listening Tentacles are de-duped across spaces. |
+| Windows Server running a Tentacle           | 1 Target Per Tentacle Instance     | Yes                      | Listening Tentacles are de-duped across spaces using the Tentacle thumbprint, the Tentacle Port Number and Hostname/IP address registered with Octopus Deploy. |
+| Linux Server running a Tentacle             | 1 Target Per Tentacle Instance     | Yes                      | Listening Tentacles are de-duped across spaces using the Tentacle thumbprint, the Tentacle Port Number and Hostname/IP address registered with Octopus Deploy. |
 | SSH Connection                              | 1 Target Per SSH Connection        | Yes                      |  | 
 | Kubernetes Cluster                          | 1 Target Per K8s Namespace         | Yes                      |  The namespace registered to the target is the default namespace.  It will be used to perform health checks or if the namespace isn't specified in the deployment step.  You can overwrite the namespace in the deployment process. |
 | ECS Cluster                                 | 1 Target Per ECS Cluster           | Yes                      |  |
