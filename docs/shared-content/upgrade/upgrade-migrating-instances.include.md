@@ -15,7 +15,7 @@ As you migrate your instance, here are few items to consider.
 2. What CI, or build servers, integrate with Octopus Deploy?  Do those plug-ins need to be updated?  You can find several of the plug-ins on the [downloads page](https://octopus.com/downloads).
 3. Do you have any internally developed tools or scripts that invoke the Octopus API?  We've done our best to maintain backward compatibility, but there might be some changes.  
 4. What components do you use the most?  What does a testing plan look like? 
-5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, reach out to [advice@octopus.com](mailto:advice@octopus.com) and to get pointed in the right direction.
+5. Chances are there are new features and functionality you haven't been exposed to.  How will you train people on the new functionality?  If unsure, please [contact us](https://octopus.com/support) to get pointed in the right direction.
 
 ### Drift concerns
 
