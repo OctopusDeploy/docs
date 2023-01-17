@@ -74,7 +74,7 @@ Below is the default configuration for Octopus Cloud.  We've found this provides
 - Azure File Storage hosting all the BLOB data.
 :::
 
-We are currently working with our existing customers on what best practices look like to self-host the Octopus Server Linux Container.  If you'd like further recommendations beyond this document, please reach out to the customer solutions team at [advice@octopus.com](mailto:advice@octopus.com).
+We are currently working with our existing customers on what best practices look like to self-host the Octopus Server Linux Container.  If you'd like further recommendations please [contact us](https://octopus.com/support).
 
 ## Small-Medium Scale Configuration
 

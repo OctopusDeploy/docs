@@ -98,7 +98,7 @@ We recommend creating a custom tool that leverages the [Octopus Deploy REST API]
 
 We make that recommendation because, as you'll soon see, there are a lot of business rules and decisions to make.  
 
-Our solutions team has written a sample PowerShell tool, [SpaceCloner](https://github.com/OctopusDeployLabs/SpaceCloner), you can use as a reference or example for your syncing process.  A lot of this documentation used lessons from writing that tool.  While the SpaceCloner supports syncing instances with a known delta, we recommend using that tool as a guide.  It was created with specific use cases in mind and probably won't support your hyper-specific use case.
+The Octopus team has written a sample PowerShell tool, [SpaceCloner](https://github.com/OctopusDeployLabs/SpaceCloner), you can use as a reference or example for your syncing process.  A lot of this documentation used lessons from writing that tool.  While the SpaceCloner supports syncing instances with a known delta, we recommend using that tool as a guide.  It was created with specific use cases in mind and probably won't support your hyper-specific use case.
 
 ## Syncing Process
 
