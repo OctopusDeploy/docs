@@ -2,7 +2,7 @@ With Octopus Deploy, you can deploy software to Windows servers, Linux servers, 
 
 Deployment targets are defined as:
 
-|Host                                                                                                                   | <div style="width:200px">Target Count Against License</div> | Important Note       |
+|Host                                                                                                                   | <div style="width:250px">Target Count Against License</div> | Important Note       |
 |---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------| ---------------------|
 | [Windows Server running a Tentacle](/docs/infrastructure/deployment-targets/windows-targets/index.md)                 | 1 Target per Tentacle instance     | Listening Tentacles are de-duped across spaces using the Tentacle thumbprint, the Tentacle Port Number and Hostname/IP address registered with Octopus Deploy. |
 | [Linux Server running a Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md)                    | 1 Target per Tentacle instance     | Listening Tentacles are de-duped across spaces using the Tentacle thumbprint, the Tentacle Port Number and Hostname/IP address registered with Octopus Deploy. |
