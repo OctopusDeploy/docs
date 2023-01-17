@@ -5,7 +5,7 @@ position: 30
 hideInThisSection: true
 ---
 
-[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  [Environments](/docs/infrastructure/environments/index.md) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
+[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are what Octopus Deploy deploys to.  They can be Windows servers, Linux servers, Kubernetes (K8s) clusters, Azure Web Apps, and more.  Please refer to the [Deployment targets](/docs/infrastructure/deployment-targets/index.md) for an up to date list on deployment targets.  [Environments](/docs/infrastructure/environments/index.md) are how you organize your deployment targets into groups that represent different stages of your deployment pipeline.  These stages are typically given names such as **development**, **test**, and **production**.  Target roles, or tags, are a filter to select specific deployment targets in an environment.
 
 ## Deployment Target Environment and Role Relationship
 Environments are how you group deployment targets in a stage in your deployment pipeline.  Target roles, or tags, are how you identify which deployment targets you wish to deploy to in that specific stage.
