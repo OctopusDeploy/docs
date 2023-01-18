@@ -13,7 +13,7 @@ Building and shipping systems to Google cloud has its challenges. Different team
 
 Octopus makes it easier to ship to Google cloud by helping you to:
 * Connect and authenticate with GCP via a [dedicated account type](/docs/infrastructure/accounts/google-cloud/index.md). This allows you to centralize and secure your GCP authentication and use it in your deployments and runbooks.
-* Use [gcloud](https://cloud.google.com/sdk/gcloud), the GCP command-line tool, in custom scripts out-of-the-box with the [**Run gcloud in a Script** step](/docs/deployments/google-cloud/run-gcloud-script/index.md). This step can be used to execute scripts on targets or workers within Google Cloud Platform.
+* Use [gcloud](https://cloud.google.com/sdk/gcloud), the GCP command-line tool, in custom scripts out-of-the-box with the [**Run gcloud in a Script** step](/docs/deployments/google-cloud/run-gcloud-script/index.md). This step can be used to execute scripts on targets within Google Cloud Platform.
 * Create and tear down GCP infrastructure with [Terraform](/docs/deployments/terraform/index.md).
 * Access Docker images hosted with [Google Container Registry (GCR)](/docs/packaging-applications/package-repositories/guides/container-registries/google-container-registry.md).
 * Deploy, scale and manage containerized applications on GCP with Octopus and [Kubernetes](/docs/deployments/kubernetes/index.md).
