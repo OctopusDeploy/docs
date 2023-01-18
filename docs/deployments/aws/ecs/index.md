@@ -142,6 +142,10 @@ For container logging the step can either auto-configure CloudWatch logs, or you
 
 In this section, you can enable a container to act as a log router using AWS FireLens. When enabled you can configure the configuration format to use, as well as properties for metadata and custom configuration files.
 
+:::hint
+To enable FireLens configuration, your Deploy Amazon ECS Service step needs to be upgraded to use version 2. See [Automatic Step Template Updates](/docs/projects/built-in-step-templates/automatic-updates.md) for more information on automatic updates to steps and updating to new major versions of steps.
+:::
+
 ![ECS Step Container Definition FireLens Configuration](images/ecs-container-firelens.png "width=500")
 
 ### Deployment section
