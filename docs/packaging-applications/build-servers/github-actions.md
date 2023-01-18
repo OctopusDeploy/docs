@@ -9,19 +9,38 @@ position: 55
 [GitHub Actions](https://github.com/features/actions) is GitHub's cloud-based continuous integration server.
 
 :::warning
-The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
+The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner) require your Octopus Server to be accessible over the Internet.  Otherwise, you must [self-host your runners](https://help.github.com/en/actions/hosting-your-own-runners).
 :::
 
 ## Integrating with GitHub Actions
 
-Octopus Deploy has several custom GitHub Actions available: 
-- [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
-- [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
-- [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
-- [Run a runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
-- [Push Build Information](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
+Octopus Deploy has several custom GitHub Actions available.
 
-All of the Actions are compatible with following runner types:
+Packaging:
+
+- [Create a ZIP package](https://github.com/marketplace/actions/create-zip-package-for-octopus-deploy)
+- [Create a NuGet package](https://github.com/marketplace/actions/create-nuget-package-for-octopus-deploy)
+
+Publishing:
+
+- [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
+- [Push build Information](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
+
+Create and deploy a release:
+
+- [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
+- [Deploy a release](https://github.com/marketplace/actions/deploy-a-release-in-octopus-deploy)
+- [Deploy a tenanted release](https://github.com/marketplace/actions/deploy-a-tenanted-release-in-octopus-deploy)
+
+Runbooks:
+
+- [Run a runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
+
+:::hint
+You can also [install the Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli) to run custom commands. You don't need to install the CLI to run Octopus GitHub Actions for version 3.0 or above.
+:::
+
+All of the Actions are compatible with the following runner types:
 
 - Windows
 - MacOS
@@ -35,11 +54,11 @@ You can use [encrypted secrets](https://help.github.com/en/actions/configuring-a
 
 For example:
 
-| Variable name       | Description|
-| ------------- | ------- |
-| `OCTOPUSSERVERURL` | The Octopus Server URL you wish to push the final package to |
-| `OCTOPUSSERVERAPIKEY` | The Octopus Deploy API Key required for authentication |
-| `OCTOPUSSERVER_SPACE` | The Space to push packages to |
+| Variable name     | Description                                                  |
+|-------------------|--------------------------------------------------------------|
+| `OCTOPUS_URL`     | The Octopus Server URL you wish to push the final package to |
+| `OCTOPUS_API_KEY` | The Octopus Deploy API Key required for authentication       |
+| `OCTOPUS_SPACE`   | The Space to push packages to                                |
 
 ![GitHub Actions Secrets](images/github-actions-secrets.png "width=500")
 
@@ -137,7 +156,7 @@ jobs:
 
 The following example demonstrates a GitHub Actions build of our example application, [OctoPetShop](https://github.com/OctopusSamples/OctoPetShop).  This application is written in .NET Core and consists of four components:
 
-- OctopusSamples.OctoPetShop.Database - Database updates using DBUp
+- OctopusSamples.OctoPetShop.Database - Database updates using [DbUp](https://dbup.readthedocs.io/en/latest/)
 - OctopusSamples.OctoPetShop.Web - Web front end
 - OctopusSamples.OctoPetShop.ProductService - Product service API
 - OctopusSamples.OctoPetShop.ShoppingCartService - Shopping cart service API
@@ -169,17 +188,22 @@ jobs:
     runs-on: ubuntu-latest    
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+
     - name: Set Version
       run: echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+    
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+    
     - name: Install dependencies
       run: dotnet restore
+    
     - name: Build
       run: dotnet build --configuration Release --no-restore
+    
     - name: Create artifacts folder
       run: |
         mkdir "$GITHUB_WORKSPACE/artifacts"
@@ -187,60 +211,46 @@ jobs:
         mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
         mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
         mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ShoppingCartService"
+    
     - name: Publish OctoPetShopDatabase
       run: dotnet publish OctopusSamples.OctoPetShop.Database/OctopusSamples.OctoPetShop.Database.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
+    
     - name: Publish OctoPetShopWeb
       run: dotnet publish OctopusSamples.OctoPetShop.Web/OctopusSamples.OctoPetShop.Web.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
+    
     - name: Publish OctoPetShopProductService
       run: dotnet publish OctopusSamples.OctoPetShop.ProductService/OctopusSamples.OctoPetShop.ProductService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
+    
     - name: Publish OctoPetShopShoppingCartService
       run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
 ```
 
 ### Packaging artifacts
 
-To package your artifacts for deployment, configure your build to use the `OctopusDeploy/install-octopus-cli-action` developed by Octopus Deploy by adding the following step (previous steps excluded for brevity):
+You can use the Octopus create ZIP package action to package each component. Adding an `id` to the step makes it easier to reference the output variables created when it runs.
 
 ```yaml
-    - name: Install Octopus CLI
-      uses: !include <image-version-install-octopus-cli-action>
-      with:
-        version: latest
-```
-
-Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/index.md).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
-
-```yaml
-    - name: Install Octopus CLI
-      uses: !include <image-version-install-octopus-cli-action>
-      with:
-        version: latest
-    - name: Package OctoPetShopDatabase
-      run: |
-        octo pack --id="OctoPetShop.Database" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database" --outFolder="$GITHUB_WORKSPACE/artifacts"
     - name: Package OctoPetShopWeb
-      run: |
-        octo pack --id="OctoPetShop.Web" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopProductService
-      run: |
-        octo pack --id="OctoPetShop.ProductService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Package OctoPetShopShoppingCartService
-      run: |
-        octo pack --id="OctoPetShop.ShoppingCartService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService" --outFolder="$GITHUB_WORKSPACE/artifacts"
+      id: package_web
+      with:
+        package_id: OctoPetShop.Web
+        base_path: "artifacts/OctopusSamples.OctoPetShop.Web"
+        version: "${{ env.PACKAGE_VERSION  }}"
+        files: "**/*"
+        output_folder: artifacts
 ```
+
+
 
 ### Pushing artifacts to Octopus Server
 
 Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** Action to push the packages to the Octopus Server built-in repository.  The following example pushes the packages created from the previous `pack` operation:
 
 ```yaml
-    - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1
+    - name: Push OctoPetShopWeb
+      uses: OctopusDeploy/push-package-action@v3
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
-        packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
+        packages: ${{ steps.package_web.outputs.package_file_path }}
 ```
 
 ### Creating a release
@@ -248,15 +258,20 @@ Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** A
 To create a release, use the **OctopusDeploy/create-release-action**.  This action also contains the ability to deploy the newly created release.  Use either the `progress` or `wait_for_deployment` options to have the build wait for the deployment to complete and report success or failure. Using  `progress` will display messages from Octopus itself whereas `wait_for_deployment` will simply wait for Octopus to report success or failure:
 
 ```yaml
-    - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1
+    - name: Create a release in Octopus Deploy
+      uses: OctopusDeploy/create-release-action@v3
+      id: "create_release"
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
-        project: "Octo Pet Shop"
-        deploy_to: "Development"
-        progress: true
+        project: "Pet Shop"
+        package_version: "${{ env.PACKAGE_VERSION  }}"
+
+    - name: Deploy the release in Octopus Deploy
+      uses: OctopusDeploy/deploy-release-action@v3
+      with:
+        project: "Pet Shop"
+        release_number: ${{ steps.create_release.outputs.release_number }}
+        environments: |
+          Development
 ```
 
 :::warning
@@ -270,18 +285,18 @@ The previous sections displayed only the portions relavent to the topic being di
   <summary>Click here to view the entire example build YAML</summary>
 
 ```yaml
-name: MyBuild
+name: .NET Core 
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   schedule:
-    - cron: "0 07 * * *"
+    - cron: "0 09 * * *"
   workflow_dispatch:
     logLevel:
       description: 'Log level'
       required: true
-      default: 'warning'
+      derault: 'warning'
 
 jobs:
   build:
@@ -289,19 +304,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+
     - name: Set Version
       run: echo "PACKAGE_VERSION=$(date +'%Y.%m.%d').$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+
+    - name: Setup .NET 6
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 2.2.207
+        dotnet-version: '6.0.x'
+
     - name: Install dependencies
       run: dotnet restore
+
     - name: Build
       run: dotnet build --configuration Release --no-restore
+
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+
     - name: Create artifacts folder
       run: |
         mkdir "$GITHUB_WORKSPACE/artifacts"
@@ -309,46 +330,90 @@ jobs:
         mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
         mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
         mkdir "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ShoppingCartService"
+
     - name: Publish OctoPetShopDatabase
       run: dotnet publish OctopusSamples.OctoPetShop.Database/OctopusSamples.OctoPetShop.Database.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database"
+
     - name: Publish OctoPetShopWeb
       run: dotnet publish OctopusSamples.OctoPetShop.Web/OctopusSamples.OctoPetShop.Web.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web"
+
     - name: Publish OctoPetShopProductService
       run: dotnet publish OctopusSamples.OctoPetShop.ProductService/OctopusSamples.OctoPetShop.ProductService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService"
+
     - name: Publish OctoPetShopShoppingCartService
       run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
-    - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1
+
+   - name: Package OctoPetShopDatabase
+      id: package_db
+      uses: OctopusDeploy/create-zip-package-action@v3
       with:
-        version: latest
-    - name: Package OctoPetShopDatabase
-      run: |
-        octo pack --id="OctoPetShop.Database" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Database" --outFolder="$GITHUB_WORKSPACE/artifacts"
+        package_id: OctoPetShop.Database
+        base_path: "artifacts/OctopusSamples.OctoPetShop.Database"
+        version: "${{ env.PACKAGE_VERSION  }}"
+        files: "**/*"
+        output_folder: artifacts
+    
     - name: Package OctoPetShopWeb
-      run: |
-        octo pack --id="OctoPetShop.Web" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.Web" --outFolder="$GITHUB_WORKSPACE/artifacts"
+      id: package_web
+      with:
+        package_id: OctoPetShop.Web
+        base_path: "artifacts/OctopusSamples.OctoPetShop.Web"
+        version: "${{ env.PACKAGE_VERSION  }}"
+        files: "**/*"
+        output_folder: artifacts
+    
     - name: Package OctoPetShopProductService
-      run: |
-        octo pack --id="OctoPetShop.ProductService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetShop.ProductService" --outFolder="$GITHUB_WORKSPACE/artifacts"
+      id: package_productservice
+      with:
+        package_id: OctoPetShop.ProductService
+        base_path: "artifacts/OctopusSamples.OctoPetShop.ProductService"
+        version: "${{ env.PACKAGE_VERSION  }}"
+        files: "**/*"
+        output_folder: artifacts
+    
     - name: Package OctoPetShopShoppingCartService
-      run: |
-        octo pack --id="OctoPetShop.ShoppingCartService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService" --outFolder="$GITHUB_WORKSPACE/artifacts"
-    - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1
+      id: package_cartservice
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
-        packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
-    - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1
+        package_id: OctoPetShop.ShoppingCartService
+        base_path: "artifacts/OctopusSamples.OctoPetShop.ShoppingCartService"
+        version: "${{ env.PACKAGE_VERSION  }}"
+        files: "**/*"
+        output_folder: artifacts
+
+    - name: Push OctoPetShopDatabase
+      uses: OctopusDeploy/push-package-action@v3
       with:
-        api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
-        server: ${{ secrets.OCTOPUSSERVERURL }}
-        space: ${{ secrets.OCTOPUSSERVER_SPACE }}
-        project: "Octo Pet Shop"
-        deploy_to: "Development"
-        progress: true
+        packages: ${{ steps.package_db.outputs.package_file_path }}
+
+    - name: Push OctoPetShopWeb
+      uses: OctopusDeploy/push-package-action@v3
+      with:
+        packages: ${{ steps.package_web.outputs.package_file_path }}
+
+    - name: Push OctoPetShopProductService
+      uses: OctopusDeploy/push-package-action@v3
+      with:
+        packages: ${{ steps.package_productservice.outputs.package_file_path }}
+
+    - name: Push OctoPetShopShoppingCartService
+      uses: OctopusDeploy/push-package-action@v3
+      with:
+        packages: ${{ steps.package_cartservice.outputs.package_file_path }}
+
+    - name: Create a release in Octopus Deploy
+      uses: OctopusDeploy/create-release-action@v3
+      id: "create_release"
+      with:
+        project: "Pet Shop"
+        package_version: "${{ env.PACKAGE_VERSION  }}"
+
+    - name: Deploy the release in Octopus Deploy
+      uses: OctopusDeploy/deploy-release-action@v3
+      with:
+        project: "Pet Shop"
+        release_number: ${{ steps.create_release.outputs.release_number }}
+        environments: |
+          Development
 ```
 </details>
 
