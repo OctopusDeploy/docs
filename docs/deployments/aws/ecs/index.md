@@ -138,6 +138,16 @@ For container logging the step can either auto-configure CloudWatch logs, or you
 
 ![ECS Step Container Definition Storage and Logging](images/ecs-container-storage-and-logging.png "width=500")
 
+#### FireLens Configuration section
+
+In this section, you can enable a container to act as a log router using AWS FireLens. When enabled you can configure the configuration format to use, as well as properties for metadata and custom configuration files.
+
+:::hint
+To enable FireLens configuration, your Deploy Amazon ECS Service step needs to be upgraded to use version 2. See [Automatic Step Template Updates](/docs/projects/built-in-step-templates/automatic-updates.md) for more information on automatic updates to steps and updating to new major versions of steps.
+:::
+
+![ECS Step Container Definition FireLens Configuration](images/ecs-container-firelens.png "width=500")
+
 ### Deployment section
 
 Specify the minimum and maximum health percentages for the resulting service. These settings enable scenarios such as [Rolling deployments](/docs/deployments/patterns/rolling-deployments.md). When the maximum health percentage is set above 100% ECS will attempt to start new tasks before bringing down old ones. On the other hand, the minimum health percentage will allow ECS to bring down tasks when the cluster does not have enough capacity to handle the load.
