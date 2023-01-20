@@ -284,39 +284,3 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
-```ts TypeScript
-import { Client, ClientConfiguration, Repository } from '@octopusdeploy/api-client';
-import { NewAzureServicePrincipalAccount, NewSensitiveValue } from '@octopusdeploy/message-contracts';
-
-const configuration: ClientConfiguration = {
-    apiKey: 'api-key',
-    apiUri: 'https://your.octopus.app/',
-    autoConnect: true
-};
-
-const client = await Client.create(configuration);
-if (client === undefined) {
-    console.error('The API client for Octopus Deploy encountered an error.');
-    return;
-}
-
-const repository = new Repository(client);
-
-const applicationId = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
-const applicationPassword = NewSensitiveValue('fake-application-password');
-const name = 'Azure Service Principal Account';
-const subscriptionId = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
-const tenantId = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
-
-// define a new Azure service principal account
-const account = NewAzureServicePrincipalAccount(name, subscriptionId, tenantId, applicationId, applicationPassword);
-
-try {
-    // create account
-    const account = await repository.accounts.create(account);
-}
-catch (error) {
-    console.error(error);
-    return;
-}
-```
