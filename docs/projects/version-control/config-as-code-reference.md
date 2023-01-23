@@ -24,6 +24,10 @@ Currently, the Project level resources saved to git are:
     - Default Failure Mode
 - Variables (excluding Sensitive variables)
 
+:::hint
+Sensitive variables are still stored in the database. Regardless of the current branch, you will always see the same set of sensitive variables.
+:::
+
 ### Project Resources saved to SQL Server
 
 Currently, the Project level resources saved to SQL Server when version control is enabled are:
@@ -165,6 +169,7 @@ Currently, Octopus creates the following files:
 
 * deployment_process.ocl
 * deployment_settings.ocl
+* variables.ocl
 * schema_version.ocl
 
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
@@ -210,6 +215,38 @@ connectivity_policy {
 versioning_strategy {
 }
 ```
+
+The _variables.ocl_ file contains all non-sensitive variables for the project.
+
+```hcl
+variable "DatabaseName" {
+    value "AU-BNE-TST-001" {
+        environment = ["test"]
+    }
+
+    value "AU-BNE-DEV-001" {
+        environment = ["development"]
+    }
+
+    value "AU-BNE-001" {
+        environment = ["production"]
+    }
+}
+
+variable "DeploymentPool" {
+    type = "WorkerPool"
+
+    value "non-production-pool" {}
+
+    value "production-pool" {
+        environment = ["production"]
+    }
+}
+```
+
+:::hint
+In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables.md) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
+:::
 
 However, configuring the settings via Octopus will populate the fields with their properties and values.
 
