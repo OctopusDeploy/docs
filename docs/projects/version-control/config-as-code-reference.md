@@ -99,6 +99,18 @@ The _Git Repository_ field should contain the URL for the repository you wish th
 
 The repository must be initialized (i.e. contain at least one branch) prior to saving. Octopus will convert the existing items in the project to OCL (Octopus Configuration Language) and save it to that repository when you click save. If the repository isn't initialized, that will fail.
 
+The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is also the default branch that will be used in various situations, for example:
+
+- When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
+- When creating releases, this will be the default branch selected
+- When running Runbooks, variable values will be pulled from this branch
+
+For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
+
+:::hint
+When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
+:::
+
 ### Authentication
 
 The config-as-code feature is designed to work with _any_ git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
