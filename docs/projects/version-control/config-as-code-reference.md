@@ -118,6 +118,11 @@ Git providers allow you to create an access token in different ways. The recomme
 Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
 :::
 
+#### BitBucket Repository Access Tokens
+BitBucket's repository access tokens allow you to create repository-specific access tokens. For these to work with your Git repositories in Octopus, you must set the username to `x-token-auth`, and the passwork to the token.
+
+![Screenshot of Octopus Version Control Settings page with Authentication section expanded. Username/password auth method is selected, the Username input field is highlighted with a bold red box, and contains the value x-token-auth](octopus-bitbucket-repository-access-tokens.png "width=400")
+
 ### File Storage
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
