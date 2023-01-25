@@ -1,7 +1,7 @@
 ---
 title: octopus tenant create
 description: Create a tenant
-position: 92
+position: 102
 ---
 
 Create a tenant in Octopus Deploy

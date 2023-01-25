@@ -1,7 +1,7 @@
 ---
 title: octopus space view
 description: View a space
-position: 86
+position: 96
 ---
 
 View a space in Octopus Deploy

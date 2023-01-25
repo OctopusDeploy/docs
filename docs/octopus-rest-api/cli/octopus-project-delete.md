@@ -1,7 +1,7 @@
 ---
 title: octopus project delete
 description: Delete a project
-position: 65
+position: 69
 ---
 
 Delete a project in Octopus Deploy

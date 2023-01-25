@@ -1,7 +1,7 @@
 ---
 title: octopus space create
 description: Create a space
-position: 83
+position: 93
 ---
 
 Create a space in Octopus Deploy

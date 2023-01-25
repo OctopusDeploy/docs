@@ -1,7 +1,7 @@
 ---
 title: octopus project-group list
 description: List project groups
-position: 72
+position: 82
 ---
 
 List project groups in Octopus Deploy

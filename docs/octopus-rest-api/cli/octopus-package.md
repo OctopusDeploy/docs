@@ -14,8 +14,10 @@ Usage:
 Available Commands:
   help Help about any command
   list List packages
+  nuget Package as NuPkg
   upload upload one or more packages to Octopus Deploy
   versions List versions of a package
+  zip Package as zip
 
 Global Flags:
   -h, --help                   Show help for a command

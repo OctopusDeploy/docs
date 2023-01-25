@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool delete
 description: Delete a worker pool
-position: 117
+position: 127
 ---
 
 Delete a worker pool in Octopus Deploy

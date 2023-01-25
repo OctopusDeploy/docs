@@ -1,7 +1,7 @@
 ---
 title: octopus tenant connect
 description: Connect a tenant to a project
-position: 91
+position: 101
 ---
 
 Connect a tenant to a project in Octopus Deploy

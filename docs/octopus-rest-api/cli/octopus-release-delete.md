@@ -1,7 +1,7 @@
 ---
 title: octopus release delete
 description: Delete a release
-position: 76
+position: 86
 ---
 
 Delete a release in Octopus Deploy
