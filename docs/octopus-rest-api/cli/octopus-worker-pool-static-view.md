@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool static view
 description: View a static worker pool
-position: 124
+position: 134
 ---
 
 View a static worker pool in Octopus Deploy

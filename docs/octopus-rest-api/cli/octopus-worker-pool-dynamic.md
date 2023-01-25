@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool dynamic
 description: Manage dynamic worker pools
-position: 118
+position: 128
 ---
 
 Manage dynamic worker pools in Octopus Deploy

@@ -1,7 +1,7 @@
 ---
 title: octopus release list
 description: List releases
-position: 78
+position: 88
 ---
 
 List releases in Octopus Deploy

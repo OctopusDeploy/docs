@@ -1,7 +1,7 @@
 ---
 title: octopus space delete
 description: Delete a space
-position: 84
+position: 94
 ---
 
 Delete a space in Octopus Deploy

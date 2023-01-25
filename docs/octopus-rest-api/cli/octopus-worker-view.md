@@ -1,7 +1,7 @@
 ---
 title: octopus worker view
 description: View a worker
-position: 115
+position: 125
 ---
 
 View a worker in Octopus Deploy

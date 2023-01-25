@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool
 description: Manage worker pools
-position: 116
+position: 126
 ---
 
 Manage worker pools in Octopus Deploy
