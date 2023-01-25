@@ -1,16 +1,16 @@
 ---
 title: Polling Tentacles over port 443
 description: Octopus Polling Tentacles open a connection to the Octopus Server over port 443 to ask what to do.
-position: 130
+position: 65
 ---
 
 [Polling Tentacles](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you may be able to configure Tentacle to use port 443 (HTTPS).
 
-Based upon your chosen method of hosting Octopus Server, 
+The procedure for doing so varies based upon your chosen method of hosting Octopus Server.
 
 ## Octopus Cloud
 
-To setup a Polling Tentacle for an Octopus Cloud instance, omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your Octopus Cloud instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`) 
+The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`) 
 
 ### Registering a new Tentacle
 ```powershell
