@@ -15,7 +15,7 @@ Using a specially crafted archive file (eg .zip, .jar, .tar.gz), a malicious act
 
 ## Does Octopus Deploy prevent ZipBomb attacks?
 
-Yes. The Octopus Server, and deployment agents that run on Workers and deployment targets, are designed to detect and prevent extraction of potentially maalicious archives.
+Yes. The Octopus Server, and deployment agents that run on Workers and deployment targets, are designed to detect and prevent extraction of potentially malicious archives.
 
 The responsibility for protecting against ZipBomb attacks is shared between us as the software vendor, and you as the customer.
 
@@ -50,7 +50,7 @@ The following archive limits are in place for all Octopus Cloud customers, which
 These limits can be adjusted on a per-customer basis. If your standard business operations are being impacted by these limits, please contact support@octopus.com and we'll be happy to help adjust your limits to find the appropriate balance of functionality and protection.
 
 ### Self-Hosted default archive limits {#self-hosted-limits}
-The following archive limits are in place for all Octopus Cloud customers, which generally align to the available resources on the Octopus Cloud infrastructure:
+The following default archive limits are in place for all self-hosted:
 
 * Maximum size a deployment package can decompress to: 1 petabyte
   * Applies to all Deployment Targets, the in-built Worker (the "Run on Octopus Server" option available for some steps), and self-hosted Worker Pools
