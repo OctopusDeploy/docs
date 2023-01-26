@@ -4,13 +4,13 @@ description: Octopus Polling Tentacles open a connection to the Octopus Server o
 position: 65
 ---
 
-[Polling Tentacles](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you may be able to configure Tentacle to use port 443 (HTTPS).
+[Polling Tentacles](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over TCP port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you can configure Tentacle to use port 443 (HTTPS).
 
 The procedure for doing so varies based upon your chosen method of hosting Octopus Server.
 
 ## Octopus Cloud
 
-The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`) 
+The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except for the `register-with` and `register-worker` commands, omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
 
 ### Registering a new Tentacle
 ```powershell
@@ -39,16 +39,16 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index
 .\Tentacle service --instance MyInstance --start
 ```
 
-
 ## Self-hosted
 
-For self-hosted installations of Octopus Server, additional network configuration and/or services are required to support the use of Polling Tentacles over port 443 alongside the Octopus Server UI and API.
+For self-hosted installations of Octopus Server, you will require additional network configuration and/or services to support the use of Polling Tentacles, Octopus Web Portal and REST API all over port 443. 
 
-:::warning
-This document requires additional network configuration... (ie. Reverse Proxy) or the use of [Octopus Cloud](/docs/octopus-cloud/index.md).
-:::
+For example:
 
-New hostname/DNS record pointing at the same IP as the Server URL
-Reverse proxy to redirect inbound traffic on port 443 to port 10943 on the Octopus Server.
- - Reverse proxy must pass-through all Tentacle traffic and not attempt SSL offloading
+- A new DNS record dedicated for Polling Tentacle traffic. 
+  - This will be used when registering your Workers and Tentacles (i.e. `--server-comms-address https://<your-polling-url>`) 
+- A reverse proxy to redirect inbound traffic on port 443 on the new DNS record to port 10943 on your Octopus Server.
+  - This reverse proxy must pass-through all Tentacle traffic as [SSL offloading is not supported](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#ssl-offloading-is-not-supported).
 
+
+The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except for the `register-with` and `register-worker` commands, omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
