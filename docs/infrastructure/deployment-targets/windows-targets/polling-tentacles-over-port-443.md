@@ -10,7 +10,10 @@ The procedure for doing so varies based upon your chosen method of hosting Octop
 
 ## Octopus Cloud
 
-The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except for the `register-with` and `register-worker` commands, omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
+The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
+ * Omit the `--server-comms-port` parameter.
+ * Specify the `--server-comms-address <address>` parameter.
+   * The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
 
 ### Registering a new Tentacle
 ```powershell
