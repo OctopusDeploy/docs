@@ -11,9 +11,9 @@ The procedure for doing so varies based upon your chosen method of hosting Octop
 ## Octopus Cloud
 
 The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
- * Omit the `--server-comms-port` parameter.
- * Specify the `--server-comms-address <address>` parameter.
-   * The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
+ - Omit the `--server-comms-port` parameter.
+ - Specify the `--server-comms-address <address>` parameter.
+   - The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
 
 ### Registering a new Tentacle
 ```powershell
@@ -46,12 +46,19 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index
 
 For self-hosted installations of Octopus Server, you will require additional network configuration and/or services to support the use of Polling Tentacles, Octopus Web Portal and REST API all over port 443. 
 
-For example:
+A reverse proxy can be set up either on the machine or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the same port and decide which backend port to forward them to.
+The proxy could differentiate the connections based on:
+- Hostname (TLS SNI)
+- IP Address
 
+This reverse proxy must pass-through all Tentacle traffic as [SSL offloading is not supported](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#ssl-offloading-is-not-supported).
+
+For example with TLS SNI you will require:
 - A new DNS record dedicated for Polling Tentacle traffic. 
   - This will be used when registering your Workers and Tentacles (i.e. `--server-comms-address https://<your-polling-url>`) 
-- A reverse proxy to redirect inbound traffic on port 443 on the new DNS record to port 10943 on your Octopus Server.
-  - This reverse proxy must pass-through all Tentacle traffic as [SSL offloading is not supported](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#ssl-offloading-is-not-supported).
+- A reverse proxy rule to redirect inbound traffic on port 443 on the new DNS record to port 10943 on your Octopus Server.
 
-
-The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except for the `register-with` and `register-worker` commands, omit the `--server-comms-port` parameter and specify the `--server-comms-address <address>` parameter. The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
+The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
+ - Omit the `--server-comms-port` parameter.
+ - Specify the `--server-comms-address <address>` parameter.
+   - The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
