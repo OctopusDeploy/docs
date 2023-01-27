@@ -1,7 +1,7 @@
 ---
 title: octopus project-group
 description: Manage project groups
-position: 69
+position: 79
 ---
 
 Manage project groups in Octopus Deploy

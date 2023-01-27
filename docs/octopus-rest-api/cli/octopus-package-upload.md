@@ -1,7 +1,7 @@
 ---
 title: octopus package upload
 description: upload one or more packages to Octopus Deploy
-position: 59
+position: 61
 ---
 
 upload one or more packages to Octopus Deploy. Glob patterns are supported.

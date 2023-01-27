@@ -32,7 +32,7 @@ Use "octopus deployment-target polling-tentacle [command] --help" for more infor
 
 
 ```text
-$ octopus deployment-target polling-tenatacle list
+$ octopus deployment-target polling-tentacle list
 
 ```
 

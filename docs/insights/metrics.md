@@ -25,7 +25,7 @@ Lead times may also span multiple releases and deployments.  In the following ex
 
 ![Lead Time Example 1](images/lead-time-example-1.png)
 
-Lead times may be calculated across environments.  In the example below, release 1.3 is never deployed to production due to a bug being found in testing.  Because of this, the lead times for release 1.4 start at the creation time of release 1.3.
+Lead times may be calculated across environments.  In the example below, release 1.3 is never deployed to production due to a bug being found in testing. The deployment state is edited to reflect that it is now considered a failure.  Because of this, the lead times for release 1.4 start at the creation time of release 1.3.
 
 ![Lead Time Example 2](images/lead-time-example-2.png)
 

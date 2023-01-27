@@ -1,7 +1,7 @@
 ---
 title: octopus worker ssh create
 description: Create a SSH worker
-position: 112
+position: 122
 ---
 
 Create a SSH worker in Octopus Deploy

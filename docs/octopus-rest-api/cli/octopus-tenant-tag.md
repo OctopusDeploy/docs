@@ -1,7 +1,7 @@
 ---
 title: octopus tenant tag
 description: Override tags for a tenant
-position: 96
+position: 106
 ---
 
 Override tags for a tenant in Octopus Deploy

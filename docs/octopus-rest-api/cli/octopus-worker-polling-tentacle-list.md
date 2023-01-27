@@ -1,7 +1,7 @@
 ---
 title: octopus worker polling-tentacle list
 description: List Polling Tentacle workers
-position: 109
+position: 119
 ---
 
 List Polling Tentacle workers in Octopus Deploy

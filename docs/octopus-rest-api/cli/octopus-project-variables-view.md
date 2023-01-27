@@ -1,24 +1,24 @@
 ---
-title: octopus worker
-description: Manage workers
-position: 111
+title: octopus project variables view
+description: View all values of a project variable
+position: 77
 ---
 
-Manage workers in Octopus Deploy
+View all values of a project variable in Octopus Deploy
 
 
 ```text
 Usage:
-  octopus worker [command]
+  octopus project variables view [flags]
 
-Available Commands:
-  delete Delete a worker
-  help Help about any command
-  list List workers
-  listening-tentacle Manage Listening Tentacle workers
-  polling-tentacle Manage Polling Tentacle workers
-  ssh Manage SSH workers
-  view View a worker
+Aliases:
+  view, ls
+
+Flags:
+      --id string        The Id of the specifically scoped variable
+  -p, --project string   The project containing the variable
+  -w, --web              Open in web browser
+
 
 Global Flags:
   -h, --help                   Show help for a command
@@ -26,8 +26,6 @@ Global Flags:
   -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
   -s, --space string           Specify the space for operations
 
-
-Use "octopus worker [command] --help" for more information about a command.
 ```
 
 ## Examples
@@ -36,8 +34,8 @@ Use "octopus worker [command] --help" for more information about a command.
 
 
 ```text
-$ octopus worker list
-$ octopus worker ls
+$ octopus project variable view
+$ octopus project variable view DatabaseName --project "Vet Clinic" 
 
 
 ```

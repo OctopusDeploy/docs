@@ -1,7 +1,7 @@
 ---
 title: octopus release
 description: Manage releases
-position: 74
+position: 84
 ---
 
 Manage releases in Octopus Deploy

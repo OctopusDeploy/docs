@@ -1,7 +1,7 @@
 ---
 title: octopus project-group delete
 description: Delete a project group
-position: 71
+position: 81
 ---
 
 Delete a project group in Octopus Deploy

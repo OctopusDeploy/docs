@@ -1,7 +1,7 @@
 ---
 title: octopus worker listening-tentacle create
 description: Create a listening tentacle worker
-position: 105
+position: 115
 ---
 
 Create a listening tentacle worker in Octopus Deploy

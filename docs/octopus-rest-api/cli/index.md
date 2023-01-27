@@ -5,10 +5,6 @@ position: 100
 hideInThisSection: true
 ---
 
-:::hint
-The new Octopus CLI is currently an EAP release
-:::
-
 The Octopus CLI is a command line tool that builds on top of the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md). With the Octopus CLI you can push your application packages for deployment as either Zip or NuGet packages, and manage your environments, deployments, projects, and workers.
 
 The Octopus CLI can be used on Windows, Mac, Linux and Docker. For installation options and direct downloads, visit the [CLI Readme](https://github.com/OctopusDeploy/cli/blob/main/README.md).
@@ -82,8 +78,12 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus environment list](octopus-environment-list.md)**:  List environments.
 - **[octopus package](octopus-package.md)**:  Manage packages.
 - **[octopus package list](octopus-package-list.md)**:  List packages.
+- **[octopus package nuget](octopus-package-nuget.md)**:  Package as NuPkg.
+- **[octopus package nuget create](octopus-package-nuget-create.md)**:  Create nuget.
 - **[octopus package upload](octopus-package-upload.md)**:  upload one or more packages to Octopus Deploy.
 - **[octopus package versions](octopus-package-versions.md)**:  List versions of a package.
+- **[octopus package zip](octopus-package-zip.md)**:  Package as zip.
+- **[octopus package zip create](octopus-package-zip-create.md)**:  Create zip.
 - **[octopus project](octopus-project.md)**:  Manage projects.
 - **[octopus project connect](octopus-project-connect.md)**:  Connect a tenant to a project.
 - **[octopus project convert](octopus-project-convert.md)**:  Convert a project to use Config As Code.
@@ -91,6 +91,12 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus project delete](octopus-project-delete.md)**:  Delete a project.
 - **[octopus project disconnect](octopus-project-disconnect.md)**:  Disconnect a tenant from a project.
 - **[octopus project list](octopus-project-list.md)**:  List projects.
+- **[octopus project variables](octopus-project-variables.md)**:  Manage project variables.
+- **[octopus project variables create](octopus-project-variables-create.md)**:  Create a variable for a project.
+- **[octopus project variables delete](octopus-project-variables-delete.md)**:  Delete a project variable.
+- **[octopus project variables list](octopus-project-variables-list.md)**:  List project variables.
+- **[octopus project variables update](octopus-project-variables-update.md)**:  Update the value of a project variable.
+- **[octopus project variables view](octopus-project-variables-view.md)**:  View all values of a project variable.
 - **[octopus project view](octopus-project-view.md)**:  View a project.
 - **[octopus project-group](octopus-project-group.md)**:  Manage project groups.
 - **[octopus project-group create](octopus-project-group-create.md)**:  Create a project group.

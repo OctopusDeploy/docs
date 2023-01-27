@@ -1,7 +1,7 @@
 ---
 title: octopus project
 description: Manage projects
-position: 61
+position: 65
 ---
 
 Manage projects in Octopus Deploy
@@ -22,6 +22,7 @@ Available Commands:
   disconnect Disconnect a tenant from a project
   help Help about any command
   list List projects
+  variables Manage project variables
   view View a project
 
 Global Flags:

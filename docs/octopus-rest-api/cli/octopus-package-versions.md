@@ -1,7 +1,7 @@
 ---
 title: octopus package versions
 description: List versions of a package
-position: 60
+position: 62
 ---
 
 List versions of a package.
