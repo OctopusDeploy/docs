@@ -64,7 +64,7 @@ use the remaining port for polling Tentacle connections.
 Even if you do use port **80** for Polling Tentacles, the communication is still secure.
 - Use a reverse proxy to redirect incoming connections to the Tentacle listening port on Octopus Server by differentiating the connection based on Hostname (TLS SNI) or IP Address
   - The polling endpoint Tentacle uses can be [changed from the command line](/docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-over-port-443.md#self-hosted) using the `--server-comms-address` option. 
-  - You can learn about this configuration on the [Polling Tentacles over port 443](/docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-over-port-443) page.
+  - You can learn about this configuration on the [Polling Tentacles over port 443](/docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-over-port-443.md) page.
 
 Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface;
 this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access the Octopus Server by IP address.
