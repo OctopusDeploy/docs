@@ -14,7 +14,7 @@ If a deployment failed unexpectedly within a built-in step, you may have misconf
 
 If a task fails while executing a PowerShell script, you may be able to get more information by debugging the PowerShell script. You can easily [debug PowerShell scripts](docs/deployments/custom-scripts/debugging-powershell-scripts/index.md) as they are executed by Tentacle.
 
-Manually running the failed script on the same target may often be a helpful step towards getting more useful error information, and helping to isolate the problem. Remember to run the script under the same user account as the Tentacle service. This user is often the **Local System** account, but this may have been changed so that [Tentacle runs under a specific user account](docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
+Manually running the failed script on the same target may often be a helpful step towards getting more useful error information, and helping to isolate the problem. Remember to run the script under the same user account as the Tentacle service. This user is often the **Local System** account, but this may have been changed so that [Tentacle runs under a specific user account](docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account.md).
 
 If none of the above steps help, then you may have encountered a bug in a built-in step, in which case you can contact support for further assistance.
 

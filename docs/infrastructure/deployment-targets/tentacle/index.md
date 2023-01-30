@@ -8,7 +8,7 @@ When you deploy software to your servers, you'll typically need to install Tenta
 
 When installed, Tentacles:
 
-- Can run as a service
+- Can run as a service:
   - A Windows Service called **OctopusDeploy Tentacle**.
   - A Linux **systemd** service.
 - Wait for tasks from Octopus (deploy a package, run a script, etc).
@@ -16,9 +16,9 @@ When installed, Tentacles:
 
 Before you install Tentacle, review the software and hardware requirements depending on your chosen OS:
 
-- Windows
-  - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
-  - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requirements.md).
+- Windows:
+  - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/index.md).
+  - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements.md).
 - Linux [system prerequisites](/docs/infrastructure/deployment-targets/linux/index.md#requirements)
 
 

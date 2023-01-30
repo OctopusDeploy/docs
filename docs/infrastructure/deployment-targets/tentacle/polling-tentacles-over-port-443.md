@@ -75,7 +75,7 @@ The setup of a Polling Tentacle for your self-hosted instance over port 443 is t
 For further reading on the installation and configuration of Tentacle:
 
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles)
-- [Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
+- [Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/index.md)
 - [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md)
 - [Tentacle command line](/docs/octopus-rest-api/tentacle.exe-command-line/index.md)
   - [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md)

@@ -225,6 +225,6 @@ To review the latest available settings and properties, refer to the [OctopusDSC
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://docs.microsoft.com/en-us/powershell/scripting/dsc/pull-server/pullserver), [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), or even via configuration management tools such as [Chef](https://docs.chef.io/resource_dsc_resource.html) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Channel 9 Getting Started with DSC series](https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-DSC).
 
-For an in depth look, check out the [sample walk-through](docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.
+For an in depth look, check out the [sample walk-through](docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc.md) of how to use DSC with an Azure ARM template to deploy and configure the Tentacle on an Azure VM.
 
 !include <rootless-tentacle-instance-creation>

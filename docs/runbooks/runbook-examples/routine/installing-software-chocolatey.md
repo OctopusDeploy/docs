@@ -6,7 +6,7 @@ position: 30
 
 [Chocolately](https://chocolatey.org/) is a popular package manager for Windows. It allows you to automate the installation of software used by the machines where you deploy your software, for example, systems running [.NET](https://dotnet.microsoft.com/).
 
-With Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/infrastructure/deployment-targets/windows-targets/index.md) or [Workers](/docs/infrastructure/workers/index.md).
+With Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Workers](/docs/infrastructure/workers/index.md).
 
 ## Create the runbook
 
