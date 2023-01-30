@@ -36,8 +36,6 @@ The advantage to Polling mode is that you don't need to make any firewall change
 
 Polling mode is good for scenarios that involve Tentacles being behind NAT or a dynamic IP address. A good example might be servers at branch offices or a chain of retail stores, where the IP address of each server running Tentacle changes.
 
-To install and configure Tentacles in polling mode, see the [Windows Targets (Tentacles) documentation](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-polling-tentacle).
-
 To install and configure Tentacles in polling mode, see either:
  - The [Windows Polling Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-polling-tentacle).
  - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#automation-scripts), selecting the tab for either a Polling deployment target or worker for your Linux distro.

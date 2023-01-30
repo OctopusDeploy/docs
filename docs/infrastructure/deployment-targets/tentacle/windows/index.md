@@ -1,26 +1,21 @@
 ---
-title: Octopus Tentacle
-description: Octopus Tentacle is a lightweight agent service, available on both Windows and Linux servers to communicate securely with the Octopus Server.
-position: 0
+title: Windows targets
+description: How to install Octopus Tentacles on Windows targets as either listening or polling Tentacles.
+position: 10
 ---
 
-When you deploy software to your servers, you'll typically need to install Tentacle, a lightweight agent service so they can communicate securely with the Octopus Server.
+When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on your Windows servers so they can communicate with the Octopus Server.
 
 When installed, Tentacles:
 
-- Can run as a service:
-  - A Windows Service called **OctopusDeploy Tentacle**.
-  - A Linux **systemd** service.
+- Run as a Windows service called **OctopusDeploy Tentacle**.
 - Wait for tasks from Octopus (deploy a package, run a script, etc).
 - Report the progress and results back to the Octopus Server.
 
-Before you install Tentacle, review the software and hardware requirements depending on your chosen OS:
+Before you install Tentacle, review the software and hardware requirements for:
 
-- Windows:
-  - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/index.md).
-  - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements.md).
-- Linux [system prerequisites](/docs/infrastructure/deployment-targets/linux/index.md#requirements)
-
+- [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/index.md).
+- [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements.md).
 
 ## Communication mode
 
@@ -30,9 +25,14 @@ Tentacles can be configured to communicate in Listening mode or Polling mode. Li
 
 ## Configure a Listening Tentacle (recommended)
 
-To install and configure Tentacles in listening mode, see either:
- - The [Windows Listening Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-listening-tentacle-recommended).
- - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#automation-scripts), selecting the tab for either a Listening deployment target or worker for your Linux distro.
+!include <install-tentacle-manager>
+!include <configure-listening-target>
+1. Select which [environments](/docs/infrastructure/environments/index.md) the deployment target will be assigned to.
+1. Choose or create at least one [target roles](/docs/infrastructure/deployment-targets/index.md#target-roles) for the deployment target and click **Save**.
+
+Your deployment target is configured, next you need to preform a [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).
+
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles.md).
 
 ### Update your Tentacle firewall
 
@@ -46,9 +46,12 @@ Don't forget to allow access in any intermediary firewalls between the Octopus S
 
 Listening Tentacles are recommended, but there might be situations where you need to configure a Polling Tentacle. You can learn about the difference between Listening Tentacles and Polling Tentacles on the [Tentacle communication](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md) page.
 
-To install and configure Tentacles in polling mode, see either:
- - The [Windows Polling Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-polling-tentacle).
- - The [Linux Tentacle Automation scripts](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#automation-scripts), selecting the tab for either a Polling deployment target or worker for your Linux distro.
+!include <install-tentacle-manager>
+!include <configure-polling-target>
+
+Your deployment target is configured, next you need to preform a  [health check and update Calamari](/docs/infrastructure/deployment-targets/machine-policies.md#health-check).
+
+If the Tentacle isn't connecting, try the steps on the [troubleshooting page](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles.md).
 
 ### Update your Octopus Server firewall
 
@@ -69,4 +72,4 @@ Using polling mode, you won't typically need to make any firewall changes on the
 
 ### Intermediary firewalls
 
-Don't forget to allow access not just in the OS Firewall (e.g. Windows Firewall), but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
+Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
