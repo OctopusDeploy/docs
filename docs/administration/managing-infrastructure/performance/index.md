@@ -112,7 +112,7 @@ Consider separating your teams/projects into "spaces" using the [Spaces](/docs/a
 
 ## Tentacles
 
-Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
+Prefer [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) or [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target.md) instead of [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) wherever possible.  Listening Tentacles and SSH place the Octopus Server under less load.  We try to make Polling Tentacles as efficient as possible. However, they can place the Octopus Server under high load, just handling incoming connections.
 
 Reduce the frequency and complexity of automated health checks using [machine policies](/docs/infrastructure/deployment-targets/machine-policies.md).
 

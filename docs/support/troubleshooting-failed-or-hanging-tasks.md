@@ -30,7 +30,7 @@ A common problem is that traffic on the appropriate ports (10933 by default for 
 
 A utility called [TentaclePing](https://github.com/OctopusDeploy/TentaclePing) can be used to test and diagnose connections between the machine hosting Octopus Server and the machines hosting Tentacles. This allows you to quickly test connections in isolation, without involving the complexity of Octopus Server, Tentacles, or tasks.
 
-See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) for more information on configuring your Tentacles.
+See [Tentacle Communication Modes](docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md) for more information on configuring your Tentacles.
 
 #### Halibut
 

@@ -173,8 +173,8 @@ In addition, it’s also possible to automate the installation of chocolatey pac
 
 We have a number of bootstrap scripts available in our OctopusSamples [Infrastructure as Code (IaC)](https://github.com/OctopusSamples/IaC/) GitHub repository. The following scripts are available to support Chocolatey package installation as part of a Tentacle installation:
 
-- [BootstrapTentacleAndRunChoco.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChoco.ps1) - This script installs a [Listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) and will install any Chocolately packages specified in the `$chocolateyAppList` parameter.
-- [BootstrapTentacleAndRunChocoPolling.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChocoPolling.ps1) - This script installs a [Polling Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) and will install any Chocolately packages specified in the `$chocolateyAppList` parameter.
+- [BootstrapTentacleAndRunChoco.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChoco.ps1) - This script installs a [Listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) and will install any Chocolately packages specified in the `$chocolateyAppList` parameter.
+- [BootstrapTentacleAndRunChocoPolling.ps1](https://github.com/OctopusSamples/IaC/blob/master/azure/bootstrap/BootstrapTentacleAndRunChocoPolling.ps1) - This script installs a [Polling Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) and will install any Chocolately packages specified in the `$chocolateyAppList` parameter.
 
 These scripts support both standard Chocolatey packages and ones sourced through DISM.
 

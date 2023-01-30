@@ -4,7 +4,7 @@ description: Octopus Polling Tentacles open a connection to the Octopus Server o
 position: 65
 ---
 
-[Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over TCP port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you can configure Tentacle to use port 443 (HTTPS).
+[Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over TCP port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you can configure Tentacle to use port 443 (HTTPS).
 
 :::hint
 Note: Configuring polling tentacles over port 443 via HTTPS described here does **not use WebSockets**. For more information on that topic, see [Polling Tentacles over WebSockets](/docs/infrastructure/deployment-targets/tentacle/windows/polling-tentacles-web-sockets.md).
@@ -14,7 +14,7 @@ The procedure for configuring Polling Tentacles to use port 443 varies based upo
 
 ## Octopus Cloud
 
-The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
+The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
 
  - Omit the `--server-comms-port` parameter.
  - Specify the `--server-comms-address <address>` parameter.
@@ -58,14 +58,14 @@ The proxy could differentiate the connections based on:
 - Hostname (TLS SNI)
 - IP Address
 
-This reverse proxy must pass-through all Tentacle traffic as [SSL offloading is not supported](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#ssl-offloading-is-not-supported).
+This reverse proxy must pass-through all Tentacle traffic as [SSL offloading is not supported](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#ssl-offloading-is-not-supported).
 
 For example, using TLS SNI you will require:
 - A new DNS record dedicated for Polling Tentacle traffic. 
   - This will be used when registering your Workers and Tentacles (i.e. `--server-comms-address https://<your-polling-url>`) 
 - A reverse proxy rule to redirect inbound traffic on port 443 on the new DNS record to port 10943 on your Octopus Server.
 
-The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
+The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
  - Omit the `--server-comms-port` parameter.
  - Specify the `--server-comms-address <address>` parameter.
    - The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
@@ -74,7 +74,7 @@ The setup of a Polling Tentacle for your self-hosted instance over port 443 is t
 
 For further reading on the installation and configuration of Tentacle:
 
-- [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles)
+- [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles)
 - [Windows Tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md)
 - [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md)
 - [Tentacle command line](/docs/octopus-rest-api/tentacle.exe-command-line/index.md)

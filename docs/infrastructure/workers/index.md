@@ -72,7 +72,7 @@ Once the Tentacle or SSH machine has been configured, workers can be added using
 
 ### Registering Workers in the Octopus Web Portal {#registering-workers-in-the-octopus-web-portal}
 
-You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
+You can register workers from the Octopus Web portal if they are a Windows or Linux [Listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) or an [SSH deployment target](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
 
 You can choose between:
 

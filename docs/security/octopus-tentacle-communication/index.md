@@ -16,7 +16,7 @@ We achieve this security using [public-key cryptography](http://en.wikipedia.or
 
 ## Octopus/Tentacle trust relationship {#Octopus-Tentaclecommunication-Octopus/Tentacletrustrelationship}
 
-Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Octopus and Tentacle both have a public/private key pair that they use to establish the TLS connection and verify the identity of the other party.
+Regardless of whether Tentacle is in [listening mode](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) or [polling mode](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles), all communication between the Tentacle and Octopus is performed over a secure ([TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)) connection. Octopus and Tentacle both have a public/private key pair that they use to establish the TLS connection and verify the identity of the other party.
 
 When Tentacle is configured, you give it the thumbprint (which uniquely identifies the public key) of the Octopus Server. Likewise, you tell Octopus the thumbprint of the Tentacle. This establishes a trust relationship between the two machines:
 
@@ -75,7 +75,7 @@ To harden the TLS implementation used, review our documentation on [Disabling we
 
 ## Troubleshooting Tentacle communication problems {#Octopus-Tentaclecommunication-TroubleshootingTentaclecommunicationproblems}
 
-We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md).
+We have built comprehensive troubleshooting guides for both [Listening and Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles.md).
 
 If you are seeing error messages like below, try [Troubleshooting Schannel and TLS](troubleshooting-schannel-and-tls.md):
 

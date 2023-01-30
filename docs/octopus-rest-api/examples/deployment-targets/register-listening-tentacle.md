@@ -3,7 +3,7 @@ title: Register Listening Tentacle
 description: An example script to register a listening tentacle using the REST API.
 ---
 
-This script demonstrates how to programmatically register a [Listening Tentacle](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended).
+This script demonstrates how to programmatically register a [Listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended).
 
 ## Usage
 

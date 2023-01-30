@@ -30,7 +30,7 @@ If you get to the end of this guide without success, it can be worthwhile to com
 
 Before continuing, it's worth briefly revisiting the concept of **Listening Tentacles** and **Polling Tentacles**. As you troubleshoot problems with your Tentacles, please pay attention to which communication mode they are configured for.
 
-Review [Tentacle communication modes](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md).
+Review [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md).
 
 ## Identify the problem
 
