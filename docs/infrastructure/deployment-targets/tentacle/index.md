@@ -6,9 +6,11 @@ position: 0
 
 When you deploy software to your servers, you'll typically need to install Tentacle, a lightweight agent service so they can communicate securely with the Octopus Server.
 
-When installed, Tentacles:
+Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/index.md). 
 
-- Can run as a service:
+When installed, Tentacles can:
+
+- Run as a service:
   - A Windows Service called **OctopusDeploy Tentacle**.
   - A Linux **systemd** service.
 - Wait for tasks from Octopus (deploy a package, run a script, etc).
