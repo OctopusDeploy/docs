@@ -76,7 +76,7 @@ For further reading on the installation and configuration of Tentacle:
 
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles)
 - [Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/index.md)
-- [Linux Tentacles](/docs/infrastructure/deployment-targets/linux/tentacle/index.md)
+- [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux/index.md)
 - [Tentacle command line](/docs/octopus-rest-api/tentacle.exe-command-line/index.md)
   - [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md)
   - [register-worker](/docs/octopus-rest-api/tentacle.exe-command-line/register-worker.md)

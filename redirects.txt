@@ -1263,3 +1263,4 @@ docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requi
 docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md -> docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account.md
 docs/infrastructure/deployment-targets/windows-targets/tentacle-permissions.md -> docs/infrastructure/deployment-targets/tentacle/windows/tentacle-permissions.md
 docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md -> docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md
+docs/infrastructure/deployment-targets/linux/tentacle/index.md -> -> docs/infrastructure/deployment-targets/tentacle/linux/index.md
