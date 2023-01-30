@@ -1,7 +1,7 @@
 ---
 title: Linux Tentacle
 description: Configuring Linux Tentacle deployment targets in Octopus.
-position: 0
+position: 10
 hideInThisSectionHeader: true
 ---
 

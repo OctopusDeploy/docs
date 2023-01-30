@@ -1,21 +1,26 @@
 ---
-title: Windows targets
-description: How to install Octopus Tentacles on Windows targets as either listening or polling Tentacles.
-position: 10
+title: Octopus Tentacle
+description: Octopus Tentacle is a lightweight agent service, available on both Windows and Linux servers to provide a secure way to communicate with the Octopus Server.
+position: 0
 ---
 
-When you deploy software to Windows servers, you need to install Tentacle, a lightweight agent service, on your Windows servers so they can communicate with the Octopus Server.
+When you deploy software to your servers, you'll typically need to install Tentacle, a lightweight agent service so they can communicate securely with the Octopus Server.
 
 When installed, Tentacles:
 
-- Run as a Windows service called **OctopusDeploy Tentacle**.
+- Can run as a service
+  - A Windows Service called **OctopusDeploy Tentacle**.
+  - A Linux **systemd** service.
 - Wait for tasks from Octopus (deploy a package, run a script, etc).
 - Report the progress and results back to the Octopus Server.
 
-Before you install Tentacle, review the software and hardware requirements for:
+Before you install Tentacle, review the software and hardware requirements depending on your chosen OS:
 
-- [The latest version of Tentacle](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
-- [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requirements.md).
+- Windows
+  - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/windows-targets/requirements/index.md).
+  - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/windows-targets/requirements/legacy-requirements.md).
+- Linux [system prerequisites](/docs/infrastructure/deployment-targets/linux/index.md#requirements)
+
 
 ## Communication mode
 

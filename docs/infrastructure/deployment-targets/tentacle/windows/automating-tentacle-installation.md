@@ -17,7 +17,6 @@ If you choose to do this, please **do not complete the configuration wizard** be
 
 Tentacle comes in an MSI that can be deployed via group policy or other means.
 
-
 ### Download the Tentacle MSI
 
 The latest Tentacle MSI can always be [downloaded from the Octopus Deploy downloads page](https://octopus.com/downloads).

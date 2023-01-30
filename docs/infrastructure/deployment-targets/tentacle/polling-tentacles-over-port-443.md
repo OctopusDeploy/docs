@@ -7,7 +7,7 @@ position: 65
 [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over TCP port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you can configure Tentacle to use port 443 (HTTPS).
 
 :::hint
-Note: Configuring polling tentacles over port 443 via HTTPS described here does **not use WebSockets**. For more information on that topic, see [Polling Tentacles over WebSockets](/docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-web-sockets.md).
+Note: Configuring polling tentacles over port 443 via HTTPS described here does **not use WebSockets**. For more information on that topic, see [Polling Tentacles over WebSockets](/docs/infrastructure/deployment-targets/tentacle/windows/polling-tentacles-web-sockets.md).
 :::
 
 The procedure for configuring Polling Tentacles to use port 443 varies based upon your chosen method of hosting Octopus Server.
