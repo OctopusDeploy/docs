@@ -52,7 +52,7 @@ The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index
 
 For self-hosted installations of Octopus Server, you will require additional network configuration and/or services to support the use of Polling Tentacles, Octopus Web Portal and REST API all over port 443. 
 
-A reverse proxy can be set up either on the machine or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the same port and decide which backend port to forward them to.
+A reverse proxy (e.g. NGINX) can be set up either on the machine or a machine/appliance that fronts it. The reverse proxy would inspect connections coming in on the same port and decide which backend port to forward them to.
 
 The proxy could differentiate the connections based on:
 - Hostname (TLS SNI)

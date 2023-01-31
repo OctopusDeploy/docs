@@ -65,7 +65,7 @@ Even if you do use port **80** for Polling Tentacles, the communication is still
   - The polling endpoint Tentacle uses can be [changed from the command line](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443.md#self-hosted) using the `--server-comms-address` option. 
   - You can learn about this configuration on the [Polling Tentacles over port 443](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443.md) page.
 
-Note that the port used to poll Octopus for jobs is different to the port used by your team to access the Octopus Deploy web interface;
+Note that the port (or address) used to poll Octopus for jobs is different from the port (or address) used by your team to access the Octopus Deploy web interface;
 this is on purpose, and it means you can use different firewall conditions to allow Tentacles to access the Octopus Server by IP address.
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
