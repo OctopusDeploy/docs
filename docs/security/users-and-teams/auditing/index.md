@@ -96,3 +96,11 @@ Deleting the archived files will permanently erase the audit entries. As a safeg
 :::
 
 The archived files can also be accessed via the Octopus REST API endpoints `/api/event/archives` and `/api/event/archives/{filename}`.
+
+## IP address forwarding
+
+From **Octopus 2023.1** the originating IP address of a request is recorded as part of any audit event. If you host Octopus on-premises and run multiple nodes in a High Availability setup, incoming requests will be redirected from your load balancer. This means that by default, the IP address recorded with any event will be the IP address of your load balancer. To resolve this, you can configure any number of trusted network addresses via **{{Configuration, Settings, Web Portal, Trusted Proxies}}**.
+
+If any trusted proxies have been configured, Octopus will attempt to read the value of the `X-Forwarded-For` header instead of the IP address of the request. If this header is present, the rightmost IP address that is **not** included in the list of trusted proxies will be used as the IP address for the event.
+
+For example, if the network address `0.0.0.0/0` is included as a trusted proxy, then any request will always use the leftmost (client) IP address found in the `X-Forwarded-For` header. If you want to only specify a single IP address rather than a network, the subnet mask must be included (eg. `192.168.0.1/32`).

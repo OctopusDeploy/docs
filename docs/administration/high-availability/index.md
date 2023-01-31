@@ -88,6 +88,10 @@ There are plenty of options when it comes to choosing a load balancer to direct 
 - [Using NGINX as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-nginx-as-reverse-proxy.md)
 - [Using IIS as a reverse proxy with Octopus](/docs/security/exposing-octopus/use-iis-as-reverse-proxy.md)
 
+## Auditing
+
+From **Octopus 2023.1** audit events include the IP address of the client that initiated the request. As High Availability redirects user traffic through a load balancer, the default value of the IP address in audit events will be the IP address of the load balancer, rather than the client's IP address. See [IP address forwarding](/docs/security/users-and-teams/auditing/index.md#ip-address-forwarding) for how to configure trusted proxies in Octopus.
+
 ## Troubleshooting
 
 If you're running into issues with your Octopus High Availability then please use our [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting/index.md) guide.
