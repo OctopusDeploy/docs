@@ -14,7 +14,7 @@ Deployment targets are defined as:
 | [Offline Package Drops](/docs/infrastructure/deployment-targets/offline-package-drop.md)                              | 1 Target per Offline Package Drop  | |
 | [Cloud Region](/docs/infrastructure/deployment-targets/cloud-regions.md)                                              | 0 Target per Cloud Region          | Cloud regions are legacy targets that pre-dated workers as a mechanism to run scripts on cloud providers.  They are used today to execute scripts multiple times with variables scoped for each iteration. |
 
-**Please note:** Octopus will only count Windows Servers, Linux Servers, ECS Clusters, Kubernetes Clusters, etc., that are registered with an Octopus Deploy Instance.  If you have 5,000 Linux Servers, and 4,000 of them are registerd with Octopus Deploy, then Octopus will only count those 4,000 against your license.  
+**Please note:** Octopus will only count Windows Servers, Linux Servers, ECS Clusters, Kubernetes Clusters, etc., that are registered with an Octopus Deploy Instance.  If you have 5,000 Linux Servers, and 4,000 of them are registered with Octopus Deploy, then Octopus will only count those 4,000 against your license.  
 
 You can manage your deployment targets by navigating to **{{Infrastructure,Deployment Targets}}** in the Octopus Web Portal:
 

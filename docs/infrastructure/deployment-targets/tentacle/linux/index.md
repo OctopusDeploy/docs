@@ -1,6 +1,6 @@
 ---
 title: Linux Tentacle
-description: Configuring Linux Tentacle deployment targets in Octopus.
+description: How to install and configure Octopus Tentacles on Linux Servers in either listening or polling mode.
 position: 10
 hideInThisSectionHeader: true
 ---
