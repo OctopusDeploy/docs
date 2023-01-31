@@ -1,7 +1,7 @@
 ---
 title: Linux Tentacle
 description: How to install and configure Octopus Tentacles on Linux Servers in either listening or polling mode.
-position: 10
+position: 20
 hideInThisSectionHeader: true
 ---
 

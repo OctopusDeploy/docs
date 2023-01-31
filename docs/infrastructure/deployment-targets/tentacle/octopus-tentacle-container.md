@@ -1,7 +1,7 @@
 ---
 title: Octopus Tentacle in a Container
 description: An Octopus Tentacle instance can be run directly from within a container.
-position: 10
+position: 40
 ---
 
 Running an Octopus Tentacle inside a container may be preferable in some environments where installing one directly on the host is not an option. 

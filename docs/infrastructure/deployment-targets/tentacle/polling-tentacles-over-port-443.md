@@ -1,7 +1,7 @@
 ---
 title: Polling Tentacles over port 443
 description: Octopus Polling Tentacles open a connection to the Octopus Server over port 443 to ask the Server if there is any work to do.
-position: 65
+position: 50
 ---
 
 [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) usually communicate with Octopus Server over TCP port 10943. If your network configuration prevents outbound connections from your Tentacles on non-standard ports, you can configure Tentacle to use port 443 (HTTPS).
