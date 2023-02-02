@@ -168,7 +168,7 @@ Octopus Deploy will return the name of the node in the `Octopus-Node` response h
 We have noticed specific user actions, such as creating a new space or updating permissions, won't update the cache on all nodes, and you'll get odd permissions errors.  Typically the cache is updated after a few minutes, and those errors go away.  If that happens to you, look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
 :::
 
-If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
+If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
 
 ### File Storage
 

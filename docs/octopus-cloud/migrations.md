@@ -37,7 +37,7 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 
 1. Understand the differences between Octopus Cloud and your Octopus Server.
 1. Upgrading your Octopus Server instance to the latest major/minor release of Octopus Deploy (2021.1, 2021.2, etc.).
-1. Determine if you are using [Polling or Listening tentacles](/docs/infrastructure/deployment-targets/windows-targets/index.md) for your deployment targets and workers.
+1. Determine if you are using [Polling or Listening tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) for your deployment targets and workers.
 1. Creating your Octopus Cloud instance.
 1. Configuring any firewall settings for your tentacles.
 1. Configuring workers and worker pools.
