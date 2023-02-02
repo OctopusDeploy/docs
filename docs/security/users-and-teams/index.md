@@ -31,7 +31,7 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 - If a User account is deleted, any associated API keys will also be deleted and stop functioning.
 - API keys cannot be transferred between Users, so if an in-use key has its associated User account deleted, that API key will no longer function, and a new API key from an active User would need to be created and used.
 - Additionally, any scripts that reference a deleted API key need to be updated to a new API key.
-- A disabled user's API keys will not function. An attempt to use it will throw a `401 unauthorized error` and require the User to be re-enabled if you intend to use that API key.
+- A disabled user's API keys will not function. Any attempt to use them will throw a `401 unauthorized error` and require the User to be re-enabled if you intend to use that API key.
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
 :::warning
