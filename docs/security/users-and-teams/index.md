@@ -24,6 +24,15 @@ You can manage users and teams in the Octopus Web Portal:
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts.md) for each service that will integrate with Octopus Deploy.
 :::
 
+### User API Key Management
+
+There are some things to be aware of when deleting or disabling an Octopus User:
+
+- If a User account is deleted, any associated API keys will also be deleted and stop functioning.
+- API keys cannot be transferred between Users, so if an in-use key has its associated User account deleted, that API key will no longer function, and a new API key from an active User would need to be created and used.
+- Additionally, any scripts that reference a deleted API key need to be updated to a new API key.
+- A disabled user's API keys will not function. An attempt to use it will throw a `401 unauthorized error` and require the User to be re-enabled if you intend to use that API key.
+
 ## Inviting users {#Managingusersandteams-Invitingusers}
 :::warning
 This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud/index.md).
