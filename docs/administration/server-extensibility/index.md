@@ -4,4 +4,6 @@ description: This guide covers everything you need to know for building and cust
 position: 90
 ---
 
+!include <server-extensibility-deprecated>
+
 This section contains guides for building and customizing Octopus Server extensions.

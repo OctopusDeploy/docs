@@ -8,7 +8,7 @@ hideInThisSectionHeader: true
 Linux servers can be configured as [deployment targets](/docs/infrastructure/deployment-targets/index.md) in Octopus.   
 
 The Octopus Server can communicate with Linux targets in two ways:
-- Using the [Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md).  
+- Using the [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md).  
 - Over SSH using an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md). 
 
 When using SSH for deployments to a Linux server, the Tentacle agent is not required and doesn't need to be installed.
@@ -16,7 +16,7 @@ When using SSH for deployments to a Linux server, the Tentacle agent is not requ
 :::success
 The Linux Tentacle is the recommended way to configure your server as a deployment target. This allows you to secure the SSH port on your servers.
 
-If you operate in a highly secure environment, where it's not possible to open an inbound TCP port for Tentacle (`10933` by default), you can configure the Linux Tentacle in [Polling mode](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles).
+If you operate in a highly secure environment, where it's not possible to open an inbound TCP port for Tentacle (`10933` by default), you can configure the Linux Tentacle in [Polling mode](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles).
 :::
 
 ## Requirements
@@ -27,7 +27,7 @@ If you operate in a highly secure environment, where it's not possible to open a
 - `base64` is available. This is used for encoding and decoding variables.
 - `grep` is available.
 
-Any Linux server which meets these minimum requirements will be able to be configured as a deployment target or worker. However, there are additional requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements.md) and [Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md#requirements).
+Any Linux server which meets these minimum requirements will be able to be configured as a deployment target or worker. However, there are additional requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements.md) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md#requirements).
 
 ## Supported distributions
 

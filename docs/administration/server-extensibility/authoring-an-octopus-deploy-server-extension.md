@@ -3,6 +3,8 @@ title: Authoring an Octopus Server extension
 description: Technical details of how to author an Octopus Server extension.
 ---
 
+!include <server-extensibility-deprecated>
+
 ## Octopus.Server.Extensibility {#AuthoringanOctopusDeployserverextension-Octopus.Server.Extensibility}
 
 This is the key NuGet package you will need in order to build an Octopus Server extension.

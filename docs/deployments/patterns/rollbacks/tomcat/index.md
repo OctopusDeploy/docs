@@ -149,7 +149,7 @@ The `Rollback Reason` step captures the reason for the rollback.  We can pass th
 ```
 
 :::info
-The retention policy of Octopus Deploy will clean up any old versions of the applications in folders controlled by Octopus.  However, the `<contextpath>##<version>.war` files are not controlled by Octopus and will not be cleaned up with a retention policy.  To assist in Tomcat maintenance, the Octopus Solutions team developed the [Undeploy Tomcat Application via Manager](https://library.octopus.com/step-templates/34f13b4c-64e1-42b4-ad1a-4599f25a850e/actiontemplate-undeploy-tomcat-application-via-manager) step template.  This template will remove the application using the specified context path and optional version number.  
+The retention policy of Octopus Deploy will clean up any old versions of the applications in folders controlled by Octopus.  However, the `<contextpath>##<version>.war` files are not controlled by Octopus and will not be cleaned up with a retention policy.  To assist in Tomcat maintenance, the Octopus team developed the [Undeploy Tomcat Application via Manager](https://library.octopus.com/step-templates/34f13b4c-64e1-42b4-ad1a-4599f25a850e/actiontemplate-undeploy-tomcat-application-via-manager) step template.  This template will remove the application using the specified context path and optional version number.  
 :::
 
 ## Choosing a rollback strategy
