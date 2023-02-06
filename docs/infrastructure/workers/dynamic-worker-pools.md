@@ -25,7 +25,7 @@ Each worker is provisioned exclusively to a specific customer, and is completely
 
 ## Dynamic Worker Images
 
-Each dynamic worker pool can specify the worker image used. Windows Server Core 2019 is the default. Ubuntu Server 18.04 worker images are also available.
+Each dynamic worker pool can specify the worker image used. Windows Server Core 2019 is the default. Ubuntu Server 18.04 and 22.04 worker images are also available.
 
 Editing a dynamic worker pool allows you to modify the image used. 
 
@@ -88,6 +88,10 @@ We recommend execution containers as the preferred option for steps requiring ex
 
 ### Ubuntu 18.04
 
+:::warning
+Ubuntu 18.04 is currently the `Ubuntu (default)` image. Ubuntu 18.04 images will be deprecated on 3 April 2023. You are advised to test your deployment processes with our Ubuntu 22.04 images. Please refer to [Ubuntu 18.04 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for further details.
+:::
+
 Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools including (but not limited to):
 
 - .NET Core (2.1, 3.1)
@@ -98,6 +102,20 @@ Each `Ubuntu Server 18.04` worker is provisioned with a baseline of tools includ
 
 :::hint
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as kubectl and helm. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+:::
+
+### Ubuntu 22.04
+
+Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
+
+- .NET 6
+- Docker (latest)
+- Powershell Core (latest)
+- Python 3 (latest)
+- GCloud CLI (367.0.0)
+
+:::hint
+Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
 
 ## kubectl on Windows Images
