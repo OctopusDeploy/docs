@@ -1,20 +1,19 @@
 ---
-title: octopus tenant clone
-description: Clone a tenant
-position: 102
+title: octopus project variables exclude
+description: Exclude a variable set from a project
+position: 75
 ---
 
-Clone a tenant in Octopus Deploy
+Exclude a variable set from a project in Octopus Deploy
 
 
 ```text
 Usage:
-  octopus tenant clone [flags]
+  octopus project variables exclude [flags]
 
 Flags:
-  -d, --description string     Description of the new tenant
-  -n, --name string            Name of the new tenant
-      --source-tenant string   Name of the source tenant
+  -p, --project string         The project
+      --variable-set strings   The name of the library variable set
 
 
 Global Flags:
@@ -31,8 +30,8 @@ Global Flags:
 
 
 ```text
-$ octopus tenant clone
-$ octopus tenant clone --name "Garys Cakes" --source-tenant "Bobs Wood Shop" 
+$ octopus project variable exclude
+$ octopus project variable exclude --variable-set "Slack Variables"
 
 
 ```

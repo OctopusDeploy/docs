@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool list
 description: List worker pools
-position: 131
+position: 133
 ---
 
 List worker pools in Octopus Deploy

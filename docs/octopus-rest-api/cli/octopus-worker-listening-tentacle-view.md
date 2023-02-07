@@ -1,7 +1,7 @@
 ---
 title: octopus worker listening-tentacle view
 description: View a Listening Tentacle worker
-position: 117
+position: 119
 ---
 
 View a Listening Tentacle worker in Octopus Deploy

@@ -1,7 +1,7 @@
 ---
 title: octopus project variables update
 description: Update the value of a project variable
-position: 76
+position: 78
 ---
 
 Update the value of a project variable in Octopus Deploy

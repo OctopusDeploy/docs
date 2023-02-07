@@ -1,7 +1,7 @@
 ---
 title: octopus tenant view
 description: View a tenant
-position: 107
+position: 109
 ---
 
 View a tenant in Octopus Deploy

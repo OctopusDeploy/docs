@@ -1,7 +1,7 @@
 ---
 title: octopus project variables list
 description: List project variables
-position: 75
+position: 77
 ---
 
 List project variables in Octopus Deploy

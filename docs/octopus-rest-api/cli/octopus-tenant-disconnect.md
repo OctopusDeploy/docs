@@ -1,7 +1,7 @@
 ---
 title: octopus tenant disconnect
 description: Disconnect a tenant from a project
-position: 104
+position: 106
 ---
 
 Disconnect a tenant from a project in Octopus Deploy

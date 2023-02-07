@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool view
 description: View a worker pool
-position: 135
+position: 137
 ---
 
 View a worker pool in Octopus Deploy

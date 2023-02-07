@@ -1,7 +1,7 @@
 ---
 title: octopus worker list
 description: List workers
-position: 113
+position: 115
 ---
 
 List workers in Octopus Deploy
