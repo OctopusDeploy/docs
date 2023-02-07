@@ -46,7 +46,7 @@ When you start getting warnings in your deployments and/or see deprecation warni
 
 If your Worker Pool is set to use the Operating System default, for example, `Windows (default)`, the default will be swapped over to a new Operating System version by Octopus Deploy. Your deployments and runbooks will automatically use the new version.
 
-You should validate that your deployments and runbooks work under with the new version prior to the cut over date. The new image will be made available prior to the cut-over date and we will notify you of the cut-over date to give you time to undertaking any required testing.
+You should validate that your deployments and runbooks work with the new version prior to the cutover date. The new image will be made available prior to the cutover date and we will notify you of the cutover date to give you time to undertaking any required testing.
 
 Please see [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for a current deprecation, and the steps you may need to take.
 
