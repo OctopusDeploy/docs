@@ -1,7 +1,7 @@
 ---
 title: octopus project-group view
 description: View a project group
-position: 83
+position: 85
 ---
 
 View a project group in Octopus Deploy

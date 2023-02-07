@@ -1,7 +1,7 @@
 ---
 title: octopus worker polling-tentacle view
 description: View a Polling Tentacle worker
-position: 120
+position: 122
 ---
 
 View a Polling Tentacle worker in Octopus Deploy

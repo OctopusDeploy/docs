@@ -1,7 +1,7 @@
 ---
 title: octopus tenant list
 description: List tenants
-position: 105
+position: 107
 ---
 
 List tenants in Octopus Deploy

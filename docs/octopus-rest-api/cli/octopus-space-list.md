@@ -1,7 +1,7 @@
 ---
 title: octopus space list
 description: List spaces
-position: 95
+position: 97
 ---
 
 List spaces in Octopus Deploy

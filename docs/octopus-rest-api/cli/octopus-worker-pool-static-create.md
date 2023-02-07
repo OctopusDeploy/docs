@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool static create
 description: Create a static worker pool
-position: 133
+position: 135
 ---
 
 Create a static worker pool in Octopus Deploy

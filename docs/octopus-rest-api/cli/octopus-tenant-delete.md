@@ -1,7 +1,7 @@
 ---
 title: octopus tenant delete
 description: Delete a tenant
-position: 103
+position: 105
 ---
 
 Delete a tenant in Octopus Deploy

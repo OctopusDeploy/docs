@@ -1,7 +1,7 @@
 ---
 title: octopus worker-pool static
 description: Manage static worker pools
-position: 132
+position: 134
 ---
 
 Manage static worker pools in Octopus Deploy

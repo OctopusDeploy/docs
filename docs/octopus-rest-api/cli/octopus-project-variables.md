@@ -17,7 +17,9 @@ Aliases:
 Available Commands:
   create Create a variable for a project
   delete Delete a project variable
+  exclude Exclude a variable set from a project
   help Help about any command
+  include Include a variable set in a project
   list List project variables
   update Update the value of a project variable
   view View all values of a project variable

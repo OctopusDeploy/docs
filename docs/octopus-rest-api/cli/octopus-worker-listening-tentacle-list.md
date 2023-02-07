@@ -1,7 +1,7 @@
 ---
 title: octopus worker listening-tentacle list
 description: List Listening Tentacle workers
-position: 116
+position: 118
 ---
 
 List Listening Tentacle workers in Octopus Deploy

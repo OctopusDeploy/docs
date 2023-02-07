@@ -94,6 +94,8 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus project variables](octopus-project-variables.md)**:  Manage project variables.
 - **[octopus project variables create](octopus-project-variables-create.md)**:  Create a variable for a project.
 - **[octopus project variables delete](octopus-project-variables-delete.md)**:  Delete a project variable.
+- **[octopus project variables exclude](octopus-project-variables-exclude.md)**:  Exclude a variable set from a project.
+- **[octopus project variables include](octopus-project-variables-include.md)**:  Include a variable set in a project.
 - **[octopus project variables list](octopus-project-variables-list.md)**:  List project variables.
 - **[octopus project variables update](octopus-project-variables-update.md)**:  Update the value of a project variable.
 - **[octopus project variables view](octopus-project-variables-view.md)**:  View all values of a project variable.

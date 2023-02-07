@@ -1,7 +1,7 @@
 ---
 title: octopus task wait
 description: Wait for task(s) to finish
-position: 98
+position: 100
 ---
 
 Wait for a provided list of task(s) to finish

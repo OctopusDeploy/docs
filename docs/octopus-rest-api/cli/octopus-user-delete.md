@@ -1,7 +1,7 @@
 ---
 title: octopus user delete
 description: Delete a user
-position: 109
+position: 111
 ---
 
 Delete a user in Octopus Deploy
