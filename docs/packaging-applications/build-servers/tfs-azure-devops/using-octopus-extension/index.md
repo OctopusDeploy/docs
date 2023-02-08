@@ -4,6 +4,12 @@ description: Octopus Deploy and Azure DevOps can work together to make automated
 position: 1
 ---
 
+:::warning
+Version 6 of the Octopus extension for Azure DevOps no longer requires the Octopus CLI to be installed.
+
+The use of the **Additional Arguments** field has been deprecated and is only left in place to ease migration from earlier versions.
+:::
+
 We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance.  This extension makes the following tasks available to your Build and Release processes:
 
 - The Octopus Tools installer task.
@@ -29,6 +35,10 @@ After installing the extension, follow the below steps to get it running for you
 
 ## Use your own version of Octo
 
+:::warning
+Version 6+ of each of the steps no longer require installing the CLI
+:::
+
 You can bring your own version of the Octopus CLI and avoid the use of installer tasks or accessing the Internet by [registering octo as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md).
 
 ## Add a connection to Octopus Deploy
@@ -53,6 +63,10 @@ For the Azure DevOps UI elements provided by the extension, the API key must als
 
 If there are scope restrictions (e.g. by Project or Environment) against the account, the UI should still work, but results will be similarly restricted.
 
+:::warning
+Version 6+ of each of the steps, no longer requires View permissions.
+:::
+
 - ProjectView (for project drop-downs)
 - EnvironmentView (for environment drop-downs)
 - TenantView (for tenant drop-downs)
@@ -62,8 +76,7 @@ If there are scope restrictions (e.g. by Project or Environment) against the acc
 
 ## Demands and the Octopus tools installer task
 
-The Azure DevOps extension tasks require the Octopus CLI to be available on the path when executing on a build agent. Because of this we have created the "Octopus Tools installer" task that will download the Octopus CLI for you, you need to specify the version of the CLI you want to use. Alternative you can have the Octopus CLI [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md). 
-
+The Azure DevOps extension tasks require the Octopus CLI to be available on the path when executing on a build agent. Because of this we have created the "Octopus Tools installer" task that will download the Octopus CLI for you, you need to specify the version of the CLI you want to use. Alternative you can have the Octopus CLI [available on the build agent](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability.md).
 
 ## Package your application and push to Octopus {#PackageyourApplicationandPushtoOctopus}
 
@@ -88,6 +101,10 @@ To add a step to your Release process, edit your Release Definition, select the 
 
 ### Add a package application step {#UsetheTeamFoundationBuildCustomTask-AddStepstoyourBuildorReleaseProcess-packageUsingExtension}
 
+:::warning
+Version 6+ of the package steps splits the functionality in to **OctopusPackNuGet** and **OctopusPackZip**
+:::
+
 Add a step to your Build or Release process, our recommended approach is to use the [Archive Files](http://go.microsoft.com/fwlink/?LinkId=809083) task.
 
 :::success
@@ -102,9 +119,9 @@ If your Package Application step is part of your Build process and your Push Pac
 ```yaml
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+    ArtifactName: "drop"
+    publishLocation: "Container"
 ```
 
 ### Add a push package(s) to Octopus step {#UsetheTeamFoundationBuildCustomTask-push-packages-stepAddaPushPackagestoOctopusStep}
@@ -114,10 +131,10 @@ Add a step to your build or release process, search for **Push Packages(s) to Oc
 ```yaml
 - task: OctopusPush@4
   inputs:
-    OctoConnectedServiceName: 'Octopus Server'
-    Space: 'Default'
-    Package: '$(Build.ArtifactStagingDirectory)/packages/*.zip'
-    Replace: 'true'
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Package: "$(Build.ArtifactStagingDirectory)/packages/*.zip"
+    Replace: "true"
 ```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/push.md) for more details).
@@ -129,13 +146,29 @@ Add a step to your Build or Release process, search for **Push Package Build Inf
 ```yaml
 - task: OctopusMetadata@4
   inputs:
-    OctoConnectedServiceName: 'Octopus Server'
-    Space: 'Default'
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
     PackageId: |
       OctoFX.Database
       OctoFX.RateService
-    PackageVersion: '$(Build.BuildNumber)'
-    Replace: 'false'
+    PackageVersion: "$(Build.BuildNumber)"
+    Replace: "false"
+```
+
+:::warning
+Version 6 of this step has changed name to **OctopusBuildInformation** and the **PackageId** field is called **PackageIds**
+:::
+
+```yaml
+- task: OctopusBuildInformation@6
+  inputs:
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    PackageIds: |
+      OctoFX.Database
+      OctoFX.RateService
+    PackageVersion: "$(Build.BuildNumber)"
+    Replace: "false"
 ```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/build-information.md) for more details).
@@ -151,28 +184,66 @@ Add a step to your Build or Release process, search for **Create Octopus Release
 ```yaml
 - task: OctopusCreateRelease@5
   inputs:
-    OctoConnectedServiceName: 'Octopus Server'
-    Space: 'Default'
-    ProjectName: 'OctoFX'
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    ProjectName: "OctoFX"
 ```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/create-release.md) for more details).
 
 ### Add a deploy Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaDeployOctopusReleaseStep}
 
+:::warning
+Version 6 of the **Octopus Deploy Release** task has been split into two steps, **OctopusDeployRelease@6** no longer supports deploying to Tenants. For Tenant deployments use **OctopusDeployReleaseTenanted@6**
+
+The deployment steps no longer support waiting on a deployment to complete, see [Await Task](#UsetheTeamFoundationBuildCustomTask-AwaitTask) to await the result of deployments or runbooks
+:::
+
 Add a step to your Build or Release process,search for **Deploy Octopus Release** task.
 
 ```yaml
 - task: OctopusDeployRelease@5
   inputs:
-    OctoConnectedServiceName: 'Octopus Server'
-    Space: 'Default'
-    Project: 'OctoFX'
-    ReleaseNumber: 'latest'
-    Environments: 'Test'
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Project: "OctoFX"
+    ReleaseNumber: "latest"
+    Environments: "Test"
+```
+
+```yaml
+- task: OctopusDeployRelease@6
+  inputs:
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Project: "OctoFX"
+    ReleaseNumber: "latest"
+    Environment: "Test"
+    DeployForTenants: |
+      Customer A
+      Customer B
+    DeployForTenantTags: |
+      VIP Customers
 ```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
+
+## Add a Run Runbook step {#UsetheTeamFoundationBuildCustomTask-AddaRunRunbookStep}
+
+Add a step to your build or release process, search for **Octopus Run Runbook** task.
+
+```yaml
+- task: OctopusRunRunbook@6
+  name: backup-database
+  inputs:
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Project: "OctoFX"
+    Runbook: "Backup Database"
+    Environments: "Production"
+```
+
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields.
 
 ## Add a promote Octopus release step {#UsetheTeamFoundationBuildCustomTask-AddaPromoteOctopusReleaseStep}
 
@@ -181,14 +252,32 @@ Add a step to your build or release process, search for **Promote Octopus Releas
 ```yaml
 - task: OctopusPromote@4
   inputs:
-    OctoConnectedServiceName: 'Octopus Server'
-    Space: 'Default'
-    Project: 'OctoFX'
-    From: 'Test'
-    To: 'Production'
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Project: "OctoFX"
+    From: "Test"
+    To: "Production"
 ```
 
 See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields (or the [Octopus CLI options](/docs/octopus-rest-api/octopus-cli/deploy-release.md) for more details).
+
+## Add an Await Task {#UsetheTeamFoundationBuildCustomTask-AddanAwaitTask}
+
+Add a step to your Build or Release process, search for **Octopus Await Task**.
+
+```yaml
+- task: OctopusAwaitTask@6
+  name: wait
+  continueOnError: true
+  inputs:
+    OctoConnectedServiceName: "Octopus Server"
+    Space: "Default"
+    Step: deploy-release
+```
+
+See the [Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks) for a description of the fields.
+
+The `Step` property is the name given to the **OctopusDeployRelease@6** or **OctopusRunRunbook@6** step that created the tasks to be awaited.
 
 ## Use the dashboard widget
 
