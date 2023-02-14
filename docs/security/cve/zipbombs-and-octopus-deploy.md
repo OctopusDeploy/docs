@@ -43,9 +43,8 @@ The following archive limits are in place for all Octopus Cloud customers, which
 
 * Maximum size a deployment package can decompress to: 1 terabyte
   * Applies to all Deployment Targets, Dynamic Workers and self-hosted Worker Pools
-* Maximum size an archive can decompress to on Octopus Server for all other operations: 1 terabyte
+* Maximum size an archive can decompress to on Octopus Server for all other operations: 10 gigabytes
   * Applies to any other non-deployment operations that use archives
-* Maximum compression ratio for all archives: 5000:1
 
 These limits can be adjusted on a per-customer basis. If your standard business operations are being impacted by these limits, please contact support@octopus.com and we'll be happy to help adjust your limits to find the appropriate balance of functionality and protection.
 
@@ -56,6 +55,5 @@ The following default archive limits are in place for all self-hosted:
   * Applies to all Deployment Targets, the in-built Worker (the "Run on Octopus Server" option available for some steps), and self-hosted Worker Pools
 * Maximum size an archive can decompress to on Octopus Server for all other operations: 1 terabyte
   * Applies to any other non-deployment operations that use archives
-* Maximum compression ratio for all archives: 5000:1
 
 These limits can be adjusted by an Octopus Server Administrator, via the Configuration > Settings > Archive Limits page in Octopus Server.
