@@ -31,7 +31,7 @@ As the customer, you are responsible for granting access to people you trust, an
 
 Octopus Server ensures that archives can only be uploaded for processing by authenticated users with specific permissions, which means that the only potential attackers are users whose access to the Octopus instance has been specifically granted by the customer.
 
-For self-hosted Octopus Deploy instances, the customer is responsible for using [the available configuration settings](#self-hosted-limits) to ensure these protections 
+For self-hosted Octopus Deploy instances, the customer is responsible for determining an appropriate risk position and adjusting [the available configuration settings](#self-hosted-limits) if the defaults are not appropriate to their deployment requirements.
 
 ## How Octopus Deploy prevents ZipBomb attacks {#prevention}
 
