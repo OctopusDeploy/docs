@@ -48,3 +48,10 @@ Time to recovery can span across multiple releases too.  In this scenario, the d
 Scope is taken into consideration when calculating time to recovery.  In the example below, you can see that the time to recovery for the Test environment is shorter than that of the Production environment because the earliest failure was for the Production environment.
 
 ![Mean Time To Recovery Example 2](images/mean-time-to-recovery-example-2.png)
+
+
+## Deployment duration
+
+The deployment duration is the time a deployment starts until it completes, including any manual intervention time. Only successful deployments are included. The value shown is the average (mean) of all deployments that completed in the time period that match the filter.
+          
+The queue time of a deployment is the calculated from the time the deployment is queued until the time it starts executing. If a deployment is scheduled to execute in the future, that future time is used. The value shown is the average (mean) for all deployments that started in that time period that match the filter.
