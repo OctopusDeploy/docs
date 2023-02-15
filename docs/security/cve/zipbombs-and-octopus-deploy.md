@@ -15,7 +15,7 @@ Using a specially crafted archive file (eg .zip, .jar, .tar.gz), a malicious act
 
 ## Does Octopus Deploy prevent ZipBomb attacks?
 
-Yes. The Octopus Server, and deployment agents that run on Workers and deployment targets, are designed to detect and prevent extraction of potentially malicious archives.
+Yes. The Octopus Server, and deployment agents that run on Workers and Deployment Targets, are designed to detect and prevent extraction of potentially malicious archives.
 
 The responsibility for protecting against ZipBomb attacks is shared between us as the software vendor, and you as the customer.
 
