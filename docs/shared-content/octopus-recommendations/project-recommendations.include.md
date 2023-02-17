@@ -63,6 +63,12 @@ We do not recommend having a single lifecycle with all environments.  When that 
 
 Changes made on feature or short-lived branches are not ready for Production.  They should be deployed to testing environments for verification and testing, but they should never have the chance to make it to Production.  Merging into main should trigger a fresh build because you could be merging multiple changes from different branches for the first time.  The underlying code has changed and a new build is needed to test and verify.
 
+For the packages / docker containers built off of branches, append a pre-release tag to the release version.  Leverage channel version rules to only allow packages / docker containers with a pre-release tag for the Development lifecycle.  At the same time, only allow packages / docker containers WITHOUT a pre-release tag for the release lifecycle.
+
+:::hint
+This section is another reason why we recommend deploying all tightly coupled components stored in the same source control repository within the same project.  Attempting to coordinate different lifecycles and releases across multiple projects can add aditional overhead which runs the risk of something not working correctly.
+:::
+
 ## Include everything required to deploy
 
 Imagine you are working on a greenfield application for six months. It only exists in your development and testing environments, now it's time to deploy to staging.  The web admins have set up a web server running IIS for you using a base image.  The DBAs have created an account for the application to use.  What about the configuration?  What should the database name be?  
