@@ -25,6 +25,44 @@ When components are decoupled from one another, they can have a different deploy
 In practice, it is rare for us to see the decoupling of all the components in a web application with a front-end, back-end, and database.  It is much more common for pieces of functionality, or backend services, to be decoupled.  
 :::
 
+## Use Lifecycles and Channels to reflect your branching strategies
+
+Most branching strategies follow the "main branch should always be ready to deploy to production" rule.  No changes can be made directly to the main branch.  Instead, work must be done in a branch and merged into main.  Your lifecycles and channels should reflect that rule.
+
+For example, in your Octopus instance you have the following environments.
+
+- Dev
+- QA
+- Staging
+- Production
+
+For most branching strategies, we'd recommend two lifecycles in this example, each with two environments.
+
+- Development Lifecycle
+    - Dev
+    - QA
+- Release Lifecycle
+    - Staging
+    - Production
+
+The workflow would be:
+1. Create a branch, commit some changes.
+2. Build is triggered on branch check-in.  It creates a release in Octopus for the Development lifecycle and pushes to Dev.
+3. Changes are verified in Dev and are promoted to QA.
+4. Full test suite is run in QA.
+5. Bugs or changes are found, repeat the previous steps.
+6. After a few iterations the change is ready for Production.
+7. Create a pull request and merge into main.
+8. Build is triggered on check-in to main.  It creates a release in Octopus for the Release lifecycle and pushes to Staging.
+9. Automated tests are run in Staging.
+10. Assuming tests pass, promote to Production.  If tests don't pass then a new branch is created and this process starts all over.
+
+Octopus Deploy provides the capability for dynamic package / docker image selection.  Meaning, you can have a different package per environment.  The intended use case for this is when using a third-party external feed and feed changes between environments.  The external feed provides the capabilities to "promote" packages ready for deployment.
+
+We do not recommend having a single lifecycle with all environments.  When that happens, we will see customers create a single release, and then change the package or package version when going from QA to Staging.  Such an approach is very hard to audit and track.  
+
+Changes made on feature or short-lived branches are not ready for Production.  They should be deployed to testing environments for verification and testing, but they should never have the chance to make it to Production.  Merging into main should trigger a fresh build because you could be merging multiple changes from different branches for the first time.  The underlying code has changed and a new build is needed to test and verify.
+
 ## Include everything required to deploy
 
 Imagine you are working on a greenfield application for six months. It only exists in your development and testing environments, now it's time to deploy to staging.  The web admins have set up a web server running IIS for you using a base image.  The DBAs have created an account for the application to use.  What about the configuration?  What should the database name be?  
