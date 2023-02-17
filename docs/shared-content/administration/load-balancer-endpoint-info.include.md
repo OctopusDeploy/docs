@@ -14,9 +14,9 @@ The Octopus Server node configuration is also returned as JSON in the HTTP respo
 
 We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster, as the Octopus Web Portal is stateless. 
 
-Each node in the cluster keeps a local cache of data including user permissions. This cache is reloaded every time a user's permissions change.
+Each node in the cluster keeps a local cache of data including user permissions. This cache is reloaded when a user's permissions change.
 
-To work around this issue, you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node. 
+This means it is not necessary to enable session persistence on your load balancer.
 
 All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]/packages/raw`.  Because the REST API will be behind a load balancer, you'll need to configure the following on the load balancer:
 
