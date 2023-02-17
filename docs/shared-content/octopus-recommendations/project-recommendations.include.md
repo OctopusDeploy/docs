@@ -22,7 +22,7 @@ We recommend the project per component pattern when those components are decoupl
 When components are decoupled from one another, they can have different deployment schedules, and do not have to be deployed in a specific order.  That will negate the need for an orchestration project.
 
 :::hint
-In practice, it is rare for us to see the decoupling of all the components in a web application with a front-end, back-end, and database.  It is much more common for pieces of functionality, or backend services, to be decoupled.  
+In practice, it is rare to see the decoupling of all the components in a web application with a front-end, back-end, and database.  It is much more common for functionality, or backend services, to be decoupled.
 :::
 
 ## Use Lifecycles and Channels to reflect your branching strategies
