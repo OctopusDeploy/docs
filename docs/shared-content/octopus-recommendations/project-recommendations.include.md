@@ -17,7 +17,7 @@ Like any recommendation, we have seen the extreme end of the spectrum, projects 
 
 ## Leverage the Project Per Component pattern with decoupled components
 
-We recommend the project per component pattern when those components are decoupled from one another.  Going back to the previous web application example, adding a column to the database can still require a change to the back-end and front-end.  However, the back-end and front-end have the appropriate code in place to continue processing without any errors when the column is not present.  And the column isn't required to be populated in the database.
+We recommend the project per component pattern when those components are decoupled from one another.  Returning to the previous web application example, adding a column to the database can still require changing the back-end and front-end.  However, the back-end and front-end have the appropriate code to continue processing without errors when the column is not present.  And the column isn't required to be populated in the database.
 
 When components are decoupled from one another, they can have a different deployment schedules, and do not have to be deployed in a specific order.  That will negate the need for an "orchestration project."   
 
