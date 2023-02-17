@@ -14,7 +14,7 @@ The Octopus Server node configuration is also returned as JSON in the HTTP respo
 
 We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster, as the Octopus Web Portal is stateless. 
 
-Each node in the cluster keeps a local cache of data including user permissions. There is a known issue that occurs when a users permissions change. The local cache is only invalidated on the node where the change was made. This will be resolved in a future version of Octopus. 
+Each node in the cluster keeps a local cache of data including user permissions. This cache is reloaded every time a user's permissions change.
 
 To work around this issue, you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node. 
 
