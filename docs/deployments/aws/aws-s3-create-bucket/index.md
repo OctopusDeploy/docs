@@ -46,7 +46,7 @@ The S3 bucket is created and managed through a CloudFormation stack. You can opt
 ![Create an Amazon S3 Bucket Advanced section](images/advanced-section.png "width=500")
 
 :::warning
-In April 2023 Amazon is updating their security settings for newly created S3 Buckets. Buckets will now be created with Block all public access enabled and access list controls (ACLs) disabled. For more information on these changes see [the annoncuement](https://aws.amazon.com/blogs/aws/heads-up-amazon-s3-security-changes-are-coming-in-april-of-2023/). Octopus Deploy is updating our defaults in line with these changes and now offers the ability to override both of these settings. Existing projects that rely on creating publically accessible S3 buckets will need to be updated with public access enabled and ACLs enabled.
+In April 2023 Amazon is updating their security settings for newly created S3 Buckets. Buckets will now be created with Block all public access enabled and access control lists (ACLs) disabled. For more information on these changes see [the announcement](https://aws.amazon.com/blogs/aws/heads-up-amazon-s3-security-changes-are-coming-in-april-of-2023/). Octopus Deploy is updating our defaults in line with these changes and now offers the ability to override both of these settings. Existing projects that rely on creating publicly accessible S3 buckets will need to be updated with public access enabled and ACLs enabled.
 :::
 
 ![Create an Amazon S3 Bucket Advanced Security section](images/advanced-section-security.png "width=500")
