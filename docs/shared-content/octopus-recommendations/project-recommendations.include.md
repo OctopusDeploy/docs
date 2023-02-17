@@ -3,32 +3,27 @@ We built Octopus Deploy with the core concept of consistency across all environm
 
 Knowing the underlying concept of Octopus Deploy is consistency; here are our project recommendations.
 
-## Keep projects simple
+## Deploy tightly coupled components together
 
-One of our favorite programming maxims is the [single responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). It says:
+A component is considered tightly coupled when they are dependent on one another and any changes made in one impacts the others.  For example, consider a web application with a React front-end, a Web API back-end, and PostgreSQL database.  Those components are tightly coupled if adding a column to the database requires a change to both the front-end and back-end. Not only that, the front-end and back-end will throw exceptions if the column isn't present in the database.  Tightly coupled components must be deployed in a specific order.
 
-> A class/function/method should do one thing, and it should do it well.  
-
-The same is true for projects.  Projects should be straightforward and should deploy a component of an application.  
-
-For example, say your project has a Windows Service, a UI, and a database.  The temptation is to create a single project to deploy all three components at the same time.  The project wouldn't be very complicated;   four or five steps if you include a manual intervention.  
-
-However, think about how much faster you could respond to customer feedback if you could:
-
-* Make a small UI fix without having to worry about deploying your database and Windows Service
-* Add an index into your database and push that to production without having to worry about deploying your UI or Windows Service
-
-Each component should have its own project.  Unique projects will give you the flexibility to deploy the pieces of your application only when a change has occurred.
+The general rule of thumb to follow is when components are stored in the same source control repo and are built using the same build definition, they should be deployed together.
 
 :::hint
-While creating projects per component is a good practice, it's not the rule. Octopus provides flexibility to allow you to model your projects to meet your requirements.
+We previously recommended a project per component.  We have found in practice, that while it solves a specific problem - you can have a faster deployment when only the front-end or back-end is changed to fix a bug - it generally leads to a higher maintenance overhead of orchestrating multiple projects.  Typically an orchestration project was created because the components must be deployed in a specific order.  We now recommend a single project should be responsible for deploying all the tightly coupled components in an application.
 :::
 
-## Orchestrating multiple projects
+Like any recommendation, we have seen the extreme end of the spectrum, projects with 200+ steps deploying 80+ packages that take over an hour to deploy.  That might be a good candidate to split up the project into smaller projects.  However, you should ensure components are decoupled before making changes to the deployment process.  Do not change how you deploy the application when components must be deployed in a specific order, and failure to do so will cause showstopping bugs.  First focus on decoupling the components, then change how you deploy them.
 
-Octopus Deploy provides a way for a [project to call other projects](/docs/projects/coordinating-multiple-projects/index.md). That feature allows you to set up an orchestrator to deploy your projects in a specific order.
+## Leverage the Project Per Component pattern with decoupled components
 
-Orchestration allows you to isolate your code in your source control repository and have separate builds for each component.  This way, your CI/CD pipeline only has to build and deploy something that changed rather than the entire application.  An added benefit is reduced build and deployment times.  
+We recommend the project per component pattern when those components are decoupled from one another.  Going back to the previous web application example, adding a column to the database can still require a change to the back-end and front-end.  However, the back-end and front-end have the appropriate code in place to continue processing without any errors when the column is not present.  And the column isn't required to be populated in the database.
+
+When components are decoupled from one another, they can have a different deployment schedules, and do not have to be deployed in a specific order.  That will negate the need for an "orchestration project."   
+
+:::hint
+In practice, it is rare for us to see the decoupling of all the components in a web application with a front-end, back-end, and database.  It is much more common for pieces of functionality, or backend services, to be decoupled.  
+:::
 
 ## Include everything required to deploy
 
@@ -53,7 +48,7 @@ These conditions allow you to have a greater degree of control over your deploym
 
 ## Automate every component's deployment {#automate-every-components-deployment}
 
-A typical scenario we see is that application deployments are automated, but the database piece is not.  That's still a manual process that means a DBA has to run the scripts on the night of deployment to production.  After they finish, the automated process can be kicked off.  Because this is manual, there's a good chance one or more of the scripts were not included in the deployments to dev, testing or staging.  Without prior testing, the likelihood of success goes down, and the deployment time goes up.
+A typical scenario we see is that application deployments are automated, but the database piece is not.  That's still a manual process which means a DBA has to run the scripts on the night of deployment to production.  After they finish, the automated process can be kicked off.  Because this is manual, there's a good chance one or more of the scripts were not included in the deployments to dev, testing or staging.  Without prior testing, the likelihood of success goes down, and the deployment time goes up.
 
 Essentially, this great automated process takes a few minutes to finish, but it depends on a manual process that takes anywhere from ten minutes to an hour to complete.  Every component of the application needs to be automated, even the database.  Octopus Deploy integrates with many [database deployment](/docs/deployments/databases/index.md) tools to help with this sort of automation.
 
