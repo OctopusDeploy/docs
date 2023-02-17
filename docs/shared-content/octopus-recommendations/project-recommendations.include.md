@@ -5,7 +5,7 @@ Knowing the underlying concept of Octopus Deploy is consistency; here are our pr
 
 ## Deploy tightly coupled components together
 
-A component is considered tightly coupled when they are dependent on one another and any changes made in one impacts the others.  For example, consider a web application with a React front-end, a Web API back-end, and PostgreSQL database.  Those components are tightly coupled if adding a column to the database requires a change to both the front-end and back-end. Not only that, the front-end and back-end will throw exceptions if the column isn't present in the database.  Tightly coupled components must be deployed in a specific order.
+A component is considered tightly coupled when they depend on one another, and any changes made in one impact the others.  For example, consider a web application with a React front-end, a Web API back-end, and PostgreSQL database.  Those components are tightly coupled if adding a column to the database requires changing both the front-end and back-end. Not only that, the front-end and back-end will throw exceptions if the column isn't present in the database.  Tightly coupled components must be deployed in a specific order.
 
 The general rule of thumb to follow is when components are stored in the same source control repo and are built using the same build definition, they should be deployed together.
 
