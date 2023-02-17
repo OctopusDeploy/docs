@@ -45,17 +45,17 @@ For most branching strategies, we'd recommend two lifecycles in this example, ea
     - Staging
     - Production
 
-The workflow would be:
+The workflow would be as follows:
 1. Create a branch, commit some changes.
 2. Build is triggered on branch check-in.  It creates a release in Octopus for the Development lifecycle and pushes to Dev.
 3. Changes are verified in Dev and are promoted to QA.
 4. Full test suite is run in QA.
-5. Bugs or changes are found, repeat the previous steps.
-6. After a few iterations the change is ready for Production.
+5. Bugs or changes are found; repeat the previous steps.
+6. After a few iterations, the change is ready for Production.
 7. Create a pull request and merge into main.
 8. Build is triggered on check-in to main.  It creates a release in Octopus for the Release lifecycle and pushes to Staging.
 9. Automated tests are run in Staging.
-10. Assuming tests pass, promote to Production.  If tests don't pass then a new branch is created and this process starts all over.
+10. Assuming tests pass, promote to Production.  If tests don't pass, then a new branch is created, and this process starts all over.
 
 Octopus Deploy provides the capability for dynamic package / docker image selection.  Meaning, you can have a different package per environment.  The intended use case for this is when using a third-party external feed and feed changes between environments.  The external feed provides the capabilities to "promote" packages ready for deployment.
 
