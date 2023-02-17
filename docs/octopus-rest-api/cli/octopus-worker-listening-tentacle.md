@@ -1,7 +1,7 @@
 ---
 title: octopus worker listening-tentacle
 description: Manage Listening Tentacle workers
-position: 114
+position: 116
 ---
 
 Manage Listening Tentacle workers in Octopus Deploy

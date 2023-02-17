@@ -1,7 +1,7 @@
 ---
 title: octopus worker delete
 description: Delete a worker
-position: 112
+position: 114
 ---
 
 Delete a worker in Octopus Deploy

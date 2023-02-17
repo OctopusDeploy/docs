@@ -1,7 +1,7 @@
 ---
 title: octopus project variables view
 description: View all values of a project variable
-position: 77
+position: 79
 ---
 
 View all values of a project variable in Octopus Deploy
