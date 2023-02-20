@@ -54,4 +54,4 @@ Scope is taken into consideration when calculating time to recovery.  In the exa
 
 The deployment duration is the time from when a deployment starts until it completes, including any manual intervention time. Only successful deployments are included. The value shown is the average (mean) of all deployments that completed in the time period that matches the filter.
           
-The queue time of a deployment is the calculated from the time the deployment is queued until the time it starts executing. If a deployment is scheduled to execute in the future, that future time is used. The value shown is the average (mean) for all deployments that started in that time period that match the filter.
+The queue time of a deployment is calculated from the time the deployment is queued until the time it starts executing. If a deployment is scheduled to execute in the future, that future time is used. The value shown is the average (mean) for all deployments that started in the time period that matches the filter.
