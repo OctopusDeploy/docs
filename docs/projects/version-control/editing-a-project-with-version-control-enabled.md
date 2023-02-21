@@ -36,13 +36,7 @@ If you are making changes on a protected branch, the quick save option will be d
 
 ### Viewing and Editing OCL
 
-Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. 
-
-:::hint
-The Octopus Deploy UI will only add non-default properties to the OCL files. For example, if a step isn't scoped to run for a specific environment(s), that property will not show up when you edit the OCL file in the UI.
-:::
-
-We suggest using your favorite text editor or IDE to make changes, commit and push them just as you would any other code change. 
+Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit and push them just as you would any other code change. 
 
 :::hint
 We have a [Visual Studio Code Plug-in](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.vscode-octopusdeploy) that will add syntax highlighting, OCL snippets, and an integrated tree view for navigating nodes in an HCL file.
@@ -52,9 +46,12 @@ Any changes made to an OCL file via a text editor will not be reflected in the O
 
 1. Commit the file.  
 1. Push any changes to the remote git repo.
-1. In the Octopus UI, click the **Fetch** button on the branch-switcher.
 
-Octopus will periodically fetch from the remote, so you might not have to do the final step.
+Octopus will periodically fetch from the remote, so you might have to wait a short time for the changes to appear. To see the changes immediately, simply reload the page.
+
+:::hint
+The Octopus Deploy Web Portal will only add non-default properties to the OCL files. For example, if a step isn't scoped to run for a specific environment(s), that property will not show up when you view the deployment process there.
+:::
 
 ### OCL vs. Octopus Terraform Provider
 
@@ -68,4 +65,4 @@ Storing the deployment process in the same repository as your source code has ma
 - Leveraging Pull Requests for approvals to any changes.
 - Reverting changes if something doesn't work right.
 
-If you make any changes outside of the Octopus UI (merging a branch, reverting a change, etc.), you'll need to perform a **Fetch** for those changes to be reflected in the Octopus UI.
+If you make any changes outside of the Octopus UI (merging a branch, reverting a change, etc.), you'll need to either need to wait for Octopus to fetch from the remote repo, or reload the page for those changes to be reflected in the Octopus Web Portal.
