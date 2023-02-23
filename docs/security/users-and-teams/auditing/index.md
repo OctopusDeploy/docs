@@ -95,4 +95,4 @@ Users with appropriate permissions (typically `Octopus Manager`) can download or
 Deleting the archived files will permanently erase the audit entries. As a safeguard, deletion of audit log files is only allowed on files that are at least 30 days old from when they were created.
 :::
 
-The archived files can also be accessed via the Octopus REST API endpoints `/api/event/archives` and `/api/event/archives/{filename}`.
+The archived files can also be accessed via the Octopus REST API endpoints `/api/events/archives` and `/api/events/archives/{filename}`.
