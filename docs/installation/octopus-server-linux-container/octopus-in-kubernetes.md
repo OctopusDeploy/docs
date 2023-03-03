@@ -431,7 +431,7 @@ spec:
           claimName: octopus-storage-claim
       containers:
       - name: octopus        
-        image: octopusdeploy/octopusdeploy:2021.3.8275
+        image: octopusdeploy/octopusdeploy:2022.4.8471
         securityContext:
           privileged: true
         env:
@@ -749,6 +749,46 @@ spec:
               name: octopus
               port:
                 number: 8080
+```
+
+## Trusting custom/internal Certificate Authority (CA)
+Octopus Server can interface with several external sources (feeds, git repos, etc.), and those sources are often configured to use SSL/TLS for secure communication.  It is common for organizations to have their own Certificate Authority (CA) servers for their internal networks.  A CA server can issue SSL certificates for internal resources, such as build servers or internally hosted applications, without purchasing from a third-party vendor.  Technologies such as Group Policy Objects (GPO) can configure machines (servers and clients) to trust the CA automatically, so users don't have to configure trust for them manually. However, this is not inherited in Kubernetes containers.  When attempting to configure a connection to an external resource with an untrusted CA, you'll most likely encounter an error similar to this:
+
+```text
+Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
+```
+Kubernetes provides a method to incorporate a certificate without having to modify hosts or embed the certificate within the container by using a ConfigMap.
+
+### Create ConfigMap
+
+To apply the certificate to the cluster, you'll need to first get the certificate file in either `.pem` or `.crt` format.  Once you have the file, use `kubectl` to create a ConfigMap from it
+
+```bash
+kubectl -n <namespace> create configmap ca-pemstore --from-file=my-cert.pem
+```
+
+### Add ConfigMap to YAML for Octopus Server
+
+With the ConfigMap created, add a `volumeMounts` component to the container section for Octopus Server. The following is an abbreviated portion of the YAML
+
+```yaml
+...
+      containers:
+      - name: octopus
+        image: octopusdeploy/octopusdeploy:2022.4.8471
+        volumeMounts:
+        - name: ca-pemstore
+          mountPath: /etc/ssl/certs/my-cert.pem
+          subPath: my-cert.pem
+          readOnly: false
+...
+```
+Add the following excerpt to the end of the Octopus Server YAML
+```yaml
+      volumes:
+      - name: ca-pemstore
+        configMap:
+          name: ca-pemstore
 ```
 
 ## Octopus in Kubernetes example {#octopus-in-kubernetes-example}
