@@ -133,7 +133,8 @@ Octopus Server can interface with several external sources (feeds, git repos, et
 
 ```text
 Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
-
+```
+ 
 The recommended approach is to add the certificate to the Docker host, such as `/etc/ssl/certs`, and mount a volume to it inside the container.  To do this, add a `volumes` section to  the `octopus-server` container just after the `image` component
 
 ```yaml
