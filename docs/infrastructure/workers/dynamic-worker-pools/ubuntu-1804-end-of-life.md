@@ -80,3 +80,7 @@ Ubuntu 22.04 requires a later version of GCloud CLI. We have selected the earlie
 
 ### Are the Windows dynamic workers affected in any way?
 This change does not impact the Windows dynamic workers.
+
+### How does this affect Execution Containers? ###
+Although Ubuntu 18.04 docker images, along with [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching.md), can still operate on Ubuntu 22.04 dynamic workers, we will no longer provide support for the ubuntu.18.04 Worker Tools. Instead, we have introduced a new [ubuntu.22.04](https://hub.docker.com/layers/octopusdeploy/worker-tools/ubuntu.18.04/images/sha256-4b5cf2035840835f902bfe4882c99fd41a7df1d981e93fc43cdc9d0b96e7fe87?context=explore) image, which is recommended moving forward.
+
