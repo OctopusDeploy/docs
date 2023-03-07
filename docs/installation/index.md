@@ -72,13 +72,13 @@ If you don't have a copy of your Master Key and your hardware fails, you will no
 
 !include <octopus-server-in-container>
 
-This section includes information about different options to run the Octopus Server Linux Container, and migration considerations when moving to the Octopus Server Linux Container From Windows Server or the *deprecated* Windows Container.
+This section includes information about different options to run the Octopus Server Linux Container.
 
 - [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md)
 - [Migrating to the Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/migration/index.md)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 - [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
 - [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
-- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 
 ## Launch the Octopus Web Portal
 
