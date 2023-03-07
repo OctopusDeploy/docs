@@ -17,7 +17,7 @@ If you already have a Linux machine with Docker installed, you can use that once
 If not, you'll need to configure a host for our sample application. We recommend using **Ubuntu 18.04 LTS** or **Ubuntu 20.04 LTS** for this sample.
 
 1. Install Ubuntu.
-2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/linux/tentacle/index.md) in Octopus
+2. Configure your Ubuntu machine as either an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md#configuring-ssh-targets) or [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md) in Octopus
     * Make sure this Deployment Target has a [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) like **docker-server**. We will configure the Docker steps to target this role.
 
 ![](images/my-docker-host.png "width=500")

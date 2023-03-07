@@ -71,10 +71,10 @@ If you're executing a script contained within a package, the package contents wi
 
 ### Security and permissions {#Customscripts-Securityandpermissions}
 
-When scripts are executed, it is in the context of the account that the Tentacle agent or SSH session is running as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
+When scripts are executed, it is in the context of the account that the Tentacle agent or SSH session is running as. Learn about [running Tentacle as a different user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account.md).
 
 :::hint
-On Windows, the Tentacle agent runs as **Local System** by default, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you’ll need to configure Tentacle to [run under a custom user account](/docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-specific-user-account.md).
+On Windows, the Tentacle agent runs as **Local System** by default, which has extensive local privileges, but usually cannot access file shares, remote SQL databases, or other external resources. If you need wider permissions, you’ll need to configure Tentacle to [run under a custom user account](/docs/infrastructure/deployment-targets/tentacle/windows/running-tentacle-under-a-specific-user-account.md).
 :::
 
 ### Script integrity

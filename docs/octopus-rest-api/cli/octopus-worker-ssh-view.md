@@ -1,7 +1,7 @@
 ---
 title: octopus worker ssh view
 description: View a SSH worker
-position: 124
+position: 126
 ---
 
 View a SSH worker in Octopus Deploy

@@ -1,7 +1,7 @@
 ---
 title: octopus project-group create
 description: Create a project group
-position: 80
+position: 82
 ---
 
 Create a project group in Octopus Deploy

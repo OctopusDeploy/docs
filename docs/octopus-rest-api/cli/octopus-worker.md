@@ -1,7 +1,7 @@
 ---
 title: octopus worker
 description: Manage workers
-position: 111
+position: 113
 ---
 
 Manage workers in Octopus Deploy

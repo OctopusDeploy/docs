@@ -1,7 +1,7 @@
 ---
 title: octopus tenant clone
 description: Clone a tenant
-position: 100
+position: 102
 ---
 
 Clone a tenant in Octopus Deploy

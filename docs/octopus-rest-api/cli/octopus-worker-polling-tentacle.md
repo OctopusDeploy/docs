@@ -1,7 +1,7 @@
 ---
 title: octopus worker polling-tentacle
 description: Manage Polling Tentacle workers
-position: 118
+position: 120
 ---
 
 Manage Polling Tentacle workers in Octopus Deploy

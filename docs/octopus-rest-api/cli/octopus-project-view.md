@@ -1,7 +1,7 @@
 ---
 title: octopus project view
 description: View a project
-position: 78
+position: 80
 ---
 
 View a project in Octopus Deploy

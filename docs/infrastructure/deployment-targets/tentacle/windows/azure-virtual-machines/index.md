@@ -1,11 +1,11 @@
 ---
 title: Azure virtual machines
 description: The Azure VM Tentacle extension makes it easy to automatically download, install and register a Tentacle with your Octopus Server.
-position: 70
+position: 80
 hideInThisSectionHeader: true
 ---
 
-Tentacles can be configured during virtual machine provisioning via Desired State Configuration (DSC). The process for integrating DSC with Azure VM provisioning is documented [here](/docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md).
+Tentacles can be configured during virtual machine provisioning via Desired State Configuration (DSC). The process for integrating DSC with Azure VM provisioning is documented [here](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc.md).
 
 An Azure VM extension is also available, and has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. However the VM extension has limited functionality, with no support for spaces or workers. 
 
@@ -14,7 +14,7 @@ Microsoft [no longer supports third party extensions](https://www.microsoftpartn
 
 Support was available for the VM extension until the end of 2020, during which time reasonable efforts were made to fix bugs, subject to any limitations due to Microsoft no longer supporting third party extensions. From 2021, the VM extension is no longer supported.
 
-**All customers using the VM extension should migrate to [DSC](/docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/via-an-arm-template-with-dsc.md).**
+**All customers using the VM extension should migrate to [DSC](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc.md).**
 :::
 
 **Important Note**

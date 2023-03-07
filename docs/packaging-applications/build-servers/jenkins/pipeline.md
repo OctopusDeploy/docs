@@ -129,7 +129,7 @@ octopusPushBuildInformation \
   verboseLogging: false, \
   additionalArgs: '--debug', \
   gitUrl: 'https://github.com/OctopusSamples/OctoPetShop', \
-  gitBranch: '${GIT_BRANCH}' \
+  gitBranch: '${GIT_BRANCH}', \
   gitCommit: '${GIT_COMMIT}'
 ```
 
