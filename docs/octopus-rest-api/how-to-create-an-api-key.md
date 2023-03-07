@@ -56,6 +56,9 @@ The background task which raises the api-key-expiry events runs:
 :::
 
 ## Disabling API Key Creation {#HowtocreateanAPIkey-DisablingAPIKeyCreation}
+:::hint
+The ability to disable API key creation for user accounts was added in Octopus Deploy **2023.2**.
+:::
 
 Octopus administrators can disable the creation of API keys for regular user accounts. Existing API keys will continue to function, and new API keys can still be created for [Service Accounts](/docs/security/users-and-teams/service-accounts.md).
 
