@@ -1,5 +1,5 @@
 ---
-title: Control Center
+title: Control Center V2
 description: Control Center is where you create and manage your Octopus subscriptions and their associated user access. 
 position: 140
 ---
