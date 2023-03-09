@@ -77,14 +77,14 @@ Navigate to your subscription
 2. Click **CHANGE OUTAGE WINDOW**.
 3. Specify the start and end times.
 4. Click **SUBMIT**.
-5. Changing the instance URL (Cloud only).
 
-### Navigate to your subscription
+### Changing the instance URL (Cloud only)
 
-1. Click **CONFIGURATION** in the left sidebar.
-2. Click **CHANGE URL**.
-3. Specify the new URL.
-4. Click **SUBMIT**.
+1. Navigate to your subscription
+2. Click **CONFIGURATION** in the left sidebar.
+3. Click **CHANGE URL**.
+4. Specify the new URL.
+5. Click **SUBMIT**.
 
 ## Access control
 
