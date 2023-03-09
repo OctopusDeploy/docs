@@ -1,14 +1,17 @@
 ---
-title: Control Center V2
-description: Control Center is where you create and manage your Octopus subscriptions and their associated user access. 
+title: Managing Octopus subscriptions
+description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
 position: 40
 ---
 
-Control Center is where you create and manage your Octopus subscriptions and their associated user access. 
+Control Center is where you manage your Octopus subscriptions and their associated user access. 
+
 There are two types of Octopus subscriptions:
 
 1. **Cloud Instances**: Deployments as-a-service
 2. **Server Licenses**: Octopus on your infrastructure
+
+This page focuses on Control Center V2, our new system for managing Octopus subscriptions.
 
 ## Control Center V1 and V2 
 
