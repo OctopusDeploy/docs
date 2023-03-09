@@ -37,33 +37,33 @@ The finance functionality is coming soon to Server Licenses.
 ### Changing payment method or billing information (Cloud only, Server coming soon)
 
 1. Navigate to your Cloud Instance or Server License
-2. Click FINANCE in the left sidebar
-3. Click MANAGE WITH STRIPE 
-4. There are options to edit and/or add payment methods and update your billing information
+2. Click **FINANCE** in the left sidebar
+3. Click **MANAGE WITH STRIPE** 
+4. Use the options to edit and/or add payment methods and update your billing information
 
 ### Viewing orders (Cloud only, Server coming soon)
 
 1. Navigate to your subscription
-2. Click FINANCE in the left sidebar
+2. Click **FINANCE** in the left sidebar
 3. Choose your option for viewing orders:
-  - For recent orders, click VIEW IN STRIPE
-  - For older orders, click VIEW IN CONTROL CENTER V1
+  - For recent orders, click **VIEW IN STRIPE**
+  - For older orders, click **VIEW IN CONTROL CENTER V1**
 
 ### Configuring maximum deployment targets (Cloud only)
 
 To help you manage your monthly spend, you can set a maximum number deployment targets for a Cloud Instance.
 
 1. Navigate to your Cloud Instance
-2. Click FINANCE in the left sidebar
-3. Click SET MAXIMUM TARGETS to configure a maximum number of targets
+2. Click **FINANCE** in the left sidebar
+3. Click **SET MAXIMUM TARGETS** to configure a maximum number of targets
 
 ### Cancelling your plan (Cloud only, Server coming soon)
 
 To modify your plan:
 
 1. Navigate to your Cloud Instance
-2. Click FINANCE in the left sidebar
-3. Click CANCEL SUBSCRIPTION
+2. Click **FINANCE** in the left sidebar
+3. Click **CANCEL SUBSCRIPTION**
 4. A confirmation dialog will appear for you to confirm cancellation
 
 ## Configuration 
@@ -73,18 +73,18 @@ To modify your plan:
 We use outage windows to perform updates to the Octopus Deploy software, so you can take advantage of fixes and enhancements.
 Navigate to your subscription
 
-1. Click CONFIGURATION in the left sidebar
-2. Click CHANGE OUTAGE WINDOW
+1. Click **CONFIGURATION** in the left sidebar
+2. Click **CHANGE OUTAGE WINDOW**
 3. Specify the start and end times
-4. Click SUBMIT
+4. Click **SUBMIT**
 5. Changing the instance URL (Cloud only)
 
 ### Navigate to your subscription
 
-1. Click CONFIGURATION in the left sidebar
-2. Click Change URL
+1. Click **CONFIGURATION** in the left sidebar
+2. Click **CHANGE URL**
 3. Specify the new URL
-4. Click SUBMIT
+4. Click **SUBMIT**
 
 ## Access control
 
@@ -115,9 +115,9 @@ Shown below are the roles available for Subscription Group access and the permis
 Inviting users to Subscription Group access:
 
 1. Navigate to the dashboard and locate your subscription group
-2. Click ACCESS CONTROL
-3. Click INVITE USER
-3. Enter the user’s details and click INVITE
+2. Click **ACCESS CONTROL**
+3. Click **INVITE USER**
+3. Enter the user’s details and click **INVITE**
 
 The invited user will receive an email to accept the invitation. 
 
@@ -136,9 +136,9 @@ Shown below are the roles available for Direct access:
 Inviting users to Direct access:
 
 1. Navigate to your Cloud Instance
-2. Click ACCESS CONTROL in the left sidebar
-3. Click INVITE USER
-4. Enter the user’s details and click INVITE
+2. Click **ACCESS CONTROL** in the left sidebar
+3. Click **INVITE USER**
+4. Enter the user’s details and click **INVITE**
 
 The invited user will receive an email to accept the invitation. 
 
@@ -153,13 +153,13 @@ To change a user’s role you must remove that user’s access and then re-invit
 Deleting Subscription Group access users:
 
 1. Navigate to the dashboard and locate your subscription group
-2. Click ACCESS CONTROL
+2. Click **ACCESS CONTROL**
 3. Locate the user in the table and click the trash icon
-4. Click DELETE in the confirmation dialog
+4. Click **DELETE** in the confirmation dialog
 
 Deleting Direct access users:
 
 1. Navigate to your Cloud Instance
-2. Click ACCESS CONTROL in the left sidebar
+2. Click **ACCESS CONTROL** in the left sidebar
 3. Locate the user in the table and click the trash icon
-4. Click DELETE in the confirmation dialog
+4. Click **DELETE** in the confirmation dialog
