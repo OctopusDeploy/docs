@@ -20,7 +20,7 @@ In October 2022, we made the transition to use Stripe as our payment gateway. Th
 
 There are some Control Center V1 features that haven’t been included in V2 yet. This is only temporary while we gain feature-parity for the new Control Center.
 
-If you can’t see how to do something in V2 that you were able to do in V1 (e.g. change subdomain), please email [mailto:support@octopus.com](support@octopus.com) for assistance. 
+If you can’t see how to do something in V2 that you were able to do in V1 (e.g. change subdomain), please email [support@octopus.com](mailto:support@octopus.com) for assistance. 
 
 ### Locating subscriptions
 
