@@ -102,15 +102,15 @@ Shown below are the roles available for Subscription Group access and the permis
 |                                | Administrator | Technical Manager | Billing Manager |
 | ------------------------------ | ------------- | ----------------- | --------------- |
 | **Subscription Group**         |
-| Delete and rename group        | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-check-circle text-success fs-24"></i>                 | <i class="fas fa-times-circle text-danger fs-24"></i>           |
-| Access Control                 | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-check-circle text-success fs-24"></i>                 | <i class="fas fa-times-circle text-danger fs-24"></i>           |
+| Delete and rename group        | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-check-circle text-success fs-20"></i>                 | <i class="fas fa-times-circle text-danger fs-20"></i>           |
+| Access Control                 | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-check-circle text-success fs-20"></i>                 | <i class="fas fa-times-circle text-danger fs-20"></i>           |
 | **Subscriptions within Group** |
-| Server: View Overview          | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-check-circle text-success fs-24"></i>                 | <i class="fas fa-times-circle text-danger fs-24"></i>           |
-| Cloud: View Overview           | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-check-circle text-success fs-24"></i>                 | <i class="fas fa-check-circle text-success fs-24"></i>    |
-| Cloud: Manage Billing          | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-times-circle text-danger fs-24"></i>                        | <i class="fas fa-check-circle text-success fs-24"></i>    |
-| Cloud: Manage Configuration    | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-check-circle text-success fs-24"></i>                 | <i class="fas fa-times-circle text-danger fs-24"></i>           |
-| Cloud: Manage Access Control   | <i class="fas fa-check-circle text-success fs-24"></i>             | <i class="fas fa-check-circle text-success fs-24"></i>                 | <i class="fas fa-times-circle text-danger fs-24"></i>           |
-| Instance access                | <i class="fas fa-check-circle text-success fs-24"></i> Admin       | <i class="fas fa-check-circle text-success fs-24"></i> Octopus Manager | <i class="fas fa-times-circle text-danger fs-24"></i>           |
+| Server: View Overview          | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-check-circle text-success fs-20"></i>                 | <i class="fas fa-times-circle text-danger fs-20"></i>           |
+| Cloud: View Overview           | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-check-circle text-success fs-20"></i>                 | <i class="fas fa-check-circle text-success fs-20"></i>    |
+| Cloud: Manage Billing          | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-times-circle text-danger fs-20"></i>                        | <i class="fas fa-check-circle text-success fs-20"></i>    |
+| Cloud: Manage Configuration    | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-check-circle text-success fs-20"></i>                 | <i class="fas fa-times-circle text-danger fs-20"></i>           |
+| Cloud: Manage Access Control   | <i class="fas fa-check-circle text-success fs-20"></i>             | <i class="fas fa-check-circle text-success fs-20"></i>                 | <i class="fas fa-times-circle text-danger fs-20"></i>           |
+| Instance access                | <i class="fas fa-check-circle text-success fs-20"></i> Admin       | <i class="fas fa-check-circle text-success fs-20"></i> Octopus Manager | <i class="fas fa-times-circle text-danger fs-20"></i>           |
 
 Inviting users to Subscription Group access:
 
@@ -127,11 +127,11 @@ Shown below are the roles available for Direct access:
 
 |                              | Cloud Owner | Cloud User |
 | ---------------------------- | ----------- | ---------- |
-| Cloud: View Overview         | <i class="fas fa-check-circle text-success fs-24"></i>           | <i class="fas fa-check-circle text-success fs-24"></i>          |
-| Cloud: Manage Billing        | <i class="fas fa-check-circle text-success fs-24"></i>           | <i class="fas fa-times-circle text-danger fs-24"></i>                 |
-| Cloud: Manage Configuration  | <i class="fas fa-check-circle text-success fs-24"></i>           | <i class="fas fa-times-circle text-danger fs-24"></i>                 |
-| Cloud: Manage Access Control | <i class="fas fa-check-circle text-success fs-24"></i>           | <i class="fas fa-times-circle text-danger fs-24"></i>                 |
-| Instance access              | <i class="fas fa-check-circle text-success fs-24"></i> Admin     | <i class="fas fa-check-circle text-success fs-24"></i> User     |
+| Cloud: View Overview         | <i class="fas fa-check-circle text-success fs-20"></i>           | <i class="fas fa-check-circle text-success fs-20"></i>          |
+| Cloud: Manage Billing        | <i class="fas fa-check-circle text-success fs-20"></i>           | <i class="fas fa-times-circle text-danger fs-20"></i>                 |
+| Cloud: Manage Configuration  | <i class="fas fa-check-circle text-success fs-20"></i>           | <i class="fas fa-times-circle text-danger fs-20"></i>                 |
+| Cloud: Manage Access Control | <i class="fas fa-check-circle text-success fs-20"></i>           | <i class="fas fa-times-circle text-danger fs-20"></i>                 |
+| Instance access              | <i class="fas fa-check-circle text-success fs-20"></i> Admin     | <i class="fas fa-check-circle text-success fs-20"></i> User     |
 
 Inviting users to Direct access:
 
