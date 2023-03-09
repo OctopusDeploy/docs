@@ -57,7 +57,7 @@ To help you manage your monthly spend, you can set a maximum number deployment t
 2. Click **FINANCE** in the left sidebar.
 3. Click **SET MAXIMUM TARGETS** to configure a maximum number of targets.
 
-### Cancelling your plan (Cloud only, Server coming soon)
+### Canceling your plan (Cloud only, Server coming soon)
 
 To modify your plan:
 
