@@ -796,3 +796,7 @@ Add the following excerpt to the end of the Octopus Server YAML
 View a working example that deploys an Octopus High Availability configuration to a GKE Kubernetes cluster in our [samples instance](https://samples.octopus.app/app#/Spaces-105/projects/octopus-ha-in-gke/operations/runbooks/Runbooks-1862/process/RunbookProcess-Runbooks-1862).
 
 The runbook consists of a number of [Deploy Raw Kubernetes YAML](/docs/deployments/kubernetes/index.md#raw-yaml-step) steps that deploy the resources discussed in this guide.
+  
+## Octopus Helm Chart {#octopus-helm-chart}
+
+We also provide a [Helm Chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/octopus-deploy) for teams using Helm to manage their deployments.
