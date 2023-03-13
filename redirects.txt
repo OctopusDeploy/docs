@@ -1024,13 +1024,13 @@ docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide
 docs/deployments/patterns/multi-tenant-deployments/multi-tenant-deployment-guide/index.md -> docs/tenants/guides/index.md
 docs/deployments/patterns/multi-tenant-deployments/index.md -> docs/tenants/index.md
 docs/administration/community/index.md -> docs/administration/managing-licenses/community/index.md
-docs/installation/octopus-in-container/docker-compose-windows.md -> docs/installation/octopus-server-windows-container.md
+docs/installation/octopus-in-container/docker-compose-windows.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/docker-compose-linux.md -> docs/installation/octopus-server-linux-container/docker-compose-linux.md
 docs/installation/octopus-in-container/octopus-server-container-linux.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/migrate-to-server-container-linux-from-windows-container.md -> docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container.md
 docs/installation/octopus-in-container/migrate-to-server-container-linux-from-windows-server.md -> docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-server.md
 docs/installation/octopus-in-container/troubleshooting-octopus-server-in-a-container.md -> docs/installation/octopus-server-linux-container/troubleshooting-octopus-server-in-a-container.md
-docs/installation/octopus-in-container/octopus-server-container-windows.md -> docs/installation/octopus-server-windows-container.md
+docs/installation/octopus-in-container/octopus-server-container-windows.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/index.md -> docs/installation/octopus-server-linux-container/index.md
 docs/installation/octopus-in-container/octopus-tentacle-container.md -> docs/infrastructure/deployment-targets/tentacle/octopus-tentacle-container.md
 docs/deployments/terraform/destroy-terraform/index.md -> docs/deployments/terraform/apply-terraform-changes/index.md
@@ -1263,3 +1263,4 @@ docs/infrastructure/deployment-targets/windows-targets/running-tentacle-under-a-
 docs/infrastructure/deployment-targets/windows-targets/tentacle-permissions.md -> docs/infrastructure/deployment-targets/tentacle/windows/tentacle-permissions.md
 docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md -> docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md
 docs/installation/octopus-tentacle-container.md -> docs/infrastructure/deployment-targets/tentacle/octopus-tentacle-container.md
+docs/installation/octopus-server-windows-container.md -> docs/installation/octopus-server-linux-container/index.md
