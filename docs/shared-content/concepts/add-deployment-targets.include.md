@@ -8,7 +8,7 @@ With Octopus Deploy, you can deploy software to Windows servers, Linux servers, 
 
 If you run into any issues, refer to the documentation for the type of deployment target you are configuring:
 
-- [Windows](/docs/infrastructure/deployment-targets/windows-targets/index.md)
+- [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md)
 - [Linux](/docs/infrastructure/deployment-targets/linux/index.md)
 - [Azure](/docs/infrastructure/deployment-targets/azure/index.md)
 - [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-target/index.md)

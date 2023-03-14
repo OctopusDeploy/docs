@@ -17,7 +17,7 @@ Provide values for:
 - Octopus API Key
 - A list of users, supplied from either:
     - The path to a CSV file containing user records
-    - The Octopus Username, Azure email address and (optionally) Azure display nsame
+    - The Octopus Username, Azure email address and (optionally) Azure display name
 - (Optional) whether or not to update the Octopus user's email address
 - (Optional) whether or not to update the Octopus user's display name
 - (Optional) whether or not to continue to the next user if an error occurs

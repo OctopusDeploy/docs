@@ -343,35 +343,3 @@ func GetSpace(octopusURL *url.URL, APIKey string, spaceName string) *octopusdepl
 	return nil
 }
 ```
-```ts TypeScript
-import { Client, ClientConfiguration, Repository } from '@octopusdeploy/api-client';
-import { NewGoogleCloudAccount, NewSensitiveValue } from '@octopusdeploy/message-contracts';
-
-const configuration: ClientConfiguration = {
-    apiKey: 'api-key',
-    apiUri: 'https://your.octopus.app/',
-    autoConnect: true
-};
-
-const client = await Client.create(configuration);
-if (client === undefined) {
-    console.error('The API client for Octopus Deploy encountered an error.');
-    return;
-}
-
-const repository = new Repository(client);
-const jsonKey = NewSensitiveValue('fake-json-key');
-const name = 'Google Cloud Account';
-
-// define a new Google cloud account
-const account = NewGoogleCloudAccount(name, jsonKey);
-
-try {
-    // create account
-    const account = await repository.accounts.create(account);
-}
-catch (error) {
-    console.error(error);
-    return;
-}
-```

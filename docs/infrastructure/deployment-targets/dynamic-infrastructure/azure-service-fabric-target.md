@@ -66,3 +66,5 @@ New-OctopusAzureServiceFabricTarget -name "My Service Fabric Target 4" `
                                    -octopusRoles "Service Fabric Role"
 
 ```
+
+!include <create-deployment-targets-hint>

@@ -102,6 +102,8 @@ Where [<options>] is any of:
                                Defaults to 'no-referrer'.
       --webServer=VALUE      Web server to use when running Octopus (HttpSys,
                                Kestrel)
+      --trustedProxies=VALUE Comma-separated list of IP addresses of trusted
+                               proxies
       --webTrustedRedirectUrls=VALUE
                              Comma-seperated list of URLs that are trusted
                                for redirection

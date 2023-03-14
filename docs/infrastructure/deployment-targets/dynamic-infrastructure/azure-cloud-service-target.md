@@ -41,3 +41,5 @@ New-OctopusAzureCloudServiceTarget -name "My Azure Cloud Service Target" `
                                    -octopusDefaultWorkerPoolIdOrName "Azure Worker Pool" `
                                    -octopusRoles "AzureCloudService"
 ```
+
+!include <create-deployment-targets-hint>
