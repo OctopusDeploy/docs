@@ -21,7 +21,7 @@ In October 2022, we moved to Stripe as our payment gateway, so we needed a new s
 
 ### I can’t work out how to do something in Control Center V2 that I used to do in V1
 
-There are some Control Center V1 features that haven’t been included in V2 yet. This is only temporary while we gain feature-parity for the new Control Center.
+There are some Control Center V1 features that we haven’t included in V2 yet. This is only temporary while we gain feature-parity for Control Center V2.
 
 If you can’t see how to do something in V2 that you were able to do in V1, please email [support@octopus.com](mailto:support@octopus.com) for assistance. 
 
