@@ -17,7 +17,7 @@ This page focuses on Control Center V2, our new system for managing Octopus subs
 
 ### Explaining the two versions of Control Center
 
-In October 2022, we made the transition to use Stripe as our payment gateway. This decision required a new system for integration with Stripe. This new system is referred to as Control Center V2, and will be the future of Control Center. During 2023, subscriptions from V1 will be migrated to V2 as they are paid or renewed. Once that migration is complete, V1 will be deprecated.
+In October 2022, we moved to Stripe as our payment gateway, so we needed a new system for integration with Stripe. We refer to the new system as Control Center V2, and it will replace Control Center later this year. During 2023, we'll migrate your subscriptions from V1 to V2 as you pay or renew. After the migration is complete, we'll deprecate V1.
 
 ### I can’t work out how to do something in Control Center V2 that I used to be able to do in V1
 
