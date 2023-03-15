@@ -27,7 +27,7 @@ If you can’t see how to do something in V2 that you could do in V1, please ema
 
 ### Locating subscriptions
 
-All your subscriptions (Cloud Instances and Server Licenses) are accessible from Control Center V1. Only subscriptions that have been migrated to Control Center V2 are accessible from V2. 
+All your subscriptions (Cloud instances and Server licenses) are accessible from Control Center V1. Only subscriptions we've migrated to Control Center V2 are accessible from V2.
 
 ### Migration of subscriptions
 
