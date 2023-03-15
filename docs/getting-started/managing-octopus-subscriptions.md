@@ -31,7 +31,7 @@ All your subscriptions (Cloud instances and Server licenses) are accessible from
 
 ### Migration of subscriptions
 
-Trial subscriptions are created in Control Center V1. Subscriptions in Control Center V1 are migrated to V2 upon changing to a paid subscription or a yearly renewal. This is why you may have some subscriptions in Control Center V1 and others in V2 until they have all been transferred to V2. 
+Trial subscriptions are created in Control Center V1. Subscriptions in Control Center V1 migrate to V2 when you change to a paid subscription or a yearly renewal. This is why you may have some subscriptions in Control Center V1 and others in V2 until they're all transferred to V2. 
 
 ## Finance 
 
