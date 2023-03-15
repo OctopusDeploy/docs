@@ -6,7 +6,7 @@ position: 40
 
 Control Center is where you manage your Octopus subscriptions and their associated user access. 
 
-There are two types of Octopus subscriptions:
+There are 2 types of Octopus subscriptions:
 
 1. **Cloud Instances**: Deployments as-a-service
 2. **Server Licenses**: Octopus on your infrastructure
