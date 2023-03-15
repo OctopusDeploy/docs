@@ -4,7 +4,7 @@ description: View real-world deployment and runbook examples in our Octopus Clou
 position: 50
 ---
 
-Many of the deployment samples in our docs reference our Octopus Cloud [samples instance](https://samples.octopus.app) which contains real-world deployment and runbook examples. Each one highlights one or more Octopus features available for you to use, from deploying Java applications, to upgrading a Helm chart in a Kubernetes cluster.
+Many deployment samples in our docs reference our Octopus Cloud [samples instance](https://samples.octopus.app), which contains real-world deployment and runbook examples. Each one highlights one or more available Octopus features, from deploying Java applications to upgrading a Helm chart in a Kubernetes cluster.
 
 This page acts as a directory of features found in our samples instance.
 

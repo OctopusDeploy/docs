@@ -35,7 +35,7 @@ Trial subscriptions are created in Control Center V1. Subscriptions in Control C
 
 ## Finance 
 
-The finance functionality is coming soon to Server Licenses. 
+The finance functionality is coming soon to Server licenses. 
 
 ### Changing payment method or billing information (Cloud only, Server coming soon)
 
@@ -54,7 +54,7 @@ The finance functionality is coming soon to Server Licenses.
 
 ### Configuring maximum deployment targets (Cloud only)
 
-To help you manage your monthly spend, you can set a maximum number deployment targets for a Cloud Instance.
+To help you manage your monthly spend, you can set a maximum number of deployment targets for a Cloud instance.
 
 1. Navigate to your Cloud Instance.
 2. Click **FINANCE** in the left sidebar.
@@ -64,7 +64,7 @@ To help you manage your monthly spend, you can set a maximum number deployment t
 
 To modify your plan:
 
-1. Navigate to your Cloud Instance.
+1. Navigate to your Cloud instance.
 2. Click **FINANCE** in the left sidebar.
 3. Click **CANCEL SUBSCRIPTION**.
 4. A confirmation dialog will appear for you to confirm cancellation.
@@ -74,12 +74,11 @@ To modify your plan:
 ### Changing outage windows (Cloud only)
 
 We use outage windows to perform updates to the Octopus Deploy software, so you can take advantage of fixes and enhancements.
-Navigate to your subscription
-
-1. Click **CONFIGURATION** in the left sidebar.
-2. Click **CHANGE OUTAGE WINDOW**.
-3. Specify the start and end times.
-4. Click **SUBMIT**.
+1. Navigate to your subscription.
+2. Click **CONFIGURATION** in the left sidebar.
+3. Click **CHANGE OUTAGE WINDOW**.
+4. Specify the start and end times.
+5. Click **SUBMIT**.
 
 ### Changing the instance URL (Cloud only)
 
@@ -93,14 +92,14 @@ Navigate to your subscription
 
 ### Understanding access control
 
-There are two options for the level of access you can provide to users in Control Center. Each level has associated user roles.
+There are 2 levels of access you can provide users in Control Center. Each level has associated user roles.
 
-1. **Subscription Group access** provides management of a group of subscriptions as well as access to all current and future subscriptions within the group. 
+1. **Subscription Group access** provides management of a group of subscriptions plus access to all current and future subscriptions in the group. 
 2. **Direct access** provides access to individual subscriptions.
 
 ### Subscription Group access
 
-Shown below are the roles available for Subscription Group access and the permissions they provide for the group and those subscriptions within the group:
+Below are the roles for Subscription Group access, the permissions they provide for the group, and the subscriptions in the group:
 
 |                                | Administrator | Technical Manager | Billing Manager |
 | ------------------------------ | ------------- | ----------------- | --------------- |
@@ -126,7 +125,7 @@ The invited user will receive an email to accept the invitation.
 
 ### Direct access (Cloud only)
 
-Shown below are the roles available for Direct access:
+Below are the roles available for Direct access:
 
 |                              | Cloud Owner | Cloud User |
 | ---------------------------- | ----------- | ---------- |
@@ -138,18 +137,18 @@ Shown below are the roles available for Direct access:
 
 Inviting users to Direct access:
 
-1. Navigate to your Cloud Instance.
+1. Navigate to your Cloud instance.
 2. Click **ACCESS CONTROL** in the left sidebar.
 3. Click **INVITE USER**.
 4. Enter the user’s details and click **INVITE**.
 
 The invited user will receive an email to accept the invitation. 
 
-Note: The user wont be added to the Octopus Deploy product until they sign into Octopus for the first time. Upon signing in, that user will be assigned to the “Everyone” group (if a Cloud User) or the “Octopus Managers” group (if a Cloud Owner). 
+Note: The user is only added to the Octopus Deploy product after they sign into Octopus for the first time. After signing in, that user gets assigned to the "Everyone" group (if they're a Cloud User) or the "Octopus Managers" group (if they're a Cloud Owner). 
 
 ### Changing user roles 
 
-To change a user’s role you must remove that user’s access and then re-invite them into the role you would like them to have.
+To change a user’s role, you must remove that user’s access and then re-invite them to the role you want them to have.
 
 ### Deleting users
 
@@ -162,7 +161,7 @@ Deleting Subscription Group access users:
 
 Deleting Direct access users:
 
-1. Navigate to your Cloud Instance.
+1. Navigate to your Cloud instance.
 2. Click **ACCESS CONTROL** in the left sidebar.
 3. Locate the user in the table and click the trash icon.
 4. Click **DELETE** in the confirmation dialog.
