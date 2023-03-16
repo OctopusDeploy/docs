@@ -8,8 +8,4 @@ We recommend the use of the Octopus Server Linux Container if you are okay with 
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker itself.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.
 
-From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
-
-:::warning
-The [Octopus Server Windows Container](/docs/installation/octopus-server-windows-container.md) is deprecated, and no longer maintained.
-:::
+We publish `linux/amd64` Docker images for each Octopus Server release and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
