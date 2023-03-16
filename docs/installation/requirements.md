@@ -10,9 +10,7 @@ If you are hosting your Octopus Server yourself, these are the minimum requireme
 
 Octopus Server can be hosted on either:
 - A Microsoft Windows operating system
-- In a container, either:
-     - A [Linux](docs/installation/octopus-server-linux-container/index.md) container (recommended)
-     - A [Windows](docs/installation/octopus-server-windows-container.md) container *(deprecated)*
+- In a [Linux](docs/installation/octopus-server-linux-container/index.md) container.
 
 However, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, GCP, Cloud Regions, or even an offline package drop.
 
