@@ -1244,6 +1244,7 @@ docs/octopus-rest-api/cli/octopus_worker-pool_static_view.md -> docs/octopus-res
 docs/octopus-rest-api/cli/octopus_worker-pool_view.md -> docs/octopus-rest-api/cli/octopus-worker-pool-view.md
 docs/infrastructure/deployment-targets/linux/tentacle/index.md -> docs/infrastructure/deployment-targets/tentacle/linux/index.md
 docs/infrastructure/deployment-targets/windows-targets/index.md -> docs/infrastructure/deployment-targets/tentacle/windows/index.md
+docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-over-port-443.md -> docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443.md
 docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles.md -> docs/infrastructure/deployment-targets/tentacle/troubleshooting-tentacles.md
 docs/infrastructure/deployment-targets/windows-targets/automating-tentacle-installation.md -> docs/infrastructure/deployment-targets/tentacle/windows/automating-tentacle-installation.md
 docs/infrastructure/deployment-targets/windows-targets/azure-virtual-machines/index.md -> docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/index.md
