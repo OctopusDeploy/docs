@@ -12,25 +12,7 @@ Octopus Server requires access to a SQL Server to use for storing relational dat
 
 ## Routine maintenance {#maintenance}
 
-:::hint
-This section only applies to self-hosted versions of Octopus Server, [Octopus Cloud](/docs/octopus-cloud/index.md) instances perform database maintenance in the background without user interaction.
-:::
-
 You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
-
-That being said, Octopus will perform minimal routine maintenance of the database for you. In particular, it will periodically run the following tasks:
-* Rebuild heavily fragmented indexes (this operation is done in the background without any downtime when running on Azure SQL or SQL Enterprise).
-* Update query optimization statistics for all tables.
-
-If your database server does not support online index rebuilding, Octopus will perform index maintenance every time your Octopus Deploy instance is upgraded.
-
-The schedules for these tasks can be configured via **{{Configuration, Settings, SQL Maintenance}}**. Each schedule is defined as a [cron expression](https://en.wikipedia.org/wiki/Cron#Overview). 
-
-If you already perform your own scheduled maintenance, and would like Octopus to not do this for you, then you can also disable database maintenance via **{{Configuration, Settings, SQL Maintenance}}**.
-
-:::hint
-Please note that clustered indexes are not rebuilt online.
-:::
 
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
