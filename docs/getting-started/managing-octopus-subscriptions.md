@@ -41,13 +41,13 @@ Cloud instance:
 
 1. Navigate to your Cloud Instance in Control Center V1.
 2. Click **CHANGE PLAN**. 
-3. Choose your plan and complete the purchase. 
+3. Choose your plan and complete the purchase through Stripe. 
 
 Server license: 
 
 1. Navigate to your Server License in Control Center V1.
 2. Click **UPGRADE LICENSE**. 
-3. Choose your plan and complete the purchase. 
+3. Choose your plan and complete the purchase through Stripe. 
 
 In both cases, upgrading a trial to a paid subscription will migrate your subscription to Control Center V2. 
 
