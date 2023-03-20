@@ -3,6 +3,8 @@ title: Building an authentication provider
 description: Technical details of how to build an Octopus Deploy Authentication Provider.
 ---
 
+!include <server-extensibility-deprecated>
+
 The documentation in this section covers the implementation as of v2.0.\* of the Extensibility packages.
 
 ## Forms vs external {#BuildinganAuthenticationProvider-FormsvsExternal}

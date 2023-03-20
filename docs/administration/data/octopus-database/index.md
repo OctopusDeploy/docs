@@ -12,7 +12,7 @@ Octopus Server requires access to a SQL Server to use for storing relational dat
 
 ## Routine maintenance {#maintenance}
 
-You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
+You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server. Our [Performance](/docs/administration/managing-infrastructure/performance/index.md#sql-maintenance) section has some general recommendations that may help get you started.
 
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 
@@ -40,11 +40,11 @@ Each installation of Octopus Deploy will have different data and usage patterns.
 
 **Feel free to create database indexes which suit your scenario, but please understand the impact of modifying the schema.**
 
-We make certain assumptions about the database schema when you upgrade Octopus Server, and the presence (or absence) of indexes may cause your upgrade to fail. The upgrade process will automatically detect any "additional indexes" and then log warnings about the extra indexes.
+We make certain assumptions about the database schema when you upgrade Octopus Server, and the presence (or absence) of indexes may cause your upgrade to fail. The upgrade process will warn if it finds any custom indexes.
 
 If you feel like an index would benefit everyone using Octopus, please contact our [support team](https://octopus.com/support) so we can consider making that index part of the standard database schema.
 
 :::hint
 **Azure SQL Database automatic index management**
-To ensure that you are aware of which Indexes exist so that you can drop/recreate them between upgrades, we suggest disabling the Azure SQL feature to [automatically apply performance recommendations](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor-portal/#enable-automatic-index-management), and apply the recommendations manually instead.
+To ensure that you are aware of which indexes exist, we suggest disabling the Azure SQL feature to [automatically apply performance recommendations](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor-portal/#enable-automatic-index-management), and apply the recommendations manually instead.
 :::

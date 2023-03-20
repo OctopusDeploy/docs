@@ -8,7 +8,10 @@ We pride ourselves on making Octopus Deploy a secure product. The security and i
 
 This section provides information about the responsibility we take to provide a secure software product, and considerations for you as the host and administrator of your Octopus Deploy installation.
 
-Every year Octopus undergoes a security review conducted by a third-party company. The latest report can be downloaded: [security-review.pdf](https://octopus.com/documents/security-review-executive-report.pdf)
+Every year Octopus undergoes a security review conducted by a third-party company. The latest reports can be downloaded:
+- [cloud-security-review-2022.pdf](https://octopus.com/documents/cloud-security-review-executive-report-2022.pdf)
+- [octopus-security-review-2022.pdf](https://octopus.com/documents/octopus-security-review-executive-report-2022.pdf)
+
 
 We often hear from customers who want to know more about our security posture. We've performed a [self assessment against various industry-standard controls](/docs/security/caiq/index.md). Feel free to use this in any vendor assessments you need to perform.
 
@@ -58,7 +61,7 @@ Learn about [secure communication](/docs/security/octopus-tentacle-communication
 
 Arguably one of the most appreciated features in Octopus Deploy is our support for detailed auditing of important activity.
 
-Learn about [auditing](/docs/security/users-and-teams/auditing.md).
+Learn about [auditing](/docs/security/users-and-teams/auditing/index.md).
 
 ### Prevention of common vulnerabilities and exploits
 

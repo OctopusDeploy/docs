@@ -10,7 +10,7 @@ This page describes how to run Octopus Server in Kubernetes, along with platform
 
 Since [Octopus High Availability](/docs/administration/high-availability/index.md) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
 
-## Getting started {#getting-started}
+## Pre-requisites {#pre-requisites}  
 
 Whether you are running Octopus in a Container using Docker or Kubernetes, or running it on Windows Server, there are a number of items to consider when creating an Octopus High Availability cluster:
 
@@ -18,15 +18,10 @@ Whether you are running Octopus in a Container using Docker or Kubernetes, or ru
 - A shared file system for [Artifacts, Packages, and Task Logs](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md#ServerconfigurationandFilestorage-FileStorageFilestorage)
 - A [Load balancer](/docs/administration/high-availability/load-balancing/index.md) for traffic to the Octopus Web Portal 
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
-- Creating each Octopus Server node, including the Startup and upgrade processes that may result in database schema upgrades
 
-The following sections describe these in more detail by creating an Octopus High Availability cluster with two Octopus Server nodes being served by a load balancer on port `80`.
+The following sections describe these in more detail.
 
-:::hint
-The YAML provided in this guide is designed to provide you with a starting point to help you get Octopus Server running in a container in Kubernetes. We recommend taking the time to configure your Octopus instance to meet your own organization's requirements.
-:::
-
-## SQL Server Database {#sql-database}
+### SQL Server Database {#sql-database}
 
 !include <high-availability-database-recommendations>
 
@@ -38,7 +33,7 @@ For more details on the different hosted database options, refer to the document
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
 - [Google Cloud SQL for SQL Server](https://cloud.google.com/sql/sqlserver)
 
-### Running SQL in a Container {#running-sql-in-container}
+#### Running SQL in a Container {#running-sql-in-container}
 
 Its possible to run SQL Server in a container. This can be useful when running a Proof of Concept (PoC) with Octopus in Kubernetes. 
 
@@ -120,7 +115,7 @@ spec:
 If you use the YAML definition above, remember to change the `SA_PASSWORD` from the value used here.
 :::
 
-## Load balancer {#load-balancer}
+### Load balancer {#load-balancer}
 
 A Load balancer is required to direct traffic to the Octopus Web Portal, and optionally a way to access each of the Octopus Server nodes in an Octopus High Availability cluster may be required if you're using [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md).
 
@@ -145,7 +140,7 @@ spec:
   selector:
     app: octopus
 ```
-### Octopus Server Node load balancer {#octopus-node-load-balancers}
+#### Octopus Server Node load balancer {#octopus-node-load-balancers}
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
 
@@ -202,7 +197,7 @@ These labels are added to pods created as part of a [Stateful Set](https://kuber
 
 For more information on Polling Tentacles with High Availability refer to our [documentation](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md) on the topic.
 
-## File Storage {#file-storage}
+### File Storage {#file-storage}
 
 To share common files between the Octopus Server nodes, we need access to a minimum of three shared volumes that multiple pods can read to and write from simultaneously:
 
@@ -222,7 +217,7 @@ Whilst it is possible to mount external storage by manually defining Persistent 
 
 The next sections describe how to create file storage for use with Octopus running in Kubernetes using different Kubernetes providers to dynamically provision file storage.
 
-### AKS storage {#aks-storage}
+#### AKS storage {#aks-storage}
 
 The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, and the task logs using the `azurefile` storage class, which is specific to Azure AKS:
 
@@ -264,7 +259,7 @@ spec:
       storage: 1Gi
 ```
 
-### GKE storage {#gke-storage}
+#### GKE storage {#gke-storage}
 
 The following YAML creates the shared persistent volume claims that will host the artifacts, built-in feed packages, and the task logs using the `standard-rwx` storage class from the Google [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver).
 
@@ -379,11 +374,25 @@ volumeMounts:
     subPath: taskLogs
 ```
 
+## Deploying the Octopus Server 
+
+Once the pre-requisites are in place, we need to install the Octopus Server. This can be done via our official Helm chart, or the Kubernetes resources can be directly deployed. 
+
+### Helm Chart #{helm-chart}
+
+An [official chart](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/octopus-deploy) for deploying Octopus in a Kubernetes cluster via [Helm](https://helm.sh) is available.
+
+See the [usage instructions](https://github.com/OctopusDeploy/helm-charts/tree/main/charts/octopus-deploy#usage) for details of how to install the Helm chart.  
+
+The chart packages are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/octopusdeploy-helm).
+
 ## Octopus Server nodes {#octopus-server-nodes}
 
-Lastly, we can combine all of the resources discussed previously into a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset) that creates the Octopus Server nodes.
+As an alternative to using Helm, you can directly install the Kubernetes resources into your cluster.
 
-A Stateful Set is beneficial, as it provides a mechanism for deploying pods that have:
+Octopus requires the server component to be installed as a [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset).
+
+A Stateful Set is used rather than a Kubernetes Deployment, as the Stateful Set provides:
 
 - Fixed names 
 - Consistent ordering
@@ -431,7 +440,7 @@ spec:
           claimName: octopus-storage-claim
       containers:
       - name: octopus        
-        image: octopusdeploy/octopusdeploy:2021.3.8275
+        image: octopusdeploy/octopusdeploy:2022.4.8471
         securityContext:
           privileged: true
         env:
@@ -451,10 +460,10 @@ spec:
           - name: ADMIN_EMAIL
             value: admin@example.org
           - name: OCTOPUS_SERVER_BASE64_LICENSE
-            # Your license key goes here. When using more than one node, a HA license is required. Without a HA license, the stateful set can have a replica count of 1.
+            # Your base64 encoded license key goes here. When using more than one node, a HA license is required. Without a HA license, the stateful set can have a replica count of 1.
             value: <License-goes-here>
           - name: MASTER_KEY
-            # Replace this, as this value protects secrets in Octopus
+            # The base64 Master Key to use to connect to an existing database. If not supplied, and the database does not exist, it will generate a new one.
             value: <MasterKey-goes-here>
         ports:
         - containerPort: 8080
@@ -749,6 +758,46 @@ spec:
               name: octopus
               port:
                 number: 8080
+```
+
+## Trusting custom/internal Certificate Authority (CA)
+Octopus Server can interface with several external sources (feeds, git repos, etc.), and those sources are often configured to use SSL/TLS for secure communication.  It is common for organizations to have their own Certificate Authority (CA) servers for their internal networks.  A CA server can issue SSL certificates for internal resources, such as build servers or internally hosted applications, without purchasing from a third-party vendor.  Technologies such as Group Policy Objects (GPO) can configure machines (servers and clients) to trust the CA automatically, so users don't have to configure trust for them manually. However, this is not inherited in Kubernetes containers.  When attempting to configure a connection to an external resource with an untrusted CA, you'll most likely encounter an error similar to this:
+
+```text
+Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
+```
+Kubernetes provides a method to incorporate a certificate without having to modify hosts or embed the certificate within the container by using a ConfigMap.
+
+### Create ConfigMap
+
+To apply the certificate to the cluster, you'll need to first get the certificate file in either `.pem` or `.crt` format.  Once you have the file, use `kubectl` to create a ConfigMap from it
+
+```bash
+kubectl -n <namespace> create configmap ca-pemstore --from-file=my-cert.pem
+```
+
+### Add ConfigMap to YAML for Octopus Server
+
+With the ConfigMap created, add a `volumeMounts` component to the container section for Octopus Server. The following is an abbreviated portion of the YAML
+
+```yaml
+...
+      containers:
+      - name: octopus
+        image: octopusdeploy/octopusdeploy:2022.4.8471
+        volumeMounts:
+        - name: ca-pemstore
+          mountPath: /etc/ssl/certs/my-cert.pem
+          subPath: my-cert.pem
+          readOnly: false
+...
+```
+Add the following excerpt to the end of the Octopus Server YAML
+```yaml
+      volumes:
+      - name: ca-pemstore
+        configMap:
+          name: ca-pemstore
 ```
 
 ## Octopus in Kubernetes example {#octopus-in-kubernetes-example}

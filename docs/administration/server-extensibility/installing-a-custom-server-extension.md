@@ -3,6 +3,12 @@ title: Installing a custom server extension
 description: To install a custom server extension, you need to copy the extension dll into a folder on the machine that is running the Octopus Server.
 ---
 
+:::warning
+Server extensibility is deprecated, and no longer maintained.
+
+Some of you may have implemented an extension for Octopus Server, we would be interested in understanding better your requirements so that we can work towards resolving missing capabilities. Get in touch with us via [support@octopus.com](mailto:support@octopus.com) to let us know if this will affect your instance.
+:::
+
 To install a custom server extension, you need to copy the extension dll(s) into the following folder on the machine that is running the Octopus Server:
 
 :::hint

@@ -119,7 +119,7 @@ If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Wor
 
 ### Audit logs #{audit-logs}
 
-[Audit events](/docs/security/users-and-teams/auditing.md) are not exported.
+[Audit events](/docs/security/users-and-teams/auditing/index.md) are not exported.
 
 ### Tenants
 

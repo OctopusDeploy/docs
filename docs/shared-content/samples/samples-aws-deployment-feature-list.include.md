@@ -1,3 +1,8 @@
+**Pattern - Blue-Green**
+
+- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/deployments/process" target="_blank">Random Quotes Java</a>: <i>Deploys the Java version of Random Quotes to Tomcat using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-JAVA)</i>
+- <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-542/deployments/process" target="_blank">Random Quotes .NET</a>: <i>Deploys the .NET version of Random Quotes using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-NET)</i>
+    
 **Secrets Management**
 
 - <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1702/deployments/process" target="_blank">AWS Secrets Manager</a>: <i>Sample project retrieving secrets from AWS Secrets Manager using the [Retrieve Secrets](https://library.octopus.com/step-templates/5d5bd3ae-09a0-41ac-9a45-42a96ee6206a/actiontemplate-aws-secrets-manager-retrieve-secrets) step template.</i>
@@ -8,6 +13,7 @@
     
 **Target - MariaDB**
 
+- <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-2146/deployments/process" target="_blank">Grate - AWS RDS</a>: <i>Example project for automated database deployments using RoundhousE against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildRoundhouse) RoundhousE has been deprecated and no longer compatible with the latest version of MariaDB.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-363/deployments/process" target="_blank">DBUp - AWS RDS</a>: <i>Example project for automated database deployments using Dbup against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildDBUp#all-projects) At this time, DBuP is not compatible with the latest version of MariaDB.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-369/deployments/process" target="_blank">Flyway - AWS RDS</a>: <i>Example project for automated database deployments using Flyway against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-262/projects/Projects-424/deployments/process" target="_blank">RoundhousE - AWS RDS</a>: <i>Example project for automated database deployments using RoundhousE against an AWS RDS MariaDB instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildRoundhouse) RoundhousE has been deprecated and no longer compatible with the latest version of MariaDB.</i>
@@ -15,6 +21,7 @@
     
 **Target - MySQL**
 
+- <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-2141/deployments/process" target="_blank">Grate - AWS RDS</a>: <i>Example project for automated database deployments using grate against an AWS RDS MySQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_Grate)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-353/deployments/process" target="_blank">Dbup - AWS RDS</a>: <i>Example project for automated database deployments using Dbup against an AWS RDS MySQL instance.  [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Target_MySQL_AWS_Dbup)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-361/deployments/process" target="_blank">Flyway - AWS RDS</a>: <i>Example project for automated database deployments using Flyway against an AWS RDS MySQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-242/projects/Projects-387/deployments/process" target="_blank">RoundhousE - AWS RDS</a>: <i>Example project for automated database deployments using RoundhousE against an AWS RDS MySQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildRoundhouse)</i>
@@ -28,6 +35,7 @@
     
 **Target - PostgreSQL**
 
+- <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-2143/deployments/process" target="_blank">Grate - AWS RDS</a>
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-372/deployments/process" target="_blank">DBUp - AWS RDS</a>: <i>Example project for automated database deployments using Dbup against an AWS RDS PostgreSQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildDBUp)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-373/deployments/process" target="_blank">Flyway - AWS RDS</a>: <i>Example project for automated database deployments using Flyway against an AWS RDS PostgreSQL instance. [Build definition](https://teamcity.octopussamples.com/buildConfiguration/Sakila_BuildFlyway)</i>
 - <a href="https://samples.octopus.app/app#/Spaces-243/projects/Projects-442/deployments/process" target="_blank">RoundhousE - AWS RDS</a>: <i>Example project for automated database deployments using RoundhousE against an AWS RDS PosgreSQL instance. [Build definition](https://bitbucket.org/octopussamples/sakila/src/posgres/)</i>
@@ -47,7 +55,3 @@
 **Target - Tomcat**
 
 - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-371/deployments/process" target="_blank">Pet Clinic AWS</a>: <i>Deploy Java PetClinic to AWS Linux [Build definition](https://dev.azure.com/octopussamples/PetClinic/_build?definitionId=25)</i>
-    
-**Tenants - Regions**
-
-- <a href="https://samples.octopus.app/app#/Spaces-102/projects/Projects-148/deployments/process" target="_blank">To Do - Linux</a>: <i>This project will deploy this .NET Core application to Ubuntu EC2 instances in AWS. The EC2 instances are located in US West 1, US West 2 and US East 2.</i>

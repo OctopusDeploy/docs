@@ -40,11 +40,11 @@ Add a step to the hello world deployment process to push that package to the des
 1. Select *hello-world* as the **Package ID**.
 1. Click the **SAVE** button.
 
-![Deploy a package step with role and package selected](images/deploy-a-package-with-roles.png "width=500")
+![Deploy a package step with role and package selected](images/img-deploypackage.png "width=500")
 
 Please create a new release and deploy it to *Development*.  The release will deploy the *hello world* package to *dev-server-01*.
 
-![Deploy a package results](images/deploy-package-results.png "width=500")
+![Deploy a package results](images/img-releasehwpackage.png "width=500")
 
 You have now completed the deployment tutorial!  This tutorial has focused on running sample scripts and deploying sample packages to your servers.  It is now time to add your applications to Octopus Deploy.  
 

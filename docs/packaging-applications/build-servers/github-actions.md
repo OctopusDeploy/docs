@@ -14,11 +14,12 @@ The [GitHub-hosted runners](https://help.github.com/en/actions/getting-started-w
 
 ## Integrating with GitHub Actions
 
-Octopus Deploy has several custom GitHub Actions available: 
+Octopus Deploy has several custom GitHub Actions available:
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
 - [Push packages](https://github.com/marketplace/actions/push-package-to-octopus-deploy)
 - [Create a release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
 - [Run a runbook](https://github.com/marketplace/actions/run-runbook-in-octopus-deploy)
+- [Push Build Information](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
 
 All of the Actions are compatible with following runner types:
 
@@ -165,8 +166,8 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest    
-    
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Set Version
@@ -234,7 +235,7 @@ Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** A
 
 ```yaml
     - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1.1.1
+      uses: OctopusDeploy/push-package-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
@@ -244,11 +245,11 @@ Once the artifacts are packaged, use the **OctopusDeploy/push-package-action** A
 
 ### Creating a release
 
-To create a release, use the **OctopusDeploy/create-release-action**.  This action also contains the ability to deploy the newly created release.  Use either the `progress` or `wait_for_deployment` options to have the build wait for the deployment to complete and report success or failure. Using  `progress` will display messages from Octopus itself whereas `wait_for_deployment` will simply wait for Octopus to report success or failure.:
+To create a release, use the **OctopusDeploy/create-release-action**.  This action also contains the ability to deploy the newly created release.  Use either the `progress` or `wait_for_deployment` options to have the build wait for the deployment to complete and report success or failure. Using  `progress` will display messages from Octopus itself whereas `wait_for_deployment` will simply wait for Octopus to report success or failure:
 
 ```yaml
     - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1.1.1
+      uses: OctopusDeploy/create-release-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
@@ -317,7 +318,7 @@ jobs:
     - name: Publish OctoPetShopShoppingCartService
       run: dotnet publish OctopusSamples.OctoPetShop.ShoppingCartService/OctopusSamples.OctoPetShop.ShoppingCartService.csproj --configuration Release --no-restore --output "$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService"
     - name: Install Octopus CLI
-      uses: OctopusDeploy/install-octopus-cli-action@v1.1.6
+      uses: OctopusDeploy/install-octopus-cli-action@v1
       with:
         version: latest
     - name: Package OctoPetShopDatabase
@@ -333,14 +334,14 @@ jobs:
       run: |
         octo pack --id="OctoPetShop.ShoppingCartService" --format="Zip" --version="$PACKAGE_VERSION" --basePath="$GITHUB_WORKSPACE/artifacts/OctopusSamples.OctoPetshop.ShoppingCartService" --outFolder="$GITHUB_WORKSPACE/artifacts"
     - name: Push OctoPetShop packages
-      uses: OctopusDeploy/push-package-action@v1.1.1
+      uses: OctopusDeploy/push-package-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
         packages: "artifacts/OctoPetShop.Database.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.Web.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ProductService.${{ env.PACKAGE_VERSION }}.zip,artifacts/OctoPetShop.ShoppingCartService.${{ env.PACKAGE_VERSION }}.zip"
         space: ${{ secrets.OCTOPUSSERVER_SPACE }}
     - name: Create and deploy release
-      uses: OctopusDeploy/create-release-action@v1.1.1
+      uses: OctopusDeploy/create-release-action@v1
       with:
         api_key: ${{ secrets.OCTOPUSSERVERAPIKEY }}
         server: ${{ secrets.OCTOPUSSERVERURL }}
@@ -368,6 +369,27 @@ In addition to common build steps, we also have an action that can Run a Runbook
       show_progress: 'true'
 ```
 
+### Push Build Information
+
+[Build information](/docs/packaging-applications/build-servers/build-information/index.md) contains a link
+to the build which produced the package, details of the source
+commits related to the build, and issue references parsed from the commit messages.
+
+Build information is generated and pushed to Octopus with the
+`OctopusDeploy/push-build-information-action` step:
+
+```yaml
+  - name: Generate Octopus Deploy build information
+    uses: OctopusDeploy/push-build-information-action@v1
+    env:
+      OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_API_TOKEN }}
+      OCTOPUS_HOST: ${{ secrets.OCTOPUS_SERVER_URL }}
+    with:
+      version: ${{ env.PACKAGE_VERSION }}
+      packages: OctoPetShopWeb
+      overwrite_mode: OverwriteExisting
+```
+
 :::success
 **Example GitHub Actions Repo:**
 
@@ -375,3 +397,147 @@ View a working GitHub Actions examples on our [samples GitHub repository](https:
 - [.NET Core](https://github.com/OctopusSamples/OctoPetShop/blob/master/.github/workflows/dotnet-core.yml)
 - [Java using Maven](https://github.com/OctopusSamples/RandomQuotes-Java/blob/master/.github/workflows/maven.yml)
 :::
+
+## GitHub Action Integrations v3
+
+GitHub Action Integrations v3 no longer requires the Octo CLI to function. This new native approach brings many benefits to the table, including but not limited too:
+- Smaller actions
+- Faster runtimes
+- Performance benefits through the [Executions API](https://octopus.com/blog/faster-deployments-with-the-executions-api)
+
+### Migration Guides
+
+Migrations guides can be found on each [GitHub Action Integration Repo](https://github.com/OctopusDeploy/create-release-action/blob/main/migration-guide.md).
+
+### New GitHub Actions
+
+The following GitHub actions have been created in collaboration with Github Action v3.
+
+### Deploy Release
+
+Incorporate the following actions in your workflow to deploy a release in Octopus Deploy using an API key, a target instance (i.e. server), and a project:
+
+```yaml
+env:
+
+steps:
+  # ...
+  - name: Deploy a release in Octopus Deploy 🐙
+    uses: OctopusDeploy/deploy-release-action@v3
+    env:
+      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      OCTOPUS_URL: ${{ secrets.SERVER }}
+      OCTOPUS_SPACE: 'Outer Space'
+    with:
+      project: 'MyProject'
+      release_version: '1.0.0'
+      environments: |
+        Dev
+        Test
+      variables: |
+        Foo: Bar
+        Fizz: Buzz
+```
+
+### Deploy Release Tenanted
+
+```yaml
+env:
+
+steps:
+  # ...
+  - name: Deploy a release in Octopus Deploy 🐙
+    uses: OctopusDeploy/deploy-release-tenanted-action@v3
+    env:
+      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      OCTOPUS_URL: ${{ secrets.SERVER }}
+      OCTOPUS_SPACE: 'Outer Space'
+    with:
+      project: 'MyProject'
+      release_version: '1.0.0'
+      environment: 'Dev'
+      tenants: |
+        'Some Tenant A'
+        'Some Tenant B'
+      tenant_tags: |
+        'setA/someTagB'
+        'setC/someTagD'
+      variables: |
+        'Foo: Bar'
+        'Fizz: Buzz'
+```
+
+### Await Task
+
+Incorporate the following actions in your workflow to wait for a task to complete in Octopus Deploy:
+
+```yaml
+env:
+
+steps:
+  # ...
+  - name: Await task in Octopus Deploy 🐙
+    uses: OctopusDeploy/await-task-action@v3
+    env:
+      OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
+      OCTOPUS_URL: ${{ secrets.SERVER }}
+      OCTOPUS_SPACE: 'Outer Space'
+    with:
+      server_task_id: {{ steps.some_previous_deployment_step.outputs.server_tasks[0].server_task_id }}
+```
+
+### Create Nuget Package
+
+Create NuGet package(s) to push to Octopus Deploy.
+
+```yaml
+steps:
+  - uses: actions/checkout@v3
+
+  # create a NuGet package from files in the "reports" folder; create package in "packaging" folder
+  - name: Create a NuGet package 🐙
+    uses: OctopusDeploy/create-nuget-package-action@v3
+    with:
+      package_id: 'DemoPackage'
+      version: '1.0.0'
+      output_folder: 'packaging'
+      base_path: reports
+      files: |
+        **/*.*
+      nuspec_description: package description
+      nuspec_authors: |
+        author 1
+        author 2
+      nuspec_release_notes: |
+        This is a multiline
+        release note
+```
+
+### Create Zip Package
+
+Create Zip package(s) to push to Octopus Deploy.
+
+```yaml
+steps:
+  - uses: actions/checkout@v3
+
+  # create a Zip package from files in the "reports" folder; create package in "packaging" folder
+  - name: Create a Zip package 🐙
+    uses: OctopusDeploy/create-zip-package-action@v3
+    with:
+      package_id: 'DemoPackage'
+      version: '1.0.0'
+      output_folder: './packaging'
+      base_path: reports
+      files: |
+        **/*.*
+```
+
+### Install Octopus CLI Action v3
+
+Although the CLI is not required for GitHub Actions v3, the install Octopus CLI Action v3 will now install the new [Octopus CLI](https://octopus.com/docs/octopus-rest-api/cli).
+
+:::warning
+If you require the use of the original Octo CLI, you can use `OctopusDeploy/install-octopus-cli-action@v1`.
+:::
+

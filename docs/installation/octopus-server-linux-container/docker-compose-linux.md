@@ -127,6 +127,24 @@ docker-compose --project-name Octopus up -d
 
 When both containers are healthy, you can browse directly to `http://localhost:8080` from your host machine.
 
+## Trusting custom/internal Certificate Authority (CA)
+
+Octopus Server can interface with several external sources (feeds, git repos, etc.), and those sources are often configured to use SSL/TLS for secure communication.  It is common for organizations to have their own Certificate Authority (CA) servers for their internal networks.  A CA server can issue SSL certificates for internal resources, such as build servers or internally hosted applications, without purchasing from a third-party vendor.  Technologies such as Group Policy Objects (GPO) can configure machines (servers and clients) to trust the CA automatically, so users don't have to configure trust for them manually. However, this is not inherited in containers.  When attempting to configure a connection to an external resource with an untrusted CA, you'll most likely encounter an error similar to this:
+
+```text
+Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
+```
+ 
+The recommended approach is to add the certificate to the Docker host, such as `/etc/ssl/certs`, and mount a volume to it inside the container.  To do this, add a `volumes` section to  the `octopus-server` container just after the `image` component
+
+```yaml
+  octopus-server:
+    container_name: octopus-server
+    image: octopusdeploy/octopusdeploy
+    volumes:
+      - /etc/ssl/certs:/etc/ssl/certs
+```
+
 ## Upgrade with Docker Compose
 
 If you have used the default image tag of `latest`, you can run `docker-compose pull` to download the most recent version of the image. Alternatively you can specify a fixed image tag via the `OCTOPUS_SERVER_TAG` property, and update the value as new images are released.

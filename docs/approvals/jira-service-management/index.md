@@ -4,10 +4,9 @@ description: Octopus Deploy can integrate with your Jira Service Management inst
 position: 10
 ---
 
-:::warning
-The Jira Service Management (JSM) Integration feature is only available as an EAP for Octopus 
-**2022.3.12101** or later, and it requires a specific feature license to use it. To request a 
-license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/jsm-eap)
+:::hint
+The Jira Service Management (JSM) Integration Early-Access Program (EAP)  is available in Octopus 
+**2022.3.12101** or later. [Contact us](https://octopus.com/company/contact) to request access to this feature. 
 :::
 
 ## Overview

@@ -39,3 +39,5 @@ New-OctopusAzureWebAppTarget -name "My Azure Web Application" `
                              -octopusDefaultWorkerPoolIdOrName "Worker Pool with Azure Access" `
                              -updateIfExisting
 ```
+
+!include <create-deployment-targets-hint>

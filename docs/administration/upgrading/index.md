@@ -16,9 +16,7 @@ This guide provides various upgrade scenarios with the goal of mitigating risk.
 Octopus Deploy connects to a SQL Server database, and can be hosted:
 
 - As a Windows Service, installed via an MSI.
-- In a container, either:
-    - A [Linux](docs/installation/octopus-server-linux-container/index.md) container (recommended)
-    - A [Windows](docs/installation/octopus-server-windows-container.md) container *(deprecated)*
+- In a [Linux](docs/installation/octopus-server-linux-container/index.md) container.
 
 ### Upgrade Process
 

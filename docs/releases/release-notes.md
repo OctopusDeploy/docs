@@ -36,6 +36,10 @@ Release notes templates will generally be most useful when combined with package
 
 The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/index.md) and [issues](/docs/releases/issue-tracking/index.md).
 
+:::hint
+4 spaces of indentation in a Release Note template indicates a code block. 
+:::
+
 ### Example templates
 
 The following example illustrates some sample text followed by the packages, with the packages rendered as a bullet point list:
@@ -68,6 +72,30 @@ Here are the notes for the packages
     - [#{commit.CommitId}](#{commit.LinkUrl}) - #{commit.Comment}
 #{/each}
 #{/each}
+```
+
+Build and version control details are exposed by the `Octopus.Release.Builds` variable. The example below lists the details of each build that contributed to the release:
+
+```
+#{each build in Octopus.Release.Builds}
+* #{build.Packages}
+* #{build.BuildUrl}
+* #{build.Branch}
+* #{build.BuildEnvironment}
+* #{build.BuildNumber}
+* #{build.VcsRoot}
+* #{build.VcsType}
+* #{build.VcsCommitNumber}
+* #{build.VcsCommitUrl}
+#{/each}
+```
+
+The `Octopus.Release.Builds[].Packages` variable is a JSON array containing the packages produced by a build. An example of this variable's value is `[{"PackageId":"randomquotes","Version":"0.1.247"}]`.
+
+The package ID can be used as an index for the `Octopus.Release.Package` variable with a nested Octostache expression:
+
+```
+#{Octopus.Release.Package[#{Octopus.Release.Builds[0].Packages[0].PackageId}].WorkItems}
 ```
 
 ### Release notes accumulation 

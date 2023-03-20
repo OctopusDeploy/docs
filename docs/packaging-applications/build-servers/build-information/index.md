@@ -21,6 +21,7 @@ Build information is passed to Octopus as a file using a custom format. The reco
 
 The Build Information step is currently available in the official Octopus Deploy plugins:
 
+- [GitHub Actions](/docs/packaging-applications/build-servers/github-actions.md) 
 - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md) 
 - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
 - [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) 
@@ -29,7 +30,6 @@ The Build Information step is currently available in the official Octopus Deploy
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 
 In addition to the official plugins, there are some community supported integrations available for
-- [GitHub Actions](https://github.com/marketplace/actions/octopus-deploy-build-information)
 - [BitBucket Pipelines](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master/README.md)
 - [CircleCI](https://circleci.com/developer/orbs/orb/octopus-samples/octo-exp)
 - [Continua CI](/docs/packaging-applications/build-servers/continua-ci.md)

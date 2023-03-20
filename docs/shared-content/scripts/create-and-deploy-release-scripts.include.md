@@ -11,7 +11,7 @@ $projectName = "Your Project Name"
 $environmentName = "Development"
 $channelName = "Default"
 
-# Get space id
+# Get space
 $spaces = Invoke-WebRequest -Uri "$octopusBaseURL/spaces/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
 $space = $spaces | Where-Object { $_.Name -eq $spaceName }
 Write-Host "Using Space named $($space.Name) with id $($space.Id)"
@@ -19,61 +19,35 @@ Write-Host "Using Space named $($space.Name) with id $($space.Id)"
 # Create space specific url
 $octopusSpaceUrl = "$octopusBaseURL/$($space.Id)"
 
-# Get project by name
-$projects = Invoke-WebRequest -Uri "$octopusSpaceUrl/projects/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
-$project = $projects | Where-Object { $_.Name -eq $projectName }
-Write-Host "Using Project named $($project.Name) with id $($project.Id)"
-
-# Get channel by name
-$channels = Invoke-WebRequest -Uri "$octopusSpaceUrl/projects/$($project.Id)/channels" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
-$channel = $channels | Where-Object { $_.Name -eq $channelName }
-Write-Host "Using Channel named $($channel.Name) with id $($channel.Id)"
-
-# Get environment by name
-$environments = Invoke-WebRequest -Uri "$octopusSpaceUrl/environments/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
-$environment = $environments | Where-Object { $_.Name -eq $environmentName }
-Write-Host "Using Environment named $($environment.Name) with id $($environment.Id)"
-
-# Get the deployment process template
-Write-Host "Fetching deployment process template"
-$template = Invoke-WebRequest -Uri "$octopusSpaceUrl/deploymentprocesses/deploymentprocess-$($project.id)/template?channel=$($channel.Id)" -Headers $headers | ConvertFrom-Json
-
 # Create the release body
-$releaseBody = @{
-    ChannelId        = $channel.Id
-    ProjectId        = $project.Id
-    Version          = $template.NextVersionIncrement
-    SelectedPackages = @()
-}
-
-# Set the package version to the latest for each package
-# If you have channel rules that dictate what versions can be used, you'll need to account for that
-Write-Host "Getting step package versions"
-$template.Packages | ForEach-Object {
-    $uri = "$octopusSpaceUrl/feeds/$($_.FeedId)/packages/versions?packageId=$($_.PackageId)&take=1"
-    $version = Invoke-WebRequest -Uri $uri -Method GET -Headers $headers -Body $releaseBody -ErrorVariable octoError | ConvertFrom-Json
-    $version = $version.Items[0].Version
-
-    $releaseBody.SelectedPackages += @{
-        ActionName           = $_.ActionName
-        PackageReferenceName = $_.PackageReferenceName
-        Version              = $version
-    }
+$createReleaseCommandV1 = @{
+	SpaceId          = $space.Id
+    SpaceIdOrName    = $spaceName
+    ProjectName      = $projectName
+    ChannelName      = $channelName
 }
 
 # Create release
-$releaseBody = $releaseBody | ConvertTo-Json
-Write-Host "Creating release with these values: $releaseBody"
-$release = Invoke-WebRequest -Uri $octopusSpaceUrl/releases -Method POST -Headers $headers -Body $releaseBody -ErrorVariable octoError | ConvertFrom-Json
+$createReleaseCommandV1Body = $createReleaseCommandV1 | ConvertTo-Json
+Write-Host "Creating release with these values: $createReleaseCommandV1Body"
+$releaseResponse = Invoke-WebRequest -Uri $octopusSpaceUrl/releases/create/v1 -Method POST -Headers $headers -Body $createReleaseCommandV1Body -ErrorVariable octoError | ConvertFrom-Json
 
-# Create deployment
+If ($octoError.Count > 0) {
+    Write-Host $octoError
+}
+
+# Queue a deployment
 $deploymentBody = @{
-    ReleaseId     = $release.Id
-    EnvironmentId = $environment.Id
+	SpaceId          = $space.Id
+    SpaceIdOrName    = $spaceName
+    ProjectName      = $projectName
+    ReleaseVersion   = $releaseResponse.ReleaseVersion
+    EnvironmentNames = @( $environmentName )
 } | ConvertTo-Json
 
 Write-Host "Creating deployment with these values: $deploymentBody"
-$deployment = Invoke-WebRequest -Uri $octopusSpaceUrl/deployments -Method POST -Headers $headers -Body $deploymentBody -ErrorVariable octoError
+$deploymentResponse = Invoke-WebRequest -Uri $octopusSpaceUrl/deployments/create/untenanted/v1 -Method POST -Headers $headers -Body $deploymentBody -ErrorVariable octoError
+
 ```
 ```powershell PowerShell (Octopus.Client)
 Add-Type -Path 'path\to\Octopus.Client.dll'
@@ -669,149 +643,34 @@ func GetPackageVersion(octopusURL *url.URL, APIKey string, space *octopusdeploy.
 }
 ```
 ```ts TypeScript
-import { Client, ClientConfiguration, Repository } from '@octopusdeploy/api-client';
-import {
-	ChannelResource,
-	DeploymentProcessResource,
-	DeploymentResource,
-	EnvironmentResource,
-	NewDeploymentResource,
-	NewReleaseResource,
-	ProjectResource,
-	ReleaseResource,
-	ReleaseTemplateResource
-} from '@octopusdeploy/message-contracts';
+import { Client, CreateDeploymentUntenantedCommandV1, CreateReleaseCommandV1, DeploymentRepository, ReleaseRepository } from '@octopusdeploy/api-client'
 
 const configuration: ClientConfiguration = {
-    apiKey: 'api-key',
-    apiUri: 'https://your.octopus.app/',
-    autoConnect: true
+    userAgentApp: 'CustomTypeScript',
+    instanceURL: 'https://your.octopus.app/',
+    apiKey: 'api-key'
 };
 
 const client = await Client.create(configuration);
-if (client === undefined) {
-    console.error('The API client for Octopus Deploy encountered an error.');
-    return;
+const spaceName = 'Default';
+
+const createReleaseCommandV1: CreateReleaseCommandV1 = {
+    spaceName: spaceName,
+    ProjectName: 'Your Project Name',
+    ChannelName: 'Default'
+  };
+
+const releaseRepository = new ReleaseRepository(client, spaceName)
+const releaseResponse = await releaseRepository.create(createReleaseCommandV1)
+
+# Queue a deployment
+const deploymentRepository = new DeploymentRepository(client, spaceName)
+const createDeploymentCommandV1: CreateDeploymentTenantedCommandV1 = {
+    spaceName: spaceName,
+    ProjectName: 'Your Project Name',
+    ReleaseVersion: releaseResponse.ReleaseVersion,
+    EnvironmentNames: [ 'Development' ]
 }
+const deploymentResponse = await deploymentRepository.create(createDeploymentCommandV1)
 
-const repository = new Repository(client);
-const projectNameOrId = 'project-name-or-id';
-const channelNameOrId = 'channel-name-or-id';
-const environmentNameOrId = 'environment-name-or-id';
-
-let project: ProjectResource | undefined;
-
-console.log(`Getting project, "${projectNameOrId}"...`);
-
-try {
-	project = await repository.projects.find(projectNameOrId);
-} catch (error) {
-	console.error(error);
-}
-
-if (project === null || project === undefined) {
-	console.error(`Project, "${projectNameOrId}" not found`);
-	return;
-}
-
-console.log(`Project found: "${project.Name}" (${project.Id})`);
-
-let channel: ChannelResource | undefined;
-
-console.log(`Getting channel, "${channelNameOrId}"...`);
-
-try {
-	channel = await repository.channels.find(channelNameOrId);
-} catch (error) {
-	console.error(error);
-}
-
-if (channel === null || channel === undefined) {
-	console.error(`Channel, "${channelNameOrId}" not found`);
-	return;
-}
-
-console.log(`Channel found: "${channel.Name}" (${channel.Id})`);
-
-let environments: EnvironmentResource[] = [];
-
-console.log(`Getting environment, "${environmentNameOrId}"...`);
-
-try {
-	environments = await repository.environments.find([environmentNameOrId]);
-} catch (error) {
-	console.error(error);
-}
-
-if (environments.length <= 0) {
-	console.error(`No matching environments found, "${environmentNameOrId}"`);
-	return;
-}
-
-// don't do this (below); select an environment using a more appropriate filter
-const environment = environments[0];
-console.log(`Environment found: "${environment.Name}" (${channel.Id})`);
-
-let deploymentProcess: DeploymentProcessResource | undefined;
-
-console.log(`Getting deployment process for "${project.DeploymentProcessId}"...`);
-
-try {
-	deploymentProcess = await repository.deploymentProcesses.get(project.DeploymentProcessId);
-} catch (error) {
-	console.error(error);
-	return;
-}
-
-console.log(`Deployment process found: "${deploymentProcess.Id}"`);
-
-let releaseTemplate: ReleaseTemplateResource | undefined;
-
-console.log(`Getting release template for deployment process, "${project.DeploymentProcessId}"...`);
-
-try {
-	releaseTemplate = await repository.deploymentProcesses.getTemplate(deploymentProcess, channel);
-} catch (error) {
-	console.error(error);
-	return;
-}
-
-console.log(`Release template found for deployment process, "${releaseTemplate.DeploymentProcessId}"`);
-
-let newRelease: NewReleaseResource = {
-	ChannelId: channel.Id,
-	ProjectId: project.Id,
-	Version: releaseTemplate.NextVersionIncrement
-}
-
-console.log(`Creating release with version, "${newRelease.Version}"...`);
-
-let release: ReleaseResource | undefined;
-
-try {
-	release = await repository.releases.create(newRelease);
-} catch (error) {
-	console.error(error);
-	return;
-}
-
-console.log(`Release created, "${release.Id}"`);
-
-let newDeployment: NewDeploymentResource = {
-	EnvironmentId: environment.Id,
-	ReleaseId: release.Id
-}
-
-console.log(`Creating deployment for release ${release.Version} of project ${project.Name} to environment ${environment.Name}...`);
-
-let deployment: DeploymentResource | undefined;
-
-try {
-	deployment = await repository.deployments.create(newDeployment);
-} catch (error) {
-	console.error(error);
-	return;
-}
-
-console.log(`Deployment created, "${deployment.Id}"`);
 ```

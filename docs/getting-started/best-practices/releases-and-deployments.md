@@ -5,7 +5,13 @@ position: 95
 hideInThisSection: true
 ---
 
-[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (packages, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
+[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
+
+A release snapshot takes references (rather than the entire resource) for certain items in a release. For example, packages are referenced by their version and not the package itself. Take care when overwriting existing packages that may be used in releases or snapshots.
+
+:::hint 
+**Tenant variables** are not included in release snapshots. Find out more in our [tenant documentation](/docs/tenants/tenant-variables.md).
+:::
 
 ## Release creation
 
@@ -75,7 +81,7 @@ Some notes about retention policies:
 - The algorithm calculating the releases to delete is very conservative.  It prefers to keep releases rather than delete them.
 
 :::hint
-When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing.md).  
+When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing/index.md).  
 :::
 
 ## Free up deployment target disk space
