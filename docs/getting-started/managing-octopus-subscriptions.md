@@ -35,8 +35,6 @@ Trial subscriptions are created in Control Center V1. Subscriptions in Control C
 
 ## Finance 
 
-The finance functionality is coming soon to Server licenses.
-
 ### Upgrading a trial to a paid subscription
 
 Cloud instance:
