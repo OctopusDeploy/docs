@@ -20,9 +20,15 @@ Where [<options>] is any of:
   -u, --username, --user=VALUE
                              If not using API keys, your username
   -p, --password=VALUE       If not using API keys, your password
+      --server-comms-address=VALUE
+                             The comms address on the Octopus Server; the
+                               address of the Octopus Server will be used if
+                               omitted.
       --server-comms-port=VALUE
                              The comms port on the Octopus Server; the
-                               default is 10943
+                               default is 10943. If specified, this will take
+                               precedence over any port number in server-comms-
+                               address.
       --server-web-socket=VALUE
                              When using active communication over websockets,
                                the address of the Octopus Server, eg
