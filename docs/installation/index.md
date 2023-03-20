@@ -13,9 +13,7 @@ When installed, the self-hosted Octopus Server:
 
 - Runs
   - As a Windows Service called **OctopusDeploy**, installed via an MSI.
-  - In a container, either:
-     - A [Linux](docs/installation/octopus-server-linux-container/index.md) container (recommended)
-     - A [Windows](docs/installation/octopus-server-windows-container.md) container *(deprecated)*
+  - In a [Linux](docs/installation/octopus-server-linux-container/index.md) container.
 - Stores its data in an [SQL Server Database](/docs/installation/sql-server-database.md). ([SQL Server Express](http://downloadsqlserverexpress.com/) is an easy way of getting started.)
 - Includes an embedded HTTP server which serves the [Octopus REST API](/docs/octopus-rest-api/index.md) and the  **Octopus Web Portal** that you will use to manage your [infrastructure](/docs/infrastructure/index.md), [deployments](/docs/projects/deployment-process/index.md), [runbooks](/docs/runbooks/index.md), and coordinate your [releases](/docs/releases/index.md).
 
@@ -72,13 +70,13 @@ If you don't have a copy of your Master Key and your hardware fails, you will no
 
 !include <octopus-server-in-container>
 
-This section includes information about different options to run the Octopus Server Linux Container, and migration considerations when moving to the Octopus Server Linux Container From Windows Server or the *deprecated* Windows Container.
+This section includes information about different options to run the Octopus Server Linux Container.
 
 - [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md)
 - [Migrating to the Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/migration/index.md)
+- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 - [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
 - [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
-- [Octopus Server Container in Kubernetes](/docs/installation/octopus-server-linux-container/octopus-in-kubernetes.md)
 
 ## Launch the Octopus Web Portal
 

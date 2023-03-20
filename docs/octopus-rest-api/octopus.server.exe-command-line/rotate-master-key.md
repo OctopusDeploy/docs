@@ -33,6 +33,7 @@ Where [<options>] is any of:
                                load and save data in the expected format.
       --skipLicenseCheck     Skips the license check when performing a schema
                                upgrade
+      --masterKey=VALUE      The new master key that should be used
 
 Or one of the common options:
 
