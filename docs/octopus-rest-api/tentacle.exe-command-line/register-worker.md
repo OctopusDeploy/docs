@@ -42,7 +42,13 @@ Where [<options>] is any of:
                                if omitted.
       --server-comms-port=VALUE
                              When using active communication, the comms port
-                               on the Octopus Server; the default is 10943
+                               on the Octopus Server; the default is 10943. If
+                               specified, this will take precedence over any
+                               port number in server-comms-address.
+      --server-comms-address=VALUE
+                             When using active communication, the comms
+                               address on the Octopus Server; the address of
+                               the Octopus Server will be used if omitted.
       --server-web-socket=VALUE
                              When using active communication over websockets,
                                the address of the Octopus Server, eg
