@@ -35,7 +35,7 @@ Trial subscriptions are created in Control Center V1. Subscriptions in Control C
 
 ## Finance 
 
-### Upgrading a trial to a paid subscription
+### Upgrading a trial to a paid subscription 
 
 Cloud instance:
 
@@ -51,14 +51,14 @@ Server license:
 
 In both cases, upgrading a trial to a paid subscription will migrate your subscription to Control Center V2. 
 
-### Changing payment method or billing information (Cloud only, Server coming soon)
+### Changing payment method or billing information (Cloud only)
 
 1. Navigate to your Cloud instance or Server License.
 2. Click **FINANCE** in the left sidebar.
 3. Click **MANAGE WITH STRIPE**.
 4. Use the options to edit and/or add payment methods and update your billing information.
 
-### Viewing orders (Cloud only, Server coming soon)
+### Viewing orders (Cloud only)
 
 1. Navigate to your subscription.
 2. Click **FINANCE** in the left sidebar.
@@ -74,7 +74,7 @@ To help you manage your monthly spend, you can set a maximum number of deploymen
 2. Click **FINANCE** in the left sidebar.
 3. Click **SET MAXIMUM TARGETS** to configure a maximum number of targets.
 
-### Canceling your plan (Cloud only, Server coming soon)
+### Canceling your plan (Cloud only)
 
 To modify your plan:
 
