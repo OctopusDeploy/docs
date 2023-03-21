@@ -98,7 +98,7 @@ Given the variables:
 `#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `
 
 :::info
-The `calc` operator is available from version 2023.1
+The `calc` operator is available from version 2023.2
 :::
 
 ### Conditionals {#VariableSubstitutionSyntax-Conditionalsconditionals}
