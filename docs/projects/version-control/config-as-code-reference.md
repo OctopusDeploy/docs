@@ -99,18 +99,6 @@ The _Git Repository_ field should contain the URL for the repository you wish th
 
 The repository must be initialized (i.e. contain at least one branch) prior to saving. Octopus will convert the existing items in the project to OCL (Octopus Configuration Language) and save it to that repository when you click save. If the repository isn't initialized, that will fail.
 
-The _Default Branch Name_ is the branch on which the Octopus configuration will be written. It is also the default branch that will be used in various situations, for example:
-
-- When users view the project's deployment process for the first time in the Octopus UI, this is the initially selected branch 
-- When creating releases, this will be the default branch selected
-- When running Runbooks, variable values will be pulled from this branch
-
-For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
-
-:::hint
-When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
-:::
-
 ### Authentication
 
 The config-as-code feature is designed to work with _any_ git repository. When configuring a project to be version-controlled, you can optionally provide credentials for authentication.
@@ -160,6 +148,10 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 - When running Runbooks, variable values will be pulled from this branch
 
 For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
+
+:::hint
+When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
+:::
 
 #### Initial Commit Branch
 
@@ -228,38 +220,6 @@ versioning_strategy {
 }
 ```
 
-The _variables.ocl_ file contains all non-sensitive variables for the project.
-
-```hcl
-variable "DatabaseName" {
-    value "AU-BNE-TST-001" {
-        environment = ["test"]
-    }
-
-    value "AU-BNE-DEV-001" {
-        environment = ["development"]
-    }
-
-    value "AU-BNE-001" {
-        environment = ["production"]
-    }
-}
-
-variable "DeploymentPool" {
-    type = "WorkerPool"
-
-    value "non-production-pool" {}
-
-    value "production-pool" {
-        environment = ["production"]
-    }
-}
-```
-
-:::hint
-In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables.md) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
-:::
-
 However, configuring the settings via Octopus will populate the fields with their properties and values.
 
 ```hcl
@@ -294,6 +254,38 @@ versioning_strategy {
     }
 }
 ```
+
+The _variables.ocl_ file contains all non-sensitive variables for the project.
+
+```hcl
+variable "DatabaseName" {
+    value "AU-BNE-TST-001" {
+        environment = ["test"]
+    }
+
+    value "AU-BNE-DEV-001" {
+        environment = ["development"]
+    }
+
+    value "AU-BNE-001" {
+        environment = ["production"]
+    }
+}
+
+variable "DeploymentPool" {
+    type = "WorkerPool"
+
+    value "non-production-pool" {}
+
+    value "production-pool" {
+        environment = ["production"]
+    }
+}
+```
+
+:::hint
+In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables.md) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
+:::
 
 ## Slugs in OCL
 
