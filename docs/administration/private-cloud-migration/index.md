@@ -115,7 +115,7 @@ API keys are the primary means with which external systems and scripts authentic
 
 ## Migration paths
 
-There are three paths available when migrating Octopus to a new instance: incremental, complete, and double complete. All have advantages and disadvantages. Which migration path you select is determined by the answers to the questions above.
+There are three main paths available when migrating Octopus to a new instance: incremental, complete, and double complete. All have advantages and disadvantages. Which migration path you select is determined by the answers to the questions above.
 
 ### Complete migration
 
@@ -124,13 +124,17 @@ A complete migration involves:
 1. Placing the on-premises Octopus instance into maintenance mode.
 1. Ensuring you have the master key.
 1. Performing a full backup of the on-premises database.
-1. Restoring the backup onto the cloud based database.
-1. Copying task logs to the new cloud based file storage.
-1. Copying built-in feed packages to the new cloud based file storage.
-1. Copying artifacts to the new cloud based file storage.
+1. Restoring the backup into the cloud based database.
+1. Copying task logs to the cloud based file storage.
+1. Copying built-in feed packages to the cloud based file storage.
+1. Copying artifacts to the cloud based file storage.
 1. Installing Octopus on your chosen hosting platform (e.g. a virtual machine or container orchestration platform).
-1. Pointing the new Octopus instance to the cloud based database.
+1. Pointing the cloud Octopus instance to the cloud based database.
 1. Reindexing the packages in the built-in feed.
+1. If the cloud Octopus instance has a new DNS name:
+    1. Reregistering polling tentacles to point to the cloud instance.
+    1. Pointing CI servers and external scripts to the cloud instance.
+    1. Updating firewall rules to allow the cloud instance to connect to listening tentacles.
 
 This process is documented in more detail under [Moving your Octopus components to other servers](docs/administration/managing-infrastructure/moving-your-octopus/index.md).
 
@@ -155,6 +159,7 @@ An incremental migration involves:
 1. Reregistering tentacles required by the imported project with the cloud hosted instance.
 1. Copying packages used by the project to the cloud hosted built-in feed.
 1. Reindexing the built-in feed.
+1. Updating CI servers and external scripts to point to the cloud instance.
 1. Disabling the project on the on-premises instance after migration.
 
 Choose an incremental migration when:
