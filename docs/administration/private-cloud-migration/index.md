@@ -24,31 +24,32 @@ Teams that choose to migrate their on-premises Octopus instance to private cloud
 * Do you have any CI servers integrated with Octopus?
 * Do you have any subscriptions configured in Octopus?
 * Do you have any external tools or scripts that call the Octopus API?
+* Do you have external scripts or CI servers using API keys?
 
 
-## What version of Octopus are you running?
+### What version of Octopus are you running?
 
 Some of the migration options require a relatively recent version of Octopus to be installed. For this reason the first step in any migration is to first update the on-premises instance to the latest version of Octopus.
 
-## Who is using the on-premises Octopus instance?
+### Who is using the on-premises Octopus instance?
 
 Most teams looking to move their on-premises Octopus instance to a private cloud tend to have multiple teams deploying multiple project through Octopus. How the migration is performed is largely dictated by the requirements of each of the impacted teams. It is therefor critical to understand which teams are using Octopus and what applications they are deploying. Having this information allows you to answer the next questions.
 
-## How long can Octopus be offline for before it interrupts critical operations?
+### How long can Octopus be offline for before it interrupts critical operations?
 
 Some teams may deploy relatively infrequently, perhaps once per month. Other teams may perform multiple deployments per day.
 
 Understanding the window in which Octopus can be unavailable without interrupting critical operations is a large factor in determining the migration path.
 
-## Who can test each project to ensure it deploys correctly after the migration?
+### Who can test each project to ensure it deploys correctly after the migration?
 
 Once the migration is complete, each team using Octopus must ensure that their deployments continue to work correctly. Either a member of each team using Octopus must test the migrated instance to ensure their projects work correctly, or the team performing the migration must be provided some guidance on how to test the migrated projects. The success of failure of these tests determines if the migration must be rolled backed or can continue.
 
-## Do you require a continuous audit history after the migration?
+### Do you require a continuous audit history after the migration?
 
 The requirement to have a complete audit history available on the migrated instance will limit the migration paths you can take. For example, the [Import/Export feature](/docs/projects/export-import/index.md) does not copy audit logs from the on-premises Octopus instance to the new cloud hosted instance.
 
-## How do users authenticate with Octopus?
+### How do users authenticate with Octopus?
 
 Octopus can either maintain users and teams in its own internal database or delegate authentication to an external provider such as Active Directory.
 
@@ -56,11 +57,11 @@ Whether users and teams managed by Octopus are migrated or manually recreated de
 
 Also be aware that Octopus hosted in a [Linux container](docs/installation/octopus-server-linux-container/index.md) has some limitations on the supported authentication providers compared to the Windows version.
 
-## Where have tentacles been installed?
+### Where have tentacles been installed?
 
 All tentacles will need to connect to or receive connections from the new Octopus instance. Understanding where tentacles are installed allows you to answer the next questions.
 
-## What kind of tentacles have been configured (polling or listening)?
+### What kind of tentacles have been configured (polling or listening)?
 
 Octopus tentacles can be configured in either listening or polling mode.
 
@@ -68,11 +69,11 @@ Listening tentacles have an open network port that the Octopus server uses to es
 
 Polling tentacles establish an outbound connect to the Octopus server to poll it for any pending deployments. Polling tentacles can be configured to poll multiple Octopus instances, allowing a single polling tentacle to be shared by many Octopus instances.
 
-## Are there any firewall rules restricting traffic to tentacles?
+### Are there any firewall rules restricting traffic to tentacles?
 
 Machines hosting tentacles may have firewall rules that limit incoming and outgoing traffic. If these firewall rules exist, they must be updated to allow traffic to and from the migrated Octopus instance.
 
-## Do you want to host Octopus in a Linux container on a platform like Kubernetes or ECS?
+### Do you want to host Octopus in a Linux container on a platform like Kubernetes or ECS?
 
 Octopus was initially provided only as a Windows application. Today Octopus is also provided as a Linux OCI image. The hosted platform provided by Octopus runs the Linux OCI image in Kubernetes.
 
@@ -80,28 +81,110 @@ Teams may wish to migrate to the Linux version of Octopus when moving to the clo
 
 The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [here](docs/installation/octopus-server-linux-container/index.md).
 
-## Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
+### Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
 
 Most cloud providers provide the ability to link on-premises networks to cloud based networks such that they both appear to belong to the same contiguous network. This allows the cloud based Octopus instance to continue to communicate with on-premises tentacles and targets with the same host names as the on-premises Octopus instance.
 
 However, if the cloud network is separate or otherwise segregated from the on-premises network, you may be required to switch from listening tentacles to polling tentacles, as polling tentacles can establish a secure outbound network connection over the public internet.
 
-## Where are your packages stored?
+### Where are your packages stored?
 
 If you use an external package repository, both the on-premises and cloud hosted Octopus instances can continue to consume the same set of packages. However, if you use the built-in Octopus feed, the packages will need to be manually copied to the new cloud hosted Octopus instance.
 
 In addition, any CI servers pushing packages to the Octopus instance must be updated to push packages to the cloud Octopus instance.
 
-## Do you have any CI servers integrated with Octopus?
+### Do you have any CI servers integrated with Octopus?
 
 A typical deployment workflow has a CI server which builds deployment artifacts, pushed those artifacts to a package repository, and then initiates a deployment to a development environment in Octopus.
 
 The CI server must be updated to point to the new cloud hosted Octopus instance so any packages pushed to the Octopus built-in feed and plugins that create and deploy releases interact with the new instance.
 
-## Do you have any subscriptions configured in Octopus?
+### Do you have any subscriptions configured in Octopus?
 
 Subscriptions are web hooks called by Octopus in response to certain events. Any service configured to respond to subscription events must have a network connection to the cloud hosted instance. And, depending on the migration path used, the subscriptions may need to be manually recreated.
 
-## Do you have any external tools or scripts that call the Octopus API?
+### Do you have any external tools or scripts that call the Octopus API?
 
 Octopus has a rich API that we encourage teams to use for advanced scenarios and management tasks. Any scripts written against the on-premises instance must be pointed to the cloud hosted instance.
+
+### Do you have external scripts or CI servers using API keys?
+
+API keys are the primary means with which external systems and scripts authenticate with the Octopus API. Depending on the migration path, these API keys may need to be regenerated.
+
+## Migration paths
+
+There are two paths available when migrating Octopus to a new instance: incremental and complete. Both have advantages and disadvantages. Which migration path you select is determined by the answers to the questions above.
+
+### Complete migration
+
+A complete migration involves:
+
+1. Placing the on-premises Octopus instance into maintenance mode.
+1. Ensuring you have the master key.
+1. Performing a full backup of the on-premises database.
+1. Restoring the backup onto the cloud based database.
+1. Copying task logs to the new cloud based file storage.
+1. Copying built-in feed packages to the new cloud based file storage.
+1. Copying artifacts to the new cloud based file storage.
+1. Installing Octopus on your chosen hosting platform (e.g. a virtual machine or container orchestration platform).
+1. Pointing the new Octopus instance to the cloud based database.
+1. Reindexing the packages in the built-in feed.
+
+This process is documented in more detail under [Moving your Octopus components to other servers](docs/administration/managing-infrastructure/moving-your-octopus/index.md).
+
+Choose a complete migration when:
+
+* There are few projects to test, or teams can collectively sign off the migration relatively quickly.
+* You require a complete audit history to be present on the new Octopus instance.
+* You have a large number of listening tentacles, as the new Octopus instance retains the certificates required to establish in the inbound connections, allowing the existing listening tentacles to be reused without reregistering them.
+* You have a large number of API keys in use and do not wish to regenerate them.
+* You have a large number of subscriptions configured and you do not wish to reconfigure them.
+
+A complete migration is not suitable when:
+
+* There are many projects to migrate, and any project will take longer to validate than the downtime tolerated by any other team, as a complete migration assumes everyone can start using the new instance relatively quickly.
+
+### Incremental migration
+
+An incremental migration involves:
+
+1. Installing the cloud hosted Octopus instance with a fresh database.
+1. Using the [Import/Export feature](/docs/projects/export-import/index.md) to move individual projects to the cloud hosted instance.
+1. Reregistering tentacles required by the imported project with the cloud hosted instance.
+1. Copying packages used by the project to the cloud hosted built-in feed.
+1. Reindexing the built-in feed.
+1. Disabling the project on the on-premises instance after migration.
+
+Choose an incremental migration when:
+
+* Teams can only tolerate small downtime windows, as an incremental migration allows the on-premises instance to continue performing deployments as each team or project is migrated individually.
+* You so many CI projects or external scripts interacting with Octopus that it is not feasible to migrate them all at once, as an incremental migration means you migrate only the external services relating to the single Octopus project or team being migrated.
+* You wish to limit the migration risk by limiting each migration step to a single project or team.
+
+An incremental migration is not suitable when:
+
+* You require the complete audit history to be present on the cloud instance, as the export/import feature does not migrate audit events.
+* You have a large number of Config-as-Code enabled projects, as the export/import feature does not export these projects.
+* You do not wish to reregister listening tentacles, as the new cloud instance has new certificates and will not be able to establish a connection to existing listening tentacles.
+* Your have a large number of project triggers, as the export/import feature does not export triggers.
+* You have a large number of users and teams in the internal Octopus database, as these will have to be manually recreated.
+* You have a large number of active API keys and do not wish to regenerate them.
+
+### Double complete migration
+
+A third option is to perform a complete migration but then treat the cloud server as a disposable test instance. Once testing has been completed, the cloud instance is destroyed and a new complete migration is performed. This allows the teams to switch to the cloud instance with a high degree of certainty that it will work, while also ensuring that the cloud instance has all the settings from the on-premises instance.
+
+Choose a double complete migration when:
+
+* You need all the features of a complete migration.
+* You are unable to validate a complete migration within the outage window tolerated by your teams.
+
+A double complete migration is not suitable when:
+
+* You are unable to migrate all external services fast enough to satisfy the outage window tolerated by your teams.
+
+## Conclusion
+
+There are many factors to consider when migrating an on-premises Octopus instance to the cloud. The technical requirements to perform such a migration are usually the easiest to implement. It is typically the functional requirements of the teams using Octopus that require the most careful consideration.
+
+Every migration will have unique requirements, but this document highlights a number of the common factors that must be taken into consideration when performing a cloud migration.
