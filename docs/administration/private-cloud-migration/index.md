@@ -31,11 +31,11 @@ There are a number of factors to consider when migrating an on-premises instance
 
 ### What version of Octopus are you running?
 
-Some of the migration options require a relatively recent version of Octopus to be installed. For this reason the first step in any migration is to first update the on-premises instance to the latest version of Octopus.
+Some of the migration options require a relatively recent version of Octopus to be installed. For this reason the first step in any migration is to update the on-premises instance to the latest version of Octopus.
 
 ### Who is using the on-premises Octopus instance?
 
-Most teams looking to move their on-premises Octopus instance to a private cloud tend to have multiple teams deploying multiple project through Octopus. How the migration is performed is largely dictated by the requirements of each of the impacted teams. It is therefor critical to understand which teams are using Octopus and what applications they are deploying. Having this information allows you to answer the next questions.
+Most teams looking to move their on-premises Octopus instance to a private cloud tend to have multiple teams deploying multiple projects through Octopus. How the migration is performed is largely dictated by the requirements of each of the impacted teams. It is therefore critical to understand which teams are using Octopus and what applications they are deploying. Having this information allows you to answer the next questions.
 
 ### How long can Octopus be offline for before it interrupts critical operations?
 
@@ -45,11 +45,11 @@ Understanding the window in which Octopus can be unavailable without interruptin
 
 ### Who can test each project to ensure it deploys correctly after the migration?
 
-Once the migration is complete, each team using Octopus must ensure that their deployments continue to work correctly. Either a member of each team using Octopus must test the migrated instance to ensure their projects work correctly, or the team performing the migration must be provided some guidance on how to test the migrated projects. The success of failure of these tests determines if the migration must be rolled backed or can continue.
+Once the migration is complete, each team using Octopus must ensure that their deployments continue to work correctly. Either a member of each team using Octopus must test the migrated instance to ensure their projects work correctly, or the team performing the migration must be provided with guidance on how to test the migrated projects. The success of failure of these tests determines if the migration must be rolled back or can continue.
 
 ### Do you require a continuous audit history after the migration?
 
-The requirement to have a complete audit history available on the migrated instance will limit the migration paths you can take. For example, the [Import/Export feature](/docs/projects/export-import/index.md) does not copy audit logs from the on-premises Octopus instance to the new cloud hosted instance.
+The requirement to have a complete audit history available in the migrated instance will limit the migration paths you can take. For example, the [Import/Export feature](/docs/projects/export-import/index.md) does not copy audit logs from the on-premises Octopus instance to the new cloud hosted instance.
 
 ### How do users authenticate with Octopus?
 
@@ -57,7 +57,7 @@ Octopus can either maintain users and teams in its own internal database or dele
 
 Whether users and teams managed by Octopus are migrated or manually recreated depends on the migration path.
 
-Also be aware that Octopus hosted in a [Linux container](docs/installation/octopus-server-linux-container/index.md) has some limitations on the supported authentication providers compared to the Windows version.
+Also be aware that Octopus hosted in a [Linux container](docs/installation/octopus-server-linux-container/index.md) has some limitations with the supported authentication providers compared to the Windows version.
 
 ### Where have tentacles been installed?
 
@@ -67,7 +67,7 @@ All tentacles will need to connect to or receive connections from the new Octopu
 
 Octopus tentacles can be configured in either listening or polling mode.
 
-Listening tentacles have an open network port that the Octopus server uses to establish in inbound connection to in order to initiate a deployment. Listening tentacles rely on the certificate presented by the Octopus server to trust in bound connections. This means listening tentacles must re-register with new Octopus instances to trust the inbound connections.
+Listening tentacles expose an open network port that the Octopus server uses to establish in inbound connection to in order to initiate a deployment. Listening tentacles rely on the certificate presented by the Octopus server to trust inbound connections. This means listening tentacles must re-register with fresh Octopus instances in order to trust the inbound connections, while Octopus instances configured against a restored database retain the certificates and can establish connections to listening tentacles.
 
 Polling tentacles establish an outbound connect to the Octopus server to poll it for any pending deployments. Polling tentacles can be configured to poll multiple Octopus instances, allowing a single polling tentacle to be shared by many Octopus instances.
 
