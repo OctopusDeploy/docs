@@ -77,7 +77,7 @@ Machines hosting tentacles may have firewall rules that limit incoming and outgo
 
 ### Do you want to host Octopus in a Linux container on a platform like Kubernetes or ECS?
 
-Octopus was initially provided only as a Windows application. Today Octopus is also provided as a Linux OCI image. The hosted platform provided by Octopus runs the Linux OCI image in Kubernetes.
+Octopus was initially provided only as a Windows application. Today Octopus is also provided as a Linux OCI image. The hosted platform provided by Octopus runs the Linux OCI image in Kubernetes, so running Octopus as a Linux container is a well tested and supported solution.
 
 Teams may wish to migrate to the Linux version of Octopus when moving to the cloud. There are many benefits to doing so, including cheaper hosting costs and the option to host Octopus on platforms like Kubernetes or ECS.
 
@@ -85,19 +85,19 @@ The Windows and Linux versions are mostly identical. However, there are some cav
 
 ### Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
 
-Most cloud providers provide the ability to link on-premises networks to cloud based networks such that they both appear to belong to the same contiguous network. This allows the cloud based Octopus instance to continue to communicate with on-premises tentacles and targets with the same host names as the on-premises Octopus instance.
+Most cloud providers provide the ability to link on-premises networks to cloud based networks such that they both appear to belong to the same contiguous network. This allows the cloud based Octopus instance to continue to communicate with on-premises tentacles and targets with the same host names used by the on-premises Octopus instance.
 
 However, if the cloud network is separate or otherwise segregated from the on-premises network, you may be required to switch from listening tentacles to polling tentacles, as polling tentacles can establish a secure outbound network connection over the public internet.
 
 ### Where are your packages stored?
 
-If you use an external package repository, both the on-premises and cloud hosted Octopus instances can continue to consume the same set of packages. However, if you use the built-in Octopus feed, the packages will need to be manually copied to the new cloud hosted Octopus instance.
+If you use an external package repository, both the on-premises and cloud hosted Octopus instances can continue to consume the same set of packages. However, if you use the built-in Octopus feed, the packages must be manually copied to the new cloud hosted Octopus instance.
 
 In addition, any CI servers pushing packages to the Octopus instance must be updated to push packages to the cloud Octopus instance.
 
 ### Do you have any CI servers integrated with Octopus?
 
-A typical deployment workflow has a CI server which builds deployment artifacts, pushed those artifacts to a package repository, and then initiates a deployment to a development environment in Octopus.
+A typical deployment workflow has a CI server which builds deployment artifacts, pushes those artifacts to a package repository, and then initiates a deployment to a development environment in Octopus.
 
 The CI server must be updated to point to the new cloud hosted Octopus instance so any packages pushed to the Octopus built-in feed and plugins that create and deploy releases interact with the new instance.
 
@@ -115,7 +115,7 @@ API keys are the primary means with which external systems and scripts authentic
 
 ## Migration paths
 
-There are two paths available when migrating Octopus to a new instance: incremental and complete. Both have advantages and disadvantages. Which migration path you select is determined by the answers to the questions above.
+There are three paths available when migrating Octopus to a new instance: incremental, complete, and double complete. All have advantages and disadvantages. Which migration path you select is determined by the answers to the questions above.
 
 ### Complete migration
 
