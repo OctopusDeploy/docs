@@ -141,14 +141,14 @@ This process is documented in more detail under [Moving your Octopus components 
 Choose a complete migration when:
 
 * There are few projects to test, or teams can collectively sign off the migration relatively quickly.
-* You require a complete audit history to be present on the new Octopus instance.
-* You have a large number of listening tentacles, as the new Octopus instance retains the certificates required to establish in the inbound connections, allowing the existing listening tentacles to be reused without reregistering them.
+* You require a complete audit history to be present on the cloud Octopus instance.
+* You have a large number of listening tentacles, as the cloud Octopus instance retains the certificates required to establish the inbound connections, allowing the existing listening tentacles to be reused without reregistering them.
 * You have a large number of API keys in use and do not wish to regenerate them.
 * You have a large number of subscriptions configured and you do not wish to reconfigure them.
 
-A complete migration is not suitable when:
+A complete migration may not suitable when:
 
-* There are many projects to migrate, and any project will take longer to validate than the downtime tolerated by any other team, as a complete migration assumes everyone can start using the new instance relatively quickly.
+* There are many projects to migrate, and any project may take longer to validate than the downtime tolerated by any other team, as a complete migration assumes everyone can start using the new instance relatively quickly.
 
 ### Incremental migration
 
@@ -157,7 +157,7 @@ An incremental migration involves:
 1. Installing the cloud hosted Octopus instance with a fresh database.
 1. Using the [Import/Export feature](/docs/projects/export-import/index.md) to move individual projects to the cloud hosted instance.
 1. Reregistering tentacles required by the imported project with the cloud hosted instance.
-1. Copying packages used by the project to the cloud hosted built-in feed.
+1. Copying packages used by the migrated project to the cloud hosted built-in feed.
 1. Reindexing the built-in feed.
 1. Updating CI servers and external scripts to point to the cloud instance.
 1. Disabling the project on the on-premises instance after migration.
@@ -165,28 +165,28 @@ An incremental migration involves:
 Choose an incremental migration when:
 
 * Teams can only tolerate small downtime windows, as an incremental migration allows the on-premises instance to continue performing deployments as each team or project is migrated individually.
-* You so many CI projects or external scripts interacting with Octopus that it is not feasible to migrate them all at once, as an incremental migration means you migrate only the external services relating to the single Octopus project or team being migrated.
+* You have so many CI projects or external scripts interacting with Octopus that it is not feasible to migrate them all at once, as an incremental migration means you migrate only the external services relating to the single Octopus project or team being migrated.
 * You wish to limit the migration risk by limiting each migration step to a single project or team.
 
-An incremental migration is not suitable when:
+An incremental migration may not suitable when:
 
 * You require the complete audit history to be present on the cloud instance, as the export/import feature does not migrate audit events.
 * You have a large number of Config-as-Code enabled projects, as the export/import feature does not export these projects.
 * You do not wish to reregister listening tentacles, as the new cloud instance has new certificates and will not be able to establish a connection to existing listening tentacles.
-* Your have a large number of project triggers, as the export/import feature does not export triggers.
+* You have a large number of project triggers, as the export/import feature does not export triggers.
 * You have a large number of users and teams in the internal Octopus database, as these will have to be manually recreated.
 * You have a large number of active API keys and do not wish to regenerate them.
 
 ### Double complete migration
 
-A third option is to perform a complete migration but then treat the cloud server as a disposable test instance. Once testing has been completed, the cloud instance is destroyed and a new complete migration is performed. This allows the teams to switch to the cloud instance with a high degree of certainty that it will work, while also ensuring that the cloud instance has all the settings from the on-premises instance.
+A third option is to perform a complete migration but then treat the cloud instance as disposable. Once testing has been completed, the cloud instance is destroyed and a new complete migration is performed. This allows the teams to switch to the cloud instance with a high degree of certainty that it will work, while also ensuring that the cloud instance has all the settings from the on-premises instance.
 
 Choose a double complete migration when:
 
 * You need all the features of a complete migration.
 * You are unable to validate a complete migration within the outage window tolerated by your teams.
 
-A double complete migration is not suitable when:
+A double complete migration may not suitable when:
 
 * You are unable to migrate all external services fast enough to satisfy the outage window tolerated by your teams.
 
@@ -194,4 +194,4 @@ A double complete migration is not suitable when:
 
 There are many factors to consider when migrating an on-premises Octopus instance to the cloud. The technical requirements to perform such a migration are usually the easiest to implement. It is typically the functional requirements of the teams using Octopus that require the most careful consideration.
 
-Every migration will have unique requirements, but this document highlights a number of the common factors that must be taken into consideration when performing a cloud migration.
+Every migration will have unique requirements, but this document highlights a number of common factors that must be taken into consideration when performing a cloud migration.
