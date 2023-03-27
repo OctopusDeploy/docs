@@ -179,7 +179,7 @@ An incremental migration may not suitable when:
 
 ### Double complete migration
 
-A third option is to perform a complete migration but then treat the cloud instance as disposable. Once testing has been completed, the cloud instance is destroyed and a new complete migration is performed. This allows the teams to switch to the cloud instance with a high degree of certainty that it will work, while also ensuring that the cloud instance has all the settings from the on-premises instance.
+A third option is to perform a complete migration but then treat the cloud instance as disposable. Once testing has been completed, the cloud instance is destroyed and a new complete migration is performed. This allows teams to switch to the cloud instance with a high degree of certainty that their projects will deploy correctly, while also ensuring that the cloud instance has all the recent configuration from the on-premises instance.
 
 Choose a double complete migration when:
 
