@@ -5,9 +5,11 @@ position: 15
 hideInThisSectionHeader: true
 ---
 
-Teams that choose to migrate their on-premises Octopus instance to private cloud hosting must take multiple factors into account to ensure a smooth migration. This document provides a guide to ensure teams successfully migrate their instance with minimal interruption to their deployments.
+Teams looking to migrate their on-premises Octopus instance to private cloud hosting must take multiple factors into account to ensure a smooth migration. This document provides a guide to ensure teams successfully migrate their instance with minimal interruption to their deployments.
 
 ## Checklist
+
+There are a number of factors to consider when migrating an on-premises instance to cloud hosting:
 
 * What version of Octopus are you running?
 * Who is using the on-premises Octopus instance?
