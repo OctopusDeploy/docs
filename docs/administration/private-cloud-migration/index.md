@@ -1,7 +1,7 @@
 ---
 title: Private cloud migration
 description: Guidelines for migrating an on-premises Octopus instance to private cloud hosting
-position: 15
+position: 55
 hideInThisSectionHeader: true
 ---
 
