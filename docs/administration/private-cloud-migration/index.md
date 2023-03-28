@@ -95,6 +95,8 @@ If you use an external package repository, both the on-premises and cloud hosted
 
 In addition, any CI servers pushing packages to the Octopus instance must be updated to push packages to the cloud Octopus instance.
 
+A sample script has been provided in the [Import/Export documentation](/docs/projects/export-import/index.md) to automate the process of copying packages.
+
 ### Do you have any CI servers integrated with Octopus?
 
 A typical deployment workflow has a CI server which builds deployment artifacts, pushes those artifacts to a package repository, and then initiates a deployment to a development environment in Octopus.
