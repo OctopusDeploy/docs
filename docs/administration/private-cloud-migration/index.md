@@ -45,7 +45,7 @@ Understanding the window in which Octopus can be unavailable without interruptin
 
 ### Who can test each project to ensure it deploys correctly after the migration?
 
-Once the migration is complete, each team using Octopus must ensure that their deployments continue to work correctly. Either a member of each team using Octopus must test the migrated instance to ensure their projects work correctly, or the team performing the migration must be provided with guidance on how to test the migrated projects. The success of failure of these tests determines if the migration must be rolled back or can continue.
+Once the migration is complete, each team using Octopus must ensure that their deployments continue to work correctly. Either a member of each team using Octopus must test the migrated instance to ensure their projects work correctly, or the team performing the migration must be provided with guidance on how to test the migrated projects. The success or failure of these tests determines if the migration must be rolled back or can continue.
 
 ### Do you require a continuous audit history after the migration?
 
