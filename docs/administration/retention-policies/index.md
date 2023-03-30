@@ -63,7 +63,7 @@ When configuring the repository retention policy, it's also worth making note of
 Some items in Octopus are not affected by Retention policies, and are never deleted. One example of this is [Audit logs](/docs/security/users-and-teams/auditing/index.md). Octopus actively [prevents modifying or deleting audit logs](/docs/security/users-and-teams/auditing/index.md#modifying-and-deleting-audit-logs-is-prevented).
 
 :::hint
-From version **Octopus 2022.3** the [Audit Retention functionality](/docs/security/users-and-teams/auditing/index.md#archived-audit-events) will start being rolled out. This **does not** delete audit records. It just moves them from the database to the file system.
+From version **Octopus 2023.1** the [Audit Retention functionality](/docs/security/users-and-teams/auditing/index.md#archived-audit-events) will start being rolled out. This **does not** delete audit records. It just moves them from the database to the file system.
 :::
 
 ## When the retention policies are applied {#when-retention-policies-applied}

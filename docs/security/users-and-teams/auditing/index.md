@@ -6,7 +6,7 @@ description: Octopus Deploy captures audit information whenever significant even
 For team members to collaborate in the deployment of software, there needs to be trust and accountability. Octopus Deploy captures audit information whenever significant events happen in the system.
 
 :::hint
-The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2022.3** and will be made available to Cloud customers soon. We will make this available to the on-prem customers later in 2023.
+The [Audit Retention functionality](#archived-audit-events) was introduced in **Octopus 2023.1**.
 :::
 
 ## What does Octopus capture? {#Auditing-WhatdoesOctopuscapture?}
@@ -81,7 +81,7 @@ We take the sensitive value and hash it using an irreversible hash algorithm. We
 ### Archived audit logs {#archived-audit-events}
 
 :::hint
-Audit Retention functionality was introduced in **Octopus 2022.3** and will be made available to Cloud customers soon. We will make this available to the on-prem customers later in 2023.
+Audit Retention functionality was introduced in **Octopus 2023.1**.
 :::
 
 Audit log entries can require a significant amount of database space to store, degrading overall system performance. For this reason, Octopus Server applies a retention policy to automatically archive audit log entries older than the configured number of days and remove them from the database. The retention period can be configured via **{{Configuration, Settings, Event Retention}}**. The location of the archived audit log files can be changed via **{{Configuration, Settings, Server Folders}}**.
@@ -96,3 +96,14 @@ Deleting the archived files will permanently erase the audit entries. As a safeg
 :::
 
 The archived files can also be accessed via the Octopus REST API endpoints `/api/events/archives` and `/api/events/archives/{filename}`.
+
+## IP address forwarding
+
+From **Octopus 2023.1**, the originating IP address of a request is recorded as part of any audit event. If you host Octopus on-premises and run multiple nodes in a High Availability setup, incoming requests will be redirected from your load balancer. This means that by default, the IP address recorded with any event will be the IP address of your load balancer. To resolve this, you can configure any trusted IP addresses via **{{Configuration, Settings, Web Portal, Trusted Proxies}}**.
+
+Octopus accepts any number of trusted proxies. A trusted proxy can either be a single IP address such as `192.168.123.111` or an IP range such as `192.168.0.0/16`.
+
+Octopus reads forwarded IP addresses from the `X-Forwarded-For` header. Given the IP address of the client sending the request is trusted, the rightmost IP address that is **not** configured in the list of trusted proxies will be used as the IP address for the event. If all IP addresses are trusted, the leftmost value in the `X-Forwarded-For` header will be used. Some examples include:
+- If the IP range `0.0.0.0/0` is configured as a trusted proxy, then any request will always use the leftmost IP address found in the `X-Forwarded-For` header, or the IP address of the client if no header is provided
+- If no trusted proxies are configured, the IP address of the client that sent the request will always be used as it is not considered trusted, even if there is a valid `X-Forwarded-For` header
+- If the IP address `192.168.123.111` is configured as a trusted proxy, and a request is received with a client IP address of `192.168.123.111` and the header `X-Forwarded-For: 100.100.101.102, 200.123.124.125`, then `200.123.124.125` will be used as the IP address of this request as it is the rightmost untrusted IP address

@@ -24,6 +24,10 @@ Currently, the Project level resources saved to git are:
     - Default Failure Mode
 - Variables (excluding Sensitive variables)
 
+:::hint
+Sensitive variables are still stored in the database. Regardless of the current branch, you will always see the same set of sensitive variables.
+:::
+
 ### Project Resources saved to SQL Server
 
 Currently, the Project level resources saved to SQL Server when version control is enabled are:
@@ -118,6 +122,11 @@ Git providers allow you to create an access token in different ways. The recomme
 Some VCS providers require that you use only a username and personal access token for authentication, not an email address (i.e. BitBucket).
 :::
 
+#### BitBucket Repository Access Tokens
+BitBucket's repository access tokens allow you to create repository-specific access tokens. For these to work with your Git repositories in Octopus, you must set the username to `x-token-auth`, and the passwork to the token.
+
+![Screenshot of Octopus Version Control Settings page with Authentication section expanded. Username/password auth method is selected, the Username input field is highlighted with a bold red box, and contains the value x-token-auth](octopus-bitbucket-repository-access-tokens.png "width=400")
+
 ### File Storage
 
 _Git File Storage Directory_ specifies the path within the repository where the Octopus configuration will be stored. The default directory is `.octopus`, but that can be changed. If only a single Octopus project will be stored in the repo, we recommend putting the configuration directly under the `.octopus` directory.
@@ -140,6 +149,10 @@ The _Default Branch Name_ is the branch on which the Octopus configuration will 
 
 For existing initialized repositories, the default branch must exist. If the repository is new and uninitialized, Octopus will create the default branch automatically.
 
+:::hint
+When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch.
+:::
+
 #### Initial Commit Branch
 
 If the default branch is protected in your repository, select the *Is the default branch protected?* checkbox. This will allow you to use a different _Initial Commit Branch_. If this branch does not exist, Octopus will create the branch automatically. 
@@ -160,6 +173,7 @@ Currently, Octopus creates the following files:
 
 * deployment_process.ocl
 * deployment_settings.ocl
+* variables.ocl
 * schema_version.ocl
 
 The _deployment_process.ocl_ file contains the configuration for your project's steps. Below is an example _deployment_process.ocl_ for a project containing a single _Deploy a Package_ step.
@@ -240,6 +254,38 @@ versioning_strategy {
     }
 }
 ```
+
+The _variables.ocl_ file contains all non-sensitive variables for the project.
+
+```hcl
+variable "DatabaseName" {
+    value "AU-BNE-TST-001" {
+        environment = ["test"]
+    }
+
+    value "AU-BNE-DEV-001" {
+        environment = ["development"]
+    }
+
+    value "AU-BNE-001" {
+        environment = ["production"]
+    }
+}
+
+variable "DeploymentPool" {
+    type = "WorkerPool"
+
+    value "non-production-pool" {}
+
+    value "production-pool" {
+        environment = ["production"]
+    }
+}
+```
+
+:::hint
+In Git projects, [Octopus will continue apply variable permissions based on scopes](/docs/security/users-and-teams/security-and-un-scoped-variables.md) when interacting through the API and Portal. As these variables are written to a single text file, any user with access to the repository will have full access to all variables (regardless of scoping).
+:::
 
 ## Slugs in OCL
 
