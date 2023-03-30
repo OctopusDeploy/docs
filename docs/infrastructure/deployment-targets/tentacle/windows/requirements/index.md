@@ -15,6 +15,7 @@ The installation requirements for the latest version of Tentacle are:
 -  Windows Server 2012 R2 
 -  Windows Server 2016 (Both "Server Core" and "Server with a GUI" installations are supported for Tentacle).
 -  Windows Server 2019 
+-  Windows Server 2022
 
 :::warning
 Octopus does not actively test against Windows 2008 nor Windows 2008 R2. Certain operating system specific issues may not be fixed as [Microsoft no longer supports Windows 2008](https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2008) nor [Windows 2008R2](https://docs.microsoft.com/en-us/lifecycle/products/windows-server-2008-r2).
@@ -24,10 +25,11 @@ Octopus does not actively test against Windows 2008 nor Windows 2008 R2. Certain
 
 The table below outlines the **minimum** required version of .NET Framework for Tentacle **3.1** and higher.
 
-| Tentacle      | .NET Framework version |
-| ------------- | ---------------------- | 
-| 3.1 -> 4.0.7  | 4.5.1+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net451-web-installer)) |
-| 5.0 -> latest | 4.5.2+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net452-web-installer)) |
+| Tentacle       | .NET Framework version |
+| -------------- | ---------------------- | 
+| 3.1 -> 4.0.7   | 4.5.1+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net451-web-installer)) |
+| 5.0 -> 6.2.277 | 4.5.2+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net452-web-installer)) |
+| 6.3 -> latest  | 4.8+ ([download](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer)) |
 
 
 ## Windows PowerShell
