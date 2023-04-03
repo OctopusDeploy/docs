@@ -21,3 +21,10 @@ Variables can be scoped to specific runbooks, or to the deployment process, by n
 ## Prompted variables in runbooks {#prompted-variables}
 
 [Prompted variables](/docs/projects/variables/prompted-variables.md) can be defined for runbooks. By default, prompted variables will prompt for the value when deploying or when running a runbook.  By [scoping prompted variables](#Variables-specific-to-a-runbook) to one or more processes, they can be restricted to only prompt when deploying or for specific runbooks. 
+
+## Runbooks variables in Git projects
+When snapshotting a Runbook in a Git project, the variables will always be taken from the default branch. The Git reference and commit that was used to create the snapshot is shown on the Runbook snapshot page.
+
+![Screenshot of Octopus Runbook snapshot page showing variable snapshot with reference main and commit d6cff1a](git-variables-runbook-snapshot.png "width=400")
+
+To use a different branch to snapshot variables, you will need to change the default branch for the project.

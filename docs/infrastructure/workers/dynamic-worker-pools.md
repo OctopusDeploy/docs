@@ -44,7 +44,9 @@ When an image is marked as deprecated, you will see warnings in the Octopus UI, 
 
 When you start getting warnings in your deployments and/or see deprecation warnings in the Octopus portal, please plan to modify your worker pool to use a different image and test your scripts on the new image.
 
-If your Worker Pool is set to use the Operating System default, for example, `Windows (default)`, you don't have to do anything. The default will be swapped over to a new Operating System version and your deployments and runbooks will automatically use the new version. 
+If your Worker Pool is set to use the Operating System default, for example, `Windows (default)`, the default will be swapped over to a new Operating System version by Octopus Deploy. Your deployments and runbooks will automatically use the new version.
+
+You should validate that your deployments and runbooks work with the new version prior to the cutover date. The new image will be made available prior to the cutover date and we will notify you of the cutover date to give you time to undertaking any required testing.
 
 ### Modifying the worker pool 
 

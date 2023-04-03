@@ -36,6 +36,10 @@ Release notes templates will generally be most useful when combined with package
 
 The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/index.md) and [issues](/docs/releases/issue-tracking/index.md).
 
+:::hint
+4 spaces of indentation in a Release Note template indicates a code block. 
+:::
+
 ### Example templates
 
 The following example illustrates some sample text followed by the packages, with the packages rendered as a bullet point list:

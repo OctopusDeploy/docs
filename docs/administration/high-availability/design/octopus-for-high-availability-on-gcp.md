@@ -321,9 +321,9 @@ To distribute traffic to the Octopus web portal on multiple nodes, you need to u
 * [External HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
 * [External TCP Network Load Balancer](https://cloud.google.com/load-balancing/docs/network)
 
-If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended), we recommend using the HTTP(S) Load Balancer.
+If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended), we recommend using the HTTP(S) Load Balancer.
 
-However, [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) aren't compatible with the HTTP(S) Load Balancer, so instead, we recommend using the Network Load Balancer. It allows you to configure TCP Forwarding rules on a specific port to each compute engine instance, which is [one way to route traffic to each individual node](#using-a-unique-port) as required for Polling Tentacles when running Octopus High Availability. 
+However, [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) aren't compatible with the HTTP(S) Load Balancer, so instead, we recommend using the Network Load Balancer. It allows you to configure TCP Forwarding rules on a specific port to each compute engine instance, which is [one way to route traffic to each individual node](#using-a-unique-port) as required for Polling Tentacles when running Octopus High Availability. 
 
 To use Network Load Balancers exclusively for Octopus High Availability with Polling Tentacles you'd potentially need to configure multiple load balancer(s) / forwarding rules:
 

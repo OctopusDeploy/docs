@@ -27,7 +27,7 @@ You need Docker installed and running on the [worker](docs/infrastructure/worker
 - Set the **Execution Location** for your step to **Run on a worker**.
 - In **Container Image** select **Runs on a worker inside a container**.
 - Choose the previously added container registry.
-- Enter the name of the image (execution container) you want your step to run in. (e.g. !docker-image <octopusdeploy/worker-tools:ubuntu.18.04>).
+- Enter the name of the image (execution container) you want your step to run in. (e.g. !docker-image <octopusdeploy/worker-tools:ubuntu.22.04>).
 - Click **Save**.
 - Click **Create release & deploy**.
 
@@ -64,7 +64,7 @@ We recommend using our `worker-tools` image as a starting point for your own cus
 :::
 
 The canonical source for what is contained in the `octopusdeploy/worker-tools` images is the `Dockerfile`'s in the [GitHub repo](https://github.com/OctopusDeploy/WorkerTools). For example: 
-- The [Ubuntu 18.04 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.18.04/Dockerfile)
+- The [Ubuntu 22.04 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile)
 - The [Windows 2019 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2019/Dockerfile)
 
 Some of the tools included are:
@@ -107,10 +107,10 @@ You can usually find the base operating system of a Linux Docker image by runnin
 docker run --entrypoint='' [image name] /bin/cat /etc/os-release.
 ``` 
 
-For example for the `octopusdeploy/worker-tools:2.0.1-ubuntu.18.04` image, you'd run:
+For example for the `octopusdeploy/worker-tools:5.0.0-ubuntu.22.04` image, you'd run:
 
 ```bash
-docker run --entrypoint='' octopusdeploy/worker-tools:2.0.1-ubuntu.18.04 /bin/cat /etc/os-release.
+docker run --entrypoint='' octopusdeploy/worker-tools:5.0.0-ubuntu.22.04 /bin/cat /etc/os-release.
 ```
 
 #### Required OS dependencies

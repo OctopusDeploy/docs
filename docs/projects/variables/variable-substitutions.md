@@ -48,6 +48,7 @@ Octopus supports an extended variable substitution syntax with capabilities simi
 The capabilities of the extended syntax are:
 
 - [Index Replacement](#VariableSubstitutionSyntax-IndexReplacement)
+- [Calculation](#VariableSubstitutionSyntax-Calculations) - `calc`
 - [Conditionals](#VariableSubstitutionSyntax-Conditionalsconditionals) - `if`, `if-else` and `unless`
 - [Repetition](#VariableSubstitutionSyntax-Repetition) - `each`
 - [Filters](#VariableSubstitutionSyntax-Filters) - `HtmlEscape`, `Markdown` etc.
@@ -72,6 +73,33 @@ Given the variables:
 | `UserName`          | `Mary`      |       |
 
 `#{MyPassword[#{UserName}]}` would evaluate to `passwordZ`.
+
+### Calculations {#VariableSubstitutionSyntax-Calculations}
+
+Basic mathematical calculations are supported in Octopus using the `calc` statement, and four main operators:
+
+- Addition - `+`
+- Subtraction - `-`
+- Multiplication - `*`
+- Division - `/`
+
+Given the variables:
+
+| Name                  | Value            | Scope |
+| --------------------- | -----------------| ----- |
+| `IPOffset[Primary]`   | `0`              |       |
+| `IPOffset[Secondary]` | `180`            |       |
+| `ScaleFactor`         | `12`             |       |
+| `Numbers`             | `10,20,30,40,50` |       |
+
+`192.168.0.#{calc IPOffset[Primary] + 1}` would evaluate to `192.168.0.1`
+`192.168.0.#{calc IPOffset[Secondary] + 1}` would evaluate to `192.168.0.181`
+`#{calc 22 * ScaleFactor}` would evaluate to `264`
+`#{each i in Numbers}#{calc i + 5} #{each}` would evaluate to `15 25 35 45 55 `
+
+:::info
+The `calc` operator is available from version 2023.2
+:::
 
 ### Conditionals {#VariableSubstitutionSyntax-Conditionalsconditionals}
 

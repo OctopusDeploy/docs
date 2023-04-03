@@ -80,4 +80,4 @@ Make sure to set the ticket as **private** before attaching any kind of log, as 
 
 If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `octo` game very well.
 
-If you are using a build server technology [that's not in our supported list](/docs/octopus-rest-api/index.md), then we encourage you to go to our [UserVoice page](https://octopusdeploy.uservoice.com/) and log a feature request asking us to support it. If enough users vote for it, It'll show up in our radar and we might be able to do something about it.
+If you are using a build server technology [that's not in our supported list](/docs/octopus-rest-api/index.md) [share your product feedback](https://roadmap.octopus.com/submit-idea) to let us know how we can help you have happy deployments.

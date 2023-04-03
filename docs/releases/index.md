@@ -89,3 +89,12 @@ You can update the variables by clicking **UPDATE VARIABLES**. This can be usefu
 * The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
 
 After you've updated the variables, the release will use the updated variables when it is deployed.
+
+#### Variable snapshot for Git projects
+The variable snapshot for Git projects is a combination of the variables on the selected branch and the sensitive variables stored in the database.
+
+When updating the variable snapshot, the new snapshot is taken from the current tip of the Git reference that was used to create the release. If this reference no longer exists, the variable snapshot cannot be updated.
+
+![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](git-variables-release-snapshot.png "width=400")
+
+Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.

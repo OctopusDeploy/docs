@@ -8,7 +8,7 @@ Tasks in the Octopus extension use the [Octopus CLI](/docs/octopus-rest-api/octo
 1. Use the tool installer task, **Octopus CLI Installer** as part of a build pipeline definition
 2. Install the Octopus CLI into a [self-hosted agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents#install)
 
-Using the tool installer task **Octopus CLI Installer** in a build pipeline definition is suitable for installing the Octopus CLI just in time for a build.  This is required for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to pre-load custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
+Using the tool installer task **Octopus CLI Installer** in a build pipeline definition is suitable for installing the Octopus CLI just in time for a build. This is required for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to pre-load custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
 
 ## Using the Octopus CLI Installer
 
@@ -28,10 +28,10 @@ The accepted values for this field are:
 - `latest`: downloads and installs the latest version of the Octopus CLI
 - A specific version number of the Octopus CLI to use e.g. `7.4.3556`
 
- :::hint
- **Wildcards not supported**
+:::hint
+**Wildcards not supported**
 Please note: Wildcard values are **NOT** supported when providing a specific version of the Octopus CLI to use.
- :::
+:::
 
 The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. Using the YAML pipeline editor, the following snippet will download and install the latest version of the Octopus CLI:
 
@@ -68,6 +68,14 @@ The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. U
   inputs:
     version: "*"
 ```
+
+### Octopus CLI Installer v6
+
+:::warning
+Version 6+ of each of the steps no longer require installing the CLI
+:::
+
+Version 6 of the Octo CLI installer will only install the new [Octopus CLI](https://github.com/OctopusDeploy/cli).
 
 ## Using the Octopus CLI with Self-Hosted Agents
 

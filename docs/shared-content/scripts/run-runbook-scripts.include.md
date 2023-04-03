@@ -2,60 +2,34 @@
 $ErrorActionPreference = "Stop";
 
 # Define working variables
-$octopusURL = "https://youroctourl"
+$octopusURL = "https://youroctourl/api"
 $octopusAPIKey = "API-YOURAPIKEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
-$spaceName = "default"
+$spaceName = "Default"
 $projectName = "MyProject"
 $runbookName = "MyRunbook"
 $environmentNames = @("Development", "Staging")
-$environmentIds = @()
-
-# Optional Tenant
-$tenantName = ""
-$tenantId = $null
 
 # Get space
-$space = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/spaces/all" -Headers $header) | Where-Object {$_.Name -eq $spaceName}
+$spaces = Invoke-WebRequest -Uri "$octopusBaseURL/spaces/all" -Headers $headers -ErrorVariable octoError | ConvertFrom-Json
+$space = $spaces | Where-Object { $_.Name -eq $spaceName }
+Write-Host "Using Space named $($space.Name) with id $($space.Id)"
 
-# Get project
-$project = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/projects/all" -Headers $header) | Where-Object {$_.Name -eq $projectName}
+# Create space specific url
+$octopusSpaceUrl = "$octopusBaseURL/$($space.Id)"
 
-# Get runbook
-$runbook = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/runbooks/all" -Headers $header) | Where-Object {$_.Name -eq $runbookName -and $_.ProjectId -eq $project.Id}
+# Create the release body
+$createRunbookRunCommandV1 = @{
+	SpaceId          = $space.Id
+    SpaceIdOrName    = $spaceName
+    ProjectName      = $projectName
+    RunbookName      = $runbookName
+    EnvironmentNames = $environmentNames
+} | ConvertTo-Json
 
-# Get environments
-$environments = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/environments/all" -Headers $header) | Where-Object {$environmentNames -contains $_.Name}
-foreach ($environment in $environments)
-{
-    $environmentIds += $environment.Id
-}
+# Run runbook
+Invoke-RestMethod -Method POST -Uri "$octopusSpaceUrl/runbook-runs/create/v1" -Body $createRunbookRunCommandV1 -Headers $header
 
-# Optionally get tenant
-if (![string]::IsNullOrEmpty($tenantName)) {
-    $tenant = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/tenants/all" -Headers $header) | Where-Object {$_.Name -eq $tenantName} | Select-Object -First 1
-    $tenantId = $tenant.Id
-}
-
-$runbook = (Invoke-RestMethod -Method Get -Uri "$octopusURL/api/$($space.Id)/runbooks/all" -Headers $header) | Where-Object {$_.Name -eq $runbookName -and $_.ProjectId -eq $project.Id}
-
-# Run runbook per selected environment
-foreach ($environmentId in $environmentIds)
-{
-    # Create json payload
-    $jsonPayload = @{
-        RunbookId = $runbook.Id
-        RunbookSnapshotId = $runbook.PublishedRunbookSnapshotId
-        EnvironmentId = $environmentId
-        TenantId = $tenantId
-        SkipActions = @()
-        SpecificMachineIds = @()
-        ExcludedMachineIds = @()
-    }
-
-    # Run runbook
-    Invoke-RestMethod -Method Post -Uri "$octopusURL/api/$($space.Id)/runbookRuns" -Body ($jsonPayload | ConvertTo-Json -Depth 10) -Headers $header
-}
 ```
 ```powershell PowerShell (Octopus.Client)
 # Load octopus.client assembly
@@ -241,135 +215,24 @@ for environmentId in environments:
     response.raise_for_status()
 ```
 ```ts TypeScript
-import { Client, ClientConfiguration, Repository } from '@octopusdeploy/api-client';
-import {
-    EnvironmentResource,
-    ProjectResource,
-    RunbookResource,
-    RunbookRunParameters,
-    RunbookRunResource,
-    TenantResource
-} from '@octopusdeploy/message-contracts';
+import { Client, CreateRunbookRunCommandV1, ReleaseRepository } from '@octopusdeploy/api-client'
 
 const configuration: ClientConfiguration = {
-    apiKey: 'api-key',
-    apiUri: 'https://your.octopus.app/',
-    autoConnect: true
+    userAgentApp: 'CustomTypeScript',
+    instanceURL: 'https://your.octopus.app/',
+    apiKey: 'api-key'
 };
 
 const client = await Client.create(configuration);
-if (client === undefined) {
-    console.error('The API client for Octopus Deploy encountered an error.');
-    return;
-}
 
-const repository = new Repository(client);
-const projectNameOrId = 'project-name-or-id';
-const runbookNameOrId = 'runbook-name-or-id';
-const environmentNamesOrIds = ['environment-name-or-id'];
-const tenantNamesOrIds = ['tenant-name-or-id'];
+const command: CreateRunbookRunCommandV1 = {
+    spaceName: 'Your space Name',
+    ProjectName: 'Your project name',
+    RunbookName: 'Your runbook name',
+    EnvironmentNames: [ "Dev" ]
+  };
 
-let project: ProjectResource | undefined;
+const repository = new ReleaseRepository(client, parameters.space)
+const allocatedReleaseNumber = await repository.create(command)
 
-console.log(`Getting project, "${projectNameOrId}"...`);
-
-try {
-	project = await repository.projects.find(projectNameOrId);
-} catch (error) {
-	console.error(error);
-}
-
-if (project === null || project === undefined) {
-	console.error(`Project, "${projectNameOrId}" not found`);
-	return;
-}
-
-console.log(`Project found: "${project.Name}" (${project.Id})`);
-
-let runbook: RunbookResource | undefined;
-
-console.log(`Getting runbook, "${runbookNameOrId}"...`);
-
-try {
-    runbook = await repository.runbooks.find(runbookNameOrId, project);
-} catch (error) {
-    console.error(error);
-}
-
-if (runbook === null || runbook === undefined) {
-	console.error(`Runbook, "${runbookNameOrId}" not found`);
-	return;
-}
-
-console.log(`Runbook found: "${runbook.Name}" (${runbook.Id})`);
-
-let environments: EnvironmentResource[] | undefined;
-
-console.log(`Getting environments, "${environmentNamesOrIds}"...`);
-
-try {
-    environments = await repository.environments.find(environmentNamesOrIds);
-} catch (error) {
-    console.error(error);
-}
-
-if (environments === null || environments === undefined || environments.length === 0) {
-   	console.error(`No environment(s) found.`);
-	return;
-}
-
-for (const environment of environments) {
-    console.log(`Environment found: "${environment.Name}" (${environment.Id})`);
-}
-
-let tenants: TenantResource[] | undefined;
-
-console.log(`Getting tenants, "${tenantNamesOrIds}"...`);
-
-try {
-    tenants = await repository.tenants.find(tenantNamesOrIds);
-} catch (error) {
-    console.error(error);
-}
-
-if (tenants === null || tenants === undefined || tenants.length === 0) {
-   	console.error(`No tenant(s) found.`);
-	return;
-}
-
-for (const tenant of tenants) {
-    console.log(`Tenant found: "${tenant.Name}" (${tenant.Id})`);
-}
-
-let runbookRuns: RunbookRunResource[] | undefined;
-let runbookRunParameters: RunbookRunParameters = {
-    EnvironmentIds: environments.map(env => env.Id),
-    ExcludedMachineIds: [],
-    ForcePackageDownload: false,
-    FormValues: {},
-    ProjectId: project.Id,
-    RunbookId: runbook.Id,
-    SkipActions: [],
-    SpecificMachineIds: [],
-    TenantIds: tenants.map(ten => ten.Id),
-    UseDefaultSnapshot: true,
-    UseGuidedFailure: false
-};
-
-console.log(`Running runbook, "${runbook.Name}" (${runbook.Id})...`);
-
-try {
-    runbookRuns = await repository.runbooks.runWithParameters(runbook, runbookRunParameters);
-} catch (error) {
-    console.error(error);
-}
-
-if (runbookRuns === null || runbookRuns === undefined || runbookRuns.length === 0) {
-   	console.error(`No runbook run(s) found.`);
-	return;
-}
-
-for (const runbookRun of runbookRuns) {
-    console.log(`Runbook run: "${runbookRun.Name}" (${runbookRun.Id})`);
-}
 ```

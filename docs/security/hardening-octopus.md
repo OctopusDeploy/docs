@@ -125,7 +125,11 @@ Write-Output "Setting Windows Update to 'Download updates but let me choose whet
 Write-Output "This value allows Windows Defender to download and install definition updates automatically, but other updates are not automatically installed."
 cscript C:\Windows\System32\Scregedit.wsf /AU 3
 
-Write-Output "Excluding the Tools folder (e.g. Calamari) from Windows Defender..."
+Write-Output "Excluding the Tools folder for Octopus Server (e.g. Calamari) from Windows Defender..."
+Add-MpPreference -ExclusionPath "C:\Octopus\OctopusServer\Tools"
+Add-MpPreference -ExclusionPath "C:\Octopus\OctopusServer\Tools*"
+
+Write-Output "Excluding the Tools folder for Octopus Tentacles/Workers (e.g. Calamari) from Windows Defender..."
 Add-MpPreference -ExclusionPath "C:\Octopus\Tools"
 Add-MpPreference -ExclusionPath "C:\Octopus\Tools\*"
 
@@ -311,8 +315,8 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
 |HTTP|`TCP 80`|Users|Octopus Server|ALLOW|We recommend only using HTTPS over SSL, however it can be convenient to allow HTTP for the initial connection which is then forced to HTTPS over SSL.|
-|HTTPS|`TCP 443`|Users, Polling Tentacles, external services|Octopus Server|ALLOW|Required for HTTPS over SSL. Also required if using [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) over [Web Sockets](/docs/infrastructure/deployment-targets/windows-targets/polling-tentacles-web-sockets.md).|
-|Polling Tentacle|`TCP 10943`|Polling Tentacles|Octopus Server|ALLOW|Required when using [Polling Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#polling-tentacles) via TCP as deployment targets or external workers.|
+|HTTPS|`TCP 443`|Users, Polling Tentacles, external services|Octopus Server|ALLOW|Required for HTTPS over SSL. Also required if using [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) over [Web Sockets](/docs/infrastructure/deployment-targets/tentacle/windows/polling-tentacles-web-sockets.md).|
+|Polling Tentacle|`TCP 10943`|Polling Tentacles|Octopus Server|ALLOW|Required when using [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) via TCP as deployment targets or external workers.|
 |SSH|`TCP 22`|Octopus Server|SSH deployment targets|ALLOW|Allows Octopus Server to securely connect to any SSH deployment targets.|
 |RDP|`TCP 3389`|Remote Desktop Users|Octopus Server|ALLOW|Allows your system administrators to perform maintenance tasks on your Octopus Server.|
 |All inbound|`ALL`|Anywhere|Octopus Server|DENY|Prevent any other unwanted inbound traffic.|
@@ -321,7 +325,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 |Name|Type|Source|Target|Allow/Deny|Description|
 |---|---|---|---|---|---|
-|Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/deployment-targets/windows-targets/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
+|Listening Tentacle|`TCP 10933`|Octopus Server|Listening Tentacles|ALLOW|Required when using [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#listening-tentacles-recommended) as deployment targets or external workers.|
 |MS SQL|`TCP 1433`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to its SQL Server Database.|
 |MS SQL|`UDP 1434`|Octopus Server|SQL Server|ALLOW|Allows Octopus Server to connect to a named instance using the SQL Server Browser Service. This may not be required in your configuration.|
 |SMB|`TCP 445`|Octopus Server|Anywhere|DENY|Prevents attackers from spreading malware via known SMB vulnerabilities.|

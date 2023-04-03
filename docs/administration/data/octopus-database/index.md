@@ -12,7 +12,7 @@ Octopus Server requires access to a SQL Server to use for storing relational dat
 
 ## Routine maintenance {#maintenance}
 
-You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server.
+You are responsible for the routine maintenance of your Octopus database. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. You should implement a routine maintenance plan for your Octopus database. Here is a [sure guide](https://oc.to/SQLServerMaintenanceGuide) (free e-book) for maintaining SQL Server. Our [Performance](/docs/administration/managing-infrastructure/performance/index.md#sql-maintenance) section has some general recommendations that may help get you started.
 
 ### Database backups {#Octopusdatabase-DatabaseBackups}{#backups}
 

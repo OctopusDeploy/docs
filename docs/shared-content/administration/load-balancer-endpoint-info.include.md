@@ -12,11 +12,7 @@ Making a standard `HTTP GET` request to this URL on your Octopus Server nodes wi
 The Octopus Server node configuration is also returned as JSON in the HTTP response body.
 :::
 
-We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster, as the Octopus Web Portal is stateless. 
-
-Each node in the cluster keeps a local cache of data including user permissions. There is a known issue that occurs when a users permissions change. The local cache is only invalidated on the node where the change was made. This will be resolved in a future version of Octopus. 
-
-To work around this issue, you can configure your load balancer with **session persistence**. This will ensure user sessions are routed to the same node. 
+We typically recommend using a round-robin (or similar) approach for sharing traffic between the nodes in your cluster, as the Octopus Web Portal is stateless.
 
 All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]/packages/raw`.  Because the REST API will be behind a load balancer, you'll need to configure the following on the load balancer:
 
