@@ -93,7 +93,7 @@ We recommend execution containers as the preferred option for steps requiring ex
 ### Ubuntu 18.04
 
 :::warning
-Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 end-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for further details.
+Ubuntu 18.04 images are no longer available as of 3 April 2023. Please refer to [Ubuntu 18.04 End-of-life](/docs/infrastructure/workers/dynamic-worker-pools/ubuntu-1804-end-of-life.md) for further details.
 :::
 
 ### Ubuntu 22.04
