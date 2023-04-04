@@ -25,14 +25,17 @@ If there are many unrelated projects and environments in a report, it will be ha
 The time zone of a report affects which day's data is counted when aggregating. The time zone should be chosen to reflect the most
 common understanding of what constitutes "midnight" for the team.
 
-### Projects
+### Release Selection
 
-Projects can be added to a report either by adding a project group, or individual projects. If a selected project already exists in a 
-selected group, it will not be double counted. There must be at least one project selected, directly or indirectly, for the report to generate data.
+The releases that contribute to the report are determined via the channel that they belong to. The channel is used instead of the project itself to avoid pre-release and prior-version channels from skewing the data for the main release.
 
-:::info
-Only data from the default channel for each project is shown. This is to avoid pre-release and prior-version channels from skewing the data.
-:::
+The included channels can be specified via the three fields:
+
+- **Project Groups** - The default channels of all projects in those groups are included
+- **Projects** - The default channels of those projects are included
+- **Channels** - The selected channels are included.
+
+There must be at least one channel selected, directly or indirectly, for the report to generate data. If a channel exists multiple times in the selection, it will not be double counted. 
 
 ### Environments
 
