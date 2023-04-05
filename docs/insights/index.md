@@ -4,7 +4,7 @@ description: Insights gives you better visibility into your company's DevOps per
 position: 100
 ---
 
-DevOps insights (early access) in Octopus gives you better visibility into your company’s DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
+DevOps insights in Octopus gives you better visibility into your company’s DevOps performance by surfacing the four key DORA metrics, so you can make more informed decisions on where to improve and celebrate your results.
 
 ![The Overview page of Insights Reports](images/overview.png)
 
