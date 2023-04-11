@@ -43,7 +43,7 @@ AddAzureADLogins -OctopusURL "https://your.octopus.app/" -OctopusAPIKey "API-KEY
 
 An example of the expected CSV file format is shown below:
 
-```text
+```
 OctopusUsername, AzureEmailAddress, AzureDisplayName
 OctoUser, octouser@exampledomain.com, Octo User 
 ```

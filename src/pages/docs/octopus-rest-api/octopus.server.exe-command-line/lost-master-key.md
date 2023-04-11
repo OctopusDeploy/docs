@@ -14,7 +14,7 @@ Before using this command, we recommend taking a look at our [guide on recoverin
 
 **lost-master-key options**
 
-```text
+```
 Usage: octopus.server lost-master-key [<options>]
 
 Where [<options>] is any of:
@@ -57,6 +57,6 @@ This example will re-create the master key for the instance named `OctopusServer
 The command below will replace the existing Master Key with a newly generated Master Key, and **reset all sensitive data** in the Octopus instance - be sure you have taken a database backup before running this.
 :::
 
-```text
+```
 octopus.server lost-master-key --instance="OctopusServer" --iReallyWantToResetAllMySensitiveData --iHaveBackedUpMyDatabase
 ```

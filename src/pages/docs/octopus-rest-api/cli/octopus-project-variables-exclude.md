@@ -9,7 +9,7 @@ navOrder: 75
 Exclude a variable set from a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables exclude [flags]
 
@@ -31,7 +31,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable exclude
 $ octopus project variable exclude --variable-set "Slack Variables"
 

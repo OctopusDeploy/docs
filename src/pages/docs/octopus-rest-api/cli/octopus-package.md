@@ -9,7 +9,7 @@ navOrder: 57
 Manage packages in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus package [command]
 
@@ -36,7 +36,7 @@ Use "octopus package [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package upload
 
 ```

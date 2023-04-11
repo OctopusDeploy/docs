@@ -9,7 +9,7 @@ navOrder: 37
 Manage Kubernetes deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target kubernetes [command]
 
@@ -37,7 +37,7 @@ Use "octopus deployment-target kubernetes [command] --help" for more information
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target kubernetes create
 
 ```

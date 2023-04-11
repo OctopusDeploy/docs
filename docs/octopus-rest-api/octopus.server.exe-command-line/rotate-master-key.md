@@ -15,7 +15,7 @@ Before using this command, we recommend taking a look at our [guide on rotating 
 
 **rotate-master-key options**
 
-```text
+```
 Usage: octopus.server rotate-master-key [<options>]
 
 Where [<options>] is any of:
@@ -51,6 +51,6 @@ This example will rotate the master key for the instance named `OctopusServer`.
 The command below will replace the existing Master Key with a newly generated Master Key, and **re-encrypt all sensitive data** in the Octopus instance - be sure you have taken a database backup before running this.
 :::
 
-```text
+```
 octopus.server rotate-master-key --instance="OctopusServer" --iReallyWantToRotateMyMasterKey --iHaveBackedUpMyDatabase
 ```

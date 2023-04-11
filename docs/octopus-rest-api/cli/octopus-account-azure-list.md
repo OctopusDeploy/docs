@@ -9,7 +9,7 @@ navOrder: 7
 List Azure subscription accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account azure list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account azure list
 
 ```

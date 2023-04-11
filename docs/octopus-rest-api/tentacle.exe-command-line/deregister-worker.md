@@ -9,7 +9,7 @@ Deregisters this Worker from an Octopus Server.
 
 **Deregister Worker options**
 
-```text
+```
 Usage: tentacle deregister-worker [<options>]
 
 Where [<options>] is any of:
@@ -39,12 +39,12 @@ Or one of the common options:
 
 This example deregisters a worker from the Octopus Server:
 
-```text
+```
 tentacle deregister-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
 This example deregisters the worker instance `MyNewInstance` from space `MyNewSpace`:
 
-```text
+```
 tentacle deregister-worker --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --instance="MyNewInstance" --space="MyNewSpace"
 ```

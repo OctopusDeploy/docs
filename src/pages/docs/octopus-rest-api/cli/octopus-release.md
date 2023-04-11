@@ -9,7 +9,7 @@ navOrder: 86
 Manage releases in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus release [command]
 
@@ -35,7 +35,7 @@ Use "octopus release [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus release list
 
 ```

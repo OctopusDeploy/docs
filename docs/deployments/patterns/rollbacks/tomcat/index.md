@@ -63,7 +63,7 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 ### Skipping Database Steps
 The two database steps, `Create Database If Not Exists` and `Deploy Database Changes` should be skipped for a rollback scenario.  Rolling back database changes could result in data loss or interrupt testing operations.  To skip these steps, we'll use one of the Variable Run Condition output variables from Calculate Depoloyment Mode step:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
@@ -105,7 +105,7 @@ The Rollback Reason is a [Manual Intervention](/docs/projects/built-in-step-temp
 ### Stop App in Tomcat
 Before we deploy a new version of our application, we first must stop the existing one.  The Advanced Options section of the `Start/Stop App in Tomcat` step is where we specify which version of the application we're going to stop.  For this guide, the version is identified as the previous release number, which is represented by the following variable.
 
-```text
+```
 #{Octopus.Release.CurrentForEnvironment.Number}
 ```
 
@@ -115,7 +115,7 @@ We also need to choose the option to **Stop the application**.
 
 This step will fail if there isn't a previous release to stop, so we'll need to add a run condition only to run when a previous release exists.  That can be represented by using the following run condition:
 
-```text
+```
 #{if Octopus.Release.CurrentForEnvironment.Number}True#{/if}
 ```
 
@@ -128,7 +128,7 @@ The radio button at the bottom gives you the option to have this deployment be i
 
 For this guide, we only want the Deploy step to occur on a Deployment or a Redeployment.  The Calculate Deployment Mode step provides us with an output variable called `RunOnDeployOrRedeploy` that contains the correct statement for a variable run condition for this step.  Add the following as the value for the Variable Run Condition on this step.
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeployOrRedeploy}
 ```
 
@@ -139,14 +139,14 @@ When executing the rollback, we'll need to start the previous version.
 
 This step is only required during a rollback scenario, so you'll need to add the following to the Variable Run Condition.
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
 ### Block Release Progression
 The `Rollback Reason` step captures the reason for the rollback.  We can pass the text entered in this step to the `Reason` field of this step by using the following output variable.
 
-```text
+```
 #{Octopus.Action[Rollback reason].Output.Manual.Notes}
 ```
 

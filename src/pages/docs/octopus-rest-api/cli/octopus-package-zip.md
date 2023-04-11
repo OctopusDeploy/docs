@@ -9,7 +9,7 @@ navOrder: 63
 Package as zip for Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus package zip [command]
 
@@ -32,7 +32,7 @@ Use "octopus package zip [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package zip create
 
 ```

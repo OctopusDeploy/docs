@@ -9,7 +9,7 @@ navOrder: 84
 List project groups in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project-group list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project-group list
 $ octopus project-group ls
 

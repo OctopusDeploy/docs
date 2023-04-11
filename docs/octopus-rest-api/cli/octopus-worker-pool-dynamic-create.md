@@ -9,7 +9,7 @@ navOrder: 131
 Create a dynamic worker pool in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool dynamic create [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool dynamic create
 
 

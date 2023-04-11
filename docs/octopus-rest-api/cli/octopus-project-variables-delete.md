@@ -9,7 +9,7 @@ navOrder: 74
 Delete a project variable in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables delete {<name>} [flags]
 
@@ -36,7 +36,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable delete "Database Name" --project "Deploy Site" 
 $ octopus project variable delete "Database Name" --id 26a58596-4cd9-e072-7215-7e15cb796dd2 --project "Deploy Site" --confirm 
 

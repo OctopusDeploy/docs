@@ -9,7 +9,7 @@ navOrder: 12
 List Google Cloud accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account gcp list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account gcp list
 
 ```

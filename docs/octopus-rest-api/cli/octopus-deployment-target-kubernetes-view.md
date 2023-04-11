@@ -9,7 +9,7 @@ navOrder: 40
 View a Kubernetes deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target kubernetes view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target kubernetes view 'target-name'
 
 

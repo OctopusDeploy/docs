@@ -100,7 +100,7 @@ HTTP Strict Transport Security is an HTTP header that can be used to tell the we
 
 **Octopus 3.13** and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your Octopus Server:
 
-```text
+```
 PS \> Octopus.Server.exe configure --hstsEnabled=true --hstsMaxAge=31556926
 PS \> Octopus.Server.exe service --stop --start
 ```

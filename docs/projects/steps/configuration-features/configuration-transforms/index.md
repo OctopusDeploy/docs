@@ -140,7 +140,7 @@ If you would like to define the order of all of your transformations, if you lis
 
 Exceptions that are thrown by the Microsoft .NET configuration transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
 
-```text
+```
 Warning    14:56:06
 (31:18) Argument 'debug' did not match any attributes
 Error    14:56:06

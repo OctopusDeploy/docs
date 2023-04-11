@@ -9,7 +9,7 @@ navOrder: 54
 Manage environments in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus environment [command]
 
@@ -33,7 +33,7 @@ Use "octopus environment [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus environment list
 $ octopus environment ls
 

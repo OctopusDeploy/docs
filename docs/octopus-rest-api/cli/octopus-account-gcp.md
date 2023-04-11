@@ -9,7 +9,7 @@ navOrder: 10
 Manage Google Cloud accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account gcp [command]
 
@@ -33,7 +33,7 @@ Use "octopus account gcp [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account gcp list
 
 ```

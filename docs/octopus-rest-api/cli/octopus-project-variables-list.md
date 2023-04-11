@@ -9,7 +9,7 @@ navOrder: 77
 List project variables in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable list
 $ octopus project variable ls
 

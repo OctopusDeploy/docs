@@ -9,7 +9,7 @@ navOrder: 45
 View a Listening Tentacle deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target listening-tentacle view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target listening-tentacle view 'EU'
 $ octopus deployment-target listening-tentacle view Machines-100
 

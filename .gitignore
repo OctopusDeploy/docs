@@ -1,3 +1,28 @@
+# build output
+dist/
+.cache/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# Others
+
+/test-results/
+/playwright-report/
+/playwright/.cache/
 log/
 obj/
 _site/
@@ -5,8 +30,6 @@ _site/
 .vscode/
 .idea
 *.iml
-.DS_Store
 **/*.dia~
 tmp
 .pnpm-store/
-node_modules

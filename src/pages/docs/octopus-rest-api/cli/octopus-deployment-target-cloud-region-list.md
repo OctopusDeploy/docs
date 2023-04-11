@@ -9,7 +9,7 @@ navOrder: 34
 List Cloud Region deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target cloud-region list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target cloud-region list
 $ octopus deployment-target cloud-region ls
 

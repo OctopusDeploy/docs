@@ -8,7 +8,7 @@ navOrder: 20
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to clean all offline Workers from a Worker pool.
 
-```text
+```
 Cleans all Offline Workers from a WorkerPool.
 
 Usage: octo clean-workerpool [<options>]
@@ -91,7 +91,7 @@ Common options:
 
 This example cleans all workers in the Default Worker Pool which have a health-status of `Unhealthy` in the `Pattern - Rolling` space:
 
-```text
+```
 octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Unhealthy" --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
 ```
 
@@ -101,7 +101,7 @@ This example cleans all workers from the Default Worker Pool where they are disa
 - `Unhealthy`
 - `Unknown`
 
-```text
+```
 octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Healthy" --health-status="Unhealthy" --health-status="Unknown" --disabled=True --space="Pattern - Rolling" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
 ```
 

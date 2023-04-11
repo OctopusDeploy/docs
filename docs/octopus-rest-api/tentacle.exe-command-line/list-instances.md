@@ -10,7 +10,7 @@ Lists all installed Octopus Tentacle instances.
 
 **List instances options**
 
-```text
+```
 Usage: tentacle list-instances [<options>]
 
 Where [<options>] is any of:
@@ -27,12 +27,12 @@ Or one of the common options:
 
 This example lists all Octopus Tentacle instances on the machine:
 
-```text
+```
 Tentacle list-instances
 ```
 
 This example lists all Octopus Tentacle instances on the machine in JSON format:
 
-```text
+```
 Tentacle list-instances --format="JSON"
 ```

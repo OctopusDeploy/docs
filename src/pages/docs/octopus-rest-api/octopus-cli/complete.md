@@ -10,7 +10,7 @@ Supports command line auto completion.
 
 **complete options**
 
-```text
+```
 Supports command line auto completion.
 
 Usage: octo complete <command> [<options>]
@@ -31,13 +31,13 @@ Common options:
 
 This example displays supported commands that start with `list`:
 
-```text
+```
 octo complete list
 ```
 
 This returns the following results:
 
-```text
+```
 list-deployments
 list-environments
 list-latestdeployments

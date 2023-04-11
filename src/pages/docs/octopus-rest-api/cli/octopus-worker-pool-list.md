@@ -9,7 +9,7 @@ navOrder: 133
 List worker pools in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool list
 
 ```

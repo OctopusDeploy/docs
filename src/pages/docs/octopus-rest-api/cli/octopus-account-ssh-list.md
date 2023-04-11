@@ -9,7 +9,7 @@ navOrder: 16
 List SSH Key Pair accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account ssh list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account ssh list
 
 ```

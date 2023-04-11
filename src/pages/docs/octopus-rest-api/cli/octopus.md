@@ -9,7 +9,7 @@ navOrder: 0
 Work seamlessly with Octopus Deploy from the command line.
 
 
-```text
+```
 Usage:
   octopus [command]
 

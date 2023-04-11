@@ -9,7 +9,7 @@ navOrder: 55
 Delete an environment in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus environment delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus environment delete
 $ octopus environment rm
 

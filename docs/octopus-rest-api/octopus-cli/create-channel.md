@@ -8,7 +8,7 @@ navOrder: 40
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create channels on your Octopus instance.
 
-```text
+```
 Creates a channel for a project.
 
 Usage: octo create-channel [<options>]

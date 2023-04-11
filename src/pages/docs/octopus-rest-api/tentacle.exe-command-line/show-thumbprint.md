@@ -9,7 +9,7 @@ Show the thumbprint of the Tentacle's certificate.
 
 **New certificate options**
 
-```text
+```
 Usage: tentacle show-thumbprint [<options>]
 
 Where [<options>] is any of:
@@ -33,21 +33,25 @@ Or one of the common options:
 
 This example displays the Tentacle thumbprint in the default text format:
 
-```text
+```
 tentacle show-thumbprint
 ```
 
 This example displays the Tentacle thumbprint for the instance `MyNewInstance` in JSON format:
 
-```text
+```
 tentacle show-thumbprint --instance="MyNewInstance" --format="JSON"
 ```
 
 This example exports the Tentacle thumbprint to a file:
 
-```text Windows
+Windows:
+
+```
 tentacle show-thumbprint --export-file="c:\temp\thumbprint.txt"
 ```
-```text Linux
+Linux:
+
+```
 tentacle show-thumbprint --export-file="/tmp/thumbprint.txt"
 ```

@@ -8,7 +8,7 @@ navOrder: 10
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to push build information to the Octopus Server.
 
-```text
+```
 Pushes build information to Octopus Server.
 
 Usage: octo build-information [<options>]
@@ -108,7 +108,7 @@ This example uploads [build information](/docs/packaging-applications/build-serv
 }
 ```
 
-```text
+```
 octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" --file="buildInfo.json" --server="http://samples.octopus.app" --apiKey="API-MyKey" --space="Target - Wildfly"
 ```
 

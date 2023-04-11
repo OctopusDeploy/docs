@@ -9,7 +9,7 @@ Show the Tentacle version information.
 
 **version options**
 
-```text
+```
 Usage: tentacle version [<options>]
 
 Where [<options>] is any of:

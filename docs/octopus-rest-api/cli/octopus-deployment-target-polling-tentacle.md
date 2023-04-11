@@ -9,7 +9,7 @@ navOrder: 46
 Manage Polling Tentacle deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target polling-tentacle [command]
 
@@ -33,7 +33,7 @@ Use "octopus deployment-target polling-tentacle [command] --help" for more infor
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target polling-tentacle list
 
 ```

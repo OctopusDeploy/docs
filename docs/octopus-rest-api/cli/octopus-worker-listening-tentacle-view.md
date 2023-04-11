@@ -9,7 +9,7 @@ navOrder: 119
 View a Listening Tentacle worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker listening-tentacle view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker listening-tentacle view 'WindowsWorker'
 $ octopus worker listening-tentacle view Machines-100
 

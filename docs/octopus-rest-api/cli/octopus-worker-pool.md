@@ -9,7 +9,7 @@ navOrder: 128
 Manage worker pools in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool [command]
 
@@ -36,7 +36,7 @@ Use "octopus worker-pool [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool list
 $ octopus worker-pool ls
 

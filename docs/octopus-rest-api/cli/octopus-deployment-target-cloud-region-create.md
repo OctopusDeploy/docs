@@ -9,7 +9,7 @@ navOrder: 33
 Create a Cloud Region deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target cloud-region create [flags]
 
@@ -41,7 +41,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target cloud-region create
 
 ```

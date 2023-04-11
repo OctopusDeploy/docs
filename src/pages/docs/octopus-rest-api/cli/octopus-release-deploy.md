@@ -9,7 +9,7 @@ navOrder: 89
 Deploy releases in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus release deploy [flags]
 
@@ -43,7 +43,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus release deploy  # fully interactive
 $ octopus release deploy --project MyProject --version 1.0 --environment Dev
 $ octopus release deploy --project MyProject --version 1.0 --tenant-tag Regions/East --tenant-tag Regions/South

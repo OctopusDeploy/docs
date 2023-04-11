@@ -9,7 +9,7 @@ navOrder: 115
 List workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker list
 
 ```

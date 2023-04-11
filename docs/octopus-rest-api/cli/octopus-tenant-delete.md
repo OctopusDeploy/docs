@@ -9,7 +9,7 @@ navOrder: 105
 Delete a tenant in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant delete
 $ octopus tenant rm
 

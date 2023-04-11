@@ -142,7 +142,7 @@ If problems persist, we suggest turning on active directory diagnostic logging a
 It's recommended that you backup any registry entries before making changes.
 :::
 
-```text
+```
 Path: HKLM\SYSTEM\CurrentControlSet\Services\NTDS\Diagnostics\15 Field Engineering
 Type: DWORD
 Value: 5

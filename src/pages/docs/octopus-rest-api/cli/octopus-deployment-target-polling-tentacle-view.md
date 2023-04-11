@@ -9,7 +9,7 @@ navOrder: 48
 View a Polling Tentacle deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target polling-tentacle view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target polling-tentacle view 'EU'
 $ octopus deployment-target polling-tentacle view Machines-100
 

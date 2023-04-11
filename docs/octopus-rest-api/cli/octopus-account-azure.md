@@ -9,7 +9,7 @@ navOrder: 5
 Manage Azure subscription accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account azure [command]
 
@@ -33,7 +33,7 @@ Use "octopus account azure [command] --help" for more information about a comman
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account azure list
 
 ```

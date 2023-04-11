@@ -9,7 +9,7 @@ navOrder: 36
 Delete a deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target delete
 $ octopus deployment-target rm
 

@@ -10,7 +10,7 @@ Use this to configure and manage your Octopus service.
 
 **Service options**
 
-```text
+```
 Usage: octopus.server service [<options>]
 
 Where [<options>] is any of:
@@ -45,18 +45,18 @@ Or one of the common options:
 
 This example restarts the Octopus Server service for the instance `MyNewInstance`:
 
-```text
+```
 octopus.server service --restart --instance="MyNewInstance"
 ```
 
 This example starts the Octopus Server service for the default instance:
 
-```text
+```
 octopus.server service --start
 ```
 
 This example stops all Octopus Server instances on the machine:
 
-```text
+```
 octopus.server service --stop --instance=*
 ```

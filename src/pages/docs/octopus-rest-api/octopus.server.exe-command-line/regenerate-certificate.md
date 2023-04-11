@@ -12,7 +12,7 @@ Use the regenerate certificate command to regenerate one or more of the certific
 
 **Regenerate Certificate options**
 
-```text
+```
 Usage: Octopus.Server regenerate-certificate [<options>]
 
 Where [<options>] is any of:

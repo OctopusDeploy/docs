@@ -8,7 +8,7 @@ navOrder: 240
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all Worker pools.
 
-```text
+```
 Lists worker pools.
 
 Usage: octo list-workerpools [<options>]
@@ -75,13 +75,13 @@ Common options:
 
 This example lists the worker pools in the default space:
 
-```text
+```
 octo list-workerpools --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
 This example lists the worker pools in space [Target - PostgreSQL](https://samples.octopus.app/app#/Spaces-243):
 
-```text
+```
 octo list-workerpools --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - PostgreSQL"
 ```
 

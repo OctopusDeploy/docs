@@ -9,7 +9,7 @@ Starts the Tentacle Agent in debug mode.
 
 **agent options**
 
-```text
+```
 Usage: tentacle agent [<options>]
 
 Where [<options>] is any of:
@@ -29,7 +29,7 @@ Or one of the common options:
 
 This example starts the default Tentacle in debug and console mode:
 
-```text
+```
 tentacle agent --console
 ```
 
@@ -37,7 +37,7 @@ tentacle agent --console
 
 This example shows hows to run the Tentacle Agent for an instance named `Tentacle` when running in a custom Docker container. This is also how the official [Tentacle container](/docs/infrastructure/deployment-targets/tentacle/octopus-tentacle-container.md) is launched too.
 
-```text
+```
 tentacle agent --instance Tentacle --noninteractive
 ```
 

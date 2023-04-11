@@ -9,7 +9,7 @@ navOrder: 9
 Delete an account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account delete
 $ octopus account rm
 

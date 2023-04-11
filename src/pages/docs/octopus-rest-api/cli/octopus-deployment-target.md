@@ -9,7 +9,7 @@ navOrder: 27
 Manage deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target [command]
 
@@ -40,7 +40,7 @@ Use "octopus deployment-target [command] --help" for more information about a co
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target list
 
 ```

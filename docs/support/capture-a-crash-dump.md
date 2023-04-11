@@ -12,7 +12,7 @@ To enable crash dumps for Octopus you'll need to add a registry key for the Octo
 
 **RecordOctopusDump.reg**
 
-```text
+```
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\Octopus.Server.exe]

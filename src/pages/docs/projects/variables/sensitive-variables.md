@@ -111,7 +111,7 @@ Write-Output "Hello, the password is $Password"
 
 Octopus would mask the value from the deployment log, leaving:
 
-```text
+```
 Hello, the password is *****
 ```
 

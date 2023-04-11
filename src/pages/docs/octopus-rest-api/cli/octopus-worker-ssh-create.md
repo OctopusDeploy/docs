@@ -9,7 +9,7 @@ navOrder: 124
 Create a SSH worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker ssh create [flags]
 
@@ -40,7 +40,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker ssh create
 
 ```

@@ -9,7 +9,7 @@ navOrder: 137
 View a worker pool in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool view WorkerPools-3
 $ octopus worker-pool view 'linux workers'
 

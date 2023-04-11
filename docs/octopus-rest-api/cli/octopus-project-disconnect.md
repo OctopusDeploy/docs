@@ -9,7 +9,7 @@ navOrder: 70
 Disconnect a tenant from a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project disconnect [flags]
 
@@ -32,7 +32,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project disconnect
 $ octopus project disconnect --tenant "Test Tenant" --project "Deploy web site" --confirm
 

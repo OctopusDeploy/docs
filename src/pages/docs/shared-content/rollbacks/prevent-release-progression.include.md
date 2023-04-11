@@ -9,7 +9,7 @@ This step includes the following parameters:
 
 This step will only run on a rollback; set the run condition for this step to:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 

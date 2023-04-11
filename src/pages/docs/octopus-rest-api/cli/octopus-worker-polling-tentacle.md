@@ -9,7 +9,7 @@ navOrder: 120
 Manage Polling Tentacle workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker polling-tentacle [command]
 
@@ -33,7 +33,7 @@ Use "octopus worker polling-tentacle [command] --help" for more information abou
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker polling-tentacle list
 
 ```

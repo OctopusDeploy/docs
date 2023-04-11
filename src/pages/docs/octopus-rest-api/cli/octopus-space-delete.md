@@ -9,7 +9,7 @@ navOrder: 96
 Delete a space in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus space delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus space delete
 $ octopus space rm
 

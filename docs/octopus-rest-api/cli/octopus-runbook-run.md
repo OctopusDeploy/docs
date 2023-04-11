@@ -9,7 +9,7 @@ navOrder: 93
 Run runbooks in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus runbook run [flags]
 
@@ -43,7 +43,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus runbook run  # fully interactive
 $ octopus runbook run --project MyProject ... TODO
 

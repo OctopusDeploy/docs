@@ -10,7 +10,7 @@ Use this to see detailed output of Octopus running to help diagnose any issues y
 
 **Run options**
 
-```text
+```
 Usage: octopus.server run [<options>]
 
 Where [<options>] is any of:
@@ -36,6 +36,6 @@ Or one of the common options:
 
 This example starts the default instance in debug mode in the console:
 
-```text
+```
 octopus.server run --console
 ```

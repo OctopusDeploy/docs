@@ -9,7 +9,7 @@ navOrder: 6
 Create an Azure subscription account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account azure create [flags]
 
@@ -43,7 +43,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account azure create
 
 ```

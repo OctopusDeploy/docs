@@ -26,7 +26,7 @@ Once the variable is set, create and deploy your release as normal.
 
 When the Tentacle executes the script, it will print out instructions on how to attach the debugger, eg:
 
-```text
+```
 ...
 The Powershell execution engine is waiting for a PowerShell script debugger to attach.
 Use the following commands to begin debugging this script:

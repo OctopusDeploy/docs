@@ -9,7 +9,7 @@ navOrder: 41
 List deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target list
 $ octopus deployment-target ls
 

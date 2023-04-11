@@ -10,7 +10,7 @@ Use the watchdog command to configure a scheduled task to monitor the Octopus se
 
 **Watchdog options**
 
-```text
+```
 Usage: octopus.server watchdog [<options>]
 
 Where [<options>] is any of:
@@ -31,15 +31,20 @@ Or one of the common options:
 
 This example creates a watchdog task for the `default` instance:
 
-```text
+```
 octopus.server watchdog --create --instances="default"
 ```
 
 This example deletes the watchdog tasks for instances named `default` and `MyNewInstance`:
 
-```text Comma separated
+Comma separated:
+
+```
 octopus.server watchdog --delete --instances="default,MyNewInstance"
 ```
-```text Semi-colon separated
+
+Semi-colon separated:
+
+```
 octopus.server watchdog --delete --instances="default;MyNewInstance"
 ```

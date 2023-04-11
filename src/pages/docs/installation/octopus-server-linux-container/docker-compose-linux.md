@@ -133,7 +133,7 @@ When both containers are healthy, you can browse directly to `http://localhost:8
 
 Octopus Server can interface with several external sources (feeds, git repos, etc.), and those sources are often configured to use SSL/TLS for secure communication.  It is common for organizations to have their own Certificate Authority (CA) servers for their internal networks.  A CA server can issue SSL certificates for internal resources, such as build servers or internally hosted applications, without purchasing from a third-party vendor.  Technologies such as Group Policy Objects (GPO) can configure machines (servers and clients) to trust the CA automatically, so users don't have to configure trust for them manually. However, this is not inherited in containers.  When attempting to configure a connection to an external resource with an untrusted CA, you'll most likely encounter an error similar to this:
 
-```text
+```
 Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
 ```
  

@@ -9,7 +9,7 @@ navOrder: 127
 View a worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker view Machines-100
 $ octopus worker view 'worker'
 

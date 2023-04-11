@@ -8,7 +8,7 @@ navOrder: 190
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the releases last deployed in each environment.
 
-```text
+```
 Lists the releases last-deployed in each environment.
 
 Usage: octo list-latestdeployments [<options>]
@@ -82,19 +82,19 @@ Common options:
 
 This example lists the latest deployment to Production for project `DACPAC SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106):
 
-```text
+```
 octo list-latestdeployments --project="DACPAC SQL Server" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
 ```
 
 This example lists the latest deployment to Test and Production for project `DACPAC SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106):
 
-```text
+```
 octo list-latestdeployments --project="DACPAC SQL Server" --environment="Test" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server"
 ```
 
 This example lists the latest deployment to Test and Production for project `DACPAC SQL Server` and `DBUp SQL Server` in space [Target - SQL Server](https://samples.octopus.app/app#/Spaces-106):
 
-```text
+```
 octo list-latestdeployments --project="DACPAC SQL Server" --environment="Test" --environment="Production" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - SQL Server" --project="DBUp SQL Server"
 ```
 

@@ -10,7 +10,7 @@ Use the proxy command to configure the HTTP proxy used by Octopus.
 
 **Proxy options**
 
-```text
+```
 Usage: octopus.server proxy [<options>]
 
 Where [<options>] is any of:
@@ -36,7 +36,7 @@ Or one of the common options:
 
 This example enables Octopus Server to use a proxy server using the default Internet Explorer proxy:
 
-```text
+```
 octopus.server proxy --proxyEnable="true"
 ```
 

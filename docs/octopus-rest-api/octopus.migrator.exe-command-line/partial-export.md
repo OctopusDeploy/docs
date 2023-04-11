@@ -9,7 +9,7 @@ This command exports configuration data to a directory filtered by a single proj
 
 Usage:
 
-```text
+```
 Usage: octopus.migrator partial-export [<options>]
 
 Where [<options>] is any of:

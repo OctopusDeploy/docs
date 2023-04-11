@@ -8,7 +8,7 @@ navOrder: 5
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to allow a release to progress to next phase.
 
-```text
+```
 Allows a release to progress to the next phase.
 
 Usage: octo allow-releaseprogression [<options>]
@@ -80,7 +80,7 @@ Common options:
 !include <samples-instance>
 
 This example removes the [prevent progression](/docs/releases/prevent-release-progression.md) flag from a release, allowing it to proceed to the next environment.
-```text
+```
 octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08.03.82" --space="Target - Hybrid" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```
 

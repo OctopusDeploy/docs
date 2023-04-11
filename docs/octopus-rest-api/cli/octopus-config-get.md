@@ -9,7 +9,7 @@ navOrder: 24
 
 
 
-```text
+```
 Usage:
   octopus config get [key] [flags]
 

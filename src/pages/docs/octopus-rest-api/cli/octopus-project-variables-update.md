@@ -9,7 +9,7 @@ navOrder: 78
 Update the value of a project variable in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables update [flags]
 
@@ -41,7 +41,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable update
 $ octopus project variable update --name varname --value "abc"
 $ octopus project variable update --name varname --value "password"

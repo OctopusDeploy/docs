@@ -9,7 +9,7 @@ navOrder: 125
 List SSH workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker ssh list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker ssh list
 
 ```

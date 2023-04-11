@@ -189,12 +189,17 @@ Create a new Octopus Feed by navigating to **{{Library, External Feeds}}** and s
 - Give the NuGet feed a name
 - Enter the HTTP/HTTPS URL of the feed for your Cloudsmith NuGet repository using the version of NuGet that matches your configuration:
 
-  ```text NuGet V2
-  https://nuget.cloudsmith.io/OWNER/REPOSITORY/v2
-  ```
-  ```text NuGet V3
-  https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
-  ```
+NuGet V2:
+
+```
+https://nuget.cloudsmith.io/OWNER/REPOSITORY/v2
+```
+
+NuGet V3:
+
+```
+https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
+```
 
 :::hint
 Private repositories require authentication. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information on how to add your credentials

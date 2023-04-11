@@ -9,7 +9,7 @@ navOrder: 56
 List environments in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus environment list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus environment list
 $ octopus environment ls"
 

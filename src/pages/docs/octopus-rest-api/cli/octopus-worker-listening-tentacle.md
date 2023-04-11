@@ -9,7 +9,7 @@ navOrder: 116
 Manage Listening Tentacle workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker listening-tentacle [command]
 
@@ -34,7 +34,7 @@ Use "octopus worker listening-tentacle [command] --help" for more information ab
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker listening-tentacle list
 
 ```

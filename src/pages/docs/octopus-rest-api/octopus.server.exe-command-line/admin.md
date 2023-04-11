@@ -10,7 +10,7 @@ Use the admin command to reset admin user passwords, re-enable them, and ensure 
 
 **Admin options**
 
-```text
+```
 Usage: octopus.server admin [<options>]
 
 Where [<options>] is any of:
@@ -52,6 +52,6 @@ Or one of the common options:
 
 This example will add or update the administrator account with the username of `OctoAdmin`:
 
-```text
+```
 octopus.server admin --username="OctoAdmin" --password="My$uper$cr3tP@ssword!" --email="admin@octopus.com"
 ```

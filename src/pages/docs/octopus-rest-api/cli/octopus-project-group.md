@@ -9,7 +9,7 @@ navOrder: 81
 Manage project groups in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project-group [command]
 
@@ -35,7 +35,7 @@ Use "octopus project-group [command] --help" for more information about a comman
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project-group list
 $ octopus project-group ls
 

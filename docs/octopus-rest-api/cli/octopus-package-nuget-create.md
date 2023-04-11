@@ -9,7 +9,7 @@ navOrder: 60
 Create nuget package
 
 
-```text
+```
 Usage:
   octopus package nuget create [flags]
 
@@ -41,7 +41,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package nuget create --id SomePackage --version 1.0.0
 
 

@@ -9,7 +9,7 @@ Creates and installs a new certificate for this Tentacle.
 
 **New certificate options**
 
-```text
+```
 Usage: tentacle new-certificate [<options>]
 
 Where [<options>] is any of:
@@ -36,15 +36,19 @@ Or one of the common options:
 
 This example creates and installs a new certificate for the default Tentacle instance:
 
-```text
+```
 tentacle new-certificate
 ```
 
 This example creates, installs, and exports a new certificate for the instance `MyNewInstance`:
 
-```text Windows
+Windows:
+
+```
 tentacle new-certificate --instance="MyNewInstance" --export-pfx="c:\temp\MyNewInstance.pfx" --pfx-password="$uper$ecretP@ssw0rd"
 ```
-```text Linux
+Linux:
+
+```
 tentacle new-certificate --instance="MyNewInstance" --export-pfx="/tmp/MyNewInstance.pfx" --pfx-password="$uper$ecretP@ssw0rd"
 ```

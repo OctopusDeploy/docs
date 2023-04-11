@@ -9,7 +9,7 @@ navOrder: 61
 upload one or more packages to Octopus Deploy. Glob patterns are supported.
 
 
-```text
+```
 Usage:
   octopus package upload [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package upload --package SomePackage.1.0.0.zip
 $ octopus package upload SomePackage.1.0.0.tar.gz --overwrite-mode overwrite
 $ octopus package push SomePackage.1.0.0.zip	

@@ -9,7 +9,7 @@ navOrder: 17
 Manage Token accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account token [command]
 
@@ -33,7 +33,7 @@ Use "octopus account token [command] --help" for more information about a comman
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account token list
 
 ```

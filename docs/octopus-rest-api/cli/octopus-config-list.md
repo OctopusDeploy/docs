@@ -9,7 +9,7 @@ navOrder: 25
 List values from config file.
 
 
-```text
+```
 Usage:
   octopus config list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus config list"
 
 

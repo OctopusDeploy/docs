@@ -30,7 +30,7 @@ Code snippets using these clients for various operations in the Octopus REST API
 
 The Octopus Deploy API is available at:
 
-```text
+```
 https://<your-octopus-url>/api
 ```
 

@@ -9,7 +9,7 @@ navOrder: 53
 View a deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target view Machines-100
 $ octopus deployment-target view 'web-server'
 

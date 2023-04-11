@@ -65,7 +65,7 @@ The database deployment step should be skipped during a rollback.  Unlike code, 
 
 To skip these steps during a rollback, set the variable run condition to be:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 

@@ -9,7 +9,7 @@ navOrder: 21
 Create a Username/Password account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account username create [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account username create"
 
 

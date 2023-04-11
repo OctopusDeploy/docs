@@ -9,7 +9,7 @@ navOrder: 14
 Manage SSH Key Pair accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account ssh [command]
 
@@ -33,7 +33,7 @@ Use "octopus account ssh [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account ssh list
 
 ```

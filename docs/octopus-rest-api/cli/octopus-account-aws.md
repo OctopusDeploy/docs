@@ -9,7 +9,7 @@ navOrder: 2
 Manage AWS accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account aws [command]
 
@@ -33,7 +33,7 @@ Use "octopus account aws [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account aws list
 
 ```

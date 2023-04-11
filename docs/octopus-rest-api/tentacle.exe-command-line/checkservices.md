@@ -9,7 +9,7 @@ The checkservices command checks the Octopus Tentacle instances to see if they a
 
 **checkservices options**
 
-```text
+```
 Usage: tentacle checkservices [<options>]
 
 Where [<options>] is any of:
@@ -26,6 +26,6 @@ Or one of the common options:
 
 This example checks to see if the `default` instance is running and start it if it's not:
 
-```text
+```
 Tentacle checkservices --instances="default"
 ```

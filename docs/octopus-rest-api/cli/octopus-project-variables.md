@@ -9,7 +9,7 @@ navOrder: 72
 Manage project variables in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables [command]
 
@@ -41,7 +41,7 @@ Use "octopus project variables [command] --help" for more information about a co
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable list --project Deploy
 $ octopus project variable view --name "DatabaseName" --project Deploy
 $ octopus project variable update

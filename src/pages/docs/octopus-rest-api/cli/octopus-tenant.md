@@ -9,7 +9,7 @@ navOrder: 101
 Manage tenants in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant [command]
 
@@ -39,7 +39,7 @@ Use "octopus tenant [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant list
 $ octopus tenant ls
 

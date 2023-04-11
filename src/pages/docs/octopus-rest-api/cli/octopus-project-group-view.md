@@ -9,7 +9,7 @@ navOrder: 85
 View a project group in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project-group view {<name> | <id> | <slug>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project-group view 'Default Project Group'
 $ octopus project-group view ProjectGroups-9000
 

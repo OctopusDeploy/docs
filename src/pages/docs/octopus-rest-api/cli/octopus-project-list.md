@@ -9,7 +9,7 @@ navOrder: 71
 List projects in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project list
 $ octopus project ls
 

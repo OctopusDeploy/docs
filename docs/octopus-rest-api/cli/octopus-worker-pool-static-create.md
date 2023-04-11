@@ -9,7 +9,7 @@ navOrder: 135
 Create a static worker pool in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool static create [flags]
 
@@ -32,7 +32,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool static create
 
 

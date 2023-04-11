@@ -86,7 +86,7 @@ So for Project-1 we have 8 packages and directories still remaining on the serve
 
 See below the messages you will have in your raw deployment logs at the end of a deployment to that environment for the specific project:
 
-```text
+```
                     |   == Success: Apply retention policy on Tentacles ==
 05:06:20   Info     |     Apply retention policies...
 05:06:22   Verbose  |     Apply Tentacle Retention Policy completed

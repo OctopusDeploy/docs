@@ -9,7 +9,7 @@ navOrder: 118
 List Listening Tentacle workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker listening-tentacle list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker listening-tentacle list
 
 

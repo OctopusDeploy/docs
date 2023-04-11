@@ -9,7 +9,7 @@ navOrder: 102
 Clone a tenant in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant clone [flags]
 
@@ -32,7 +32,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant clone
 $ octopus tenant clone --name "Garys Cakes" --source-tenant "Bobs Wood Shop" 
 

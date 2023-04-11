@@ -9,7 +9,7 @@ navOrder: 111
 Delete a user in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus user delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus user delete someusername
 $ octopus user rm Users-123
 

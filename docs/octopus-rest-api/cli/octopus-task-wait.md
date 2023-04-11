@@ -9,7 +9,7 @@ navOrder: 100
 Wait for a provided list of task(s) to finish
 
 
-```text
+```
 Usage:
   octopus task wait [TaskIDs] [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus task wait
 
 ```

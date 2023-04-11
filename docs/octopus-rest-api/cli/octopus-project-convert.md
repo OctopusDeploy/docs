@@ -9,7 +9,7 @@ navOrder: 67
 Convert a project to use Config As Code in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project convert [flags]
 
@@ -40,7 +40,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project convert
 $ octopus project convert --project "Deploy web site" --git-url https://github.com/orgname/reponame"
 

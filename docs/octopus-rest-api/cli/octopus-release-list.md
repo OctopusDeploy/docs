@@ -9,7 +9,7 @@ navOrder: 90
 List releases in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus release list [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus release list myProject
 $ octopus release ls "Other Project"
 $ octopus release list --project myProject

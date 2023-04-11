@@ -8,7 +8,7 @@ navOrder: 230
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to List tenants.
 
-```text
+```
 Lists tenants.
 
 Usage: octo list-tenants [<options>]
@@ -75,13 +75,13 @@ Common options:
 
 This example lists the tenants on the default space:
 
-```text
+```
 octo list-tenants --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
 This example lists the tenants in the space [Pattern - Tenants](https://samples.octopus.app/app#/Spaces-682):
 
-```text
+```
 octo list-tenants --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Pattern - Tenants"
 ```
 

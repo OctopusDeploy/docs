@@ -58,7 +58,7 @@ Deploying the MySQL container and running the Flyway job should be skipped in a 
 
 To ensure that both of those steps are not run during a rollback, use the following output variable from the `Calculate Deployment Mode` step as the Variable Run condition.
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
@@ -73,7 +73,7 @@ When viewing the deployment process at a glance, it is not readily apparent that
 ## Complex Rollback Process
 A feature of Kubernetes is the revision history of the cluster components.  The command `kubectl rollout history deployment.v1.apps/<deploymentname>` lists all deployment revisions.
 
-```text
+```
 REVISION  CHANGE-CAUSE
 1         <none>
 2         <none>
@@ -112,7 +112,7 @@ The revision history command for Kubernetes showed that there were multiple revi
 
 Running `kubectl rollout history deployment.v1.apps/<deploymentname>` would now show something like this.
 
-```text
+```
 REVISION  CHANGE-CAUSE
 1         2021.09.23.0
 2         2021.09.23.1
@@ -168,7 +168,7 @@ else
 ### Block Release Progression
 The `Rollback Reason` step captures the reason for the rollback.  We can pass the text entered in this step to the `Reason` field of this step by using the following output variable.
 
-```text
+```
 #{Octopus.Action[Rollback reason].Output.Manual.Notes}
 ```
 

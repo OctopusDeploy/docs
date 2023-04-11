@@ -9,7 +9,7 @@ navOrder: 114
 Delete a worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker delete
 $ octopus worker rm
 

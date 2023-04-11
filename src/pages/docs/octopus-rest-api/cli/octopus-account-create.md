@@ -9,7 +9,7 @@ navOrder: 8
 Create an account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account create [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account create
 
 ```

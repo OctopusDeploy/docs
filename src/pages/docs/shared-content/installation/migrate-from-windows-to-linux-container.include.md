@@ -8,7 +8,7 @@ Migrating from Active Directory to LDAP is not as simple as turning off Active D
 
 Both users and teams are associated with 0 to N external identities.  The external identities are stored in an array on the user or team object.  For example, a user object with both Active Directory and LDAP could appear as:
 
-```JSON
+```json
 {
   "Id": "Users-1",
   "Username": "professor.octopus",
@@ -122,10 +122,15 @@ Polling Tentacles are designed to handle connection interruptions.  For example,
 
 If you wish to use a new URL, you will need to run this script on each machine hosting the polling tentacles.  Replace the server and API key with values specific to your instance.
 
-```Text Windows
+Windows:
+
+```
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
-```Text Linux
+
+Linux:
+
+```
 /opt/octopus/tentacle/Tentacle poll-server --server=httpa://your.octopus.server --apikey=API-MyApiKey --server-comms-port=10943
 ```
 

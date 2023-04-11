@@ -9,7 +9,7 @@ navOrder: 18
 Create a Token account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account token create [flags]
 
@@ -37,7 +37,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account token create
 
 ```

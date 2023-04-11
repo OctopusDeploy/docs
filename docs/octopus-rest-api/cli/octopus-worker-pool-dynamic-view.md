@@ -9,7 +9,7 @@ navOrder: 132
 View a dynamic worker pool in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool dynamic view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool dynamic view WorkerPools-3
 $ octopus worker-pool dynamic view 'Hosted Workers'
 

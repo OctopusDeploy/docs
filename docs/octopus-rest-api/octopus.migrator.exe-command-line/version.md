@@ -9,7 +9,7 @@ Shows the version information for this release of the Octopus Migrator
 
 **version options**
 
-```text
+```
 Usage: octopus.migrator version [<options>]
 
 Where [<options>] is any of:

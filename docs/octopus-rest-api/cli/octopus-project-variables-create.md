@@ -9,7 +9,7 @@ navOrder: 73
 Create a variable for a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables create [flags]
 
@@ -49,7 +49,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable create
 $ octopus project variable create --name varname --value "abc"
 $ octopus project variable create --name varname --value "passwordABC" --type sensitive

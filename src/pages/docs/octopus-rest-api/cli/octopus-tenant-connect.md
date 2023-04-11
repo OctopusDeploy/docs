@@ -9,7 +9,7 @@ navOrder: 103
 Connect a tenant to a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant connect [flags]
 
@@ -34,7 +34,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant connect
 $ octopus tenant connect --tenant "Bobs Wood Shop" --project "Deploy web site" --environment "Production"
 

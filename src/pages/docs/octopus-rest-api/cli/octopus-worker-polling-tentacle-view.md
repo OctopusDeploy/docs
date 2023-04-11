@@ -9,7 +9,7 @@ navOrder: 122
 View a Polling Tentacle worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker polling-tentacle view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker polling-tentacle view 'WindowsWorker'
 $ octopus worker polling-tentacle view Machines-100
 

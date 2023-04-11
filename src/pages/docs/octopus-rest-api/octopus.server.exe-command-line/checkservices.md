@@ -10,7 +10,7 @@ The `checkservices` command checks the Octopus Server instances to see if they a
 
 **Check Services options**
 
-```text
+```
 Usage: octopus.server checkservices [<options>]
 
 Where [<options>] is any of:
@@ -27,6 +27,6 @@ Or one of the common options:
 
 This example checks to see if all of the instances are running on the machine and start them if they are not:
 
-```text
+```
 octopus.server checkservices --instances=*
 ```

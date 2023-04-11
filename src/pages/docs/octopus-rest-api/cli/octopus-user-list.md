@@ -9,7 +9,7 @@ navOrder: 112
 List users in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus user list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus user list
 $ octopus user ls
 

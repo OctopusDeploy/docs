@@ -9,7 +9,7 @@ navOrder: 91
 Manage runbooks in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus runbook [command]
 
@@ -33,7 +33,7 @@ Use "octopus runbook [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus runbook list
 $ octopus runbook run
 

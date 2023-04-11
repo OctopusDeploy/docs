@@ -9,7 +9,7 @@ navOrder: 130
 Manage dynamic worker pools in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool dynamic [command]
 
@@ -33,7 +33,7 @@ Use "octopus worker-pool dynamic [command] --help" for more information about a 
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool dynamic view
 
 ```

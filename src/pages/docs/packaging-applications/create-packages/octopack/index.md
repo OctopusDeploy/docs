@@ -76,7 +76,7 @@ If you have an existing `.nuspec` file but you want the generated Octopus packag
 ```
 Then you would pass the package id you wanted as part of the `OctoPackNuGetProperties` MSBuild parameter:
 
-```text
+```
 /p:OctoPackNuGetProperties=packageid=YOUR-PACKAGE-ID
 ```
 

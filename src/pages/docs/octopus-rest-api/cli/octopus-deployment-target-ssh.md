@@ -9,7 +9,7 @@ navOrder: 49
 Manage SSH deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target ssh [command]
 
@@ -34,7 +34,7 @@ Use "octopus deployment-target ssh [command] --help" for more information about 
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target ssh create
 
 ```

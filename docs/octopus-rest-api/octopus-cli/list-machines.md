@@ -8,7 +8,7 @@ navOrder: 200
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list all machines in your environments.
 
-```text
+```
 Lists all machines.
 
 Usage: octo list-machines [<options>]
@@ -95,19 +95,19 @@ Common options:
 
 This example lists all machines on the instance:
 
-```text
+```
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
 This example lists all machines that are in the Test environment:
 
-```text
+```
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Test"
 ```
 
 This example lists all machines that are in the Development environment and the Production environment:
 
-```text
+```
 octo list-machines --server="https://MyOctopusServer" --apiKey="API-MyApiKey" --environment="Development" --environment="Production"
 ```
 

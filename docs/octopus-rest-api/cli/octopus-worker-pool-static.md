@@ -9,7 +9,7 @@ navOrder: 134
 Manage static worker pools in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool static [command]
 
@@ -33,7 +33,7 @@ Use "octopus worker-pool static [command] --help" for more information about a c
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool static view
 
 ```

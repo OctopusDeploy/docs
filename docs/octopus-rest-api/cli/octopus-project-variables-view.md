@@ -9,7 +9,7 @@ navOrder: 79
 View all values of a project variable in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project variables view [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project variable view
 $ octopus project variable view DatabaseName --project "Vet Clinic" 
 

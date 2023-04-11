@@ -9,7 +9,7 @@ navOrder: 3
 Create an AWS account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account aws create [flags]
 
@@ -38,7 +38,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account aws create
 
 ```

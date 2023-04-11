@@ -9,7 +9,7 @@ navOrder: 23
 Manage the CLI configuration
 
 
-```text
+```
 Usage:
   octopus config [command]
 

@@ -9,7 +9,7 @@ navOrder: 39
 List Kubernetes deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target kubernetes list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target kubernetes list
 $ octopus deployment-target kubernetes ls
 

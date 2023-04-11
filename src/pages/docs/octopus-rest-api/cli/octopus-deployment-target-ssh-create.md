@@ -9,7 +9,7 @@ navOrder: 50
 Create a SSH deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target ssh create [flags]
 
@@ -48,7 +48,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target ssh create
 
 ```

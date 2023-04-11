@@ -9,7 +9,7 @@ navOrder: 62
 List versions of a package.
 
 
-```text
+```
 Usage:
   octopus package versions [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package versions --package SomePackage
 $ octopus package versions SomePackage --filter beta --limit 5
 $ octopus package show SomePackage -n 2

@@ -9,7 +9,7 @@ navOrder: 109
 View a tenant in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant view Tenants-1
 $ octopus tenant view 'Tenant'
 

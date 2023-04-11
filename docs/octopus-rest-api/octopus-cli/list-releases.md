@@ -8,7 +8,7 @@ navOrder: 220
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list releases by project.
 
-```text
+```
 Lists releases by project.
 
 Usage: octo list-releases [<options>]
@@ -80,13 +80,13 @@ Common options:
 
 This example lists all releases for the Wingtip Toys project on the default space:
 
-```text
+```
 octo list-releases --project="WingtipToys" --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```
 
 This example lists all releases for projects `Dbup - AWS RDS`, `Flyway - AWS RDS`, and `RoundhousE - AWS RDS` on space [Target - MySQL](https://samples.octopus.app/app#/Spaces-242):
 
-```text
+```
 octo list-releases --project="Dbup - AWS RDS" --project="Flyway - AWS RDS" --project="RoundhousE - AWS RDS" --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - MySQL"
 ```
 

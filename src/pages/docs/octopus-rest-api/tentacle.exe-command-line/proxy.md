@@ -9,7 +9,7 @@ Configure the HTTP proxy used by Octopus.
 
 **Proxy options**
 
-```text
+```
 Usage: tentacle proxy [<options>]
 
 Where [<options>] is any of:
@@ -35,12 +35,12 @@ Or one of the common options:
 
 This example configures the proxy server for a listening Tentacle:
 
-```text
+```
 tentacle proxy --proxyHost="" --proxyEnable="true"
 ```
 
 This example disables the proxy server for the instance `MyNewInstance`:
 
-```text
+```
 tentacle proxy --proxyEnable="false" --instance="MyNewInstance"
 ```

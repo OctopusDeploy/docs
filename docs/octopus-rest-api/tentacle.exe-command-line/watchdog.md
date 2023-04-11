@@ -9,7 +9,7 @@ Configure a scheduled task to monitor the Tentacle service(s).
 
 **watchdog options**
 
-```text
+```
 Usage: tentacle watchdog [<options>]
 
 Where [<options>] is any of:

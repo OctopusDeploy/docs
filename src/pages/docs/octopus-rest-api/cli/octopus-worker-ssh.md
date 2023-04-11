@@ -9,7 +9,7 @@ navOrder: 123
 Manage SSH workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker ssh [command]
 
@@ -34,7 +34,7 @@ Use "octopus worker ssh [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker SSH list
 
 ```

@@ -9,7 +9,7 @@ navOrder: 80
 View a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project view {<name> | <id> | <slug>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project view 'Deploy Web App'
 $ octopus project view Projects-9000
 $ octopus project view deploy-web-app

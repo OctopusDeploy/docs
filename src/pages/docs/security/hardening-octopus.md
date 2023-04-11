@@ -195,14 +195,14 @@ Once the TLS versions are disabled, reboot your Server and importantly [verify t
 
 On Ubuntu `20.04` using OpenSSL `1.1.1f` (the latest at time of writing), you can specify the minimum TLS version to use to be `TLSv1.2` by setting the `MinProtocol` directive in the `/etc/ssl/openssl.cnf` OpenSSL config file:
 
-```text
+```
 [system_default_sect]
 MinProtocol = TLSv1.2
 ```
 
 On Ubuntu `18.04`, if the `MinProtocol` directive doesn't work, you can try this alternative. When using OpenSSL `1.1.1` (the latest at time of writing), you can specify the available TLS Protocols explicitly in the `/etc/ssl/openssl.cnf` OpenSSL config file:
 
-```text
+```
 [system_default_sect]
 Protocol = -SSLv3, -TLSv1, -TLSv1.1, TLSv1.2
 ```

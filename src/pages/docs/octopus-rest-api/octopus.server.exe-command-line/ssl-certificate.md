@@ -10,7 +10,7 @@ Binds the SSL/TLS certificate used by the portal to the specified address/port.
 
 **ssl-certificate options**
 
-```text
+```
 Usage: octopus.server ssl-certificate [<options>]
 
 Where [<options>] is any of:
@@ -36,6 +36,6 @@ Or one of the common options:
 
 This example binds the default instance to an SSL certificate with the thumbprint `a52a138bcd3458100f3f7a9d21edb924bff84b6b` that has been imported to the local machine store:
 
-```text
+```
 octopus.server ssl-certificate --thumbprint="a52a138bcd3458100f3f7a9d21edb924bff84b6b" --certificate-store="My"
 ```

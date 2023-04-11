@@ -205,19 +205,19 @@ Using conditional syntax, you can compare the value in the `Base.MaxLogLevel` va
 
 Using the template:
 
-```text
+```
 #{if Environment.LogLevel == Base.MaxLogLevel}We are at the MAX!#{else}We have room to grow!#{/if}
 ```
 
 The resulting text in both _Dev and Test_ will be:
 
-```text
+```
 We have room to grow!
 ```
 
 And in both _Staging and Production_ it will be:
 
-```text
+```
 We are at the MAX!
 ```
 
@@ -284,7 +284,7 @@ Using complex syntax, you can iterate over the values in the `MyWidgets` variabl
 
 Using the template:
 
-```text
+```
 #{each w in MyWidgets}
 '#{w.Value.WidgetId}': #{if w.Value.WidgetId == WidgetIdSelector}This is my Widget!#{else}No widget matched :(#{/if}
 #{/each}
@@ -292,7 +292,7 @@ Using the template:
 
 The resulting text will be:
 
-```text
+```
 'Widget-1': No widget matched :(
 'Widget-2': This is my Widget!
 ```

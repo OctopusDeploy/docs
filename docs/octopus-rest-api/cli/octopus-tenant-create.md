@@ -9,7 +9,7 @@ navOrder: 104
 Create a tenant in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant create [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant create
 
 ```

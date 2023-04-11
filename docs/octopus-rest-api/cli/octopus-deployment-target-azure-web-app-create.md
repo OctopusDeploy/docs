@@ -9,7 +9,7 @@ navOrder: 29
 Create an Azure Web App deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target azure-web-app create [flags]
 
@@ -45,7 +45,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target azure-web-app create
 
 ```

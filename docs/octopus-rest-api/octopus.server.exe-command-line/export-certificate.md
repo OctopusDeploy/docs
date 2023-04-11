@@ -10,7 +10,7 @@ Use the export certificate command to backup the certificate that Octopus Server
 
 **Export certificate options**
 
-```text
+```
 Usage: octopus.server export-certificate [<options>]
 
 Where [<options>] is any of:
@@ -29,6 +29,6 @@ Or one of the common options:
 
 This example exports the certificate that the Octopus Server instance named `OctopusServer` uses to authenticate itself with its [Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/index.md):
 
-```text
+```
 octopus.server export-certificate --instance="OctopusServer" --export-pfx="C:\temp\OctopusServer-certificate.pfx" --pfx-password="Sup3r5ecretPa$$w0rd"
 ```

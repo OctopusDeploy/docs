@@ -9,7 +9,7 @@ navOrder: 87
 Create a release in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus release create [flags]
 
@@ -42,7 +42,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus release create --project MyProject --channel Beta --version 1.2.3
 $ octopus release create -p MyProject -c Beta -v 1.2.3
 $ octopus release create -p MyProject -c default --package "utils:1.2.3" --package "utils:InstallOnly:5.6.7"

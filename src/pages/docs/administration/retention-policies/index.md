@@ -107,7 +107,7 @@ Each phase defined in this lifecycle will keep a maximum of **5 releases**:
 
 Undeployed releases will simply keep the number we have selected and no more. When the retention policy task runs, 4 releases are deleted:
 
-```text
+```
                     |     == Success: Apply policy for Retention Policy Examples to Sample Project Default ==
 13:51:03   Info     |       Retention Policy Examples/[Default] - Project name: Sample Project
                     |       Retention Policy Examples/[Default] - Channel name: Default

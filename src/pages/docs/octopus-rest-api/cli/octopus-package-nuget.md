@@ -9,7 +9,7 @@ navOrder: 59
 Package as NuPkg for Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus package nuget [command]
 
@@ -32,7 +32,7 @@ Use "octopus package nuget [command] --help" for more information about a comman
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package nuget create
 
 ```

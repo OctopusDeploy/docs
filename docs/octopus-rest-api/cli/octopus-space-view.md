@@ -9,7 +9,7 @@ navOrder: 98
 View a space in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus space view {<name> | <id>} [flags]
 
@@ -26,7 +26,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus space view 'Pattern - Blue-Green'
 $ octopus space view Spaces-302
 

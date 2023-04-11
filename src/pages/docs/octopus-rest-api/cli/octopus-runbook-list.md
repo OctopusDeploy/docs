@@ -9,7 +9,7 @@ navOrder: 92
 List runbooks in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus runbook list [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus runbook list SomeProject
 $ octopus runbook list --project SomeProject --limit 50 --filter SomeKeyword
 $ octopus runbook ls -p SomeProject -n 30 -q SomeKeyword

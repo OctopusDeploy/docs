@@ -9,7 +9,7 @@ navOrder: 88
 Delete a release in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus release delete [flags]
 
@@ -34,7 +34,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus release delete myProject 2.0
 $ octopus release delete --project myProject --version 2.0
 $ octopus release rm "Other Project" -v 2.0

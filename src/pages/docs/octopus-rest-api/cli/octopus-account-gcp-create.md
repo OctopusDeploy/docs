@@ -9,7 +9,7 @@ navOrder: 11
 Create a Google Cloud account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account gcp create [flags]
 
@@ -37,7 +37,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account gcp create
 
 ```

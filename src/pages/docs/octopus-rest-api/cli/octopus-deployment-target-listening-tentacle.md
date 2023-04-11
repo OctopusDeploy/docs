@@ -9,7 +9,7 @@ navOrder: 42
 Manage Listening Tentacle deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target listening-tentacle [command]
 
@@ -34,7 +34,7 @@ Use "octopus deployment-target listening-tentacle [command] --help" for more inf
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target listening-tentacle list
 
 ```

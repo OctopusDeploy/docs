@@ -9,7 +9,7 @@ navOrder: 44
 List Listening Tentacle deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target listening-tentacle list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target listening-tentacle list
 $ octopus deployment-target listening-tentacle ls
 

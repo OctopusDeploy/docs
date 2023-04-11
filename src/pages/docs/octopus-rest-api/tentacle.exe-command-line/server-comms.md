@@ -9,7 +9,7 @@ Configure how the Tentacle communicates with an Octopus Server.
 
 **Server communication options**
 
-```text
+```
 Usage: tentacle server-comms [<options>]
 
 Where [<options>] is any of:
@@ -40,7 +40,7 @@ Or one of the common options:
 
 This example configures the Tentacle to communicate with the Octopus Server in listening mode:
 
-```text
+```
 tentacle server-comms --style="TentaclePassive" --thumbprint="3FBFB8E1EE6B1133701190306E2CBBFB39C30C8D"
 ```
 

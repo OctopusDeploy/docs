@@ -2,7 +2,6 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 title: Certificates
-description: Manage and deploy X.509 certificates with Octopus Deploy
 description: Manage X.509 certificates with Octopus Deploy
 navOrder: 40
 hideInThisSectionHeader: true

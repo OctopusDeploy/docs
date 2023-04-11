@@ -9,7 +9,7 @@ navOrder: 108
 Override tags for a tenant in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant tag [flags]
 
@@ -31,7 +31,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant tag Tenant-1
 
 ```

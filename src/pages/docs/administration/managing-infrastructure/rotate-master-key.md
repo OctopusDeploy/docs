@@ -48,7 +48,7 @@ Once everything is backed up and the Octopus Server stopped, the steps are as fo
 
 Here's the beginning of an example report:
 
-```text
+```
 ================================================================================
 ROTATE MASTER KEY REPORT
 ================================================================================

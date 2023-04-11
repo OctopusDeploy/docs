@@ -9,7 +9,7 @@ navOrder: 82
 Create a project group in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project-group create [flags]
 
@@ -34,7 +34,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project-group create
 
 ```

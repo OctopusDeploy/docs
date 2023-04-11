@@ -9,7 +9,7 @@ navOrder: 136
 View a static worker pool in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker-pool static view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker-pool static view WorkerPools-3
 $ octopus worker-pool static view 'windows workers'
 

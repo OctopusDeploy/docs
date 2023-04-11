@@ -8,7 +8,7 @@ navOrder: 180
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to list the environments on your Octopus instance.
 
-```text
+```
 Lists environments.
 
 Usage: octo list-environments [<options>]
@@ -75,7 +75,7 @@ Common options:
 
 This example lists environments for space [Target - Docker](https://samples.octopus.app/app#/Spaces-103):
 
-```text
+```
 octo list-environments --server="https://samples.octopus.app" --apiKey="API-MyApiKey" --space="Target - Docker"
 ```
 

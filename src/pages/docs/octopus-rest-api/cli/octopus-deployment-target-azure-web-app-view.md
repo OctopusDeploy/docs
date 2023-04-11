@@ -9,7 +9,7 @@ navOrder: 31
 View an Azure Web App deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target azure-web-app view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target azure-web-app view 'Shop Api'
 $ octopus deployment-target azure-web-app view Machines-100
 

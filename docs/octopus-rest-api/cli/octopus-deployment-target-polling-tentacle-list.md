@@ -9,7 +9,7 @@ navOrder: 47
 List Polling Tentacle deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target polling-tentacle list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target polling-tentacle list
 $ octopus deployment-target polling-tentacle ls
 

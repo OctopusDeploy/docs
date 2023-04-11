@@ -709,7 +709,7 @@ kubectl get statefulset octopus -o jsonpath="{.status.replicas}"
 
 This checks to see if the Stateful Set exists by retrieving it's `replicas` count. If the Stateful Set doesn't exist, then the command will complete with an error:
 
-```text
+```
 Error from server (NotFound): statefulsets.apps "octopus" not found.
 ```
 
@@ -765,7 +765,7 @@ spec:
 ## Trusting custom/internal Certificate Authority (CA)
 Octopus Server can interface with several external sources (feeds, git repos, etc.), and those sources are often configured to use SSL/TLS for secure communication.  It is common for organizations to have their own Certificate Authority (CA) servers for their internal networks.  A CA server can issue SSL certificates for internal resources, such as build servers or internally hosted applications, without purchasing from a third-party vendor.  Technologies such as Group Policy Objects (GPO) can configure machines (servers and clients) to trust the CA automatically, so users don't have to configure trust for them manually. However, this is not inherited in Kubernetes containers.  When attempting to configure a connection to an external resource with an untrusted CA, you'll most likely encounter an error similar to this:
 
-```text
+```
 Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
 ```
 Kubernetes provides a method to incorporate a certificate without having to modify hosts or embed the certificate within the container by using a ConfigMap.

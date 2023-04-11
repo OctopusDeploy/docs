@@ -66,7 +66,7 @@ The two steps related to database deployments, Run Database Creation Runbook and
 
 To skip these steps during a rollback, set the variable run condition to be:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
@@ -125,7 +125,7 @@ The primary difference between the simple and complex rollback process is the co
 
 Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed packages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
 
-```text
+```
 #{if Octopus.Action[Calculate Deployment Mode].Output.DeploymentMode == "Deploy"}False#{else}True#{/if}
 ```
 
@@ -140,13 +140,13 @@ Updating the existing Windows Service to point to an earlier version of the appl
 
 The binary path must include the application's .exe file.  For example, `#{Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath}\YOUREXEFILE.exe`. For this guide, that value will be:
 
-```text
+```
 #{Octopus.Action[Deploy OctoFX Windows Service].Output.Package.InstallationDirectoryPath}\OctoFX.RateService.exe
 ```
 
 Set the run condition for this step to:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
@@ -161,7 +161,7 @@ The parameters to set for this step template are:
 
 Set the run condition for this step to:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 

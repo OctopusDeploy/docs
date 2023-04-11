@@ -9,7 +9,7 @@ navOrder: 97
 List spaces in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus space list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus space list
 
 ```

@@ -10,7 +10,7 @@ Use the new certificate command to create a new certificate that Octopus Server 
 
 **New certificate options**
 
-```text
+```
 Usage: octopus.server new-certificate [<options>]
 
 Where [<options>] is any of:
@@ -37,11 +37,11 @@ Or one of the common options:
 ## Basic examples
 
 This example creates a new certificate for instance `MyNewInstance` and replaces the old one:
-```text
+```
 octopus.server new-certificate --instance="MyNewInstance" --replace
 ```
 
 This example creates a new certificate and exports it to a PFX file:
-```text
+```
 octopus.server new-certificate --export-pfx="c:\temp\new-certificate.pfx" --pfx-password="$uper$3cretPassw0rd"
 ```

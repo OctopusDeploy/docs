@@ -9,7 +9,7 @@ navOrder: 28
 Manage Azure Web App deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target azure-web-app [command]
 
@@ -34,7 +34,7 @@ Use "octopus deployment-target azure-web-app [command] --help" for more informat
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target azure-web-app list
 
 ```

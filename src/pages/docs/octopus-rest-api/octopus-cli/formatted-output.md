@@ -20,7 +20,7 @@ octo list-projects --server http://your-octopus-server/ --apiKey API-ABCDEF12345
 
 This command outputs the list of projects in parsable JSON format:
 
-```text
+```
 [
   {
     "Id": "Projects-81",
@@ -41,7 +41,7 @@ $json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).
 
 This script writes out a list of releases for the last month:
 
-```text
+```
 Version Assembled                     PackageVersions ReleaseNotes
 ------- ---------                     --------------- ------------
 0.0.16  2018-01-04T14:27:25.221+10:00 Deploy1 0.0.1

@@ -9,7 +9,7 @@ Configures an Octopus Server that this Tentacle will poll.
 
 **Poll server options**
 
-```text
+```
 Usage: tentacle poll-server [<options>]
 
 Where [<options>] is any of:
@@ -46,6 +46,6 @@ Or one of the common options:
 
 This example configures the Octopus Server that the polling Tentacle polls:
 
-```text
+```
 tentacle poll-server --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```

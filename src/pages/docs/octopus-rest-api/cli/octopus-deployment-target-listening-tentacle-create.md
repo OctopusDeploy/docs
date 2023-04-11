@@ -9,7 +9,7 @@ navOrder: 43
 Create a Listening Tentacle deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target listening-tentacle create [flags]
 
@@ -44,7 +44,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target listening-tentacle create
 
 ```

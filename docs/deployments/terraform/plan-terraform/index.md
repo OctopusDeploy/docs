@@ -32,7 +32,7 @@ Terraform planning steps can output the plan details in either plain text or JSO
 
 When a plan steps is run, the output will include a line that looks like this:
 
-```text
+```
 Saving variable "Octopus.Action[Plan Apply].Output.TerraformPlanOutput" with the details of the plan
 ```
 
@@ -60,7 +60,7 @@ The resource change counts are captured in the following variables:
 
 Typically the result of a plan will be displayed in a Manual Intervention step. Because the plan text can contain markdown characters, the variable should be wrapped up in back ticks to display it verbatim.
 
-````text
+````
 ```
 #{Octopus.Action[Plan Apply].Output.TerraformPlanOutput}
 ```

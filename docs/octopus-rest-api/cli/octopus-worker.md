@@ -9,7 +9,7 @@ navOrder: 113
 Manage workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker [command]
 
@@ -37,7 +37,7 @@ Use "octopus worker [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker list
 $ octopus worker ls
 

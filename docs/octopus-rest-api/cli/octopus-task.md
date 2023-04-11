@@ -9,7 +9,7 @@ navOrder: 99
 Manage tasks in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus task [command]
 

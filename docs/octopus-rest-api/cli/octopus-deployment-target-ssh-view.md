@@ -9,7 +9,7 @@ navOrder: 52
 View a SSH deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target ssh view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target ssh view 'linux-web-server'
 $ octopus deployment-target ssh view Machines-100
 

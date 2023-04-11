@@ -12,7 +12,7 @@ For Workers, the server-side configuration includes the associated worker pools,
 
 **Show configuration options**
 
-```text
+```
 Usage: tentacle show-configuration [<options>]
 
 Where [<options>] is any of:
@@ -42,12 +42,12 @@ Or one of the common options:
 
 This example displays the configuration of the Tentacle (or Worker) on the machine in JSON format:
 
-```text
+```
 tentacle show-configuration
 ```
 
 This example displays the configuration of the Tentacle (or Worker) on the machine, as well as the configuration from the Octopus Server in JSON format:
 
-```text
+```
 tentacle show-configuration --server="https://MyOctopusServer" --apiKey="API-MyApiKey"
 ```

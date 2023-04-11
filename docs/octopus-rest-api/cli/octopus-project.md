@@ -9,7 +9,7 @@ navOrder: 65
 Manage projects in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project [command]
 
@@ -42,7 +42,7 @@ Use "octopus project [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project list
 $ octopus project ls
 

@@ -10,7 +10,7 @@ Use the configure command to configure this Octopus instance.
 
 **Configure options**
 
-```text
+```
 Usage: octopus.server configure [<options>]
 
 Where [<options>] is any of:
@@ -299,12 +299,12 @@ Or one of the common options:
 
 This example changes the instance home directory to a new folder and enables auto login for instance `OctopusServer`:
 
-```text
+```
 octopus.server configure --instance="OctopusServer" --home="c:\NewOctopusFolder" --autoLoginEnabled="true"
 ```
 
 This example changes the TCP port that the communications service listens on to 10953 for instance `OctopusServer`:
 
-```text
+```
 octopus.server configure --instance="OctopusServer" --commsListenPort="10953"
 ```

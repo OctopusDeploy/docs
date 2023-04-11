@@ -9,7 +9,7 @@ navOrder: 83
 Delete a project group in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project-group delete {<name> | <id>} [flags]
 
@@ -33,7 +33,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project-group delete
 $ octopus project-group rm
 

@@ -9,7 +9,7 @@ navOrder: 110
 Manage user in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus user [command]
 
@@ -33,7 +33,7 @@ Use "octopus user [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus user list
 $ octopus user ls
 

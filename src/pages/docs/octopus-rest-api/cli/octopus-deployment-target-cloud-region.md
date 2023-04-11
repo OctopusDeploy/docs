@@ -9,7 +9,7 @@ navOrder: 32
 Manage Cloud Region deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target cloud-region [command]
 
@@ -34,7 +34,7 @@ Use "octopus deployment-target cloud-region [command] --help" for more informati
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target cloud-region list
 
 ```

@@ -9,7 +9,7 @@ navOrder: 121
 List Polling Tentacle workers in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker polling-tentacle list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker polling-tentacle list
 
 ```

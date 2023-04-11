@@ -9,7 +9,7 @@ navOrder: 1
 Manage accounts in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account [command]
 
@@ -40,7 +40,7 @@ Use "octopus account [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account list
 
 ```

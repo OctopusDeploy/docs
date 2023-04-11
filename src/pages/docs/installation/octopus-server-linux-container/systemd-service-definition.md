@@ -12,7 +12,7 @@ You can use `systemd` to boot the Octopus Server Linux container each time the O
 Be sure to change the `ADMIN_PASSWORD` and `MASTER_KEY` from the defaults shown here.
 :::
 
-```text
+```
 [Unit]
 Description=Daemon for octopusdeploy
 After=docker-mssql.service docker.service
@@ -43,7 +43,7 @@ docker network create -d bridge octopus
 
 The Octopus service also relies on a MS SQL service define in the file `/etc/systemd/system/docker-mssql.service` with the following contents:
 
-```text
+```
 [Unit]
 Description=Daemon for mssql
 After=docker.service

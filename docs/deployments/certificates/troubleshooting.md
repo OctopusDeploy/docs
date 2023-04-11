@@ -59,7 +59,7 @@ This sometimes happens when attempting to import _crt_ files. If you are having 
 
 When attempting to import a certificate in `PKCS#12` format you might receive an error similar to:
 
-```text
+```
 Could not parse certificate data. Possible causes: 1) The certificate format is not supported. 2) The password is incorrect. 3) The file is corrupt. Error: Unable to parse certificate 'example.cert.domain'
 (id: ): Unknown encryption algorithm: 1.2.840.113549.1.5.13
 ```

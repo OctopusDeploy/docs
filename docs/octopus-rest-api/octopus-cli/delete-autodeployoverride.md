@@ -8,7 +8,7 @@ navOrder: 90
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete automatic deployment release overrides.
 
-```text
+```
 Deletes auto deploy release overrides.
 
 Usage: octo delete-autodeployoverride [<options>]

@@ -10,7 +10,7 @@ Use the show configuration command to output the server configuration.
 
 **Show configuration options**
 
-```text
+```
 Usage: octopus.server show-configuration [<options>]
 
 Where [<options>] is any of:
@@ -31,18 +31,18 @@ Or one of the common options:
 
 This example displays the configuration of the default instance:
 
-```text
+```
 octopus.server show-configuration
 ```
 
 This example displays the configuration of the instance named `MyNewInstance` in JSON format:
 
-```text
+```
 octopus.server show-configuration --instance="MyNewInstance" --format="json"
 ```
 
 This example exports the default instance configuration to a file in JSON hierarchical format:
 
-```text
+```
 octopus.server show-configuration --file="c:\temp\config.json" --format="json-hierarchical"
 ```

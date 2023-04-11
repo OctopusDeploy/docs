@@ -9,7 +9,7 @@ navOrder: 117
 Create a listening tentacle worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker listening-tentacle create [flags]
 
@@ -36,7 +36,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker listening-tentacle create
 
 

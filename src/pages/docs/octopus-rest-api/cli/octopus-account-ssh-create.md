@@ -9,7 +9,7 @@ navOrder: 15
 Create a SSH Key Pair account in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus account ssh create [flags]
 
@@ -39,7 +39,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus account ssh create
 
 ```

@@ -9,7 +9,7 @@ navOrder: 68
 Create a project in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus project create [flags]
 
@@ -44,7 +44,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus project create
 $ octopus project create --process-vcs
 $ octopus project create --name 'Deploy web app' --lifecycle 'Default Lifecycle' --group 'Default Project Group'

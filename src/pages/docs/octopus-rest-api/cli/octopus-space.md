@@ -9,7 +9,7 @@ navOrder: 94
 Manage spaces in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus space [command]
 
@@ -35,7 +35,7 @@ Use "octopus space [command] --help" for more information about a command.
 !include <samples-instance>
 
 
-```text
+```
 $ octopus space list
 $ octopus space view Spaces-302
 

@@ -103,7 +103,7 @@ It also includes a number of output variables to use in variable run conditions.
 
 The usage will be:
 
-```text
+```
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 

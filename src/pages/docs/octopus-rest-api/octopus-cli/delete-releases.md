@@ -8,7 +8,7 @@ navOrder: 100
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete a range of [releases](/docs/releases/index.md).
 
-```text
+```
 Deletes a range of releases.
 
 Usage: octo delete-releases [<options>]
@@ -93,7 +93,7 @@ This example deletes releases in the `PetClinic - rolling deploy` project in the
 - Minimum version: `2020.07.06.17`
 - Maximum version: `2020.07.06.18`
 
-```text
+```
 octo delete-releases --project="PetClinic - rolling deploy" --space="Pattern - Rolling" --minVersion="2020.07.06.17" --maxVersion="2020.07.06.18" --server="https://samples.octopus.app/" --apiKey="MyApiKey"
 ```
 
@@ -104,7 +104,7 @@ This example uses the `--whatIf` flag to display the releases that *would* be de
 
 This can be useful where you want to check the releases that would be deleted, before actually deleting them:
 
-```text
+```
 octo delete-releases --project="PetClinic - rolling deploy" --space="Pattern - Rolling" --minVersion="2020.07.06.16" --maxVersion="2020.07.06.20" --whatIf --server="https://samples.octopus.app/" --apiKey="MyApiKey"
 ```
 

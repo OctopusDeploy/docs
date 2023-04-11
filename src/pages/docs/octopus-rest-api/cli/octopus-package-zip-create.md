@@ -9,7 +9,7 @@ navOrder: 64
 Create zip package
 
 
-```text
+```
 Usage:
   octopus package zip create [flags]
 
@@ -36,7 +36,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package zip create --id SomePackage --version 1.0.0
 
 

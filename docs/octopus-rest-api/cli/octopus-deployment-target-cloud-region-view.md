@@ -9,7 +9,7 @@ navOrder: 35
 View a Cloud Region deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target cloud-region view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target cloud-region view 'EU'
 $ octopus deployment-target cloud-region view Machines-100
 

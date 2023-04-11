@@ -10,7 +10,7 @@ Use the create-instance command to register a new instance of the Octopus servic
 
 **Create instance options**
 
-```text
+```
 Usage: octopus.server create-instance [<options>]
 
 Where [<options>] is any of:
@@ -33,6 +33,6 @@ Or one of the common options:
 
 This example creates a new Octopus Server instance on the machine named `MyNewInstance` and sets the home directory:
 
-```text
+```
 octopus.server create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
 ```

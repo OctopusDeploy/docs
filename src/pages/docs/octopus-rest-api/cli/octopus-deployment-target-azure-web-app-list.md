@@ -9,7 +9,7 @@ navOrder: 30
 List Azure Web App deployment targets in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target azure-web-app list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target azure-web-app list
 $ octopus deployment-target azure-web-app ls
 

@@ -9,7 +9,7 @@ navOrder: 107
 List tenants in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus tenant list [flags]
 
@@ -29,7 +29,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus tenant list
 $ octopus tenant ls
 

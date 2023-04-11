@@ -8,7 +8,7 @@ navOrder: 270
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to promote a release from one environment to another.
 
-```text
+```
 Promotes a release.
 
 Usage: octo promote-release [<options>]

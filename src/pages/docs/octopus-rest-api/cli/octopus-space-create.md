@@ -9,7 +9,7 @@ navOrder: 95
 Create a space in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus space create [flags]
 
@@ -36,7 +36,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus space create
 
 ```

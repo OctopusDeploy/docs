@@ -9,7 +9,7 @@ navOrder: 38
 Create a Kubernetes deployment target in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus deployment-target kubernetes create [flags]
 
@@ -69,7 +69,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus deployment-target kubernetes create
 
 ```

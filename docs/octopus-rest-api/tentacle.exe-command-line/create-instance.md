@@ -9,7 +9,7 @@ Registers a new instance of the Tentacle service.
 
 **Create instance options**
 
-```text
+```
 Usage: tentacle create-instance [<options>]
 
 Where [<options>] is any of:
@@ -28,9 +28,13 @@ Or one of the common options:
 
 This example creates a new Tentacle instance named `MyNewInstance`:
 
-```text Windows
+Windows:
+
+```
 tentacle create-instance --instance="MyNewInstance" --config="c:\MyNewInstance\MyNewInstance.config" --home="c:\MyNewInstance\Home"
 ```
-```text Linux
+Linux:
+
+```
 Tentacle create-instance --instance="MyNewInstance" --config="/MyNewInstance/MyNewInstance.config" --home="/MyNewInstance/Home"
 ```

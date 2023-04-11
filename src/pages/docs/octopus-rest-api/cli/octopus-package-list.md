@@ -9,7 +9,7 @@ navOrder: 58
 List packages in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus package list [flags]
 
@@ -34,7 +34,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus package list
 $ octopus package list --limit 50 --filter SomePackage
 $ octopus package ls -n 30 -q SomePackage

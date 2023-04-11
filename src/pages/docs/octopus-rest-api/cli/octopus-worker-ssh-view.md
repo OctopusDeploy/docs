@@ -9,7 +9,7 @@ navOrder: 126
 View a SSH worker in Octopus Deploy
 
 
-```text
+```
 Usage:
   octopus worker ssh view {<name> | <id>} [flags]
 
@@ -30,7 +30,7 @@ Global Flags:
 !include <samples-instance>
 
 
-```text
+```
 $ octopus worker ssh view 'linux-worker'
 $ octopus worker ssh view Machines-100
 
