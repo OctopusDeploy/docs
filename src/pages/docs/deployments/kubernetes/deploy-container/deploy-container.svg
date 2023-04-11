@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="41cm" height="30cm" viewBox="-402 118 803 583" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="-400" y="120" width="800" height="580"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-400" y="120" width="800" height="580"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="413.9">
+      <tspan x="0" y="413.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="324">
+    <tspan x="-210" y="324"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="324">
+    <tspan x="-210" y="324"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-380" y="160">
+    <tspan x="-380" y="160">Kubernetes Cluster</tspan>
+  </text>
+  <g>
+    <rect style="fill: #f3f3f3" x="-20" y="200" width="360" height="460"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-20" y="200" width="360" height="460"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="160" y="433.9">
+      <tspan x="160" y="433.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="240">
+    <tspan x="0" y="240">Deployment</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="20" y="280" width="280" height="340"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="20" y="280" width="280" height="340"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="160" y="453.9">
+      <tspan x="160" y="453.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="160" y="450">
+    <tspan x="160" y="450"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="40" y="320">
+    <tspan x="40" y="320">ReplicaSet</tspan>
+  </text>
+  <g>
+    <rect style="fill: #f3f3f3" x="60" y="360" width="204.566" height="220"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="60" y="360" width="204.566" height="220"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="162.283" y="473.9">
+      <tspan x="162.283" y="473.9"></tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-260" y="570">
+    <tspan x="-260" y="570"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="80" y="400">
+    <tspan x="80" y="400">Pod</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="80" y="420" width="160" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="80" y="420" width="160" height="60"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="160" y="453.9">
+      <tspan x="160" y="453.9">Container</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="80" y="500" width="160" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="80" y="500" width="160" height="60"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="160" y="533.9">
+      <tspan x="160" y="533.9">Container</tspan>
+    </text>
+  </g>
+  <g>
+    <g>
+      <rect style="fill: #f3f3f3" x="-360" y="200" width="200" height="200"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-360" y="200" width="200" height="200"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-260" y="303.9">
+        <tspan x="-260" y="303.9"></tspan>
+      </text>
+    </g>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-340" y="240">
+      <tspan x="-340" y="240">Ingress</tspan>
+    </text>
+    <g>
+      <rect style="fill: #ffffff" x="-340" y="280" width="160" height="67"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-340" y="280" width="160" height="67"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-260" y="317.4">
+        <tspan x="-260" y="317.4">*/ingress-path</tspan>
+      </text>
+    </g>
+  </g>
+  <g>
+    <g>
+      <rect style="fill: #f3f3f3" x="-360" y="480" width="200" height="180"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-360" y="480" width="200" height="180"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-260" y="573.9">
+        <tspan x="-260" y="573.9"></tspan>
+      </text>
+    </g>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-340" y="520">
+      <tspan x="-340" y="520">Service</tspan>
+    </text>
+    <g>
+      <rect style="fill: #ffffff" x="-340" y="560" width="160" height="67"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-340" y="560" width="160" height="67"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-260" y="597.4">
+        <tspan x="-260" y="597.4">80:TCP</tspan>
+      </text>
+    </g>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x1="-260" y1="347" x2="-260" y2="550.264"/>
+    <polygon style="fill: #333333" points="-260,557.764 -265,547.764 -260,550.264 -255,547.764 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-260,557.764 -265,547.764 -260,550.264 -255,547.764 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-160,570 -50,570 -50,470 50.2639,470 "/>
+    <polygon style="fill: #333333" points="57.7639,470 47.7639,475 50.2639,470 47.7639,465 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="57.7639,470 47.7639,475 50.2639,470 47.7639,465 "/>
+  </g>
+</svg>

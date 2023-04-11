@@ -1,0 +1,46 @@
+---
+import { PostFiltering, Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { Translations, Lang } from '@util/Languages';
+import { SITE } from '@config';
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter
+  headings: { depth: number; slug: string; text: string; }[];
+};
+const { lang } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const accelerator = new Accelerator(SITE);
+
+const search = accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+---
+<header class="octo-header-bkg site-header header-default">
+<div class="octo-header">
+  <a href="https://octopus.com" class="logo"><img src="/devops/img/octopus-logo.svg" width="172" height="50" alt="Octopus Deploy" /></a>
+  <nav id="octo-site-nav" class="octo-site-nav" aria-label={ _(Translations.octopus_aria.parent_site_navigation) }>
+    <ul>
+      <li><a href="https://octopus.com/features">Product</a></li>
+      <li><a href="https://octopus.com/pricing/overview">Pricing</a></li>
+      <li><a href="https://octopus.com/docs">Docs</a></li>
+      <li><a href="https://octopus.com/resource-center">Resources</a></li>
+      <li><a href="https://octopus.com/blog">Blog</a></li>
+      <li><a href="https://octopus.com/enterprise">Enterprise</a></li>
+    </ul>
+  </nav>
+  <a href="https://octopus.com/start" class="button trial">Free trial</a>
+  <a href="#octo-site-nav" class="navigation-icon" title={ _(Translations.header.open_menu) } data-navigationid="octo-site-nav"><svg xmlns="http://www.w3.org/2000/svg" 
+    width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" 
+    fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <line x1="4" y1="6" x2="20" y2="6" />
+    <line x1="4" y1="12" x2="20" y2="12" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+  </svg></a>
+  </div>
+</header>

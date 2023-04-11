@@ -1,0 +1,88 @@
+/* Recommended Tools
+    Check accessibility for colour combinations
+    https://toolness.github.io/accessible-color-matrix/
+*/
+
+:root {
+    --fore: #333;
+    --fore-headings: #225;
+    --aft: #FBFBFC;
+
+    --fore-link: #2d4295;
+    --fore-link-alt: #4D71FF;
+    --aft-link-alt: #F3F5FF;
+
+    --fore-head: #333;
+    --aft-head: #E6E8F1;
+
+    --fore-breadcrumb: #333;
+    --aft-breadcrumb: #F3F5FF;
+
+    --link-head: #2d4295;
+    --link-alt-head: #2a4dd8;
+
+    --fore-block: #333;
+    --aft-block: #F3F5FF;
+    --icon-block: #4D71FF;
+
+    --fore-table-head: #FDFDFE;
+    --aft-table-head: #2F3141;
+    --fore-table-row-odd: #333;
+    --aft-table-row-odd: #FDFDFE;
+    --fore-table-row-even: #333;
+    --aft-table-row-even: #F3F5FF;
+
+    --heading-font: Georgia, 'Times New Roman', Times, serif;
+    --content-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --code-font: Consolas, 'Courier New', Courier, monospace;
+
+    --block-gap: 2rem;
+    --block-radius: 0.3rem;
+
+    --marker-size: 1.2rem;
+    --paragraph-margin: 1.2rem;
+
+    --box-shadow: 0 12px 24px -12px rgb(0 0 0 / 80%);
+    --box-shadow-slight: 0 6px 12px -6px rgb(0 0 0 / 40%);
+
+    --content-width: 78vw;
+    --navigation-width: 260px;
+    --grid-gap: 1rem;
+    --grid-max-width: 60rem;
+    --grid-width: 90vw;
+
+    /* Calculate the mobile width by removing l/r columns and grid gap */
+    --content-width-mobile: calc(100vw - (1rem * 2));
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fore: #CCC;
+        --fore-headings: #CCE;
+        --aft: #333;
+    
+        --fore-link: #abb9ef;
+        --fore-link-alt: #abb9ef;
+        --aft-link-alt: #232323;
+        
+        --fore-head: #CCC;
+        --aft-head: #222;
+
+        --fore-breadcrumb: #CCC;
+        --aft-breadcrumb: #2C2C2C;
+
+        --link-head: #abb9ef;
+        --link-alt-head: #6580ed;
+
+        --fore-block: #CCC;
+        --aft-block: #111;
+        --icon-block: #abb9ef;
+
+        --fore-table-head: #CCC;
+        --aft-table-head: #222; 
+        --fore-table-row-odd: #CCC;
+        --aft-table-row-odd: #333;
+        --fore-table-row-even: #CCC;
+        --aft-table-row-even: #444;
+    }
+}

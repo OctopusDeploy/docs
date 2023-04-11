@@ -9,3 +9,4 @@ _site/
 **/*.dia~
 tmp
 .pnpm-store/
+node_modules

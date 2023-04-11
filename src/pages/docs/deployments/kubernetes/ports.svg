@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="41cm" height="47cm" viewBox="-402 -482 803 932" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <g>
+      <rect style="fill: #ffffff" x="-400" y="-480" width="800" height="780"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-400" y="-480" width="800" height="780"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="0" y="-86.1">
+        <tspan x="0" y="-86.1"></tspan>
+      </text>
+    </g>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="-276">
+      <tspan x="-210" y="-276"></tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-210" y="-276">
+      <tspan x="-210" y="-276"></tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-380" y="-440">
+      <tspan x="-380" y="-440">Kubernetes Cluster</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #f3f3f3" x="20" y="-400" width="320" height="300"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="20" y="-400" width="320" height="300"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="180" y="-246.1">
+      <tspan x="180" y="-246.1"></tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="40" y="-360">
+    <tspan x="40" y="-360">Deployment</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffffff" x="60" y="-320" width="240" height="200"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="60" y="-320" width="240" height="200"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="180" y="-216.1">
+      <tspan x="180" y="-216.1"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="20,-15 70,-15 70,-155 110.264,-155 "/>
+    <polygon style="fill: #333333" points="117.764,-155 107.764,-150 110.264,-155 107.764,-160 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="117.764,-155 107.764,-150 110.264,-155 107.764,-160 "/>
+  </g>
+  <g>
+    <rect style="fill: #f3f3f3" x="-180" y="-60" width="200" height="180"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-180" y="-60" width="200" height="180"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-80" y="33.9">
+      <tspan x="-80" y="33.9">Service</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #a6c0fb" x="-140" y="80" width="120" height="89"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-140" y="80" width="120" height="89"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-80" y="128.4">
+      <tspan x="-80" y="128.4">Port</tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="180" y="-220">
+    <tspan x="180" y="-220"></tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #333333;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="80" y="-280">
+    <tspan x="80" y="-280">Pod</tspan>
+  </text>
+  <g>
+    <g>
+      <rect style="fill: #f3f3f3" x="-380" y="200" width="200" height="200"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-380" y="200" width="200" height="200"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-280" y="303.9">
+        <tspan x="-280" y="303.9">Node</tspan>
+      </text>
+    </g>
+    <g>
+      <rect style="fill: #a6c0fb" x="-340" y="360" width="120" height="89"/>
+      <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="-340" y="360" width="120" height="89"/>
+      <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-280" y="408.4">
+        <tspan x="-280" y="408.4">Node Port</tspan>
+      </text>
+    </g>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-180,250 -80,250 -80,178.736 "/>
+    <polygon style="fill: #333333" points="-80,171.236 -75,181.236 -80,178.736 -85,181.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" points="-80,171.236 -75,181.236 -80,178.736 -85,181.236 "/>
+  </g>
+  <g>
+    <rect style="fill: #f3f3f3" x="80" y="-260" width="204.566" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="80" y="-260" width="204.566" height="80"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="182.283" y="-216.1">
+      <tspan x="182.283" y="-216.1">Container</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #a6c0fb" x="120" y="-200" width="120" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #333333" x="120" y="-200" width="120" height="60"/>
+    <text font-size="12.7998" style="fill: #333333;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="180" y="-166.1">
+      <tspan x="180" y="-166.1">Target Port</tspan>
+    </text>
+  </g>
+</svg>

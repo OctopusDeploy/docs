@@ -1,0 +1,18 @@
+---
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter
+  headings: { depth: number; slug: string; text: string; }[];
+};
+const { lang } = Astro.props satisfies Props;
+---
+<div class="octo-title-bkg">
+  <div class="octo-title">
+    <span>{ SITE.title }</span>
+    <a href="#site-nav" data-navigationid="site-nav">{ SITE.title }</a>
+  </div>
+</div>

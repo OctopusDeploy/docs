@@ -1,0 +1,97 @@
+---
+import { Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
+import { SITE } from '@config';
+import { Lang } from '@util/Languages';
+
+// Properties
+type Props = {
+  lang: string;
+  frontmatter: Frontmatter
+  headings: { depth: number; slug: string; text: string; }[];
+};
+const { lang, frontmatter, headings } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const accelerator = new Accelerator(SITE);
+
+const articles: NavPage[] = [];
+
+function flatten(pageTree: NavPage[]) {
+  pageTree.sort((a, b) => a.order - b.order);
+  pageTree.forEach(page => {
+    if (page.children.length == 0) {
+      articles.push(page);
+    } else {
+      flatten(page.children);
+    }
+  })
+}
+
+const currentUrl = new URL(Astro.request.url);
+const pages = accelerator.navigation.autoMenu(SITE.subfolder);
+accelerator.navigation.setCurrentPage(pages, currentUrl);
+flatten(pages);
+
+const current = articles.findIndex(p => p.ariaCurrent);
+
+const previous = articles[current - 1] || null;
+const next = articles[current + 1] || null;
+
+const speculationList: NavPage[] = [];
+
+if (previous) {
+  speculationList.push(previous);
+}
+
+if (next) {
+  speculationList.push(next);
+}
+
+function getSpeculationRules(articles: NavPage[]) {
+  const urls = JSON.stringify(articles.map(a => a.url));
+return `<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "list",
+      "urls": ${urls}
+    }
+  ]
+}
+</script>`;
+}
+
+const showPrevious = false;
+const sharingTitle = encodeURIComponent(await accelerator.markdown.getTextFrom(frontmatter.title));
+const twitterLink = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${sharingTitle}`;
+const linkedinLink = `https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`;
+---
+<div class="octo-article-nav">
+  <div class="grid">
+    <div class="octo-share">
+      <button data-share><i class="fa-solid fa-share-nodes">Share</i></button>
+      <!-- <ul>
+        <li><a href={ twitterLink } title="Share on Twitter"><i class="fa-brands fa-twitter">Twitter</i></a></li>
+        <li><a href={ linkedinLink } title="Share on LinkedIn"><i class="fa-brands fa-linkedin">LinkedIn</i></a></li>
+      </ul> -->
+    </div>
+    <dl>
+      {showPrevious && previous &&
+      <dt data-destination={ previous.url }><span>Previous article</span></dt>
+      <dd><a href={ previous.url } rel={ previous.rel }>{ previous.title }</a></dd>
+      }
+      {next &&
+      <dt data-destination={ next.url }><span>Next article</span></dt>
+      <dd><a href={ next.url } class="continue"rel={ next.rel }>{ next.title }</a></dd>
+      }
+    </dl>
+  </div>
+</div>
+<!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
+<div style="navOrder: fixed;"></div>
+<Fragment set:html={ getSpeculationRules(speculationList) } />

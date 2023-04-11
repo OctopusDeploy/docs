@@ -1,0 +1,20 @@
+---
+import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
+
+// Properties
+type Props = {
+  lang: string;
+  page: NavPage
+};
+const { lang, page } = Astro.props satisfies Props;
+---
+<div class="footer-column">
+  <h2><Fragment set:html={page.title} /></h2>
+  <ul>
+  { page.children.sort((a, b) => a.order - b.order).map((child) => (
+    <li>
+      <a href={ child.url } aria-current={ child.ariaCurrent } rel={ child.rel }>{ child.title }</a>
+    </li>
+  ))}
+  </ul>
+</div>

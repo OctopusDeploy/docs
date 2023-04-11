@@ -1,4 +1,6 @@
 ---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
 title: Azure web apps
 description: Octopus Deploy can help you perform repeatable and controlled deployments to Azure web apps.
 hideInThisSectionHeader: true

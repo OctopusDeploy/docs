@@ -1,0 +1,120 @@
+---
+// warning: This file is overwritten by Astro Accelerator
+
+// For listing by frontmatter.categories
+import { PostFiltering, PostOrdering, Accelerator } from 'astro-accelerator-utils';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import type { MarkdownInstance } from 'astro-accelerator-utils/types/Astro';
+import type { Page } from 'astro';
+import { Translations, Lang } from '@util/Languages';
+import { SITE } from '@config';
+import Default from 'src/layouts/Default.astro';
+import ArticleList from '@components/ArticleList.astro';
+import PagingLinks from '@components/PagingLinks.astro';
+
+const lang = SITE.default.lang;
+const currentUrl = new URL(Astro.request.url);
+const slug = currentUrl.pathname.split('/')[3];
+
+// Language
+const _ = Lang(lang);
+
+// Props
+type Props = {
+  title: string;
+  page: Page<MarkdownInstance>;
+  headings: { depth: number; slug: string; text: string; }[];
+  pubDate: Date;
+};
+const { title, page, headings, pubDate } = Astro.props satisfies Props;
+
+const frontmatter: Frontmatter = {
+  layout: 'src/layouts/Default.astro',
+  title: title,
+  titleAdditional: `(${ _(Translations.articles.category) }) ` + _(Translations.articles.page_title).replace('{n}', page.currentPage.toString()),
+  keywords: `${slug},articles`,
+  description: `${SITE.title} ${slug} articles.`,
+  pubDate: pubDate
+};
+
+// Logic
+const accelerator = new Accelerator(SITE);
+
+type CategoryData = {
+  posts: MarkdownInstance[];
+  categories: string[];
+}
+
+export async function getData() {
+  // TODO: Replace with call to Posts.all()
+  const sourcePosts = await Astro.glob(['../../**/*.md', '../../**/*.mdx']) as MarkdownInstance[];
+  
+  const data: CategoryData = { posts: [], categories: []};
+
+  data.posts = sourcePosts
+    .filter(PostFiltering.isListable)
+    .sort(PostOrdering.sortByPubDateDesc);
+
+    data.posts.forEach(p => {
+    const auths: string[] = p.frontmatter.categories ?? [];
+    if (auths.length == 0) {
+      console.log('No categories found', p.url);
+    }
+    auths.forEach(a => {
+      if (!data.categories.includes(a)) {
+        data.categories.push(a);
+      }
+    });
+  });
+
+  return data;
+}
+
+export async function getStaticPaths({ paginate }: any) {
+  let data = await getData();
+
+  return data.categories.map(c => {
+    const filtered = data.posts.filter(p => {
+      const cats: string[] = p.frontmatter.categories ?? [];
+      return cats.includes(c);
+    });
+    return paginate(filtered, {
+      params: { category: c.toLowerCase().replace(/ /g, '-') },
+      props: { title: c, pubDate: filtered[0].frontmatter.pubDate },
+      pageSize: SITE.pageSize 
+    });
+  }).flat();
+}
+
+// Page Links
+const pageLinks = accelerator.paging.links(SITE.pageLinks, page.lastPage, page.currentPage, page.url.current);
+
+// Breadcrumbs
+const breadcrumbs: { url: string; title: string; ariaCurrent?: string; }[] = []
+
+if (page.url.current == pageLinks[0].url) {
+  breadcrumbs.push({
+    url: pageLinks[0].url as string,
+    title: title,
+    ariaCurrent: 'page'
+  });
+}
+
+if (page.url.current != pageLinks[0].url) {
+  breadcrumbs.push({
+    url: pageLinks[0].url as string,
+    title: title,
+  });
+
+  breadcrumbs.push({
+    url: page.url.current,
+    title: _(Translations.articles.page_title).replace('{n}', page.currentPage.toString()),
+    ariaCurrent: 'page',
+  });
+}
+---
+<Default frontmatter={ frontmatter } headings={ headings } breadcrumbs={ breadcrumbs }>
+  <h2>{ _(Translations.articles.page_title).replace('{n}', page.currentPage.toString()) }</h2>
+  <ArticleList lang={ lang } posts={ page.data } />
+  <PagingLinks lang={ lang } page={ page } pageLinks={ pageLinks } />
+</Default>
