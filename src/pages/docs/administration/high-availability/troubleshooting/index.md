@@ -30,7 +30,7 @@ Something has gone wrong and the Octopus Server has crashed. Look at the Octopus
 
 You may see a message in the Octopus Server logs like this:
 
-```plain
+```
 Could not find a part of the path 'Z:\Octopus\TaskLogs'
 ```
 
@@ -38,7 +38,7 @@ This usually means the drive `Z:\` has not been mapped for the user account runn
 
 You may see a message in the Octopus Server logs like this:
 
-```plain
+```
 Access to the path 'Z:\Octopus\TaskLogs' is denied
 ```
 

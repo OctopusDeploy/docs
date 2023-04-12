@@ -35,7 +35,7 @@ An SSL certificate must be configured for the chosen address and port (the path 
 
 Once selected the Octopus Server can be configured to listen on that prefix using the following commands:
 
-```console
+```
 .\Octopus.Server.exe service --instance OctopusServer --stop
 .\Octopus.Server.exe configure --instance OctopusServer --commsListenWebSocket https://+:443/OctopusComms
 .\Octopus.Server.exe service --instance OctopusServer --start
@@ -100,7 +100,7 @@ If your chosen certificate has not yet been associated with the selected address
 netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid='{00112233-4455-6677-8899-AABBCCDDEEFF}'
 ```
 
-```console Cmd
+```
 netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469AC521E2CD4B appid={00112233-4455-6677-8899-AABBCCDDEEFF}
 ```
 

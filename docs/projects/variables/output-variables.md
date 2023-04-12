@@ -28,7 +28,7 @@ set_octopusvariable "TestResult" "Passed"
 Octopus.setVariable "TestResult" "Passed"
 ```
 
-```python3 Python3
+```python Python3
 set_octopusvariable("TestResult", "Passed")
 ```
 
@@ -56,7 +56,7 @@ testResult=$(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
 ```
 
-```python3 Python3
+```python Python3
 testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
 ```
 
@@ -78,7 +78,7 @@ set_octopusvariable "Password" "correct horse battery staple" -sensitive
 Octopus.setSensitiveVariable "Password" "correct horse battery staple"
 ```
 
-```python3 Python3
+```python Python3
 set_octopusvariable("Password", "correct horse battery staple", True)
 ```
 

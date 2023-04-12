@@ -44,7 +44,7 @@ Selecting the **JSON output** option configures Terraform to generate JSON outpu
 
 This variable format can be used with Octostache loops:
 
-```Powershell
+```powershell
 #{each output in Octopus.Action[Plan Apply].Output.TerraformPlanLine}
 Write-Host 'JSON Output line #{output}: #{output.JSON}'
 #{/each}

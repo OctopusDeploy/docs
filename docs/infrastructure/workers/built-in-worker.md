@@ -24,7 +24,7 @@ When you first install Octopus Server the built-in worker is configured to run u
 
 You can configure the built-in worker to execute tasks as a different user account. This user account can be a down-level account with very restricted privileges.
 
-```plaintext
+```
 Octopus.Server.exe builtin-worker --username=OctopusWorker --password=XXXXXXXXXX
 ```
 
@@ -32,13 +32,13 @@ All tasks which execute using the built-in worker will run as that user account.
 
 This same command-line tool can automatically configure the correct user accounts on the local machine, and wire it all up for you.
 
-```plaintext
+```
 Octopus.Server.exe builtin-worker --auto-configure
 ```
 
 Which results in something like this:
 
-```plaintext
+```
 Creating a user account on the local machine called 'OctopusServer' and adding it to the 'BUILTIN\Administrators' group.
 Granting the 'SeServiceLogonRight' privilege to the 'MACHINE-123\OctopusServer' user account.
 Configuring the 'OctopusDeploy' Windows Service to start as the 'MACHINE-123\OctopusServer' user account.

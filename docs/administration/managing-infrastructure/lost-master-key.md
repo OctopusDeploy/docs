@@ -51,7 +51,7 @@ You will need to sign in to all the machines running Tentacle and run a command 
 
 Run this script on each machine running Tentacle:
 
-```plaintext
+```
 Tentacle.exe service --stop
 Tentacle.exe configure --reset-trust --trust="YOUR-NEW-OCTOPUS-SERVER-THUMBPRINT"
 Tentacle.exe service --start

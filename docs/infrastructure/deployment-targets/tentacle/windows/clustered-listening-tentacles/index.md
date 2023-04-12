@@ -36,7 +36,7 @@ On the first node, check that the shared drive is mounted and note down the driv
 
 Run through the Tentacle MSI Installer to install Tentacle Manager to its default location `C:\Program Files\Octopus Deploy\Tentacle`. Do not click "get started" in the Tentacle manager; instead install the Octopus Tentacle instance using the command prompt as an Administrator by opening `cmd` then run these commands (replacing relevant values as appropriate):
 
-```batchfile
+```batch
 cd "C:\Program Files\Octopus Deploy\Tentacle\"
 Tentacle.exe create-instance --instance "Tentacle" --config "C:\Octopus\Tentacle.config"
 Tentacle.exe configure --instance "Tentacle" --app "<SHARED STORAGE DRIVE LETTER>:\Octopus\Applications" --home "<SHARED STORAGE DRIVE LETTER>:\Octopus\Home" --port "10933" --noListen "False"
@@ -57,7 +57,7 @@ Now go to the second Tentacle server in the active/passive cluster and bring the
 ## Generate an Octopus Tentacle PFX file {#ClusteringTentacles-Newpfx}
 
 Open `cmd` as Administrator again and run these commands to generate a new Private Key from an Octopus Deploy Tentacle (replacing relevant values as appropriate).
-```batchfile
+```batch
 cd "C:\Program Files\Octopus Deploy\Tentacle\"
 Tentacle.exe new-certificate --export-pfx="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="Yourpfxpassword"
 ```
@@ -65,7 +65,7 @@ Tentacle.exe new-certificate --export-pfx="<SHARED STORAGE DRIVE LETTER>:\Tentac
 ## Import the new Octopus Tentacle PFX file {#ClusteringTentacles-Importpfx}
 
 Now import the new pfx file into the server from which it was just generated.
-```batchfile
+```batch
 Tentacle.exe import-certificate --instance="Tentacle" --from-file="<SHARED STORAGE DRIVE LETTER>:\TentacleClusterPrivateKey.pfx" --pfx-password="Yourpfxpassword"
 Tentacle.exe service --instance="Tentacle" --stop --start
 ```

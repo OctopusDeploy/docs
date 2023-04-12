@@ -36,7 +36,7 @@ All other license types, such as Standard, Enterprise, Team, and Professional, a
 
 The node limit is included in the license key in the NodeLimit node.
 
-```XML
+```xml
 <NodeLimit>Unlimited</NodeLimit>
 ```
 

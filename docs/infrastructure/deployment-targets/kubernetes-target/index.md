@@ -111,7 +111,7 @@ users:
 
       The certificate and private key can be combined and saved in a single pfx file. The script below accepts the base 64 encoded certificate and private key and uses the [Windows OpenSSL binary from Shining Light Productions](https://oc.to/OpenSSLWindows) to save them in a single pfx file.
 
-      ```Powershell
+      ```powershell
       param (
         [Parameter(Mandatory = $true)]
         [string]$Certificate,

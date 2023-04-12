@@ -44,7 +44,7 @@ Octopus.Server.exe export-certificate --instance OctopusServer --export-pfx="C:\
 
 This will display output similar to the following:
 
-```plaintext
+```
 Checking the Octopus Master Key has been configured.
 ...
 Exporting certificate...
@@ -68,7 +68,7 @@ Octopus.Server.exe new-certificate --instance OctopusServer --export-pfx="C:\Pat
 
 This will display output similar to the following:
 
-```plaintext
+```
 Checking the Octopus Master Key has been configured.
 ...
 Generating certificate...
@@ -93,7 +93,7 @@ Tentacle.exe configure --trust="1234567890123456789012345678901234567890"
 ```
 
 This will display output similar to the following:
-```plaintext
+```
 Adding 1 trusted Octopus Servers
 These changes require a restart of the Tentacle.
 ```
@@ -119,7 +119,7 @@ Octopus.Server.exe service --instance OctopusServer --restart
 
 This will display something like the following:
 
-```plaintext
+```
 Importing the certificate stored in PFX file in C:\PathToCertificate\newcert.pfx using the provided password...
 Checking the Octopus Master Key has been configured.
 ...
