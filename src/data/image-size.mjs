@@ -1,5 +1,5 @@
 export const size = {
-    small: 400,
-    medium: 700,
-    large: 1000
+    small: 600,
+    medium: 1000,
+    large: 2000,
 };
