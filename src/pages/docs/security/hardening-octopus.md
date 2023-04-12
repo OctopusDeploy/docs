@@ -16,7 +16,7 @@ Have you heard about [Octopus Cloud](https://octopus.com/cloud)? We take care of
 
 Octopus Deploy is a complex system with many security features baked in and tuned by default. Take some time to understand what we've built in to the product, and what you are ultimately taking responsibility for when self-hosting Octopus Deploy.
 
-Learn about [security in Octopus Deploy](index.md).
+Learn about [security in Octopus Deploy]().
 
 Reading this guide carefully before you begin will help you prepare all the secure networking and server infrastructure you need for your Octopus installation. If you need any help along the way, don't hesitate to [get in touch](https://octopus.com/support)!
 
@@ -26,7 +26,7 @@ Depending on your scenario you may want to relax or ignore these recommendations
 
 If you consider networking, the host operating system, Microsoft SQL Server, and Octopus Server: it is very likely Octopus Server is the new kid on the block. You should consider downloading a free trial of Octopus Server and setting it up on your local machine so you are familiar with how it works. This will eliminate some potential surprises as you progress through the security hardening.
 
-Learn about [getting started with Octopus Deploy](/docs/getting-started/index.md).
+Learn about [getting started with Octopus Deploy](/docs/getting-started/).
 
 ### Choose your order for hardening
 
@@ -54,19 +54,19 @@ For Octopus Server to be useful you need to expose its HTTP API to your users, a
 
 ### Configure your Workers {#configuring-workers}
 
-Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/infrastructure/workers/index.md).
+Workers offer a convenient way to run scripts and certain deployment steps. Learn about [workers](/docs/infrastructure/workers/).
 
 We highly recommend configuring external workers running on a different host to your Octopus Server. This is the easiest and more secure approach to prevent user-provided scripts from doing harm to your Octopus Server.
 
 Learn about the [built-in worker](/docs/infrastructure/workers/built-in-worker.md).
 
-Learn about [external workers](/docs/infrastructure/workers/index.md).
+Learn about [external workers](/docs/infrastructure/workers/).
 
 ### Configure how Octopus Server communicates with deployment targets
 
 Octopus Server always uses a secure and tamper-proof communications transport for communicating with deployment targets:
 
-- Learn about [Octopus Server to Tentacle communication](/docs/security/octopus-tentacle-communication/index.md).
+- Learn about [Octopus Server to Tentacle communication](/docs/security/octopus-tentacle-communication/).
 - Learn about [Octopus Server to SSH communication](/docs/infrastructure/deployment-targets/linux/ssh-target.md).
 
 The decisions you need to make are:
@@ -76,7 +76,7 @@ The decisions you need to make are:
 
 ## Harden your host operating system
 
-These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/infrastructure/workers/index.md).
+These steps apply to the host operating system for your Octopus Server. You may want to consider similar hardening for your [deployment targets](/docs/infrastructure/index.md) and any [workers](/docs/infrastructure/workers/).
 
 1. Rename local administrator account.
 1. Configure malware protection.
@@ -220,7 +220,7 @@ Once you have performed changes to the available versions of TLS, you should ver
 These steps only apply if you are running either the built-in worker or an external worker on the same host operating system as the Octopus Server itself. You should prevent custom scripts executed by these workers from doing harm to your Octopus Server.
 
 :::hint
-Consider using an [external worker](/docs/infrastructure/workers/index.md) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
+Consider using an [external worker](/docs/infrastructure/workers/) and moving this workload to a different server. This is the very best way to prevent any potential for harm to your Octopus Server, and you won't need to rely on the rest of these steps to prevent harm to your Octopus Server.
 :::
 
 #### Run as a different user
@@ -337,7 +337,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 ## Harden your containers
 
-If you run an [Octopus Deploy container](/docs/installation/octopus-server-linux-container/index.md), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
+If you run an [Octopus Deploy container](/docs/installation/octopus-server-linux-container/), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
 
 - Move your docker data directory (the default location is `/var/lib/docker`) so that your containers are stored on a separate partition. 
 - Assign resources carefully:

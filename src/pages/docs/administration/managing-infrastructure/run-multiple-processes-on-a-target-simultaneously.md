@@ -6,7 +6,7 @@ description: How to run multiple processes on a deployment target simultaneously
 navOrder: 70
 ---
 
-By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets/index.md) at a time, queuing the rest. There may be reasons that you need to run multiple, and that's okay we have a setting for that!
+By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets/) at a time, queuing the rest. There may be reasons that you need to run multiple, and that's okay we have a setting for that!
 
 ![](images/bypass-deployment-mutex.png "width=500")
 

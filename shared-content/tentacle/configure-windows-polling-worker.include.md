@@ -11,6 +11,6 @@
     :::
 1. Click **Verify credentials**, and then next.
 1. On the machine type screen, select **Worker** and click **Next**.
-1. Choose the [Space](/docs/administration/spaces/index.md) the Worker will be registered in.
+1. Choose the [Space](/docs/administration/spaces/) the Worker will be registered in.
 1. Give the machine a meaningful name and select which [worker pool](/docs/infrastructure/workers/worker-pools.md) the Worker will be assigned to and click **Next**.
 1. Click **Install**, and when the script has finished, click **Finish**.

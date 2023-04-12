@@ -58,7 +58,7 @@ The root of the export/import is a project (or multiple projects).  The simple r
 - [Accounts](#accounts) and [certificates](#certificates) used by the project
 - [Library variable sets](#library-variable-sets) included in the project 
 - [Step templates](#step-templates) used in the deployment process or runbooks
-- Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/index.md)
+- Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step/)
 
 It is worth explicitly mentioning some things that are **not included**:
 
@@ -88,7 +88,7 @@ If your projects use the [default lifecycle](/docs/releases/lifecycles/index.md#
 
 ### Deployment targets #{deployment-targets}
 
-[Deployment targets](/docs/infrastructure/deployment-targets/index.md) are not included in the export. They will need to be recreated in the target space.  For Tentacle deployment targets (both Windows and Linux), there are specific considerations:
+[Deployment targets](/docs/infrastructure/deployment-targets/) are not included in the export. They will need to be recreated in the target space.  For Tentacle deployment targets (both Windows and Linux), there are specific considerations:
 
 **Listening Tentacles** must be configured to trust the certificate of the Octopus Server. If you are importing your project into a different Octopus instance, for the new instance to be able to communicate with existing listening Tentacles, the following must be true:
 
@@ -113,7 +113,7 @@ Any teams which are referenced by projects (for example via manual intervention 
 
 ### Workers #{workers}
 
-[Workers](/docs/infrastructure/workers/index.md) are not included in the export. [Worker pools](/docs/infrastructure/workers/worker-pools.md) referenced by any steps (or variables) will attempt to match by name on the target, and if a matching pool does not exist then an empty pool will be created. 
+[Workers](/docs/infrastructure/workers/) are not included in the export. [Worker pools](/docs/infrastructure/workers/worker-pools.md) referenced by any steps (or variables) will attempt to match by name on the target, and if a matching pool does not exist then an empty pool will be created. 
 
 If moving from a self-hosted to an Octopus Cloud instance, any steps which are configured to `Run on Server` will be converted to run on the default worker pool on import (`Run on server` is not supported on Octopus Cloud). 
 
@@ -121,11 +121,11 @@ If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Wor
 
 ### Audit logs #{audit-logs}
 
-[Audit events](/docs/security/users-and-teams/auditing/index.md) are not exported.
+[Audit events](/docs/security/users-and-teams/auditing/) are not exported.
 
 ### Tenants
 
-All [tenants](/docs/tenants/index.md) connected to the project will be included in the export.
+All [tenants](/docs/tenants/) connected to the project will be included in the export.
 
 On import, for any tenants which already exist on the destination the project/environment connections in the export will be merged into the existing tenant. 
 
@@ -185,7 +185,7 @@ When moving a project from a self-hosted Octopus Server instance to an Octopus C
 Automating the export and import of projects using the REST API as part of a backup/restore process is **not recommended**. See our [supported scenarios](#scenarios).
 :::
 
-You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) to export or import Octopus projects.
+You can use the [Octopus REST API](/docs/octopus-rest-api/) to export or import Octopus projects.
 
 To find out more take a look at our examples:
 - [Export projects](/docs/octopus-rest-api/examples/projects/export-projects.md)

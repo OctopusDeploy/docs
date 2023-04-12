@@ -8,7 +8,7 @@ navOrder: 30
 
 Octopus periodically runs health checks on deployment targets and workers to ensure that they are available and running the latest version of Calamari as part of a [machine policy](/docs/infrastructure/deployment-targets/machine-policies.md).
 
-However, often it can be useful to check the health of deployment targets when executing a runbook or deployment, particularly with [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) and [transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets.md).
+However, often it can be useful to check the health of deployment targets when executing a runbook or deployment, particularly with [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) and [transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets.md).
 
 This can be achieved using the _Health Check_ step.
 
@@ -22,7 +22,7 @@ Similarly, it allows you to confirm that the Tentacle service on a deployment ta
 
 Health check steps are added to deployment and runbook processes in the same way as other steps:
 
-1. Add a new `Health Check` step to your [project's deployment process](/docs/projects/steps/index.md).
+1. Add a new `Health Check` step to your [project's deployment process](/docs/projects/steps/).
 
     ![Health check step](images/health-check-step-select.png "width=170")
 2. In the **On Behalf Of** section, select the [target roles](docs/infrastructure/deployment-targets/index.md#target-roles) that match the deployment targets you want to run a health check against. 
@@ -46,6 +46,6 @@ The number of concurrent health checks will be double the Octopus Server's logic
 
 ## Health check for workers
 
-Whilst the built-in Health check step works for deployment targets, it was not designed for [Workers](/docs/infrastructure/workers/index.md).
+Whilst the built-in Health check step works for deployment targets, it was not designed for [Workers](/docs/infrastructure/workers/).
 
 To check the health of a worker in a deployment or runbook, there is a [Worker - Health check](https://library.octopus.com/step-templates/c6c23c7b-876d-4758-a908-511f066156d7/actiontemplate-worker-health-check) community step template.

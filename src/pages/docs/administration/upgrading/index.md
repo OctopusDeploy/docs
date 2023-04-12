@@ -18,7 +18,7 @@ This guide provides various upgrade scenarios with the goal of mitigating risk.
 Octopus Deploy connects to a SQL Server database, and can be hosted:
 
 - As a Windows Service, installed via an MSI.
-- In a [Linux](docs/installation/octopus-server-linux-container/index.md) container.
+- In a [Linux](docs/installation/octopus-server-linux-container/) container.
 
 ### Upgrade Process
 
@@ -93,7 +93,7 @@ Please pick from one of these upgrade scenarios.  Any version 3.x or higher is c
 - [Upgrading from Octopus 3.x to latest version](/docs/administration/upgrading/guide/upgrading-from-octopus-3.x-to-modern.md)
 - [Upgrading host OS or .NET version](/docs/administration/upgrading/guide/upgrade-host-os-or-net.md)
 - Legacy Upgrades
-  - [Upgrade from 2.6.5 to 2018.10.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md)
+  - [Upgrade from 2.6.5 to 2018.10.x](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/)
   - [Upgrade from 2.x to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.x-2.6.5.md)
   - [Upgrade from 1.6 to 2.6.5](/docs/administration/upgrading/legacy/upgrading-from-octopus-1.6-2.6.5.md)
 

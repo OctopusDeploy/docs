@@ -12,7 +12,7 @@ Normally, when executing a deployment process with multiple steps, Octopus runs 
 
 ![](images/normal-deployment.png "width=500")
 
-NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts/index.md), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
+NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts/), however, target roles, which may contain multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
 
 - Deployment steps are run in sequence
 - The actions performed by each step are performed in parallel on all deployment targets
@@ -76,7 +76,7 @@ With this configuration, we run the entire website deployment step - taking the 
 
 ### Child step variable run conditions {#Rollingdeployments-childstepvariablerunconditions}
 
-It’s possible to add variable [run conditions](/docs/projects/steps/conditions/index.md) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/index.md#variable-expressions) and [machine-level](/docs/projects/steps/conditions/index.md#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
+It’s possible to add variable [run conditions](/docs/projects/steps/conditions/) to child steps in a rolling deployment. Both [variable expressions](/docs/projects/steps/conditions/index.md#variable-expressions) and [machine-level](/docs/projects/steps/conditions/index.md#machine-level-variable-expressions) variable expressions are supported. This allows you to customize the deployment process for machines taking part in a rolling deployment based on your specific needs.
 
 For example, if you are deploying a web service update to a web farm in a rolling deployment, you could sanity test the service in a step called `Sanity Test Web Service`. This step would run after the update step and set the service status in an output variable:
 

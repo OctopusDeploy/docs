@@ -22,7 +22,7 @@ The next step will [define a simple runbook process](/docs/getting-started/first
 
 For further reading on Runbooks please see:
 
-- [Runbook Documentation](/docs/runbooks/index.md)
-- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+- [Runbook Documentation](/docs/runbooks/)
+- [Runbook Examples](/docs/runbooks/runbook-examples/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-runbook-run/create-runbook-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/define-the-runbook-process">Next</a></span>

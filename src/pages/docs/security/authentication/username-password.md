@@ -7,7 +7,7 @@ navOrder: 2
 ---
 
 :::hint
-Username and Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/index.md), authentication using this provider is supported through [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
+Username and Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/), authentication using this provider is supported through [Octopus ID](octopusid-authentication.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
 :::
 
 Octopus provides a Username and Password authentication provider allowing you to create user accounts in Octopus manually without requirement for an external authentication provider.
@@ -41,6 +41,6 @@ When a new Octopus user is created, they are automatically added to the **Everyo
 
 ![Managing users](images/username-password-managing-users.png "width=500")
 
-With any Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams/index.md) to give them permissions to view projects or environments, or any additional permissions they may need:
+With any Octopus user, you can [assign user accounts to different teams](/docs/security/users-and-teams/) to give them permissions to view projects or environments, or any additional permissions they may need:
 
 ![User permissions](images/username-password-user-permissions.png "width=500")

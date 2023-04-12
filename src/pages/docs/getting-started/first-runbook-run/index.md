@@ -31,7 +31,7 @@ When you have an instance running, go to the [configure runbook environments pag
 
 This tutorial will run a sample script, first on the default worker or your server; then, it will move onto running that script on your servers.  If you prefer to skip that and start configuring Octopus Deploy runbooks to meet your requirements, please see:
 
-- [Runbook Documentation](/docs/runbooks/index.md) 
-- [Runbook Examples](/docs/runbooks/runbook-examples/index.md)
+- [Runbook Documentation](/docs/runbooks/) 
+- [Runbook Examples](/docs/runbooks/runbook-examples/)
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-runbook-run/configure-runbook-environments">Get Started</a></span>

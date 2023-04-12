@@ -7,4 +7,4 @@ navOrder: 30
 hideInThisSectionHeader: true
 ---
 
-You can use the REST API to create and manage your [certificates](/docs/deployments/certificates/index.md) in Octopus. Typical tasks can include:
+You can use the REST API to create and manage your [certificates](/docs/deployments/certificates/) in Octopus. Typical tasks can include:

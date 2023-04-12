@@ -6,7 +6,7 @@ description: Using the Octopus CLI to run a runbook.
 navOrder: 287
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to run runbooks that have already been created.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to run runbooks that have already been created.
 
 ```
 Runs a Runbook.
@@ -179,7 +179,7 @@ You can run a runbook on ALL tenants in an environment by using the `--tenant=*`
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
-- [Runbooks](/docs/runbooks/index.md)
-- [Octopus REST API](/docs/octopus-rest-api/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
+- [Runbooks](/docs/runbooks/)
+- [Octopus REST API](/docs/octopus-rest-api/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

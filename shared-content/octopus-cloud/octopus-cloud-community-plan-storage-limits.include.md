@@ -1,4 +1,4 @@
 - Maximum File Storage for artifacts, task logs, packages and package cache is limited to `20 GB`.
 - Maximum Database Size for configuration data (e.g. projects, deployment processes and inline scripts) is limited to `5 GB`.
 - Maximum size for any single package is `5 GB`.
-- [Retention policies](/docs/administration/retention-policies/index.md) can be configured up to a **maximum** of `30 Days`.
+- [Retention policies](/docs/administration/retention-policies/) can be configured up to a **maximum** of `30 Days`.

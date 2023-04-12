@@ -1,9 +1,0 @@
----
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-title: Project recommendations
-description: Projects form a critical element in Octopus Deploy.  Here, we cover some recommendations for projects; getting started on the right foot is vital in helping your Octopus Deploy instance scale.
-navOrder: 10
----
-
-!include <project-recommendations>

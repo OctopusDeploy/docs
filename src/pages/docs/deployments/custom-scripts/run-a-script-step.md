@@ -6,15 +6,15 @@ description: Standalone scripts allow you to run scripts contained in a package
 navOrder: 10
 ---
 
-Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/index.md#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps/index.md).
+Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/index.md) or across the deployment targets in [roles](/docs/infrastructure/deployment-targets/index.md#target-roles). You can run scripts contained in a [package](/docs/deployments/packages/index.md), or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps/).
 
-You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/index.md), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables.md), and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
+You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables.md), and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
 ## Choosing where the script will run {#Standalonescripts-Choosingwherethescriptwillrun}
 
 When adding a script you choose where the script will run, and in which context the script will run.
 
-The options will vary based on the infrastructure that's available to you. For instance, if you do not have any [workers](/docs/infrastructure/workers/index.md) configured you will see the following options:
+The options will vary based on the infrastructure that's available to you. For instance, if you do not have any [workers](/docs/infrastructure/workers/) configured you will see the following options:
 
  - Run on the Octopus Server
  - Run on the Octopus Server on behalf of each deployment target

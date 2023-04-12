@@ -10,7 +10,7 @@ navOrder: 70
 
 !include <create-release>
 
-You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [build server documentation](/docs/packaging-applications/build-servers/index.md).
+You can fully automate your build and deployment pipeline, so that the releases are generally created automatically.  For more information on this topic, see our [build server documentation](/docs/packaging-applications/build-servers/).
 
 ## Releases
 
@@ -18,7 +18,7 @@ By navigating to the project's overview page and selecting **Releases**, you can
 
 ## Deploy your releases
 
-After creating the release, if the [lifecycle](/docs/releases/lifecycles/index.md) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
+After creating the release, if the [lifecycle](/docs/releases/lifecycles/) associated with the project is configured to deploy automatically to its first environment, the release will start to be deployed as soon as the release is created.
 
 If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
@@ -36,7 +36,7 @@ Deployments scheduled for the future can be viewed under the Project Overview pa
 
 ### Schedule deployments with the Octopus CLI
 
-For everyone using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), you can use the following option:
+For everyone using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/), you can use the following option:
 
 ```powershell
 octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=http://octopus/api --apiKey=ABCDEF123456

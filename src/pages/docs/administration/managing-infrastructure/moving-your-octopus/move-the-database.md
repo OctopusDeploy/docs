@@ -26,7 +26,7 @@ Octopus.Server.exe database --connectionString="VALUE"
 
 ## Step-by-step process for Octopus HA {#Movethedatabase-StepByStepOctopusHA}
 
-When you are using [Octopus High Availability](/docs/administration/high-availability/index.md) clusters, you should generally follow the same instructions as above, but repeat certain steps for each node.
+When you are using [Octopus High Availability](/docs/administration/high-availability/) clusters, you should generally follow the same instructions as above, but repeat certain steps for each node.
 
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode.md)
 2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes.md) option for each Octopus Server node in {{ Configuration,Nodes }}

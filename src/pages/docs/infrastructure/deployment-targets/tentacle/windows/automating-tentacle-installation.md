@@ -102,7 +102,7 @@ $repository.machines.create($tentacle)
 ```
 
 :::hint
-Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/index.md) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api/index.md).
+Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/index.md) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api/).
 :::
 
 ## Example: Polling Tentacle {#AutomatingTentacleinstallation-Example:PollingTentacle}
@@ -125,7 +125,7 @@ Tentacle.exe service --instance "Tentacle" --install --start --console
 :::hint
 **Tips:**
 - If you are running this from a PowerShell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
-- Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/index.md) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api/index.md).
+- Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/index.md) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api/).
 :::
 
 ## Obtaining the Tentacle thumbprint {#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}

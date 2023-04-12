@@ -7,7 +7,7 @@ description: Transfer Package step allows you to simply transfer a package to yo
 
 ## Transferring a package to your target without extraction {#TransferPackage-Transferringapackagetoyourtargetwithoutextraction}
 
-If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/index.md) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps/index.md) section.
+If you just want to transfer a package to your remote target without extracting or processing its contents like the standard [Deploy a package](/docs/deployments/packages/index.md) step, then you will want to use the Transfer a package step. When adding this step to your deployment process, choose the **Transfer a Package** option. For more information, see the [add step](/docs/projects/steps/) section.
 
 ![](images/5866194.png "width=500")
 

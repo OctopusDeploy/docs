@@ -191,7 +191,7 @@ A task node is a node where the task cap is greater than 0.  By default, all nod
 
 While High Availability was designed to add nodes quickly, it was not designed to delete nodes quickly.  The assumption was made when a node went offline; it was for a server restart.  It was not designed to handle scale-in events from an auto-scaling technology automatically.
 
-Auto-scaling technologies don't let you run scripts directly on virtual machines as they are being deleted.  They will typically publish a message you can process.  Because of that, you'll need to leverage the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md) to do the following:
+Auto-scaling technologies don't let you run scripts directly on virtual machines as they are being deleted.  They will typically publish a message you can process.  Because of that, you'll need to leverage the [Octopus Deploy REST API](/docs/octopus-rest-api/) to do the following:
 
 - Enable drain mode on the node.  While that is enabled, it will prevent the node from picking up new tasks and will attempt to finish in-process tasks.
 - Wait until either the node is marked offline or all tasks have finished processing.

@@ -6,7 +6,7 @@ description: Information on how to manually upgrade to Octopus 2018.10 LTS from 
 navOrder: 1
 ---
 
-You can upgrade from **Octopus 2.6.5** to **Octopus 2018.10 LTS** by downloading the latest [MSI's for both Octopus and Tentacle](https://octopus.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/index.md).
+You can upgrade from **Octopus 2.6.5** to **Octopus 2018.10 LTS** by downloading the latest [MSI's for both Octopus and Tentacle](https://octopus.com/download), and installing them manually. If you're working with a large number of Tentacles, see the section on [upgrading larger installations](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/).
 
 ## Summary {#Manualupgrade-Summary}
 
@@ -32,7 +32,7 @@ See the [Backup and restore](/docs/administration/upgrading/legacy/upgrading-fr
 When upgrading to **Octopus 2018.10 LTS** please use the latest version available. We have been constantly improving the **Octopus 2.6.5** to **Octopus 2018.10 LTS** data migration process whilst adding new features and fixing bugs.
 :::
 
-See the [Installing Octopus 2018.10 LTS](/docs/installation/index.md) page for instructions on installing a new **Octopus 2018.10 LTS** instance.
+See the [Installing Octopus 2018.10 LTS](/docs/installation/) page for instructions on installing a new **Octopus 2018.10 LTS** instance.
 
 After installing the MSI, you will be presented with an upgrade page.
 
@@ -63,7 +63,7 @@ To see the command syntax click the **Show script** link in the wizard
 
 :::hint
 **Using the built-in Octopus NuGet repository?**
-If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your **Octopus 2.6.5** server to your **Octopus 2018.10 LTS** server. They are not part of the backup.
+If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/) you will need to move the files from your **Octopus 2.6.5** server to your **Octopus 2018.10 LTS** server. They are not part of the backup.
 In a standard **Octopus 2.6.5** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
 You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to {{Library>Packages>Package Indexing}} and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::

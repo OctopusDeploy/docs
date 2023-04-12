@@ -119,7 +119,7 @@ In addition to any outputs defined in your CloudFormation template, we also prov
 
 ### Change sets and CloudFormation transforms
 
-In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](/docs/projects/steps/configuration-features/index.md) the change set feature on your `Deploy an AWS CloudFormation template` step.
+In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](/docs/projects/steps/configuration-features/) the change set feature on your `Deploy an AWS CloudFormation template` step.
 
 ![Change Set Feature](images/aws-changeset-feature.png "width=500")
 
@@ -175,7 +175,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStackEvents on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0003
 
@@ -195,7 +195,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0004
 The AWS account used to perform the operation does not have the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
@@ -205,7 +205,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0005
 An unrecognized exception was thrown while querying the CloudFormation stacks. This is a catch-all exception.
@@ -221,7 +221,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:CreateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0008
 An unrecognized exception was thrown while creating a CloudFormation stack.
@@ -238,7 +238,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DeleteStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0010
 An unrecognized exception was thrown while deleting a CloudFormation stack.
@@ -251,7 +251,7 @@ The error message will include the error from AWS, which looks like this:
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:UpdateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0012
 An unrecognized exception was thrown while updating a CloudFormation stack.
@@ -274,7 +274,7 @@ An incorrect AWS region can result in this error. Ensure that the region matches
 
 The AWS account used to perform the operation does not have the required permissions to describe the Change Set.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0016
 
@@ -284,7 +284,7 @@ An unrecognized exception was thrown while describing the CloudFormation change 
 
 The AWS account used to perform the operation does not have the required permissions to create the Change Set.
 
-To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/index.md) contains an overview of the permissions required by the AWS steps.
+To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions/) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0018
 

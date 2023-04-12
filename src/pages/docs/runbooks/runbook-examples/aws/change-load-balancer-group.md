@@ -6,7 +6,7 @@ description: Modify an existing AWS Elastic load-balancer listener to forward tr
 navOrder: 20
 ---
 
-AWS [Elastic Load Balancing (ELB)](https://aws.amazon.com/elasticloadbalancing/) offers the ability to load balance traffic across AWS and on-premises resources using the same load balancer.  Using a runbook, Octopus makes it easy to provide an automated method for modifying an AWS Elastic load balancer. This is particularly useful if you are deploying using the [blue-green](/docs/deployments/patterns/blue-green-deployments/index.md) deployment pattern, as you can change the load balancer automatically to direct traffic to a different set of servers when you switch to your new active environment.
+AWS [Elastic Load Balancing (ELB)](https://aws.amazon.com/elasticloadbalancing/) offers the ability to load balance traffic across AWS and on-premises resources using the same load balancer.  Using a runbook, Octopus makes it easy to provide an automated method for modifying an AWS Elastic load balancer. This is particularly useful if you are deploying using the [blue-green](/docs/deployments/patterns/blue-green-deployments/) deployment pattern, as you can change the load balancer automatically to direct traffic to a different set of servers when you switch to your new active environment.
 
 In this example, we'll swap out servers that are being used in an AWS Elastic load-balancer by modifying the configured listener to forward traffic to a new target group.
 

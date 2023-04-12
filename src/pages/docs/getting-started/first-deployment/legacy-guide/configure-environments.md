@@ -15,8 +15,8 @@ The next step will [create a project](/docs/getting-started/first-deployment/leg
 
 For further reading on environments in Octopus Deploy please see:
 
-- [Environments](/docs/infrastructure/environments/index.md)
-- [Deployment Documentation](/docs/deployments/index.md)
-- [Patterns and Practices](/docs/deployments/patterns/index.md)
+- [Environments](/docs/infrastructure/environments/)
+- [Deployment Documentation](/docs/deployments/)
+- [Patterns and Practices](/docs/deployments/patterns/)
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-deployment/create-projects">Next</a></span>

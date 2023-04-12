@@ -6,7 +6,7 @@ description: Allows a release to progress to next phase
 navOrder: 5
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to allow a release to progress to next phase.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to allow a release to progress to next phase.
 
 ```
 Allows a release to progress to the next phase.
@@ -86,5 +86,5 @@ octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

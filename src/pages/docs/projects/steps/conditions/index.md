@@ -6,7 +6,7 @@ description: Adding conditions to steps to define your project's deployment proc
 navOrder: 20
 ---
 
-For each [step](/docs/projects/steps/index.md) that you define in your [deployment processes](/docs/projects/deployment-process/index.md), you can set conditions for greater control over the step's execution. You can set conditions to:
+For each [step](/docs/projects/steps/index.md) that you define in your [deployment processes](/docs/projects/deployment-process/), you can set conditions for greater control over the step's execution. You can set conditions to:
 
 - Run the step on specific environments or skip specific environments.
 - Specify which channels the step should run on.
@@ -17,13 +17,13 @@ For each [step](/docs/projects/steps/index.md) that you define in your [deployme
 
 ![Conditions](images/conditions.png "width=500")
 
-Some of these options will only appear if they're available. For instance, the [channels](/docs/releases/channels/index.md) option is only visible if you have created one or more channels.
+Some of these options will only appear if they're available. For instance, the [channels](/docs/releases/channels/) option is only visible if you have created one or more channels.
 
 ## Environments
 
-You can choose which [environments](/docs/infrastructure/environments/index.md) steps apply to:
+You can choose which [environments](/docs/infrastructure/environments/) steps apply to:
 
-- Run for all applicable [lifecycle](/docs/releases/lifecycles/index.md) environments (default).
+- Run for all applicable [lifecycle](/docs/releases/lifecycles/) environments (default).
 - Run only for specific environments.
 - Skip specific environments.
 
@@ -31,7 +31,7 @@ By default, steps will run on all environments specified in the lifecycle for th
 
 ## Channels
 
-If you have created one or more [channels](/docs/releases/channels/index.md), you can specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).
+If you have created one or more [channels](/docs/releases/channels/), you can specify whether a step runs only when deploying a release through specific channels (e.g., a Script step that only runs for deployments through certain channels to configure extra telemetry).
 
 ## Run condition
 

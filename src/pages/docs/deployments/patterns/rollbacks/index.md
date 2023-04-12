@@ -11,7 +11,7 @@ Being able to roll back to a known good state of code is often just as important
 
 ## Built-In Rollback Support
 
-Octopus Deploy supports rollbacks out of the box.  It always keeps the two most successful releases in any given environment, making it easy to roll back to the previous version.  In addition, you can configure [retention policies](/docs/administration/retention-policies/index.md) to keep more releases on your target machines.
+Octopus Deploy supports rollbacks out of the box.  It always keeps the two most successful releases in any given environment, making it easy to roll back to the previous version.  In addition, you can configure [retention policies](/docs/administration/retention-policies/) to keep more releases on your target machines.
 
 For example, Imagine you just deployed `1.1.21` to your **QA** servers.  For whatever reason, that version does not work.  You can re-deploy the previous version, `1.1.20`, to **QA** by going to that release and clicking on the **REDEPLOY** button.  That scenario is supported by default; you won't have to configure anything else.
 

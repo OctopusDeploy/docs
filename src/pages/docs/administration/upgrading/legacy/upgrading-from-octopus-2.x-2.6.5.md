@@ -7,7 +7,7 @@ navOrder: 3
 ---
 
 :::success
-Please read our guide for [upgrading older versions of Octopus](index.md) before continuing.
+Please read our guide for [upgrading older versions of Octopus]() before continuing.
 :::
 
 Upgrading **Octopus 2.0** involves two major steps.

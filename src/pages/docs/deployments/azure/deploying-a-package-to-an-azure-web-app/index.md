@@ -23,25 +23,25 @@ The default values for these variables were chosen to match Visual Studio follow
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureWebApp-Step1:Packaging}
 
-See the [packaging application docs](/docs/packaging-applications/index.md)
+See the [packaging application docs](/docs/packaging-applications/)
 
 ## Step 2: Create an Azure account {#DeployingapackagetoanAzureWebApp-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Account](/docs/infrastructure/accounts/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Account](/docs/infrastructure/accounts/azure/) to grant Octopus Deploy access to your Azure Subscription.
 
-If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md)
+If instead you want to **dynamically** create you account during your deployment, check our [documentation on how to do so](/docs/infrastructure/deployment-targets/dynamic-infrastructure/)
 
 ## Step 3: Configure your Azure web app step {#DeployingapackagetoanAzureWebApp-Step4:ConfigureyourAzureWebAppstep}
 
-1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps/index.md).
+1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps/).
 
 ![](5865899.png "width=170")
 
 2. On the **Execution Location** section, select the Roles that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
-- Manually before running your deployment. [See documentation](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md).
+- Manually before running your deployment. [See documentation](/docs/infrastructure/deployment-targets/azure/web-app-targets/).
 
-- Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md)
+- Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/)
 
 3. On the **Package** section, select your **Package Feed** and **Package ID**.
 
@@ -67,9 +67,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 The following features are available when deploying a package to an Azure Web App.
 
-- [Custom scripts](/docs/deployments/custom-scripts/index.md)
+- [Custom scripts](/docs/deployments/custom-scripts/)
 - [Configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
 - [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
@@ -77,11 +77,11 @@ Please note these features actually run on the Octopus Server prior to executing
 
 #### Using custom scripts
 
-[Custom scripts](/docs/deployments/custom-scripts/index.md) typically rely on specific tools being available when they execute.
+[Custom scripts](/docs/deployments/custom-scripts/) typically rely on specific tools being available when they execute.
 
 It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
 
-The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/index.md) for your step.
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/) for your step.
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
@@ -102,17 +102,17 @@ You can write very straightforward scripts like the example below which is from 
 Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```
 
-See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information.
+See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/) for more information.
 
 ### What happens when the step is executed? {#DeployingapackagetoanAzureWebApp-ExecutingTheStep}
 
 When the `Deploy an Azure Web App` step gets executed, the below actions will happen (in order):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/).
 2. Extract the package on the Octopus Server to a temporary location.
 3. Any configured or packaged `PreDeploy` scripts are executed.
 4. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)(if configured).
-5. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+5. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/) (if configured) are performed.
 6. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 7. Any configured or packaged `Deploy` scripts are executed.
 8. Push your package content to the Web App in Azure.
@@ -125,7 +125,7 @@ When the `Deploy an Azure Web App` step gets executed, the below actions will ha
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments.md) across multiple geographic regions.
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/index.md) to create a strict release promotion process.
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/) to create a strict release promotion process.
 
 The example we've discussed here is the most common scenario for deploying Azure Web Apps: a single package that contains an ASP.NET Web Application and some Web Jobs in the same release cadence. It is possible to implement more complex deployment scenarios where the ASP.NET Web Application and each Web Job follow independent release cadences. In this case you would build multiple packages using the folder structure expected by the Azure Web App hosting framework discussed earlier. Once you've done that you can simply reuse the same Azure Web App Deployment Target to deploy each package when they are released.
 

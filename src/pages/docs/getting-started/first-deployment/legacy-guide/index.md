@@ -8,7 +8,7 @@ hideInThisSection: true
 ---
 
 :::hint
-For **Octopus 2022.3** or newer, please refer to the updated [First deployment guide](/docs/getting-started/first-deployment/index.md).
+For **Octopus 2022.3** or newer, please refer to the updated [First deployment guide](/docs/getting-started/first-deployment/).
 :::
 
 This tutorial will help you complete your first deployment in Octopus Deploy.  It will walk through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.  The only prerequisite is a running Octopus Deploy instance, either in Octopus Cloud or self-hosted.  The tutorial assumes you have a brand new instance running and will walk through the rest of the setup, including configuring deployment targets.
@@ -35,6 +35,6 @@ When you have an instance running, go to the [configure environments page](/docs
 This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away, please see:
 
 - [Customizable End-to-End CI/CD pipeline tutorial](https://octopus.com/docs/guides)
-- [Deployment Examples](/docs/deployments/index.md)
+- [Deployment Examples](/docs/deployments/)
 
 <span><a class="btn btn-success" href="/docs/getting-started/first-deployment/configure-environments">Get Started</a></span>

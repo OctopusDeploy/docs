@@ -15,4 +15,4 @@ Learn about [using Managed Service Accounts](https://technet.microsoft.com/en-us
 
 ## Learn more
 
-- [Octopus installation](/docs/installation/index.md)
+- [Octopus installation](/docs/installation/)

@@ -8,7 +8,7 @@ navOrder: 30
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1tXVA5pyuqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [Configuring High Availability for Octopus](/docs/administration/high-availability/configure/index.md), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
+You may already have an existing Octopus Server that you wish to make highly available. The process to migrate to Octopus High Availability is the same as the process detailed in [Configuring High Availability for Octopus](/docs/administration/high-availability/configure/), except your existing server will be the **first node** in the cluster.  Migrating to HA will involve:
 
 1. Moving the SQL Server Database to a dedicated SQL Server.
 1. Moving all the task logs, packages, artifacts, imports etc., to a shared storage folder (BLOB data).

@@ -6,15 +6,15 @@ description: Using the Octopus built-in repository.
 navOrder: 10
 ---
 
-Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies/index.md) support for cleaning up deployment packages.
+Your Octopus Server comes with a built-in repository which is the best choice for deployment packages. It offers **better performance** for your deployments and the most robust [retention policy](/docs/administration/retention-policies/) support for cleaning up deployment packages.
 
-The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories/index.md).
+The built-in feed can only be consumed by Octopus. Octopus Server provides a write-only repository; intended for hosting deployment packages only. Packages that are pushed to the Octopus Server can't be consumed by other NuGet clients like Visual Studio. If you need a NuGet feed for sharing libraries between your development projects, a separate NuGet repository is required. See [package repositories](/docs/packaging-applications/package-repositories/).
 
 ## Pushing packages to the built-in repository {#pushing-packages-to-the-built-in-repository}
 
 It is possible to manually upload a package file from your local machine via the Octopus Web Portal by navigating to **{{Library,Packages}}** and clicking the **Upload Package** button.
 
-However, we recommend using a [build server](/docs/packaging-applications/build-servers/index.md) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
+However, we recommend using a [build server](/docs/packaging-applications/build-servers/) to build, test, package and automatically push your release packages into the Octopus Deploy built-in repository.
 
 In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) with the required permissions  (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/index.md#security-considerations)).
 
@@ -44,7 +44,7 @@ $ octo push --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip
 
 ## Using the Octopus API (HTTP POST) {#UsingtheOctopusAPI(HTTPPOST)}
 
-You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/index.md) - `POST /api/packages/raw HTTP 1.1`.
+You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api/) - `POST /api/packages/raw HTTP 1.1`.
 
 - [C# example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/Feeds/PushPackage.cs)
 - [PowerShell example](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/PushPackage.ps1)

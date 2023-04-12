@@ -6,17 +6,17 @@ description: Deployment target triggers allow you to define unattended behavior 
 navOrder: 1
 ---
 
-Deployment target triggers (also known as auto-deploy) let you to define an unattended behavior for your [Projects](/docs/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/index.md). This means, you can configure new deployment targets to be just like their counterparts.
+Deployment target triggers (also known as auto-deploy) let you to define an unattended behavior for your [Projects](/docs/projects/index.md) that will cause an automatic deployment of a release into an [Environment](/docs/infrastructure/environments/). This means, you can configure new deployment targets to be just like their counterparts.
 
 Deployment target triggers can help you:
 
-- [Elastically scale a farm of servers](/docs/deployments/patterns/elastic-and-transient-environments/index.md).
+- [Elastically scale a farm of servers](/docs/deployments/patterns/elastic-and-transient-environments/).
 - [Automatically keep your deployment targets up to date](/docs/deployments/patterns/elastic-and-transient-environments/keeping-deployment-targets-up-to-date.md) without needing to perform manual deployments.
 - [Deploy to transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets.md) (targets that are disconnected from time to time).
 - [Implement immutable infrastructure environments](/docs/deployments/patterns/elastic-and-transient-environments/immutable-infrastructure.md) (sometimes called "Phoenix Environments").
 - Remove deployment targets that have gone offline. For instance, disable a machine in Octopus and have a deployment process that removes disabled machines from your load balancer.
 
-On the surface Deployments Target Triggers appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployments/patterns/elastic-and-transient-environments/index.md) guide before getting started with your own implementation.
+On the surface Deployments Target Triggers appear to be simple, however they can grow complex very quickly and we recommend reading our [Elastic and Transient Environments](/docs/deployments/patterns/elastic-and-transient-environments/) guide before getting started with your own implementation.
 
 ## Defining deployment target triggers
 
@@ -104,7 +104,7 @@ If you need to specify a specific release, either because the release hasn't bee
 
 ## Deployment target trigger subscription notifications
 
-If you want to be notified of automatic deployments events, like blockages or failures, you can configure [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) to notify you by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
+If you want to be notified of automatic deployments events, like blockages or failures, you can configure [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) to notify you by email or use web hooks to create your own notification channels. You can even use web hooks to code your own recovery behavior based on your specific situation.
 
 ## Troubleshooting deployment target triggers
 

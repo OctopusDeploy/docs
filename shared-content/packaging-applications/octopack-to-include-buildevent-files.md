@@ -34,7 +34,7 @@ Now my test folder and files, as well as my build files, are included in the pac
 
 ## Next
 
- - [Packaging applications](/docs/packaging-applications/index.md)
+ - [Packaging applications](/docs/packaging-applications/)
  - [Use the Octopus CLI to create packages](/docs/packaging-applications/create-packages/octopus-cli.md)
  - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack.md)
- - [Package deployments](/docs/deployments/packages/index.md)
+ - [Package deployments](/docs/deployments/packages/)

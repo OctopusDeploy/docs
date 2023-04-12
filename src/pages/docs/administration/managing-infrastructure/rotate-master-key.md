@@ -18,7 +18,7 @@ This guide assumes you still have access to your Master Key. You should be able 
 
 Octopus [encrypts important and sensitive data](/docs/security/data-encryption.md) using a Master Key. This includes:
 
-- The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/security/octopus-tentacle-communication/index.md) - your Tentacles will still trust your Octopus Server after the rotation.
+- The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/security/octopus-tentacle-communication/) - your Tentacles will still trust your Octopus Server after the rotation.
 - Sensitive variable values, wherever you have defined them.
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
 - Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop.md).

@@ -6,7 +6,7 @@ description: With Octopus Deploy you can restore a MSSQL database with a runbook
 navOrder: 20
 ---
 
-Restoring databases is a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to restore backups ad-hoc or according to a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger/index.md). 
+Restoring databases is a common practice in most organizations. Using a Runbook in Octopus can make this process easy and simple allowing you to restore backups ad-hoc or according to a [scheduled trigger](/docs/runbooks/scheduled-runbook-trigger/). 
 
 ## Permissions
 
@@ -22,7 +22,7 @@ In this example, we'll use SQL authentication and provide both a SQL username an
 2. Give the Runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Restore Database**.
-5. Fill out all the parameters in the step. It's best practice to use [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
+5. Fill out all the parameters in the step. It's best practice to use [variables](/docs/projects/variables/) rather than entering the values directly in the step parameters.
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |

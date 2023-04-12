@@ -17,7 +17,7 @@ Cloud Target Discovery was introduced in **Octopus 2022.2** for Azure Web Apps a
 This page will walk you through the steps needed to enable cloud target discovery.
 
 :::hint
-We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/index.md) functionality.
+We recommend cloud target discovery over the existing [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) functionality.
 :::
 
 ## Configure credentials for discovery
@@ -84,11 +84,11 @@ Tags are in the format `octopus-{scope}` and support the following for discovery
 
 | Tag                   | Required | Description                                                                                                                                                                                  | Example                             |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments/index.md) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
+| `octopus-environment` | Yes      | The name of the [environment](/docs/infrastructure/environments/) the target can be used in during deployments. Only deployments matching the environment will discover the target.  | `octopus-environment = Development` |
 | `octopus-role`        | Yes      | The [role](/docs/infrastructure/deployment-targets/index.md#target-roles) that should be applied to the target. Only deployments with a step that matches the role will discover the target. | `octopus-role = PetShotFrontEnd`    |
-| `octopus-space`       | No       | The name of the [space](/docs/administration/spaces/index.md) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
-| `octopus-project`     | No       | The name of the [project](/docs/projects/index.md) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
-| `octopus-tenant`      | No       | The name of the [tenant](/docs/projects/index.md) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |
+| `octopus-space`       | No       | The name of the [space](/docs/administration/spaces/) the target can be used in. If present only deployments within the matching space can discover the target.                      | `octopus-space = PetShopTeam`       |
+| `octopus-project`     | No       | The name of the [project](/docs/projects/) the target will be discovered by. If present only deployments for the matching project can discover the target.                           | `octopus-project = PetShop`         |
+| `octopus-tenant`      | No       | The name of the [tenant](/docs/projects/) the target can be discovered for. If present only deployments for the matching tenant will discover the target.                            | `octopus-tenant = MyClient`         |
 
 ## Add step to deployment process
 

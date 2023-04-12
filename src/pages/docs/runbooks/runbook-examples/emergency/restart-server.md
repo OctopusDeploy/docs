@@ -8,7 +8,7 @@ navOrder: 30
 
 Restarting servers is typically the responsibility of the Operations team as restarting a machine requires elevated permissions.  With a runbook, you can give developers the ability to restart a machine whenever they need.  The auditing feature of Octopus Deploy records the identity of the person who initiated the run of the runbook so you can always see who did what and when.
 
-Unlike most other runbooks, this type of operation needs to run on a [worker](/docs/infrastructure/workers/index.md) machine instead of the machine that needs to be restarted.  This is to ensure communication to the Tentacle isn't interrupted, as it would be when the machine restarts, which would result in a failed run of the runbook.
+Unlike most other runbooks, this type of operation needs to run on a [worker](/docs/infrastructure/workers/) machine instead of the machine that needs to be restarted.  This is to ensure communication to the Tentacle isn't interrupted, as it would be when the machine restarts, which would result in a failed run of the runbook.
 
 ## Create the runbook
 

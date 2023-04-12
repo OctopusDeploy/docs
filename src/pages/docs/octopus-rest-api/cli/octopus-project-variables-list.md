@@ -38,5 +38,5 @@ $ octopus project variable ls
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

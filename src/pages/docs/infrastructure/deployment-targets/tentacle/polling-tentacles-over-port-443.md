@@ -16,11 +16,11 @@ The procedure for configuring Polling Tentacles to use port 443 varies based upo
 
 ## Octopus Cloud
 
-The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
+The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud/) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
 
  - Omit the `--server-comms-port` parameter.
  - Specify the `--server-comms-address <address>` parameter.
-   - The address to use is your [Octopus Cloud](/docs/octopus-cloud/index.md) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
+   - The address to use is your [Octopus Cloud](/docs/octopus-cloud/) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
 
 ### Registering a new Tentacle
 
@@ -77,8 +77,8 @@ The setup of a Polling Tentacle for your self-hosted instance over port 443 is t
 For further reading on the installation and configuration of Tentacle:
 
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles)
-- [Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/index.md)
-- [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux/index.md)
-- [Tentacle command line](/docs/octopus-rest-api/tentacle.exe-command-line/index.md)
+- [Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/)
+- [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux/)
+- [Tentacle command line](/docs/octopus-rest-api/tentacle.exe-command-line/)
   - [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with.md)
   - [register-worker](/docs/octopus-rest-api/tentacle.exe-command-line/register-worker.md)

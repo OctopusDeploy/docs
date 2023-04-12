@@ -6,7 +6,7 @@ description: Recommendations on backing up and rolling back a database during a 
 navOrder: 25
 ---
 
-A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  For stateless components of your application, such as Web UIs, Web APIs, and services, rollbacks are accomplished by various means.  The most straightforward approach is to deploy the previous version of those components.  You can also leverage more advanced patterns such as [Blue/Green, Red/Black](/docs/deployments/patterns/blue-green-deployments/index.md), or [Canary deployments](/docs/deployments/patterns/canary-deployments.md).  
+A common question we get asked is, "how does Octopus Deploy handle rollbacks?"  For stateless components of your application, such as Web UIs, Web APIs, and services, rollbacks are accomplished by various means.  The most straightforward approach is to deploy the previous version of those components.  You can also leverage more advanced patterns such as [Blue/Green, Red/Black](/docs/deployments/patterns/blue-green-deployments/), or [Canary deployments](/docs/deployments/patterns/canary-deployments.md).  
 
 For stateful components, such as a relational database, rollbacks are much more complex.  This page focuses on database rollbacks.
 

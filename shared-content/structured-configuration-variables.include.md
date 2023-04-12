@@ -2,11 +2,11 @@
 This Configuration Feature was previously called JSON Configuration Variables. In version **2020.4.0**, we added support for YAML, XML, and Properties configuration file replacements and renamed the feature Structured Configuration Variables.
 :::
 
-With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/index.md) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
+With the **Structured Configuration Variables** feature you can define [variables](/docs/projects/variables/) in Octopus for use in JSON, YAML, XML, and Properties configuration files of your applications. This lets you define different values based on the scope of the deployment. Settings are located using a structure-matching syntax, so you can update values nested inside structures such as JSON objects and arrays, YAML mappings and sequences, and XML elements and attributes. XPath is used for XML files, and similar expressions are used for the other formats.
 
 ## Configuring the structured configuration variables feature {#StructuredConfigurationVariablesFeature-Configuringthestructuredconfigurationvariablesfeature}
 
-1. To enable Structured Configuration Variables on a [step](/docs/projects/steps/index.md) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
+1. To enable Structured Configuration Variables on a [step](/docs/projects/steps/) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
 2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your structured configuration files, relative to the working directory. For instance:
 
 ```
@@ -142,7 +142,7 @@ Given this example of a target config file:
 }
 ```
 
-If you define [variables](/docs/projects/variables/index.md) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
+If you define [variables](/docs/projects/variables/) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `80`, and `false`, the target config file is updated to become:
 
 ```json
 {
@@ -489,7 +489,7 @@ port = 8080
 debug = true
 ```
 
-If you define [variables](/docs/projects/variables/index.md) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
+If you define [variables](/docs/projects/variables/) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
 
 ```
 weatherApiUrl = test.weather.com

@@ -18,7 +18,7 @@ The fastest and easiest way to get up and running is to recover the Master Key. 
 
 Octopus [encrypts important and sensitive data](/docs/security/data-encryption.md) using a Master Key. This includes:
 
-- The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/security/octopus-tentacle-communication/index.md) - this means your Tentacles won't trust your Octopus Server any more.
+- The Octopus Server X.509 certificate which is used for [Octopus to Tentacle communication](/docs/security/octopus-tentacle-communication/) - this means your Tentacles won't trust your Octopus Server any more.
 - Sensitive variable values, wherever you have defined them.
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
 - Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop.md).

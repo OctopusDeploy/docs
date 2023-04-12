@@ -8,7 +8,7 @@ navOrder: 1700
 
 The `show-configuration` command is used to 'export' Octopus Deploy's current configuration.  The intended audience for this command are those using configuration management tools such as Chef, Puppet or Desired State Configuration (DSC).
 
-The [server extensibility](/docs/administration/server-extensibility/index.md) functionality was one of the key drivers for the addition of this command.  Most of the configuration settings for the extensions, especially the Authentication Provider related ones, affect all Nodes in the server configuration and as such are stored in the database to avoid inconsistencies between Nodes. 
+The [server extensibility](/docs/administration/server-extensibility/) functionality was one of the key drivers for the addition of this command.  Most of the configuration settings for the extensions, especially the Authentication Provider related ones, affect all Nodes in the server configuration and as such are stored in the database to avoid inconsistencies between Nodes. 
 
 The knock on effect for this is that the server.config no longer contains a large portion of the settings. This command was added to allow access from scripts.
 
@@ -66,4 +66,4 @@ if ($config.Octopus.WebPortal.AutoLoginEnabled -eq $FALSE) {
 
 ## Extensions {#ShowConfiguration-Extensions}
 
-Some of the values displayed by this command come from the core part of Octopus Server and some come from [server extensions](/docs/administration/server-extensibility/index.md).  Learn about how extensions can [contribute values to the show-configuration](/docs/administration/managing-infrastructure/server-configuration/index.md) output.
+Some of the values displayed by this command come from the core part of Octopus Server and some come from [server extensions](/docs/administration/server-extensibility/index.md).  Learn about how extensions can [contribute values to the show-configuration](/docs/administration/managing-infrastructure/server-configuration/) output.

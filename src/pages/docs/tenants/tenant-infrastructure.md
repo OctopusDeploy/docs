@@ -11,7 +11,7 @@ The hosting model for your infrastructure with tenants will vary depending on yo
 - [Dedicated hosting](#dedicated-hosting): You have dedicated deployment targets for each customer.
 - [Shared hosting](#shared-hosting): You create farms or pools of servers to host all of your customers, achieving higher density.
 
-You can design and implement both **dedicated** and **shared** multi-tenant hosting models in Octopus using [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/index.md), and [tenant tags](/docs/tenants/tenant-tags.md).
+You can design and implement both **dedicated** and **shared** multi-tenant hosting models in Octopus using [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/), and [tenant tags](/docs/tenants/tenant-tags.md).
 
 ## Tenanted and untenanted deployments {#tenanted-and-untenanted-deploys}
 

@@ -8,7 +8,7 @@ navOrder: 30
 
 [Chocolately](https://chocolatey.org/) is a popular package manager for Windows. It allows you to automate the installation of software used by the machines where you deploy your software, for example, systems running [.NET](https://dotnet.microsoft.com/).
 
-With Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Workers](/docs/infrastructure/workers/index.md).
+With Runbooks, you can create a runbook as part of a routine operations task to install software via Chocolatey that are required for your [deployment targets](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Workers](/docs/infrastructure/workers/).
 
 ## Create the runbook
 
@@ -25,7 +25,7 @@ Before you can use Chocolatey, it must be installed. To do this, you can use an 
 
 1. Add the community step template called **Chocolatey - Ensure Installed**, and give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. *Optionally*, configure any [conditions](/docs/projects/steps/conditions/index.md) for the step, and click **Save**.
+1. *Optionally*, configure any [conditions](/docs/projects/steps/conditions/) for the step, and click **Save**.
 
 You can now use this step in conjunction with other runbook steps to install your software with Chocolatey.
 
@@ -156,7 +156,7 @@ if ([string]::IsNullOrWhiteSpace($dismAppList) -eq $false){
 }
 ```
 
-5. Add a project [variable](/docs/projects/variables/index.md) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
+5. Add a project [variable](/docs/projects/variables/) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
 
 ![Chocolately DISM variable](images/install-chocolatey-dism-variable.png "width=500")
 

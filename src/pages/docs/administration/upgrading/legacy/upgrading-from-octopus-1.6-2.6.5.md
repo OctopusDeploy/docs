@@ -7,7 +7,7 @@ navOrder: 2
 ---
 
 :::success
-Please read our guide for [upgrading older versions of Octopus](index.md) before continuing.
+Please read our guide for [upgrading older versions of Octopus]() before continuing.
 :::
 
 A **lot** changed between **Octopus 1.6** and **Octopus 2.0**; so much that we had to to handle upgrades differently to the way we handle upgrades from, say, **Octopus 1.5** to **Octopus 1.6**. This page will walk you through the process of upgrading an **Octopus 1.6** instance to **Octopus 2.0**. Rather than being an in-place upgrade, **Octopus 2.0** is designed to be a **side-by-side** upgrade.
@@ -33,7 +33,7 @@ Then go to the **Storage** tab in the **Configuration** area, and make sure that
 Next, install **Octopus 2.0**, either on the same server as your current **Octopus 1.6** server, or on a new server (ideal). **Octopus 2.0** uses different paths, ports and service names to **Octopus 1.0** so there should not be any conflicts between them.
 
 :::hint
-View our [guide to installing an Octopus 2.0](/docs/installation/index.md), which includes a video walk-through.
+View our [guide to installing an Octopus 2.0](/docs/installation/), which includes a video walk-through.
 :::
 
 ## Importing {#UpgradingfromOctopus1.6-Importing}
@@ -70,7 +70,7 @@ At this point, you should be able to view the imported projects, environments an
 
 ## Permissions {#UpgradingfromOctopus1.6-Permissions}
 
-The **Octopus 2.x** migrator will not import permission settings from **Octopus 1.6**, due to changes made between the permission models. After you upgrade to **Octopus 2.x**, you will need to configure [Teams](/docs/security/users-and-teams/index.md) to assign permissions.
+The **Octopus 2.x** migrator will not import permission settings from **Octopus 1.6**, due to changes made between the permission models. After you upgrade to **Octopus 2.x**, you will need to configure [Teams](/docs/security/users-and-teams/) to assign permissions.
 
 ## Upgrading Tentacles {#UpgradingfromOctopus1.6-UpgradingTentacles}
 

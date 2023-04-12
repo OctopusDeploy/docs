@@ -36,7 +36,7 @@ Unlike the built-in steps included in Octopus, you need to install Community Ste
 
 ## Add a community step template as you define the deployment process
 
-1. Navigate to your [project's](/docs/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
+1. Navigate to your [project's](/docs/projects/) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Scroll past the built-in step templates, and find the Community Step Template you want either by choosing from the available technologies or clicking **SHOW ALL**.
 4. Before you install the template you can click **VIEW DETAILS** to view the parameters of the step and the source code.

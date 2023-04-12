@@ -15,8 +15,8 @@ The next step will [deploy a sample package](/docs/getting-started/first-deploym
 
 For further reading on deployment targets in Octopus Deploy please see:
 
-- [Deployment Targets](/docs/infrastructure/deployment-targets/index.md)
-- [Deployment Documentation](/docs/deployments/index.md)
-- [Patterns and Practices](/docs/deployments/patterns/index.md)
+- [Deployment Targets](/docs/infrastructure/deployment-targets/)
+- [Deployment Documentation](/docs/deployments/)
+- [Patterns and Practices](/docs/deployments/patterns/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/deploy-a-package">Next</a></span>

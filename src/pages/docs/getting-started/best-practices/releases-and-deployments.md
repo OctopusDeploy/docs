@@ -7,7 +7,7 @@ navOrder: 95
 hideInThisSection: true
 ---
 
-[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/index.md), or different stages in your deployment pipeline.  
+[Releases](/docs/releases/index.md) are snapshots of your deployment process and other associated assets (references to package versions, scripts, variables) as they existed when the release was created.  A release is [deployed](/docs/deployments/index.md) to [environments](/docs/infrastructure/environments/), or different stages in your deployment pipeline.  
 
 A release snapshot takes references (rather than the entire resource) for certain items in a release. For example, packages are referenced by their version and not the package itself. Take care when overwriting existing packages that may be used in releases or snapshots.
 
@@ -69,7 +69,7 @@ When a release is rejected, our recommendation is to leverage the [prevent relea
 
 As stated earlier, creating a release snapshots the variables, deployment process, etc.  Each deployment also has a snapshot of the variables and deployment process created.  As you can imagine, all of these snapshots start to consume more and more space in the database.  
 
-Our recommendation is to configure [retention policies](/docs/administration/retention-policies/index.md) to clean up old releases.  Have a unique retention policy per environment. For example:
+Our recommendation is to configure [retention policies](/docs/administration/retention-policies/) to clean up old releases.  Have a unique retention policy per environment. For example:
 
 - Development: keep the last 1 release
 - Test: keep the last 2 releases
@@ -83,7 +83,7 @@ Some notes about retention policies:
 - The algorithm calculating the releases to delete is very conservative.  It prefers to keep releases rather than delete them.
 
 :::hint
-When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing/index.md).  
+When the retention policies delete a release, it removes that release from the project (along with corresponding snapshots).  Audit information about the release, who created it, when it was deployed, and so on is still retained and can be viewed in the [audit log](/docs/security/users-and-teams/auditing/).  
 :::
 
 ## Free up deployment target disk space
@@ -107,10 +107,10 @@ Retention policies are not applied to any package with a custom install director
 
 For further reading on releases and deployments in Octopus Deploy please see:
 
-- [Releases](/docs/releases/index.md)
-- [Deployments](/docs/deployments/index.md) 
-- [Environments](/docs/infrastructure/environments/index.md)
-- [Lifecycles](/docs/releases/lifecycles/index.md)
-- [Retention Policies](/docs/administration/retention-policies/index.md)
+- [Releases](/docs/releases/)
+- [Deployments](/docs/deployments/) 
+- [Environments](/docs/infrastructure/environments/)
+- [Lifecycles](/docs/releases/lifecycles/)
+- [Retention Policies](/docs/administration/retention-policies/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/deployment-and-runbook-processes">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/notifications">Next</a></span>

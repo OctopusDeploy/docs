@@ -57,8 +57,8 @@ The next step will [add an approval process using manual interventions](/docs/ge
 
 For further reading on variables in Octopus Deploy please see:
 
-- [Variable Documentation](/docs/projects/variables/index.md)
-- [Deployment Documentation](/docs/deployments/index.md)
-- [Patterns and Practices](/docs/deployments/patterns/index.md)
+- [Variable Documentation](/docs/projects/variables/)
+- [Deployment Documentation](/docs/deployments/)
+- [Patterns and Practices](/docs/deployments/patterns/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/approvals-with-manual-interventions">Next</a></span>

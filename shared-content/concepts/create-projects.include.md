@@ -23,4 +23,4 @@ To configure the project to use version control:
 1. Click **Test** to verify the connection.
 1. Click **Save** to save the VCS information.
 
-Learn more about [config as code](/docs/projects/version-control/index.md).
+Learn more about [config as code](/docs/projects/version-control/).

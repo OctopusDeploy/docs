@@ -18,7 +18,7 @@ You can manage users and teams in the Octopus Web Portal:
 
 ## User and service accounts {#Managingusersandteams-UserandServiceaccounts}
 
-**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/index.md), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md).
 
 [Service accounts](/docs/security/users-and-teams/service-accounts.md) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key.md). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts.md).
 
@@ -37,7 +37,7 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 
 ## Inviting users {#Managingusersandteams-Invitingusers}
 :::warning
-This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud/index.md).
+This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/octopus-cloud/).
 :::
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 

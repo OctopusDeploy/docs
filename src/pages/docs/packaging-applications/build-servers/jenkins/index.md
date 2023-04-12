@@ -45,9 +45,9 @@ Learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key
 
 ### Octopus CLI
 
-This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md).
+This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/).
 
- The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
+ The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
   - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool.md) this works great on Linux and Windows.
@@ -111,7 +111,7 @@ This action works well combined with the next action `Push Packages`.
 
 ## Push packages {#Jenkins-Pushpackages}
 
-Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), using this action you can push packages to Octopus.
+Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/), using this action you can push packages to Octopus.
 
 This action will push all packages that match the `Package paths` supplied.
 
@@ -125,7 +125,7 @@ Note that the package paths defined here should be full paths, not including any
 
 ## Push build information {#Jenkins-Pushbuildinformation}
 
-Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/build-information/index.md).
+Build information is passed to Octopus as a file using a custom format. The Jenkins plugin also supports this feature. For more information see the [Build Information documentation](/docs/packaging-applications/build-servers/build-information/).
 
 The build information is associated with a package and includes:
 
@@ -150,7 +150,7 @@ Jenkins is compiling our code and publishing packages to Octopus Deploy. If we w
 
 :::success
 **Octopus CLI more information**
-Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) and the arguments it accepts.
+Learn more about the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) and the arguments it accepts.
 :::
 
 When this job runs, Jenkins will now not only build and publish packages, it will also create a release in Octopus Deploy.

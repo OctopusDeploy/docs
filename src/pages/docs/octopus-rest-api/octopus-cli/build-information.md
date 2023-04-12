@@ -6,7 +6,7 @@ description: Pushes build information to Octopus Server.
 navOrder: 10
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to push build information to the Octopus Server.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to push build information to the Octopus Server.
 
 ```
 Pushes build information to Octopus Server.
@@ -87,7 +87,7 @@ Common options:
 
 !include <samples-instance>
 
-This example uploads [build information](/docs/packaging-applications/build-servers/build-information/index.md) contained in buildInfo.json to Octopus Deploy for the specified package and version.
+This example uploads [build information](/docs/packaging-applications/build-servers/build-information/) contained in buildInfo.json to Octopus Deploy for the specified package and version.
 
 
 ```json
@@ -114,6 +114,6 @@ octo build-information --package-id="PetClinic.web" --version="1.0.200803.1002" 
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Build information](/docs/packaging-applications/build-servers/build-information/index.md)
+- [Build information](/docs/packaging-applications/build-servers/build-information/)

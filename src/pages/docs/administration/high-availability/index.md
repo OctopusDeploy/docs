@@ -20,7 +20,7 @@ An Octopus High Availability configuration requires four main components:
 - **A database**
   Most data used by the Octopus Server nodes is stored in this database.
 - **Shared storage**
-  Some larger files - like [packages](/docs/packaging-applications/package-repositories/index.md), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
+  Some larger files - like [packages](/docs/packaging-applications/package-repositories/), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
 ## Licensing
 
@@ -52,7 +52,7 @@ Learn more in our [How High Availability Works](/docs/administration/high-availa
 
 There are several ways to configure High Availability for Octopus and this differs based on both how and where you host Octopus. We have created guides that will help you design the best solution for your installation. 
 
-This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components, making them highly-available, whether you're using Windows Servers or running the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md) in Kubernetes, hosted on-premises or in the Cloud.
+This section walks through the different options and considerations for setting up Octopus and how you can incorporate each of the components, making them highly-available, whether you're using Windows Servers or running the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/) in Kubernetes, hosted on-premises or in the Cloud.
 
 - [Designing Octopus for High Availability On-Premises](/docs/administration/high-availability/design/octopus-for-high-availability-on-premises.md)
 - [Designing Octopus for High Availability in Azure](/docs/administration/high-availability/design/octopus-for-high-availability-on-azure.md)
@@ -71,7 +71,7 @@ When you have selected the approach you will use for Octopus High Availability a
 
 Most organizations start with a stand-alone Octopus installation as part of a Proof of Concept. We make it straight-forward to take your existing Octopus installation and migrate it to a highly-available configuration.
 
-Learn more in our [Migrating to High Availability](/docs/administration/high-availability/migrate/index.md) section.
+Learn more in our [Migrating to High Availability](/docs/administration/high-availability/migrate/) section.
 
 ## Maintaining High Availability nodes
 
@@ -96,4 +96,4 @@ From **Octopus 2023.1**, audit events include the IP address of the client that 
 
 ## Troubleshooting
 
-If you're running into issues with your Octopus High Availability then please use our [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting/index.md) guide.
+If you're running into issues with your Octopus High Availability then please use our [Troubleshooting High Availability](/docs/administration/high-availability/troubleshooting/) guide.

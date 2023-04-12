@@ -1,6 +1,6 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CBws8yDaN4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.  Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/infrastructure/environments/index.md). 
+With Octopus Deploy, you can deploy software to Windows servers, Linux servers, Microsoft Azure, AWS, Kubernetes clusters, cloud regions, or an offline package drop. Regardless of where you're deploying your software, these machines and services are known as your deployment targets.  Octopus organizes your deployment targets (the VMs, servers, and services where you deploy your software) into [environments](/docs/infrastructure/environments/). 
 
 1. Navigate to **{{ Infrastructure, Deployment Targets }}** and click **ADD DEPLOYMENT TARGET**.
 1. Select the type of deployment target you are adding.
@@ -8,10 +8,10 @@ With Octopus Deploy, you can deploy software to Windows servers, Linux servers, 
 
 If you run into any issues, refer to the documentation for the type of deployment target you are configuring:
 
-- [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md)
-- [Linux](/docs/infrastructure/deployment-targets/linux/index.md)
-- [Azure](/docs/infrastructure/deployment-targets/azure/index.md)
-- [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-target/index.md)
+- [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/)
+- [Linux](/docs/infrastructure/deployment-targets/linux/)
+- [Azure](/docs/infrastructure/deployment-targets/azure/)
+- [Kubernetes](/docs/infrastructure/deployment-targets/kubernetes-target/)
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop.md)
 - [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions.md)
 

@@ -9,7 +9,7 @@ navOrder: 50
 :::warning
 **Deprecated**
 
-Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md).
+Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/).
 :::
 
 In **Octopus 2021.3**, a new architecture for deployments and steps targets was developed, known as **step packages**.

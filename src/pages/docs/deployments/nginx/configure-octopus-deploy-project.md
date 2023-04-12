@@ -15,7 +15,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 ![](/docs/deployments/nginx/images/production_environment.png "width=500")
 
 :::success
-For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/index.md) and [lifecycles](/docs/releases/lifecycles/index.md) to create advanced deployment processes.
+For the purpose of this guide we will only use the one deployment environment but there are several other pages in the documentation which explain the benefits of leveraging [environments](/docs/infrastructure/environments/index.md) and [lifecycles](/docs/releases/lifecycles/) to create advanced deployment processes.
 :::
 
 ## Configure account and target

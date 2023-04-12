@@ -10,7 +10,7 @@ From [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en
 
 > Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation.
 
-Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section. The instructions there apply equally to a runbook process too.
+Octopus Deploy supports deploying Azure Resource Manager (ARM) templates via the *Deploy an Azure Resource Manager template* step type. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section. The instructions there apply equally to a runbook process too.
 
 ## Create Azure resources runbook
 
@@ -30,12 +30,12 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
 
 1. Give the step a name.
 1. Choose the **Execution Location** on which to run this step.
-1. In the **Azure** section, choose the [Account](/docs/infrastructure/accounts/azure/index.md) to use.
+1. In the **Azure** section, choose the [Account](/docs/infrastructure/accounts/azure/) to use.
 
     ![Azure Account variable](azure-account.png "width=500")
 
     :::hint
-    [Azure accounts](/docs/infrastructure/accounts/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/index.md) of the type **Azure account**. 
+    [Azure accounts](/docs/infrastructure/accounts/azure/index.md) can be referenced in a project through a project [variable](/docs/projects/variables/) of the type **Azure account**. 
 
     The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/index.md#Bindingsyntax-Referencingvariablesinstepdefinitions).
     :::

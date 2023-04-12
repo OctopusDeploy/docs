@@ -7,7 +7,7 @@ navOrder: 60
 hideInThisSection: true
 ---
 
-[Variables](/docs/projects/variables/index.md) allow you to parameterize your deployment and runbook process.  That allows your processes to work across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
+[Variables](/docs/projects/variables/) allow you to parameterize your deployment and runbook process.  That allows your processes to work across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
 
 There are multiple levels of variables in Octopus Deploy:
 
@@ -25,7 +25,7 @@ During a deployment, Octopus will gather all the variables for the project, Tena
 Multi-tenancy is an advanced topic, with its own set of recommendations.  Tenants were mentioned here so you could see the bigger picture of variables.
 :::
 
-Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md) during deployment time.
+Octopus Deploy provides the ability to replace values in your configuration files using the [structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) or the [.NET XML configuration variables feature](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md).  In addition, Octopus Deploy supports the ability to perform [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/) during deployment time.
 
 In addition to having the above levels of variables, there are also two categories of variables.
 
@@ -63,7 +63,7 @@ Our recommendation is to use a combination of Octopus Deploy and configuration f
 - Environment specific configuration file (appSettings.Development.json)
 - Tenant specific configuration file (appSettings.MyTenantName.json)
 
-Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md).
+Octopus Deploy can set an environment variable or configuration value during deployment to indicate which environment-specific configuration file to use.  Or, if you are using .NET Framework, you can leverage [configuration file transforms](/docs/projects/steps/configuration-features/configuration-transforms/).
 
 When someone proposes storing all the configuration variables in Octopus Deploy, we will ask the following questions:
 - Which variables does Octopus require for a deployment or runbook run?
@@ -98,7 +98,7 @@ A common scenario we've talked to customers about is restricting variable edit a
 
 Our recommendations for variable edit permissions are:
 - Variable edit permissions should be all or nothing, either a person can edit variables, or they cannot.  Don't scope permissions to environments.  Anyone responsible for the application should have permission to update variables (developers, lead devs, DB developers, etc.) along with operations (DBAs, web admins, sys admins) who can create and update service accounts and passwords.  
-- Library variable sets can be shared across multiple projects.  Limit who can edit library variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces/index.md).
+- Library variable sets can be shared across multiple projects.  Limit who can edit library variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces/).
 - Leverage [sensitive variables](/docs/projects/variables/sensitive-variables.md) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.  
 - Use [composite variables](docs/projects/variables/variable-substitutions.md#binding-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
 
@@ -108,11 +108,11 @@ Our recommendations for variable edit permissions are:
 
 For further reading on variables in Octopus Deploy please see:
 
-- [Variables](/docs/projects/variables/index.md)
+- [Variables](/docs/projects/variables/)
 - [Scoping Variables](/docs/projects/variables/index.md#scoping-variables)
 - [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [.NET XML Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
 - [Library Variable Sets](/docs/projects/variables/library-variable-sets.md)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/best-practices/project-and-project-groups">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/best-practices/step-templates-and-script-modules">Next</a></span>

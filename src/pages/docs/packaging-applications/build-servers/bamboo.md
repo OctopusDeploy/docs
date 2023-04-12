@@ -6,11 +6,11 @@ description: Octopus Deploy and Bamboo can work together to make automated, cont
 navOrder: 30
 ---
 
-The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index.md). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md).
+The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](docs/infrastructure/environments/index.md). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/).
 
 ## Getting started
 
-The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
+The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
 
 Note that while the command line tool package is largely self contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
@@ -41,7 +41,7 @@ Creating the package is done with the `Octopus Deploy: Pack Packages` task. In a
 This steps runs the [pack command](/docs/packaging-applications/create-packages/octopus-cli.md) on the command line tool.
 
 :::hint
-If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
+If you are building .NET applications on an instance of Bamboo hosted on Windows, you may prefer to use [OctoPack](/docs/packaging-applications/create-packages/octopack/) to build a package instead of manually packaging the application with the `Octopus Deploy: Pack Packages` task.
 :::
 
 ### Package ID
@@ -107,7 +107,7 @@ This steps runs the [create-release command](/docs/octopus-rest-api/octopus-cli/
 
 ### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](/docs/projects/index.md) that the release will be created for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/projects/) that the release will be created for.
 
 ### Release number
 
@@ -117,7 +117,7 @@ Although this field is optional, it is highly recommended that the release numbe
 
 ### Environment(s)
 
-The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infrastructure/environments/index.md) that the new release is to be deployed to.
+The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infrastructure/environments/) that the new release is to be deployed to.
 
 It is recommended that this field be left blank, because the `Ignore existing releases` option needs to be enabled to allow builds to be rebuilt, and if the environment already exists and the `Ignore existing releases` option is enabled no deployments will take place. We'll use a dedicated step to handle deployments.
 
@@ -137,11 +137,11 @@ This steps runs the [deploy-release command](/docs/octopus-rest-api/octopus-cli/
 
 ### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](/docs/projects/index.md) that the deployment will be done for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/projects/) that the deployment will be done for.
 
 ### Environment(s)
 
-The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infrastructure/environments/index.md) that the release is to be deployed to.
+The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infrastructure/environments/) that the release is to be deployed to.
 
 ### Release number
 
@@ -161,7 +161,7 @@ Because the promotion from one environment to another is not tied to any particu
 
 ### Project
 
-The `Project` field defines the name of the [Octopus Deploy project](/docs/projects/index.md) that the deployment will be done for.
+The `Project` field defines the name of the [Octopus Deploy project](/docs/projects/) that the deployment will be done for.
 
 ### Promote from
 
@@ -200,7 +200,7 @@ The `Enable debug logging` option is used to enable detailed logging from the co
 
 The `Additional command line arguments` field is used to specify additional arguments to pass to the command line tool.
 You can find more information on the arguments accepted by the command line tool on the
-[Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) page.
+[Octopus CLI](/docs/octopus-rest-api/octopus-cli/) page.
 
 ## Using Bamboo deployment plans
 

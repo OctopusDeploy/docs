@@ -24,11 +24,11 @@ The scripts below assume you have a variable named 'WebSite' that contains the n
 
 ### Step 1: Create an Azure Web App Deployment Target
 
-Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md).
+Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-targets/azure/web-app-targets/).
 
 ### Step 2: Create Staging Slot {#UsingDeploymentSlotswithAzureWebApps-Step1:CreateStagingSlot}
 
-Create a [Run an Azure PowerShell Script](/docs/deployments/azure/running-azure-powershell/index.md) step.
+Create a [Run an Azure PowerShell Script](/docs/deployments/azure/running-azure-powershell/) step.
 
 ![](azure-powershell-script-step.png "width=500")
 
@@ -64,7 +64,7 @@ So your step should look like:
 
 ### Step 3: Deploy Your Package {#UsingDeploymentSlotswithAzureWebApps-Step2:DeployyourPackage}
 
-The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md) step.
+The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/) step.
 
 ![](deploy-azure-web-app-step.png "width=500")
 

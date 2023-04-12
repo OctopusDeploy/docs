@@ -7,7 +7,7 @@ navOrder: 60
 hideInThisSection: true
 ---
 
-**Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](/docs/octopus-rest-api/index.md).
+**Tentacle.exe** is the executable that runs the Octopus Tentacle instance. It includes several helpful commands that allow you to manage the instance some of which are built on top of the [Octopus Deploy HTTP API](/docs/octopus-rest-api/).
 
 ## Commands {#tentacleCommandLine-Commands}
 

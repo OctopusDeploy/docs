@@ -6,7 +6,7 @@ description: Publishing makes a runbook available to scheduled triggers and cons
 navOrder: 30
 ---
 
-Runbooks and deployments define their processes in exactly the same way. However, where a deployment has a [release](/docs/releases/index.md), a runbook has what is called a Snapshot. 
+Runbooks and deployments define their processes in exactly the same way. However, where a deployment has a [release](/docs/releases/), a runbook has what is called a Snapshot. 
 
 ## Snapshots
 
@@ -21,7 +21,7 @@ Similar to releases, the version of any packages that are used in the runbook ar
 A draft snapshot of a runbook is exactly what it sounds like, a draft version of the currently published version. Drafts are meant to give you a place to work and save a runbook that is a work in progress or has not yet been approved for general use.
 
 :::hint
-Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/index.md), only published snapshots can. 
+Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/), only published snapshots can. 
 :::
 
 ## Published snapshot

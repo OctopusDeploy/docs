@@ -6,7 +6,7 @@ description: How to create reusable steps
 navOrder: 60
 ---
 
-Sometimes there isn't a [built-in step template](/docs/projects/built-in-step-templates/index.md) or a [community step template](/docs/projects/community-step-templates.md) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
+Sometimes there isn't a [built-in step template](/docs/projects/built-in-step-templates/) or a [community step template](/docs/projects/community-step-templates.md) available that does what you need. Or perhaps several of your projects have similar or identical steps. You can create your own custom step templates to reuse across your projects. You can also share them with the community.
 
 Custom step templates can be based on a built-in or installed community step templates. These custom step templates can be reused in projects and managed in the step template library.
 
@@ -28,7 +28,7 @@ There are three parts to any step template:
 
 The Step tab is where you fill out the details of what the step will do. This tab gives you exactly the same fields as you would see if you added the step type directly to your project, so it will be the most familiar.
 
-Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/projects/variables/index.md) and can be used in the same way.
+Any details that need to be specified at the project level can be handled using Parameters. Any parameters specified in the Parameters tab will be exposed to you as [variables](/docs/projects/variables/) and can be used in the same way.
 
 ## Parameters
 
@@ -58,7 +58,7 @@ You'll also see a handy counter next to the Usage tab so you can see at a glance
 
 ![Step templates usage](images/step-templates-usage.png "width=500")
 
-If you have [version-controlled](/docs/projects/version-control/index.md) projects that use step templates, you will be able to see a tab with version-controlled usages from up to twenty recent releases. You can filter this list to search for usage in a specific branch or use the advanced filters. 
+If you have [version-controlled](/docs/projects/version-control/) projects that use step templates, you will be able to see a tab with version-controlled usages from up to twenty recent releases. You can filter this list to search for usage in a specific branch or use the advanced filters. 
 
 :::hint
 

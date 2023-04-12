@@ -1,6 +1,6 @@
 ### Export/Import subset of projects using Export/Import Projects feature
 
-The Export/Import Projects feature added in **Octopus Deploy 2021.1** can be used to export/import projects to a test instance.  Please see the up to date [documentation](/docs/projects/export-import/index.md) to see what is included. 
+The Export/Import Projects feature added in **Octopus Deploy 2021.1** can be used to export/import projects to a test instance.  Please see the up to date [documentation](/docs/projects/export-import/) to see what is included. 
 
 ### Export subset of projects using the data migration tool
 

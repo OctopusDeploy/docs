@@ -36,10 +36,10 @@ The following settings will need to be configured:
 
 ## Step 2: Create a deployment target for your ECS cluster
 
-The `Update Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets/index.md) to be defined.
+The `Update Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets/) to be defined.
 
 Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name.
-If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
+If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/).
 
 ![ECS Cluster Deployment Target Settings](images/target.png "width=500")
 

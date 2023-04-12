@@ -26,8 +26,8 @@ The Build Information step is currently available in the official Octopus Deploy
 - [GitHub Actions](/docs/packaging-applications/build-servers/github-actions.md) 
 - [TeamCity](/docs/packaging-applications/build-servers/teamcity.md) 
 - [Bamboo](/docs/packaging-applications/build-servers/bamboo.md)
-- [Jenkins](/docs/packaging-applications/build-servers/jenkins/index.md) 
-- [TFS/AzureDevOps](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md)
+- [Jenkins](/docs/packaging-applications/build-servers/jenkins/) 
+- [TFS/AzureDevOps](/docs/packaging-applications/build-servers/tfs-azure-devops/)
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 
@@ -42,7 +42,7 @@ Build information is independent of the packages that it relates to. You can pas
 
 Commit messages and deep links may not be shown if an unsupported `VcsType` is passed to Octopus as part of the build information call. Currently we support values of `Git` and `TFVC` (TFS / Azure DevOps). `SVN` (Subversion) is **not supported**.
 
-Work items will not show unless you have one of the [Issue Tracker](/docs/releases/issue-tracking/index.md) integrations configured.
+Work items will not show unless you have one of the [Issue Tracker](/docs/releases/issue-tracking/) integrations configured.
 :::
 
 ## Build information step {#build-information-step}

@@ -49,7 +49,7 @@ Octopus provides [manual interventions](/docs/projects/built-in-step-templates/m
 For further reading on step templates and script modules in Octopus Deploy please see:
 
 - [Step Templates](/docs/projects/custom-step-templates.md)
-- [Built-in Step Templates](/docs/projects/built-in-step-templates/index.md)
+- [Built-in Step Templates](/docs/projects/built-in-step-templates/)
 - [Community Step Templates](/docs/projects/community-step-templates.md)
 - [Script Modules](/docs/deployments/custom-scripts/script-modules.md)
 

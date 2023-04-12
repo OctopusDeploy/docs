@@ -39,4 +39,4 @@ You can access your Google cloud account from within projects through a variable
 
 ## Learn more
 
-- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script/index.md) step
+- How to use the [Run gcloud in a Script](/docs/deployments/google-cloud/run-gcloud-script/) step

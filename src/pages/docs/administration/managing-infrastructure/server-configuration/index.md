@@ -8,7 +8,7 @@ navOrder: 160
 
 ## Server extensions configuration {#ServerConfiguration-ServerExtensionsConfiguration}
 
-The Server Configuration screen is available from **{{Configuration,Nodes,Configuration Settings}}** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/index.md) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md).
+The Server Configuration screen is available from **{{Configuration,Nodes,Configuration Settings}}** and allows administrators to see which [server extensions](/docs/administration/server-extensibility/) are enabled for the Octopus Server. To learn more about customizing server extensions, please see [the documentation](/docs/administration/server-extensibility/customizing-an-octopus-deploy-server-extension.md).
 
 Each configuration value has properties that will determine whether it is shown on this Server Configuration screen.
 
@@ -53,6 +53,6 @@ The configuration values provided via this interface actually serve 2 purposes. 
 
 ## Publicly accessible URL {#ServerConfiguration-PubliclyAccessibleURL}
 
-This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
+This Server Configuration screen also allows administrators to edit the "publicly accessible URL" for your Octopus Server. This value is used by email notifications in [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) and should be set to the publicly-available URL of your Octopus Server if you wish to include a link to your Octopus Server in your subscription emails. E.g. **https://your-octopus-server.com:8080/**
 
 The subscriptions engine will use this value to include a link to your Octopus Server's audit page by appending the audit screen route to the end of this URL.

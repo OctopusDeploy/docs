@@ -37,7 +37,7 @@ Once this is done, click on **Save**.
 
 Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
-1.  Go to your **[Deployment Process](/docs/deployments/index.md)** and click **Include.**
+1.  Go to your **[Deployment Process](/docs/deployments/)** and click **Include.**
 
 ![](images/script-modules-deployment.png "width=500")
 
@@ -49,7 +49,7 @@ You will now be able to see your module loaded on your Deployment Process
 
 ![](images/script-modules-deployment-included.png "width=500")
 
-2.  Add a **[Script step](/docs/deployments/custom-scripts/index.md)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
+2.  Add a **[Script step](/docs/deployments/custom-scripts/)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
 
 ```powershell
 Say-Hello -name "George"

@@ -51,7 +51,7 @@ Once the migration is complete, each team using Octopus must ensure that their d
 
 ### Do you require a continuous audit history after the migration?
 
-The requirement to have a complete audit history available in the migrated instance will limit the migration paths you can take. For example, the [Import/Export feature](/docs/projects/export-import/index.md) does not copy audit logs from the on-premises Octopus instance to the new cloud hosted instance.
+The requirement to have a complete audit history available in the migrated instance will limit the migration paths you can take. For example, the [Import/Export feature](/docs/projects/export-import/) does not copy audit logs from the on-premises Octopus instance to the new cloud hosted instance.
 
 ### How do users authenticate with Octopus?
 
@@ -59,7 +59,7 @@ Octopus can either maintain users and teams in its own internal database or dele
 
 Whether users and teams managed by Octopus are migrated or manually recreated depends on the migration path.
 
-Also be aware that Octopus hosted in a [Linux container](docs/installation/octopus-server-linux-container/index.md) has some limitations with the supported authentication providers compared to the Windows version.
+Also be aware that Octopus hosted in a [Linux container](docs/installation/octopus-server-linux-container/) has some limitations with the supported authentication providers compared to the Windows version.
 
 ### Where have tentacles been installed?
 
@@ -83,7 +83,7 @@ Octopus was initially provided only as a Windows application. Today Octopus is a
 
 Teams may wish to migrate to the Linux version of Octopus when moving to the cloud. There are many benefits to doing so, including cheaper hosting costs and the option to host Octopus on platforms like Kubernetes or ECS.
 
-The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [here](docs/installation/octopus-server-linux-container/index.md).
+The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [here](docs/installation/octopus-server-linux-container/).
 
 ### Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
 
@@ -97,7 +97,7 @@ If you use an external package repository, both the on-premises and cloud hosted
 
 In addition, any CI servers pushing packages to the Octopus instance must be updated to push packages to the cloud Octopus instance.
 
-A sample script has been provided in the [Import/Export documentation](/docs/projects/export-import/index.md) to automate the process of copying packages.
+A sample script has been provided in the [Import/Export documentation](/docs/projects/export-import/) to automate the process of copying packages.
 
 ### Do you have any CI servers integrated with Octopus?
 
@@ -140,7 +140,7 @@ A complete migration involves:
     1. Pointing CI servers and external scripts to the cloud instance.
     1. Updating firewall rules to allow the cloud instance to connect to listening tentacles.
 
-This process is documented in more detail under [Moving your Octopus components to other servers](docs/administration/managing-infrastructure/moving-your-octopus/index.md).
+This process is documented in more detail under [Moving your Octopus components to other servers](docs/administration/managing-infrastructure/moving-your-octopus/).
 
 Choose a complete migration when:
 
@@ -159,7 +159,7 @@ A complete migration may not suitable when:
 An incremental migration involves:
 
 1. Installing the cloud hosted Octopus instance with a fresh database.
-1. Using the [Import/Export feature](/docs/projects/export-import/index.md) to move individual projects to the cloud hosted instance.
+1. Using the [Import/Export feature](/docs/projects/export-import/) to move individual projects to the cloud hosted instance.
 1. Reregistering tentacles required by the imported project with the cloud hosted instance.
 1. Copying packages used by the migrated project to the cloud hosted built-in feed.
 1. Reindexing the built-in feed.

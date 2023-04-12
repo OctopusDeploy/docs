@@ -134,7 +134,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    Remember to create the folders in the SMB share before trying to create the symbolic links.
    :::
 
-Once you've completed those steps, [install Octopus](/docs/installation/index.md) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) to change the paths to the shared storage:
+Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) to change the paths to the shared storage:
 
 ```powershell
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path `
@@ -302,7 +302,7 @@ Before installing Octopus, follow the steps below *on each* Compute engine insta
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::
 
-Once you've completed those steps, [install Octopus](/docs/installation/index.md) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) to change the paths to the shared storage:
+Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path.md) to change the paths to the shared storage:
 
 ```powershell
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path `

@@ -39,7 +39,7 @@ The following steps have been designed to support running scripts; either at the
 - Deploy to Wildfly or EAP
 - Upgrade a Helm Chart
 
-However, not all package steps support script hooks. As a general rule, any of the [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates.md) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/index.md) dialog support script hooks:
+However, not all package steps support script hooks. As a general rule, any of the [built-in step templates](/docs/projects/built-in-step-templates/index.md) or [community step templates](/docs/projects/community-step-templates.md) that have the `Custom Deployment Scripts` feature available in the [configuration features](/docs/projects/steps/configuration-features/) dialog support script hooks:
 
 :::hint
 **Note:** The `Custom Deployment Scripts` feature only needs to be enabled if you want to [define your scripts inline](#scripts-in-package-steps) instead of executing scripts at the root of a package.
@@ -67,7 +67,7 @@ At each stage during the deployment, Octopus will look for a scripts matching th
 4. Octopus does some work, then executes `Deploy.<ext>` in the current working directory.
 5. Octopus does some work, then executes `PostDeploy.<ext>` in the current working directory.
 
-For more details see [how packages are deployed](/docs/deployments/packages/index.md) and [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md).
+For more details see [how packages are deployed](/docs/deployments/packages/) and [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering.md).
 
 ### Cross-platform support {#cross-platform-support}
 
@@ -105,6 +105,6 @@ If you are using OctoPack to package a Windows Service or console application, s
 
 ![](3277765.png "width=500")
 
-Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack/index.md).
+Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack/).
 
 If the scripts in your package are still not running, make sure someone has not set a project variable called `Octopus.Action.Package.RunScripts` to `false` for the step where the scripts should run.

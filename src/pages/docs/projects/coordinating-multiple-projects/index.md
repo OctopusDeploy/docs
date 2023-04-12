@@ -25,9 +25,9 @@ There are various ways to respond to events within Octopus, which is useful for:
 
 The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples.md)).
 
-[Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) can call a web service or send an email when Octopus events occur.
+[Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) can call a web service or send an email when Octopus events occur.
 
-The event can also be a script step in a project. If the script is defined as a [step template](/docs/projects/steps/index.md) it can be shared among the related projects. However, it is difficult to ensure that two copies of the script do not run at the same time.
+The event can also be a script step in a project. If the script is defined as a [step template](/docs/projects/steps/) it can be shared among the related projects. However, it is difficult to ensure that two copies of the script do not run at the same time.
 
 ## Orchestrating the deployment of multiple projects
 
@@ -56,6 +56,6 @@ This approach consists of each project taking on the role of checking that the o
 
 ## Deploy release step
 
-The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step/index.md) is helpful when implementing the _Parent Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
+The [Deploy Release step](/docs/projects/coordinating-multiple-projects/deploy-release-step/) is helpful when implementing the _Parent Project_  or _Cooperating Projects_ approaches described above. It makes it simple to deploy a release of a project from another project.    
 
 ![Deploy Release Step Example Process](voltron-project-process.png "width=500")

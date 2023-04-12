@@ -6,7 +6,7 @@ description: A guide for troubleshooting authentication problems in Octopus Depl
 navOrder: 50
 ---
 
-We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/security/authentication/index.md) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
+We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/security/authentication/) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
 
 
 ## No authentication providers enabled
@@ -17,7 +17,7 @@ You will need to enable at least one of the authentication providers in order to
 
 ## Octopus authentication cookie
 
-Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/security/authentication/index.md), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
+Once you have proven your identity to Octopus Server using one of the supported [authentication providers](/docs/security/authentication/), the Octopus Server will issue a cookie so your web browser can make secure requests on your behalf. The following messages may indicate a problem with your browser, or your network, and the Octopus authentication cookie:
 
 `The sign in succeeded but we failed to get the resultant permissions for this user account. This can happen if the Octopus authentication cookie is blocked.`
 

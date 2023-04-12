@@ -11,7 +11,7 @@ hideInThisSection: true
 
 ## Enable configuration features
 
-You enable configuration features as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index.md).
+You enable configuration features as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/).
 
 1. If the step you are defining has configuration features available, there is a **CONFIGURE FEATURES** link. Click the link.
 1. Select the features you would like to enable by clicking the relevant check-boxes in the list and click **OK**.
@@ -25,10 +25,10 @@ You can configure the following features:
 - [Custom installation directory](/docs/projects/steps/configuration-features/custom-installation-directory.md)
 - [IIS web site and application pool](/docs/projects/steps/configuration-features/iis-website-and-application-pool.md)
 - [Windows Service](/docs/projects/steps/configuration-features/windows-services.md)
-- [Custom deployment scripts](/docs/deployments/custom-scripts/index.md)
+- [Custom deployment scripts](/docs/deployments/custom-scripts/)
 - [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [Configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
 - [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 - IIS6+ Home directory
 - [NGINX Web Server](/docs/projects/steps/configuration-features/nginx-web-server.md)

@@ -8,7 +8,7 @@ navOrder: 0
 
 When you deploy software to your servers, you'll typically need to install Tentacle, a lightweight agent service so they can communicate securely with the Octopus Server.
 
-Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/index.md). 
+Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/). 
 
 When installed, Tentacles can:
 
@@ -21,7 +21,7 @@ When installed, Tentacles can:
 Before you install Tentacle, review the software and hardware requirements depending on your chosen OS:
 
 - Windows:
-  - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/index.md).
+  - [The latest version of Tentacle](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/).
   - [Versions prior to Tentacle 3.1](/docs/infrastructure/deployment-targets/tentacle/windows/requirements/legacy-requirements.md).
 - Linux [system prerequisites](/docs/infrastructure/deployment-targets/linux/index.md#requirements)
 
@@ -56,7 +56,7 @@ To install and configure Tentacles in polling mode, see either:
 
 ### Update your Octopus Server firewall
 
-To allow Tentacle to connect to your Octopus Server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the HTTP Octopus Web Portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Server](/docs/installation/index.md)).
+To allow Tentacle to connect to your Octopus Server, you'll need to allow access to port **10943** on the Octopus Server (or the port you selected during the installation wizard - port 10943 is just the default). You will also need to allow Tentacle to access the HTTP Octopus Web Portal (typically port **80** or **443** - these bindings are selected when you [install the Octopus Server](/docs/installation/)).
 
 If your network rules only allow port **80** and **443** to the Octopus Server, you can either:
 - Change the server bindings to either HTTP or HTTPS and use the remaining port for polling Tentacle connections.

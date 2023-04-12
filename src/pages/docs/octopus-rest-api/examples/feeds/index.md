@@ -7,4 +7,4 @@ navOrder: 100
 hideInThisSectionHeader: true
 ---
 
-You can use the REST API to create and manage your [package repositories](/docs/packaging-applications/package-repositories/index.md) in Octopus. Typical tasks might include:
+You can use the REST API to create and manage your [package repositories](/docs/packaging-applications/package-repositories/) in Octopus. Typical tasks might include:

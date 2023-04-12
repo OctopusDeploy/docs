@@ -8,13 +8,13 @@ navOrder: 80
 
 Octopus can help you to run scripts on targets within Microsoft Azure.
 
-Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/index.md), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables.md) and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
+Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts.md), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts.md), publishing [output variables](/docs/deployments/custom-scripts/output-variables.md) and [collecting artifacts](/docs/deployments/custom-scripts/index.md#Customscripts-Collectingartifacts).
 
 These scripts typically rely on tools being available when they execute.
 
 It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
 
-The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/index.md) for your script step.
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/) for your script step.
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
@@ -39,7 +39,7 @@ Azure supports two authentication methods, each of which provides access to a di
   - The ARM PowerShell cmdlets are prefixed with `AzureRM`, like `Get-AzureRMWebApp`.
   - The Az PowerShell cmdlets are prefixed with `Az`, like `Get-AzWebApp`.
 
-Learn more about [configuring the right Azure Account](/docs/infrastructure/accounts/azure/index.md).
+Learn more about [configuring the right Azure Account](/docs/infrastructure/accounts/azure/).
 
 ## Running Scripts in Octopus Cloud
 
@@ -47,15 +47,15 @@ Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](
 
 To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
 
-- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md).
+- Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers/).
 - Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/index.md#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
 
 ![](images/5865912.png "width=170")
 
-These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
+These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section.
 
 :::hint
-Refer to [this page](/docs/infrastructure/accounts/azure/index.md) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
+Refer to [this page](/docs/infrastructure/accounts/azure/) for more details, and the impact of choosing the right kind of Azure Account on the Azure SDK that will be available.
 :::
 
 ## Example {#AzurePowerShellscripts-Example}

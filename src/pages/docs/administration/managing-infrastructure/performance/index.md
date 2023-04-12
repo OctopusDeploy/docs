@@ -6,7 +6,7 @@ description: Octopus is all about reliable and repeatable deployments, but that 
 navOrder: 60
 ---
 
-Over the years, we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/index.md) cluster.
+Over the years, we have built Octopus to enable reliable and repeatable deployments, but that doesn't necessarily mean it has to be slow. Octopus can scale with you as you grow. Some Octopus customers are reliably deploying hundreds of projects to many thousands of deployment targets from a single [Octopus High Availability](/docs/administration/high-availability/) cluster.
 
 Octopus is a complex system where we control some parts of the deployment while offering you the freedom to inject your own custom steps into the process. We work hard to make our parts work quickly and efficiently, leaving as many resources available for running your parts of the deployment. We can't control the performance of your custom parts, but there are many things you can do as an Octopus administrator to ensure your installation operates efficiently.
 
@@ -50,21 +50,21 @@ Routine maintenance can help your Octopus keep running at optimum performance an
 
 ### Upgrade
 
-We are continually working to make Octopus perform better, and we will always recommend [upgrading to the latest version](/docs/administration/upgrading/index.md) whenever asked about performance. We generally tag [performance-related issues in our GitHub repository](https://github.com/OctopusDeploy/Issues/issues?q=label%3Afeature%2Fperformance) so you can see which performance improvements have been added in each version of Octopus.
+We are continually working to make Octopus perform better, and we will always recommend [upgrading to the latest version](/docs/administration/upgrading/) whenever asked about performance. We generally tag [performance-related issues in our GitHub repository](https://github.com/OctopusDeploy/Issues/issues?q=label%3Afeature%2Fperformance) so you can see which performance improvements have been added in each version of Octopus.
 
 As an example, many customers have reported speed improvements of 50-90% for their deployments after upgrading from an early version of **Octopus 3.x** to the latest version.
 
 ### Retention policies
 
-Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/index.md) you configure.
+Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/index.md) and [environments](/docs/infrastructure/environments/index.md), are stored until you delete them, unlike historical documents like [releases](/docs/releases/index.md). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies/) you configure.
 
-_The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing/index.md) of every significant event in your Octopus._
+_The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing/) of every significant event in your Octopus._
 
 A tighter retention policy means your Octopus Server will run faster across the board.
 
 :::hint
 **We need to keep everything for auditing purposes**
-You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/index.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/index.md) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
+You may not need to keep the entire history of releases - we record the entire history of your Octopus Server for [auditing](/docs/security/users-and-teams/auditing/index.md) purposes. This means you can safely use a short-lived [retention policy](/docs/administration/retention-policies/) to have a fast-running Octopus Server, all the while knowing your audit history is safely kept intact. The retention policy simply cleans up the "potential to deploy a release" - it does not erase the fact a release was created, nor the deployments of that release, from history.
 :::
 
 ## Scaling Octopus Server {#scaling}
@@ -82,9 +82,9 @@ At some point your server hardware is going to limit how many of these things a 
 We offer four options for scaling your Octopus Server:
 
 - scale up by controlling the **task cap** and providing more server resources as required.
-- scale out using [Octopus High Availability](/docs/administration/high-availability/index.md).
-- scale out using [Workers](/docs/infrastructure/workers/index.md).
-- dividing up your Octopus environment using [Spaces](/docs/administration/spaces/index.md).
+- scale out using [Octopus High Availability](/docs/administration/high-availability/).
+- scale out using [Workers](/docs/infrastructure/workers/).
+- dividing up your Octopus environment using [Spaces](/docs/administration/spaces/).
 
 ### Task cap
 
@@ -94,23 +94,23 @@ Instead, we decided to put this control into your hands, allowing you to control
 
 See this [blog post](https://octopus.com/blog/running-task-cap-and-high-availability) for more details on why we chose this approach.
 
-The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.  Increasing that to 10 should be fine without requiring more CPU or RAM.  Anything more and we recommend [High Availability](/docs/administration/high-availability/index.md).
+The default task cap is set to `5` out of the box. Based on our load testing, this offered the best balance of throughput and stability for most scenarios.  Increasing that to 10 should be fine without requiring more CPU or RAM.  Anything more and we recommend [High Availability](/docs/administration/high-availability/).
 
 The task cap also interacts with offloading deployment work to Workers.  If you have more workers available, you might be able to increase your deployment performance and [different task cap or step parallelism](/docs/infrastructure/workers/index.md#run-multiple-processes-on-workers-simultaneously) might be right with the extra ability to scale.
 
 ### Octopus High Availability
 
-You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability/index.md) cluster. Each node in the cluster will have its own task cap.  Two servers in a cluster each with a task cap of 5 means you can process 10 concurrent tasks.  
+You can scale out your Octopus Server by implementing a [High Availability](/docs/administration/high-availability/) cluster. Each node in the cluster will have its own task cap.  Two servers in a cluster each with a task cap of 5 means you can process 10 concurrent tasks.  
 
 In addition to linearly increasing the performance of your cluster, you can perform certain kinds of maintenance on your Octopus Servers without incurring downtime.
 
 ### Workers
 
-Consider using [Workers](/docs/infrastructure/workers/index.md) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Consider using [Workers](/docs/infrastructure/workers/) and worker pools if deployment load is affecting your server.  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
 
 ### Spaces
 
-Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/index.md) feature.  A space is considered a "hard wall". Each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
+Consider separating your teams/projects into "spaces" using the [Spaces](/docs/administration/spaces/) feature.  A space is considered a "hard wall". Each space has its own environments, projects, deployment targets, packages, machine policies, etc.  The only thing shared is users and teams.  That means less data for the Octopus UI to query.  Splitting 60 projects evenly into 3 spaces will result in the dashboard only having to load 20 projects instead of 60.
 
 ## Tentacles
 
@@ -160,7 +160,7 @@ While it is fun to have gifs and fancy images for your projects consider the siz
 
 ## Deployment Parallelism
 
-By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets/index.md) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
+By default, Octopus will only run one process on each [deployment target](/docs/infrastructure/deployment-targets/) at a time, queuing the rest. There may be times that you want to run multiple processes at a time. In those situations, there are three special variables that can be used to control the way Octopus runs steps in parallel:
 
 - `OctopusBypassDeploymentMutex` - allows for multiple processes to run at once on the target.
 - `Octopus.Acquire.MaxParallelism` - limits the maximum number of packages that can be concurrently deployed to multiple targets.

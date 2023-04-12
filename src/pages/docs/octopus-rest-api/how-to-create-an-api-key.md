@@ -6,7 +6,7 @@ description: How to create an API key to interact with Octopus without the need 
 navOrder: 10
 ---
 
-API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-api/index.md) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.
+API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-api/) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.
 
 See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts.md) for information about creating service accounts.
 
@@ -43,7 +43,7 @@ There are two restrictions on the expiry date:
 
 ## Configure API keys for expiry notifications
 
-[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) can be used to configure notifications when API keys are close to expiry or have expired.
+[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) can be used to configure notifications when API keys are close to expiry or have expired.
 
 There is an "API key expiry events" event-group and three events:
 

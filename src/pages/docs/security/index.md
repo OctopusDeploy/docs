@@ -15,7 +15,7 @@ Every year Octopus undergoes a security review conducted by a third-party compan
 - [octopus-security-review-2022.pdf](https://octopus.com/documents/octopus-security-review-executive-report-2022.pdf)
 
 
-We often hear from customers who want to know more about our security posture. We've performed a [self assessment against various industry-standard controls](/docs/security/caiq/index.md). Feel free to use this in any vendor assessments you need to perform.
+We often hear from customers who want to know more about our security posture. We've performed a [self assessment against various industry-standard controls](/docs/security/caiq/). Feel free to use this in any vendor assessments you need to perform.
 
 ## Responsibility
 
@@ -57,13 +57,13 @@ Learn about [data encryption](/docs/security/data-encryption.md) and [sensitive 
 
 Your Octopus Server communicates with the machines you configure as targets for your deployments using transport encryption and tamper proofing techniques.
 
-Learn about [secure communication](/docs/security/octopus-tentacle-communication/index.md).
+Learn about [secure communication](/docs/security/octopus-tentacle-communication/).
 
 ### Auditing
 
 Arguably one of the most appreciated features in Octopus Deploy is our support for detailed auditing of important activity.
 
-Learn about [auditing](/docs/security/users-and-teams/auditing/index.md).
+Learn about [auditing](/docs/security/users-and-teams/auditing/).
 
 ### Prevention of common vulnerabilities and exploits
 
@@ -83,13 +83,13 @@ The following sections describe the responsibilities taken by whomever is hostin
 
 In many scenarios you will want to expose parts of your Octopus Deploy installation to external networks. You should take care to understand the security implications of exposing your Octopus Deploy installation, and how to configure it correctly to prevent unwanted guests from accessing or interfering in your deployments.
 
-Learn about [safely exposing Octopus Deploy](/docs/security/exposing-octopus/index.md).
+Learn about [safely exposing Octopus Deploy](/docs/security/exposing-octopus/).
 
 ### Safely executing scripts on the Octopus Server
 
 To make Octopus as useful as possible after installation, you can perform many kinds of deployments without setting up other infrastructure. We achieve this using a concept called a worker, and in a default installation, this is called the built-in worker. Depending on your scenario, this can have a big impact on the security and integrity of your Octopus Server.
 
-Learn about [configuring workers](/docs/infrastructure/workers/index.md).
+Learn about [configuring workers](/docs/infrastructure/workers/).
 
 ## Provided by your Octopus administrators
 
@@ -99,11 +99,11 @@ The following sections describe the security controls you can put in place when 
 
 Before a person can access your Octopus Deploy installation, they must validate their identity. We provide built-in support for the most commonly used authentication providers including Active Directory (NTLM and Kerberos), Google Apps, and Microsoft Azure Active Directory. Octopus Deploy works natively with Open ID Connect (OIDC) so you can connect to other identity providers. If you don't want to use an external identity providers, you can let Octopus Deploy securely manage your usernames and passwords for you.
 
-Learn about [authentication providers](/docs/security/authentication/index.md).
+Learn about [authentication providers](/docs/security/authentication/).
 
 Once a person has verified their identity, you can control which activities these users can perform.
 
-Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
+Learn about [managing users and teams](/docs/security/users-and-teams/).
 
 ### HTTP security headers
 
@@ -121,7 +121,7 @@ Learn about [PCI/DSS compliance and Octopus Deploy](pci-compliance-and-octopus-d
 
 Some components in Octopus Deploy will make outbound requests from time to time. Generally these requests are required to perform your deployments, some of them are for things like certificate revocation checks, and some are designed to help us build a better product for you.
 
-Learn about the [outbound requests](outbound-requests/index.md) made by Octopus Deploy.
+Learn about the [outbound requests](outbound-requests/) made by Octopus Deploy.
 
 ## Privacy
 

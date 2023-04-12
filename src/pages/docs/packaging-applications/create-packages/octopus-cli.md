@@ -6,7 +6,7 @@ description: Using the Octopus CLI (octo) command line tool to create packages f
 navOrder: 30
 ---
 
-The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
+The Octopus CLI (`octo`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes a [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 
@@ -18,7 +18,7 @@ After installation, you can run the following to verify the version of the Octop
 dotnet octo --version
 ```
 
-For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/index.md).
+For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/).
 
 For a full list of the `pack` command options see [Octopus CLI - Pack](/docs/octopus-rest-api/octopus-cli/pack.md) or run the following command:
 
@@ -88,7 +88,7 @@ dotnet octo pack ./dist --id="SomeLibrary" --version="1.0.0"
 
 ## Packaging a .NET Framework web application
 
-There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/create-packages/octopack/index.md) for these cases. However, you may be able to achieve this using msbuild parameters such as:
+There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/create-packages/octopack/) for these cases. However, you may be able to achieve this using msbuild parameters such as:
 ```
 msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
 dotnet octo pack ./dist --id="OctoWeb" --version="1.0.0-alpha0001"
@@ -113,9 +113,9 @@ These are known issues to be aware of with other compression libraries:
 
 ## Learn more
 
- - [Packaging application](/docs/packaging-applications/index.md)
- - [Create packages with Octopack](/docs/packaging-applications/create-packages/octopack/index.md).
+ - [Packaging application](/docs/packaging-applications/)
+ - [Create packages with Octopack](/docs/packaging-applications/create-packages/octopack/).
  - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity.md).
- - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md).
- - [Package repositories](/docs/packaging-applications/index.md).
- - [Package deployments](/docs/deployments/packages/index.md).
+ - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/).
+ - [Package repositories](/docs/packaging-applications/).
+ - [Package deployments](/docs/deployments/packages/).

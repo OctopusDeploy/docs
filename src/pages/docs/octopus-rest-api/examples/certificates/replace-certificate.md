@@ -5,7 +5,7 @@ title: Replace existing certificate
 description: An example script to replace an existing certificate in Octopus Deploy.
 ---
 
-This script replaces an existing certificate in the Octopus [certificate library](/docs/deployments/certificates/index.md).
+This script replaces an existing certificate in the Octopus [certificate library](/docs/deployments/certificates/).
 
 ## Usage
 

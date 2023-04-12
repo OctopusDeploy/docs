@@ -8,7 +8,7 @@ navOrder: 285
 
 This command has been deprecated. Please use the [build-information](/docs/octopus-rest-api/octopus-cli/build-information.md) command for Octopus Server 2019.10.0 and above.
 
-Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/build-information/index.md)) to your Octopus Server.
+Pushes package metadata (and [build information](/docs/packaging-applications/build-servers/build-information/)) to your Octopus Server.
 
 ```
 Pushes package metadata to Octopus Server.  Deprecated. Please use the build-information command for Octopus Server 2019.10.0 and above.
@@ -91,5 +91,5 @@ Common options:
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

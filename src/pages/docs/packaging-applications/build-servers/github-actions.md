@@ -210,7 +210,7 @@ To package your artifacts for deployment, configure your build to use the `Octop
         version: latest
 ```
 
-Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/index.md).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
+Adding this Action allows your build to use the commands from the Octopus [command line interface (CLI)](/docs/octopus-rest-api/octopus-cli/).  Using the [pack](/docs/octopus-rest-api/octopus-cli/pack.md) command, you can package your artifacts for deployment.  The following example packages the OctoPetShop components built above:
 
 ```yaml
     - name: Install Octopus CLI
@@ -373,7 +373,7 @@ In addition to common build steps, we also have an action that can Run a Runbook
 
 ### Push Build Information
 
-[Build information](/docs/packaging-applications/build-servers/build-information/index.md) contains a link
+[Build information](/docs/packaging-applications/build-servers/build-information/) contains a link
 to the build which produced the package, details of the source
 commits related to the build, and issue references parsed from the commit messages.
 

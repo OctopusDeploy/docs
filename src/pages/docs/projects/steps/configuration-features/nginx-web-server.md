@@ -6,11 +6,11 @@ description: Configuring NGINX as a web server or reverse proxy
 navOrder: 90
 ---
 
-The NGINX feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/index.md).
+The NGINX feature is one of the [configuration features](/docs/projects/steps/configuration-features/index.md) you can enable as you define the [steps](/docs/projects/steps/index.md) in your [deployment process](/docs/projects/deployment-process/).
 
 ![NGINX Web Server screenshot](images/nginx-web-server.png "width=500")
 
-The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployments/nginx/index.md) for more details.
+The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployments/nginx/) for more details.
 
 ## Reverse proxy
 

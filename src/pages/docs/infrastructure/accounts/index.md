@@ -11,9 +11,9 @@ You may need to configure accounts to use in conjunction with your infrastructur
 
 You can configure the following accounts:
 
-- [Azure accounts](/docs/infrastructure/accounts/azure/index.md).
-- [AWS accounts](/docs/infrastructure/accounts/aws/index.md)
-- [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md)
+- [Azure accounts](/docs/infrastructure/accounts/azure/).
+- [AWS accounts](/docs/infrastructure/accounts/aws/)
+- [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/)
 - [SSH Key Pairs](/docs/infrastructure/accounts/ssh-key-pair.md).
 - [Tokens](/docs/infrastructure/accounts/tokens.md)
 - [Username and Password accounts](/docs/infrastructure/accounts/username-and-password.md)

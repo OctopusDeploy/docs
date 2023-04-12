@@ -6,14 +6,14 @@ description: How to set a step in your deployment/runbook process to run inside 
 navOrder: 30
 ---
 
-For a [step](/docs/projects/steps/index.md) running on a [worker](docs/infrastructure/workers/index.md) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker.md), you can select a Docker image to execute the step inside of.
+For a [step](/docs/projects/steps/index.md) running on a [worker](docs/infrastructure/workers/) or on the [Octopus Server](docs/infrastructure/workers/built-in-worker.md), you can select a Docker image to execute the step inside of.
 
 When an execution container is configured for a step, Octopus will still connect to the worker machine via a [Tentacle or SSH](/docs/infrastructure/workers/index.md#register-a-worker-as-a-listening-tentacle). The difference is that the specified image will be run as a container and the step will be executed inside the container.
 
 See the [blog post](https://octopus.com/blog/execution-containers) announcing this feature for some added context.
 
 ## Requirements
-You need Docker installed and running on the [worker](docs/infrastructure/workers/index.md)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
+You need Docker installed and running on the [worker](docs/infrastructure/workers/)/Octopus Server ([built-in worker](/docs/infrastructure/workers/built-in-worker.md)), in order to use execution containers for workers
 
 ### Octopus cloud dynamic worker pools 
 [Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools.md) have Docker pre-installed and support execution containers.
@@ -23,9 +23,9 @@ You need Docker installed and running on the [worker](docs/infrastructure/worker
 
 ## How to use execution containers for workers 
 
-- Configure a [feed](/docs/packaging-applications/package-repositories/docker-registries/index.md) in Octopus Deploy for a Docker registry.
+- Configure a [feed](/docs/packaging-applications/package-repositories/docker-registries/) in Octopus Deploy for a Docker registry.
   - [Add Docker Hub as an external feed](https://octopus.com/blog/build-a-real-world-docker-cicd-pipeline#add-docker-hub-as-an-external-feed).
-- Add a project and define a deployment process (or add a [runbook](/docs/runbooks/index.md)).
+- Add a project and define a deployment process (or add a [runbook](/docs/runbooks/)).
 - Set the **Execution Location** for your step to **Run on a worker**.
 - In **Container Image** select **Runs on a worker inside a container**.
 - Choose the previously added container registry.

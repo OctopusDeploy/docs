@@ -7,7 +7,7 @@ navOrder: 62
 ---
 
 :::warning
-Connecting Polling Tentacles to an [Octopus Cloud](/docs/octopus-cloud/index.md) instance over WebSockets is not currently supported.
+Connecting Polling Tentacles to an [Octopus Cloud](/docs/octopus-cloud/) instance over WebSockets is not currently supported.
 :::
 
 [(TCP) Polling Tentacles](docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md#polling-tentacles) can be setup to operate over HTTPS (Secure WebSockets) instead of raw TCP sockets. The advantage is that the port can be shared with another website (e.g. IIS or Octopus itself). The downside is the setup is a little more complicated and network communications are slightly slower.
@@ -18,7 +18,7 @@ If there is an available port, we recommend using [TCP Polling Tentacles](docs/i
 
 The following prerequisites must be met to use this feature:
 
-- Octopus Server must be self-hosted, and not an [Octopus Cloud](/docs/octopus-cloud/index.md) instance.
+- Octopus Server must be self-hosted, and not an [Octopus Cloud](/docs/octopus-cloud/) instance.
 - Both the Octopus Server and Tentacle must be running windows 2012 or later.
 - The server expects an SSL/TLS connection, so SSL offloading is not supported.
 - The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that utilize non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.

@@ -6,7 +6,7 @@ description: Configure your infrastructure so Octopus can deploy software to you
 navOrder: 10
 ---
 
-You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/index.md) targets.
+You can deploy software to the Azure cloud by adding your Azure subscription to Octopus. With an active Azure subscription, you can use Octopus to deploy to [Azure Cloud Service](/docs/infrastructure/deployment-targets/azure/cloud-service-targets/index.md) targets, [Azure Service Fabric](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) targets, and [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets/) targets.
 
 Before you can deploy software to Azure, you need to add your Azure subscription to Octopus Deploy.
 
@@ -207,7 +207,7 @@ Now that you have the following values, you can add your account to Octopus:
 1. Add your Azure Subscription ID. This is found in the Azure portal under **Subscriptions**.
 1. Add the **Application ID**, the **Tenant ID**, and the **Application Password/Keyword**.
 
-Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure/index.md) for more details.
+Click **SAVE AND TEST** to confirm the account can interact with Azure. Octopus will then attempt to use the account credentials to access the Azure Resource Management (ARM) API and list the Resource Groups in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure/) for more details.
 
 :::hint
 A newly created Service Principal may take several minutes before the credential test passes. If you have double checked your credential values, wait 15 minutes and try again.
@@ -215,7 +215,7 @@ A newly created Service Principal may take several minutes before the credential
 
 ## Creating an Azure Management Certificate account {#azure-management-certificate}
 
-Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/index.md) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/index.md).
+Azure Management Certificate Accounts work with the **Azure Service Management API** only, which is used when Octopus deploys [Cloud Services](/docs/deployments/azure/cloud-services/index.md) and [Azure Web Apps](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/).
 
 :::warning
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
@@ -243,13 +243,13 @@ The certificate will be named **Octopus Deploy -``{Your Account Name}**.
 
 ### Step 2: Save and Test {#CreatinganAzureManagementCertificateAccount-Step3:SaveandTest}
 
-Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure/index.md) for more details.
+Click **Save and Test**, and Octopus will attempt to use the account credentials to access the Azure Service Management (ASM) API and list the Hosted Services in that subscription. You may need to include the appropriate IP Addresses for the Azure Data Center you are targeting in any firewall allow list. See [deploying to Azure via a Firewall](/docs/deployments/azure/) for more details.
 
 You can now configure Octopus to deploy to Azure via the Azure Service Management (ASM) API.
 
 ## Azure account variables {#azure-account-variables}
 
-You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployments/azure/index.md).
+You can access your Azure account from within projects through a variable of type **Azure Account**. Learn more about [Azure Account Variables](/docs/projects/variables/azure-account-variables.md) and [Azure Deployments](/docs/deployments/azure/).
 
 ## Automate Azure Service Principal creation and Octopus Deploy account registration {#azure-octopus-account-automate-creation}
 

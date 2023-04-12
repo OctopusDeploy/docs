@@ -30,13 +30,13 @@ Octopus Deploy integrates with several third-party database tools:
 
 Before those tools can run, they need to be configured to run as a specific database account that has permission to make schema changes.
 
-Learn more about [configuration settings](/docs/deployments/databases/configuration/index.md).
+Learn more about [configuration settings](/docs/deployments/databases/configuration/).
 
 ## Common deployment process patterns
 
 There is a learning curve with adopting automated database deployments, and that can lead to quite a bit of trepidation, especially when combined with the fact databases are the lifeblood of most applications. There are some common deployment patterns you can adopt to build trust and level-up tooling knowledge quickly.
 
-Learn more about [common patterns](/docs/deployments/databases/common-patterns/index.md).
+Learn more about [common patterns](/docs/deployments/databases/common-patterns/).
 
 ## Databases servers
 
@@ -44,7 +44,7 @@ Octopus Deploy is database server agnostics; it calls the command-line interface
 
 ### SQL Server
 
-If you are deploying to SQL Server, see the [SQL Server section](/docs/deployments/databases/sql-server/index.md).
+If you are deploying to SQL Server, see the [SQL Server section](/docs/deployments/databases/sql-server/).
 
 
 ### Oracle
@@ -71,5 +71,5 @@ Automating database deployments is often the final piece of a fully automated CI
 
 ## Learn more 
 
-- [Manage database maintenance with runbooks](/docs/runbooks/runbook-examples/databases/index.md)
+- [Manage database maintenance with runbooks](/docs/runbooks/runbook-examples/databases/)
 - [Database blog posts](https://octopus.com/blog/tag/database%20deployments)

@@ -15,8 +15,8 @@ The [Audit Retention functionality](#archived-audit-events) was introduced in **
 
 Below is a short list of just some of the things that Octopus captures:
 
-- Changes to [deployment processes](/docs/deployments/index.md) and [variables](/docs/projects/variables/index.md).
-- Create/modify/delete events for [projects](/docs/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/index.md), releases, and so on.
+- Changes to [deployment processes](/docs/deployments/index.md) and [variables](/docs/projects/variables/).
+- Create/modify/delete events for [projects](/docs/projects/index.md), [environments](/docs/infrastructure/environments/index.md), [deployment targets](/docs/infrastructure/), releases, and so on.
 - Environment changes, such as adding new deployment targets or modifying the environment a deployment target belongs to.
 - Queuing and canceling of deployments and other tasks.
 
@@ -50,7 +50,7 @@ We take great care to ensure the security and integrity of your audit logs, to m
 
 ### Viewing audit logs
 
-To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams/index.md).
+To grant a user access to audit logs you can make use of a built-in User Role that contains **EventView**. All project related user roles contain it. **EventView** can also be scoped to narrow down which audit information a user can see, for example, it can be restricted to specific Projects or Environments. Learn more about [managing users and teams](/docs/security/users-and-teams/).
 
 In **Octopus 2019.1** we removed **AuditView** in an effort to simplify permissions so only **EventView** is now required.
 

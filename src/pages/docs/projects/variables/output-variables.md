@@ -6,11 +6,11 @@ description: Output variables allow you to set dynamic variables in one step tha
 navOrder: 30
 ---
 
-As you work with [variables](/docs/projects/variables/index.md) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
+As you work with [variables](/docs/projects/variables/) in Octopus, there will be times when you want to use dynamic variables, for example, the value of a variable is the result of a calculation, or the output from running a command. For these scenarios, Octopus supports **output variables**.
 
-Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console.md), or [package scripts and script steps](/docs/deployments/custom-scripts/index.md) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
+Output variables can be set anywhere that Octopus runs scripts - for example, the [Script Console](/docs/administration/managing-infrastructure/script-console.md), or [package scripts and script steps](/docs/deployments/custom-scripts/) in a deployment. *See below for examples of setting output variables in each of the different scripting languages supported by Octopus.*
 
-For example, you might have a standalone [PowerShell script step](/docs/deployments/custom-scripts/index.md) called **StepA** that does something like this:
+For example, you might have a standalone [PowerShell script step](/docs/deployments/custom-scripts/) called **StepA** that does something like this:
 
 ```powershell PowerShell
 Set-OctopusVariable -name "TestResult" -value "Passed"
@@ -139,7 +139,7 @@ You can set output variables using any of the scripting languages supported by O
 
 From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable` to set the name and value of an output variable. The CmdLet takes two parameters:
 
-- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/projects/variables/index.md).
+- `[string]$name` - the name you want to give the output variable following the same naming conventions used for input [variables](/docs/projects/variables/).
 - `[string]$value` - the value you want to give the output variable.
 
 For example:

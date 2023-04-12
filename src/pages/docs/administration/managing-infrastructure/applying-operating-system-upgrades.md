@@ -31,7 +31,7 @@ You should not restore a backup of the Octopus SQL Database.
 
 ## Octopus High Availability
 
-If you are using an [Octopus High Availability](/docs/administration/high-availability/index.md) cluster you don't need to plan any downtime. Instead, you can just drain the tasks from each node and apply Operating System patches one at a time, while the other nodes continue to orchestrate your deployments.
+If you are using an [Octopus High Availability](/docs/administration/high-availability/) cluster you don't need to plan any downtime. Instead, you can just drain the tasks from each node and apply Operating System patches one at a time, while the other nodes continue to orchestrate your deployments.
 
 For each node in your cluster:
 

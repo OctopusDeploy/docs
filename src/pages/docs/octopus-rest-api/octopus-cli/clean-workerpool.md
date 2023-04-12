@@ -6,7 +6,7 @@ description: Cleans all Offline Workers from a Worker Pool
 navOrder: 20
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to clean all offline Workers from a Worker pool.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to clean all offline Workers from a Worker pool.
 
 ```
 Cleans all Offline Workers from a WorkerPool.
@@ -107,7 +107,7 @@ octo clean-workerpool --workerPool="Default Worker Pool" --health-status="Health
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Workers](/docs/infrastructure/workers/index.md)
+- [Workers](/docs/infrastructure/workers/)
 - [Worker Pools](/docs/infrastructure/workers/worker-pools.md)

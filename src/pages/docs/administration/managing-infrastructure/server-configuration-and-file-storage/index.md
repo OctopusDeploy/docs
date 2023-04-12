@@ -45,7 +45,7 @@ The Octopus Server stores files in the following folders by default:
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Telemetry) on how to move the Octopus Server telemetry folder
 - `C:\Octopus\Imports`
     - This folder was added in **Octopus 2021.1**
-    - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import/index.md).
+    - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import/).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders.md#MovingOctopusServerfolders-Imports) on how to move the Octopus Server imports folder
 
 ## Clean up post-2.6 migration {#ServerconfigurationandFilestorage-CleanUpCleanuppost-2.6migration}

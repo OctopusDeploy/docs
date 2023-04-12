@@ -28,7 +28,7 @@ The following certificate formats are supported in Octopus Deploy:
 
 ## Configure subscriptions for expiry notifications
 
-[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md) can be used to configure notifications when certificates are close to expiry or have expired.
+[Octopus Subscriptions](/docs/administration/managing-infrastructure/subscriptions/) can be used to configure notifications when certificates are close to expiry or have expired.
 
 There is a "Certificate expiry events" event-group, and three events:  
 

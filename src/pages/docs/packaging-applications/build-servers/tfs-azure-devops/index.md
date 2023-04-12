@@ -17,8 +17,8 @@ Depending on the version of Azure DevOps you are using, the recommended approach
 
 | Version                     | Recommended approach                     | Notes                                    |
 | --------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Azure DevOps Services       | [Octopus Extension for Azure DevOps Services](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md)         | This is the hosted version of Azure DevOps. Our integration will always aim to be compatible with this offer. |
-| Azure DevOps Server         | [Octopus Extension for Azure DevOps Server](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/index.md)         | This is the on-premises offering for Azure DevOps. We will try our best to be compatible with this offer. |
+| Azure DevOps Services       | [Octopus Extension for Azure DevOps Services](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/)         | This is the hosted version of Azure DevOps. Our integration will always aim to be compatible with this offer. |
+| Azure DevOps Server         | [Octopus Extension for Azure DevOps Server](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/)         | This is the on-premises offering for Azure DevOps. We will try our best to be compatible with this offer. |
 
 !include <tfs-notice>
 

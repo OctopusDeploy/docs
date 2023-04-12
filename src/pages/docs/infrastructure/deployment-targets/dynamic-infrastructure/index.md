@@ -7,10 +7,10 @@ navOrder: 100
 ---
 
 :::hint
-Octopus version 2022.1 has support for discovering and cleaning up supported types of deployment targets using tags on cloud resources, please see our documentation on [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
+Octopus version 2022.1 has support for discovering and cleaning up supported types of deployment targets using tags on cloud resources, please see our documentation on [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
 :::
 
-You can use the [Octopus REST API](/docs/octopus-rest-api/index.md) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
+You can use the [Octopus REST API](/docs/octopus-rest-api/) or the Octopus commands below to create Octopus accounts, targets, and workers dynamically. You can make these requests in the same scripts that create your cloud infrastructure or in following steps.
 
 !include <create-deployment-targets-hint>
 
@@ -33,7 +33,7 @@ Octopus comes with a REST API that can be used to register Octopus accounts and 
 - [Register a listening Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-listening-tentacle.md)
 - [Register a Polling Tentacle](/docs/octopus-rest-api/examples/deployment-targets/register-polling-tentacle.md)
 
-To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/index.md) section.
+To learn more about the things you can do with the API, take a look at our [API examples](/docs/octopus-rest-api/examples/) section.
 
 ## Using PowerShell functions
 

@@ -11,7 +11,7 @@ This script demonstrates how you can import projects into an Octopus space. It u
 **Note:**
 Please note there are some items to consider before using this script:
 
-- This script uses an API endpoint introduced in **Octopus 2021.1** for the [Export/Import Projects feature](/docs/projects/export-import/index.md). Using this script in earlier versions of Octopus will not work.
+- This script uses an API endpoint introduced in **Octopus 2021.1** for the [Export/Import Projects feature](/docs/projects/export-import/). Using this script in earlier versions of Octopus will not work.
 - Automating the import of projects as part of a backup/restore process is **not recommended**. See our [supported scenarios](/docs/projects/export-import/index.md#scenarios) when using the API from this feature.
 :::
 

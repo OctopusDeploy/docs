@@ -59,10 +59,10 @@ Learn about the security implications and how to configure the [built-in worker]
 ## External Workers {#external-workers}
 
 An **External Worker** is either:
-- A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/index.md) Tentacle.
+- A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux/) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target.md) that has been registered with the Octopus Server as a worker.  
 
-The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md), except that instead of being added to an environment, a worker is added to a worker pool.
+The setup of a worker is the same as setting up a deployment target as a [Windows Tentacle target](/docs/infrastructure/deployment-targets/tentacle/windows/) or an [SSH target](/docs/infrastructure/deployment-targets/linux/ssh-target.md), except that instead of being added to an environment, a worker is added to a worker pool.
 
 Using external workers allows delegating work to a machine other than the Octopus Server.  This can make the server more secure and allow scaling.  When Octopus executes a step on an external worker, it's the external worker that executes Calamari and no user-provided script executes on the Octopus Server itself.
 
@@ -70,7 +70,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker {#registering-an-external-worker}
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client/index.md) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/index.md), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client/) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 ### Registering Workers in the Octopus Web Portal {#registering-workers-in-the-octopus-web-portal}
 
@@ -91,7 +91,7 @@ After you have saved the new worker, you can navigate to the worker pool you ass
 
 ### Registering a Linux Listening Tentacle as a Worker {#registering-linux-listening-worker}
 
-The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md) for more details.
+The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/) for more details.
 
 !include <configure-linux-listening-worker>
 
@@ -108,7 +108,7 @@ The new Polling Tentacle will automatically show up in the Workers list.
 
 ### Registering a Linux Polling Tentacle as a Worker {#registering-linux-polling-worker}
 
-The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/index.md) for more details.
+The Tentacle agent will need to be installed on the target server to communicate with the Octopus Server. Please read the instructions for [installing a Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/) for more details.
 
 !include <configure-linux-polling-worker>
 

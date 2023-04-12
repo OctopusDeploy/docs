@@ -7,4 +7,4 @@ navOrder: 110
 hideInThisSectionHeader: true
 ---
 
-You can use the REST API to create and manage your [lifecycles](/docs/releases/lifecycles/index.md) in Octopus. Typical tasks can include:
+You can use the REST API to create and manage your [lifecycles](/docs/releases/lifecycles/) in Octopus. Typical tasks can include:

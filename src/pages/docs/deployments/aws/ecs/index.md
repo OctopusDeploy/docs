@@ -40,9 +40,9 @@ Configuring an ECS service for the first time can be quite intimidating due to a
 
 ## Step 2: Create a deployment target for your ECS cluster
 
-The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets/index.md) to be defined.
+The `Deploy Amazon ECS Service` step requires [a deployment target](/docs/infrastructure/deployment-targets/) to be defined.
 
-Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
+Select the `AWS Account` under the `ECS Cluster` section and provide the cluster's AWS region and name. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/).
 
 ![ECS Cluster Deployment Target Settings](images/target.png "width=500")
 
@@ -182,7 +182,7 @@ Specify volumes that can be referenced by each individual container within the t
 
 ### Export to CloudFormation template
 
-The ECS step operates entirely via CloudFormation templates, which means that every input field corresponds to a set of options in the generated template. To cater for more advanced deployment scenarios the step provides an option to export the CloudFormation template as YAML text. This template can be used via AWS CLI or as input in the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation/index.md) step.
+The ECS step operates entirely via CloudFormation templates, which means that every input field corresponds to a set of options in the generated template. To cater for more advanced deployment scenarios the step provides an option to export the CloudFormation template as YAML text. This template can be used via AWS CLI or as input in the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation/) step.
 
 Some options will be converted to CloudFormation parameters with default values matching the specific values provided in the step. This allows you to easily override these values, while maintaining a simple conversion process between the ECS step and the `Deploy an AWS CloudFormation Template` step.
 

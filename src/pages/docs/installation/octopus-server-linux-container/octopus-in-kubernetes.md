@@ -6,11 +6,11 @@ description: Octopus can be installed into a Kubernetes cluster running the Octo
 navOrder: 40
 ---
 
-One of the driving forces behind creating the Octopus Server Linux Container was so Octopus could run in a container in Kubernetes for [Octopus Cloud](/docs/octopus-cloud/index.md). With the release of the Octopus Server Linux Container image in **2020.6**, this option is available for those who want to host Octopus in their own Kubernetes clusters.
+One of the driving forces behind creating the Octopus Server Linux Container was so Octopus could run in a container in Kubernetes for [Octopus Cloud](/docs/octopus-cloud/). With the release of the Octopus Server Linux Container image in **2020.6**, this option is available for those who want to host Octopus in their own Kubernetes clusters.
 
 This page describes how to run Octopus Server in Kubernetes, along with platform specific considerations when using different Kubernetes providers such as Azure AKS  and Google GKE.
 
-Since [Octopus High Availability](/docs/administration/high-availability/index.md) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
+Since [Octopus High Availability](/docs/administration/high-availability/) (HA) and Kubernetes go hand in hand, this guide will show how to support scaling Octopus Server instances with multiple HA nodes. It assumes a working knowledge of Kubernetes concepts, such as Pods, Services, Persistent volume claims and Stateful Sets.
 
 ## Pre-requisites {#pre-requisites}  
 
@@ -18,7 +18,7 @@ Whether you are running Octopus in a Container using Docker or Kubernetes, or ru
 
 - A Highly available [SQL Server database](/docs/installation/sql-server-database.md)
 - A shared file system for [Artifacts, Packages, and Task Logs](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md#ServerconfigurationandFilestorage-FileStorageFilestorage)
-- A [Load balancer](/docs/administration/high-availability/load-balancing/index.md) for traffic to the Octopus Web Portal 
+- A [Load balancer](/docs/administration/high-availability/load-balancing/) for traffic to the Octopus Web Portal 
 - Access to each Octopus Server node for [Polling Tentacles](/docs/administration/high-availability/maintain/polling-tentacles-with-ha.md)
 
 The following sections describe these in more detail.
@@ -610,7 +610,7 @@ The `readinessProbe` is used to ensure the Octopus Server node is responding to 
 
 ### UI-only and back-end nodes {#ui-and-backend-nodes}
 
-When managing an Octopus High Availability cluster, it can be beneficial to separate the Octopus Web Portal from the deployment orchestration of tasks that Octopus Server provides. It's possible to create *UI-only* nodes that have the sole responsibility to serve web traffic for the Octopus Web Portal and the [Octopus REST API](/docs/octopus-rest-api/index.md).
+When managing an Octopus High Availability cluster, it can be beneficial to separate the Octopus Web Portal from the deployment orchestration of tasks that Octopus Server provides. It's possible to create *UI-only* nodes that have the sole responsibility to serve web traffic for the Octopus Web Portal and the [Octopus REST API](/docs/octopus-rest-api/).
 
 :::hint
 By default, all Octopus Server nodes are task nodes because the default task cap is set to `5`. To create UI-only Octopus Server nodes, you need to set the task cap for each node to `0`.

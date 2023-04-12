@@ -12,7 +12,7 @@ If you are hosting your Octopus Server yourself, these are the minimum requireme
 
 Octopus Server can be hosted on either:
 - A Microsoft Windows operating system
-- In a [Linux](docs/installation/octopus-server-linux-container/index.md) container.
+- In a [Linux](docs/installation/octopus-server-linux-container/) container.
 
 However, once your Octopus Server is up and running, you can deploy to Windows servers, Linux servers, Microsoft Azure, AWS, GCP, Cloud Regions, or even an offline package drop.
 
@@ -37,7 +37,7 @@ Octopus Server will run on client/desktop versions of Windows, such as Windows 7
 
 From **Octopus 2020.6**, we publish `linux/amd64` Docker images for each Octopus Server release and they are available on [DockerHub](https://hub.docker.com/r/octopusdeploy/).
 
-Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
+Requirements for the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/) will depend on how you intend to run it. There are some different options to run the Octopus Server Linux Container, which include:
 
 - [Octopus Server Container with Docker Compose](/docs/installation/octopus-server-linux-container/docker-compose-linux.md)
 - [Octopus Server Container with systemd](/docs/installation/octopus-server-linux-container/systemd-service-definition.md)
@@ -113,5 +113,5 @@ Our default supported browsers are:
 
 ## Learn more
 
-- [Installation](/docs/installation/index.md)
+- [Installation](/docs/installation/)
 - [Compatibility](/docs/support/compatibility.md)

@@ -7,4 +7,4 @@ navOrder: 130
 hideInThisSectionHeader: true
 ---
 
-You can use the REST API to create and manage your Octopus [projects](/docs/projects/index.md). Typical tasks can include:
+You can use the REST API to create and manage your Octopus [projects](/docs/projects/). Typical tasks can include:

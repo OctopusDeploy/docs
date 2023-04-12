@@ -5,7 +5,7 @@ title: Create a new scheduled runbook trigger
 description: An example script to create and publish a new runbook scheduled trigger
 ---
 
-This script demonstrates how to programmatically create a new [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/index.md). The trigger will run once a day at the time specified, on the days specified, in the timezone chosen (default is `GMT Standard Time`).
+This script demonstrates how to programmatically create a new [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/). The trigger will run once a day at the time specified, on the days specified, in the timezone chosen (default is `GMT Standard Time`).
 
 ## Usage
 

@@ -21,9 +21,9 @@ regarding backends in the [Terraform documentation](https://www.terraform.io/doc
 
 You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template. Using credentials managed by Octopus is optional. These credentials can be saved directly into the Terraform template if that approach is preferable. Credentials defined in the Terraform template take precedence over any credentials defined in the step. The following pages provide instruction on creating cloud accounts:
 
-- [Azure accounts](/docs/infrastructure/accounts/azure/index.md)
-- [AWS accounts](/docs/infrastructure/accounts/aws/index.md)
-- [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/index.md)
+- [Azure accounts](/docs/infrastructure/accounts/azure/)
+- [AWS accounts](/docs/infrastructure/accounts/aws/)
+- [Google cloud accounts](/docs/infrastructure/accounts/google-cloud/)
 
 ## Remote state Terraform cloud
 

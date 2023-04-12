@@ -20,7 +20,7 @@ The Octopus TeamCity plugin comes with these custom build runners:
 6. **Octopus Deploy: Promote Release**
     Promotes an *existing* release from one environment to another.
 
-The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/), the Octopus command line tool for creating and deploying releases.
 
 !include <teamcity-install>
 
@@ -28,7 +28,7 @@ The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octo
 
 ## Using Octopus as a package repository {#TeamCity-PushpackagestoOctopusUsingOctopusasaPackageRepository}
 
-Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), or it can be configured to use an external feed (such as retrieving them from TeamCity).
+Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository/), or it can be configured to use an external feed (such as retrieving them from TeamCity).
 
 To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint URL into the **Publish packages to http** field, and [an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **{{Library,Packages}}** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 

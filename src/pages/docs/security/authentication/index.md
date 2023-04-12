@@ -9,16 +9,16 @@ navOrder: 50
 Octopus Deploy supports the most common authentication providers out-of-the-box, including special support for a Guest Login.
 
 - [Username and Password](/docs/security/authentication/username-password.md)
-- [Active Directory Authentication](/docs/security/authentication/active-directory/index.md)
+- [Active Directory Authentication](/docs/security/authentication/active-directory/)
 - [Azure Active Directory Authentication](/docs/security/authentication/azure-ad-authentication.md)
 - [GoogleApps Authentication](/docs/security/authentication/googleapps-authentication.md)
-- [LDAP Authentication](/docs/security/authentication/ldap/index.md)
+- [LDAP Authentication](/docs/security/authentication/ldap/)
 - [Okta Authentication](/docs/security/authentication/okta-authentication.md)
 - [Octopus ID](/docs/security/authentication/octopusid-authentication.md)
 - [Guest Login](/docs/security/authentication/guest-login.md)
 
 :::hint
-Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/index.md). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
+Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information. 
 :::
 
 ## Configuring authentication providers {#AuthenticationProviders-ConfiguringAuthenticationProviders}
@@ -33,16 +33,16 @@ If you're using the [Username and Password provider](/docs/security/authenticati
 
 When a user signs in to Octopus for the first time using an external authentication provider, Octopus will automatically create a new user account for them as a convenience. If you prefer to control which users can access Octopus, you can disable auto user creation and manually invite users instead.
 
-- Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
+- Learn about [managing users and teams](/docs/security/users-and-teams/).
 - Learn about [auto user creation](/docs/security/authentication/auto-user-creation.md).
 
 ## Manage teams
 
-In Octopus, you can group your users into teams and use the role-based permission system to control what they can see and do. Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
+In Octopus, you can group your users into teams and use the role-based permission system to control what they can see and do. Learn about [managing users and teams](/docs/security/users-and-teams/).
 
 You can manually manage the members of your teams, or you can configure certain external authentication providers to manage your teams for you automatically.
 
-- Learn about [automatically managing teams with Active Directory](/docs/security/authentication/active-directory/index.md).
+- Learn about [automatically managing teams with Active Directory](/docs/security/authentication/active-directory/).
 - Learn about [automatically managing teams with Azure Active Directory](/docs/security/authentication/azure-ad-authentication.md).
 - Learn about [automatically managing teams with Okta](/docs/security/authentication/azure-ad-authentication.md).
 

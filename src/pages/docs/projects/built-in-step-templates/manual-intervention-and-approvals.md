@@ -21,7 +21,7 @@ The **Manual intervention step** is a step that can be added to deployment proce
 
 Manual intervention steps are added to deployment processes in the same way as other steps.
 
-1. Navigate to your [project's](/docs/projects/index.md) overview page by selecting **Projects** and clicking on the project you are working with.
+1. Navigate to your [project's](/docs/projects/) overview page by selecting **Projects** and clicking on the project you are working with.
 2. Click **PROCESS** and **ADD STEP** to add a step to an existing process. Alternatively, if this is a new deployment process, click the **DEFINE YOUR DEPLOYMENT PROCESS** button, and click **ADD STEP**.
 3. Find the **Manual Intervention Required** step, hover over the step, and click **ADD**.
 4. Give the step a short memorable name.

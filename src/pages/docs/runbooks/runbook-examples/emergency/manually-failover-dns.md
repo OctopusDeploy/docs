@@ -25,7 +25,7 @@ The following example uses the Azure CLI to update the DNS record for www.octopu
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new **Run an Azure Script** step.
 5. Choose **Inline source code (with optional package references)**
-6. Enter the following PowerShell code, we recommend using [variables](/docs/projects/variables/index.md) instead of hard-coding entries.
+6. Enter the following PowerShell code, we recommend using [variables](/docs/projects/variables/) instead of hard-coding entries.
 
 ```powershell
 $resourceGroup = $OctopusParameters["OctoFX.Azure.Resource.Group"]

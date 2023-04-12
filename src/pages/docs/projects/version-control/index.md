@@ -43,7 +43,7 @@ You can provide feedback through whichever of the following channels you feel mo
 
 Version-control is configured per project and is accessed via the **{{Settings,Version Control}}** navigation menu item. 
 
-Learn more about [Configuring version control on a project](/docs/projects/version-control/converting/index.md).
+Learn more about [Configuring version control on a project](/docs/projects/version-control/converting/).
 
 ## Config-as-code reference
 

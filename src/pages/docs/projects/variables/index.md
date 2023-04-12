@@ -13,7 +13,7 @@ hideInThisSectionHeader: true
 
 In this example, we'll add a variable to a Hello World project that runs a script to say hello. The project uses the variable to vary the message it displays based on the environment the script is deployed to.
 
-1. To add a variable to your [project](/docs/projects/index.md), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
+1. To add a variable to your [project](/docs/projects/), navigate to the Project's Overview page, and click **Variables** to access the variable editor.
 2. Give the variable a name, for instance, *Greeting*.
 3. Enter the first value for the variable, for instance, *Hello, Test*, in the value field.
 4. Define the scope for the value, for instance, by selecting the *Test* environment.
@@ -175,4 +175,4 @@ If the answer to either of those questions is yes, it might be worth considering
 ## Learn more
 
 - [Variable blog posts](https://octopus.com/blog/tag/variables)
-- [Using variables in your scripts](/docs/deployments/custom-scripts/index.md) 
+- [Using variables in your scripts](/docs/deployments/custom-scripts/) 

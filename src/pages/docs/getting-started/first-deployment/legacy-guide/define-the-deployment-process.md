@@ -40,8 +40,8 @@ The next step will [create a release and deploy it](/docs/getting-started/first-
 
 For further reading on defining a deployment process in Octopus Deploy please see:
 
-- [Deployment Process Documentation](/docs/projects/deployment-process/index.md)
-- [Deployment Documentation](/docs/deployments/index.md)
-- [Patterns and Practices](/docs/deployments/patterns/index.md)
+- [Deployment Process Documentation](/docs/projects/deployment-process/)
+- [Deployment Documentation](/docs/deployments/)
+- [Patterns and Practices](/docs/deployments/patterns/)
 
 <span><a class="btn btn-secondary" href="/docs/getting-started/first-deployment/create-projects">Previous</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a class="btn btn-success" href="/docs/getting-started/first-deployment/create-and-deploy-a-release">Next</a></span>

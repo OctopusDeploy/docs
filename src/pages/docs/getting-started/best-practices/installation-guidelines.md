@@ -35,7 +35,7 @@ Octopus Deploy installation requirements are:
 - Windows Server 2012 R2 or later when hosting on Windows Server
 - Linux is supported when using the [Octopus Deploy Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image)
 
-[High availability](/docs/administration/high-availability/index.md) functionality may or may not be included in your license.  All Server licenses, or Professional/Enterprise licenses sold after 2022 include at least 2 nodes.
+[High availability](/docs/administration/high-availability/) functionality may or may not be included in your license.  All Server licenses, or Professional/Enterprise licenses sold after 2022 include at least 2 nodes.
 
 ![](/docs/administration/high-availability/images/high-availability.svg "width=500")
 
@@ -81,7 +81,7 @@ Some reference points to consider:
 
 Our recommendation is to host Octopus Deploy Windows Server over the Octopus Server Linux Container unless you are okay with **all** these conditions:
 - You plan on using LDAP, Okta, Azure AD, Google Auth, or the built-in username and password to authenticate users.  The current version of the Octopus Server Linux Container only supports Active Directory authentication via LDAP.
-- You are okay running at least one [worker](/docs/infrastructure/workers/index.md) to handle tasks typically done by the Octopus Server.  The Octopus Server Linux Container doesn't include PowerShell Core or Python.
+- You are okay running at least one [worker](/docs/infrastructure/workers/) to handle tasks typically done by the Octopus Server.  The Octopus Server Linux Container doesn't include PowerShell Core or Python.
 - You are familiar with Docker concepts, specifically around debugging containers, volume mounting, and networking.
 - You are comfortable with one of the underlying hosting technologies for Docker containers; Kubernetes, ACS, ECS, AKS, EKS, or Docker Swarm.
 - You understand Octopus Deploy is a stateful, not a stateless application, requiring additional monitoring.  
@@ -102,7 +102,7 @@ We are currently working with our existing customers on what best practices look
 
 ## Small-Medium Scale Configuration
 
-Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/index.md) from the start, even if you only plan on running one node.  
+Our recommendation is to configure Octopus Deploy to run in [high availability mode](/docs/administration/high-availability/configure/) from the start, even if you only plan on running one node.  
 
 :::hint
 For the remainder of this document, the assumption is you will be using Windows Servers.  
@@ -170,7 +170,7 @@ Octopus Deploy will return the name of the node in the `Octopus-Node` response h
 We have noticed specific user actions, such as creating a new space or updating permissions, won't update the cache on all nodes, and you'll get odd permissions errors.  Typically the cache is updated after a few minutes, and those errors go away.  If that happens to you, look at the `Octopus-Node` header to determine which node has updated data vs. not updated.  If you see that jumping between nodes is the problem, and you update permissions a lot, we recommend switching over to sticky sessions.
 :::
 
-If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/index.md) provide steps on how to do this.
+If you plan on having external [polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication.md) connect to your instance through a load balancer / firewall you will need to configure passthrough ports to each node.  Our [high availability guides](/docs/administration/high-availability/design/) provide steps on how to do this.
 
 ### File Storage
 
@@ -289,9 +289,9 @@ Using the Octopus Deploy API, all of that is possible; however, it will require 
 
 For further reading on installation requirements and guidelines for Octopus Deploy please see:
 
-- [Installation](/docs/installation/index.md)
+- [Installation](/docs/installation/)
 - [Requirements](/docs/installation/requirements.md)
 - [Permissions for Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service.md)
-- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md)
+- [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/)
 
 <span><a class="btn btn-success" href="/docs/getting-started/best-practices/partition-octopus-with-spaces">Next</a></span>

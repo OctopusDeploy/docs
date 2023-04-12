@@ -24,7 +24,7 @@ With tenant tags you can:
 - Scope project variables to tags.
 - Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
 - Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/index.md#guides).
-- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/index.md) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles.md) section.
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles.md) section.
 
 ## Managing Tenant Tags {#managing-tenant-tags}
 
@@ -96,9 +96,9 @@ Consider an example deploying a release to the tenants tagged with the **Alpha*
 
 Some places you can use tags are:
 
-- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/index.md) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md).
+- When deploying releases of your projects using one of the [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release.md).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure.md) section.
-- When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/index.md).
+- When automating Octopus via the [Octopus REST API](/docs/octopus-rest-api/).
 
 ## Deploying to multiple tenants using tags {#deploying-to-multiple-tenants-tags}
 

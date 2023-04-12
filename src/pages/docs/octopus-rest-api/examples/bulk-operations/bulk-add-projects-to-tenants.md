@@ -5,7 +5,7 @@ title: Bulk add a project to a list of tenants
 description: An example script that will add a project to a lot of tenants at once.
 ---
 
-This script demonstrates how to programmatically assign a group of [tenants](/docs/tenants/index.md) to a project in Octopus.
+This script demonstrates how to programmatically assign a group of [tenants](/docs/tenants/) to a project in Octopus.
 
 ## Usage
 

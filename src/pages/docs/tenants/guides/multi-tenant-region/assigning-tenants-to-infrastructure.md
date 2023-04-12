@@ -7,7 +7,7 @@ navOrder: 50
 hideInThisSectionHeader: true
 ---
 
-The Car Rental applications consist of a PHP web UI and a MySQL database back end.  To support this, an Azure App Service and MySQL database server are provisioned in each Azure region.  Using [workers](/docs/infrastructure/workers/index.md), it's not necessary to configure the database server as a deployment target and is considered best practice not to do so.  This section of the guide will focus on the Azure App Service deployment target type.
+The Car Rental applications consist of a PHP web UI and a MySQL database back end.  To support this, an Azure App Service and MySQL database server are provisioned in each Azure region.  Using [workers](/docs/infrastructure/workers/), it's not necessary to configure the database server as a deployment target and is considered best practice not to do so.  This section of the guide will focus on the Azure App Service deployment target type.
 
 ## Configuring targets for tenant deployments
 
@@ -32,7 +32,7 @@ The above screenshot shows that it is possible to attach Tenant Tags to infrastr
 
 ## Example automation script
 
-Car Rental has plans on expanding in the future.  Rather than having to run through the above steps to configure a tenanted target, they've automated the creation of region infrastructure using the [Octopus REST API](/docs/octopus-rest-api/index.md).  This script automates the above procedure of configuring the target as tenanted and assigning it to the appropriate tenant. 
+Car Rental has plans on expanding in the future.  Rather than having to run through the above steps to configure a tenanted target, they've automated the creation of region infrastructure using the [Octopus REST API](/docs/octopus-rest-api/).  This script automates the above procedure of configuring the target as tenanted and assigning it to the appropriate tenant. 
 
 :::success
 The entire runbook process can be found on our [Octopus samples instance](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/operations/runbooks/Runbooks-1361/overview)

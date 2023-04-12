@@ -6,9 +6,9 @@ description: Pushes a package (.nupkg, .zip, .tar.gz, etc.) package to the built
 navOrder: 280
 ---
 
-Pushes a [package](/docs/packaging-applications/create-packages/index.md) (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
+Pushes a [package](/docs/packaging-applications/create-packages/) (.nupkg, .zip, .tar.gz, etc.) package to the built-in NuGet repository in an Octopus Server.
 
-Learn more about the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md).
+Learn more about the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/).
 
 **push options**
 
@@ -111,5 +111,5 @@ octo push --package="/tmp/MyPackage.1.0.0.0.zip" --server="https://MyOctopusServ
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)

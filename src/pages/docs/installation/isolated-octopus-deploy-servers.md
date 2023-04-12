@@ -6,7 +6,7 @@ description: Working with isolated Octopus Servers due to infrastructure or gove
 navOrder: 11
 ---
 
-Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus Server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/security/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/deployment-targets/tentacle/windows/index.md), giving you multiple options to work around firewall issues.
+Octopus was designed to be a single, central point of truth for application deployments. In an ideal world, you would only need one Octopus Server, and then many Tentacles. Octopus uses a [secure communication channel](/docs/security/octopus-tentacle-communication/index.md) when communicating with remote endpoints, and can work in both [listening and polling mode](/docs/infrastructure/deployment-targets/tentacle/windows/), giving you multiple options to work around firewall issues.
 
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus Servers. Common examples are:
 
@@ -25,7 +25,7 @@ You can configure an [offline package drop deployment target](/docs/infrastructu
 
 > A credit card processing gateway have decided to use Octopus to manage deployments. For PCI-compliance reasons, the production environment is required to be on a different network to the pre-production environments, and very little is shared. Since they own the servers, they can install the Octopus Servers and Tentacles on each environment, but they just can't share an Octopus Server between environments.
 
-In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, refer to the [documentation on keeping instances in sync](/docs/administration/sync-instances/index.md).
+In this scenario, the customer would install different instances of Octopus in both environments. To keep settings in sync and to automate between environments, refer to the [documentation on keeping instances in sync](/docs/administration/sync-instances/).
 
 :::success
 **Friendly multi-instance licensing model**

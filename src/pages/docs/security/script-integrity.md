@@ -10,13 +10,13 @@ Octopus supports a wide variety of scripting languages and runtimes. Octopus exe
 
 - Built-in steps provided by Octopus.
 - [Step templates contributed by the community and curated by Octopus](/docs/projects/community-step-templates.md).
-- Your own [custom scripts](/docs/deployments/custom-scripts/index.md).
+- Your own [custom scripts](/docs/deployments/custom-scripts/).
 - Your own [custom script modules](/docs/deployments/custom-scripts/script-modules.md).
 - Your own [custom step templates](/docs/projects/custom-step-templates.md).
 
 Octopus lets you tailor these scripts to your needs at runtime using features like [dynamically substituting variables into your script files](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md).
 
-Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/projects/variables/index.md), [output variables](/docs/projects/variables/output-variables.md), and [artifacts](docs/projects/deployment-process/artifacts.md).
+Once this is done Octopus will inject your script into a "bootstrapper" enabling friction free interaction with important Octopus features like [variables](/docs/projects/variables/), [output variables](/docs/projects/variables/output-variables.md), and [artifacts](docs/projects/deployment-process/artifacts.md).
 
 ## Script integrity in Octopus
 
@@ -59,6 +59,6 @@ If this approach doesn't feel like it will work, and script integrity is a real 
 
 In case you want to read further and consider other options for securing your Octopus installation:
 
-- Octopus provides a robust and detailed security model allowing you to control who has access to certain projects, environments, tenants, and ultimately which people can author the scripts which are executed by Octopus on your behalf. Learn about [managing users and teams](/docs/security/users-and-teams/index.md).
+- Octopus provides a robust and detailed security model allowing you to control who has access to certain projects, environments, tenants, and ultimately which people can author the scripts which are executed by Octopus on your behalf. Learn about [managing users and teams](/docs/security/users-and-teams/).
 - Most Octopus customers use source control systems to track changes to all their scripts, using a trusted chain of authority to embed those scripts into the packages which are used by Octopus.
-- Octopus provides detailed auditing enabling post-emptive analysis of a person's activity including custom scripts authored as part of your deployment process. Learn about [auditing](/docs/security/users-and-teams/auditing/index.md).
+- Octopus provides detailed auditing enabling post-emptive analysis of a person's activity including custom scripts authored as part of your deployment process. Learn about [auditing](/docs/security/users-and-teams/auditing/).

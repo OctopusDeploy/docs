@@ -11,7 +11,7 @@ Over the years we have built Octopus to enable reliable and repeatable deploymen
 This page is intended to help you tune and maintain your deployment processes and troubleshoot problems as they occur.
 
 :::hint
-Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance/index.md).
+Want to tune your Octopus Server for optimum performance? Read our [detailed guide on optimizing your server](/docs/administration/managing-infrastructure/performance/).
 :::
 
 ## Considerations
@@ -75,8 +75,8 @@ A deployment process with a single giant step might be the most efficient approa
 There is typically a happy balance you can strike for each of your projects. The most common problem related to performance is having too many steps, where "too many" depends on your specific situation, but we typically consider an average project to use 10-20 steps, and we have many customers deploying projects with 50-80 steps. If your projects have hundreds of steps, perhaps you should consider modeling your deployments differently?
 
 - If your project could be broken down into logical components which ship on their own cadence, do it! Make each component its own project.
-- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/projects/coordinating-multiple-projects/index.md).
-- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deployments/custom-scripts/index.md) as a pre- or post- activity.
+- If your project could be broken down into logical components which ship at the same time, you can do that too! Consider breaking your deployment into multiple logical projects and [coordinate their deployments](/docs/projects/coordinating-multiple-projects/).
+- If your project cannot be broken down logically, consider combining some of your steps together into a single step. For example, you may be able to run your [custom scripts](/docs/deployments/custom-scripts/) as a pre- or post- activity.
 
 ### Consider the size of your packages {#package-size}
 
@@ -108,7 +108,7 @@ Each option provides different performance benefits, depending on your specific 
 
 Imagine if you keep every package you've ever built or deployed. Over time your package feed will get slower and slower to index, query, and stream packages for your deployments.
 
-If you are using the [built-in feed](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies/index.md) to keep it running fast.
+If you are using the [built-in feed](/docs/packaging-applications/package-repositories/index.md#Packagerepositories-Choosingtherightrepository), you can configure [retention policies](/docs/administration/retention-policies/) to keep it running fast.
 
 If you are using another feed, you should configure its retention policies yourself, making sure to cater for packages you may want to deploy.
 
@@ -144,4 +144,4 @@ Similarly to [parallel targets](#parallel-targets), running too many steps in pa
 
 ### Consider how much deployment work the Octopus Server is doing {#server-work}
 
-Some steps, like Azure deployments and AWS steps, [run on a worker](docs/infrastructure/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/index.md).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.
+Some steps, like Azure deployments and AWS steps, [run on a worker](docs/infrastructure/workers/index.md#where-steps-run).  By default, thats the [built-in worker](/docs/infrastructure/workers/index.md#built-in-worker) in the Octopus Server.  That means the step invokes a (or many) Calamari processes on the server machine to do the deployment work.  That workload can be shifted off the server and onto [workers](/docs/infrastructure/workers/).  See this [blog post](https://octopus.com/blog/workers-performance) for a way to begin looking at workers for performance.

@@ -8,7 +8,7 @@ navOrder: 10
 
 [AppVeyor](https://ci.appveyor.com) is a cloud-based continuous integration system that integrates natively with your source control and allows CI configuration files to live alongside your projects.
 
-You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md), and create and deploy releases.
+You can use AppVeyor to automatically package your applications from your source control repository, push the packaged application to the [built-in Octopus repository](/docs/packaging-applications/package-repositories/built-in-repository/), and create and deploy releases.
 
 ## Configuring an AppVeyor project for Octopus
 
@@ -18,7 +18,7 @@ To use AppVeyor with a source code repository, you'll need to create and configu
 
 Once you've added a project with a repository, you need to configure the build. In the settings for your AppVeyor project, navigate to the **build** page and check the check-box for the **Package Web Applications for Octopus deployment** option.
 
-AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack/index.md) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
+AppVeyor will run `octo pack` after MSBuild has finished its `publish` command. Because AppVeyor is running the `publish` command, some of the files that [OctoPack](/docs/packaging-applications/create-packages/octopack/) would normally include might not be included by default, this includes the `web.*.config` files. To ensure these files are included in the package make sure they are configured to `Copy to Output Directory` in Visual Studio.
 
 In the **Before build script** section add `nuget restore` as AppVeyor will not perform this operation by default.
 

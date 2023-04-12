@@ -7,7 +7,7 @@ navOrder: 3
 ---
 
 :::success
-Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy/index.md) before continuing.
+Please read our guide for [upgrading older versions of Octopus](/docs/administration/upgrading/legacy/) before continuing.
 :::
 
 This guide will walk you through the steps to upgrade from Octopus **2.6.5** to **2018.10 LTS**. This is the only supported upgrade path from Octopus 2.x and requires careful attention to detail. That being said, the vast majority of our customers have already upgraded using this battle hardened guide, so it should be a smooth experience if plan your upgrade and follow the steps carefully.

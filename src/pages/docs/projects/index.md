@@ -19,11 +19,11 @@ Before you can define your deployment processes or runbooks, you must create a p
 1. Click **SHOW ADVANCED**.
 1. Add a description for the project.
 1. If you want to change the [Project group](/docs/projects/index.md#project-group) select an existing project group from the drop-down menu.
-1. If you want to change the [Lifecycle](/docs/releases/lifecycles/index.md) select an existing lifecycle from the drop down menu.
+1. If you want to change the [Lifecycle](/docs/releases/lifecycles/) select an existing lifecycle from the drop down menu.
 1. Click **SHOW LIFECYCLE** if you'd like to see a visual representation of the selected lifecycle.
 1. Click **SAVE** and you will be taken to the newly created project's overview page.
 
-Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/index.md) or [runbooks](/docs/runbooks/index.md).
+Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/index.md) or [runbooks](/docs/runbooks/).
 
 ## Project settings
 
@@ -94,7 +94,7 @@ To edit or delete a project group click the project group’s overflow menu (...
 
 ## Project permissions
 
-For information about project permissions, see [managing users and teams](/docs/security/users-and-teams/index.md).
+For information about project permissions, see [managing users and teams](/docs/security/users-and-teams/).
 
 ## Clone a project
 

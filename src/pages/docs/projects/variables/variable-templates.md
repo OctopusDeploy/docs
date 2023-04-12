@@ -6,7 +6,7 @@ description: Variable templates can be defined in Octopus to indicate which vari
 navOrder: 100
 ---
 
-Variable templates let you specify which [variables](/docs/projects/variables/index.md) are required to successfully deploy a project to a [tenant](/docs/tenants/index.md), and to provide those variables per tenant. 
+Variable templates let you specify which [variables](/docs/projects/variables/index.md) are required to successfully deploy a project to a [tenant](/docs/tenants/), and to provide those variables per tenant. 
 
 Each variable template can define the data type, name, label, help text, and default value.
 

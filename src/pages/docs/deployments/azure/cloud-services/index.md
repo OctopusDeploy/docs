@@ -12,23 +12,23 @@ Octopus Deploy supports deployment of [Azure Cloud Services](http://azure.micros
 
 ## Step 1: Packaging {#DeployingapackagetoanAzureCloudService-Step1:Packaging}
 
-An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/index.md) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference). For example, the resulting NuGet package will look like this:
+An Azure cloud service package is normally compiled into a `.cspkg` file. This file will need to be [re-packed into a supported package](/docs/packaging-applications/) for Octopus to consume. The easiest way to do this currently is to either create a simple zip file or use the [NuGet.exe command line tool](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference). For example, the resulting NuGet package will look like this:
 
 ![](3278363.png "width=500")
 
 ### Upload to a NuGet feed {#DeployingapackagetoanAzureCloudService-UploadtoaNuGetfeed}
 
-In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/index.md). The built-in Octopus package repository is accessible from **{{Library > Packages}}** and is a suitable place to upload your Cloud Service NuGet package:
+In order to make the NuGet package accessible to Octopus it needs to be uploaded to a [package repository](/docs/packaging-applications/package-repositories/). The built-in Octopus package repository is accessible from **{{Library > Packages}}** and is a suitable place to upload your Cloud Service NuGet package:
 
 ![Package feed](package-feed.png "width=500")
 
 ## Step 2: Create an Azure account {#DeployingapackagetoanAzureCloudService-Step2:CreateanAzureAccount}
 
-If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/accounts/azure/index.md) to grant Octopus Deploy access to your Azure Subscription.
+If you haven't already, create an [Azure Management Certificate Account](/docs/infrastructure/accounts/azure/) to grant Octopus Deploy access to your Azure Subscription.
 
 ## Step 3: Create the Azure Cloud Service deployment step {#DeployingapackagetoanAzureCloudService-Step3:CreatetheAzureCloudServicedeploymentstep}
 
-Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section.
+Add a new Azure Cloud Service Deployment Step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section.
 
 ![](5865904.png "width=170")
 
@@ -38,7 +38,7 @@ Once an Account is selected, the list of Cloud Services and Storage Accounts ava
 
 | Setting         | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account         |         | The [Azure Account](/docs/infrastructure/accounts/azure/index.md) you want to target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to select an account by its name or ID.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Account         |         | The [Azure Account](/docs/infrastructure/accounts/azure/) you want to target when deploying this cloud service. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to select an account by its name or ID.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Cloud Service   |         | The actual cloud service you want to target. Select one from the list, or use a [variable binding](/docs/projects/variables/variable-substitutions.md) to define the name of the cloud service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Storage Account |         | The Azure Storage Account where the Cloud Service Package (`*.cspkg`) file will be pushed in order to be deployed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Slot            |         | You can choose to deploy to either the Staging or Production slot.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -54,9 +54,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 The following features are available when deploying a package to an Azure Cloud Service:
 
-- [Custom Scripts](/docs/deployments/custom-scripts/index.md)
+- [Custom Scripts](/docs/deployments/custom-scripts/)
 - [Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
 - [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
@@ -64,11 +64,11 @@ Please note these features actually run on the Octopus Server prior to deploying
 
 #### Using custom scripts
 
-[Custom scripts](/docs/deployments/custom-scripts/index.md) typically rely on specific tools being available when they execute.
+[Custom scripts](/docs/deployments/custom-scripts/) typically rely on specific tools being available when they execute.
 
 It is best that you control the version of these tools - your scripts will rely on a specific version that they are compatible with to function correctly.
 
-The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/index.md) for your step.
+The easiest way to achieve this is to use an [execution container](/docs/projects/steps/execution-containers-for-workers/) for your step.
 
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
@@ -97,19 +97,19 @@ if ($Deployment -ne $null -AND $Deployment.DeploymentId  -ne $null) {
   Write-Host ("There is no deployment in staging slot of {0} to swap." -f $ServiceName)
 }
 ```
-See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/index.md) for more information.
+See the [Azure PowerShell documentation](/docs/deployments/azure/running-azure-powershell/) for more information.
 
 ## Deployment process {#DeployingapackagetoanAzureCloudService-Deploymentprocess}
 
 Deployment to an Azure Cloud Service proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/).
 2. Extract the package on the Octopus Server to a temporary location.
 3. Extract the Cloud Service package (`.cspkg`) to a temporary location.
 4. Any configured or packaged `PreDeploy` scripts are executed.
 5. Variable substitutions in Cloud Service configuration file (`.cscfg`).
 6. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) (if configured).
-7. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+7. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/) (if configured) are performed.
 8. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 9. Any configured or package `Deploy` scripts are executed.
 10. Re-package the Cloud Service Package.
@@ -171,7 +171,7 @@ If you choose to override the deployment script, remember that your `DeployToAzu
 When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this result in many different ways, but the two most popular methods we have seen are:
 
 1. [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions.md): enable [rolling deployments](/docs/deployments/patterns/rolling-deployments.md) across multiple geographic regions.
-2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/index.md) to create a strict release promotion process.
+2. Environment-per-region: by creating an environment per region you can leverage [lifecycles](/docs/releases/lifecycles/) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 

@@ -44,4 +44,4 @@ Alternatively, it could be the security settings of your Service Fabric Cluster 
 
 ## Deploying to Service Fabric targets
 
-To learn about deploying to Service Fabric targets, see our [documentation about this topic](/docs/deployments/azure/service-fabric/index.md).
+To learn about deploying to Service Fabric targets, see our [documentation about this topic](/docs/deployments/azure/service-fabric/).

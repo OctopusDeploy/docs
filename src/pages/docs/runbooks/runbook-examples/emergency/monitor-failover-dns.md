@@ -6,7 +6,7 @@ description: With Octopus Deploy you can monitor your application and failover D
 navOrder: 20
 ---
 
-Runbooks can be executed on a recurring schedule called a [trigger](/docs/runbooks/scheduled-runbook-trigger/index.md).  Using this feature, you can have a runbook execute periodically to ensure that your application is up and running, then automatically failover if it is not.
+Runbooks can be executed on a recurring schedule called a [trigger](/docs/runbooks/scheduled-runbook-trigger/).  Using this feature, you can have a runbook execute periodically to ensure that your application is up and running, then automatically failover if it is not.
 
 The following example tests the URL of an application, if the expected `200` code is not returned, the runbook will automatically start the DR web and SQL Server in Azure, then update the DNS to point to the DR site.
 

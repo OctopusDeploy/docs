@@ -18,7 +18,7 @@ In listening mode Tentacle is the TCP server, and Octopus is the TCP client.
 
 When choosing a communication mode, we recommend Listening mode when possible.
 
-Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/security/octopus-tentacle-communication/index.md), and Tentacle will outright reject connections that aren't from an Octopus Server that it trusts, identified by an X.509 certificate public key that you provide during setup.
+Listening mode uses the least resources (listening on a TCP port is cheaper than actively trying to connect to one). It also gives you the most control (you can use rules in your firewall to limit which IP addresses can connect to the port). [Octopus and Tentacle use SSL when communicating](/docs/security/octopus-tentacle-communication/), and Tentacle will outright reject connections that aren't from an Octopus Server that it trusts, identified by an X.509 certificate public key that you provide during setup.
 
 To install and configure Tentacles in listening mode, see either:
  - The [Windows Listening Tentacle installation docs](/docs/infrastructure/deployment-targets/tentacle/windows/index.md#configure-a-listening-tentacle-recommended).
@@ -28,7 +28,7 @@ To install and configure Tentacles in listening mode, see either:
 
 In **polling** mode, Tentacle will *poll* the Octopus Server periodically, connecting over a TCP port (**10943** by default) to check if there are any tasks for it to perform. Polling mode is the opposite of **Listening mode**.
 
-For self-hosted, the port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md) using the `--commsListenPort` option. For [Octopus Cloud](/docs/octopus-cloud/index.md), port 443 can be specified when [registering the Tentacle with the command line](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443.md) `--server-comms-address` option.
+For self-hosted, the port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure.md) using the `--commsListenPort` option. For [Octopus Cloud](/docs/octopus-cloud/), port 443 can be specified when [registering the Tentacle with the command line](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443.md) `--server-comms-address` option.
 
 In polling mode, Octopus is the TCP server, and Tentacle is the TCP client.
 

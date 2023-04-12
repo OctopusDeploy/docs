@@ -44,7 +44,7 @@ If you need to use any of the options below to manage the data being imported yo
 
 ### Migrating the built-in Octopus NuGet package repository {#MigratingdatafromOctopus2.6to3.x-PackageRepositoryMigratingthebuilt-inOctopusNuGetpackagerepository}
 
-If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your 2.6 server to your 2018.10 LTS server. The package files are not included as part of the backup.
+If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/) you will need to move the files from your 2.6 server to your 2018.10 LTS server. The package files are not included as part of the backup.
 In a standard **Octopus 2.6** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
 You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to {{Library>Packages>Package Indexing}} and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 

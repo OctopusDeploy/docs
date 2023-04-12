@@ -6,7 +6,7 @@ description: Direction on using Octopus steps for applying or destroying Terrafo
 navOrder: 40
 ---
 
-The Terraform [apply command](https://www.terraform.io/cli/commands/apply) is used to execute changes based on a [Terraform execution plan](/docs/deployments/terraform/plan-terraform/index.md).
+The Terraform [apply command](https://www.terraform.io/cli/commands/apply) is used to execute changes based on a [Terraform execution plan](/docs/deployments/terraform/plan-terraform/).
 
 Octopus has two steps that execute plan information: 
 - `Apply a Terraform template` and 
@@ -22,7 +22,7 @@ The plan steps do not support saving the plan to a file and applying that file a
 
 ## Step options
 
-The planning steps offer the [same base configuration as the other built-in Terraform steps](/docs/deployments/terraform/working-with-built-in-steps/index.md). You can refer to the documentation for those steps for more details on the options for the plan steps.
+The planning steps offer the [same base configuration as the other built-in Terraform steps](/docs/deployments/terraform/working-with-built-in-steps/). You can refer to the documentation for those steps for more details on the options for the plan steps.
 
 ## Advanced options section
 

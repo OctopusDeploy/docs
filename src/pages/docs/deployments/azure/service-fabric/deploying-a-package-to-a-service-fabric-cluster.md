@@ -26,17 +26,17 @@ Package your Service Fabric application. See our guide to [Packaging a Service F
 
 ## Step 3: Create a Service Fabric deployment target
 
-You will need to create a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) for each cluster you are deploying to.
+You will need to create a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/) for each cluster you are deploying to.
 
 ## Step 4: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/index.md) section. 
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps/) section. 
 
 ## Step 5: Configure your Service Fabric application step
 
 Select the Role you assigned your Service Fabric target and select your Service Fabric package from your package feed.
 
-Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/service-fabric/index.md)
+Select and configure the security mode required to connect to your cluster. The various security modes are described in detail in the [Deploying to Service Fabric documentation](/docs/deployments/azure/service-fabric/)
 
 Various options are available to deploy your Service Fabric application.
 
@@ -60,9 +60,9 @@ Any of the settings above can be switched to use a variable binding expression. 
 
 The following features are available when deploying a package to a Service Fabric application:
 
-- [Custom Scripts](/docs/deployments/custom-scripts/index.md)
+- [Custom Scripts](/docs/deployments/custom-scripts/)
 - [Configuration Variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md)
-- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/index.md)
+- [.NET Configuration Transforms](/docs/projects/steps/configuration-features/configuration-transforms/)
 - [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md)
 - [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md)
 
@@ -74,11 +74,11 @@ Please note these features run on the Octopus Server prior to deploying the Serv
 
 Deployment to a Service Fabric cluster proceeds as follows (more details provided below):
 
-1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/index.md).
+1. Download the package from the [package repository](/docs/packaging-applications/package-repositories/).
 1. Extract the package on the Octopus Server to a temporary location.
 1. Any configured or packaged `PreDeploy` scripts are executed.
 1. [Substitute variables in templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates.md) (if configured).
-1. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/index.md) (if configured) are performed.
+1. [.NET XML configuration transformations](/docs/projects/steps/configuration-features/configuration-transforms/) (if configured) are performed.
 1. [.NET XML configuration variables](/docs/projects/steps/configuration-features/xml-configuration-variables-feature.md) (if configured) are replaced.
 1. [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature.md) (if configured) are replaced.
 1. Any configured or package `Deploy` scripts are executed.
@@ -102,17 +102,17 @@ If you choose to override the deployment script, remember that your `DeployToSer
 
 ## Deploying to multiple geographic regions
 
-When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/index.md) per-region and assigning them to the same role and an appropriate environment.
+When your application is deployed to more than one geographic region, you are likely to need per-region configuration settings. You can achieve this by creating a [Service Fabric Deployment Target](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/) per-region and assigning them to the same role and an appropriate environment.
 
 Your process can be modified by using [variables scoped](/docs/projects/variables/index.md#scoping-variables) by environment or deployment target.
 
-You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/releases/lifecycles/index.md) to create a strict release promotion process.
+You can also employ an *environment-per-region* method so you can leverage [lifecycles](/docs/releases/lifecycles/) to create a strict release promotion process.
 
 Both methods allow you to modify your deployment process and variables per-region, but have slightly different release promotion paths. Choose the one that suits you best.
 
 ## Versioning
 
-To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/index.md).
+To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages/).
 
 
 ## Troubleshooting

@@ -6,7 +6,7 @@ description: Using the Octopus CLI to delete/remove machines with a particular s
 navOrder: 15
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to delete/remove machines with a particular status from environments on your Octopus instance.
 
 This is most useful when your environments can have temporary/ephemeral machines. The best example of this is in virtualized or cloud environments where new machines are created and destroyed frequently.
 
@@ -100,7 +100,7 @@ octo clean-environment --environment Production --status Offline --server http:/
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Environments](/docs/infrastructure/environments/index.md)
+- [Environments](/docs/infrastructure/environments/)
 - [Automatically clean up environments](/docs/deployments/patterns/elastic-and-transient-environments/cleaning-up-environments.md)

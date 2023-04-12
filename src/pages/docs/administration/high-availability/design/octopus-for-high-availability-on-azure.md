@@ -29,8 +29,8 @@ If you are planning on using [IaaS](https://en.wikipedia.org/wiki/Infrastructure
 
 For a highly available Octopus configuration, you need a minimum of two Virtual Machines in Azure. There are several items to consider when provisioning your Octopus Virtual Machines in Azure:
 
-- [Number and type of deployment targets](/docs/infrastructure/deployment-targets/index.md)
-- [Retention Policies](/docs/administration/retention-policies/index.md)
+- [Number and type of deployment targets](/docs/infrastructure/deployment-targets/)
+- [Retention Policies](/docs/administration/retention-policies/)
 - [Number of concurrent tasks](/docs/support/increase-the-octopus-server-task-cap.md)
 
 Each organization has different requirements when it comes to choosing the right Virtual Machine to run Octopus on. Review the range of [Azure Virtual Machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general) and select the size most suitable for your requirements.  
@@ -86,7 +86,7 @@ New-Item -Path C:\Octopus\Imports -ItemType SymbolicLink -Value \\octostorage.fi
 It's worth noting that you need to have created the folders within the Azure File Share first before trying to create the Symbolic Links. 
 :::
 
-[Install Octopus](/docs/installation/index.md) and then run the following:
+[Install Octopus](/docs/installation/) and then run the following:
 
 ```powershell
 # Set the path 

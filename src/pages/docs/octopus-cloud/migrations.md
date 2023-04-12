@@ -11,7 +11,7 @@ This guide will walk you through a general set of steps to take to migrate your 
 It is impossible to cover every last use case in a single guide, and as such, if you have any questions, please [email our support team](mailto:support@octopus.com). We're always happy to help, and we can provide more specific information when you are ready to migrate.
 
 :::hint
-This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/index.md).
+This guide will follow the recommended approach to migrating to Octopus Cloud using the **Export/Import Projects** feature released in **Octopus 2021.1**. Learn more: [Exporting and Importing Projects](/docs/projects/export-import/).
 :::
 
 :::problem
@@ -39,7 +39,7 @@ Before starting your migration to Octopus Cloud, you will need to address the fo
 
 1. Understand the differences between Octopus Cloud and your Octopus Server.
 1. Upgrading your Octopus Server instance to the latest major/minor release of Octopus Deploy (2021.1, 2021.2, etc.).
-1. Determine if you are using [Polling or Listening tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) for your deployment targets and workers.
+1. Determine if you are using [Polling or Listening tentacles](/docs/infrastructure/deployment-targets/tentacle/windows/) for your deployment targets and workers.
 1. Creating your Octopus Cloud instance.
 1. Configuring any firewall settings for your tentacles.
 1. Configuring workers and worker pools.
@@ -59,7 +59,7 @@ Before starting your migration, please ensure you are familiar with these fundam
 
 ### Upgrading your Octopus Server instance
 
-You must be running **Octopus 2021.1.x** or higher to leverage the [Export/Import Projects](/docs/projects/export-import/index.md) feature in order to migrate your projects.  We recommend upgrading to the latest version of Octopus Deploy prior to starting your upgrade.
+You must be running **Octopus 2021.1.x** or higher to leverage the [Export/Import Projects](/docs/projects/export-import/) feature in order to migrate your projects.  We recommend upgrading to the latest version of Octopus Deploy prior to starting your upgrade.
 
 ### Listening or Polling Tentacles
 
@@ -95,7 +95,7 @@ Octopus Cloud does not support running steps directly on the server.  Instead, w
 Our recommendation is to:
 
 1. Create a worker pool (or pools) per local data center or cloud provider.  For example, if you have a data center in Omaha and are using AWS, you'd have two worker pools, one for your Omaha data center and another for AWS.
-2. Create virtual machines and install tentacles as workers for each worker pool.  For redundancy, we recommend a minimum of two (2) workers per worker pool.  Install any required software on each worker.  Consider leveraging [execution containers](/docs/projects/steps/execution-containers-for-workers/index.md).
+2. Create virtual machines and install tentacles as workers for each worker pool.  For redundancy, we recommend a minimum of two (2) workers per worker pool.  Install any required software on each worker.  Consider leveraging [execution containers](/docs/projects/steps/execution-containers-for-workers/).
 3. Change your deployment and runbook processes to target the appropriate worker pool.  You can leverage [worker pool variables](/docs/projects/variables/worker-pool-variables.md) to change worker pools per environment.  Ensure all deployments and runbooks work as expected.
 
 :::warning
@@ -116,7 +116,7 @@ The project export/import feature does not include users.  All users must be cre
 
 ## Migration
 
-The migration will use the **Export/Import Projects** feature in **Octopus 2021.1**. That feature was specifically designed for [migrating from Octopus Server to Octopus Cloud](/docs/projects/export-import/index.md).  Our recommendations when using this tool are:
+The migration will use the **Export/Import Projects** feature in **Octopus 2021.1**. That feature was specifically designed for [migrating from Octopus Server to Octopus Cloud](/docs/projects/export-import/).  Our recommendations when using this tool are:
 
 - Migrate using a phased approach over migrating everything at once.  Migrate a project group or suite of applications to Octopus Cloud, test some deployments, then move onto the next batch.
 - The first couple of projects will take more time as you work through any configuration issues.  As such, pick some non-mission-critical projects or applications first.
@@ -139,7 +139,7 @@ Following this approach, you will have a time period with both an Octopus Server
 
 ### Export / Import the project
 
-Follow the instructions on [exporting and importing page](/docs/projects/export-import/index.md) to export and import a project.  Make a note of what is _not_ exported.  Releases and deployments are exported, but only "shells" (not the full deployment) to ensure any pre-existing releases can be promoted.
+Follow the instructions on [exporting and importing page](/docs/projects/export-import/) to export and import a project.  Make a note of what is _not_ exported.  Releases and deployments are exported, but only "shells" (not the full deployment) to ensure any pre-existing releases can be promoted.
 
 ### Upload any packages, project images, and reconfigure triggers
 
@@ -202,6 +202,6 @@ In our experience, most people turn off their Octopus Server in about three to s
 
 Before the **Export/Import Projects** feature, we offered a manual migration process.  With the release of that feature, we no longer offer manual migrations from a self-hosted Octopus Server to Octopus Cloud and vice-versa. 
 
-Please note that our existing [Migration API](/docs/octopus-rest-api/migration-api/index.md) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
+Please note that our existing [Migration API](/docs/octopus-rest-api/migration-api/) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
 
 The legacy [Data Migration](/docs/administration/data/data-migration.md) included with Octopus Deploy is **not supported** for migrations to cloud instances.  That tool is a Windows command-line application that must be run directly on the server hosting Octopus Deploy via an RDP session.  Octopus Cloud runs on our Linux Container image on a Kubernetes Cluster.

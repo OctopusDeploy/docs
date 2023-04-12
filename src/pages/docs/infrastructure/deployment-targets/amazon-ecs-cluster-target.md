@@ -6,7 +6,7 @@ description: How to configure an Amazon ECS cluster target in Octopus Deploy
 navOrder: 30
 ---
 
-ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws/index.md) to define the context in which deployments and scripts are run.
+ECS Cluster targets are used by the [ECS steps](/docs/deployments/aws/) to define the context in which deployments and scripts are run.
 
 :::hint
 Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html) for detailed instructions on how to provision a new ECS cluster.
@@ -21,7 +21,7 @@ From **Octopus 2022.2**, ECS Cluster targets can be discovered using tags on you
 Octopus can discover ECS cluster targets as part of your deployment using tags on your resource. 
 
 :::hint
-From **Octopus 2022.3**, you can configure the well-known variables used to discover ECS Cluster targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
+From **Octopus 2022.3**, you can configure the well-known variables used to discover ECS Cluster targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
 :::
 
 To discover targets use the following steps:
@@ -30,19 +30,19 @@ To discover targets use the following steps:
 - [Add tags](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md#tag-cloud-resources) to your ECS cluster so that Octopus can match it to your deployment step and environment.
 - Add a `Deploy Amazon ECS Service` or `Update Amazon ECS Service` step to your deployment process. During deployment, the target role on the step will be used along with the environment being deployed to, to discover cluster targets to deploy to.
 
-See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/index.md) for more information.
+See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery/) for more information.
 
 ## Creating an ECS cluster target
 
 1. Navigate to **{{Infrastructure,Deployment Targets}}**, and click **ADD DEPLOYMENT TARGET**.
 2. Select **AWS** and click **ADD** on the Amazon ECS Cluster target type.
 3. Enter a display name for the Amazon ECS Cluster.
-4. Select at least one [environment](/docs/infrastructure/environments/index.md) for the target.
+4. Select at least one [environment](/docs/infrastructure/environments/) for the target.
 5. Select at least one [target role](/docs/infrastructure/deployment-targets/index.md#target-roles) for the target.
 6. In the **Authentication** section (see [Authentication](#authentication) below for more information):
    
    - Select whether to use an AWS account configured in Octopus or to use credentials from the worker on which your deployment runs.
-   - Select an AWS account if necessary. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/index.md).
+   - Select an AWS account if necessary. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws/).
    - Select whether to assume an IAM role during authentication.
 7. In the **ECS Cluster** section:
 
@@ -65,7 +65,7 @@ To configure the ECS cluster to use worker credentials select the "Use credentia
 
 #### AWS Account
 
-Authentication can be configured to use an [AWS Account](/docs/infrastructure/accounts/aws/index.md). To configure your ECS cluster to use an account select the "Use account" option in the Credentials field.
+Authentication can be configured to use an [AWS Account](/docs/infrastructure/accounts/aws/). To configure your ECS cluster to use an account select the "Use account" option in the Credentials field.
 
 ![ECS Cluster Account Credentials](images/aws-ecs-target-account-credentials.png "width=500")
 

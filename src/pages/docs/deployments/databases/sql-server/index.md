@@ -22,7 +22,7 @@ We have written a number of "iteration zero" blog posts that examine the benefit
 
 There is a learning curve with adopting automated database deployments, and that can lead to quite a bit of trepidation, after all, databases are the lifeblood of most applications. There are some common deployment patterns you can adopt to build trust and level-up tooling knowledge quickly.
 
-Learn more about [common patterns](/docs/deployments/databases/common-patterns/index.md).
+Learn more about [common patterns](/docs/deployments/databases/common-patterns/).
 
 ## Permissions
 

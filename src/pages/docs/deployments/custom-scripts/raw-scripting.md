@@ -16,7 +16,7 @@ In order to provide the ability to perform raw scripting and just execute exactl
 
 The script that is provided by the user is executed "as-is" through the open SSH connection so the actual shell will depend on what you have configured for that account and it may not actually be bash. Keep this in mind when expecting certain commands to be available.
 
-The bootstrapping script that is provided by Calamari will not be available and so you will lose the ability to use helper functions like [new\_octopusartifact](docs/projects/deployment-process/artifacts.md), [set\_octopusvariable](/docs/projects/variables/output-variables.md) or [get\_octopusvariable](/docs/deployments/custom-scripts/index.md). You can still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
+The bootstrapping script that is provided by Calamari will not be available and so you will lose the ability to use helper functions like [new\_octopusartifact](docs/projects/deployment-process/artifacts.md), [set\_octopusvariable](/docs/projects/variables/output-variables.md) or [get\_octopusvariable](/docs/deployments/custom-scripts/). You can still use the standard **#{MyVariable}** variable substitution syntax however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
 
 While still available as an option in the UI, raw scripts cannot currently be sourced from inside a package unless manually extracted & executed in conjunction with a `Transfer a Package` step.
 :::
@@ -47,7 +47,7 @@ While raw scripting does not require a Transfer a Package step, the below scenar
    rm -fr ~/temp/somewhere
    unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Package.FilePath}"
    ```
-4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/index.md) will be unable to clean old packages.
+4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers.md) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies/) will be unable to clean old packages.
 
 5. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
 

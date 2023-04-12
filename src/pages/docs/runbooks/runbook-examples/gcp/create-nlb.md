@@ -26,7 +26,7 @@ In order to execute this runbook successfully, there are a couple of pre-requisi
 
 In order to access Google Cloud, you usually have to use tools such as the [Google Cloud CLI](https://cloud.google.com/sdk/gcloud), which this runbook uses.
 
-This example assumes you have either the gcloud CLI installed on the machine where you run the runbook, or that you are using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md) with an image that includes the gcloud CLI.
+This example assumes you have either the gcloud CLI installed on the machine where you run the runbook, or that you are using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/) with an image that includes the gcloud CLI.
 
 ### Google Cloud authorization {#gcloud-authorization}
 
@@ -40,7 +40,7 @@ The next sections explains how to configure a service account to be authorized t
 
 #### Create project variables {#gcp-project-variables}
 
-We'll use project [variables](/docs/projects/variables/index.md) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules.md).
+We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules.md).
 
 Create two [sensitive variables](/docs/projects/variables/sensitive-variables.md), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
 

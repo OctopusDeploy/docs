@@ -30,7 +30,7 @@ manage separate instances of your application in multiple environments in a sing
 
 Tenants enable:
 
-1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments/index.md).
+1. Deploying multiple instances of your project to the same [Environment](/docs/infrastructure/environments/).
 2. Managing configuration settings unique to each tenant.
 3. Promoting releases using safe tenant-aware lifecycles.
 4. Tailoring the deployment process using tenant tags.
@@ -65,13 +65,13 @@ Here are some signs that you should consider using tenants:
 - You need to deploy different versions of your application to the same environment.
 - You are creating multiple environments of the same type. This could be multiple Test environments for different testers or multiple Production environments for different customers.
 
-Check out our [multi-tenancy guides](/docs/tenants/guides/index.md) that go into more detail on how to use multi-tenancy in Octopus for some common scenarios.
+Check out our [multi-tenancy guides](/docs/tenants/guides/) that go into more detail on how to use multi-tenancy in Octopus for some common scenarios.
 
 ## Create your first tenant {#create-your-first-tenant}
 
 With just a few simple steps, you can configure a new or existing Octopus project to use the multi-tenancy feature:
 
-1. [Create a tenant](/docs/tenants/tenant-creation/index.md)
+1. [Create a tenant](/docs/tenants/tenant-creation/)
 1. [Enable tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments.md)
 1. [Connect a tenant to a project](/docs/tenants/tenant-creation/connecting-projects.md)
 
@@ -81,7 +81,7 @@ You often want to define variable values that are different for each tenant, lik
 
 :::hint
 **Tenant-provided variables are not snapshotted**
-When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables/index.md), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
+When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md) in Octopus Deploy we take a snapshot of the deployment process and the current state of the [project-variables](/docs/projects/variables/), however, we do not take a snapshot of tenant-variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.
 :::
 
 Learn more about [tenant variables](/docs/tenants/tenant-variables.md) in our reference documentation.

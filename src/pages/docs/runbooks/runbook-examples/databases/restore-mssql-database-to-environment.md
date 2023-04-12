@@ -18,7 +18,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **SQL - Restore Database**.
-5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
+5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/) rather than entering the values directly in the step parameters.
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |

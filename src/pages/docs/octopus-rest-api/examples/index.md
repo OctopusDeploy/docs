@@ -33,7 +33,7 @@ The C# examples are written using [dotnet script](https://github.com/filipw/dotn
 
 ### Octopus.Client examples
 
-Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/index.md) require the library to be installed and a path to the library to be provided.
+Examples using [Octopus.Client](/docs/octopus-rest-api/octopus.client/) require the library to be installed and a path to the library to be provided.
 
 ### Python examples
 
@@ -57,7 +57,7 @@ The TypeScript examples are written using the [TypeScript API Client for Octopus
 
 Sometimes you want to perform an action on a resource in Octopus multiple times. For example, connecting a tenant to all of your projects. Having to run a script that performs an operation once, repeatedly, can become tedious.
 
-To help with this, we've included examples of [bulk operations](/docs/octopus-rest-api/examples/bulk-operations/index.md) using the Octopus REST API.
+To help with this, we've included examples of [bulk operations](/docs/octopus-rest-api/examples/bulk-operations/) using the Octopus REST API.
 
 ## Explore examples
 

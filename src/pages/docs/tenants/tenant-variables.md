@@ -76,6 +76,6 @@ If you don't have the necessary permissions, you might receive an error like thi
 
 ## Snapshots {#tenant-variables-and-snapshots}
 
-When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md) in Octopus we take a snapshot of the deployment process and the current state of the [project variables](/docs/projects/variables/index.md). 
+When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release.md) in Octopus we take a snapshot of the deployment process and the current state of the [project variables](/docs/projects/variables/). 
 
 However, we *don't* take a snapshot of tenant variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.

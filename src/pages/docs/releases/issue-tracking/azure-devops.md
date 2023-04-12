@@ -19,7 +19,7 @@ Octopus integrates with Azure DevOps work items. The integration includes the ab
     - Edit a pull request in Azure DevOps, and use the **Work Items** panel to select a work item.
     - Edit a work item in Azure DevOps, and use the **Development** panel to add a pull request link (before build), or a commit link, or a build link.
     - When you commit code. If you enable the repository setting: **[Automatically create links for work items mentioned in a commit comment](https://docs.microsoft.com/en-us/azure/devops/repos/git/repository-settings?view=azure-devops#automatically-create-links-for-work-items-mentioned-in-a-commit-comment)** under Project Settings (Repositories), you can include `#` followed by a valid work item ID in the commit message. For example, `git commit -a -m "Fixing bug #42 in the web client"`.
-2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/index.md) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
+2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers/) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/index.md#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Azure DevOps Issue Tracker extension in Octopus uses the build information to request work item references from Azure DevOps.
 
 ![Octopus release with Azure DevOps work items](images/octo-azure-devops-release-details.png "width=500")
@@ -50,7 +50,7 @@ The following steps explain how to integrate Octopus with Azure DevOps:
 
 ## Configure your build server to push build information to Octopus {#configure-your-build-server}
 
-To integrate with Azure DevOps work items, Octopus needs to understand which work items are associated with a [release](/docs/releases/index.md). Octopus does this by using the build information associated with any packages contained in the release to request work item references from Azure DevOps.
+To integrate with Azure DevOps work items, Octopus needs to understand which work items are associated with a [release](/docs/releases/). Octopus does this by using the build information associated with any packages contained in the release to request work item references from Azure DevOps.
 
 To supply the build information:
 
@@ -73,7 +73,7 @@ If you had previously been using the older functionality on the Create Octopus R
 
     - **Azure DevOps Base URL**. This tells Octopus where the Azure DevOps instance is located.
     - **Personal Access Token (PAT)**. Unless the Azure DevOps instance is public, you'll need to supply an access token, created in the Azure DevOps User Settings (under Personal access tokens), with authorization to read scopes `Build` and `Work items`.
-    -  **Release Note Prefix**. This value is *optional*. If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note. This will then be available in the [build information](/docs/packaging-applications/build-servers/build-information/index.md) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item. 
+    -  **Release Note Prefix**. This value is *optional*. If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note. This will then be available in the [build information](/docs/packaging-applications/build-servers/build-information/) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item. 
     
         For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
@@ -92,5 +92,5 @@ When configured, this integration will retrieve Azure DevOps work item details a
 
 ## Learn more
 
- - [Build information](/docs/packaging-applications/build-servers/build-information/index.md).
+ - [Build information](/docs/packaging-applications/build-servers/build-information/).
 

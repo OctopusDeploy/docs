@@ -7,7 +7,7 @@ navOrder: 100
 ---
 
 :::warning
-The Octopus Server Windows container is deprecated, and no longer maintained. We recommend using the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/index.md). To migrate an existing Octopus Server Windows Container to the Linux Container, please see this [guide](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container.md).
+The Octopus Server Windows container is deprecated, and no longer maintained. We recommend using the [Octopus Server Linux Container](/docs/installation/octopus-server-linux-container/). To migrate an existing Octopus Server Windows Container to the Linux Container, please see this [guide](/docs/installation/octopus-server-linux-container/migration/migrate-to-server-container-linux-from-windows-container.md).
 :::
 
 ## Ensure you've accepted the EULA

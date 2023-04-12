@@ -19,7 +19,7 @@ Just like database deployments, it is possible to automate this. Automation has 
 
 ## Leveraging runbooks for ad-hoc data change scripts
 
-[Runbooks](/docs/runbooks/index.md) were added to Octopus Deploy in version: **2019.11**.
+[Runbooks](/docs/runbooks/) were added to Octopus Deploy in version: **2019.11**.
 
 Runbooks provide an excellent way to run ad-hoc data change scripts.  Runbooks don't require a release to be created, but they still have the same functionality as a typical Octopus Deployment, such as prompted variables and auditing. Typically we find this process is a good starting point:
 

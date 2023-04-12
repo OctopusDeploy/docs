@@ -15,7 +15,7 @@ No, not really. Any Octopus project or environment can work with tenants. To sta
 1. Configure the project to allow tenanted deployments in **{{Project,Settings,Multi-tenant deployments}}** - multi-tenant deployments are disabled for your existing projects by default.
 2. Connect some tenants to the the project, including the environments where you want to deploy instances of your projects for each tenant.
 
-For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/index.md) and [deploying a multi-tenant project](/docs/tenants/tenant-creation/tenanted-deployments.md).
+For more information refer to [creating your first tenant](/docs/tenants/tenant-creation/) and [deploying a multi-tenant project](/docs/tenants/tenant-creation/tenanted-deployments.md).
 
 ## Can I deploy to multiple tenants in a single deployment? {#Multi-tenantdeploymentsFAQ-CanIdeploytomultipletenantsinasingledeployment?}
 
@@ -65,7 +65,7 @@ No. Each tenanted deployment is independent. There is no built-in way to perform
 - I want to send an email once release **1.2.6** has been successfully deployed to all of my tenants in production.
 - I want to upgrade a batch of tenants, and if one fails, I want them all to roll-back to the last known good version.
 
-You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/octopus-rest-api/index.md) and taking advantage of [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/index.md). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
+You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/octopus-rest-api/index.md) and taking advantage of [Subscriptions](/docs/administration/managing-infrastructure/subscriptions/). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
 
 ## Can I have a combination of tenanted and untenanted projects? {#Multi-tenantdeploymentsFAQ-CanIhaveacombinationoftenantedanduntenantedprojects?}
 
@@ -103,7 +103,7 @@ Firstly check you can select a project for your tenant (see above for more detai
 
 ## I want to deploy my project to a tenant, but I can't see that tenant in the list? {#Multi-tenantdeploymentsFAQ-Iwanttodeploymyprojecttoatenant,butIcantseethattenantinthelist?}
 
-Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/tenants/troubleshooting-multi-tenant-deployments.md) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to our [tenant creation](/docs/tenants/tenant-creation/index.md) and [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments.md) sections.
+Granted, multi-tenant deployments can get complicated very quickly, so we've written a [troubleshooting guide](/docs/tenants/troubleshooting-multi-tenant-deployments.md) to help when you get stuck. At the very least, make sure your tenant is connected to the correct project and environment(s). For more information refer to our [tenant creation](/docs/tenants/tenant-creation/) and [tenanted deployments](/docs/tenants/tenant-creation/tenanted-deployments.md) sections.
 
 ## Is licensing affected by the number of tenants I have? {#Multi-tenantdeploymentsFAQ-IslicensingaffectedbythenumberoftenantsIhave?}
 

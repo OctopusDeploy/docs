@@ -6,7 +6,7 @@ description: Username and Password Accounts allow you securely authenticate with
 navOrder: 60
 ---
 
-A username/password account can be used to connect [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployments/kubernetes/index.md) functionality in Octopus.
+A username/password account can be used to connect [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target.md) and services like Google Cloud Platform if you are using the [Kubernetes](/docs/deployments/kubernetes/) functionality in Octopus.
 
 ## Enabling username & password authentication on Linux {#UsernameandPassword-EnablingUsername&amp;PasswordAuthentication}
 

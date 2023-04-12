@@ -6,7 +6,7 @@ description: Dynamic Worker pools are used in our cloud product to dynamically c
 navOrder: 50
 ---
 
-Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/index.md) provided by Octopus, and they don't require users to configure any infrastructure.  
+Dynamic Worker Pools are a special type of [worker pool](/docs/infrastructure/workers/worker-pools.md) used by Octopus Cloud.  They use [workers](/docs/infrastructure/workers/) provided by Octopus, and they don't require users to configure any infrastructure.  
 
 ## On demand
 
@@ -86,7 +86,7 @@ Each `Windows Server Core 2019` worker is provisioned with a baseline of tools i
 - Python (3.7.4)
 - GCloud CLI (339.0.0)
 
-Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers/index.md). 
+Windows 2019 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers/). 
 
 :::hint
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
@@ -118,7 +118,7 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 
 Windows 2019 dynamic worker images come with many versions of `kubectl` available.
 
-A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl/index.md) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
+A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl/) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
 - `1.11.1`
 - `1.11.3`
@@ -140,7 +140,7 @@ Octopus does not recommend installing additional software on Dynamic Workers.
 
 By default, every dynamic worker is destroyed after it has been allocated for over 72 hours. In addition Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
 
-For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/index.md).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/index.md#custom-docker-images).
+For deployments and runbook runs that require additional software dependencies on a Dynamic worker, our recommendation is to leverage [execution containers for workers](docs/projects/steps/execution-containers-for-workers/).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/index.md#custom-docker-images).
 
 :::hint
 **Octopus worker-tools cached on Dynamic Workers**

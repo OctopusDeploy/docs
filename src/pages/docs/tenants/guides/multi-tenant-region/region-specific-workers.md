@@ -7,7 +7,7 @@ navOrder: 60
 hideInThisSectionHeader: true
 ---
 
-The SecOps team at Car Rental have implemented the policy that when a deployment occurs, the infrastructure used must reside within the same region datacenter.  Database deployments for Car Rental are handled by [workers](/docs/infrastructure/workers/index.md), so the deployment process needs to automatically select the correct worker during a deployment. 
+The SecOps team at Car Rental have implemented the policy that when a deployment occurs, the infrastructure used must reside within the same region datacenter.  Database deployments for Car Rental are handled by [workers](/docs/infrastructure/workers/), so the deployment process needs to automatically select the correct worker during a deployment. 
 
 ## Region worker pools
 

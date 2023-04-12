@@ -30,7 +30,7 @@ For more information about packaging applications see [Creating packages using t
 
 If you are using the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/index.md#pushing-packages-to-the-built-in-repository) you can create a [zip file](/docs/packaging-applications/create-packages/octopus-cli.md#create-zip-packages). 
 
-When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/index.md).
+When you have your generated nupkg or zip file it needs to be [pushed to a repository](/docs/packaging-applications/package-repositories/).
 
 If you are using TeamCity, you can use the [new TeamCity plugin for dotnet commands](https://github.com/JetBrains/teamcity-dnx-plugin).
 

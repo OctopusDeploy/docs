@@ -8,11 +8,11 @@ navOrder: 110
 
 A successful disaster recovery plan for Octopus Deploy requires the ability to restore both:
 
-1. The Octopus [SQL Server Database](/docs/administration/data/octopus-database/index.md).
-2. The Octopus [data stored on the file system](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md).
+1. The Octopus [SQL Server Database](/docs/administration/data/octopus-database/).
+2. The Octopus [data stored on the file system](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/).
 
 **Runbooks**
-[Octopus runbooks](/docs/runbooks/index.md) can help you automate your disaster recovery process.
+[Octopus runbooks](/docs/runbooks/) can help you automate your disaster recovery process.
 
 :::problem
 **Without your Master Key, backups are useless**
@@ -21,7 +21,7 @@ Sensitive information is encrypted using AES128 with the Master Key as the encry
 
 ## Octopus SQL Database
 
-Most of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in a [SQL Server Database](/docs/administration/data/octopus-database/index.md). You are responsible for maintaining your own backups of the SQL Server Database. Refer to [SQL Server documentation](https://msdn.microsoft.com/en-AU/library/ms187510.aspx) for more information on backing up SQL Server.
+Most of the data and settings managed by Octopus - the projects, environments, deployments and so on - are stored in a [SQL Server Database](/docs/administration/data/octopus-database/). You are responsible for maintaining your own backups of the SQL Server Database. Refer to [SQL Server documentation](https://msdn.microsoft.com/en-AU/library/ms187510.aspx) for more information on backing up SQL Server.
 
 ### Which SQL Database recovery model should I choose?
 
@@ -34,9 +34,9 @@ Learn more about [restore and recovery of SQL Server Databases](https://msdn.mic
 
 ## Octopus file storage
 
-In addition to the SQL Server Database, some Octopus data is stored on the file system. This includes task logs that are generated whenever a job is run by the server, artifacts that have been collected during a deployment and packages stored in the [Octopus built-in repository](/docs/packaging-applications/package-repositories/index.md). These files are stored in the Octopus home directory that is configured when Octopus Server is installed (`C:\Octopus` by default). It is a good idea to **do regular backups of your Octopus home directory**.
+In addition to the SQL Server Database, some Octopus data is stored on the file system. This includes task logs that are generated whenever a job is run by the server, artifacts that have been collected during a deployment and packages stored in the [Octopus built-in repository](/docs/packaging-applications/package-repositories/). These files are stored in the Octopus home directory that is configured when Octopus Server is installed (`C:\Octopus` by default). It is a good idea to **do regular backups of your Octopus home directory**.
 
-Learn about [Octopus file storage](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/index.md).
+Learn about [Octopus file storage](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/).
 
 ## Encrypted data {#Backupandrestore-Encrypteddata}
 

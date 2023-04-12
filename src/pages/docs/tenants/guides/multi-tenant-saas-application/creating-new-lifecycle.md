@@ -7,7 +7,7 @@ navOrder: 10
 hideInThisSectionHeader: true
 ---
 
-The first step in this guide is to create a new [lifecycle](/docs/releases/lifecycles/index.md) for our project.
+The first step in this guide is to create a new [lifecycle](/docs/releases/lifecycles/) for our project.
 
 To create a new Lifecycle, navigate to **{{Library, Lifecycles, ADD LIFECYCLE}}**.
 

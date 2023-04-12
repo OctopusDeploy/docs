@@ -8,7 +8,7 @@ navOrder: 80
 
 Making your build server work with your deployment server is a key aspect of any successful Continuous Integration (CI) story. For this reason, at Octopus we put a lot of effort in supporting integrations with pretty much any build server technology in the market.
 
-A key player in this story is our command line tool [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md). This tool exposes some of the most important functionalities of Octopus through easy commands that can be included in pretty much any process. It was built using `.NET core` so it can be used in Windows, Linux and Mac environments.
+A key player in this story is our command line tool [Octopus CLI](/docs/octopus-rest-api/octopus-cli/). This tool exposes some of the most important functionalities of Octopus through easy commands that can be included in pretty much any process. It was built using `.NET core` so it can be used in Windows, Linux and Mac environments.
 
 If you are reading this doc, odds are you already tried to run an Octopus-related step in your build process and something didn't work the way you expected it. The goal of this document is to explain how all our integration steps work on the background so anyone can troubleshoot them on their own.
 
@@ -16,7 +16,7 @@ If you are reading this doc, odds are you already tried to run an Octopus-relate
 
 ### What happens when an Octopus Step is executed during the build process {#Octopus-Steps-What-happens-behind}
 
-The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/index.md), [Teamcity](/docs/packaging-applications/build-servers/teamcity.md) and [Bamboo](/docs/packaging-applications/build-servers/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of the Octopus CLI that provide a UI with fields whose values will be passed to this command line tool during the build.
+The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/), [Teamcity](/docs/packaging-applications/build-servers/teamcity.md) and [Bamboo](/docs/packaging-applications/build-servers/bamboo.md). All the steps provided by these extensions/plugins are nothing but wrappers of the Octopus CLI that provide a UI with fields whose values will be passed to this command line tool during the build.
 
 Lets take for example this TeamCity **Octopus Deploy: Create Release** step:
 
@@ -35,13 +35,13 @@ The same holds true for this **Package Application** step in Azure DevOps and it
 
 ![](images/5672465.png "width=500")
 
-The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octopus-cli/index.md).
+The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octopus-cli/).
 
 ### Troubleshooting the error {#Octopus-Steps-Troubleshooting-the-error}
 
 As shown in the above screenshots, the exact `octo` command that was executed (and failed) will be printed in the logs. So the best way to troubleshoot that error would be to copy the full command, and try to run it yourself by [downloading the Octopus CLI to your local machine](https://octopus.com/downloads). A few tips and gotchas for this:
 
-- If you are not familiar with the Octopus CLI, then [read our documentation about it](/docs/octopus-rest-api/octopus-cli/index.md). Understanding how the command you are troubleshooting works will be critical for your success.
+- If you are not familiar with the Octopus CLI, then [read our documentation about it](/docs/octopus-rest-api/octopus-cli/). Understanding how the command you are troubleshooting works will be critical for your success.
 
 - Your build server will most likely execute the `octo` command from a build agent machine, which won't be identical to your workstation (mostly network-wise). Keep this in mind when troubleshooting your `octo` command, and if possible always try to run it from the same machine that your build server is using as build agent.
 
@@ -82,4 +82,4 @@ Make sure to set the ticket as **private** before attaching any kind of log, as 
 
 If you are using a custom step/plugin/extension to hook up your Build server with Octopus, then all we can recommend you is to know your `octo` game very well.
 
-If you are using a build server technology [that's not in our supported list](/docs/octopus-rest-api/index.md) [share your product feedback](https://roadmap.octopus.com/submit-idea) to let us know how we can help you have happy deployments.
+If you are using a build server technology [that's not in our supported list](/docs/octopus-rest-api/) [share your product feedback](https://roadmap.octopus.com/submit-idea) to let us know how we can help you have happy deployments.

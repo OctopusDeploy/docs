@@ -5,7 +5,7 @@ title: Updating Linux
 description: With Octopus Deploy you can update and patch Linux machines with a runbook as part of a routine operations task.
 navOrder: 50
 ---
-Like all other operating systems, Linux needs updates and patches to keep it up-to-date and secure.  With Runbooks, you could automate the process of performing routine maintenance such as installing updates.  Going one step further, you could also schedule this activity using a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/index.md).
+Like all other operating systems, Linux needs updates and patches to keep it up-to-date and secure.  With Runbooks, you could automate the process of performing routine maintenance such as installing updates.  Going one step further, you could also schedule this activity using a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger/).
 
 ## Create the runbook
 

@@ -7,7 +7,7 @@ navOrder: 10
 ---
 
 :::hint
-Also take a look at the [Reporting features](/docs/administration/reporting/index.md) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
+Also take a look at the [Reporting features](/docs/administration/reporting/) which provides reporting optimized views of the live deployment data, no longer requiring an XML export.
 :::
 
 Ever wonder how many deployments you did this month? In this page, we'll help you to answer this question by walking you through how to export your deployments to Excel, and then to view them in a pivot table.
@@ -31,7 +31,7 @@ octo dump-deployments --server http://your-octopus --apiKey API-YOURAPIKEY1234 -
 ```
 
 :::success
-Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli/index.md)
+Learn more about [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key.md), and [how to use the Octopus Cli](/docs/octopus-rest-api/octopus-cli/)
 :::
 
 The output will appear as follows:
@@ -139,7 +139,7 @@ Finally, don't forget to add pretty graphs!
 There are two major limits to this approach to be aware of:
 
 1. As you have seen, only a small amount of data is available for use for reporting.
-2. If you use [retention policies](/docs/administration/retention-policies/index.md), releases and deployments that have been deleted by the retention policy will also not be available for reporting.
+2. If you use [retention policies](/docs/administration/retention-policies/), releases and deployments that have been deleted by the retention policy will also not be available for reporting.
 :::
 
 ## Learn more

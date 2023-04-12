@@ -6,7 +6,7 @@ description: Octopus Server and Tentacle communications details.
 navOrder: 40
 ---
 
-This page describes how the [Octopus Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/deployment-targets/tentacle/windows/index.md) communicate in a secure way.
+This page describes how the [Octopus Server](/docs/installation/index.md) and the [Tentacle deployment agents](/docs/infrastructure/deployment-targets/tentacle/windows/) communicate in a secure way.
 
 ## Background {#Octopus-Tentaclecommunication-Background}
 

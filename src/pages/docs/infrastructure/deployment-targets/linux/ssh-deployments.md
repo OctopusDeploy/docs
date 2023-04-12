@@ -18,7 +18,7 @@ Windows-specific features such as IIS and Windows Services are not supported whe
 
 ## Scripts
 
-You can execute scripts using almost any installed scripting runtime. Learn about what you can do with [custom scripts](/docs/deployments/custom-scripts/index.md).
+You can execute scripts using almost any installed scripting runtime. Learn about what you can do with [custom scripts](/docs/deployments/custom-scripts/).
 
 :::hint
 **Environment Variable Differences**
@@ -41,7 +41,7 @@ This will ensure that they are evaluated on non-interactive logins.
 
 ### Example: Using variables in Bash
 
-Your script can use a [variable value](/docs/projects/variables/index.md) by invoking the `get_octopusvariable` function. For example, to echo out the installation directory call
+Your script can use a [variable value](/docs/projects/variables/) by invoking the `get_octopusvariable` function. For example, to echo out the installation directory call
 
 > `echo "Installed to step: " $(get_octopusvariable "Octopus.Action[Acme Deployment].Output.Package.InstallationDirectoryPath")`
 

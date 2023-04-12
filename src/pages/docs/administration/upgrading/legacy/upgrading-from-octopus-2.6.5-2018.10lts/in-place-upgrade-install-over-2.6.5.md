@@ -45,7 +45,7 @@ If you have multiple Tentacles running on the same server, an update to one will
 When upgrading to **Octopus 2018.10 LTS** please use the latest version available. We have been constantly improving the **Octopus 2.6.5** to **Octopus 2018.10 LTS** data migration process whilst adding new features and fixing bugs.
 :::
 
-See the [Installing Octopus 2018.10 LTS](/docs/installation/index.md) page for instructions on installing a new **Octopus 2018.10 LTS** instance.
+See the [Installing Octopus 2018.10 LTS](/docs/installation/) page for instructions on installing a new **Octopus 2018.10 LTS** instance.
 
 After installing the MSI, you will be presented with an upgrade page.
 
@@ -76,7 +76,7 @@ To see the command syntax click the **Show script** link in the wizard.
 
 :::hint
 **Using the built-in Octopus NuGet repository?**
-If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/index.md) you will need to move the files from your **Octopus 2.6.5** server to your **Octopus 2018.10 LTS** server. They are not part of the backup.
+If you use the built-in [Octopus NuGet repository](/docs/packaging-applications/package-repositories/) you will need to move the files from your **Octopus 2.6.5** server to your **Octopus 2018.10 LTS** server. They are not part of the backup.
 In a standard **Octopus 2.6.5** install the files can be found under `C:\Octopus\OctopusServer\Repository\Packages`
 You will need to transfer them to the new server to `C:\Octopus\Packages`. Once the files have been copied, go to {{Library>Packages>Package Indexing}} and click the `RE-INDEX NOW` button. This process runs in the background, so if you have a lot of packages it could take a while (5-20 mins) to show in the UI or be usable for deployments.
 :::

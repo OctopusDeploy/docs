@@ -76,7 +76,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 |**ADMIN_USERNAME**|The admin user to create for the Octopus Server|
 |**ADMIN_PASSWORD**|The password for the admin user for the Octopus Server|
 |**ADMIN_EMAIL**|The email associated with the admin user account|
-|**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/index.md). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
+|**DISABLE_DIND**|The Linux image will by default attempt to run Docker-in-Docker to support [execution containers for workers](/docs/projects/steps/execution-containers-for-workers/). This requires the image be launched with [privileged permissions](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). Setting `DISABLE_DIND` to `Y` prevents Docker-in-Docker from being run when the container is booted.|
 
 ### Exposed Container Ports
 
@@ -95,7 +95,7 @@ Read the Docker [docs](https://docs.docker.com/engine/reference/commandline/run/
 
 | Name     | Description | Mount source |
 | ------------- | ------- | ------- | 
-|**/import**| Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md) metadata.json exists then migrator `Import` takes place on startup | Host filesystem or container |
+|**/import**| Imports from this folder if [Octopus Migrator](/docs/octopus-rest-api/octopus.migrator.exe-command-line/) metadata.json exists then migrator `Import` takes place on startup | Host filesystem or container |
 |**/repository**| Package path for the built-in package repository | Shared storage |
 |**/artifacts**| Path where artifacts are stored | Shared storage |
 |**/taskLogs**| Path where task logs are stored | Shared storage |
@@ -123,7 +123,7 @@ When you have the Master Key, you can stop the running Octopus Server container 
 $ docker run --interactive --detach --name OctopusServer --publish 1322:8080 --env DB_CONNECTION_STRING="..." --env MASTER_KEY "5qJcW9E6B99teMmrOzaYNA==" !docker-image <octopusdeploy/octopusdeploy>
 ```
 
-The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/index.md) still apply as per normal Octopus installations.
+The standard backup and restore procedures for the [data stored on the filesystem](/docs/administration/data/backup-and-restore.md#octopus-file-storage) and the connected [SQL Server](/docs/administration/data/octopus-database/) still apply as per normal Octopus installations.
 
 ## Troubleshooting
 

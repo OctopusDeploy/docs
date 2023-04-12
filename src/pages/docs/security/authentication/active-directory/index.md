@@ -8,7 +8,7 @@ hideInThisSectionHeader: true
 ---
 
 :::hint
-Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/index.md). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information.
+Active Directory authentication can only be configured for Octopus Server and not for [Octopus Cloud](/docs/octopus-cloud/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility.md) section for further information.
 :::
 
 Octopus Deploy can authenticate users using Windows credentials. Windows AD authentication can be chosen during installation of the Octopus Server, or later through the configuration.
@@ -25,7 +25,7 @@ If you are using Active Directory Authentication with Octopus, there are two way
 ## Authentication Schemes
 By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication.
 
-If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability/index.md) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
+If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability/) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
 
 **Kernel Mode authentication via HTTP.sys (default) - Command Line** {#ActiveDirectoryAuthentication-KernelModeAuthentication}\
 Select this mode if you require features of HTTP.sys, such as port sharing.
@@ -251,7 +251,7 @@ Octopus.Server.exe configure --usernamePasswordIsEnabled=false
 Octopus.Server.exe admin --username=YOURUSERNAME
 ```
 
-The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication/index.md)).
+The text `YOURUSERNAME` should be your Active Directory account name, in either **user@domain** or **domain\user** format (see [Authentication Providers](/docs/security/authentication/)).
 
 ### Select username/password authentication {#ActiveDirectoryauthentication-Toselectusernamepasswordauthentication}
 

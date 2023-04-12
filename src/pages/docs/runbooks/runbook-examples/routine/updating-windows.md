@@ -8,7 +8,7 @@ navOrder: 40
 
 It’s not always possible to use products such as [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/en-us/mem/configmgr/) (formerly SCCM or Microsoft System Center Configuration Manager) to orchestrate the installation of patches for Windows.
 
-This is especially true if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of runbooks and [scheduled runbook triggers](/docs/runbooks/scheduled-runbook-trigger/index.md) to periodically check and apply updates to your application infrastructure.
+This is especially true if your VMs are in the cloud and not connected to your Active Directory.  In situations like these, you can take advantage of runbooks and [scheduled runbook triggers](/docs/runbooks/scheduled-runbook-trigger/) to periodically check and apply updates to your application infrastructure.
 
 ## Create the runbook
 
@@ -97,7 +97,7 @@ else
 Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to install the rest of the available updates.
 :::
 
-With the process defined, you can set the update to execute automatically with a scheduled runbook trigger. In order to create a scheduled runbook trigger, your runbook must first be [published](/docs/runbooks/runbook-publishing/index.md).
+With the process defined, you can set the update to execute automatically with a scheduled runbook trigger. In order to create a scheduled runbook trigger, your runbook must first be [published](/docs/runbooks/runbook-publishing/).
 
 ## Create the trigger
 

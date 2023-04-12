@@ -75,7 +75,7 @@ Where possible we recommend keeping the number and size of dynamic packages to a
 
 If you use a binding expression for the Package ID It becomes more difficult to look at a release and understand exactly which packages will be deployed. This prevents package retention policies from working properly for the built-in package feed, and on deployment targets.
 
-Learn about [retention policies](/docs/administration/retention-policies/index.md).
+Learn about [retention policies](/docs/administration/retention-policies/).
 
 ## Troubleshooting
 

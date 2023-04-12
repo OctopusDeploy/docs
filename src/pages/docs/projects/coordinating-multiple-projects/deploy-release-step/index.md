@@ -5,7 +5,7 @@ title: Deploy a release step
 description: The deploy a release step allows you to trigger the deployment of a release of a project from another project
 ---
 
-The _Deploy a Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/projects/coordinating-multiple-projects/index.md).
+The _Deploy a Release_ step lets you have a project trigger the deployment of a release of another project. This is useful when you are [coordinating multiple projects](/docs/projects/coordinating-multiple-projects/).
 
 ![Deploy release step card](deploy-release-card.png "width=500")
 
@@ -27,7 +27,7 @@ By default, Octopus will select the *latest* release based on the creation time 
 
 ### Channels
 
-The [Channel](/docs/releases/channels/index.md) used for any _Deploy a Release_ step is automatically determined by the release version of the project you select in the create release screen, since a channel is chosen when a release is created.
+The [Channel](/docs/releases/channels/) used for any _Deploy a Release_ step is automatically determined by the release version of the project you select in the create release screen, since a channel is chosen when a release is created.
 
 :::hint
 It's possible to choose child releases from specific channels when using the _Deploy a Release_ step using [package version rules](/docs/releases/channels/index.md#Channels-versionrules). Watch our - [Ask Octopus Episode: Deployment Channels with Child Projects](https://www.youtube.com/watch?v=3oLVq1EpUfc) to see it in action.
@@ -43,7 +43,7 @@ A _Deploy a Release_ step can be configured to:
 
 ## Variables
 
-Variables can be passed to the deployment triggered by the _Deploy a Release_ step. These will be made available to steps within the child deployment's process, just like regular [project variables](/docs/projects/variables/index.md).  Variables passed in will override existing variables in the child project if the names collide.
+Variables can be passed to the deployment triggered by the _Deploy a Release_ step. These will be made available to steps within the child deployment's process, just like regular [project variables](/docs/projects/variables/).  Variables passed in will override existing variables in the child project if the names collide.
 
 ![Deploy release variables](deploy-release-step-variables.png "width=500")
 
@@ -91,7 +91,7 @@ For example, if you have two projects, `Project A` and `Project B` which are ref
 
 ## Multi-tenant deployments
 
-When a [tenanted](/docs/tenants/index.md) project is being deployed by _Deploy a Release_ step, then the parent project should also be created as tenanted.
+When a [tenanted](/docs/tenants/) project is being deployed by _Deploy a Release_ step, then the parent project should also be created as tenanted.
 
 When triggering a tenanted deployment of the parent project, the tenant will be used to trigger the child deployment.
 

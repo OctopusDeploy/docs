@@ -6,7 +6,7 @@ description: Using the Octopus CLI to create environments.
 navOrder: 50
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to create environments on your Octopus instance.
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) can be used to create environments on your Octopus instance.
 
 ```
 Creates a deployment environment.
@@ -85,6 +85,6 @@ octo create-environment --name UAT --server http://MyOctopusServerURL.com --apik
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [Environments](/docs/infrastructure/environments/index.md)
+- [Environments](/docs/infrastructure/environments/)

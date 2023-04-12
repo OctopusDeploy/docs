@@ -6,7 +6,7 @@ description: Deletes a range of releases
 navOrder: 100
 ---
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete a range of [releases](/docs/releases/index.md).
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md) can be used to delete a range of [releases](/docs/releases/).
 
 ```
 Deletes a range of releases.
@@ -110,6 +110,6 @@ octo delete-releases --project="PetClinic - rolling deploy" --space="Pattern - R
 
 ## Learn more
 
-- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/index.md)
+- [Octopus CLI](/docs/octopus-rest-api/octopus-cli/)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key.md)
-- [releases](/docs/releases/index.md)
+- [releases](/docs/releases/)

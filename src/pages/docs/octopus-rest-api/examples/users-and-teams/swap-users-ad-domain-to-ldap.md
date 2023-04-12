@@ -13,7 +13,7 @@ We also have a script that will [swap Active Directory groups with matching LDAP
 **Note:**
 Please note there are some things to consider before using this script:
 
-- The [LDAP authentication provider](/docs/security/authentication/ldap/index.md) must be enabled for this script to work as it queries for matching users in LDAP.
+- The [LDAP authentication provider](/docs/security/authentication/ldap/) must be enabled for this script to work as it queries for matching users in LDAP.
 - The script won't work if the LDAP server and the AD Server domains are different. For example migrating from `domain-one.local` to `domain-two.local`.
 - Always ensure you test the script on a non-production server first, and have a production database backup.
 :::

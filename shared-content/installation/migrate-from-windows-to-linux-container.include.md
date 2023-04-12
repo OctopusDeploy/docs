@@ -67,7 +67,7 @@ Both users and teams are associated with 0 to N external identities.  The extern
 
 To migrate from Active Directory to LDAP, you will need to:
 
-1. Enable and configure the [LDAP auth provider](/docs/security/authentication/ldap/index.md).
+1. Enable and configure the [LDAP auth provider](/docs/security/authentication/ldap/).
 2. Add the LDAP auth provider to each user and group.  We created two scripts to help speed that up:
    - [Swap Active Directory groups with matching LDAP groups](/docs/octopus-rest-api/examples/users-and-teams/swap-ad-domain-group-with-ldap-group.md) for Octopus teams.
    - [Swap Active Directory login records with matching LDAP ones](/docs/octopus-rest-api/examples/users-and-teams/swap-users-ad-domain-to-ldap.md) for Octopus users.
@@ -82,7 +82,7 @@ If you currently have many PowerShell and C# script steps configured to run on t
 
 Under the covers, the Octopus Server includes a [built-in worker](/docs/security/built-in-worker.md).  When you configure a step to run on the Octopus Server, it runs on the built-in worker.  Switching from the Windows to the Linux Container means changing the underlying OS those steps previously ran on.  If your scripts are not PowerShell Core compliant, this means they will fail.  The vast majority of scripts we encounter work with both PowerShell 5.1 and PowerShell Core.  However, if you have a lot of older scripts, there is a chance they could fail.      
 
-Instead of running directly on the Octopus Server's built-in worker, you will need to offload that work onto Windows [workers](/docs/infrastructure/workers/index.md).  
+Instead of running directly on the Octopus Server's built-in worker, you will need to offload that work onto Windows [workers](/docs/infrastructure/workers/).  
 
 When you create your first worker, you will notice a pre-existing worker pool, `Default Worker Pool`.  When the `Default Worker Pool` does not have any workers, all tasks run configured to run on the Octopus Server run on the built-in worker.  The fastest way to change all the steps configured to run on the Octopus Server to run on a worker is to add a worker to the `Default Worker Pool`.  However, doing so is also the riskiest as you cause a lot of deployments to fail.
 

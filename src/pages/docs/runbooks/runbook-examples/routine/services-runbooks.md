@@ -28,7 +28,7 @@ For Windows services, there are three Community Step Templates available, one fo
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add one of the templates listed above.
-5. Fill out all the parameters in the step. It is best practice to use [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters.
+5. Fill out all the parameters in the step. It is best practice to use [variables](/docs/projects/variables/) rather than entering the values directly in the step parameters.
 
 :::hint
 All three services use a single parameter of the same name.
@@ -54,7 +54,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 2. Give the runbook a name and click **SAVE**.
 3. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 4. Add a new step template from the community library called **Linux Service - Start, Stop, Restart**.
-5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/index.md) rather than entering the values directly in the step parameters, for instance:
+5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables/) rather than entering the values directly in the step parameters, for instance:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |

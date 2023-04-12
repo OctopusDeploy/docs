@@ -6,7 +6,7 @@ description: Where to install Tentacles and how to configure Workers.
 navOrder: 10
 ---
 
-Do not install Tentacles directly on your database servers, instead, use [Workers](/docs/infrastructure/workers/index.md) or install Tentacles on jump boxes for database deployments.
+Do not install Tentacles directly on your database servers, instead, use [Workers](/docs/infrastructure/workers/) or install Tentacles on jump boxes for database deployments.
 
 High-availability groups or clusters have 1 to N nodes, and the nodes are kept in sync by replication.  You only need to deploy to the primary node, and replication will apply the changes to all the nodes.  Installing a Tentacle on each node will not work as Octopus Deploy will see multiple Tentacles and attempt to deploy to multiple nodes.
 
@@ -14,11 +14,11 @@ SQL PaaS, such as [AWS RDS](https://aws.amazon.com/rds/) and [Azure's SQL](https
 
 Don't use the Tentacles on your web or application servers.  A recommended security practice is the principle of least privilege. The account used by the website to connect to the database server should have restricted permissions. For example, the website uses stored procedures; the account would only have permissions to execute those stored procedures. Whereas, the account used for deployments needs elevated permissions because that account needs to make schema changes.
 
-**Please note:** This document only covers the infrastructure side of database deployments.  You still need to configure a [project](/docs/projects/index.md) in Octopus Deploy to handle the actual deployments.  
+**Please note:** This document only covers the infrastructure side of database deployments.  You still need to configure a [project](/docs/projects/) in Octopus Deploy to handle the actual deployments.  
 
 ## Workers
 
-We recommend using [Workers](/docs/infrastructure/workers/index.md) to handle all of your database deployments.  Workers have several advantages:
+We recommend using [Workers](/docs/infrastructure/workers/) to handle all of your database deployments.  Workers have several advantages:
 
 1. You can run multiple deployments on them at the same time.
 2. You can place multiple VMs into a worker pool.  If a VM goes down during a deployment, another VM would step in and take it's place.
